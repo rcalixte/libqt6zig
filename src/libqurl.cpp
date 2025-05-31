@@ -13,25 +13,25 @@ QUrl* QUrl_new() {
     return new QUrl();
 }
 
-QUrl* QUrl_new2(QUrl* copyVal) {
+QUrl* QUrl_new2(const QUrl* copyVal) {
     return new QUrl(*copyVal);
 }
 
-QUrl* QUrl_new3(libqt_string url) {
+QUrl* QUrl_new3(const libqt_string url) {
     QString url_QString = QString::fromUtf8(url.data, url.len);
     return new QUrl(url_QString);
 }
 
-QUrl* QUrl_new4(libqt_string url, int mode) {
+QUrl* QUrl_new4(const libqt_string url, int mode) {
     QString url_QString = QString::fromUtf8(url.data, url.len);
     return new QUrl(url_QString, static_cast<QUrl::ParsingMode>(mode));
 }
 
-void QUrl_OperatorAssign(QUrl* self, QUrl* copyVal) {
+void QUrl_OperatorAssign(QUrl* self, const QUrl* copyVal) {
     self->operator=(*copyVal);
 }
 
-void QUrl_OperatorAssignWithUrl(QUrl* self, libqt_string url) {
+void QUrl_OperatorAssignWithUrl(QUrl* self, const libqt_string url) {
     QString url_QString = QString::fromUtf8(url.data, url.len);
     self->operator=(url_QString);
 }
@@ -40,7 +40,7 @@ void QUrl_Swap(QUrl* self, QUrl* other) {
     self->swap(*other);
 }
 
-void QUrl_SetUrl(QUrl* self, libqt_string url) {
+void QUrl_SetUrl(QUrl* self, const libqt_string url) {
     QString url_QString = QString::fromUtf8(url.data, url.len);
     self->setUrl(url_QString);
 }
@@ -91,12 +91,12 @@ libqt_string QUrl_ToEncoded(const QUrl* self) {
     return _str;
 }
 
-QUrl* QUrl_FromEncoded(libqt_string url) {
+QUrl* QUrl_FromEncoded(const libqt_string url) {
     QByteArray url_QByteArray(url.data, url.len);
     return new QUrl(QUrl::fromEncoded(url_QByteArray));
 }
 
-QUrl* QUrl_FromUserInput(libqt_string userInput) {
+QUrl* QUrl_FromUserInput(const libqt_string userInput) {
     QString userInput_QString = QString::fromUtf8(userInput.data, userInput.len);
     return new QUrl(QUrl::fromUserInput(userInput_QString));
 }
@@ -125,7 +125,7 @@ void QUrl_Clear(QUrl* self) {
     self->clear();
 }
 
-void QUrl_SetScheme(QUrl* self, libqt_string scheme) {
+void QUrl_SetScheme(QUrl* self, const libqt_string scheme) {
     QString scheme_QString = QString::fromUtf8(scheme.data, scheme.len);
     self->setScheme(scheme_QString);
 }
@@ -142,7 +142,7 @@ libqt_string QUrl_Scheme(const QUrl* self) {
     return _str;
 }
 
-void QUrl_SetAuthority(QUrl* self, libqt_string authority) {
+void QUrl_SetAuthority(QUrl* self, const libqt_string authority) {
     QString authority_QString = QString::fromUtf8(authority.data, authority.len);
     self->setAuthority(authority_QString);
 }
@@ -159,7 +159,7 @@ libqt_string QUrl_Authority(const QUrl* self) {
     return _str;
 }
 
-void QUrl_SetUserInfo(QUrl* self, libqt_string userInfo) {
+void QUrl_SetUserInfo(QUrl* self, const libqt_string userInfo) {
     QString userInfo_QString = QString::fromUtf8(userInfo.data, userInfo.len);
     self->setUserInfo(userInfo_QString);
 }
@@ -176,7 +176,7 @@ libqt_string QUrl_UserInfo(const QUrl* self) {
     return _str;
 }
 
-void QUrl_SetUserName(QUrl* self, libqt_string userName) {
+void QUrl_SetUserName(QUrl* self, const libqt_string userName) {
     QString userName_QString = QString::fromUtf8(userName.data, userName.len);
     self->setUserName(userName_QString);
 }
@@ -193,7 +193,7 @@ libqt_string QUrl_UserName(const QUrl* self) {
     return _str;
 }
 
-void QUrl_SetPassword(QUrl* self, libqt_string password) {
+void QUrl_SetPassword(QUrl* self, const libqt_string password) {
     QString password_QString = QString::fromUtf8(password.data, password.len);
     self->setPassword(password_QString);
 }
@@ -210,7 +210,7 @@ libqt_string QUrl_Password(const QUrl* self) {
     return _str;
 }
 
-void QUrl_SetHost(QUrl* self, libqt_string host) {
+void QUrl_SetHost(QUrl* self, const libqt_string host) {
     QString host_QString = QString::fromUtf8(host.data, host.len);
     self->setHost(host_QString);
 }
@@ -235,7 +235,7 @@ int QUrl_Port(const QUrl* self) {
     return self->port();
 }
 
-void QUrl_SetPath(QUrl* self, libqt_string path) {
+void QUrl_SetPath(QUrl* self, const libqt_string path) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
     self->setPath(path_QString);
 }
@@ -268,12 +268,12 @@ bool QUrl_HasQuery(const QUrl* self) {
     return self->hasQuery();
 }
 
-void QUrl_SetQuery(QUrl* self, libqt_string query) {
+void QUrl_SetQuery(QUrl* self, const libqt_string query) {
     QString query_QString = QString::fromUtf8(query.data, query.len);
     self->setQuery(query_QString);
 }
 
-void QUrl_SetQueryWithQuery(QUrl* self, QUrlQuery* query) {
+void QUrl_SetQueryWithQuery(QUrl* self, const QUrlQuery* query) {
     self->setQuery(*query);
 }
 
@@ -305,12 +305,12 @@ libqt_string QUrl_Fragment(const QUrl* self) {
     return _str;
 }
 
-void QUrl_SetFragment(QUrl* self, libqt_string fragment) {
+void QUrl_SetFragment(QUrl* self, const libqt_string fragment) {
     QString fragment_QString = QString::fromUtf8(fragment.data, fragment.len);
     self->setFragment(fragment_QString);
 }
 
-QUrl* QUrl_Resolved(const QUrl* self, QUrl* relative) {
+QUrl* QUrl_Resolved(const QUrl* self, const QUrl* relative) {
     return new QUrl(self->resolved(*relative));
 }
 
@@ -318,7 +318,7 @@ bool QUrl_IsRelative(const QUrl* self) {
     return self->isRelative();
 }
 
-bool QUrl_IsParentOf(const QUrl* self, QUrl* url) {
+bool QUrl_IsParentOf(const QUrl* self, const QUrl* url) {
     return self->isParentOf(*url);
 }
 
@@ -326,7 +326,7 @@ bool QUrl_IsLocalFile(const QUrl* self) {
     return self->isLocalFile();
 }
 
-QUrl* QUrl_FromLocalFile(libqt_string localfile) {
+QUrl* QUrl_FromLocalFile(const libqt_string localfile) {
     QString localfile_QString = QString::fromUtf8(localfile.data, localfile.len);
     return new QUrl(QUrl::fromLocalFile(localfile_QString));
 }
@@ -351,19 +351,19 @@ bool QUrl_IsDetached(const QUrl* self) {
     return self->isDetached();
 }
 
-bool QUrl_OperatorLesser(const QUrl* self, QUrl* url) {
+bool QUrl_OperatorLesser(const QUrl* self, const QUrl* url) {
     return (*self < *url);
 }
 
-bool QUrl_OperatorEqual(const QUrl* self, QUrl* url) {
+bool QUrl_OperatorEqual(const QUrl* self, const QUrl* url) {
     return (*self == *url);
 }
 
-bool QUrl_OperatorNotEqual(const QUrl* self, QUrl* url) {
+bool QUrl_OperatorNotEqual(const QUrl* self, const QUrl* url) {
     return (*self != *url);
 }
 
-libqt_string QUrl_FromPercentEncoding(libqt_string param1) {
+libqt_string QUrl_FromPercentEncoding(const libqt_string param1) {
     QByteArray param1_QByteArray(param1.data, param1.len);
     QString _ret = QUrl::fromPercentEncoding(param1_QByteArray);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -376,7 +376,7 @@ libqt_string QUrl_FromPercentEncoding(libqt_string param1) {
     return _str;
 }
 
-libqt_string QUrl_ToPercentEncoding(libqt_string param1) {
+libqt_string QUrl_ToPercentEncoding(const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QByteArray _qb = QUrl::toPercentEncoding(param1_QString);
     libqt_string _str;
@@ -387,7 +387,7 @@ libqt_string QUrl_ToPercentEncoding(libqt_string param1) {
     return _str;
 }
 
-libqt_string QUrl_FromAce(libqt_string domain) {
+libqt_string QUrl_FromAce(const libqt_string domain) {
     QByteArray domain_QByteArray(domain.data, domain.len);
     QString _ret = QUrl::fromAce(domain_QByteArray);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -400,7 +400,7 @@ libqt_string QUrl_FromAce(libqt_string domain) {
     return _str;
 }
 
-libqt_string QUrl_ToAce(libqt_string domain) {
+libqt_string QUrl_ToAce(const libqt_string domain) {
     QString domain_QString = QString::fromUtf8(domain.data, domain.len);
     QByteArray _qb = QUrl::toAce(domain_QString);
     libqt_string _str;
@@ -432,7 +432,7 @@ libqt_list /* of libqt_string */ QUrl_IdnWhitelist() {
     return _out;
 }
 
-libqt_list /* of libqt_string */ QUrl_ToStringList(libqt_list /* of QUrl* */ uris) {
+libqt_list /* of libqt_string */ QUrl_ToStringList(const libqt_list /* of QUrl* */ uris) {
     QList<QUrl> uris_QList;
     uris_QList.reserve(uris.len);
     QUrl** uris_arr = static_cast<QUrl**>(uris.data);
@@ -459,7 +459,7 @@ libqt_list /* of libqt_string */ QUrl_ToStringList(libqt_list /* of QUrl* */ uri
     return _out;
 }
 
-libqt_list /* of QUrl* */ QUrl_FromStringList(libqt_list /* of libqt_string */ uris) {
+libqt_list /* of QUrl* */ QUrl_FromStringList(const libqt_list /* of libqt_string */ uris) {
     QStringList uris_QList;
     uris_QList.reserve(uris.len);
     libqt_string* uris_arr = static_cast<libqt_string*>(uris.data);
@@ -479,7 +479,7 @@ libqt_list /* of QUrl* */ QUrl_FromStringList(libqt_list /* of libqt_string */ u
     return _out;
 }
 
-void QUrl_SetIdnWhitelist(libqt_list /* of libqt_string */ idnWhitelist) {
+void QUrl_SetIdnWhitelist(const libqt_list /* of libqt_string */ idnWhitelist) {
     QStringList idnWhitelist_QList;
     idnWhitelist_QList.reserve(idnWhitelist.len);
     libqt_string* idnWhitelist_arr = static_cast<libqt_string*>(idnWhitelist.data);
@@ -490,29 +490,29 @@ void QUrl_SetIdnWhitelist(libqt_list /* of libqt_string */ idnWhitelist) {
     QUrl::setIdnWhitelist(idnWhitelist_QList);
 }
 
-void QUrl_SetUrl2(QUrl* self, libqt_string url, int mode) {
+void QUrl_SetUrl2(QUrl* self, const libqt_string url, int mode) {
     QString url_QString = QString::fromUtf8(url.data, url.len);
     self->setUrl(url_QString, static_cast<QUrl::ParsingMode>(mode));
 }
 
-QUrl* QUrl_FromEncoded2(libqt_string url, int mode) {
+QUrl* QUrl_FromEncoded2(const libqt_string url, int mode) {
     QByteArray url_QByteArray(url.data, url.len);
     return new QUrl(QUrl::fromEncoded(url_QByteArray, static_cast<QUrl::ParsingMode>(mode)));
 }
 
-QUrl* QUrl_FromUserInput2(libqt_string userInput, libqt_string workingDirectory) {
+QUrl* QUrl_FromUserInput2(const libqt_string userInput, const libqt_string workingDirectory) {
     QString userInput_QString = QString::fromUtf8(userInput.data, userInput.len);
     QString workingDirectory_QString = QString::fromUtf8(workingDirectory.data, workingDirectory.len);
     return new QUrl(QUrl::fromUserInput(userInput_QString, workingDirectory_QString));
 }
 
-QUrl* QUrl_FromUserInput3(libqt_string userInput, libqt_string workingDirectory, int options) {
+QUrl* QUrl_FromUserInput3(const libqt_string userInput, const libqt_string workingDirectory, int options) {
     QString userInput_QString = QString::fromUtf8(userInput.data, userInput.len);
     QString workingDirectory_QString = QString::fromUtf8(workingDirectory.data, workingDirectory.len);
     return new QUrl(QUrl::fromUserInput(userInput_QString, workingDirectory_QString, static_cast<QUrl::UserInputResolutionOptions>(options)));
 }
 
-void QUrl_SetAuthority2(QUrl* self, libqt_string authority, int mode) {
+void QUrl_SetAuthority2(QUrl* self, const libqt_string authority, int mode) {
     QString authority_QString = QString::fromUtf8(authority.data, authority.len);
     self->setAuthority(authority_QString, static_cast<QUrl::ParsingMode>(mode));
 }
@@ -529,7 +529,7 @@ libqt_string QUrl_Authority1(const QUrl* self, int options) {
     return _str;
 }
 
-void QUrl_SetUserInfo2(QUrl* self, libqt_string userInfo, int mode) {
+void QUrl_SetUserInfo2(QUrl* self, const libqt_string userInfo, int mode) {
     QString userInfo_QString = QString::fromUtf8(userInfo.data, userInfo.len);
     self->setUserInfo(userInfo_QString, static_cast<QUrl::ParsingMode>(mode));
 }
@@ -546,7 +546,7 @@ libqt_string QUrl_UserInfo1(const QUrl* self, int options) {
     return _str;
 }
 
-void QUrl_SetUserName2(QUrl* self, libqt_string userName, int mode) {
+void QUrl_SetUserName2(QUrl* self, const libqt_string userName, int mode) {
     QString userName_QString = QString::fromUtf8(userName.data, userName.len);
     self->setUserName(userName_QString, static_cast<QUrl::ParsingMode>(mode));
 }
@@ -563,7 +563,7 @@ libqt_string QUrl_UserName1(const QUrl* self, int options) {
     return _str;
 }
 
-void QUrl_SetPassword2(QUrl* self, libqt_string password, int mode) {
+void QUrl_SetPassword2(QUrl* self, const libqt_string password, int mode) {
     QString password_QString = QString::fromUtf8(password.data, password.len);
     self->setPassword(password_QString, static_cast<QUrl::ParsingMode>(mode));
 }
@@ -580,7 +580,7 @@ libqt_string QUrl_Password1(const QUrl* self, int param1) {
     return _str;
 }
 
-void QUrl_SetHost2(QUrl* self, libqt_string host, int mode) {
+void QUrl_SetHost2(QUrl* self, const libqt_string host, int mode) {
     QString host_QString = QString::fromUtf8(host.data, host.len);
     self->setHost(host_QString, static_cast<QUrl::ParsingMode>(mode));
 }
@@ -601,7 +601,7 @@ int QUrl_Port1(const QUrl* self, int defaultPort) {
     return self->port(static_cast<int>(defaultPort));
 }
 
-void QUrl_SetPath2(QUrl* self, libqt_string path, int mode) {
+void QUrl_SetPath2(QUrl* self, const libqt_string path, int mode) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
     self->setPath(path_QString, static_cast<QUrl::ParsingMode>(mode));
 }
@@ -630,7 +630,7 @@ libqt_string QUrl_FileName1(const QUrl* self, int options) {
     return _str;
 }
 
-void QUrl_SetQuery2(QUrl* self, libqt_string query, int mode) {
+void QUrl_SetQuery2(QUrl* self, const libqt_string query, int mode) {
     QString query_QString = QString::fromUtf8(query.data, query.len);
     self->setQuery(query_QString, static_cast<QUrl::ParsingMode>(mode));
 }
@@ -659,12 +659,12 @@ libqt_string QUrl_Fragment1(const QUrl* self, int options) {
     return _str;
 }
 
-void QUrl_SetFragment2(QUrl* self, libqt_string fragment, int mode) {
+void QUrl_SetFragment2(QUrl* self, const libqt_string fragment, int mode) {
     QString fragment_QString = QString::fromUtf8(fragment.data, fragment.len);
     self->setFragment(fragment_QString, static_cast<QUrl::ParsingMode>(mode));
 }
 
-libqt_string QUrl_ToPercentEncoding2(libqt_string param1, libqt_string exclude) {
+libqt_string QUrl_ToPercentEncoding2(const libqt_string param1, const libqt_string exclude) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QByteArray exclude_QByteArray(exclude.data, exclude.len);
     QByteArray _qb = QUrl::toPercentEncoding(param1_QString, exclude_QByteArray);
@@ -676,7 +676,7 @@ libqt_string QUrl_ToPercentEncoding2(libqt_string param1, libqt_string exclude) 
     return _str;
 }
 
-libqt_string QUrl_ToPercentEncoding3(libqt_string param1, libqt_string exclude, libqt_string include) {
+libqt_string QUrl_ToPercentEncoding3(const libqt_string param1, const libqt_string exclude, const libqt_string include) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QByteArray exclude_QByteArray(exclude.data, exclude.len);
     QByteArray include_QByteArray(include.data, include.len);
@@ -689,7 +689,7 @@ libqt_string QUrl_ToPercentEncoding3(libqt_string param1, libqt_string exclude, 
     return _str;
 }
 
-libqt_string QUrl_FromAce2(libqt_string domain, int options) {
+libqt_string QUrl_FromAce2(const libqt_string domain, int options) {
     QByteArray domain_QByteArray(domain.data, domain.len);
     QString _ret = QUrl::fromAce(domain_QByteArray, static_cast<QUrl::AceProcessingOptions>(options));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -702,7 +702,7 @@ libqt_string QUrl_FromAce2(libqt_string domain, int options) {
     return _str;
 }
 
-libqt_string QUrl_ToAce2(libqt_string domain, int options) {
+libqt_string QUrl_ToAce2(const libqt_string domain, int options) {
     QString domain_QString = QString::fromUtf8(domain.data, domain.len);
     QByteArray _qb = QUrl::toAce(domain_QString, static_cast<QUrl::AceProcessingOptions>(options));
     libqt_string _str;
@@ -713,7 +713,7 @@ libqt_string QUrl_ToAce2(libqt_string domain, int options) {
     return _str;
 }
 
-libqt_list /* of QUrl* */ QUrl_FromStringList2(libqt_list /* of libqt_string */ uris, int mode) {
+libqt_list /* of QUrl* */ QUrl_FromStringList2(const libqt_list /* of libqt_string */ uris, int mode) {
     QStringList uris_QList;
     uris_QList.reserve(uris.len);
     libqt_string* uris_arr = static_cast<libqt_string*>(uris.data);

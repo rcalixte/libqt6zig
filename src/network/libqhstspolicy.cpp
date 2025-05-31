@@ -11,21 +11,21 @@ QHstsPolicy* QHstsPolicy_new() {
     return new QHstsPolicy();
 }
 
-QHstsPolicy* QHstsPolicy_new2(QDateTime* expiry, int flags, libqt_string host) {
+QHstsPolicy* QHstsPolicy_new2(const QDateTime* expiry, int flags, const libqt_string host) {
     QString host_QString = QString::fromUtf8(host.data, host.len);
     return new QHstsPolicy(*expiry, static_cast<QHstsPolicy::PolicyFlags>(flags), host_QString);
 }
 
-QHstsPolicy* QHstsPolicy_new3(QHstsPolicy* rhs) {
+QHstsPolicy* QHstsPolicy_new3(const QHstsPolicy* rhs) {
     return new QHstsPolicy(*rhs);
 }
 
-QHstsPolicy* QHstsPolicy_new4(QDateTime* expiry, int flags, libqt_string host, int mode) {
+QHstsPolicy* QHstsPolicy_new4(const QDateTime* expiry, int flags, const libqt_string host, int mode) {
     QString host_QString = QString::fromUtf8(host.data, host.len);
     return new QHstsPolicy(*expiry, static_cast<QHstsPolicy::PolicyFlags>(flags), host_QString, static_cast<QUrl::ParsingMode>(mode));
 }
 
-void QHstsPolicy_OperatorAssign(QHstsPolicy* self, QHstsPolicy* rhs) {
+void QHstsPolicy_OperatorAssign(QHstsPolicy* self, const QHstsPolicy* rhs) {
     self->operator=(*rhs);
 }
 
@@ -33,7 +33,7 @@ void QHstsPolicy_Swap(QHstsPolicy* self, QHstsPolicy* other) {
     self->swap(*other);
 }
 
-void QHstsPolicy_SetHost(QHstsPolicy* self, libqt_string host) {
+void QHstsPolicy_SetHost(QHstsPolicy* self, const libqt_string host) {
     QString host_QString = QString::fromUtf8(host.data, host.len);
     self->setHost(host_QString);
 }
@@ -50,7 +50,7 @@ libqt_string QHstsPolicy_Host(const QHstsPolicy* self) {
     return _str;
 }
 
-void QHstsPolicy_SetExpiry(QHstsPolicy* self, QDateTime* expiry) {
+void QHstsPolicy_SetExpiry(QHstsPolicy* self, const QDateTime* expiry) {
     self->setExpiry(*expiry);
 }
 
@@ -70,7 +70,7 @@ bool QHstsPolicy_IsExpired(const QHstsPolicy* self) {
     return self->isExpired();
 }
 
-void QHstsPolicy_SetHost2(QHstsPolicy* self, libqt_string host, int mode) {
+void QHstsPolicy_SetHost2(QHstsPolicy* self, const libqt_string host, int mode) {
     QString host_QString = QString::fromUtf8(host.data, host.len);
     self->setHost(host_QString, static_cast<QUrl::ParsingMode>(mode));
 }

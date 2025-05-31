@@ -34,11 +34,11 @@ typedef int PolicyFlag;      // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
-QSizePolicy* QSizePolicy_new(QSizePolicy* other);
+QSizePolicy* QSizePolicy_new(const QSizePolicy* other);
 QSizePolicy* QSizePolicy_new2(QSizePolicy* other);
 QSizePolicy* QSizePolicy_new3();
 QSizePolicy* QSizePolicy_new4(int horizontal, int vertical);
-QSizePolicy* QSizePolicy_new5(QSizePolicy* param1);
+QSizePolicy* QSizePolicy_new5(const QSizePolicy* param1);
 QSizePolicy* QSizePolicy_new6(int horizontal, int vertical, int typeVal);
 void QSizePolicy_CopyAssign(QSizePolicy* self, QSizePolicy* other);
 void QSizePolicy_MoveAssign(QSizePolicy* self, QSizePolicy* other);
@@ -53,8 +53,8 @@ void QSizePolicy_SetHeightForWidth(QSizePolicy* self, bool b);
 bool QSizePolicy_HasHeightForWidth(const QSizePolicy* self);
 void QSizePolicy_SetWidthForHeight(QSizePolicy* self, bool b);
 bool QSizePolicy_HasWidthForHeight(const QSizePolicy* self);
-bool QSizePolicy_OperatorEqual(const QSizePolicy* self, QSizePolicy* s);
-bool QSizePolicy_OperatorNotEqual(const QSizePolicy* self, QSizePolicy* s);
+bool QSizePolicy_OperatorEqual(const QSizePolicy* self, const QSizePolicy* s);
+bool QSizePolicy_OperatorNotEqual(const QSizePolicy* self, const QSizePolicy* s);
 QVariant* QSizePolicy_ToQVariant(const QSizePolicy* self);
 int QSizePolicy_HorizontalStretch(const QSizePolicy* self);
 int QSizePolicy_VerticalStretch(const QSizePolicy* self);

@@ -31,10 +31,10 @@ typedef int RenderFlags; // C ABI QFlags
 typedef int Rotation;    // C ABI enum
 #endif
 
-QPdfDocumentRenderOptions* QPdfDocumentRenderOptions_new(QPdfDocumentRenderOptions* other);
+QPdfDocumentRenderOptions* QPdfDocumentRenderOptions_new(const QPdfDocumentRenderOptions* other);
 QPdfDocumentRenderOptions* QPdfDocumentRenderOptions_new2(QPdfDocumentRenderOptions* other);
 QPdfDocumentRenderOptions* QPdfDocumentRenderOptions_new3();
-QPdfDocumentRenderOptions* QPdfDocumentRenderOptions_new4(QPdfDocumentRenderOptions* param1);
+QPdfDocumentRenderOptions* QPdfDocumentRenderOptions_new4(const QPdfDocumentRenderOptions* param1);
 void QPdfDocumentRenderOptions_CopyAssign(QPdfDocumentRenderOptions* self, QPdfDocumentRenderOptions* other);
 void QPdfDocumentRenderOptions_MoveAssign(QPdfDocumentRenderOptions* self, QPdfDocumentRenderOptions* other);
 int QPdfDocumentRenderOptions_Rotation(const QPdfDocumentRenderOptions* self);
@@ -42,9 +42,9 @@ void QPdfDocumentRenderOptions_SetRotation(QPdfDocumentRenderOptions* self, int 
 int QPdfDocumentRenderOptions_RenderFlags(const QPdfDocumentRenderOptions* self);
 void QPdfDocumentRenderOptions_SetRenderFlags(QPdfDocumentRenderOptions* self, int r);
 QRect* QPdfDocumentRenderOptions_ScaledClipRect(const QPdfDocumentRenderOptions* self);
-void QPdfDocumentRenderOptions_SetScaledClipRect(QPdfDocumentRenderOptions* self, QRect* r);
+void QPdfDocumentRenderOptions_SetScaledClipRect(QPdfDocumentRenderOptions* self, const QRect* r);
 QSize* QPdfDocumentRenderOptions_ScaledSize(const QPdfDocumentRenderOptions* self);
-void QPdfDocumentRenderOptions_SetScaledSize(QPdfDocumentRenderOptions* self, QSize* s);
+void QPdfDocumentRenderOptions_SetScaledSize(QPdfDocumentRenderOptions* self, const QSize* s);
 void QPdfDocumentRenderOptions_Delete(QPdfDocumentRenderOptions* self);
 
 #ifdef __cplusplus

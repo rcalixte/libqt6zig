@@ -23,7 +23,6 @@ typedef struct QGraphicsLayoutItem QGraphicsLayoutItem;
 typedef struct QGraphicsLinearLayout QGraphicsLinearLayout;
 typedef struct QRectF QRectF;
 typedef struct QSizeF QSizeF;
-typedef struct QSizePolicy QSizePolicy;
 #endif
 
 QGraphicsLinearLayout* QGraphicsLinearLayout_new();
@@ -48,9 +47,9 @@ void QGraphicsLinearLayout_SetStretchFactor(QGraphicsLinearLayout* self, QGraphi
 int QGraphicsLinearLayout_StretchFactor(const QGraphicsLinearLayout* self, QGraphicsLayoutItem* item);
 void QGraphicsLinearLayout_SetAlignment(QGraphicsLinearLayout* self, QGraphicsLayoutItem* item, int alignment);
 int QGraphicsLinearLayout_Alignment(const QGraphicsLinearLayout* self, QGraphicsLayoutItem* item);
-void QGraphicsLinearLayout_SetGeometry(QGraphicsLinearLayout* self, QRectF* rect);
+void QGraphicsLinearLayout_SetGeometry(QGraphicsLinearLayout* self, const QRectF* rect);
 void QGraphicsLinearLayout_OnSetGeometry(QGraphicsLinearLayout* self, intptr_t slot);
-void QGraphicsLinearLayout_QBaseSetGeometry(QGraphicsLinearLayout* self, QRectF* rect);
+void QGraphicsLinearLayout_QBaseSetGeometry(QGraphicsLinearLayout* self, const QRectF* rect);
 int QGraphicsLinearLayout_Count(const QGraphicsLinearLayout* self);
 void QGraphicsLinearLayout_OnCount(const QGraphicsLinearLayout* self, intptr_t slot);
 int QGraphicsLinearLayout_QBaseCount(const QGraphicsLinearLayout* self);
@@ -60,9 +59,9 @@ QGraphicsLayoutItem* QGraphicsLinearLayout_QBaseItemAt(const QGraphicsLinearLayo
 void QGraphicsLinearLayout_Invalidate(QGraphicsLinearLayout* self);
 void QGraphicsLinearLayout_OnInvalidate(QGraphicsLinearLayout* self, intptr_t slot);
 void QGraphicsLinearLayout_QBaseInvalidate(QGraphicsLinearLayout* self);
-QSizeF* QGraphicsLinearLayout_SizeHint(const QGraphicsLinearLayout* self, int which, QSizeF* constraint);
+QSizeF* QGraphicsLinearLayout_SizeHint(const QGraphicsLinearLayout* self, int which, const QSizeF* constraint);
 void QGraphicsLinearLayout_OnSizeHint(const QGraphicsLinearLayout* self, intptr_t slot);
-QSizeF* QGraphicsLinearLayout_QBaseSizeHint(const QGraphicsLinearLayout* self, int which, QSizeF* constraint);
+QSizeF* QGraphicsLinearLayout_QBaseSizeHint(const QGraphicsLinearLayout* self, int which, const QSizeF* constraint);
 void QGraphicsLinearLayout_Dump(const QGraphicsLinearLayout* self);
 void QGraphicsLinearLayout_AddStretch1(QGraphicsLinearLayout* self, int stretch);
 void QGraphicsLinearLayout_InsertStretch2(QGraphicsLinearLayout* self, int index, int stretch);

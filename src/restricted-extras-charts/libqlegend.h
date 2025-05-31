@@ -15,66 +15,25 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractSeries QAbstractSeries;
-typedef struct QAction QAction;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QBrush QBrush;
-typedef struct QChildEvent QChildEvent;
-typedef struct QCloseEvent QCloseEvent;
 typedef struct QColor QColor;
-typedef struct QCursor QCursor;
-typedef struct QEvent QEvent;
-typedef struct QFocusEvent QFocusEvent;
 typedef struct QFont QFont;
-typedef struct QGraphicsEffect QGraphicsEffect;
 typedef struct QGraphicsItem QGraphicsItem;
-typedef struct QGraphicsItemGroup QGraphicsItemGroup;
-typedef struct QGraphicsLayout QGraphicsLayout;
 typedef struct QGraphicsLayoutItem QGraphicsLayoutItem;
 typedef struct QGraphicsObject QGraphicsObject;
-typedef struct QGraphicsScene QGraphicsScene;
-typedef struct QGraphicsSceneContextMenuEvent QGraphicsSceneContextMenuEvent;
-typedef struct QGraphicsSceneDragDropEvent QGraphicsSceneDragDropEvent;
-typedef struct QGraphicsSceneHoverEvent QGraphicsSceneHoverEvent;
-typedef struct QGraphicsSceneMouseEvent QGraphicsSceneMouseEvent;
-typedef struct QGraphicsSceneMoveEvent QGraphicsSceneMoveEvent;
-typedef struct QGraphicsSceneResizeEvent QGraphicsSceneResizeEvent;
-typedef struct QGraphicsSceneWheelEvent QGraphicsSceneWheelEvent;
-typedef struct QGraphicsTransform QGraphicsTransform;
 typedef struct QGraphicsWidget QGraphicsWidget;
 typedef struct QHideEvent QHideEvent;
-typedef struct QInputMethodEvent QInputMethodEvent;
-typedef struct QKeyEvent QKeyEvent;
-typedef struct QKeySequence QKeySequence;
 typedef struct QLegend QLegend;
 typedef struct QLegendMarker QLegendMarker;
-typedef struct QMarginsF QMarginsF;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QPainter QPainter;
-typedef struct QPainterPath QPainterPath;
-typedef struct QPalette QPalette;
 typedef struct QPen QPen;
-typedef struct QPointF QPointF;
-typedef struct QRectF QRectF;
-typedef struct QRegion QRegion;
 typedef struct QShowEvent QShowEvent;
-typedef struct QSize QSize;
-typedef struct QSizeF QSizeF;
-typedef struct QSizePolicy QSizePolicy;
-typedef struct QStyle QStyle;
 typedef struct QStyleOptionGraphicsItem QStyleOptionGraphicsItem;
-typedef struct QThread QThread;
-typedef struct QTimerEvent QTimerEvent;
-typedef struct QTransform QTransform;
-typedef struct QVariant QVariant;
 typedef struct QWidget QWidget;
 #endif
 
@@ -88,18 +47,18 @@ QMetaObject* QLegend_MetaObject(const QLegend* self);
 void* QLegend_Metacast(QLegend* self, const char* param1);
 int QLegend_Metacall(QLegend* self, int param1, int param2, void** param3);
 libqt_string QLegend_Tr(const char* s);
-void QLegend_Paint(QLegend* self, QPainter* painter, QStyleOptionGraphicsItem* option, QWidget* widget);
-void QLegend_SetBrush(QLegend* self, QBrush* brush);
+void QLegend_Paint(QLegend* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget);
+void QLegend_SetBrush(QLegend* self, const QBrush* brush);
 QBrush* QLegend_Brush(const QLegend* self);
 void QLegend_SetColor(QLegend* self, QColor* color);
 QColor* QLegend_Color(QLegend* self);
-void QLegend_SetPen(QLegend* self, QPen* pen);
+void QLegend_SetPen(QLegend* self, const QPen* pen);
 QPen* QLegend_Pen(const QLegend* self);
 void QLegend_SetBorderColor(QLegend* self, QColor* color);
 QColor* QLegend_BorderColor(QLegend* self);
-void QLegend_SetFont(QLegend* self, QFont* font);
+void QLegend_SetFont(QLegend* self, const QFont* font);
 QFont* QLegend_Font(const QLegend* self);
-void QLegend_SetLabelBrush(QLegend* self, QBrush* brush);
+void QLegend_SetLabelBrush(QLegend* self, const QBrush* brush);
 QBrush* QLegend_LabelBrush(const QLegend* self);
 void QLegend_SetLabelColor(QLegend* self, QColor* color);
 QColor* QLegend_LabelColor(const QLegend* self);
@@ -144,20 +103,6 @@ libqt_string QLegend_Tr3(const char* s, const char* c, int n);
 void QLegend_SetBackgroundVisible1(QLegend* self, bool visible);
 libqt_list /* of QLegendMarker* */ QLegend_Markers1(const QLegend* self, QAbstractSeries* series);
 void QLegend_SetReverseMarkers1(QLegend* self, bool reverseMarkers);
-void QLegend_SetGeometry(QLegend* self, QRectF* rect);
-void QLegend_GetContentsMargins(const QLegend* self, double* left, double* top, double* right, double* bottom);
-int QLegend_Type(const QLegend* self);
-void QLegend_PaintWindowFrame(QLegend* self, QPainter* painter, QStyleOptionGraphicsItem* option, QWidget* widget);
-QRectF* QLegend_BoundingRect(const QLegend* self);
-QPainterPath* QLegend_Shape(const QLegend* self);
-bool QLegend_EventFilter(QLegend* self, QObject* watched, QEvent* event);
-void QLegend_Advance(QLegend* self, int phase);
-bool QLegend_Contains(const QLegend* self, QPointF* point);
-bool QLegend_CollidesWithItem(const QLegend* self, QGraphicsItem* other, int mode);
-bool QLegend_CollidesWithPath(const QLegend* self, QPainterPath* path, int mode);
-bool QLegend_IsObscuredBy(const QLegend* self, QGraphicsItem* item);
-QPainterPath* QLegend_OpaqueArea(const QLegend* self);
-bool QLegend_IsEmpty(const QLegend* self);
 void QLegend_Delete(QLegend* self);
 
 #ifdef __cplusplus

@@ -9,11 +9,11 @@
 #include "libqwebenginecertificateerror.h"
 #include "libqwebenginecertificateerror.hxx"
 
-QWebEngineCertificateError* QWebEngineCertificateError_new(QWebEngineCertificateError* other) {
+QWebEngineCertificateError* QWebEngineCertificateError_new(const QWebEngineCertificateError* other) {
     return new QWebEngineCertificateError(*other);
 }
 
-void QWebEngineCertificateError_OperatorAssign(QWebEngineCertificateError* self, QWebEngineCertificateError* other) {
+void QWebEngineCertificateError_OperatorAssign(QWebEngineCertificateError* self, const QWebEngineCertificateError* other) {
     self->operator=(*other);
 }
 

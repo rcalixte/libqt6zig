@@ -11,14 +11,17 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QWindow so that we can call protected methods
-class VirtualQWindow : public QWindow {
+class VirtualQWindow final : public QWindow {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQWindow = true;
+
     // Virtual class public types (including callbacks)
-    using QWindow_Metacall_Callback = int (*)(QWindow*, QMetaObject::Call, int, void**);
-    using QWindow_SurfaceType_Callback = QSurface::SurfaceType (*)();
-    using QWindow_Format_Callback = QSurfaceFormat (*)();
-    using QWindow_Size_Callback = QSize (*)();
+    using QWindow_Metacall_Callback = int (*)(QWindow*, int, int, void**);
+    using QWindow_SurfaceType_Callback = int (*)();
+    using QWindow_Format_Callback = QSurfaceFormat* (*)();
+    using QWindow_Size_Callback = QSize* (*)();
     using QWindow_AccessibleRoot_Callback = QAccessibleInterface* (*)();
     using QWindow_FocusObject_Callback = QObject* (*)();
     using QWindow_ExposeEvent_Callback = void (*)(QWindow*, QExposeEvent*);
@@ -40,18 +43,18 @@ class VirtualQWindow : public QWindow {
     using QWindow_WheelEvent_Callback = void (*)(QWindow*, QWheelEvent*);
     using QWindow_TouchEvent_Callback = void (*)(QWindow*, QTouchEvent*);
     using QWindow_TabletEvent_Callback = void (*)(QWindow*, QTabletEvent*);
-    using QWindow_NativeEvent_Callback = bool (*)(QWindow*, const QByteArray&, void*, qintptr*);
+    using QWindow_NativeEvent_Callback = bool (*)(QWindow*, libqt_string, void*, intptr_t*);
     using QWindow_EventFilter_Callback = bool (*)(QWindow*, QObject*, QEvent*);
     using QWindow_TimerEvent_Callback = void (*)(QWindow*, QTimerEvent*);
     using QWindow_ChildEvent_Callback = void (*)(QWindow*, QChildEvent*);
     using QWindow_CustomEvent_Callback = void (*)(QWindow*, QEvent*);
-    using QWindow_ConnectNotify_Callback = void (*)(QWindow*, const QMetaMethod&);
-    using QWindow_DisconnectNotify_Callback = void (*)(QWindow*, const QMetaMethod&);
+    using QWindow_ConnectNotify_Callback = void (*)(QWindow*, QMetaMethod*);
+    using QWindow_DisconnectNotify_Callback = void (*)(QWindow*, QMetaMethod*);
     using QWindow_ResolveInterface_Callback = void* (*)(const QWindow*, const char*, int);
     using QWindow_Sender_Callback = QObject* (*)();
     using QWindow_SenderSignalIndex_Callback = int (*)();
     using QWindow_Receivers_Callback = int (*)(const QWindow*, const char*);
-    using QWindow_IsSignalConnected_Callback = bool (*)(const QWindow*, const QMetaMethod&);
+    using QWindow_IsSignalConnected_Callback = bool (*)(const QWindow*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -178,82 +181,82 @@ class VirtualQWindow : public QWindow {
     }
 
     // Callback setters
-    void setQWindow_Metacall_Callback(QWindow_Metacall_Callback cb) { qwindow_metacall_callback = cb; }
-    void setQWindow_SurfaceType_Callback(QWindow_SurfaceType_Callback cb) { qwindow_surfacetype_callback = cb; }
-    void setQWindow_Format_Callback(QWindow_Format_Callback cb) { qwindow_format_callback = cb; }
-    void setQWindow_Size_Callback(QWindow_Size_Callback cb) { qwindow_size_callback = cb; }
-    void setQWindow_AccessibleRoot_Callback(QWindow_AccessibleRoot_Callback cb) { qwindow_accessibleroot_callback = cb; }
-    void setQWindow_FocusObject_Callback(QWindow_FocusObject_Callback cb) { qwindow_focusobject_callback = cb; }
-    void setQWindow_ExposeEvent_Callback(QWindow_ExposeEvent_Callback cb) { qwindow_exposeevent_callback = cb; }
-    void setQWindow_ResizeEvent_Callback(QWindow_ResizeEvent_Callback cb) { qwindow_resizeevent_callback = cb; }
-    void setQWindow_PaintEvent_Callback(QWindow_PaintEvent_Callback cb) { qwindow_paintevent_callback = cb; }
-    void setQWindow_MoveEvent_Callback(QWindow_MoveEvent_Callback cb) { qwindow_moveevent_callback = cb; }
-    void setQWindow_FocusInEvent_Callback(QWindow_FocusInEvent_Callback cb) { qwindow_focusinevent_callback = cb; }
-    void setQWindow_FocusOutEvent_Callback(QWindow_FocusOutEvent_Callback cb) { qwindow_focusoutevent_callback = cb; }
-    void setQWindow_ShowEvent_Callback(QWindow_ShowEvent_Callback cb) { qwindow_showevent_callback = cb; }
-    void setQWindow_HideEvent_Callback(QWindow_HideEvent_Callback cb) { qwindow_hideevent_callback = cb; }
-    void setQWindow_CloseEvent_Callback(QWindow_CloseEvent_Callback cb) { qwindow_closeevent_callback = cb; }
-    void setQWindow_Event_Callback(QWindow_Event_Callback cb) { qwindow_event_callback = cb; }
-    void setQWindow_KeyPressEvent_Callback(QWindow_KeyPressEvent_Callback cb) { qwindow_keypressevent_callback = cb; }
-    void setQWindow_KeyReleaseEvent_Callback(QWindow_KeyReleaseEvent_Callback cb) { qwindow_keyreleaseevent_callback = cb; }
-    void setQWindow_MousePressEvent_Callback(QWindow_MousePressEvent_Callback cb) { qwindow_mousepressevent_callback = cb; }
-    void setQWindow_MouseReleaseEvent_Callback(QWindow_MouseReleaseEvent_Callback cb) { qwindow_mousereleaseevent_callback = cb; }
-    void setQWindow_MouseDoubleClickEvent_Callback(QWindow_MouseDoubleClickEvent_Callback cb) { qwindow_mousedoubleclickevent_callback = cb; }
-    void setQWindow_MouseMoveEvent_Callback(QWindow_MouseMoveEvent_Callback cb) { qwindow_mousemoveevent_callback = cb; }
-    void setQWindow_WheelEvent_Callback(QWindow_WheelEvent_Callback cb) { qwindow_wheelevent_callback = cb; }
-    void setQWindow_TouchEvent_Callback(QWindow_TouchEvent_Callback cb) { qwindow_touchevent_callback = cb; }
-    void setQWindow_TabletEvent_Callback(QWindow_TabletEvent_Callback cb) { qwindow_tabletevent_callback = cb; }
-    void setQWindow_NativeEvent_Callback(QWindow_NativeEvent_Callback cb) { qwindow_nativeevent_callback = cb; }
-    void setQWindow_EventFilter_Callback(QWindow_EventFilter_Callback cb) { qwindow_eventfilter_callback = cb; }
-    void setQWindow_TimerEvent_Callback(QWindow_TimerEvent_Callback cb) { qwindow_timerevent_callback = cb; }
-    void setQWindow_ChildEvent_Callback(QWindow_ChildEvent_Callback cb) { qwindow_childevent_callback = cb; }
-    void setQWindow_CustomEvent_Callback(QWindow_CustomEvent_Callback cb) { qwindow_customevent_callback = cb; }
-    void setQWindow_ConnectNotify_Callback(QWindow_ConnectNotify_Callback cb) { qwindow_connectnotify_callback = cb; }
-    void setQWindow_DisconnectNotify_Callback(QWindow_DisconnectNotify_Callback cb) { qwindow_disconnectnotify_callback = cb; }
-    void setQWindow_ResolveInterface_Callback(QWindow_ResolveInterface_Callback cb) { qwindow_resolveinterface_callback = cb; }
-    void setQWindow_Sender_Callback(QWindow_Sender_Callback cb) { qwindow_sender_callback = cb; }
-    void setQWindow_SenderSignalIndex_Callback(QWindow_SenderSignalIndex_Callback cb) { qwindow_sendersignalindex_callback = cb; }
-    void setQWindow_Receivers_Callback(QWindow_Receivers_Callback cb) { qwindow_receivers_callback = cb; }
-    void setQWindow_IsSignalConnected_Callback(QWindow_IsSignalConnected_Callback cb) { qwindow_issignalconnected_callback = cb; }
+    inline void setQWindow_Metacall_Callback(QWindow_Metacall_Callback cb) { qwindow_metacall_callback = cb; }
+    inline void setQWindow_SurfaceType_Callback(QWindow_SurfaceType_Callback cb) { qwindow_surfacetype_callback = cb; }
+    inline void setQWindow_Format_Callback(QWindow_Format_Callback cb) { qwindow_format_callback = cb; }
+    inline void setQWindow_Size_Callback(QWindow_Size_Callback cb) { qwindow_size_callback = cb; }
+    inline void setQWindow_AccessibleRoot_Callback(QWindow_AccessibleRoot_Callback cb) { qwindow_accessibleroot_callback = cb; }
+    inline void setQWindow_FocusObject_Callback(QWindow_FocusObject_Callback cb) { qwindow_focusobject_callback = cb; }
+    inline void setQWindow_ExposeEvent_Callback(QWindow_ExposeEvent_Callback cb) { qwindow_exposeevent_callback = cb; }
+    inline void setQWindow_ResizeEvent_Callback(QWindow_ResizeEvent_Callback cb) { qwindow_resizeevent_callback = cb; }
+    inline void setQWindow_PaintEvent_Callback(QWindow_PaintEvent_Callback cb) { qwindow_paintevent_callback = cb; }
+    inline void setQWindow_MoveEvent_Callback(QWindow_MoveEvent_Callback cb) { qwindow_moveevent_callback = cb; }
+    inline void setQWindow_FocusInEvent_Callback(QWindow_FocusInEvent_Callback cb) { qwindow_focusinevent_callback = cb; }
+    inline void setQWindow_FocusOutEvent_Callback(QWindow_FocusOutEvent_Callback cb) { qwindow_focusoutevent_callback = cb; }
+    inline void setQWindow_ShowEvent_Callback(QWindow_ShowEvent_Callback cb) { qwindow_showevent_callback = cb; }
+    inline void setQWindow_HideEvent_Callback(QWindow_HideEvent_Callback cb) { qwindow_hideevent_callback = cb; }
+    inline void setQWindow_CloseEvent_Callback(QWindow_CloseEvent_Callback cb) { qwindow_closeevent_callback = cb; }
+    inline void setQWindow_Event_Callback(QWindow_Event_Callback cb) { qwindow_event_callback = cb; }
+    inline void setQWindow_KeyPressEvent_Callback(QWindow_KeyPressEvent_Callback cb) { qwindow_keypressevent_callback = cb; }
+    inline void setQWindow_KeyReleaseEvent_Callback(QWindow_KeyReleaseEvent_Callback cb) { qwindow_keyreleaseevent_callback = cb; }
+    inline void setQWindow_MousePressEvent_Callback(QWindow_MousePressEvent_Callback cb) { qwindow_mousepressevent_callback = cb; }
+    inline void setQWindow_MouseReleaseEvent_Callback(QWindow_MouseReleaseEvent_Callback cb) { qwindow_mousereleaseevent_callback = cb; }
+    inline void setQWindow_MouseDoubleClickEvent_Callback(QWindow_MouseDoubleClickEvent_Callback cb) { qwindow_mousedoubleclickevent_callback = cb; }
+    inline void setQWindow_MouseMoveEvent_Callback(QWindow_MouseMoveEvent_Callback cb) { qwindow_mousemoveevent_callback = cb; }
+    inline void setQWindow_WheelEvent_Callback(QWindow_WheelEvent_Callback cb) { qwindow_wheelevent_callback = cb; }
+    inline void setQWindow_TouchEvent_Callback(QWindow_TouchEvent_Callback cb) { qwindow_touchevent_callback = cb; }
+    inline void setQWindow_TabletEvent_Callback(QWindow_TabletEvent_Callback cb) { qwindow_tabletevent_callback = cb; }
+    inline void setQWindow_NativeEvent_Callback(QWindow_NativeEvent_Callback cb) { qwindow_nativeevent_callback = cb; }
+    inline void setQWindow_EventFilter_Callback(QWindow_EventFilter_Callback cb) { qwindow_eventfilter_callback = cb; }
+    inline void setQWindow_TimerEvent_Callback(QWindow_TimerEvent_Callback cb) { qwindow_timerevent_callback = cb; }
+    inline void setQWindow_ChildEvent_Callback(QWindow_ChildEvent_Callback cb) { qwindow_childevent_callback = cb; }
+    inline void setQWindow_CustomEvent_Callback(QWindow_CustomEvent_Callback cb) { qwindow_customevent_callback = cb; }
+    inline void setQWindow_ConnectNotify_Callback(QWindow_ConnectNotify_Callback cb) { qwindow_connectnotify_callback = cb; }
+    inline void setQWindow_DisconnectNotify_Callback(QWindow_DisconnectNotify_Callback cb) { qwindow_disconnectnotify_callback = cb; }
+    inline void setQWindow_ResolveInterface_Callback(QWindow_ResolveInterface_Callback cb) { qwindow_resolveinterface_callback = cb; }
+    inline void setQWindow_Sender_Callback(QWindow_Sender_Callback cb) { qwindow_sender_callback = cb; }
+    inline void setQWindow_SenderSignalIndex_Callback(QWindow_SenderSignalIndex_Callback cb) { qwindow_sendersignalindex_callback = cb; }
+    inline void setQWindow_Receivers_Callback(QWindow_Receivers_Callback cb) { qwindow_receivers_callback = cb; }
+    inline void setQWindow_IsSignalConnected_Callback(QWindow_IsSignalConnected_Callback cb) { qwindow_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQWindow_Metacall_IsBase(bool value) const { qwindow_metacall_isbase = value; }
-    void setQWindow_SurfaceType_IsBase(bool value) const { qwindow_surfacetype_isbase = value; }
-    void setQWindow_Format_IsBase(bool value) const { qwindow_format_isbase = value; }
-    void setQWindow_Size_IsBase(bool value) const { qwindow_size_isbase = value; }
-    void setQWindow_AccessibleRoot_IsBase(bool value) const { qwindow_accessibleroot_isbase = value; }
-    void setQWindow_FocusObject_IsBase(bool value) const { qwindow_focusobject_isbase = value; }
-    void setQWindow_ExposeEvent_IsBase(bool value) const { qwindow_exposeevent_isbase = value; }
-    void setQWindow_ResizeEvent_IsBase(bool value) const { qwindow_resizeevent_isbase = value; }
-    void setQWindow_PaintEvent_IsBase(bool value) const { qwindow_paintevent_isbase = value; }
-    void setQWindow_MoveEvent_IsBase(bool value) const { qwindow_moveevent_isbase = value; }
-    void setQWindow_FocusInEvent_IsBase(bool value) const { qwindow_focusinevent_isbase = value; }
-    void setQWindow_FocusOutEvent_IsBase(bool value) const { qwindow_focusoutevent_isbase = value; }
-    void setQWindow_ShowEvent_IsBase(bool value) const { qwindow_showevent_isbase = value; }
-    void setQWindow_HideEvent_IsBase(bool value) const { qwindow_hideevent_isbase = value; }
-    void setQWindow_CloseEvent_IsBase(bool value) const { qwindow_closeevent_isbase = value; }
-    void setQWindow_Event_IsBase(bool value) const { qwindow_event_isbase = value; }
-    void setQWindow_KeyPressEvent_IsBase(bool value) const { qwindow_keypressevent_isbase = value; }
-    void setQWindow_KeyReleaseEvent_IsBase(bool value) const { qwindow_keyreleaseevent_isbase = value; }
-    void setQWindow_MousePressEvent_IsBase(bool value) const { qwindow_mousepressevent_isbase = value; }
-    void setQWindow_MouseReleaseEvent_IsBase(bool value) const { qwindow_mousereleaseevent_isbase = value; }
-    void setQWindow_MouseDoubleClickEvent_IsBase(bool value) const { qwindow_mousedoubleclickevent_isbase = value; }
-    void setQWindow_MouseMoveEvent_IsBase(bool value) const { qwindow_mousemoveevent_isbase = value; }
-    void setQWindow_WheelEvent_IsBase(bool value) const { qwindow_wheelevent_isbase = value; }
-    void setQWindow_TouchEvent_IsBase(bool value) const { qwindow_touchevent_isbase = value; }
-    void setQWindow_TabletEvent_IsBase(bool value) const { qwindow_tabletevent_isbase = value; }
-    void setQWindow_NativeEvent_IsBase(bool value) const { qwindow_nativeevent_isbase = value; }
-    void setQWindow_EventFilter_IsBase(bool value) const { qwindow_eventfilter_isbase = value; }
-    void setQWindow_TimerEvent_IsBase(bool value) const { qwindow_timerevent_isbase = value; }
-    void setQWindow_ChildEvent_IsBase(bool value) const { qwindow_childevent_isbase = value; }
-    void setQWindow_CustomEvent_IsBase(bool value) const { qwindow_customevent_isbase = value; }
-    void setQWindow_ConnectNotify_IsBase(bool value) const { qwindow_connectnotify_isbase = value; }
-    void setQWindow_DisconnectNotify_IsBase(bool value) const { qwindow_disconnectnotify_isbase = value; }
-    void setQWindow_ResolveInterface_IsBase(bool value) const { qwindow_resolveinterface_isbase = value; }
-    void setQWindow_Sender_IsBase(bool value) const { qwindow_sender_isbase = value; }
-    void setQWindow_SenderSignalIndex_IsBase(bool value) const { qwindow_sendersignalindex_isbase = value; }
-    void setQWindow_Receivers_IsBase(bool value) const { qwindow_receivers_isbase = value; }
-    void setQWindow_IsSignalConnected_IsBase(bool value) const { qwindow_issignalconnected_isbase = value; }
+    inline void setQWindow_Metacall_IsBase(bool value) const { qwindow_metacall_isbase = value; }
+    inline void setQWindow_SurfaceType_IsBase(bool value) const { qwindow_surfacetype_isbase = value; }
+    inline void setQWindow_Format_IsBase(bool value) const { qwindow_format_isbase = value; }
+    inline void setQWindow_Size_IsBase(bool value) const { qwindow_size_isbase = value; }
+    inline void setQWindow_AccessibleRoot_IsBase(bool value) const { qwindow_accessibleroot_isbase = value; }
+    inline void setQWindow_FocusObject_IsBase(bool value) const { qwindow_focusobject_isbase = value; }
+    inline void setQWindow_ExposeEvent_IsBase(bool value) const { qwindow_exposeevent_isbase = value; }
+    inline void setQWindow_ResizeEvent_IsBase(bool value) const { qwindow_resizeevent_isbase = value; }
+    inline void setQWindow_PaintEvent_IsBase(bool value) const { qwindow_paintevent_isbase = value; }
+    inline void setQWindow_MoveEvent_IsBase(bool value) const { qwindow_moveevent_isbase = value; }
+    inline void setQWindow_FocusInEvent_IsBase(bool value) const { qwindow_focusinevent_isbase = value; }
+    inline void setQWindow_FocusOutEvent_IsBase(bool value) const { qwindow_focusoutevent_isbase = value; }
+    inline void setQWindow_ShowEvent_IsBase(bool value) const { qwindow_showevent_isbase = value; }
+    inline void setQWindow_HideEvent_IsBase(bool value) const { qwindow_hideevent_isbase = value; }
+    inline void setQWindow_CloseEvent_IsBase(bool value) const { qwindow_closeevent_isbase = value; }
+    inline void setQWindow_Event_IsBase(bool value) const { qwindow_event_isbase = value; }
+    inline void setQWindow_KeyPressEvent_IsBase(bool value) const { qwindow_keypressevent_isbase = value; }
+    inline void setQWindow_KeyReleaseEvent_IsBase(bool value) const { qwindow_keyreleaseevent_isbase = value; }
+    inline void setQWindow_MousePressEvent_IsBase(bool value) const { qwindow_mousepressevent_isbase = value; }
+    inline void setQWindow_MouseReleaseEvent_IsBase(bool value) const { qwindow_mousereleaseevent_isbase = value; }
+    inline void setQWindow_MouseDoubleClickEvent_IsBase(bool value) const { qwindow_mousedoubleclickevent_isbase = value; }
+    inline void setQWindow_MouseMoveEvent_IsBase(bool value) const { qwindow_mousemoveevent_isbase = value; }
+    inline void setQWindow_WheelEvent_IsBase(bool value) const { qwindow_wheelevent_isbase = value; }
+    inline void setQWindow_TouchEvent_IsBase(bool value) const { qwindow_touchevent_isbase = value; }
+    inline void setQWindow_TabletEvent_IsBase(bool value) const { qwindow_tabletevent_isbase = value; }
+    inline void setQWindow_NativeEvent_IsBase(bool value) const { qwindow_nativeevent_isbase = value; }
+    inline void setQWindow_EventFilter_IsBase(bool value) const { qwindow_eventfilter_isbase = value; }
+    inline void setQWindow_TimerEvent_IsBase(bool value) const { qwindow_timerevent_isbase = value; }
+    inline void setQWindow_ChildEvent_IsBase(bool value) const { qwindow_childevent_isbase = value; }
+    inline void setQWindow_CustomEvent_IsBase(bool value) const { qwindow_customevent_isbase = value; }
+    inline void setQWindow_ConnectNotify_IsBase(bool value) const { qwindow_connectnotify_isbase = value; }
+    inline void setQWindow_DisconnectNotify_IsBase(bool value) const { qwindow_disconnectnotify_isbase = value; }
+    inline void setQWindow_ResolveInterface_IsBase(bool value) const { qwindow_resolveinterface_isbase = value; }
+    inline void setQWindow_Sender_IsBase(bool value) const { qwindow_sender_isbase = value; }
+    inline void setQWindow_SenderSignalIndex_IsBase(bool value) const { qwindow_sendersignalindex_isbase = value; }
+    inline void setQWindow_Receivers_IsBase(bool value) const { qwindow_receivers_isbase = value; }
+    inline void setQWindow_IsSignalConnected_IsBase(bool value) const { qwindow_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -261,7 +264,12 @@ class VirtualQWindow : public QWindow {
             qwindow_metacall_isbase = false;
             return QWindow::qt_metacall(param1, param2, param3);
         } else if (qwindow_metacall_callback != nullptr) {
-            return qwindow_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qwindow_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QWindow::qt_metacall(param1, param2, param3);
         }
@@ -273,7 +281,8 @@ class VirtualQWindow : public QWindow {
             qwindow_surfacetype_isbase = false;
             return QWindow::surfaceType();
         } else if (qwindow_surfacetype_callback != nullptr) {
-            return qwindow_surfacetype_callback();
+            int callback_ret = qwindow_surfacetype_callback();
+            return static_cast<QSurface::SurfaceType>(callback_ret);
         } else {
             return QWindow::surfaceType();
         }
@@ -285,7 +294,8 @@ class VirtualQWindow : public QWindow {
             qwindow_format_isbase = false;
             return QWindow::format();
         } else if (qwindow_format_callback != nullptr) {
-            return qwindow_format_callback();
+            QSurfaceFormat* callback_ret = qwindow_format_callback();
+            return *callback_ret;
         } else {
             return QWindow::format();
         }
@@ -297,7 +307,8 @@ class VirtualQWindow : public QWindow {
             qwindow_size_isbase = false;
             return QWindow::size();
         } else if (qwindow_size_callback != nullptr) {
-            return qwindow_size_callback();
+            QSize* callback_ret = qwindow_size_callback();
+            return *callback_ret;
         } else {
             return QWindow::size();
         }
@@ -309,7 +320,8 @@ class VirtualQWindow : public QWindow {
             qwindow_accessibleroot_isbase = false;
             return QWindow::accessibleRoot();
         } else if (qwindow_accessibleroot_callback != nullptr) {
-            return qwindow_accessibleroot_callback();
+            QAccessibleInterface* callback_ret = qwindow_accessibleroot_callback();
+            return callback_ret;
         } else {
             return QWindow::accessibleRoot();
         }
@@ -321,7 +333,8 @@ class VirtualQWindow : public QWindow {
             qwindow_focusobject_isbase = false;
             return QWindow::focusObject();
         } else if (qwindow_focusobject_callback != nullptr) {
-            return qwindow_focusobject_callback();
+            QObject* callback_ret = qwindow_focusobject_callback();
+            return callback_ret;
         } else {
             return QWindow::focusObject();
         }
@@ -333,7 +346,9 @@ class VirtualQWindow : public QWindow {
             qwindow_exposeevent_isbase = false;
             QWindow::exposeEvent(param1);
         } else if (qwindow_exposeevent_callback != nullptr) {
-            qwindow_exposeevent_callback(this, param1);
+            QExposeEvent* cbval1 = param1;
+
+            qwindow_exposeevent_callback(this, cbval1);
         } else {
             QWindow::exposeEvent(param1);
         }
@@ -345,7 +360,9 @@ class VirtualQWindow : public QWindow {
             qwindow_resizeevent_isbase = false;
             QWindow::resizeEvent(param1);
         } else if (qwindow_resizeevent_callback != nullptr) {
-            qwindow_resizeevent_callback(this, param1);
+            QResizeEvent* cbval1 = param1;
+
+            qwindow_resizeevent_callback(this, cbval1);
         } else {
             QWindow::resizeEvent(param1);
         }
@@ -357,7 +374,9 @@ class VirtualQWindow : public QWindow {
             qwindow_paintevent_isbase = false;
             QWindow::paintEvent(param1);
         } else if (qwindow_paintevent_callback != nullptr) {
-            qwindow_paintevent_callback(this, param1);
+            QPaintEvent* cbval1 = param1;
+
+            qwindow_paintevent_callback(this, cbval1);
         } else {
             QWindow::paintEvent(param1);
         }
@@ -369,7 +388,9 @@ class VirtualQWindow : public QWindow {
             qwindow_moveevent_isbase = false;
             QWindow::moveEvent(param1);
         } else if (qwindow_moveevent_callback != nullptr) {
-            qwindow_moveevent_callback(this, param1);
+            QMoveEvent* cbval1 = param1;
+
+            qwindow_moveevent_callback(this, cbval1);
         } else {
             QWindow::moveEvent(param1);
         }
@@ -381,7 +402,9 @@ class VirtualQWindow : public QWindow {
             qwindow_focusinevent_isbase = false;
             QWindow::focusInEvent(param1);
         } else if (qwindow_focusinevent_callback != nullptr) {
-            qwindow_focusinevent_callback(this, param1);
+            QFocusEvent* cbval1 = param1;
+
+            qwindow_focusinevent_callback(this, cbval1);
         } else {
             QWindow::focusInEvent(param1);
         }
@@ -393,7 +416,9 @@ class VirtualQWindow : public QWindow {
             qwindow_focusoutevent_isbase = false;
             QWindow::focusOutEvent(param1);
         } else if (qwindow_focusoutevent_callback != nullptr) {
-            qwindow_focusoutevent_callback(this, param1);
+            QFocusEvent* cbval1 = param1;
+
+            qwindow_focusoutevent_callback(this, cbval1);
         } else {
             QWindow::focusOutEvent(param1);
         }
@@ -405,7 +430,9 @@ class VirtualQWindow : public QWindow {
             qwindow_showevent_isbase = false;
             QWindow::showEvent(param1);
         } else if (qwindow_showevent_callback != nullptr) {
-            qwindow_showevent_callback(this, param1);
+            QShowEvent* cbval1 = param1;
+
+            qwindow_showevent_callback(this, cbval1);
         } else {
             QWindow::showEvent(param1);
         }
@@ -417,7 +444,9 @@ class VirtualQWindow : public QWindow {
             qwindow_hideevent_isbase = false;
             QWindow::hideEvent(param1);
         } else if (qwindow_hideevent_callback != nullptr) {
-            qwindow_hideevent_callback(this, param1);
+            QHideEvent* cbval1 = param1;
+
+            qwindow_hideevent_callback(this, cbval1);
         } else {
             QWindow::hideEvent(param1);
         }
@@ -429,7 +458,9 @@ class VirtualQWindow : public QWindow {
             qwindow_closeevent_isbase = false;
             QWindow::closeEvent(param1);
         } else if (qwindow_closeevent_callback != nullptr) {
-            qwindow_closeevent_callback(this, param1);
+            QCloseEvent* cbval1 = param1;
+
+            qwindow_closeevent_callback(this, cbval1);
         } else {
             QWindow::closeEvent(param1);
         }
@@ -441,7 +472,10 @@ class VirtualQWindow : public QWindow {
             qwindow_event_isbase = false;
             return QWindow::event(param1);
         } else if (qwindow_event_callback != nullptr) {
-            return qwindow_event_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            bool callback_ret = qwindow_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QWindow::event(param1);
         }
@@ -453,7 +487,9 @@ class VirtualQWindow : public QWindow {
             qwindow_keypressevent_isbase = false;
             QWindow::keyPressEvent(param1);
         } else if (qwindow_keypressevent_callback != nullptr) {
-            qwindow_keypressevent_callback(this, param1);
+            QKeyEvent* cbval1 = param1;
+
+            qwindow_keypressevent_callback(this, cbval1);
         } else {
             QWindow::keyPressEvent(param1);
         }
@@ -465,7 +501,9 @@ class VirtualQWindow : public QWindow {
             qwindow_keyreleaseevent_isbase = false;
             QWindow::keyReleaseEvent(param1);
         } else if (qwindow_keyreleaseevent_callback != nullptr) {
-            qwindow_keyreleaseevent_callback(this, param1);
+            QKeyEvent* cbval1 = param1;
+
+            qwindow_keyreleaseevent_callback(this, cbval1);
         } else {
             QWindow::keyReleaseEvent(param1);
         }
@@ -477,7 +515,9 @@ class VirtualQWindow : public QWindow {
             qwindow_mousepressevent_isbase = false;
             QWindow::mousePressEvent(param1);
         } else if (qwindow_mousepressevent_callback != nullptr) {
-            qwindow_mousepressevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qwindow_mousepressevent_callback(this, cbval1);
         } else {
             QWindow::mousePressEvent(param1);
         }
@@ -489,7 +529,9 @@ class VirtualQWindow : public QWindow {
             qwindow_mousereleaseevent_isbase = false;
             QWindow::mouseReleaseEvent(param1);
         } else if (qwindow_mousereleaseevent_callback != nullptr) {
-            qwindow_mousereleaseevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qwindow_mousereleaseevent_callback(this, cbval1);
         } else {
             QWindow::mouseReleaseEvent(param1);
         }
@@ -501,7 +543,9 @@ class VirtualQWindow : public QWindow {
             qwindow_mousedoubleclickevent_isbase = false;
             QWindow::mouseDoubleClickEvent(param1);
         } else if (qwindow_mousedoubleclickevent_callback != nullptr) {
-            qwindow_mousedoubleclickevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qwindow_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QWindow::mouseDoubleClickEvent(param1);
         }
@@ -513,7 +557,9 @@ class VirtualQWindow : public QWindow {
             qwindow_mousemoveevent_isbase = false;
             QWindow::mouseMoveEvent(param1);
         } else if (qwindow_mousemoveevent_callback != nullptr) {
-            qwindow_mousemoveevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qwindow_mousemoveevent_callback(this, cbval1);
         } else {
             QWindow::mouseMoveEvent(param1);
         }
@@ -525,7 +571,9 @@ class VirtualQWindow : public QWindow {
             qwindow_wheelevent_isbase = false;
             QWindow::wheelEvent(param1);
         } else if (qwindow_wheelevent_callback != nullptr) {
-            qwindow_wheelevent_callback(this, param1);
+            QWheelEvent* cbval1 = param1;
+
+            qwindow_wheelevent_callback(this, cbval1);
         } else {
             QWindow::wheelEvent(param1);
         }
@@ -537,7 +585,9 @@ class VirtualQWindow : public QWindow {
             qwindow_touchevent_isbase = false;
             QWindow::touchEvent(param1);
         } else if (qwindow_touchevent_callback != nullptr) {
-            qwindow_touchevent_callback(this, param1);
+            QTouchEvent* cbval1 = param1;
+
+            qwindow_touchevent_callback(this, cbval1);
         } else {
             QWindow::touchEvent(param1);
         }
@@ -549,7 +599,9 @@ class VirtualQWindow : public QWindow {
             qwindow_tabletevent_isbase = false;
             QWindow::tabletEvent(param1);
         } else if (qwindow_tabletevent_callback != nullptr) {
-            qwindow_tabletevent_callback(this, param1);
+            QTabletEvent* cbval1 = param1;
+
+            qwindow_tabletevent_callback(this, cbval1);
         } else {
             QWindow::tabletEvent(param1);
         }
@@ -561,7 +613,19 @@ class VirtualQWindow : public QWindow {
             qwindow_nativeevent_isbase = false;
             return QWindow::nativeEvent(eventType, message, result);
         } else if (qwindow_nativeevent_callback != nullptr) {
-            return qwindow_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qwindow_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QWindow::nativeEvent(eventType, message, result);
         }
@@ -573,7 +637,11 @@ class VirtualQWindow : public QWindow {
             qwindow_eventfilter_isbase = false;
             return QWindow::eventFilter(watched, event);
         } else if (qwindow_eventfilter_callback != nullptr) {
-            return qwindow_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qwindow_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QWindow::eventFilter(watched, event);
         }
@@ -585,7 +653,9 @@ class VirtualQWindow : public QWindow {
             qwindow_timerevent_isbase = false;
             QWindow::timerEvent(event);
         } else if (qwindow_timerevent_callback != nullptr) {
-            qwindow_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qwindow_timerevent_callback(this, cbval1);
         } else {
             QWindow::timerEvent(event);
         }
@@ -597,7 +667,9 @@ class VirtualQWindow : public QWindow {
             qwindow_childevent_isbase = false;
             QWindow::childEvent(event);
         } else if (qwindow_childevent_callback != nullptr) {
-            qwindow_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qwindow_childevent_callback(this, cbval1);
         } else {
             QWindow::childEvent(event);
         }
@@ -609,7 +681,9 @@ class VirtualQWindow : public QWindow {
             qwindow_customevent_isbase = false;
             QWindow::customEvent(event);
         } else if (qwindow_customevent_callback != nullptr) {
-            qwindow_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qwindow_customevent_callback(this, cbval1);
         } else {
             QWindow::customEvent(event);
         }
@@ -621,7 +695,11 @@ class VirtualQWindow : public QWindow {
             qwindow_connectnotify_isbase = false;
             QWindow::connectNotify(signal);
         } else if (qwindow_connectnotify_callback != nullptr) {
-            qwindow_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qwindow_connectnotify_callback(this, cbval1);
         } else {
             QWindow::connectNotify(signal);
         }
@@ -633,7 +711,11 @@ class VirtualQWindow : public QWindow {
             qwindow_disconnectnotify_isbase = false;
             QWindow::disconnectNotify(signal);
         } else if (qwindow_disconnectnotify_callback != nullptr) {
-            qwindow_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qwindow_disconnectnotify_callback(this, cbval1);
         } else {
             QWindow::disconnectNotify(signal);
         }
@@ -645,7 +727,11 @@ class VirtualQWindow : public QWindow {
             qwindow_resolveinterface_isbase = false;
             return QWindow::resolveInterface(name, revision);
         } else if (qwindow_resolveinterface_callback != nullptr) {
-            return qwindow_resolveinterface_callback(this, name, revision);
+            const char* cbval1 = (const char*)name;
+            int cbval2 = revision;
+
+            void* callback_ret = qwindow_resolveinterface_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QWindow::resolveInterface(name, revision);
         }
@@ -657,7 +743,8 @@ class VirtualQWindow : public QWindow {
             qwindow_sender_isbase = false;
             return QWindow::sender();
         } else if (qwindow_sender_callback != nullptr) {
-            return qwindow_sender_callback();
+            QObject* callback_ret = qwindow_sender_callback();
+            return callback_ret;
         } else {
             return QWindow::sender();
         }
@@ -669,7 +756,8 @@ class VirtualQWindow : public QWindow {
             qwindow_sendersignalindex_isbase = false;
             return QWindow::senderSignalIndex();
         } else if (qwindow_sendersignalindex_callback != nullptr) {
-            return qwindow_sendersignalindex_callback();
+            int callback_ret = qwindow_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QWindow::senderSignalIndex();
         }
@@ -681,7 +769,10 @@ class VirtualQWindow : public QWindow {
             qwindow_receivers_isbase = false;
             return QWindow::receivers(signal);
         } else if (qwindow_receivers_callback != nullptr) {
-            return qwindow_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qwindow_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QWindow::receivers(signal);
         }
@@ -693,11 +784,78 @@ class VirtualQWindow : public QWindow {
             qwindow_issignalconnected_isbase = false;
             return QWindow::isSignalConnected(signal);
         } else if (qwindow_issignalconnected_callback != nullptr) {
-            return qwindow_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qwindow_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QWindow::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QWindow_ExposeEvent(QWindow* self, QExposeEvent* param1);
+    friend void QWindow_QBaseExposeEvent(QWindow* self, QExposeEvent* param1);
+    friend void QWindow_ResizeEvent(QWindow* self, QResizeEvent* param1);
+    friend void QWindow_QBaseResizeEvent(QWindow* self, QResizeEvent* param1);
+    friend void QWindow_PaintEvent(QWindow* self, QPaintEvent* param1);
+    friend void QWindow_QBasePaintEvent(QWindow* self, QPaintEvent* param1);
+    friend void QWindow_MoveEvent(QWindow* self, QMoveEvent* param1);
+    friend void QWindow_QBaseMoveEvent(QWindow* self, QMoveEvent* param1);
+    friend void QWindow_FocusInEvent(QWindow* self, QFocusEvent* param1);
+    friend void QWindow_QBaseFocusInEvent(QWindow* self, QFocusEvent* param1);
+    friend void QWindow_FocusOutEvent(QWindow* self, QFocusEvent* param1);
+    friend void QWindow_QBaseFocusOutEvent(QWindow* self, QFocusEvent* param1);
+    friend void QWindow_ShowEvent(QWindow* self, QShowEvent* param1);
+    friend void QWindow_QBaseShowEvent(QWindow* self, QShowEvent* param1);
+    friend void QWindow_HideEvent(QWindow* self, QHideEvent* param1);
+    friend void QWindow_QBaseHideEvent(QWindow* self, QHideEvent* param1);
+    friend void QWindow_CloseEvent(QWindow* self, QCloseEvent* param1);
+    friend void QWindow_QBaseCloseEvent(QWindow* self, QCloseEvent* param1);
+    friend bool QWindow_Event(QWindow* self, QEvent* param1);
+    friend bool QWindow_QBaseEvent(QWindow* self, QEvent* param1);
+    friend void QWindow_KeyPressEvent(QWindow* self, QKeyEvent* param1);
+    friend void QWindow_QBaseKeyPressEvent(QWindow* self, QKeyEvent* param1);
+    friend void QWindow_KeyReleaseEvent(QWindow* self, QKeyEvent* param1);
+    friend void QWindow_QBaseKeyReleaseEvent(QWindow* self, QKeyEvent* param1);
+    friend void QWindow_MousePressEvent(QWindow* self, QMouseEvent* param1);
+    friend void QWindow_QBaseMousePressEvent(QWindow* self, QMouseEvent* param1);
+    friend void QWindow_MouseReleaseEvent(QWindow* self, QMouseEvent* param1);
+    friend void QWindow_QBaseMouseReleaseEvent(QWindow* self, QMouseEvent* param1);
+    friend void QWindow_MouseDoubleClickEvent(QWindow* self, QMouseEvent* param1);
+    friend void QWindow_QBaseMouseDoubleClickEvent(QWindow* self, QMouseEvent* param1);
+    friend void QWindow_MouseMoveEvent(QWindow* self, QMouseEvent* param1);
+    friend void QWindow_QBaseMouseMoveEvent(QWindow* self, QMouseEvent* param1);
+    friend void QWindow_WheelEvent(QWindow* self, QWheelEvent* param1);
+    friend void QWindow_QBaseWheelEvent(QWindow* self, QWheelEvent* param1);
+    friend void QWindow_TouchEvent(QWindow* self, QTouchEvent* param1);
+    friend void QWindow_QBaseTouchEvent(QWindow* self, QTouchEvent* param1);
+    friend void QWindow_TabletEvent(QWindow* self, QTabletEvent* param1);
+    friend void QWindow_QBaseTabletEvent(QWindow* self, QTabletEvent* param1);
+    friend bool QWindow_NativeEvent(QWindow* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QWindow_QBaseNativeEvent(QWindow* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend void QWindow_TimerEvent(QWindow* self, QTimerEvent* event);
+    friend void QWindow_QBaseTimerEvent(QWindow* self, QTimerEvent* event);
+    friend void QWindow_ChildEvent(QWindow* self, QChildEvent* event);
+    friend void QWindow_QBaseChildEvent(QWindow* self, QChildEvent* event);
+    friend void QWindow_CustomEvent(QWindow* self, QEvent* event);
+    friend void QWindow_QBaseCustomEvent(QWindow* self, QEvent* event);
+    friend void QWindow_ConnectNotify(QWindow* self, const QMetaMethod* signal);
+    friend void QWindow_QBaseConnectNotify(QWindow* self, const QMetaMethod* signal);
+    friend void QWindow_DisconnectNotify(QWindow* self, const QMetaMethod* signal);
+    friend void QWindow_QBaseDisconnectNotify(QWindow* self, const QMetaMethod* signal);
+    friend void* QWindow_ResolveInterface(const QWindow* self, const char* name, int revision);
+    friend void* QWindow_QBaseResolveInterface(const QWindow* self, const char* name, int revision);
+    friend QObject* QWindow_Sender(const QWindow* self);
+    friend QObject* QWindow_QBaseSender(const QWindow* self);
+    friend int QWindow_SenderSignalIndex(const QWindow* self);
+    friend int QWindow_QBaseSenderSignalIndex(const QWindow* self);
+    friend int QWindow_Receivers(const QWindow* self, const char* signal);
+    friend int QWindow_QBaseReceivers(const QWindow* self, const char* signal);
+    friend bool QWindow_IsSignalConnected(const QWindow* self, const QMetaMethod* signal);
+    friend bool QWindow_QBaseIsSignalConnected(const QWindow* self, const QMetaMethod* signal);
 };
 
 #endif

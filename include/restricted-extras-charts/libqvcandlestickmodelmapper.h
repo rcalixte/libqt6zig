@@ -15,25 +15,15 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAbstractItemModel QAbstractItemModel;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QCandlestickModelMapper QCandlestickModelMapper;
-typedef struct QCandlestickSeries QCandlestickSeries;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QVCandlestickModelMapper QVCandlestickModelMapper;
-typedef struct QVariant QVariant;
 #endif
 
 QVCandlestickModelMapper* QVCandlestickModelMapper_new();
@@ -92,12 +82,12 @@ void QVCandlestickModelMapper_QBaseChildEvent(QVCandlestickModelMapper* self, QC
 void QVCandlestickModelMapper_CustomEvent(QVCandlestickModelMapper* self, QEvent* event);
 void QVCandlestickModelMapper_OnCustomEvent(QVCandlestickModelMapper* self, intptr_t slot);
 void QVCandlestickModelMapper_QBaseCustomEvent(QVCandlestickModelMapper* self, QEvent* event);
-void QVCandlestickModelMapper_ConnectNotify(QVCandlestickModelMapper* self, QMetaMethod* signal);
+void QVCandlestickModelMapper_ConnectNotify(QVCandlestickModelMapper* self, const QMetaMethod* signal);
 void QVCandlestickModelMapper_OnConnectNotify(QVCandlestickModelMapper* self, intptr_t slot);
-void QVCandlestickModelMapper_QBaseConnectNotify(QVCandlestickModelMapper* self, QMetaMethod* signal);
-void QVCandlestickModelMapper_DisconnectNotify(QVCandlestickModelMapper* self, QMetaMethod* signal);
+void QVCandlestickModelMapper_QBaseConnectNotify(QVCandlestickModelMapper* self, const QMetaMethod* signal);
+void QVCandlestickModelMapper_DisconnectNotify(QVCandlestickModelMapper* self, const QMetaMethod* signal);
 void QVCandlestickModelMapper_OnDisconnectNotify(QVCandlestickModelMapper* self, intptr_t slot);
-void QVCandlestickModelMapper_QBaseDisconnectNotify(QVCandlestickModelMapper* self, QMetaMethod* signal);
+void QVCandlestickModelMapper_QBaseDisconnectNotify(QVCandlestickModelMapper* self, const QMetaMethod* signal);
 void QVCandlestickModelMapper_SetTimestamp(QVCandlestickModelMapper* self, int timestamp);
 void QVCandlestickModelMapper_OnSetTimestamp(QVCandlestickModelMapper* self, intptr_t slot);
 void QVCandlestickModelMapper_QBaseSetTimestamp(QVCandlestickModelMapper* self, int timestamp);
@@ -149,9 +139,9 @@ int QVCandlestickModelMapper_QBaseSenderSignalIndex(const QVCandlestickModelMapp
 int QVCandlestickModelMapper_Receivers(const QVCandlestickModelMapper* self, const char* signal);
 void QVCandlestickModelMapper_OnReceivers(const QVCandlestickModelMapper* self, intptr_t slot);
 int QVCandlestickModelMapper_QBaseReceivers(const QVCandlestickModelMapper* self, const char* signal);
-bool QVCandlestickModelMapper_IsSignalConnected(const QVCandlestickModelMapper* self, QMetaMethod* signal);
+bool QVCandlestickModelMapper_IsSignalConnected(const QVCandlestickModelMapper* self, const QMetaMethod* signal);
 void QVCandlestickModelMapper_OnIsSignalConnected(const QVCandlestickModelMapper* self, intptr_t slot);
-bool QVCandlestickModelMapper_QBaseIsSignalConnected(const QVCandlestickModelMapper* self, QMetaMethod* signal);
+bool QVCandlestickModelMapper_QBaseIsSignalConnected(const QVCandlestickModelMapper* self, const QMetaMethod* signal);
 void QVCandlestickModelMapper_Delete(QVCandlestickModelMapper* self);
 
 #ifdef __cplusplus

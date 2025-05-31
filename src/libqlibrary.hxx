@@ -11,22 +11,25 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QLibrary so that we can call protected methods
-class VirtualQLibrary : public QLibrary {
+class VirtualQLibrary final : public QLibrary {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQLibrary = true;
+
     // Virtual class public types (including callbacks)
-    using QLibrary_Metacall_Callback = int (*)(QLibrary*, QMetaObject::Call, int, void**);
+    using QLibrary_Metacall_Callback = int (*)(QLibrary*, int, int, void**);
     using QLibrary_Event_Callback = bool (*)(QLibrary*, QEvent*);
     using QLibrary_EventFilter_Callback = bool (*)(QLibrary*, QObject*, QEvent*);
     using QLibrary_TimerEvent_Callback = void (*)(QLibrary*, QTimerEvent*);
     using QLibrary_ChildEvent_Callback = void (*)(QLibrary*, QChildEvent*);
     using QLibrary_CustomEvent_Callback = void (*)(QLibrary*, QEvent*);
-    using QLibrary_ConnectNotify_Callback = void (*)(QLibrary*, const QMetaMethod&);
-    using QLibrary_DisconnectNotify_Callback = void (*)(QLibrary*, const QMetaMethod&);
+    using QLibrary_ConnectNotify_Callback = void (*)(QLibrary*, QMetaMethod*);
+    using QLibrary_DisconnectNotify_Callback = void (*)(QLibrary*, QMetaMethod*);
     using QLibrary_Sender_Callback = QObject* (*)();
     using QLibrary_SenderSignalIndex_Callback = int (*)();
     using QLibrary_Receivers_Callback = int (*)(const QLibrary*, const char*);
-    using QLibrary_IsSignalConnected_Callback = bool (*)(const QLibrary*, const QMetaMethod&);
+    using QLibrary_IsSignalConnected_Callback = bool (*)(const QLibrary*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -83,32 +86,32 @@ class VirtualQLibrary : public QLibrary {
     }
 
     // Callback setters
-    void setQLibrary_Metacall_Callback(QLibrary_Metacall_Callback cb) { qlibrary_metacall_callback = cb; }
-    void setQLibrary_Event_Callback(QLibrary_Event_Callback cb) { qlibrary_event_callback = cb; }
-    void setQLibrary_EventFilter_Callback(QLibrary_EventFilter_Callback cb) { qlibrary_eventfilter_callback = cb; }
-    void setQLibrary_TimerEvent_Callback(QLibrary_TimerEvent_Callback cb) { qlibrary_timerevent_callback = cb; }
-    void setQLibrary_ChildEvent_Callback(QLibrary_ChildEvent_Callback cb) { qlibrary_childevent_callback = cb; }
-    void setQLibrary_CustomEvent_Callback(QLibrary_CustomEvent_Callback cb) { qlibrary_customevent_callback = cb; }
-    void setQLibrary_ConnectNotify_Callback(QLibrary_ConnectNotify_Callback cb) { qlibrary_connectnotify_callback = cb; }
-    void setQLibrary_DisconnectNotify_Callback(QLibrary_DisconnectNotify_Callback cb) { qlibrary_disconnectnotify_callback = cb; }
-    void setQLibrary_Sender_Callback(QLibrary_Sender_Callback cb) { qlibrary_sender_callback = cb; }
-    void setQLibrary_SenderSignalIndex_Callback(QLibrary_SenderSignalIndex_Callback cb) { qlibrary_sendersignalindex_callback = cb; }
-    void setQLibrary_Receivers_Callback(QLibrary_Receivers_Callback cb) { qlibrary_receivers_callback = cb; }
-    void setQLibrary_IsSignalConnected_Callback(QLibrary_IsSignalConnected_Callback cb) { qlibrary_issignalconnected_callback = cb; }
+    inline void setQLibrary_Metacall_Callback(QLibrary_Metacall_Callback cb) { qlibrary_metacall_callback = cb; }
+    inline void setQLibrary_Event_Callback(QLibrary_Event_Callback cb) { qlibrary_event_callback = cb; }
+    inline void setQLibrary_EventFilter_Callback(QLibrary_EventFilter_Callback cb) { qlibrary_eventfilter_callback = cb; }
+    inline void setQLibrary_TimerEvent_Callback(QLibrary_TimerEvent_Callback cb) { qlibrary_timerevent_callback = cb; }
+    inline void setQLibrary_ChildEvent_Callback(QLibrary_ChildEvent_Callback cb) { qlibrary_childevent_callback = cb; }
+    inline void setQLibrary_CustomEvent_Callback(QLibrary_CustomEvent_Callback cb) { qlibrary_customevent_callback = cb; }
+    inline void setQLibrary_ConnectNotify_Callback(QLibrary_ConnectNotify_Callback cb) { qlibrary_connectnotify_callback = cb; }
+    inline void setQLibrary_DisconnectNotify_Callback(QLibrary_DisconnectNotify_Callback cb) { qlibrary_disconnectnotify_callback = cb; }
+    inline void setQLibrary_Sender_Callback(QLibrary_Sender_Callback cb) { qlibrary_sender_callback = cb; }
+    inline void setQLibrary_SenderSignalIndex_Callback(QLibrary_SenderSignalIndex_Callback cb) { qlibrary_sendersignalindex_callback = cb; }
+    inline void setQLibrary_Receivers_Callback(QLibrary_Receivers_Callback cb) { qlibrary_receivers_callback = cb; }
+    inline void setQLibrary_IsSignalConnected_Callback(QLibrary_IsSignalConnected_Callback cb) { qlibrary_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQLibrary_Metacall_IsBase(bool value) const { qlibrary_metacall_isbase = value; }
-    void setQLibrary_Event_IsBase(bool value) const { qlibrary_event_isbase = value; }
-    void setQLibrary_EventFilter_IsBase(bool value) const { qlibrary_eventfilter_isbase = value; }
-    void setQLibrary_TimerEvent_IsBase(bool value) const { qlibrary_timerevent_isbase = value; }
-    void setQLibrary_ChildEvent_IsBase(bool value) const { qlibrary_childevent_isbase = value; }
-    void setQLibrary_CustomEvent_IsBase(bool value) const { qlibrary_customevent_isbase = value; }
-    void setQLibrary_ConnectNotify_IsBase(bool value) const { qlibrary_connectnotify_isbase = value; }
-    void setQLibrary_DisconnectNotify_IsBase(bool value) const { qlibrary_disconnectnotify_isbase = value; }
-    void setQLibrary_Sender_IsBase(bool value) const { qlibrary_sender_isbase = value; }
-    void setQLibrary_SenderSignalIndex_IsBase(bool value) const { qlibrary_sendersignalindex_isbase = value; }
-    void setQLibrary_Receivers_IsBase(bool value) const { qlibrary_receivers_isbase = value; }
-    void setQLibrary_IsSignalConnected_IsBase(bool value) const { qlibrary_issignalconnected_isbase = value; }
+    inline void setQLibrary_Metacall_IsBase(bool value) const { qlibrary_metacall_isbase = value; }
+    inline void setQLibrary_Event_IsBase(bool value) const { qlibrary_event_isbase = value; }
+    inline void setQLibrary_EventFilter_IsBase(bool value) const { qlibrary_eventfilter_isbase = value; }
+    inline void setQLibrary_TimerEvent_IsBase(bool value) const { qlibrary_timerevent_isbase = value; }
+    inline void setQLibrary_ChildEvent_IsBase(bool value) const { qlibrary_childevent_isbase = value; }
+    inline void setQLibrary_CustomEvent_IsBase(bool value) const { qlibrary_customevent_isbase = value; }
+    inline void setQLibrary_ConnectNotify_IsBase(bool value) const { qlibrary_connectnotify_isbase = value; }
+    inline void setQLibrary_DisconnectNotify_IsBase(bool value) const { qlibrary_disconnectnotify_isbase = value; }
+    inline void setQLibrary_Sender_IsBase(bool value) const { qlibrary_sender_isbase = value; }
+    inline void setQLibrary_SenderSignalIndex_IsBase(bool value) const { qlibrary_sendersignalindex_isbase = value; }
+    inline void setQLibrary_Receivers_IsBase(bool value) const { qlibrary_receivers_isbase = value; }
+    inline void setQLibrary_IsSignalConnected_IsBase(bool value) const { qlibrary_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -116,7 +119,12 @@ class VirtualQLibrary : public QLibrary {
             qlibrary_metacall_isbase = false;
             return QLibrary::qt_metacall(param1, param2, param3);
         } else if (qlibrary_metacall_callback != nullptr) {
-            return qlibrary_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qlibrary_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QLibrary::qt_metacall(param1, param2, param3);
         }
@@ -128,7 +136,10 @@ class VirtualQLibrary : public QLibrary {
             qlibrary_event_isbase = false;
             return QLibrary::event(event);
         } else if (qlibrary_event_callback != nullptr) {
-            return qlibrary_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qlibrary_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QLibrary::event(event);
         }
@@ -140,7 +151,11 @@ class VirtualQLibrary : public QLibrary {
             qlibrary_eventfilter_isbase = false;
             return QLibrary::eventFilter(watched, event);
         } else if (qlibrary_eventfilter_callback != nullptr) {
-            return qlibrary_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qlibrary_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QLibrary::eventFilter(watched, event);
         }
@@ -152,7 +167,9 @@ class VirtualQLibrary : public QLibrary {
             qlibrary_timerevent_isbase = false;
             QLibrary::timerEvent(event);
         } else if (qlibrary_timerevent_callback != nullptr) {
-            qlibrary_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qlibrary_timerevent_callback(this, cbval1);
         } else {
             QLibrary::timerEvent(event);
         }
@@ -164,7 +181,9 @@ class VirtualQLibrary : public QLibrary {
             qlibrary_childevent_isbase = false;
             QLibrary::childEvent(event);
         } else if (qlibrary_childevent_callback != nullptr) {
-            qlibrary_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qlibrary_childevent_callback(this, cbval1);
         } else {
             QLibrary::childEvent(event);
         }
@@ -176,7 +195,9 @@ class VirtualQLibrary : public QLibrary {
             qlibrary_customevent_isbase = false;
             QLibrary::customEvent(event);
         } else if (qlibrary_customevent_callback != nullptr) {
-            qlibrary_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qlibrary_customevent_callback(this, cbval1);
         } else {
             QLibrary::customEvent(event);
         }
@@ -188,7 +209,11 @@ class VirtualQLibrary : public QLibrary {
             qlibrary_connectnotify_isbase = false;
             QLibrary::connectNotify(signal);
         } else if (qlibrary_connectnotify_callback != nullptr) {
-            qlibrary_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qlibrary_connectnotify_callback(this, cbval1);
         } else {
             QLibrary::connectNotify(signal);
         }
@@ -200,7 +225,11 @@ class VirtualQLibrary : public QLibrary {
             qlibrary_disconnectnotify_isbase = false;
             QLibrary::disconnectNotify(signal);
         } else if (qlibrary_disconnectnotify_callback != nullptr) {
-            qlibrary_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qlibrary_disconnectnotify_callback(this, cbval1);
         } else {
             QLibrary::disconnectNotify(signal);
         }
@@ -212,7 +241,8 @@ class VirtualQLibrary : public QLibrary {
             qlibrary_sender_isbase = false;
             return QLibrary::sender();
         } else if (qlibrary_sender_callback != nullptr) {
-            return qlibrary_sender_callback();
+            QObject* callback_ret = qlibrary_sender_callback();
+            return callback_ret;
         } else {
             return QLibrary::sender();
         }
@@ -224,7 +254,8 @@ class VirtualQLibrary : public QLibrary {
             qlibrary_sendersignalindex_isbase = false;
             return QLibrary::senderSignalIndex();
         } else if (qlibrary_sendersignalindex_callback != nullptr) {
-            return qlibrary_sendersignalindex_callback();
+            int callback_ret = qlibrary_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QLibrary::senderSignalIndex();
         }
@@ -236,7 +267,10 @@ class VirtualQLibrary : public QLibrary {
             qlibrary_receivers_isbase = false;
             return QLibrary::receivers(signal);
         } else if (qlibrary_receivers_callback != nullptr) {
-            return qlibrary_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qlibrary_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QLibrary::receivers(signal);
         }
@@ -248,11 +282,36 @@ class VirtualQLibrary : public QLibrary {
             qlibrary_issignalconnected_isbase = false;
             return QLibrary::isSignalConnected(signal);
         } else if (qlibrary_issignalconnected_callback != nullptr) {
-            return qlibrary_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qlibrary_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QLibrary::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QLibrary_TimerEvent(QLibrary* self, QTimerEvent* event);
+    friend void QLibrary_QBaseTimerEvent(QLibrary* self, QTimerEvent* event);
+    friend void QLibrary_ChildEvent(QLibrary* self, QChildEvent* event);
+    friend void QLibrary_QBaseChildEvent(QLibrary* self, QChildEvent* event);
+    friend void QLibrary_CustomEvent(QLibrary* self, QEvent* event);
+    friend void QLibrary_QBaseCustomEvent(QLibrary* self, QEvent* event);
+    friend void QLibrary_ConnectNotify(QLibrary* self, const QMetaMethod* signal);
+    friend void QLibrary_QBaseConnectNotify(QLibrary* self, const QMetaMethod* signal);
+    friend void QLibrary_DisconnectNotify(QLibrary* self, const QMetaMethod* signal);
+    friend void QLibrary_QBaseDisconnectNotify(QLibrary* self, const QMetaMethod* signal);
+    friend QObject* QLibrary_Sender(const QLibrary* self);
+    friend QObject* QLibrary_QBaseSender(const QLibrary* self);
+    friend int QLibrary_SenderSignalIndex(const QLibrary* self);
+    friend int QLibrary_QBaseSenderSignalIndex(const QLibrary* self);
+    friend int QLibrary_Receivers(const QLibrary* self, const char* signal);
+    friend int QLibrary_QBaseReceivers(const QLibrary* self, const char* signal);
+    friend bool QLibrary_IsSignalConnected(const QLibrary* self, const QMetaMethod* signal);
+    friend bool QLibrary_QBaseIsSignalConnected(const QLibrary* self, const QMetaMethod* signal);
 };
 
 #endif

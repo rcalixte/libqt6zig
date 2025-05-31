@@ -4,7 +4,7 @@
 #include "libqsizepolicy.h"
 #include "libqsizepolicy.hxx"
 
-QSizePolicy* QSizePolicy_new(QSizePolicy* other) {
+QSizePolicy* QSizePolicy_new(const QSizePolicy* other) {
     return new QSizePolicy(*other);
 }
 
@@ -20,7 +20,7 @@ QSizePolicy* QSizePolicy_new4(int horizontal, int vertical) {
     return new QSizePolicy(static_cast<QSizePolicy::Policy>(horizontal), static_cast<QSizePolicy::Policy>(vertical));
 }
 
-QSizePolicy* QSizePolicy_new5(QSizePolicy* param1) {
+QSizePolicy* QSizePolicy_new5(const QSizePolicy* param1) {
     return new QSizePolicy(*param1);
 }
 
@@ -80,11 +80,11 @@ bool QSizePolicy_HasWidthForHeight(const QSizePolicy* self) {
     return self->hasWidthForHeight();
 }
 
-bool QSizePolicy_OperatorEqual(const QSizePolicy* self, QSizePolicy* s) {
+bool QSizePolicy_OperatorEqual(const QSizePolicy* self, const QSizePolicy* s) {
     return (*self == *s);
 }
 
-bool QSizePolicy_OperatorNotEqual(const QSizePolicy* self, QSizePolicy* s) {
+bool QSizePolicy_OperatorNotEqual(const QSizePolicy* self, const QSizePolicy* s) {
     return (*self != *s);
 }
 

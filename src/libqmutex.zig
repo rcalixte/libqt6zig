@@ -1,47 +1,50 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 
 /// https://doc.qt.io/qt-6/qbasicmutex.html
 pub const qbasicmutex = struct {
     /// New constructs a new QBasicMutex object.
     ///
     ///
-    pub fn New() ?*C.QBasicMutex {
-        return C.QBasicMutex_new();
+    pub fn New() QtC.QBasicMutex {
+        return qtc.QBasicMutex_new();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbasicmutex.html#lock)
     ///
-    /// ``` self: ?*C.QBasicMutex ```
+    /// ``` self: QtC.QBasicMutex ```
     pub fn Lock(self: ?*anyopaque) void {
-        C.QBasicMutex_Lock(@ptrCast(self));
+        qtc.QBasicMutex_Lock(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbasicmutex.html#unlock)
     ///
-    /// ``` self: ?*C.QBasicMutex ```
+    /// ``` self: QtC.QBasicMutex ```
     pub fn Unlock(self: ?*anyopaque) void {
-        C.QBasicMutex_Unlock(@ptrCast(self));
+        qtc.QBasicMutex_Unlock(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbasicmutex.html#tryLock)
     ///
-    /// ``` self: ?*C.QBasicMutex ```
+    /// ``` self: QtC.QBasicMutex ```
     pub fn TryLock(self: ?*anyopaque) bool {
-        return C.QBasicMutex_TryLock(@ptrCast(self));
+        return qtc.QBasicMutex_TryLock(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbasicmutex.html#try_lock)
     ///
-    /// ``` self: ?*C.QBasicMutex ```
+    /// ``` self: QtC.QBasicMutex ```
     pub fn TryLock2(self: ?*anyopaque) bool {
-        return C.QBasicMutex_TryLock2(@ptrCast(self));
+        return qtc.QBasicMutex_TryLock2(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbasicmutex.html#dtor.QBasicMutex)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QBasicMutex ```
+    /// ``` self: QtC.QBasicMutex ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QBasicMutex_Delete(@ptrCast(self));
+        qtc.QBasicMutex_Delete(@ptrCast(self));
     }
 };
 
@@ -50,56 +53,58 @@ pub const qmutex = struct {
     /// New constructs a new QMutex object.
     ///
     ///
-    pub fn New() ?*C.QMutex {
-        return C.QMutex_new();
+    pub fn New() QtC.QMutex {
+        return qtc.QMutex_new();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmutex.html#try_lock)
     ///
-    /// ``` self: ?*C.QMutex ```
+    /// ``` self: QtC.QMutex ```
     pub fn TryLock(self: ?*anyopaque) bool {
-        return C.QMutex_TryLock(@ptrCast(self));
+        return qtc.QMutex_TryLock(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmutex.html#tryLock)
     ///
-    /// ``` self: ?*C.QMutex, timeout: i32 ```
+    /// ``` self: QtC.QMutex, timeout: i32 ```
     pub fn TryLockWithTimeout(self: ?*anyopaque, timeout: i32) bool {
-        return C.QMutex_TryLockWithTimeout(@ptrCast(self), @intCast(timeout));
+        return qtc.QMutex_TryLockWithTimeout(@ptrCast(self), @intCast(timeout));
     }
 
     /// Inherited from QBasicMutex
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qbasicmutex.html#lock)
     ///
-    /// ``` self: ?*C.QMutex ```
+    /// ``` self: QtC.QMutex ```
     pub fn Lock(self: ?*anyopaque) void {
-        C.QBasicMutex_Lock(@ptrCast(self));
+        qtc.QBasicMutex_Lock(@ptrCast(self));
     }
 
     /// Inherited from QBasicMutex
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qbasicmutex.html#unlock)
     ///
-    /// ``` self: ?*C.QMutex ```
+    /// ``` self: QtC.QMutex ```
     pub fn Unlock(self: ?*anyopaque) void {
-        C.QBasicMutex_Unlock(@ptrCast(self));
+        qtc.QBasicMutex_Unlock(@ptrCast(self));
     }
 
     /// Inherited from QBasicMutex
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qbasicmutex.html#try_lock)
     ///
-    /// ``` self: ?*C.QMutex ```
+    /// ``` self: QtC.QMutex ```
     pub fn TryLock2(self: ?*anyopaque) bool {
-        return C.QBasicMutex_TryLock2(@ptrCast(self));
+        return qtc.QBasicMutex_TryLock2(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmutex.html#dtor.QMutex)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QMutex ```
+    /// ``` self: QtC.QMutex ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QMutex_Delete(@ptrCast(self));
+        qtc.QMutex_Delete(@ptrCast(self));
     }
 };
 
@@ -108,49 +113,51 @@ pub const qrecursivemutex = struct {
     /// New constructs a new QRecursiveMutex object.
     ///
     ///
-    pub fn New() ?*C.QRecursiveMutex {
-        return C.QRecursiveMutex_new();
+    pub fn New() QtC.QRecursiveMutex {
+        return qtc.QRecursiveMutex_new();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrecursivemutex.html#lock)
     ///
-    /// ``` self: ?*C.QRecursiveMutex ```
+    /// ``` self: QtC.QRecursiveMutex ```
     pub fn Lock(self: ?*anyopaque) void {
-        C.QRecursiveMutex_Lock(@ptrCast(self));
+        qtc.QRecursiveMutex_Lock(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrecursivemutex.html#tryLock)
     ///
-    /// ``` self: ?*C.QRecursiveMutex ```
+    /// ``` self: QtC.QRecursiveMutex ```
     pub fn TryLock(self: ?*anyopaque) bool {
-        return C.QRecursiveMutex_TryLock(@ptrCast(self));
+        return qtc.QRecursiveMutex_TryLock(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrecursivemutex.html#unlock)
     ///
-    /// ``` self: ?*C.QRecursiveMutex ```
+    /// ``` self: QtC.QRecursiveMutex ```
     pub fn Unlock(self: ?*anyopaque) void {
-        C.QRecursiveMutex_Unlock(@ptrCast(self));
+        qtc.QRecursiveMutex_Unlock(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrecursivemutex.html#try_lock)
     ///
-    /// ``` self: ?*C.QRecursiveMutex ```
+    /// ``` self: QtC.QRecursiveMutex ```
     pub fn TryLock2(self: ?*anyopaque) bool {
-        return C.QRecursiveMutex_TryLock2(@ptrCast(self));
+        return qtc.QRecursiveMutex_TryLock2(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrecursivemutex.html#tryLock)
     ///
-    /// ``` self: ?*C.QRecursiveMutex, timeout: i32 ```
+    /// ``` self: QtC.QRecursiveMutex, timeout: i32 ```
     pub fn TryLock1(self: ?*anyopaque, timeout: i32) bool {
-        return C.QRecursiveMutex_TryLock1(@ptrCast(self), @intCast(timeout));
+        return qtc.QRecursiveMutex_TryLock1(@ptrCast(self), @intCast(timeout));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrecursivemutex.html#dtor.QRecursiveMutex)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QRecursiveMutex ```
+    /// ``` self: QtC.QRecursiveMutex ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QRecursiveMutex_Delete(@ptrCast(self));
+        qtc.QRecursiveMutex_Delete(@ptrCast(self));
     }
 };

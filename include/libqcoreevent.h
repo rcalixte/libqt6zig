@@ -73,7 +73,7 @@ void QChildEvent_OnSetAccepted(QChildEvent* self, intptr_t slot);
 void QChildEvent_QBaseSetAccepted(QChildEvent* self, bool accepted);
 void QChildEvent_Delete(QChildEvent* self);
 
-QDynamicPropertyChangeEvent* QDynamicPropertyChangeEvent_new(libqt_string name);
+QDynamicPropertyChangeEvent* QDynamicPropertyChangeEvent_new(const libqt_string name);
 QDynamicPropertyChangeEvent* QDynamicPropertyChangeEvent_Clone(const QDynamicPropertyChangeEvent* self);
 void QDynamicPropertyChangeEvent_OnClone(const QDynamicPropertyChangeEvent* self, intptr_t slot);
 QDynamicPropertyChangeEvent* QDynamicPropertyChangeEvent_QBaseClone(const QDynamicPropertyChangeEvent* self);

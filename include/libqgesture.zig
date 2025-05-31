@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qevent_enums = @import("libqevent.zig").enums;
 const qgesture_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
@@ -10,47 +11,47 @@ pub const qgesture = struct {
     /// New constructs a new QGesture object.
     ///
     ///
-    pub fn New() ?*C.QGesture {
-        return C.QGesture_new();
+    pub fn New() QtC.QGesture {
+        return qtc.QGesture_new();
     }
 
     /// New2 constructs a new QGesture object.
     ///
-    /// ``` parent: ?*C.QObject ```
-    pub fn New2(parent: ?*anyopaque) ?*C.QGesture {
-        return C.QGesture_new2(@ptrCast(parent));
+    /// ``` parent: QtC.QObject ```
+    pub fn New2(parent: ?*anyopaque) QtC.QGesture {
+        return qtc.QGesture_new2(@ptrCast(parent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: ?*C.QGesture ```
-    pub fn MetaObject(self: ?*anyopaque) ?*C.QMetaObject {
-        return C.QGesture_MetaObject(@ptrCast(self));
+    /// ``` self: QtC.QGesture ```
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QGesture_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QGesture, param1: []const u8 ```
+    /// ``` self: QtC.QGesture, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = @constCast(param1.ptr);
-        return C.QGesture_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QGesture_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: ?*C.QGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QGesture, slot: fn (?*C.QGesture, qobjectdefs_enums.Call, i32, ?*anyopaque) callconv(.c) i32 ```
+    /// ``` self: QtC.QGesture, slot: fn (self: QtC.QGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
     pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
-        C.QGesture_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGesture_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -58,9 +59,9 @@ pub const qgesture = struct {
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
-        const _str = C.QGesture_Tr(s_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QGesture_Tr(s_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgesture.Tr: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -69,58 +70,58 @@ pub const qgesture = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
-    /// ``` self: ?*C.QGesture ```
+    /// ``` self: QtC.QGesture ```
     pub fn GestureType(self: ?*anyopaque) i64 {
-        return C.QGesture_GestureType(@ptrCast(self));
+        return qtc.QGesture_GestureType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
-    /// ``` self: ?*C.QGesture ```
+    /// ``` self: QtC.QGesture ```
     pub fn State(self: ?*anyopaque) i64 {
-        return C.QGesture_State(@ptrCast(self));
+        return qtc.QGesture_State(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
     ///
-    /// ``` self: ?*C.QGesture ```
-    pub fn HotSpot(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGesture_HotSpot(@ptrCast(self));
+    /// ``` self: QtC.QGesture ```
+    pub fn HotSpot(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGesture_HotSpot(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
     ///
-    /// ``` self: ?*C.QGesture, value: ?*C.QPointF ```
+    /// ``` self: QtC.QGesture, value: QtC.QPointF ```
     pub fn SetHotSpot(self: ?*anyopaque, value: ?*anyopaque) void {
-        C.QGesture_SetHotSpot(@ptrCast(self), @ptrCast(value));
+        qtc.QGesture_SetHotSpot(@ptrCast(self), @ptrCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
     ///
-    /// ``` self: ?*C.QGesture ```
+    /// ``` self: QtC.QGesture ```
     pub fn HasHotSpot(self: ?*anyopaque) bool {
-        return C.QGesture_HasHotSpot(@ptrCast(self));
+        return qtc.QGesture_HasHotSpot(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
     ///
-    /// ``` self: ?*C.QGesture ```
+    /// ``` self: QtC.QGesture ```
     pub fn UnsetHotSpot(self: ?*anyopaque) void {
-        C.QGesture_UnsetHotSpot(@ptrCast(self));
+        qtc.QGesture_UnsetHotSpot(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
     ///
-    /// ``` self: ?*C.QGesture, policy: qgesture_enums.GestureCancelPolicy ```
+    /// ``` self: QtC.QGesture, policy: qgesture_enums.GestureCancelPolicy ```
     pub fn SetGestureCancelPolicy(self: ?*anyopaque, policy: i64) void {
-        C.QGesture_SetGestureCancelPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
-    /// ``` self: ?*C.QGesture ```
+    /// ``` self: QtC.QGesture ```
     pub fn GestureCancelPolicy(self: ?*anyopaque) i64 {
-        return C.QGesture_GestureCancelPolicy(@ptrCast(self));
+        return qtc.QGesture_GestureCancelPolicy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -129,9 +130,9 @@ pub const qgesture = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QGesture_Tr2(s_Cstring, c_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QGesture_Tr2(s_Cstring, c_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgesture.Tr2: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -144,9 +145,9 @@ pub const qgesture = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QGesture_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QGesture_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgesture.Tr3: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -157,11 +158,11 @@ pub const qgesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: ?*C.QGesture, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QGesture, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QObject_ObjectName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgesture.ObjectName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -172,102 +173,102 @@ pub const qgesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: ?*C.QGesture, name: []const u8 ```
+    /// ``` self: QtC.QGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: ?*C.QGesture ```
+    /// ``` self: QtC.QGesture ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return C.QObject_IsWidgetType(@ptrCast(self));
+        return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: ?*C.QGesture ```
+    /// ``` self: QtC.QGesture ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
-        return C.QObject_IsWindowType(@ptrCast(self));
+        return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: ?*C.QGesture ```
+    /// ``` self: QtC.QGesture ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return C.QObject_IsQuickItemType(@ptrCast(self));
+        return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: ?*C.QGesture ```
+    /// ``` self: QtC.QGesture ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return C.QObject_SignalsBlocked(@ptrCast(self));
+        return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: ?*C.QGesture, b: bool ```
+    /// ``` self: QtC.QGesture, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return C.QObject_BlockSignals(@ptrCast(self), b);
+        return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: ?*C.QGesture ```
-    pub fn Thread(self: ?*anyopaque) ?*C.QThread {
-        return C.QObject_Thread(@ptrCast(self));
+    /// ``` self: QtC.QGesture ```
+    pub fn Thread(self: ?*anyopaque) QtC.QThread {
+        return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: ?*C.QGesture, thread: ?*C.QThread ```
+    /// ``` self: QtC.QGesture, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        C.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QGesture, interval: i32 ```
+    /// ``` self: QtC.QGesture, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return C.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: ?*C.QGesture, id: i32 ```
+    /// ``` self: QtC.QGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        C.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: ?*C.QGesture, allocator: std.mem.Allocator ```
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QObject {
-        const _arr: C.struct_libqt_list = C.QObject_Children(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QObject, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QObject = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QGesture, allocator: std.mem.Allocator ```
+    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
+        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qgesture.Children: Memory allocation failed");
+        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -278,123 +279,123 @@ pub const qgesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: ?*C.QGesture, parent: ?*C.QObject ```
+    /// ``` self: QtC.QGesture, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        C.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: ?*C.QGesture, filterObj: ?*C.QObject ```
+    /// ``` self: QtC.QGesture, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        C.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: ?*C.QGesture, obj: ?*C.QObject ```
+    /// ``` self: QtC.QGesture, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        C.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod ```
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QGesture, sender: ?*C.QObject, signal: []const u8, member: []const u8 ```
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QGesture, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, member: ?*C.QMetaMethod ```
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return C.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: ?*C.QMetaObject__Connection ```
+    /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return C.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: ?*C.QGesture ```
+    /// ``` self: QtC.QGesture ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
-        C.QObject_DumpObjectTree(@ptrCast(self));
+        qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: ?*C.QGesture ```
+    /// ``` self: QtC.QGesture ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        C.QObject_DumpObjectInfo(@ptrCast(self));
+        qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: ?*C.QGesture, name: []const u8, value: ?*C.QVariant ```
+    /// ``` self: QtC.QGesture, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: ?*C.QGesture, name: []const u8 ```
-    pub fn Property(self: ?*anyopaque, name: []const u8) ?*C.QVariant {
+    /// ``` self: QtC.QGesture, name: []const u8 ```
+    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_Property(@ptrCast(self), name_Cstring);
+        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: ?*C.QGesture, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: C.struct_libqt_list = C.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qgesture.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qgesture.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -405,107 +406,111 @@ pub const qgesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QGesture ```
-    pub fn BindingStorage(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage(@ptrCast(self));
+    /// ``` self: QtC.QGesture ```
+    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QGesture ```
-    pub fn BindingStorage2(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage2(@ptrCast(self));
+    /// ``` self: QtC.QGesture ```
+    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QGesture ```
+    /// ``` self: QtC.QGesture ```
     pub fn Destroyed(self: ?*anyopaque) void {
-        C.QObject_Destroyed(@ptrCast(self));
+        qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: ?*C.QGesture ```
-    pub fn Parent(self: ?*anyopaque) ?*C.QObject {
-        return C.QObject_Parent(@ptrCast(self));
+    /// ``` self: QtC.QGesture ```
+    pub fn Parent(self: ?*anyopaque) QtC.QObject {
+        return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: ?*C.QGesture, classname: []const u8 ```
+    /// ``` self: QtC.QGesture, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = @constCast(classname.ptr);
-        return C.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: ?*C.QGesture ```
+    /// ``` self: QtC.QGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
-        C.QObject_DeleteLater(@ptrCast(self));
+        qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ``` self: QtC.QGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return C.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QGesture, sender: ?*C.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QGesture, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QGesture, param1: ?*C.QObject ```
+    /// ``` self: QtC.QGesture, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject, ?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -514,27 +519,31 @@ pub const qgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QGesture, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QGesture_Event(@ptrCast(self), @ptrCast(event));
+        return qtc.QGesture_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QGesture, event: QtC.QEvent ```
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QGesture_QBaseEvent(@ptrCast(self), @ptrCast(event));
+        return qtc.QGesture_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, slot: fn (?*C.QGesture, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QGesture, slot: fn (self: QtC.QGesture, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QGesture_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGesture_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -543,27 +552,31 @@ pub const qgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QGesture_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QGesture_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QGesture_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QGesture_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, slot: fn (?*C.QGesture, ?*C.QObject, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QGesture, slot: fn (self: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QGesture_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGesture_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -572,27 +585,31 @@ pub const qgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QGesture, event: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QGesture_TimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QGesture_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QGesture, event: QtC.QTimerEvent ```
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QGesture_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QGesture_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, slot: fn (?*C.QGesture, ?*C.QTimerEvent) callconv(.c) void ```
+    /// ``` self: QtC.QGesture, slot: fn (self: QtC.QGesture, event: QtC.QTimerEvent) callconv(.c) void ```
     pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QGesture_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGesture_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -601,27 +618,31 @@ pub const qgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QGesture, event: QtC.QChildEvent ```
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QGesture_ChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QGesture_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QGesture, event: QtC.QChildEvent ```
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QGesture_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QGesture_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, slot: fn (?*C.QGesture, ?*C.QChildEvent) callconv(.c) void ```
+    /// ``` self: QtC.QGesture, slot: fn (self: QtC.QGesture, event: QtC.QChildEvent) callconv(.c) void ```
     pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QGesture_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGesture_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -630,27 +651,31 @@ pub const qgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QGesture, event: QtC.QEvent ```
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QGesture_CustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QGesture_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QGesture, event: QtC.QEvent ```
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QGesture_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QGesture_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, slot: fn (?*C.QGesture, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QGesture, slot: fn (self: QtC.QGesture, event: QtC.QEvent) callconv(.c) void ```
     pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QGesture_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGesture_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -659,27 +684,31 @@ pub const qgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QGesture, signal: QtC.QMetaMethod ```
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QGesture_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QGesture_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QGesture_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QGesture_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, slot: fn (?*C.QGesture, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QGesture, slot: fn (self: QtC.QGesture, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QGesture_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGesture_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -688,27 +717,31 @@ pub const qgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QGesture, signal: QtC.QMetaMethod ```
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QGesture_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QGesture_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QGesture_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QGesture_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, slot: fn (?*C.QGesture, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QGesture, slot: fn (self: QtC.QGesture, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QGesture_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGesture_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -717,27 +750,31 @@ pub const qgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture ```
-    pub fn Sender(self: ?*anyopaque) ?*C.QObject {
-        return C.QGesture_Sender(@ptrCast(self));
+    /// ``` self: QtC.QGesture ```
+    pub fn Sender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QGesture_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture ```
-    pub fn QBaseSender(self: ?*anyopaque) ?*C.QObject {
-        return C.QGesture_QBaseSender(@ptrCast(self));
+    /// ``` self: QtC.QGesture ```
+    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QGesture_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, slot: fn () callconv(.c) ?*C.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QObject) void {
-        C.QGesture_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGesture, slot: fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
+        qtc.QGesture_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -746,27 +783,31 @@ pub const qgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture ```
+    /// ``` self: QtC.QGesture ```
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QGesture_SenderSignalIndex(@ptrCast(self));
+        return qtc.QGesture_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture ```
+    /// ``` self: QtC.QGesture ```
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QGesture_QBaseSenderSignalIndex(@ptrCast(self));
+        return qtc.QGesture_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QGesture, slot: fn () callconv(.c) i32 ```
     pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QGesture_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGesture_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -775,29 +816,33 @@ pub const qgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, signal: []const u8 ```
+    /// ``` self: QtC.QGesture, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QGesture_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGesture_Receivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, signal: []const u8 ```
+    /// ``` self: QtC.QGesture, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, slot: fn (?*C.QGesture, []const u8) callconv(.c) i32 ```
+    /// ``` self: QtC.QGesture, slot: fn (self: QtC.QGesture, signal: []const u8) callconv(.c) i32 ```
     pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
-        C.QGesture_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGesture_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -806,34 +851,51 @@ pub const qgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QGesture, signal: QtC.QMetaMethod ```
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QGesture_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QGesture_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QGesture_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QGesture_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGesture, slot: fn (?*C.QGesture, ?*C.QMetaMethod) callconv(.c) bool ```
+    /// ``` self: QtC.QGesture, slot: fn (self: QtC.QGesture, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QGesture_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGesture_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    ///
+    /// Wrapper to allow calling private signal
+    ///
+    /// ``` self: QtC.QGesture, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#dtor.QGesture)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QGesture ```
+    /// ``` self: QtC.QGesture ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QGesture_Delete(@ptrCast(self));
+        qtc.QGesture_Delete(@ptrCast(self));
     }
 };
 
@@ -842,47 +904,47 @@ pub const qpangesture = struct {
     /// New constructs a new QPanGesture object.
     ///
     ///
-    pub fn New() ?*C.QPanGesture {
-        return C.QPanGesture_new();
+    pub fn New() QtC.QPanGesture {
+        return qtc.QPanGesture_new();
     }
 
     /// New2 constructs a new QPanGesture object.
     ///
-    /// ``` parent: ?*C.QObject ```
-    pub fn New2(parent: ?*anyopaque) ?*C.QPanGesture {
-        return C.QPanGesture_new2(@ptrCast(parent));
+    /// ``` parent: QtC.QObject ```
+    pub fn New2(parent: ?*anyopaque) QtC.QPanGesture {
+        return qtc.QPanGesture_new2(@ptrCast(parent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: ?*C.QPanGesture ```
-    pub fn MetaObject(self: ?*anyopaque) ?*C.QMetaObject {
-        return C.QPanGesture_MetaObject(@ptrCast(self));
+    /// ``` self: QtC.QPanGesture ```
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QPanGesture_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QPanGesture, param1: []const u8 ```
+    /// ``` self: QtC.QPanGesture, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = @constCast(param1.ptr);
-        return C.QPanGesture_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QPanGesture_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: ?*C.QPanGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QPanGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QPanGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QPanGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QPanGesture, slot: fn (?*C.QPanGesture, qobjectdefs_enums.Call, i32, ?*anyopaque) callconv(.c) i32 ```
+    /// ``` self: QtC.QPanGesture, slot: fn (self: QtC.QPanGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
     pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
-        C.QPanGesture_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPanGesture_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QPanGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QPanGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QPanGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QPanGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -890,9 +952,9 @@ pub const qpangesture = struct {
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
-        const _str = C.QPanGesture_Tr(s_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QPanGesture_Tr(s_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpangesture.Tr: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -901,51 +963,51 @@ pub const qpangesture = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpangesture.html#lastOffset)
     ///
-    /// ``` self: ?*C.QPanGesture ```
-    pub fn LastOffset(self: ?*anyopaque) ?*C.QPointF {
-        return C.QPanGesture_LastOffset(@ptrCast(self));
+    /// ``` self: QtC.QPanGesture ```
+    pub fn LastOffset(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QPanGesture_LastOffset(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpangesture.html#offset)
     ///
-    /// ``` self: ?*C.QPanGesture ```
-    pub fn Offset(self: ?*anyopaque) ?*C.QPointF {
-        return C.QPanGesture_Offset(@ptrCast(self));
+    /// ``` self: QtC.QPanGesture ```
+    pub fn Offset(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QPanGesture_Offset(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpangesture.html#delta)
     ///
-    /// ``` self: ?*C.QPanGesture ```
-    pub fn Delta(self: ?*anyopaque) ?*C.QPointF {
-        return C.QPanGesture_Delta(@ptrCast(self));
+    /// ``` self: QtC.QPanGesture ```
+    pub fn Delta(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QPanGesture_Delta(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpangesture.html#acceleration)
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn Acceleration(self: ?*anyopaque) f64 {
-        return C.QPanGesture_Acceleration(@ptrCast(self));
+        return qtc.QPanGesture_Acceleration(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpangesture.html#setLastOffset)
     ///
-    /// ``` self: ?*C.QPanGesture, value: ?*C.QPointF ```
+    /// ``` self: QtC.QPanGesture, value: QtC.QPointF ```
     pub fn SetLastOffset(self: ?*anyopaque, value: ?*anyopaque) void {
-        C.QPanGesture_SetLastOffset(@ptrCast(self), @ptrCast(value));
+        qtc.QPanGesture_SetLastOffset(@ptrCast(self), @ptrCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpangesture.html#setOffset)
     ///
-    /// ``` self: ?*C.QPanGesture, value: ?*C.QPointF ```
+    /// ``` self: QtC.QPanGesture, value: QtC.QPointF ```
     pub fn SetOffset(self: ?*anyopaque, value: ?*anyopaque) void {
-        C.QPanGesture_SetOffset(@ptrCast(self), @ptrCast(value));
+        qtc.QPanGesture_SetOffset(@ptrCast(self), @ptrCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpangesture.html#setAcceleration)
     ///
-    /// ``` self: ?*C.QPanGesture, value: f64 ```
+    /// ``` self: QtC.QPanGesture, value: f64 ```
     pub fn SetAcceleration(self: ?*anyopaque, value: f64) void {
-        C.QPanGesture_SetAcceleration(@ptrCast(self), @floatCast(value));
+        qtc.QPanGesture_SetAcceleration(@ptrCast(self), @floatCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -954,9 +1016,9 @@ pub const qpangesture = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QPanGesture_Tr2(s_Cstring, c_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QPanGesture_Tr2(s_Cstring, c_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpangesture.Tr2: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -969,9 +1031,9 @@ pub const qpangesture = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QPanGesture_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QPanGesture_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpangesture.Tr3: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -982,83 +1044,83 @@ pub const qpangesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn GestureType(self: ?*anyopaque) i64 {
-        return C.QGesture_GestureType(@ptrCast(self));
+        return qtc.QGesture_GestureType(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn State(self: ?*anyopaque) i64 {
-        return C.QGesture_State(@ptrCast(self));
+        return qtc.QGesture_State(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
     ///
-    /// ``` self: ?*C.QPanGesture ```
-    pub fn HotSpot(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGesture_HotSpot(@ptrCast(self));
+    /// ``` self: QtC.QPanGesture ```
+    pub fn HotSpot(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGesture_HotSpot(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
     ///
-    /// ``` self: ?*C.QPanGesture, value: ?*C.QPointF ```
+    /// ``` self: QtC.QPanGesture, value: QtC.QPointF ```
     pub fn SetHotSpot(self: ?*anyopaque, value: ?*anyopaque) void {
-        C.QGesture_SetHotSpot(@ptrCast(self), @ptrCast(value));
+        qtc.QGesture_SetHotSpot(@ptrCast(self), @ptrCast(value));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn HasHotSpot(self: ?*anyopaque) bool {
-        return C.QGesture_HasHotSpot(@ptrCast(self));
+        return qtc.QGesture_HasHotSpot(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn UnsetHotSpot(self: ?*anyopaque) void {
-        C.QGesture_UnsetHotSpot(@ptrCast(self));
+        qtc.QGesture_UnsetHotSpot(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
     ///
-    /// ``` self: ?*C.QPanGesture, policy: qgesture_enums.GestureCancelPolicy ```
+    /// ``` self: QtC.QPanGesture, policy: qgesture_enums.GestureCancelPolicy ```
     pub fn SetGestureCancelPolicy(self: ?*anyopaque, policy: i64) void {
-        C.QGesture_SetGestureCancelPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn GestureCancelPolicy(self: ?*anyopaque) i64 {
-        return C.QGesture_GestureCancelPolicy(@ptrCast(self));
+        return qtc.QGesture_GestureCancelPolicy(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: ?*C.QPanGesture, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QPanGesture, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QObject_ObjectName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpangesture.ObjectName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1069,102 +1131,102 @@ pub const qpangesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: ?*C.QPanGesture, name: []const u8 ```
+    /// ``` self: QtC.QPanGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return C.QObject_IsWidgetType(@ptrCast(self));
+        return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
-        return C.QObject_IsWindowType(@ptrCast(self));
+        return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return C.QObject_IsQuickItemType(@ptrCast(self));
+        return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return C.QObject_SignalsBlocked(@ptrCast(self));
+        return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: ?*C.QPanGesture, b: bool ```
+    /// ``` self: QtC.QPanGesture, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return C.QObject_BlockSignals(@ptrCast(self), b);
+        return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: ?*C.QPanGesture ```
-    pub fn Thread(self: ?*anyopaque) ?*C.QThread {
-        return C.QObject_Thread(@ptrCast(self));
+    /// ``` self: QtC.QPanGesture ```
+    pub fn Thread(self: ?*anyopaque) QtC.QThread {
+        return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: ?*C.QPanGesture, thread: ?*C.QThread ```
+    /// ``` self: QtC.QPanGesture, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        C.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QPanGesture, interval: i32 ```
+    /// ``` self: QtC.QPanGesture, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return C.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: ?*C.QPanGesture, id: i32 ```
+    /// ``` self: QtC.QPanGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        C.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: ?*C.QPanGesture, allocator: std.mem.Allocator ```
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QObject {
-        const _arr: C.struct_libqt_list = C.QObject_Children(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QObject, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QObject = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QPanGesture, allocator: std.mem.Allocator ```
+    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
+        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qpangesture.Children: Memory allocation failed");
+        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -1175,123 +1237,123 @@ pub const qpangesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: ?*C.QPanGesture, parent: ?*C.QObject ```
+    /// ``` self: QtC.QPanGesture, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        C.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: ?*C.QPanGesture, filterObj: ?*C.QObject ```
+    /// ``` self: QtC.QPanGesture, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        C.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: ?*C.QPanGesture, obj: ?*C.QObject ```
+    /// ``` self: QtC.QPanGesture, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        C.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod ```
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QPanGesture, sender: ?*C.QObject, signal: []const u8, member: []const u8 ```
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QPanGesture, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, member: ?*C.QMetaMethod ```
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return C.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: ?*C.QMetaObject__Connection ```
+    /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return C.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
-        C.QObject_DumpObjectTree(@ptrCast(self));
+        qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        C.QObject_DumpObjectInfo(@ptrCast(self));
+        qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: ?*C.QPanGesture, name: []const u8, value: ?*C.QVariant ```
+    /// ``` self: QtC.QPanGesture, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: ?*C.QPanGesture, name: []const u8 ```
-    pub fn Property(self: ?*anyopaque, name: []const u8) ?*C.QVariant {
+    /// ``` self: QtC.QPanGesture, name: []const u8 ```
+    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_Property(@ptrCast(self), name_Cstring);
+        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: ?*C.QPanGesture, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QPanGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: C.struct_libqt_list = C.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qpangesture.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qpangesture.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -1302,107 +1364,111 @@ pub const qpangesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QPanGesture ```
-    pub fn BindingStorage(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage(@ptrCast(self));
+    /// ``` self: QtC.QPanGesture ```
+    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QPanGesture ```
-    pub fn BindingStorage2(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage2(@ptrCast(self));
+    /// ``` self: QtC.QPanGesture ```
+    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn Destroyed(self: ?*anyopaque) void {
-        C.QObject_Destroyed(@ptrCast(self));
+        qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: ?*C.QPanGesture ```
-    pub fn Parent(self: ?*anyopaque) ?*C.QObject {
-        return C.QObject_Parent(@ptrCast(self));
+    /// ``` self: QtC.QPanGesture ```
+    pub fn Parent(self: ?*anyopaque) QtC.QObject {
+        return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: ?*C.QPanGesture, classname: []const u8 ```
+    /// ``` self: QtC.QPanGesture, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = @constCast(classname.ptr);
-        return C.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
-        C.QObject_DeleteLater(@ptrCast(self));
+        qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QPanGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ``` self: QtC.QPanGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return C.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QPanGesture, sender: ?*C.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QPanGesture, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QPanGesture, param1: ?*C.QObject ```
+    /// ``` self: QtC.QPanGesture, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject, ?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1411,27 +1477,31 @@ pub const qpangesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QPanGesture, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QPanGesture_Event(@ptrCast(self), @ptrCast(event));
+        return qtc.QPanGesture_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QPanGesture, event: QtC.QEvent ```
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QPanGesture_QBaseEvent(@ptrCast(self), @ptrCast(event));
+        return qtc.QPanGesture_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, slot: fn (?*C.QPanGesture, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QPanGesture, slot: fn (self: QtC.QPanGesture, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QPanGesture_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPanGesture_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1440,27 +1510,31 @@ pub const qpangesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QPanGesture, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QPanGesture_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QPanGesture_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QPanGesture, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QPanGesture_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QPanGesture_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, slot: fn (?*C.QPanGesture, ?*C.QObject, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QPanGesture, slot: fn (self: QtC.QPanGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QPanGesture_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPanGesture_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1469,27 +1543,31 @@ pub const qpangesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QPanGesture, event: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QPanGesture_TimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QPanGesture_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QPanGesture, event: QtC.QTimerEvent ```
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QPanGesture_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QPanGesture_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, slot: fn (?*C.QPanGesture, ?*C.QTimerEvent) callconv(.c) void ```
+    /// ``` self: QtC.QPanGesture, slot: fn (self: QtC.QPanGesture, event: QtC.QTimerEvent) callconv(.c) void ```
     pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QPanGesture_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPanGesture_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1498,27 +1576,31 @@ pub const qpangesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QPanGesture, event: QtC.QChildEvent ```
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QPanGesture_ChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QPanGesture_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QPanGesture, event: QtC.QChildEvent ```
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QPanGesture_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QPanGesture_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, slot: fn (?*C.QPanGesture, ?*C.QChildEvent) callconv(.c) void ```
+    /// ``` self: QtC.QPanGesture, slot: fn (self: QtC.QPanGesture, event: QtC.QChildEvent) callconv(.c) void ```
     pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QPanGesture_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPanGesture_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1527,27 +1609,31 @@ pub const qpangesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QPanGesture, event: QtC.QEvent ```
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QPanGesture_CustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QPanGesture_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QPanGesture, event: QtC.QEvent ```
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QPanGesture_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QPanGesture_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, slot: fn (?*C.QPanGesture, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QPanGesture, slot: fn (self: QtC.QPanGesture, event: QtC.QEvent) callconv(.c) void ```
     pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QPanGesture_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPanGesture_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1556,27 +1642,31 @@ pub const qpangesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QPanGesture, signal: QtC.QMetaMethod ```
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QPanGesture_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QPanGesture_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QPanGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QPanGesture_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QPanGesture_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, slot: fn (?*C.QPanGesture, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QPanGesture, slot: fn (self: QtC.QPanGesture, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QPanGesture_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPanGesture_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1585,27 +1675,31 @@ pub const qpangesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QPanGesture, signal: QtC.QMetaMethod ```
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QPanGesture_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QPanGesture_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QPanGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QPanGesture_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QPanGesture_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, slot: fn (?*C.QPanGesture, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QPanGesture, slot: fn (self: QtC.QPanGesture, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QPanGesture_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPanGesture_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1614,27 +1708,31 @@ pub const qpangesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture ```
-    pub fn Sender(self: ?*anyopaque) ?*C.QObject {
-        return C.QPanGesture_Sender(@ptrCast(self));
+    /// ``` self: QtC.QPanGesture ```
+    pub fn Sender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QPanGesture_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture ```
-    pub fn QBaseSender(self: ?*anyopaque) ?*C.QObject {
-        return C.QPanGesture_QBaseSender(@ptrCast(self));
+    /// ``` self: QtC.QPanGesture ```
+    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QPanGesture_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, slot: fn () callconv(.c) ?*C.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QObject) void {
-        C.QPanGesture_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPanGesture, slot: fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
+        qtc.QPanGesture_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1643,27 +1741,31 @@ pub const qpangesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QPanGesture_SenderSignalIndex(@ptrCast(self));
+        return qtc.QPanGesture_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QPanGesture_QBaseSenderSignalIndex(@ptrCast(self));
+        return qtc.QPanGesture_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QPanGesture, slot: fn () callconv(.c) i32 ```
     pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QPanGesture_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPanGesture_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1672,29 +1774,33 @@ pub const qpangesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, signal: []const u8 ```
+    /// ``` self: QtC.QPanGesture, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QPanGesture_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QPanGesture_Receivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, signal: []const u8 ```
+    /// ``` self: QtC.QPanGesture, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QPanGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QPanGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, slot: fn (?*C.QPanGesture, []const u8) callconv(.c) i32 ```
+    /// ``` self: QtC.QPanGesture, slot: fn (self: QtC.QPanGesture, signal: []const u8) callconv(.c) i32 ```
     pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
-        C.QPanGesture_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPanGesture_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1703,34 +1809,51 @@ pub const qpangesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QPanGesture, signal: QtC.QMetaMethod ```
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QPanGesture_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QPanGesture_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QPanGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QPanGesture_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QPanGesture_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPanGesture, slot: fn (?*C.QPanGesture, ?*C.QMetaMethod) callconv(.c) bool ```
+    /// ``` self: QtC.QPanGesture, slot: fn (self: QtC.QPanGesture, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QPanGesture_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPanGesture_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    ///
+    /// Wrapper to allow calling private signal
+    ///
+    /// ``` self: QtC.QPanGesture, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpangesture.html#dtor.QPanGesture)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QPanGesture ```
+    /// ``` self: QtC.QPanGesture ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QPanGesture_Delete(@ptrCast(self));
+        qtc.QPanGesture_Delete(@ptrCast(self));
     }
 };
 
@@ -1739,47 +1862,47 @@ pub const qpinchgesture = struct {
     /// New constructs a new QPinchGesture object.
     ///
     ///
-    pub fn New() ?*C.QPinchGesture {
-        return C.QPinchGesture_new();
+    pub fn New() QtC.QPinchGesture {
+        return qtc.QPinchGesture_new();
     }
 
     /// New2 constructs a new QPinchGesture object.
     ///
-    /// ``` parent: ?*C.QObject ```
-    pub fn New2(parent: ?*anyopaque) ?*C.QPinchGesture {
-        return C.QPinchGesture_new2(@ptrCast(parent));
+    /// ``` parent: QtC.QObject ```
+    pub fn New2(parent: ?*anyopaque) QtC.QPinchGesture {
+        return qtc.QPinchGesture_new2(@ptrCast(parent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
-    pub fn MetaObject(self: ?*anyopaque) ?*C.QMetaObject {
-        return C.QPinchGesture_MetaObject(@ptrCast(self));
+    /// ``` self: QtC.QPinchGesture ```
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QPinchGesture_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QPinchGesture, param1: []const u8 ```
+    /// ``` self: QtC.QPinchGesture, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = @constCast(param1.ptr);
-        return C.QPinchGesture_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QPinchGesture_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: ?*C.QPinchGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QPinchGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QPinchGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QPinchGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QPinchGesture, slot: fn (?*C.QPinchGesture, qobjectdefs_enums.Call, i32, ?*anyopaque) callconv(.c) i32 ```
+    /// ``` self: QtC.QPinchGesture, slot: fn (self: QtC.QPinchGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
     pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
-        C.QPinchGesture_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPinchGesture_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QPinchGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QPinchGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QPinchGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QPinchGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1787,9 +1910,9 @@ pub const qpinchgesture = struct {
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
-        const _str = C.QPinchGesture_Tr(s_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QPinchGesture_Tr(s_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpinchgesture.Tr: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1798,156 +1921,156 @@ pub const qpinchgesture = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#totalChangeFlags)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn TotalChangeFlags(self: ?*anyopaque) i64 {
-        return C.QPinchGesture_TotalChangeFlags(@ptrCast(self));
+        return qtc.QPinchGesture_TotalChangeFlags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setTotalChangeFlags)
     ///
-    /// ``` self: ?*C.QPinchGesture, value: i32 ```
+    /// ``` self: QtC.QPinchGesture, value: i32 ```
     pub fn SetTotalChangeFlags(self: ?*anyopaque, value: i64) void {
-        C.QPinchGesture_SetTotalChangeFlags(@ptrCast(self), @intCast(value));
+        qtc.QPinchGesture_SetTotalChangeFlags(@ptrCast(self), @intCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#changeFlags)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn ChangeFlags(self: ?*anyopaque) i64 {
-        return C.QPinchGesture_ChangeFlags(@ptrCast(self));
+        return qtc.QPinchGesture_ChangeFlags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setChangeFlags)
     ///
-    /// ``` self: ?*C.QPinchGesture, value: i32 ```
+    /// ``` self: QtC.QPinchGesture, value: i32 ```
     pub fn SetChangeFlags(self: ?*anyopaque, value: i64) void {
-        C.QPinchGesture_SetChangeFlags(@ptrCast(self), @intCast(value));
+        qtc.QPinchGesture_SetChangeFlags(@ptrCast(self), @intCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#startCenterPoint)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
-    pub fn StartCenterPoint(self: ?*anyopaque) ?*C.QPointF {
-        return C.QPinchGesture_StartCenterPoint(@ptrCast(self));
+    /// ``` self: QtC.QPinchGesture ```
+    pub fn StartCenterPoint(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QPinchGesture_StartCenterPoint(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#lastCenterPoint)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
-    pub fn LastCenterPoint(self: ?*anyopaque) ?*C.QPointF {
-        return C.QPinchGesture_LastCenterPoint(@ptrCast(self));
+    /// ``` self: QtC.QPinchGesture ```
+    pub fn LastCenterPoint(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QPinchGesture_LastCenterPoint(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#centerPoint)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
-    pub fn CenterPoint(self: ?*anyopaque) ?*C.QPointF {
-        return C.QPinchGesture_CenterPoint(@ptrCast(self));
+    /// ``` self: QtC.QPinchGesture ```
+    pub fn CenterPoint(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QPinchGesture_CenterPoint(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setStartCenterPoint)
     ///
-    /// ``` self: ?*C.QPinchGesture, value: ?*C.QPointF ```
+    /// ``` self: QtC.QPinchGesture, value: QtC.QPointF ```
     pub fn SetStartCenterPoint(self: ?*anyopaque, value: ?*anyopaque) void {
-        C.QPinchGesture_SetStartCenterPoint(@ptrCast(self), @ptrCast(value));
+        qtc.QPinchGesture_SetStartCenterPoint(@ptrCast(self), @ptrCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setLastCenterPoint)
     ///
-    /// ``` self: ?*C.QPinchGesture, value: ?*C.QPointF ```
+    /// ``` self: QtC.QPinchGesture, value: QtC.QPointF ```
     pub fn SetLastCenterPoint(self: ?*anyopaque, value: ?*anyopaque) void {
-        C.QPinchGesture_SetLastCenterPoint(@ptrCast(self), @ptrCast(value));
+        qtc.QPinchGesture_SetLastCenterPoint(@ptrCast(self), @ptrCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setCenterPoint)
     ///
-    /// ``` self: ?*C.QPinchGesture, value: ?*C.QPointF ```
+    /// ``` self: QtC.QPinchGesture, value: QtC.QPointF ```
     pub fn SetCenterPoint(self: ?*anyopaque, value: ?*anyopaque) void {
-        C.QPinchGesture_SetCenterPoint(@ptrCast(self), @ptrCast(value));
+        qtc.QPinchGesture_SetCenterPoint(@ptrCast(self), @ptrCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#totalScaleFactor)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn TotalScaleFactor(self: ?*anyopaque) f64 {
-        return C.QPinchGesture_TotalScaleFactor(@ptrCast(self));
+        return qtc.QPinchGesture_TotalScaleFactor(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#lastScaleFactor)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn LastScaleFactor(self: ?*anyopaque) f64 {
-        return C.QPinchGesture_LastScaleFactor(@ptrCast(self));
+        return qtc.QPinchGesture_LastScaleFactor(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#scaleFactor)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn ScaleFactor(self: ?*anyopaque) f64 {
-        return C.QPinchGesture_ScaleFactor(@ptrCast(self));
+        return qtc.QPinchGesture_ScaleFactor(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setTotalScaleFactor)
     ///
-    /// ``` self: ?*C.QPinchGesture, value: f64 ```
+    /// ``` self: QtC.QPinchGesture, value: f64 ```
     pub fn SetTotalScaleFactor(self: ?*anyopaque, value: f64) void {
-        C.QPinchGesture_SetTotalScaleFactor(@ptrCast(self), @floatCast(value));
+        qtc.QPinchGesture_SetTotalScaleFactor(@ptrCast(self), @floatCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setLastScaleFactor)
     ///
-    /// ``` self: ?*C.QPinchGesture, value: f64 ```
+    /// ``` self: QtC.QPinchGesture, value: f64 ```
     pub fn SetLastScaleFactor(self: ?*anyopaque, value: f64) void {
-        C.QPinchGesture_SetLastScaleFactor(@ptrCast(self), @floatCast(value));
+        qtc.QPinchGesture_SetLastScaleFactor(@ptrCast(self), @floatCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setScaleFactor)
     ///
-    /// ``` self: ?*C.QPinchGesture, value: f64 ```
+    /// ``` self: QtC.QPinchGesture, value: f64 ```
     pub fn SetScaleFactor(self: ?*anyopaque, value: f64) void {
-        C.QPinchGesture_SetScaleFactor(@ptrCast(self), @floatCast(value));
+        qtc.QPinchGesture_SetScaleFactor(@ptrCast(self), @floatCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#totalRotationAngle)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn TotalRotationAngle(self: ?*anyopaque) f64 {
-        return C.QPinchGesture_TotalRotationAngle(@ptrCast(self));
+        return qtc.QPinchGesture_TotalRotationAngle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#lastRotationAngle)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn LastRotationAngle(self: ?*anyopaque) f64 {
-        return C.QPinchGesture_LastRotationAngle(@ptrCast(self));
+        return qtc.QPinchGesture_LastRotationAngle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#rotationAngle)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn RotationAngle(self: ?*anyopaque) f64 {
-        return C.QPinchGesture_RotationAngle(@ptrCast(self));
+        return qtc.QPinchGesture_RotationAngle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setTotalRotationAngle)
     ///
-    /// ``` self: ?*C.QPinchGesture, value: f64 ```
+    /// ``` self: QtC.QPinchGesture, value: f64 ```
     pub fn SetTotalRotationAngle(self: ?*anyopaque, value: f64) void {
-        C.QPinchGesture_SetTotalRotationAngle(@ptrCast(self), @floatCast(value));
+        qtc.QPinchGesture_SetTotalRotationAngle(@ptrCast(self), @floatCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setLastRotationAngle)
     ///
-    /// ``` self: ?*C.QPinchGesture, value: f64 ```
+    /// ``` self: QtC.QPinchGesture, value: f64 ```
     pub fn SetLastRotationAngle(self: ?*anyopaque, value: f64) void {
-        C.QPinchGesture_SetLastRotationAngle(@ptrCast(self), @floatCast(value));
+        qtc.QPinchGesture_SetLastRotationAngle(@ptrCast(self), @floatCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setRotationAngle)
     ///
-    /// ``` self: ?*C.QPinchGesture, value: f64 ```
+    /// ``` self: QtC.QPinchGesture, value: f64 ```
     pub fn SetRotationAngle(self: ?*anyopaque, value: f64) void {
-        C.QPinchGesture_SetRotationAngle(@ptrCast(self), @floatCast(value));
+        qtc.QPinchGesture_SetRotationAngle(@ptrCast(self), @floatCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1956,9 +2079,9 @@ pub const qpinchgesture = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QPinchGesture_Tr2(s_Cstring, c_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QPinchGesture_Tr2(s_Cstring, c_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpinchgesture.Tr2: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1971,9 +2094,9 @@ pub const qpinchgesture = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QPinchGesture_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QPinchGesture_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpinchgesture.Tr3: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1984,83 +2107,83 @@ pub const qpinchgesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn GestureType(self: ?*anyopaque) i64 {
-        return C.QGesture_GestureType(@ptrCast(self));
+        return qtc.QGesture_GestureType(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn State(self: ?*anyopaque) i64 {
-        return C.QGesture_State(@ptrCast(self));
+        return qtc.QGesture_State(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
-    pub fn HotSpot(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGesture_HotSpot(@ptrCast(self));
+    /// ``` self: QtC.QPinchGesture ```
+    pub fn HotSpot(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGesture_HotSpot(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
     ///
-    /// ``` self: ?*C.QPinchGesture, value: ?*C.QPointF ```
+    /// ``` self: QtC.QPinchGesture, value: QtC.QPointF ```
     pub fn SetHotSpot(self: ?*anyopaque, value: ?*anyopaque) void {
-        C.QGesture_SetHotSpot(@ptrCast(self), @ptrCast(value));
+        qtc.QGesture_SetHotSpot(@ptrCast(self), @ptrCast(value));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn HasHotSpot(self: ?*anyopaque) bool {
-        return C.QGesture_HasHotSpot(@ptrCast(self));
+        return qtc.QGesture_HasHotSpot(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn UnsetHotSpot(self: ?*anyopaque) void {
-        C.QGesture_UnsetHotSpot(@ptrCast(self));
+        qtc.QGesture_UnsetHotSpot(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
     ///
-    /// ``` self: ?*C.QPinchGesture, policy: qgesture_enums.GestureCancelPolicy ```
+    /// ``` self: QtC.QPinchGesture, policy: qgesture_enums.GestureCancelPolicy ```
     pub fn SetGestureCancelPolicy(self: ?*anyopaque, policy: i64) void {
-        C.QGesture_SetGestureCancelPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn GestureCancelPolicy(self: ?*anyopaque) i64 {
-        return C.QGesture_GestureCancelPolicy(@ptrCast(self));
+        return qtc.QGesture_GestureCancelPolicy(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: ?*C.QPinchGesture, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QPinchGesture, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QObject_ObjectName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpinchgesture.ObjectName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2071,102 +2194,102 @@ pub const qpinchgesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: ?*C.QPinchGesture, name: []const u8 ```
+    /// ``` self: QtC.QPinchGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return C.QObject_IsWidgetType(@ptrCast(self));
+        return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
-        return C.QObject_IsWindowType(@ptrCast(self));
+        return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return C.QObject_IsQuickItemType(@ptrCast(self));
+        return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return C.QObject_SignalsBlocked(@ptrCast(self));
+        return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: ?*C.QPinchGesture, b: bool ```
+    /// ``` self: QtC.QPinchGesture, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return C.QObject_BlockSignals(@ptrCast(self), b);
+        return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
-    pub fn Thread(self: ?*anyopaque) ?*C.QThread {
-        return C.QObject_Thread(@ptrCast(self));
+    /// ``` self: QtC.QPinchGesture ```
+    pub fn Thread(self: ?*anyopaque) QtC.QThread {
+        return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: ?*C.QPinchGesture, thread: ?*C.QThread ```
+    /// ``` self: QtC.QPinchGesture, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        C.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QPinchGesture, interval: i32 ```
+    /// ``` self: QtC.QPinchGesture, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return C.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: ?*C.QPinchGesture, id: i32 ```
+    /// ``` self: QtC.QPinchGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        C.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: ?*C.QPinchGesture, allocator: std.mem.Allocator ```
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QObject {
-        const _arr: C.struct_libqt_list = C.QObject_Children(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QObject, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QObject = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QPinchGesture, allocator: std.mem.Allocator ```
+    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
+        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qpinchgesture.Children: Memory allocation failed");
+        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -2177,123 +2300,123 @@ pub const qpinchgesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: ?*C.QPinchGesture, parent: ?*C.QObject ```
+    /// ``` self: QtC.QPinchGesture, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        C.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: ?*C.QPinchGesture, filterObj: ?*C.QObject ```
+    /// ``` self: QtC.QPinchGesture, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        C.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: ?*C.QPinchGesture, obj: ?*C.QObject ```
+    /// ``` self: QtC.QPinchGesture, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        C.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod ```
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QPinchGesture, sender: ?*C.QObject, signal: []const u8, member: []const u8 ```
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QPinchGesture, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, member: ?*C.QMetaMethod ```
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return C.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: ?*C.QMetaObject__Connection ```
+    /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return C.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
-        C.QObject_DumpObjectTree(@ptrCast(self));
+        qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        C.QObject_DumpObjectInfo(@ptrCast(self));
+        qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: ?*C.QPinchGesture, name: []const u8, value: ?*C.QVariant ```
+    /// ``` self: QtC.QPinchGesture, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: ?*C.QPinchGesture, name: []const u8 ```
-    pub fn Property(self: ?*anyopaque, name: []const u8) ?*C.QVariant {
+    /// ``` self: QtC.QPinchGesture, name: []const u8 ```
+    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_Property(@ptrCast(self), name_Cstring);
+        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: ?*C.QPinchGesture, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QPinchGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: C.struct_libqt_list = C.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qpinchgesture.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qpinchgesture.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -2304,107 +2427,111 @@ pub const qpinchgesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
-    pub fn BindingStorage(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage(@ptrCast(self));
+    /// ``` self: QtC.QPinchGesture ```
+    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
-    pub fn BindingStorage2(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage2(@ptrCast(self));
+    /// ``` self: QtC.QPinchGesture ```
+    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn Destroyed(self: ?*anyopaque) void {
-        C.QObject_Destroyed(@ptrCast(self));
+        qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
-    pub fn Parent(self: ?*anyopaque) ?*C.QObject {
-        return C.QObject_Parent(@ptrCast(self));
+    /// ``` self: QtC.QPinchGesture ```
+    pub fn Parent(self: ?*anyopaque) QtC.QObject {
+        return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: ?*C.QPinchGesture, classname: []const u8 ```
+    /// ``` self: QtC.QPinchGesture, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = @constCast(classname.ptr);
-        return C.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
-        C.QObject_DeleteLater(@ptrCast(self));
+        qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QPinchGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ``` self: QtC.QPinchGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return C.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QPinchGesture, sender: ?*C.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QPinchGesture, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QPinchGesture, param1: ?*C.QObject ```
+    /// ``` self: QtC.QPinchGesture, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject, ?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -2413,27 +2540,31 @@ pub const qpinchgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QPinchGesture, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QPinchGesture_Event(@ptrCast(self), @ptrCast(event));
+        return qtc.QPinchGesture_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QPinchGesture, event: QtC.QEvent ```
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QPinchGesture_QBaseEvent(@ptrCast(self), @ptrCast(event));
+        return qtc.QPinchGesture_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, slot: fn (?*C.QPinchGesture, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QPinchGesture, slot: fn (self: QtC.QPinchGesture, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QPinchGesture_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPinchGesture_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -2442,27 +2573,31 @@ pub const qpinchgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QPinchGesture, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QPinchGesture_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QPinchGesture_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QPinchGesture, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QPinchGesture_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QPinchGesture_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, slot: fn (?*C.QPinchGesture, ?*C.QObject, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QPinchGesture, slot: fn (self: QtC.QPinchGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QPinchGesture_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPinchGesture_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -2471,27 +2606,31 @@ pub const qpinchgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QPinchGesture, event: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QPinchGesture_TimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QPinchGesture_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QPinchGesture, event: QtC.QTimerEvent ```
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QPinchGesture_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QPinchGesture_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, slot: fn (?*C.QPinchGesture, ?*C.QTimerEvent) callconv(.c) void ```
+    /// ``` self: QtC.QPinchGesture, slot: fn (self: QtC.QPinchGesture, event: QtC.QTimerEvent) callconv(.c) void ```
     pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QPinchGesture_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPinchGesture_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -2500,27 +2639,31 @@ pub const qpinchgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QPinchGesture, event: QtC.QChildEvent ```
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QPinchGesture_ChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QPinchGesture_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QPinchGesture, event: QtC.QChildEvent ```
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QPinchGesture_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QPinchGesture_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, slot: fn (?*C.QPinchGesture, ?*C.QChildEvent) callconv(.c) void ```
+    /// ``` self: QtC.QPinchGesture, slot: fn (self: QtC.QPinchGesture, event: QtC.QChildEvent) callconv(.c) void ```
     pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QPinchGesture_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPinchGesture_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -2529,27 +2672,31 @@ pub const qpinchgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QPinchGesture, event: QtC.QEvent ```
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QPinchGesture_CustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QPinchGesture_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QPinchGesture, event: QtC.QEvent ```
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QPinchGesture_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QPinchGesture_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, slot: fn (?*C.QPinchGesture, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QPinchGesture, slot: fn (self: QtC.QPinchGesture, event: QtC.QEvent) callconv(.c) void ```
     pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QPinchGesture_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPinchGesture_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -2558,27 +2705,31 @@ pub const qpinchgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QPinchGesture, signal: QtC.QMetaMethod ```
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QPinchGesture_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QPinchGesture_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QPinchGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QPinchGesture_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QPinchGesture_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, slot: fn (?*C.QPinchGesture, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QPinchGesture, slot: fn (self: QtC.QPinchGesture, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QPinchGesture_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPinchGesture_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -2587,27 +2738,31 @@ pub const qpinchgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QPinchGesture, signal: QtC.QMetaMethod ```
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QPinchGesture_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QPinchGesture_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QPinchGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QPinchGesture_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QPinchGesture_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, slot: fn (?*C.QPinchGesture, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QPinchGesture, slot: fn (self: QtC.QPinchGesture, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QPinchGesture_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPinchGesture_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -2616,27 +2771,31 @@ pub const qpinchgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture ```
-    pub fn Sender(self: ?*anyopaque) ?*C.QObject {
-        return C.QPinchGesture_Sender(@ptrCast(self));
+    /// ``` self: QtC.QPinchGesture ```
+    pub fn Sender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QPinchGesture_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture ```
-    pub fn QBaseSender(self: ?*anyopaque) ?*C.QObject {
-        return C.QPinchGesture_QBaseSender(@ptrCast(self));
+    /// ``` self: QtC.QPinchGesture ```
+    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QPinchGesture_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, slot: fn () callconv(.c) ?*C.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QObject) void {
-        C.QPinchGesture_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPinchGesture, slot: fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
+        qtc.QPinchGesture_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -2645,27 +2804,31 @@ pub const qpinchgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QPinchGesture_SenderSignalIndex(@ptrCast(self));
+        return qtc.QPinchGesture_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QPinchGesture_QBaseSenderSignalIndex(@ptrCast(self));
+        return qtc.QPinchGesture_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QPinchGesture, slot: fn () callconv(.c) i32 ```
     pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QPinchGesture_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPinchGesture_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -2674,29 +2837,33 @@ pub const qpinchgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, signal: []const u8 ```
+    /// ``` self: QtC.QPinchGesture, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QPinchGesture_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QPinchGesture_Receivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, signal: []const u8 ```
+    /// ``` self: QtC.QPinchGesture, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QPinchGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QPinchGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, slot: fn (?*C.QPinchGesture, []const u8) callconv(.c) i32 ```
+    /// ``` self: QtC.QPinchGesture, slot: fn (self: QtC.QPinchGesture, signal: []const u8) callconv(.c) i32 ```
     pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
-        C.QPinchGesture_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPinchGesture_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -2705,34 +2872,51 @@ pub const qpinchgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QPinchGesture, signal: QtC.QMetaMethod ```
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QPinchGesture_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QPinchGesture_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QPinchGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QPinchGesture_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QPinchGesture_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QPinchGesture, slot: fn (?*C.QPinchGesture, ?*C.QMetaMethod) callconv(.c) bool ```
+    /// ``` self: QtC.QPinchGesture, slot: fn (self: QtC.QPinchGesture, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QPinchGesture_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QPinchGesture_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    ///
+    /// Wrapper to allow calling private signal
+    ///
+    /// ``` self: QtC.QPinchGesture, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#dtor.QPinchGesture)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QPinchGesture ```
+    /// ``` self: QtC.QPinchGesture ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QPinchGesture_Delete(@ptrCast(self));
+        qtc.QPinchGesture_Delete(@ptrCast(self));
     }
 };
 
@@ -2741,47 +2925,47 @@ pub const qswipegesture = struct {
     /// New constructs a new QSwipeGesture object.
     ///
     ///
-    pub fn New() ?*C.QSwipeGesture {
-        return C.QSwipeGesture_new();
+    pub fn New() QtC.QSwipeGesture {
+        return qtc.QSwipeGesture_new();
     }
 
     /// New2 constructs a new QSwipeGesture object.
     ///
-    /// ``` parent: ?*C.QObject ```
-    pub fn New2(parent: ?*anyopaque) ?*C.QSwipeGesture {
-        return C.QSwipeGesture_new2(@ptrCast(parent));
+    /// ``` parent: QtC.QObject ```
+    pub fn New2(parent: ?*anyopaque) QtC.QSwipeGesture {
+        return qtc.QSwipeGesture_new2(@ptrCast(parent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
-    pub fn MetaObject(self: ?*anyopaque) ?*C.QMetaObject {
-        return C.QSwipeGesture_MetaObject(@ptrCast(self));
+    /// ``` self: QtC.QSwipeGesture ```
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QSwipeGesture_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QSwipeGesture, param1: []const u8 ```
+    /// ``` self: QtC.QSwipeGesture, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = @constCast(param1.ptr);
-        return C.QSwipeGesture_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QSwipeGesture_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: ?*C.QSwipeGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QSwipeGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QSwipeGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QSwipeGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QSwipeGesture, slot: fn (?*C.QSwipeGesture, qobjectdefs_enums.Call, i32, ?*anyopaque) callconv(.c) i32 ```
+    /// ``` self: QtC.QSwipeGesture, slot: fn (self: QtC.QSwipeGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
     pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
-        C.QSwipeGesture_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QSwipeGesture_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QSwipeGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QSwipeGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QSwipeGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QSwipeGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2789,9 +2973,9 @@ pub const qswipegesture = struct {
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
-        const _str = C.QSwipeGesture_Tr(s_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QSwipeGesture_Tr(s_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qswipegesture.Tr: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2800,30 +2984,30 @@ pub const qswipegesture = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qswipegesture.html#horizontalDirection)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn HorizontalDirection(self: ?*anyopaque) i64 {
-        return C.QSwipeGesture_HorizontalDirection(@ptrCast(self));
+        return qtc.QSwipeGesture_HorizontalDirection(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qswipegesture.html#verticalDirection)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn VerticalDirection(self: ?*anyopaque) i64 {
-        return C.QSwipeGesture_VerticalDirection(@ptrCast(self));
+        return qtc.QSwipeGesture_VerticalDirection(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qswipegesture.html#swipeAngle)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn SwipeAngle(self: ?*anyopaque) f64 {
-        return C.QSwipeGesture_SwipeAngle(@ptrCast(self));
+        return qtc.QSwipeGesture_SwipeAngle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qswipegesture.html#setSwipeAngle)
     ///
-    /// ``` self: ?*C.QSwipeGesture, value: f64 ```
+    /// ``` self: QtC.QSwipeGesture, value: f64 ```
     pub fn SetSwipeAngle(self: ?*anyopaque, value: f64) void {
-        C.QSwipeGesture_SetSwipeAngle(@ptrCast(self), @floatCast(value));
+        qtc.QSwipeGesture_SetSwipeAngle(@ptrCast(self), @floatCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2832,9 +3016,9 @@ pub const qswipegesture = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QSwipeGesture_Tr2(s_Cstring, c_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QSwipeGesture_Tr2(s_Cstring, c_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qswipegesture.Tr2: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2847,9 +3031,9 @@ pub const qswipegesture = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QSwipeGesture_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QSwipeGesture_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qswipegesture.Tr3: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2860,83 +3044,83 @@ pub const qswipegesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn GestureType(self: ?*anyopaque) i64 {
-        return C.QGesture_GestureType(@ptrCast(self));
+        return qtc.QGesture_GestureType(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn State(self: ?*anyopaque) i64 {
-        return C.QGesture_State(@ptrCast(self));
+        return qtc.QGesture_State(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
-    pub fn HotSpot(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGesture_HotSpot(@ptrCast(self));
+    /// ``` self: QtC.QSwipeGesture ```
+    pub fn HotSpot(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGesture_HotSpot(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
     ///
-    /// ``` self: ?*C.QSwipeGesture, value: ?*C.QPointF ```
+    /// ``` self: QtC.QSwipeGesture, value: QtC.QPointF ```
     pub fn SetHotSpot(self: ?*anyopaque, value: ?*anyopaque) void {
-        C.QGesture_SetHotSpot(@ptrCast(self), @ptrCast(value));
+        qtc.QGesture_SetHotSpot(@ptrCast(self), @ptrCast(value));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn HasHotSpot(self: ?*anyopaque) bool {
-        return C.QGesture_HasHotSpot(@ptrCast(self));
+        return qtc.QGesture_HasHotSpot(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn UnsetHotSpot(self: ?*anyopaque) void {
-        C.QGesture_UnsetHotSpot(@ptrCast(self));
+        qtc.QGesture_UnsetHotSpot(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
     ///
-    /// ``` self: ?*C.QSwipeGesture, policy: qgesture_enums.GestureCancelPolicy ```
+    /// ``` self: QtC.QSwipeGesture, policy: qgesture_enums.GestureCancelPolicy ```
     pub fn SetGestureCancelPolicy(self: ?*anyopaque, policy: i64) void {
-        C.QGesture_SetGestureCancelPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn GestureCancelPolicy(self: ?*anyopaque) i64 {
-        return C.QGesture_GestureCancelPolicy(@ptrCast(self));
+        return qtc.QGesture_GestureCancelPolicy(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: ?*C.QSwipeGesture, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QSwipeGesture, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QObject_ObjectName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qswipegesture.ObjectName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2947,102 +3131,102 @@ pub const qswipegesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: ?*C.QSwipeGesture, name: []const u8 ```
+    /// ``` self: QtC.QSwipeGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return C.QObject_IsWidgetType(@ptrCast(self));
+        return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
-        return C.QObject_IsWindowType(@ptrCast(self));
+        return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return C.QObject_IsQuickItemType(@ptrCast(self));
+        return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return C.QObject_SignalsBlocked(@ptrCast(self));
+        return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: ?*C.QSwipeGesture, b: bool ```
+    /// ``` self: QtC.QSwipeGesture, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return C.QObject_BlockSignals(@ptrCast(self), b);
+        return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
-    pub fn Thread(self: ?*anyopaque) ?*C.QThread {
-        return C.QObject_Thread(@ptrCast(self));
+    /// ``` self: QtC.QSwipeGesture ```
+    pub fn Thread(self: ?*anyopaque) QtC.QThread {
+        return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: ?*C.QSwipeGesture, thread: ?*C.QThread ```
+    /// ``` self: QtC.QSwipeGesture, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        C.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QSwipeGesture, interval: i32 ```
+    /// ``` self: QtC.QSwipeGesture, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return C.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: ?*C.QSwipeGesture, id: i32 ```
+    /// ``` self: QtC.QSwipeGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        C.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: ?*C.QSwipeGesture, allocator: std.mem.Allocator ```
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QObject {
-        const _arr: C.struct_libqt_list = C.QObject_Children(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QObject, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QObject = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QSwipeGesture, allocator: std.mem.Allocator ```
+    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
+        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qswipegesture.Children: Memory allocation failed");
+        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -3053,123 +3237,123 @@ pub const qswipegesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: ?*C.QSwipeGesture, parent: ?*C.QObject ```
+    /// ``` self: QtC.QSwipeGesture, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        C.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: ?*C.QSwipeGesture, filterObj: ?*C.QObject ```
+    /// ``` self: QtC.QSwipeGesture, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        C.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: ?*C.QSwipeGesture, obj: ?*C.QObject ```
+    /// ``` self: QtC.QSwipeGesture, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        C.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod ```
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QSwipeGesture, sender: ?*C.QObject, signal: []const u8, member: []const u8 ```
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QSwipeGesture, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, member: ?*C.QMetaMethod ```
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return C.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: ?*C.QMetaObject__Connection ```
+    /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return C.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
-        C.QObject_DumpObjectTree(@ptrCast(self));
+        qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        C.QObject_DumpObjectInfo(@ptrCast(self));
+        qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: ?*C.QSwipeGesture, name: []const u8, value: ?*C.QVariant ```
+    /// ``` self: QtC.QSwipeGesture, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: ?*C.QSwipeGesture, name: []const u8 ```
-    pub fn Property(self: ?*anyopaque, name: []const u8) ?*C.QVariant {
+    /// ``` self: QtC.QSwipeGesture, name: []const u8 ```
+    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_Property(@ptrCast(self), name_Cstring);
+        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: ?*C.QSwipeGesture, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QSwipeGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: C.struct_libqt_list = C.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qswipegesture.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qswipegesture.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -3180,107 +3364,111 @@ pub const qswipegesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
-    pub fn BindingStorage(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage(@ptrCast(self));
+    /// ``` self: QtC.QSwipeGesture ```
+    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
-    pub fn BindingStorage2(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage2(@ptrCast(self));
+    /// ``` self: QtC.QSwipeGesture ```
+    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn Destroyed(self: ?*anyopaque) void {
-        C.QObject_Destroyed(@ptrCast(self));
+        qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
-    pub fn Parent(self: ?*anyopaque) ?*C.QObject {
-        return C.QObject_Parent(@ptrCast(self));
+    /// ``` self: QtC.QSwipeGesture ```
+    pub fn Parent(self: ?*anyopaque) QtC.QObject {
+        return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: ?*C.QSwipeGesture, classname: []const u8 ```
+    /// ``` self: QtC.QSwipeGesture, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = @constCast(classname.ptr);
-        return C.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
-        C.QObject_DeleteLater(@ptrCast(self));
+        qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QSwipeGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ``` self: QtC.QSwipeGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return C.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QSwipeGesture, sender: ?*C.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QSwipeGesture, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QSwipeGesture, param1: ?*C.QObject ```
+    /// ``` self: QtC.QSwipeGesture, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject, ?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -3289,27 +3477,31 @@ pub const qswipegesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QSwipeGesture, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QSwipeGesture_Event(@ptrCast(self), @ptrCast(event));
+        return qtc.QSwipeGesture_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QSwipeGesture, event: QtC.QEvent ```
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QSwipeGesture_QBaseEvent(@ptrCast(self), @ptrCast(event));
+        return qtc.QSwipeGesture_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, slot: fn (?*C.QSwipeGesture, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QSwipeGesture, slot: fn (self: QtC.QSwipeGesture, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QSwipeGesture_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QSwipeGesture_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -3318,27 +3510,31 @@ pub const qswipegesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QSwipeGesture, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QSwipeGesture_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QSwipeGesture_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QSwipeGesture, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QSwipeGesture_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QSwipeGesture_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, slot: fn (?*C.QSwipeGesture, ?*C.QObject, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QSwipeGesture, slot: fn (self: QtC.QSwipeGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QSwipeGesture_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QSwipeGesture_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -3347,27 +3543,31 @@ pub const qswipegesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QSwipeGesture, event: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QSwipeGesture_TimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QSwipeGesture_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QSwipeGesture, event: QtC.QTimerEvent ```
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QSwipeGesture_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QSwipeGesture_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, slot: fn (?*C.QSwipeGesture, ?*C.QTimerEvent) callconv(.c) void ```
+    /// ``` self: QtC.QSwipeGesture, slot: fn (self: QtC.QSwipeGesture, event: QtC.QTimerEvent) callconv(.c) void ```
     pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QSwipeGesture_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QSwipeGesture_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -3376,27 +3576,31 @@ pub const qswipegesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QSwipeGesture, event: QtC.QChildEvent ```
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QSwipeGesture_ChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QSwipeGesture_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QSwipeGesture, event: QtC.QChildEvent ```
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QSwipeGesture_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QSwipeGesture_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, slot: fn (?*C.QSwipeGesture, ?*C.QChildEvent) callconv(.c) void ```
+    /// ``` self: QtC.QSwipeGesture, slot: fn (self: QtC.QSwipeGesture, event: QtC.QChildEvent) callconv(.c) void ```
     pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QSwipeGesture_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QSwipeGesture_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -3405,27 +3609,31 @@ pub const qswipegesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QSwipeGesture, event: QtC.QEvent ```
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QSwipeGesture_CustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QSwipeGesture_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QSwipeGesture, event: QtC.QEvent ```
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QSwipeGesture_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QSwipeGesture_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, slot: fn (?*C.QSwipeGesture, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QSwipeGesture, slot: fn (self: QtC.QSwipeGesture, event: QtC.QEvent) callconv(.c) void ```
     pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QSwipeGesture_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QSwipeGesture_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -3434,27 +3642,31 @@ pub const qswipegesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QSwipeGesture, signal: QtC.QMetaMethod ```
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QSwipeGesture_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QSwipeGesture_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QSwipeGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QSwipeGesture_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QSwipeGesture_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, slot: fn (?*C.QSwipeGesture, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QSwipeGesture, slot: fn (self: QtC.QSwipeGesture, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QSwipeGesture_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QSwipeGesture_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -3463,27 +3675,31 @@ pub const qswipegesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QSwipeGesture, signal: QtC.QMetaMethod ```
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QSwipeGesture_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QSwipeGesture_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QSwipeGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QSwipeGesture_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QSwipeGesture_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, slot: fn (?*C.QSwipeGesture, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QSwipeGesture, slot: fn (self: QtC.QSwipeGesture, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QSwipeGesture_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QSwipeGesture_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -3492,27 +3708,31 @@ pub const qswipegesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
-    pub fn Sender(self: ?*anyopaque) ?*C.QObject {
-        return C.QSwipeGesture_Sender(@ptrCast(self));
+    /// ``` self: QtC.QSwipeGesture ```
+    pub fn Sender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QSwipeGesture_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
-    pub fn QBaseSender(self: ?*anyopaque) ?*C.QObject {
-        return C.QSwipeGesture_QBaseSender(@ptrCast(self));
+    /// ``` self: QtC.QSwipeGesture ```
+    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QSwipeGesture_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, slot: fn () callconv(.c) ?*C.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QObject) void {
-        C.QSwipeGesture_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSwipeGesture, slot: fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
+        qtc.QSwipeGesture_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -3521,27 +3741,31 @@ pub const qswipegesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QSwipeGesture_SenderSignalIndex(@ptrCast(self));
+        return qtc.QSwipeGesture_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QSwipeGesture_QBaseSenderSignalIndex(@ptrCast(self));
+        return qtc.QSwipeGesture_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QSwipeGesture, slot: fn () callconv(.c) i32 ```
     pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QSwipeGesture_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QSwipeGesture_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -3550,29 +3774,33 @@ pub const qswipegesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, signal: []const u8 ```
+    /// ``` self: QtC.QSwipeGesture, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QSwipeGesture_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSwipeGesture_Receivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, signal: []const u8 ```
+    /// ``` self: QtC.QSwipeGesture, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QSwipeGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSwipeGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, slot: fn (?*C.QSwipeGesture, []const u8) callconv(.c) i32 ```
+    /// ``` self: QtC.QSwipeGesture, slot: fn (self: QtC.QSwipeGesture, signal: []const u8) callconv(.c) i32 ```
     pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
-        C.QSwipeGesture_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QSwipeGesture_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -3581,34 +3809,51 @@ pub const qswipegesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QSwipeGesture, signal: QtC.QMetaMethod ```
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QSwipeGesture_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QSwipeGesture_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QSwipeGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QSwipeGesture_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QSwipeGesture_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QSwipeGesture, slot: fn (?*C.QSwipeGesture, ?*C.QMetaMethod) callconv(.c) bool ```
+    /// ``` self: QtC.QSwipeGesture, slot: fn (self: QtC.QSwipeGesture, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QSwipeGesture_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QSwipeGesture_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    ///
+    /// Wrapper to allow calling private signal
+    ///
+    /// ``` self: QtC.QSwipeGesture, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qswipegesture.html#dtor.QSwipeGesture)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QSwipeGesture ```
+    /// ``` self: QtC.QSwipeGesture ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QSwipeGesture_Delete(@ptrCast(self));
+        qtc.QSwipeGesture_Delete(@ptrCast(self));
     }
 };
 
@@ -3617,47 +3862,47 @@ pub const qtapgesture = struct {
     /// New constructs a new QTapGesture object.
     ///
     ///
-    pub fn New() ?*C.QTapGesture {
-        return C.QTapGesture_new();
+    pub fn New() QtC.QTapGesture {
+        return qtc.QTapGesture_new();
     }
 
     /// New2 constructs a new QTapGesture object.
     ///
-    /// ``` parent: ?*C.QObject ```
-    pub fn New2(parent: ?*anyopaque) ?*C.QTapGesture {
-        return C.QTapGesture_new2(@ptrCast(parent));
+    /// ``` parent: QtC.QObject ```
+    pub fn New2(parent: ?*anyopaque) QtC.QTapGesture {
+        return qtc.QTapGesture_new2(@ptrCast(parent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: ?*C.QTapGesture ```
-    pub fn MetaObject(self: ?*anyopaque) ?*C.QMetaObject {
-        return C.QTapGesture_MetaObject(@ptrCast(self));
+    /// ``` self: QtC.QTapGesture ```
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QTapGesture_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QTapGesture, param1: []const u8 ```
+    /// ``` self: QtC.QTapGesture, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = @constCast(param1.ptr);
-        return C.QTapGesture_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTapGesture_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: ?*C.QTapGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QTapGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QTapGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QTapGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTapGesture, slot: fn (?*C.QTapGesture, qobjectdefs_enums.Call, i32, ?*anyopaque) callconv(.c) i32 ```
+    /// ``` self: QtC.QTapGesture, slot: fn (self: QtC.QTapGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
     pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
-        C.QTapGesture_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapGesture_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTapGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QTapGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QTapGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QTapGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3665,9 +3910,9 @@ pub const qtapgesture = struct {
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
-        const _str = C.QTapGesture_Tr(s_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTapGesture_Tr(s_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtapgesture.Tr: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3676,16 +3921,16 @@ pub const qtapgesture = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtapgesture.html#position)
     ///
-    /// ``` self: ?*C.QTapGesture ```
-    pub fn Position(self: ?*anyopaque) ?*C.QPointF {
-        return C.QTapGesture_Position(@ptrCast(self));
+    /// ``` self: QtC.QTapGesture ```
+    pub fn Position(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QTapGesture_Position(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtapgesture.html#setPosition)
     ///
-    /// ``` self: ?*C.QTapGesture, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QTapGesture, pos: QtC.QPointF ```
     pub fn SetPosition(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QTapGesture_SetPosition(@ptrCast(self), @ptrCast(pos));
+        qtc.QTapGesture_SetPosition(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3694,9 +3939,9 @@ pub const qtapgesture = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QTapGesture_Tr2(s_Cstring, c_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTapGesture_Tr2(s_Cstring, c_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtapgesture.Tr2: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3709,9 +3954,9 @@ pub const qtapgesture = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QTapGesture_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTapGesture_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtapgesture.Tr3: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3722,83 +3967,83 @@ pub const qtapgesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
-    /// ``` self: ?*C.QTapGesture ```
+    /// ``` self: QtC.QTapGesture ```
     pub fn GestureType(self: ?*anyopaque) i64 {
-        return C.QGesture_GestureType(@ptrCast(self));
+        return qtc.QGesture_GestureType(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
-    /// ``` self: ?*C.QTapGesture ```
+    /// ``` self: QtC.QTapGesture ```
     pub fn State(self: ?*anyopaque) i64 {
-        return C.QGesture_State(@ptrCast(self));
+        return qtc.QGesture_State(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
     ///
-    /// ``` self: ?*C.QTapGesture ```
-    pub fn HotSpot(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGesture_HotSpot(@ptrCast(self));
+    /// ``` self: QtC.QTapGesture ```
+    pub fn HotSpot(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGesture_HotSpot(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
     ///
-    /// ``` self: ?*C.QTapGesture, value: ?*C.QPointF ```
+    /// ``` self: QtC.QTapGesture, value: QtC.QPointF ```
     pub fn SetHotSpot(self: ?*anyopaque, value: ?*anyopaque) void {
-        C.QGesture_SetHotSpot(@ptrCast(self), @ptrCast(value));
+        qtc.QGesture_SetHotSpot(@ptrCast(self), @ptrCast(value));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
     ///
-    /// ``` self: ?*C.QTapGesture ```
+    /// ``` self: QtC.QTapGesture ```
     pub fn HasHotSpot(self: ?*anyopaque) bool {
-        return C.QGesture_HasHotSpot(@ptrCast(self));
+        return qtc.QGesture_HasHotSpot(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
     ///
-    /// ``` self: ?*C.QTapGesture ```
+    /// ``` self: QtC.QTapGesture ```
     pub fn UnsetHotSpot(self: ?*anyopaque) void {
-        C.QGesture_UnsetHotSpot(@ptrCast(self));
+        qtc.QGesture_UnsetHotSpot(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
     ///
-    /// ``` self: ?*C.QTapGesture, policy: qgesture_enums.GestureCancelPolicy ```
+    /// ``` self: QtC.QTapGesture, policy: qgesture_enums.GestureCancelPolicy ```
     pub fn SetGestureCancelPolicy(self: ?*anyopaque, policy: i64) void {
-        C.QGesture_SetGestureCancelPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
-    /// ``` self: ?*C.QTapGesture ```
+    /// ``` self: QtC.QTapGesture ```
     pub fn GestureCancelPolicy(self: ?*anyopaque) i64 {
-        return C.QGesture_GestureCancelPolicy(@ptrCast(self));
+        return qtc.QGesture_GestureCancelPolicy(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: ?*C.QTapGesture, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTapGesture, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QObject_ObjectName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtapgesture.ObjectName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3809,102 +4054,102 @@ pub const qtapgesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: ?*C.QTapGesture, name: []const u8 ```
+    /// ``` self: QtC.QTapGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: ?*C.QTapGesture ```
+    /// ``` self: QtC.QTapGesture ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return C.QObject_IsWidgetType(@ptrCast(self));
+        return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: ?*C.QTapGesture ```
+    /// ``` self: QtC.QTapGesture ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
-        return C.QObject_IsWindowType(@ptrCast(self));
+        return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: ?*C.QTapGesture ```
+    /// ``` self: QtC.QTapGesture ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return C.QObject_IsQuickItemType(@ptrCast(self));
+        return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: ?*C.QTapGesture ```
+    /// ``` self: QtC.QTapGesture ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return C.QObject_SignalsBlocked(@ptrCast(self));
+        return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: ?*C.QTapGesture, b: bool ```
+    /// ``` self: QtC.QTapGesture, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return C.QObject_BlockSignals(@ptrCast(self), b);
+        return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: ?*C.QTapGesture ```
-    pub fn Thread(self: ?*anyopaque) ?*C.QThread {
-        return C.QObject_Thread(@ptrCast(self));
+    /// ``` self: QtC.QTapGesture ```
+    pub fn Thread(self: ?*anyopaque) QtC.QThread {
+        return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: ?*C.QTapGesture, thread: ?*C.QThread ```
+    /// ``` self: QtC.QTapGesture, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        C.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QTapGesture, interval: i32 ```
+    /// ``` self: QtC.QTapGesture, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return C.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: ?*C.QTapGesture, id: i32 ```
+    /// ``` self: QtC.QTapGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        C.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: ?*C.QTapGesture, allocator: std.mem.Allocator ```
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QObject {
-        const _arr: C.struct_libqt_list = C.QObject_Children(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QObject, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QObject = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QTapGesture, allocator: std.mem.Allocator ```
+    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
+        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtapgesture.Children: Memory allocation failed");
+        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -3915,123 +4160,123 @@ pub const qtapgesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: ?*C.QTapGesture, parent: ?*C.QObject ```
+    /// ``` self: QtC.QTapGesture, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        C.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: ?*C.QTapGesture, filterObj: ?*C.QObject ```
+    /// ``` self: QtC.QTapGesture, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        C.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: ?*C.QTapGesture, obj: ?*C.QObject ```
+    /// ``` self: QtC.QTapGesture, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        C.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod ```
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QTapGesture, sender: ?*C.QObject, signal: []const u8, member: []const u8 ```
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QTapGesture, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, member: ?*C.QMetaMethod ```
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return C.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: ?*C.QMetaObject__Connection ```
+    /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return C.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: ?*C.QTapGesture ```
+    /// ``` self: QtC.QTapGesture ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
-        C.QObject_DumpObjectTree(@ptrCast(self));
+        qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: ?*C.QTapGesture ```
+    /// ``` self: QtC.QTapGesture ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        C.QObject_DumpObjectInfo(@ptrCast(self));
+        qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: ?*C.QTapGesture, name: []const u8, value: ?*C.QVariant ```
+    /// ``` self: QtC.QTapGesture, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: ?*C.QTapGesture, name: []const u8 ```
-    pub fn Property(self: ?*anyopaque, name: []const u8) ?*C.QVariant {
+    /// ``` self: QtC.QTapGesture, name: []const u8 ```
+    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_Property(@ptrCast(self), name_Cstring);
+        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: ?*C.QTapGesture, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTapGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: C.struct_libqt_list = C.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtapgesture.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtapgesture.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -4042,107 +4287,111 @@ pub const qtapgesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QTapGesture ```
-    pub fn BindingStorage(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage(@ptrCast(self));
+    /// ``` self: QtC.QTapGesture ```
+    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QTapGesture ```
-    pub fn BindingStorage2(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage2(@ptrCast(self));
+    /// ``` self: QtC.QTapGesture ```
+    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QTapGesture ```
+    /// ``` self: QtC.QTapGesture ```
     pub fn Destroyed(self: ?*anyopaque) void {
-        C.QObject_Destroyed(@ptrCast(self));
+        qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: ?*C.QTapGesture ```
-    pub fn Parent(self: ?*anyopaque) ?*C.QObject {
-        return C.QObject_Parent(@ptrCast(self));
+    /// ``` self: QtC.QTapGesture ```
+    pub fn Parent(self: ?*anyopaque) QtC.QObject {
+        return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: ?*C.QTapGesture, classname: []const u8 ```
+    /// ``` self: QtC.QTapGesture, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = @constCast(classname.ptr);
-        return C.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: ?*C.QTapGesture ```
+    /// ``` self: QtC.QTapGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
-        C.QObject_DeleteLater(@ptrCast(self));
+        qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QTapGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ``` self: QtC.QTapGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return C.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QTapGesture, sender: ?*C.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QTapGesture, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QTapGesture, param1: ?*C.QObject ```
+    /// ``` self: QtC.QTapGesture, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject, ?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4151,27 +4400,31 @@ pub const qtapgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTapGesture, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QTapGesture_Event(@ptrCast(self), @ptrCast(event));
+        return qtc.QTapGesture_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTapGesture, event: QtC.QEvent ```
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QTapGesture_QBaseEvent(@ptrCast(self), @ptrCast(event));
+        return qtc.QTapGesture_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, slot: fn (?*C.QTapGesture, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QTapGesture, slot: fn (self: QtC.QTapGesture, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QTapGesture_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapGesture_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4180,27 +4433,31 @@ pub const qtapgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTapGesture, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QTapGesture_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QTapGesture_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTapGesture, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QTapGesture_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QTapGesture_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, slot: fn (?*C.QTapGesture, ?*C.QObject, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QTapGesture, slot: fn (self: QtC.QTapGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QTapGesture_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapGesture_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4209,27 +4466,31 @@ pub const qtapgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QTapGesture, event: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTapGesture_TimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTapGesture_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QTapGesture, event: QtC.QTimerEvent ```
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTapGesture_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTapGesture_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, slot: fn (?*C.QTapGesture, ?*C.QTimerEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTapGesture, slot: fn (self: QtC.QTapGesture, event: QtC.QTimerEvent) callconv(.c) void ```
     pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTapGesture_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapGesture_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4238,27 +4499,31 @@ pub const qtapgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QTapGesture, event: QtC.QChildEvent ```
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTapGesture_ChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTapGesture_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QTapGesture, event: QtC.QChildEvent ```
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTapGesture_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTapGesture_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, slot: fn (?*C.QTapGesture, ?*C.QChildEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTapGesture, slot: fn (self: QtC.QTapGesture, event: QtC.QChildEvent) callconv(.c) void ```
     pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTapGesture_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapGesture_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4267,27 +4532,31 @@ pub const qtapgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTapGesture, event: QtC.QEvent ```
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTapGesture_CustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTapGesture_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTapGesture, event: QtC.QEvent ```
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTapGesture_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTapGesture_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, slot: fn (?*C.QTapGesture, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTapGesture, slot: fn (self: QtC.QTapGesture, event: QtC.QEvent) callconv(.c) void ```
     pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTapGesture_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapGesture_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4296,27 +4565,31 @@ pub const qtapgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTapGesture, signal: QtC.QMetaMethod ```
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QTapGesture_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QTapGesture_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTapGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QTapGesture_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QTapGesture_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, slot: fn (?*C.QTapGesture, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QTapGesture, slot: fn (self: QtC.QTapGesture, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTapGesture_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapGesture_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4325,27 +4598,31 @@ pub const qtapgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTapGesture, signal: QtC.QMetaMethod ```
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QTapGesture_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QTapGesture_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTapGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QTapGesture_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QTapGesture_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, slot: fn (?*C.QTapGesture, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QTapGesture, slot: fn (self: QtC.QTapGesture, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTapGesture_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapGesture_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4354,27 +4631,31 @@ pub const qtapgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture ```
-    pub fn Sender(self: ?*anyopaque) ?*C.QObject {
-        return C.QTapGesture_Sender(@ptrCast(self));
+    /// ``` self: QtC.QTapGesture ```
+    pub fn Sender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QTapGesture_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture ```
-    pub fn QBaseSender(self: ?*anyopaque) ?*C.QObject {
-        return C.QTapGesture_QBaseSender(@ptrCast(self));
+    /// ``` self: QtC.QTapGesture ```
+    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QTapGesture_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, slot: fn () callconv(.c) ?*C.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QObject) void {
-        C.QTapGesture_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTapGesture, slot: fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
+        qtc.QTapGesture_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4383,27 +4664,31 @@ pub const qtapgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture ```
+    /// ``` self: QtC.QTapGesture ```
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QTapGesture_SenderSignalIndex(@ptrCast(self));
+        return qtc.QTapGesture_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture ```
+    /// ``` self: QtC.QTapGesture ```
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QTapGesture_QBaseSenderSignalIndex(@ptrCast(self));
+        return qtc.QTapGesture_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QTapGesture, slot: fn () callconv(.c) i32 ```
     pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QTapGesture_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapGesture_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4412,29 +4697,33 @@ pub const qtapgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, signal: []const u8 ```
+    /// ``` self: QtC.QTapGesture, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QTapGesture_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTapGesture_Receivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, signal: []const u8 ```
+    /// ``` self: QtC.QTapGesture, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QTapGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTapGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, slot: fn (?*C.QTapGesture, []const u8) callconv(.c) i32 ```
+    /// ``` self: QtC.QTapGesture, slot: fn (self: QtC.QTapGesture, signal: []const u8) callconv(.c) i32 ```
     pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
-        C.QTapGesture_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapGesture_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4443,34 +4732,51 @@ pub const qtapgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTapGesture, signal: QtC.QMetaMethod ```
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QTapGesture_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QTapGesture_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTapGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QTapGesture_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QTapGesture_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapGesture, slot: fn (?*C.QTapGesture, ?*C.QMetaMethod) callconv(.c) bool ```
+    /// ``` self: QtC.QTapGesture, slot: fn (self: QtC.QTapGesture, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QTapGesture_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapGesture_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    ///
+    /// Wrapper to allow calling private signal
+    ///
+    /// ``` self: QtC.QTapGesture, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtapgesture.html#dtor.QTapGesture)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QTapGesture ```
+    /// ``` self: QtC.QTapGesture ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QTapGesture_Delete(@ptrCast(self));
+        qtc.QTapGesture_Delete(@ptrCast(self));
     }
 };
 
@@ -4479,47 +4785,47 @@ pub const qtapandholdgesture = struct {
     /// New constructs a new QTapAndHoldGesture object.
     ///
     ///
-    pub fn New() ?*C.QTapAndHoldGesture {
-        return C.QTapAndHoldGesture_new();
+    pub fn New() QtC.QTapAndHoldGesture {
+        return qtc.QTapAndHoldGesture_new();
     }
 
     /// New2 constructs a new QTapAndHoldGesture object.
     ///
-    /// ``` parent: ?*C.QObject ```
-    pub fn New2(parent: ?*anyopaque) ?*C.QTapAndHoldGesture {
-        return C.QTapAndHoldGesture_new2(@ptrCast(parent));
+    /// ``` parent: QtC.QObject ```
+    pub fn New2(parent: ?*anyopaque) QtC.QTapAndHoldGesture {
+        return qtc.QTapAndHoldGesture_new2(@ptrCast(parent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
-    pub fn MetaObject(self: ?*anyopaque) ?*C.QMetaObject {
-        return C.QTapAndHoldGesture_MetaObject(@ptrCast(self));
+    /// ``` self: QtC.QTapAndHoldGesture ```
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QTapAndHoldGesture_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QTapAndHoldGesture, param1: []const u8 ```
+    /// ``` self: QtC.QTapAndHoldGesture, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = @constCast(param1.ptr);
-        return C.QTapAndHoldGesture_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTapAndHoldGesture_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: ?*C.QTapAndHoldGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QTapAndHoldGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QTapAndHoldGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QTapAndHoldGesture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, slot: fn (?*C.QTapAndHoldGesture, qobjectdefs_enums.Call, i32, ?*anyopaque) callconv(.c) i32 ```
+    /// ``` self: QtC.QTapAndHoldGesture, slot: fn (self: QtC.QTapAndHoldGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
     pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
-        C.QTapAndHoldGesture_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapAndHoldGesture_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QTapAndHoldGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QTapAndHoldGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QTapAndHoldGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -4527,9 +4833,9 @@ pub const qtapandholdgesture = struct {
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
-        const _str = C.QTapAndHoldGesture_Tr(s_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTapAndHoldGesture_Tr(s_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtapandholdgesture.Tr: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -4538,30 +4844,30 @@ pub const qtapandholdgesture = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtapandholdgesture.html#position)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
-    pub fn Position(self: ?*anyopaque) ?*C.QPointF {
-        return C.QTapAndHoldGesture_Position(@ptrCast(self));
+    /// ``` self: QtC.QTapAndHoldGesture ```
+    pub fn Position(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QTapAndHoldGesture_Position(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtapandholdgesture.html#setPosition)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QTapAndHoldGesture, pos: QtC.QPointF ```
     pub fn SetPosition(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QTapAndHoldGesture_SetPosition(@ptrCast(self), @ptrCast(pos));
+        qtc.QTapAndHoldGesture_SetPosition(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtapandholdgesture.html#setTimeout)
     ///
     /// ``` msecs: i32 ```
     pub fn SetTimeout(msecs: i32) void {
-        C.QTapAndHoldGesture_SetTimeout(@intCast(msecs));
+        qtc.QTapAndHoldGesture_SetTimeout(@intCast(msecs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtapandholdgesture.html#timeout)
     ///
     ///
     pub fn Timeout() i32 {
-        return C.QTapAndHoldGesture_Timeout();
+        return qtc.QTapAndHoldGesture_Timeout();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -4570,9 +4876,9 @@ pub const qtapandholdgesture = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QTapAndHoldGesture_Tr2(s_Cstring, c_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTapAndHoldGesture_Tr2(s_Cstring, c_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtapandholdgesture.Tr2: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -4585,9 +4891,9 @@ pub const qtapandholdgesture = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QTapAndHoldGesture_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTapAndHoldGesture_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtapandholdgesture.Tr3: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -4598,83 +4904,83 @@ pub const qtapandholdgesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
+    /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn GestureType(self: ?*anyopaque) i64 {
-        return C.QGesture_GestureType(@ptrCast(self));
+        return qtc.QGesture_GestureType(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
+    /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn State(self: ?*anyopaque) i64 {
-        return C.QGesture_State(@ptrCast(self));
+        return qtc.QGesture_State(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
-    pub fn HotSpot(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGesture_HotSpot(@ptrCast(self));
+    /// ``` self: QtC.QTapAndHoldGesture ```
+    pub fn HotSpot(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGesture_HotSpot(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, value: ?*C.QPointF ```
+    /// ``` self: QtC.QTapAndHoldGesture, value: QtC.QPointF ```
     pub fn SetHotSpot(self: ?*anyopaque, value: ?*anyopaque) void {
-        C.QGesture_SetHotSpot(@ptrCast(self), @ptrCast(value));
+        qtc.QGesture_SetHotSpot(@ptrCast(self), @ptrCast(value));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
+    /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn HasHotSpot(self: ?*anyopaque) bool {
-        return C.QGesture_HasHotSpot(@ptrCast(self));
+        return qtc.QGesture_HasHotSpot(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
+    /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn UnsetHotSpot(self: ?*anyopaque) void {
-        C.QGesture_UnsetHotSpot(@ptrCast(self));
+        qtc.QGesture_UnsetHotSpot(@ptrCast(self));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, policy: qgesture_enums.GestureCancelPolicy ```
+    /// ``` self: QtC.QTapAndHoldGesture, policy: qgesture_enums.GestureCancelPolicy ```
     pub fn SetGestureCancelPolicy(self: ?*anyopaque, policy: i64) void {
-        C.QGesture_SetGestureCancelPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QGesture
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
+    /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn GestureCancelPolicy(self: ?*anyopaque) i64 {
-        return C.QGesture_GestureCancelPolicy(@ptrCast(self));
+        return qtc.QGesture_GestureCancelPolicy(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTapAndHoldGesture, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QObject_ObjectName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtapandholdgesture.ObjectName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -4685,102 +4991,102 @@ pub const qtapandholdgesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, name: []const u8 ```
+    /// ``` self: QtC.QTapAndHoldGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
+    /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return C.QObject_IsWidgetType(@ptrCast(self));
+        return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
+    /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
-        return C.QObject_IsWindowType(@ptrCast(self));
+        return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
+    /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return C.QObject_IsQuickItemType(@ptrCast(self));
+        return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
+    /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return C.QObject_SignalsBlocked(@ptrCast(self));
+        return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, b: bool ```
+    /// ``` self: QtC.QTapAndHoldGesture, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return C.QObject_BlockSignals(@ptrCast(self), b);
+        return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
-    pub fn Thread(self: ?*anyopaque) ?*C.QThread {
-        return C.QObject_Thread(@ptrCast(self));
+    /// ``` self: QtC.QTapAndHoldGesture ```
+    pub fn Thread(self: ?*anyopaque) QtC.QThread {
+        return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, thread: ?*C.QThread ```
+    /// ``` self: QtC.QTapAndHoldGesture, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        C.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, interval: i32 ```
+    /// ``` self: QtC.QTapAndHoldGesture, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return C.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, id: i32 ```
+    /// ``` self: QtC.QTapAndHoldGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        C.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, allocator: std.mem.Allocator ```
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QObject {
-        const _arr: C.struct_libqt_list = C.QObject_Children(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QObject, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QObject = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QTapAndHoldGesture, allocator: std.mem.Allocator ```
+    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
+        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtapandholdgesture.Children: Memory allocation failed");
+        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -4791,123 +5097,123 @@ pub const qtapandholdgesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, parent: ?*C.QObject ```
+    /// ``` self: QtC.QTapAndHoldGesture, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        C.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, filterObj: ?*C.QObject ```
+    /// ``` self: QtC.QTapAndHoldGesture, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        C.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, obj: ?*C.QObject ```
+    /// ``` self: QtC.QTapAndHoldGesture, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        C.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod ```
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, sender: ?*C.QObject, signal: []const u8, member: []const u8 ```
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QTapAndHoldGesture, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, member: ?*C.QMetaMethod ```
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return C.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: ?*C.QMetaObject__Connection ```
+    /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return C.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
+    /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
-        C.QObject_DumpObjectTree(@ptrCast(self));
+        qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
+    /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        C.QObject_DumpObjectInfo(@ptrCast(self));
+        qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, name: []const u8, value: ?*C.QVariant ```
+    /// ``` self: QtC.QTapAndHoldGesture, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, name: []const u8 ```
-    pub fn Property(self: ?*anyopaque, name: []const u8) ?*C.QVariant {
+    /// ``` self: QtC.QTapAndHoldGesture, name: []const u8 ```
+    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_Property(@ptrCast(self), name_Cstring);
+        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTapAndHoldGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: C.struct_libqt_list = C.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtapandholdgesture.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtapandholdgesture.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -4918,107 +5224,111 @@ pub const qtapandholdgesture = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
-    pub fn BindingStorage(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage(@ptrCast(self));
+    /// ``` self: QtC.QTapAndHoldGesture ```
+    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
-    pub fn BindingStorage2(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage2(@ptrCast(self));
+    /// ``` self: QtC.QTapAndHoldGesture ```
+    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
+    /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn Destroyed(self: ?*anyopaque) void {
-        C.QObject_Destroyed(@ptrCast(self));
+        qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
-    pub fn Parent(self: ?*anyopaque) ?*C.QObject {
-        return C.QObject_Parent(@ptrCast(self));
+    /// ``` self: QtC.QTapAndHoldGesture ```
+    pub fn Parent(self: ?*anyopaque) QtC.QObject {
+        return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, classname: []const u8 ```
+    /// ``` self: QtC.QTapAndHoldGesture, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = @constCast(classname.ptr);
-        return C.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
+    /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
-        C.QObject_DeleteLater(@ptrCast(self));
+        qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ``` self: QtC.QTapAndHoldGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return C.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, sender: ?*C.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QTapAndHoldGesture, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, param1: ?*C.QObject ```
+    /// ``` self: QtC.QTapAndHoldGesture, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject, ?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5027,27 +5337,31 @@ pub const qtapandholdgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTapAndHoldGesture, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QTapAndHoldGesture_Event(@ptrCast(self), @ptrCast(event));
+        return qtc.QTapAndHoldGesture_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTapAndHoldGesture, event: QtC.QEvent ```
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QTapAndHoldGesture_QBaseEvent(@ptrCast(self), @ptrCast(event));
+        return qtc.QTapAndHoldGesture_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, slot: fn (?*C.QTapAndHoldGesture, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QTapAndHoldGesture, slot: fn (self: QtC.QTapAndHoldGesture, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QTapAndHoldGesture_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapAndHoldGesture_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5056,27 +5370,31 @@ pub const qtapandholdgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTapAndHoldGesture, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QTapAndHoldGesture_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QTapAndHoldGesture_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTapAndHoldGesture, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QTapAndHoldGesture_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QTapAndHoldGesture_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, slot: fn (?*C.QTapAndHoldGesture, ?*C.QObject, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QTapAndHoldGesture, slot: fn (self: QtC.QTapAndHoldGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QTapAndHoldGesture_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapAndHoldGesture_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5085,27 +5403,31 @@ pub const qtapandholdgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QTapAndHoldGesture, event: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTapAndHoldGesture_TimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTapAndHoldGesture_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QTapAndHoldGesture, event: QtC.QTimerEvent ```
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTapAndHoldGesture_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTapAndHoldGesture_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, slot: fn (?*C.QTapAndHoldGesture, ?*C.QTimerEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTapAndHoldGesture, slot: fn (self: QtC.QTapAndHoldGesture, event: QtC.QTimerEvent) callconv(.c) void ```
     pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTapAndHoldGesture_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapAndHoldGesture_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5114,27 +5436,31 @@ pub const qtapandholdgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QTapAndHoldGesture, event: QtC.QChildEvent ```
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTapAndHoldGesture_ChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTapAndHoldGesture_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QTapAndHoldGesture, event: QtC.QChildEvent ```
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTapAndHoldGesture_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTapAndHoldGesture_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, slot: fn (?*C.QTapAndHoldGesture, ?*C.QChildEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTapAndHoldGesture, slot: fn (self: QtC.QTapAndHoldGesture, event: QtC.QChildEvent) callconv(.c) void ```
     pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTapAndHoldGesture_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapAndHoldGesture_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5143,27 +5469,31 @@ pub const qtapandholdgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTapAndHoldGesture, event: QtC.QEvent ```
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTapAndHoldGesture_CustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTapAndHoldGesture_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTapAndHoldGesture, event: QtC.QEvent ```
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTapAndHoldGesture_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTapAndHoldGesture_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, slot: fn (?*C.QTapAndHoldGesture, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTapAndHoldGesture, slot: fn (self: QtC.QTapAndHoldGesture, event: QtC.QEvent) callconv(.c) void ```
     pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTapAndHoldGesture_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapAndHoldGesture_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5172,27 +5502,31 @@ pub const qtapandholdgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTapAndHoldGesture, signal: QtC.QMetaMethod ```
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QTapAndHoldGesture_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QTapAndHoldGesture_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTapAndHoldGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QTapAndHoldGesture_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QTapAndHoldGesture_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, slot: fn (?*C.QTapAndHoldGesture, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QTapAndHoldGesture, slot: fn (self: QtC.QTapAndHoldGesture, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTapAndHoldGesture_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapAndHoldGesture_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5201,27 +5535,31 @@ pub const qtapandholdgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTapAndHoldGesture, signal: QtC.QMetaMethod ```
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QTapAndHoldGesture_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QTapAndHoldGesture_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTapAndHoldGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QTapAndHoldGesture_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QTapAndHoldGesture_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, slot: fn (?*C.QTapAndHoldGesture, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QTapAndHoldGesture, slot: fn (self: QtC.QTapAndHoldGesture, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTapAndHoldGesture_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapAndHoldGesture_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5230,27 +5568,31 @@ pub const qtapandholdgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
-    pub fn Sender(self: ?*anyopaque) ?*C.QObject {
-        return C.QTapAndHoldGesture_Sender(@ptrCast(self));
+    /// ``` self: QtC.QTapAndHoldGesture ```
+    pub fn Sender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QTapAndHoldGesture_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
-    pub fn QBaseSender(self: ?*anyopaque) ?*C.QObject {
-        return C.QTapAndHoldGesture_QBaseSender(@ptrCast(self));
+    /// ``` self: QtC.QTapAndHoldGesture ```
+    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QTapAndHoldGesture_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, slot: fn () callconv(.c) ?*C.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QObject) void {
-        C.QTapAndHoldGesture_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTapAndHoldGesture, slot: fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
+        qtc.QTapAndHoldGesture_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5259,27 +5601,31 @@ pub const qtapandholdgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
+    /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QTapAndHoldGesture_SenderSignalIndex(@ptrCast(self));
+        return qtc.QTapAndHoldGesture_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
+    /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QTapAndHoldGesture_QBaseSenderSignalIndex(@ptrCast(self));
+        return qtc.QTapAndHoldGesture_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QTapAndHoldGesture, slot: fn () callconv(.c) i32 ```
     pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QTapAndHoldGesture_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapAndHoldGesture_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5288,29 +5634,33 @@ pub const qtapandholdgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, signal: []const u8 ```
+    /// ``` self: QtC.QTapAndHoldGesture, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QTapAndHoldGesture_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTapAndHoldGesture_Receivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, signal: []const u8 ```
+    /// ``` self: QtC.QTapAndHoldGesture, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QTapAndHoldGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTapAndHoldGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, slot: fn (?*C.QTapAndHoldGesture, []const u8) callconv(.c) i32 ```
+    /// ``` self: QtC.QTapAndHoldGesture, slot: fn (self: QtC.QTapAndHoldGesture, signal: []const u8) callconv(.c) i32 ```
     pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
-        C.QTapAndHoldGesture_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapAndHoldGesture_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5319,34 +5669,51 @@ pub const qtapandholdgesture = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTapAndHoldGesture, signal: QtC.QMetaMethod ```
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QTapAndHoldGesture_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QTapAndHoldGesture_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTapAndHoldGesture, signal: QtC.QMetaMethod ```
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QTapAndHoldGesture_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QTapAndHoldGesture_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture, slot: fn (?*C.QTapAndHoldGesture, ?*C.QMetaMethod) callconv(.c) bool ```
+    /// ``` self: QtC.QTapAndHoldGesture, slot: fn (self: QtC.QTapAndHoldGesture, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QTapAndHoldGesture_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTapAndHoldGesture_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    ///
+    /// Wrapper to allow calling private signal
+    ///
+    /// ``` self: QtC.QTapAndHoldGesture, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtapandholdgesture.html#dtor.QTapAndHoldGesture)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QTapAndHoldGesture ```
+    /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QTapAndHoldGesture_Delete(@ptrCast(self));
+        qtc.QTapAndHoldGesture_Delete(@ptrCast(self));
     }
 };
 
@@ -5354,31 +5721,31 @@ pub const qtapandholdgesture = struct {
 pub const qgestureevent = struct {
     /// New constructs a new QGestureEvent object.
     ///
-    /// ``` gestures: []?*C.QGesture ```
-    pub fn New(gestures: []?*anyopaque) ?*C.QGestureEvent {
-        const gestures_list = C.struct_libqt_list{
+    /// ``` gestures: []QtC.QGesture ```
+    pub fn New(gestures: []?*anyopaque) QtC.QGestureEvent {
+        const gestures_list = qtc.struct_libqt_list{
             .len = gestures.len,
             .data = @ptrCast(gestures.ptr),
         };
 
-        return C.QGestureEvent_new(gestures_list);
+        return qtc.QGestureEvent_new(gestures_list);
     }
 
     /// New2 constructs a new QGestureEvent object.
     ///
-    /// ``` param1: ?*C.QGestureEvent ```
-    pub fn New2(param1: ?*anyopaque) ?*C.QGestureEvent {
-        return C.QGestureEvent_new2(@ptrCast(param1));
+    /// ``` param1: QtC.QGestureEvent ```
+    pub fn New2(param1: ?*anyopaque) QtC.QGestureEvent {
+        return qtc.QGestureEvent_new2(@ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#gestures)
     ///
-    /// ``` self: ?*C.QGestureEvent, allocator: std.mem.Allocator ```
-    pub fn Gestures(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QGesture {
-        const _arr: C.struct_libqt_list = C.QGestureEvent_Gestures(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QGesture, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QGesture = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QGestureEvent, allocator: std.mem.Allocator ```
+    pub fn Gestures(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGesture {
+        const _arr: qtc.struct_libqt_list = qtc.QGestureEvent_Gestures(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QGesture, _arr.len) catch @panic("qgestureevent.Gestures: Memory allocation failed");
+        const _data: [*]QtC.QGesture = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -5387,19 +5754,19 @@ pub const qgestureevent = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#gesture)
     ///
-    /// ``` self: ?*C.QGestureEvent, typeVal: qnamespace_enums.GestureType ```
-    pub fn Gesture(self: ?*anyopaque, typeVal: i64) ?*C.QGesture {
-        return C.QGestureEvent_Gesture(@ptrCast(self), @intCast(typeVal));
+    /// ``` self: QtC.QGestureEvent, typeVal: qnamespace_enums.GestureType ```
+    pub fn Gesture(self: ?*anyopaque, typeVal: i64) QtC.QGesture {
+        return qtc.QGestureEvent_Gesture(@ptrCast(self), @intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#activeGestures)
     ///
-    /// ``` self: ?*C.QGestureEvent, allocator: std.mem.Allocator ```
-    pub fn ActiveGestures(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QGesture {
-        const _arr: C.struct_libqt_list = C.QGestureEvent_ActiveGestures(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QGesture, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QGesture = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QGestureEvent, allocator: std.mem.Allocator ```
+    pub fn ActiveGestures(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGesture {
+        const _arr: qtc.struct_libqt_list = qtc.QGestureEvent_ActiveGestures(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QGesture, _arr.len) catch @panic("qgestureevent.ActiveGestures: Memory allocation failed");
+        const _data: [*]QtC.QGesture = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -5408,12 +5775,12 @@ pub const qgestureevent = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#canceledGestures)
     ///
-    /// ``` self: ?*C.QGestureEvent, allocator: std.mem.Allocator ```
-    pub fn CanceledGestures(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QGesture {
-        const _arr: C.struct_libqt_list = C.QGestureEvent_CanceledGestures(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QGesture, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QGesture = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QGestureEvent, allocator: std.mem.Allocator ```
+    pub fn CanceledGestures(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGesture {
+        const _arr: qtc.struct_libqt_list = qtc.QGestureEvent_CanceledGestures(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QGesture, _arr.len) catch @panic("qgestureevent.CanceledGestures: Memory allocation failed");
+        const _data: [*]QtC.QGesture = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -5422,124 +5789,124 @@ pub const qgestureevent = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#setAccepted)
     ///
-    /// ``` self: ?*C.QGestureEvent, param1: ?*C.QGesture, param2: bool ```
+    /// ``` self: QtC.QGestureEvent, param1: QtC.QGesture, param2: bool ```
     pub fn SetAccepted(self: ?*anyopaque, param1: ?*anyopaque, param2: bool) void {
-        C.QGestureEvent_SetAccepted(@ptrCast(self), @ptrCast(param1), param2);
+        qtc.QGestureEvent_SetAccepted(@ptrCast(self), @ptrCast(param1), param2);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#accept)
     ///
-    /// ``` self: ?*C.QGestureEvent, param1: ?*C.QGesture ```
+    /// ``` self: QtC.QGestureEvent, param1: QtC.QGesture ```
     pub fn Accept(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QGestureEvent_Accept(@ptrCast(self), @ptrCast(param1));
+        qtc.QGestureEvent_Accept(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#ignore)
     ///
-    /// ``` self: ?*C.QGestureEvent, param1: ?*C.QGesture ```
+    /// ``` self: QtC.QGestureEvent, param1: QtC.QGesture ```
     pub fn Ignore(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QGestureEvent_Ignore(@ptrCast(self), @ptrCast(param1));
+        qtc.QGestureEvent_Ignore(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#isAccepted)
     ///
-    /// ``` self: ?*C.QGestureEvent, param1: ?*C.QGesture ```
+    /// ``` self: QtC.QGestureEvent, param1: QtC.QGesture ```
     pub fn IsAccepted(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return C.QGestureEvent_IsAccepted(@ptrCast(self), @ptrCast(param1));
+        return qtc.QGestureEvent_IsAccepted(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#setAccepted)
     ///
-    /// ``` self: ?*C.QGestureEvent, param1: qnamespace_enums.GestureType, param2: bool ```
+    /// ``` self: QtC.QGestureEvent, param1: qnamespace_enums.GestureType, param2: bool ```
     pub fn SetAccepted2(self: ?*anyopaque, param1: i64, param2: bool) void {
-        C.QGestureEvent_SetAccepted2(@ptrCast(self), @intCast(param1), param2);
+        qtc.QGestureEvent_SetAccepted2(@ptrCast(self), @intCast(param1), param2);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#accept)
     ///
-    /// ``` self: ?*C.QGestureEvent, param1: qnamespace_enums.GestureType ```
+    /// ``` self: QtC.QGestureEvent, param1: qnamespace_enums.GestureType ```
     pub fn AcceptWithQtGestureType(self: ?*anyopaque, param1: i64) void {
-        C.QGestureEvent_AcceptWithQtGestureType(@ptrCast(self), @intCast(param1));
+        qtc.QGestureEvent_AcceptWithQtGestureType(@ptrCast(self), @intCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#ignore)
     ///
-    /// ``` self: ?*C.QGestureEvent, param1: qnamespace_enums.GestureType ```
+    /// ``` self: QtC.QGestureEvent, param1: qnamespace_enums.GestureType ```
     pub fn IgnoreWithQtGestureType(self: ?*anyopaque, param1: i64) void {
-        C.QGestureEvent_IgnoreWithQtGestureType(@ptrCast(self), @intCast(param1));
+        qtc.QGestureEvent_IgnoreWithQtGestureType(@ptrCast(self), @intCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#isAccepted)
     ///
-    /// ``` self: ?*C.QGestureEvent, param1: qnamespace_enums.GestureType ```
+    /// ``` self: QtC.QGestureEvent, param1: qnamespace_enums.GestureType ```
     pub fn IsAcceptedWithQtGestureType(self: ?*anyopaque, param1: i64) bool {
-        return C.QGestureEvent_IsAcceptedWithQtGestureType(@ptrCast(self), @intCast(param1));
+        return qtc.QGestureEvent_IsAcceptedWithQtGestureType(@ptrCast(self), @intCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#setWidget)
     ///
-    /// ``` self: ?*C.QGestureEvent, widget: ?*C.QWidget ```
+    /// ``` self: QtC.QGestureEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        C.QGestureEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
+        qtc.QGestureEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#widget)
     ///
-    /// ``` self: ?*C.QGestureEvent ```
-    pub fn Widget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QGestureEvent_Widget(@ptrCast(self));
+    /// ``` self: QtC.QGestureEvent ```
+    pub fn Widget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QGestureEvent_Widget(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#mapToGraphicsScene)
     ///
-    /// ``` self: ?*C.QGestureEvent, gesturePoint: ?*C.QPointF ```
-    pub fn MapToGraphicsScene(self: ?*anyopaque, gesturePoint: ?*anyopaque) ?*C.QPointF {
-        return C.QGestureEvent_MapToGraphicsScene(@ptrCast(self), @ptrCast(gesturePoint));
+    /// ``` self: QtC.QGestureEvent, gesturePoint: QtC.QPointF ```
+    pub fn MapToGraphicsScene(self: ?*anyopaque, gesturePoint: ?*anyopaque) QtC.QPointF {
+        return qtc.QGestureEvent_MapToGraphicsScene(@ptrCast(self), @ptrCast(gesturePoint));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
-    /// ``` self: ?*C.QGestureEvent ```
+    /// ``` self: QtC.QGestureEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QEvent_Type(@ptrCast(self));
+        return qtc.QEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
-    /// ``` self: ?*C.QGestureEvent ```
+    /// ``` self: QtC.QGestureEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
-        return C.QEvent_Spontaneous(@ptrCast(self));
+        return qtc.QEvent_Spontaneous(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
-    /// ``` self: ?*C.QGestureEvent ```
+    /// ``` self: QtC.QGestureEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsInputEvent(@ptrCast(self));
+        return qtc.QEvent_IsInputEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
-    /// ``` self: ?*C.QGestureEvent ```
+    /// ``` self: QtC.QGestureEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsPointerEvent(@ptrCast(self));
+        return qtc.QEvent_IsPointerEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
-    /// ``` self: ?*C.QGestureEvent ```
+    /// ``` self: QtC.QGestureEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsSinglePointEvent(@ptrCast(self));
+        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -5548,7 +5915,7 @@ pub const qgestureevent = struct {
     ///
     ///
     pub fn RegisterEventType() i32 {
-        return C.QEvent_RegisterEventType();
+        return qtc.QEvent_RegisterEventType();
     }
 
     /// Inherited from QEvent
@@ -5557,7 +5924,7 @@ pub const qgestureevent = struct {
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
-        return C.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@intCast(hint));
     }
 
     /// Inherited from QEvent
@@ -5566,34 +5933,40 @@ pub const qgestureevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGestureEvent ```
-    pub fn Clone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGestureEvent_Clone(@ptrCast(self));
+    /// ``` self: QtC.QGestureEvent ```
+    pub fn Clone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGestureEvent_Clone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGestureEvent ```
-    pub fn QBaseClone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGestureEvent_QBaseClone(@ptrCast(self));
+    /// ``` self: QtC.QGestureEvent ```
+    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGestureEvent_QBaseClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGestureEvent, slot: fn () callconv(.c) ?*C.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QEvent) void {
-        C.QGestureEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGestureEvent, slot: fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGestureEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#dtor.QGestureEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QGestureEvent ```
+    /// ``` self: QtC.QGestureEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QGestureEvent_Delete(@ptrCast(self));
+        qtc.QGestureEvent_Delete(@ptrCast(self));
     }
 };
 

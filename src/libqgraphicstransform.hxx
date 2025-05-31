@@ -11,24 +11,27 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QGraphicsTransform so that we can call protected methods
-class VirtualQGraphicsTransform : public QGraphicsTransform {
+class VirtualQGraphicsTransform final : public QGraphicsTransform {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsTransform = true;
+
     // Virtual class public types (including callbacks)
-    using QGraphicsTransform_Metacall_Callback = int (*)(QGraphicsTransform*, QMetaObject::Call, int, void**);
+    using QGraphicsTransform_Metacall_Callback = int (*)(QGraphicsTransform*, int, int, void**);
     using QGraphicsTransform_ApplyTo_Callback = void (*)(const QGraphicsTransform*, QMatrix4x4*);
     using QGraphicsTransform_Event_Callback = bool (*)(QGraphicsTransform*, QEvent*);
     using QGraphicsTransform_EventFilter_Callback = bool (*)(QGraphicsTransform*, QObject*, QEvent*);
     using QGraphicsTransform_TimerEvent_Callback = void (*)(QGraphicsTransform*, QTimerEvent*);
     using QGraphicsTransform_ChildEvent_Callback = void (*)(QGraphicsTransform*, QChildEvent*);
     using QGraphicsTransform_CustomEvent_Callback = void (*)(QGraphicsTransform*, QEvent*);
-    using QGraphicsTransform_ConnectNotify_Callback = void (*)(QGraphicsTransform*, const QMetaMethod&);
-    using QGraphicsTransform_DisconnectNotify_Callback = void (*)(QGraphicsTransform*, const QMetaMethod&);
+    using QGraphicsTransform_ConnectNotify_Callback = void (*)(QGraphicsTransform*, QMetaMethod*);
+    using QGraphicsTransform_DisconnectNotify_Callback = void (*)(QGraphicsTransform*, QMetaMethod*);
     using QGraphicsTransform_Update_Callback = void (*)();
     using QGraphicsTransform_Sender_Callback = QObject* (*)();
     using QGraphicsTransform_SenderSignalIndex_Callback = int (*)();
     using QGraphicsTransform_Receivers_Callback = int (*)(const QGraphicsTransform*, const char*);
-    using QGraphicsTransform_IsSignalConnected_Callback = bool (*)(const QGraphicsTransform*, const QMetaMethod&);
+    using QGraphicsTransform_IsSignalConnected_Callback = bool (*)(const QGraphicsTransform*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -85,36 +88,36 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
     }
 
     // Callback setters
-    void setQGraphicsTransform_Metacall_Callback(QGraphicsTransform_Metacall_Callback cb) { qgraphicstransform_metacall_callback = cb; }
-    void setQGraphicsTransform_ApplyTo_Callback(QGraphicsTransform_ApplyTo_Callback cb) { qgraphicstransform_applyto_callback = cb; }
-    void setQGraphicsTransform_Event_Callback(QGraphicsTransform_Event_Callback cb) { qgraphicstransform_event_callback = cb; }
-    void setQGraphicsTransform_EventFilter_Callback(QGraphicsTransform_EventFilter_Callback cb) { qgraphicstransform_eventfilter_callback = cb; }
-    void setQGraphicsTransform_TimerEvent_Callback(QGraphicsTransform_TimerEvent_Callback cb) { qgraphicstransform_timerevent_callback = cb; }
-    void setQGraphicsTransform_ChildEvent_Callback(QGraphicsTransform_ChildEvent_Callback cb) { qgraphicstransform_childevent_callback = cb; }
-    void setQGraphicsTransform_CustomEvent_Callback(QGraphicsTransform_CustomEvent_Callback cb) { qgraphicstransform_customevent_callback = cb; }
-    void setQGraphicsTransform_ConnectNotify_Callback(QGraphicsTransform_ConnectNotify_Callback cb) { qgraphicstransform_connectnotify_callback = cb; }
-    void setQGraphicsTransform_DisconnectNotify_Callback(QGraphicsTransform_DisconnectNotify_Callback cb) { qgraphicstransform_disconnectnotify_callback = cb; }
-    void setQGraphicsTransform_Update_Callback(QGraphicsTransform_Update_Callback cb) { qgraphicstransform_update_callback = cb; }
-    void setQGraphicsTransform_Sender_Callback(QGraphicsTransform_Sender_Callback cb) { qgraphicstransform_sender_callback = cb; }
-    void setQGraphicsTransform_SenderSignalIndex_Callback(QGraphicsTransform_SenderSignalIndex_Callback cb) { qgraphicstransform_sendersignalindex_callback = cb; }
-    void setQGraphicsTransform_Receivers_Callback(QGraphicsTransform_Receivers_Callback cb) { qgraphicstransform_receivers_callback = cb; }
-    void setQGraphicsTransform_IsSignalConnected_Callback(QGraphicsTransform_IsSignalConnected_Callback cb) { qgraphicstransform_issignalconnected_callback = cb; }
+    inline void setQGraphicsTransform_Metacall_Callback(QGraphicsTransform_Metacall_Callback cb) { qgraphicstransform_metacall_callback = cb; }
+    inline void setQGraphicsTransform_ApplyTo_Callback(QGraphicsTransform_ApplyTo_Callback cb) { qgraphicstransform_applyto_callback = cb; }
+    inline void setQGraphicsTransform_Event_Callback(QGraphicsTransform_Event_Callback cb) { qgraphicstransform_event_callback = cb; }
+    inline void setQGraphicsTransform_EventFilter_Callback(QGraphicsTransform_EventFilter_Callback cb) { qgraphicstransform_eventfilter_callback = cb; }
+    inline void setQGraphicsTransform_TimerEvent_Callback(QGraphicsTransform_TimerEvent_Callback cb) { qgraphicstransform_timerevent_callback = cb; }
+    inline void setQGraphicsTransform_ChildEvent_Callback(QGraphicsTransform_ChildEvent_Callback cb) { qgraphicstransform_childevent_callback = cb; }
+    inline void setQGraphicsTransform_CustomEvent_Callback(QGraphicsTransform_CustomEvent_Callback cb) { qgraphicstransform_customevent_callback = cb; }
+    inline void setQGraphicsTransform_ConnectNotify_Callback(QGraphicsTransform_ConnectNotify_Callback cb) { qgraphicstransform_connectnotify_callback = cb; }
+    inline void setQGraphicsTransform_DisconnectNotify_Callback(QGraphicsTransform_DisconnectNotify_Callback cb) { qgraphicstransform_disconnectnotify_callback = cb; }
+    inline void setQGraphicsTransform_Update_Callback(QGraphicsTransform_Update_Callback cb) { qgraphicstransform_update_callback = cb; }
+    inline void setQGraphicsTransform_Sender_Callback(QGraphicsTransform_Sender_Callback cb) { qgraphicstransform_sender_callback = cb; }
+    inline void setQGraphicsTransform_SenderSignalIndex_Callback(QGraphicsTransform_SenderSignalIndex_Callback cb) { qgraphicstransform_sendersignalindex_callback = cb; }
+    inline void setQGraphicsTransform_Receivers_Callback(QGraphicsTransform_Receivers_Callback cb) { qgraphicstransform_receivers_callback = cb; }
+    inline void setQGraphicsTransform_IsSignalConnected_Callback(QGraphicsTransform_IsSignalConnected_Callback cb) { qgraphicstransform_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsTransform_Metacall_IsBase(bool value) const { qgraphicstransform_metacall_isbase = value; }
-    void setQGraphicsTransform_ApplyTo_IsBase(bool value) const { qgraphicstransform_applyto_isbase = value; }
-    void setQGraphicsTransform_Event_IsBase(bool value) const { qgraphicstransform_event_isbase = value; }
-    void setQGraphicsTransform_EventFilter_IsBase(bool value) const { qgraphicstransform_eventfilter_isbase = value; }
-    void setQGraphicsTransform_TimerEvent_IsBase(bool value) const { qgraphicstransform_timerevent_isbase = value; }
-    void setQGraphicsTransform_ChildEvent_IsBase(bool value) const { qgraphicstransform_childevent_isbase = value; }
-    void setQGraphicsTransform_CustomEvent_IsBase(bool value) const { qgraphicstransform_customevent_isbase = value; }
-    void setQGraphicsTransform_ConnectNotify_IsBase(bool value) const { qgraphicstransform_connectnotify_isbase = value; }
-    void setQGraphicsTransform_DisconnectNotify_IsBase(bool value) const { qgraphicstransform_disconnectnotify_isbase = value; }
-    void setQGraphicsTransform_Update_IsBase(bool value) const { qgraphicstransform_update_isbase = value; }
-    void setQGraphicsTransform_Sender_IsBase(bool value) const { qgraphicstransform_sender_isbase = value; }
-    void setQGraphicsTransform_SenderSignalIndex_IsBase(bool value) const { qgraphicstransform_sendersignalindex_isbase = value; }
-    void setQGraphicsTransform_Receivers_IsBase(bool value) const { qgraphicstransform_receivers_isbase = value; }
-    void setQGraphicsTransform_IsSignalConnected_IsBase(bool value) const { qgraphicstransform_issignalconnected_isbase = value; }
+    inline void setQGraphicsTransform_Metacall_IsBase(bool value) const { qgraphicstransform_metacall_isbase = value; }
+    inline void setQGraphicsTransform_ApplyTo_IsBase(bool value) const { qgraphicstransform_applyto_isbase = value; }
+    inline void setQGraphicsTransform_Event_IsBase(bool value) const { qgraphicstransform_event_isbase = value; }
+    inline void setQGraphicsTransform_EventFilter_IsBase(bool value) const { qgraphicstransform_eventfilter_isbase = value; }
+    inline void setQGraphicsTransform_TimerEvent_IsBase(bool value) const { qgraphicstransform_timerevent_isbase = value; }
+    inline void setQGraphicsTransform_ChildEvent_IsBase(bool value) const { qgraphicstransform_childevent_isbase = value; }
+    inline void setQGraphicsTransform_CustomEvent_IsBase(bool value) const { qgraphicstransform_customevent_isbase = value; }
+    inline void setQGraphicsTransform_ConnectNotify_IsBase(bool value) const { qgraphicstransform_connectnotify_isbase = value; }
+    inline void setQGraphicsTransform_DisconnectNotify_IsBase(bool value) const { qgraphicstransform_disconnectnotify_isbase = value; }
+    inline void setQGraphicsTransform_Update_IsBase(bool value) const { qgraphicstransform_update_isbase = value; }
+    inline void setQGraphicsTransform_Sender_IsBase(bool value) const { qgraphicstransform_sender_isbase = value; }
+    inline void setQGraphicsTransform_SenderSignalIndex_IsBase(bool value) const { qgraphicstransform_sendersignalindex_isbase = value; }
+    inline void setQGraphicsTransform_Receivers_IsBase(bool value) const { qgraphicstransform_receivers_isbase = value; }
+    inline void setQGraphicsTransform_IsSignalConnected_IsBase(bool value) const { qgraphicstransform_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -122,7 +125,12 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
             qgraphicstransform_metacall_isbase = false;
             return QGraphicsTransform::qt_metacall(param1, param2, param3);
         } else if (qgraphicstransform_metacall_callback != nullptr) {
-            return qgraphicstransform_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qgraphicstransform_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsTransform::qt_metacall(param1, param2, param3);
         }
@@ -130,7 +138,11 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
 
     // Virtual method for C ABI access and custom callback
     virtual void applyTo(QMatrix4x4* matrix) const override {
-        qgraphicstransform_applyto_callback(this, matrix);
+        if (qgraphicstransform_applyto_callback != nullptr) {
+            QMatrix4x4* cbval1 = matrix;
+
+            qgraphicstransform_applyto_callback(this, cbval1);
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -139,7 +151,10 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
             qgraphicstransform_event_isbase = false;
             return QGraphicsTransform::event(event);
         } else if (qgraphicstransform_event_callback != nullptr) {
-            return qgraphicstransform_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgraphicstransform_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsTransform::event(event);
         }
@@ -151,7 +166,11 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
             qgraphicstransform_eventfilter_isbase = false;
             return QGraphicsTransform::eventFilter(watched, event);
         } else if (qgraphicstransform_eventfilter_callback != nullptr) {
-            return qgraphicstransform_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicstransform_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsTransform::eventFilter(watched, event);
         }
@@ -163,7 +182,9 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
             qgraphicstransform_timerevent_isbase = false;
             QGraphicsTransform::timerEvent(event);
         } else if (qgraphicstransform_timerevent_callback != nullptr) {
-            qgraphicstransform_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qgraphicstransform_timerevent_callback(this, cbval1);
         } else {
             QGraphicsTransform::timerEvent(event);
         }
@@ -175,7 +196,9 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
             qgraphicstransform_childevent_isbase = false;
             QGraphicsTransform::childEvent(event);
         } else if (qgraphicstransform_childevent_callback != nullptr) {
-            qgraphicstransform_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qgraphicstransform_childevent_callback(this, cbval1);
         } else {
             QGraphicsTransform::childEvent(event);
         }
@@ -187,7 +210,9 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
             qgraphicstransform_customevent_isbase = false;
             QGraphicsTransform::customEvent(event);
         } else if (qgraphicstransform_customevent_callback != nullptr) {
-            qgraphicstransform_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qgraphicstransform_customevent_callback(this, cbval1);
         } else {
             QGraphicsTransform::customEvent(event);
         }
@@ -199,7 +224,11 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
             qgraphicstransform_connectnotify_isbase = false;
             QGraphicsTransform::connectNotify(signal);
         } else if (qgraphicstransform_connectnotify_callback != nullptr) {
-            qgraphicstransform_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qgraphicstransform_connectnotify_callback(this, cbval1);
         } else {
             QGraphicsTransform::connectNotify(signal);
         }
@@ -211,7 +240,11 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
             qgraphicstransform_disconnectnotify_isbase = false;
             QGraphicsTransform::disconnectNotify(signal);
         } else if (qgraphicstransform_disconnectnotify_callback != nullptr) {
-            qgraphicstransform_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qgraphicstransform_disconnectnotify_callback(this, cbval1);
         } else {
             QGraphicsTransform::disconnectNotify(signal);
         }
@@ -235,7 +268,8 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
             qgraphicstransform_sender_isbase = false;
             return QGraphicsTransform::sender();
         } else if (qgraphicstransform_sender_callback != nullptr) {
-            return qgraphicstransform_sender_callback();
+            QObject* callback_ret = qgraphicstransform_sender_callback();
+            return callback_ret;
         } else {
             return QGraphicsTransform::sender();
         }
@@ -247,7 +281,8 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
             qgraphicstransform_sendersignalindex_isbase = false;
             return QGraphicsTransform::senderSignalIndex();
         } else if (qgraphicstransform_sendersignalindex_callback != nullptr) {
-            return qgraphicstransform_sendersignalindex_callback();
+            int callback_ret = qgraphicstransform_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsTransform::senderSignalIndex();
         }
@@ -259,7 +294,10 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
             qgraphicstransform_receivers_isbase = false;
             return QGraphicsTransform::receivers(signal);
         } else if (qgraphicstransform_receivers_callback != nullptr) {
-            return qgraphicstransform_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qgraphicstransform_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsTransform::receivers(signal);
         }
@@ -271,32 +309,62 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
             qgraphicstransform_issignalconnected_isbase = false;
             return QGraphicsTransform::isSignalConnected(signal);
         } else if (qgraphicstransform_issignalconnected_callback != nullptr) {
-            return qgraphicstransform_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qgraphicstransform_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsTransform::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QGraphicsTransform_TimerEvent(QGraphicsTransform* self, QTimerEvent* event);
+    friend void QGraphicsTransform_QBaseTimerEvent(QGraphicsTransform* self, QTimerEvent* event);
+    friend void QGraphicsTransform_ChildEvent(QGraphicsTransform* self, QChildEvent* event);
+    friend void QGraphicsTransform_QBaseChildEvent(QGraphicsTransform* self, QChildEvent* event);
+    friend void QGraphicsTransform_CustomEvent(QGraphicsTransform* self, QEvent* event);
+    friend void QGraphicsTransform_QBaseCustomEvent(QGraphicsTransform* self, QEvent* event);
+    friend void QGraphicsTransform_ConnectNotify(QGraphicsTransform* self, const QMetaMethod* signal);
+    friend void QGraphicsTransform_QBaseConnectNotify(QGraphicsTransform* self, const QMetaMethod* signal);
+    friend void QGraphicsTransform_DisconnectNotify(QGraphicsTransform* self, const QMetaMethod* signal);
+    friend void QGraphicsTransform_QBaseDisconnectNotify(QGraphicsTransform* self, const QMetaMethod* signal);
+    friend void QGraphicsTransform_Update(QGraphicsTransform* self);
+    friend void QGraphicsTransform_QBaseUpdate(QGraphicsTransform* self);
+    friend QObject* QGraphicsTransform_Sender(const QGraphicsTransform* self);
+    friend QObject* QGraphicsTransform_QBaseSender(const QGraphicsTransform* self);
+    friend int QGraphicsTransform_SenderSignalIndex(const QGraphicsTransform* self);
+    friend int QGraphicsTransform_QBaseSenderSignalIndex(const QGraphicsTransform* self);
+    friend int QGraphicsTransform_Receivers(const QGraphicsTransform* self, const char* signal);
+    friend int QGraphicsTransform_QBaseReceivers(const QGraphicsTransform* self, const char* signal);
+    friend bool QGraphicsTransform_IsSignalConnected(const QGraphicsTransform* self, const QMetaMethod* signal);
+    friend bool QGraphicsTransform_QBaseIsSignalConnected(const QGraphicsTransform* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QGraphicsScale so that we can call protected methods
-class VirtualQGraphicsScale : public QGraphicsScale {
+class VirtualQGraphicsScale final : public QGraphicsScale {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsScale = true;
+
     // Virtual class public types (including callbacks)
-    using QGraphicsScale_Metacall_Callback = int (*)(QGraphicsScale*, QMetaObject::Call, int, void**);
+    using QGraphicsScale_Metacall_Callback = int (*)(QGraphicsScale*, int, int, void**);
     using QGraphicsScale_ApplyTo_Callback = void (*)(const QGraphicsScale*, QMatrix4x4*);
     using QGraphicsScale_Event_Callback = bool (*)(QGraphicsScale*, QEvent*);
     using QGraphicsScale_EventFilter_Callback = bool (*)(QGraphicsScale*, QObject*, QEvent*);
     using QGraphicsScale_TimerEvent_Callback = void (*)(QGraphicsScale*, QTimerEvent*);
     using QGraphicsScale_ChildEvent_Callback = void (*)(QGraphicsScale*, QChildEvent*);
     using QGraphicsScale_CustomEvent_Callback = void (*)(QGraphicsScale*, QEvent*);
-    using QGraphicsScale_ConnectNotify_Callback = void (*)(QGraphicsScale*, const QMetaMethod&);
-    using QGraphicsScale_DisconnectNotify_Callback = void (*)(QGraphicsScale*, const QMetaMethod&);
+    using QGraphicsScale_ConnectNotify_Callback = void (*)(QGraphicsScale*, QMetaMethod*);
+    using QGraphicsScale_DisconnectNotify_Callback = void (*)(QGraphicsScale*, QMetaMethod*);
     using QGraphicsScale_Update_Callback = void (*)();
     using QGraphicsScale_Sender_Callback = QObject* (*)();
     using QGraphicsScale_SenderSignalIndex_Callback = int (*)();
     using QGraphicsScale_Receivers_Callback = int (*)(const QGraphicsScale*, const char*);
-    using QGraphicsScale_IsSignalConnected_Callback = bool (*)(const QGraphicsScale*, const QMetaMethod&);
+    using QGraphicsScale_IsSignalConnected_Callback = bool (*)(const QGraphicsScale*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -353,36 +421,36 @@ class VirtualQGraphicsScale : public QGraphicsScale {
     }
 
     // Callback setters
-    void setQGraphicsScale_Metacall_Callback(QGraphicsScale_Metacall_Callback cb) { qgraphicsscale_metacall_callback = cb; }
-    void setQGraphicsScale_ApplyTo_Callback(QGraphicsScale_ApplyTo_Callback cb) { qgraphicsscale_applyto_callback = cb; }
-    void setQGraphicsScale_Event_Callback(QGraphicsScale_Event_Callback cb) { qgraphicsscale_event_callback = cb; }
-    void setQGraphicsScale_EventFilter_Callback(QGraphicsScale_EventFilter_Callback cb) { qgraphicsscale_eventfilter_callback = cb; }
-    void setQGraphicsScale_TimerEvent_Callback(QGraphicsScale_TimerEvent_Callback cb) { qgraphicsscale_timerevent_callback = cb; }
-    void setQGraphicsScale_ChildEvent_Callback(QGraphicsScale_ChildEvent_Callback cb) { qgraphicsscale_childevent_callback = cb; }
-    void setQGraphicsScale_CustomEvent_Callback(QGraphicsScale_CustomEvent_Callback cb) { qgraphicsscale_customevent_callback = cb; }
-    void setQGraphicsScale_ConnectNotify_Callback(QGraphicsScale_ConnectNotify_Callback cb) { qgraphicsscale_connectnotify_callback = cb; }
-    void setQGraphicsScale_DisconnectNotify_Callback(QGraphicsScale_DisconnectNotify_Callback cb) { qgraphicsscale_disconnectnotify_callback = cb; }
-    void setQGraphicsScale_Update_Callback(QGraphicsScale_Update_Callback cb) { qgraphicsscale_update_callback = cb; }
-    void setQGraphicsScale_Sender_Callback(QGraphicsScale_Sender_Callback cb) { qgraphicsscale_sender_callback = cb; }
-    void setQGraphicsScale_SenderSignalIndex_Callback(QGraphicsScale_SenderSignalIndex_Callback cb) { qgraphicsscale_sendersignalindex_callback = cb; }
-    void setQGraphicsScale_Receivers_Callback(QGraphicsScale_Receivers_Callback cb) { qgraphicsscale_receivers_callback = cb; }
-    void setQGraphicsScale_IsSignalConnected_Callback(QGraphicsScale_IsSignalConnected_Callback cb) { qgraphicsscale_issignalconnected_callback = cb; }
+    inline void setQGraphicsScale_Metacall_Callback(QGraphicsScale_Metacall_Callback cb) { qgraphicsscale_metacall_callback = cb; }
+    inline void setQGraphicsScale_ApplyTo_Callback(QGraphicsScale_ApplyTo_Callback cb) { qgraphicsscale_applyto_callback = cb; }
+    inline void setQGraphicsScale_Event_Callback(QGraphicsScale_Event_Callback cb) { qgraphicsscale_event_callback = cb; }
+    inline void setQGraphicsScale_EventFilter_Callback(QGraphicsScale_EventFilter_Callback cb) { qgraphicsscale_eventfilter_callback = cb; }
+    inline void setQGraphicsScale_TimerEvent_Callback(QGraphicsScale_TimerEvent_Callback cb) { qgraphicsscale_timerevent_callback = cb; }
+    inline void setQGraphicsScale_ChildEvent_Callback(QGraphicsScale_ChildEvent_Callback cb) { qgraphicsscale_childevent_callback = cb; }
+    inline void setQGraphicsScale_CustomEvent_Callback(QGraphicsScale_CustomEvent_Callback cb) { qgraphicsscale_customevent_callback = cb; }
+    inline void setQGraphicsScale_ConnectNotify_Callback(QGraphicsScale_ConnectNotify_Callback cb) { qgraphicsscale_connectnotify_callback = cb; }
+    inline void setQGraphicsScale_DisconnectNotify_Callback(QGraphicsScale_DisconnectNotify_Callback cb) { qgraphicsscale_disconnectnotify_callback = cb; }
+    inline void setQGraphicsScale_Update_Callback(QGraphicsScale_Update_Callback cb) { qgraphicsscale_update_callback = cb; }
+    inline void setQGraphicsScale_Sender_Callback(QGraphicsScale_Sender_Callback cb) { qgraphicsscale_sender_callback = cb; }
+    inline void setQGraphicsScale_SenderSignalIndex_Callback(QGraphicsScale_SenderSignalIndex_Callback cb) { qgraphicsscale_sendersignalindex_callback = cb; }
+    inline void setQGraphicsScale_Receivers_Callback(QGraphicsScale_Receivers_Callback cb) { qgraphicsscale_receivers_callback = cb; }
+    inline void setQGraphicsScale_IsSignalConnected_Callback(QGraphicsScale_IsSignalConnected_Callback cb) { qgraphicsscale_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsScale_Metacall_IsBase(bool value) const { qgraphicsscale_metacall_isbase = value; }
-    void setQGraphicsScale_ApplyTo_IsBase(bool value) const { qgraphicsscale_applyto_isbase = value; }
-    void setQGraphicsScale_Event_IsBase(bool value) const { qgraphicsscale_event_isbase = value; }
-    void setQGraphicsScale_EventFilter_IsBase(bool value) const { qgraphicsscale_eventfilter_isbase = value; }
-    void setQGraphicsScale_TimerEvent_IsBase(bool value) const { qgraphicsscale_timerevent_isbase = value; }
-    void setQGraphicsScale_ChildEvent_IsBase(bool value) const { qgraphicsscale_childevent_isbase = value; }
-    void setQGraphicsScale_CustomEvent_IsBase(bool value) const { qgraphicsscale_customevent_isbase = value; }
-    void setQGraphicsScale_ConnectNotify_IsBase(bool value) const { qgraphicsscale_connectnotify_isbase = value; }
-    void setQGraphicsScale_DisconnectNotify_IsBase(bool value) const { qgraphicsscale_disconnectnotify_isbase = value; }
-    void setQGraphicsScale_Update_IsBase(bool value) const { qgraphicsscale_update_isbase = value; }
-    void setQGraphicsScale_Sender_IsBase(bool value) const { qgraphicsscale_sender_isbase = value; }
-    void setQGraphicsScale_SenderSignalIndex_IsBase(bool value) const { qgraphicsscale_sendersignalindex_isbase = value; }
-    void setQGraphicsScale_Receivers_IsBase(bool value) const { qgraphicsscale_receivers_isbase = value; }
-    void setQGraphicsScale_IsSignalConnected_IsBase(bool value) const { qgraphicsscale_issignalconnected_isbase = value; }
+    inline void setQGraphicsScale_Metacall_IsBase(bool value) const { qgraphicsscale_metacall_isbase = value; }
+    inline void setQGraphicsScale_ApplyTo_IsBase(bool value) const { qgraphicsscale_applyto_isbase = value; }
+    inline void setQGraphicsScale_Event_IsBase(bool value) const { qgraphicsscale_event_isbase = value; }
+    inline void setQGraphicsScale_EventFilter_IsBase(bool value) const { qgraphicsscale_eventfilter_isbase = value; }
+    inline void setQGraphicsScale_TimerEvent_IsBase(bool value) const { qgraphicsscale_timerevent_isbase = value; }
+    inline void setQGraphicsScale_ChildEvent_IsBase(bool value) const { qgraphicsscale_childevent_isbase = value; }
+    inline void setQGraphicsScale_CustomEvent_IsBase(bool value) const { qgraphicsscale_customevent_isbase = value; }
+    inline void setQGraphicsScale_ConnectNotify_IsBase(bool value) const { qgraphicsscale_connectnotify_isbase = value; }
+    inline void setQGraphicsScale_DisconnectNotify_IsBase(bool value) const { qgraphicsscale_disconnectnotify_isbase = value; }
+    inline void setQGraphicsScale_Update_IsBase(bool value) const { qgraphicsscale_update_isbase = value; }
+    inline void setQGraphicsScale_Sender_IsBase(bool value) const { qgraphicsscale_sender_isbase = value; }
+    inline void setQGraphicsScale_SenderSignalIndex_IsBase(bool value) const { qgraphicsscale_sendersignalindex_isbase = value; }
+    inline void setQGraphicsScale_Receivers_IsBase(bool value) const { qgraphicsscale_receivers_isbase = value; }
+    inline void setQGraphicsScale_IsSignalConnected_IsBase(bool value) const { qgraphicsscale_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -390,7 +458,12 @@ class VirtualQGraphicsScale : public QGraphicsScale {
             qgraphicsscale_metacall_isbase = false;
             return QGraphicsScale::qt_metacall(param1, param2, param3);
         } else if (qgraphicsscale_metacall_callback != nullptr) {
-            return qgraphicsscale_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qgraphicsscale_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsScale::qt_metacall(param1, param2, param3);
         }
@@ -402,7 +475,9 @@ class VirtualQGraphicsScale : public QGraphicsScale {
             qgraphicsscale_applyto_isbase = false;
             QGraphicsScale::applyTo(matrix);
         } else if (qgraphicsscale_applyto_callback != nullptr) {
-            qgraphicsscale_applyto_callback(this, matrix);
+            QMatrix4x4* cbval1 = matrix;
+
+            qgraphicsscale_applyto_callback(this, cbval1);
         } else {
             QGraphicsScale::applyTo(matrix);
         }
@@ -414,7 +489,10 @@ class VirtualQGraphicsScale : public QGraphicsScale {
             qgraphicsscale_event_isbase = false;
             return QGraphicsScale::event(event);
         } else if (qgraphicsscale_event_callback != nullptr) {
-            return qgraphicsscale_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgraphicsscale_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsScale::event(event);
         }
@@ -426,7 +504,11 @@ class VirtualQGraphicsScale : public QGraphicsScale {
             qgraphicsscale_eventfilter_isbase = false;
             return QGraphicsScale::eventFilter(watched, event);
         } else if (qgraphicsscale_eventfilter_callback != nullptr) {
-            return qgraphicsscale_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicsscale_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsScale::eventFilter(watched, event);
         }
@@ -438,7 +520,9 @@ class VirtualQGraphicsScale : public QGraphicsScale {
             qgraphicsscale_timerevent_isbase = false;
             QGraphicsScale::timerEvent(event);
         } else if (qgraphicsscale_timerevent_callback != nullptr) {
-            qgraphicsscale_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qgraphicsscale_timerevent_callback(this, cbval1);
         } else {
             QGraphicsScale::timerEvent(event);
         }
@@ -450,7 +534,9 @@ class VirtualQGraphicsScale : public QGraphicsScale {
             qgraphicsscale_childevent_isbase = false;
             QGraphicsScale::childEvent(event);
         } else if (qgraphicsscale_childevent_callback != nullptr) {
-            qgraphicsscale_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qgraphicsscale_childevent_callback(this, cbval1);
         } else {
             QGraphicsScale::childEvent(event);
         }
@@ -462,7 +548,9 @@ class VirtualQGraphicsScale : public QGraphicsScale {
             qgraphicsscale_customevent_isbase = false;
             QGraphicsScale::customEvent(event);
         } else if (qgraphicsscale_customevent_callback != nullptr) {
-            qgraphicsscale_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qgraphicsscale_customevent_callback(this, cbval1);
         } else {
             QGraphicsScale::customEvent(event);
         }
@@ -474,7 +562,11 @@ class VirtualQGraphicsScale : public QGraphicsScale {
             qgraphicsscale_connectnotify_isbase = false;
             QGraphicsScale::connectNotify(signal);
         } else if (qgraphicsscale_connectnotify_callback != nullptr) {
-            qgraphicsscale_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qgraphicsscale_connectnotify_callback(this, cbval1);
         } else {
             QGraphicsScale::connectNotify(signal);
         }
@@ -486,7 +578,11 @@ class VirtualQGraphicsScale : public QGraphicsScale {
             qgraphicsscale_disconnectnotify_isbase = false;
             QGraphicsScale::disconnectNotify(signal);
         } else if (qgraphicsscale_disconnectnotify_callback != nullptr) {
-            qgraphicsscale_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qgraphicsscale_disconnectnotify_callback(this, cbval1);
         } else {
             QGraphicsScale::disconnectNotify(signal);
         }
@@ -510,7 +606,8 @@ class VirtualQGraphicsScale : public QGraphicsScale {
             qgraphicsscale_sender_isbase = false;
             return QGraphicsScale::sender();
         } else if (qgraphicsscale_sender_callback != nullptr) {
-            return qgraphicsscale_sender_callback();
+            QObject* callback_ret = qgraphicsscale_sender_callback();
+            return callback_ret;
         } else {
             return QGraphicsScale::sender();
         }
@@ -522,7 +619,8 @@ class VirtualQGraphicsScale : public QGraphicsScale {
             qgraphicsscale_sendersignalindex_isbase = false;
             return QGraphicsScale::senderSignalIndex();
         } else if (qgraphicsscale_sendersignalindex_callback != nullptr) {
-            return qgraphicsscale_sendersignalindex_callback();
+            int callback_ret = qgraphicsscale_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsScale::senderSignalIndex();
         }
@@ -534,7 +632,10 @@ class VirtualQGraphicsScale : public QGraphicsScale {
             qgraphicsscale_receivers_isbase = false;
             return QGraphicsScale::receivers(signal);
         } else if (qgraphicsscale_receivers_callback != nullptr) {
-            return qgraphicsscale_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qgraphicsscale_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsScale::receivers(signal);
         }
@@ -546,32 +647,62 @@ class VirtualQGraphicsScale : public QGraphicsScale {
             qgraphicsscale_issignalconnected_isbase = false;
             return QGraphicsScale::isSignalConnected(signal);
         } else if (qgraphicsscale_issignalconnected_callback != nullptr) {
-            return qgraphicsscale_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qgraphicsscale_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsScale::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QGraphicsScale_TimerEvent(QGraphicsScale* self, QTimerEvent* event);
+    friend void QGraphicsScale_QBaseTimerEvent(QGraphicsScale* self, QTimerEvent* event);
+    friend void QGraphicsScale_ChildEvent(QGraphicsScale* self, QChildEvent* event);
+    friend void QGraphicsScale_QBaseChildEvent(QGraphicsScale* self, QChildEvent* event);
+    friend void QGraphicsScale_CustomEvent(QGraphicsScale* self, QEvent* event);
+    friend void QGraphicsScale_QBaseCustomEvent(QGraphicsScale* self, QEvent* event);
+    friend void QGraphicsScale_ConnectNotify(QGraphicsScale* self, const QMetaMethod* signal);
+    friend void QGraphicsScale_QBaseConnectNotify(QGraphicsScale* self, const QMetaMethod* signal);
+    friend void QGraphicsScale_DisconnectNotify(QGraphicsScale* self, const QMetaMethod* signal);
+    friend void QGraphicsScale_QBaseDisconnectNotify(QGraphicsScale* self, const QMetaMethod* signal);
+    friend void QGraphicsScale_Update(QGraphicsScale* self);
+    friend void QGraphicsScale_QBaseUpdate(QGraphicsScale* self);
+    friend QObject* QGraphicsScale_Sender(const QGraphicsScale* self);
+    friend QObject* QGraphicsScale_QBaseSender(const QGraphicsScale* self);
+    friend int QGraphicsScale_SenderSignalIndex(const QGraphicsScale* self);
+    friend int QGraphicsScale_QBaseSenderSignalIndex(const QGraphicsScale* self);
+    friend int QGraphicsScale_Receivers(const QGraphicsScale* self, const char* signal);
+    friend int QGraphicsScale_QBaseReceivers(const QGraphicsScale* self, const char* signal);
+    friend bool QGraphicsScale_IsSignalConnected(const QGraphicsScale* self, const QMetaMethod* signal);
+    friend bool QGraphicsScale_QBaseIsSignalConnected(const QGraphicsScale* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QGraphicsRotation so that we can call protected methods
-class VirtualQGraphicsRotation : public QGraphicsRotation {
+class VirtualQGraphicsRotation final : public QGraphicsRotation {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsRotation = true;
+
     // Virtual class public types (including callbacks)
-    using QGraphicsRotation_Metacall_Callback = int (*)(QGraphicsRotation*, QMetaObject::Call, int, void**);
+    using QGraphicsRotation_Metacall_Callback = int (*)(QGraphicsRotation*, int, int, void**);
     using QGraphicsRotation_ApplyTo_Callback = void (*)(const QGraphicsRotation*, QMatrix4x4*);
     using QGraphicsRotation_Event_Callback = bool (*)(QGraphicsRotation*, QEvent*);
     using QGraphicsRotation_EventFilter_Callback = bool (*)(QGraphicsRotation*, QObject*, QEvent*);
     using QGraphicsRotation_TimerEvent_Callback = void (*)(QGraphicsRotation*, QTimerEvent*);
     using QGraphicsRotation_ChildEvent_Callback = void (*)(QGraphicsRotation*, QChildEvent*);
     using QGraphicsRotation_CustomEvent_Callback = void (*)(QGraphicsRotation*, QEvent*);
-    using QGraphicsRotation_ConnectNotify_Callback = void (*)(QGraphicsRotation*, const QMetaMethod&);
-    using QGraphicsRotation_DisconnectNotify_Callback = void (*)(QGraphicsRotation*, const QMetaMethod&);
+    using QGraphicsRotation_ConnectNotify_Callback = void (*)(QGraphicsRotation*, QMetaMethod*);
+    using QGraphicsRotation_DisconnectNotify_Callback = void (*)(QGraphicsRotation*, QMetaMethod*);
     using QGraphicsRotation_Update_Callback = void (*)();
     using QGraphicsRotation_Sender_Callback = QObject* (*)();
     using QGraphicsRotation_SenderSignalIndex_Callback = int (*)();
     using QGraphicsRotation_Receivers_Callback = int (*)(const QGraphicsRotation*, const char*);
-    using QGraphicsRotation_IsSignalConnected_Callback = bool (*)(const QGraphicsRotation*, const QMetaMethod&);
+    using QGraphicsRotation_IsSignalConnected_Callback = bool (*)(const QGraphicsRotation*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -628,36 +759,36 @@ class VirtualQGraphicsRotation : public QGraphicsRotation {
     }
 
     // Callback setters
-    void setQGraphicsRotation_Metacall_Callback(QGraphicsRotation_Metacall_Callback cb) { qgraphicsrotation_metacall_callback = cb; }
-    void setQGraphicsRotation_ApplyTo_Callback(QGraphicsRotation_ApplyTo_Callback cb) { qgraphicsrotation_applyto_callback = cb; }
-    void setQGraphicsRotation_Event_Callback(QGraphicsRotation_Event_Callback cb) { qgraphicsrotation_event_callback = cb; }
-    void setQGraphicsRotation_EventFilter_Callback(QGraphicsRotation_EventFilter_Callback cb) { qgraphicsrotation_eventfilter_callback = cb; }
-    void setQGraphicsRotation_TimerEvent_Callback(QGraphicsRotation_TimerEvent_Callback cb) { qgraphicsrotation_timerevent_callback = cb; }
-    void setQGraphicsRotation_ChildEvent_Callback(QGraphicsRotation_ChildEvent_Callback cb) { qgraphicsrotation_childevent_callback = cb; }
-    void setQGraphicsRotation_CustomEvent_Callback(QGraphicsRotation_CustomEvent_Callback cb) { qgraphicsrotation_customevent_callback = cb; }
-    void setQGraphicsRotation_ConnectNotify_Callback(QGraphicsRotation_ConnectNotify_Callback cb) { qgraphicsrotation_connectnotify_callback = cb; }
-    void setQGraphicsRotation_DisconnectNotify_Callback(QGraphicsRotation_DisconnectNotify_Callback cb) { qgraphicsrotation_disconnectnotify_callback = cb; }
-    void setQGraphicsRotation_Update_Callback(QGraphicsRotation_Update_Callback cb) { qgraphicsrotation_update_callback = cb; }
-    void setQGraphicsRotation_Sender_Callback(QGraphicsRotation_Sender_Callback cb) { qgraphicsrotation_sender_callback = cb; }
-    void setQGraphicsRotation_SenderSignalIndex_Callback(QGraphicsRotation_SenderSignalIndex_Callback cb) { qgraphicsrotation_sendersignalindex_callback = cb; }
-    void setQGraphicsRotation_Receivers_Callback(QGraphicsRotation_Receivers_Callback cb) { qgraphicsrotation_receivers_callback = cb; }
-    void setQGraphicsRotation_IsSignalConnected_Callback(QGraphicsRotation_IsSignalConnected_Callback cb) { qgraphicsrotation_issignalconnected_callback = cb; }
+    inline void setQGraphicsRotation_Metacall_Callback(QGraphicsRotation_Metacall_Callback cb) { qgraphicsrotation_metacall_callback = cb; }
+    inline void setQGraphicsRotation_ApplyTo_Callback(QGraphicsRotation_ApplyTo_Callback cb) { qgraphicsrotation_applyto_callback = cb; }
+    inline void setQGraphicsRotation_Event_Callback(QGraphicsRotation_Event_Callback cb) { qgraphicsrotation_event_callback = cb; }
+    inline void setQGraphicsRotation_EventFilter_Callback(QGraphicsRotation_EventFilter_Callback cb) { qgraphicsrotation_eventfilter_callback = cb; }
+    inline void setQGraphicsRotation_TimerEvent_Callback(QGraphicsRotation_TimerEvent_Callback cb) { qgraphicsrotation_timerevent_callback = cb; }
+    inline void setQGraphicsRotation_ChildEvent_Callback(QGraphicsRotation_ChildEvent_Callback cb) { qgraphicsrotation_childevent_callback = cb; }
+    inline void setQGraphicsRotation_CustomEvent_Callback(QGraphicsRotation_CustomEvent_Callback cb) { qgraphicsrotation_customevent_callback = cb; }
+    inline void setQGraphicsRotation_ConnectNotify_Callback(QGraphicsRotation_ConnectNotify_Callback cb) { qgraphicsrotation_connectnotify_callback = cb; }
+    inline void setQGraphicsRotation_DisconnectNotify_Callback(QGraphicsRotation_DisconnectNotify_Callback cb) { qgraphicsrotation_disconnectnotify_callback = cb; }
+    inline void setQGraphicsRotation_Update_Callback(QGraphicsRotation_Update_Callback cb) { qgraphicsrotation_update_callback = cb; }
+    inline void setQGraphicsRotation_Sender_Callback(QGraphicsRotation_Sender_Callback cb) { qgraphicsrotation_sender_callback = cb; }
+    inline void setQGraphicsRotation_SenderSignalIndex_Callback(QGraphicsRotation_SenderSignalIndex_Callback cb) { qgraphicsrotation_sendersignalindex_callback = cb; }
+    inline void setQGraphicsRotation_Receivers_Callback(QGraphicsRotation_Receivers_Callback cb) { qgraphicsrotation_receivers_callback = cb; }
+    inline void setQGraphicsRotation_IsSignalConnected_Callback(QGraphicsRotation_IsSignalConnected_Callback cb) { qgraphicsrotation_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsRotation_Metacall_IsBase(bool value) const { qgraphicsrotation_metacall_isbase = value; }
-    void setQGraphicsRotation_ApplyTo_IsBase(bool value) const { qgraphicsrotation_applyto_isbase = value; }
-    void setQGraphicsRotation_Event_IsBase(bool value) const { qgraphicsrotation_event_isbase = value; }
-    void setQGraphicsRotation_EventFilter_IsBase(bool value) const { qgraphicsrotation_eventfilter_isbase = value; }
-    void setQGraphicsRotation_TimerEvent_IsBase(bool value) const { qgraphicsrotation_timerevent_isbase = value; }
-    void setQGraphicsRotation_ChildEvent_IsBase(bool value) const { qgraphicsrotation_childevent_isbase = value; }
-    void setQGraphicsRotation_CustomEvent_IsBase(bool value) const { qgraphicsrotation_customevent_isbase = value; }
-    void setQGraphicsRotation_ConnectNotify_IsBase(bool value) const { qgraphicsrotation_connectnotify_isbase = value; }
-    void setQGraphicsRotation_DisconnectNotify_IsBase(bool value) const { qgraphicsrotation_disconnectnotify_isbase = value; }
-    void setQGraphicsRotation_Update_IsBase(bool value) const { qgraphicsrotation_update_isbase = value; }
-    void setQGraphicsRotation_Sender_IsBase(bool value) const { qgraphicsrotation_sender_isbase = value; }
-    void setQGraphicsRotation_SenderSignalIndex_IsBase(bool value) const { qgraphicsrotation_sendersignalindex_isbase = value; }
-    void setQGraphicsRotation_Receivers_IsBase(bool value) const { qgraphicsrotation_receivers_isbase = value; }
-    void setQGraphicsRotation_IsSignalConnected_IsBase(bool value) const { qgraphicsrotation_issignalconnected_isbase = value; }
+    inline void setQGraphicsRotation_Metacall_IsBase(bool value) const { qgraphicsrotation_metacall_isbase = value; }
+    inline void setQGraphicsRotation_ApplyTo_IsBase(bool value) const { qgraphicsrotation_applyto_isbase = value; }
+    inline void setQGraphicsRotation_Event_IsBase(bool value) const { qgraphicsrotation_event_isbase = value; }
+    inline void setQGraphicsRotation_EventFilter_IsBase(bool value) const { qgraphicsrotation_eventfilter_isbase = value; }
+    inline void setQGraphicsRotation_TimerEvent_IsBase(bool value) const { qgraphicsrotation_timerevent_isbase = value; }
+    inline void setQGraphicsRotation_ChildEvent_IsBase(bool value) const { qgraphicsrotation_childevent_isbase = value; }
+    inline void setQGraphicsRotation_CustomEvent_IsBase(bool value) const { qgraphicsrotation_customevent_isbase = value; }
+    inline void setQGraphicsRotation_ConnectNotify_IsBase(bool value) const { qgraphicsrotation_connectnotify_isbase = value; }
+    inline void setQGraphicsRotation_DisconnectNotify_IsBase(bool value) const { qgraphicsrotation_disconnectnotify_isbase = value; }
+    inline void setQGraphicsRotation_Update_IsBase(bool value) const { qgraphicsrotation_update_isbase = value; }
+    inline void setQGraphicsRotation_Sender_IsBase(bool value) const { qgraphicsrotation_sender_isbase = value; }
+    inline void setQGraphicsRotation_SenderSignalIndex_IsBase(bool value) const { qgraphicsrotation_sendersignalindex_isbase = value; }
+    inline void setQGraphicsRotation_Receivers_IsBase(bool value) const { qgraphicsrotation_receivers_isbase = value; }
+    inline void setQGraphicsRotation_IsSignalConnected_IsBase(bool value) const { qgraphicsrotation_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -665,7 +796,12 @@ class VirtualQGraphicsRotation : public QGraphicsRotation {
             qgraphicsrotation_metacall_isbase = false;
             return QGraphicsRotation::qt_metacall(param1, param2, param3);
         } else if (qgraphicsrotation_metacall_callback != nullptr) {
-            return qgraphicsrotation_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qgraphicsrotation_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsRotation::qt_metacall(param1, param2, param3);
         }
@@ -677,7 +813,9 @@ class VirtualQGraphicsRotation : public QGraphicsRotation {
             qgraphicsrotation_applyto_isbase = false;
             QGraphicsRotation::applyTo(matrix);
         } else if (qgraphicsrotation_applyto_callback != nullptr) {
-            qgraphicsrotation_applyto_callback(this, matrix);
+            QMatrix4x4* cbval1 = matrix;
+
+            qgraphicsrotation_applyto_callback(this, cbval1);
         } else {
             QGraphicsRotation::applyTo(matrix);
         }
@@ -689,7 +827,10 @@ class VirtualQGraphicsRotation : public QGraphicsRotation {
             qgraphicsrotation_event_isbase = false;
             return QGraphicsRotation::event(event);
         } else if (qgraphicsrotation_event_callback != nullptr) {
-            return qgraphicsrotation_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgraphicsrotation_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsRotation::event(event);
         }
@@ -701,7 +842,11 @@ class VirtualQGraphicsRotation : public QGraphicsRotation {
             qgraphicsrotation_eventfilter_isbase = false;
             return QGraphicsRotation::eventFilter(watched, event);
         } else if (qgraphicsrotation_eventfilter_callback != nullptr) {
-            return qgraphicsrotation_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicsrotation_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsRotation::eventFilter(watched, event);
         }
@@ -713,7 +858,9 @@ class VirtualQGraphicsRotation : public QGraphicsRotation {
             qgraphicsrotation_timerevent_isbase = false;
             QGraphicsRotation::timerEvent(event);
         } else if (qgraphicsrotation_timerevent_callback != nullptr) {
-            qgraphicsrotation_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qgraphicsrotation_timerevent_callback(this, cbval1);
         } else {
             QGraphicsRotation::timerEvent(event);
         }
@@ -725,7 +872,9 @@ class VirtualQGraphicsRotation : public QGraphicsRotation {
             qgraphicsrotation_childevent_isbase = false;
             QGraphicsRotation::childEvent(event);
         } else if (qgraphicsrotation_childevent_callback != nullptr) {
-            qgraphicsrotation_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qgraphicsrotation_childevent_callback(this, cbval1);
         } else {
             QGraphicsRotation::childEvent(event);
         }
@@ -737,7 +886,9 @@ class VirtualQGraphicsRotation : public QGraphicsRotation {
             qgraphicsrotation_customevent_isbase = false;
             QGraphicsRotation::customEvent(event);
         } else if (qgraphicsrotation_customevent_callback != nullptr) {
-            qgraphicsrotation_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qgraphicsrotation_customevent_callback(this, cbval1);
         } else {
             QGraphicsRotation::customEvent(event);
         }
@@ -749,7 +900,11 @@ class VirtualQGraphicsRotation : public QGraphicsRotation {
             qgraphicsrotation_connectnotify_isbase = false;
             QGraphicsRotation::connectNotify(signal);
         } else if (qgraphicsrotation_connectnotify_callback != nullptr) {
-            qgraphicsrotation_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qgraphicsrotation_connectnotify_callback(this, cbval1);
         } else {
             QGraphicsRotation::connectNotify(signal);
         }
@@ -761,7 +916,11 @@ class VirtualQGraphicsRotation : public QGraphicsRotation {
             qgraphicsrotation_disconnectnotify_isbase = false;
             QGraphicsRotation::disconnectNotify(signal);
         } else if (qgraphicsrotation_disconnectnotify_callback != nullptr) {
-            qgraphicsrotation_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qgraphicsrotation_disconnectnotify_callback(this, cbval1);
         } else {
             QGraphicsRotation::disconnectNotify(signal);
         }
@@ -785,7 +944,8 @@ class VirtualQGraphicsRotation : public QGraphicsRotation {
             qgraphicsrotation_sender_isbase = false;
             return QGraphicsRotation::sender();
         } else if (qgraphicsrotation_sender_callback != nullptr) {
-            return qgraphicsrotation_sender_callback();
+            QObject* callback_ret = qgraphicsrotation_sender_callback();
+            return callback_ret;
         } else {
             return QGraphicsRotation::sender();
         }
@@ -797,7 +957,8 @@ class VirtualQGraphicsRotation : public QGraphicsRotation {
             qgraphicsrotation_sendersignalindex_isbase = false;
             return QGraphicsRotation::senderSignalIndex();
         } else if (qgraphicsrotation_sendersignalindex_callback != nullptr) {
-            return qgraphicsrotation_sendersignalindex_callback();
+            int callback_ret = qgraphicsrotation_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsRotation::senderSignalIndex();
         }
@@ -809,7 +970,10 @@ class VirtualQGraphicsRotation : public QGraphicsRotation {
             qgraphicsrotation_receivers_isbase = false;
             return QGraphicsRotation::receivers(signal);
         } else if (qgraphicsrotation_receivers_callback != nullptr) {
-            return qgraphicsrotation_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qgraphicsrotation_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsRotation::receivers(signal);
         }
@@ -821,11 +985,38 @@ class VirtualQGraphicsRotation : public QGraphicsRotation {
             qgraphicsrotation_issignalconnected_isbase = false;
             return QGraphicsRotation::isSignalConnected(signal);
         } else if (qgraphicsrotation_issignalconnected_callback != nullptr) {
-            return qgraphicsrotation_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qgraphicsrotation_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsRotation::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QGraphicsRotation_TimerEvent(QGraphicsRotation* self, QTimerEvent* event);
+    friend void QGraphicsRotation_QBaseTimerEvent(QGraphicsRotation* self, QTimerEvent* event);
+    friend void QGraphicsRotation_ChildEvent(QGraphicsRotation* self, QChildEvent* event);
+    friend void QGraphicsRotation_QBaseChildEvent(QGraphicsRotation* self, QChildEvent* event);
+    friend void QGraphicsRotation_CustomEvent(QGraphicsRotation* self, QEvent* event);
+    friend void QGraphicsRotation_QBaseCustomEvent(QGraphicsRotation* self, QEvent* event);
+    friend void QGraphicsRotation_ConnectNotify(QGraphicsRotation* self, const QMetaMethod* signal);
+    friend void QGraphicsRotation_QBaseConnectNotify(QGraphicsRotation* self, const QMetaMethod* signal);
+    friend void QGraphicsRotation_DisconnectNotify(QGraphicsRotation* self, const QMetaMethod* signal);
+    friend void QGraphicsRotation_QBaseDisconnectNotify(QGraphicsRotation* self, const QMetaMethod* signal);
+    friend void QGraphicsRotation_Update(QGraphicsRotation* self);
+    friend void QGraphicsRotation_QBaseUpdate(QGraphicsRotation* self);
+    friend QObject* QGraphicsRotation_Sender(const QGraphicsRotation* self);
+    friend QObject* QGraphicsRotation_QBaseSender(const QGraphicsRotation* self);
+    friend int QGraphicsRotation_SenderSignalIndex(const QGraphicsRotation* self);
+    friend int QGraphicsRotation_QBaseSenderSignalIndex(const QGraphicsRotation* self);
+    friend int QGraphicsRotation_Receivers(const QGraphicsRotation* self, const char* signal);
+    friend int QGraphicsRotation_QBaseReceivers(const QGraphicsRotation* self, const char* signal);
+    friend bool QGraphicsRotation_IsSignalConnected(const QGraphicsRotation* self, const QMetaMethod* signal);
+    friend bool QGraphicsRotation_QBaseIsSignalConnected(const QGraphicsRotation* self, const QMetaMethod* signal);
 };
 
 #endif

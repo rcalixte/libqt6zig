@@ -264,27 +264,27 @@ typedef int WindowType;                       // C ABI enum
 typedef void* HANDLE;                         // C ABI QFlags
 #endif
 
-Disambiguated_t* Disambiguated_t_new(Disambiguated_t* other);
+Disambiguated_t* Disambiguated_t_new(const Disambiguated_t* other);
 Disambiguated_t* Disambiguated_t_new2(Disambiguated_t* other);
 Disambiguated_t* Disambiguated_t_new3();
-Disambiguated_t* Disambiguated_t_new4(Disambiguated_t* param1);
+Disambiguated_t* Disambiguated_t_new4(const Disambiguated_t* param1);
 void Disambiguated_t_CopyAssign(Disambiguated_t* self, Disambiguated_t* other);
 void Disambiguated_t_MoveAssign(Disambiguated_t* self, Disambiguated_t* other);
 void Disambiguated_t_Delete(Disambiguated_t* self);
 
-QInternal* QInternal_new(QInternal* other);
+QInternal* QInternal_new(const QInternal* other);
 QInternal* QInternal_new2(QInternal* other);
 void QInternal_CopyAssign(QInternal* self, QInternal* other);
 void QInternal_MoveAssign(QInternal* self, QInternal* other);
 bool QInternal_ActivateCallbacks(int param1, void** param2);
 void QInternal_Delete(QInternal* self);
 
-QKeyCombination* QKeyCombination_new(QKeyCombination* other);
+QKeyCombination* QKeyCombination_new(const QKeyCombination* other);
 QKeyCombination* QKeyCombination_new2(QKeyCombination* other);
 QKeyCombination* QKeyCombination_new3();
 QKeyCombination* QKeyCombination_new4(int modifiers);
 QKeyCombination* QKeyCombination_new5(int modifiers);
-QKeyCombination* QKeyCombination_new6(QKeyCombination* param1);
+QKeyCombination* QKeyCombination_new6(const QKeyCombination* param1);
 QKeyCombination* QKeyCombination_new7(int key);
 QKeyCombination* QKeyCombination_new8(int modifiers, int key);
 QKeyCombination* QKeyCombination_new9(int modifiers, int key);

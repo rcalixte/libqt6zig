@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qproperty_enums = enums;
 const std = @import("std");
 
@@ -6,51 +7,53 @@ const std = @import("std");
 pub const qpropertybindingsourcelocation = struct {
     /// New constructs a new QPropertyBindingSourceLocation object.
     ///
-    /// ``` other: ?*C.QPropertyBindingSourceLocation ```
-    pub fn New(other: ?*anyopaque) ?*C.QPropertyBindingSourceLocation {
-        return C.QPropertyBindingSourceLocation_new(@ptrCast(other));
+    /// ``` other: QtC.QPropertyBindingSourceLocation ```
+    pub fn New(other: ?*anyopaque) QtC.QPropertyBindingSourceLocation {
+        return qtc.QPropertyBindingSourceLocation_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QPropertyBindingSourceLocation object and invalidates the source QPropertyBindingSourceLocation object.
     ///
-    /// ``` other: ?*C.QPropertyBindingSourceLocation ```
-    pub fn New2(other: ?*anyopaque) ?*C.QPropertyBindingSourceLocation {
-        return C.QPropertyBindingSourceLocation_new2(@ptrCast(other));
+    /// ``` other: QtC.QPropertyBindingSourceLocation ```
+    pub fn New2(other: ?*anyopaque) QtC.QPropertyBindingSourceLocation {
+        return qtc.QPropertyBindingSourceLocation_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QPropertyBindingSourceLocation object.
     ///
     ///
-    pub fn New3() ?*C.QPropertyBindingSourceLocation {
-        return C.QPropertyBindingSourceLocation_new3();
+    pub fn New3() QtC.QPropertyBindingSourceLocation {
+        return qtc.QPropertyBindingSourceLocation_new3();
     }
 
     /// New4 constructs a new QPropertyBindingSourceLocation object.
     ///
-    /// ``` param1: ?*C.QPropertyBindingSourceLocation ```
-    pub fn New4(param1: ?*anyopaque) ?*C.QPropertyBindingSourceLocation {
-        return C.QPropertyBindingSourceLocation_new4(@ptrCast(param1));
+    /// ``` param1: QtC.QPropertyBindingSourceLocation ```
+    pub fn New4(param1: ?*anyopaque) QtC.QPropertyBindingSourceLocation {
+        return qtc.QPropertyBindingSourceLocation_new4(@ptrCast(param1));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QPropertyBindingSourceLocation, other: ?*QPropertyBindingSourceLocation ```
+    /// ``` self: QtC.QPropertyBindingSourceLocation, other: QtC.QPropertyBindingSourceLocation ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QPropertyBindingSourceLocation_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QPropertyBindingSourceLocation_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QPropertyBindingSourceLocation, other: ?*QPropertyBindingSourceLocation ```
+    /// ``` self: QtC.QPropertyBindingSourceLocation, other: QtC.QPropertyBindingSourceLocation ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QPropertyBindingSourceLocation_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QPropertyBindingSourceLocation_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#dtor.QPropertyBindingSourceLocation)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QPropertyBindingSourceLocation ```
+    /// ``` self: QtC.QPropertyBindingSourceLocation ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QPropertyBindingSourceLocation_Delete(@ptrCast(self));
+        qtc.QPropertyBindingSourceLocation_Delete(@ptrCast(self));
     }
 };
 
@@ -59,75 +62,77 @@ pub const qpropertybindingerror = struct {
     /// New constructs a new QPropertyBindingError object.
     ///
     ///
-    pub fn New() ?*C.QPropertyBindingError {
-        return C.QPropertyBindingError_new();
+    pub fn New() QtC.QPropertyBindingError {
+        return qtc.QPropertyBindingError_new();
     }
 
     /// New2 constructs a new QPropertyBindingError object.
     ///
     /// ``` typeVal: qproperty_enums.Type ```
-    pub fn New2(typeVal: i64) ?*C.QPropertyBindingError {
-        return C.QPropertyBindingError_new2(@intCast(typeVal));
+    pub fn New2(typeVal: i64) QtC.QPropertyBindingError {
+        return qtc.QPropertyBindingError_new2(@intCast(typeVal));
     }
 
     /// New3 constructs a new QPropertyBindingError object.
     ///
-    /// ``` other: ?*C.QPropertyBindingError ```
-    pub fn New3(other: ?*anyopaque) ?*C.QPropertyBindingError {
-        return C.QPropertyBindingError_new3(@ptrCast(other));
+    /// ``` other: QtC.QPropertyBindingError ```
+    pub fn New3(other: ?*anyopaque) QtC.QPropertyBindingError {
+        return qtc.QPropertyBindingError_new3(@ptrCast(other));
     }
 
     /// New4 constructs a new QPropertyBindingError object.
     ///
     /// ``` typeVal: qproperty_enums.Type, description: []const u8 ```
-    pub fn New4(typeVal: i64, description: []const u8) ?*C.QPropertyBindingError {
-        const description_str = C.struct_libqt_string{
+    pub fn New4(typeVal: i64, description: []const u8) QtC.QPropertyBindingError {
+        const description_str = qtc.struct_libqt_string{
             .len = description.len,
             .data = @constCast(description.ptr),
         };
 
-        return C.QPropertyBindingError_new4(@intCast(typeVal), description_str);
+        return qtc.QPropertyBindingError_new4(@intCast(typeVal), description_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingerror.html#operator=)
     ///
-    /// ``` self: ?*C.QPropertyBindingError, other: ?*C.QPropertyBindingError ```
+    /// ``` self: QtC.QPropertyBindingError, other: QtC.QPropertyBindingError ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QPropertyBindingError_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QPropertyBindingError_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingerror.html#hasError)
     ///
-    /// ``` self: ?*C.QPropertyBindingError ```
+    /// ``` self: QtC.QPropertyBindingError ```
     pub fn HasError(self: ?*anyopaque) bool {
-        return C.QPropertyBindingError_HasError(@ptrCast(self));
+        return qtc.QPropertyBindingError_HasError(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingerror.html#type)
     ///
-    /// ``` self: ?*C.QPropertyBindingError ```
+    /// ``` self: QtC.QPropertyBindingError ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QPropertyBindingError_Type(@ptrCast(self));
+        return qtc.QPropertyBindingError_Type(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingerror.html#description)
     ///
-    /// ``` self: ?*C.QPropertyBindingError, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QPropertyBindingError, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QPropertyBindingError_Description(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QPropertyBindingError_Description(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpropertybindingerror.Description: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingerror.html#dtor.QPropertyBindingError)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QPropertyBindingError ```
+    /// ``` self: QtC.QPropertyBindingError ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QPropertyBindingError_Delete(@ptrCast(self));
+        qtc.QPropertyBindingError_Delete(@ptrCast(self));
     }
 };
 
@@ -136,50 +141,52 @@ pub const quntypedpropertybinding = struct {
     /// New constructs a new QUntypedPropertyBinding object.
     ///
     ///
-    pub fn New() ?*C.QUntypedPropertyBinding {
-        return C.QUntypedPropertyBinding_new();
+    pub fn New() QtC.QUntypedPropertyBinding {
+        return qtc.QUntypedPropertyBinding_new();
     }
 
     /// New2 constructs a new QUntypedPropertyBinding object.
     ///
-    /// ``` other: ?*C.QUntypedPropertyBinding ```
-    pub fn New2(other: ?*anyopaque) ?*C.QUntypedPropertyBinding {
-        return C.QUntypedPropertyBinding_new2(@ptrCast(other));
+    /// ``` other: QtC.QUntypedPropertyBinding ```
+    pub fn New2(other: ?*anyopaque) QtC.QUntypedPropertyBinding {
+        return qtc.QUntypedPropertyBinding_new2(@ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quntypedpropertybinding.html#operator=)
     ///
-    /// ``` self: ?*C.QUntypedPropertyBinding, other: ?*C.QUntypedPropertyBinding ```
+    /// ``` self: QtC.QUntypedPropertyBinding, other: QtC.QUntypedPropertyBinding ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QUntypedPropertyBinding_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QUntypedPropertyBinding_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quntypedpropertybinding.html#isNull)
     ///
-    /// ``` self: ?*C.QUntypedPropertyBinding ```
+    /// ``` self: QtC.QUntypedPropertyBinding ```
     pub fn IsNull(self: ?*anyopaque) bool {
-        return C.QUntypedPropertyBinding_IsNull(@ptrCast(self));
+        return qtc.QUntypedPropertyBinding_IsNull(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quntypedpropertybinding.html#error)
     ///
-    /// ``` self: ?*C.QUntypedPropertyBinding ```
-    pub fn Error(self: ?*anyopaque) ?*C.QPropertyBindingError {
-        return C.QUntypedPropertyBinding_Error(@ptrCast(self));
+    /// ``` self: QtC.QUntypedPropertyBinding ```
+    pub fn Error(self: ?*anyopaque) QtC.QPropertyBindingError {
+        return qtc.QUntypedPropertyBinding_Error(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quntypedpropertybinding.html#valueMetaType)
     ///
-    /// ``` self: ?*C.QUntypedPropertyBinding ```
-    pub fn ValueMetaType(self: ?*anyopaque) ?*C.QMetaType {
-        return C.QUntypedPropertyBinding_ValueMetaType(@ptrCast(self));
+    /// ``` self: QtC.QUntypedPropertyBinding ```
+    pub fn ValueMetaType(self: ?*anyopaque) QtC.QMetaType {
+        return qtc.QUntypedPropertyBinding_ValueMetaType(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/quntypedpropertybinding.html#dtor.QUntypedPropertyBinding)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QUntypedPropertyBinding ```
+    /// ``` self: QtC.QUntypedPropertyBinding ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QUntypedPropertyBinding_Delete(@ptrCast(self));
+        qtc.QUntypedPropertyBinding_Delete(@ptrCast(self));
     }
 };
 
@@ -188,22 +195,24 @@ pub const qpropertyobserverbase = struct {
     /// New constructs a new QPropertyObserverBase object.
     ///
     ///
-    pub fn New() ?*C.QPropertyObserverBase {
-        return C.QPropertyObserverBase_new();
+    pub fn New() QtC.QPropertyObserverBase {
+        return qtc.QPropertyObserverBase_new();
     }
 
     /// New2 constructs a new QPropertyObserverBase object.
     ///
-    /// ``` param1: ?*C.QPropertyObserverBase ```
-    pub fn New2(param1: ?*anyopaque) ?*C.QPropertyObserverBase {
-        return C.QPropertyObserverBase_new2(@ptrCast(param1));
+    /// ``` param1: QtC.QPropertyObserverBase ```
+    pub fn New2(param1: ?*anyopaque) QtC.QPropertyObserverBase {
+        return qtc.QPropertyObserverBase_new2(@ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyobserverbase.html#dtor.QPropertyObserverBase)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QPropertyObserverBase ```
+    /// ``` self: QtC.QPropertyObserverBase ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QPropertyObserverBase_Delete(@ptrCast(self));
+        qtc.QPropertyObserverBase_Delete(@ptrCast(self));
     }
 };
 
@@ -212,15 +221,17 @@ pub const qpropertyobserver = struct {
     /// New constructs a new QPropertyObserver object.
     ///
     ///
-    pub fn New() ?*C.QPropertyObserver {
-        return C.QPropertyObserver_new();
+    pub fn New() QtC.QPropertyObserver {
+        return qtc.QPropertyObserver_new();
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyobserver.html#dtor.QPropertyObserver)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QPropertyObserver ```
+    /// ``` self: QtC.QPropertyObserver ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QPropertyObserver_Delete(@ptrCast(self));
+        qtc.QPropertyObserver_Delete(@ptrCast(self));
     }
 };
 
@@ -229,15 +240,17 @@ pub const qpropertynotifier = struct {
     /// New constructs a new QPropertyNotifier object.
     ///
     ///
-    pub fn New() ?*C.QPropertyNotifier {
-        return C.QPropertyNotifier_new();
+    pub fn New() QtC.QPropertyNotifier {
+        return qtc.QPropertyNotifier_new();
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertynotifier.html#dtor.QPropertyNotifier)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QPropertyNotifier ```
+    /// ``` self: QtC.QPropertyNotifier ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QPropertyNotifier_Delete(@ptrCast(self));
+        qtc.QPropertyNotifier_Delete(@ptrCast(self));
     }
 };
 
@@ -245,128 +258,130 @@ pub const qpropertynotifier = struct {
 pub const quntypedbindable = struct {
     /// New constructs a new QUntypedBindable object.
     ///
-    /// ``` other: ?*C.QUntypedBindable ```
-    pub fn New(other: ?*anyopaque) ?*C.QUntypedBindable {
-        return C.QUntypedBindable_new(@ptrCast(other));
+    /// ``` other: QtC.QUntypedBindable ```
+    pub fn New(other: ?*anyopaque) QtC.QUntypedBindable {
+        return qtc.QUntypedBindable_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QUntypedBindable object and invalidates the source QUntypedBindable object.
     ///
-    /// ``` other: ?*C.QUntypedBindable ```
-    pub fn New2(other: ?*anyopaque) ?*C.QUntypedBindable {
-        return C.QUntypedBindable_new2(@ptrCast(other));
+    /// ``` other: QtC.QUntypedBindable ```
+    pub fn New2(other: ?*anyopaque) QtC.QUntypedBindable {
+        return qtc.QUntypedBindable_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QUntypedBindable object.
     ///
     ///
-    pub fn New3() ?*C.QUntypedBindable {
-        return C.QUntypedBindable_new3();
+    pub fn New3() QtC.QUntypedBindable {
+        return qtc.QUntypedBindable_new3();
     }
 
     /// New4 constructs a new QUntypedBindable object.
     ///
-    /// ``` param1: ?*C.QUntypedBindable ```
-    pub fn New4(param1: ?*anyopaque) ?*C.QUntypedBindable {
-        return C.QUntypedBindable_new4(@ptrCast(param1));
+    /// ``` param1: QtC.QUntypedBindable ```
+    pub fn New4(param1: ?*anyopaque) QtC.QUntypedBindable {
+        return qtc.QUntypedBindable_new4(@ptrCast(param1));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QUntypedBindable, other: ?*QUntypedBindable ```
+    /// ``` self: QtC.QUntypedBindable, other: QtC.QUntypedBindable ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QUntypedBindable_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QUntypedBindable_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QUntypedBindable, other: ?*QUntypedBindable ```
+    /// ``` self: QtC.QUntypedBindable, other: QtC.QUntypedBindable ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QUntypedBindable_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QUntypedBindable_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quntypedbindable.html#isValid)
     ///
-    /// ``` self: ?*C.QUntypedBindable ```
+    /// ``` self: QtC.QUntypedBindable ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QUntypedBindable_IsValid(@ptrCast(self));
+        return qtc.QUntypedBindable_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quntypedbindable.html#isBindable)
     ///
-    /// ``` self: ?*C.QUntypedBindable ```
+    /// ``` self: QtC.QUntypedBindable ```
     pub fn IsBindable(self: ?*anyopaque) bool {
-        return C.QUntypedBindable_IsBindable(@ptrCast(self));
+        return qtc.QUntypedBindable_IsBindable(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quntypedbindable.html#isReadOnly)
     ///
-    /// ``` self: ?*C.QUntypedBindable ```
+    /// ``` self: QtC.QUntypedBindable ```
     pub fn IsReadOnly(self: ?*anyopaque) bool {
-        return C.QUntypedBindable_IsReadOnly(@ptrCast(self));
+        return qtc.QUntypedBindable_IsReadOnly(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quntypedbindable.html#makeBinding)
     ///
-    /// ``` self: ?*C.QUntypedBindable ```
-    pub fn MakeBinding(self: ?*anyopaque) ?*C.QUntypedPropertyBinding {
-        return C.QUntypedBindable_MakeBinding(@ptrCast(self));
+    /// ``` self: QtC.QUntypedBindable ```
+    pub fn MakeBinding(self: ?*anyopaque) QtC.QUntypedPropertyBinding {
+        return qtc.QUntypedBindable_MakeBinding(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quntypedbindable.html#takeBinding)
     ///
-    /// ``` self: ?*C.QUntypedBindable ```
-    pub fn TakeBinding(self: ?*anyopaque) ?*C.QUntypedPropertyBinding {
-        return C.QUntypedBindable_TakeBinding(@ptrCast(self));
+    /// ``` self: QtC.QUntypedBindable ```
+    pub fn TakeBinding(self: ?*anyopaque) QtC.QUntypedPropertyBinding {
+        return qtc.QUntypedBindable_TakeBinding(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quntypedbindable.html#observe)
     ///
-    /// ``` self: ?*C.QUntypedBindable, observer: ?*C.QPropertyObserver ```
+    /// ``` self: QtC.QUntypedBindable, observer: QtC.QPropertyObserver ```
     pub fn Observe(self: ?*anyopaque, observer: ?*anyopaque) void {
-        C.QUntypedBindable_Observe(@ptrCast(self), @ptrCast(observer));
+        qtc.QUntypedBindable_Observe(@ptrCast(self), @ptrCast(observer));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quntypedbindable.html#binding)
     ///
-    /// ``` self: ?*C.QUntypedBindable ```
-    pub fn Binding(self: ?*anyopaque) ?*C.QUntypedPropertyBinding {
-        return C.QUntypedBindable_Binding(@ptrCast(self));
+    /// ``` self: QtC.QUntypedBindable ```
+    pub fn Binding(self: ?*anyopaque) QtC.QUntypedPropertyBinding {
+        return qtc.QUntypedBindable_Binding(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quntypedbindable.html#setBinding)
     ///
-    /// ``` self: ?*C.QUntypedBindable, binding: ?*C.QUntypedPropertyBinding ```
+    /// ``` self: QtC.QUntypedBindable, binding: QtC.QUntypedPropertyBinding ```
     pub fn SetBinding(self: ?*anyopaque, binding: ?*anyopaque) bool {
-        return C.QUntypedBindable_SetBinding(@ptrCast(self), @ptrCast(binding));
+        return qtc.QUntypedBindable_SetBinding(@ptrCast(self), @ptrCast(binding));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quntypedbindable.html#hasBinding)
     ///
-    /// ``` self: ?*C.QUntypedBindable ```
+    /// ``` self: QtC.QUntypedBindable ```
     pub fn HasBinding(self: ?*anyopaque) bool {
-        return C.QUntypedBindable_HasBinding(@ptrCast(self));
+        return qtc.QUntypedBindable_HasBinding(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quntypedbindable.html#metaType)
     ///
-    /// ``` self: ?*C.QUntypedBindable ```
-    pub fn MetaType(self: ?*anyopaque) ?*C.QMetaType {
-        return C.QUntypedBindable_MetaType(@ptrCast(self));
+    /// ``` self: QtC.QUntypedBindable ```
+    pub fn MetaType(self: ?*anyopaque) QtC.QMetaType {
+        return qtc.QUntypedBindable_MetaType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quntypedbindable.html#makeBinding)
     ///
-    /// ``` self: ?*C.QUntypedBindable, location: ?*C.QPropertyBindingSourceLocation ```
-    pub fn MakeBinding1(self: ?*anyopaque, location: ?*anyopaque) ?*C.QUntypedPropertyBinding {
-        return C.QUntypedBindable_MakeBinding1(@ptrCast(self), @ptrCast(location));
+    /// ``` self: QtC.QUntypedBindable, location: QtC.QPropertyBindingSourceLocation ```
+    pub fn MakeBinding1(self: ?*anyopaque, location: ?*anyopaque) QtC.QUntypedPropertyBinding {
+        return qtc.QUntypedBindable_MakeBinding1(@ptrCast(self), @ptrCast(location));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/quntypedbindable.html#dtor.QUntypedBindable)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QUntypedBindable ```
+    /// ``` self: QtC.QUntypedBindable ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QUntypedBindable_Delete(@ptrCast(self));
+        qtc.QUntypedBindable_Delete(@ptrCast(self));
     }
 };
 

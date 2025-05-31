@@ -11,14 +11,17 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QAbstractPrintDialog so that we can call protected methods
-class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
+class VirtualQAbstractPrintDialog final : public QAbstractPrintDialog {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQAbstractPrintDialog = true;
+
     // Virtual class public types (including callbacks)
-    using QAbstractPrintDialog_Metacall_Callback = int (*)(QAbstractPrintDialog*, QMetaObject::Call, int, void**);
+    using QAbstractPrintDialog_Metacall_Callback = int (*)(QAbstractPrintDialog*, int, int, void**);
     using QAbstractPrintDialog_SetVisible_Callback = void (*)(QAbstractPrintDialog*, bool);
-    using QAbstractPrintDialog_SizeHint_Callback = QSize (*)();
-    using QAbstractPrintDialog_MinimumSizeHint_Callback = QSize (*)();
+    using QAbstractPrintDialog_SizeHint_Callback = QSize* (*)();
+    using QAbstractPrintDialog_MinimumSizeHint_Callback = QSize* (*)();
     using QAbstractPrintDialog_Open_Callback = void (*)();
     using QAbstractPrintDialog_Exec_Callback = int (*)();
     using QAbstractPrintDialog_Done_Callback = void (*)(QAbstractPrintDialog*, int);
@@ -54,20 +57,20 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
     using QAbstractPrintDialog_DragLeaveEvent_Callback = void (*)(QAbstractPrintDialog*, QDragLeaveEvent*);
     using QAbstractPrintDialog_DropEvent_Callback = void (*)(QAbstractPrintDialog*, QDropEvent*);
     using QAbstractPrintDialog_HideEvent_Callback = void (*)(QAbstractPrintDialog*, QHideEvent*);
-    using QAbstractPrintDialog_NativeEvent_Callback = bool (*)(QAbstractPrintDialog*, const QByteArray&, void*, qintptr*);
+    using QAbstractPrintDialog_NativeEvent_Callback = bool (*)(QAbstractPrintDialog*, libqt_string, void*, intptr_t*);
     using QAbstractPrintDialog_ChangeEvent_Callback = void (*)(QAbstractPrintDialog*, QEvent*);
-    using QAbstractPrintDialog_Metric_Callback = int (*)(const QAbstractPrintDialog*, QPaintDevice::PaintDeviceMetric);
+    using QAbstractPrintDialog_Metric_Callback = int (*)(const QAbstractPrintDialog*, int);
     using QAbstractPrintDialog_InitPainter_Callback = void (*)(const QAbstractPrintDialog*, QPainter*);
     using QAbstractPrintDialog_Redirected_Callback = QPaintDevice* (*)(const QAbstractPrintDialog*, QPoint*);
     using QAbstractPrintDialog_SharedPainter_Callback = QPainter* (*)();
     using QAbstractPrintDialog_InputMethodEvent_Callback = void (*)(QAbstractPrintDialog*, QInputMethodEvent*);
-    using QAbstractPrintDialog_InputMethodQuery_Callback = QVariant (*)(const QAbstractPrintDialog*, Qt::InputMethodQuery);
+    using QAbstractPrintDialog_InputMethodQuery_Callback = QVariant* (*)(const QAbstractPrintDialog*, int);
     using QAbstractPrintDialog_FocusNextPrevChild_Callback = bool (*)(QAbstractPrintDialog*, bool);
     using QAbstractPrintDialog_TimerEvent_Callback = void (*)(QAbstractPrintDialog*, QTimerEvent*);
     using QAbstractPrintDialog_ChildEvent_Callback = void (*)(QAbstractPrintDialog*, QChildEvent*);
     using QAbstractPrintDialog_CustomEvent_Callback = void (*)(QAbstractPrintDialog*, QEvent*);
-    using QAbstractPrintDialog_ConnectNotify_Callback = void (*)(QAbstractPrintDialog*, const QMetaMethod&);
-    using QAbstractPrintDialog_DisconnectNotify_Callback = void (*)(QAbstractPrintDialog*, const QMetaMethod&);
+    using QAbstractPrintDialog_ConnectNotify_Callback = void (*)(QAbstractPrintDialog*, QMetaMethod*);
+    using QAbstractPrintDialog_DisconnectNotify_Callback = void (*)(QAbstractPrintDialog*, QMetaMethod*);
     using QAbstractPrintDialog_AdjustPosition_Callback = void (*)(QAbstractPrintDialog*, QWidget*);
     using QAbstractPrintDialog_UpdateMicroFocus_Callback = void (*)();
     using QAbstractPrintDialog_Create_Callback = void (*)();
@@ -77,7 +80,7 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
     using QAbstractPrintDialog_Sender_Callback = QObject* (*)();
     using QAbstractPrintDialog_SenderSignalIndex_Callback = int (*)();
     using QAbstractPrintDialog_Receivers_Callback = int (*)(const QAbstractPrintDialog*, const char*);
-    using QAbstractPrintDialog_IsSignalConnected_Callback = bool (*)(const QAbstractPrintDialog*, const QMetaMethod&);
+    using QAbstractPrintDialog_IsSignalConnected_Callback = bool (*)(const QAbstractPrintDialog*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -281,134 +284,134 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
     }
 
     // Callback setters
-    void setQAbstractPrintDialog_Metacall_Callback(QAbstractPrintDialog_Metacall_Callback cb) { qabstractprintdialog_metacall_callback = cb; }
-    void setQAbstractPrintDialog_SetVisible_Callback(QAbstractPrintDialog_SetVisible_Callback cb) { qabstractprintdialog_setvisible_callback = cb; }
-    void setQAbstractPrintDialog_SizeHint_Callback(QAbstractPrintDialog_SizeHint_Callback cb) { qabstractprintdialog_sizehint_callback = cb; }
-    void setQAbstractPrintDialog_MinimumSizeHint_Callback(QAbstractPrintDialog_MinimumSizeHint_Callback cb) { qabstractprintdialog_minimumsizehint_callback = cb; }
-    void setQAbstractPrintDialog_Open_Callback(QAbstractPrintDialog_Open_Callback cb) { qabstractprintdialog_open_callback = cb; }
-    void setQAbstractPrintDialog_Exec_Callback(QAbstractPrintDialog_Exec_Callback cb) { qabstractprintdialog_exec_callback = cb; }
-    void setQAbstractPrintDialog_Done_Callback(QAbstractPrintDialog_Done_Callback cb) { qabstractprintdialog_done_callback = cb; }
-    void setQAbstractPrintDialog_Accept_Callback(QAbstractPrintDialog_Accept_Callback cb) { qabstractprintdialog_accept_callback = cb; }
-    void setQAbstractPrintDialog_Reject_Callback(QAbstractPrintDialog_Reject_Callback cb) { qabstractprintdialog_reject_callback = cb; }
-    void setQAbstractPrintDialog_KeyPressEvent_Callback(QAbstractPrintDialog_KeyPressEvent_Callback cb) { qabstractprintdialog_keypressevent_callback = cb; }
-    void setQAbstractPrintDialog_CloseEvent_Callback(QAbstractPrintDialog_CloseEvent_Callback cb) { qabstractprintdialog_closeevent_callback = cb; }
-    void setQAbstractPrintDialog_ShowEvent_Callback(QAbstractPrintDialog_ShowEvent_Callback cb) { qabstractprintdialog_showevent_callback = cb; }
-    void setQAbstractPrintDialog_ResizeEvent_Callback(QAbstractPrintDialog_ResizeEvent_Callback cb) { qabstractprintdialog_resizeevent_callback = cb; }
-    void setQAbstractPrintDialog_ContextMenuEvent_Callback(QAbstractPrintDialog_ContextMenuEvent_Callback cb) { qabstractprintdialog_contextmenuevent_callback = cb; }
-    void setQAbstractPrintDialog_EventFilter_Callback(QAbstractPrintDialog_EventFilter_Callback cb) { qabstractprintdialog_eventfilter_callback = cb; }
-    void setQAbstractPrintDialog_DevType_Callback(QAbstractPrintDialog_DevType_Callback cb) { qabstractprintdialog_devtype_callback = cb; }
-    void setQAbstractPrintDialog_HeightForWidth_Callback(QAbstractPrintDialog_HeightForWidth_Callback cb) { qabstractprintdialog_heightforwidth_callback = cb; }
-    void setQAbstractPrintDialog_HasHeightForWidth_Callback(QAbstractPrintDialog_HasHeightForWidth_Callback cb) { qabstractprintdialog_hasheightforwidth_callback = cb; }
-    void setQAbstractPrintDialog_PaintEngine_Callback(QAbstractPrintDialog_PaintEngine_Callback cb) { qabstractprintdialog_paintengine_callback = cb; }
-    void setQAbstractPrintDialog_Event_Callback(QAbstractPrintDialog_Event_Callback cb) { qabstractprintdialog_event_callback = cb; }
-    void setQAbstractPrintDialog_MousePressEvent_Callback(QAbstractPrintDialog_MousePressEvent_Callback cb) { qabstractprintdialog_mousepressevent_callback = cb; }
-    void setQAbstractPrintDialog_MouseReleaseEvent_Callback(QAbstractPrintDialog_MouseReleaseEvent_Callback cb) { qabstractprintdialog_mousereleaseevent_callback = cb; }
-    void setQAbstractPrintDialog_MouseDoubleClickEvent_Callback(QAbstractPrintDialog_MouseDoubleClickEvent_Callback cb) { qabstractprintdialog_mousedoubleclickevent_callback = cb; }
-    void setQAbstractPrintDialog_MouseMoveEvent_Callback(QAbstractPrintDialog_MouseMoveEvent_Callback cb) { qabstractprintdialog_mousemoveevent_callback = cb; }
-    void setQAbstractPrintDialog_WheelEvent_Callback(QAbstractPrintDialog_WheelEvent_Callback cb) { qabstractprintdialog_wheelevent_callback = cb; }
-    void setQAbstractPrintDialog_KeyReleaseEvent_Callback(QAbstractPrintDialog_KeyReleaseEvent_Callback cb) { qabstractprintdialog_keyreleaseevent_callback = cb; }
-    void setQAbstractPrintDialog_FocusInEvent_Callback(QAbstractPrintDialog_FocusInEvent_Callback cb) { qabstractprintdialog_focusinevent_callback = cb; }
-    void setQAbstractPrintDialog_FocusOutEvent_Callback(QAbstractPrintDialog_FocusOutEvent_Callback cb) { qabstractprintdialog_focusoutevent_callback = cb; }
-    void setQAbstractPrintDialog_EnterEvent_Callback(QAbstractPrintDialog_EnterEvent_Callback cb) { qabstractprintdialog_enterevent_callback = cb; }
-    void setQAbstractPrintDialog_LeaveEvent_Callback(QAbstractPrintDialog_LeaveEvent_Callback cb) { qabstractprintdialog_leaveevent_callback = cb; }
-    void setQAbstractPrintDialog_PaintEvent_Callback(QAbstractPrintDialog_PaintEvent_Callback cb) { qabstractprintdialog_paintevent_callback = cb; }
-    void setQAbstractPrintDialog_MoveEvent_Callback(QAbstractPrintDialog_MoveEvent_Callback cb) { qabstractprintdialog_moveevent_callback = cb; }
-    void setQAbstractPrintDialog_TabletEvent_Callback(QAbstractPrintDialog_TabletEvent_Callback cb) { qabstractprintdialog_tabletevent_callback = cb; }
-    void setQAbstractPrintDialog_ActionEvent_Callback(QAbstractPrintDialog_ActionEvent_Callback cb) { qabstractprintdialog_actionevent_callback = cb; }
-    void setQAbstractPrintDialog_DragEnterEvent_Callback(QAbstractPrintDialog_DragEnterEvent_Callback cb) { qabstractprintdialog_dragenterevent_callback = cb; }
-    void setQAbstractPrintDialog_DragMoveEvent_Callback(QAbstractPrintDialog_DragMoveEvent_Callback cb) { qabstractprintdialog_dragmoveevent_callback = cb; }
-    void setQAbstractPrintDialog_DragLeaveEvent_Callback(QAbstractPrintDialog_DragLeaveEvent_Callback cb) { qabstractprintdialog_dragleaveevent_callback = cb; }
-    void setQAbstractPrintDialog_DropEvent_Callback(QAbstractPrintDialog_DropEvent_Callback cb) { qabstractprintdialog_dropevent_callback = cb; }
-    void setQAbstractPrintDialog_HideEvent_Callback(QAbstractPrintDialog_HideEvent_Callback cb) { qabstractprintdialog_hideevent_callback = cb; }
-    void setQAbstractPrintDialog_NativeEvent_Callback(QAbstractPrintDialog_NativeEvent_Callback cb) { qabstractprintdialog_nativeevent_callback = cb; }
-    void setQAbstractPrintDialog_ChangeEvent_Callback(QAbstractPrintDialog_ChangeEvent_Callback cb) { qabstractprintdialog_changeevent_callback = cb; }
-    void setQAbstractPrintDialog_Metric_Callback(QAbstractPrintDialog_Metric_Callback cb) { qabstractprintdialog_metric_callback = cb; }
-    void setQAbstractPrintDialog_InitPainter_Callback(QAbstractPrintDialog_InitPainter_Callback cb) { qabstractprintdialog_initpainter_callback = cb; }
-    void setQAbstractPrintDialog_Redirected_Callback(QAbstractPrintDialog_Redirected_Callback cb) { qabstractprintdialog_redirected_callback = cb; }
-    void setQAbstractPrintDialog_SharedPainter_Callback(QAbstractPrintDialog_SharedPainter_Callback cb) { qabstractprintdialog_sharedpainter_callback = cb; }
-    void setQAbstractPrintDialog_InputMethodEvent_Callback(QAbstractPrintDialog_InputMethodEvent_Callback cb) { qabstractprintdialog_inputmethodevent_callback = cb; }
-    void setQAbstractPrintDialog_InputMethodQuery_Callback(QAbstractPrintDialog_InputMethodQuery_Callback cb) { qabstractprintdialog_inputmethodquery_callback = cb; }
-    void setQAbstractPrintDialog_FocusNextPrevChild_Callback(QAbstractPrintDialog_FocusNextPrevChild_Callback cb) { qabstractprintdialog_focusnextprevchild_callback = cb; }
-    void setQAbstractPrintDialog_TimerEvent_Callback(QAbstractPrintDialog_TimerEvent_Callback cb) { qabstractprintdialog_timerevent_callback = cb; }
-    void setQAbstractPrintDialog_ChildEvent_Callback(QAbstractPrintDialog_ChildEvent_Callback cb) { qabstractprintdialog_childevent_callback = cb; }
-    void setQAbstractPrintDialog_CustomEvent_Callback(QAbstractPrintDialog_CustomEvent_Callback cb) { qabstractprintdialog_customevent_callback = cb; }
-    void setQAbstractPrintDialog_ConnectNotify_Callback(QAbstractPrintDialog_ConnectNotify_Callback cb) { qabstractprintdialog_connectnotify_callback = cb; }
-    void setQAbstractPrintDialog_DisconnectNotify_Callback(QAbstractPrintDialog_DisconnectNotify_Callback cb) { qabstractprintdialog_disconnectnotify_callback = cb; }
-    void setQAbstractPrintDialog_AdjustPosition_Callback(QAbstractPrintDialog_AdjustPosition_Callback cb) { qabstractprintdialog_adjustposition_callback = cb; }
-    void setQAbstractPrintDialog_UpdateMicroFocus_Callback(QAbstractPrintDialog_UpdateMicroFocus_Callback cb) { qabstractprintdialog_updatemicrofocus_callback = cb; }
-    void setQAbstractPrintDialog_Create_Callback(QAbstractPrintDialog_Create_Callback cb) { qabstractprintdialog_create_callback = cb; }
-    void setQAbstractPrintDialog_Destroy_Callback(QAbstractPrintDialog_Destroy_Callback cb) { qabstractprintdialog_destroy_callback = cb; }
-    void setQAbstractPrintDialog_FocusNextChild_Callback(QAbstractPrintDialog_FocusNextChild_Callback cb) { qabstractprintdialog_focusnextchild_callback = cb; }
-    void setQAbstractPrintDialog_FocusPreviousChild_Callback(QAbstractPrintDialog_FocusPreviousChild_Callback cb) { qabstractprintdialog_focuspreviouschild_callback = cb; }
-    void setQAbstractPrintDialog_Sender_Callback(QAbstractPrintDialog_Sender_Callback cb) { qabstractprintdialog_sender_callback = cb; }
-    void setQAbstractPrintDialog_SenderSignalIndex_Callback(QAbstractPrintDialog_SenderSignalIndex_Callback cb) { qabstractprintdialog_sendersignalindex_callback = cb; }
-    void setQAbstractPrintDialog_Receivers_Callback(QAbstractPrintDialog_Receivers_Callback cb) { qabstractprintdialog_receivers_callback = cb; }
-    void setQAbstractPrintDialog_IsSignalConnected_Callback(QAbstractPrintDialog_IsSignalConnected_Callback cb) { qabstractprintdialog_issignalconnected_callback = cb; }
+    inline void setQAbstractPrintDialog_Metacall_Callback(QAbstractPrintDialog_Metacall_Callback cb) { qabstractprintdialog_metacall_callback = cb; }
+    inline void setQAbstractPrintDialog_SetVisible_Callback(QAbstractPrintDialog_SetVisible_Callback cb) { qabstractprintdialog_setvisible_callback = cb; }
+    inline void setQAbstractPrintDialog_SizeHint_Callback(QAbstractPrintDialog_SizeHint_Callback cb) { qabstractprintdialog_sizehint_callback = cb; }
+    inline void setQAbstractPrintDialog_MinimumSizeHint_Callback(QAbstractPrintDialog_MinimumSizeHint_Callback cb) { qabstractprintdialog_minimumsizehint_callback = cb; }
+    inline void setQAbstractPrintDialog_Open_Callback(QAbstractPrintDialog_Open_Callback cb) { qabstractprintdialog_open_callback = cb; }
+    inline void setQAbstractPrintDialog_Exec_Callback(QAbstractPrintDialog_Exec_Callback cb) { qabstractprintdialog_exec_callback = cb; }
+    inline void setQAbstractPrintDialog_Done_Callback(QAbstractPrintDialog_Done_Callback cb) { qabstractprintdialog_done_callback = cb; }
+    inline void setQAbstractPrintDialog_Accept_Callback(QAbstractPrintDialog_Accept_Callback cb) { qabstractprintdialog_accept_callback = cb; }
+    inline void setQAbstractPrintDialog_Reject_Callback(QAbstractPrintDialog_Reject_Callback cb) { qabstractprintdialog_reject_callback = cb; }
+    inline void setQAbstractPrintDialog_KeyPressEvent_Callback(QAbstractPrintDialog_KeyPressEvent_Callback cb) { qabstractprintdialog_keypressevent_callback = cb; }
+    inline void setQAbstractPrintDialog_CloseEvent_Callback(QAbstractPrintDialog_CloseEvent_Callback cb) { qabstractprintdialog_closeevent_callback = cb; }
+    inline void setQAbstractPrintDialog_ShowEvent_Callback(QAbstractPrintDialog_ShowEvent_Callback cb) { qabstractprintdialog_showevent_callback = cb; }
+    inline void setQAbstractPrintDialog_ResizeEvent_Callback(QAbstractPrintDialog_ResizeEvent_Callback cb) { qabstractprintdialog_resizeevent_callback = cb; }
+    inline void setQAbstractPrintDialog_ContextMenuEvent_Callback(QAbstractPrintDialog_ContextMenuEvent_Callback cb) { qabstractprintdialog_contextmenuevent_callback = cb; }
+    inline void setQAbstractPrintDialog_EventFilter_Callback(QAbstractPrintDialog_EventFilter_Callback cb) { qabstractprintdialog_eventfilter_callback = cb; }
+    inline void setQAbstractPrintDialog_DevType_Callback(QAbstractPrintDialog_DevType_Callback cb) { qabstractprintdialog_devtype_callback = cb; }
+    inline void setQAbstractPrintDialog_HeightForWidth_Callback(QAbstractPrintDialog_HeightForWidth_Callback cb) { qabstractprintdialog_heightforwidth_callback = cb; }
+    inline void setQAbstractPrintDialog_HasHeightForWidth_Callback(QAbstractPrintDialog_HasHeightForWidth_Callback cb) { qabstractprintdialog_hasheightforwidth_callback = cb; }
+    inline void setQAbstractPrintDialog_PaintEngine_Callback(QAbstractPrintDialog_PaintEngine_Callback cb) { qabstractprintdialog_paintengine_callback = cb; }
+    inline void setQAbstractPrintDialog_Event_Callback(QAbstractPrintDialog_Event_Callback cb) { qabstractprintdialog_event_callback = cb; }
+    inline void setQAbstractPrintDialog_MousePressEvent_Callback(QAbstractPrintDialog_MousePressEvent_Callback cb) { qabstractprintdialog_mousepressevent_callback = cb; }
+    inline void setQAbstractPrintDialog_MouseReleaseEvent_Callback(QAbstractPrintDialog_MouseReleaseEvent_Callback cb) { qabstractprintdialog_mousereleaseevent_callback = cb; }
+    inline void setQAbstractPrintDialog_MouseDoubleClickEvent_Callback(QAbstractPrintDialog_MouseDoubleClickEvent_Callback cb) { qabstractprintdialog_mousedoubleclickevent_callback = cb; }
+    inline void setQAbstractPrintDialog_MouseMoveEvent_Callback(QAbstractPrintDialog_MouseMoveEvent_Callback cb) { qabstractprintdialog_mousemoveevent_callback = cb; }
+    inline void setQAbstractPrintDialog_WheelEvent_Callback(QAbstractPrintDialog_WheelEvent_Callback cb) { qabstractprintdialog_wheelevent_callback = cb; }
+    inline void setQAbstractPrintDialog_KeyReleaseEvent_Callback(QAbstractPrintDialog_KeyReleaseEvent_Callback cb) { qabstractprintdialog_keyreleaseevent_callback = cb; }
+    inline void setQAbstractPrintDialog_FocusInEvent_Callback(QAbstractPrintDialog_FocusInEvent_Callback cb) { qabstractprintdialog_focusinevent_callback = cb; }
+    inline void setQAbstractPrintDialog_FocusOutEvent_Callback(QAbstractPrintDialog_FocusOutEvent_Callback cb) { qabstractprintdialog_focusoutevent_callback = cb; }
+    inline void setQAbstractPrintDialog_EnterEvent_Callback(QAbstractPrintDialog_EnterEvent_Callback cb) { qabstractprintdialog_enterevent_callback = cb; }
+    inline void setQAbstractPrintDialog_LeaveEvent_Callback(QAbstractPrintDialog_LeaveEvent_Callback cb) { qabstractprintdialog_leaveevent_callback = cb; }
+    inline void setQAbstractPrintDialog_PaintEvent_Callback(QAbstractPrintDialog_PaintEvent_Callback cb) { qabstractprintdialog_paintevent_callback = cb; }
+    inline void setQAbstractPrintDialog_MoveEvent_Callback(QAbstractPrintDialog_MoveEvent_Callback cb) { qabstractprintdialog_moveevent_callback = cb; }
+    inline void setQAbstractPrintDialog_TabletEvent_Callback(QAbstractPrintDialog_TabletEvent_Callback cb) { qabstractprintdialog_tabletevent_callback = cb; }
+    inline void setQAbstractPrintDialog_ActionEvent_Callback(QAbstractPrintDialog_ActionEvent_Callback cb) { qabstractprintdialog_actionevent_callback = cb; }
+    inline void setQAbstractPrintDialog_DragEnterEvent_Callback(QAbstractPrintDialog_DragEnterEvent_Callback cb) { qabstractprintdialog_dragenterevent_callback = cb; }
+    inline void setQAbstractPrintDialog_DragMoveEvent_Callback(QAbstractPrintDialog_DragMoveEvent_Callback cb) { qabstractprintdialog_dragmoveevent_callback = cb; }
+    inline void setQAbstractPrintDialog_DragLeaveEvent_Callback(QAbstractPrintDialog_DragLeaveEvent_Callback cb) { qabstractprintdialog_dragleaveevent_callback = cb; }
+    inline void setQAbstractPrintDialog_DropEvent_Callback(QAbstractPrintDialog_DropEvent_Callback cb) { qabstractprintdialog_dropevent_callback = cb; }
+    inline void setQAbstractPrintDialog_HideEvent_Callback(QAbstractPrintDialog_HideEvent_Callback cb) { qabstractprintdialog_hideevent_callback = cb; }
+    inline void setQAbstractPrintDialog_NativeEvent_Callback(QAbstractPrintDialog_NativeEvent_Callback cb) { qabstractprintdialog_nativeevent_callback = cb; }
+    inline void setQAbstractPrintDialog_ChangeEvent_Callback(QAbstractPrintDialog_ChangeEvent_Callback cb) { qabstractprintdialog_changeevent_callback = cb; }
+    inline void setQAbstractPrintDialog_Metric_Callback(QAbstractPrintDialog_Metric_Callback cb) { qabstractprintdialog_metric_callback = cb; }
+    inline void setQAbstractPrintDialog_InitPainter_Callback(QAbstractPrintDialog_InitPainter_Callback cb) { qabstractprintdialog_initpainter_callback = cb; }
+    inline void setQAbstractPrintDialog_Redirected_Callback(QAbstractPrintDialog_Redirected_Callback cb) { qabstractprintdialog_redirected_callback = cb; }
+    inline void setQAbstractPrintDialog_SharedPainter_Callback(QAbstractPrintDialog_SharedPainter_Callback cb) { qabstractprintdialog_sharedpainter_callback = cb; }
+    inline void setQAbstractPrintDialog_InputMethodEvent_Callback(QAbstractPrintDialog_InputMethodEvent_Callback cb) { qabstractprintdialog_inputmethodevent_callback = cb; }
+    inline void setQAbstractPrintDialog_InputMethodQuery_Callback(QAbstractPrintDialog_InputMethodQuery_Callback cb) { qabstractprintdialog_inputmethodquery_callback = cb; }
+    inline void setQAbstractPrintDialog_FocusNextPrevChild_Callback(QAbstractPrintDialog_FocusNextPrevChild_Callback cb) { qabstractprintdialog_focusnextprevchild_callback = cb; }
+    inline void setQAbstractPrintDialog_TimerEvent_Callback(QAbstractPrintDialog_TimerEvent_Callback cb) { qabstractprintdialog_timerevent_callback = cb; }
+    inline void setQAbstractPrintDialog_ChildEvent_Callback(QAbstractPrintDialog_ChildEvent_Callback cb) { qabstractprintdialog_childevent_callback = cb; }
+    inline void setQAbstractPrintDialog_CustomEvent_Callback(QAbstractPrintDialog_CustomEvent_Callback cb) { qabstractprintdialog_customevent_callback = cb; }
+    inline void setQAbstractPrintDialog_ConnectNotify_Callback(QAbstractPrintDialog_ConnectNotify_Callback cb) { qabstractprintdialog_connectnotify_callback = cb; }
+    inline void setQAbstractPrintDialog_DisconnectNotify_Callback(QAbstractPrintDialog_DisconnectNotify_Callback cb) { qabstractprintdialog_disconnectnotify_callback = cb; }
+    inline void setQAbstractPrintDialog_AdjustPosition_Callback(QAbstractPrintDialog_AdjustPosition_Callback cb) { qabstractprintdialog_adjustposition_callback = cb; }
+    inline void setQAbstractPrintDialog_UpdateMicroFocus_Callback(QAbstractPrintDialog_UpdateMicroFocus_Callback cb) { qabstractprintdialog_updatemicrofocus_callback = cb; }
+    inline void setQAbstractPrintDialog_Create_Callback(QAbstractPrintDialog_Create_Callback cb) { qabstractprintdialog_create_callback = cb; }
+    inline void setQAbstractPrintDialog_Destroy_Callback(QAbstractPrintDialog_Destroy_Callback cb) { qabstractprintdialog_destroy_callback = cb; }
+    inline void setQAbstractPrintDialog_FocusNextChild_Callback(QAbstractPrintDialog_FocusNextChild_Callback cb) { qabstractprintdialog_focusnextchild_callback = cb; }
+    inline void setQAbstractPrintDialog_FocusPreviousChild_Callback(QAbstractPrintDialog_FocusPreviousChild_Callback cb) { qabstractprintdialog_focuspreviouschild_callback = cb; }
+    inline void setQAbstractPrintDialog_Sender_Callback(QAbstractPrintDialog_Sender_Callback cb) { qabstractprintdialog_sender_callback = cb; }
+    inline void setQAbstractPrintDialog_SenderSignalIndex_Callback(QAbstractPrintDialog_SenderSignalIndex_Callback cb) { qabstractprintdialog_sendersignalindex_callback = cb; }
+    inline void setQAbstractPrintDialog_Receivers_Callback(QAbstractPrintDialog_Receivers_Callback cb) { qabstractprintdialog_receivers_callback = cb; }
+    inline void setQAbstractPrintDialog_IsSignalConnected_Callback(QAbstractPrintDialog_IsSignalConnected_Callback cb) { qabstractprintdialog_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQAbstractPrintDialog_Metacall_IsBase(bool value) const { qabstractprintdialog_metacall_isbase = value; }
-    void setQAbstractPrintDialog_SetVisible_IsBase(bool value) const { qabstractprintdialog_setvisible_isbase = value; }
-    void setQAbstractPrintDialog_SizeHint_IsBase(bool value) const { qabstractprintdialog_sizehint_isbase = value; }
-    void setQAbstractPrintDialog_MinimumSizeHint_IsBase(bool value) const { qabstractprintdialog_minimumsizehint_isbase = value; }
-    void setQAbstractPrintDialog_Open_IsBase(bool value) const { qabstractprintdialog_open_isbase = value; }
-    void setQAbstractPrintDialog_Exec_IsBase(bool value) const { qabstractprintdialog_exec_isbase = value; }
-    void setQAbstractPrintDialog_Done_IsBase(bool value) const { qabstractprintdialog_done_isbase = value; }
-    void setQAbstractPrintDialog_Accept_IsBase(bool value) const { qabstractprintdialog_accept_isbase = value; }
-    void setQAbstractPrintDialog_Reject_IsBase(bool value) const { qabstractprintdialog_reject_isbase = value; }
-    void setQAbstractPrintDialog_KeyPressEvent_IsBase(bool value) const { qabstractprintdialog_keypressevent_isbase = value; }
-    void setQAbstractPrintDialog_CloseEvent_IsBase(bool value) const { qabstractprintdialog_closeevent_isbase = value; }
-    void setQAbstractPrintDialog_ShowEvent_IsBase(bool value) const { qabstractprintdialog_showevent_isbase = value; }
-    void setQAbstractPrintDialog_ResizeEvent_IsBase(bool value) const { qabstractprintdialog_resizeevent_isbase = value; }
-    void setQAbstractPrintDialog_ContextMenuEvent_IsBase(bool value) const { qabstractprintdialog_contextmenuevent_isbase = value; }
-    void setQAbstractPrintDialog_EventFilter_IsBase(bool value) const { qabstractprintdialog_eventfilter_isbase = value; }
-    void setQAbstractPrintDialog_DevType_IsBase(bool value) const { qabstractprintdialog_devtype_isbase = value; }
-    void setQAbstractPrintDialog_HeightForWidth_IsBase(bool value) const { qabstractprintdialog_heightforwidth_isbase = value; }
-    void setQAbstractPrintDialog_HasHeightForWidth_IsBase(bool value) const { qabstractprintdialog_hasheightforwidth_isbase = value; }
-    void setQAbstractPrintDialog_PaintEngine_IsBase(bool value) const { qabstractprintdialog_paintengine_isbase = value; }
-    void setQAbstractPrintDialog_Event_IsBase(bool value) const { qabstractprintdialog_event_isbase = value; }
-    void setQAbstractPrintDialog_MousePressEvent_IsBase(bool value) const { qabstractprintdialog_mousepressevent_isbase = value; }
-    void setQAbstractPrintDialog_MouseReleaseEvent_IsBase(bool value) const { qabstractprintdialog_mousereleaseevent_isbase = value; }
-    void setQAbstractPrintDialog_MouseDoubleClickEvent_IsBase(bool value) const { qabstractprintdialog_mousedoubleclickevent_isbase = value; }
-    void setQAbstractPrintDialog_MouseMoveEvent_IsBase(bool value) const { qabstractprintdialog_mousemoveevent_isbase = value; }
-    void setQAbstractPrintDialog_WheelEvent_IsBase(bool value) const { qabstractprintdialog_wheelevent_isbase = value; }
-    void setQAbstractPrintDialog_KeyReleaseEvent_IsBase(bool value) const { qabstractprintdialog_keyreleaseevent_isbase = value; }
-    void setQAbstractPrintDialog_FocusInEvent_IsBase(bool value) const { qabstractprintdialog_focusinevent_isbase = value; }
-    void setQAbstractPrintDialog_FocusOutEvent_IsBase(bool value) const { qabstractprintdialog_focusoutevent_isbase = value; }
-    void setQAbstractPrintDialog_EnterEvent_IsBase(bool value) const { qabstractprintdialog_enterevent_isbase = value; }
-    void setQAbstractPrintDialog_LeaveEvent_IsBase(bool value) const { qabstractprintdialog_leaveevent_isbase = value; }
-    void setQAbstractPrintDialog_PaintEvent_IsBase(bool value) const { qabstractprintdialog_paintevent_isbase = value; }
-    void setQAbstractPrintDialog_MoveEvent_IsBase(bool value) const { qabstractprintdialog_moveevent_isbase = value; }
-    void setQAbstractPrintDialog_TabletEvent_IsBase(bool value) const { qabstractprintdialog_tabletevent_isbase = value; }
-    void setQAbstractPrintDialog_ActionEvent_IsBase(bool value) const { qabstractprintdialog_actionevent_isbase = value; }
-    void setQAbstractPrintDialog_DragEnterEvent_IsBase(bool value) const { qabstractprintdialog_dragenterevent_isbase = value; }
-    void setQAbstractPrintDialog_DragMoveEvent_IsBase(bool value) const { qabstractprintdialog_dragmoveevent_isbase = value; }
-    void setQAbstractPrintDialog_DragLeaveEvent_IsBase(bool value) const { qabstractprintdialog_dragleaveevent_isbase = value; }
-    void setQAbstractPrintDialog_DropEvent_IsBase(bool value) const { qabstractprintdialog_dropevent_isbase = value; }
-    void setQAbstractPrintDialog_HideEvent_IsBase(bool value) const { qabstractprintdialog_hideevent_isbase = value; }
-    void setQAbstractPrintDialog_NativeEvent_IsBase(bool value) const { qabstractprintdialog_nativeevent_isbase = value; }
-    void setQAbstractPrintDialog_ChangeEvent_IsBase(bool value) const { qabstractprintdialog_changeevent_isbase = value; }
-    void setQAbstractPrintDialog_Metric_IsBase(bool value) const { qabstractprintdialog_metric_isbase = value; }
-    void setQAbstractPrintDialog_InitPainter_IsBase(bool value) const { qabstractprintdialog_initpainter_isbase = value; }
-    void setQAbstractPrintDialog_Redirected_IsBase(bool value) const { qabstractprintdialog_redirected_isbase = value; }
-    void setQAbstractPrintDialog_SharedPainter_IsBase(bool value) const { qabstractprintdialog_sharedpainter_isbase = value; }
-    void setQAbstractPrintDialog_InputMethodEvent_IsBase(bool value) const { qabstractprintdialog_inputmethodevent_isbase = value; }
-    void setQAbstractPrintDialog_InputMethodQuery_IsBase(bool value) const { qabstractprintdialog_inputmethodquery_isbase = value; }
-    void setQAbstractPrintDialog_FocusNextPrevChild_IsBase(bool value) const { qabstractprintdialog_focusnextprevchild_isbase = value; }
-    void setQAbstractPrintDialog_TimerEvent_IsBase(bool value) const { qabstractprintdialog_timerevent_isbase = value; }
-    void setQAbstractPrintDialog_ChildEvent_IsBase(bool value) const { qabstractprintdialog_childevent_isbase = value; }
-    void setQAbstractPrintDialog_CustomEvent_IsBase(bool value) const { qabstractprintdialog_customevent_isbase = value; }
-    void setQAbstractPrintDialog_ConnectNotify_IsBase(bool value) const { qabstractprintdialog_connectnotify_isbase = value; }
-    void setQAbstractPrintDialog_DisconnectNotify_IsBase(bool value) const { qabstractprintdialog_disconnectnotify_isbase = value; }
-    void setQAbstractPrintDialog_AdjustPosition_IsBase(bool value) const { qabstractprintdialog_adjustposition_isbase = value; }
-    void setQAbstractPrintDialog_UpdateMicroFocus_IsBase(bool value) const { qabstractprintdialog_updatemicrofocus_isbase = value; }
-    void setQAbstractPrintDialog_Create_IsBase(bool value) const { qabstractprintdialog_create_isbase = value; }
-    void setQAbstractPrintDialog_Destroy_IsBase(bool value) const { qabstractprintdialog_destroy_isbase = value; }
-    void setQAbstractPrintDialog_FocusNextChild_IsBase(bool value) const { qabstractprintdialog_focusnextchild_isbase = value; }
-    void setQAbstractPrintDialog_FocusPreviousChild_IsBase(bool value) const { qabstractprintdialog_focuspreviouschild_isbase = value; }
-    void setQAbstractPrintDialog_Sender_IsBase(bool value) const { qabstractprintdialog_sender_isbase = value; }
-    void setQAbstractPrintDialog_SenderSignalIndex_IsBase(bool value) const { qabstractprintdialog_sendersignalindex_isbase = value; }
-    void setQAbstractPrintDialog_Receivers_IsBase(bool value) const { qabstractprintdialog_receivers_isbase = value; }
-    void setQAbstractPrintDialog_IsSignalConnected_IsBase(bool value) const { qabstractprintdialog_issignalconnected_isbase = value; }
+    inline void setQAbstractPrintDialog_Metacall_IsBase(bool value) const { qabstractprintdialog_metacall_isbase = value; }
+    inline void setQAbstractPrintDialog_SetVisible_IsBase(bool value) const { qabstractprintdialog_setvisible_isbase = value; }
+    inline void setQAbstractPrintDialog_SizeHint_IsBase(bool value) const { qabstractprintdialog_sizehint_isbase = value; }
+    inline void setQAbstractPrintDialog_MinimumSizeHint_IsBase(bool value) const { qabstractprintdialog_minimumsizehint_isbase = value; }
+    inline void setQAbstractPrintDialog_Open_IsBase(bool value) const { qabstractprintdialog_open_isbase = value; }
+    inline void setQAbstractPrintDialog_Exec_IsBase(bool value) const { qabstractprintdialog_exec_isbase = value; }
+    inline void setQAbstractPrintDialog_Done_IsBase(bool value) const { qabstractprintdialog_done_isbase = value; }
+    inline void setQAbstractPrintDialog_Accept_IsBase(bool value) const { qabstractprintdialog_accept_isbase = value; }
+    inline void setQAbstractPrintDialog_Reject_IsBase(bool value) const { qabstractprintdialog_reject_isbase = value; }
+    inline void setQAbstractPrintDialog_KeyPressEvent_IsBase(bool value) const { qabstractprintdialog_keypressevent_isbase = value; }
+    inline void setQAbstractPrintDialog_CloseEvent_IsBase(bool value) const { qabstractprintdialog_closeevent_isbase = value; }
+    inline void setQAbstractPrintDialog_ShowEvent_IsBase(bool value) const { qabstractprintdialog_showevent_isbase = value; }
+    inline void setQAbstractPrintDialog_ResizeEvent_IsBase(bool value) const { qabstractprintdialog_resizeevent_isbase = value; }
+    inline void setQAbstractPrintDialog_ContextMenuEvent_IsBase(bool value) const { qabstractprintdialog_contextmenuevent_isbase = value; }
+    inline void setQAbstractPrintDialog_EventFilter_IsBase(bool value) const { qabstractprintdialog_eventfilter_isbase = value; }
+    inline void setQAbstractPrintDialog_DevType_IsBase(bool value) const { qabstractprintdialog_devtype_isbase = value; }
+    inline void setQAbstractPrintDialog_HeightForWidth_IsBase(bool value) const { qabstractprintdialog_heightforwidth_isbase = value; }
+    inline void setQAbstractPrintDialog_HasHeightForWidth_IsBase(bool value) const { qabstractprintdialog_hasheightforwidth_isbase = value; }
+    inline void setQAbstractPrintDialog_PaintEngine_IsBase(bool value) const { qabstractprintdialog_paintengine_isbase = value; }
+    inline void setQAbstractPrintDialog_Event_IsBase(bool value) const { qabstractprintdialog_event_isbase = value; }
+    inline void setQAbstractPrintDialog_MousePressEvent_IsBase(bool value) const { qabstractprintdialog_mousepressevent_isbase = value; }
+    inline void setQAbstractPrintDialog_MouseReleaseEvent_IsBase(bool value) const { qabstractprintdialog_mousereleaseevent_isbase = value; }
+    inline void setQAbstractPrintDialog_MouseDoubleClickEvent_IsBase(bool value) const { qabstractprintdialog_mousedoubleclickevent_isbase = value; }
+    inline void setQAbstractPrintDialog_MouseMoveEvent_IsBase(bool value) const { qabstractprintdialog_mousemoveevent_isbase = value; }
+    inline void setQAbstractPrintDialog_WheelEvent_IsBase(bool value) const { qabstractprintdialog_wheelevent_isbase = value; }
+    inline void setQAbstractPrintDialog_KeyReleaseEvent_IsBase(bool value) const { qabstractprintdialog_keyreleaseevent_isbase = value; }
+    inline void setQAbstractPrintDialog_FocusInEvent_IsBase(bool value) const { qabstractprintdialog_focusinevent_isbase = value; }
+    inline void setQAbstractPrintDialog_FocusOutEvent_IsBase(bool value) const { qabstractprintdialog_focusoutevent_isbase = value; }
+    inline void setQAbstractPrintDialog_EnterEvent_IsBase(bool value) const { qabstractprintdialog_enterevent_isbase = value; }
+    inline void setQAbstractPrintDialog_LeaveEvent_IsBase(bool value) const { qabstractprintdialog_leaveevent_isbase = value; }
+    inline void setQAbstractPrintDialog_PaintEvent_IsBase(bool value) const { qabstractprintdialog_paintevent_isbase = value; }
+    inline void setQAbstractPrintDialog_MoveEvent_IsBase(bool value) const { qabstractprintdialog_moveevent_isbase = value; }
+    inline void setQAbstractPrintDialog_TabletEvent_IsBase(bool value) const { qabstractprintdialog_tabletevent_isbase = value; }
+    inline void setQAbstractPrintDialog_ActionEvent_IsBase(bool value) const { qabstractprintdialog_actionevent_isbase = value; }
+    inline void setQAbstractPrintDialog_DragEnterEvent_IsBase(bool value) const { qabstractprintdialog_dragenterevent_isbase = value; }
+    inline void setQAbstractPrintDialog_DragMoveEvent_IsBase(bool value) const { qabstractprintdialog_dragmoveevent_isbase = value; }
+    inline void setQAbstractPrintDialog_DragLeaveEvent_IsBase(bool value) const { qabstractprintdialog_dragleaveevent_isbase = value; }
+    inline void setQAbstractPrintDialog_DropEvent_IsBase(bool value) const { qabstractprintdialog_dropevent_isbase = value; }
+    inline void setQAbstractPrintDialog_HideEvent_IsBase(bool value) const { qabstractprintdialog_hideevent_isbase = value; }
+    inline void setQAbstractPrintDialog_NativeEvent_IsBase(bool value) const { qabstractprintdialog_nativeevent_isbase = value; }
+    inline void setQAbstractPrintDialog_ChangeEvent_IsBase(bool value) const { qabstractprintdialog_changeevent_isbase = value; }
+    inline void setQAbstractPrintDialog_Metric_IsBase(bool value) const { qabstractprintdialog_metric_isbase = value; }
+    inline void setQAbstractPrintDialog_InitPainter_IsBase(bool value) const { qabstractprintdialog_initpainter_isbase = value; }
+    inline void setQAbstractPrintDialog_Redirected_IsBase(bool value) const { qabstractprintdialog_redirected_isbase = value; }
+    inline void setQAbstractPrintDialog_SharedPainter_IsBase(bool value) const { qabstractprintdialog_sharedpainter_isbase = value; }
+    inline void setQAbstractPrintDialog_InputMethodEvent_IsBase(bool value) const { qabstractprintdialog_inputmethodevent_isbase = value; }
+    inline void setQAbstractPrintDialog_InputMethodQuery_IsBase(bool value) const { qabstractprintdialog_inputmethodquery_isbase = value; }
+    inline void setQAbstractPrintDialog_FocusNextPrevChild_IsBase(bool value) const { qabstractprintdialog_focusnextprevchild_isbase = value; }
+    inline void setQAbstractPrintDialog_TimerEvent_IsBase(bool value) const { qabstractprintdialog_timerevent_isbase = value; }
+    inline void setQAbstractPrintDialog_ChildEvent_IsBase(bool value) const { qabstractprintdialog_childevent_isbase = value; }
+    inline void setQAbstractPrintDialog_CustomEvent_IsBase(bool value) const { qabstractprintdialog_customevent_isbase = value; }
+    inline void setQAbstractPrintDialog_ConnectNotify_IsBase(bool value) const { qabstractprintdialog_connectnotify_isbase = value; }
+    inline void setQAbstractPrintDialog_DisconnectNotify_IsBase(bool value) const { qabstractprintdialog_disconnectnotify_isbase = value; }
+    inline void setQAbstractPrintDialog_AdjustPosition_IsBase(bool value) const { qabstractprintdialog_adjustposition_isbase = value; }
+    inline void setQAbstractPrintDialog_UpdateMicroFocus_IsBase(bool value) const { qabstractprintdialog_updatemicrofocus_isbase = value; }
+    inline void setQAbstractPrintDialog_Create_IsBase(bool value) const { qabstractprintdialog_create_isbase = value; }
+    inline void setQAbstractPrintDialog_Destroy_IsBase(bool value) const { qabstractprintdialog_destroy_isbase = value; }
+    inline void setQAbstractPrintDialog_FocusNextChild_IsBase(bool value) const { qabstractprintdialog_focusnextchild_isbase = value; }
+    inline void setQAbstractPrintDialog_FocusPreviousChild_IsBase(bool value) const { qabstractprintdialog_focuspreviouschild_isbase = value; }
+    inline void setQAbstractPrintDialog_Sender_IsBase(bool value) const { qabstractprintdialog_sender_isbase = value; }
+    inline void setQAbstractPrintDialog_SenderSignalIndex_IsBase(bool value) const { qabstractprintdialog_sendersignalindex_isbase = value; }
+    inline void setQAbstractPrintDialog_Receivers_IsBase(bool value) const { qabstractprintdialog_receivers_isbase = value; }
+    inline void setQAbstractPrintDialog_IsSignalConnected_IsBase(bool value) const { qabstractprintdialog_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -416,7 +419,12 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_metacall_isbase = false;
             return QAbstractPrintDialog::qt_metacall(param1, param2, param3);
         } else if (qabstractprintdialog_metacall_callback != nullptr) {
-            return qabstractprintdialog_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qabstractprintdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractPrintDialog::qt_metacall(param1, param2, param3);
         }
@@ -428,7 +436,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_setvisible_isbase = false;
             QAbstractPrintDialog::setVisible(visible);
         } else if (qabstractprintdialog_setvisible_callback != nullptr) {
-            qabstractprintdialog_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qabstractprintdialog_setvisible_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::setVisible(visible);
         }
@@ -440,7 +450,8 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_sizehint_isbase = false;
             return QAbstractPrintDialog::sizeHint();
         } else if (qabstractprintdialog_sizehint_callback != nullptr) {
-            return qabstractprintdialog_sizehint_callback();
+            QSize* callback_ret = qabstractprintdialog_sizehint_callback();
+            return *callback_ret;
         } else {
             return QAbstractPrintDialog::sizeHint();
         }
@@ -452,7 +463,8 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_minimumsizehint_isbase = false;
             return QAbstractPrintDialog::minimumSizeHint();
         } else if (qabstractprintdialog_minimumsizehint_callback != nullptr) {
-            return qabstractprintdialog_minimumsizehint_callback();
+            QSize* callback_ret = qabstractprintdialog_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QAbstractPrintDialog::minimumSizeHint();
         }
@@ -476,7 +488,8 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_exec_isbase = false;
             return QAbstractPrintDialog::exec();
         } else if (qabstractprintdialog_exec_callback != nullptr) {
-            return qabstractprintdialog_exec_callback();
+            int callback_ret = qabstractprintdialog_exec_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractPrintDialog::exec();
         }
@@ -488,7 +501,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_done_isbase = false;
             QAbstractPrintDialog::done(param1);
         } else if (qabstractprintdialog_done_callback != nullptr) {
-            qabstractprintdialog_done_callback(this, param1);
+            int cbval1 = param1;
+
+            qabstractprintdialog_done_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::done(param1);
         }
@@ -524,7 +539,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_keypressevent_isbase = false;
             QAbstractPrintDialog::keyPressEvent(param1);
         } else if (qabstractprintdialog_keypressevent_callback != nullptr) {
-            qabstractprintdialog_keypressevent_callback(this, param1);
+            QKeyEvent* cbval1 = param1;
+
+            qabstractprintdialog_keypressevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::keyPressEvent(param1);
         }
@@ -536,7 +553,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_closeevent_isbase = false;
             QAbstractPrintDialog::closeEvent(param1);
         } else if (qabstractprintdialog_closeevent_callback != nullptr) {
-            qabstractprintdialog_closeevent_callback(this, param1);
+            QCloseEvent* cbval1 = param1;
+
+            qabstractprintdialog_closeevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::closeEvent(param1);
         }
@@ -548,7 +567,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_showevent_isbase = false;
             QAbstractPrintDialog::showEvent(param1);
         } else if (qabstractprintdialog_showevent_callback != nullptr) {
-            qabstractprintdialog_showevent_callback(this, param1);
+            QShowEvent* cbval1 = param1;
+
+            qabstractprintdialog_showevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::showEvent(param1);
         }
@@ -560,7 +581,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_resizeevent_isbase = false;
             QAbstractPrintDialog::resizeEvent(param1);
         } else if (qabstractprintdialog_resizeevent_callback != nullptr) {
-            qabstractprintdialog_resizeevent_callback(this, param1);
+            QResizeEvent* cbval1 = param1;
+
+            qabstractprintdialog_resizeevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::resizeEvent(param1);
         }
@@ -572,7 +595,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_contextmenuevent_isbase = false;
             QAbstractPrintDialog::contextMenuEvent(param1);
         } else if (qabstractprintdialog_contextmenuevent_callback != nullptr) {
-            qabstractprintdialog_contextmenuevent_callback(this, param1);
+            QContextMenuEvent* cbval1 = param1;
+
+            qabstractprintdialog_contextmenuevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::contextMenuEvent(param1);
         }
@@ -584,7 +609,11 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_eventfilter_isbase = false;
             return QAbstractPrintDialog::eventFilter(param1, param2);
         } else if (qabstractprintdialog_eventfilter_callback != nullptr) {
-            return qabstractprintdialog_eventfilter_callback(this, param1, param2);
+            QObject* cbval1 = param1;
+            QEvent* cbval2 = param2;
+
+            bool callback_ret = qabstractprintdialog_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QAbstractPrintDialog::eventFilter(param1, param2);
         }
@@ -596,7 +625,8 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_devtype_isbase = false;
             return QAbstractPrintDialog::devType();
         } else if (qabstractprintdialog_devtype_callback != nullptr) {
-            return qabstractprintdialog_devtype_callback();
+            int callback_ret = qabstractprintdialog_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractPrintDialog::devType();
         }
@@ -608,7 +638,10 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_heightforwidth_isbase = false;
             return QAbstractPrintDialog::heightForWidth(param1);
         } else if (qabstractprintdialog_heightforwidth_callback != nullptr) {
-            return qabstractprintdialog_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qabstractprintdialog_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractPrintDialog::heightForWidth(param1);
         }
@@ -620,7 +653,8 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_hasheightforwidth_isbase = false;
             return QAbstractPrintDialog::hasHeightForWidth();
         } else if (qabstractprintdialog_hasheightforwidth_callback != nullptr) {
-            return qabstractprintdialog_hasheightforwidth_callback();
+            bool callback_ret = qabstractprintdialog_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QAbstractPrintDialog::hasHeightForWidth();
         }
@@ -632,7 +666,8 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_paintengine_isbase = false;
             return QAbstractPrintDialog::paintEngine();
         } else if (qabstractprintdialog_paintengine_callback != nullptr) {
-            return qabstractprintdialog_paintengine_callback();
+            QPaintEngine* callback_ret = qabstractprintdialog_paintengine_callback();
+            return callback_ret;
         } else {
             return QAbstractPrintDialog::paintEngine();
         }
@@ -644,7 +679,10 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_event_isbase = false;
             return QAbstractPrintDialog::event(event);
         } else if (qabstractprintdialog_event_callback != nullptr) {
-            return qabstractprintdialog_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qabstractprintdialog_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractPrintDialog::event(event);
         }
@@ -656,7 +694,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_mousepressevent_isbase = false;
             QAbstractPrintDialog::mousePressEvent(event);
         } else if (qabstractprintdialog_mousepressevent_callback != nullptr) {
-            qabstractprintdialog_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qabstractprintdialog_mousepressevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::mousePressEvent(event);
         }
@@ -668,7 +708,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_mousereleaseevent_isbase = false;
             QAbstractPrintDialog::mouseReleaseEvent(event);
         } else if (qabstractprintdialog_mousereleaseevent_callback != nullptr) {
-            qabstractprintdialog_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qabstractprintdialog_mousereleaseevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::mouseReleaseEvent(event);
         }
@@ -680,7 +722,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_mousedoubleclickevent_isbase = false;
             QAbstractPrintDialog::mouseDoubleClickEvent(event);
         } else if (qabstractprintdialog_mousedoubleclickevent_callback != nullptr) {
-            qabstractprintdialog_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qabstractprintdialog_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::mouseDoubleClickEvent(event);
         }
@@ -692,7 +736,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_mousemoveevent_isbase = false;
             QAbstractPrintDialog::mouseMoveEvent(event);
         } else if (qabstractprintdialog_mousemoveevent_callback != nullptr) {
-            qabstractprintdialog_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qabstractprintdialog_mousemoveevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::mouseMoveEvent(event);
         }
@@ -704,7 +750,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_wheelevent_isbase = false;
             QAbstractPrintDialog::wheelEvent(event);
         } else if (qabstractprintdialog_wheelevent_callback != nullptr) {
-            qabstractprintdialog_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qabstractprintdialog_wheelevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::wheelEvent(event);
         }
@@ -716,7 +764,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_keyreleaseevent_isbase = false;
             QAbstractPrintDialog::keyReleaseEvent(event);
         } else if (qabstractprintdialog_keyreleaseevent_callback != nullptr) {
-            qabstractprintdialog_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qabstractprintdialog_keyreleaseevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::keyReleaseEvent(event);
         }
@@ -728,7 +778,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_focusinevent_isbase = false;
             QAbstractPrintDialog::focusInEvent(event);
         } else if (qabstractprintdialog_focusinevent_callback != nullptr) {
-            qabstractprintdialog_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qabstractprintdialog_focusinevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::focusInEvent(event);
         }
@@ -740,7 +792,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_focusoutevent_isbase = false;
             QAbstractPrintDialog::focusOutEvent(event);
         } else if (qabstractprintdialog_focusoutevent_callback != nullptr) {
-            qabstractprintdialog_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qabstractprintdialog_focusoutevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::focusOutEvent(event);
         }
@@ -752,7 +806,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_enterevent_isbase = false;
             QAbstractPrintDialog::enterEvent(event);
         } else if (qabstractprintdialog_enterevent_callback != nullptr) {
-            qabstractprintdialog_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qabstractprintdialog_enterevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::enterEvent(event);
         }
@@ -764,7 +820,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_leaveevent_isbase = false;
             QAbstractPrintDialog::leaveEvent(event);
         } else if (qabstractprintdialog_leaveevent_callback != nullptr) {
-            qabstractprintdialog_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qabstractprintdialog_leaveevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::leaveEvent(event);
         }
@@ -776,7 +834,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_paintevent_isbase = false;
             QAbstractPrintDialog::paintEvent(event);
         } else if (qabstractprintdialog_paintevent_callback != nullptr) {
-            qabstractprintdialog_paintevent_callback(this, event);
+            QPaintEvent* cbval1 = event;
+
+            qabstractprintdialog_paintevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::paintEvent(event);
         }
@@ -788,7 +848,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_moveevent_isbase = false;
             QAbstractPrintDialog::moveEvent(event);
         } else if (qabstractprintdialog_moveevent_callback != nullptr) {
-            qabstractprintdialog_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qabstractprintdialog_moveevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::moveEvent(event);
         }
@@ -800,7 +862,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_tabletevent_isbase = false;
             QAbstractPrintDialog::tabletEvent(event);
         } else if (qabstractprintdialog_tabletevent_callback != nullptr) {
-            qabstractprintdialog_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qabstractprintdialog_tabletevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::tabletEvent(event);
         }
@@ -812,7 +876,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_actionevent_isbase = false;
             QAbstractPrintDialog::actionEvent(event);
         } else if (qabstractprintdialog_actionevent_callback != nullptr) {
-            qabstractprintdialog_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qabstractprintdialog_actionevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::actionEvent(event);
         }
@@ -824,7 +890,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_dragenterevent_isbase = false;
             QAbstractPrintDialog::dragEnterEvent(event);
         } else if (qabstractprintdialog_dragenterevent_callback != nullptr) {
-            qabstractprintdialog_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qabstractprintdialog_dragenterevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::dragEnterEvent(event);
         }
@@ -836,7 +904,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_dragmoveevent_isbase = false;
             QAbstractPrintDialog::dragMoveEvent(event);
         } else if (qabstractprintdialog_dragmoveevent_callback != nullptr) {
-            qabstractprintdialog_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qabstractprintdialog_dragmoveevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::dragMoveEvent(event);
         }
@@ -848,7 +918,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_dragleaveevent_isbase = false;
             QAbstractPrintDialog::dragLeaveEvent(event);
         } else if (qabstractprintdialog_dragleaveevent_callback != nullptr) {
-            qabstractprintdialog_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qabstractprintdialog_dragleaveevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::dragLeaveEvent(event);
         }
@@ -860,7 +932,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_dropevent_isbase = false;
             QAbstractPrintDialog::dropEvent(event);
         } else if (qabstractprintdialog_dropevent_callback != nullptr) {
-            qabstractprintdialog_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qabstractprintdialog_dropevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::dropEvent(event);
         }
@@ -872,7 +946,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_hideevent_isbase = false;
             QAbstractPrintDialog::hideEvent(event);
         } else if (qabstractprintdialog_hideevent_callback != nullptr) {
-            qabstractprintdialog_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qabstractprintdialog_hideevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::hideEvent(event);
         }
@@ -884,7 +960,19 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_nativeevent_isbase = false;
             return QAbstractPrintDialog::nativeEvent(eventType, message, result);
         } else if (qabstractprintdialog_nativeevent_callback != nullptr) {
-            return qabstractprintdialog_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qabstractprintdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QAbstractPrintDialog::nativeEvent(eventType, message, result);
         }
@@ -896,7 +984,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_changeevent_isbase = false;
             QAbstractPrintDialog::changeEvent(param1);
         } else if (qabstractprintdialog_changeevent_callback != nullptr) {
-            qabstractprintdialog_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qabstractprintdialog_changeevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::changeEvent(param1);
         }
@@ -908,7 +998,10 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_metric_isbase = false;
             return QAbstractPrintDialog::metric(param1);
         } else if (qabstractprintdialog_metric_callback != nullptr) {
-            return qabstractprintdialog_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qabstractprintdialog_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractPrintDialog::metric(param1);
         }
@@ -920,7 +1013,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_initpainter_isbase = false;
             QAbstractPrintDialog::initPainter(painter);
         } else if (qabstractprintdialog_initpainter_callback != nullptr) {
-            qabstractprintdialog_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qabstractprintdialog_initpainter_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::initPainter(painter);
         }
@@ -932,7 +1027,10 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_redirected_isbase = false;
             return QAbstractPrintDialog::redirected(offset);
         } else if (qabstractprintdialog_redirected_callback != nullptr) {
-            return qabstractprintdialog_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qabstractprintdialog_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractPrintDialog::redirected(offset);
         }
@@ -944,7 +1042,8 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_sharedpainter_isbase = false;
             return QAbstractPrintDialog::sharedPainter();
         } else if (qabstractprintdialog_sharedpainter_callback != nullptr) {
-            return qabstractprintdialog_sharedpainter_callback();
+            QPainter* callback_ret = qabstractprintdialog_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QAbstractPrintDialog::sharedPainter();
         }
@@ -956,7 +1055,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_inputmethodevent_isbase = false;
             QAbstractPrintDialog::inputMethodEvent(param1);
         } else if (qabstractprintdialog_inputmethodevent_callback != nullptr) {
-            qabstractprintdialog_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qabstractprintdialog_inputmethodevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::inputMethodEvent(param1);
         }
@@ -968,7 +1069,10 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_inputmethodquery_isbase = false;
             return QAbstractPrintDialog::inputMethodQuery(param1);
         } else if (qabstractprintdialog_inputmethodquery_callback != nullptr) {
-            return qabstractprintdialog_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qabstractprintdialog_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QAbstractPrintDialog::inputMethodQuery(param1);
         }
@@ -980,7 +1084,10 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_focusnextprevchild_isbase = false;
             return QAbstractPrintDialog::focusNextPrevChild(next);
         } else if (qabstractprintdialog_focusnextprevchild_callback != nullptr) {
-            return qabstractprintdialog_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qabstractprintdialog_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractPrintDialog::focusNextPrevChild(next);
         }
@@ -992,7 +1099,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_timerevent_isbase = false;
             QAbstractPrintDialog::timerEvent(event);
         } else if (qabstractprintdialog_timerevent_callback != nullptr) {
-            qabstractprintdialog_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qabstractprintdialog_timerevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::timerEvent(event);
         }
@@ -1004,7 +1113,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_childevent_isbase = false;
             QAbstractPrintDialog::childEvent(event);
         } else if (qabstractprintdialog_childevent_callback != nullptr) {
-            qabstractprintdialog_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qabstractprintdialog_childevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::childEvent(event);
         }
@@ -1016,7 +1127,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_customevent_isbase = false;
             QAbstractPrintDialog::customEvent(event);
         } else if (qabstractprintdialog_customevent_callback != nullptr) {
-            qabstractprintdialog_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qabstractprintdialog_customevent_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::customEvent(event);
         }
@@ -1028,7 +1141,11 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_connectnotify_isbase = false;
             QAbstractPrintDialog::connectNotify(signal);
         } else if (qabstractprintdialog_connectnotify_callback != nullptr) {
-            qabstractprintdialog_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qabstractprintdialog_connectnotify_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::connectNotify(signal);
         }
@@ -1040,7 +1157,11 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_disconnectnotify_isbase = false;
             QAbstractPrintDialog::disconnectNotify(signal);
         } else if (qabstractprintdialog_disconnectnotify_callback != nullptr) {
-            qabstractprintdialog_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qabstractprintdialog_disconnectnotify_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::disconnectNotify(signal);
         }
@@ -1052,7 +1173,9 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_adjustposition_isbase = false;
             QAbstractPrintDialog::adjustPosition(param1);
         } else if (qabstractprintdialog_adjustposition_callback != nullptr) {
-            qabstractprintdialog_adjustposition_callback(this, param1);
+            QWidget* cbval1 = param1;
+
+            qabstractprintdialog_adjustposition_callback(this, cbval1);
         } else {
             QAbstractPrintDialog::adjustPosition(param1);
         }
@@ -1100,7 +1223,8 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_focusnextchild_isbase = false;
             return QAbstractPrintDialog::focusNextChild();
         } else if (qabstractprintdialog_focusnextchild_callback != nullptr) {
-            return qabstractprintdialog_focusnextchild_callback();
+            bool callback_ret = qabstractprintdialog_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QAbstractPrintDialog::focusNextChild();
         }
@@ -1112,7 +1236,8 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_focuspreviouschild_isbase = false;
             return QAbstractPrintDialog::focusPreviousChild();
         } else if (qabstractprintdialog_focuspreviouschild_callback != nullptr) {
-            return qabstractprintdialog_focuspreviouschild_callback();
+            bool callback_ret = qabstractprintdialog_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QAbstractPrintDialog::focusPreviousChild();
         }
@@ -1124,7 +1249,8 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_sender_isbase = false;
             return QAbstractPrintDialog::sender();
         } else if (qabstractprintdialog_sender_callback != nullptr) {
-            return qabstractprintdialog_sender_callback();
+            QObject* callback_ret = qabstractprintdialog_sender_callback();
+            return callback_ret;
         } else {
             return QAbstractPrintDialog::sender();
         }
@@ -1136,7 +1262,8 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_sendersignalindex_isbase = false;
             return QAbstractPrintDialog::senderSignalIndex();
         } else if (qabstractprintdialog_sendersignalindex_callback != nullptr) {
-            return qabstractprintdialog_sendersignalindex_callback();
+            int callback_ret = qabstractprintdialog_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractPrintDialog::senderSignalIndex();
         }
@@ -1148,7 +1275,10 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_receivers_isbase = false;
             return QAbstractPrintDialog::receivers(signal);
         } else if (qabstractprintdialog_receivers_callback != nullptr) {
-            return qabstractprintdialog_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qabstractprintdialog_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractPrintDialog::receivers(signal);
         }
@@ -1160,11 +1290,116 @@ class VirtualQAbstractPrintDialog : public QAbstractPrintDialog {
             qabstractprintdialog_issignalconnected_isbase = false;
             return QAbstractPrintDialog::isSignalConnected(signal);
         } else if (qabstractprintdialog_issignalconnected_callback != nullptr) {
-            return qabstractprintdialog_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qabstractprintdialog_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractPrintDialog::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QAbstractPrintDialog_KeyPressEvent(QAbstractPrintDialog* self, QKeyEvent* param1);
+    friend void QAbstractPrintDialog_QBaseKeyPressEvent(QAbstractPrintDialog* self, QKeyEvent* param1);
+    friend void QAbstractPrintDialog_CloseEvent(QAbstractPrintDialog* self, QCloseEvent* param1);
+    friend void QAbstractPrintDialog_QBaseCloseEvent(QAbstractPrintDialog* self, QCloseEvent* param1);
+    friend void QAbstractPrintDialog_ShowEvent(QAbstractPrintDialog* self, QShowEvent* param1);
+    friend void QAbstractPrintDialog_QBaseShowEvent(QAbstractPrintDialog* self, QShowEvent* param1);
+    friend void QAbstractPrintDialog_ResizeEvent(QAbstractPrintDialog* self, QResizeEvent* param1);
+    friend void QAbstractPrintDialog_QBaseResizeEvent(QAbstractPrintDialog* self, QResizeEvent* param1);
+    friend void QAbstractPrintDialog_ContextMenuEvent(QAbstractPrintDialog* self, QContextMenuEvent* param1);
+    friend void QAbstractPrintDialog_QBaseContextMenuEvent(QAbstractPrintDialog* self, QContextMenuEvent* param1);
+    friend bool QAbstractPrintDialog_EventFilter(QAbstractPrintDialog* self, QObject* param1, QEvent* param2);
+    friend bool QAbstractPrintDialog_QBaseEventFilter(QAbstractPrintDialog* self, QObject* param1, QEvent* param2);
+    friend bool QAbstractPrintDialog_Event(QAbstractPrintDialog* self, QEvent* event);
+    friend bool QAbstractPrintDialog_QBaseEvent(QAbstractPrintDialog* self, QEvent* event);
+    friend void QAbstractPrintDialog_MousePressEvent(QAbstractPrintDialog* self, QMouseEvent* event);
+    friend void QAbstractPrintDialog_QBaseMousePressEvent(QAbstractPrintDialog* self, QMouseEvent* event);
+    friend void QAbstractPrintDialog_MouseReleaseEvent(QAbstractPrintDialog* self, QMouseEvent* event);
+    friend void QAbstractPrintDialog_QBaseMouseReleaseEvent(QAbstractPrintDialog* self, QMouseEvent* event);
+    friend void QAbstractPrintDialog_MouseDoubleClickEvent(QAbstractPrintDialog* self, QMouseEvent* event);
+    friend void QAbstractPrintDialog_QBaseMouseDoubleClickEvent(QAbstractPrintDialog* self, QMouseEvent* event);
+    friend void QAbstractPrintDialog_MouseMoveEvent(QAbstractPrintDialog* self, QMouseEvent* event);
+    friend void QAbstractPrintDialog_QBaseMouseMoveEvent(QAbstractPrintDialog* self, QMouseEvent* event);
+    friend void QAbstractPrintDialog_WheelEvent(QAbstractPrintDialog* self, QWheelEvent* event);
+    friend void QAbstractPrintDialog_QBaseWheelEvent(QAbstractPrintDialog* self, QWheelEvent* event);
+    friend void QAbstractPrintDialog_KeyReleaseEvent(QAbstractPrintDialog* self, QKeyEvent* event);
+    friend void QAbstractPrintDialog_QBaseKeyReleaseEvent(QAbstractPrintDialog* self, QKeyEvent* event);
+    friend void QAbstractPrintDialog_FocusInEvent(QAbstractPrintDialog* self, QFocusEvent* event);
+    friend void QAbstractPrintDialog_QBaseFocusInEvent(QAbstractPrintDialog* self, QFocusEvent* event);
+    friend void QAbstractPrintDialog_FocusOutEvent(QAbstractPrintDialog* self, QFocusEvent* event);
+    friend void QAbstractPrintDialog_QBaseFocusOutEvent(QAbstractPrintDialog* self, QFocusEvent* event);
+    friend void QAbstractPrintDialog_EnterEvent(QAbstractPrintDialog* self, QEnterEvent* event);
+    friend void QAbstractPrintDialog_QBaseEnterEvent(QAbstractPrintDialog* self, QEnterEvent* event);
+    friend void QAbstractPrintDialog_LeaveEvent(QAbstractPrintDialog* self, QEvent* event);
+    friend void QAbstractPrintDialog_QBaseLeaveEvent(QAbstractPrintDialog* self, QEvent* event);
+    friend void QAbstractPrintDialog_PaintEvent(QAbstractPrintDialog* self, QPaintEvent* event);
+    friend void QAbstractPrintDialog_QBasePaintEvent(QAbstractPrintDialog* self, QPaintEvent* event);
+    friend void QAbstractPrintDialog_MoveEvent(QAbstractPrintDialog* self, QMoveEvent* event);
+    friend void QAbstractPrintDialog_QBaseMoveEvent(QAbstractPrintDialog* self, QMoveEvent* event);
+    friend void QAbstractPrintDialog_TabletEvent(QAbstractPrintDialog* self, QTabletEvent* event);
+    friend void QAbstractPrintDialog_QBaseTabletEvent(QAbstractPrintDialog* self, QTabletEvent* event);
+    friend void QAbstractPrintDialog_ActionEvent(QAbstractPrintDialog* self, QActionEvent* event);
+    friend void QAbstractPrintDialog_QBaseActionEvent(QAbstractPrintDialog* self, QActionEvent* event);
+    friend void QAbstractPrintDialog_DragEnterEvent(QAbstractPrintDialog* self, QDragEnterEvent* event);
+    friend void QAbstractPrintDialog_QBaseDragEnterEvent(QAbstractPrintDialog* self, QDragEnterEvent* event);
+    friend void QAbstractPrintDialog_DragMoveEvent(QAbstractPrintDialog* self, QDragMoveEvent* event);
+    friend void QAbstractPrintDialog_QBaseDragMoveEvent(QAbstractPrintDialog* self, QDragMoveEvent* event);
+    friend void QAbstractPrintDialog_DragLeaveEvent(QAbstractPrintDialog* self, QDragLeaveEvent* event);
+    friend void QAbstractPrintDialog_QBaseDragLeaveEvent(QAbstractPrintDialog* self, QDragLeaveEvent* event);
+    friend void QAbstractPrintDialog_DropEvent(QAbstractPrintDialog* self, QDropEvent* event);
+    friend void QAbstractPrintDialog_QBaseDropEvent(QAbstractPrintDialog* self, QDropEvent* event);
+    friend void QAbstractPrintDialog_HideEvent(QAbstractPrintDialog* self, QHideEvent* event);
+    friend void QAbstractPrintDialog_QBaseHideEvent(QAbstractPrintDialog* self, QHideEvent* event);
+    friend bool QAbstractPrintDialog_NativeEvent(QAbstractPrintDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QAbstractPrintDialog_QBaseNativeEvent(QAbstractPrintDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend void QAbstractPrintDialog_ChangeEvent(QAbstractPrintDialog* self, QEvent* param1);
+    friend void QAbstractPrintDialog_QBaseChangeEvent(QAbstractPrintDialog* self, QEvent* param1);
+    friend int QAbstractPrintDialog_Metric(const QAbstractPrintDialog* self, int param1);
+    friend int QAbstractPrintDialog_QBaseMetric(const QAbstractPrintDialog* self, int param1);
+    friend void QAbstractPrintDialog_InitPainter(const QAbstractPrintDialog* self, QPainter* painter);
+    friend void QAbstractPrintDialog_QBaseInitPainter(const QAbstractPrintDialog* self, QPainter* painter);
+    friend QPaintDevice* QAbstractPrintDialog_Redirected(const QAbstractPrintDialog* self, QPoint* offset);
+    friend QPaintDevice* QAbstractPrintDialog_QBaseRedirected(const QAbstractPrintDialog* self, QPoint* offset);
+    friend QPainter* QAbstractPrintDialog_SharedPainter(const QAbstractPrintDialog* self);
+    friend QPainter* QAbstractPrintDialog_QBaseSharedPainter(const QAbstractPrintDialog* self);
+    friend void QAbstractPrintDialog_InputMethodEvent(QAbstractPrintDialog* self, QInputMethodEvent* param1);
+    friend void QAbstractPrintDialog_QBaseInputMethodEvent(QAbstractPrintDialog* self, QInputMethodEvent* param1);
+    friend bool QAbstractPrintDialog_FocusNextPrevChild(QAbstractPrintDialog* self, bool next);
+    friend bool QAbstractPrintDialog_QBaseFocusNextPrevChild(QAbstractPrintDialog* self, bool next);
+    friend void QAbstractPrintDialog_TimerEvent(QAbstractPrintDialog* self, QTimerEvent* event);
+    friend void QAbstractPrintDialog_QBaseTimerEvent(QAbstractPrintDialog* self, QTimerEvent* event);
+    friend void QAbstractPrintDialog_ChildEvent(QAbstractPrintDialog* self, QChildEvent* event);
+    friend void QAbstractPrintDialog_QBaseChildEvent(QAbstractPrintDialog* self, QChildEvent* event);
+    friend void QAbstractPrintDialog_CustomEvent(QAbstractPrintDialog* self, QEvent* event);
+    friend void QAbstractPrintDialog_QBaseCustomEvent(QAbstractPrintDialog* self, QEvent* event);
+    friend void QAbstractPrintDialog_ConnectNotify(QAbstractPrintDialog* self, const QMetaMethod* signal);
+    friend void QAbstractPrintDialog_QBaseConnectNotify(QAbstractPrintDialog* self, const QMetaMethod* signal);
+    friend void QAbstractPrintDialog_DisconnectNotify(QAbstractPrintDialog* self, const QMetaMethod* signal);
+    friend void QAbstractPrintDialog_QBaseDisconnectNotify(QAbstractPrintDialog* self, const QMetaMethod* signal);
+    friend void QAbstractPrintDialog_AdjustPosition(QAbstractPrintDialog* self, QWidget* param1);
+    friend void QAbstractPrintDialog_QBaseAdjustPosition(QAbstractPrintDialog* self, QWidget* param1);
+    friend void QAbstractPrintDialog_UpdateMicroFocus(QAbstractPrintDialog* self);
+    friend void QAbstractPrintDialog_QBaseUpdateMicroFocus(QAbstractPrintDialog* self);
+    friend void QAbstractPrintDialog_Create(QAbstractPrintDialog* self);
+    friend void QAbstractPrintDialog_QBaseCreate(QAbstractPrintDialog* self);
+    friend void QAbstractPrintDialog_Destroy(QAbstractPrintDialog* self);
+    friend void QAbstractPrintDialog_QBaseDestroy(QAbstractPrintDialog* self);
+    friend bool QAbstractPrintDialog_FocusNextChild(QAbstractPrintDialog* self);
+    friend bool QAbstractPrintDialog_QBaseFocusNextChild(QAbstractPrintDialog* self);
+    friend bool QAbstractPrintDialog_FocusPreviousChild(QAbstractPrintDialog* self);
+    friend bool QAbstractPrintDialog_QBaseFocusPreviousChild(QAbstractPrintDialog* self);
+    friend QObject* QAbstractPrintDialog_Sender(const QAbstractPrintDialog* self);
+    friend QObject* QAbstractPrintDialog_QBaseSender(const QAbstractPrintDialog* self);
+    friend int QAbstractPrintDialog_SenderSignalIndex(const QAbstractPrintDialog* self);
+    friend int QAbstractPrintDialog_QBaseSenderSignalIndex(const QAbstractPrintDialog* self);
+    friend int QAbstractPrintDialog_Receivers(const QAbstractPrintDialog* self, const char* signal);
+    friend int QAbstractPrintDialog_QBaseReceivers(const QAbstractPrintDialog* self, const char* signal);
+    friend bool QAbstractPrintDialog_IsSignalConnected(const QAbstractPrintDialog* self, const QMetaMethod* signal);
+    friend bool QAbstractPrintDialog_QBaseIsSignalConnected(const QAbstractPrintDialog* self, const QMetaMethod* signal);
 };
 
 #endif

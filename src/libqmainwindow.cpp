@@ -1,14 +1,8 @@
-#include <QAction>
 #include <QActionEvent>
-#include <QAnyStringView>
-#include <QBackingStore>
-#include <QBindingStorage>
-#include <QBitmap>
 #include <QByteArray>
 #include <QChildEvent>
 #include <QCloseEvent>
 #include <QContextMenuEvent>
-#include <QCursor>
 #include <QDockWidget>
 #include <QDragEnterEvent>
 #include <QDragLeaveEvent>
@@ -17,26 +11,15 @@
 #include <QEnterEvent>
 #include <QEvent>
 #include <QFocusEvent>
-#include <QFont>
-#include <QFontInfo>
-#include <QFontMetrics>
-#include <QGraphicsEffect>
-#include <QGraphicsProxyWidget>
 #include <QHideEvent>
-#include <QIcon>
 #include <QInputMethodEvent>
 #include <QKeyEvent>
-#include <QKeySequence>
-#include <QLayout>
 #include <QList>
-#include <QLocale>
 #include <QMainWindow>
-#include <QMargins>
 #include <QMenu>
 #include <QMenuBar>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QMouseEvent>
 #include <QMoveEvent>
 #include <QObject>
@@ -44,30 +27,20 @@
 #include <QPaintEngine>
 #include <QPaintEvent>
 #include <QPainter>
-#include <QPalette>
-#include <QPixmap>
 #include <QPoint>
-#include <QPointF>
-#include <QRect>
-#include <QRegion>
 #include <QResizeEvent>
-#include <QScreen>
 #include <QShowEvent>
 #include <QSize>
-#include <QSizePolicy>
 #include <QStatusBar>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QStyle>
 #include <QTabletEvent>
-#include <QThread>
 #include <QTimerEvent>
 #include <QToolBar>
 #include <QVariant>
 #include <QWheelEvent>
 #include <QWidget>
-#include <QWindow>
 #include <qmainwindow.h>
 #include "libqmainwindow.h"
 #include "libqmainwindow.hxx"
@@ -93,27 +66,30 @@ void* QMainWindow_Metacast(QMainWindow* self, const char* param1) {
 }
 
 int QMainWindow_Metacall(QMainWindow* self, int param1, int param2, void** param3) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQMainWindow*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QMainWindow_OnMetacall(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_Metacall_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QMainWindow_QBaseMetacall(QMainWindow* self, int param1, int param2, void** param3) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_Metacall_IsBase(true);
         return vqmainwindow->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQMainWindow*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -133,7 +109,7 @@ QSize* QMainWindow_IconSize(const QMainWindow* self) {
     return new QSize(self->iconSize());
 }
 
-void QMainWindow_SetIconSize(QMainWindow* self, QSize* iconSize) {
+void QMainWindow_SetIconSize(QMainWindow* self, const QSize* iconSize) {
     self->setIconSize(*iconSize);
 }
 
@@ -185,7 +161,7 @@ int QMainWindow_DockOptions(const QMainWindow* self) {
     return static_cast<int>(self->dockOptions());
 }
 
-bool QMainWindow_IsSeparator(const QMainWindow* self, QPoint* pos) {
+bool QMainWindow_IsSeparator(const QMainWindow* self, const QPoint* pos) {
     return self->isSeparator(*pos);
 }
 
@@ -249,7 +225,7 @@ void QMainWindow_AddToolBarWithToolbar(QMainWindow* self, QToolBar* toolbar) {
     self->addToolBar(toolbar);
 }
 
-QToolBar* QMainWindow_AddToolBarWithTitle(QMainWindow* self, libqt_string title) {
+QToolBar* QMainWindow_AddToolBarWithTitle(QMainWindow* self, const libqt_string title) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     return self->addToolBar(title_QString);
 }
@@ -270,7 +246,7 @@ bool QMainWindow_UnifiedTitleAndToolBarOnMac(const QMainWindow* self) {
     return self->unifiedTitleAndToolBarOnMac();
 }
 
-int QMainWindow_ToolBarArea(const QMainWindow* self, QToolBar* toolbar) {
+int QMainWindow_ToolBarArea(const QMainWindow* self, const QToolBar* toolbar) {
     return static_cast<int>(self->toolBarArea(toolbar));
 }
 
@@ -319,7 +295,7 @@ int QMainWindow_DockWidgetArea(const QMainWindow* self, QDockWidget* dockwidget)
     return static_cast<int>(self->dockWidgetArea(dockwidget));
 }
 
-void QMainWindow_ResizeDocks(QMainWindow* self, libqt_list /* of QDockWidget* */ docks, libqt_list /* of int */ sizes, int orientation) {
+void QMainWindow_ResizeDocks(QMainWindow* self, const libqt_list /* of QDockWidget* */ docks, const libqt_list /* of int */ sizes, int orientation) {
     QList<QDockWidget*> docks_QList;
     docks_QList.reserve(docks.len);
     QDockWidget** docks_arr = static_cast<QDockWidget**>(docks.data);
@@ -345,7 +321,7 @@ libqt_string QMainWindow_SaveState(const QMainWindow* self) {
     return _str;
 }
 
-bool QMainWindow_RestoreState(QMainWindow* self, libqt_string state) {
+bool QMainWindow_RestoreState(QMainWindow* self, const libqt_string state) {
     QByteArray state_QByteArray(state.data, state.len);
     return self->restoreState(state_QByteArray);
 }
@@ -362,7 +338,7 @@ void QMainWindow_SetUnifiedTitleAndToolBarOnMac(QMainWindow* self, bool set) {
     self->setUnifiedTitleAndToolBarOnMac(set);
 }
 
-void QMainWindow_IconSizeChanged(QMainWindow* self, QSize* iconSize) {
+void QMainWindow_IconSizeChanged(QMainWindow* self, const QSize* iconSize) {
     self->iconSizeChanged(*iconSize);
 }
 
@@ -438,1491 +414,1662 @@ libqt_string QMainWindow_SaveState1(const QMainWindow* self, int version) {
     return _str;
 }
 
-bool QMainWindow_RestoreState2(QMainWindow* self, libqt_string state, int version) {
+bool QMainWindow_RestoreState2(QMainWindow* self, const libqt_string state, int version) {
     QByteArray state_QByteArray(state.data, state.len);
     return self->restoreState(state_QByteArray, static_cast<int>(version));
 }
 
 // Derived class handler implementation
 QMenu* QMainWindow_CreatePopupMenu(QMainWindow* self) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->createPopupMenu();
     } else {
-        return vqmainwindow->createPopupMenu();
+        return self->QMainWindow::createPopupMenu();
     }
 }
 
 // Base class handler implementation
 QMenu* QMainWindow_QBaseCreatePopupMenu(QMainWindow* self) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_CreatePopupMenu_IsBase(true);
         return vqmainwindow->createPopupMenu();
     } else {
-        return vqmainwindow->createPopupMenu();
+        return self->QMainWindow::createPopupMenu();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnCreatePopupMenu(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_CreatePopupMenu_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_CreatePopupMenu_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_ContextMenuEvent(QMainWindow* self, QContextMenuEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->contextMenuEvent(event);
     } else {
-        vqmainwindow->contextMenuEvent(event);
+        ((VirtualQMainWindow*)self)->contextMenuEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseContextMenuEvent(QMainWindow* self, QContextMenuEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_ContextMenuEvent_IsBase(true);
         vqmainwindow->contextMenuEvent(event);
     } else {
-        vqmainwindow->contextMenuEvent(event);
+        ((VirtualQMainWindow*)self)->contextMenuEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnContextMenuEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_ContextMenuEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_ContextMenuEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QMainWindow_Event(QMainWindow* self, QEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->event(event);
     } else {
-        return vqmainwindow->event(event);
+        return ((VirtualQMainWindow*)self)->event(event);
     }
 }
 
 // Base class handler implementation
 bool QMainWindow_QBaseEvent(QMainWindow* self, QEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_Event_IsBase(true);
         return vqmainwindow->event(event);
     } else {
-        return vqmainwindow->event(event);
+        return ((VirtualQMainWindow*)self)->event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_Event_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QMainWindow_DevType(const QMainWindow* self) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->devType();
     } else {
-        return vqmainwindow->devType();
+        return self->QMainWindow::devType();
     }
 }
 
 // Base class handler implementation
 int QMainWindow_QBaseDevType(const QMainWindow* self) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_DevType_IsBase(true);
         return vqmainwindow->devType();
     } else {
-        return vqmainwindow->devType();
+        return self->QMainWindow::devType();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnDevType(const QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_DevType_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_DevType_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_SetVisible(QMainWindow* self, bool visible) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setVisible(visible);
     } else {
-        vqmainwindow->setVisible(visible);
+        self->QMainWindow::setVisible(visible);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseSetVisible(QMainWindow* self, bool visible) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_SetVisible_IsBase(true);
         vqmainwindow->setVisible(visible);
     } else {
-        vqmainwindow->setVisible(visible);
+        self->QMainWindow::setVisible(visible);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnSetVisible(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_SetVisible_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_SetVisible_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QSize* QMainWindow_SizeHint(const QMainWindow* self) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return new QSize(vqmainwindow->sizeHint());
     } else {
-        return new QSize(self->sizeHint());
+        return new QSize(((VirtualQMainWindow*)self)->sizeHint());
     }
 }
 
 // Base class handler implementation
 QSize* QMainWindow_QBaseSizeHint(const QMainWindow* self) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_SizeHint_IsBase(true);
         return new QSize(vqmainwindow->sizeHint());
     } else {
-        return new QSize(self->sizeHint());
+        return new QSize(((VirtualQMainWindow*)self)->sizeHint());
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnSizeHint(const QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_SizeHint_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_SizeHint_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QSize* QMainWindow_MinimumSizeHint(const QMainWindow* self) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return new QSize(vqmainwindow->minimumSizeHint());
     } else {
-        return new QSize(self->minimumSizeHint());
+        return new QSize(((VirtualQMainWindow*)self)->minimumSizeHint());
     }
 }
 
 // Base class handler implementation
 QSize* QMainWindow_QBaseMinimumSizeHint(const QMainWindow* self) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_MinimumSizeHint_IsBase(true);
         return new QSize(vqmainwindow->minimumSizeHint());
     } else {
-        return new QSize(self->minimumSizeHint());
+        return new QSize(((VirtualQMainWindow*)self)->minimumSizeHint());
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnMinimumSizeHint(const QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_MinimumSizeHint_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_MinimumSizeHint_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QMainWindow_HeightForWidth(const QMainWindow* self, int param1) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->heightForWidth(static_cast<int>(param1));
     } else {
-        return vqmainwindow->heightForWidth(static_cast<int>(param1));
+        return self->QMainWindow::heightForWidth(static_cast<int>(param1));
     }
 }
 
 // Base class handler implementation
 int QMainWindow_QBaseHeightForWidth(const QMainWindow* self, int param1) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_HeightForWidth_IsBase(true);
         return vqmainwindow->heightForWidth(static_cast<int>(param1));
     } else {
-        return vqmainwindow->heightForWidth(static_cast<int>(param1));
+        return self->QMainWindow::heightForWidth(static_cast<int>(param1));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnHeightForWidth(const QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_HeightForWidth_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_HeightForWidth_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QMainWindow_HasHeightForWidth(const QMainWindow* self) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->hasHeightForWidth();
     } else {
-        return vqmainwindow->hasHeightForWidth();
+        return self->QMainWindow::hasHeightForWidth();
     }
 }
 
 // Base class handler implementation
 bool QMainWindow_QBaseHasHeightForWidth(const QMainWindow* self) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_HasHeightForWidth_IsBase(true);
         return vqmainwindow->hasHeightForWidth();
     } else {
-        return vqmainwindow->hasHeightForWidth();
+        return self->QMainWindow::hasHeightForWidth();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnHasHeightForWidth(const QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_HasHeightForWidth_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_HasHeightForWidth_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QPaintEngine* QMainWindow_PaintEngine(const QMainWindow* self) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->paintEngine();
     } else {
-        return vqmainwindow->paintEngine();
+        return self->QMainWindow::paintEngine();
     }
 }
 
 // Base class handler implementation
 QPaintEngine* QMainWindow_QBasePaintEngine(const QMainWindow* self) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_PaintEngine_IsBase(true);
         return vqmainwindow->paintEngine();
     } else {
-        return vqmainwindow->paintEngine();
+        return self->QMainWindow::paintEngine();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnPaintEngine(const QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_PaintEngine_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_PaintEngine_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_MousePressEvent(QMainWindow* self, QMouseEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->mousePressEvent(event);
     } else {
-        vqmainwindow->mousePressEvent(event);
+        ((VirtualQMainWindow*)self)->mousePressEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseMousePressEvent(QMainWindow* self, QMouseEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_MousePressEvent_IsBase(true);
         vqmainwindow->mousePressEvent(event);
     } else {
-        vqmainwindow->mousePressEvent(event);
+        ((VirtualQMainWindow*)self)->mousePressEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnMousePressEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_MousePressEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_MousePressEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_MouseReleaseEvent(QMainWindow* self, QMouseEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->mouseReleaseEvent(event);
     } else {
-        vqmainwindow->mouseReleaseEvent(event);
+        ((VirtualQMainWindow*)self)->mouseReleaseEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseMouseReleaseEvent(QMainWindow* self, QMouseEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_MouseReleaseEvent_IsBase(true);
         vqmainwindow->mouseReleaseEvent(event);
     } else {
-        vqmainwindow->mouseReleaseEvent(event);
+        ((VirtualQMainWindow*)self)->mouseReleaseEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnMouseReleaseEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_MouseReleaseEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_MouseDoubleClickEvent(QMainWindow* self, QMouseEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->mouseDoubleClickEvent(event);
     } else {
-        vqmainwindow->mouseDoubleClickEvent(event);
+        ((VirtualQMainWindow*)self)->mouseDoubleClickEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseMouseDoubleClickEvent(QMainWindow* self, QMouseEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_MouseDoubleClickEvent_IsBase(true);
         vqmainwindow->mouseDoubleClickEvent(event);
     } else {
-        vqmainwindow->mouseDoubleClickEvent(event);
+        ((VirtualQMainWindow*)self)->mouseDoubleClickEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnMouseDoubleClickEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_MouseDoubleClickEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_MouseMoveEvent(QMainWindow* self, QMouseEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->mouseMoveEvent(event);
     } else {
-        vqmainwindow->mouseMoveEvent(event);
+        ((VirtualQMainWindow*)self)->mouseMoveEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseMouseMoveEvent(QMainWindow* self, QMouseEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_MouseMoveEvent_IsBase(true);
         vqmainwindow->mouseMoveEvent(event);
     } else {
-        vqmainwindow->mouseMoveEvent(event);
+        ((VirtualQMainWindow*)self)->mouseMoveEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnMouseMoveEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_MouseMoveEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_MouseMoveEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_WheelEvent(QMainWindow* self, QWheelEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->wheelEvent(event);
     } else {
-        vqmainwindow->wheelEvent(event);
+        ((VirtualQMainWindow*)self)->wheelEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseWheelEvent(QMainWindow* self, QWheelEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_WheelEvent_IsBase(true);
         vqmainwindow->wheelEvent(event);
     } else {
-        vqmainwindow->wheelEvent(event);
+        ((VirtualQMainWindow*)self)->wheelEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnWheelEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_WheelEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_WheelEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_KeyPressEvent(QMainWindow* self, QKeyEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->keyPressEvent(event);
     } else {
-        vqmainwindow->keyPressEvent(event);
+        ((VirtualQMainWindow*)self)->keyPressEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseKeyPressEvent(QMainWindow* self, QKeyEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_KeyPressEvent_IsBase(true);
         vqmainwindow->keyPressEvent(event);
     } else {
-        vqmainwindow->keyPressEvent(event);
+        ((VirtualQMainWindow*)self)->keyPressEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnKeyPressEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_KeyPressEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_KeyPressEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_KeyReleaseEvent(QMainWindow* self, QKeyEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->keyReleaseEvent(event);
     } else {
-        vqmainwindow->keyReleaseEvent(event);
+        ((VirtualQMainWindow*)self)->keyReleaseEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseKeyReleaseEvent(QMainWindow* self, QKeyEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_KeyReleaseEvent_IsBase(true);
         vqmainwindow->keyReleaseEvent(event);
     } else {
-        vqmainwindow->keyReleaseEvent(event);
+        ((VirtualQMainWindow*)self)->keyReleaseEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnKeyReleaseEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_KeyReleaseEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_FocusInEvent(QMainWindow* self, QFocusEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->focusInEvent(event);
     } else {
-        vqmainwindow->focusInEvent(event);
+        ((VirtualQMainWindow*)self)->focusInEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseFocusInEvent(QMainWindow* self, QFocusEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_FocusInEvent_IsBase(true);
         vqmainwindow->focusInEvent(event);
     } else {
-        vqmainwindow->focusInEvent(event);
+        ((VirtualQMainWindow*)self)->focusInEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnFocusInEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_FocusInEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_FocusInEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_FocusOutEvent(QMainWindow* self, QFocusEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->focusOutEvent(event);
     } else {
-        vqmainwindow->focusOutEvent(event);
+        ((VirtualQMainWindow*)self)->focusOutEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseFocusOutEvent(QMainWindow* self, QFocusEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_FocusOutEvent_IsBase(true);
         vqmainwindow->focusOutEvent(event);
     } else {
-        vqmainwindow->focusOutEvent(event);
+        ((VirtualQMainWindow*)self)->focusOutEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnFocusOutEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_FocusOutEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_FocusOutEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_EnterEvent(QMainWindow* self, QEnterEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->enterEvent(event);
     } else {
-        vqmainwindow->enterEvent(event);
+        ((VirtualQMainWindow*)self)->enterEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseEnterEvent(QMainWindow* self, QEnterEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_EnterEvent_IsBase(true);
         vqmainwindow->enterEvent(event);
     } else {
-        vqmainwindow->enterEvent(event);
+        ((VirtualQMainWindow*)self)->enterEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnEnterEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_EnterEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_EnterEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_LeaveEvent(QMainWindow* self, QEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->leaveEvent(event);
     } else {
-        vqmainwindow->leaveEvent(event);
+        ((VirtualQMainWindow*)self)->leaveEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseLeaveEvent(QMainWindow* self, QEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_LeaveEvent_IsBase(true);
         vqmainwindow->leaveEvent(event);
     } else {
-        vqmainwindow->leaveEvent(event);
+        ((VirtualQMainWindow*)self)->leaveEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnLeaveEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_LeaveEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_LeaveEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_PaintEvent(QMainWindow* self, QPaintEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->paintEvent(event);
     } else {
-        vqmainwindow->paintEvent(event);
+        ((VirtualQMainWindow*)self)->paintEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBasePaintEvent(QMainWindow* self, QPaintEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_PaintEvent_IsBase(true);
         vqmainwindow->paintEvent(event);
     } else {
-        vqmainwindow->paintEvent(event);
+        ((VirtualQMainWindow*)self)->paintEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnPaintEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_PaintEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_PaintEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_MoveEvent(QMainWindow* self, QMoveEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->moveEvent(event);
     } else {
-        vqmainwindow->moveEvent(event);
+        ((VirtualQMainWindow*)self)->moveEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseMoveEvent(QMainWindow* self, QMoveEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_MoveEvent_IsBase(true);
         vqmainwindow->moveEvent(event);
     } else {
-        vqmainwindow->moveEvent(event);
+        ((VirtualQMainWindow*)self)->moveEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnMoveEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_MoveEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_MoveEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_ResizeEvent(QMainWindow* self, QResizeEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->resizeEvent(event);
     } else {
-        vqmainwindow->resizeEvent(event);
+        ((VirtualQMainWindow*)self)->resizeEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseResizeEvent(QMainWindow* self, QResizeEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_ResizeEvent_IsBase(true);
         vqmainwindow->resizeEvent(event);
     } else {
-        vqmainwindow->resizeEvent(event);
+        ((VirtualQMainWindow*)self)->resizeEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnResizeEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_ResizeEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_ResizeEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_CloseEvent(QMainWindow* self, QCloseEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->closeEvent(event);
     } else {
-        vqmainwindow->closeEvent(event);
+        ((VirtualQMainWindow*)self)->closeEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseCloseEvent(QMainWindow* self, QCloseEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_CloseEvent_IsBase(true);
         vqmainwindow->closeEvent(event);
     } else {
-        vqmainwindow->closeEvent(event);
+        ((VirtualQMainWindow*)self)->closeEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnCloseEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_CloseEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_CloseEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_TabletEvent(QMainWindow* self, QTabletEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->tabletEvent(event);
     } else {
-        vqmainwindow->tabletEvent(event);
+        ((VirtualQMainWindow*)self)->tabletEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseTabletEvent(QMainWindow* self, QTabletEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_TabletEvent_IsBase(true);
         vqmainwindow->tabletEvent(event);
     } else {
-        vqmainwindow->tabletEvent(event);
+        ((VirtualQMainWindow*)self)->tabletEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnTabletEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_TabletEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_TabletEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_ActionEvent(QMainWindow* self, QActionEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->actionEvent(event);
     } else {
-        vqmainwindow->actionEvent(event);
+        ((VirtualQMainWindow*)self)->actionEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseActionEvent(QMainWindow* self, QActionEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_ActionEvent_IsBase(true);
         vqmainwindow->actionEvent(event);
     } else {
-        vqmainwindow->actionEvent(event);
+        ((VirtualQMainWindow*)self)->actionEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnActionEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_ActionEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_ActionEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_DragEnterEvent(QMainWindow* self, QDragEnterEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->dragEnterEvent(event);
     } else {
-        vqmainwindow->dragEnterEvent(event);
+        ((VirtualQMainWindow*)self)->dragEnterEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseDragEnterEvent(QMainWindow* self, QDragEnterEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_DragEnterEvent_IsBase(true);
         vqmainwindow->dragEnterEvent(event);
     } else {
-        vqmainwindow->dragEnterEvent(event);
+        ((VirtualQMainWindow*)self)->dragEnterEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnDragEnterEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_DragEnterEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_DragEnterEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_DragMoveEvent(QMainWindow* self, QDragMoveEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->dragMoveEvent(event);
     } else {
-        vqmainwindow->dragMoveEvent(event);
+        ((VirtualQMainWindow*)self)->dragMoveEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseDragMoveEvent(QMainWindow* self, QDragMoveEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_DragMoveEvent_IsBase(true);
         vqmainwindow->dragMoveEvent(event);
     } else {
-        vqmainwindow->dragMoveEvent(event);
+        ((VirtualQMainWindow*)self)->dragMoveEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnDragMoveEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_DragMoveEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_DragMoveEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_DragLeaveEvent(QMainWindow* self, QDragLeaveEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->dragLeaveEvent(event);
     } else {
-        vqmainwindow->dragLeaveEvent(event);
+        ((VirtualQMainWindow*)self)->dragLeaveEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseDragLeaveEvent(QMainWindow* self, QDragLeaveEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_DragLeaveEvent_IsBase(true);
         vqmainwindow->dragLeaveEvent(event);
     } else {
-        vqmainwindow->dragLeaveEvent(event);
+        ((VirtualQMainWindow*)self)->dragLeaveEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnDragLeaveEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_DragLeaveEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_DragLeaveEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_DropEvent(QMainWindow* self, QDropEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->dropEvent(event);
     } else {
-        vqmainwindow->dropEvent(event);
+        ((VirtualQMainWindow*)self)->dropEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseDropEvent(QMainWindow* self, QDropEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_DropEvent_IsBase(true);
         vqmainwindow->dropEvent(event);
     } else {
-        vqmainwindow->dropEvent(event);
+        ((VirtualQMainWindow*)self)->dropEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnDropEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_DropEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_DropEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_ShowEvent(QMainWindow* self, QShowEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->showEvent(event);
     } else {
-        vqmainwindow->showEvent(event);
+        ((VirtualQMainWindow*)self)->showEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseShowEvent(QMainWindow* self, QShowEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_ShowEvent_IsBase(true);
         vqmainwindow->showEvent(event);
     } else {
-        vqmainwindow->showEvent(event);
+        ((VirtualQMainWindow*)self)->showEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnShowEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_ShowEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_ShowEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_HideEvent(QMainWindow* self, QHideEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->hideEvent(event);
     } else {
-        vqmainwindow->hideEvent(event);
+        ((VirtualQMainWindow*)self)->hideEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseHideEvent(QMainWindow* self, QHideEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_HideEvent_IsBase(true);
         vqmainwindow->hideEvent(event);
     } else {
-        vqmainwindow->hideEvent(event);
+        ((VirtualQMainWindow*)self)->hideEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnHideEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_HideEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_HideEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QMainWindow_NativeEvent(QMainWindow* self, libqt_string eventType, void* message, intptr_t* result) {
+bool QMainWindow_NativeEvent(QMainWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return vqmainwindow->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        return ((VirtualQMainWindow*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     }
 }
 
 // Base class handler implementation
-bool QMainWindow_QBaseNativeEvent(QMainWindow* self, libqt_string eventType, void* message, intptr_t* result) {
+bool QMainWindow_QBaseNativeEvent(QMainWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_NativeEvent_IsBase(true);
         return vqmainwindow->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return vqmainwindow->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        return ((VirtualQMainWindow*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnNativeEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_NativeEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_NativeEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_ChangeEvent(QMainWindow* self, QEvent* param1) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->changeEvent(param1);
     } else {
-        vqmainwindow->changeEvent(param1);
+        ((VirtualQMainWindow*)self)->changeEvent(param1);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseChangeEvent(QMainWindow* self, QEvent* param1) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_ChangeEvent_IsBase(true);
         vqmainwindow->changeEvent(param1);
     } else {
-        vqmainwindow->changeEvent(param1);
+        ((VirtualQMainWindow*)self)->changeEvent(param1);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnChangeEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_ChangeEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_ChangeEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QMainWindow_Metric(const QMainWindow* self, int param1) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return vqmainwindow->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        return ((VirtualQMainWindow*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     }
 }
 
 // Base class handler implementation
 int QMainWindow_QBaseMetric(const QMainWindow* self, int param1) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_Metric_IsBase(true);
         return vqmainwindow->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return vqmainwindow->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        return ((VirtualQMainWindow*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnMetric(const QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_Metric_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_Metric_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_InitPainter(const QMainWindow* self, QPainter* painter) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->initPainter(painter);
     } else {
-        vqmainwindow->initPainter(painter);
+        ((VirtualQMainWindow*)self)->initPainter(painter);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseInitPainter(const QMainWindow* self, QPainter* painter) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_InitPainter_IsBase(true);
         vqmainwindow->initPainter(painter);
     } else {
-        vqmainwindow->initPainter(painter);
+        ((VirtualQMainWindow*)self)->initPainter(painter);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnInitPainter(const QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_InitPainter_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_InitPainter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QPaintDevice* QMainWindow_Redirected(const QMainWindow* self, QPoint* offset) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->redirected(offset);
     } else {
-        return vqmainwindow->redirected(offset);
+        return ((VirtualQMainWindow*)self)->redirected(offset);
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QMainWindow_QBaseRedirected(const QMainWindow* self, QPoint* offset) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_Redirected_IsBase(true);
         return vqmainwindow->redirected(offset);
     } else {
-        return vqmainwindow->redirected(offset);
+        return ((VirtualQMainWindow*)self)->redirected(offset);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnRedirected(const QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_Redirected_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_Redirected_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QPainter* QMainWindow_SharedPainter(const QMainWindow* self) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->sharedPainter();
     } else {
-        return vqmainwindow->sharedPainter();
+        return ((VirtualQMainWindow*)self)->sharedPainter();
     }
 }
 
 // Base class handler implementation
 QPainter* QMainWindow_QBaseSharedPainter(const QMainWindow* self) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_SharedPainter_IsBase(true);
         return vqmainwindow->sharedPainter();
     } else {
-        return vqmainwindow->sharedPainter();
+        return ((VirtualQMainWindow*)self)->sharedPainter();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnSharedPainter(const QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_SharedPainter_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_SharedPainter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_InputMethodEvent(QMainWindow* self, QInputMethodEvent* param1) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->inputMethodEvent(param1);
     } else {
-        vqmainwindow->inputMethodEvent(param1);
+        ((VirtualQMainWindow*)self)->inputMethodEvent(param1);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseInputMethodEvent(QMainWindow* self, QInputMethodEvent* param1) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_InputMethodEvent_IsBase(true);
         vqmainwindow->inputMethodEvent(param1);
     } else {
-        vqmainwindow->inputMethodEvent(param1);
+        ((VirtualQMainWindow*)self)->inputMethodEvent(param1);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnInputMethodEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_InputMethodEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_InputMethodEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QVariant* QMainWindow_InputMethodQuery(const QMainWindow* self, int param1) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return new QVariant(vqmainwindow->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
     } else {
-        return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+        return new QVariant(((VirtualQMainWindow*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
     }
 }
 
 // Base class handler implementation
 QVariant* QMainWindow_QBaseInputMethodQuery(const QMainWindow* self, int param1) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_InputMethodQuery_IsBase(true);
         return new QVariant(vqmainwindow->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
     } else {
-        return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+        return new QVariant(((VirtualQMainWindow*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnInputMethodQuery(const QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_InputMethodQuery_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_InputMethodQuery_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QMainWindow_FocusNextPrevChild(QMainWindow* self, bool next) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->focusNextPrevChild(next);
     } else {
-        return vqmainwindow->focusNextPrevChild(next);
+        return ((VirtualQMainWindow*)self)->focusNextPrevChild(next);
     }
 }
 
 // Base class handler implementation
 bool QMainWindow_QBaseFocusNextPrevChild(QMainWindow* self, bool next) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_FocusNextPrevChild_IsBase(true);
         return vqmainwindow->focusNextPrevChild(next);
     } else {
-        return vqmainwindow->focusNextPrevChild(next);
+        return ((VirtualQMainWindow*)self)->focusNextPrevChild(next);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnFocusNextPrevChild(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_FocusNextPrevChild_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QMainWindow_EventFilter(QMainWindow* self, QObject* watched, QEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->eventFilter(watched, event);
     } else {
-        return vqmainwindow->eventFilter(watched, event);
+        return self->QMainWindow::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QMainWindow_QBaseEventFilter(QMainWindow* self, QObject* watched, QEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_EventFilter_IsBase(true);
         return vqmainwindow->eventFilter(watched, event);
     } else {
-        return vqmainwindow->eventFilter(watched, event);
+        return self->QMainWindow::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnEventFilter(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_EventFilter_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_TimerEvent(QMainWindow* self, QTimerEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->timerEvent(event);
     } else {
-        vqmainwindow->timerEvent(event);
+        ((VirtualQMainWindow*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseTimerEvent(QMainWindow* self, QTimerEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_TimerEvent_IsBase(true);
         vqmainwindow->timerEvent(event);
     } else {
-        vqmainwindow->timerEvent(event);
+        ((VirtualQMainWindow*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnTimerEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_TimerEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_ChildEvent(QMainWindow* self, QChildEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->childEvent(event);
     } else {
-        vqmainwindow->childEvent(event);
+        ((VirtualQMainWindow*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseChildEvent(QMainWindow* self, QChildEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_ChildEvent_IsBase(true);
         vqmainwindow->childEvent(event);
     } else {
-        vqmainwindow->childEvent(event);
+        ((VirtualQMainWindow*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnChildEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_ChildEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_CustomEvent(QMainWindow* self, QEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->customEvent(event);
     } else {
-        vqmainwindow->customEvent(event);
+        ((VirtualQMainWindow*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseCustomEvent(QMainWindow* self, QEvent* event) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_CustomEvent_IsBase(true);
         vqmainwindow->customEvent(event);
     } else {
-        vqmainwindow->customEvent(event);
+        ((VirtualQMainWindow*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnCustomEvent(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_CustomEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QMainWindow_ConnectNotify(QMainWindow* self, QMetaMethod* signal) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+void QMainWindow_ConnectNotify(QMainWindow* self, const QMetaMethod* signal) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->connectNotify(*signal);
     } else {
-        vqmainwindow->connectNotify(*signal);
+        ((VirtualQMainWindow*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QMainWindow_QBaseConnectNotify(QMainWindow* self, QMetaMethod* signal) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+void QMainWindow_QBaseConnectNotify(QMainWindow* self, const QMetaMethod* signal) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_ConnectNotify_IsBase(true);
         vqmainwindow->connectNotify(*signal);
     } else {
-        vqmainwindow->connectNotify(*signal);
+        ((VirtualQMainWindow*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnConnectNotify(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_ConnectNotify_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QMainWindow_DisconnectNotify(QMainWindow* self, QMetaMethod* signal) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+void QMainWindow_DisconnectNotify(QMainWindow* self, const QMetaMethod* signal) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->disconnectNotify(*signal);
     } else {
-        vqmainwindow->disconnectNotify(*signal);
+        ((VirtualQMainWindow*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QMainWindow_QBaseDisconnectNotify(QMainWindow* self, QMetaMethod* signal) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+void QMainWindow_QBaseDisconnectNotify(QMainWindow* self, const QMetaMethod* signal) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_DisconnectNotify_IsBase(true);
         vqmainwindow->disconnectNotify(*signal);
     } else {
-        vqmainwindow->disconnectNotify(*signal);
+        ((VirtualQMainWindow*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnDisconnectNotify(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_DisconnectNotify_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_UpdateMicroFocus(QMainWindow* self) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->updateMicroFocus();
     } else {
-        vqmainwindow->updateMicroFocus();
+        ((VirtualQMainWindow*)self)->updateMicroFocus();
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseUpdateMicroFocus(QMainWindow* self) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_UpdateMicroFocus_IsBase(true);
         vqmainwindow->updateMicroFocus();
     } else {
-        vqmainwindow->updateMicroFocus();
+        ((VirtualQMainWindow*)self)->updateMicroFocus();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnUpdateMicroFocus(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_UpdateMicroFocus_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_Create(QMainWindow* self) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->create();
     } else {
-        vqmainwindow->create();
+        ((VirtualQMainWindow*)self)->create();
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseCreate(QMainWindow* self) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_Create_IsBase(true);
         vqmainwindow->create();
     } else {
-        vqmainwindow->create();
+        ((VirtualQMainWindow*)self)->create();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnCreate(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_Create_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_Create_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMainWindow_Destroy(QMainWindow* self) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->destroy();
     } else {
-        vqmainwindow->destroy();
+        ((VirtualQMainWindow*)self)->destroy();
     }
 }
 
 // Base class handler implementation
 void QMainWindow_QBaseDestroy(QMainWindow* self) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_Destroy_IsBase(true);
         vqmainwindow->destroy();
     } else {
-        vqmainwindow->destroy();
+        ((VirtualQMainWindow*)self)->destroy();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnDestroy(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_Destroy_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_Destroy_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QMainWindow_FocusNextChild(QMainWindow* self) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->focusNextChild();
     } else {
-        return vqmainwindow->focusNextChild();
+        return ((VirtualQMainWindow*)self)->focusNextChild();
     }
 }
 
 // Base class handler implementation
 bool QMainWindow_QBaseFocusNextChild(QMainWindow* self) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_FocusNextChild_IsBase(true);
         return vqmainwindow->focusNextChild();
     } else {
-        return vqmainwindow->focusNextChild();
+        return ((VirtualQMainWindow*)self)->focusNextChild();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnFocusNextChild(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_FocusNextChild_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_FocusNextChild_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QMainWindow_FocusPreviousChild(QMainWindow* self) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->focusPreviousChild();
     } else {
-        return vqmainwindow->focusPreviousChild();
+        return ((VirtualQMainWindow*)self)->focusPreviousChild();
     }
 }
 
 // Base class handler implementation
 bool QMainWindow_QBaseFocusPreviousChild(QMainWindow* self) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_FocusPreviousChild_IsBase(true);
         return vqmainwindow->focusPreviousChild();
     } else {
-        return vqmainwindow->focusPreviousChild();
+        return ((VirtualQMainWindow*)self)->focusPreviousChild();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnFocusPreviousChild(QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self)) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_FocusPreviousChild_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_FocusPreviousChild_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QMainWindow_Sender(const QMainWindow* self) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->sender();
     } else {
-        return vqmainwindow->sender();
+        return ((VirtualQMainWindow*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QMainWindow_QBaseSender(const QMainWindow* self) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_Sender_IsBase(true);
         return vqmainwindow->sender();
     } else {
-        return vqmainwindow->sender();
+        return ((VirtualQMainWindow*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnSender(const QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_Sender_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QMainWindow_SenderSignalIndex(const QMainWindow* self) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->senderSignalIndex();
     } else {
-        return vqmainwindow->senderSignalIndex();
+        return ((VirtualQMainWindow*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QMainWindow_QBaseSenderSignalIndex(const QMainWindow* self) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_SenderSignalIndex_IsBase(true);
         return vqmainwindow->senderSignalIndex();
     } else {
-        return vqmainwindow->senderSignalIndex();
+        return ((VirtualQMainWindow*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnSenderSignalIndex(const QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QMainWindow_Receivers(const QMainWindow* self, const char* signal) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->receivers(signal);
     } else {
-        return vqmainwindow->receivers(signal);
+        return ((VirtualQMainWindow*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QMainWindow_QBaseReceivers(const QMainWindow* self, const char* signal) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_Receivers_IsBase(true);
         return vqmainwindow->receivers(signal);
     } else {
-        return vqmainwindow->receivers(signal);
+        return ((VirtualQMainWindow*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnReceivers(const QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_Receivers_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QMainWindow_IsSignalConnected(const QMainWindow* self, QMetaMethod* signal) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+bool QMainWindow_IsSignalConnected(const QMainWindow* self, const QMetaMethod* signal) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         return vqmainwindow->isSignalConnected(*signal);
     } else {
-        return vqmainwindow->isSignalConnected(*signal);
+        return ((VirtualQMainWindow*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QMainWindow_QBaseIsSignalConnected(const QMainWindow* self, QMetaMethod* signal) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+bool QMainWindow_QBaseIsSignalConnected(const QMainWindow* self, const QMetaMethod* signal) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_IsSignalConnected_IsBase(true);
         return vqmainwindow->isSignalConnected(*signal);
     } else {
-        return vqmainwindow->isSignalConnected(*signal);
+        return ((VirtualQMainWindow*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMainWindow_OnIsSignalConnected(const QMainWindow* self, intptr_t slot) {
-    if (auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self))) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_IsSignalConnected_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_IsSignalConnected_Callback>(slot));
     }
 }

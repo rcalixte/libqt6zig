@@ -1,23 +1,13 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
-#include <QChildEvent>
 #include <QClipboard>
-#include <QEvent>
 #include <QImage>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QMimeData>
 #include <QObject>
 #include <QPixmap>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
-#include <QVariant>
 #include <qclipboard.h>
 #include "libqclipboard.h"
 #include "libqclipboard.hxx"
@@ -95,7 +85,7 @@ libqt_string QClipboard_TextWithSubtype(const QClipboard* self, libqt_string sub
     return _str;
 }
 
-void QClipboard_SetText(QClipboard* self, libqt_string param1) {
+void QClipboard_SetText(QClipboard* self, const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     self->setText(param1_QString);
 }
@@ -116,11 +106,11 @@ QPixmap* QClipboard_Pixmap(const QClipboard* self) {
     return new QPixmap(self->pixmap());
 }
 
-void QClipboard_SetImage(QClipboard* self, QImage* param1) {
+void QClipboard_SetImage(QClipboard* self, const QImage* param1) {
     self->setImage(*param1);
 }
 
-void QClipboard_SetPixmap(QClipboard* self, QPixmap* param1) {
+void QClipboard_SetPixmap(QClipboard* self, const QPixmap* param1) {
     self->setPixmap(*param1);
 }
 
@@ -222,7 +212,7 @@ libqt_string QClipboard_Text2(const QClipboard* self, libqt_string subtype, int 
     return _str;
 }
 
-void QClipboard_SetText2(QClipboard* self, libqt_string param1, int mode) {
+void QClipboard_SetText2(QClipboard* self, const libqt_string param1, int mode) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     self->setText(param1_QString, static_cast<QClipboard::Mode>(mode));
 }
@@ -243,10 +233,10 @@ QPixmap* QClipboard_Pixmap1(const QClipboard* self, int mode) {
     return new QPixmap(self->pixmap(static_cast<QClipboard::Mode>(mode)));
 }
 
-void QClipboard_SetImage2(QClipboard* self, QImage* param1, int mode) {
+void QClipboard_SetImage2(QClipboard* self, const QImage* param1, int mode) {
     self->setImage(*param1, static_cast<QClipboard::Mode>(mode));
 }
 
-void QClipboard_SetPixmap2(QClipboard* self, QPixmap* param1, int mode) {
+void QClipboard_SetPixmap2(QClipboard* self, const QPixmap* param1, int mode) {
     self->setPixmap(*param1, static_cast<QClipboard::Mode>(mode));
 }

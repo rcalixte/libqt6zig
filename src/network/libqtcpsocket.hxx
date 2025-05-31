@@ -11,36 +11,39 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QTcpSocket so that we can call protected methods
-class VirtualQTcpSocket : public QTcpSocket {
+class VirtualQTcpSocket final : public QTcpSocket {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQTcpSocket = true;
+
     // Virtual class public types (including callbacks)
-    using QTcpSocket_Metacall_Callback = int (*)(QTcpSocket*, QMetaObject::Call, int, void**);
+    using QTcpSocket_Metacall_Callback = int (*)(QTcpSocket*, int, int, void**);
     using QTcpSocket_Resume_Callback = void (*)();
-    using QTcpSocket_Bind_Callback = bool (*)(QTcpSocket*, const QHostAddress&, quint16, QAbstractSocket::BindMode);
-    using QTcpSocket_ConnectToHost_Callback = void (*)(QTcpSocket*, const QString&, quint16, QIODeviceBase::OpenMode, QAbstractSocket::NetworkLayerProtocol);
+    using QTcpSocket_Bind_Callback = bool (*)(QTcpSocket*, QHostAddress*, uint16_t, int);
+    using QTcpSocket_ConnectToHost_Callback = void (*)(QTcpSocket*, libqt_string, uint16_t, int, int);
     using QTcpSocket_DisconnectFromHost_Callback = void (*)();
-    using QTcpSocket_BytesAvailable_Callback = qint64 (*)();
-    using QTcpSocket_BytesToWrite_Callback = qint64 (*)();
-    using QTcpSocket_SetReadBufferSize_Callback = void (*)(QTcpSocket*, qint64);
-    using QTcpSocket_SocketDescriptor_Callback = qintptr (*)();
-    using QTcpSocket_SetSocketDescriptor_Callback = bool (*)(QTcpSocket*, qintptr, QAbstractSocket::SocketState, QIODeviceBase::OpenMode);
-    using QTcpSocket_SetSocketOption_Callback = void (*)(QTcpSocket*, QAbstractSocket::SocketOption, const QVariant&);
-    using QTcpSocket_SocketOption_Callback = QVariant (*)(QTcpSocket*, QAbstractSocket::SocketOption);
+    using QTcpSocket_BytesAvailable_Callback = long long (*)();
+    using QTcpSocket_BytesToWrite_Callback = long long (*)();
+    using QTcpSocket_SetReadBufferSize_Callback = void (*)(QTcpSocket*, long long);
+    using QTcpSocket_SocketDescriptor_Callback = intptr_t (*)();
+    using QTcpSocket_SetSocketDescriptor_Callback = bool (*)(QTcpSocket*, intptr_t, int, int);
+    using QTcpSocket_SetSocketOption_Callback = void (*)(QTcpSocket*, int, QVariant*);
+    using QTcpSocket_SocketOption_Callback = QVariant* (*)(QTcpSocket*, int);
     using QTcpSocket_Close_Callback = void (*)();
     using QTcpSocket_IsSequential_Callback = bool (*)();
     using QTcpSocket_WaitForConnected_Callback = bool (*)(QTcpSocket*, int);
     using QTcpSocket_WaitForReadyRead_Callback = bool (*)(QTcpSocket*, int);
     using QTcpSocket_WaitForBytesWritten_Callback = bool (*)(QTcpSocket*, int);
     using QTcpSocket_WaitForDisconnected_Callback = bool (*)(QTcpSocket*, int);
-    using QTcpSocket_ReadData_Callback = qint64 (*)(QTcpSocket*, char*, qint64);
-    using QTcpSocket_ReadLineData_Callback = qint64 (*)(QTcpSocket*, char*, qint64);
-    using QTcpSocket_SkipData_Callback = qint64 (*)(QTcpSocket*, qint64);
-    using QTcpSocket_WriteData_Callback = qint64 (*)(QTcpSocket*, const char*, qint64);
-    using QTcpSocket_Open_Callback = bool (*)(QTcpSocket*, QIODeviceBase::OpenMode);
-    using QTcpSocket_Pos_Callback = qint64 (*)();
-    using QTcpSocket_Size_Callback = qint64 (*)();
-    using QTcpSocket_Seek_Callback = bool (*)(QTcpSocket*, qint64);
+    using QTcpSocket_ReadData_Callback = long long (*)(QTcpSocket*, char*, long long);
+    using QTcpSocket_ReadLineData_Callback = long long (*)(QTcpSocket*, char*, long long);
+    using QTcpSocket_SkipData_Callback = long long (*)(QTcpSocket*, long long);
+    using QTcpSocket_WriteData_Callback = long long (*)(QTcpSocket*, const char*, long long);
+    using QTcpSocket_Open_Callback = bool (*)(QTcpSocket*, int);
+    using QTcpSocket_Pos_Callback = long long (*)();
+    using QTcpSocket_Size_Callback = long long (*)();
+    using QTcpSocket_Seek_Callback = bool (*)(QTcpSocket*, long long);
     using QTcpSocket_AtEnd_Callback = bool (*)();
     using QTcpSocket_Reset_Callback = bool (*)();
     using QTcpSocket_CanReadLine_Callback = bool (*)();
@@ -49,21 +52,21 @@ class VirtualQTcpSocket : public QTcpSocket {
     using QTcpSocket_TimerEvent_Callback = void (*)(QTcpSocket*, QTimerEvent*);
     using QTcpSocket_ChildEvent_Callback = void (*)(QTcpSocket*, QChildEvent*);
     using QTcpSocket_CustomEvent_Callback = void (*)(QTcpSocket*, QEvent*);
-    using QTcpSocket_ConnectNotify_Callback = void (*)(QTcpSocket*, const QMetaMethod&);
-    using QTcpSocket_DisconnectNotify_Callback = void (*)(QTcpSocket*, const QMetaMethod&);
-    using QTcpSocket_SetSocketState_Callback = void (*)(QTcpSocket*, QAbstractSocket::SocketState);
-    using QTcpSocket_SetSocketError_Callback = void (*)(QTcpSocket*, QAbstractSocket::SocketError);
-    using QTcpSocket_SetLocalPort_Callback = void (*)(QTcpSocket*, quint16);
-    using QTcpSocket_SetLocalAddress_Callback = void (*)(QTcpSocket*, const QHostAddress&);
-    using QTcpSocket_SetPeerPort_Callback = void (*)(QTcpSocket*, quint16);
-    using QTcpSocket_SetPeerAddress_Callback = void (*)(QTcpSocket*, const QHostAddress&);
-    using QTcpSocket_SetPeerName_Callback = void (*)(QTcpSocket*, const QString&);
-    using QTcpSocket_SetOpenMode_Callback = void (*)(QTcpSocket*, QIODeviceBase::OpenMode);
-    using QTcpSocket_SetErrorString_Callback = void (*)(QTcpSocket*, const QString&);
+    using QTcpSocket_ConnectNotify_Callback = void (*)(QTcpSocket*, QMetaMethod*);
+    using QTcpSocket_DisconnectNotify_Callback = void (*)(QTcpSocket*, QMetaMethod*);
+    using QTcpSocket_SetSocketState_Callback = void (*)(QTcpSocket*, int);
+    using QTcpSocket_SetSocketError_Callback = void (*)(QTcpSocket*, int);
+    using QTcpSocket_SetLocalPort_Callback = void (*)(QTcpSocket*, uint16_t);
+    using QTcpSocket_SetLocalAddress_Callback = void (*)(QTcpSocket*, QHostAddress*);
+    using QTcpSocket_SetPeerPort_Callback = void (*)(QTcpSocket*, uint16_t);
+    using QTcpSocket_SetPeerAddress_Callback = void (*)(QTcpSocket*, QHostAddress*);
+    using QTcpSocket_SetPeerName_Callback = void (*)(QTcpSocket*, libqt_string);
+    using QTcpSocket_SetOpenMode_Callback = void (*)(QTcpSocket*, int);
+    using QTcpSocket_SetErrorString_Callback = void (*)(QTcpSocket*, libqt_string);
     using QTcpSocket_Sender_Callback = QObject* (*)();
     using QTcpSocket_SenderSignalIndex_Callback = int (*)();
     using QTcpSocket_Receivers_Callback = int (*)(const QTcpSocket*, const char*);
-    using QTcpSocket_IsSignalConnected_Callback = bool (*)(const QTcpSocket*, const QMetaMethod&);
+    using QTcpSocket_IsSignalConnected_Callback = bool (*)(const QTcpSocket*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -225,106 +228,106 @@ class VirtualQTcpSocket : public QTcpSocket {
     }
 
     // Callback setters
-    void setQTcpSocket_Metacall_Callback(QTcpSocket_Metacall_Callback cb) { qtcpsocket_metacall_callback = cb; }
-    void setQTcpSocket_Resume_Callback(QTcpSocket_Resume_Callback cb) { qtcpsocket_resume_callback = cb; }
-    void setQTcpSocket_Bind_Callback(QTcpSocket_Bind_Callback cb) { qtcpsocket_bind_callback = cb; }
-    void setQTcpSocket_ConnectToHost_Callback(QTcpSocket_ConnectToHost_Callback cb) { qtcpsocket_connecttohost_callback = cb; }
-    void setQTcpSocket_DisconnectFromHost_Callback(QTcpSocket_DisconnectFromHost_Callback cb) { qtcpsocket_disconnectfromhost_callback = cb; }
-    void setQTcpSocket_BytesAvailable_Callback(QTcpSocket_BytesAvailable_Callback cb) { qtcpsocket_bytesavailable_callback = cb; }
-    void setQTcpSocket_BytesToWrite_Callback(QTcpSocket_BytesToWrite_Callback cb) { qtcpsocket_bytestowrite_callback = cb; }
-    void setQTcpSocket_SetReadBufferSize_Callback(QTcpSocket_SetReadBufferSize_Callback cb) { qtcpsocket_setreadbuffersize_callback = cb; }
-    void setQTcpSocket_SocketDescriptor_Callback(QTcpSocket_SocketDescriptor_Callback cb) { qtcpsocket_socketdescriptor_callback = cb; }
-    void setQTcpSocket_SetSocketDescriptor_Callback(QTcpSocket_SetSocketDescriptor_Callback cb) { qtcpsocket_setsocketdescriptor_callback = cb; }
-    void setQTcpSocket_SetSocketOption_Callback(QTcpSocket_SetSocketOption_Callback cb) { qtcpsocket_setsocketoption_callback = cb; }
-    void setQTcpSocket_SocketOption_Callback(QTcpSocket_SocketOption_Callback cb) { qtcpsocket_socketoption_callback = cb; }
-    void setQTcpSocket_Close_Callback(QTcpSocket_Close_Callback cb) { qtcpsocket_close_callback = cb; }
-    void setQTcpSocket_IsSequential_Callback(QTcpSocket_IsSequential_Callback cb) { qtcpsocket_issequential_callback = cb; }
-    void setQTcpSocket_WaitForConnected_Callback(QTcpSocket_WaitForConnected_Callback cb) { qtcpsocket_waitforconnected_callback = cb; }
-    void setQTcpSocket_WaitForReadyRead_Callback(QTcpSocket_WaitForReadyRead_Callback cb) { qtcpsocket_waitforreadyread_callback = cb; }
-    void setQTcpSocket_WaitForBytesWritten_Callback(QTcpSocket_WaitForBytesWritten_Callback cb) { qtcpsocket_waitforbyteswritten_callback = cb; }
-    void setQTcpSocket_WaitForDisconnected_Callback(QTcpSocket_WaitForDisconnected_Callback cb) { qtcpsocket_waitfordisconnected_callback = cb; }
-    void setQTcpSocket_ReadData_Callback(QTcpSocket_ReadData_Callback cb) { qtcpsocket_readdata_callback = cb; }
-    void setQTcpSocket_ReadLineData_Callback(QTcpSocket_ReadLineData_Callback cb) { qtcpsocket_readlinedata_callback = cb; }
-    void setQTcpSocket_SkipData_Callback(QTcpSocket_SkipData_Callback cb) { qtcpsocket_skipdata_callback = cb; }
-    void setQTcpSocket_WriteData_Callback(QTcpSocket_WriteData_Callback cb) { qtcpsocket_writedata_callback = cb; }
-    void setQTcpSocket_Open_Callback(QTcpSocket_Open_Callback cb) { qtcpsocket_open_callback = cb; }
-    void setQTcpSocket_Pos_Callback(QTcpSocket_Pos_Callback cb) { qtcpsocket_pos_callback = cb; }
-    void setQTcpSocket_Size_Callback(QTcpSocket_Size_Callback cb) { qtcpsocket_size_callback = cb; }
-    void setQTcpSocket_Seek_Callback(QTcpSocket_Seek_Callback cb) { qtcpsocket_seek_callback = cb; }
-    void setQTcpSocket_AtEnd_Callback(QTcpSocket_AtEnd_Callback cb) { qtcpsocket_atend_callback = cb; }
-    void setQTcpSocket_Reset_Callback(QTcpSocket_Reset_Callback cb) { qtcpsocket_reset_callback = cb; }
-    void setQTcpSocket_CanReadLine_Callback(QTcpSocket_CanReadLine_Callback cb) { qtcpsocket_canreadline_callback = cb; }
-    void setQTcpSocket_Event_Callback(QTcpSocket_Event_Callback cb) { qtcpsocket_event_callback = cb; }
-    void setQTcpSocket_EventFilter_Callback(QTcpSocket_EventFilter_Callback cb) { qtcpsocket_eventfilter_callback = cb; }
-    void setQTcpSocket_TimerEvent_Callback(QTcpSocket_TimerEvent_Callback cb) { qtcpsocket_timerevent_callback = cb; }
-    void setQTcpSocket_ChildEvent_Callback(QTcpSocket_ChildEvent_Callback cb) { qtcpsocket_childevent_callback = cb; }
-    void setQTcpSocket_CustomEvent_Callback(QTcpSocket_CustomEvent_Callback cb) { qtcpsocket_customevent_callback = cb; }
-    void setQTcpSocket_ConnectNotify_Callback(QTcpSocket_ConnectNotify_Callback cb) { qtcpsocket_connectnotify_callback = cb; }
-    void setQTcpSocket_DisconnectNotify_Callback(QTcpSocket_DisconnectNotify_Callback cb) { qtcpsocket_disconnectnotify_callback = cb; }
-    void setQTcpSocket_SetSocketState_Callback(QTcpSocket_SetSocketState_Callback cb) { qtcpsocket_setsocketstate_callback = cb; }
-    void setQTcpSocket_SetSocketError_Callback(QTcpSocket_SetSocketError_Callback cb) { qtcpsocket_setsocketerror_callback = cb; }
-    void setQTcpSocket_SetLocalPort_Callback(QTcpSocket_SetLocalPort_Callback cb) { qtcpsocket_setlocalport_callback = cb; }
-    void setQTcpSocket_SetLocalAddress_Callback(QTcpSocket_SetLocalAddress_Callback cb) { qtcpsocket_setlocaladdress_callback = cb; }
-    void setQTcpSocket_SetPeerPort_Callback(QTcpSocket_SetPeerPort_Callback cb) { qtcpsocket_setpeerport_callback = cb; }
-    void setQTcpSocket_SetPeerAddress_Callback(QTcpSocket_SetPeerAddress_Callback cb) { qtcpsocket_setpeeraddress_callback = cb; }
-    void setQTcpSocket_SetPeerName_Callback(QTcpSocket_SetPeerName_Callback cb) { qtcpsocket_setpeername_callback = cb; }
-    void setQTcpSocket_SetOpenMode_Callback(QTcpSocket_SetOpenMode_Callback cb) { qtcpsocket_setopenmode_callback = cb; }
-    void setQTcpSocket_SetErrorString_Callback(QTcpSocket_SetErrorString_Callback cb) { qtcpsocket_seterrorstring_callback = cb; }
-    void setQTcpSocket_Sender_Callback(QTcpSocket_Sender_Callback cb) { qtcpsocket_sender_callback = cb; }
-    void setQTcpSocket_SenderSignalIndex_Callback(QTcpSocket_SenderSignalIndex_Callback cb) { qtcpsocket_sendersignalindex_callback = cb; }
-    void setQTcpSocket_Receivers_Callback(QTcpSocket_Receivers_Callback cb) { qtcpsocket_receivers_callback = cb; }
-    void setQTcpSocket_IsSignalConnected_Callback(QTcpSocket_IsSignalConnected_Callback cb) { qtcpsocket_issignalconnected_callback = cb; }
+    inline void setQTcpSocket_Metacall_Callback(QTcpSocket_Metacall_Callback cb) { qtcpsocket_metacall_callback = cb; }
+    inline void setQTcpSocket_Resume_Callback(QTcpSocket_Resume_Callback cb) { qtcpsocket_resume_callback = cb; }
+    inline void setQTcpSocket_Bind_Callback(QTcpSocket_Bind_Callback cb) { qtcpsocket_bind_callback = cb; }
+    inline void setQTcpSocket_ConnectToHost_Callback(QTcpSocket_ConnectToHost_Callback cb) { qtcpsocket_connecttohost_callback = cb; }
+    inline void setQTcpSocket_DisconnectFromHost_Callback(QTcpSocket_DisconnectFromHost_Callback cb) { qtcpsocket_disconnectfromhost_callback = cb; }
+    inline void setQTcpSocket_BytesAvailable_Callback(QTcpSocket_BytesAvailable_Callback cb) { qtcpsocket_bytesavailable_callback = cb; }
+    inline void setQTcpSocket_BytesToWrite_Callback(QTcpSocket_BytesToWrite_Callback cb) { qtcpsocket_bytestowrite_callback = cb; }
+    inline void setQTcpSocket_SetReadBufferSize_Callback(QTcpSocket_SetReadBufferSize_Callback cb) { qtcpsocket_setreadbuffersize_callback = cb; }
+    inline void setQTcpSocket_SocketDescriptor_Callback(QTcpSocket_SocketDescriptor_Callback cb) { qtcpsocket_socketdescriptor_callback = cb; }
+    inline void setQTcpSocket_SetSocketDescriptor_Callback(QTcpSocket_SetSocketDescriptor_Callback cb) { qtcpsocket_setsocketdescriptor_callback = cb; }
+    inline void setQTcpSocket_SetSocketOption_Callback(QTcpSocket_SetSocketOption_Callback cb) { qtcpsocket_setsocketoption_callback = cb; }
+    inline void setQTcpSocket_SocketOption_Callback(QTcpSocket_SocketOption_Callback cb) { qtcpsocket_socketoption_callback = cb; }
+    inline void setQTcpSocket_Close_Callback(QTcpSocket_Close_Callback cb) { qtcpsocket_close_callback = cb; }
+    inline void setQTcpSocket_IsSequential_Callback(QTcpSocket_IsSequential_Callback cb) { qtcpsocket_issequential_callback = cb; }
+    inline void setQTcpSocket_WaitForConnected_Callback(QTcpSocket_WaitForConnected_Callback cb) { qtcpsocket_waitforconnected_callback = cb; }
+    inline void setQTcpSocket_WaitForReadyRead_Callback(QTcpSocket_WaitForReadyRead_Callback cb) { qtcpsocket_waitforreadyread_callback = cb; }
+    inline void setQTcpSocket_WaitForBytesWritten_Callback(QTcpSocket_WaitForBytesWritten_Callback cb) { qtcpsocket_waitforbyteswritten_callback = cb; }
+    inline void setQTcpSocket_WaitForDisconnected_Callback(QTcpSocket_WaitForDisconnected_Callback cb) { qtcpsocket_waitfordisconnected_callback = cb; }
+    inline void setQTcpSocket_ReadData_Callback(QTcpSocket_ReadData_Callback cb) { qtcpsocket_readdata_callback = cb; }
+    inline void setQTcpSocket_ReadLineData_Callback(QTcpSocket_ReadLineData_Callback cb) { qtcpsocket_readlinedata_callback = cb; }
+    inline void setQTcpSocket_SkipData_Callback(QTcpSocket_SkipData_Callback cb) { qtcpsocket_skipdata_callback = cb; }
+    inline void setQTcpSocket_WriteData_Callback(QTcpSocket_WriteData_Callback cb) { qtcpsocket_writedata_callback = cb; }
+    inline void setQTcpSocket_Open_Callback(QTcpSocket_Open_Callback cb) { qtcpsocket_open_callback = cb; }
+    inline void setQTcpSocket_Pos_Callback(QTcpSocket_Pos_Callback cb) { qtcpsocket_pos_callback = cb; }
+    inline void setQTcpSocket_Size_Callback(QTcpSocket_Size_Callback cb) { qtcpsocket_size_callback = cb; }
+    inline void setQTcpSocket_Seek_Callback(QTcpSocket_Seek_Callback cb) { qtcpsocket_seek_callback = cb; }
+    inline void setQTcpSocket_AtEnd_Callback(QTcpSocket_AtEnd_Callback cb) { qtcpsocket_atend_callback = cb; }
+    inline void setQTcpSocket_Reset_Callback(QTcpSocket_Reset_Callback cb) { qtcpsocket_reset_callback = cb; }
+    inline void setQTcpSocket_CanReadLine_Callback(QTcpSocket_CanReadLine_Callback cb) { qtcpsocket_canreadline_callback = cb; }
+    inline void setQTcpSocket_Event_Callback(QTcpSocket_Event_Callback cb) { qtcpsocket_event_callback = cb; }
+    inline void setQTcpSocket_EventFilter_Callback(QTcpSocket_EventFilter_Callback cb) { qtcpsocket_eventfilter_callback = cb; }
+    inline void setQTcpSocket_TimerEvent_Callback(QTcpSocket_TimerEvent_Callback cb) { qtcpsocket_timerevent_callback = cb; }
+    inline void setQTcpSocket_ChildEvent_Callback(QTcpSocket_ChildEvent_Callback cb) { qtcpsocket_childevent_callback = cb; }
+    inline void setQTcpSocket_CustomEvent_Callback(QTcpSocket_CustomEvent_Callback cb) { qtcpsocket_customevent_callback = cb; }
+    inline void setQTcpSocket_ConnectNotify_Callback(QTcpSocket_ConnectNotify_Callback cb) { qtcpsocket_connectnotify_callback = cb; }
+    inline void setQTcpSocket_DisconnectNotify_Callback(QTcpSocket_DisconnectNotify_Callback cb) { qtcpsocket_disconnectnotify_callback = cb; }
+    inline void setQTcpSocket_SetSocketState_Callback(QTcpSocket_SetSocketState_Callback cb) { qtcpsocket_setsocketstate_callback = cb; }
+    inline void setQTcpSocket_SetSocketError_Callback(QTcpSocket_SetSocketError_Callback cb) { qtcpsocket_setsocketerror_callback = cb; }
+    inline void setQTcpSocket_SetLocalPort_Callback(QTcpSocket_SetLocalPort_Callback cb) { qtcpsocket_setlocalport_callback = cb; }
+    inline void setQTcpSocket_SetLocalAddress_Callback(QTcpSocket_SetLocalAddress_Callback cb) { qtcpsocket_setlocaladdress_callback = cb; }
+    inline void setQTcpSocket_SetPeerPort_Callback(QTcpSocket_SetPeerPort_Callback cb) { qtcpsocket_setpeerport_callback = cb; }
+    inline void setQTcpSocket_SetPeerAddress_Callback(QTcpSocket_SetPeerAddress_Callback cb) { qtcpsocket_setpeeraddress_callback = cb; }
+    inline void setQTcpSocket_SetPeerName_Callback(QTcpSocket_SetPeerName_Callback cb) { qtcpsocket_setpeername_callback = cb; }
+    inline void setQTcpSocket_SetOpenMode_Callback(QTcpSocket_SetOpenMode_Callback cb) { qtcpsocket_setopenmode_callback = cb; }
+    inline void setQTcpSocket_SetErrorString_Callback(QTcpSocket_SetErrorString_Callback cb) { qtcpsocket_seterrorstring_callback = cb; }
+    inline void setQTcpSocket_Sender_Callback(QTcpSocket_Sender_Callback cb) { qtcpsocket_sender_callback = cb; }
+    inline void setQTcpSocket_SenderSignalIndex_Callback(QTcpSocket_SenderSignalIndex_Callback cb) { qtcpsocket_sendersignalindex_callback = cb; }
+    inline void setQTcpSocket_Receivers_Callback(QTcpSocket_Receivers_Callback cb) { qtcpsocket_receivers_callback = cb; }
+    inline void setQTcpSocket_IsSignalConnected_Callback(QTcpSocket_IsSignalConnected_Callback cb) { qtcpsocket_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQTcpSocket_Metacall_IsBase(bool value) const { qtcpsocket_metacall_isbase = value; }
-    void setQTcpSocket_Resume_IsBase(bool value) const { qtcpsocket_resume_isbase = value; }
-    void setQTcpSocket_Bind_IsBase(bool value) const { qtcpsocket_bind_isbase = value; }
-    void setQTcpSocket_ConnectToHost_IsBase(bool value) const { qtcpsocket_connecttohost_isbase = value; }
-    void setQTcpSocket_DisconnectFromHost_IsBase(bool value) const { qtcpsocket_disconnectfromhost_isbase = value; }
-    void setQTcpSocket_BytesAvailable_IsBase(bool value) const { qtcpsocket_bytesavailable_isbase = value; }
-    void setQTcpSocket_BytesToWrite_IsBase(bool value) const { qtcpsocket_bytestowrite_isbase = value; }
-    void setQTcpSocket_SetReadBufferSize_IsBase(bool value) const { qtcpsocket_setreadbuffersize_isbase = value; }
-    void setQTcpSocket_SocketDescriptor_IsBase(bool value) const { qtcpsocket_socketdescriptor_isbase = value; }
-    void setQTcpSocket_SetSocketDescriptor_IsBase(bool value) const { qtcpsocket_setsocketdescriptor_isbase = value; }
-    void setQTcpSocket_SetSocketOption_IsBase(bool value) const { qtcpsocket_setsocketoption_isbase = value; }
-    void setQTcpSocket_SocketOption_IsBase(bool value) const { qtcpsocket_socketoption_isbase = value; }
-    void setQTcpSocket_Close_IsBase(bool value) const { qtcpsocket_close_isbase = value; }
-    void setQTcpSocket_IsSequential_IsBase(bool value) const { qtcpsocket_issequential_isbase = value; }
-    void setQTcpSocket_WaitForConnected_IsBase(bool value) const { qtcpsocket_waitforconnected_isbase = value; }
-    void setQTcpSocket_WaitForReadyRead_IsBase(bool value) const { qtcpsocket_waitforreadyread_isbase = value; }
-    void setQTcpSocket_WaitForBytesWritten_IsBase(bool value) const { qtcpsocket_waitforbyteswritten_isbase = value; }
-    void setQTcpSocket_WaitForDisconnected_IsBase(bool value) const { qtcpsocket_waitfordisconnected_isbase = value; }
-    void setQTcpSocket_ReadData_IsBase(bool value) const { qtcpsocket_readdata_isbase = value; }
-    void setQTcpSocket_ReadLineData_IsBase(bool value) const { qtcpsocket_readlinedata_isbase = value; }
-    void setQTcpSocket_SkipData_IsBase(bool value) const { qtcpsocket_skipdata_isbase = value; }
-    void setQTcpSocket_WriteData_IsBase(bool value) const { qtcpsocket_writedata_isbase = value; }
-    void setQTcpSocket_Open_IsBase(bool value) const { qtcpsocket_open_isbase = value; }
-    void setQTcpSocket_Pos_IsBase(bool value) const { qtcpsocket_pos_isbase = value; }
-    void setQTcpSocket_Size_IsBase(bool value) const { qtcpsocket_size_isbase = value; }
-    void setQTcpSocket_Seek_IsBase(bool value) const { qtcpsocket_seek_isbase = value; }
-    void setQTcpSocket_AtEnd_IsBase(bool value) const { qtcpsocket_atend_isbase = value; }
-    void setQTcpSocket_Reset_IsBase(bool value) const { qtcpsocket_reset_isbase = value; }
-    void setQTcpSocket_CanReadLine_IsBase(bool value) const { qtcpsocket_canreadline_isbase = value; }
-    void setQTcpSocket_Event_IsBase(bool value) const { qtcpsocket_event_isbase = value; }
-    void setQTcpSocket_EventFilter_IsBase(bool value) const { qtcpsocket_eventfilter_isbase = value; }
-    void setQTcpSocket_TimerEvent_IsBase(bool value) const { qtcpsocket_timerevent_isbase = value; }
-    void setQTcpSocket_ChildEvent_IsBase(bool value) const { qtcpsocket_childevent_isbase = value; }
-    void setQTcpSocket_CustomEvent_IsBase(bool value) const { qtcpsocket_customevent_isbase = value; }
-    void setQTcpSocket_ConnectNotify_IsBase(bool value) const { qtcpsocket_connectnotify_isbase = value; }
-    void setQTcpSocket_DisconnectNotify_IsBase(bool value) const { qtcpsocket_disconnectnotify_isbase = value; }
-    void setQTcpSocket_SetSocketState_IsBase(bool value) const { qtcpsocket_setsocketstate_isbase = value; }
-    void setQTcpSocket_SetSocketError_IsBase(bool value) const { qtcpsocket_setsocketerror_isbase = value; }
-    void setQTcpSocket_SetLocalPort_IsBase(bool value) const { qtcpsocket_setlocalport_isbase = value; }
-    void setQTcpSocket_SetLocalAddress_IsBase(bool value) const { qtcpsocket_setlocaladdress_isbase = value; }
-    void setQTcpSocket_SetPeerPort_IsBase(bool value) const { qtcpsocket_setpeerport_isbase = value; }
-    void setQTcpSocket_SetPeerAddress_IsBase(bool value) const { qtcpsocket_setpeeraddress_isbase = value; }
-    void setQTcpSocket_SetPeerName_IsBase(bool value) const { qtcpsocket_setpeername_isbase = value; }
-    void setQTcpSocket_SetOpenMode_IsBase(bool value) const { qtcpsocket_setopenmode_isbase = value; }
-    void setQTcpSocket_SetErrorString_IsBase(bool value) const { qtcpsocket_seterrorstring_isbase = value; }
-    void setQTcpSocket_Sender_IsBase(bool value) const { qtcpsocket_sender_isbase = value; }
-    void setQTcpSocket_SenderSignalIndex_IsBase(bool value) const { qtcpsocket_sendersignalindex_isbase = value; }
-    void setQTcpSocket_Receivers_IsBase(bool value) const { qtcpsocket_receivers_isbase = value; }
-    void setQTcpSocket_IsSignalConnected_IsBase(bool value) const { qtcpsocket_issignalconnected_isbase = value; }
+    inline void setQTcpSocket_Metacall_IsBase(bool value) const { qtcpsocket_metacall_isbase = value; }
+    inline void setQTcpSocket_Resume_IsBase(bool value) const { qtcpsocket_resume_isbase = value; }
+    inline void setQTcpSocket_Bind_IsBase(bool value) const { qtcpsocket_bind_isbase = value; }
+    inline void setQTcpSocket_ConnectToHost_IsBase(bool value) const { qtcpsocket_connecttohost_isbase = value; }
+    inline void setQTcpSocket_DisconnectFromHost_IsBase(bool value) const { qtcpsocket_disconnectfromhost_isbase = value; }
+    inline void setQTcpSocket_BytesAvailable_IsBase(bool value) const { qtcpsocket_bytesavailable_isbase = value; }
+    inline void setQTcpSocket_BytesToWrite_IsBase(bool value) const { qtcpsocket_bytestowrite_isbase = value; }
+    inline void setQTcpSocket_SetReadBufferSize_IsBase(bool value) const { qtcpsocket_setreadbuffersize_isbase = value; }
+    inline void setQTcpSocket_SocketDescriptor_IsBase(bool value) const { qtcpsocket_socketdescriptor_isbase = value; }
+    inline void setQTcpSocket_SetSocketDescriptor_IsBase(bool value) const { qtcpsocket_setsocketdescriptor_isbase = value; }
+    inline void setQTcpSocket_SetSocketOption_IsBase(bool value) const { qtcpsocket_setsocketoption_isbase = value; }
+    inline void setQTcpSocket_SocketOption_IsBase(bool value) const { qtcpsocket_socketoption_isbase = value; }
+    inline void setQTcpSocket_Close_IsBase(bool value) const { qtcpsocket_close_isbase = value; }
+    inline void setQTcpSocket_IsSequential_IsBase(bool value) const { qtcpsocket_issequential_isbase = value; }
+    inline void setQTcpSocket_WaitForConnected_IsBase(bool value) const { qtcpsocket_waitforconnected_isbase = value; }
+    inline void setQTcpSocket_WaitForReadyRead_IsBase(bool value) const { qtcpsocket_waitforreadyread_isbase = value; }
+    inline void setQTcpSocket_WaitForBytesWritten_IsBase(bool value) const { qtcpsocket_waitforbyteswritten_isbase = value; }
+    inline void setQTcpSocket_WaitForDisconnected_IsBase(bool value) const { qtcpsocket_waitfordisconnected_isbase = value; }
+    inline void setQTcpSocket_ReadData_IsBase(bool value) const { qtcpsocket_readdata_isbase = value; }
+    inline void setQTcpSocket_ReadLineData_IsBase(bool value) const { qtcpsocket_readlinedata_isbase = value; }
+    inline void setQTcpSocket_SkipData_IsBase(bool value) const { qtcpsocket_skipdata_isbase = value; }
+    inline void setQTcpSocket_WriteData_IsBase(bool value) const { qtcpsocket_writedata_isbase = value; }
+    inline void setQTcpSocket_Open_IsBase(bool value) const { qtcpsocket_open_isbase = value; }
+    inline void setQTcpSocket_Pos_IsBase(bool value) const { qtcpsocket_pos_isbase = value; }
+    inline void setQTcpSocket_Size_IsBase(bool value) const { qtcpsocket_size_isbase = value; }
+    inline void setQTcpSocket_Seek_IsBase(bool value) const { qtcpsocket_seek_isbase = value; }
+    inline void setQTcpSocket_AtEnd_IsBase(bool value) const { qtcpsocket_atend_isbase = value; }
+    inline void setQTcpSocket_Reset_IsBase(bool value) const { qtcpsocket_reset_isbase = value; }
+    inline void setQTcpSocket_CanReadLine_IsBase(bool value) const { qtcpsocket_canreadline_isbase = value; }
+    inline void setQTcpSocket_Event_IsBase(bool value) const { qtcpsocket_event_isbase = value; }
+    inline void setQTcpSocket_EventFilter_IsBase(bool value) const { qtcpsocket_eventfilter_isbase = value; }
+    inline void setQTcpSocket_TimerEvent_IsBase(bool value) const { qtcpsocket_timerevent_isbase = value; }
+    inline void setQTcpSocket_ChildEvent_IsBase(bool value) const { qtcpsocket_childevent_isbase = value; }
+    inline void setQTcpSocket_CustomEvent_IsBase(bool value) const { qtcpsocket_customevent_isbase = value; }
+    inline void setQTcpSocket_ConnectNotify_IsBase(bool value) const { qtcpsocket_connectnotify_isbase = value; }
+    inline void setQTcpSocket_DisconnectNotify_IsBase(bool value) const { qtcpsocket_disconnectnotify_isbase = value; }
+    inline void setQTcpSocket_SetSocketState_IsBase(bool value) const { qtcpsocket_setsocketstate_isbase = value; }
+    inline void setQTcpSocket_SetSocketError_IsBase(bool value) const { qtcpsocket_setsocketerror_isbase = value; }
+    inline void setQTcpSocket_SetLocalPort_IsBase(bool value) const { qtcpsocket_setlocalport_isbase = value; }
+    inline void setQTcpSocket_SetLocalAddress_IsBase(bool value) const { qtcpsocket_setlocaladdress_isbase = value; }
+    inline void setQTcpSocket_SetPeerPort_IsBase(bool value) const { qtcpsocket_setpeerport_isbase = value; }
+    inline void setQTcpSocket_SetPeerAddress_IsBase(bool value) const { qtcpsocket_setpeeraddress_isbase = value; }
+    inline void setQTcpSocket_SetPeerName_IsBase(bool value) const { qtcpsocket_setpeername_isbase = value; }
+    inline void setQTcpSocket_SetOpenMode_IsBase(bool value) const { qtcpsocket_setopenmode_isbase = value; }
+    inline void setQTcpSocket_SetErrorString_IsBase(bool value) const { qtcpsocket_seterrorstring_isbase = value; }
+    inline void setQTcpSocket_Sender_IsBase(bool value) const { qtcpsocket_sender_isbase = value; }
+    inline void setQTcpSocket_SenderSignalIndex_IsBase(bool value) const { qtcpsocket_sendersignalindex_isbase = value; }
+    inline void setQTcpSocket_Receivers_IsBase(bool value) const { qtcpsocket_receivers_isbase = value; }
+    inline void setQTcpSocket_IsSignalConnected_IsBase(bool value) const { qtcpsocket_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -332,7 +335,12 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_metacall_isbase = false;
             return QTcpSocket::qt_metacall(param1, param2, param3);
         } else if (qtcpsocket_metacall_callback != nullptr) {
-            return qtcpsocket_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qtcpsocket_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QTcpSocket::qt_metacall(param1, param2, param3);
         }
@@ -356,7 +364,14 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_bind_isbase = false;
             return QTcpSocket::bind(address, port, mode);
         } else if (qtcpsocket_bind_callback != nullptr) {
-            return qtcpsocket_bind_callback(this, address, port, mode);
+            const QHostAddress& address_ret = address;
+            // Cast returned reference into pointer
+            QHostAddress* cbval1 = const_cast<QHostAddress*>(&address_ret);
+            uint16_t cbval2 = static_cast<uint16_t>(port);
+            int cbval3 = static_cast<int>(mode);
+
+            bool callback_ret = qtcpsocket_bind_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QTcpSocket::bind(address, port, mode);
         }
@@ -368,7 +383,20 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_connecttohost_isbase = false;
             QTcpSocket::connectToHost(hostName, port, mode, protocol);
         } else if (qtcpsocket_connecttohost_callback != nullptr) {
-            qtcpsocket_connecttohost_callback(this, hostName, port, mode, protocol);
+            const QString hostName_ret = hostName;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray hostName_b = hostName_ret.toUtf8();
+            libqt_string hostName_str;
+            hostName_str.len = hostName_b.length();
+            hostName_str.data = static_cast<char*>(malloc((hostName_str.len + 1) * sizeof(char)));
+            memcpy(hostName_str.data, hostName_b.data(), hostName_str.len);
+            hostName_str.data[hostName_str.len] = '\0';
+            libqt_string cbval1 = hostName_str;
+            uint16_t cbval2 = static_cast<uint16_t>(port);
+            int cbval3 = static_cast<int>(mode);
+            int cbval4 = static_cast<int>(protocol);
+
+            qtcpsocket_connecttohost_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QTcpSocket::connectToHost(hostName, port, mode, protocol);
         }
@@ -392,7 +420,8 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_bytesavailable_isbase = false;
             return QTcpSocket::bytesAvailable();
         } else if (qtcpsocket_bytesavailable_callback != nullptr) {
-            return qtcpsocket_bytesavailable_callback();
+            long long callback_ret = qtcpsocket_bytesavailable_callback();
+            return static_cast<qint64>(callback_ret);
         } else {
             return QTcpSocket::bytesAvailable();
         }
@@ -404,7 +433,8 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_bytestowrite_isbase = false;
             return QTcpSocket::bytesToWrite();
         } else if (qtcpsocket_bytestowrite_callback != nullptr) {
-            return qtcpsocket_bytestowrite_callback();
+            long long callback_ret = qtcpsocket_bytestowrite_callback();
+            return static_cast<qint64>(callback_ret);
         } else {
             return QTcpSocket::bytesToWrite();
         }
@@ -416,7 +446,9 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_setreadbuffersize_isbase = false;
             QTcpSocket::setReadBufferSize(size);
         } else if (qtcpsocket_setreadbuffersize_callback != nullptr) {
-            qtcpsocket_setreadbuffersize_callback(this, size);
+            long long cbval1 = static_cast<long long>(size);
+
+            qtcpsocket_setreadbuffersize_callback(this, cbval1);
         } else {
             QTcpSocket::setReadBufferSize(size);
         }
@@ -428,7 +460,8 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_socketdescriptor_isbase = false;
             return QTcpSocket::socketDescriptor();
         } else if (qtcpsocket_socketdescriptor_callback != nullptr) {
-            return qtcpsocket_socketdescriptor_callback();
+            intptr_t callback_ret = qtcpsocket_socketdescriptor_callback();
+            return (qintptr)(callback_ret);
         } else {
             return QTcpSocket::socketDescriptor();
         }
@@ -440,7 +473,13 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_setsocketdescriptor_isbase = false;
             return QTcpSocket::setSocketDescriptor(socketDescriptor, state, openMode);
         } else if (qtcpsocket_setsocketdescriptor_callback != nullptr) {
-            return qtcpsocket_setsocketdescriptor_callback(this, socketDescriptor, state, openMode);
+            qintptr socketDescriptor_ret = socketDescriptor;
+            intptr_t cbval1 = (intptr_t)(socketDescriptor_ret);
+            int cbval2 = static_cast<int>(state);
+            int cbval3 = static_cast<int>(openMode);
+
+            bool callback_ret = qtcpsocket_setsocketdescriptor_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QTcpSocket::setSocketDescriptor(socketDescriptor, state, openMode);
         }
@@ -452,7 +491,12 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_setsocketoption_isbase = false;
             QTcpSocket::setSocketOption(option, value);
         } else if (qtcpsocket_setsocketoption_callback != nullptr) {
-            qtcpsocket_setsocketoption_callback(this, option, value);
+            int cbval1 = static_cast<int>(option);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            qtcpsocket_setsocketoption_callback(this, cbval1, cbval2);
         } else {
             QTcpSocket::setSocketOption(option, value);
         }
@@ -464,7 +508,10 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_socketoption_isbase = false;
             return QTcpSocket::socketOption(option);
         } else if (qtcpsocket_socketoption_callback != nullptr) {
-            return qtcpsocket_socketoption_callback(this, option);
+            int cbval1 = static_cast<int>(option);
+
+            QVariant* callback_ret = qtcpsocket_socketoption_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTcpSocket::socketOption(option);
         }
@@ -488,7 +535,8 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_issequential_isbase = false;
             return QTcpSocket::isSequential();
         } else if (qtcpsocket_issequential_callback != nullptr) {
-            return qtcpsocket_issequential_callback();
+            bool callback_ret = qtcpsocket_issequential_callback();
+            return callback_ret;
         } else {
             return QTcpSocket::isSequential();
         }
@@ -500,7 +548,10 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_waitforconnected_isbase = false;
             return QTcpSocket::waitForConnected(msecs);
         } else if (qtcpsocket_waitforconnected_callback != nullptr) {
-            return qtcpsocket_waitforconnected_callback(this, msecs);
+            int cbval1 = msecs;
+
+            bool callback_ret = qtcpsocket_waitforconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTcpSocket::waitForConnected(msecs);
         }
@@ -512,7 +563,10 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_waitforreadyread_isbase = false;
             return QTcpSocket::waitForReadyRead(msecs);
         } else if (qtcpsocket_waitforreadyread_callback != nullptr) {
-            return qtcpsocket_waitforreadyread_callback(this, msecs);
+            int cbval1 = msecs;
+
+            bool callback_ret = qtcpsocket_waitforreadyread_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTcpSocket::waitForReadyRead(msecs);
         }
@@ -524,7 +578,10 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_waitforbyteswritten_isbase = false;
             return QTcpSocket::waitForBytesWritten(msecs);
         } else if (qtcpsocket_waitforbyteswritten_callback != nullptr) {
-            return qtcpsocket_waitforbyteswritten_callback(this, msecs);
+            int cbval1 = msecs;
+
+            bool callback_ret = qtcpsocket_waitforbyteswritten_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTcpSocket::waitForBytesWritten(msecs);
         }
@@ -536,7 +593,10 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_waitfordisconnected_isbase = false;
             return QTcpSocket::waitForDisconnected(msecs);
         } else if (qtcpsocket_waitfordisconnected_callback != nullptr) {
-            return qtcpsocket_waitfordisconnected_callback(this, msecs);
+            int cbval1 = msecs;
+
+            bool callback_ret = qtcpsocket_waitfordisconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTcpSocket::waitForDisconnected(msecs);
         }
@@ -548,7 +608,11 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_readdata_isbase = false;
             return QTcpSocket::readData(data, maxlen);
         } else if (qtcpsocket_readdata_callback != nullptr) {
-            return qtcpsocket_readdata_callback(this, data, maxlen);
+            char* cbval1 = data;
+            long long cbval2 = static_cast<long long>(maxlen);
+
+            long long callback_ret = qtcpsocket_readdata_callback(this, cbval1, cbval2);
+            return static_cast<qint64>(callback_ret);
         } else {
             return QTcpSocket::readData(data, maxlen);
         }
@@ -560,7 +624,11 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_readlinedata_isbase = false;
             return QTcpSocket::readLineData(data, maxlen);
         } else if (qtcpsocket_readlinedata_callback != nullptr) {
-            return qtcpsocket_readlinedata_callback(this, data, maxlen);
+            char* cbval1 = data;
+            long long cbval2 = static_cast<long long>(maxlen);
+
+            long long callback_ret = qtcpsocket_readlinedata_callback(this, cbval1, cbval2);
+            return static_cast<qint64>(callback_ret);
         } else {
             return QTcpSocket::readLineData(data, maxlen);
         }
@@ -572,7 +640,10 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_skipdata_isbase = false;
             return QTcpSocket::skipData(maxSize);
         } else if (qtcpsocket_skipdata_callback != nullptr) {
-            return qtcpsocket_skipdata_callback(this, maxSize);
+            long long cbval1 = static_cast<long long>(maxSize);
+
+            long long callback_ret = qtcpsocket_skipdata_callback(this, cbval1);
+            return static_cast<qint64>(callback_ret);
         } else {
             return QTcpSocket::skipData(maxSize);
         }
@@ -584,7 +655,11 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_writedata_isbase = false;
             return QTcpSocket::writeData(data, lenVal);
         } else if (qtcpsocket_writedata_callback != nullptr) {
-            return qtcpsocket_writedata_callback(this, data, lenVal);
+            const char* cbval1 = (const char*)data;
+            long long cbval2 = static_cast<long long>(lenVal);
+
+            long long callback_ret = qtcpsocket_writedata_callback(this, cbval1, cbval2);
+            return static_cast<qint64>(callback_ret);
         } else {
             return QTcpSocket::writeData(data, lenVal);
         }
@@ -596,7 +671,10 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_open_isbase = false;
             return QTcpSocket::open(mode);
         } else if (qtcpsocket_open_callback != nullptr) {
-            return qtcpsocket_open_callback(this, mode);
+            int cbval1 = static_cast<int>(mode);
+
+            bool callback_ret = qtcpsocket_open_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTcpSocket::open(mode);
         }
@@ -608,7 +686,8 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_pos_isbase = false;
             return QTcpSocket::pos();
         } else if (qtcpsocket_pos_callback != nullptr) {
-            return qtcpsocket_pos_callback();
+            long long callback_ret = qtcpsocket_pos_callback();
+            return static_cast<qint64>(callback_ret);
         } else {
             return QTcpSocket::pos();
         }
@@ -620,7 +699,8 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_size_isbase = false;
             return QTcpSocket::size();
         } else if (qtcpsocket_size_callback != nullptr) {
-            return qtcpsocket_size_callback();
+            long long callback_ret = qtcpsocket_size_callback();
+            return static_cast<qint64>(callback_ret);
         } else {
             return QTcpSocket::size();
         }
@@ -632,7 +712,10 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_seek_isbase = false;
             return QTcpSocket::seek(pos);
         } else if (qtcpsocket_seek_callback != nullptr) {
-            return qtcpsocket_seek_callback(this, pos);
+            long long cbval1 = static_cast<long long>(pos);
+
+            bool callback_ret = qtcpsocket_seek_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTcpSocket::seek(pos);
         }
@@ -644,7 +727,8 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_atend_isbase = false;
             return QTcpSocket::atEnd();
         } else if (qtcpsocket_atend_callback != nullptr) {
-            return qtcpsocket_atend_callback();
+            bool callback_ret = qtcpsocket_atend_callback();
+            return callback_ret;
         } else {
             return QTcpSocket::atEnd();
         }
@@ -656,7 +740,8 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_reset_isbase = false;
             return QTcpSocket::reset();
         } else if (qtcpsocket_reset_callback != nullptr) {
-            return qtcpsocket_reset_callback();
+            bool callback_ret = qtcpsocket_reset_callback();
+            return callback_ret;
         } else {
             return QTcpSocket::reset();
         }
@@ -668,7 +753,8 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_canreadline_isbase = false;
             return QTcpSocket::canReadLine();
         } else if (qtcpsocket_canreadline_callback != nullptr) {
-            return qtcpsocket_canreadline_callback();
+            bool callback_ret = qtcpsocket_canreadline_callback();
+            return callback_ret;
         } else {
             return QTcpSocket::canReadLine();
         }
@@ -680,7 +766,10 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_event_isbase = false;
             return QTcpSocket::event(event);
         } else if (qtcpsocket_event_callback != nullptr) {
-            return qtcpsocket_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qtcpsocket_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTcpSocket::event(event);
         }
@@ -692,7 +781,11 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_eventfilter_isbase = false;
             return QTcpSocket::eventFilter(watched, event);
         } else if (qtcpsocket_eventfilter_callback != nullptr) {
-            return qtcpsocket_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qtcpsocket_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QTcpSocket::eventFilter(watched, event);
         }
@@ -704,7 +797,9 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_timerevent_isbase = false;
             QTcpSocket::timerEvent(event);
         } else if (qtcpsocket_timerevent_callback != nullptr) {
-            qtcpsocket_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qtcpsocket_timerevent_callback(this, cbval1);
         } else {
             QTcpSocket::timerEvent(event);
         }
@@ -716,7 +811,9 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_childevent_isbase = false;
             QTcpSocket::childEvent(event);
         } else if (qtcpsocket_childevent_callback != nullptr) {
-            qtcpsocket_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qtcpsocket_childevent_callback(this, cbval1);
         } else {
             QTcpSocket::childEvent(event);
         }
@@ -728,7 +825,9 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_customevent_isbase = false;
             QTcpSocket::customEvent(event);
         } else if (qtcpsocket_customevent_callback != nullptr) {
-            qtcpsocket_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qtcpsocket_customevent_callback(this, cbval1);
         } else {
             QTcpSocket::customEvent(event);
         }
@@ -740,7 +839,11 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_connectnotify_isbase = false;
             QTcpSocket::connectNotify(signal);
         } else if (qtcpsocket_connectnotify_callback != nullptr) {
-            qtcpsocket_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtcpsocket_connectnotify_callback(this, cbval1);
         } else {
             QTcpSocket::connectNotify(signal);
         }
@@ -752,7 +855,11 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_disconnectnotify_isbase = false;
             QTcpSocket::disconnectNotify(signal);
         } else if (qtcpsocket_disconnectnotify_callback != nullptr) {
-            qtcpsocket_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtcpsocket_disconnectnotify_callback(this, cbval1);
         } else {
             QTcpSocket::disconnectNotify(signal);
         }
@@ -764,7 +871,9 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_setsocketstate_isbase = false;
             QTcpSocket::setSocketState(state);
         } else if (qtcpsocket_setsocketstate_callback != nullptr) {
-            qtcpsocket_setsocketstate_callback(this, state);
+            int cbval1 = static_cast<int>(state);
+
+            qtcpsocket_setsocketstate_callback(this, cbval1);
         } else {
             QTcpSocket::setSocketState(state);
         }
@@ -776,7 +885,9 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_setsocketerror_isbase = false;
             QTcpSocket::setSocketError(socketError);
         } else if (qtcpsocket_setsocketerror_callback != nullptr) {
-            qtcpsocket_setsocketerror_callback(this, socketError);
+            int cbval1 = static_cast<int>(socketError);
+
+            qtcpsocket_setsocketerror_callback(this, cbval1);
         } else {
             QTcpSocket::setSocketError(socketError);
         }
@@ -788,7 +899,9 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_setlocalport_isbase = false;
             QTcpSocket::setLocalPort(port);
         } else if (qtcpsocket_setlocalport_callback != nullptr) {
-            qtcpsocket_setlocalport_callback(this, port);
+            uint16_t cbval1 = static_cast<uint16_t>(port);
+
+            qtcpsocket_setlocalport_callback(this, cbval1);
         } else {
             QTcpSocket::setLocalPort(port);
         }
@@ -800,7 +913,11 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_setlocaladdress_isbase = false;
             QTcpSocket::setLocalAddress(address);
         } else if (qtcpsocket_setlocaladdress_callback != nullptr) {
-            qtcpsocket_setlocaladdress_callback(this, address);
+            const QHostAddress& address_ret = address;
+            // Cast returned reference into pointer
+            QHostAddress* cbval1 = const_cast<QHostAddress*>(&address_ret);
+
+            qtcpsocket_setlocaladdress_callback(this, cbval1);
         } else {
             QTcpSocket::setLocalAddress(address);
         }
@@ -812,7 +929,9 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_setpeerport_isbase = false;
             QTcpSocket::setPeerPort(port);
         } else if (qtcpsocket_setpeerport_callback != nullptr) {
-            qtcpsocket_setpeerport_callback(this, port);
+            uint16_t cbval1 = static_cast<uint16_t>(port);
+
+            qtcpsocket_setpeerport_callback(this, cbval1);
         } else {
             QTcpSocket::setPeerPort(port);
         }
@@ -824,7 +943,11 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_setpeeraddress_isbase = false;
             QTcpSocket::setPeerAddress(address);
         } else if (qtcpsocket_setpeeraddress_callback != nullptr) {
-            qtcpsocket_setpeeraddress_callback(this, address);
+            const QHostAddress& address_ret = address;
+            // Cast returned reference into pointer
+            QHostAddress* cbval1 = const_cast<QHostAddress*>(&address_ret);
+
+            qtcpsocket_setpeeraddress_callback(this, cbval1);
         } else {
             QTcpSocket::setPeerAddress(address);
         }
@@ -836,7 +959,17 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_setpeername_isbase = false;
             QTcpSocket::setPeerName(name);
         } else if (qtcpsocket_setpeername_callback != nullptr) {
-            qtcpsocket_setpeername_callback(this, name);
+            const QString name_ret = name;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray name_b = name_ret.toUtf8();
+            libqt_string name_str;
+            name_str.len = name_b.length();
+            name_str.data = static_cast<char*>(malloc((name_str.len + 1) * sizeof(char)));
+            memcpy(name_str.data, name_b.data(), name_str.len);
+            name_str.data[name_str.len] = '\0';
+            libqt_string cbval1 = name_str;
+
+            qtcpsocket_setpeername_callback(this, cbval1);
         } else {
             QTcpSocket::setPeerName(name);
         }
@@ -848,7 +981,9 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_setopenmode_isbase = false;
             QTcpSocket::setOpenMode(openMode);
         } else if (qtcpsocket_setopenmode_callback != nullptr) {
-            qtcpsocket_setopenmode_callback(this, openMode);
+            int cbval1 = static_cast<int>(openMode);
+
+            qtcpsocket_setopenmode_callback(this, cbval1);
         } else {
             QTcpSocket::setOpenMode(openMode);
         }
@@ -860,7 +995,17 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_seterrorstring_isbase = false;
             QTcpSocket::setErrorString(errorString);
         } else if (qtcpsocket_seterrorstring_callback != nullptr) {
-            qtcpsocket_seterrorstring_callback(this, errorString);
+            const QString errorString_ret = errorString;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray errorString_b = errorString_ret.toUtf8();
+            libqt_string errorString_str;
+            errorString_str.len = errorString_b.length();
+            errorString_str.data = static_cast<char*>(malloc((errorString_str.len + 1) * sizeof(char)));
+            memcpy(errorString_str.data, errorString_b.data(), errorString_str.len);
+            errorString_str.data[errorString_str.len] = '\0';
+            libqt_string cbval1 = errorString_str;
+
+            qtcpsocket_seterrorstring_callback(this, cbval1);
         } else {
             QTcpSocket::setErrorString(errorString);
         }
@@ -872,7 +1017,8 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_sender_isbase = false;
             return QTcpSocket::sender();
         } else if (qtcpsocket_sender_callback != nullptr) {
-            return qtcpsocket_sender_callback();
+            QObject* callback_ret = qtcpsocket_sender_callback();
+            return callback_ret;
         } else {
             return QTcpSocket::sender();
         }
@@ -884,7 +1030,8 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_sendersignalindex_isbase = false;
             return QTcpSocket::senderSignalIndex();
         } else if (qtcpsocket_sendersignalindex_callback != nullptr) {
-            return qtcpsocket_sendersignalindex_callback();
+            int callback_ret = qtcpsocket_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QTcpSocket::senderSignalIndex();
         }
@@ -896,7 +1043,10 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_receivers_isbase = false;
             return QTcpSocket::receivers(signal);
         } else if (qtcpsocket_receivers_callback != nullptr) {
-            return qtcpsocket_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qtcpsocket_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTcpSocket::receivers(signal);
         }
@@ -908,11 +1058,62 @@ class VirtualQTcpSocket : public QTcpSocket {
             qtcpsocket_issignalconnected_isbase = false;
             return QTcpSocket::isSignalConnected(signal);
         } else if (qtcpsocket_issignalconnected_callback != nullptr) {
-            return qtcpsocket_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qtcpsocket_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTcpSocket::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend long long QTcpSocket_ReadData(QTcpSocket* self, char* data, long long maxlen);
+    friend long long QTcpSocket_QBaseReadData(QTcpSocket* self, char* data, long long maxlen);
+    friend long long QTcpSocket_ReadLineData(QTcpSocket* self, char* data, long long maxlen);
+    friend long long QTcpSocket_QBaseReadLineData(QTcpSocket* self, char* data, long long maxlen);
+    friend long long QTcpSocket_SkipData(QTcpSocket* self, long long maxSize);
+    friend long long QTcpSocket_QBaseSkipData(QTcpSocket* self, long long maxSize);
+    friend long long QTcpSocket_WriteData(QTcpSocket* self, const char* data, long long lenVal);
+    friend long long QTcpSocket_QBaseWriteData(QTcpSocket* self, const char* data, long long lenVal);
+    friend void QTcpSocket_TimerEvent(QTcpSocket* self, QTimerEvent* event);
+    friend void QTcpSocket_QBaseTimerEvent(QTcpSocket* self, QTimerEvent* event);
+    friend void QTcpSocket_ChildEvent(QTcpSocket* self, QChildEvent* event);
+    friend void QTcpSocket_QBaseChildEvent(QTcpSocket* self, QChildEvent* event);
+    friend void QTcpSocket_CustomEvent(QTcpSocket* self, QEvent* event);
+    friend void QTcpSocket_QBaseCustomEvent(QTcpSocket* self, QEvent* event);
+    friend void QTcpSocket_ConnectNotify(QTcpSocket* self, const QMetaMethod* signal);
+    friend void QTcpSocket_QBaseConnectNotify(QTcpSocket* self, const QMetaMethod* signal);
+    friend void QTcpSocket_DisconnectNotify(QTcpSocket* self, const QMetaMethod* signal);
+    friend void QTcpSocket_QBaseDisconnectNotify(QTcpSocket* self, const QMetaMethod* signal);
+    friend void QTcpSocket_SetSocketState(QTcpSocket* self, int state);
+    friend void QTcpSocket_QBaseSetSocketState(QTcpSocket* self, int state);
+    friend void QTcpSocket_SetSocketError(QTcpSocket* self, int socketError);
+    friend void QTcpSocket_QBaseSetSocketError(QTcpSocket* self, int socketError);
+    friend void QTcpSocket_SetLocalPort(QTcpSocket* self, uint16_t port);
+    friend void QTcpSocket_QBaseSetLocalPort(QTcpSocket* self, uint16_t port);
+    friend void QTcpSocket_SetLocalAddress(QTcpSocket* self, const QHostAddress* address);
+    friend void QTcpSocket_QBaseSetLocalAddress(QTcpSocket* self, const QHostAddress* address);
+    friend void QTcpSocket_SetPeerPort(QTcpSocket* self, uint16_t port);
+    friend void QTcpSocket_QBaseSetPeerPort(QTcpSocket* self, uint16_t port);
+    friend void QTcpSocket_SetPeerAddress(QTcpSocket* self, const QHostAddress* address);
+    friend void QTcpSocket_QBaseSetPeerAddress(QTcpSocket* self, const QHostAddress* address);
+    friend void QTcpSocket_SetPeerName(QTcpSocket* self, const libqt_string name);
+    friend void QTcpSocket_QBaseSetPeerName(QTcpSocket* self, const libqt_string name);
+    friend void QTcpSocket_SetOpenMode(QTcpSocket* self, int openMode);
+    friend void QTcpSocket_QBaseSetOpenMode(QTcpSocket* self, int openMode);
+    friend void QTcpSocket_SetErrorString(QTcpSocket* self, const libqt_string errorString);
+    friend void QTcpSocket_QBaseSetErrorString(QTcpSocket* self, const libqt_string errorString);
+    friend QObject* QTcpSocket_Sender(const QTcpSocket* self);
+    friend QObject* QTcpSocket_QBaseSender(const QTcpSocket* self);
+    friend int QTcpSocket_SenderSignalIndex(const QTcpSocket* self);
+    friend int QTcpSocket_QBaseSenderSignalIndex(const QTcpSocket* self);
+    friend int QTcpSocket_Receivers(const QTcpSocket* self, const char* signal);
+    friend int QTcpSocket_QBaseReceivers(const QTcpSocket* self, const char* signal);
+    friend bool QTcpSocket_IsSignalConnected(const QTcpSocket* self, const QMetaMethod* signal);
+    friend bool QTcpSocket_QBaseIsSignalConnected(const QTcpSocket* self, const QMetaMethod* signal);
 };
 
 #endif

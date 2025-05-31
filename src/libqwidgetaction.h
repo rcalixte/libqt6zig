@@ -15,26 +15,14 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAction QAction;
-typedef struct QActionGroup QActionGroup;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
-typedef struct QFont QFont;
-typedef struct QIcon QIcon;
-typedef struct QKeySequence QKeySequence;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 typedef struct QWidget QWidget;
 typedef struct QWidgetAction QWidgetAction;
 #endif
@@ -73,12 +61,12 @@ void QWidgetAction_QBaseChildEvent(QWidgetAction* self, QChildEvent* event);
 void QWidgetAction_CustomEvent(QWidgetAction* self, QEvent* event);
 void QWidgetAction_OnCustomEvent(QWidgetAction* self, intptr_t slot);
 void QWidgetAction_QBaseCustomEvent(QWidgetAction* self, QEvent* event);
-void QWidgetAction_ConnectNotify(QWidgetAction* self, QMetaMethod* signal);
+void QWidgetAction_ConnectNotify(QWidgetAction* self, const QMetaMethod* signal);
 void QWidgetAction_OnConnectNotify(QWidgetAction* self, intptr_t slot);
-void QWidgetAction_QBaseConnectNotify(QWidgetAction* self, QMetaMethod* signal);
-void QWidgetAction_DisconnectNotify(QWidgetAction* self, QMetaMethod* signal);
+void QWidgetAction_QBaseConnectNotify(QWidgetAction* self, const QMetaMethod* signal);
+void QWidgetAction_DisconnectNotify(QWidgetAction* self, const QMetaMethod* signal);
 void QWidgetAction_OnDisconnectNotify(QWidgetAction* self, intptr_t slot);
-void QWidgetAction_QBaseDisconnectNotify(QWidgetAction* self, QMetaMethod* signal);
+void QWidgetAction_QBaseDisconnectNotify(QWidgetAction* self, const QMetaMethod* signal);
 libqt_list /* of QWidget* */ QWidgetAction_CreatedWidgets(const QWidgetAction* self);
 void QWidgetAction_OnCreatedWidgets(const QWidgetAction* self, intptr_t slot);
 libqt_list /* of QWidget* */ QWidgetAction_QBaseCreatedWidgets(const QWidgetAction* self);
@@ -91,9 +79,9 @@ int QWidgetAction_QBaseSenderSignalIndex(const QWidgetAction* self);
 int QWidgetAction_Receivers(const QWidgetAction* self, const char* signal);
 void QWidgetAction_OnReceivers(const QWidgetAction* self, intptr_t slot);
 int QWidgetAction_QBaseReceivers(const QWidgetAction* self, const char* signal);
-bool QWidgetAction_IsSignalConnected(const QWidgetAction* self, QMetaMethod* signal);
+bool QWidgetAction_IsSignalConnected(const QWidgetAction* self, const QMetaMethod* signal);
 void QWidgetAction_OnIsSignalConnected(const QWidgetAction* self, intptr_t slot);
-bool QWidgetAction_QBaseIsSignalConnected(const QWidgetAction* self, QMetaMethod* signal);
+bool QWidgetAction_QBaseIsSignalConnected(const QWidgetAction* self, const QMetaMethod* signal);
 void QWidgetAction_Delete(QWidgetAction* self);
 
 #ifdef __cplusplus

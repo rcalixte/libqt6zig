@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qpaintdevice_enums = @import("../libqpaintdevice.zig").enums;
 const qprintengine_enums = enums;
 const qprinter_enums = @import("libqprinter.zig").enums;
@@ -7,58 +8,60 @@ const qprinter_enums = @import("libqprinter.zig").enums;
 pub const qprintengine = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprintengine.html#setProperty)
     ///
-    /// ``` self: ?*C.QPrintEngine, key: qprintengine_enums.PrintEnginePropertyKey, value: ?*C.QVariant ```
+    /// ``` self: QtC.QPrintEngine, key: qprintengine_enums.PrintEnginePropertyKey, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, key: i64, value: ?*anyopaque) void {
-        C.QPrintEngine_SetProperty(@ptrCast(self), @intCast(key), @ptrCast(value));
+        qtc.QPrintEngine_SetProperty(@ptrCast(self), @intCast(key), @ptrCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprintengine.html#property)
     ///
-    /// ``` self: ?*C.QPrintEngine, key: qprintengine_enums.PrintEnginePropertyKey ```
-    pub fn Property(self: ?*anyopaque, key: i64) ?*C.QVariant {
-        return C.QPrintEngine_Property(@ptrCast(self), @intCast(key));
+    /// ``` self: QtC.QPrintEngine, key: qprintengine_enums.PrintEnginePropertyKey ```
+    pub fn Property(self: ?*anyopaque, key: i64) QtC.QVariant {
+        return qtc.QPrintEngine_Property(@ptrCast(self), @intCast(key));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprintengine.html#newPage)
     ///
-    /// ``` self: ?*C.QPrintEngine ```
+    /// ``` self: QtC.QPrintEngine ```
     pub fn NewPage(self: ?*anyopaque) bool {
-        return C.QPrintEngine_NewPage(@ptrCast(self));
+        return qtc.QPrintEngine_NewPage(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprintengine.html#abort)
     ///
-    /// ``` self: ?*C.QPrintEngine ```
+    /// ``` self: QtC.QPrintEngine ```
     pub fn Abort(self: ?*anyopaque) bool {
-        return C.QPrintEngine_Abort(@ptrCast(self));
+        return qtc.QPrintEngine_Abort(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprintengine.html#metric)
     ///
-    /// ``` self: ?*C.QPrintEngine, param1: qpaintdevice_enums.PaintDeviceMetric ```
+    /// ``` self: QtC.QPrintEngine, param1: qpaintdevice_enums.PaintDeviceMetric ```
     pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
-        return C.QPrintEngine_Metric(@ptrCast(self), @intCast(param1));
+        return qtc.QPrintEngine_Metric(@ptrCast(self), @intCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprintengine.html#printerState)
     ///
-    /// ``` self: ?*C.QPrintEngine ```
+    /// ``` self: QtC.QPrintEngine ```
     pub fn PrinterState(self: ?*anyopaque) i64 {
-        return C.QPrintEngine_PrinterState(@ptrCast(self));
+        return qtc.QPrintEngine_PrinterState(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprintengine.html#operator=)
     ///
-    /// ``` self: ?*C.QPrintEngine, param1: ?*C.QPrintEngine ```
+    /// ``` self: QtC.QPrintEngine, param1: QtC.QPrintEngine ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QPrintEngine_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+        qtc.QPrintEngine_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qprintengine.html#dtor.QPrintEngine)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QPrintEngine ```
+    /// ``` self: QtC.QPrintEngine ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QPrintEngine_Delete(@ptrCast(self));
+        qtc.QPrintEngine_Delete(@ptrCast(self));
     }
 };
 

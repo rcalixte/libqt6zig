@@ -11,22 +11,25 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QObject so that we can call protected methods
-class VirtualQObject : public QObject {
+class VirtualQObject final : public QObject {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQObject = true;
+
     // Virtual class public types (including callbacks)
-    using QObject_Metacall_Callback = int (*)(QObject*, QMetaObject::Call, int, void**);
+    using QObject_Metacall_Callback = int (*)(QObject*, int, int, void**);
     using QObject_Event_Callback = bool (*)(QObject*, QEvent*);
     using QObject_EventFilter_Callback = bool (*)(QObject*, QObject*, QEvent*);
     using QObject_TimerEvent_Callback = void (*)(QObject*, QTimerEvent*);
     using QObject_ChildEvent_Callback = void (*)(QObject*, QChildEvent*);
     using QObject_CustomEvent_Callback = void (*)(QObject*, QEvent*);
-    using QObject_ConnectNotify_Callback = void (*)(QObject*, const QMetaMethod&);
-    using QObject_DisconnectNotify_Callback = void (*)(QObject*, const QMetaMethod&);
+    using QObject_ConnectNotify_Callback = void (*)(QObject*, QMetaMethod*);
+    using QObject_DisconnectNotify_Callback = void (*)(QObject*, QMetaMethod*);
     using QObject_Sender_Callback = QObject* (*)();
     using QObject_SenderSignalIndex_Callback = int (*)();
     using QObject_Receivers_Callback = int (*)(const QObject*, const char*);
-    using QObject_IsSignalConnected_Callback = bool (*)(const QObject*, const QMetaMethod&);
+    using QObject_IsSignalConnected_Callback = bool (*)(const QObject*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -77,32 +80,32 @@ class VirtualQObject : public QObject {
     }
 
     // Callback setters
-    void setQObject_Metacall_Callback(QObject_Metacall_Callback cb) { qobject_metacall_callback = cb; }
-    void setQObject_Event_Callback(QObject_Event_Callback cb) { qobject_event_callback = cb; }
-    void setQObject_EventFilter_Callback(QObject_EventFilter_Callback cb) { qobject_eventfilter_callback = cb; }
-    void setQObject_TimerEvent_Callback(QObject_TimerEvent_Callback cb) { qobject_timerevent_callback = cb; }
-    void setQObject_ChildEvent_Callback(QObject_ChildEvent_Callback cb) { qobject_childevent_callback = cb; }
-    void setQObject_CustomEvent_Callback(QObject_CustomEvent_Callback cb) { qobject_customevent_callback = cb; }
-    void setQObject_ConnectNotify_Callback(QObject_ConnectNotify_Callback cb) { qobject_connectnotify_callback = cb; }
-    void setQObject_DisconnectNotify_Callback(QObject_DisconnectNotify_Callback cb) { qobject_disconnectnotify_callback = cb; }
-    void setQObject_Sender_Callback(QObject_Sender_Callback cb) { qobject_sender_callback = cb; }
-    void setQObject_SenderSignalIndex_Callback(QObject_SenderSignalIndex_Callback cb) { qobject_sendersignalindex_callback = cb; }
-    void setQObject_Receivers_Callback(QObject_Receivers_Callback cb) { qobject_receivers_callback = cb; }
-    void setQObject_IsSignalConnected_Callback(QObject_IsSignalConnected_Callback cb) { qobject_issignalconnected_callback = cb; }
+    inline void setQObject_Metacall_Callback(QObject_Metacall_Callback cb) { qobject_metacall_callback = cb; }
+    inline void setQObject_Event_Callback(QObject_Event_Callback cb) { qobject_event_callback = cb; }
+    inline void setQObject_EventFilter_Callback(QObject_EventFilter_Callback cb) { qobject_eventfilter_callback = cb; }
+    inline void setQObject_TimerEvent_Callback(QObject_TimerEvent_Callback cb) { qobject_timerevent_callback = cb; }
+    inline void setQObject_ChildEvent_Callback(QObject_ChildEvent_Callback cb) { qobject_childevent_callback = cb; }
+    inline void setQObject_CustomEvent_Callback(QObject_CustomEvent_Callback cb) { qobject_customevent_callback = cb; }
+    inline void setQObject_ConnectNotify_Callback(QObject_ConnectNotify_Callback cb) { qobject_connectnotify_callback = cb; }
+    inline void setQObject_DisconnectNotify_Callback(QObject_DisconnectNotify_Callback cb) { qobject_disconnectnotify_callback = cb; }
+    inline void setQObject_Sender_Callback(QObject_Sender_Callback cb) { qobject_sender_callback = cb; }
+    inline void setQObject_SenderSignalIndex_Callback(QObject_SenderSignalIndex_Callback cb) { qobject_sendersignalindex_callback = cb; }
+    inline void setQObject_Receivers_Callback(QObject_Receivers_Callback cb) { qobject_receivers_callback = cb; }
+    inline void setQObject_IsSignalConnected_Callback(QObject_IsSignalConnected_Callback cb) { qobject_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQObject_Metacall_IsBase(bool value) const { qobject_metacall_isbase = value; }
-    void setQObject_Event_IsBase(bool value) const { qobject_event_isbase = value; }
-    void setQObject_EventFilter_IsBase(bool value) const { qobject_eventfilter_isbase = value; }
-    void setQObject_TimerEvent_IsBase(bool value) const { qobject_timerevent_isbase = value; }
-    void setQObject_ChildEvent_IsBase(bool value) const { qobject_childevent_isbase = value; }
-    void setQObject_CustomEvent_IsBase(bool value) const { qobject_customevent_isbase = value; }
-    void setQObject_ConnectNotify_IsBase(bool value) const { qobject_connectnotify_isbase = value; }
-    void setQObject_DisconnectNotify_IsBase(bool value) const { qobject_disconnectnotify_isbase = value; }
-    void setQObject_Sender_IsBase(bool value) const { qobject_sender_isbase = value; }
-    void setQObject_SenderSignalIndex_IsBase(bool value) const { qobject_sendersignalindex_isbase = value; }
-    void setQObject_Receivers_IsBase(bool value) const { qobject_receivers_isbase = value; }
-    void setQObject_IsSignalConnected_IsBase(bool value) const { qobject_issignalconnected_isbase = value; }
+    inline void setQObject_Metacall_IsBase(bool value) const { qobject_metacall_isbase = value; }
+    inline void setQObject_Event_IsBase(bool value) const { qobject_event_isbase = value; }
+    inline void setQObject_EventFilter_IsBase(bool value) const { qobject_eventfilter_isbase = value; }
+    inline void setQObject_TimerEvent_IsBase(bool value) const { qobject_timerevent_isbase = value; }
+    inline void setQObject_ChildEvent_IsBase(bool value) const { qobject_childevent_isbase = value; }
+    inline void setQObject_CustomEvent_IsBase(bool value) const { qobject_customevent_isbase = value; }
+    inline void setQObject_ConnectNotify_IsBase(bool value) const { qobject_connectnotify_isbase = value; }
+    inline void setQObject_DisconnectNotify_IsBase(bool value) const { qobject_disconnectnotify_isbase = value; }
+    inline void setQObject_Sender_IsBase(bool value) const { qobject_sender_isbase = value; }
+    inline void setQObject_SenderSignalIndex_IsBase(bool value) const { qobject_sendersignalindex_isbase = value; }
+    inline void setQObject_Receivers_IsBase(bool value) const { qobject_receivers_isbase = value; }
+    inline void setQObject_IsSignalConnected_IsBase(bool value) const { qobject_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -110,7 +113,12 @@ class VirtualQObject : public QObject {
             qobject_metacall_isbase = false;
             return QObject::qt_metacall(param1, param2, param3);
         } else if (qobject_metacall_callback != nullptr) {
-            return qobject_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qobject_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QObject::qt_metacall(param1, param2, param3);
         }
@@ -122,7 +130,10 @@ class VirtualQObject : public QObject {
             qobject_event_isbase = false;
             return QObject::event(event);
         } else if (qobject_event_callback != nullptr) {
-            return qobject_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qobject_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QObject::event(event);
         }
@@ -134,7 +145,11 @@ class VirtualQObject : public QObject {
             qobject_eventfilter_isbase = false;
             return QObject::eventFilter(watched, event);
         } else if (qobject_eventfilter_callback != nullptr) {
-            return qobject_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qobject_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QObject::eventFilter(watched, event);
         }
@@ -146,7 +161,9 @@ class VirtualQObject : public QObject {
             qobject_timerevent_isbase = false;
             QObject::timerEvent(event);
         } else if (qobject_timerevent_callback != nullptr) {
-            qobject_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qobject_timerevent_callback(this, cbval1);
         } else {
             QObject::timerEvent(event);
         }
@@ -158,7 +175,9 @@ class VirtualQObject : public QObject {
             qobject_childevent_isbase = false;
             QObject::childEvent(event);
         } else if (qobject_childevent_callback != nullptr) {
-            qobject_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qobject_childevent_callback(this, cbval1);
         } else {
             QObject::childEvent(event);
         }
@@ -170,7 +189,9 @@ class VirtualQObject : public QObject {
             qobject_customevent_isbase = false;
             QObject::customEvent(event);
         } else if (qobject_customevent_callback != nullptr) {
-            qobject_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qobject_customevent_callback(this, cbval1);
         } else {
             QObject::customEvent(event);
         }
@@ -182,7 +203,11 @@ class VirtualQObject : public QObject {
             qobject_connectnotify_isbase = false;
             QObject::connectNotify(signal);
         } else if (qobject_connectnotify_callback != nullptr) {
-            qobject_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qobject_connectnotify_callback(this, cbval1);
         } else {
             QObject::connectNotify(signal);
         }
@@ -194,7 +219,11 @@ class VirtualQObject : public QObject {
             qobject_disconnectnotify_isbase = false;
             QObject::disconnectNotify(signal);
         } else if (qobject_disconnectnotify_callback != nullptr) {
-            qobject_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qobject_disconnectnotify_callback(this, cbval1);
         } else {
             QObject::disconnectNotify(signal);
         }
@@ -206,7 +235,8 @@ class VirtualQObject : public QObject {
             qobject_sender_isbase = false;
             return QObject::sender();
         } else if (qobject_sender_callback != nullptr) {
-            return qobject_sender_callback();
+            QObject* callback_ret = qobject_sender_callback();
+            return callback_ret;
         } else {
             return QObject::sender();
         }
@@ -218,7 +248,8 @@ class VirtualQObject : public QObject {
             qobject_sendersignalindex_isbase = false;
             return QObject::senderSignalIndex();
         } else if (qobject_sendersignalindex_callback != nullptr) {
-            return qobject_sendersignalindex_callback();
+            int callback_ret = qobject_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QObject::senderSignalIndex();
         }
@@ -230,7 +261,10 @@ class VirtualQObject : public QObject {
             qobject_receivers_isbase = false;
             return QObject::receivers(signal);
         } else if (qobject_receivers_callback != nullptr) {
-            return qobject_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qobject_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QObject::receivers(signal);
         }
@@ -242,11 +276,36 @@ class VirtualQObject : public QObject {
             qobject_issignalconnected_isbase = false;
             return QObject::isSignalConnected(signal);
         } else if (qobject_issignalconnected_callback != nullptr) {
-            return qobject_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qobject_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QObject::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QObject_TimerEvent(QObject* self, QTimerEvent* event);
+    friend void QObject_QBaseTimerEvent(QObject* self, QTimerEvent* event);
+    friend void QObject_ChildEvent(QObject* self, QChildEvent* event);
+    friend void QObject_QBaseChildEvent(QObject* self, QChildEvent* event);
+    friend void QObject_CustomEvent(QObject* self, QEvent* event);
+    friend void QObject_QBaseCustomEvent(QObject* self, QEvent* event);
+    friend void QObject_ConnectNotify(QObject* self, const QMetaMethod* signal);
+    friend void QObject_QBaseConnectNotify(QObject* self, const QMetaMethod* signal);
+    friend void QObject_DisconnectNotify(QObject* self, const QMetaMethod* signal);
+    friend void QObject_QBaseDisconnectNotify(QObject* self, const QMetaMethod* signal);
+    friend QObject* QObject_Sender(const QObject* self);
+    friend QObject* QObject_QBaseSender(const QObject* self);
+    friend int QObject_SenderSignalIndex(const QObject* self);
+    friend int QObject_QBaseSenderSignalIndex(const QObject* self);
+    friend int QObject_Receivers(const QObject* self, const char* signal);
+    friend int QObject_QBaseReceivers(const QObject* self, const char* signal);
+    friend bool QObject_IsSignalConnected(const QObject* self, const QMetaMethod* signal);
+    friend bool QObject_QBaseIsSignalConnected(const QObject* self, const QMetaMethod* signal);
 };
 
 #endif

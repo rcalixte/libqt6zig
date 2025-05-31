@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qtextboundaryfinder_enums = enums;
 const std = @import("std");
 
@@ -7,78 +8,78 @@ pub const qtextboundaryfinder = struct {
     /// New constructs a new QTextBoundaryFinder object.
     ///
     ///
-    pub fn New() ?*C.QTextBoundaryFinder {
-        return C.QTextBoundaryFinder_new();
+    pub fn New() QtC.QTextBoundaryFinder {
+        return qtc.QTextBoundaryFinder_new();
     }
 
     /// New2 constructs a new QTextBoundaryFinder object.
     ///
-    /// ``` other: ?*C.QTextBoundaryFinder ```
-    pub fn New2(other: ?*anyopaque) ?*C.QTextBoundaryFinder {
-        return C.QTextBoundaryFinder_new2(@ptrCast(other));
+    /// ``` other: QtC.QTextBoundaryFinder ```
+    pub fn New2(other: ?*anyopaque) QtC.QTextBoundaryFinder {
+        return qtc.QTextBoundaryFinder_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QTextBoundaryFinder object.
     ///
     /// ``` typeVal: qtextboundaryfinder_enums.BoundaryType, stringVal: []const u8 ```
-    pub fn New3(typeVal: i64, stringVal: []const u8) ?*C.QTextBoundaryFinder {
-        const stringVal_str = C.struct_libqt_string{
+    pub fn New3(typeVal: i64, stringVal: []const u8) QtC.QTextBoundaryFinder {
+        const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
             .data = @constCast(stringVal.ptr),
         };
 
-        return C.QTextBoundaryFinder_new3(@intCast(typeVal), stringVal_str);
+        return qtc.QTextBoundaryFinder_new3(@intCast(typeVal), stringVal_str);
     }
 
     /// New4 constructs a new QTextBoundaryFinder object.
     ///
-    /// ``` typeVal: qtextboundaryfinder_enums.BoundaryType, chars: ?*C.QChar, length: i64 ```
-    pub fn New4(typeVal: i64, chars: ?*anyopaque, length: i64) ?*C.QTextBoundaryFinder {
-        return C.QTextBoundaryFinder_new4(@intCast(typeVal), @ptrCast(chars), @intCast(length));
+    /// ``` typeVal: qtextboundaryfinder_enums.BoundaryType, chars: QtC.QChar, length: i64 ```
+    pub fn New4(typeVal: i64, chars: ?*anyopaque, length: i64) QtC.QTextBoundaryFinder {
+        return qtc.QTextBoundaryFinder_new4(@intCast(typeVal), @ptrCast(chars), @intCast(length));
     }
 
     /// New5 constructs a new QTextBoundaryFinder object.
     ///
-    /// ``` typeVal: qtextboundaryfinder_enums.BoundaryType, chars: ?*C.QChar, length: i64, buffer: ?*u8 ```
-    pub fn New5(typeVal: i64, chars: ?*anyopaque, length: i64, buffer: ?*anyopaque) ?*C.QTextBoundaryFinder {
-        return C.QTextBoundaryFinder_new5(@intCast(typeVal), @ptrCast(chars), @intCast(length), @intCast(buffer));
+    /// ``` typeVal: qtextboundaryfinder_enums.BoundaryType, chars: QtC.QChar, length: i64, buffer: ?*u8 ```
+    pub fn New5(typeVal: i64, chars: ?*anyopaque, length: i64, buffer: ?*anyopaque) QtC.QTextBoundaryFinder {
+        return qtc.QTextBoundaryFinder_new5(@intCast(typeVal), @ptrCast(chars), @intCast(length), @intCast(buffer));
     }
 
     /// New6 constructs a new QTextBoundaryFinder object.
     ///
-    /// ``` typeVal: qtextboundaryfinder_enums.BoundaryType, chars: ?*C.QChar, length: i64, buffer: ?*u8, bufferSize: i64 ```
-    pub fn New6(typeVal: i64, chars: ?*anyopaque, length: i64, buffer: ?*anyopaque, bufferSize: i64) ?*C.QTextBoundaryFinder {
-        return C.QTextBoundaryFinder_new6(@intCast(typeVal), @ptrCast(chars), @intCast(length), @intCast(buffer), @intCast(bufferSize));
+    /// ``` typeVal: qtextboundaryfinder_enums.BoundaryType, chars: QtC.QChar, length: i64, buffer: ?*u8, bufferSize: i64 ```
+    pub fn New6(typeVal: i64, chars: ?*anyopaque, length: i64, buffer: ?*anyopaque, bufferSize: i64) QtC.QTextBoundaryFinder {
+        return qtc.QTextBoundaryFinder_new6(@intCast(typeVal), @ptrCast(chars), @intCast(length), @intCast(buffer), @intCast(bufferSize));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#operator=)
     ///
-    /// ``` self: ?*C.QTextBoundaryFinder, other: ?*C.QTextBoundaryFinder ```
+    /// ``` self: QtC.QTextBoundaryFinder, other: QtC.QTextBoundaryFinder ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextBoundaryFinder_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QTextBoundaryFinder_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#isValid)
     ///
-    /// ``` self: ?*C.QTextBoundaryFinder ```
+    /// ``` self: QtC.QTextBoundaryFinder ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QTextBoundaryFinder_IsValid(@ptrCast(self));
+        return qtc.QTextBoundaryFinder_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#type)
     ///
-    /// ``` self: ?*C.QTextBoundaryFinder ```
+    /// ``` self: QtC.QTextBoundaryFinder ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QTextBoundaryFinder_Type(@ptrCast(self));
+        return qtc.QTextBoundaryFinder_Type(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#string)
     ///
-    /// ``` self: ?*C.QTextBoundaryFinder, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextBoundaryFinder, allocator: std.mem.Allocator ```
     pub fn String(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextBoundaryFinder_String(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextBoundaryFinder_String(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextboundaryfinder.String: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -87,65 +88,67 @@ pub const qtextboundaryfinder = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#toStart)
     ///
-    /// ``` self: ?*C.QTextBoundaryFinder ```
+    /// ``` self: QtC.QTextBoundaryFinder ```
     pub fn ToStart(self: ?*anyopaque) void {
-        C.QTextBoundaryFinder_ToStart(@ptrCast(self));
+        qtc.QTextBoundaryFinder_ToStart(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#toEnd)
     ///
-    /// ``` self: ?*C.QTextBoundaryFinder ```
+    /// ``` self: QtC.QTextBoundaryFinder ```
     pub fn ToEnd(self: ?*anyopaque) void {
-        C.QTextBoundaryFinder_ToEnd(@ptrCast(self));
+        qtc.QTextBoundaryFinder_ToEnd(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#position)
     ///
-    /// ``` self: ?*C.QTextBoundaryFinder ```
+    /// ``` self: QtC.QTextBoundaryFinder ```
     pub fn Position(self: ?*anyopaque) i64 {
-        return C.QTextBoundaryFinder_Position(@ptrCast(self));
+        return qtc.QTextBoundaryFinder_Position(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#setPosition)
     ///
-    /// ``` self: ?*C.QTextBoundaryFinder, position: i64 ```
+    /// ``` self: QtC.QTextBoundaryFinder, position: i64 ```
     pub fn SetPosition(self: ?*anyopaque, position: i64) void {
-        C.QTextBoundaryFinder_SetPosition(@ptrCast(self), @intCast(position));
+        qtc.QTextBoundaryFinder_SetPosition(@ptrCast(self), @intCast(position));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#toNextBoundary)
     ///
-    /// ``` self: ?*C.QTextBoundaryFinder ```
+    /// ``` self: QtC.QTextBoundaryFinder ```
     pub fn ToNextBoundary(self: ?*anyopaque) i64 {
-        return C.QTextBoundaryFinder_ToNextBoundary(@ptrCast(self));
+        return qtc.QTextBoundaryFinder_ToNextBoundary(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#toPreviousBoundary)
     ///
-    /// ``` self: ?*C.QTextBoundaryFinder ```
+    /// ``` self: QtC.QTextBoundaryFinder ```
     pub fn ToPreviousBoundary(self: ?*anyopaque) i64 {
-        return C.QTextBoundaryFinder_ToPreviousBoundary(@ptrCast(self));
+        return qtc.QTextBoundaryFinder_ToPreviousBoundary(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#isAtBoundary)
     ///
-    /// ``` self: ?*C.QTextBoundaryFinder ```
+    /// ``` self: QtC.QTextBoundaryFinder ```
     pub fn IsAtBoundary(self: ?*anyopaque) bool {
-        return C.QTextBoundaryFinder_IsAtBoundary(@ptrCast(self));
+        return qtc.QTextBoundaryFinder_IsAtBoundary(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#boundaryReasons)
     ///
-    /// ``` self: ?*C.QTextBoundaryFinder ```
+    /// ``` self: QtC.QTextBoundaryFinder ```
     pub fn BoundaryReasons(self: ?*anyopaque) i64 {
-        return C.QTextBoundaryFinder_BoundaryReasons(@ptrCast(self));
+        return qtc.QTextBoundaryFinder_BoundaryReasons(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#dtor.QTextBoundaryFinder)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QTextBoundaryFinder ```
+    /// ``` self: QtC.QTextBoundaryFinder ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QTextBoundaryFinder_Delete(@ptrCast(self));
+        qtc.QTextBoundaryFinder_Delete(@ptrCast(self));
     }
 };
 

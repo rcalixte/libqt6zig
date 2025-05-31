@@ -1,12 +1,8 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
 #include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QPainter>
 #include <QRect>
@@ -16,10 +12,8 @@
 #include <QByteArray>
 #include <cstring>
 #include <QSvgRenderer>
-#include <QThread>
 #include <QTimerEvent>
 #include <QTransform>
-#include <QVariant>
 #include <QXmlStreamReader>
 #include <qsvgrenderer.h>
 #include "libqsvgrenderer.h"
@@ -29,12 +23,12 @@ QSvgRenderer* QSvgRenderer_new() {
     return new VirtualQSvgRenderer();
 }
 
-QSvgRenderer* QSvgRenderer_new2(libqt_string filename) {
+QSvgRenderer* QSvgRenderer_new2(const libqt_string filename) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     return new VirtualQSvgRenderer(filename_QString);
 }
 
-QSvgRenderer* QSvgRenderer_new3(libqt_string contents) {
+QSvgRenderer* QSvgRenderer_new3(const libqt_string contents) {
     QByteArray contents_QByteArray(contents.data, contents.len);
     return new VirtualQSvgRenderer(contents_QByteArray);
 }
@@ -47,12 +41,12 @@ QSvgRenderer* QSvgRenderer_new5(QObject* parent) {
     return new VirtualQSvgRenderer(parent);
 }
 
-QSvgRenderer* QSvgRenderer_new6(libqt_string filename, QObject* parent) {
+QSvgRenderer* QSvgRenderer_new6(const libqt_string filename, QObject* parent) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     return new VirtualQSvgRenderer(filename_QString, parent);
 }
 
-QSvgRenderer* QSvgRenderer_new7(libqt_string contents, QObject* parent) {
+QSvgRenderer* QSvgRenderer_new7(const libqt_string contents, QObject* parent) {
     QByteArray contents_QByteArray(contents.data, contents.len);
     return new VirtualQSvgRenderer(contents_QByteArray, parent);
 }
@@ -70,27 +64,30 @@ void* QSvgRenderer_Metacast(QSvgRenderer* self, const char* param1) {
 }
 
 int QSvgRenderer_Metacall(QSvgRenderer* self, int param1, int param2, void** param3) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQSvgRenderer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QSvgRenderer_OnMetacall(QSvgRenderer* self, intptr_t slot) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_Metacall_Callback(reinterpret_cast<VirtualQSvgRenderer::QSvgRenderer_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QSvgRenderer_QBaseMetacall(QSvgRenderer* self, int param1, int param2, void** param3) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_Metacall_IsBase(true);
         return vqsvgrenderer->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQSvgRenderer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -122,11 +119,11 @@ QRectF* QSvgRenderer_ViewBoxF(const QSvgRenderer* self) {
     return new QRectF(self->viewBoxF());
 }
 
-void QSvgRenderer_SetViewBox(QSvgRenderer* self, QRect* viewbox) {
+void QSvgRenderer_SetViewBox(QSvgRenderer* self, const QRect* viewbox) {
     self->setViewBox(*viewbox);
 }
 
-void QSvgRenderer_SetViewBoxWithViewbox(QSvgRenderer* self, QRectF* viewbox) {
+void QSvgRenderer_SetViewBoxWithViewbox(QSvgRenderer* self, const QRectF* viewbox) {
     self->setViewBox(*viewbox);
 }
 
@@ -162,27 +159,27 @@ int QSvgRenderer_AnimationDuration(const QSvgRenderer* self) {
     return self->animationDuration();
 }
 
-QRectF* QSvgRenderer_BoundsOnElement(const QSvgRenderer* self, libqt_string id) {
+QRectF* QSvgRenderer_BoundsOnElement(const QSvgRenderer* self, const libqt_string id) {
     QString id_QString = QString::fromUtf8(id.data, id.len);
     return new QRectF(self->boundsOnElement(id_QString));
 }
 
-bool QSvgRenderer_ElementExists(const QSvgRenderer* self, libqt_string id) {
+bool QSvgRenderer_ElementExists(const QSvgRenderer* self, const libqt_string id) {
     QString id_QString = QString::fromUtf8(id.data, id.len);
     return self->elementExists(id_QString);
 }
 
-QTransform* QSvgRenderer_TransformForElement(const QSvgRenderer* self, libqt_string id) {
+QTransform* QSvgRenderer_TransformForElement(const QSvgRenderer* self, const libqt_string id) {
     QString id_QString = QString::fromUtf8(id.data, id.len);
     return new QTransform(self->transformForElement(id_QString));
 }
 
-bool QSvgRenderer_Load(QSvgRenderer* self, libqt_string filename) {
+bool QSvgRenderer_Load(QSvgRenderer* self, const libqt_string filename) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     return self->load(filename_QString);
 }
 
-bool QSvgRenderer_LoadWithContents(QSvgRenderer* self, libqt_string contents) {
+bool QSvgRenderer_LoadWithContents(QSvgRenderer* self, const libqt_string contents) {
     QByteArray contents_QByteArray(contents.data, contents.len);
     return self->load(contents_QByteArray);
 }
@@ -195,11 +192,11 @@ void QSvgRenderer_Render(QSvgRenderer* self, QPainter* p) {
     self->render(p);
 }
 
-void QSvgRenderer_Render2(QSvgRenderer* self, QPainter* p, QRectF* bounds) {
+void QSvgRenderer_Render2(QSvgRenderer* self, QPainter* p, const QRectF* bounds) {
     self->render(p, *bounds);
 }
 
-void QSvgRenderer_Render3(QSvgRenderer* self, QPainter* p, libqt_string elementId) {
+void QSvgRenderer_Render3(QSvgRenderer* self, QPainter* p, const libqt_string elementId) {
     QString elementId_QString = QString::fromUtf8(elementId.data, elementId.len);
     self->render(p, elementId_QString);
 }
@@ -239,293 +236,326 @@ libqt_string QSvgRenderer_Tr3(const char* s, const char* c, int n) {
     return _str;
 }
 
-void QSvgRenderer_Render32(QSvgRenderer* self, QPainter* p, libqt_string elementId, QRectF* bounds) {
+void QSvgRenderer_Render32(QSvgRenderer* self, QPainter* p, const libqt_string elementId, const QRectF* bounds) {
     QString elementId_QString = QString::fromUtf8(elementId.data, elementId.len);
     self->render(p, elementId_QString, *bounds);
 }
 
 // Derived class handler implementation
 bool QSvgRenderer_Event(QSvgRenderer* self, QEvent* event) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         return vqsvgrenderer->event(event);
     } else {
-        return vqsvgrenderer->event(event);
+        return self->QSvgRenderer::event(event);
     }
 }
 
 // Base class handler implementation
 bool QSvgRenderer_QBaseEvent(QSvgRenderer* self, QEvent* event) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_Event_IsBase(true);
         return vqsvgrenderer->event(event);
     } else {
-        return vqsvgrenderer->event(event);
+        return self->QSvgRenderer::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSvgRenderer_OnEvent(QSvgRenderer* self, intptr_t slot) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_Event_Callback(reinterpret_cast<VirtualQSvgRenderer::QSvgRenderer_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QSvgRenderer_EventFilter(QSvgRenderer* self, QObject* watched, QEvent* event) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         return vqsvgrenderer->eventFilter(watched, event);
     } else {
-        return vqsvgrenderer->eventFilter(watched, event);
+        return self->QSvgRenderer::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QSvgRenderer_QBaseEventFilter(QSvgRenderer* self, QObject* watched, QEvent* event) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_EventFilter_IsBase(true);
         return vqsvgrenderer->eventFilter(watched, event);
     } else {
-        return vqsvgrenderer->eventFilter(watched, event);
+        return self->QSvgRenderer::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSvgRenderer_OnEventFilter(QSvgRenderer* self, intptr_t slot) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_EventFilter_Callback(reinterpret_cast<VirtualQSvgRenderer::QSvgRenderer_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QSvgRenderer_TimerEvent(QSvgRenderer* self, QTimerEvent* event) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->timerEvent(event);
     } else {
-        vqsvgrenderer->timerEvent(event);
+        ((VirtualQSvgRenderer*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QSvgRenderer_QBaseTimerEvent(QSvgRenderer* self, QTimerEvent* event) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_TimerEvent_IsBase(true);
         vqsvgrenderer->timerEvent(event);
     } else {
-        vqsvgrenderer->timerEvent(event);
+        ((VirtualQSvgRenderer*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSvgRenderer_OnTimerEvent(QSvgRenderer* self, intptr_t slot) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_TimerEvent_Callback(reinterpret_cast<VirtualQSvgRenderer::QSvgRenderer_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QSvgRenderer_ChildEvent(QSvgRenderer* self, QChildEvent* event) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->childEvent(event);
     } else {
-        vqsvgrenderer->childEvent(event);
+        ((VirtualQSvgRenderer*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QSvgRenderer_QBaseChildEvent(QSvgRenderer* self, QChildEvent* event) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_ChildEvent_IsBase(true);
         vqsvgrenderer->childEvent(event);
     } else {
-        vqsvgrenderer->childEvent(event);
+        ((VirtualQSvgRenderer*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSvgRenderer_OnChildEvent(QSvgRenderer* self, intptr_t slot) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_ChildEvent_Callback(reinterpret_cast<VirtualQSvgRenderer::QSvgRenderer_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QSvgRenderer_CustomEvent(QSvgRenderer* self, QEvent* event) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->customEvent(event);
     } else {
-        vqsvgrenderer->customEvent(event);
+        ((VirtualQSvgRenderer*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QSvgRenderer_QBaseCustomEvent(QSvgRenderer* self, QEvent* event) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_CustomEvent_IsBase(true);
         vqsvgrenderer->customEvent(event);
     } else {
-        vqsvgrenderer->customEvent(event);
+        ((VirtualQSvgRenderer*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSvgRenderer_OnCustomEvent(QSvgRenderer* self, intptr_t slot) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_CustomEvent_Callback(reinterpret_cast<VirtualQSvgRenderer::QSvgRenderer_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QSvgRenderer_ConnectNotify(QSvgRenderer* self, QMetaMethod* signal) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+void QSvgRenderer_ConnectNotify(QSvgRenderer* self, const QMetaMethod* signal) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->connectNotify(*signal);
     } else {
-        vqsvgrenderer->connectNotify(*signal);
+        ((VirtualQSvgRenderer*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QSvgRenderer_QBaseConnectNotify(QSvgRenderer* self, QMetaMethod* signal) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+void QSvgRenderer_QBaseConnectNotify(QSvgRenderer* self, const QMetaMethod* signal) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_ConnectNotify_IsBase(true);
         vqsvgrenderer->connectNotify(*signal);
     } else {
-        vqsvgrenderer->connectNotify(*signal);
+        ((VirtualQSvgRenderer*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSvgRenderer_OnConnectNotify(QSvgRenderer* self, intptr_t slot) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_ConnectNotify_Callback(reinterpret_cast<VirtualQSvgRenderer::QSvgRenderer_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QSvgRenderer_DisconnectNotify(QSvgRenderer* self, QMetaMethod* signal) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+void QSvgRenderer_DisconnectNotify(QSvgRenderer* self, const QMetaMethod* signal) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->disconnectNotify(*signal);
     } else {
-        vqsvgrenderer->disconnectNotify(*signal);
+        ((VirtualQSvgRenderer*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QSvgRenderer_QBaseDisconnectNotify(QSvgRenderer* self, QMetaMethod* signal) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+void QSvgRenderer_QBaseDisconnectNotify(QSvgRenderer* self, const QMetaMethod* signal) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_DisconnectNotify_IsBase(true);
         vqsvgrenderer->disconnectNotify(*signal);
     } else {
-        vqsvgrenderer->disconnectNotify(*signal);
+        ((VirtualQSvgRenderer*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSvgRenderer_OnDisconnectNotify(QSvgRenderer* self, intptr_t slot) {
-    if (auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self)) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_DisconnectNotify_Callback(reinterpret_cast<VirtualQSvgRenderer::QSvgRenderer_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QSvgRenderer_Sender(const QSvgRenderer* self) {
-    if (auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self))) {
+    auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self));
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         return vqsvgrenderer->sender();
     } else {
-        return vqsvgrenderer->sender();
+        return ((VirtualQSvgRenderer*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QSvgRenderer_QBaseSender(const QSvgRenderer* self) {
-    if (auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self))) {
+    auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self));
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_Sender_IsBase(true);
         return vqsvgrenderer->sender();
     } else {
-        return vqsvgrenderer->sender();
+        return ((VirtualQSvgRenderer*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSvgRenderer_OnSender(const QSvgRenderer* self, intptr_t slot) {
-    if (auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self))) {
+    auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self));
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_Sender_Callback(reinterpret_cast<VirtualQSvgRenderer::QSvgRenderer_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QSvgRenderer_SenderSignalIndex(const QSvgRenderer* self) {
-    if (auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self))) {
+    auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self));
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         return vqsvgrenderer->senderSignalIndex();
     } else {
-        return vqsvgrenderer->senderSignalIndex();
+        return ((VirtualQSvgRenderer*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QSvgRenderer_QBaseSenderSignalIndex(const QSvgRenderer* self) {
-    if (auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self))) {
+    auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self));
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_SenderSignalIndex_IsBase(true);
         return vqsvgrenderer->senderSignalIndex();
     } else {
-        return vqsvgrenderer->senderSignalIndex();
+        return ((VirtualQSvgRenderer*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSvgRenderer_OnSenderSignalIndex(const QSvgRenderer* self, intptr_t slot) {
-    if (auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self))) {
+    auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self));
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSvgRenderer::QSvgRenderer_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QSvgRenderer_Receivers(const QSvgRenderer* self, const char* signal) {
-    if (auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self))) {
+    auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self));
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         return vqsvgrenderer->receivers(signal);
     } else {
-        return vqsvgrenderer->receivers(signal);
+        return ((VirtualQSvgRenderer*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QSvgRenderer_QBaseReceivers(const QSvgRenderer* self, const char* signal) {
-    if (auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self))) {
+    auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self));
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_Receivers_IsBase(true);
         return vqsvgrenderer->receivers(signal);
     } else {
-        return vqsvgrenderer->receivers(signal);
+        return ((VirtualQSvgRenderer*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSvgRenderer_OnReceivers(const QSvgRenderer* self, intptr_t slot) {
-    if (auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self))) {
+    auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self));
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_Receivers_Callback(reinterpret_cast<VirtualQSvgRenderer::QSvgRenderer_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QSvgRenderer_IsSignalConnected(const QSvgRenderer* self, QMetaMethod* signal) {
-    if (auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self))) {
+bool QSvgRenderer_IsSignalConnected(const QSvgRenderer* self, const QMetaMethod* signal) {
+    auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self));
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         return vqsvgrenderer->isSignalConnected(*signal);
     } else {
-        return vqsvgrenderer->isSignalConnected(*signal);
+        return ((VirtualQSvgRenderer*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QSvgRenderer_QBaseIsSignalConnected(const QSvgRenderer* self, QMetaMethod* signal) {
-    if (auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self))) {
+bool QSvgRenderer_QBaseIsSignalConnected(const QSvgRenderer* self, const QMetaMethod* signal) {
+    auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self));
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_IsSignalConnected_IsBase(true);
         return vqsvgrenderer->isSignalConnected(*signal);
     } else {
-        return vqsvgrenderer->isSignalConnected(*signal);
+        return ((VirtualQSvgRenderer*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSvgRenderer_OnIsSignalConnected(const QSvgRenderer* self, intptr_t slot) {
-    if (auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self))) {
+    auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self));
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
         vqsvgrenderer->setQSvgRenderer_IsSignalConnected_Callback(reinterpret_cast<VirtualQSvgRenderer::QSvgRenderer_IsSignalConnected_Callback>(slot));
     }
 }

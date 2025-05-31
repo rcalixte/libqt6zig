@@ -1,124 +1,127 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 
 /// https://doc.qt.io/qt-6/qpaintdevice.html
 pub const qpaintdevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
     ///
-    /// ``` self: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QPaintDevice ```
     pub fn DevType(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_DevType(@ptrCast(self));
+        return qtc.QPaintDevice_DevType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
-    /// ``` self: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QPaintDevice ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
-        return C.QPaintDevice_PaintingActive(@ptrCast(self));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintEngine)
     ///
-    /// ``` self: ?*C.QPaintDevice ```
-    pub fn PaintEngine(self: ?*anyopaque) ?*C.QPaintEngine {
-        return C.QPaintDevice_PaintEngine(@ptrCast(self));
+    /// ``` self: QtC.QPaintDevice ```
+    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QPaintDevice_PaintEngine(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#width)
     ///
-    /// ``` self: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QPaintDevice ```
     pub fn Width(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_Width(@ptrCast(self));
+        return qtc.QPaintDevice_Width(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#height)
     ///
-    /// ``` self: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QPaintDevice ```
     pub fn Height(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_Height(@ptrCast(self));
+        return qtc.QPaintDevice_Height(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
-    /// ``` self: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QPaintDevice ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_WidthMM(@ptrCast(self));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
-    /// ``` self: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QPaintDevice ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_HeightMM(@ptrCast(self));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
-    /// ``` self: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QPaintDevice ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_LogicalDpiX(@ptrCast(self));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
-    /// ``` self: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QPaintDevice ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_LogicalDpiY(@ptrCast(self));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
-    /// ``` self: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QPaintDevice ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
-    /// ``` self: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QPaintDevice ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
-    /// ``` self: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QPaintDevice ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return C.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
-    /// ``` self: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QPaintDevice ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return C.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
-    /// ``` self: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QPaintDevice ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_ColorCount(@ptrCast(self));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
-    /// ``` self: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QPaintDevice ```
     pub fn Depth(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_Depth(@ptrCast(self));
+        return qtc.QPaintDevice_Depth(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
-        return C.QPaintDevice_DevicePixelRatioFScale();
+        return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#dtor.QPaintDevice)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QPaintDevice ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QPaintDevice_Delete(@ptrCast(self));
+        qtc.QPaintDevice_Delete(@ptrCast(self));
     }
 };
 

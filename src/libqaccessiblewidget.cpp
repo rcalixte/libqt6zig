@@ -1,14 +1,7 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_QAccessible__State
 #include <QAccessibleActionInterface>
-#include <QAccessibleEditableTextInterface>
-#include <QAccessibleHyperlinkInterface>
-#include <QAccessibleImageInterface>
 #include <QAccessibleInterface>
 #include <QAccessibleObject>
-#include <QAccessibleTableCellInterface>
-#include <QAccessibleTableInterface>
-#include <QAccessibleTextInterface>
-#include <QAccessibleValueInterface>
 #include <QAccessibleWidget>
 #include <QColor>
 #include <QList>
@@ -32,7 +25,7 @@ QAccessibleWidget* QAccessibleWidget_new2(QWidget* o, int r) {
     return new QAccessibleWidget(o, static_cast<QAccessible::Role>(r));
 }
 
-QAccessibleWidget* QAccessibleWidget_new3(QWidget* o, int r, libqt_string name) {
+QAccessibleWidget* QAccessibleWidget_new3(QWidget* o, int r, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     return new QAccessibleWidget(o, static_cast<QAccessible::Role>(r), name_QString);
 }
@@ -49,7 +42,7 @@ int QAccessibleWidget_ChildCount(const QAccessibleWidget* self) {
     return self->childCount();
 }
 
-int QAccessibleWidget_IndexOfChild(const QAccessibleWidget* self, QAccessibleInterface* child) {
+int QAccessibleWidget_IndexOfChild(const QAccessibleWidget* self, const QAccessibleInterface* child) {
     return self->indexOfChild(child);
 }
 
@@ -144,12 +137,12 @@ libqt_list /* of libqt_string */ QAccessibleWidget_ActionNames(const QAccessible
     return _out;
 }
 
-void QAccessibleWidget_DoAction(QAccessibleWidget* self, libqt_string actionName) {
+void QAccessibleWidget_DoAction(QAccessibleWidget* self, const libqt_string actionName) {
     QString actionName_QString = QString::fromUtf8(actionName.data, actionName.len);
     self->doAction(actionName_QString);
 }
 
-libqt_list /* of libqt_string */ QAccessibleWidget_KeyBindingsForAction(const QAccessibleWidget* self, libqt_string actionName) {
+libqt_list /* of libqt_string */ QAccessibleWidget_KeyBindingsForAction(const QAccessibleWidget* self, const libqt_string actionName) {
     QString actionName_QString = QString::fromUtf8(actionName.data, actionName.len);
     QStringList _ret = self->keyBindingsForAction(actionName_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -169,47 +162,4 @@ libqt_list /* of libqt_string */ QAccessibleWidget_KeyBindingsForAction(const QA
     _out.len = _ret.length();
     _out.data = static_cast<void*>(_arr);
     return _out;
-}
-
-QObject* QAccessibleWidget_Object(const QAccessibleWidget* self) {
-    return self->object();
-}
-
-void QAccessibleWidget_SetText(QAccessibleWidget* self, int t, libqt_string text) {
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    self->setText(static_cast<QAccessible::Text>(t), text_QString);
-}
-
-QAccessibleInterface* QAccessibleWidget_ChildAt(const QAccessibleWidget* self, int x, int y) {
-    return self->childAt(static_cast<int>(x), static_cast<int>(y));
-}
-
-void QAccessibleWidget_VirtualHook(QAccessibleWidget* self, int id, void* data) {
-    self->virtual_hook(static_cast<int>(id), data);
-}
-
-libqt_string QAccessibleWidget_LocalizedActionName(const QAccessibleWidget* self, libqt_string name) {
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->localizedActionName(name_QString);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QAccessibleWidget_LocalizedActionDescription(const QAccessibleWidget* self, libqt_string name) {
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->localizedActionDescription(name_QString);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
-    return _str;
 }

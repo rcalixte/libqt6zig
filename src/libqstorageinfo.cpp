@@ -13,20 +13,20 @@ QStorageInfo* QStorageInfo_new() {
     return new QStorageInfo();
 }
 
-QStorageInfo* QStorageInfo_new2(libqt_string path) {
+QStorageInfo* QStorageInfo_new2(const libqt_string path) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
     return new QStorageInfo(path_QString);
 }
 
-QStorageInfo* QStorageInfo_new3(QDir* dir) {
+QStorageInfo* QStorageInfo_new3(const QDir* dir) {
     return new QStorageInfo(*dir);
 }
 
-QStorageInfo* QStorageInfo_new4(QStorageInfo* other) {
+QStorageInfo* QStorageInfo_new4(const QStorageInfo* other) {
     return new QStorageInfo(*other);
 }
 
-void QStorageInfo_OperatorAssign(QStorageInfo* self, QStorageInfo* other) {
+void QStorageInfo_OperatorAssign(QStorageInfo* self, const QStorageInfo* other) {
     self->operator=(*other);
 }
 
@@ -34,7 +34,7 @@ void QStorageInfo_Swap(QStorageInfo* self, QStorageInfo* other) {
     self->swap(*other);
 }
 
-void QStorageInfo_SetPath(QStorageInfo* self, libqt_string path) {
+void QStorageInfo_SetPath(QStorageInfo* self, const libqt_string path) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
     self->setPath(path_QString);
 }

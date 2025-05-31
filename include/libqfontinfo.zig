@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qfont_enums = @import("libqfont.zig").enums;
 const std = @import("std");
 
@@ -6,39 +7,39 @@ const std = @import("std");
 pub const qfontinfo = struct {
     /// New constructs a new QFontInfo object.
     ///
-    /// ``` param1: ?*C.QFont ```
-    pub fn New(param1: ?*anyopaque) ?*C.QFontInfo {
-        return C.QFontInfo_new(@ptrCast(param1));
+    /// ``` param1: QtC.QFont ```
+    pub fn New(param1: ?*anyopaque) QtC.QFontInfo {
+        return qtc.QFontInfo_new(@ptrCast(param1));
     }
 
     /// New2 constructs a new QFontInfo object.
     ///
-    /// ``` param1: ?*C.QFontInfo ```
-    pub fn New2(param1: ?*anyopaque) ?*C.QFontInfo {
-        return C.QFontInfo_new2(@ptrCast(param1));
+    /// ``` param1: QtC.QFontInfo ```
+    pub fn New2(param1: ?*anyopaque) QtC.QFontInfo {
+        return qtc.QFontInfo_new2(@ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#operator=)
     ///
-    /// ``` self: ?*C.QFontInfo, param1: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo, param1: QtC.QFontInfo ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QFontInfo_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+        qtc.QFontInfo_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#swap)
     ///
-    /// ``` self: ?*C.QFontInfo, other: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo, other: QtC.QFontInfo ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QFontInfo_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QFontInfo_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#family)
     ///
-    /// ``` self: ?*C.QFontInfo, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QFontInfo, allocator: std.mem.Allocator ```
     pub fn Family(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QFontInfo_Family(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QFontInfo_Family(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontinfo.Family: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -47,11 +48,11 @@ pub const qfontinfo = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#styleName)
     ///
-    /// ``` self: ?*C.QFontInfo, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QFontInfo, allocator: std.mem.Allocator ```
     pub fn StyleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QFontInfo_StyleName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QFontInfo_StyleName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontinfo.StyleName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -60,106 +61,108 @@ pub const qfontinfo = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#pixelSize)
     ///
-    /// ``` self: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo ```
     pub fn PixelSize(self: ?*anyopaque) i32 {
-        return C.QFontInfo_PixelSize(@ptrCast(self));
+        return qtc.QFontInfo_PixelSize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#pointSize)
     ///
-    /// ``` self: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo ```
     pub fn PointSize(self: ?*anyopaque) i32 {
-        return C.QFontInfo_PointSize(@ptrCast(self));
+        return qtc.QFontInfo_PointSize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#pointSizeF)
     ///
-    /// ``` self: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo ```
     pub fn PointSizeF(self: ?*anyopaque) f64 {
-        return C.QFontInfo_PointSizeF(@ptrCast(self));
+        return qtc.QFontInfo_PointSizeF(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#italic)
     ///
-    /// ``` self: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo ```
     pub fn Italic(self: ?*anyopaque) bool {
-        return C.QFontInfo_Italic(@ptrCast(self));
+        return qtc.QFontInfo_Italic(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#style)
     ///
-    /// ``` self: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo ```
     pub fn Style(self: ?*anyopaque) i64 {
-        return C.QFontInfo_Style(@ptrCast(self));
+        return qtc.QFontInfo_Style(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#weight)
     ///
-    /// ``` self: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo ```
     pub fn Weight(self: ?*anyopaque) i32 {
-        return C.QFontInfo_Weight(@ptrCast(self));
+        return qtc.QFontInfo_Weight(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#bold)
     ///
-    /// ``` self: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo ```
     pub fn Bold(self: ?*anyopaque) bool {
-        return C.QFontInfo_Bold(@ptrCast(self));
+        return qtc.QFontInfo_Bold(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#underline)
     ///
-    /// ``` self: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo ```
     pub fn Underline(self: ?*anyopaque) bool {
-        return C.QFontInfo_Underline(@ptrCast(self));
+        return qtc.QFontInfo_Underline(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#overline)
     ///
-    /// ``` self: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo ```
     pub fn Overline(self: ?*anyopaque) bool {
-        return C.QFontInfo_Overline(@ptrCast(self));
+        return qtc.QFontInfo_Overline(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#strikeOut)
     ///
-    /// ``` self: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo ```
     pub fn StrikeOut(self: ?*anyopaque) bool {
-        return C.QFontInfo_StrikeOut(@ptrCast(self));
+        return qtc.QFontInfo_StrikeOut(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#fixedPitch)
     ///
-    /// ``` self: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo ```
     pub fn FixedPitch(self: ?*anyopaque) bool {
-        return C.QFontInfo_FixedPitch(@ptrCast(self));
+        return qtc.QFontInfo_FixedPitch(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#styleHint)
     ///
-    /// ``` self: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo ```
     pub fn StyleHint(self: ?*anyopaque) i64 {
-        return C.QFontInfo_StyleHint(@ptrCast(self));
+        return qtc.QFontInfo_StyleHint(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#legacyWeight)
     ///
-    /// ``` self: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo ```
     pub fn LegacyWeight(self: ?*anyopaque) i32 {
-        return C.QFontInfo_LegacyWeight(@ptrCast(self));
+        return qtc.QFontInfo_LegacyWeight(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#exactMatch)
     ///
-    /// ``` self: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo ```
     pub fn ExactMatch(self: ?*anyopaque) bool {
-        return C.QFontInfo_ExactMatch(@ptrCast(self));
+        return qtc.QFontInfo_ExactMatch(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#dtor.QFontInfo)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QFontInfo ```
+    /// ``` self: QtC.QFontInfo ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QFontInfo_Delete(@ptrCast(self));
+        qtc.QFontInfo_Delete(@ptrCast(self));
     }
 };

@@ -1,13 +1,8 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
 #include <QImage>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QPdfDocument>
 #include <QPdfDocumentRenderOptions>
@@ -16,9 +11,7 @@
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <qpdfpagerenderer.h>
 #include "libqpdfpagerenderer.h"
 #include "libqpdfpagerenderer.hxx"
@@ -40,27 +33,30 @@ void* QPdfPageRenderer_Metacast(QPdfPageRenderer* self, const char* param1) {
 }
 
 int QPdfPageRenderer_Metacall(QPdfPageRenderer* self, int param1, int param2, void** param3) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQPdfPageRenderer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QPdfPageRenderer_OnMetacall(QPdfPageRenderer* self, intptr_t slot) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_Metacall_Callback(reinterpret_cast<VirtualQPdfPageRenderer::QPdfPageRenderer_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QPdfPageRenderer_QBaseMetacall(QPdfPageRenderer* self, int param1, int param2, void** param3) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_Metacall_IsBase(true);
         return vqpdfpagerenderer->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQPdfPageRenderer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -120,7 +116,7 @@ void QPdfPageRenderer_Connect_RenderModeChanged(QPdfPageRenderer* self, intptr_t
     });
 }
 
-void QPdfPageRenderer_PageRendered(QPdfPageRenderer* self, int pageNumber, QSize* imageSize, QImage* image, QPdfDocumentRenderOptions* options, unsigned long long requestId) {
+void QPdfPageRenderer_PageRendered(QPdfPageRenderer* self, int pageNumber, QSize* imageSize, const QImage* image, QPdfDocumentRenderOptions* options, unsigned long long requestId) {
     self->pageRendered(static_cast<int>(pageNumber), *imageSize, *image, *options, static_cast<quint64>(requestId));
 }
 
@@ -168,286 +164,319 @@ unsigned long long QPdfPageRenderer_RequestPage3(QPdfPageRenderer* self, int pag
 
 // Derived class handler implementation
 bool QPdfPageRenderer_Event(QPdfPageRenderer* self, QEvent* event) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         return vqpdfpagerenderer->event(event);
     } else {
-        return vqpdfpagerenderer->event(event);
+        return self->QPdfPageRenderer::event(event);
     }
 }
 
 // Base class handler implementation
 bool QPdfPageRenderer_QBaseEvent(QPdfPageRenderer* self, QEvent* event) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_Event_IsBase(true);
         return vqpdfpagerenderer->event(event);
     } else {
-        return vqpdfpagerenderer->event(event);
+        return self->QPdfPageRenderer::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageRenderer_OnEvent(QPdfPageRenderer* self, intptr_t slot) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_Event_Callback(reinterpret_cast<VirtualQPdfPageRenderer::QPdfPageRenderer_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QPdfPageRenderer_EventFilter(QPdfPageRenderer* self, QObject* watched, QEvent* event) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         return vqpdfpagerenderer->eventFilter(watched, event);
     } else {
-        return vqpdfpagerenderer->eventFilter(watched, event);
+        return self->QPdfPageRenderer::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QPdfPageRenderer_QBaseEventFilter(QPdfPageRenderer* self, QObject* watched, QEvent* event) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_EventFilter_IsBase(true);
         return vqpdfpagerenderer->eventFilter(watched, event);
     } else {
-        return vqpdfpagerenderer->eventFilter(watched, event);
+        return self->QPdfPageRenderer::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageRenderer_OnEventFilter(QPdfPageRenderer* self, intptr_t slot) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_EventFilter_Callback(reinterpret_cast<VirtualQPdfPageRenderer::QPdfPageRenderer_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QPdfPageRenderer_TimerEvent(QPdfPageRenderer* self, QTimerEvent* event) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->timerEvent(event);
     } else {
-        vqpdfpagerenderer->timerEvent(event);
+        ((VirtualQPdfPageRenderer*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QPdfPageRenderer_QBaseTimerEvent(QPdfPageRenderer* self, QTimerEvent* event) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_TimerEvent_IsBase(true);
         vqpdfpagerenderer->timerEvent(event);
     } else {
-        vqpdfpagerenderer->timerEvent(event);
+        ((VirtualQPdfPageRenderer*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageRenderer_OnTimerEvent(QPdfPageRenderer* self, intptr_t slot) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_TimerEvent_Callback(reinterpret_cast<VirtualQPdfPageRenderer::QPdfPageRenderer_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QPdfPageRenderer_ChildEvent(QPdfPageRenderer* self, QChildEvent* event) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->childEvent(event);
     } else {
-        vqpdfpagerenderer->childEvent(event);
+        ((VirtualQPdfPageRenderer*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QPdfPageRenderer_QBaseChildEvent(QPdfPageRenderer* self, QChildEvent* event) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_ChildEvent_IsBase(true);
         vqpdfpagerenderer->childEvent(event);
     } else {
-        vqpdfpagerenderer->childEvent(event);
+        ((VirtualQPdfPageRenderer*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageRenderer_OnChildEvent(QPdfPageRenderer* self, intptr_t slot) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_ChildEvent_Callback(reinterpret_cast<VirtualQPdfPageRenderer::QPdfPageRenderer_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QPdfPageRenderer_CustomEvent(QPdfPageRenderer* self, QEvent* event) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->customEvent(event);
     } else {
-        vqpdfpagerenderer->customEvent(event);
+        ((VirtualQPdfPageRenderer*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QPdfPageRenderer_QBaseCustomEvent(QPdfPageRenderer* self, QEvent* event) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_CustomEvent_IsBase(true);
         vqpdfpagerenderer->customEvent(event);
     } else {
-        vqpdfpagerenderer->customEvent(event);
+        ((VirtualQPdfPageRenderer*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageRenderer_OnCustomEvent(QPdfPageRenderer* self, intptr_t slot) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_CustomEvent_Callback(reinterpret_cast<VirtualQPdfPageRenderer::QPdfPageRenderer_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QPdfPageRenderer_ConnectNotify(QPdfPageRenderer* self, QMetaMethod* signal) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+void QPdfPageRenderer_ConnectNotify(QPdfPageRenderer* self, const QMetaMethod* signal) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->connectNotify(*signal);
     } else {
-        vqpdfpagerenderer->connectNotify(*signal);
+        ((VirtualQPdfPageRenderer*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QPdfPageRenderer_QBaseConnectNotify(QPdfPageRenderer* self, QMetaMethod* signal) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+void QPdfPageRenderer_QBaseConnectNotify(QPdfPageRenderer* self, const QMetaMethod* signal) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_ConnectNotify_IsBase(true);
         vqpdfpagerenderer->connectNotify(*signal);
     } else {
-        vqpdfpagerenderer->connectNotify(*signal);
+        ((VirtualQPdfPageRenderer*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageRenderer_OnConnectNotify(QPdfPageRenderer* self, intptr_t slot) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_ConnectNotify_Callback(reinterpret_cast<VirtualQPdfPageRenderer::QPdfPageRenderer_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QPdfPageRenderer_DisconnectNotify(QPdfPageRenderer* self, QMetaMethod* signal) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+void QPdfPageRenderer_DisconnectNotify(QPdfPageRenderer* self, const QMetaMethod* signal) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->disconnectNotify(*signal);
     } else {
-        vqpdfpagerenderer->disconnectNotify(*signal);
+        ((VirtualQPdfPageRenderer*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QPdfPageRenderer_QBaseDisconnectNotify(QPdfPageRenderer* self, QMetaMethod* signal) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+void QPdfPageRenderer_QBaseDisconnectNotify(QPdfPageRenderer* self, const QMetaMethod* signal) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_DisconnectNotify_IsBase(true);
         vqpdfpagerenderer->disconnectNotify(*signal);
     } else {
-        vqpdfpagerenderer->disconnectNotify(*signal);
+        ((VirtualQPdfPageRenderer*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageRenderer_OnDisconnectNotify(QPdfPageRenderer* self, intptr_t slot) {
-    if (auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self)) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_DisconnectNotify_Callback(reinterpret_cast<VirtualQPdfPageRenderer::QPdfPageRenderer_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QPdfPageRenderer_Sender(const QPdfPageRenderer* self) {
-    if (auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self))) {
+    auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         return vqpdfpagerenderer->sender();
     } else {
-        return vqpdfpagerenderer->sender();
+        return ((VirtualQPdfPageRenderer*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QPdfPageRenderer_QBaseSender(const QPdfPageRenderer* self) {
-    if (auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self))) {
+    auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_Sender_IsBase(true);
         return vqpdfpagerenderer->sender();
     } else {
-        return vqpdfpagerenderer->sender();
+        return ((VirtualQPdfPageRenderer*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageRenderer_OnSender(const QPdfPageRenderer* self, intptr_t slot) {
-    if (auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self))) {
+    auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_Sender_Callback(reinterpret_cast<VirtualQPdfPageRenderer::QPdfPageRenderer_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QPdfPageRenderer_SenderSignalIndex(const QPdfPageRenderer* self) {
-    if (auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self))) {
+    auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         return vqpdfpagerenderer->senderSignalIndex();
     } else {
-        return vqpdfpagerenderer->senderSignalIndex();
+        return ((VirtualQPdfPageRenderer*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QPdfPageRenderer_QBaseSenderSignalIndex(const QPdfPageRenderer* self) {
-    if (auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self))) {
+    auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_SenderSignalIndex_IsBase(true);
         return vqpdfpagerenderer->senderSignalIndex();
     } else {
-        return vqpdfpagerenderer->senderSignalIndex();
+        return ((VirtualQPdfPageRenderer*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageRenderer_OnSenderSignalIndex(const QPdfPageRenderer* self, intptr_t slot) {
-    if (auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self))) {
+    auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPdfPageRenderer::QPdfPageRenderer_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QPdfPageRenderer_Receivers(const QPdfPageRenderer* self, const char* signal) {
-    if (auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self))) {
+    auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         return vqpdfpagerenderer->receivers(signal);
     } else {
-        return vqpdfpagerenderer->receivers(signal);
+        return ((VirtualQPdfPageRenderer*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QPdfPageRenderer_QBaseReceivers(const QPdfPageRenderer* self, const char* signal) {
-    if (auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self))) {
+    auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_Receivers_IsBase(true);
         return vqpdfpagerenderer->receivers(signal);
     } else {
-        return vqpdfpagerenderer->receivers(signal);
+        return ((VirtualQPdfPageRenderer*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageRenderer_OnReceivers(const QPdfPageRenderer* self, intptr_t slot) {
-    if (auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self))) {
+    auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_Receivers_Callback(reinterpret_cast<VirtualQPdfPageRenderer::QPdfPageRenderer_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QPdfPageRenderer_IsSignalConnected(const QPdfPageRenderer* self, QMetaMethod* signal) {
-    if (auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self))) {
+bool QPdfPageRenderer_IsSignalConnected(const QPdfPageRenderer* self, const QMetaMethod* signal) {
+    auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         return vqpdfpagerenderer->isSignalConnected(*signal);
     } else {
-        return vqpdfpagerenderer->isSignalConnected(*signal);
+        return ((VirtualQPdfPageRenderer*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QPdfPageRenderer_QBaseIsSignalConnected(const QPdfPageRenderer* self, QMetaMethod* signal) {
-    if (auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self))) {
+bool QPdfPageRenderer_QBaseIsSignalConnected(const QPdfPageRenderer* self, const QMetaMethod* signal) {
+    auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_IsSignalConnected_IsBase(true);
         return vqpdfpagerenderer->isSignalConnected(*signal);
     } else {
-        return vqpdfpagerenderer->isSignalConnected(*signal);
+        return ((VirtualQPdfPageRenderer*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageRenderer_OnIsSignalConnected(const QPdfPageRenderer* self, intptr_t slot) {
-    if (auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self))) {
+    auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_IsSignalConnected_Callback(reinterpret_cast<VirtualQPdfPageRenderer::QPdfPageRenderer_IsSignalConnected_Callback>(slot));
     }
 }

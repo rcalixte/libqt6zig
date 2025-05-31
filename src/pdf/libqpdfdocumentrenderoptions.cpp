@@ -5,7 +5,7 @@
 #include "libqpdfdocumentrenderoptions.h"
 #include "libqpdfdocumentrenderoptions.hxx"
 
-QPdfDocumentRenderOptions* QPdfDocumentRenderOptions_new(QPdfDocumentRenderOptions* other) {
+QPdfDocumentRenderOptions* QPdfDocumentRenderOptions_new(const QPdfDocumentRenderOptions* other) {
     return new QPdfDocumentRenderOptions(*other);
 }
 
@@ -17,7 +17,7 @@ QPdfDocumentRenderOptions* QPdfDocumentRenderOptions_new3() {
     return new QPdfDocumentRenderOptions();
 }
 
-QPdfDocumentRenderOptions* QPdfDocumentRenderOptions_new4(QPdfDocumentRenderOptions* param1) {
+QPdfDocumentRenderOptions* QPdfDocumentRenderOptions_new4(const QPdfDocumentRenderOptions* param1) {
     return new QPdfDocumentRenderOptions(*param1);
 }
 
@@ -49,7 +49,7 @@ QRect* QPdfDocumentRenderOptions_ScaledClipRect(const QPdfDocumentRenderOptions*
     return new QRect(self->scaledClipRect());
 }
 
-void QPdfDocumentRenderOptions_SetScaledClipRect(QPdfDocumentRenderOptions* self, QRect* r) {
+void QPdfDocumentRenderOptions_SetScaledClipRect(QPdfDocumentRenderOptions* self, const QRect* r) {
     self->setScaledClipRect(*r);
 }
 
@@ -57,7 +57,7 @@ QSize* QPdfDocumentRenderOptions_ScaledSize(const QPdfDocumentRenderOptions* sel
     return new QSize(self->scaledSize());
 }
 
-void QPdfDocumentRenderOptions_SetScaledSize(QPdfDocumentRenderOptions* self, QSize* s) {
+void QPdfDocumentRenderOptions_SetScaledSize(QPdfDocumentRenderOptions* self, const QSize* s) {
     self->setScaledSize(*s);
 }
 

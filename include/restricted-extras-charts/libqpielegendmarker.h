@@ -15,30 +15,18 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAbstractSeries QAbstractSeries;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
-typedef struct QBrush QBrush;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
-typedef struct QFont QFont;
 typedef struct QLegend QLegend;
 typedef struct QLegendMarker QLegendMarker;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QPen QPen;
 typedef struct QPieLegendMarker QPieLegendMarker;
 typedef struct QPieSeries QPieSeries;
 typedef struct QPieSlice QPieSlice;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QPieLegendMarker* QPieLegendMarker_new(QPieSeries* series, QPieSlice* slice, QLegend* legend);
@@ -73,12 +61,12 @@ void QPieLegendMarker_QBaseChildEvent(QPieLegendMarker* self, QChildEvent* event
 void QPieLegendMarker_CustomEvent(QPieLegendMarker* self, QEvent* event);
 void QPieLegendMarker_OnCustomEvent(QPieLegendMarker* self, intptr_t slot);
 void QPieLegendMarker_QBaseCustomEvent(QPieLegendMarker* self, QEvent* event);
-void QPieLegendMarker_ConnectNotify(QPieLegendMarker* self, QMetaMethod* signal);
+void QPieLegendMarker_ConnectNotify(QPieLegendMarker* self, const QMetaMethod* signal);
 void QPieLegendMarker_OnConnectNotify(QPieLegendMarker* self, intptr_t slot);
-void QPieLegendMarker_QBaseConnectNotify(QPieLegendMarker* self, QMetaMethod* signal);
-void QPieLegendMarker_DisconnectNotify(QPieLegendMarker* self, QMetaMethod* signal);
+void QPieLegendMarker_QBaseConnectNotify(QPieLegendMarker* self, const QMetaMethod* signal);
+void QPieLegendMarker_DisconnectNotify(QPieLegendMarker* self, const QMetaMethod* signal);
 void QPieLegendMarker_OnDisconnectNotify(QPieLegendMarker* self, intptr_t slot);
-void QPieLegendMarker_QBaseDisconnectNotify(QPieLegendMarker* self, QMetaMethod* signal);
+void QPieLegendMarker_QBaseDisconnectNotify(QPieLegendMarker* self, const QMetaMethod* signal);
 QObject* QPieLegendMarker_Sender(const QPieLegendMarker* self);
 void QPieLegendMarker_OnSender(const QPieLegendMarker* self, intptr_t slot);
 QObject* QPieLegendMarker_QBaseSender(const QPieLegendMarker* self);
@@ -88,9 +76,9 @@ int QPieLegendMarker_QBaseSenderSignalIndex(const QPieLegendMarker* self);
 int QPieLegendMarker_Receivers(const QPieLegendMarker* self, const char* signal);
 void QPieLegendMarker_OnReceivers(const QPieLegendMarker* self, intptr_t slot);
 int QPieLegendMarker_QBaseReceivers(const QPieLegendMarker* self, const char* signal);
-bool QPieLegendMarker_IsSignalConnected(const QPieLegendMarker* self, QMetaMethod* signal);
+bool QPieLegendMarker_IsSignalConnected(const QPieLegendMarker* self, const QMetaMethod* signal);
 void QPieLegendMarker_OnIsSignalConnected(const QPieLegendMarker* self, intptr_t slot);
-bool QPieLegendMarker_QBaseIsSignalConnected(const QPieLegendMarker* self, QMetaMethod* signal);
+bool QPieLegendMarker_QBaseIsSignalConnected(const QPieLegendMarker* self, const QMetaMethod* signal);
 void QPieLegendMarker_Delete(QPieLegendMarker* self);
 
 #ifdef __cplusplus

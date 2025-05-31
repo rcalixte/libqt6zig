@@ -12,11 +12,11 @@ QPageRanges* QPageRanges_new() {
     return new QPageRanges();
 }
 
-QPageRanges* QPageRanges_new2(QPageRanges* other) {
+QPageRanges* QPageRanges_new2(const QPageRanges* other) {
     return new QPageRanges(*other);
 }
 
-void QPageRanges_OperatorAssign(QPageRanges* self, QPageRanges* other) {
+void QPageRanges_OperatorAssign(QPageRanges* self, const QPageRanges* other) {
     self->operator=(*other);
 }
 
@@ -61,7 +61,7 @@ libqt_string QPageRanges_ToString(const QPageRanges* self) {
     return _str;
 }
 
-QPageRanges* QPageRanges_FromString(libqt_string ranges) {
+QPageRanges* QPageRanges_FromString(const libqt_string ranges) {
     QString ranges_QString = QString::fromUtf8(ranges.data, ranges.len);
     return new QPageRanges(QPageRanges::fromString(ranges_QString));
 }
@@ -90,7 +90,7 @@ void QPageRanges_Delete(QPageRanges* self) {
     delete self;
 }
 
-QPageRanges__Range* QPageRanges__Range_new(QPageRanges__Range* other) {
+QPageRanges__Range* QPageRanges__Range_new(const QPageRanges__Range* other) {
     return new QPageRanges::Range(*other);
 }
 
@@ -102,7 +102,7 @@ QPageRanges__Range* QPageRanges__Range_new3() {
     return new QPageRanges::Range();
 }
 
-QPageRanges__Range* QPageRanges__Range_new4(QPageRanges__Range* param1) {
+QPageRanges__Range* QPageRanges__Range_new4(const QPageRanges__Range* param1) {
     return new QPageRanges::Range(*param1);
 }
 

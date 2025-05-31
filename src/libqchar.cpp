@@ -7,7 +7,7 @@
 #include "libqchar.h"
 #include "libqchar.hxx"
 
-QLatin1Char* QLatin1Char_new(QLatin1Char* other) {
+QLatin1Char* QLatin1Char_new(const QLatin1Char* other) {
     return new QLatin1Char(*other);
 }
 
@@ -19,7 +19,7 @@ QLatin1Char* QLatin1Char_new3(char c) {
     return new QLatin1Char(static_cast<char>(c));
 }
 
-QLatin1Char* QLatin1Char_new4(QLatin1Char* param1) {
+QLatin1Char* QLatin1Char_new4(const QLatin1Char* param1) {
     return new QLatin1Char(*param1);
 }
 
@@ -39,7 +39,7 @@ void QLatin1Char_Delete(QLatin1Char* self) {
     delete self;
 }
 
-QChar* QChar_new(QChar* other) {
+QChar* QChar_new(const QChar* other) {
     return new QChar(*other);
 }
 
@@ -87,7 +87,7 @@ QChar* QChar_new12(unsigned char c) {
     return new QChar(static_cast<uchar>(c));
 }
 
-QChar* QChar_new13(QChar* param1) {
+QChar* QChar_new13(const QChar* param1) {
     return new QChar(*param1);
 }
 

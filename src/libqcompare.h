@@ -27,9 +27,9 @@ typedef signed char Ordering;     // C ABI enum
 typedef signed char Uncomparable; // C ABI enum
 #endif
 
-QPartialOrdering* QPartialOrdering_new(QPartialOrdering* other);
+QPartialOrdering* QPartialOrdering_new(const QPartialOrdering* other);
 QPartialOrdering* QPartialOrdering_new2(QPartialOrdering* other);
-QPartialOrdering* QPartialOrdering_new3(QPartialOrdering* param1);
+QPartialOrdering* QPartialOrdering_new3(const QPartialOrdering* param1);
 void QPartialOrdering_CopyAssign(QPartialOrdering* self, QPartialOrdering* other);
 void QPartialOrdering_MoveAssign(QPartialOrdering* self, QPartialOrdering* other);
 void QPartialOrdering_Delete(QPartialOrdering* self);

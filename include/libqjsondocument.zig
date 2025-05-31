@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qjsondocument_enums = enums;
 const std = @import("std");
 
@@ -6,50 +7,52 @@ const std = @import("std");
 pub const qjsonparseerror = struct {
     /// New constructs a new QJsonParseError object.
     ///
-    /// ``` other: ?*C.QJsonParseError ```
-    pub fn New(other: ?*anyopaque) ?*C.QJsonParseError {
-        return C.QJsonParseError_new(@ptrCast(other));
+    /// ``` other: QtC.QJsonParseError ```
+    pub fn New(other: ?*anyopaque) QtC.QJsonParseError {
+        return qtc.QJsonParseError_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QJsonParseError object and invalidates the source QJsonParseError object.
     ///
-    /// ``` other: ?*C.QJsonParseError ```
-    pub fn New2(other: ?*anyopaque) ?*C.QJsonParseError {
-        return C.QJsonParseError_new2(@ptrCast(other));
+    /// ``` other: QtC.QJsonParseError ```
+    pub fn New2(other: ?*anyopaque) QtC.QJsonParseError {
+        return qtc.QJsonParseError_new2(@ptrCast(other));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QJsonParseError, other: ?*QJsonParseError ```
+    /// ``` self: QtC.QJsonParseError, other: QtC.QJsonParseError ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QJsonParseError_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QJsonParseError_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QJsonParseError, other: ?*QJsonParseError ```
+    /// ``` self: QtC.QJsonParseError, other: QtC.QJsonParseError ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QJsonParseError_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QJsonParseError_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonparseerror.html#errorString)
     ///
-    /// ``` self: ?*C.QJsonParseError, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QJsonParseError, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QJsonParseError_ErrorString(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QJsonParseError_ErrorString(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qjsonparseerror.ErrorString: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonparseerror.html#dtor.QJsonParseError)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QJsonParseError ```
+    /// ``` self: QtC.QJsonParseError ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QJsonParseError_Delete(@ptrCast(self));
+        qtc.QJsonParseError_Delete(@ptrCast(self));
     }
 };
 
@@ -58,77 +61,77 @@ pub const qjsondocument = struct {
     /// New constructs a new QJsonDocument object.
     ///
     ///
-    pub fn New() ?*C.QJsonDocument {
-        return C.QJsonDocument_new();
+    pub fn New() QtC.QJsonDocument {
+        return qtc.QJsonDocument_new();
     }
 
     /// New2 constructs a new QJsonDocument object.
     ///
-    /// ``` object: ?*C.QJsonObject ```
-    pub fn New2(object: ?*anyopaque) ?*C.QJsonDocument {
-        return C.QJsonDocument_new2(@ptrCast(object));
+    /// ``` object: QtC.QJsonObject ```
+    pub fn New2(object: ?*anyopaque) QtC.QJsonDocument {
+        return qtc.QJsonDocument_new2(@ptrCast(object));
     }
 
     /// New3 constructs a new QJsonDocument object.
     ///
-    /// ``` array: ?*C.QJsonArray ```
-    pub fn New3(array: ?*anyopaque) ?*C.QJsonDocument {
-        return C.QJsonDocument_new3(@ptrCast(array));
+    /// ``` array: QtC.QJsonArray ```
+    pub fn New3(array: ?*anyopaque) QtC.QJsonDocument {
+        return qtc.QJsonDocument_new3(@ptrCast(array));
     }
 
     /// New4 constructs a new QJsonDocument object.
     ///
-    /// ``` other: ?*C.QJsonDocument ```
-    pub fn New4(other: ?*anyopaque) ?*C.QJsonDocument {
-        return C.QJsonDocument_new4(@ptrCast(other));
+    /// ``` other: QtC.QJsonDocument ```
+    pub fn New4(other: ?*anyopaque) QtC.QJsonDocument {
+        return qtc.QJsonDocument_new4(@ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#operator=)
     ///
-    /// ``` self: ?*C.QJsonDocument, other: ?*C.QJsonDocument ```
+    /// ``` self: QtC.QJsonDocument, other: QtC.QJsonDocument ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QJsonDocument_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QJsonDocument_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#swap)
     ///
-    /// ``` self: ?*C.QJsonDocument, other: ?*C.QJsonDocument ```
+    /// ``` self: QtC.QJsonDocument, other: QtC.QJsonDocument ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QJsonDocument_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QJsonDocument_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#fromVariant)
     ///
-    /// ``` variant: ?*C.QVariant ```
-    pub fn FromVariant(variant: ?*anyopaque) ?*C.QJsonDocument {
-        return C.QJsonDocument_FromVariant(@ptrCast(variant));
+    /// ``` variant: QtC.QVariant ```
+    pub fn FromVariant(variant: ?*anyopaque) QtC.QJsonDocument {
+        return qtc.QJsonDocument_FromVariant(@ptrCast(variant));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#toVariant)
     ///
-    /// ``` self: ?*C.QJsonDocument ```
-    pub fn ToVariant(self: ?*anyopaque) ?*C.QVariant {
-        return C.QJsonDocument_ToVariant(@ptrCast(self));
+    /// ``` self: QtC.QJsonDocument ```
+    pub fn ToVariant(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QJsonDocument_ToVariant(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#fromJson)
     ///
     /// ``` json: []u8 ```
-    pub fn FromJson(json: []u8) ?*C.QJsonDocument {
-        const json_str = C.struct_libqt_string{
+    pub fn FromJson(json: []u8) QtC.QJsonDocument {
+        const json_str = qtc.struct_libqt_string{
             .len = json.len,
             .data = @constCast(json.ptr),
         };
-        return C.QJsonDocument_FromJson(json_str);
+        return qtc.QJsonDocument_FromJson(json_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#toJson)
     ///
-    /// ``` self: ?*C.QJsonDocument, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QJsonDocument, allocator: std.mem.Allocator ```
     pub fn ToJson(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: C.struct_libqt_string = C.QJsonDocument_ToJson(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_bytearray));
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Memory allocation failed");
+        const _bytearray: qtc.struct_libqt_string = qtc.QJsonDocument_ToJson(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qjsondocument.ToJson: Memory allocation failed");
         for (0.._bytearray.len) |_i| {
             _ret[_i] = _bytearray.data[_i];
         }
@@ -137,121 +140,123 @@ pub const qjsondocument = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#isEmpty)
     ///
-    /// ``` self: ?*C.QJsonDocument ```
+    /// ``` self: QtC.QJsonDocument ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
-        return C.QJsonDocument_IsEmpty(@ptrCast(self));
+        return qtc.QJsonDocument_IsEmpty(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#isArray)
     ///
-    /// ``` self: ?*C.QJsonDocument ```
+    /// ``` self: QtC.QJsonDocument ```
     pub fn IsArray(self: ?*anyopaque) bool {
-        return C.QJsonDocument_IsArray(@ptrCast(self));
+        return qtc.QJsonDocument_IsArray(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#isObject)
     ///
-    /// ``` self: ?*C.QJsonDocument ```
+    /// ``` self: QtC.QJsonDocument ```
     pub fn IsObject(self: ?*anyopaque) bool {
-        return C.QJsonDocument_IsObject(@ptrCast(self));
+        return qtc.QJsonDocument_IsObject(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#object)
     ///
-    /// ``` self: ?*C.QJsonDocument ```
-    pub fn Object(self: ?*anyopaque) ?*C.QJsonObject {
-        return C.QJsonDocument_Object(@ptrCast(self));
+    /// ``` self: QtC.QJsonDocument ```
+    pub fn Object(self: ?*anyopaque) QtC.QJsonObject {
+        return qtc.QJsonDocument_Object(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#array)
     ///
-    /// ``` self: ?*C.QJsonDocument ```
-    pub fn Array(self: ?*anyopaque) ?*C.QJsonArray {
-        return C.QJsonDocument_Array(@ptrCast(self));
+    /// ``` self: QtC.QJsonDocument ```
+    pub fn Array(self: ?*anyopaque) QtC.QJsonArray {
+        return qtc.QJsonDocument_Array(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#setObject)
     ///
-    /// ``` self: ?*C.QJsonDocument, object: ?*C.QJsonObject ```
+    /// ``` self: QtC.QJsonDocument, object: QtC.QJsonObject ```
     pub fn SetObject(self: ?*anyopaque, object: ?*anyopaque) void {
-        C.QJsonDocument_SetObject(@ptrCast(self), @ptrCast(object));
+        qtc.QJsonDocument_SetObject(@ptrCast(self), @ptrCast(object));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#setArray)
     ///
-    /// ``` self: ?*C.QJsonDocument, array: ?*C.QJsonArray ```
+    /// ``` self: QtC.QJsonDocument, array: QtC.QJsonArray ```
     pub fn SetArray(self: ?*anyopaque, array: ?*anyopaque) void {
-        C.QJsonDocument_SetArray(@ptrCast(self), @ptrCast(array));
+        qtc.QJsonDocument_SetArray(@ptrCast(self), @ptrCast(array));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#operator[])
     ///
-    /// ``` self: ?*C.QJsonDocument, key: []const u8 ```
-    pub fn OperatorSubscript(self: ?*anyopaque, key: []const u8) ?*C.QJsonValue {
-        const key_str = C.struct_libqt_string{
+    /// ``` self: QtC.QJsonDocument, key: []const u8 ```
+    pub fn OperatorSubscript(self: ?*anyopaque, key: []const u8) QtC.QJsonValue {
+        const key_str = qtc.struct_libqt_string{
             .len = key.len,
             .data = @constCast(key.ptr),
         };
-        return C.QJsonDocument_OperatorSubscript(@ptrCast(self), key_str);
+        return qtc.QJsonDocument_OperatorSubscript(@ptrCast(self), key_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#operator[])
     ///
-    /// ``` self: ?*C.QJsonDocument, i: i64 ```
-    pub fn OperatorSubscriptWithQsizetype(self: ?*anyopaque, i: i64) ?*C.QJsonValue {
-        return C.QJsonDocument_OperatorSubscriptWithQsizetype(@ptrCast(self), @intCast(i));
+    /// ``` self: QtC.QJsonDocument, i: i64 ```
+    pub fn OperatorSubscriptWithQsizetype(self: ?*anyopaque, i: i64) QtC.QJsonValue {
+        return qtc.QJsonDocument_OperatorSubscriptWithQsizetype(@ptrCast(self), @intCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#operator==)
     ///
-    /// ``` self: ?*C.QJsonDocument, other: ?*C.QJsonDocument ```
+    /// ``` self: QtC.QJsonDocument, other: QtC.QJsonDocument ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return C.QJsonDocument_OperatorEqual(@ptrCast(self), @ptrCast(other));
+        return qtc.QJsonDocument_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#operator!=)
     ///
-    /// ``` self: ?*C.QJsonDocument, other: ?*C.QJsonDocument ```
+    /// ``` self: QtC.QJsonDocument, other: QtC.QJsonDocument ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return C.QJsonDocument_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
+        return qtc.QJsonDocument_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#isNull)
     ///
-    /// ``` self: ?*C.QJsonDocument ```
+    /// ``` self: QtC.QJsonDocument ```
     pub fn IsNull(self: ?*anyopaque) bool {
-        return C.QJsonDocument_IsNull(@ptrCast(self));
+        return qtc.QJsonDocument_IsNull(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#fromJson)
     ///
-    /// ``` json: []u8, errorVal: ?*C.QJsonParseError ```
-    pub fn FromJson2(json: []u8, errorVal: ?*anyopaque) ?*C.QJsonDocument {
-        const json_str = C.struct_libqt_string{
+    /// ``` json: []u8, errorVal: QtC.QJsonParseError ```
+    pub fn FromJson2(json: []u8, errorVal: ?*anyopaque) QtC.QJsonDocument {
+        const json_str = qtc.struct_libqt_string{
             .len = json.len,
             .data = @constCast(json.ptr),
         };
-        return C.QJsonDocument_FromJson2(json_str, @ptrCast(errorVal));
+        return qtc.QJsonDocument_FromJson2(json_str, @ptrCast(errorVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#toJson)
     ///
-    /// ``` self: ?*C.QJsonDocument, format: qjsondocument_enums.JsonFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QJsonDocument, format: qjsondocument_enums.JsonFormat, allocator: std.mem.Allocator ```
     pub fn ToJson1(self: ?*anyopaque, format: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: C.struct_libqt_string = C.QJsonDocument_ToJson1(@ptrCast(self), @intCast(format));
-        defer C.libqt_string_free(@constCast(&_bytearray));
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Memory allocation failed");
+        const _bytearray: qtc.struct_libqt_string = qtc.QJsonDocument_ToJson1(@ptrCast(self), @intCast(format));
+        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qjsondocument.ToJson1: Memory allocation failed");
         for (0.._bytearray.len) |_i| {
             _ret[_i] = _bytearray.data[_i];
         }
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#dtor.QJsonDocument)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QJsonDocument ```
+    /// ``` self: QtC.QJsonDocument ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QJsonDocument_Delete(@ptrCast(self));
+        qtc.QJsonDocument_Delete(@ptrCast(self));
     }
 };
 

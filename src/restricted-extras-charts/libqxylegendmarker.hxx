@@ -11,24 +11,27 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QXYLegendMarker so that we can call protected methods
-class VirtualQXYLegendMarker : public QXYLegendMarker {
+class VirtualQXYLegendMarker final : public QXYLegendMarker {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQXYLegendMarker = true;
+
     // Virtual class public types (including callbacks)
-    using QXYLegendMarker_Metacall_Callback = int (*)(QXYLegendMarker*, QMetaObject::Call, int, void**);
-    using QXYLegendMarker_Type_Callback = QLegendMarker::LegendMarkerType (*)();
+    using QXYLegendMarker_Metacall_Callback = int (*)(QXYLegendMarker*, int, int, void**);
+    using QXYLegendMarker_Type_Callback = int (*)();
     using QXYLegendMarker_Series_Callback = QXYSeries* (*)();
     using QXYLegendMarker_Event_Callback = bool (*)(QXYLegendMarker*, QEvent*);
     using QXYLegendMarker_EventFilter_Callback = bool (*)(QXYLegendMarker*, QObject*, QEvent*);
     using QXYLegendMarker_TimerEvent_Callback = void (*)(QXYLegendMarker*, QTimerEvent*);
     using QXYLegendMarker_ChildEvent_Callback = void (*)(QXYLegendMarker*, QChildEvent*);
     using QXYLegendMarker_CustomEvent_Callback = void (*)(QXYLegendMarker*, QEvent*);
-    using QXYLegendMarker_ConnectNotify_Callback = void (*)(QXYLegendMarker*, const QMetaMethod&);
-    using QXYLegendMarker_DisconnectNotify_Callback = void (*)(QXYLegendMarker*, const QMetaMethod&);
+    using QXYLegendMarker_ConnectNotify_Callback = void (*)(QXYLegendMarker*, QMetaMethod*);
+    using QXYLegendMarker_DisconnectNotify_Callback = void (*)(QXYLegendMarker*, QMetaMethod*);
     using QXYLegendMarker_Sender_Callback = QObject* (*)();
     using QXYLegendMarker_SenderSignalIndex_Callback = int (*)();
     using QXYLegendMarker_Receivers_Callback = int (*)(const QXYLegendMarker*, const char*);
-    using QXYLegendMarker_IsSignalConnected_Callback = bool (*)(const QXYLegendMarker*, const QMetaMethod&);
+    using QXYLegendMarker_IsSignalConnected_Callback = bool (*)(const QXYLegendMarker*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -85,36 +88,36 @@ class VirtualQXYLegendMarker : public QXYLegendMarker {
     }
 
     // Callback setters
-    void setQXYLegendMarker_Metacall_Callback(QXYLegendMarker_Metacall_Callback cb) { qxylegendmarker_metacall_callback = cb; }
-    void setQXYLegendMarker_Type_Callback(QXYLegendMarker_Type_Callback cb) { qxylegendmarker_type_callback = cb; }
-    void setQXYLegendMarker_Series_Callback(QXYLegendMarker_Series_Callback cb) { qxylegendmarker_series_callback = cb; }
-    void setQXYLegendMarker_Event_Callback(QXYLegendMarker_Event_Callback cb) { qxylegendmarker_event_callback = cb; }
-    void setQXYLegendMarker_EventFilter_Callback(QXYLegendMarker_EventFilter_Callback cb) { qxylegendmarker_eventfilter_callback = cb; }
-    void setQXYLegendMarker_TimerEvent_Callback(QXYLegendMarker_TimerEvent_Callback cb) { qxylegendmarker_timerevent_callback = cb; }
-    void setQXYLegendMarker_ChildEvent_Callback(QXYLegendMarker_ChildEvent_Callback cb) { qxylegendmarker_childevent_callback = cb; }
-    void setQXYLegendMarker_CustomEvent_Callback(QXYLegendMarker_CustomEvent_Callback cb) { qxylegendmarker_customevent_callback = cb; }
-    void setQXYLegendMarker_ConnectNotify_Callback(QXYLegendMarker_ConnectNotify_Callback cb) { qxylegendmarker_connectnotify_callback = cb; }
-    void setQXYLegendMarker_DisconnectNotify_Callback(QXYLegendMarker_DisconnectNotify_Callback cb) { qxylegendmarker_disconnectnotify_callback = cb; }
-    void setQXYLegendMarker_Sender_Callback(QXYLegendMarker_Sender_Callback cb) { qxylegendmarker_sender_callback = cb; }
-    void setQXYLegendMarker_SenderSignalIndex_Callback(QXYLegendMarker_SenderSignalIndex_Callback cb) { qxylegendmarker_sendersignalindex_callback = cb; }
-    void setQXYLegendMarker_Receivers_Callback(QXYLegendMarker_Receivers_Callback cb) { qxylegendmarker_receivers_callback = cb; }
-    void setQXYLegendMarker_IsSignalConnected_Callback(QXYLegendMarker_IsSignalConnected_Callback cb) { qxylegendmarker_issignalconnected_callback = cb; }
+    inline void setQXYLegendMarker_Metacall_Callback(QXYLegendMarker_Metacall_Callback cb) { qxylegendmarker_metacall_callback = cb; }
+    inline void setQXYLegendMarker_Type_Callback(QXYLegendMarker_Type_Callback cb) { qxylegendmarker_type_callback = cb; }
+    inline void setQXYLegendMarker_Series_Callback(QXYLegendMarker_Series_Callback cb) { qxylegendmarker_series_callback = cb; }
+    inline void setQXYLegendMarker_Event_Callback(QXYLegendMarker_Event_Callback cb) { qxylegendmarker_event_callback = cb; }
+    inline void setQXYLegendMarker_EventFilter_Callback(QXYLegendMarker_EventFilter_Callback cb) { qxylegendmarker_eventfilter_callback = cb; }
+    inline void setQXYLegendMarker_TimerEvent_Callback(QXYLegendMarker_TimerEvent_Callback cb) { qxylegendmarker_timerevent_callback = cb; }
+    inline void setQXYLegendMarker_ChildEvent_Callback(QXYLegendMarker_ChildEvent_Callback cb) { qxylegendmarker_childevent_callback = cb; }
+    inline void setQXYLegendMarker_CustomEvent_Callback(QXYLegendMarker_CustomEvent_Callback cb) { qxylegendmarker_customevent_callback = cb; }
+    inline void setQXYLegendMarker_ConnectNotify_Callback(QXYLegendMarker_ConnectNotify_Callback cb) { qxylegendmarker_connectnotify_callback = cb; }
+    inline void setQXYLegendMarker_DisconnectNotify_Callback(QXYLegendMarker_DisconnectNotify_Callback cb) { qxylegendmarker_disconnectnotify_callback = cb; }
+    inline void setQXYLegendMarker_Sender_Callback(QXYLegendMarker_Sender_Callback cb) { qxylegendmarker_sender_callback = cb; }
+    inline void setQXYLegendMarker_SenderSignalIndex_Callback(QXYLegendMarker_SenderSignalIndex_Callback cb) { qxylegendmarker_sendersignalindex_callback = cb; }
+    inline void setQXYLegendMarker_Receivers_Callback(QXYLegendMarker_Receivers_Callback cb) { qxylegendmarker_receivers_callback = cb; }
+    inline void setQXYLegendMarker_IsSignalConnected_Callback(QXYLegendMarker_IsSignalConnected_Callback cb) { qxylegendmarker_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQXYLegendMarker_Metacall_IsBase(bool value) const { qxylegendmarker_metacall_isbase = value; }
-    void setQXYLegendMarker_Type_IsBase(bool value) const { qxylegendmarker_type_isbase = value; }
-    void setQXYLegendMarker_Series_IsBase(bool value) const { qxylegendmarker_series_isbase = value; }
-    void setQXYLegendMarker_Event_IsBase(bool value) const { qxylegendmarker_event_isbase = value; }
-    void setQXYLegendMarker_EventFilter_IsBase(bool value) const { qxylegendmarker_eventfilter_isbase = value; }
-    void setQXYLegendMarker_TimerEvent_IsBase(bool value) const { qxylegendmarker_timerevent_isbase = value; }
-    void setQXYLegendMarker_ChildEvent_IsBase(bool value) const { qxylegendmarker_childevent_isbase = value; }
-    void setQXYLegendMarker_CustomEvent_IsBase(bool value) const { qxylegendmarker_customevent_isbase = value; }
-    void setQXYLegendMarker_ConnectNotify_IsBase(bool value) const { qxylegendmarker_connectnotify_isbase = value; }
-    void setQXYLegendMarker_DisconnectNotify_IsBase(bool value) const { qxylegendmarker_disconnectnotify_isbase = value; }
-    void setQXYLegendMarker_Sender_IsBase(bool value) const { qxylegendmarker_sender_isbase = value; }
-    void setQXYLegendMarker_SenderSignalIndex_IsBase(bool value) const { qxylegendmarker_sendersignalindex_isbase = value; }
-    void setQXYLegendMarker_Receivers_IsBase(bool value) const { qxylegendmarker_receivers_isbase = value; }
-    void setQXYLegendMarker_IsSignalConnected_IsBase(bool value) const { qxylegendmarker_issignalconnected_isbase = value; }
+    inline void setQXYLegendMarker_Metacall_IsBase(bool value) const { qxylegendmarker_metacall_isbase = value; }
+    inline void setQXYLegendMarker_Type_IsBase(bool value) const { qxylegendmarker_type_isbase = value; }
+    inline void setQXYLegendMarker_Series_IsBase(bool value) const { qxylegendmarker_series_isbase = value; }
+    inline void setQXYLegendMarker_Event_IsBase(bool value) const { qxylegendmarker_event_isbase = value; }
+    inline void setQXYLegendMarker_EventFilter_IsBase(bool value) const { qxylegendmarker_eventfilter_isbase = value; }
+    inline void setQXYLegendMarker_TimerEvent_IsBase(bool value) const { qxylegendmarker_timerevent_isbase = value; }
+    inline void setQXYLegendMarker_ChildEvent_IsBase(bool value) const { qxylegendmarker_childevent_isbase = value; }
+    inline void setQXYLegendMarker_CustomEvent_IsBase(bool value) const { qxylegendmarker_customevent_isbase = value; }
+    inline void setQXYLegendMarker_ConnectNotify_IsBase(bool value) const { qxylegendmarker_connectnotify_isbase = value; }
+    inline void setQXYLegendMarker_DisconnectNotify_IsBase(bool value) const { qxylegendmarker_disconnectnotify_isbase = value; }
+    inline void setQXYLegendMarker_Sender_IsBase(bool value) const { qxylegendmarker_sender_isbase = value; }
+    inline void setQXYLegendMarker_SenderSignalIndex_IsBase(bool value) const { qxylegendmarker_sendersignalindex_isbase = value; }
+    inline void setQXYLegendMarker_Receivers_IsBase(bool value) const { qxylegendmarker_receivers_isbase = value; }
+    inline void setQXYLegendMarker_IsSignalConnected_IsBase(bool value) const { qxylegendmarker_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -122,7 +125,12 @@ class VirtualQXYLegendMarker : public QXYLegendMarker {
             qxylegendmarker_metacall_isbase = false;
             return QXYLegendMarker::qt_metacall(param1, param2, param3);
         } else if (qxylegendmarker_metacall_callback != nullptr) {
-            return qxylegendmarker_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qxylegendmarker_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QXYLegendMarker::qt_metacall(param1, param2, param3);
         }
@@ -134,7 +142,8 @@ class VirtualQXYLegendMarker : public QXYLegendMarker {
             qxylegendmarker_type_isbase = false;
             return QXYLegendMarker::type();
         } else if (qxylegendmarker_type_callback != nullptr) {
-            return qxylegendmarker_type_callback();
+            int callback_ret = qxylegendmarker_type_callback();
+            return static_cast<QLegendMarker::LegendMarkerType>(callback_ret);
         } else {
             return QXYLegendMarker::type();
         }
@@ -146,7 +155,8 @@ class VirtualQXYLegendMarker : public QXYLegendMarker {
             qxylegendmarker_series_isbase = false;
             return QXYLegendMarker::series();
         } else if (qxylegendmarker_series_callback != nullptr) {
-            return qxylegendmarker_series_callback();
+            QXYSeries* callback_ret = qxylegendmarker_series_callback();
+            return callback_ret;
         } else {
             return QXYLegendMarker::series();
         }
@@ -158,7 +168,10 @@ class VirtualQXYLegendMarker : public QXYLegendMarker {
             qxylegendmarker_event_isbase = false;
             return QXYLegendMarker::event(event);
         } else if (qxylegendmarker_event_callback != nullptr) {
-            return qxylegendmarker_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qxylegendmarker_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QXYLegendMarker::event(event);
         }
@@ -170,7 +183,11 @@ class VirtualQXYLegendMarker : public QXYLegendMarker {
             qxylegendmarker_eventfilter_isbase = false;
             return QXYLegendMarker::eventFilter(watched, event);
         } else if (qxylegendmarker_eventfilter_callback != nullptr) {
-            return qxylegendmarker_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qxylegendmarker_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QXYLegendMarker::eventFilter(watched, event);
         }
@@ -182,7 +199,9 @@ class VirtualQXYLegendMarker : public QXYLegendMarker {
             qxylegendmarker_timerevent_isbase = false;
             QXYLegendMarker::timerEvent(event);
         } else if (qxylegendmarker_timerevent_callback != nullptr) {
-            qxylegendmarker_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qxylegendmarker_timerevent_callback(this, cbval1);
         } else {
             QXYLegendMarker::timerEvent(event);
         }
@@ -194,7 +213,9 @@ class VirtualQXYLegendMarker : public QXYLegendMarker {
             qxylegendmarker_childevent_isbase = false;
             QXYLegendMarker::childEvent(event);
         } else if (qxylegendmarker_childevent_callback != nullptr) {
-            qxylegendmarker_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qxylegendmarker_childevent_callback(this, cbval1);
         } else {
             QXYLegendMarker::childEvent(event);
         }
@@ -206,7 +227,9 @@ class VirtualQXYLegendMarker : public QXYLegendMarker {
             qxylegendmarker_customevent_isbase = false;
             QXYLegendMarker::customEvent(event);
         } else if (qxylegendmarker_customevent_callback != nullptr) {
-            qxylegendmarker_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qxylegendmarker_customevent_callback(this, cbval1);
         } else {
             QXYLegendMarker::customEvent(event);
         }
@@ -218,7 +241,11 @@ class VirtualQXYLegendMarker : public QXYLegendMarker {
             qxylegendmarker_connectnotify_isbase = false;
             QXYLegendMarker::connectNotify(signal);
         } else if (qxylegendmarker_connectnotify_callback != nullptr) {
-            qxylegendmarker_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qxylegendmarker_connectnotify_callback(this, cbval1);
         } else {
             QXYLegendMarker::connectNotify(signal);
         }
@@ -230,7 +257,11 @@ class VirtualQXYLegendMarker : public QXYLegendMarker {
             qxylegendmarker_disconnectnotify_isbase = false;
             QXYLegendMarker::disconnectNotify(signal);
         } else if (qxylegendmarker_disconnectnotify_callback != nullptr) {
-            qxylegendmarker_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qxylegendmarker_disconnectnotify_callback(this, cbval1);
         } else {
             QXYLegendMarker::disconnectNotify(signal);
         }
@@ -242,7 +273,8 @@ class VirtualQXYLegendMarker : public QXYLegendMarker {
             qxylegendmarker_sender_isbase = false;
             return QXYLegendMarker::sender();
         } else if (qxylegendmarker_sender_callback != nullptr) {
-            return qxylegendmarker_sender_callback();
+            QObject* callback_ret = qxylegendmarker_sender_callback();
+            return callback_ret;
         } else {
             return QXYLegendMarker::sender();
         }
@@ -254,7 +286,8 @@ class VirtualQXYLegendMarker : public QXYLegendMarker {
             qxylegendmarker_sendersignalindex_isbase = false;
             return QXYLegendMarker::senderSignalIndex();
         } else if (qxylegendmarker_sendersignalindex_callback != nullptr) {
-            return qxylegendmarker_sendersignalindex_callback();
+            int callback_ret = qxylegendmarker_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QXYLegendMarker::senderSignalIndex();
         }
@@ -266,7 +299,10 @@ class VirtualQXYLegendMarker : public QXYLegendMarker {
             qxylegendmarker_receivers_isbase = false;
             return QXYLegendMarker::receivers(signal);
         } else if (qxylegendmarker_receivers_callback != nullptr) {
-            return qxylegendmarker_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qxylegendmarker_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QXYLegendMarker::receivers(signal);
         }
@@ -278,11 +314,36 @@ class VirtualQXYLegendMarker : public QXYLegendMarker {
             qxylegendmarker_issignalconnected_isbase = false;
             return QXYLegendMarker::isSignalConnected(signal);
         } else if (qxylegendmarker_issignalconnected_callback != nullptr) {
-            return qxylegendmarker_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qxylegendmarker_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QXYLegendMarker::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QXYLegendMarker_TimerEvent(QXYLegendMarker* self, QTimerEvent* event);
+    friend void QXYLegendMarker_QBaseTimerEvent(QXYLegendMarker* self, QTimerEvent* event);
+    friend void QXYLegendMarker_ChildEvent(QXYLegendMarker* self, QChildEvent* event);
+    friend void QXYLegendMarker_QBaseChildEvent(QXYLegendMarker* self, QChildEvent* event);
+    friend void QXYLegendMarker_CustomEvent(QXYLegendMarker* self, QEvent* event);
+    friend void QXYLegendMarker_QBaseCustomEvent(QXYLegendMarker* self, QEvent* event);
+    friend void QXYLegendMarker_ConnectNotify(QXYLegendMarker* self, const QMetaMethod* signal);
+    friend void QXYLegendMarker_QBaseConnectNotify(QXYLegendMarker* self, const QMetaMethod* signal);
+    friend void QXYLegendMarker_DisconnectNotify(QXYLegendMarker* self, const QMetaMethod* signal);
+    friend void QXYLegendMarker_QBaseDisconnectNotify(QXYLegendMarker* self, const QMetaMethod* signal);
+    friend QObject* QXYLegendMarker_Sender(const QXYLegendMarker* self);
+    friend QObject* QXYLegendMarker_QBaseSender(const QXYLegendMarker* self);
+    friend int QXYLegendMarker_SenderSignalIndex(const QXYLegendMarker* self);
+    friend int QXYLegendMarker_QBaseSenderSignalIndex(const QXYLegendMarker* self);
+    friend int QXYLegendMarker_Receivers(const QXYLegendMarker* self, const char* signal);
+    friend int QXYLegendMarker_QBaseReceivers(const QXYLegendMarker* self, const char* signal);
+    friend bool QXYLegendMarker_IsSignalConnected(const QXYLegendMarker* self, const QMetaMethod* signal);
+    friend bool QXYLegendMarker_QBaseIsSignalConnected(const QXYLegendMarker* self, const QMetaMethod* signal);
 };
 
 #endif

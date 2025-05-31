@@ -15,23 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QEventLoop QEventLoop;
 typedef struct QEventLoopLocker QEventLoopLocker;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
@@ -77,12 +70,12 @@ void QEventLoop_QBaseChildEvent(QEventLoop* self, QChildEvent* event);
 void QEventLoop_CustomEvent(QEventLoop* self, QEvent* event);
 void QEventLoop_OnCustomEvent(QEventLoop* self, intptr_t slot);
 void QEventLoop_QBaseCustomEvent(QEventLoop* self, QEvent* event);
-void QEventLoop_ConnectNotify(QEventLoop* self, QMetaMethod* signal);
+void QEventLoop_ConnectNotify(QEventLoop* self, const QMetaMethod* signal);
 void QEventLoop_OnConnectNotify(QEventLoop* self, intptr_t slot);
-void QEventLoop_QBaseConnectNotify(QEventLoop* self, QMetaMethod* signal);
-void QEventLoop_DisconnectNotify(QEventLoop* self, QMetaMethod* signal);
+void QEventLoop_QBaseConnectNotify(QEventLoop* self, const QMetaMethod* signal);
+void QEventLoop_DisconnectNotify(QEventLoop* self, const QMetaMethod* signal);
 void QEventLoop_OnDisconnectNotify(QEventLoop* self, intptr_t slot);
-void QEventLoop_QBaseDisconnectNotify(QEventLoop* self, QMetaMethod* signal);
+void QEventLoop_QBaseDisconnectNotify(QEventLoop* self, const QMetaMethod* signal);
 QObject* QEventLoop_Sender(const QEventLoop* self);
 void QEventLoop_OnSender(const QEventLoop* self, intptr_t slot);
 QObject* QEventLoop_QBaseSender(const QEventLoop* self);
@@ -92,9 +85,9 @@ int QEventLoop_QBaseSenderSignalIndex(const QEventLoop* self);
 int QEventLoop_Receivers(const QEventLoop* self, const char* signal);
 void QEventLoop_OnReceivers(const QEventLoop* self, intptr_t slot);
 int QEventLoop_QBaseReceivers(const QEventLoop* self, const char* signal);
-bool QEventLoop_IsSignalConnected(const QEventLoop* self, QMetaMethod* signal);
+bool QEventLoop_IsSignalConnected(const QEventLoop* self, const QMetaMethod* signal);
 void QEventLoop_OnIsSignalConnected(const QEventLoop* self, intptr_t slot);
-bool QEventLoop_QBaseIsSignalConnected(const QEventLoop* self, QMetaMethod* signal);
+bool QEventLoop_QBaseIsSignalConnected(const QEventLoop* self, const QMetaMethod* signal);
 void QEventLoop_Delete(QEventLoop* self);
 
 QEventLoopLocker* QEventLoopLocker_new();

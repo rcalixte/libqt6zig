@@ -16,11 +16,11 @@ QVideoFrame* QVideoFrame_new() {
     return new QVideoFrame();
 }
 
-QVideoFrame* QVideoFrame_new2(QVideoFrameFormat* format) {
+QVideoFrame* QVideoFrame_new2(const QVideoFrameFormat* format) {
     return new QVideoFrame(*format);
 }
 
-QVideoFrame* QVideoFrame_new3(QVideoFrame* other) {
+QVideoFrame* QVideoFrame_new3(const QVideoFrame* other) {
     return new QVideoFrame(*other);
 }
 
@@ -28,15 +28,15 @@ void QVideoFrame_Swap(QVideoFrame* self, QVideoFrame* other) {
     self->swap(*other);
 }
 
-void QVideoFrame_OperatorAssign(QVideoFrame* self, QVideoFrame* other) {
+void QVideoFrame_OperatorAssign(QVideoFrame* self, const QVideoFrame* other) {
     self->operator=(*other);
 }
 
-bool QVideoFrame_OperatorEqual(const QVideoFrame* self, QVideoFrame* other) {
+bool QVideoFrame_OperatorEqual(const QVideoFrame* self, const QVideoFrame* other) {
     return (*self == *other);
 }
 
-bool QVideoFrame_OperatorNotEqual(const QVideoFrame* self, QVideoFrame* other) {
+bool QVideoFrame_OperatorNotEqual(const QVideoFrame* self, const QVideoFrame* other) {
     return (*self != *other);
 }
 
@@ -160,12 +160,12 @@ libqt_string QVideoFrame_SubtitleText(const QVideoFrame* self) {
     return _str;
 }
 
-void QVideoFrame_SetSubtitleText(QVideoFrame* self, libqt_string text) {
+void QVideoFrame_SetSubtitleText(QVideoFrame* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->setSubtitleText(text_QString);
 }
 
-void QVideoFrame_Paint(QVideoFrame* self, QPainter* painter, QRectF* rect, QVideoFrame__PaintOptions* options) {
+void QVideoFrame_Paint(QVideoFrame* self, QPainter* painter, const QRectF* rect, const QVideoFrame__PaintOptions* options) {
     self->paint(painter, *rect, *options);
 }
 
@@ -173,7 +173,7 @@ void QVideoFrame_Delete(QVideoFrame* self) {
     delete self;
 }
 
-QVideoFrame__PaintOptions* QVideoFrame__PaintOptions_new(QVideoFrame__PaintOptions* other) {
+QVideoFrame__PaintOptions* QVideoFrame__PaintOptions_new(const QVideoFrame__PaintOptions* other) {
     return new QVideoFrame::PaintOptions(*other);
 }
 

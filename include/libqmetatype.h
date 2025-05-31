@@ -38,16 +38,16 @@ typedef unsigned char QCborSimpleType; // C ABI enum
 typedef unsigned char Type;            // C ABI enum
 #endif
 
-QMetaType* QMetaType_new(QMetaType* other);
+QMetaType* QMetaType_new(const QMetaType* other);
 QMetaType* QMetaType_new2(QMetaType* other);
 QMetaType* QMetaType_new3(int typeVal);
 QMetaType* QMetaType_new4();
-QMetaType* QMetaType_new5(QMetaType* param1);
+QMetaType* QMetaType_new5(const QMetaType* param1);
 void QMetaType_CopyAssign(QMetaType* self, QMetaType* other);
 void QMetaType_MoveAssign(QMetaType* self, QMetaType* other);
-void QMetaType_RegisterNormalizedTypedef(libqt_string normalizedTypeName, QMetaType* typeVal);
+void QMetaType_RegisterNormalizedTypedef(const libqt_string normalizedTypeName, QMetaType* typeVal);
 int QMetaType_Type(const char* typeName);
-int QMetaType_TypeWithTypeName(libqt_string typeName);
+int QMetaType_TypeWithTypeName(const libqt_string typeName);
 const char* QMetaType_TypeName(int typeVal);
 int QMetaType_SizeOf(int typeVal);
 int QMetaType_TypeFlags(int typeVal);

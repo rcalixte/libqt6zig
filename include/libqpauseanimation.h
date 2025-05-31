@@ -15,24 +15,15 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractAnimation QAbstractAnimation;
-typedef struct QAnimationGroup QAnimationGroup;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QPauseAnimation QPauseAnimation;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QPauseAnimation* QPauseAnimation_new();
@@ -75,12 +66,12 @@ void QPauseAnimation_QBaseChildEvent(QPauseAnimation* self, QChildEvent* event);
 void QPauseAnimation_CustomEvent(QPauseAnimation* self, QEvent* event);
 void QPauseAnimation_OnCustomEvent(QPauseAnimation* self, intptr_t slot);
 void QPauseAnimation_QBaseCustomEvent(QPauseAnimation* self, QEvent* event);
-void QPauseAnimation_ConnectNotify(QPauseAnimation* self, QMetaMethod* signal);
+void QPauseAnimation_ConnectNotify(QPauseAnimation* self, const QMetaMethod* signal);
 void QPauseAnimation_OnConnectNotify(QPauseAnimation* self, intptr_t slot);
-void QPauseAnimation_QBaseConnectNotify(QPauseAnimation* self, QMetaMethod* signal);
-void QPauseAnimation_DisconnectNotify(QPauseAnimation* self, QMetaMethod* signal);
+void QPauseAnimation_QBaseConnectNotify(QPauseAnimation* self, const QMetaMethod* signal);
+void QPauseAnimation_DisconnectNotify(QPauseAnimation* self, const QMetaMethod* signal);
 void QPauseAnimation_OnDisconnectNotify(QPauseAnimation* self, intptr_t slot);
-void QPauseAnimation_QBaseDisconnectNotify(QPauseAnimation* self, QMetaMethod* signal);
+void QPauseAnimation_QBaseDisconnectNotify(QPauseAnimation* self, const QMetaMethod* signal);
 QObject* QPauseAnimation_Sender(const QPauseAnimation* self);
 void QPauseAnimation_OnSender(const QPauseAnimation* self, intptr_t slot);
 QObject* QPauseAnimation_QBaseSender(const QPauseAnimation* self);
@@ -90,9 +81,9 @@ int QPauseAnimation_QBaseSenderSignalIndex(const QPauseAnimation* self);
 int QPauseAnimation_Receivers(const QPauseAnimation* self, const char* signal);
 void QPauseAnimation_OnReceivers(const QPauseAnimation* self, intptr_t slot);
 int QPauseAnimation_QBaseReceivers(const QPauseAnimation* self, const char* signal);
-bool QPauseAnimation_IsSignalConnected(const QPauseAnimation* self, QMetaMethod* signal);
+bool QPauseAnimation_IsSignalConnected(const QPauseAnimation* self, const QMetaMethod* signal);
 void QPauseAnimation_OnIsSignalConnected(const QPauseAnimation* self, intptr_t slot);
-bool QPauseAnimation_QBaseIsSignalConnected(const QPauseAnimation* self, QMetaMethod* signal);
+bool QPauseAnimation_QBaseIsSignalConnected(const QPauseAnimation* self, const QMetaMethod* signal);
 void QPauseAnimation_Delete(QPauseAnimation* self);
 
 #ifdef __cplusplus

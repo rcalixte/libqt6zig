@@ -5,7 +5,7 @@
 #include "libqtreewidgetitemiterator.h"
 #include "libqtreewidgetitemiterator.hxx"
 
-QTreeWidgetItemIterator* QTreeWidgetItemIterator_new(QTreeWidgetItemIterator* it) {
+QTreeWidgetItemIterator* QTreeWidgetItemIterator_new(const QTreeWidgetItemIterator* it) {
     return new QTreeWidgetItemIterator(*it);
 }
 
@@ -25,7 +25,7 @@ QTreeWidgetItemIterator* QTreeWidgetItemIterator_new5(QTreeWidgetItem* item, int
     return new QTreeWidgetItemIterator(item, static_cast<QTreeWidgetItemIterator::IteratorFlags>(flags));
 }
 
-void QTreeWidgetItemIterator_OperatorAssign(QTreeWidgetItemIterator* self, QTreeWidgetItemIterator* it) {
+void QTreeWidgetItemIterator_OperatorAssign(QTreeWidgetItemIterator* self, const QTreeWidgetItemIterator* it) {
     self->operator=(*it);
 }
 

@@ -11,9 +11,12 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QEvent so that we can call protected methods
-class VirtualQEvent : public QEvent {
+class VirtualQEvent final : public QEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQEvent = true;
+
     // Virtual class public types (including callbacks)
     using QEvent_SetAccepted_Callback = void (*)(QEvent*, bool);
     using QEvent_Clone_Callback = QEvent* (*)();
@@ -36,12 +39,12 @@ class VirtualQEvent : public QEvent {
     }
 
     // Callback setters
-    void setQEvent_SetAccepted_Callback(QEvent_SetAccepted_Callback cb) { qevent_setaccepted_callback = cb; }
-    void setQEvent_Clone_Callback(QEvent_Clone_Callback cb) { qevent_clone_callback = cb; }
+    inline void setQEvent_SetAccepted_Callback(QEvent_SetAccepted_Callback cb) { qevent_setaccepted_callback = cb; }
+    inline void setQEvent_Clone_Callback(QEvent_Clone_Callback cb) { qevent_clone_callback = cb; }
 
     // Base flag setters
-    void setQEvent_SetAccepted_IsBase(bool value) const { qevent_setaccepted_isbase = value; }
-    void setQEvent_Clone_IsBase(bool value) const { qevent_clone_isbase = value; }
+    inline void setQEvent_SetAccepted_IsBase(bool value) const { qevent_setaccepted_isbase = value; }
+    inline void setQEvent_Clone_IsBase(bool value) const { qevent_clone_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void setAccepted(bool accepted) override {
@@ -49,7 +52,9 @@ class VirtualQEvent : public QEvent {
             qevent_setaccepted_isbase = false;
             QEvent::setAccepted(accepted);
         } else if (qevent_setaccepted_callback != nullptr) {
-            qevent_setaccepted_callback(this, accepted);
+            bool cbval1 = accepted;
+
+            qevent_setaccepted_callback(this, cbval1);
         } else {
             QEvent::setAccepted(accepted);
         }
@@ -61,7 +66,8 @@ class VirtualQEvent : public QEvent {
             qevent_clone_isbase = false;
             return QEvent::clone();
         } else if (qevent_clone_callback != nullptr) {
-            return qevent_clone_callback();
+            QEvent* callback_ret = qevent_clone_callback();
+            return callback_ret;
         } else {
             return QEvent::clone();
         }
@@ -69,9 +75,12 @@ class VirtualQEvent : public QEvent {
 };
 
 // This class is a subclass of QTimerEvent so that we can call protected methods
-class VirtualQTimerEvent : public QTimerEvent {
+class VirtualQTimerEvent final : public QTimerEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQTimerEvent = true;
+
     // Virtual class public types (including callbacks)
     using QTimerEvent_Clone_Callback = QTimerEvent* (*)();
     using QTimerEvent_SetAccepted_Callback = void (*)(QTimerEvent*, bool);
@@ -94,12 +103,12 @@ class VirtualQTimerEvent : public QTimerEvent {
     }
 
     // Callback setters
-    void setQTimerEvent_Clone_Callback(QTimerEvent_Clone_Callback cb) { qtimerevent_clone_callback = cb; }
-    void setQTimerEvent_SetAccepted_Callback(QTimerEvent_SetAccepted_Callback cb) { qtimerevent_setaccepted_callback = cb; }
+    inline void setQTimerEvent_Clone_Callback(QTimerEvent_Clone_Callback cb) { qtimerevent_clone_callback = cb; }
+    inline void setQTimerEvent_SetAccepted_Callback(QTimerEvent_SetAccepted_Callback cb) { qtimerevent_setaccepted_callback = cb; }
 
     // Base flag setters
-    void setQTimerEvent_Clone_IsBase(bool value) const { qtimerevent_clone_isbase = value; }
-    void setQTimerEvent_SetAccepted_IsBase(bool value) const { qtimerevent_setaccepted_isbase = value; }
+    inline void setQTimerEvent_Clone_IsBase(bool value) const { qtimerevent_clone_isbase = value; }
+    inline void setQTimerEvent_SetAccepted_IsBase(bool value) const { qtimerevent_setaccepted_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QTimerEvent* clone() const override {
@@ -107,7 +116,8 @@ class VirtualQTimerEvent : public QTimerEvent {
             qtimerevent_clone_isbase = false;
             return QTimerEvent::clone();
         } else if (qtimerevent_clone_callback != nullptr) {
-            return qtimerevent_clone_callback();
+            QTimerEvent* callback_ret = qtimerevent_clone_callback();
+            return callback_ret;
         } else {
             return QTimerEvent::clone();
         }
@@ -119,7 +129,9 @@ class VirtualQTimerEvent : public QTimerEvent {
             qtimerevent_setaccepted_isbase = false;
             QTimerEvent::setAccepted(accepted);
         } else if (qtimerevent_setaccepted_callback != nullptr) {
-            qtimerevent_setaccepted_callback(this, accepted);
+            bool cbval1 = accepted;
+
+            qtimerevent_setaccepted_callback(this, cbval1);
         } else {
             QTimerEvent::setAccepted(accepted);
         }
@@ -127,9 +139,12 @@ class VirtualQTimerEvent : public QTimerEvent {
 };
 
 // This class is a subclass of QChildEvent so that we can call protected methods
-class VirtualQChildEvent : public QChildEvent {
+class VirtualQChildEvent final : public QChildEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQChildEvent = true;
+
     // Virtual class public types (including callbacks)
     using QChildEvent_Clone_Callback = QChildEvent* (*)();
     using QChildEvent_SetAccepted_Callback = void (*)(QChildEvent*, bool);
@@ -152,12 +167,12 @@ class VirtualQChildEvent : public QChildEvent {
     }
 
     // Callback setters
-    void setQChildEvent_Clone_Callback(QChildEvent_Clone_Callback cb) { qchildevent_clone_callback = cb; }
-    void setQChildEvent_SetAccepted_Callback(QChildEvent_SetAccepted_Callback cb) { qchildevent_setaccepted_callback = cb; }
+    inline void setQChildEvent_Clone_Callback(QChildEvent_Clone_Callback cb) { qchildevent_clone_callback = cb; }
+    inline void setQChildEvent_SetAccepted_Callback(QChildEvent_SetAccepted_Callback cb) { qchildevent_setaccepted_callback = cb; }
 
     // Base flag setters
-    void setQChildEvent_Clone_IsBase(bool value) const { qchildevent_clone_isbase = value; }
-    void setQChildEvent_SetAccepted_IsBase(bool value) const { qchildevent_setaccepted_isbase = value; }
+    inline void setQChildEvent_Clone_IsBase(bool value) const { qchildevent_clone_isbase = value; }
+    inline void setQChildEvent_SetAccepted_IsBase(bool value) const { qchildevent_setaccepted_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QChildEvent* clone() const override {
@@ -165,7 +180,8 @@ class VirtualQChildEvent : public QChildEvent {
             qchildevent_clone_isbase = false;
             return QChildEvent::clone();
         } else if (qchildevent_clone_callback != nullptr) {
-            return qchildevent_clone_callback();
+            QChildEvent* callback_ret = qchildevent_clone_callback();
+            return callback_ret;
         } else {
             return QChildEvent::clone();
         }
@@ -177,7 +193,9 @@ class VirtualQChildEvent : public QChildEvent {
             qchildevent_setaccepted_isbase = false;
             QChildEvent::setAccepted(accepted);
         } else if (qchildevent_setaccepted_callback != nullptr) {
-            qchildevent_setaccepted_callback(this, accepted);
+            bool cbval1 = accepted;
+
+            qchildevent_setaccepted_callback(this, cbval1);
         } else {
             QChildEvent::setAccepted(accepted);
         }
@@ -185,9 +203,12 @@ class VirtualQChildEvent : public QChildEvent {
 };
 
 // This class is a subclass of QDynamicPropertyChangeEvent so that we can call protected methods
-class VirtualQDynamicPropertyChangeEvent : public QDynamicPropertyChangeEvent {
+class VirtualQDynamicPropertyChangeEvent final : public QDynamicPropertyChangeEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQDynamicPropertyChangeEvent = true;
+
     // Virtual class public types (including callbacks)
     using QDynamicPropertyChangeEvent_Clone_Callback = QDynamicPropertyChangeEvent* (*)();
     using QDynamicPropertyChangeEvent_SetAccepted_Callback = void (*)(QDynamicPropertyChangeEvent*, bool);
@@ -210,12 +231,12 @@ class VirtualQDynamicPropertyChangeEvent : public QDynamicPropertyChangeEvent {
     }
 
     // Callback setters
-    void setQDynamicPropertyChangeEvent_Clone_Callback(QDynamicPropertyChangeEvent_Clone_Callback cb) { qdynamicpropertychangeevent_clone_callback = cb; }
-    void setQDynamicPropertyChangeEvent_SetAccepted_Callback(QDynamicPropertyChangeEvent_SetAccepted_Callback cb) { qdynamicpropertychangeevent_setaccepted_callback = cb; }
+    inline void setQDynamicPropertyChangeEvent_Clone_Callback(QDynamicPropertyChangeEvent_Clone_Callback cb) { qdynamicpropertychangeevent_clone_callback = cb; }
+    inline void setQDynamicPropertyChangeEvent_SetAccepted_Callback(QDynamicPropertyChangeEvent_SetAccepted_Callback cb) { qdynamicpropertychangeevent_setaccepted_callback = cb; }
 
     // Base flag setters
-    void setQDynamicPropertyChangeEvent_Clone_IsBase(bool value) const { qdynamicpropertychangeevent_clone_isbase = value; }
-    void setQDynamicPropertyChangeEvent_SetAccepted_IsBase(bool value) const { qdynamicpropertychangeevent_setaccepted_isbase = value; }
+    inline void setQDynamicPropertyChangeEvent_Clone_IsBase(bool value) const { qdynamicpropertychangeevent_clone_isbase = value; }
+    inline void setQDynamicPropertyChangeEvent_SetAccepted_IsBase(bool value) const { qdynamicpropertychangeevent_setaccepted_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QDynamicPropertyChangeEvent* clone() const override {
@@ -223,7 +244,8 @@ class VirtualQDynamicPropertyChangeEvent : public QDynamicPropertyChangeEvent {
             qdynamicpropertychangeevent_clone_isbase = false;
             return QDynamicPropertyChangeEvent::clone();
         } else if (qdynamicpropertychangeevent_clone_callback != nullptr) {
-            return qdynamicpropertychangeevent_clone_callback();
+            QDynamicPropertyChangeEvent* callback_ret = qdynamicpropertychangeevent_clone_callback();
+            return callback_ret;
         } else {
             return QDynamicPropertyChangeEvent::clone();
         }
@@ -235,7 +257,9 @@ class VirtualQDynamicPropertyChangeEvent : public QDynamicPropertyChangeEvent {
             qdynamicpropertychangeevent_setaccepted_isbase = false;
             QDynamicPropertyChangeEvent::setAccepted(accepted);
         } else if (qdynamicpropertychangeevent_setaccepted_callback != nullptr) {
-            qdynamicpropertychangeevent_setaccepted_callback(this, accepted);
+            bool cbval1 = accepted;
+
+            qdynamicpropertychangeevent_setaccepted_callback(this, cbval1);
         } else {
             QDynamicPropertyChangeEvent::setAccepted(accepted);
         }

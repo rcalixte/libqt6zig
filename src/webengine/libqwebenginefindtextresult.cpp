@@ -7,7 +7,7 @@ QWebEngineFindTextResult* QWebEngineFindTextResult_new() {
     return new QWebEngineFindTextResult();
 }
 
-QWebEngineFindTextResult* QWebEngineFindTextResult_new2(QWebEngineFindTextResult* other) {
+QWebEngineFindTextResult* QWebEngineFindTextResult_new2(const QWebEngineFindTextResult* other) {
     return new QWebEngineFindTextResult(*other);
 }
 
@@ -19,7 +19,7 @@ int QWebEngineFindTextResult_ActiveMatch(const QWebEngineFindTextResult* self) {
     return self->activeMatch();
 }
 
-void QWebEngineFindTextResult_OperatorAssign(QWebEngineFindTextResult* self, QWebEngineFindTextResult* other) {
+void QWebEngineFindTextResult_OperatorAssign(QWebEngineFindTextResult* self, const QWebEngineFindTextResult* other) {
     self->operator=(*other);
 }
 

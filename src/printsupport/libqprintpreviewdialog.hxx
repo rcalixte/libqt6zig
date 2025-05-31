@@ -11,15 +11,18 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QPrintPreviewDialog so that we can call protected methods
-class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
+class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQPrintPreviewDialog = true;
+
     // Virtual class public types (including callbacks)
-    using QPrintPreviewDialog_Metacall_Callback = int (*)(QPrintPreviewDialog*, QMetaObject::Call, int, void**);
+    using QPrintPreviewDialog_Metacall_Callback = int (*)(QPrintPreviewDialog*, int, int, void**);
     using QPrintPreviewDialog_SetVisible_Callback = void (*)(QPrintPreviewDialog*, bool);
     using QPrintPreviewDialog_Done_Callback = void (*)(QPrintPreviewDialog*, int);
-    using QPrintPreviewDialog_SizeHint_Callback = QSize (*)();
-    using QPrintPreviewDialog_MinimumSizeHint_Callback = QSize (*)();
+    using QPrintPreviewDialog_SizeHint_Callback = QSize* (*)();
+    using QPrintPreviewDialog_MinimumSizeHint_Callback = QSize* (*)();
     using QPrintPreviewDialog_Open_Callback = void (*)();
     using QPrintPreviewDialog_Exec_Callback = int (*)();
     using QPrintPreviewDialog_Accept_Callback = void (*)();
@@ -54,20 +57,20 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
     using QPrintPreviewDialog_DragLeaveEvent_Callback = void (*)(QPrintPreviewDialog*, QDragLeaveEvent*);
     using QPrintPreviewDialog_DropEvent_Callback = void (*)(QPrintPreviewDialog*, QDropEvent*);
     using QPrintPreviewDialog_HideEvent_Callback = void (*)(QPrintPreviewDialog*, QHideEvent*);
-    using QPrintPreviewDialog_NativeEvent_Callback = bool (*)(QPrintPreviewDialog*, const QByteArray&, void*, qintptr*);
+    using QPrintPreviewDialog_NativeEvent_Callback = bool (*)(QPrintPreviewDialog*, libqt_string, void*, intptr_t*);
     using QPrintPreviewDialog_ChangeEvent_Callback = void (*)(QPrintPreviewDialog*, QEvent*);
-    using QPrintPreviewDialog_Metric_Callback = int (*)(const QPrintPreviewDialog*, QPaintDevice::PaintDeviceMetric);
+    using QPrintPreviewDialog_Metric_Callback = int (*)(const QPrintPreviewDialog*, int);
     using QPrintPreviewDialog_InitPainter_Callback = void (*)(const QPrintPreviewDialog*, QPainter*);
     using QPrintPreviewDialog_Redirected_Callback = QPaintDevice* (*)(const QPrintPreviewDialog*, QPoint*);
     using QPrintPreviewDialog_SharedPainter_Callback = QPainter* (*)();
     using QPrintPreviewDialog_InputMethodEvent_Callback = void (*)(QPrintPreviewDialog*, QInputMethodEvent*);
-    using QPrintPreviewDialog_InputMethodQuery_Callback = QVariant (*)(const QPrintPreviewDialog*, Qt::InputMethodQuery);
+    using QPrintPreviewDialog_InputMethodQuery_Callback = QVariant* (*)(const QPrintPreviewDialog*, int);
     using QPrintPreviewDialog_FocusNextPrevChild_Callback = bool (*)(QPrintPreviewDialog*, bool);
     using QPrintPreviewDialog_TimerEvent_Callback = void (*)(QPrintPreviewDialog*, QTimerEvent*);
     using QPrintPreviewDialog_ChildEvent_Callback = void (*)(QPrintPreviewDialog*, QChildEvent*);
     using QPrintPreviewDialog_CustomEvent_Callback = void (*)(QPrintPreviewDialog*, QEvent*);
-    using QPrintPreviewDialog_ConnectNotify_Callback = void (*)(QPrintPreviewDialog*, const QMetaMethod&);
-    using QPrintPreviewDialog_DisconnectNotify_Callback = void (*)(QPrintPreviewDialog*, const QMetaMethod&);
+    using QPrintPreviewDialog_ConnectNotify_Callback = void (*)(QPrintPreviewDialog*, QMetaMethod*);
+    using QPrintPreviewDialog_DisconnectNotify_Callback = void (*)(QPrintPreviewDialog*, QMetaMethod*);
     using QPrintPreviewDialog_AdjustPosition_Callback = void (*)(QPrintPreviewDialog*, QWidget*);
     using QPrintPreviewDialog_UpdateMicroFocus_Callback = void (*)();
     using QPrintPreviewDialog_Create_Callback = void (*)();
@@ -77,7 +80,7 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
     using QPrintPreviewDialog_Sender_Callback = QObject* (*)();
     using QPrintPreviewDialog_SenderSignalIndex_Callback = int (*)();
     using QPrintPreviewDialog_Receivers_Callback = int (*)(const QPrintPreviewDialog*, const char*);
-    using QPrintPreviewDialog_IsSignalConnected_Callback = bool (*)(const QPrintPreviewDialog*, const QMetaMethod&);
+    using QPrintPreviewDialog_IsSignalConnected_Callback = bool (*)(const QPrintPreviewDialog*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -285,134 +288,134 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
     }
 
     // Callback setters
-    void setQPrintPreviewDialog_Metacall_Callback(QPrintPreviewDialog_Metacall_Callback cb) { qprintpreviewdialog_metacall_callback = cb; }
-    void setQPrintPreviewDialog_SetVisible_Callback(QPrintPreviewDialog_SetVisible_Callback cb) { qprintpreviewdialog_setvisible_callback = cb; }
-    void setQPrintPreviewDialog_Done_Callback(QPrintPreviewDialog_Done_Callback cb) { qprintpreviewdialog_done_callback = cb; }
-    void setQPrintPreviewDialog_SizeHint_Callback(QPrintPreviewDialog_SizeHint_Callback cb) { qprintpreviewdialog_sizehint_callback = cb; }
-    void setQPrintPreviewDialog_MinimumSizeHint_Callback(QPrintPreviewDialog_MinimumSizeHint_Callback cb) { qprintpreviewdialog_minimumsizehint_callback = cb; }
-    void setQPrintPreviewDialog_Open_Callback(QPrintPreviewDialog_Open_Callback cb) { qprintpreviewdialog_open_callback = cb; }
-    void setQPrintPreviewDialog_Exec_Callback(QPrintPreviewDialog_Exec_Callback cb) { qprintpreviewdialog_exec_callback = cb; }
-    void setQPrintPreviewDialog_Accept_Callback(QPrintPreviewDialog_Accept_Callback cb) { qprintpreviewdialog_accept_callback = cb; }
-    void setQPrintPreviewDialog_Reject_Callback(QPrintPreviewDialog_Reject_Callback cb) { qprintpreviewdialog_reject_callback = cb; }
-    void setQPrintPreviewDialog_KeyPressEvent_Callback(QPrintPreviewDialog_KeyPressEvent_Callback cb) { qprintpreviewdialog_keypressevent_callback = cb; }
-    void setQPrintPreviewDialog_CloseEvent_Callback(QPrintPreviewDialog_CloseEvent_Callback cb) { qprintpreviewdialog_closeevent_callback = cb; }
-    void setQPrintPreviewDialog_ShowEvent_Callback(QPrintPreviewDialog_ShowEvent_Callback cb) { qprintpreviewdialog_showevent_callback = cb; }
-    void setQPrintPreviewDialog_ResizeEvent_Callback(QPrintPreviewDialog_ResizeEvent_Callback cb) { qprintpreviewdialog_resizeevent_callback = cb; }
-    void setQPrintPreviewDialog_ContextMenuEvent_Callback(QPrintPreviewDialog_ContextMenuEvent_Callback cb) { qprintpreviewdialog_contextmenuevent_callback = cb; }
-    void setQPrintPreviewDialog_EventFilter_Callback(QPrintPreviewDialog_EventFilter_Callback cb) { qprintpreviewdialog_eventfilter_callback = cb; }
-    void setQPrintPreviewDialog_DevType_Callback(QPrintPreviewDialog_DevType_Callback cb) { qprintpreviewdialog_devtype_callback = cb; }
-    void setQPrintPreviewDialog_HeightForWidth_Callback(QPrintPreviewDialog_HeightForWidth_Callback cb) { qprintpreviewdialog_heightforwidth_callback = cb; }
-    void setQPrintPreviewDialog_HasHeightForWidth_Callback(QPrintPreviewDialog_HasHeightForWidth_Callback cb) { qprintpreviewdialog_hasheightforwidth_callback = cb; }
-    void setQPrintPreviewDialog_PaintEngine_Callback(QPrintPreviewDialog_PaintEngine_Callback cb) { qprintpreviewdialog_paintengine_callback = cb; }
-    void setQPrintPreviewDialog_Event_Callback(QPrintPreviewDialog_Event_Callback cb) { qprintpreviewdialog_event_callback = cb; }
-    void setQPrintPreviewDialog_MousePressEvent_Callback(QPrintPreviewDialog_MousePressEvent_Callback cb) { qprintpreviewdialog_mousepressevent_callback = cb; }
-    void setQPrintPreviewDialog_MouseReleaseEvent_Callback(QPrintPreviewDialog_MouseReleaseEvent_Callback cb) { qprintpreviewdialog_mousereleaseevent_callback = cb; }
-    void setQPrintPreviewDialog_MouseDoubleClickEvent_Callback(QPrintPreviewDialog_MouseDoubleClickEvent_Callback cb) { qprintpreviewdialog_mousedoubleclickevent_callback = cb; }
-    void setQPrintPreviewDialog_MouseMoveEvent_Callback(QPrintPreviewDialog_MouseMoveEvent_Callback cb) { qprintpreviewdialog_mousemoveevent_callback = cb; }
-    void setQPrintPreviewDialog_WheelEvent_Callback(QPrintPreviewDialog_WheelEvent_Callback cb) { qprintpreviewdialog_wheelevent_callback = cb; }
-    void setQPrintPreviewDialog_KeyReleaseEvent_Callback(QPrintPreviewDialog_KeyReleaseEvent_Callback cb) { qprintpreviewdialog_keyreleaseevent_callback = cb; }
-    void setQPrintPreviewDialog_FocusInEvent_Callback(QPrintPreviewDialog_FocusInEvent_Callback cb) { qprintpreviewdialog_focusinevent_callback = cb; }
-    void setQPrintPreviewDialog_FocusOutEvent_Callback(QPrintPreviewDialog_FocusOutEvent_Callback cb) { qprintpreviewdialog_focusoutevent_callback = cb; }
-    void setQPrintPreviewDialog_EnterEvent_Callback(QPrintPreviewDialog_EnterEvent_Callback cb) { qprintpreviewdialog_enterevent_callback = cb; }
-    void setQPrintPreviewDialog_LeaveEvent_Callback(QPrintPreviewDialog_LeaveEvent_Callback cb) { qprintpreviewdialog_leaveevent_callback = cb; }
-    void setQPrintPreviewDialog_PaintEvent_Callback(QPrintPreviewDialog_PaintEvent_Callback cb) { qprintpreviewdialog_paintevent_callback = cb; }
-    void setQPrintPreviewDialog_MoveEvent_Callback(QPrintPreviewDialog_MoveEvent_Callback cb) { qprintpreviewdialog_moveevent_callback = cb; }
-    void setQPrintPreviewDialog_TabletEvent_Callback(QPrintPreviewDialog_TabletEvent_Callback cb) { qprintpreviewdialog_tabletevent_callback = cb; }
-    void setQPrintPreviewDialog_ActionEvent_Callback(QPrintPreviewDialog_ActionEvent_Callback cb) { qprintpreviewdialog_actionevent_callback = cb; }
-    void setQPrintPreviewDialog_DragEnterEvent_Callback(QPrintPreviewDialog_DragEnterEvent_Callback cb) { qprintpreviewdialog_dragenterevent_callback = cb; }
-    void setQPrintPreviewDialog_DragMoveEvent_Callback(QPrintPreviewDialog_DragMoveEvent_Callback cb) { qprintpreviewdialog_dragmoveevent_callback = cb; }
-    void setQPrintPreviewDialog_DragLeaveEvent_Callback(QPrintPreviewDialog_DragLeaveEvent_Callback cb) { qprintpreviewdialog_dragleaveevent_callback = cb; }
-    void setQPrintPreviewDialog_DropEvent_Callback(QPrintPreviewDialog_DropEvent_Callback cb) { qprintpreviewdialog_dropevent_callback = cb; }
-    void setQPrintPreviewDialog_HideEvent_Callback(QPrintPreviewDialog_HideEvent_Callback cb) { qprintpreviewdialog_hideevent_callback = cb; }
-    void setQPrintPreviewDialog_NativeEvent_Callback(QPrintPreviewDialog_NativeEvent_Callback cb) { qprintpreviewdialog_nativeevent_callback = cb; }
-    void setQPrintPreviewDialog_ChangeEvent_Callback(QPrintPreviewDialog_ChangeEvent_Callback cb) { qprintpreviewdialog_changeevent_callback = cb; }
-    void setQPrintPreviewDialog_Metric_Callback(QPrintPreviewDialog_Metric_Callback cb) { qprintpreviewdialog_metric_callback = cb; }
-    void setQPrintPreviewDialog_InitPainter_Callback(QPrintPreviewDialog_InitPainter_Callback cb) { qprintpreviewdialog_initpainter_callback = cb; }
-    void setQPrintPreviewDialog_Redirected_Callback(QPrintPreviewDialog_Redirected_Callback cb) { qprintpreviewdialog_redirected_callback = cb; }
-    void setQPrintPreviewDialog_SharedPainter_Callback(QPrintPreviewDialog_SharedPainter_Callback cb) { qprintpreviewdialog_sharedpainter_callback = cb; }
-    void setQPrintPreviewDialog_InputMethodEvent_Callback(QPrintPreviewDialog_InputMethodEvent_Callback cb) { qprintpreviewdialog_inputmethodevent_callback = cb; }
-    void setQPrintPreviewDialog_InputMethodQuery_Callback(QPrintPreviewDialog_InputMethodQuery_Callback cb) { qprintpreviewdialog_inputmethodquery_callback = cb; }
-    void setQPrintPreviewDialog_FocusNextPrevChild_Callback(QPrintPreviewDialog_FocusNextPrevChild_Callback cb) { qprintpreviewdialog_focusnextprevchild_callback = cb; }
-    void setQPrintPreviewDialog_TimerEvent_Callback(QPrintPreviewDialog_TimerEvent_Callback cb) { qprintpreviewdialog_timerevent_callback = cb; }
-    void setQPrintPreviewDialog_ChildEvent_Callback(QPrintPreviewDialog_ChildEvent_Callback cb) { qprintpreviewdialog_childevent_callback = cb; }
-    void setQPrintPreviewDialog_CustomEvent_Callback(QPrintPreviewDialog_CustomEvent_Callback cb) { qprintpreviewdialog_customevent_callback = cb; }
-    void setQPrintPreviewDialog_ConnectNotify_Callback(QPrintPreviewDialog_ConnectNotify_Callback cb) { qprintpreviewdialog_connectnotify_callback = cb; }
-    void setQPrintPreviewDialog_DisconnectNotify_Callback(QPrintPreviewDialog_DisconnectNotify_Callback cb) { qprintpreviewdialog_disconnectnotify_callback = cb; }
-    void setQPrintPreviewDialog_AdjustPosition_Callback(QPrintPreviewDialog_AdjustPosition_Callback cb) { qprintpreviewdialog_adjustposition_callback = cb; }
-    void setQPrintPreviewDialog_UpdateMicroFocus_Callback(QPrintPreviewDialog_UpdateMicroFocus_Callback cb) { qprintpreviewdialog_updatemicrofocus_callback = cb; }
-    void setQPrintPreviewDialog_Create_Callback(QPrintPreviewDialog_Create_Callback cb) { qprintpreviewdialog_create_callback = cb; }
-    void setQPrintPreviewDialog_Destroy_Callback(QPrintPreviewDialog_Destroy_Callback cb) { qprintpreviewdialog_destroy_callback = cb; }
-    void setQPrintPreviewDialog_FocusNextChild_Callback(QPrintPreviewDialog_FocusNextChild_Callback cb) { qprintpreviewdialog_focusnextchild_callback = cb; }
-    void setQPrintPreviewDialog_FocusPreviousChild_Callback(QPrintPreviewDialog_FocusPreviousChild_Callback cb) { qprintpreviewdialog_focuspreviouschild_callback = cb; }
-    void setQPrintPreviewDialog_Sender_Callback(QPrintPreviewDialog_Sender_Callback cb) { qprintpreviewdialog_sender_callback = cb; }
-    void setQPrintPreviewDialog_SenderSignalIndex_Callback(QPrintPreviewDialog_SenderSignalIndex_Callback cb) { qprintpreviewdialog_sendersignalindex_callback = cb; }
-    void setQPrintPreviewDialog_Receivers_Callback(QPrintPreviewDialog_Receivers_Callback cb) { qprintpreviewdialog_receivers_callback = cb; }
-    void setQPrintPreviewDialog_IsSignalConnected_Callback(QPrintPreviewDialog_IsSignalConnected_Callback cb) { qprintpreviewdialog_issignalconnected_callback = cb; }
+    inline void setQPrintPreviewDialog_Metacall_Callback(QPrintPreviewDialog_Metacall_Callback cb) { qprintpreviewdialog_metacall_callback = cb; }
+    inline void setQPrintPreviewDialog_SetVisible_Callback(QPrintPreviewDialog_SetVisible_Callback cb) { qprintpreviewdialog_setvisible_callback = cb; }
+    inline void setQPrintPreviewDialog_Done_Callback(QPrintPreviewDialog_Done_Callback cb) { qprintpreviewdialog_done_callback = cb; }
+    inline void setQPrintPreviewDialog_SizeHint_Callback(QPrintPreviewDialog_SizeHint_Callback cb) { qprintpreviewdialog_sizehint_callback = cb; }
+    inline void setQPrintPreviewDialog_MinimumSizeHint_Callback(QPrintPreviewDialog_MinimumSizeHint_Callback cb) { qprintpreviewdialog_minimumsizehint_callback = cb; }
+    inline void setQPrintPreviewDialog_Open_Callback(QPrintPreviewDialog_Open_Callback cb) { qprintpreviewdialog_open_callback = cb; }
+    inline void setQPrintPreviewDialog_Exec_Callback(QPrintPreviewDialog_Exec_Callback cb) { qprintpreviewdialog_exec_callback = cb; }
+    inline void setQPrintPreviewDialog_Accept_Callback(QPrintPreviewDialog_Accept_Callback cb) { qprintpreviewdialog_accept_callback = cb; }
+    inline void setQPrintPreviewDialog_Reject_Callback(QPrintPreviewDialog_Reject_Callback cb) { qprintpreviewdialog_reject_callback = cb; }
+    inline void setQPrintPreviewDialog_KeyPressEvent_Callback(QPrintPreviewDialog_KeyPressEvent_Callback cb) { qprintpreviewdialog_keypressevent_callback = cb; }
+    inline void setQPrintPreviewDialog_CloseEvent_Callback(QPrintPreviewDialog_CloseEvent_Callback cb) { qprintpreviewdialog_closeevent_callback = cb; }
+    inline void setQPrintPreviewDialog_ShowEvent_Callback(QPrintPreviewDialog_ShowEvent_Callback cb) { qprintpreviewdialog_showevent_callback = cb; }
+    inline void setQPrintPreviewDialog_ResizeEvent_Callback(QPrintPreviewDialog_ResizeEvent_Callback cb) { qprintpreviewdialog_resizeevent_callback = cb; }
+    inline void setQPrintPreviewDialog_ContextMenuEvent_Callback(QPrintPreviewDialog_ContextMenuEvent_Callback cb) { qprintpreviewdialog_contextmenuevent_callback = cb; }
+    inline void setQPrintPreviewDialog_EventFilter_Callback(QPrintPreviewDialog_EventFilter_Callback cb) { qprintpreviewdialog_eventfilter_callback = cb; }
+    inline void setQPrintPreviewDialog_DevType_Callback(QPrintPreviewDialog_DevType_Callback cb) { qprintpreviewdialog_devtype_callback = cb; }
+    inline void setQPrintPreviewDialog_HeightForWidth_Callback(QPrintPreviewDialog_HeightForWidth_Callback cb) { qprintpreviewdialog_heightforwidth_callback = cb; }
+    inline void setQPrintPreviewDialog_HasHeightForWidth_Callback(QPrintPreviewDialog_HasHeightForWidth_Callback cb) { qprintpreviewdialog_hasheightforwidth_callback = cb; }
+    inline void setQPrintPreviewDialog_PaintEngine_Callback(QPrintPreviewDialog_PaintEngine_Callback cb) { qprintpreviewdialog_paintengine_callback = cb; }
+    inline void setQPrintPreviewDialog_Event_Callback(QPrintPreviewDialog_Event_Callback cb) { qprintpreviewdialog_event_callback = cb; }
+    inline void setQPrintPreviewDialog_MousePressEvent_Callback(QPrintPreviewDialog_MousePressEvent_Callback cb) { qprintpreviewdialog_mousepressevent_callback = cb; }
+    inline void setQPrintPreviewDialog_MouseReleaseEvent_Callback(QPrintPreviewDialog_MouseReleaseEvent_Callback cb) { qprintpreviewdialog_mousereleaseevent_callback = cb; }
+    inline void setQPrintPreviewDialog_MouseDoubleClickEvent_Callback(QPrintPreviewDialog_MouseDoubleClickEvent_Callback cb) { qprintpreviewdialog_mousedoubleclickevent_callback = cb; }
+    inline void setQPrintPreviewDialog_MouseMoveEvent_Callback(QPrintPreviewDialog_MouseMoveEvent_Callback cb) { qprintpreviewdialog_mousemoveevent_callback = cb; }
+    inline void setQPrintPreviewDialog_WheelEvent_Callback(QPrintPreviewDialog_WheelEvent_Callback cb) { qprintpreviewdialog_wheelevent_callback = cb; }
+    inline void setQPrintPreviewDialog_KeyReleaseEvent_Callback(QPrintPreviewDialog_KeyReleaseEvent_Callback cb) { qprintpreviewdialog_keyreleaseevent_callback = cb; }
+    inline void setQPrintPreviewDialog_FocusInEvent_Callback(QPrintPreviewDialog_FocusInEvent_Callback cb) { qprintpreviewdialog_focusinevent_callback = cb; }
+    inline void setQPrintPreviewDialog_FocusOutEvent_Callback(QPrintPreviewDialog_FocusOutEvent_Callback cb) { qprintpreviewdialog_focusoutevent_callback = cb; }
+    inline void setQPrintPreviewDialog_EnterEvent_Callback(QPrintPreviewDialog_EnterEvent_Callback cb) { qprintpreviewdialog_enterevent_callback = cb; }
+    inline void setQPrintPreviewDialog_LeaveEvent_Callback(QPrintPreviewDialog_LeaveEvent_Callback cb) { qprintpreviewdialog_leaveevent_callback = cb; }
+    inline void setQPrintPreviewDialog_PaintEvent_Callback(QPrintPreviewDialog_PaintEvent_Callback cb) { qprintpreviewdialog_paintevent_callback = cb; }
+    inline void setQPrintPreviewDialog_MoveEvent_Callback(QPrintPreviewDialog_MoveEvent_Callback cb) { qprintpreviewdialog_moveevent_callback = cb; }
+    inline void setQPrintPreviewDialog_TabletEvent_Callback(QPrintPreviewDialog_TabletEvent_Callback cb) { qprintpreviewdialog_tabletevent_callback = cb; }
+    inline void setQPrintPreviewDialog_ActionEvent_Callback(QPrintPreviewDialog_ActionEvent_Callback cb) { qprintpreviewdialog_actionevent_callback = cb; }
+    inline void setQPrintPreviewDialog_DragEnterEvent_Callback(QPrintPreviewDialog_DragEnterEvent_Callback cb) { qprintpreviewdialog_dragenterevent_callback = cb; }
+    inline void setQPrintPreviewDialog_DragMoveEvent_Callback(QPrintPreviewDialog_DragMoveEvent_Callback cb) { qprintpreviewdialog_dragmoveevent_callback = cb; }
+    inline void setQPrintPreviewDialog_DragLeaveEvent_Callback(QPrintPreviewDialog_DragLeaveEvent_Callback cb) { qprintpreviewdialog_dragleaveevent_callback = cb; }
+    inline void setQPrintPreviewDialog_DropEvent_Callback(QPrintPreviewDialog_DropEvent_Callback cb) { qprintpreviewdialog_dropevent_callback = cb; }
+    inline void setQPrintPreviewDialog_HideEvent_Callback(QPrintPreviewDialog_HideEvent_Callback cb) { qprintpreviewdialog_hideevent_callback = cb; }
+    inline void setQPrintPreviewDialog_NativeEvent_Callback(QPrintPreviewDialog_NativeEvent_Callback cb) { qprintpreviewdialog_nativeevent_callback = cb; }
+    inline void setQPrintPreviewDialog_ChangeEvent_Callback(QPrintPreviewDialog_ChangeEvent_Callback cb) { qprintpreviewdialog_changeevent_callback = cb; }
+    inline void setQPrintPreviewDialog_Metric_Callback(QPrintPreviewDialog_Metric_Callback cb) { qprintpreviewdialog_metric_callback = cb; }
+    inline void setQPrintPreviewDialog_InitPainter_Callback(QPrintPreviewDialog_InitPainter_Callback cb) { qprintpreviewdialog_initpainter_callback = cb; }
+    inline void setQPrintPreviewDialog_Redirected_Callback(QPrintPreviewDialog_Redirected_Callback cb) { qprintpreviewdialog_redirected_callback = cb; }
+    inline void setQPrintPreviewDialog_SharedPainter_Callback(QPrintPreviewDialog_SharedPainter_Callback cb) { qprintpreviewdialog_sharedpainter_callback = cb; }
+    inline void setQPrintPreviewDialog_InputMethodEvent_Callback(QPrintPreviewDialog_InputMethodEvent_Callback cb) { qprintpreviewdialog_inputmethodevent_callback = cb; }
+    inline void setQPrintPreviewDialog_InputMethodQuery_Callback(QPrintPreviewDialog_InputMethodQuery_Callback cb) { qprintpreviewdialog_inputmethodquery_callback = cb; }
+    inline void setQPrintPreviewDialog_FocusNextPrevChild_Callback(QPrintPreviewDialog_FocusNextPrevChild_Callback cb) { qprintpreviewdialog_focusnextprevchild_callback = cb; }
+    inline void setQPrintPreviewDialog_TimerEvent_Callback(QPrintPreviewDialog_TimerEvent_Callback cb) { qprintpreviewdialog_timerevent_callback = cb; }
+    inline void setQPrintPreviewDialog_ChildEvent_Callback(QPrintPreviewDialog_ChildEvent_Callback cb) { qprintpreviewdialog_childevent_callback = cb; }
+    inline void setQPrintPreviewDialog_CustomEvent_Callback(QPrintPreviewDialog_CustomEvent_Callback cb) { qprintpreviewdialog_customevent_callback = cb; }
+    inline void setQPrintPreviewDialog_ConnectNotify_Callback(QPrintPreviewDialog_ConnectNotify_Callback cb) { qprintpreviewdialog_connectnotify_callback = cb; }
+    inline void setQPrintPreviewDialog_DisconnectNotify_Callback(QPrintPreviewDialog_DisconnectNotify_Callback cb) { qprintpreviewdialog_disconnectnotify_callback = cb; }
+    inline void setQPrintPreviewDialog_AdjustPosition_Callback(QPrintPreviewDialog_AdjustPosition_Callback cb) { qprintpreviewdialog_adjustposition_callback = cb; }
+    inline void setQPrintPreviewDialog_UpdateMicroFocus_Callback(QPrintPreviewDialog_UpdateMicroFocus_Callback cb) { qprintpreviewdialog_updatemicrofocus_callback = cb; }
+    inline void setQPrintPreviewDialog_Create_Callback(QPrintPreviewDialog_Create_Callback cb) { qprintpreviewdialog_create_callback = cb; }
+    inline void setQPrintPreviewDialog_Destroy_Callback(QPrintPreviewDialog_Destroy_Callback cb) { qprintpreviewdialog_destroy_callback = cb; }
+    inline void setQPrintPreviewDialog_FocusNextChild_Callback(QPrintPreviewDialog_FocusNextChild_Callback cb) { qprintpreviewdialog_focusnextchild_callback = cb; }
+    inline void setQPrintPreviewDialog_FocusPreviousChild_Callback(QPrintPreviewDialog_FocusPreviousChild_Callback cb) { qprintpreviewdialog_focuspreviouschild_callback = cb; }
+    inline void setQPrintPreviewDialog_Sender_Callback(QPrintPreviewDialog_Sender_Callback cb) { qprintpreviewdialog_sender_callback = cb; }
+    inline void setQPrintPreviewDialog_SenderSignalIndex_Callback(QPrintPreviewDialog_SenderSignalIndex_Callback cb) { qprintpreviewdialog_sendersignalindex_callback = cb; }
+    inline void setQPrintPreviewDialog_Receivers_Callback(QPrintPreviewDialog_Receivers_Callback cb) { qprintpreviewdialog_receivers_callback = cb; }
+    inline void setQPrintPreviewDialog_IsSignalConnected_Callback(QPrintPreviewDialog_IsSignalConnected_Callback cb) { qprintpreviewdialog_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQPrintPreviewDialog_Metacall_IsBase(bool value) const { qprintpreviewdialog_metacall_isbase = value; }
-    void setQPrintPreviewDialog_SetVisible_IsBase(bool value) const { qprintpreviewdialog_setvisible_isbase = value; }
-    void setQPrintPreviewDialog_Done_IsBase(bool value) const { qprintpreviewdialog_done_isbase = value; }
-    void setQPrintPreviewDialog_SizeHint_IsBase(bool value) const { qprintpreviewdialog_sizehint_isbase = value; }
-    void setQPrintPreviewDialog_MinimumSizeHint_IsBase(bool value) const { qprintpreviewdialog_minimumsizehint_isbase = value; }
-    void setQPrintPreviewDialog_Open_IsBase(bool value) const { qprintpreviewdialog_open_isbase = value; }
-    void setQPrintPreviewDialog_Exec_IsBase(bool value) const { qprintpreviewdialog_exec_isbase = value; }
-    void setQPrintPreviewDialog_Accept_IsBase(bool value) const { qprintpreviewdialog_accept_isbase = value; }
-    void setQPrintPreviewDialog_Reject_IsBase(bool value) const { qprintpreviewdialog_reject_isbase = value; }
-    void setQPrintPreviewDialog_KeyPressEvent_IsBase(bool value) const { qprintpreviewdialog_keypressevent_isbase = value; }
-    void setQPrintPreviewDialog_CloseEvent_IsBase(bool value) const { qprintpreviewdialog_closeevent_isbase = value; }
-    void setQPrintPreviewDialog_ShowEvent_IsBase(bool value) const { qprintpreviewdialog_showevent_isbase = value; }
-    void setQPrintPreviewDialog_ResizeEvent_IsBase(bool value) const { qprintpreviewdialog_resizeevent_isbase = value; }
-    void setQPrintPreviewDialog_ContextMenuEvent_IsBase(bool value) const { qprintpreviewdialog_contextmenuevent_isbase = value; }
-    void setQPrintPreviewDialog_EventFilter_IsBase(bool value) const { qprintpreviewdialog_eventfilter_isbase = value; }
-    void setQPrintPreviewDialog_DevType_IsBase(bool value) const { qprintpreviewdialog_devtype_isbase = value; }
-    void setQPrintPreviewDialog_HeightForWidth_IsBase(bool value) const { qprintpreviewdialog_heightforwidth_isbase = value; }
-    void setQPrintPreviewDialog_HasHeightForWidth_IsBase(bool value) const { qprintpreviewdialog_hasheightforwidth_isbase = value; }
-    void setQPrintPreviewDialog_PaintEngine_IsBase(bool value) const { qprintpreviewdialog_paintengine_isbase = value; }
-    void setQPrintPreviewDialog_Event_IsBase(bool value) const { qprintpreviewdialog_event_isbase = value; }
-    void setQPrintPreviewDialog_MousePressEvent_IsBase(bool value) const { qprintpreviewdialog_mousepressevent_isbase = value; }
-    void setQPrintPreviewDialog_MouseReleaseEvent_IsBase(bool value) const { qprintpreviewdialog_mousereleaseevent_isbase = value; }
-    void setQPrintPreviewDialog_MouseDoubleClickEvent_IsBase(bool value) const { qprintpreviewdialog_mousedoubleclickevent_isbase = value; }
-    void setQPrintPreviewDialog_MouseMoveEvent_IsBase(bool value) const { qprintpreviewdialog_mousemoveevent_isbase = value; }
-    void setQPrintPreviewDialog_WheelEvent_IsBase(bool value) const { qprintpreviewdialog_wheelevent_isbase = value; }
-    void setQPrintPreviewDialog_KeyReleaseEvent_IsBase(bool value) const { qprintpreviewdialog_keyreleaseevent_isbase = value; }
-    void setQPrintPreviewDialog_FocusInEvent_IsBase(bool value) const { qprintpreviewdialog_focusinevent_isbase = value; }
-    void setQPrintPreviewDialog_FocusOutEvent_IsBase(bool value) const { qprintpreviewdialog_focusoutevent_isbase = value; }
-    void setQPrintPreviewDialog_EnterEvent_IsBase(bool value) const { qprintpreviewdialog_enterevent_isbase = value; }
-    void setQPrintPreviewDialog_LeaveEvent_IsBase(bool value) const { qprintpreviewdialog_leaveevent_isbase = value; }
-    void setQPrintPreviewDialog_PaintEvent_IsBase(bool value) const { qprintpreviewdialog_paintevent_isbase = value; }
-    void setQPrintPreviewDialog_MoveEvent_IsBase(bool value) const { qprintpreviewdialog_moveevent_isbase = value; }
-    void setQPrintPreviewDialog_TabletEvent_IsBase(bool value) const { qprintpreviewdialog_tabletevent_isbase = value; }
-    void setQPrintPreviewDialog_ActionEvent_IsBase(bool value) const { qprintpreviewdialog_actionevent_isbase = value; }
-    void setQPrintPreviewDialog_DragEnterEvent_IsBase(bool value) const { qprintpreviewdialog_dragenterevent_isbase = value; }
-    void setQPrintPreviewDialog_DragMoveEvent_IsBase(bool value) const { qprintpreviewdialog_dragmoveevent_isbase = value; }
-    void setQPrintPreviewDialog_DragLeaveEvent_IsBase(bool value) const { qprintpreviewdialog_dragleaveevent_isbase = value; }
-    void setQPrintPreviewDialog_DropEvent_IsBase(bool value) const { qprintpreviewdialog_dropevent_isbase = value; }
-    void setQPrintPreviewDialog_HideEvent_IsBase(bool value) const { qprintpreviewdialog_hideevent_isbase = value; }
-    void setQPrintPreviewDialog_NativeEvent_IsBase(bool value) const { qprintpreviewdialog_nativeevent_isbase = value; }
-    void setQPrintPreviewDialog_ChangeEvent_IsBase(bool value) const { qprintpreviewdialog_changeevent_isbase = value; }
-    void setQPrintPreviewDialog_Metric_IsBase(bool value) const { qprintpreviewdialog_metric_isbase = value; }
-    void setQPrintPreviewDialog_InitPainter_IsBase(bool value) const { qprintpreviewdialog_initpainter_isbase = value; }
-    void setQPrintPreviewDialog_Redirected_IsBase(bool value) const { qprintpreviewdialog_redirected_isbase = value; }
-    void setQPrintPreviewDialog_SharedPainter_IsBase(bool value) const { qprintpreviewdialog_sharedpainter_isbase = value; }
-    void setQPrintPreviewDialog_InputMethodEvent_IsBase(bool value) const { qprintpreviewdialog_inputmethodevent_isbase = value; }
-    void setQPrintPreviewDialog_InputMethodQuery_IsBase(bool value) const { qprintpreviewdialog_inputmethodquery_isbase = value; }
-    void setQPrintPreviewDialog_FocusNextPrevChild_IsBase(bool value) const { qprintpreviewdialog_focusnextprevchild_isbase = value; }
-    void setQPrintPreviewDialog_TimerEvent_IsBase(bool value) const { qprintpreviewdialog_timerevent_isbase = value; }
-    void setQPrintPreviewDialog_ChildEvent_IsBase(bool value) const { qprintpreviewdialog_childevent_isbase = value; }
-    void setQPrintPreviewDialog_CustomEvent_IsBase(bool value) const { qprintpreviewdialog_customevent_isbase = value; }
-    void setQPrintPreviewDialog_ConnectNotify_IsBase(bool value) const { qprintpreviewdialog_connectnotify_isbase = value; }
-    void setQPrintPreviewDialog_DisconnectNotify_IsBase(bool value) const { qprintpreviewdialog_disconnectnotify_isbase = value; }
-    void setQPrintPreviewDialog_AdjustPosition_IsBase(bool value) const { qprintpreviewdialog_adjustposition_isbase = value; }
-    void setQPrintPreviewDialog_UpdateMicroFocus_IsBase(bool value) const { qprintpreviewdialog_updatemicrofocus_isbase = value; }
-    void setQPrintPreviewDialog_Create_IsBase(bool value) const { qprintpreviewdialog_create_isbase = value; }
-    void setQPrintPreviewDialog_Destroy_IsBase(bool value) const { qprintpreviewdialog_destroy_isbase = value; }
-    void setQPrintPreviewDialog_FocusNextChild_IsBase(bool value) const { qprintpreviewdialog_focusnextchild_isbase = value; }
-    void setQPrintPreviewDialog_FocusPreviousChild_IsBase(bool value) const { qprintpreviewdialog_focuspreviouschild_isbase = value; }
-    void setQPrintPreviewDialog_Sender_IsBase(bool value) const { qprintpreviewdialog_sender_isbase = value; }
-    void setQPrintPreviewDialog_SenderSignalIndex_IsBase(bool value) const { qprintpreviewdialog_sendersignalindex_isbase = value; }
-    void setQPrintPreviewDialog_Receivers_IsBase(bool value) const { qprintpreviewdialog_receivers_isbase = value; }
-    void setQPrintPreviewDialog_IsSignalConnected_IsBase(bool value) const { qprintpreviewdialog_issignalconnected_isbase = value; }
+    inline void setQPrintPreviewDialog_Metacall_IsBase(bool value) const { qprintpreviewdialog_metacall_isbase = value; }
+    inline void setQPrintPreviewDialog_SetVisible_IsBase(bool value) const { qprintpreviewdialog_setvisible_isbase = value; }
+    inline void setQPrintPreviewDialog_Done_IsBase(bool value) const { qprintpreviewdialog_done_isbase = value; }
+    inline void setQPrintPreviewDialog_SizeHint_IsBase(bool value) const { qprintpreviewdialog_sizehint_isbase = value; }
+    inline void setQPrintPreviewDialog_MinimumSizeHint_IsBase(bool value) const { qprintpreviewdialog_minimumsizehint_isbase = value; }
+    inline void setQPrintPreviewDialog_Open_IsBase(bool value) const { qprintpreviewdialog_open_isbase = value; }
+    inline void setQPrintPreviewDialog_Exec_IsBase(bool value) const { qprintpreviewdialog_exec_isbase = value; }
+    inline void setQPrintPreviewDialog_Accept_IsBase(bool value) const { qprintpreviewdialog_accept_isbase = value; }
+    inline void setQPrintPreviewDialog_Reject_IsBase(bool value) const { qprintpreviewdialog_reject_isbase = value; }
+    inline void setQPrintPreviewDialog_KeyPressEvent_IsBase(bool value) const { qprintpreviewdialog_keypressevent_isbase = value; }
+    inline void setQPrintPreviewDialog_CloseEvent_IsBase(bool value) const { qprintpreviewdialog_closeevent_isbase = value; }
+    inline void setQPrintPreviewDialog_ShowEvent_IsBase(bool value) const { qprintpreviewdialog_showevent_isbase = value; }
+    inline void setQPrintPreviewDialog_ResizeEvent_IsBase(bool value) const { qprintpreviewdialog_resizeevent_isbase = value; }
+    inline void setQPrintPreviewDialog_ContextMenuEvent_IsBase(bool value) const { qprintpreviewdialog_contextmenuevent_isbase = value; }
+    inline void setQPrintPreviewDialog_EventFilter_IsBase(bool value) const { qprintpreviewdialog_eventfilter_isbase = value; }
+    inline void setQPrintPreviewDialog_DevType_IsBase(bool value) const { qprintpreviewdialog_devtype_isbase = value; }
+    inline void setQPrintPreviewDialog_HeightForWidth_IsBase(bool value) const { qprintpreviewdialog_heightforwidth_isbase = value; }
+    inline void setQPrintPreviewDialog_HasHeightForWidth_IsBase(bool value) const { qprintpreviewdialog_hasheightforwidth_isbase = value; }
+    inline void setQPrintPreviewDialog_PaintEngine_IsBase(bool value) const { qprintpreviewdialog_paintengine_isbase = value; }
+    inline void setQPrintPreviewDialog_Event_IsBase(bool value) const { qprintpreviewdialog_event_isbase = value; }
+    inline void setQPrintPreviewDialog_MousePressEvent_IsBase(bool value) const { qprintpreviewdialog_mousepressevent_isbase = value; }
+    inline void setQPrintPreviewDialog_MouseReleaseEvent_IsBase(bool value) const { qprintpreviewdialog_mousereleaseevent_isbase = value; }
+    inline void setQPrintPreviewDialog_MouseDoubleClickEvent_IsBase(bool value) const { qprintpreviewdialog_mousedoubleclickevent_isbase = value; }
+    inline void setQPrintPreviewDialog_MouseMoveEvent_IsBase(bool value) const { qprintpreviewdialog_mousemoveevent_isbase = value; }
+    inline void setQPrintPreviewDialog_WheelEvent_IsBase(bool value) const { qprintpreviewdialog_wheelevent_isbase = value; }
+    inline void setQPrintPreviewDialog_KeyReleaseEvent_IsBase(bool value) const { qprintpreviewdialog_keyreleaseevent_isbase = value; }
+    inline void setQPrintPreviewDialog_FocusInEvent_IsBase(bool value) const { qprintpreviewdialog_focusinevent_isbase = value; }
+    inline void setQPrintPreviewDialog_FocusOutEvent_IsBase(bool value) const { qprintpreviewdialog_focusoutevent_isbase = value; }
+    inline void setQPrintPreviewDialog_EnterEvent_IsBase(bool value) const { qprintpreviewdialog_enterevent_isbase = value; }
+    inline void setQPrintPreviewDialog_LeaveEvent_IsBase(bool value) const { qprintpreviewdialog_leaveevent_isbase = value; }
+    inline void setQPrintPreviewDialog_PaintEvent_IsBase(bool value) const { qprintpreviewdialog_paintevent_isbase = value; }
+    inline void setQPrintPreviewDialog_MoveEvent_IsBase(bool value) const { qprintpreviewdialog_moveevent_isbase = value; }
+    inline void setQPrintPreviewDialog_TabletEvent_IsBase(bool value) const { qprintpreviewdialog_tabletevent_isbase = value; }
+    inline void setQPrintPreviewDialog_ActionEvent_IsBase(bool value) const { qprintpreviewdialog_actionevent_isbase = value; }
+    inline void setQPrintPreviewDialog_DragEnterEvent_IsBase(bool value) const { qprintpreviewdialog_dragenterevent_isbase = value; }
+    inline void setQPrintPreviewDialog_DragMoveEvent_IsBase(bool value) const { qprintpreviewdialog_dragmoveevent_isbase = value; }
+    inline void setQPrintPreviewDialog_DragLeaveEvent_IsBase(bool value) const { qprintpreviewdialog_dragleaveevent_isbase = value; }
+    inline void setQPrintPreviewDialog_DropEvent_IsBase(bool value) const { qprintpreviewdialog_dropevent_isbase = value; }
+    inline void setQPrintPreviewDialog_HideEvent_IsBase(bool value) const { qprintpreviewdialog_hideevent_isbase = value; }
+    inline void setQPrintPreviewDialog_NativeEvent_IsBase(bool value) const { qprintpreviewdialog_nativeevent_isbase = value; }
+    inline void setQPrintPreviewDialog_ChangeEvent_IsBase(bool value) const { qprintpreviewdialog_changeevent_isbase = value; }
+    inline void setQPrintPreviewDialog_Metric_IsBase(bool value) const { qprintpreviewdialog_metric_isbase = value; }
+    inline void setQPrintPreviewDialog_InitPainter_IsBase(bool value) const { qprintpreviewdialog_initpainter_isbase = value; }
+    inline void setQPrintPreviewDialog_Redirected_IsBase(bool value) const { qprintpreviewdialog_redirected_isbase = value; }
+    inline void setQPrintPreviewDialog_SharedPainter_IsBase(bool value) const { qprintpreviewdialog_sharedpainter_isbase = value; }
+    inline void setQPrintPreviewDialog_InputMethodEvent_IsBase(bool value) const { qprintpreviewdialog_inputmethodevent_isbase = value; }
+    inline void setQPrintPreviewDialog_InputMethodQuery_IsBase(bool value) const { qprintpreviewdialog_inputmethodquery_isbase = value; }
+    inline void setQPrintPreviewDialog_FocusNextPrevChild_IsBase(bool value) const { qprintpreviewdialog_focusnextprevchild_isbase = value; }
+    inline void setQPrintPreviewDialog_TimerEvent_IsBase(bool value) const { qprintpreviewdialog_timerevent_isbase = value; }
+    inline void setQPrintPreviewDialog_ChildEvent_IsBase(bool value) const { qprintpreviewdialog_childevent_isbase = value; }
+    inline void setQPrintPreviewDialog_CustomEvent_IsBase(bool value) const { qprintpreviewdialog_customevent_isbase = value; }
+    inline void setQPrintPreviewDialog_ConnectNotify_IsBase(bool value) const { qprintpreviewdialog_connectnotify_isbase = value; }
+    inline void setQPrintPreviewDialog_DisconnectNotify_IsBase(bool value) const { qprintpreviewdialog_disconnectnotify_isbase = value; }
+    inline void setQPrintPreviewDialog_AdjustPosition_IsBase(bool value) const { qprintpreviewdialog_adjustposition_isbase = value; }
+    inline void setQPrintPreviewDialog_UpdateMicroFocus_IsBase(bool value) const { qprintpreviewdialog_updatemicrofocus_isbase = value; }
+    inline void setQPrintPreviewDialog_Create_IsBase(bool value) const { qprintpreviewdialog_create_isbase = value; }
+    inline void setQPrintPreviewDialog_Destroy_IsBase(bool value) const { qprintpreviewdialog_destroy_isbase = value; }
+    inline void setQPrintPreviewDialog_FocusNextChild_IsBase(bool value) const { qprintpreviewdialog_focusnextchild_isbase = value; }
+    inline void setQPrintPreviewDialog_FocusPreviousChild_IsBase(bool value) const { qprintpreviewdialog_focuspreviouschild_isbase = value; }
+    inline void setQPrintPreviewDialog_Sender_IsBase(bool value) const { qprintpreviewdialog_sender_isbase = value; }
+    inline void setQPrintPreviewDialog_SenderSignalIndex_IsBase(bool value) const { qprintpreviewdialog_sendersignalindex_isbase = value; }
+    inline void setQPrintPreviewDialog_Receivers_IsBase(bool value) const { qprintpreviewdialog_receivers_isbase = value; }
+    inline void setQPrintPreviewDialog_IsSignalConnected_IsBase(bool value) const { qprintpreviewdialog_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -420,7 +423,12 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_metacall_isbase = false;
             return QPrintPreviewDialog::qt_metacall(param1, param2, param3);
         } else if (qprintpreviewdialog_metacall_callback != nullptr) {
-            return qprintpreviewdialog_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qprintpreviewdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QPrintPreviewDialog::qt_metacall(param1, param2, param3);
         }
@@ -432,7 +440,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_setvisible_isbase = false;
             QPrintPreviewDialog::setVisible(visible);
         } else if (qprintpreviewdialog_setvisible_callback != nullptr) {
-            qprintpreviewdialog_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qprintpreviewdialog_setvisible_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::setVisible(visible);
         }
@@ -444,7 +454,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_done_isbase = false;
             QPrintPreviewDialog::done(result);
         } else if (qprintpreviewdialog_done_callback != nullptr) {
-            qprintpreviewdialog_done_callback(this, result);
+            int cbval1 = result;
+
+            qprintpreviewdialog_done_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::done(result);
         }
@@ -456,7 +468,8 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_sizehint_isbase = false;
             return QPrintPreviewDialog::sizeHint();
         } else if (qprintpreviewdialog_sizehint_callback != nullptr) {
-            return qprintpreviewdialog_sizehint_callback();
+            QSize* callback_ret = qprintpreviewdialog_sizehint_callback();
+            return *callback_ret;
         } else {
             return QPrintPreviewDialog::sizeHint();
         }
@@ -468,7 +481,8 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_minimumsizehint_isbase = false;
             return QPrintPreviewDialog::minimumSizeHint();
         } else if (qprintpreviewdialog_minimumsizehint_callback != nullptr) {
-            return qprintpreviewdialog_minimumsizehint_callback();
+            QSize* callback_ret = qprintpreviewdialog_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QPrintPreviewDialog::minimumSizeHint();
         }
@@ -492,7 +506,8 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_exec_isbase = false;
             return QPrintPreviewDialog::exec();
         } else if (qprintpreviewdialog_exec_callback != nullptr) {
-            return qprintpreviewdialog_exec_callback();
+            int callback_ret = qprintpreviewdialog_exec_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QPrintPreviewDialog::exec();
         }
@@ -528,7 +543,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_keypressevent_isbase = false;
             QPrintPreviewDialog::keyPressEvent(param1);
         } else if (qprintpreviewdialog_keypressevent_callback != nullptr) {
-            qprintpreviewdialog_keypressevent_callback(this, param1);
+            QKeyEvent* cbval1 = param1;
+
+            qprintpreviewdialog_keypressevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::keyPressEvent(param1);
         }
@@ -540,7 +557,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_closeevent_isbase = false;
             QPrintPreviewDialog::closeEvent(param1);
         } else if (qprintpreviewdialog_closeevent_callback != nullptr) {
-            qprintpreviewdialog_closeevent_callback(this, param1);
+            QCloseEvent* cbval1 = param1;
+
+            qprintpreviewdialog_closeevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::closeEvent(param1);
         }
@@ -552,7 +571,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_showevent_isbase = false;
             QPrintPreviewDialog::showEvent(param1);
         } else if (qprintpreviewdialog_showevent_callback != nullptr) {
-            qprintpreviewdialog_showevent_callback(this, param1);
+            QShowEvent* cbval1 = param1;
+
+            qprintpreviewdialog_showevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::showEvent(param1);
         }
@@ -564,7 +585,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_resizeevent_isbase = false;
             QPrintPreviewDialog::resizeEvent(param1);
         } else if (qprintpreviewdialog_resizeevent_callback != nullptr) {
-            qprintpreviewdialog_resizeevent_callback(this, param1);
+            QResizeEvent* cbval1 = param1;
+
+            qprintpreviewdialog_resizeevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::resizeEvent(param1);
         }
@@ -576,7 +599,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_contextmenuevent_isbase = false;
             QPrintPreviewDialog::contextMenuEvent(param1);
         } else if (qprintpreviewdialog_contextmenuevent_callback != nullptr) {
-            qprintpreviewdialog_contextmenuevent_callback(this, param1);
+            QContextMenuEvent* cbval1 = param1;
+
+            qprintpreviewdialog_contextmenuevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::contextMenuEvent(param1);
         }
@@ -588,7 +613,11 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_eventfilter_isbase = false;
             return QPrintPreviewDialog::eventFilter(param1, param2);
         } else if (qprintpreviewdialog_eventfilter_callback != nullptr) {
-            return qprintpreviewdialog_eventfilter_callback(this, param1, param2);
+            QObject* cbval1 = param1;
+            QEvent* cbval2 = param2;
+
+            bool callback_ret = qprintpreviewdialog_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QPrintPreviewDialog::eventFilter(param1, param2);
         }
@@ -600,7 +629,8 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_devtype_isbase = false;
             return QPrintPreviewDialog::devType();
         } else if (qprintpreviewdialog_devtype_callback != nullptr) {
-            return qprintpreviewdialog_devtype_callback();
+            int callback_ret = qprintpreviewdialog_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QPrintPreviewDialog::devType();
         }
@@ -612,7 +642,10 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_heightforwidth_isbase = false;
             return QPrintPreviewDialog::heightForWidth(param1);
         } else if (qprintpreviewdialog_heightforwidth_callback != nullptr) {
-            return qprintpreviewdialog_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qprintpreviewdialog_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QPrintPreviewDialog::heightForWidth(param1);
         }
@@ -624,7 +657,8 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_hasheightforwidth_isbase = false;
             return QPrintPreviewDialog::hasHeightForWidth();
         } else if (qprintpreviewdialog_hasheightforwidth_callback != nullptr) {
-            return qprintpreviewdialog_hasheightforwidth_callback();
+            bool callback_ret = qprintpreviewdialog_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QPrintPreviewDialog::hasHeightForWidth();
         }
@@ -636,7 +670,8 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_paintengine_isbase = false;
             return QPrintPreviewDialog::paintEngine();
         } else if (qprintpreviewdialog_paintengine_callback != nullptr) {
-            return qprintpreviewdialog_paintengine_callback();
+            QPaintEngine* callback_ret = qprintpreviewdialog_paintengine_callback();
+            return callback_ret;
         } else {
             return QPrintPreviewDialog::paintEngine();
         }
@@ -648,7 +683,10 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_event_isbase = false;
             return QPrintPreviewDialog::event(event);
         } else if (qprintpreviewdialog_event_callback != nullptr) {
-            return qprintpreviewdialog_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qprintpreviewdialog_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QPrintPreviewDialog::event(event);
         }
@@ -660,7 +698,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_mousepressevent_isbase = false;
             QPrintPreviewDialog::mousePressEvent(event);
         } else if (qprintpreviewdialog_mousepressevent_callback != nullptr) {
-            qprintpreviewdialog_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qprintpreviewdialog_mousepressevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::mousePressEvent(event);
         }
@@ -672,7 +712,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_mousereleaseevent_isbase = false;
             QPrintPreviewDialog::mouseReleaseEvent(event);
         } else if (qprintpreviewdialog_mousereleaseevent_callback != nullptr) {
-            qprintpreviewdialog_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qprintpreviewdialog_mousereleaseevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::mouseReleaseEvent(event);
         }
@@ -684,7 +726,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_mousedoubleclickevent_isbase = false;
             QPrintPreviewDialog::mouseDoubleClickEvent(event);
         } else if (qprintpreviewdialog_mousedoubleclickevent_callback != nullptr) {
-            qprintpreviewdialog_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qprintpreviewdialog_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::mouseDoubleClickEvent(event);
         }
@@ -696,7 +740,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_mousemoveevent_isbase = false;
             QPrintPreviewDialog::mouseMoveEvent(event);
         } else if (qprintpreviewdialog_mousemoveevent_callback != nullptr) {
-            qprintpreviewdialog_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qprintpreviewdialog_mousemoveevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::mouseMoveEvent(event);
         }
@@ -708,7 +754,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_wheelevent_isbase = false;
             QPrintPreviewDialog::wheelEvent(event);
         } else if (qprintpreviewdialog_wheelevent_callback != nullptr) {
-            qprintpreviewdialog_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qprintpreviewdialog_wheelevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::wheelEvent(event);
         }
@@ -720,7 +768,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_keyreleaseevent_isbase = false;
             QPrintPreviewDialog::keyReleaseEvent(event);
         } else if (qprintpreviewdialog_keyreleaseevent_callback != nullptr) {
-            qprintpreviewdialog_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qprintpreviewdialog_keyreleaseevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::keyReleaseEvent(event);
         }
@@ -732,7 +782,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_focusinevent_isbase = false;
             QPrintPreviewDialog::focusInEvent(event);
         } else if (qprintpreviewdialog_focusinevent_callback != nullptr) {
-            qprintpreviewdialog_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qprintpreviewdialog_focusinevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::focusInEvent(event);
         }
@@ -744,7 +796,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_focusoutevent_isbase = false;
             QPrintPreviewDialog::focusOutEvent(event);
         } else if (qprintpreviewdialog_focusoutevent_callback != nullptr) {
-            qprintpreviewdialog_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qprintpreviewdialog_focusoutevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::focusOutEvent(event);
         }
@@ -756,7 +810,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_enterevent_isbase = false;
             QPrintPreviewDialog::enterEvent(event);
         } else if (qprintpreviewdialog_enterevent_callback != nullptr) {
-            qprintpreviewdialog_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qprintpreviewdialog_enterevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::enterEvent(event);
         }
@@ -768,7 +824,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_leaveevent_isbase = false;
             QPrintPreviewDialog::leaveEvent(event);
         } else if (qprintpreviewdialog_leaveevent_callback != nullptr) {
-            qprintpreviewdialog_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qprintpreviewdialog_leaveevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::leaveEvent(event);
         }
@@ -780,7 +838,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_paintevent_isbase = false;
             QPrintPreviewDialog::paintEvent(event);
         } else if (qprintpreviewdialog_paintevent_callback != nullptr) {
-            qprintpreviewdialog_paintevent_callback(this, event);
+            QPaintEvent* cbval1 = event;
+
+            qprintpreviewdialog_paintevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::paintEvent(event);
         }
@@ -792,7 +852,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_moveevent_isbase = false;
             QPrintPreviewDialog::moveEvent(event);
         } else if (qprintpreviewdialog_moveevent_callback != nullptr) {
-            qprintpreviewdialog_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qprintpreviewdialog_moveevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::moveEvent(event);
         }
@@ -804,7 +866,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_tabletevent_isbase = false;
             QPrintPreviewDialog::tabletEvent(event);
         } else if (qprintpreviewdialog_tabletevent_callback != nullptr) {
-            qprintpreviewdialog_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qprintpreviewdialog_tabletevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::tabletEvent(event);
         }
@@ -816,7 +880,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_actionevent_isbase = false;
             QPrintPreviewDialog::actionEvent(event);
         } else if (qprintpreviewdialog_actionevent_callback != nullptr) {
-            qprintpreviewdialog_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qprintpreviewdialog_actionevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::actionEvent(event);
         }
@@ -828,7 +894,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_dragenterevent_isbase = false;
             QPrintPreviewDialog::dragEnterEvent(event);
         } else if (qprintpreviewdialog_dragenterevent_callback != nullptr) {
-            qprintpreviewdialog_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qprintpreviewdialog_dragenterevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::dragEnterEvent(event);
         }
@@ -840,7 +908,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_dragmoveevent_isbase = false;
             QPrintPreviewDialog::dragMoveEvent(event);
         } else if (qprintpreviewdialog_dragmoveevent_callback != nullptr) {
-            qprintpreviewdialog_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qprintpreviewdialog_dragmoveevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::dragMoveEvent(event);
         }
@@ -852,7 +922,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_dragleaveevent_isbase = false;
             QPrintPreviewDialog::dragLeaveEvent(event);
         } else if (qprintpreviewdialog_dragleaveevent_callback != nullptr) {
-            qprintpreviewdialog_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qprintpreviewdialog_dragleaveevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::dragLeaveEvent(event);
         }
@@ -864,7 +936,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_dropevent_isbase = false;
             QPrintPreviewDialog::dropEvent(event);
         } else if (qprintpreviewdialog_dropevent_callback != nullptr) {
-            qprintpreviewdialog_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qprintpreviewdialog_dropevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::dropEvent(event);
         }
@@ -876,7 +950,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_hideevent_isbase = false;
             QPrintPreviewDialog::hideEvent(event);
         } else if (qprintpreviewdialog_hideevent_callback != nullptr) {
-            qprintpreviewdialog_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qprintpreviewdialog_hideevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::hideEvent(event);
         }
@@ -888,7 +964,19 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_nativeevent_isbase = false;
             return QPrintPreviewDialog::nativeEvent(eventType, message, result);
         } else if (qprintpreviewdialog_nativeevent_callback != nullptr) {
-            return qprintpreviewdialog_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qprintpreviewdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QPrintPreviewDialog::nativeEvent(eventType, message, result);
         }
@@ -900,7 +988,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_changeevent_isbase = false;
             QPrintPreviewDialog::changeEvent(param1);
         } else if (qprintpreviewdialog_changeevent_callback != nullptr) {
-            qprintpreviewdialog_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qprintpreviewdialog_changeevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::changeEvent(param1);
         }
@@ -912,7 +1002,10 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_metric_isbase = false;
             return QPrintPreviewDialog::metric(param1);
         } else if (qprintpreviewdialog_metric_callback != nullptr) {
-            return qprintpreviewdialog_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qprintpreviewdialog_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QPrintPreviewDialog::metric(param1);
         }
@@ -924,7 +1017,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_initpainter_isbase = false;
             QPrintPreviewDialog::initPainter(painter);
         } else if (qprintpreviewdialog_initpainter_callback != nullptr) {
-            qprintpreviewdialog_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qprintpreviewdialog_initpainter_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::initPainter(painter);
         }
@@ -936,7 +1031,10 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_redirected_isbase = false;
             return QPrintPreviewDialog::redirected(offset);
         } else if (qprintpreviewdialog_redirected_callback != nullptr) {
-            return qprintpreviewdialog_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qprintpreviewdialog_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QPrintPreviewDialog::redirected(offset);
         }
@@ -948,7 +1046,8 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_sharedpainter_isbase = false;
             return QPrintPreviewDialog::sharedPainter();
         } else if (qprintpreviewdialog_sharedpainter_callback != nullptr) {
-            return qprintpreviewdialog_sharedpainter_callback();
+            QPainter* callback_ret = qprintpreviewdialog_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QPrintPreviewDialog::sharedPainter();
         }
@@ -960,7 +1059,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_inputmethodevent_isbase = false;
             QPrintPreviewDialog::inputMethodEvent(param1);
         } else if (qprintpreviewdialog_inputmethodevent_callback != nullptr) {
-            qprintpreviewdialog_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qprintpreviewdialog_inputmethodevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::inputMethodEvent(param1);
         }
@@ -972,7 +1073,10 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_inputmethodquery_isbase = false;
             return QPrintPreviewDialog::inputMethodQuery(param1);
         } else if (qprintpreviewdialog_inputmethodquery_callback != nullptr) {
-            return qprintpreviewdialog_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qprintpreviewdialog_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QPrintPreviewDialog::inputMethodQuery(param1);
         }
@@ -984,7 +1088,10 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_focusnextprevchild_isbase = false;
             return QPrintPreviewDialog::focusNextPrevChild(next);
         } else if (qprintpreviewdialog_focusnextprevchild_callback != nullptr) {
-            return qprintpreviewdialog_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qprintpreviewdialog_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QPrintPreviewDialog::focusNextPrevChild(next);
         }
@@ -996,7 +1103,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_timerevent_isbase = false;
             QPrintPreviewDialog::timerEvent(event);
         } else if (qprintpreviewdialog_timerevent_callback != nullptr) {
-            qprintpreviewdialog_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qprintpreviewdialog_timerevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::timerEvent(event);
         }
@@ -1008,7 +1117,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_childevent_isbase = false;
             QPrintPreviewDialog::childEvent(event);
         } else if (qprintpreviewdialog_childevent_callback != nullptr) {
-            qprintpreviewdialog_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qprintpreviewdialog_childevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::childEvent(event);
         }
@@ -1020,7 +1131,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_customevent_isbase = false;
             QPrintPreviewDialog::customEvent(event);
         } else if (qprintpreviewdialog_customevent_callback != nullptr) {
-            qprintpreviewdialog_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qprintpreviewdialog_customevent_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::customEvent(event);
         }
@@ -1032,7 +1145,11 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_connectnotify_isbase = false;
             QPrintPreviewDialog::connectNotify(signal);
         } else if (qprintpreviewdialog_connectnotify_callback != nullptr) {
-            qprintpreviewdialog_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qprintpreviewdialog_connectnotify_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::connectNotify(signal);
         }
@@ -1044,7 +1161,11 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_disconnectnotify_isbase = false;
             QPrintPreviewDialog::disconnectNotify(signal);
         } else if (qprintpreviewdialog_disconnectnotify_callback != nullptr) {
-            qprintpreviewdialog_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qprintpreviewdialog_disconnectnotify_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::disconnectNotify(signal);
         }
@@ -1056,7 +1177,9 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_adjustposition_isbase = false;
             QPrintPreviewDialog::adjustPosition(param1);
         } else if (qprintpreviewdialog_adjustposition_callback != nullptr) {
-            qprintpreviewdialog_adjustposition_callback(this, param1);
+            QWidget* cbval1 = param1;
+
+            qprintpreviewdialog_adjustposition_callback(this, cbval1);
         } else {
             QPrintPreviewDialog::adjustPosition(param1);
         }
@@ -1104,7 +1227,8 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_focusnextchild_isbase = false;
             return QPrintPreviewDialog::focusNextChild();
         } else if (qprintpreviewdialog_focusnextchild_callback != nullptr) {
-            return qprintpreviewdialog_focusnextchild_callback();
+            bool callback_ret = qprintpreviewdialog_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QPrintPreviewDialog::focusNextChild();
         }
@@ -1116,7 +1240,8 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_focuspreviouschild_isbase = false;
             return QPrintPreviewDialog::focusPreviousChild();
         } else if (qprintpreviewdialog_focuspreviouschild_callback != nullptr) {
-            return qprintpreviewdialog_focuspreviouschild_callback();
+            bool callback_ret = qprintpreviewdialog_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QPrintPreviewDialog::focusPreviousChild();
         }
@@ -1128,7 +1253,8 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_sender_isbase = false;
             return QPrintPreviewDialog::sender();
         } else if (qprintpreviewdialog_sender_callback != nullptr) {
-            return qprintpreviewdialog_sender_callback();
+            QObject* callback_ret = qprintpreviewdialog_sender_callback();
+            return callback_ret;
         } else {
             return QPrintPreviewDialog::sender();
         }
@@ -1140,7 +1266,8 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_sendersignalindex_isbase = false;
             return QPrintPreviewDialog::senderSignalIndex();
         } else if (qprintpreviewdialog_sendersignalindex_callback != nullptr) {
-            return qprintpreviewdialog_sendersignalindex_callback();
+            int callback_ret = qprintpreviewdialog_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QPrintPreviewDialog::senderSignalIndex();
         }
@@ -1152,7 +1279,10 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_receivers_isbase = false;
             return QPrintPreviewDialog::receivers(signal);
         } else if (qprintpreviewdialog_receivers_callback != nullptr) {
-            return qprintpreviewdialog_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qprintpreviewdialog_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QPrintPreviewDialog::receivers(signal);
         }
@@ -1164,11 +1294,116 @@ class VirtualQPrintPreviewDialog : public QPrintPreviewDialog {
             qprintpreviewdialog_issignalconnected_isbase = false;
             return QPrintPreviewDialog::isSignalConnected(signal);
         } else if (qprintpreviewdialog_issignalconnected_callback != nullptr) {
-            return qprintpreviewdialog_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qprintpreviewdialog_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QPrintPreviewDialog::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QPrintPreviewDialog_KeyPressEvent(QPrintPreviewDialog* self, QKeyEvent* param1);
+    friend void QPrintPreviewDialog_QBaseKeyPressEvent(QPrintPreviewDialog* self, QKeyEvent* param1);
+    friend void QPrintPreviewDialog_CloseEvent(QPrintPreviewDialog* self, QCloseEvent* param1);
+    friend void QPrintPreviewDialog_QBaseCloseEvent(QPrintPreviewDialog* self, QCloseEvent* param1);
+    friend void QPrintPreviewDialog_ShowEvent(QPrintPreviewDialog* self, QShowEvent* param1);
+    friend void QPrintPreviewDialog_QBaseShowEvent(QPrintPreviewDialog* self, QShowEvent* param1);
+    friend void QPrintPreviewDialog_ResizeEvent(QPrintPreviewDialog* self, QResizeEvent* param1);
+    friend void QPrintPreviewDialog_QBaseResizeEvent(QPrintPreviewDialog* self, QResizeEvent* param1);
+    friend void QPrintPreviewDialog_ContextMenuEvent(QPrintPreviewDialog* self, QContextMenuEvent* param1);
+    friend void QPrintPreviewDialog_QBaseContextMenuEvent(QPrintPreviewDialog* self, QContextMenuEvent* param1);
+    friend bool QPrintPreviewDialog_EventFilter(QPrintPreviewDialog* self, QObject* param1, QEvent* param2);
+    friend bool QPrintPreviewDialog_QBaseEventFilter(QPrintPreviewDialog* self, QObject* param1, QEvent* param2);
+    friend bool QPrintPreviewDialog_Event(QPrintPreviewDialog* self, QEvent* event);
+    friend bool QPrintPreviewDialog_QBaseEvent(QPrintPreviewDialog* self, QEvent* event);
+    friend void QPrintPreviewDialog_MousePressEvent(QPrintPreviewDialog* self, QMouseEvent* event);
+    friend void QPrintPreviewDialog_QBaseMousePressEvent(QPrintPreviewDialog* self, QMouseEvent* event);
+    friend void QPrintPreviewDialog_MouseReleaseEvent(QPrintPreviewDialog* self, QMouseEvent* event);
+    friend void QPrintPreviewDialog_QBaseMouseReleaseEvent(QPrintPreviewDialog* self, QMouseEvent* event);
+    friend void QPrintPreviewDialog_MouseDoubleClickEvent(QPrintPreviewDialog* self, QMouseEvent* event);
+    friend void QPrintPreviewDialog_QBaseMouseDoubleClickEvent(QPrintPreviewDialog* self, QMouseEvent* event);
+    friend void QPrintPreviewDialog_MouseMoveEvent(QPrintPreviewDialog* self, QMouseEvent* event);
+    friend void QPrintPreviewDialog_QBaseMouseMoveEvent(QPrintPreviewDialog* self, QMouseEvent* event);
+    friend void QPrintPreviewDialog_WheelEvent(QPrintPreviewDialog* self, QWheelEvent* event);
+    friend void QPrintPreviewDialog_QBaseWheelEvent(QPrintPreviewDialog* self, QWheelEvent* event);
+    friend void QPrintPreviewDialog_KeyReleaseEvent(QPrintPreviewDialog* self, QKeyEvent* event);
+    friend void QPrintPreviewDialog_QBaseKeyReleaseEvent(QPrintPreviewDialog* self, QKeyEvent* event);
+    friend void QPrintPreviewDialog_FocusInEvent(QPrintPreviewDialog* self, QFocusEvent* event);
+    friend void QPrintPreviewDialog_QBaseFocusInEvent(QPrintPreviewDialog* self, QFocusEvent* event);
+    friend void QPrintPreviewDialog_FocusOutEvent(QPrintPreviewDialog* self, QFocusEvent* event);
+    friend void QPrintPreviewDialog_QBaseFocusOutEvent(QPrintPreviewDialog* self, QFocusEvent* event);
+    friend void QPrintPreviewDialog_EnterEvent(QPrintPreviewDialog* self, QEnterEvent* event);
+    friend void QPrintPreviewDialog_QBaseEnterEvent(QPrintPreviewDialog* self, QEnterEvent* event);
+    friend void QPrintPreviewDialog_LeaveEvent(QPrintPreviewDialog* self, QEvent* event);
+    friend void QPrintPreviewDialog_QBaseLeaveEvent(QPrintPreviewDialog* self, QEvent* event);
+    friend void QPrintPreviewDialog_PaintEvent(QPrintPreviewDialog* self, QPaintEvent* event);
+    friend void QPrintPreviewDialog_QBasePaintEvent(QPrintPreviewDialog* self, QPaintEvent* event);
+    friend void QPrintPreviewDialog_MoveEvent(QPrintPreviewDialog* self, QMoveEvent* event);
+    friend void QPrintPreviewDialog_QBaseMoveEvent(QPrintPreviewDialog* self, QMoveEvent* event);
+    friend void QPrintPreviewDialog_TabletEvent(QPrintPreviewDialog* self, QTabletEvent* event);
+    friend void QPrintPreviewDialog_QBaseTabletEvent(QPrintPreviewDialog* self, QTabletEvent* event);
+    friend void QPrintPreviewDialog_ActionEvent(QPrintPreviewDialog* self, QActionEvent* event);
+    friend void QPrintPreviewDialog_QBaseActionEvent(QPrintPreviewDialog* self, QActionEvent* event);
+    friend void QPrintPreviewDialog_DragEnterEvent(QPrintPreviewDialog* self, QDragEnterEvent* event);
+    friend void QPrintPreviewDialog_QBaseDragEnterEvent(QPrintPreviewDialog* self, QDragEnterEvent* event);
+    friend void QPrintPreviewDialog_DragMoveEvent(QPrintPreviewDialog* self, QDragMoveEvent* event);
+    friend void QPrintPreviewDialog_QBaseDragMoveEvent(QPrintPreviewDialog* self, QDragMoveEvent* event);
+    friend void QPrintPreviewDialog_DragLeaveEvent(QPrintPreviewDialog* self, QDragLeaveEvent* event);
+    friend void QPrintPreviewDialog_QBaseDragLeaveEvent(QPrintPreviewDialog* self, QDragLeaveEvent* event);
+    friend void QPrintPreviewDialog_DropEvent(QPrintPreviewDialog* self, QDropEvent* event);
+    friend void QPrintPreviewDialog_QBaseDropEvent(QPrintPreviewDialog* self, QDropEvent* event);
+    friend void QPrintPreviewDialog_HideEvent(QPrintPreviewDialog* self, QHideEvent* event);
+    friend void QPrintPreviewDialog_QBaseHideEvent(QPrintPreviewDialog* self, QHideEvent* event);
+    friend bool QPrintPreviewDialog_NativeEvent(QPrintPreviewDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QPrintPreviewDialog_QBaseNativeEvent(QPrintPreviewDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend void QPrintPreviewDialog_ChangeEvent(QPrintPreviewDialog* self, QEvent* param1);
+    friend void QPrintPreviewDialog_QBaseChangeEvent(QPrintPreviewDialog* self, QEvent* param1);
+    friend int QPrintPreviewDialog_Metric(const QPrintPreviewDialog* self, int param1);
+    friend int QPrintPreviewDialog_QBaseMetric(const QPrintPreviewDialog* self, int param1);
+    friend void QPrintPreviewDialog_InitPainter(const QPrintPreviewDialog* self, QPainter* painter);
+    friend void QPrintPreviewDialog_QBaseInitPainter(const QPrintPreviewDialog* self, QPainter* painter);
+    friend QPaintDevice* QPrintPreviewDialog_Redirected(const QPrintPreviewDialog* self, QPoint* offset);
+    friend QPaintDevice* QPrintPreviewDialog_QBaseRedirected(const QPrintPreviewDialog* self, QPoint* offset);
+    friend QPainter* QPrintPreviewDialog_SharedPainter(const QPrintPreviewDialog* self);
+    friend QPainter* QPrintPreviewDialog_QBaseSharedPainter(const QPrintPreviewDialog* self);
+    friend void QPrintPreviewDialog_InputMethodEvent(QPrintPreviewDialog* self, QInputMethodEvent* param1);
+    friend void QPrintPreviewDialog_QBaseInputMethodEvent(QPrintPreviewDialog* self, QInputMethodEvent* param1);
+    friend bool QPrintPreviewDialog_FocusNextPrevChild(QPrintPreviewDialog* self, bool next);
+    friend bool QPrintPreviewDialog_QBaseFocusNextPrevChild(QPrintPreviewDialog* self, bool next);
+    friend void QPrintPreviewDialog_TimerEvent(QPrintPreviewDialog* self, QTimerEvent* event);
+    friend void QPrintPreviewDialog_QBaseTimerEvent(QPrintPreviewDialog* self, QTimerEvent* event);
+    friend void QPrintPreviewDialog_ChildEvent(QPrintPreviewDialog* self, QChildEvent* event);
+    friend void QPrintPreviewDialog_QBaseChildEvent(QPrintPreviewDialog* self, QChildEvent* event);
+    friend void QPrintPreviewDialog_CustomEvent(QPrintPreviewDialog* self, QEvent* event);
+    friend void QPrintPreviewDialog_QBaseCustomEvent(QPrintPreviewDialog* self, QEvent* event);
+    friend void QPrintPreviewDialog_ConnectNotify(QPrintPreviewDialog* self, const QMetaMethod* signal);
+    friend void QPrintPreviewDialog_QBaseConnectNotify(QPrintPreviewDialog* self, const QMetaMethod* signal);
+    friend void QPrintPreviewDialog_DisconnectNotify(QPrintPreviewDialog* self, const QMetaMethod* signal);
+    friend void QPrintPreviewDialog_QBaseDisconnectNotify(QPrintPreviewDialog* self, const QMetaMethod* signal);
+    friend void QPrintPreviewDialog_AdjustPosition(QPrintPreviewDialog* self, QWidget* param1);
+    friend void QPrintPreviewDialog_QBaseAdjustPosition(QPrintPreviewDialog* self, QWidget* param1);
+    friend void QPrintPreviewDialog_UpdateMicroFocus(QPrintPreviewDialog* self);
+    friend void QPrintPreviewDialog_QBaseUpdateMicroFocus(QPrintPreviewDialog* self);
+    friend void QPrintPreviewDialog_Create(QPrintPreviewDialog* self);
+    friend void QPrintPreviewDialog_QBaseCreate(QPrintPreviewDialog* self);
+    friend void QPrintPreviewDialog_Destroy(QPrintPreviewDialog* self);
+    friend void QPrintPreviewDialog_QBaseDestroy(QPrintPreviewDialog* self);
+    friend bool QPrintPreviewDialog_FocusNextChild(QPrintPreviewDialog* self);
+    friend bool QPrintPreviewDialog_QBaseFocusNextChild(QPrintPreviewDialog* self);
+    friend bool QPrintPreviewDialog_FocusPreviousChild(QPrintPreviewDialog* self);
+    friend bool QPrintPreviewDialog_QBaseFocusPreviousChild(QPrintPreviewDialog* self);
+    friend QObject* QPrintPreviewDialog_Sender(const QPrintPreviewDialog* self);
+    friend QObject* QPrintPreviewDialog_QBaseSender(const QPrintPreviewDialog* self);
+    friend int QPrintPreviewDialog_SenderSignalIndex(const QPrintPreviewDialog* self);
+    friend int QPrintPreviewDialog_QBaseSenderSignalIndex(const QPrintPreviewDialog* self);
+    friend int QPrintPreviewDialog_Receivers(const QPrintPreviewDialog* self, const char* signal);
+    friend int QPrintPreviewDialog_QBaseReceivers(const QPrintPreviewDialog* self, const char* signal);
+    friend bool QPrintPreviewDialog_IsSignalConnected(const QPrintPreviewDialog* self, const QMetaMethod* signal);
+    friend bool QPrintPreviewDialog_QBaseIsSignalConnected(const QPrintPreviewDialog* self, const QMetaMethod* signal);
 };
 
 #endif

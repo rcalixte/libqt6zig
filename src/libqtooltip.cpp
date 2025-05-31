@@ -11,7 +11,7 @@
 #include "libqtooltip.h"
 #include "libqtooltip.hxx"
 
-QToolTip* QToolTip_new(QToolTip* other) {
+QToolTip* QToolTip_new(const QToolTip* other) {
     return new QToolTip(*other);
 }
 
@@ -27,7 +27,7 @@ void QToolTip_MoveAssign(QToolTip* self, QToolTip* other) {
     *self = std::move(*other);
 }
 
-void QToolTip_ShowText(QPoint* pos, libqt_string text) {
+void QToolTip_ShowText(const QPoint* pos, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     QToolTip::showText(*pos, text_QString);
 }
@@ -56,7 +56,7 @@ QPalette* QToolTip_Palette() {
     return new QPalette(QToolTip::palette());
 }
 
-void QToolTip_SetPalette(QPalette* palette) {
+void QToolTip_SetPalette(const QPalette* palette) {
     QToolTip::setPalette(*palette);
 }
 
@@ -64,21 +64,21 @@ QFont* QToolTip_Font() {
     return new QFont(QToolTip::font());
 }
 
-void QToolTip_SetFont(QFont* font) {
+void QToolTip_SetFont(const QFont* font) {
     QToolTip::setFont(*font);
 }
 
-void QToolTip_ShowText3(QPoint* pos, libqt_string text, QWidget* w) {
+void QToolTip_ShowText3(const QPoint* pos, const libqt_string text, QWidget* w) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     QToolTip::showText(*pos, text_QString, w);
 }
 
-void QToolTip_ShowText4(QPoint* pos, libqt_string text, QWidget* w, QRect* rect) {
+void QToolTip_ShowText4(const QPoint* pos, const libqt_string text, QWidget* w, const QRect* rect) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     QToolTip::showText(*pos, text_QString, w, *rect);
 }
 
-void QToolTip_ShowText5(QPoint* pos, libqt_string text, QWidget* w, QRect* rect, int msecShowTime) {
+void QToolTip_ShowText5(const QPoint* pos, const libqt_string text, QWidget* w, const QRect* rect, int msecShowTime) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     QToolTip::showText(*pos, text_QString, w, *rect, static_cast<int>(msecShowTime));
 }

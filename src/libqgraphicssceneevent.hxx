@@ -11,9 +11,12 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QGraphicsSceneEvent so that we can call protected methods
-class VirtualQGraphicsSceneEvent : public QGraphicsSceneEvent {
+class VirtualQGraphicsSceneEvent final : public QGraphicsSceneEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsSceneEvent = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsSceneEvent_SetAccepted_Callback = void (*)(QGraphicsSceneEvent*, bool);
     using QGraphicsSceneEvent_Clone_Callback = QEvent* (*)();
@@ -36,12 +39,12 @@ class VirtualQGraphicsSceneEvent : public QGraphicsSceneEvent {
     }
 
     // Callback setters
-    void setQGraphicsSceneEvent_SetAccepted_Callback(QGraphicsSceneEvent_SetAccepted_Callback cb) { qgraphicssceneevent_setaccepted_callback = cb; }
-    void setQGraphicsSceneEvent_Clone_Callback(QGraphicsSceneEvent_Clone_Callback cb) { qgraphicssceneevent_clone_callback = cb; }
+    inline void setQGraphicsSceneEvent_SetAccepted_Callback(QGraphicsSceneEvent_SetAccepted_Callback cb) { qgraphicssceneevent_setaccepted_callback = cb; }
+    inline void setQGraphicsSceneEvent_Clone_Callback(QGraphicsSceneEvent_Clone_Callback cb) { qgraphicssceneevent_clone_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsSceneEvent_SetAccepted_IsBase(bool value) const { qgraphicssceneevent_setaccepted_isbase = value; }
-    void setQGraphicsSceneEvent_Clone_IsBase(bool value) const { qgraphicssceneevent_clone_isbase = value; }
+    inline void setQGraphicsSceneEvent_SetAccepted_IsBase(bool value) const { qgraphicssceneevent_setaccepted_isbase = value; }
+    inline void setQGraphicsSceneEvent_Clone_IsBase(bool value) const { qgraphicssceneevent_clone_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void setAccepted(bool accepted) override {
@@ -49,7 +52,9 @@ class VirtualQGraphicsSceneEvent : public QGraphicsSceneEvent {
             qgraphicssceneevent_setaccepted_isbase = false;
             QGraphicsSceneEvent::setAccepted(accepted);
         } else if (qgraphicssceneevent_setaccepted_callback != nullptr) {
-            qgraphicssceneevent_setaccepted_callback(this, accepted);
+            bool cbval1 = accepted;
+
+            qgraphicssceneevent_setaccepted_callback(this, cbval1);
         } else {
             QGraphicsSceneEvent::setAccepted(accepted);
         }
@@ -61,7 +66,8 @@ class VirtualQGraphicsSceneEvent : public QGraphicsSceneEvent {
             qgraphicssceneevent_clone_isbase = false;
             return QGraphicsSceneEvent::clone();
         } else if (qgraphicssceneevent_clone_callback != nullptr) {
-            return qgraphicssceneevent_clone_callback();
+            QEvent* callback_ret = qgraphicssceneevent_clone_callback();
+            return callback_ret;
         } else {
             return QGraphicsSceneEvent::clone();
         }
@@ -69,9 +75,12 @@ class VirtualQGraphicsSceneEvent : public QGraphicsSceneEvent {
 };
 
 // This class is a subclass of QGraphicsSceneMouseEvent so that we can call protected methods
-class VirtualQGraphicsSceneMouseEvent : public QGraphicsSceneMouseEvent {
+class VirtualQGraphicsSceneMouseEvent final : public QGraphicsSceneMouseEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsSceneMouseEvent = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsSceneMouseEvent_SetAccepted_Callback = void (*)(QGraphicsSceneMouseEvent*, bool);
     using QGraphicsSceneMouseEvent_Clone_Callback = QEvent* (*)();
@@ -95,12 +104,12 @@ class VirtualQGraphicsSceneMouseEvent : public QGraphicsSceneMouseEvent {
     }
 
     // Callback setters
-    void setQGraphicsSceneMouseEvent_SetAccepted_Callback(QGraphicsSceneMouseEvent_SetAccepted_Callback cb) { qgraphicsscenemouseevent_setaccepted_callback = cb; }
-    void setQGraphicsSceneMouseEvent_Clone_Callback(QGraphicsSceneMouseEvent_Clone_Callback cb) { qgraphicsscenemouseevent_clone_callback = cb; }
+    inline void setQGraphicsSceneMouseEvent_SetAccepted_Callback(QGraphicsSceneMouseEvent_SetAccepted_Callback cb) { qgraphicsscenemouseevent_setaccepted_callback = cb; }
+    inline void setQGraphicsSceneMouseEvent_Clone_Callback(QGraphicsSceneMouseEvent_Clone_Callback cb) { qgraphicsscenemouseevent_clone_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsSceneMouseEvent_SetAccepted_IsBase(bool value) const { qgraphicsscenemouseevent_setaccepted_isbase = value; }
-    void setQGraphicsSceneMouseEvent_Clone_IsBase(bool value) const { qgraphicsscenemouseevent_clone_isbase = value; }
+    inline void setQGraphicsSceneMouseEvent_SetAccepted_IsBase(bool value) const { qgraphicsscenemouseevent_setaccepted_isbase = value; }
+    inline void setQGraphicsSceneMouseEvent_Clone_IsBase(bool value) const { qgraphicsscenemouseevent_clone_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void setAccepted(bool accepted) override {
@@ -108,7 +117,9 @@ class VirtualQGraphicsSceneMouseEvent : public QGraphicsSceneMouseEvent {
             qgraphicsscenemouseevent_setaccepted_isbase = false;
             QGraphicsSceneMouseEvent::setAccepted(accepted);
         } else if (qgraphicsscenemouseevent_setaccepted_callback != nullptr) {
-            qgraphicsscenemouseevent_setaccepted_callback(this, accepted);
+            bool cbval1 = accepted;
+
+            qgraphicsscenemouseevent_setaccepted_callback(this, cbval1);
         } else {
             QGraphicsSceneMouseEvent::setAccepted(accepted);
         }
@@ -120,7 +131,8 @@ class VirtualQGraphicsSceneMouseEvent : public QGraphicsSceneMouseEvent {
             qgraphicsscenemouseevent_clone_isbase = false;
             return QGraphicsSceneMouseEvent::clone();
         } else if (qgraphicsscenemouseevent_clone_callback != nullptr) {
-            return qgraphicsscenemouseevent_clone_callback();
+            QEvent* callback_ret = qgraphicsscenemouseevent_clone_callback();
+            return callback_ret;
         } else {
             return QGraphicsSceneMouseEvent::clone();
         }
@@ -128,9 +140,12 @@ class VirtualQGraphicsSceneMouseEvent : public QGraphicsSceneMouseEvent {
 };
 
 // This class is a subclass of QGraphicsSceneWheelEvent so that we can call protected methods
-class VirtualQGraphicsSceneWheelEvent : public QGraphicsSceneWheelEvent {
+class VirtualQGraphicsSceneWheelEvent final : public QGraphicsSceneWheelEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsSceneWheelEvent = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsSceneWheelEvent_SetAccepted_Callback = void (*)(QGraphicsSceneWheelEvent*, bool);
     using QGraphicsSceneWheelEvent_Clone_Callback = QEvent* (*)();
@@ -154,12 +169,12 @@ class VirtualQGraphicsSceneWheelEvent : public QGraphicsSceneWheelEvent {
     }
 
     // Callback setters
-    void setQGraphicsSceneWheelEvent_SetAccepted_Callback(QGraphicsSceneWheelEvent_SetAccepted_Callback cb) { qgraphicsscenewheelevent_setaccepted_callback = cb; }
-    void setQGraphicsSceneWheelEvent_Clone_Callback(QGraphicsSceneWheelEvent_Clone_Callback cb) { qgraphicsscenewheelevent_clone_callback = cb; }
+    inline void setQGraphicsSceneWheelEvent_SetAccepted_Callback(QGraphicsSceneWheelEvent_SetAccepted_Callback cb) { qgraphicsscenewheelevent_setaccepted_callback = cb; }
+    inline void setQGraphicsSceneWheelEvent_Clone_Callback(QGraphicsSceneWheelEvent_Clone_Callback cb) { qgraphicsscenewheelevent_clone_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsSceneWheelEvent_SetAccepted_IsBase(bool value) const { qgraphicsscenewheelevent_setaccepted_isbase = value; }
-    void setQGraphicsSceneWheelEvent_Clone_IsBase(bool value) const { qgraphicsscenewheelevent_clone_isbase = value; }
+    inline void setQGraphicsSceneWheelEvent_SetAccepted_IsBase(bool value) const { qgraphicsscenewheelevent_setaccepted_isbase = value; }
+    inline void setQGraphicsSceneWheelEvent_Clone_IsBase(bool value) const { qgraphicsscenewheelevent_clone_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void setAccepted(bool accepted) override {
@@ -167,7 +182,9 @@ class VirtualQGraphicsSceneWheelEvent : public QGraphicsSceneWheelEvent {
             qgraphicsscenewheelevent_setaccepted_isbase = false;
             QGraphicsSceneWheelEvent::setAccepted(accepted);
         } else if (qgraphicsscenewheelevent_setaccepted_callback != nullptr) {
-            qgraphicsscenewheelevent_setaccepted_callback(this, accepted);
+            bool cbval1 = accepted;
+
+            qgraphicsscenewheelevent_setaccepted_callback(this, cbval1);
         } else {
             QGraphicsSceneWheelEvent::setAccepted(accepted);
         }
@@ -179,7 +196,8 @@ class VirtualQGraphicsSceneWheelEvent : public QGraphicsSceneWheelEvent {
             qgraphicsscenewheelevent_clone_isbase = false;
             return QGraphicsSceneWheelEvent::clone();
         } else if (qgraphicsscenewheelevent_clone_callback != nullptr) {
-            return qgraphicsscenewheelevent_clone_callback();
+            QEvent* callback_ret = qgraphicsscenewheelevent_clone_callback();
+            return callback_ret;
         } else {
             return QGraphicsSceneWheelEvent::clone();
         }
@@ -187,9 +205,12 @@ class VirtualQGraphicsSceneWheelEvent : public QGraphicsSceneWheelEvent {
 };
 
 // This class is a subclass of QGraphicsSceneContextMenuEvent so that we can call protected methods
-class VirtualQGraphicsSceneContextMenuEvent : public QGraphicsSceneContextMenuEvent {
+class VirtualQGraphicsSceneContextMenuEvent final : public QGraphicsSceneContextMenuEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsSceneContextMenuEvent = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsSceneContextMenuEvent_SetAccepted_Callback = void (*)(QGraphicsSceneContextMenuEvent*, bool);
     using QGraphicsSceneContextMenuEvent_Clone_Callback = QEvent* (*)();
@@ -213,12 +234,12 @@ class VirtualQGraphicsSceneContextMenuEvent : public QGraphicsSceneContextMenuEv
     }
 
     // Callback setters
-    void setQGraphicsSceneContextMenuEvent_SetAccepted_Callback(QGraphicsSceneContextMenuEvent_SetAccepted_Callback cb) { qgraphicsscenecontextmenuevent_setaccepted_callback = cb; }
-    void setQGraphicsSceneContextMenuEvent_Clone_Callback(QGraphicsSceneContextMenuEvent_Clone_Callback cb) { qgraphicsscenecontextmenuevent_clone_callback = cb; }
+    inline void setQGraphicsSceneContextMenuEvent_SetAccepted_Callback(QGraphicsSceneContextMenuEvent_SetAccepted_Callback cb) { qgraphicsscenecontextmenuevent_setaccepted_callback = cb; }
+    inline void setQGraphicsSceneContextMenuEvent_Clone_Callback(QGraphicsSceneContextMenuEvent_Clone_Callback cb) { qgraphicsscenecontextmenuevent_clone_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsSceneContextMenuEvent_SetAccepted_IsBase(bool value) const { qgraphicsscenecontextmenuevent_setaccepted_isbase = value; }
-    void setQGraphicsSceneContextMenuEvent_Clone_IsBase(bool value) const { qgraphicsscenecontextmenuevent_clone_isbase = value; }
+    inline void setQGraphicsSceneContextMenuEvent_SetAccepted_IsBase(bool value) const { qgraphicsscenecontextmenuevent_setaccepted_isbase = value; }
+    inline void setQGraphicsSceneContextMenuEvent_Clone_IsBase(bool value) const { qgraphicsscenecontextmenuevent_clone_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void setAccepted(bool accepted) override {
@@ -226,7 +247,9 @@ class VirtualQGraphicsSceneContextMenuEvent : public QGraphicsSceneContextMenuEv
             qgraphicsscenecontextmenuevent_setaccepted_isbase = false;
             QGraphicsSceneContextMenuEvent::setAccepted(accepted);
         } else if (qgraphicsscenecontextmenuevent_setaccepted_callback != nullptr) {
-            qgraphicsscenecontextmenuevent_setaccepted_callback(this, accepted);
+            bool cbval1 = accepted;
+
+            qgraphicsscenecontextmenuevent_setaccepted_callback(this, cbval1);
         } else {
             QGraphicsSceneContextMenuEvent::setAccepted(accepted);
         }
@@ -238,7 +261,8 @@ class VirtualQGraphicsSceneContextMenuEvent : public QGraphicsSceneContextMenuEv
             qgraphicsscenecontextmenuevent_clone_isbase = false;
             return QGraphicsSceneContextMenuEvent::clone();
         } else if (qgraphicsscenecontextmenuevent_clone_callback != nullptr) {
-            return qgraphicsscenecontextmenuevent_clone_callback();
+            QEvent* callback_ret = qgraphicsscenecontextmenuevent_clone_callback();
+            return callback_ret;
         } else {
             return QGraphicsSceneContextMenuEvent::clone();
         }
@@ -246,9 +270,12 @@ class VirtualQGraphicsSceneContextMenuEvent : public QGraphicsSceneContextMenuEv
 };
 
 // This class is a subclass of QGraphicsSceneHoverEvent so that we can call protected methods
-class VirtualQGraphicsSceneHoverEvent : public QGraphicsSceneHoverEvent {
+class VirtualQGraphicsSceneHoverEvent final : public QGraphicsSceneHoverEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsSceneHoverEvent = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsSceneHoverEvent_SetAccepted_Callback = void (*)(QGraphicsSceneHoverEvent*, bool);
     using QGraphicsSceneHoverEvent_Clone_Callback = QEvent* (*)();
@@ -272,12 +299,12 @@ class VirtualQGraphicsSceneHoverEvent : public QGraphicsSceneHoverEvent {
     }
 
     // Callback setters
-    void setQGraphicsSceneHoverEvent_SetAccepted_Callback(QGraphicsSceneHoverEvent_SetAccepted_Callback cb) { qgraphicsscenehoverevent_setaccepted_callback = cb; }
-    void setQGraphicsSceneHoverEvent_Clone_Callback(QGraphicsSceneHoverEvent_Clone_Callback cb) { qgraphicsscenehoverevent_clone_callback = cb; }
+    inline void setQGraphicsSceneHoverEvent_SetAccepted_Callback(QGraphicsSceneHoverEvent_SetAccepted_Callback cb) { qgraphicsscenehoverevent_setaccepted_callback = cb; }
+    inline void setQGraphicsSceneHoverEvent_Clone_Callback(QGraphicsSceneHoverEvent_Clone_Callback cb) { qgraphicsscenehoverevent_clone_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsSceneHoverEvent_SetAccepted_IsBase(bool value) const { qgraphicsscenehoverevent_setaccepted_isbase = value; }
-    void setQGraphicsSceneHoverEvent_Clone_IsBase(bool value) const { qgraphicsscenehoverevent_clone_isbase = value; }
+    inline void setQGraphicsSceneHoverEvent_SetAccepted_IsBase(bool value) const { qgraphicsscenehoverevent_setaccepted_isbase = value; }
+    inline void setQGraphicsSceneHoverEvent_Clone_IsBase(bool value) const { qgraphicsscenehoverevent_clone_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void setAccepted(bool accepted) override {
@@ -285,7 +312,9 @@ class VirtualQGraphicsSceneHoverEvent : public QGraphicsSceneHoverEvent {
             qgraphicsscenehoverevent_setaccepted_isbase = false;
             QGraphicsSceneHoverEvent::setAccepted(accepted);
         } else if (qgraphicsscenehoverevent_setaccepted_callback != nullptr) {
-            qgraphicsscenehoverevent_setaccepted_callback(this, accepted);
+            bool cbval1 = accepted;
+
+            qgraphicsscenehoverevent_setaccepted_callback(this, cbval1);
         } else {
             QGraphicsSceneHoverEvent::setAccepted(accepted);
         }
@@ -297,7 +326,8 @@ class VirtualQGraphicsSceneHoverEvent : public QGraphicsSceneHoverEvent {
             qgraphicsscenehoverevent_clone_isbase = false;
             return QGraphicsSceneHoverEvent::clone();
         } else if (qgraphicsscenehoverevent_clone_callback != nullptr) {
-            return qgraphicsscenehoverevent_clone_callback();
+            QEvent* callback_ret = qgraphicsscenehoverevent_clone_callback();
+            return callback_ret;
         } else {
             return QGraphicsSceneHoverEvent::clone();
         }
@@ -305,9 +335,12 @@ class VirtualQGraphicsSceneHoverEvent : public QGraphicsSceneHoverEvent {
 };
 
 // This class is a subclass of QGraphicsSceneHelpEvent so that we can call protected methods
-class VirtualQGraphicsSceneHelpEvent : public QGraphicsSceneHelpEvent {
+class VirtualQGraphicsSceneHelpEvent final : public QGraphicsSceneHelpEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsSceneHelpEvent = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsSceneHelpEvent_SetAccepted_Callback = void (*)(QGraphicsSceneHelpEvent*, bool);
     using QGraphicsSceneHelpEvent_Clone_Callback = QEvent* (*)();
@@ -331,12 +364,12 @@ class VirtualQGraphicsSceneHelpEvent : public QGraphicsSceneHelpEvent {
     }
 
     // Callback setters
-    void setQGraphicsSceneHelpEvent_SetAccepted_Callback(QGraphicsSceneHelpEvent_SetAccepted_Callback cb) { qgraphicsscenehelpevent_setaccepted_callback = cb; }
-    void setQGraphicsSceneHelpEvent_Clone_Callback(QGraphicsSceneHelpEvent_Clone_Callback cb) { qgraphicsscenehelpevent_clone_callback = cb; }
+    inline void setQGraphicsSceneHelpEvent_SetAccepted_Callback(QGraphicsSceneHelpEvent_SetAccepted_Callback cb) { qgraphicsscenehelpevent_setaccepted_callback = cb; }
+    inline void setQGraphicsSceneHelpEvent_Clone_Callback(QGraphicsSceneHelpEvent_Clone_Callback cb) { qgraphicsscenehelpevent_clone_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsSceneHelpEvent_SetAccepted_IsBase(bool value) const { qgraphicsscenehelpevent_setaccepted_isbase = value; }
-    void setQGraphicsSceneHelpEvent_Clone_IsBase(bool value) const { qgraphicsscenehelpevent_clone_isbase = value; }
+    inline void setQGraphicsSceneHelpEvent_SetAccepted_IsBase(bool value) const { qgraphicsscenehelpevent_setaccepted_isbase = value; }
+    inline void setQGraphicsSceneHelpEvent_Clone_IsBase(bool value) const { qgraphicsscenehelpevent_clone_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void setAccepted(bool accepted) override {
@@ -344,7 +377,9 @@ class VirtualQGraphicsSceneHelpEvent : public QGraphicsSceneHelpEvent {
             qgraphicsscenehelpevent_setaccepted_isbase = false;
             QGraphicsSceneHelpEvent::setAccepted(accepted);
         } else if (qgraphicsscenehelpevent_setaccepted_callback != nullptr) {
-            qgraphicsscenehelpevent_setaccepted_callback(this, accepted);
+            bool cbval1 = accepted;
+
+            qgraphicsscenehelpevent_setaccepted_callback(this, cbval1);
         } else {
             QGraphicsSceneHelpEvent::setAccepted(accepted);
         }
@@ -356,7 +391,8 @@ class VirtualQGraphicsSceneHelpEvent : public QGraphicsSceneHelpEvent {
             qgraphicsscenehelpevent_clone_isbase = false;
             return QGraphicsSceneHelpEvent::clone();
         } else if (qgraphicsscenehelpevent_clone_callback != nullptr) {
-            return qgraphicsscenehelpevent_clone_callback();
+            QEvent* callback_ret = qgraphicsscenehelpevent_clone_callback();
+            return callback_ret;
         } else {
             return QGraphicsSceneHelpEvent::clone();
         }
@@ -364,9 +400,12 @@ class VirtualQGraphicsSceneHelpEvent : public QGraphicsSceneHelpEvent {
 };
 
 // This class is a subclass of QGraphicsSceneDragDropEvent so that we can call protected methods
-class VirtualQGraphicsSceneDragDropEvent : public QGraphicsSceneDragDropEvent {
+class VirtualQGraphicsSceneDragDropEvent final : public QGraphicsSceneDragDropEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsSceneDragDropEvent = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsSceneDragDropEvent_SetAccepted_Callback = void (*)(QGraphicsSceneDragDropEvent*, bool);
     using QGraphicsSceneDragDropEvent_Clone_Callback = QEvent* (*)();
@@ -390,12 +429,12 @@ class VirtualQGraphicsSceneDragDropEvent : public QGraphicsSceneDragDropEvent {
     }
 
     // Callback setters
-    void setQGraphicsSceneDragDropEvent_SetAccepted_Callback(QGraphicsSceneDragDropEvent_SetAccepted_Callback cb) { qgraphicsscenedragdropevent_setaccepted_callback = cb; }
-    void setQGraphicsSceneDragDropEvent_Clone_Callback(QGraphicsSceneDragDropEvent_Clone_Callback cb) { qgraphicsscenedragdropevent_clone_callback = cb; }
+    inline void setQGraphicsSceneDragDropEvent_SetAccepted_Callback(QGraphicsSceneDragDropEvent_SetAccepted_Callback cb) { qgraphicsscenedragdropevent_setaccepted_callback = cb; }
+    inline void setQGraphicsSceneDragDropEvent_Clone_Callback(QGraphicsSceneDragDropEvent_Clone_Callback cb) { qgraphicsscenedragdropevent_clone_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsSceneDragDropEvent_SetAccepted_IsBase(bool value) const { qgraphicsscenedragdropevent_setaccepted_isbase = value; }
-    void setQGraphicsSceneDragDropEvent_Clone_IsBase(bool value) const { qgraphicsscenedragdropevent_clone_isbase = value; }
+    inline void setQGraphicsSceneDragDropEvent_SetAccepted_IsBase(bool value) const { qgraphicsscenedragdropevent_setaccepted_isbase = value; }
+    inline void setQGraphicsSceneDragDropEvent_Clone_IsBase(bool value) const { qgraphicsscenedragdropevent_clone_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void setAccepted(bool accepted) override {
@@ -403,7 +442,9 @@ class VirtualQGraphicsSceneDragDropEvent : public QGraphicsSceneDragDropEvent {
             qgraphicsscenedragdropevent_setaccepted_isbase = false;
             QGraphicsSceneDragDropEvent::setAccepted(accepted);
         } else if (qgraphicsscenedragdropevent_setaccepted_callback != nullptr) {
-            qgraphicsscenedragdropevent_setaccepted_callback(this, accepted);
+            bool cbval1 = accepted;
+
+            qgraphicsscenedragdropevent_setaccepted_callback(this, cbval1);
         } else {
             QGraphicsSceneDragDropEvent::setAccepted(accepted);
         }
@@ -415,7 +456,8 @@ class VirtualQGraphicsSceneDragDropEvent : public QGraphicsSceneDragDropEvent {
             qgraphicsscenedragdropevent_clone_isbase = false;
             return QGraphicsSceneDragDropEvent::clone();
         } else if (qgraphicsscenedragdropevent_clone_callback != nullptr) {
-            return qgraphicsscenedragdropevent_clone_callback();
+            QEvent* callback_ret = qgraphicsscenedragdropevent_clone_callback();
+            return callback_ret;
         } else {
             return QGraphicsSceneDragDropEvent::clone();
         }
@@ -423,9 +465,12 @@ class VirtualQGraphicsSceneDragDropEvent : public QGraphicsSceneDragDropEvent {
 };
 
 // This class is a subclass of QGraphicsSceneResizeEvent so that we can call protected methods
-class VirtualQGraphicsSceneResizeEvent : public QGraphicsSceneResizeEvent {
+class VirtualQGraphicsSceneResizeEvent final : public QGraphicsSceneResizeEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsSceneResizeEvent = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsSceneResizeEvent_SetAccepted_Callback = void (*)(QGraphicsSceneResizeEvent*, bool);
     using QGraphicsSceneResizeEvent_Clone_Callback = QEvent* (*)();
@@ -448,12 +493,12 @@ class VirtualQGraphicsSceneResizeEvent : public QGraphicsSceneResizeEvent {
     }
 
     // Callback setters
-    void setQGraphicsSceneResizeEvent_SetAccepted_Callback(QGraphicsSceneResizeEvent_SetAccepted_Callback cb) { qgraphicssceneresizeevent_setaccepted_callback = cb; }
-    void setQGraphicsSceneResizeEvent_Clone_Callback(QGraphicsSceneResizeEvent_Clone_Callback cb) { qgraphicssceneresizeevent_clone_callback = cb; }
+    inline void setQGraphicsSceneResizeEvent_SetAccepted_Callback(QGraphicsSceneResizeEvent_SetAccepted_Callback cb) { qgraphicssceneresizeevent_setaccepted_callback = cb; }
+    inline void setQGraphicsSceneResizeEvent_Clone_Callback(QGraphicsSceneResizeEvent_Clone_Callback cb) { qgraphicssceneresizeevent_clone_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsSceneResizeEvent_SetAccepted_IsBase(bool value) const { qgraphicssceneresizeevent_setaccepted_isbase = value; }
-    void setQGraphicsSceneResizeEvent_Clone_IsBase(bool value) const { qgraphicssceneresizeevent_clone_isbase = value; }
+    inline void setQGraphicsSceneResizeEvent_SetAccepted_IsBase(bool value) const { qgraphicssceneresizeevent_setaccepted_isbase = value; }
+    inline void setQGraphicsSceneResizeEvent_Clone_IsBase(bool value) const { qgraphicssceneresizeevent_clone_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void setAccepted(bool accepted) override {
@@ -461,7 +506,9 @@ class VirtualQGraphicsSceneResizeEvent : public QGraphicsSceneResizeEvent {
             qgraphicssceneresizeevent_setaccepted_isbase = false;
             QGraphicsSceneResizeEvent::setAccepted(accepted);
         } else if (qgraphicssceneresizeevent_setaccepted_callback != nullptr) {
-            qgraphicssceneresizeevent_setaccepted_callback(this, accepted);
+            bool cbval1 = accepted;
+
+            qgraphicssceneresizeevent_setaccepted_callback(this, cbval1);
         } else {
             QGraphicsSceneResizeEvent::setAccepted(accepted);
         }
@@ -473,7 +520,8 @@ class VirtualQGraphicsSceneResizeEvent : public QGraphicsSceneResizeEvent {
             qgraphicssceneresizeevent_clone_isbase = false;
             return QGraphicsSceneResizeEvent::clone();
         } else if (qgraphicssceneresizeevent_clone_callback != nullptr) {
-            return qgraphicssceneresizeevent_clone_callback();
+            QEvent* callback_ret = qgraphicssceneresizeevent_clone_callback();
+            return callback_ret;
         } else {
             return QGraphicsSceneResizeEvent::clone();
         }
@@ -481,9 +529,12 @@ class VirtualQGraphicsSceneResizeEvent : public QGraphicsSceneResizeEvent {
 };
 
 // This class is a subclass of QGraphicsSceneMoveEvent so that we can call protected methods
-class VirtualQGraphicsSceneMoveEvent : public QGraphicsSceneMoveEvent {
+class VirtualQGraphicsSceneMoveEvent final : public QGraphicsSceneMoveEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsSceneMoveEvent = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsSceneMoveEvent_SetAccepted_Callback = void (*)(QGraphicsSceneMoveEvent*, bool);
     using QGraphicsSceneMoveEvent_Clone_Callback = QEvent* (*)();
@@ -506,12 +557,12 @@ class VirtualQGraphicsSceneMoveEvent : public QGraphicsSceneMoveEvent {
     }
 
     // Callback setters
-    void setQGraphicsSceneMoveEvent_SetAccepted_Callback(QGraphicsSceneMoveEvent_SetAccepted_Callback cb) { qgraphicsscenemoveevent_setaccepted_callback = cb; }
-    void setQGraphicsSceneMoveEvent_Clone_Callback(QGraphicsSceneMoveEvent_Clone_Callback cb) { qgraphicsscenemoveevent_clone_callback = cb; }
+    inline void setQGraphicsSceneMoveEvent_SetAccepted_Callback(QGraphicsSceneMoveEvent_SetAccepted_Callback cb) { qgraphicsscenemoveevent_setaccepted_callback = cb; }
+    inline void setQGraphicsSceneMoveEvent_Clone_Callback(QGraphicsSceneMoveEvent_Clone_Callback cb) { qgraphicsscenemoveevent_clone_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsSceneMoveEvent_SetAccepted_IsBase(bool value) const { qgraphicsscenemoveevent_setaccepted_isbase = value; }
-    void setQGraphicsSceneMoveEvent_Clone_IsBase(bool value) const { qgraphicsscenemoveevent_clone_isbase = value; }
+    inline void setQGraphicsSceneMoveEvent_SetAccepted_IsBase(bool value) const { qgraphicsscenemoveevent_setaccepted_isbase = value; }
+    inline void setQGraphicsSceneMoveEvent_Clone_IsBase(bool value) const { qgraphicsscenemoveevent_clone_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void setAccepted(bool accepted) override {
@@ -519,7 +570,9 @@ class VirtualQGraphicsSceneMoveEvent : public QGraphicsSceneMoveEvent {
             qgraphicsscenemoveevent_setaccepted_isbase = false;
             QGraphicsSceneMoveEvent::setAccepted(accepted);
         } else if (qgraphicsscenemoveevent_setaccepted_callback != nullptr) {
-            qgraphicsscenemoveevent_setaccepted_callback(this, accepted);
+            bool cbval1 = accepted;
+
+            qgraphicsscenemoveevent_setaccepted_callback(this, cbval1);
         } else {
             QGraphicsSceneMoveEvent::setAccepted(accepted);
         }
@@ -531,7 +584,8 @@ class VirtualQGraphicsSceneMoveEvent : public QGraphicsSceneMoveEvent {
             qgraphicsscenemoveevent_clone_isbase = false;
             return QGraphicsSceneMoveEvent::clone();
         } else if (qgraphicsscenemoveevent_clone_callback != nullptr) {
-            return qgraphicsscenemoveevent_clone_callback();
+            QEvent* callback_ret = qgraphicsscenemoveevent_clone_callback();
+            return callback_ret;
         } else {
             return QGraphicsSceneMoveEvent::clone();
         }

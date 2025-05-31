@@ -21,12 +21,12 @@ typedef struct QStorageInfo QStorageInfo;
 #endif
 
 QStorageInfo* QStorageInfo_new();
-QStorageInfo* QStorageInfo_new2(libqt_string path);
-QStorageInfo* QStorageInfo_new3(QDir* dir);
-QStorageInfo* QStorageInfo_new4(QStorageInfo* other);
-void QStorageInfo_OperatorAssign(QStorageInfo* self, QStorageInfo* other);
+QStorageInfo* QStorageInfo_new2(const libqt_string path);
+QStorageInfo* QStorageInfo_new3(const QDir* dir);
+QStorageInfo* QStorageInfo_new4(const QStorageInfo* other);
+void QStorageInfo_OperatorAssign(QStorageInfo* self, const QStorageInfo* other);
 void QStorageInfo_Swap(QStorageInfo* self, QStorageInfo* other);
-void QStorageInfo_SetPath(QStorageInfo* self, libqt_string path);
+void QStorageInfo_SetPath(QStorageInfo* self, const libqt_string path);
 libqt_string QStorageInfo_RootPath(const QStorageInfo* self);
 libqt_string QStorageInfo_Device(const QStorageInfo* self);
 libqt_string QStorageInfo_Subvolume(const QStorageInfo* self);

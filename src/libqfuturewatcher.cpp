@@ -1,20 +1,11 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
-#include <QChildEvent>
 #include <QEvent>
 #include <QFutureWatcherBase>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
-#include <QVariant>
 #include <qfuturewatcher.h>
 #include "libqfuturewatcher.h"
 #include "libqfuturewatcher.hxx"
@@ -234,7 +225,7 @@ void QFutureWatcherBase_Connect_ProgressValueChanged(QFutureWatcherBase* self, i
     });
 }
 
-void QFutureWatcherBase_ProgressTextChanged(QFutureWatcherBase* self, libqt_string progressText) {
+void QFutureWatcherBase_ProgressTextChanged(QFutureWatcherBase* self, const libqt_string progressText) {
     QString progressText_QString = QString::fromUtf8(progressText.data, progressText.len);
     self->progressTextChanged(progressText_QString);
 }
@@ -309,10 +300,6 @@ libqt_string QFutureWatcherBase_Tr3(const char* s, const char* c, int n) {
     memcpy(_str.data, _b.data(), _str.len);
     _str.data[_str.len] = '\0';
     return _str;
-}
-
-bool QFutureWatcherBase_EventFilter(QFutureWatcherBase* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
 }
 
 void QFutureWatcherBase_Delete(QFutureWatcherBase* self) {

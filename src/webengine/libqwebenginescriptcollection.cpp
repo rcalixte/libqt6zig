@@ -16,11 +16,11 @@ int QWebEngineScriptCollection_Count(const QWebEngineScriptCollection* self) {
     return self->count();
 }
 
-bool QWebEngineScriptCollection_Contains(const QWebEngineScriptCollection* self, QWebEngineScript* value) {
+bool QWebEngineScriptCollection_Contains(const QWebEngineScriptCollection* self, const QWebEngineScript* value) {
     return self->contains(*value);
 }
 
-libqt_list /* of QWebEngineScript* */ QWebEngineScriptCollection_Find(const QWebEngineScriptCollection* self, libqt_string name) {
+libqt_list /* of QWebEngineScript* */ QWebEngineScriptCollection_Find(const QWebEngineScriptCollection* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QList<QWebEngineScript> _ret = self->find(name_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -34,11 +34,11 @@ libqt_list /* of QWebEngineScript* */ QWebEngineScriptCollection_Find(const QWeb
     return _out;
 }
 
-void QWebEngineScriptCollection_Insert(QWebEngineScriptCollection* self, QWebEngineScript* param1) {
+void QWebEngineScriptCollection_Insert(QWebEngineScriptCollection* self, const QWebEngineScript* param1) {
     self->insert(*param1);
 }
 
-void QWebEngineScriptCollection_InsertWithList(QWebEngineScriptCollection* self, libqt_list /* of QWebEngineScript* */ list) {
+void QWebEngineScriptCollection_InsertWithList(QWebEngineScriptCollection* self, const libqt_list /* of QWebEngineScript* */ list) {
     QList<QWebEngineScript> list_QList;
     list_QList.reserve(list.len);
     QWebEngineScript** list_arr = static_cast<QWebEngineScript**>(list.data);
@@ -48,7 +48,7 @@ void QWebEngineScriptCollection_InsertWithList(QWebEngineScriptCollection* self,
     self->insert(list_QList);
 }
 
-bool QWebEngineScriptCollection_Remove(QWebEngineScriptCollection* self, QWebEngineScript* param1) {
+bool QWebEngineScriptCollection_Remove(QWebEngineScriptCollection* self, const QWebEngineScript* param1) {
     return self->remove(*param1);
 }
 

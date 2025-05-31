@@ -10,7 +10,7 @@
 #include "libqvectornd.h"
 #include "libqvectornd.hxx"
 
-QVector2D* QVector2D_new(QVector2D* other) {
+QVector2D* QVector2D_new(const QVector2D* other) {
     return new QVector2D(*other);
 }
 
@@ -46,7 +46,7 @@ QVector2D* QVector2D_new9(QVector4D* vector) {
     return new QVector2D(*vector);
 }
 
-QVector2D* QVector2D_new10(QVector2D* param1) {
+QVector2D* QVector2D_new10(const QVector2D* param1) {
     return new QVector2D(*param1);
 }
 
@@ -170,7 +170,7 @@ void QVector2D_Delete(QVector2D* self) {
     delete self;
 }
 
-QVector3D* QVector3D_new(QVector3D* other) {
+QVector3D* QVector3D_new(const QVector3D* other) {
     return new QVector3D(*other);
 }
 
@@ -210,7 +210,7 @@ QVector3D* QVector3D_new10(QVector4D* vector) {
     return new QVector3D(*vector);
 }
 
-QVector3D* QVector3D_new11(QVector3D* param1) {
+QVector3D* QVector3D_new11(const QVector3D* param1) {
     return new QVector3D(*param1);
 }
 
@@ -322,11 +322,11 @@ QVector3D* QVector3D_Normal2(QVector3D* v1, QVector3D* v2, QVector3D* v3) {
     return new QVector3D(QVector3D::normal(*v1, *v2, *v3));
 }
 
-QVector3D* QVector3D_Project(const QVector3D* self, QMatrix4x4* modelView, QMatrix4x4* projection, QRect* viewport) {
+QVector3D* QVector3D_Project(const QVector3D* self, const QMatrix4x4* modelView, const QMatrix4x4* projection, const QRect* viewport) {
     return new QVector3D(self->project(*modelView, *projection, *viewport));
 }
 
-QVector3D* QVector3D_Unproject(const QVector3D* self, QMatrix4x4* modelView, QMatrix4x4* projection, QRect* viewport) {
+QVector3D* QVector3D_Unproject(const QVector3D* self, const QMatrix4x4* modelView, const QMatrix4x4* projection, const QRect* viewport) {
     return new QVector3D(self->unproject(*modelView, *projection, *viewport));
 }
 
@@ -370,7 +370,7 @@ void QVector3D_Delete(QVector3D* self) {
     delete self;
 }
 
-QVector4D* QVector4D_new(QVector4D* other) {
+QVector4D* QVector4D_new(const QVector4D* other) {
     return new QVector4D(*other);
 }
 
@@ -414,7 +414,7 @@ QVector4D* QVector4D_new11(QVector3D* vector, float wpos) {
     return new QVector4D(*vector, static_cast<float>(wpos));
 }
 
-QVector4D* QVector4D_new12(QVector4D* param1) {
+QVector4D* QVector4D_new12(const QVector4D* param1) {
     return new QVector4D(*param1);
 }
 

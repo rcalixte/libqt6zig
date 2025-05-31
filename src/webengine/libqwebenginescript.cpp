@@ -11,11 +11,11 @@ QWebEngineScript* QWebEngineScript_new() {
     return new QWebEngineScript();
 }
 
-QWebEngineScript* QWebEngineScript_new2(QWebEngineScript* other) {
+QWebEngineScript* QWebEngineScript_new2(const QWebEngineScript* other) {
     return new QWebEngineScript(*other);
 }
 
-void QWebEngineScript_OperatorAssign(QWebEngineScript* self, QWebEngineScript* other) {
+void QWebEngineScript_OperatorAssign(QWebEngineScript* self, const QWebEngineScript* other) {
     self->operator=(*other);
 }
 
@@ -31,7 +31,7 @@ libqt_string QWebEngineScript_Name(const QWebEngineScript* self) {
     return _str;
 }
 
-void QWebEngineScript_SetName(QWebEngineScript* self, libqt_string name) {
+void QWebEngineScript_SetName(QWebEngineScript* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     self->setName(name_QString);
 }
@@ -40,7 +40,7 @@ QUrl* QWebEngineScript_SourceUrl(const QWebEngineScript* self) {
     return new QUrl(self->sourceUrl());
 }
 
-void QWebEngineScript_SetSourceUrl(QWebEngineScript* self, QUrl* url) {
+void QWebEngineScript_SetSourceUrl(QWebEngineScript* self, const QUrl* url) {
     self->setSourceUrl(*url);
 }
 
@@ -56,7 +56,7 @@ libqt_string QWebEngineScript_SourceCode(const QWebEngineScript* self) {
     return _str;
 }
 
-void QWebEngineScript_SetSourceCode(QWebEngineScript* self, libqt_string sourceCode) {
+void QWebEngineScript_SetSourceCode(QWebEngineScript* self, const libqt_string sourceCode) {
     QString sourceCode_QString = QString::fromUtf8(sourceCode.data, sourceCode.len);
     self->setSourceCode(sourceCode_QString);
 }
@@ -85,11 +85,11 @@ void QWebEngineScript_SetRunsOnSubFrames(QWebEngineScript* self, bool on) {
     self->setRunsOnSubFrames(on);
 }
 
-bool QWebEngineScript_OperatorEqual(const QWebEngineScript* self, QWebEngineScript* other) {
+bool QWebEngineScript_OperatorEqual(const QWebEngineScript* self, const QWebEngineScript* other) {
     return (*self == *other);
 }
 
-bool QWebEngineScript_OperatorNotEqual(const QWebEngineScript* self, QWebEngineScript* other) {
+bool QWebEngineScript_OperatorNotEqual(const QWebEngineScript* self, const QWebEngineScript* other) {
     return (*self != *other);
 }
 

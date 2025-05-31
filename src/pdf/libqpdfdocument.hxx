@@ -11,22 +11,25 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QPdfDocument so that we can call protected methods
-class VirtualQPdfDocument : public QPdfDocument {
+class VirtualQPdfDocument final : public QPdfDocument {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQPdfDocument = true;
+
     // Virtual class public types (including callbacks)
-    using QPdfDocument_Metacall_Callback = int (*)(QPdfDocument*, QMetaObject::Call, int, void**);
+    using QPdfDocument_Metacall_Callback = int (*)(QPdfDocument*, int, int, void**);
     using QPdfDocument_Event_Callback = bool (*)(QPdfDocument*, QEvent*);
     using QPdfDocument_EventFilter_Callback = bool (*)(QPdfDocument*, QObject*, QEvent*);
     using QPdfDocument_TimerEvent_Callback = void (*)(QPdfDocument*, QTimerEvent*);
     using QPdfDocument_ChildEvent_Callback = void (*)(QPdfDocument*, QChildEvent*);
     using QPdfDocument_CustomEvent_Callback = void (*)(QPdfDocument*, QEvent*);
-    using QPdfDocument_ConnectNotify_Callback = void (*)(QPdfDocument*, const QMetaMethod&);
-    using QPdfDocument_DisconnectNotify_Callback = void (*)(QPdfDocument*, const QMetaMethod&);
+    using QPdfDocument_ConnectNotify_Callback = void (*)(QPdfDocument*, QMetaMethod*);
+    using QPdfDocument_DisconnectNotify_Callback = void (*)(QPdfDocument*, QMetaMethod*);
     using QPdfDocument_Sender_Callback = QObject* (*)();
     using QPdfDocument_SenderSignalIndex_Callback = int (*)();
     using QPdfDocument_Receivers_Callback = int (*)(const QPdfDocument*, const char*);
-    using QPdfDocument_IsSignalConnected_Callback = bool (*)(const QPdfDocument*, const QMetaMethod&);
+    using QPdfDocument_IsSignalConnected_Callback = bool (*)(const QPdfDocument*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -77,32 +80,32 @@ class VirtualQPdfDocument : public QPdfDocument {
     }
 
     // Callback setters
-    void setQPdfDocument_Metacall_Callback(QPdfDocument_Metacall_Callback cb) { qpdfdocument_metacall_callback = cb; }
-    void setQPdfDocument_Event_Callback(QPdfDocument_Event_Callback cb) { qpdfdocument_event_callback = cb; }
-    void setQPdfDocument_EventFilter_Callback(QPdfDocument_EventFilter_Callback cb) { qpdfdocument_eventfilter_callback = cb; }
-    void setQPdfDocument_TimerEvent_Callback(QPdfDocument_TimerEvent_Callback cb) { qpdfdocument_timerevent_callback = cb; }
-    void setQPdfDocument_ChildEvent_Callback(QPdfDocument_ChildEvent_Callback cb) { qpdfdocument_childevent_callback = cb; }
-    void setQPdfDocument_CustomEvent_Callback(QPdfDocument_CustomEvent_Callback cb) { qpdfdocument_customevent_callback = cb; }
-    void setQPdfDocument_ConnectNotify_Callback(QPdfDocument_ConnectNotify_Callback cb) { qpdfdocument_connectnotify_callback = cb; }
-    void setQPdfDocument_DisconnectNotify_Callback(QPdfDocument_DisconnectNotify_Callback cb) { qpdfdocument_disconnectnotify_callback = cb; }
-    void setQPdfDocument_Sender_Callback(QPdfDocument_Sender_Callback cb) { qpdfdocument_sender_callback = cb; }
-    void setQPdfDocument_SenderSignalIndex_Callback(QPdfDocument_SenderSignalIndex_Callback cb) { qpdfdocument_sendersignalindex_callback = cb; }
-    void setQPdfDocument_Receivers_Callback(QPdfDocument_Receivers_Callback cb) { qpdfdocument_receivers_callback = cb; }
-    void setQPdfDocument_IsSignalConnected_Callback(QPdfDocument_IsSignalConnected_Callback cb) { qpdfdocument_issignalconnected_callback = cb; }
+    inline void setQPdfDocument_Metacall_Callback(QPdfDocument_Metacall_Callback cb) { qpdfdocument_metacall_callback = cb; }
+    inline void setQPdfDocument_Event_Callback(QPdfDocument_Event_Callback cb) { qpdfdocument_event_callback = cb; }
+    inline void setQPdfDocument_EventFilter_Callback(QPdfDocument_EventFilter_Callback cb) { qpdfdocument_eventfilter_callback = cb; }
+    inline void setQPdfDocument_TimerEvent_Callback(QPdfDocument_TimerEvent_Callback cb) { qpdfdocument_timerevent_callback = cb; }
+    inline void setQPdfDocument_ChildEvent_Callback(QPdfDocument_ChildEvent_Callback cb) { qpdfdocument_childevent_callback = cb; }
+    inline void setQPdfDocument_CustomEvent_Callback(QPdfDocument_CustomEvent_Callback cb) { qpdfdocument_customevent_callback = cb; }
+    inline void setQPdfDocument_ConnectNotify_Callback(QPdfDocument_ConnectNotify_Callback cb) { qpdfdocument_connectnotify_callback = cb; }
+    inline void setQPdfDocument_DisconnectNotify_Callback(QPdfDocument_DisconnectNotify_Callback cb) { qpdfdocument_disconnectnotify_callback = cb; }
+    inline void setQPdfDocument_Sender_Callback(QPdfDocument_Sender_Callback cb) { qpdfdocument_sender_callback = cb; }
+    inline void setQPdfDocument_SenderSignalIndex_Callback(QPdfDocument_SenderSignalIndex_Callback cb) { qpdfdocument_sendersignalindex_callback = cb; }
+    inline void setQPdfDocument_Receivers_Callback(QPdfDocument_Receivers_Callback cb) { qpdfdocument_receivers_callback = cb; }
+    inline void setQPdfDocument_IsSignalConnected_Callback(QPdfDocument_IsSignalConnected_Callback cb) { qpdfdocument_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQPdfDocument_Metacall_IsBase(bool value) const { qpdfdocument_metacall_isbase = value; }
-    void setQPdfDocument_Event_IsBase(bool value) const { qpdfdocument_event_isbase = value; }
-    void setQPdfDocument_EventFilter_IsBase(bool value) const { qpdfdocument_eventfilter_isbase = value; }
-    void setQPdfDocument_TimerEvent_IsBase(bool value) const { qpdfdocument_timerevent_isbase = value; }
-    void setQPdfDocument_ChildEvent_IsBase(bool value) const { qpdfdocument_childevent_isbase = value; }
-    void setQPdfDocument_CustomEvent_IsBase(bool value) const { qpdfdocument_customevent_isbase = value; }
-    void setQPdfDocument_ConnectNotify_IsBase(bool value) const { qpdfdocument_connectnotify_isbase = value; }
-    void setQPdfDocument_DisconnectNotify_IsBase(bool value) const { qpdfdocument_disconnectnotify_isbase = value; }
-    void setQPdfDocument_Sender_IsBase(bool value) const { qpdfdocument_sender_isbase = value; }
-    void setQPdfDocument_SenderSignalIndex_IsBase(bool value) const { qpdfdocument_sendersignalindex_isbase = value; }
-    void setQPdfDocument_Receivers_IsBase(bool value) const { qpdfdocument_receivers_isbase = value; }
-    void setQPdfDocument_IsSignalConnected_IsBase(bool value) const { qpdfdocument_issignalconnected_isbase = value; }
+    inline void setQPdfDocument_Metacall_IsBase(bool value) const { qpdfdocument_metacall_isbase = value; }
+    inline void setQPdfDocument_Event_IsBase(bool value) const { qpdfdocument_event_isbase = value; }
+    inline void setQPdfDocument_EventFilter_IsBase(bool value) const { qpdfdocument_eventfilter_isbase = value; }
+    inline void setQPdfDocument_TimerEvent_IsBase(bool value) const { qpdfdocument_timerevent_isbase = value; }
+    inline void setQPdfDocument_ChildEvent_IsBase(bool value) const { qpdfdocument_childevent_isbase = value; }
+    inline void setQPdfDocument_CustomEvent_IsBase(bool value) const { qpdfdocument_customevent_isbase = value; }
+    inline void setQPdfDocument_ConnectNotify_IsBase(bool value) const { qpdfdocument_connectnotify_isbase = value; }
+    inline void setQPdfDocument_DisconnectNotify_IsBase(bool value) const { qpdfdocument_disconnectnotify_isbase = value; }
+    inline void setQPdfDocument_Sender_IsBase(bool value) const { qpdfdocument_sender_isbase = value; }
+    inline void setQPdfDocument_SenderSignalIndex_IsBase(bool value) const { qpdfdocument_sendersignalindex_isbase = value; }
+    inline void setQPdfDocument_Receivers_IsBase(bool value) const { qpdfdocument_receivers_isbase = value; }
+    inline void setQPdfDocument_IsSignalConnected_IsBase(bool value) const { qpdfdocument_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -110,7 +113,12 @@ class VirtualQPdfDocument : public QPdfDocument {
             qpdfdocument_metacall_isbase = false;
             return QPdfDocument::qt_metacall(param1, param2, param3);
         } else if (qpdfdocument_metacall_callback != nullptr) {
-            return qpdfdocument_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qpdfdocument_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QPdfDocument::qt_metacall(param1, param2, param3);
         }
@@ -122,7 +130,10 @@ class VirtualQPdfDocument : public QPdfDocument {
             qpdfdocument_event_isbase = false;
             return QPdfDocument::event(event);
         } else if (qpdfdocument_event_callback != nullptr) {
-            return qpdfdocument_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qpdfdocument_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QPdfDocument::event(event);
         }
@@ -134,7 +145,11 @@ class VirtualQPdfDocument : public QPdfDocument {
             qpdfdocument_eventfilter_isbase = false;
             return QPdfDocument::eventFilter(watched, event);
         } else if (qpdfdocument_eventfilter_callback != nullptr) {
-            return qpdfdocument_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qpdfdocument_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QPdfDocument::eventFilter(watched, event);
         }
@@ -146,7 +161,9 @@ class VirtualQPdfDocument : public QPdfDocument {
             qpdfdocument_timerevent_isbase = false;
             QPdfDocument::timerEvent(event);
         } else if (qpdfdocument_timerevent_callback != nullptr) {
-            qpdfdocument_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qpdfdocument_timerevent_callback(this, cbval1);
         } else {
             QPdfDocument::timerEvent(event);
         }
@@ -158,7 +175,9 @@ class VirtualQPdfDocument : public QPdfDocument {
             qpdfdocument_childevent_isbase = false;
             QPdfDocument::childEvent(event);
         } else if (qpdfdocument_childevent_callback != nullptr) {
-            qpdfdocument_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qpdfdocument_childevent_callback(this, cbval1);
         } else {
             QPdfDocument::childEvent(event);
         }
@@ -170,7 +189,9 @@ class VirtualQPdfDocument : public QPdfDocument {
             qpdfdocument_customevent_isbase = false;
             QPdfDocument::customEvent(event);
         } else if (qpdfdocument_customevent_callback != nullptr) {
-            qpdfdocument_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qpdfdocument_customevent_callback(this, cbval1);
         } else {
             QPdfDocument::customEvent(event);
         }
@@ -182,7 +203,11 @@ class VirtualQPdfDocument : public QPdfDocument {
             qpdfdocument_connectnotify_isbase = false;
             QPdfDocument::connectNotify(signal);
         } else if (qpdfdocument_connectnotify_callback != nullptr) {
-            qpdfdocument_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qpdfdocument_connectnotify_callback(this, cbval1);
         } else {
             QPdfDocument::connectNotify(signal);
         }
@@ -194,7 +219,11 @@ class VirtualQPdfDocument : public QPdfDocument {
             qpdfdocument_disconnectnotify_isbase = false;
             QPdfDocument::disconnectNotify(signal);
         } else if (qpdfdocument_disconnectnotify_callback != nullptr) {
-            qpdfdocument_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qpdfdocument_disconnectnotify_callback(this, cbval1);
         } else {
             QPdfDocument::disconnectNotify(signal);
         }
@@ -206,7 +235,8 @@ class VirtualQPdfDocument : public QPdfDocument {
             qpdfdocument_sender_isbase = false;
             return QPdfDocument::sender();
         } else if (qpdfdocument_sender_callback != nullptr) {
-            return qpdfdocument_sender_callback();
+            QObject* callback_ret = qpdfdocument_sender_callback();
+            return callback_ret;
         } else {
             return QPdfDocument::sender();
         }
@@ -218,7 +248,8 @@ class VirtualQPdfDocument : public QPdfDocument {
             qpdfdocument_sendersignalindex_isbase = false;
             return QPdfDocument::senderSignalIndex();
         } else if (qpdfdocument_sendersignalindex_callback != nullptr) {
-            return qpdfdocument_sendersignalindex_callback();
+            int callback_ret = qpdfdocument_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QPdfDocument::senderSignalIndex();
         }
@@ -230,7 +261,10 @@ class VirtualQPdfDocument : public QPdfDocument {
             qpdfdocument_receivers_isbase = false;
             return QPdfDocument::receivers(signal);
         } else if (qpdfdocument_receivers_callback != nullptr) {
-            return qpdfdocument_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qpdfdocument_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QPdfDocument::receivers(signal);
         }
@@ -242,11 +276,36 @@ class VirtualQPdfDocument : public QPdfDocument {
             qpdfdocument_issignalconnected_isbase = false;
             return QPdfDocument::isSignalConnected(signal);
         } else if (qpdfdocument_issignalconnected_callback != nullptr) {
-            return qpdfdocument_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qpdfdocument_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QPdfDocument::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QPdfDocument_TimerEvent(QPdfDocument* self, QTimerEvent* event);
+    friend void QPdfDocument_QBaseTimerEvent(QPdfDocument* self, QTimerEvent* event);
+    friend void QPdfDocument_ChildEvent(QPdfDocument* self, QChildEvent* event);
+    friend void QPdfDocument_QBaseChildEvent(QPdfDocument* self, QChildEvent* event);
+    friend void QPdfDocument_CustomEvent(QPdfDocument* self, QEvent* event);
+    friend void QPdfDocument_QBaseCustomEvent(QPdfDocument* self, QEvent* event);
+    friend void QPdfDocument_ConnectNotify(QPdfDocument* self, const QMetaMethod* signal);
+    friend void QPdfDocument_QBaseConnectNotify(QPdfDocument* self, const QMetaMethod* signal);
+    friend void QPdfDocument_DisconnectNotify(QPdfDocument* self, const QMetaMethod* signal);
+    friend void QPdfDocument_QBaseDisconnectNotify(QPdfDocument* self, const QMetaMethod* signal);
+    friend QObject* QPdfDocument_Sender(const QPdfDocument* self);
+    friend QObject* QPdfDocument_QBaseSender(const QPdfDocument* self);
+    friend int QPdfDocument_SenderSignalIndex(const QPdfDocument* self);
+    friend int QPdfDocument_QBaseSenderSignalIndex(const QPdfDocument* self);
+    friend int QPdfDocument_Receivers(const QPdfDocument* self, const char* signal);
+    friend int QPdfDocument_QBaseReceivers(const QPdfDocument* self, const char* signal);
+    friend bool QPdfDocument_IsSignalConnected(const QPdfDocument* self, const QMetaMethod* signal);
+    friend bool QPdfDocument_QBaseIsSignalConnected(const QPdfDocument* self, const QMetaMethod* signal);
 };
 
 #endif

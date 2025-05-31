@@ -11,26 +11,29 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QSequentialAnimationGroup so that we can call protected methods
-class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
+class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQSequentialAnimationGroup = true;
+
     // Virtual class public types (including callbacks)
-    using QSequentialAnimationGroup_Metacall_Callback = int (*)(QSequentialAnimationGroup*, QMetaObject::Call, int, void**);
+    using QSequentialAnimationGroup_Metacall_Callback = int (*)(QSequentialAnimationGroup*, int, int, void**);
     using QSequentialAnimationGroup_Duration_Callback = int (*)();
     using QSequentialAnimationGroup_Event_Callback = bool (*)(QSequentialAnimationGroup*, QEvent*);
     using QSequentialAnimationGroup_UpdateCurrentTime_Callback = void (*)(QSequentialAnimationGroup*, int);
-    using QSequentialAnimationGroup_UpdateState_Callback = void (*)(QSequentialAnimationGroup*, QAbstractAnimation::State, QAbstractAnimation::State);
-    using QSequentialAnimationGroup_UpdateDirection_Callback = void (*)(QSequentialAnimationGroup*, QAbstractAnimation::Direction);
+    using QSequentialAnimationGroup_UpdateState_Callback = void (*)(QSequentialAnimationGroup*, int, int);
+    using QSequentialAnimationGroup_UpdateDirection_Callback = void (*)(QSequentialAnimationGroup*, int);
     using QSequentialAnimationGroup_EventFilter_Callback = bool (*)(QSequentialAnimationGroup*, QObject*, QEvent*);
     using QSequentialAnimationGroup_TimerEvent_Callback = void (*)(QSequentialAnimationGroup*, QTimerEvent*);
     using QSequentialAnimationGroup_ChildEvent_Callback = void (*)(QSequentialAnimationGroup*, QChildEvent*);
     using QSequentialAnimationGroup_CustomEvent_Callback = void (*)(QSequentialAnimationGroup*, QEvent*);
-    using QSequentialAnimationGroup_ConnectNotify_Callback = void (*)(QSequentialAnimationGroup*, const QMetaMethod&);
-    using QSequentialAnimationGroup_DisconnectNotify_Callback = void (*)(QSequentialAnimationGroup*, const QMetaMethod&);
+    using QSequentialAnimationGroup_ConnectNotify_Callback = void (*)(QSequentialAnimationGroup*, QMetaMethod*);
+    using QSequentialAnimationGroup_DisconnectNotify_Callback = void (*)(QSequentialAnimationGroup*, QMetaMethod*);
     using QSequentialAnimationGroup_Sender_Callback = QObject* (*)();
     using QSequentialAnimationGroup_SenderSignalIndex_Callback = int (*)();
     using QSequentialAnimationGroup_Receivers_Callback = int (*)(const QSequentialAnimationGroup*, const char*);
-    using QSequentialAnimationGroup_IsSignalConnected_Callback = bool (*)(const QSequentialAnimationGroup*, const QMetaMethod&);
+    using QSequentialAnimationGroup_IsSignalConnected_Callback = bool (*)(const QSequentialAnimationGroup*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -93,40 +96,40 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
     }
 
     // Callback setters
-    void setQSequentialAnimationGroup_Metacall_Callback(QSequentialAnimationGroup_Metacall_Callback cb) { qsequentialanimationgroup_metacall_callback = cb; }
-    void setQSequentialAnimationGroup_Duration_Callback(QSequentialAnimationGroup_Duration_Callback cb) { qsequentialanimationgroup_duration_callback = cb; }
-    void setQSequentialAnimationGroup_Event_Callback(QSequentialAnimationGroup_Event_Callback cb) { qsequentialanimationgroup_event_callback = cb; }
-    void setQSequentialAnimationGroup_UpdateCurrentTime_Callback(QSequentialAnimationGroup_UpdateCurrentTime_Callback cb) { qsequentialanimationgroup_updatecurrenttime_callback = cb; }
-    void setQSequentialAnimationGroup_UpdateState_Callback(QSequentialAnimationGroup_UpdateState_Callback cb) { qsequentialanimationgroup_updatestate_callback = cb; }
-    void setQSequentialAnimationGroup_UpdateDirection_Callback(QSequentialAnimationGroup_UpdateDirection_Callback cb) { qsequentialanimationgroup_updatedirection_callback = cb; }
-    void setQSequentialAnimationGroup_EventFilter_Callback(QSequentialAnimationGroup_EventFilter_Callback cb) { qsequentialanimationgroup_eventfilter_callback = cb; }
-    void setQSequentialAnimationGroup_TimerEvent_Callback(QSequentialAnimationGroup_TimerEvent_Callback cb) { qsequentialanimationgroup_timerevent_callback = cb; }
-    void setQSequentialAnimationGroup_ChildEvent_Callback(QSequentialAnimationGroup_ChildEvent_Callback cb) { qsequentialanimationgroup_childevent_callback = cb; }
-    void setQSequentialAnimationGroup_CustomEvent_Callback(QSequentialAnimationGroup_CustomEvent_Callback cb) { qsequentialanimationgroup_customevent_callback = cb; }
-    void setQSequentialAnimationGroup_ConnectNotify_Callback(QSequentialAnimationGroup_ConnectNotify_Callback cb) { qsequentialanimationgroup_connectnotify_callback = cb; }
-    void setQSequentialAnimationGroup_DisconnectNotify_Callback(QSequentialAnimationGroup_DisconnectNotify_Callback cb) { qsequentialanimationgroup_disconnectnotify_callback = cb; }
-    void setQSequentialAnimationGroup_Sender_Callback(QSequentialAnimationGroup_Sender_Callback cb) { qsequentialanimationgroup_sender_callback = cb; }
-    void setQSequentialAnimationGroup_SenderSignalIndex_Callback(QSequentialAnimationGroup_SenderSignalIndex_Callback cb) { qsequentialanimationgroup_sendersignalindex_callback = cb; }
-    void setQSequentialAnimationGroup_Receivers_Callback(QSequentialAnimationGroup_Receivers_Callback cb) { qsequentialanimationgroup_receivers_callback = cb; }
-    void setQSequentialAnimationGroup_IsSignalConnected_Callback(QSequentialAnimationGroup_IsSignalConnected_Callback cb) { qsequentialanimationgroup_issignalconnected_callback = cb; }
+    inline void setQSequentialAnimationGroup_Metacall_Callback(QSequentialAnimationGroup_Metacall_Callback cb) { qsequentialanimationgroup_metacall_callback = cb; }
+    inline void setQSequentialAnimationGroup_Duration_Callback(QSequentialAnimationGroup_Duration_Callback cb) { qsequentialanimationgroup_duration_callback = cb; }
+    inline void setQSequentialAnimationGroup_Event_Callback(QSequentialAnimationGroup_Event_Callback cb) { qsequentialanimationgroup_event_callback = cb; }
+    inline void setQSequentialAnimationGroup_UpdateCurrentTime_Callback(QSequentialAnimationGroup_UpdateCurrentTime_Callback cb) { qsequentialanimationgroup_updatecurrenttime_callback = cb; }
+    inline void setQSequentialAnimationGroup_UpdateState_Callback(QSequentialAnimationGroup_UpdateState_Callback cb) { qsequentialanimationgroup_updatestate_callback = cb; }
+    inline void setQSequentialAnimationGroup_UpdateDirection_Callback(QSequentialAnimationGroup_UpdateDirection_Callback cb) { qsequentialanimationgroup_updatedirection_callback = cb; }
+    inline void setQSequentialAnimationGroup_EventFilter_Callback(QSequentialAnimationGroup_EventFilter_Callback cb) { qsequentialanimationgroup_eventfilter_callback = cb; }
+    inline void setQSequentialAnimationGroup_TimerEvent_Callback(QSequentialAnimationGroup_TimerEvent_Callback cb) { qsequentialanimationgroup_timerevent_callback = cb; }
+    inline void setQSequentialAnimationGroup_ChildEvent_Callback(QSequentialAnimationGroup_ChildEvent_Callback cb) { qsequentialanimationgroup_childevent_callback = cb; }
+    inline void setQSequentialAnimationGroup_CustomEvent_Callback(QSequentialAnimationGroup_CustomEvent_Callback cb) { qsequentialanimationgroup_customevent_callback = cb; }
+    inline void setQSequentialAnimationGroup_ConnectNotify_Callback(QSequentialAnimationGroup_ConnectNotify_Callback cb) { qsequentialanimationgroup_connectnotify_callback = cb; }
+    inline void setQSequentialAnimationGroup_DisconnectNotify_Callback(QSequentialAnimationGroup_DisconnectNotify_Callback cb) { qsequentialanimationgroup_disconnectnotify_callback = cb; }
+    inline void setQSequentialAnimationGroup_Sender_Callback(QSequentialAnimationGroup_Sender_Callback cb) { qsequentialanimationgroup_sender_callback = cb; }
+    inline void setQSequentialAnimationGroup_SenderSignalIndex_Callback(QSequentialAnimationGroup_SenderSignalIndex_Callback cb) { qsequentialanimationgroup_sendersignalindex_callback = cb; }
+    inline void setQSequentialAnimationGroup_Receivers_Callback(QSequentialAnimationGroup_Receivers_Callback cb) { qsequentialanimationgroup_receivers_callback = cb; }
+    inline void setQSequentialAnimationGroup_IsSignalConnected_Callback(QSequentialAnimationGroup_IsSignalConnected_Callback cb) { qsequentialanimationgroup_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQSequentialAnimationGroup_Metacall_IsBase(bool value) const { qsequentialanimationgroup_metacall_isbase = value; }
-    void setQSequentialAnimationGroup_Duration_IsBase(bool value) const { qsequentialanimationgroup_duration_isbase = value; }
-    void setQSequentialAnimationGroup_Event_IsBase(bool value) const { qsequentialanimationgroup_event_isbase = value; }
-    void setQSequentialAnimationGroup_UpdateCurrentTime_IsBase(bool value) const { qsequentialanimationgroup_updatecurrenttime_isbase = value; }
-    void setQSequentialAnimationGroup_UpdateState_IsBase(bool value) const { qsequentialanimationgroup_updatestate_isbase = value; }
-    void setQSequentialAnimationGroup_UpdateDirection_IsBase(bool value) const { qsequentialanimationgroup_updatedirection_isbase = value; }
-    void setQSequentialAnimationGroup_EventFilter_IsBase(bool value) const { qsequentialanimationgroup_eventfilter_isbase = value; }
-    void setQSequentialAnimationGroup_TimerEvent_IsBase(bool value) const { qsequentialanimationgroup_timerevent_isbase = value; }
-    void setQSequentialAnimationGroup_ChildEvent_IsBase(bool value) const { qsequentialanimationgroup_childevent_isbase = value; }
-    void setQSequentialAnimationGroup_CustomEvent_IsBase(bool value) const { qsequentialanimationgroup_customevent_isbase = value; }
-    void setQSequentialAnimationGroup_ConnectNotify_IsBase(bool value) const { qsequentialanimationgroup_connectnotify_isbase = value; }
-    void setQSequentialAnimationGroup_DisconnectNotify_IsBase(bool value) const { qsequentialanimationgroup_disconnectnotify_isbase = value; }
-    void setQSequentialAnimationGroup_Sender_IsBase(bool value) const { qsequentialanimationgroup_sender_isbase = value; }
-    void setQSequentialAnimationGroup_SenderSignalIndex_IsBase(bool value) const { qsequentialanimationgroup_sendersignalindex_isbase = value; }
-    void setQSequentialAnimationGroup_Receivers_IsBase(bool value) const { qsequentialanimationgroup_receivers_isbase = value; }
-    void setQSequentialAnimationGroup_IsSignalConnected_IsBase(bool value) const { qsequentialanimationgroup_issignalconnected_isbase = value; }
+    inline void setQSequentialAnimationGroup_Metacall_IsBase(bool value) const { qsequentialanimationgroup_metacall_isbase = value; }
+    inline void setQSequentialAnimationGroup_Duration_IsBase(bool value) const { qsequentialanimationgroup_duration_isbase = value; }
+    inline void setQSequentialAnimationGroup_Event_IsBase(bool value) const { qsequentialanimationgroup_event_isbase = value; }
+    inline void setQSequentialAnimationGroup_UpdateCurrentTime_IsBase(bool value) const { qsequentialanimationgroup_updatecurrenttime_isbase = value; }
+    inline void setQSequentialAnimationGroup_UpdateState_IsBase(bool value) const { qsequentialanimationgroup_updatestate_isbase = value; }
+    inline void setQSequentialAnimationGroup_UpdateDirection_IsBase(bool value) const { qsequentialanimationgroup_updatedirection_isbase = value; }
+    inline void setQSequentialAnimationGroup_EventFilter_IsBase(bool value) const { qsequentialanimationgroup_eventfilter_isbase = value; }
+    inline void setQSequentialAnimationGroup_TimerEvent_IsBase(bool value) const { qsequentialanimationgroup_timerevent_isbase = value; }
+    inline void setQSequentialAnimationGroup_ChildEvent_IsBase(bool value) const { qsequentialanimationgroup_childevent_isbase = value; }
+    inline void setQSequentialAnimationGroup_CustomEvent_IsBase(bool value) const { qsequentialanimationgroup_customevent_isbase = value; }
+    inline void setQSequentialAnimationGroup_ConnectNotify_IsBase(bool value) const { qsequentialanimationgroup_connectnotify_isbase = value; }
+    inline void setQSequentialAnimationGroup_DisconnectNotify_IsBase(bool value) const { qsequentialanimationgroup_disconnectnotify_isbase = value; }
+    inline void setQSequentialAnimationGroup_Sender_IsBase(bool value) const { qsequentialanimationgroup_sender_isbase = value; }
+    inline void setQSequentialAnimationGroup_SenderSignalIndex_IsBase(bool value) const { qsequentialanimationgroup_sendersignalindex_isbase = value; }
+    inline void setQSequentialAnimationGroup_Receivers_IsBase(bool value) const { qsequentialanimationgroup_receivers_isbase = value; }
+    inline void setQSequentialAnimationGroup_IsSignalConnected_IsBase(bool value) const { qsequentialanimationgroup_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -134,7 +137,12 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
             qsequentialanimationgroup_metacall_isbase = false;
             return QSequentialAnimationGroup::qt_metacall(param1, param2, param3);
         } else if (qsequentialanimationgroup_metacall_callback != nullptr) {
-            return qsequentialanimationgroup_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qsequentialanimationgroup_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QSequentialAnimationGroup::qt_metacall(param1, param2, param3);
         }
@@ -146,7 +154,8 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
             qsequentialanimationgroup_duration_isbase = false;
             return QSequentialAnimationGroup::duration();
         } else if (qsequentialanimationgroup_duration_callback != nullptr) {
-            return qsequentialanimationgroup_duration_callback();
+            int callback_ret = qsequentialanimationgroup_duration_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QSequentialAnimationGroup::duration();
         }
@@ -158,7 +167,10 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
             qsequentialanimationgroup_event_isbase = false;
             return QSequentialAnimationGroup::event(event);
         } else if (qsequentialanimationgroup_event_callback != nullptr) {
-            return qsequentialanimationgroup_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qsequentialanimationgroup_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QSequentialAnimationGroup::event(event);
         }
@@ -170,7 +182,9 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
             qsequentialanimationgroup_updatecurrenttime_isbase = false;
             QSequentialAnimationGroup::updateCurrentTime(param1);
         } else if (qsequentialanimationgroup_updatecurrenttime_callback != nullptr) {
-            qsequentialanimationgroup_updatecurrenttime_callback(this, param1);
+            int cbval1 = param1;
+
+            qsequentialanimationgroup_updatecurrenttime_callback(this, cbval1);
         } else {
             QSequentialAnimationGroup::updateCurrentTime(param1);
         }
@@ -182,7 +196,10 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
             qsequentialanimationgroup_updatestate_isbase = false;
             QSequentialAnimationGroup::updateState(newState, oldState);
         } else if (qsequentialanimationgroup_updatestate_callback != nullptr) {
-            qsequentialanimationgroup_updatestate_callback(this, newState, oldState);
+            int cbval1 = static_cast<int>(newState);
+            int cbval2 = static_cast<int>(oldState);
+
+            qsequentialanimationgroup_updatestate_callback(this, cbval1, cbval2);
         } else {
             QSequentialAnimationGroup::updateState(newState, oldState);
         }
@@ -194,7 +211,9 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
             qsequentialanimationgroup_updatedirection_isbase = false;
             QSequentialAnimationGroup::updateDirection(direction);
         } else if (qsequentialanimationgroup_updatedirection_callback != nullptr) {
-            qsequentialanimationgroup_updatedirection_callback(this, direction);
+            int cbval1 = static_cast<int>(direction);
+
+            qsequentialanimationgroup_updatedirection_callback(this, cbval1);
         } else {
             QSequentialAnimationGroup::updateDirection(direction);
         }
@@ -206,7 +225,11 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
             qsequentialanimationgroup_eventfilter_isbase = false;
             return QSequentialAnimationGroup::eventFilter(watched, event);
         } else if (qsequentialanimationgroup_eventfilter_callback != nullptr) {
-            return qsequentialanimationgroup_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qsequentialanimationgroup_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QSequentialAnimationGroup::eventFilter(watched, event);
         }
@@ -218,7 +241,9 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
             qsequentialanimationgroup_timerevent_isbase = false;
             QSequentialAnimationGroup::timerEvent(event);
         } else if (qsequentialanimationgroup_timerevent_callback != nullptr) {
-            qsequentialanimationgroup_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qsequentialanimationgroup_timerevent_callback(this, cbval1);
         } else {
             QSequentialAnimationGroup::timerEvent(event);
         }
@@ -230,7 +255,9 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
             qsequentialanimationgroup_childevent_isbase = false;
             QSequentialAnimationGroup::childEvent(event);
         } else if (qsequentialanimationgroup_childevent_callback != nullptr) {
-            qsequentialanimationgroup_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qsequentialanimationgroup_childevent_callback(this, cbval1);
         } else {
             QSequentialAnimationGroup::childEvent(event);
         }
@@ -242,7 +269,9 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
             qsequentialanimationgroup_customevent_isbase = false;
             QSequentialAnimationGroup::customEvent(event);
         } else if (qsequentialanimationgroup_customevent_callback != nullptr) {
-            qsequentialanimationgroup_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qsequentialanimationgroup_customevent_callback(this, cbval1);
         } else {
             QSequentialAnimationGroup::customEvent(event);
         }
@@ -254,7 +283,11 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
             qsequentialanimationgroup_connectnotify_isbase = false;
             QSequentialAnimationGroup::connectNotify(signal);
         } else if (qsequentialanimationgroup_connectnotify_callback != nullptr) {
-            qsequentialanimationgroup_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qsequentialanimationgroup_connectnotify_callback(this, cbval1);
         } else {
             QSequentialAnimationGroup::connectNotify(signal);
         }
@@ -266,7 +299,11 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
             qsequentialanimationgroup_disconnectnotify_isbase = false;
             QSequentialAnimationGroup::disconnectNotify(signal);
         } else if (qsequentialanimationgroup_disconnectnotify_callback != nullptr) {
-            qsequentialanimationgroup_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qsequentialanimationgroup_disconnectnotify_callback(this, cbval1);
         } else {
             QSequentialAnimationGroup::disconnectNotify(signal);
         }
@@ -278,7 +315,8 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
             qsequentialanimationgroup_sender_isbase = false;
             return QSequentialAnimationGroup::sender();
         } else if (qsequentialanimationgroup_sender_callback != nullptr) {
-            return qsequentialanimationgroup_sender_callback();
+            QObject* callback_ret = qsequentialanimationgroup_sender_callback();
+            return callback_ret;
         } else {
             return QSequentialAnimationGroup::sender();
         }
@@ -290,7 +328,8 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
             qsequentialanimationgroup_sendersignalindex_isbase = false;
             return QSequentialAnimationGroup::senderSignalIndex();
         } else if (qsequentialanimationgroup_sendersignalindex_callback != nullptr) {
-            return qsequentialanimationgroup_sendersignalindex_callback();
+            int callback_ret = qsequentialanimationgroup_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QSequentialAnimationGroup::senderSignalIndex();
         }
@@ -302,7 +341,10 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
             qsequentialanimationgroup_receivers_isbase = false;
             return QSequentialAnimationGroup::receivers(signal);
         } else if (qsequentialanimationgroup_receivers_callback != nullptr) {
-            return qsequentialanimationgroup_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qsequentialanimationgroup_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QSequentialAnimationGroup::receivers(signal);
         }
@@ -314,11 +356,44 @@ class VirtualQSequentialAnimationGroup : public QSequentialAnimationGroup {
             qsequentialanimationgroup_issignalconnected_isbase = false;
             return QSequentialAnimationGroup::isSignalConnected(signal);
         } else if (qsequentialanimationgroup_issignalconnected_callback != nullptr) {
-            return qsequentialanimationgroup_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qsequentialanimationgroup_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QSequentialAnimationGroup::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QSequentialAnimationGroup_Event(QSequentialAnimationGroup* self, QEvent* event);
+    friend bool QSequentialAnimationGroup_QBaseEvent(QSequentialAnimationGroup* self, QEvent* event);
+    friend void QSequentialAnimationGroup_UpdateCurrentTime(QSequentialAnimationGroup* self, int param1);
+    friend void QSequentialAnimationGroup_QBaseUpdateCurrentTime(QSequentialAnimationGroup* self, int param1);
+    friend void QSequentialAnimationGroup_UpdateState(QSequentialAnimationGroup* self, int newState, int oldState);
+    friend void QSequentialAnimationGroup_QBaseUpdateState(QSequentialAnimationGroup* self, int newState, int oldState);
+    friend void QSequentialAnimationGroup_UpdateDirection(QSequentialAnimationGroup* self, int direction);
+    friend void QSequentialAnimationGroup_QBaseUpdateDirection(QSequentialAnimationGroup* self, int direction);
+    friend void QSequentialAnimationGroup_TimerEvent(QSequentialAnimationGroup* self, QTimerEvent* event);
+    friend void QSequentialAnimationGroup_QBaseTimerEvent(QSequentialAnimationGroup* self, QTimerEvent* event);
+    friend void QSequentialAnimationGroup_ChildEvent(QSequentialAnimationGroup* self, QChildEvent* event);
+    friend void QSequentialAnimationGroup_QBaseChildEvent(QSequentialAnimationGroup* self, QChildEvent* event);
+    friend void QSequentialAnimationGroup_CustomEvent(QSequentialAnimationGroup* self, QEvent* event);
+    friend void QSequentialAnimationGroup_QBaseCustomEvent(QSequentialAnimationGroup* self, QEvent* event);
+    friend void QSequentialAnimationGroup_ConnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal);
+    friend void QSequentialAnimationGroup_QBaseConnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal);
+    friend void QSequentialAnimationGroup_DisconnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal);
+    friend void QSequentialAnimationGroup_QBaseDisconnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal);
+    friend QObject* QSequentialAnimationGroup_Sender(const QSequentialAnimationGroup* self);
+    friend QObject* QSequentialAnimationGroup_QBaseSender(const QSequentialAnimationGroup* self);
+    friend int QSequentialAnimationGroup_SenderSignalIndex(const QSequentialAnimationGroup* self);
+    friend int QSequentialAnimationGroup_QBaseSenderSignalIndex(const QSequentialAnimationGroup* self);
+    friend int QSequentialAnimationGroup_Receivers(const QSequentialAnimationGroup* self, const char* signal);
+    friend int QSequentialAnimationGroup_QBaseReceivers(const QSequentialAnimationGroup* self, const char* signal);
+    friend bool QSequentialAnimationGroup_IsSignalConnected(const QSequentialAnimationGroup* self, const QMetaMethod* signal);
+    friend bool QSequentialAnimationGroup_QBaseIsSignalConnected(const QSequentialAnimationGroup* self, const QMetaMethod* signal);
 };
 
 #endif

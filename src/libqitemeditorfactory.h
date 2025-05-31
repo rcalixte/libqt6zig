@@ -23,11 +23,11 @@ typedef struct QWidget QWidget;
 
 QWidget* QItemEditorCreatorBase_CreateWidget(const QItemEditorCreatorBase* self, QWidget* parent);
 libqt_string QItemEditorCreatorBase_ValuePropertyName(const QItemEditorCreatorBase* self);
-void QItemEditorCreatorBase_OperatorAssign(QItemEditorCreatorBase* self, QItemEditorCreatorBase* param1);
+void QItemEditorCreatorBase_OperatorAssign(QItemEditorCreatorBase* self, const QItemEditorCreatorBase* param1);
 void QItemEditorCreatorBase_Delete(QItemEditorCreatorBase* self);
 
 QItemEditorFactory* QItemEditorFactory_new();
-QItemEditorFactory* QItemEditorFactory_new2(QItemEditorFactory* param1);
+QItemEditorFactory* QItemEditorFactory_new2(const QItemEditorFactory* param1);
 QWidget* QItemEditorFactory_CreateEditor(const QItemEditorFactory* self, int userType, QWidget* parent);
 void QItemEditorFactory_OnCreateEditor(const QItemEditorFactory* self, intptr_t slot);
 QWidget* QItemEditorFactory_QBaseCreateEditor(const QItemEditorFactory* self, int userType, QWidget* parent);

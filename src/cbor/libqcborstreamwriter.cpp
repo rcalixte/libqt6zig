@@ -29,7 +29,7 @@ void QCborStreamWriter_AppendWithQCborNegativeInteger(QCborStreamWriter* self, u
     self->append(static_cast<QCborNegativeInteger>(n));
 }
 
-void QCborStreamWriter_AppendWithBa(QCborStreamWriter* self, libqt_string ba) {
+void QCborStreamWriter_AppendWithBa(QCborStreamWriter* self, const libqt_string ba) {
     QByteArray ba_QByteArray(ba.data, ba.len);
     self->append(ba_QByteArray);
 }

@@ -3,7 +3,7 @@
 #include "libqdrawutil.h"
 #include "libqdrawutil.hxx"
 
-QTileRules* QTileRules_new(QTileRules* other) {
+QTileRules* QTileRules_new(const QTileRules* other) {
     return new QTileRules(*other);
 }
 
@@ -19,7 +19,7 @@ QTileRules* QTileRules_new4() {
     return new QTileRules();
 }
 
-QTileRules* QTileRules_new5(QTileRules* param1) {
+QTileRules* QTileRules_new5(const QTileRules* param1) {
     return new QTileRules(*param1);
 }
 

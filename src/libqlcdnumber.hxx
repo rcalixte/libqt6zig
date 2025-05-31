@@ -11,19 +11,22 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QLCDNumber so that we can call protected methods
-class VirtualQLCDNumber : public QLCDNumber {
+class VirtualQLCDNumber final : public QLCDNumber {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQLCDNumber = true;
+
     // Virtual class public types (including callbacks)
-    using QLCDNumber_Metacall_Callback = int (*)(QLCDNumber*, QMetaObject::Call, int, void**);
-    using QLCDNumber_SizeHint_Callback = QSize (*)();
+    using QLCDNumber_Metacall_Callback = int (*)(QLCDNumber*, int, int, void**);
+    using QLCDNumber_SizeHint_Callback = QSize* (*)();
     using QLCDNumber_Event_Callback = bool (*)(QLCDNumber*, QEvent*);
     using QLCDNumber_PaintEvent_Callback = void (*)(QLCDNumber*, QPaintEvent*);
     using QLCDNumber_ChangeEvent_Callback = void (*)(QLCDNumber*, QEvent*);
     using QLCDNumber_InitStyleOption_Callback = void (*)(const QLCDNumber*, QStyleOptionFrame*);
     using QLCDNumber_DevType_Callback = int (*)();
     using QLCDNumber_SetVisible_Callback = void (*)(QLCDNumber*, bool);
-    using QLCDNumber_MinimumSizeHint_Callback = QSize (*)();
+    using QLCDNumber_MinimumSizeHint_Callback = QSize* (*)();
     using QLCDNumber_HeightForWidth_Callback = int (*)(const QLCDNumber*, int);
     using QLCDNumber_HasHeightForWidth_Callback = bool (*)();
     using QLCDNumber_PaintEngine_Callback = QPaintEngine* (*)();
@@ -50,20 +53,20 @@ class VirtualQLCDNumber : public QLCDNumber {
     using QLCDNumber_DropEvent_Callback = void (*)(QLCDNumber*, QDropEvent*);
     using QLCDNumber_ShowEvent_Callback = void (*)(QLCDNumber*, QShowEvent*);
     using QLCDNumber_HideEvent_Callback = void (*)(QLCDNumber*, QHideEvent*);
-    using QLCDNumber_NativeEvent_Callback = bool (*)(QLCDNumber*, const QByteArray&, void*, qintptr*);
-    using QLCDNumber_Metric_Callback = int (*)(const QLCDNumber*, QPaintDevice::PaintDeviceMetric);
+    using QLCDNumber_NativeEvent_Callback = bool (*)(QLCDNumber*, libqt_string, void*, intptr_t*);
+    using QLCDNumber_Metric_Callback = int (*)(const QLCDNumber*, int);
     using QLCDNumber_InitPainter_Callback = void (*)(const QLCDNumber*, QPainter*);
     using QLCDNumber_Redirected_Callback = QPaintDevice* (*)(const QLCDNumber*, QPoint*);
     using QLCDNumber_SharedPainter_Callback = QPainter* (*)();
     using QLCDNumber_InputMethodEvent_Callback = void (*)(QLCDNumber*, QInputMethodEvent*);
-    using QLCDNumber_InputMethodQuery_Callback = QVariant (*)(const QLCDNumber*, Qt::InputMethodQuery);
+    using QLCDNumber_InputMethodQuery_Callback = QVariant* (*)(const QLCDNumber*, int);
     using QLCDNumber_FocusNextPrevChild_Callback = bool (*)(QLCDNumber*, bool);
     using QLCDNumber_EventFilter_Callback = bool (*)(QLCDNumber*, QObject*, QEvent*);
     using QLCDNumber_TimerEvent_Callback = void (*)(QLCDNumber*, QTimerEvent*);
     using QLCDNumber_ChildEvent_Callback = void (*)(QLCDNumber*, QChildEvent*);
     using QLCDNumber_CustomEvent_Callback = void (*)(QLCDNumber*, QEvent*);
-    using QLCDNumber_ConnectNotify_Callback = void (*)(QLCDNumber*, const QMetaMethod&);
-    using QLCDNumber_DisconnectNotify_Callback = void (*)(QLCDNumber*, const QMetaMethod&);
+    using QLCDNumber_ConnectNotify_Callback = void (*)(QLCDNumber*, QMetaMethod*);
+    using QLCDNumber_DisconnectNotify_Callback = void (*)(QLCDNumber*, QMetaMethod*);
     using QLCDNumber_DrawFrame_Callback = void (*)(QLCDNumber*, QPainter*);
     using QLCDNumber_UpdateMicroFocus_Callback = void (*)();
     using QLCDNumber_Create_Callback = void (*)();
@@ -73,7 +76,7 @@ class VirtualQLCDNumber : public QLCDNumber {
     using QLCDNumber_Sender_Callback = QObject* (*)();
     using QLCDNumber_SenderSignalIndex_Callback = int (*)();
     using QLCDNumber_Receivers_Callback = int (*)(const QLCDNumber*, const char*);
-    using QLCDNumber_IsSignalConnected_Callback = bool (*)(const QLCDNumber*, const QMetaMethod&);
+    using QLCDNumber_IsSignalConnected_Callback = bool (*)(const QLCDNumber*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -267,126 +270,126 @@ class VirtualQLCDNumber : public QLCDNumber {
     }
 
     // Callback setters
-    void setQLCDNumber_Metacall_Callback(QLCDNumber_Metacall_Callback cb) { qlcdnumber_metacall_callback = cb; }
-    void setQLCDNumber_SizeHint_Callback(QLCDNumber_SizeHint_Callback cb) { qlcdnumber_sizehint_callback = cb; }
-    void setQLCDNumber_Event_Callback(QLCDNumber_Event_Callback cb) { qlcdnumber_event_callback = cb; }
-    void setQLCDNumber_PaintEvent_Callback(QLCDNumber_PaintEvent_Callback cb) { qlcdnumber_paintevent_callback = cb; }
-    void setQLCDNumber_ChangeEvent_Callback(QLCDNumber_ChangeEvent_Callback cb) { qlcdnumber_changeevent_callback = cb; }
-    void setQLCDNumber_InitStyleOption_Callback(QLCDNumber_InitStyleOption_Callback cb) { qlcdnumber_initstyleoption_callback = cb; }
-    void setQLCDNumber_DevType_Callback(QLCDNumber_DevType_Callback cb) { qlcdnumber_devtype_callback = cb; }
-    void setQLCDNumber_SetVisible_Callback(QLCDNumber_SetVisible_Callback cb) { qlcdnumber_setvisible_callback = cb; }
-    void setQLCDNumber_MinimumSizeHint_Callback(QLCDNumber_MinimumSizeHint_Callback cb) { qlcdnumber_minimumsizehint_callback = cb; }
-    void setQLCDNumber_HeightForWidth_Callback(QLCDNumber_HeightForWidth_Callback cb) { qlcdnumber_heightforwidth_callback = cb; }
-    void setQLCDNumber_HasHeightForWidth_Callback(QLCDNumber_HasHeightForWidth_Callback cb) { qlcdnumber_hasheightforwidth_callback = cb; }
-    void setQLCDNumber_PaintEngine_Callback(QLCDNumber_PaintEngine_Callback cb) { qlcdnumber_paintengine_callback = cb; }
-    void setQLCDNumber_MousePressEvent_Callback(QLCDNumber_MousePressEvent_Callback cb) { qlcdnumber_mousepressevent_callback = cb; }
-    void setQLCDNumber_MouseReleaseEvent_Callback(QLCDNumber_MouseReleaseEvent_Callback cb) { qlcdnumber_mousereleaseevent_callback = cb; }
-    void setQLCDNumber_MouseDoubleClickEvent_Callback(QLCDNumber_MouseDoubleClickEvent_Callback cb) { qlcdnumber_mousedoubleclickevent_callback = cb; }
-    void setQLCDNumber_MouseMoveEvent_Callback(QLCDNumber_MouseMoveEvent_Callback cb) { qlcdnumber_mousemoveevent_callback = cb; }
-    void setQLCDNumber_WheelEvent_Callback(QLCDNumber_WheelEvent_Callback cb) { qlcdnumber_wheelevent_callback = cb; }
-    void setQLCDNumber_KeyPressEvent_Callback(QLCDNumber_KeyPressEvent_Callback cb) { qlcdnumber_keypressevent_callback = cb; }
-    void setQLCDNumber_KeyReleaseEvent_Callback(QLCDNumber_KeyReleaseEvent_Callback cb) { qlcdnumber_keyreleaseevent_callback = cb; }
-    void setQLCDNumber_FocusInEvent_Callback(QLCDNumber_FocusInEvent_Callback cb) { qlcdnumber_focusinevent_callback = cb; }
-    void setQLCDNumber_FocusOutEvent_Callback(QLCDNumber_FocusOutEvent_Callback cb) { qlcdnumber_focusoutevent_callback = cb; }
-    void setQLCDNumber_EnterEvent_Callback(QLCDNumber_EnterEvent_Callback cb) { qlcdnumber_enterevent_callback = cb; }
-    void setQLCDNumber_LeaveEvent_Callback(QLCDNumber_LeaveEvent_Callback cb) { qlcdnumber_leaveevent_callback = cb; }
-    void setQLCDNumber_MoveEvent_Callback(QLCDNumber_MoveEvent_Callback cb) { qlcdnumber_moveevent_callback = cb; }
-    void setQLCDNumber_ResizeEvent_Callback(QLCDNumber_ResizeEvent_Callback cb) { qlcdnumber_resizeevent_callback = cb; }
-    void setQLCDNumber_CloseEvent_Callback(QLCDNumber_CloseEvent_Callback cb) { qlcdnumber_closeevent_callback = cb; }
-    void setQLCDNumber_ContextMenuEvent_Callback(QLCDNumber_ContextMenuEvent_Callback cb) { qlcdnumber_contextmenuevent_callback = cb; }
-    void setQLCDNumber_TabletEvent_Callback(QLCDNumber_TabletEvent_Callback cb) { qlcdnumber_tabletevent_callback = cb; }
-    void setQLCDNumber_ActionEvent_Callback(QLCDNumber_ActionEvent_Callback cb) { qlcdnumber_actionevent_callback = cb; }
-    void setQLCDNumber_DragEnterEvent_Callback(QLCDNumber_DragEnterEvent_Callback cb) { qlcdnumber_dragenterevent_callback = cb; }
-    void setQLCDNumber_DragMoveEvent_Callback(QLCDNumber_DragMoveEvent_Callback cb) { qlcdnumber_dragmoveevent_callback = cb; }
-    void setQLCDNumber_DragLeaveEvent_Callback(QLCDNumber_DragLeaveEvent_Callback cb) { qlcdnumber_dragleaveevent_callback = cb; }
-    void setQLCDNumber_DropEvent_Callback(QLCDNumber_DropEvent_Callback cb) { qlcdnumber_dropevent_callback = cb; }
-    void setQLCDNumber_ShowEvent_Callback(QLCDNumber_ShowEvent_Callback cb) { qlcdnumber_showevent_callback = cb; }
-    void setQLCDNumber_HideEvent_Callback(QLCDNumber_HideEvent_Callback cb) { qlcdnumber_hideevent_callback = cb; }
-    void setQLCDNumber_NativeEvent_Callback(QLCDNumber_NativeEvent_Callback cb) { qlcdnumber_nativeevent_callback = cb; }
-    void setQLCDNumber_Metric_Callback(QLCDNumber_Metric_Callback cb) { qlcdnumber_metric_callback = cb; }
-    void setQLCDNumber_InitPainter_Callback(QLCDNumber_InitPainter_Callback cb) { qlcdnumber_initpainter_callback = cb; }
-    void setQLCDNumber_Redirected_Callback(QLCDNumber_Redirected_Callback cb) { qlcdnumber_redirected_callback = cb; }
-    void setQLCDNumber_SharedPainter_Callback(QLCDNumber_SharedPainter_Callback cb) { qlcdnumber_sharedpainter_callback = cb; }
-    void setQLCDNumber_InputMethodEvent_Callback(QLCDNumber_InputMethodEvent_Callback cb) { qlcdnumber_inputmethodevent_callback = cb; }
-    void setQLCDNumber_InputMethodQuery_Callback(QLCDNumber_InputMethodQuery_Callback cb) { qlcdnumber_inputmethodquery_callback = cb; }
-    void setQLCDNumber_FocusNextPrevChild_Callback(QLCDNumber_FocusNextPrevChild_Callback cb) { qlcdnumber_focusnextprevchild_callback = cb; }
-    void setQLCDNumber_EventFilter_Callback(QLCDNumber_EventFilter_Callback cb) { qlcdnumber_eventfilter_callback = cb; }
-    void setQLCDNumber_TimerEvent_Callback(QLCDNumber_TimerEvent_Callback cb) { qlcdnumber_timerevent_callback = cb; }
-    void setQLCDNumber_ChildEvent_Callback(QLCDNumber_ChildEvent_Callback cb) { qlcdnumber_childevent_callback = cb; }
-    void setQLCDNumber_CustomEvent_Callback(QLCDNumber_CustomEvent_Callback cb) { qlcdnumber_customevent_callback = cb; }
-    void setQLCDNumber_ConnectNotify_Callback(QLCDNumber_ConnectNotify_Callback cb) { qlcdnumber_connectnotify_callback = cb; }
-    void setQLCDNumber_DisconnectNotify_Callback(QLCDNumber_DisconnectNotify_Callback cb) { qlcdnumber_disconnectnotify_callback = cb; }
-    void setQLCDNumber_DrawFrame_Callback(QLCDNumber_DrawFrame_Callback cb) { qlcdnumber_drawframe_callback = cb; }
-    void setQLCDNumber_UpdateMicroFocus_Callback(QLCDNumber_UpdateMicroFocus_Callback cb) { qlcdnumber_updatemicrofocus_callback = cb; }
-    void setQLCDNumber_Create_Callback(QLCDNumber_Create_Callback cb) { qlcdnumber_create_callback = cb; }
-    void setQLCDNumber_Destroy_Callback(QLCDNumber_Destroy_Callback cb) { qlcdnumber_destroy_callback = cb; }
-    void setQLCDNumber_FocusNextChild_Callback(QLCDNumber_FocusNextChild_Callback cb) { qlcdnumber_focusnextchild_callback = cb; }
-    void setQLCDNumber_FocusPreviousChild_Callback(QLCDNumber_FocusPreviousChild_Callback cb) { qlcdnumber_focuspreviouschild_callback = cb; }
-    void setQLCDNumber_Sender_Callback(QLCDNumber_Sender_Callback cb) { qlcdnumber_sender_callback = cb; }
-    void setQLCDNumber_SenderSignalIndex_Callback(QLCDNumber_SenderSignalIndex_Callback cb) { qlcdnumber_sendersignalindex_callback = cb; }
-    void setQLCDNumber_Receivers_Callback(QLCDNumber_Receivers_Callback cb) { qlcdnumber_receivers_callback = cb; }
-    void setQLCDNumber_IsSignalConnected_Callback(QLCDNumber_IsSignalConnected_Callback cb) { qlcdnumber_issignalconnected_callback = cb; }
+    inline void setQLCDNumber_Metacall_Callback(QLCDNumber_Metacall_Callback cb) { qlcdnumber_metacall_callback = cb; }
+    inline void setQLCDNumber_SizeHint_Callback(QLCDNumber_SizeHint_Callback cb) { qlcdnumber_sizehint_callback = cb; }
+    inline void setQLCDNumber_Event_Callback(QLCDNumber_Event_Callback cb) { qlcdnumber_event_callback = cb; }
+    inline void setQLCDNumber_PaintEvent_Callback(QLCDNumber_PaintEvent_Callback cb) { qlcdnumber_paintevent_callback = cb; }
+    inline void setQLCDNumber_ChangeEvent_Callback(QLCDNumber_ChangeEvent_Callback cb) { qlcdnumber_changeevent_callback = cb; }
+    inline void setQLCDNumber_InitStyleOption_Callback(QLCDNumber_InitStyleOption_Callback cb) { qlcdnumber_initstyleoption_callback = cb; }
+    inline void setQLCDNumber_DevType_Callback(QLCDNumber_DevType_Callback cb) { qlcdnumber_devtype_callback = cb; }
+    inline void setQLCDNumber_SetVisible_Callback(QLCDNumber_SetVisible_Callback cb) { qlcdnumber_setvisible_callback = cb; }
+    inline void setQLCDNumber_MinimumSizeHint_Callback(QLCDNumber_MinimumSizeHint_Callback cb) { qlcdnumber_minimumsizehint_callback = cb; }
+    inline void setQLCDNumber_HeightForWidth_Callback(QLCDNumber_HeightForWidth_Callback cb) { qlcdnumber_heightforwidth_callback = cb; }
+    inline void setQLCDNumber_HasHeightForWidth_Callback(QLCDNumber_HasHeightForWidth_Callback cb) { qlcdnumber_hasheightforwidth_callback = cb; }
+    inline void setQLCDNumber_PaintEngine_Callback(QLCDNumber_PaintEngine_Callback cb) { qlcdnumber_paintengine_callback = cb; }
+    inline void setQLCDNumber_MousePressEvent_Callback(QLCDNumber_MousePressEvent_Callback cb) { qlcdnumber_mousepressevent_callback = cb; }
+    inline void setQLCDNumber_MouseReleaseEvent_Callback(QLCDNumber_MouseReleaseEvent_Callback cb) { qlcdnumber_mousereleaseevent_callback = cb; }
+    inline void setQLCDNumber_MouseDoubleClickEvent_Callback(QLCDNumber_MouseDoubleClickEvent_Callback cb) { qlcdnumber_mousedoubleclickevent_callback = cb; }
+    inline void setQLCDNumber_MouseMoveEvent_Callback(QLCDNumber_MouseMoveEvent_Callback cb) { qlcdnumber_mousemoveevent_callback = cb; }
+    inline void setQLCDNumber_WheelEvent_Callback(QLCDNumber_WheelEvent_Callback cb) { qlcdnumber_wheelevent_callback = cb; }
+    inline void setQLCDNumber_KeyPressEvent_Callback(QLCDNumber_KeyPressEvent_Callback cb) { qlcdnumber_keypressevent_callback = cb; }
+    inline void setQLCDNumber_KeyReleaseEvent_Callback(QLCDNumber_KeyReleaseEvent_Callback cb) { qlcdnumber_keyreleaseevent_callback = cb; }
+    inline void setQLCDNumber_FocusInEvent_Callback(QLCDNumber_FocusInEvent_Callback cb) { qlcdnumber_focusinevent_callback = cb; }
+    inline void setQLCDNumber_FocusOutEvent_Callback(QLCDNumber_FocusOutEvent_Callback cb) { qlcdnumber_focusoutevent_callback = cb; }
+    inline void setQLCDNumber_EnterEvent_Callback(QLCDNumber_EnterEvent_Callback cb) { qlcdnumber_enterevent_callback = cb; }
+    inline void setQLCDNumber_LeaveEvent_Callback(QLCDNumber_LeaveEvent_Callback cb) { qlcdnumber_leaveevent_callback = cb; }
+    inline void setQLCDNumber_MoveEvent_Callback(QLCDNumber_MoveEvent_Callback cb) { qlcdnumber_moveevent_callback = cb; }
+    inline void setQLCDNumber_ResizeEvent_Callback(QLCDNumber_ResizeEvent_Callback cb) { qlcdnumber_resizeevent_callback = cb; }
+    inline void setQLCDNumber_CloseEvent_Callback(QLCDNumber_CloseEvent_Callback cb) { qlcdnumber_closeevent_callback = cb; }
+    inline void setQLCDNumber_ContextMenuEvent_Callback(QLCDNumber_ContextMenuEvent_Callback cb) { qlcdnumber_contextmenuevent_callback = cb; }
+    inline void setQLCDNumber_TabletEvent_Callback(QLCDNumber_TabletEvent_Callback cb) { qlcdnumber_tabletevent_callback = cb; }
+    inline void setQLCDNumber_ActionEvent_Callback(QLCDNumber_ActionEvent_Callback cb) { qlcdnumber_actionevent_callback = cb; }
+    inline void setQLCDNumber_DragEnterEvent_Callback(QLCDNumber_DragEnterEvent_Callback cb) { qlcdnumber_dragenterevent_callback = cb; }
+    inline void setQLCDNumber_DragMoveEvent_Callback(QLCDNumber_DragMoveEvent_Callback cb) { qlcdnumber_dragmoveevent_callback = cb; }
+    inline void setQLCDNumber_DragLeaveEvent_Callback(QLCDNumber_DragLeaveEvent_Callback cb) { qlcdnumber_dragleaveevent_callback = cb; }
+    inline void setQLCDNumber_DropEvent_Callback(QLCDNumber_DropEvent_Callback cb) { qlcdnumber_dropevent_callback = cb; }
+    inline void setQLCDNumber_ShowEvent_Callback(QLCDNumber_ShowEvent_Callback cb) { qlcdnumber_showevent_callback = cb; }
+    inline void setQLCDNumber_HideEvent_Callback(QLCDNumber_HideEvent_Callback cb) { qlcdnumber_hideevent_callback = cb; }
+    inline void setQLCDNumber_NativeEvent_Callback(QLCDNumber_NativeEvent_Callback cb) { qlcdnumber_nativeevent_callback = cb; }
+    inline void setQLCDNumber_Metric_Callback(QLCDNumber_Metric_Callback cb) { qlcdnumber_metric_callback = cb; }
+    inline void setQLCDNumber_InitPainter_Callback(QLCDNumber_InitPainter_Callback cb) { qlcdnumber_initpainter_callback = cb; }
+    inline void setQLCDNumber_Redirected_Callback(QLCDNumber_Redirected_Callback cb) { qlcdnumber_redirected_callback = cb; }
+    inline void setQLCDNumber_SharedPainter_Callback(QLCDNumber_SharedPainter_Callback cb) { qlcdnumber_sharedpainter_callback = cb; }
+    inline void setQLCDNumber_InputMethodEvent_Callback(QLCDNumber_InputMethodEvent_Callback cb) { qlcdnumber_inputmethodevent_callback = cb; }
+    inline void setQLCDNumber_InputMethodQuery_Callback(QLCDNumber_InputMethodQuery_Callback cb) { qlcdnumber_inputmethodquery_callback = cb; }
+    inline void setQLCDNumber_FocusNextPrevChild_Callback(QLCDNumber_FocusNextPrevChild_Callback cb) { qlcdnumber_focusnextprevchild_callback = cb; }
+    inline void setQLCDNumber_EventFilter_Callback(QLCDNumber_EventFilter_Callback cb) { qlcdnumber_eventfilter_callback = cb; }
+    inline void setQLCDNumber_TimerEvent_Callback(QLCDNumber_TimerEvent_Callback cb) { qlcdnumber_timerevent_callback = cb; }
+    inline void setQLCDNumber_ChildEvent_Callback(QLCDNumber_ChildEvent_Callback cb) { qlcdnumber_childevent_callback = cb; }
+    inline void setQLCDNumber_CustomEvent_Callback(QLCDNumber_CustomEvent_Callback cb) { qlcdnumber_customevent_callback = cb; }
+    inline void setQLCDNumber_ConnectNotify_Callback(QLCDNumber_ConnectNotify_Callback cb) { qlcdnumber_connectnotify_callback = cb; }
+    inline void setQLCDNumber_DisconnectNotify_Callback(QLCDNumber_DisconnectNotify_Callback cb) { qlcdnumber_disconnectnotify_callback = cb; }
+    inline void setQLCDNumber_DrawFrame_Callback(QLCDNumber_DrawFrame_Callback cb) { qlcdnumber_drawframe_callback = cb; }
+    inline void setQLCDNumber_UpdateMicroFocus_Callback(QLCDNumber_UpdateMicroFocus_Callback cb) { qlcdnumber_updatemicrofocus_callback = cb; }
+    inline void setQLCDNumber_Create_Callback(QLCDNumber_Create_Callback cb) { qlcdnumber_create_callback = cb; }
+    inline void setQLCDNumber_Destroy_Callback(QLCDNumber_Destroy_Callback cb) { qlcdnumber_destroy_callback = cb; }
+    inline void setQLCDNumber_FocusNextChild_Callback(QLCDNumber_FocusNextChild_Callback cb) { qlcdnumber_focusnextchild_callback = cb; }
+    inline void setQLCDNumber_FocusPreviousChild_Callback(QLCDNumber_FocusPreviousChild_Callback cb) { qlcdnumber_focuspreviouschild_callback = cb; }
+    inline void setQLCDNumber_Sender_Callback(QLCDNumber_Sender_Callback cb) { qlcdnumber_sender_callback = cb; }
+    inline void setQLCDNumber_SenderSignalIndex_Callback(QLCDNumber_SenderSignalIndex_Callback cb) { qlcdnumber_sendersignalindex_callback = cb; }
+    inline void setQLCDNumber_Receivers_Callback(QLCDNumber_Receivers_Callback cb) { qlcdnumber_receivers_callback = cb; }
+    inline void setQLCDNumber_IsSignalConnected_Callback(QLCDNumber_IsSignalConnected_Callback cb) { qlcdnumber_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQLCDNumber_Metacall_IsBase(bool value) const { qlcdnumber_metacall_isbase = value; }
-    void setQLCDNumber_SizeHint_IsBase(bool value) const { qlcdnumber_sizehint_isbase = value; }
-    void setQLCDNumber_Event_IsBase(bool value) const { qlcdnumber_event_isbase = value; }
-    void setQLCDNumber_PaintEvent_IsBase(bool value) const { qlcdnumber_paintevent_isbase = value; }
-    void setQLCDNumber_ChangeEvent_IsBase(bool value) const { qlcdnumber_changeevent_isbase = value; }
-    void setQLCDNumber_InitStyleOption_IsBase(bool value) const { qlcdnumber_initstyleoption_isbase = value; }
-    void setQLCDNumber_DevType_IsBase(bool value) const { qlcdnumber_devtype_isbase = value; }
-    void setQLCDNumber_SetVisible_IsBase(bool value) const { qlcdnumber_setvisible_isbase = value; }
-    void setQLCDNumber_MinimumSizeHint_IsBase(bool value) const { qlcdnumber_minimumsizehint_isbase = value; }
-    void setQLCDNumber_HeightForWidth_IsBase(bool value) const { qlcdnumber_heightforwidth_isbase = value; }
-    void setQLCDNumber_HasHeightForWidth_IsBase(bool value) const { qlcdnumber_hasheightforwidth_isbase = value; }
-    void setQLCDNumber_PaintEngine_IsBase(bool value) const { qlcdnumber_paintengine_isbase = value; }
-    void setQLCDNumber_MousePressEvent_IsBase(bool value) const { qlcdnumber_mousepressevent_isbase = value; }
-    void setQLCDNumber_MouseReleaseEvent_IsBase(bool value) const { qlcdnumber_mousereleaseevent_isbase = value; }
-    void setQLCDNumber_MouseDoubleClickEvent_IsBase(bool value) const { qlcdnumber_mousedoubleclickevent_isbase = value; }
-    void setQLCDNumber_MouseMoveEvent_IsBase(bool value) const { qlcdnumber_mousemoveevent_isbase = value; }
-    void setQLCDNumber_WheelEvent_IsBase(bool value) const { qlcdnumber_wheelevent_isbase = value; }
-    void setQLCDNumber_KeyPressEvent_IsBase(bool value) const { qlcdnumber_keypressevent_isbase = value; }
-    void setQLCDNumber_KeyReleaseEvent_IsBase(bool value) const { qlcdnumber_keyreleaseevent_isbase = value; }
-    void setQLCDNumber_FocusInEvent_IsBase(bool value) const { qlcdnumber_focusinevent_isbase = value; }
-    void setQLCDNumber_FocusOutEvent_IsBase(bool value) const { qlcdnumber_focusoutevent_isbase = value; }
-    void setQLCDNumber_EnterEvent_IsBase(bool value) const { qlcdnumber_enterevent_isbase = value; }
-    void setQLCDNumber_LeaveEvent_IsBase(bool value) const { qlcdnumber_leaveevent_isbase = value; }
-    void setQLCDNumber_MoveEvent_IsBase(bool value) const { qlcdnumber_moveevent_isbase = value; }
-    void setQLCDNumber_ResizeEvent_IsBase(bool value) const { qlcdnumber_resizeevent_isbase = value; }
-    void setQLCDNumber_CloseEvent_IsBase(bool value) const { qlcdnumber_closeevent_isbase = value; }
-    void setQLCDNumber_ContextMenuEvent_IsBase(bool value) const { qlcdnumber_contextmenuevent_isbase = value; }
-    void setQLCDNumber_TabletEvent_IsBase(bool value) const { qlcdnumber_tabletevent_isbase = value; }
-    void setQLCDNumber_ActionEvent_IsBase(bool value) const { qlcdnumber_actionevent_isbase = value; }
-    void setQLCDNumber_DragEnterEvent_IsBase(bool value) const { qlcdnumber_dragenterevent_isbase = value; }
-    void setQLCDNumber_DragMoveEvent_IsBase(bool value) const { qlcdnumber_dragmoveevent_isbase = value; }
-    void setQLCDNumber_DragLeaveEvent_IsBase(bool value) const { qlcdnumber_dragleaveevent_isbase = value; }
-    void setQLCDNumber_DropEvent_IsBase(bool value) const { qlcdnumber_dropevent_isbase = value; }
-    void setQLCDNumber_ShowEvent_IsBase(bool value) const { qlcdnumber_showevent_isbase = value; }
-    void setQLCDNumber_HideEvent_IsBase(bool value) const { qlcdnumber_hideevent_isbase = value; }
-    void setQLCDNumber_NativeEvent_IsBase(bool value) const { qlcdnumber_nativeevent_isbase = value; }
-    void setQLCDNumber_Metric_IsBase(bool value) const { qlcdnumber_metric_isbase = value; }
-    void setQLCDNumber_InitPainter_IsBase(bool value) const { qlcdnumber_initpainter_isbase = value; }
-    void setQLCDNumber_Redirected_IsBase(bool value) const { qlcdnumber_redirected_isbase = value; }
-    void setQLCDNumber_SharedPainter_IsBase(bool value) const { qlcdnumber_sharedpainter_isbase = value; }
-    void setQLCDNumber_InputMethodEvent_IsBase(bool value) const { qlcdnumber_inputmethodevent_isbase = value; }
-    void setQLCDNumber_InputMethodQuery_IsBase(bool value) const { qlcdnumber_inputmethodquery_isbase = value; }
-    void setQLCDNumber_FocusNextPrevChild_IsBase(bool value) const { qlcdnumber_focusnextprevchild_isbase = value; }
-    void setQLCDNumber_EventFilter_IsBase(bool value) const { qlcdnumber_eventfilter_isbase = value; }
-    void setQLCDNumber_TimerEvent_IsBase(bool value) const { qlcdnumber_timerevent_isbase = value; }
-    void setQLCDNumber_ChildEvent_IsBase(bool value) const { qlcdnumber_childevent_isbase = value; }
-    void setQLCDNumber_CustomEvent_IsBase(bool value) const { qlcdnumber_customevent_isbase = value; }
-    void setQLCDNumber_ConnectNotify_IsBase(bool value) const { qlcdnumber_connectnotify_isbase = value; }
-    void setQLCDNumber_DisconnectNotify_IsBase(bool value) const { qlcdnumber_disconnectnotify_isbase = value; }
-    void setQLCDNumber_DrawFrame_IsBase(bool value) const { qlcdnumber_drawframe_isbase = value; }
-    void setQLCDNumber_UpdateMicroFocus_IsBase(bool value) const { qlcdnumber_updatemicrofocus_isbase = value; }
-    void setQLCDNumber_Create_IsBase(bool value) const { qlcdnumber_create_isbase = value; }
-    void setQLCDNumber_Destroy_IsBase(bool value) const { qlcdnumber_destroy_isbase = value; }
-    void setQLCDNumber_FocusNextChild_IsBase(bool value) const { qlcdnumber_focusnextchild_isbase = value; }
-    void setQLCDNumber_FocusPreviousChild_IsBase(bool value) const { qlcdnumber_focuspreviouschild_isbase = value; }
-    void setQLCDNumber_Sender_IsBase(bool value) const { qlcdnumber_sender_isbase = value; }
-    void setQLCDNumber_SenderSignalIndex_IsBase(bool value) const { qlcdnumber_sendersignalindex_isbase = value; }
-    void setQLCDNumber_Receivers_IsBase(bool value) const { qlcdnumber_receivers_isbase = value; }
-    void setQLCDNumber_IsSignalConnected_IsBase(bool value) const { qlcdnumber_issignalconnected_isbase = value; }
+    inline void setQLCDNumber_Metacall_IsBase(bool value) const { qlcdnumber_metacall_isbase = value; }
+    inline void setQLCDNumber_SizeHint_IsBase(bool value) const { qlcdnumber_sizehint_isbase = value; }
+    inline void setQLCDNumber_Event_IsBase(bool value) const { qlcdnumber_event_isbase = value; }
+    inline void setQLCDNumber_PaintEvent_IsBase(bool value) const { qlcdnumber_paintevent_isbase = value; }
+    inline void setQLCDNumber_ChangeEvent_IsBase(bool value) const { qlcdnumber_changeevent_isbase = value; }
+    inline void setQLCDNumber_InitStyleOption_IsBase(bool value) const { qlcdnumber_initstyleoption_isbase = value; }
+    inline void setQLCDNumber_DevType_IsBase(bool value) const { qlcdnumber_devtype_isbase = value; }
+    inline void setQLCDNumber_SetVisible_IsBase(bool value) const { qlcdnumber_setvisible_isbase = value; }
+    inline void setQLCDNumber_MinimumSizeHint_IsBase(bool value) const { qlcdnumber_minimumsizehint_isbase = value; }
+    inline void setQLCDNumber_HeightForWidth_IsBase(bool value) const { qlcdnumber_heightforwidth_isbase = value; }
+    inline void setQLCDNumber_HasHeightForWidth_IsBase(bool value) const { qlcdnumber_hasheightforwidth_isbase = value; }
+    inline void setQLCDNumber_PaintEngine_IsBase(bool value) const { qlcdnumber_paintengine_isbase = value; }
+    inline void setQLCDNumber_MousePressEvent_IsBase(bool value) const { qlcdnumber_mousepressevent_isbase = value; }
+    inline void setQLCDNumber_MouseReleaseEvent_IsBase(bool value) const { qlcdnumber_mousereleaseevent_isbase = value; }
+    inline void setQLCDNumber_MouseDoubleClickEvent_IsBase(bool value) const { qlcdnumber_mousedoubleclickevent_isbase = value; }
+    inline void setQLCDNumber_MouseMoveEvent_IsBase(bool value) const { qlcdnumber_mousemoveevent_isbase = value; }
+    inline void setQLCDNumber_WheelEvent_IsBase(bool value) const { qlcdnumber_wheelevent_isbase = value; }
+    inline void setQLCDNumber_KeyPressEvent_IsBase(bool value) const { qlcdnumber_keypressevent_isbase = value; }
+    inline void setQLCDNumber_KeyReleaseEvent_IsBase(bool value) const { qlcdnumber_keyreleaseevent_isbase = value; }
+    inline void setQLCDNumber_FocusInEvent_IsBase(bool value) const { qlcdnumber_focusinevent_isbase = value; }
+    inline void setQLCDNumber_FocusOutEvent_IsBase(bool value) const { qlcdnumber_focusoutevent_isbase = value; }
+    inline void setQLCDNumber_EnterEvent_IsBase(bool value) const { qlcdnumber_enterevent_isbase = value; }
+    inline void setQLCDNumber_LeaveEvent_IsBase(bool value) const { qlcdnumber_leaveevent_isbase = value; }
+    inline void setQLCDNumber_MoveEvent_IsBase(bool value) const { qlcdnumber_moveevent_isbase = value; }
+    inline void setQLCDNumber_ResizeEvent_IsBase(bool value) const { qlcdnumber_resizeevent_isbase = value; }
+    inline void setQLCDNumber_CloseEvent_IsBase(bool value) const { qlcdnumber_closeevent_isbase = value; }
+    inline void setQLCDNumber_ContextMenuEvent_IsBase(bool value) const { qlcdnumber_contextmenuevent_isbase = value; }
+    inline void setQLCDNumber_TabletEvent_IsBase(bool value) const { qlcdnumber_tabletevent_isbase = value; }
+    inline void setQLCDNumber_ActionEvent_IsBase(bool value) const { qlcdnumber_actionevent_isbase = value; }
+    inline void setQLCDNumber_DragEnterEvent_IsBase(bool value) const { qlcdnumber_dragenterevent_isbase = value; }
+    inline void setQLCDNumber_DragMoveEvent_IsBase(bool value) const { qlcdnumber_dragmoveevent_isbase = value; }
+    inline void setQLCDNumber_DragLeaveEvent_IsBase(bool value) const { qlcdnumber_dragleaveevent_isbase = value; }
+    inline void setQLCDNumber_DropEvent_IsBase(bool value) const { qlcdnumber_dropevent_isbase = value; }
+    inline void setQLCDNumber_ShowEvent_IsBase(bool value) const { qlcdnumber_showevent_isbase = value; }
+    inline void setQLCDNumber_HideEvent_IsBase(bool value) const { qlcdnumber_hideevent_isbase = value; }
+    inline void setQLCDNumber_NativeEvent_IsBase(bool value) const { qlcdnumber_nativeevent_isbase = value; }
+    inline void setQLCDNumber_Metric_IsBase(bool value) const { qlcdnumber_metric_isbase = value; }
+    inline void setQLCDNumber_InitPainter_IsBase(bool value) const { qlcdnumber_initpainter_isbase = value; }
+    inline void setQLCDNumber_Redirected_IsBase(bool value) const { qlcdnumber_redirected_isbase = value; }
+    inline void setQLCDNumber_SharedPainter_IsBase(bool value) const { qlcdnumber_sharedpainter_isbase = value; }
+    inline void setQLCDNumber_InputMethodEvent_IsBase(bool value) const { qlcdnumber_inputmethodevent_isbase = value; }
+    inline void setQLCDNumber_InputMethodQuery_IsBase(bool value) const { qlcdnumber_inputmethodquery_isbase = value; }
+    inline void setQLCDNumber_FocusNextPrevChild_IsBase(bool value) const { qlcdnumber_focusnextprevchild_isbase = value; }
+    inline void setQLCDNumber_EventFilter_IsBase(bool value) const { qlcdnumber_eventfilter_isbase = value; }
+    inline void setQLCDNumber_TimerEvent_IsBase(bool value) const { qlcdnumber_timerevent_isbase = value; }
+    inline void setQLCDNumber_ChildEvent_IsBase(bool value) const { qlcdnumber_childevent_isbase = value; }
+    inline void setQLCDNumber_CustomEvent_IsBase(bool value) const { qlcdnumber_customevent_isbase = value; }
+    inline void setQLCDNumber_ConnectNotify_IsBase(bool value) const { qlcdnumber_connectnotify_isbase = value; }
+    inline void setQLCDNumber_DisconnectNotify_IsBase(bool value) const { qlcdnumber_disconnectnotify_isbase = value; }
+    inline void setQLCDNumber_DrawFrame_IsBase(bool value) const { qlcdnumber_drawframe_isbase = value; }
+    inline void setQLCDNumber_UpdateMicroFocus_IsBase(bool value) const { qlcdnumber_updatemicrofocus_isbase = value; }
+    inline void setQLCDNumber_Create_IsBase(bool value) const { qlcdnumber_create_isbase = value; }
+    inline void setQLCDNumber_Destroy_IsBase(bool value) const { qlcdnumber_destroy_isbase = value; }
+    inline void setQLCDNumber_FocusNextChild_IsBase(bool value) const { qlcdnumber_focusnextchild_isbase = value; }
+    inline void setQLCDNumber_FocusPreviousChild_IsBase(bool value) const { qlcdnumber_focuspreviouschild_isbase = value; }
+    inline void setQLCDNumber_Sender_IsBase(bool value) const { qlcdnumber_sender_isbase = value; }
+    inline void setQLCDNumber_SenderSignalIndex_IsBase(bool value) const { qlcdnumber_sendersignalindex_isbase = value; }
+    inline void setQLCDNumber_Receivers_IsBase(bool value) const { qlcdnumber_receivers_isbase = value; }
+    inline void setQLCDNumber_IsSignalConnected_IsBase(bool value) const { qlcdnumber_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -394,7 +397,12 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_metacall_isbase = false;
             return QLCDNumber::qt_metacall(param1, param2, param3);
         } else if (qlcdnumber_metacall_callback != nullptr) {
-            return qlcdnumber_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qlcdnumber_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QLCDNumber::qt_metacall(param1, param2, param3);
         }
@@ -406,7 +414,8 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_sizehint_isbase = false;
             return QLCDNumber::sizeHint();
         } else if (qlcdnumber_sizehint_callback != nullptr) {
-            return qlcdnumber_sizehint_callback();
+            QSize* callback_ret = qlcdnumber_sizehint_callback();
+            return *callback_ret;
         } else {
             return QLCDNumber::sizeHint();
         }
@@ -418,7 +427,10 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_event_isbase = false;
             return QLCDNumber::event(e);
         } else if (qlcdnumber_event_callback != nullptr) {
-            return qlcdnumber_event_callback(this, e);
+            QEvent* cbval1 = e;
+
+            bool callback_ret = qlcdnumber_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QLCDNumber::event(e);
         }
@@ -430,7 +442,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_paintevent_isbase = false;
             QLCDNumber::paintEvent(param1);
         } else if (qlcdnumber_paintevent_callback != nullptr) {
-            qlcdnumber_paintevent_callback(this, param1);
+            QPaintEvent* cbval1 = param1;
+
+            qlcdnumber_paintevent_callback(this, cbval1);
         } else {
             QLCDNumber::paintEvent(param1);
         }
@@ -442,7 +456,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_changeevent_isbase = false;
             QLCDNumber::changeEvent(param1);
         } else if (qlcdnumber_changeevent_callback != nullptr) {
-            qlcdnumber_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qlcdnumber_changeevent_callback(this, cbval1);
         } else {
             QLCDNumber::changeEvent(param1);
         }
@@ -454,7 +470,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_initstyleoption_isbase = false;
             QLCDNumber::initStyleOption(option);
         } else if (qlcdnumber_initstyleoption_callback != nullptr) {
-            qlcdnumber_initstyleoption_callback(this, option);
+            QStyleOptionFrame* cbval1 = option;
+
+            qlcdnumber_initstyleoption_callback(this, cbval1);
         } else {
             QLCDNumber::initStyleOption(option);
         }
@@ -466,7 +484,8 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_devtype_isbase = false;
             return QLCDNumber::devType();
         } else if (qlcdnumber_devtype_callback != nullptr) {
-            return qlcdnumber_devtype_callback();
+            int callback_ret = qlcdnumber_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QLCDNumber::devType();
         }
@@ -478,7 +497,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_setvisible_isbase = false;
             QLCDNumber::setVisible(visible);
         } else if (qlcdnumber_setvisible_callback != nullptr) {
-            qlcdnumber_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qlcdnumber_setvisible_callback(this, cbval1);
         } else {
             QLCDNumber::setVisible(visible);
         }
@@ -490,7 +511,8 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_minimumsizehint_isbase = false;
             return QLCDNumber::minimumSizeHint();
         } else if (qlcdnumber_minimumsizehint_callback != nullptr) {
-            return qlcdnumber_minimumsizehint_callback();
+            QSize* callback_ret = qlcdnumber_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QLCDNumber::minimumSizeHint();
         }
@@ -502,7 +524,10 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_heightforwidth_isbase = false;
             return QLCDNumber::heightForWidth(param1);
         } else if (qlcdnumber_heightforwidth_callback != nullptr) {
-            return qlcdnumber_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qlcdnumber_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QLCDNumber::heightForWidth(param1);
         }
@@ -514,7 +539,8 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_hasheightforwidth_isbase = false;
             return QLCDNumber::hasHeightForWidth();
         } else if (qlcdnumber_hasheightforwidth_callback != nullptr) {
-            return qlcdnumber_hasheightforwidth_callback();
+            bool callback_ret = qlcdnumber_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QLCDNumber::hasHeightForWidth();
         }
@@ -526,7 +552,8 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_paintengine_isbase = false;
             return QLCDNumber::paintEngine();
         } else if (qlcdnumber_paintengine_callback != nullptr) {
-            return qlcdnumber_paintengine_callback();
+            QPaintEngine* callback_ret = qlcdnumber_paintengine_callback();
+            return callback_ret;
         } else {
             return QLCDNumber::paintEngine();
         }
@@ -538,7 +565,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_mousepressevent_isbase = false;
             QLCDNumber::mousePressEvent(event);
         } else if (qlcdnumber_mousepressevent_callback != nullptr) {
-            qlcdnumber_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qlcdnumber_mousepressevent_callback(this, cbval1);
         } else {
             QLCDNumber::mousePressEvent(event);
         }
@@ -550,7 +579,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_mousereleaseevent_isbase = false;
             QLCDNumber::mouseReleaseEvent(event);
         } else if (qlcdnumber_mousereleaseevent_callback != nullptr) {
-            qlcdnumber_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qlcdnumber_mousereleaseevent_callback(this, cbval1);
         } else {
             QLCDNumber::mouseReleaseEvent(event);
         }
@@ -562,7 +593,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_mousedoubleclickevent_isbase = false;
             QLCDNumber::mouseDoubleClickEvent(event);
         } else if (qlcdnumber_mousedoubleclickevent_callback != nullptr) {
-            qlcdnumber_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qlcdnumber_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QLCDNumber::mouseDoubleClickEvent(event);
         }
@@ -574,7 +607,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_mousemoveevent_isbase = false;
             QLCDNumber::mouseMoveEvent(event);
         } else if (qlcdnumber_mousemoveevent_callback != nullptr) {
-            qlcdnumber_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qlcdnumber_mousemoveevent_callback(this, cbval1);
         } else {
             QLCDNumber::mouseMoveEvent(event);
         }
@@ -586,7 +621,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_wheelevent_isbase = false;
             QLCDNumber::wheelEvent(event);
         } else if (qlcdnumber_wheelevent_callback != nullptr) {
-            qlcdnumber_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qlcdnumber_wheelevent_callback(this, cbval1);
         } else {
             QLCDNumber::wheelEvent(event);
         }
@@ -598,7 +635,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_keypressevent_isbase = false;
             QLCDNumber::keyPressEvent(event);
         } else if (qlcdnumber_keypressevent_callback != nullptr) {
-            qlcdnumber_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qlcdnumber_keypressevent_callback(this, cbval1);
         } else {
             QLCDNumber::keyPressEvent(event);
         }
@@ -610,7 +649,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_keyreleaseevent_isbase = false;
             QLCDNumber::keyReleaseEvent(event);
         } else if (qlcdnumber_keyreleaseevent_callback != nullptr) {
-            qlcdnumber_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qlcdnumber_keyreleaseevent_callback(this, cbval1);
         } else {
             QLCDNumber::keyReleaseEvent(event);
         }
@@ -622,7 +663,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_focusinevent_isbase = false;
             QLCDNumber::focusInEvent(event);
         } else if (qlcdnumber_focusinevent_callback != nullptr) {
-            qlcdnumber_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qlcdnumber_focusinevent_callback(this, cbval1);
         } else {
             QLCDNumber::focusInEvent(event);
         }
@@ -634,7 +677,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_focusoutevent_isbase = false;
             QLCDNumber::focusOutEvent(event);
         } else if (qlcdnumber_focusoutevent_callback != nullptr) {
-            qlcdnumber_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qlcdnumber_focusoutevent_callback(this, cbval1);
         } else {
             QLCDNumber::focusOutEvent(event);
         }
@@ -646,7 +691,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_enterevent_isbase = false;
             QLCDNumber::enterEvent(event);
         } else if (qlcdnumber_enterevent_callback != nullptr) {
-            qlcdnumber_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qlcdnumber_enterevent_callback(this, cbval1);
         } else {
             QLCDNumber::enterEvent(event);
         }
@@ -658,7 +705,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_leaveevent_isbase = false;
             QLCDNumber::leaveEvent(event);
         } else if (qlcdnumber_leaveevent_callback != nullptr) {
-            qlcdnumber_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qlcdnumber_leaveevent_callback(this, cbval1);
         } else {
             QLCDNumber::leaveEvent(event);
         }
@@ -670,7 +719,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_moveevent_isbase = false;
             QLCDNumber::moveEvent(event);
         } else if (qlcdnumber_moveevent_callback != nullptr) {
-            qlcdnumber_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qlcdnumber_moveevent_callback(this, cbval1);
         } else {
             QLCDNumber::moveEvent(event);
         }
@@ -682,7 +733,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_resizeevent_isbase = false;
             QLCDNumber::resizeEvent(event);
         } else if (qlcdnumber_resizeevent_callback != nullptr) {
-            qlcdnumber_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qlcdnumber_resizeevent_callback(this, cbval1);
         } else {
             QLCDNumber::resizeEvent(event);
         }
@@ -694,7 +747,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_closeevent_isbase = false;
             QLCDNumber::closeEvent(event);
         } else if (qlcdnumber_closeevent_callback != nullptr) {
-            qlcdnumber_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qlcdnumber_closeevent_callback(this, cbval1);
         } else {
             QLCDNumber::closeEvent(event);
         }
@@ -706,7 +761,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_contextmenuevent_isbase = false;
             QLCDNumber::contextMenuEvent(event);
         } else if (qlcdnumber_contextmenuevent_callback != nullptr) {
-            qlcdnumber_contextmenuevent_callback(this, event);
+            QContextMenuEvent* cbval1 = event;
+
+            qlcdnumber_contextmenuevent_callback(this, cbval1);
         } else {
             QLCDNumber::contextMenuEvent(event);
         }
@@ -718,7 +775,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_tabletevent_isbase = false;
             QLCDNumber::tabletEvent(event);
         } else if (qlcdnumber_tabletevent_callback != nullptr) {
-            qlcdnumber_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qlcdnumber_tabletevent_callback(this, cbval1);
         } else {
             QLCDNumber::tabletEvent(event);
         }
@@ -730,7 +789,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_actionevent_isbase = false;
             QLCDNumber::actionEvent(event);
         } else if (qlcdnumber_actionevent_callback != nullptr) {
-            qlcdnumber_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qlcdnumber_actionevent_callback(this, cbval1);
         } else {
             QLCDNumber::actionEvent(event);
         }
@@ -742,7 +803,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_dragenterevent_isbase = false;
             QLCDNumber::dragEnterEvent(event);
         } else if (qlcdnumber_dragenterevent_callback != nullptr) {
-            qlcdnumber_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qlcdnumber_dragenterevent_callback(this, cbval1);
         } else {
             QLCDNumber::dragEnterEvent(event);
         }
@@ -754,7 +817,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_dragmoveevent_isbase = false;
             QLCDNumber::dragMoveEvent(event);
         } else if (qlcdnumber_dragmoveevent_callback != nullptr) {
-            qlcdnumber_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qlcdnumber_dragmoveevent_callback(this, cbval1);
         } else {
             QLCDNumber::dragMoveEvent(event);
         }
@@ -766,7 +831,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_dragleaveevent_isbase = false;
             QLCDNumber::dragLeaveEvent(event);
         } else if (qlcdnumber_dragleaveevent_callback != nullptr) {
-            qlcdnumber_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qlcdnumber_dragleaveevent_callback(this, cbval1);
         } else {
             QLCDNumber::dragLeaveEvent(event);
         }
@@ -778,7 +845,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_dropevent_isbase = false;
             QLCDNumber::dropEvent(event);
         } else if (qlcdnumber_dropevent_callback != nullptr) {
-            qlcdnumber_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qlcdnumber_dropevent_callback(this, cbval1);
         } else {
             QLCDNumber::dropEvent(event);
         }
@@ -790,7 +859,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_showevent_isbase = false;
             QLCDNumber::showEvent(event);
         } else if (qlcdnumber_showevent_callback != nullptr) {
-            qlcdnumber_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qlcdnumber_showevent_callback(this, cbval1);
         } else {
             QLCDNumber::showEvent(event);
         }
@@ -802,7 +873,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_hideevent_isbase = false;
             QLCDNumber::hideEvent(event);
         } else if (qlcdnumber_hideevent_callback != nullptr) {
-            qlcdnumber_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qlcdnumber_hideevent_callback(this, cbval1);
         } else {
             QLCDNumber::hideEvent(event);
         }
@@ -814,7 +887,19 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_nativeevent_isbase = false;
             return QLCDNumber::nativeEvent(eventType, message, result);
         } else if (qlcdnumber_nativeevent_callback != nullptr) {
-            return qlcdnumber_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qlcdnumber_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QLCDNumber::nativeEvent(eventType, message, result);
         }
@@ -826,7 +911,10 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_metric_isbase = false;
             return QLCDNumber::metric(param1);
         } else if (qlcdnumber_metric_callback != nullptr) {
-            return qlcdnumber_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qlcdnumber_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QLCDNumber::metric(param1);
         }
@@ -838,7 +926,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_initpainter_isbase = false;
             QLCDNumber::initPainter(painter);
         } else if (qlcdnumber_initpainter_callback != nullptr) {
-            qlcdnumber_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qlcdnumber_initpainter_callback(this, cbval1);
         } else {
             QLCDNumber::initPainter(painter);
         }
@@ -850,7 +940,10 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_redirected_isbase = false;
             return QLCDNumber::redirected(offset);
         } else if (qlcdnumber_redirected_callback != nullptr) {
-            return qlcdnumber_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qlcdnumber_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QLCDNumber::redirected(offset);
         }
@@ -862,7 +955,8 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_sharedpainter_isbase = false;
             return QLCDNumber::sharedPainter();
         } else if (qlcdnumber_sharedpainter_callback != nullptr) {
-            return qlcdnumber_sharedpainter_callback();
+            QPainter* callback_ret = qlcdnumber_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QLCDNumber::sharedPainter();
         }
@@ -874,7 +968,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_inputmethodevent_isbase = false;
             QLCDNumber::inputMethodEvent(param1);
         } else if (qlcdnumber_inputmethodevent_callback != nullptr) {
-            qlcdnumber_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qlcdnumber_inputmethodevent_callback(this, cbval1);
         } else {
             QLCDNumber::inputMethodEvent(param1);
         }
@@ -886,7 +982,10 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_inputmethodquery_isbase = false;
             return QLCDNumber::inputMethodQuery(param1);
         } else if (qlcdnumber_inputmethodquery_callback != nullptr) {
-            return qlcdnumber_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qlcdnumber_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QLCDNumber::inputMethodQuery(param1);
         }
@@ -898,7 +997,10 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_focusnextprevchild_isbase = false;
             return QLCDNumber::focusNextPrevChild(next);
         } else if (qlcdnumber_focusnextprevchild_callback != nullptr) {
-            return qlcdnumber_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qlcdnumber_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QLCDNumber::focusNextPrevChild(next);
         }
@@ -910,7 +1012,11 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_eventfilter_isbase = false;
             return QLCDNumber::eventFilter(watched, event);
         } else if (qlcdnumber_eventfilter_callback != nullptr) {
-            return qlcdnumber_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qlcdnumber_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QLCDNumber::eventFilter(watched, event);
         }
@@ -922,7 +1028,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_timerevent_isbase = false;
             QLCDNumber::timerEvent(event);
         } else if (qlcdnumber_timerevent_callback != nullptr) {
-            qlcdnumber_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qlcdnumber_timerevent_callback(this, cbval1);
         } else {
             QLCDNumber::timerEvent(event);
         }
@@ -934,7 +1042,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_childevent_isbase = false;
             QLCDNumber::childEvent(event);
         } else if (qlcdnumber_childevent_callback != nullptr) {
-            qlcdnumber_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qlcdnumber_childevent_callback(this, cbval1);
         } else {
             QLCDNumber::childEvent(event);
         }
@@ -946,7 +1056,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_customevent_isbase = false;
             QLCDNumber::customEvent(event);
         } else if (qlcdnumber_customevent_callback != nullptr) {
-            qlcdnumber_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qlcdnumber_customevent_callback(this, cbval1);
         } else {
             QLCDNumber::customEvent(event);
         }
@@ -958,7 +1070,11 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_connectnotify_isbase = false;
             QLCDNumber::connectNotify(signal);
         } else if (qlcdnumber_connectnotify_callback != nullptr) {
-            qlcdnumber_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qlcdnumber_connectnotify_callback(this, cbval1);
         } else {
             QLCDNumber::connectNotify(signal);
         }
@@ -970,7 +1086,11 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_disconnectnotify_isbase = false;
             QLCDNumber::disconnectNotify(signal);
         } else if (qlcdnumber_disconnectnotify_callback != nullptr) {
-            qlcdnumber_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qlcdnumber_disconnectnotify_callback(this, cbval1);
         } else {
             QLCDNumber::disconnectNotify(signal);
         }
@@ -982,7 +1102,9 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_drawframe_isbase = false;
             QLCDNumber::drawFrame(param1);
         } else if (qlcdnumber_drawframe_callback != nullptr) {
-            qlcdnumber_drawframe_callback(this, param1);
+            QPainter* cbval1 = param1;
+
+            qlcdnumber_drawframe_callback(this, cbval1);
         } else {
             QLCDNumber::drawFrame(param1);
         }
@@ -1030,7 +1152,8 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_focusnextchild_isbase = false;
             return QLCDNumber::focusNextChild();
         } else if (qlcdnumber_focusnextchild_callback != nullptr) {
-            return qlcdnumber_focusnextchild_callback();
+            bool callback_ret = qlcdnumber_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QLCDNumber::focusNextChild();
         }
@@ -1042,7 +1165,8 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_focuspreviouschild_isbase = false;
             return QLCDNumber::focusPreviousChild();
         } else if (qlcdnumber_focuspreviouschild_callback != nullptr) {
-            return qlcdnumber_focuspreviouschild_callback();
+            bool callback_ret = qlcdnumber_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QLCDNumber::focusPreviousChild();
         }
@@ -1054,7 +1178,8 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_sender_isbase = false;
             return QLCDNumber::sender();
         } else if (qlcdnumber_sender_callback != nullptr) {
-            return qlcdnumber_sender_callback();
+            QObject* callback_ret = qlcdnumber_sender_callback();
+            return callback_ret;
         } else {
             return QLCDNumber::sender();
         }
@@ -1066,7 +1191,8 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_sendersignalindex_isbase = false;
             return QLCDNumber::senderSignalIndex();
         } else if (qlcdnumber_sendersignalindex_callback != nullptr) {
-            return qlcdnumber_sendersignalindex_callback();
+            int callback_ret = qlcdnumber_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QLCDNumber::senderSignalIndex();
         }
@@ -1078,7 +1204,10 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_receivers_isbase = false;
             return QLCDNumber::receivers(signal);
         } else if (qlcdnumber_receivers_callback != nullptr) {
-            return qlcdnumber_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qlcdnumber_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QLCDNumber::receivers(signal);
         }
@@ -1090,11 +1219,116 @@ class VirtualQLCDNumber : public QLCDNumber {
             qlcdnumber_issignalconnected_isbase = false;
             return QLCDNumber::isSignalConnected(signal);
         } else if (qlcdnumber_issignalconnected_callback != nullptr) {
-            return qlcdnumber_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qlcdnumber_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QLCDNumber::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QLCDNumber_Event(QLCDNumber* self, QEvent* e);
+    friend bool QLCDNumber_QBaseEvent(QLCDNumber* self, QEvent* e);
+    friend void QLCDNumber_PaintEvent(QLCDNumber* self, QPaintEvent* param1);
+    friend void QLCDNumber_QBasePaintEvent(QLCDNumber* self, QPaintEvent* param1);
+    friend void QLCDNumber_ChangeEvent(QLCDNumber* self, QEvent* param1);
+    friend void QLCDNumber_QBaseChangeEvent(QLCDNumber* self, QEvent* param1);
+    friend void QLCDNumber_InitStyleOption(const QLCDNumber* self, QStyleOptionFrame* option);
+    friend void QLCDNumber_QBaseInitStyleOption(const QLCDNumber* self, QStyleOptionFrame* option);
+    friend void QLCDNumber_MousePressEvent(QLCDNumber* self, QMouseEvent* event);
+    friend void QLCDNumber_QBaseMousePressEvent(QLCDNumber* self, QMouseEvent* event);
+    friend void QLCDNumber_MouseReleaseEvent(QLCDNumber* self, QMouseEvent* event);
+    friend void QLCDNumber_QBaseMouseReleaseEvent(QLCDNumber* self, QMouseEvent* event);
+    friend void QLCDNumber_MouseDoubleClickEvent(QLCDNumber* self, QMouseEvent* event);
+    friend void QLCDNumber_QBaseMouseDoubleClickEvent(QLCDNumber* self, QMouseEvent* event);
+    friend void QLCDNumber_MouseMoveEvent(QLCDNumber* self, QMouseEvent* event);
+    friend void QLCDNumber_QBaseMouseMoveEvent(QLCDNumber* self, QMouseEvent* event);
+    friend void QLCDNumber_WheelEvent(QLCDNumber* self, QWheelEvent* event);
+    friend void QLCDNumber_QBaseWheelEvent(QLCDNumber* self, QWheelEvent* event);
+    friend void QLCDNumber_KeyPressEvent(QLCDNumber* self, QKeyEvent* event);
+    friend void QLCDNumber_QBaseKeyPressEvent(QLCDNumber* self, QKeyEvent* event);
+    friend void QLCDNumber_KeyReleaseEvent(QLCDNumber* self, QKeyEvent* event);
+    friend void QLCDNumber_QBaseKeyReleaseEvent(QLCDNumber* self, QKeyEvent* event);
+    friend void QLCDNumber_FocusInEvent(QLCDNumber* self, QFocusEvent* event);
+    friend void QLCDNumber_QBaseFocusInEvent(QLCDNumber* self, QFocusEvent* event);
+    friend void QLCDNumber_FocusOutEvent(QLCDNumber* self, QFocusEvent* event);
+    friend void QLCDNumber_QBaseFocusOutEvent(QLCDNumber* self, QFocusEvent* event);
+    friend void QLCDNumber_EnterEvent(QLCDNumber* self, QEnterEvent* event);
+    friend void QLCDNumber_QBaseEnterEvent(QLCDNumber* self, QEnterEvent* event);
+    friend void QLCDNumber_LeaveEvent(QLCDNumber* self, QEvent* event);
+    friend void QLCDNumber_QBaseLeaveEvent(QLCDNumber* self, QEvent* event);
+    friend void QLCDNumber_MoveEvent(QLCDNumber* self, QMoveEvent* event);
+    friend void QLCDNumber_QBaseMoveEvent(QLCDNumber* self, QMoveEvent* event);
+    friend void QLCDNumber_ResizeEvent(QLCDNumber* self, QResizeEvent* event);
+    friend void QLCDNumber_QBaseResizeEvent(QLCDNumber* self, QResizeEvent* event);
+    friend void QLCDNumber_CloseEvent(QLCDNumber* self, QCloseEvent* event);
+    friend void QLCDNumber_QBaseCloseEvent(QLCDNumber* self, QCloseEvent* event);
+    friend void QLCDNumber_ContextMenuEvent(QLCDNumber* self, QContextMenuEvent* event);
+    friend void QLCDNumber_QBaseContextMenuEvent(QLCDNumber* self, QContextMenuEvent* event);
+    friend void QLCDNumber_TabletEvent(QLCDNumber* self, QTabletEvent* event);
+    friend void QLCDNumber_QBaseTabletEvent(QLCDNumber* self, QTabletEvent* event);
+    friend void QLCDNumber_ActionEvent(QLCDNumber* self, QActionEvent* event);
+    friend void QLCDNumber_QBaseActionEvent(QLCDNumber* self, QActionEvent* event);
+    friend void QLCDNumber_DragEnterEvent(QLCDNumber* self, QDragEnterEvent* event);
+    friend void QLCDNumber_QBaseDragEnterEvent(QLCDNumber* self, QDragEnterEvent* event);
+    friend void QLCDNumber_DragMoveEvent(QLCDNumber* self, QDragMoveEvent* event);
+    friend void QLCDNumber_QBaseDragMoveEvent(QLCDNumber* self, QDragMoveEvent* event);
+    friend void QLCDNumber_DragLeaveEvent(QLCDNumber* self, QDragLeaveEvent* event);
+    friend void QLCDNumber_QBaseDragLeaveEvent(QLCDNumber* self, QDragLeaveEvent* event);
+    friend void QLCDNumber_DropEvent(QLCDNumber* self, QDropEvent* event);
+    friend void QLCDNumber_QBaseDropEvent(QLCDNumber* self, QDropEvent* event);
+    friend void QLCDNumber_ShowEvent(QLCDNumber* self, QShowEvent* event);
+    friend void QLCDNumber_QBaseShowEvent(QLCDNumber* self, QShowEvent* event);
+    friend void QLCDNumber_HideEvent(QLCDNumber* self, QHideEvent* event);
+    friend void QLCDNumber_QBaseHideEvent(QLCDNumber* self, QHideEvent* event);
+    friend bool QLCDNumber_NativeEvent(QLCDNumber* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QLCDNumber_QBaseNativeEvent(QLCDNumber* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QLCDNumber_Metric(const QLCDNumber* self, int param1);
+    friend int QLCDNumber_QBaseMetric(const QLCDNumber* self, int param1);
+    friend void QLCDNumber_InitPainter(const QLCDNumber* self, QPainter* painter);
+    friend void QLCDNumber_QBaseInitPainter(const QLCDNumber* self, QPainter* painter);
+    friend QPaintDevice* QLCDNumber_Redirected(const QLCDNumber* self, QPoint* offset);
+    friend QPaintDevice* QLCDNumber_QBaseRedirected(const QLCDNumber* self, QPoint* offset);
+    friend QPainter* QLCDNumber_SharedPainter(const QLCDNumber* self);
+    friend QPainter* QLCDNumber_QBaseSharedPainter(const QLCDNumber* self);
+    friend void QLCDNumber_InputMethodEvent(QLCDNumber* self, QInputMethodEvent* param1);
+    friend void QLCDNumber_QBaseInputMethodEvent(QLCDNumber* self, QInputMethodEvent* param1);
+    friend bool QLCDNumber_FocusNextPrevChild(QLCDNumber* self, bool next);
+    friend bool QLCDNumber_QBaseFocusNextPrevChild(QLCDNumber* self, bool next);
+    friend void QLCDNumber_TimerEvent(QLCDNumber* self, QTimerEvent* event);
+    friend void QLCDNumber_QBaseTimerEvent(QLCDNumber* self, QTimerEvent* event);
+    friend void QLCDNumber_ChildEvent(QLCDNumber* self, QChildEvent* event);
+    friend void QLCDNumber_QBaseChildEvent(QLCDNumber* self, QChildEvent* event);
+    friend void QLCDNumber_CustomEvent(QLCDNumber* self, QEvent* event);
+    friend void QLCDNumber_QBaseCustomEvent(QLCDNumber* self, QEvent* event);
+    friend void QLCDNumber_ConnectNotify(QLCDNumber* self, const QMetaMethod* signal);
+    friend void QLCDNumber_QBaseConnectNotify(QLCDNumber* self, const QMetaMethod* signal);
+    friend void QLCDNumber_DisconnectNotify(QLCDNumber* self, const QMetaMethod* signal);
+    friend void QLCDNumber_QBaseDisconnectNotify(QLCDNumber* self, const QMetaMethod* signal);
+    friend void QLCDNumber_DrawFrame(QLCDNumber* self, QPainter* param1);
+    friend void QLCDNumber_QBaseDrawFrame(QLCDNumber* self, QPainter* param1);
+    friend void QLCDNumber_UpdateMicroFocus(QLCDNumber* self);
+    friend void QLCDNumber_QBaseUpdateMicroFocus(QLCDNumber* self);
+    friend void QLCDNumber_Create(QLCDNumber* self);
+    friend void QLCDNumber_QBaseCreate(QLCDNumber* self);
+    friend void QLCDNumber_Destroy(QLCDNumber* self);
+    friend void QLCDNumber_QBaseDestroy(QLCDNumber* self);
+    friend bool QLCDNumber_FocusNextChild(QLCDNumber* self);
+    friend bool QLCDNumber_QBaseFocusNextChild(QLCDNumber* self);
+    friend bool QLCDNumber_FocusPreviousChild(QLCDNumber* self);
+    friend bool QLCDNumber_QBaseFocusPreviousChild(QLCDNumber* self);
+    friend QObject* QLCDNumber_Sender(const QLCDNumber* self);
+    friend QObject* QLCDNumber_QBaseSender(const QLCDNumber* self);
+    friend int QLCDNumber_SenderSignalIndex(const QLCDNumber* self);
+    friend int QLCDNumber_QBaseSenderSignalIndex(const QLCDNumber* self);
+    friend int QLCDNumber_Receivers(const QLCDNumber* self, const char* signal);
+    friend int QLCDNumber_QBaseReceivers(const QLCDNumber* self, const char* signal);
+    friend bool QLCDNumber_IsSignalConnected(const QLCDNumber* self, const QMetaMethod* signal);
+    friend bool QLCDNumber_QBaseIsSignalConnected(const QLCDNumber* self, const QMetaMethod* signal);
 };
 
 #endif

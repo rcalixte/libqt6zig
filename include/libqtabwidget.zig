@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
@@ -11,48 +12,48 @@ const std = @import("std");
 pub const qtabwidget = struct {
     /// New constructs a new QTabWidget object.
     ///
-    /// ``` parent: ?*C.QWidget ```
-    pub fn New(parent: ?*anyopaque) ?*C.QTabWidget {
-        return C.QTabWidget_new(@ptrCast(parent));
+    /// ``` parent: QtC.QWidget ```
+    pub fn New(parent: ?*anyopaque) QtC.QTabWidget {
+        return qtc.QTabWidget_new(@ptrCast(parent));
     }
 
     /// New2 constructs a new QTabWidget object.
     ///
     ///
-    pub fn New2() ?*C.QTabWidget {
-        return C.QTabWidget_new2();
+    pub fn New2() QtC.QTabWidget {
+        return qtc.QTabWidget_new2();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn MetaObject(self: ?*anyopaque) ?*C.QMetaObject {
-        return C.QTabWidget_MetaObject(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QTabWidget_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QTabWidget, param1: []const u8 ```
+    /// ``` self: QtC.QTabWidget, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = @constCast(param1.ptr);
-        return C.QTabWidget_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTabWidget_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: ?*C.QTabWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QTabWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QTabWidget_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QTabWidget_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, qobjectdefs_enums.Call, i32, ?*anyopaque) callconv(.c) i32 ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
     pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
-        C.QTabWidget_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTabWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QTabWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QTabWidget_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QTabWidget_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -60,9 +61,9 @@ pub const qtabwidget = struct {
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
-        const _str = C.QTabWidget_Tr(s_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTabWidget_Tr(s_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.Tr: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -71,90 +72,90 @@ pub const qtabwidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#addTab)
     ///
-    /// ``` self: ?*C.QTabWidget, widget: ?*C.QWidget, param2: []const u8 ```
+    /// ``` self: QtC.QTabWidget, widget: QtC.QWidget, param2: []const u8 ```
     pub fn AddTab(self: ?*anyopaque, widget: ?*anyopaque, param2: []const u8) i32 {
-        const param2_str = C.struct_libqt_string{
+        const param2_str = qtc.struct_libqt_string{
             .len = param2.len,
             .data = @constCast(param2.ptr),
         };
-        return C.QTabWidget_AddTab(@ptrCast(self), @ptrCast(widget), param2_str);
+        return qtc.QTabWidget_AddTab(@ptrCast(self), @ptrCast(widget), param2_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#addTab)
     ///
-    /// ``` self: ?*C.QTabWidget, widget: ?*C.QWidget, icon: ?*C.QIcon, label: []const u8 ```
+    /// ``` self: QtC.QTabWidget, widget: QtC.QWidget, icon: QtC.QIcon, label: []const u8 ```
     pub fn AddTab2(self: ?*anyopaque, widget: ?*anyopaque, icon: ?*anyopaque, label: []const u8) i32 {
-        const label_str = C.struct_libqt_string{
+        const label_str = qtc.struct_libqt_string{
             .len = label.len,
             .data = @constCast(label.ptr),
         };
-        return C.QTabWidget_AddTab2(@ptrCast(self), @ptrCast(widget), @ptrCast(icon), label_str);
+        return qtc.QTabWidget_AddTab2(@ptrCast(self), @ptrCast(widget), @ptrCast(icon), label_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#insertTab)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32, widget: ?*C.QWidget, param3: []const u8 ```
+    /// ``` self: QtC.QTabWidget, index: i32, widget: QtC.QWidget, param3: []const u8 ```
     pub fn InsertTab(self: ?*anyopaque, index: i32, widget: ?*anyopaque, param3: []const u8) i32 {
-        const param3_str = C.struct_libqt_string{
+        const param3_str = qtc.struct_libqt_string{
             .len = param3.len,
             .data = @constCast(param3.ptr),
         };
-        return C.QTabWidget_InsertTab(@ptrCast(self), @intCast(index), @ptrCast(widget), param3_str);
+        return qtc.QTabWidget_InsertTab(@ptrCast(self), @intCast(index), @ptrCast(widget), param3_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#insertTab)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32, widget: ?*C.QWidget, icon: ?*C.QIcon, label: []const u8 ```
+    /// ``` self: QtC.QTabWidget, index: i32, widget: QtC.QWidget, icon: QtC.QIcon, label: []const u8 ```
     pub fn InsertTab2(self: ?*anyopaque, index: i32, widget: ?*anyopaque, icon: ?*anyopaque, label: []const u8) i32 {
-        const label_str = C.struct_libqt_string{
+        const label_str = qtc.struct_libqt_string{
             .len = label.len,
             .data = @constCast(label.ptr),
         };
-        return C.QTabWidget_InsertTab2(@ptrCast(self), @intCast(index), @ptrCast(widget), @ptrCast(icon), label_str);
+        return qtc.QTabWidget_InsertTab2(@ptrCast(self), @intCast(index), @ptrCast(widget), @ptrCast(icon), label_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#removeTab)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32 ```
+    /// ``` self: QtC.QTabWidget, index: i32 ```
     pub fn RemoveTab(self: ?*anyopaque, index: i32) void {
-        C.QTabWidget_RemoveTab(@ptrCast(self), @intCast(index));
+        qtc.QTabWidget_RemoveTab(@ptrCast(self), @intCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#isTabEnabled)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32 ```
+    /// ``` self: QtC.QTabWidget, index: i32 ```
     pub fn IsTabEnabled(self: ?*anyopaque, index: i32) bool {
-        return C.QTabWidget_IsTabEnabled(@ptrCast(self), @intCast(index));
+        return qtc.QTabWidget_IsTabEnabled(@ptrCast(self), @intCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setTabEnabled)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32, enabled: bool ```
+    /// ``` self: QtC.QTabWidget, index: i32, enabled: bool ```
     pub fn SetTabEnabled(self: ?*anyopaque, index: i32, enabled: bool) void {
-        C.QTabWidget_SetTabEnabled(@ptrCast(self), @intCast(index), enabled);
+        qtc.QTabWidget_SetTabEnabled(@ptrCast(self), @intCast(index), enabled);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#isTabVisible)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32 ```
+    /// ``` self: QtC.QTabWidget, index: i32 ```
     pub fn IsTabVisible(self: ?*anyopaque, index: i32) bool {
-        return C.QTabWidget_IsTabVisible(@ptrCast(self), @intCast(index));
+        return qtc.QTabWidget_IsTabVisible(@ptrCast(self), @intCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setTabVisible)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32, visible: bool ```
+    /// ``` self: QtC.QTabWidget, index: i32, visible: bool ```
     pub fn SetTabVisible(self: ?*anyopaque, index: i32, visible: bool) void {
-        C.QTabWidget_SetTabVisible(@ptrCast(self), @intCast(index), visible);
+        qtc.QTabWidget_SetTabVisible(@ptrCast(self), @intCast(index), visible);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabText)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTabWidget, index: i32, allocator: std.mem.Allocator ```
     pub fn TabText(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTabWidget_TabText(@ptrCast(self), @intCast(index));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTabWidget_TabText(@ptrCast(self), @intCast(index));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.TabText: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -163,47 +164,47 @@ pub const qtabwidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setTabText)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32, text: []const u8 ```
+    /// ``` self: QtC.QTabWidget, index: i32, text: []const u8 ```
     pub fn SetTabText(self: ?*anyopaque, index: i32, text: []const u8) void {
-        const text_str = C.struct_libqt_string{
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        C.QTabWidget_SetTabText(@ptrCast(self), @intCast(index), text_str);
+        qtc.QTabWidget_SetTabText(@ptrCast(self), @intCast(index), text_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabIcon)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32 ```
-    pub fn TabIcon(self: ?*anyopaque, index: i32) ?*C.QIcon {
-        return C.QTabWidget_TabIcon(@ptrCast(self), @intCast(index));
+    /// ``` self: QtC.QTabWidget, index: i32 ```
+    pub fn TabIcon(self: ?*anyopaque, index: i32) QtC.QIcon {
+        return qtc.QTabWidget_TabIcon(@ptrCast(self), @intCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setTabIcon)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32, icon: ?*C.QIcon ```
+    /// ``` self: QtC.QTabWidget, index: i32, icon: QtC.QIcon ```
     pub fn SetTabIcon(self: ?*anyopaque, index: i32, icon: ?*anyopaque) void {
-        C.QTabWidget_SetTabIcon(@ptrCast(self), @intCast(index), @ptrCast(icon));
+        qtc.QTabWidget_SetTabIcon(@ptrCast(self), @intCast(index), @ptrCast(icon));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setTabToolTip)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32, tip: []const u8 ```
+    /// ``` self: QtC.QTabWidget, index: i32, tip: []const u8 ```
     pub fn SetTabToolTip(self: ?*anyopaque, index: i32, tip: []const u8) void {
-        const tip_str = C.struct_libqt_string{
+        const tip_str = qtc.struct_libqt_string{
             .len = tip.len,
             .data = @constCast(tip.ptr),
         };
-        C.QTabWidget_SetTabToolTip(@ptrCast(self), @intCast(index), tip_str);
+        qtc.QTabWidget_SetTabToolTip(@ptrCast(self), @intCast(index), tip_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabToolTip)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTabWidget, index: i32, allocator: std.mem.Allocator ```
     pub fn TabToolTip(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTabWidget_TabToolTip(@ptrCast(self), @intCast(index));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTabWidget_TabToolTip(@ptrCast(self), @intCast(index));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.TabToolTip: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -212,22 +213,22 @@ pub const qtabwidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setTabWhatsThis)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32, text: []const u8 ```
+    /// ``` self: QtC.QTabWidget, index: i32, text: []const u8 ```
     pub fn SetTabWhatsThis(self: ?*anyopaque, index: i32, text: []const u8) void {
-        const text_str = C.struct_libqt_string{
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        C.QTabWidget_SetTabWhatsThis(@ptrCast(self), @intCast(index), text_str);
+        qtc.QTabWidget_SetTabWhatsThis(@ptrCast(self), @intCast(index), text_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabWhatsThis)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTabWidget, index: i32, allocator: std.mem.Allocator ```
     pub fn TabWhatsThis(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTabWidget_TabWhatsThis(@ptrCast(self), @intCast(index));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTabWidget_TabWhatsThis(@ptrCast(self), @intCast(index));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.TabWhatsThis: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -236,547 +237,611 @@ pub const qtabwidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#currentIndex)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn CurrentIndex(self: ?*anyopaque) i32 {
-        return C.QTabWidget_CurrentIndex(@ptrCast(self));
+        return qtc.QTabWidget_CurrentIndex(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#currentWidget)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn CurrentWidget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QTabWidget_CurrentWidget(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn CurrentWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QTabWidget_CurrentWidget(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#widget)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32 ```
-    pub fn Widget(self: ?*anyopaque, index: i32) ?*C.QWidget {
-        return C.QTabWidget_Widget(@ptrCast(self), @intCast(index));
+    /// ``` self: QtC.QTabWidget, index: i32 ```
+    pub fn Widget(self: ?*anyopaque, index: i32) QtC.QWidget {
+        return qtc.QTabWidget_Widget(@ptrCast(self), @intCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#indexOf)
     ///
-    /// ``` self: ?*C.QTabWidget, widget: ?*C.QWidget ```
+    /// ``` self: QtC.QTabWidget, widget: QtC.QWidget ```
     pub fn IndexOf(self: ?*anyopaque, widget: ?*anyopaque) i32 {
-        return C.QTabWidget_IndexOf(@ptrCast(self), @ptrCast(widget));
+        return qtc.QTabWidget_IndexOf(@ptrCast(self), @ptrCast(widget));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#count)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn Count(self: ?*anyopaque) i32 {
-        return C.QTabWidget_Count(@ptrCast(self));
+        return qtc.QTabWidget_Count(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabPosition)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn TabPosition(self: ?*anyopaque) i64 {
-        return C.QTabWidget_TabPosition(@ptrCast(self));
+        return qtc.QTabWidget_TabPosition(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setTabPosition)
     ///
-    /// ``` self: ?*C.QTabWidget, position: qtabwidget_enums.TabPosition ```
+    /// ``` self: QtC.QTabWidget, position: qtabwidget_enums.TabPosition ```
     pub fn SetTabPosition(self: ?*anyopaque, position: i64) void {
-        C.QTabWidget_SetTabPosition(@ptrCast(self), @intCast(position));
+        qtc.QTabWidget_SetTabPosition(@ptrCast(self), @intCast(position));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabsClosable)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn TabsClosable(self: ?*anyopaque) bool {
-        return C.QTabWidget_TabsClosable(@ptrCast(self));
+        return qtc.QTabWidget_TabsClosable(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setTabsClosable)
     ///
-    /// ``` self: ?*C.QTabWidget, closeable: bool ```
+    /// ``` self: QtC.QTabWidget, closeable: bool ```
     pub fn SetTabsClosable(self: ?*anyopaque, closeable: bool) void {
-        C.QTabWidget_SetTabsClosable(@ptrCast(self), closeable);
+        qtc.QTabWidget_SetTabsClosable(@ptrCast(self), closeable);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#isMovable)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsMovable(self: ?*anyopaque) bool {
-        return C.QTabWidget_IsMovable(@ptrCast(self));
+        return qtc.QTabWidget_IsMovable(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setMovable)
     ///
-    /// ``` self: ?*C.QTabWidget, movable: bool ```
+    /// ``` self: QtC.QTabWidget, movable: bool ```
     pub fn SetMovable(self: ?*anyopaque, movable: bool) void {
-        C.QTabWidget_SetMovable(@ptrCast(self), movable);
+        qtc.QTabWidget_SetMovable(@ptrCast(self), movable);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabShape)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn TabShape(self: ?*anyopaque) i64 {
-        return C.QTabWidget_TabShape(@ptrCast(self));
+        return qtc.QTabWidget_TabShape(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setTabShape)
     ///
-    /// ``` self: ?*C.QTabWidget, s: qtabwidget_enums.TabShape ```
+    /// ``` self: QtC.QTabWidget, s: qtabwidget_enums.TabShape ```
     pub fn SetTabShape(self: ?*anyopaque, s: i64) void {
-        C.QTabWidget_SetTabShape(@ptrCast(self), @intCast(s));
+        qtc.QTabWidget_SetTabShape(@ptrCast(self), @intCast(s));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#sizeHint)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn SizeHint(self: ?*anyopaque) ?*C.QSize {
-        return C.QTabWidget_SizeHint(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QTabWidget_SizeHint(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#sizeHint)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn () callconv(.c) ?*C.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QSize) void {
-        C.QTabWidget_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTabWidget, slot: fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
+        qtc.QTabWidget_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#sizeHint)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn QBaseSizeHint(self: ?*anyopaque) ?*C.QSize {
-        return C.QTabWidget_QBaseSizeHint(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QTabWidget_QBaseSizeHint(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#minimumSizeHint)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn MinimumSizeHint(self: ?*anyopaque) ?*C.QSize {
-        return C.QTabWidget_MinimumSizeHint(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QTabWidget_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#minimumSizeHint)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn () callconv(.c) ?*C.QSize ```
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QSize) void {
-        C.QTabWidget_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTabWidget, slot: fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
+        qtc.QTabWidget_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#minimumSizeHint)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) ?*C.QSize {
-        return C.QTabWidget_QBaseMinimumSizeHint(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QTabWidget_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#heightForWidth)
     ///
-    /// ``` self: ?*C.QTabWidget, width: i32 ```
+    /// ``` self: QtC.QTabWidget, width: i32 ```
     pub fn HeightForWidth(self: ?*anyopaque, width: i32) i32 {
-        return C.QTabWidget_HeightForWidth(@ptrCast(self), @intCast(width));
+        return qtc.QTabWidget_HeightForWidth(@ptrCast(self), @intCast(width));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#heightForWidth)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, i32) callconv(.c) i32 ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, width: i32) callconv(.c) i32 ```
     pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        C.QTabWidget_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#heightForWidth)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTabWidget, width: i32 ```
+    /// ``` self: QtC.QTabWidget, width: i32 ```
     pub fn QBaseHeightForWidth(self: ?*anyopaque, width: i32) i32 {
-        return C.QTabWidget_QBaseHeightForWidth(@ptrCast(self), @intCast(width));
+        return qtc.QTabWidget_QBaseHeightForWidth(@ptrCast(self), @intCast(width));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#hasHeightForWidth)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return C.QTabWidget_HasHeightForWidth(@ptrCast(self));
+        return qtc.QTabWidget_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#hasHeightForWidth)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn () callconv(.c) bool ```
+    /// ``` self: QtC.QTabWidget, slot: fn () callconv(.c) bool ```
     pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        C.QTabWidget_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#hasHeightForWidth)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return C.QTabWidget_QBaseHasHeightForWidth(@ptrCast(self));
+        return qtc.QTabWidget_QBaseHasHeightForWidth(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setCornerWidget)
     ///
-    /// ``` self: ?*C.QTabWidget, w: ?*C.QWidget ```
+    /// ``` self: QtC.QTabWidget, w: QtC.QWidget ```
     pub fn SetCornerWidget(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QTabWidget_SetCornerWidget(@ptrCast(self), @ptrCast(w));
+        qtc.QTabWidget_SetCornerWidget(@ptrCast(self), @ptrCast(w));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#cornerWidget)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn CornerWidget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QTabWidget_CornerWidget(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QTabWidget_CornerWidget(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#elideMode)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn ElideMode(self: ?*anyopaque) i64 {
-        return C.QTabWidget_ElideMode(@ptrCast(self));
+        return qtc.QTabWidget_ElideMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setElideMode)
     ///
-    /// ``` self: ?*C.QTabWidget, mode: qnamespace_enums.TextElideMode ```
+    /// ``` self: QtC.QTabWidget, mode: qnamespace_enums.TextElideMode ```
     pub fn SetElideMode(self: ?*anyopaque, mode: i64) void {
-        C.QTabWidget_SetElideMode(@ptrCast(self), @intCast(mode));
+        qtc.QTabWidget_SetElideMode(@ptrCast(self), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#iconSize)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn IconSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QTabWidget_IconSize(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn IconSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QTabWidget_IconSize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setIconSize)
     ///
-    /// ``` self: ?*C.QTabWidget, size: ?*C.QSize ```
+    /// ``` self: QtC.QTabWidget, size: QtC.QSize ```
     pub fn SetIconSize(self: ?*anyopaque, size: ?*anyopaque) void {
-        C.QTabWidget_SetIconSize(@ptrCast(self), @ptrCast(size));
+        qtc.QTabWidget_SetIconSize(@ptrCast(self), @ptrCast(size));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#usesScrollButtons)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn UsesScrollButtons(self: ?*anyopaque) bool {
-        return C.QTabWidget_UsesScrollButtons(@ptrCast(self));
+        return qtc.QTabWidget_UsesScrollButtons(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setUsesScrollButtons)
     ///
-    /// ``` self: ?*C.QTabWidget, useButtons: bool ```
+    /// ``` self: QtC.QTabWidget, useButtons: bool ```
     pub fn SetUsesScrollButtons(self: ?*anyopaque, useButtons: bool) void {
-        C.QTabWidget_SetUsesScrollButtons(@ptrCast(self), useButtons);
+        qtc.QTabWidget_SetUsesScrollButtons(@ptrCast(self), useButtons);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#documentMode)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn DocumentMode(self: ?*anyopaque) bool {
-        return C.QTabWidget_DocumentMode(@ptrCast(self));
+        return qtc.QTabWidget_DocumentMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setDocumentMode)
     ///
-    /// ``` self: ?*C.QTabWidget, set: bool ```
+    /// ``` self: QtC.QTabWidget, set: bool ```
     pub fn SetDocumentMode(self: ?*anyopaque, set: bool) void {
-        C.QTabWidget_SetDocumentMode(@ptrCast(self), set);
+        qtc.QTabWidget_SetDocumentMode(@ptrCast(self), set);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabBarAutoHide)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn TabBarAutoHide(self: ?*anyopaque) bool {
-        return C.QTabWidget_TabBarAutoHide(@ptrCast(self));
+        return qtc.QTabWidget_TabBarAutoHide(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setTabBarAutoHide)
     ///
-    /// ``` self: ?*C.QTabWidget, enabled: bool ```
+    /// ``` self: QtC.QTabWidget, enabled: bool ```
     pub fn SetTabBarAutoHide(self: ?*anyopaque, enabled: bool) void {
-        C.QTabWidget_SetTabBarAutoHide(@ptrCast(self), enabled);
+        qtc.QTabWidget_SetTabBarAutoHide(@ptrCast(self), enabled);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#clear)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn Clear(self: ?*anyopaque) void {
-        C.QTabWidget_Clear(@ptrCast(self));
+        qtc.QTabWidget_Clear(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabBar)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn TabBar(self: ?*anyopaque) ?*C.QTabBar {
-        return C.QTabWidget_TabBar(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn TabBar(self: ?*anyopaque) QtC.QTabBar {
+        return qtc.QTabWidget_TabBar(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setCurrentIndex)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32 ```
+    /// ``` self: QtC.QTabWidget, index: i32 ```
     pub fn SetCurrentIndex(self: ?*anyopaque, index: i32) void {
-        C.QTabWidget_SetCurrentIndex(@ptrCast(self), @intCast(index));
+        qtc.QTabWidget_SetCurrentIndex(@ptrCast(self), @intCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setCurrentWidget)
     ///
-    /// ``` self: ?*C.QTabWidget, widget: ?*C.QWidget ```
+    /// ``` self: QtC.QTabWidget, widget: QtC.QWidget ```
     pub fn SetCurrentWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        C.QTabWidget_SetCurrentWidget(@ptrCast(self), @ptrCast(widget));
+        qtc.QTabWidget_SetCurrentWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#currentChanged)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32 ```
+    /// ``` self: QtC.QTabWidget, index: i32 ```
     pub fn CurrentChanged(self: ?*anyopaque, index: i32) void {
-        C.QTabWidget_CurrentChanged(@ptrCast(self), @intCast(index));
+        qtc.QTabWidget_CurrentChanged(@ptrCast(self), @intCast(index));
     }
 
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#currentChanged)
+    ///
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, index: i32) callconv(.c) void ```
     pub fn OnCurrentChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QTabWidget_Connect_CurrentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_Connect_CurrentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabCloseRequested)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32 ```
+    /// ``` self: QtC.QTabWidget, index: i32 ```
     pub fn TabCloseRequested(self: ?*anyopaque, index: i32) void {
-        C.QTabWidget_TabCloseRequested(@ptrCast(self), @intCast(index));
+        qtc.QTabWidget_TabCloseRequested(@ptrCast(self), @intCast(index));
     }
 
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabCloseRequested)
+    ///
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, index: i32) callconv(.c) void ```
     pub fn OnTabCloseRequested(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QTabWidget_Connect_TabCloseRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_Connect_TabCloseRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabBarClicked)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32 ```
+    /// ``` self: QtC.QTabWidget, index: i32 ```
     pub fn TabBarClicked(self: ?*anyopaque, index: i32) void {
-        C.QTabWidget_TabBarClicked(@ptrCast(self), @intCast(index));
+        qtc.QTabWidget_TabBarClicked(@ptrCast(self), @intCast(index));
     }
 
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabBarClicked)
+    ///
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, index: i32) callconv(.c) void ```
     pub fn OnTabBarClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QTabWidget_Connect_TabBarClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_Connect_TabBarClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabBarDoubleClicked)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32 ```
+    /// ``` self: QtC.QTabWidget, index: i32 ```
     pub fn TabBarDoubleClicked(self: ?*anyopaque, index: i32) void {
-        C.QTabWidget_TabBarDoubleClicked(@ptrCast(self), @intCast(index));
+        qtc.QTabWidget_TabBarDoubleClicked(@ptrCast(self), @intCast(index));
     }
 
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabBarDoubleClicked)
+    ///
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, index: i32) callconv(.c) void ```
     pub fn OnTabBarDoubleClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QTabWidget_Connect_TabBarDoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_Connect_TabBarDoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabInserted)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32 ```
+    /// ``` self: QtC.QTabWidget, index: i32 ```
     pub fn TabInserted(self: ?*anyopaque, index: i32) void {
-        C.QTabWidget_TabInserted(@ptrCast(self), @intCast(index));
+        qtc.QTabWidget_TabInserted(@ptrCast(self), @intCast(index));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabInserted)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, i32) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, index: i32) callconv(.c) void ```
     pub fn OnTabInserted(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QTabWidget_OnTabInserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnTabInserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabInserted)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32 ```
+    /// ``` self: QtC.QTabWidget, index: i32 ```
     pub fn QBaseTabInserted(self: ?*anyopaque, index: i32) void {
-        C.QTabWidget_QBaseTabInserted(@ptrCast(self), @intCast(index));
+        qtc.QTabWidget_QBaseTabInserted(@ptrCast(self), @intCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabRemoved)
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32 ```
+    /// ``` self: QtC.QTabWidget, index: i32 ```
     pub fn TabRemoved(self: ?*anyopaque, index: i32) void {
-        C.QTabWidget_TabRemoved(@ptrCast(self), @intCast(index));
+        qtc.QTabWidget_TabRemoved(@ptrCast(self), @intCast(index));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabRemoved)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, i32) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, index: i32) callconv(.c) void ```
     pub fn OnTabRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QTabWidget_OnTabRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnTabRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#tabRemoved)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTabWidget, index: i32 ```
+    /// ``` self: QtC.QTabWidget, index: i32 ```
     pub fn QBaseTabRemoved(self: ?*anyopaque, index: i32) void {
-        C.QTabWidget_QBaseTabRemoved(@ptrCast(self), @intCast(index));
+        qtc.QTabWidget_QBaseTabRemoved(@ptrCast(self), @intCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#showEvent)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QShowEvent ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QTabWidget_ShowEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QTabWidget_ShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#showEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QShowEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, param1: QtC.QShowEvent) callconv(.c) void ```
     pub fn OnShowEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#showEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QShowEvent ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QShowEvent ```
     pub fn QBaseShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QTabWidget_QBaseShowEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QTabWidget_QBaseShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#resizeEvent)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QResizeEvent ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QTabWidget_ResizeEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QTabWidget_ResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#resizeEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QResizeEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, param1: QtC.QResizeEvent) callconv(.c) void ```
     pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#resizeEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QResizeEvent ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QResizeEvent ```
     pub fn QBaseResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QTabWidget_QBaseResizeEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QTabWidget_QBaseResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#keyPressEvent)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QKeyEvent ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QTabWidget_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QTabWidget_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#keyPressEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QKeyEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, param1: QtC.QKeyEvent) callconv(.c) void ```
     pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#keyPressEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QKeyEvent ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QKeyEvent ```
     pub fn QBaseKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QTabWidget_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QTabWidget_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#paintEvent)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QPaintEvent ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QTabWidget_PaintEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QTabWidget_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#paintEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QPaintEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, param1: QtC.QPaintEvent) callconv(.c) void ```
     pub fn OnPaintEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#paintEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QPaintEvent ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QPaintEvent ```
     pub fn QBasePaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QTabWidget_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QTabWidget_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setTabBar)
     ///
-    /// ``` self: ?*C.QTabWidget, tabBar: ?*C.QTabBar ```
+    /// ``` self: QtC.QTabWidget, tabBar: QtC.QTabBar ```
     pub fn SetTabBar(self: ?*anyopaque, tabBar: ?*anyopaque) void {
-        C.QTabWidget_SetTabBar(@ptrCast(self), @ptrCast(tabBar));
+        qtc.QTabWidget_SetTabBar(@ptrCast(self), @ptrCast(tabBar));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setTabBar)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QTabBar) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, tabBar: QtC.QTabBar) callconv(.c) void ```
     pub fn OnSetTabBar(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnSetTabBar(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnSetTabBar(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setTabBar)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTabWidget, tabBar: ?*C.QTabBar ```
+    /// ``` self: QtC.QTabWidget, tabBar: QtC.QTabBar ```
     pub fn QBaseSetTabBar(self: ?*anyopaque, tabBar: ?*anyopaque) void {
-        C.QTabWidget_QBaseSetTabBar(@ptrCast(self), @ptrCast(tabBar));
+        qtc.QTabWidget_QBaseSetTabBar(@ptrCast(self), @ptrCast(tabBar));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#changeEvent)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QEvent ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QEvent ```
     pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QTabWidget_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QTabWidget_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#changeEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, param1: QtC.QEvent) callconv(.c) void ```
     pub fn OnChangeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#changeEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QEvent ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QEvent ```
     pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QTabWidget_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QTabWidget_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#event)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QEvent ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return C.QTabWidget_Event(@ptrCast(self), @ptrCast(param1));
+        return qtc.QTabWidget_Event(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#event)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, param1: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QTabWidget_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#event)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QEvent ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QEvent ```
     pub fn QBaseEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return C.QTabWidget_QBaseEvent(@ptrCast(self), @ptrCast(param1));
+        return qtc.QTabWidget_QBaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#initStyleOption)
     ///
-    /// ``` self: ?*C.QTabWidget, option: ?*C.QStyleOptionTabWidgetFrame ```
+    /// ``` self: QtC.QTabWidget, option: QtC.QStyleOptionTabWidgetFrame ```
     pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        C.QTabWidget_InitStyleOption(@ptrCast(self), @ptrCast(option));
+        qtc.QTabWidget_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#initStyleOption)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QStyleOptionTabWidgetFrame) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, option: QtC.QStyleOptionTabWidgetFrame) callconv(.c) void ```
     pub fn OnInitStyleOption(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnInitStyleOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnInitStyleOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#initStyleOption)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTabWidget, option: ?*C.QStyleOptionTabWidgetFrame ```
+    /// ``` self: QtC.QTabWidget, option: QtC.QStyleOptionTabWidgetFrame ```
     pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        C.QTabWidget_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
+        qtc.QTabWidget_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -785,9 +850,9 @@ pub const qtabwidget = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QTabWidget_Tr2(s_Cstring, c_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTabWidget_Tr2(s_Cstring, c_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.Tr2: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -800,9 +865,9 @@ pub const qtabwidget = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QTabWidget_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTabWidget_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.Tr3: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -811,926 +876,926 @@ pub const qtabwidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#setCornerWidget)
     ///
-    /// ``` self: ?*C.QTabWidget, w: ?*C.QWidget, corner: qnamespace_enums.Corner ```
+    /// ``` self: QtC.QTabWidget, w: QtC.QWidget, corner: qnamespace_enums.Corner ```
     pub fn SetCornerWidget2(self: ?*anyopaque, w: ?*anyopaque, corner: i64) void {
-        C.QTabWidget_SetCornerWidget2(@ptrCast(self), @ptrCast(w), @intCast(corner));
+        qtc.QTabWidget_SetCornerWidget2(@ptrCast(self), @ptrCast(w), @intCast(corner));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#cornerWidget)
     ///
-    /// ``` self: ?*C.QTabWidget, corner: qnamespace_enums.Corner ```
-    pub fn CornerWidget1(self: ?*anyopaque, corner: i64) ?*C.QWidget {
-        return C.QTabWidget_CornerWidget1(@ptrCast(self), @intCast(corner));
+    /// ``` self: QtC.QTabWidget, corner: qnamespace_enums.Corner ```
+    pub fn CornerWidget1(self: ?*anyopaque, corner: i64) QtC.QWidget {
+        return qtc.QTabWidget_CornerWidget1(@ptrCast(self), @intCast(corner));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn WinId(self: ?*anyopaque) usize {
-        return C.QWidget_WinId(@ptrCast(self));
+        return qtc.QWidget_WinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn CreateWinId(self: ?*anyopaque) void {
-        C.QWidget_CreateWinId(@ptrCast(self));
+        qtc.QWidget_CreateWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
-        return C.QWidget_InternalWinId(@ptrCast(self));
+        return qtc.QWidget_InternalWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return C.QWidget_EffectiveWinId(@ptrCast(self));
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Style(self: ?*anyopaque) ?*C.QStyle {
-        return C.QWidget_Style(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Style(self: ?*anyopaque) QtC.QStyle {
+        return qtc.QWidget_Style(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
-    /// ``` self: ?*C.QTabWidget, style: ?*C.QStyle ```
+    /// ``` self: QtC.QTabWidget, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        C.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return C.QWidget_IsTopLevel(@ptrCast(self));
+        return qtc.QWidget_IsTopLevel(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsWindow(self: ?*anyopaque) bool {
-        return C.QWidget_IsWindow(@ptrCast(self));
+        return qtc.QWidget_IsWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsModal(self: ?*anyopaque) bool {
-        return C.QWidget_IsModal(@ptrCast(self));
+        return qtc.QWidget_IsModal(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn WindowModality(self: ?*anyopaque) i64 {
-        return C.QWidget_WindowModality(@ptrCast(self));
+        return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
-    /// ``` self: ?*C.QTabWidget, windowModality: qnamespace_enums.WindowModality ```
+    /// ``` self: QtC.QTabWidget, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i64) void {
-        C.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
+        qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
-        return C.QWidget_IsEnabled(@ptrCast(self));
+        return qtc.QWidget_IsEnabled(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QWidget ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return C.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
-    /// ``` self: ?*C.QTabWidget, enabled: bool ```
+    /// ``` self: QtC.QTabWidget, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        C.QWidget_SetEnabled(@ptrCast(self), enabled);
+        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
-    /// ``` self: ?*C.QTabWidget, disabled: bool ```
+    /// ``` self: QtC.QTabWidget, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        C.QWidget_SetDisabled(@ptrCast(self), disabled);
+        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
-    /// ``` self: ?*C.QTabWidget, windowModified: bool ```
+    /// ``` self: QtC.QTabWidget, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        C.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn FrameGeometry(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_FrameGeometry(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_FrameGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Geometry(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_Geometry(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_Geometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn NormalGeometry(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_NormalGeometry(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_NormalGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn X(self: ?*anyopaque) i32 {
-        return C.QWidget_X(@ptrCast(self));
+        return qtc.QWidget_X(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn Y(self: ?*anyopaque) i32 {
-        return C.QWidget_Y(@ptrCast(self));
+        return qtc.QWidget_Y(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Pos(self: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_Pos(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_Pos(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn FrameSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_FrameSize(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_FrameSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Size(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_Size(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Size(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_Size(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn Width(self: ?*anyopaque) i32 {
-        return C.QWidget_Width(@ptrCast(self));
+        return qtc.QWidget_Width(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn Height(self: ?*anyopaque) i32 {
-        return C.QWidget_Height(@ptrCast(self));
+        return qtc.QWidget_Height(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Rect(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_Rect(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Rect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_Rect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn ChildrenRect(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_ChildrenRect(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_ChildrenRect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn ChildrenRegion(self: ?*anyopaque) ?*C.QRegion {
-        return C.QWidget_ChildrenRegion(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
+        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn MinimumSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_MinimumSize(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_MinimumSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn MaximumSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_MaximumSize(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_MaximumSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return C.QWidget_MinimumWidth(@ptrCast(self));
+        return qtc.QWidget_MinimumWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return C.QWidget_MinimumHeight(@ptrCast(self));
+        return qtc.QWidget_MinimumHeight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return C.QWidget_MaximumWidth(@ptrCast(self));
+        return qtc.QWidget_MaximumWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return C.QWidget_MaximumHeight(@ptrCast(self));
+        return qtc.QWidget_MaximumHeight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
-    /// ``` self: ?*C.QTabWidget, minimumSize: ?*C.QSize ```
+    /// ``` self: QtC.QTabWidget, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        C.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
-    /// ``` self: ?*C.QTabWidget, minw: i32, minh: i32 ```
+    /// ``` self: QtC.QTabWidget, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        C.QWidget_SetMinimumSize2(@ptrCast(self), @intCast(minw), @intCast(minh));
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @intCast(minw), @intCast(minh));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
-    /// ``` self: ?*C.QTabWidget, maximumSize: ?*C.QSize ```
+    /// ``` self: QtC.QTabWidget, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        C.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
-    /// ``` self: ?*C.QTabWidget, maxw: i32, maxh: i32 ```
+    /// ``` self: QtC.QTabWidget, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        C.QWidget_SetMaximumSize2(@ptrCast(self), @intCast(maxw), @intCast(maxh));
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @intCast(maxw), @intCast(maxh));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
-    /// ``` self: ?*C.QTabWidget, minw: i32 ```
+    /// ``` self: QtC.QTabWidget, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        C.QWidget_SetMinimumWidth(@ptrCast(self), @intCast(minw));
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @intCast(minw));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
-    /// ``` self: ?*C.QTabWidget, minh: i32 ```
+    /// ``` self: QtC.QTabWidget, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        C.QWidget_SetMinimumHeight(@ptrCast(self), @intCast(minh));
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @intCast(minh));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
-    /// ``` self: ?*C.QTabWidget, maxw: i32 ```
+    /// ``` self: QtC.QTabWidget, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        C.QWidget_SetMaximumWidth(@ptrCast(self), @intCast(maxw));
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @intCast(maxw));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
-    /// ``` self: ?*C.QTabWidget, maxh: i32 ```
+    /// ``` self: QtC.QTabWidget, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        C.QWidget_SetMaximumHeight(@ptrCast(self), @intCast(maxh));
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @intCast(maxh));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn SizeIncrement(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_SizeIncrement(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_SizeIncrement(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
-    /// ``` self: ?*C.QTabWidget, sizeIncrement: ?*C.QSize ```
+    /// ``` self: QtC.QTabWidget, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        C.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
-    /// ``` self: ?*C.QTabWidget, w: i32, h: i32 ```
+    /// ``` self: QtC.QTabWidget, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        C.QWidget_SetSizeIncrement2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn BaseSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_BaseSize(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_BaseSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
-    /// ``` self: ?*C.QTabWidget, baseSize: ?*C.QSize ```
+    /// ``` self: QtC.QTabWidget, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        C.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
-    /// ``` self: ?*C.QTabWidget, basew: i32, baseh: i32 ```
+    /// ``` self: QtC.QTabWidget, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        C.QWidget_SetBaseSize2(@ptrCast(self), @intCast(basew), @intCast(baseh));
+        qtc.QWidget_SetBaseSize2(@ptrCast(self), @intCast(basew), @intCast(baseh));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
-    /// ``` self: ?*C.QTabWidget, fixedSize: ?*C.QSize ```
+    /// ``` self: QtC.QTabWidget, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        C.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
-    /// ``` self: ?*C.QTabWidget, w: i32, h: i32 ```
+    /// ``` self: QtC.QTabWidget, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        C.QWidget_SetFixedSize2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetFixedSize2(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
-    /// ``` self: ?*C.QTabWidget, w: i32 ```
+    /// ``` self: QtC.QTabWidget, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        C.QWidget_SetFixedWidth(@ptrCast(self), @intCast(w));
+        qtc.QWidget_SetFixedWidth(@ptrCast(self), @intCast(w));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
-    /// ``` self: ?*C.QTabWidget, h: i32 ```
+    /// ``` self: QtC.QTabWidget, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        C.QWidget_SetFixedHeight(@ptrCast(self), @intCast(h));
+        qtc.QWidget_SetFixedHeight(@ptrCast(self), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QPointF ```
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QTabWidget, param1: QtC.QPointF ```
+    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QPoint ```
-    pub fn MapToGlobalWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapToGlobalWithQPoint(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QTabWidget, param1: QtC.QPoint ```
+    pub fn MapToGlobalWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapToGlobalWithQPoint(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QPointF ```
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QTabWidget, param1: QtC.QPointF ```
+    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QPoint ```
-    pub fn MapFromGlobalWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapFromGlobalWithQPoint(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QTabWidget, param1: QtC.QPoint ```
+    pub fn MapFromGlobalWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapFromGlobalWithQPoint(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QPointF ```
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QTabWidget, param1: QtC.QPointF ```
+    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QPoint ```
-    pub fn MapToParentWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapToParentWithQPoint(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QTabWidget, param1: QtC.QPoint ```
+    pub fn MapToParentWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapToParentWithQPoint(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QPointF ```
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QTabWidget, param1: QtC.QPointF ```
+    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QPoint ```
-    pub fn MapFromParentWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapFromParentWithQPoint(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QTabWidget, param1: QtC.QPoint ```
+    pub fn MapFromParentWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapFromParentWithQPoint(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QWidget, param2: ?*C.QPointF ```
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    /// ``` self: QtC.QTabWidget, param1: QtC.QWidget, param2: QtC.QPointF ```
+    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QWidget, param2: ?*C.QPoint ```
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    /// ``` self: QtC.QTabWidget, param1: QtC.QWidget, param2: QtC.QPoint ```
+    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QWidget, param2: ?*C.QPointF ```
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    /// ``` self: QtC.QTabWidget, param1: QtC.QWidget, param2: QtC.QPointF ```
+    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QWidget, param2: ?*C.QPoint ```
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    /// ``` self: QtC.QTabWidget, param1: QtC.QWidget, param2: QtC.QPoint ```
+    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Window(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_Window(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Window(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_Window(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn NativeParentWidget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_NativeParentWidget(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn TopLevelWidget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_TopLevelWidget(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Palette(self: ?*anyopaque) ?*C.QPalette {
-        return C.QWidget_Palette(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
+        return qtc.QWidget_Palette(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
-    /// ``` self: ?*C.QTabWidget, palette: ?*C.QPalette ```
+    /// ``` self: QtC.QTabWidget, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        C.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
-    /// ``` self: ?*C.QTabWidget, backgroundRole: qpalette_enums.ColorRole ```
+    /// ``` self: QtC.QTabWidget, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i64) void {
-        C.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn BackgroundRole(self: ?*anyopaque) i64 {
-        return C.QWidget_BackgroundRole(@ptrCast(self));
+        return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
-    /// ``` self: ?*C.QTabWidget, foregroundRole: qpalette_enums.ColorRole ```
+    /// ``` self: QtC.QTabWidget, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i64) void {
-        C.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
+        qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn ForegroundRole(self: ?*anyopaque) i64 {
-        return C.QWidget_ForegroundRole(@ptrCast(self));
+        return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Font(self: ?*anyopaque) ?*C.QFont {
-        return C.QWidget_Font(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Font(self: ?*anyopaque) QtC.QFont {
+        return qtc.QWidget_Font(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
-    /// ``` self: ?*C.QTabWidget, font: ?*C.QFont ```
+    /// ``` self: QtC.QTabWidget, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        C.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn FontMetrics(self: ?*anyopaque) ?*C.QFontMetrics {
-        return C.QWidget_FontMetrics(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
+        return qtc.QWidget_FontMetrics(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn FontInfo(self: ?*anyopaque) ?*C.QFontInfo {
-        return C.QWidget_FontInfo(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
+        return qtc.QWidget_FontInfo(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Cursor(self: ?*anyopaque) ?*C.QCursor {
-        return C.QWidget_Cursor(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
+        return qtc.QWidget_Cursor(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
-    /// ``` self: ?*C.QTabWidget, cursor: ?*C.QCursor ```
+    /// ``` self: QtC.QTabWidget, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        C.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
-        C.QWidget_UnsetCursor(@ptrCast(self));
+        qtc.QWidget_UnsetCursor(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
-    /// ``` self: ?*C.QTabWidget, enable: bool ```
+    /// ``` self: QtC.QTabWidget, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        C.QWidget_SetMouseTracking(@ptrCast(self), enable);
+        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return C.QWidget_HasMouseTracking(@ptrCast(self));
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
-        return C.QWidget_UnderMouse(@ptrCast(self));
+        return qtc.QWidget_UnderMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
-    /// ``` self: ?*C.QTabWidget, enable: bool ```
+    /// ``` self: QtC.QTabWidget, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        C.QWidget_SetTabletTracking(@ptrCast(self), enable);
+        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return C.QWidget_HasTabletTracking(@ptrCast(self));
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
-    /// ``` self: ?*C.QTabWidget, mask: ?*C.QBitmap ```
+    /// ``` self: QtC.QTabWidget, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        C.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
-    /// ``` self: ?*C.QTabWidget, mask: ?*C.QRegion ```
+    /// ``` self: QtC.QTabWidget, mask: QtC.QRegion ```
     pub fn SetMaskWithMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        C.QWidget_SetMaskWithMask(@ptrCast(self), @ptrCast(mask));
+        qtc.QWidget_SetMaskWithMask(@ptrCast(self), @ptrCast(mask));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Mask(self: ?*anyopaque) ?*C.QRegion {
-        return C.QWidget_Mask(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
+        return qtc.QWidget_Mask(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn ClearMask(self: ?*anyopaque) void {
-        C.QWidget_ClearMask(@ptrCast(self));
+        qtc.QWidget_ClearMask(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QTabWidget, target: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QTabWidget, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        C.QWidget_Render(@ptrCast(self), @ptrCast(target));
+        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QTabWidget, painter: ?*C.QPainter ```
+    /// ``` self: QtC.QTabWidget, painter: QtC.QPainter ```
     pub fn RenderWithPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        C.QWidget_RenderWithPainter(@ptrCast(self), @ptrCast(painter));
+        qtc.QWidget_RenderWithPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Grab(self: ?*anyopaque) ?*C.QPixmap {
-        return C.QWidget_Grab(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
+        return qtc.QWidget_Grab(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn GraphicsEffect(self: ?*anyopaque) ?*C.QGraphicsEffect {
-        return C.QWidget_GraphicsEffect(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
+        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
-    /// ``` self: ?*C.QTabWidget, effect: ?*C.QGraphicsEffect ```
+    /// ``` self: QtC.QTabWidget, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        C.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: ?*C.QTabWidget, typeVal: qnamespace_enums.GestureType ```
+    /// ``` self: QtC.QTabWidget, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
-        C.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
-    /// ``` self: ?*C.QTabWidget, typeVal: qnamespace_enums.GestureType ```
+    /// ``` self: QtC.QTabWidget, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
-        C.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
-    /// ``` self: ?*C.QTabWidget, windowTitle: []const u8 ```
+    /// ``` self: QtC.QTabWidget, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
-        const windowTitle_str = C.struct_libqt_string{
+        const windowTitle_str = qtc.struct_libqt_string{
             .len = windowTitle.len,
             .data = @constCast(windowTitle.ptr),
         };
-        C.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
-    /// ``` self: ?*C.QTabWidget, styleSheet: []const u8 ```
+    /// ``` self: QtC.QTabWidget, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
-        const styleSheet_str = C.struct_libqt_string{
+        const styleSheet_str = qtc.struct_libqt_string{
             .len = styleSheet.len,
             .data = @constCast(styleSheet.ptr),
         };
-        C.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
-    /// ``` self: ?*C.QTabWidget, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTabWidget, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_StyleSheet(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.StyleSheet: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1741,11 +1806,11 @@ pub const qtabwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
-    /// ``` self: ?*C.QTabWidget, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTabWidget, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_WindowTitle(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.WindowTitle: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1756,42 +1821,42 @@ pub const qtabwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
-    /// ``` self: ?*C.QTabWidget, icon: ?*C.QIcon ```
+    /// ``` self: QtC.QTabWidget, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        C.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn WindowIcon(self: ?*anyopaque) ?*C.QIcon {
-        return C.QWidget_WindowIcon(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
+        return qtc.QWidget_WindowIcon(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
-    /// ``` self: ?*C.QTabWidget, windowIconText: []const u8 ```
+    /// ``` self: QtC.QTabWidget, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
-        const windowIconText_str = C.struct_libqt_string{
+        const windowIconText_str = qtc.struct_libqt_string{
             .len = windowIconText.len,
             .data = @constCast(windowIconText.ptr),
         };
-        C.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
-    /// ``` self: ?*C.QTabWidget, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTabWidget, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_WindowIconText(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.WindowIconText: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1802,24 +1867,24 @@ pub const qtabwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
-    /// ``` self: ?*C.QTabWidget, windowRole: []const u8 ```
+    /// ``` self: QtC.QTabWidget, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
-        const windowRole_str = C.struct_libqt_string{
+        const windowRole_str = qtc.struct_libqt_string{
             .len = windowRole.len,
             .data = @constCast(windowRole.ptr),
         };
-        C.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
-    /// ``` self: ?*C.QTabWidget, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTabWidget, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_WindowRole(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_WindowRole(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.WindowRole: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1830,24 +1895,24 @@ pub const qtabwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
-    /// ``` self: ?*C.QTabWidget, filePath: []const u8 ```
+    /// ``` self: QtC.QTabWidget, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
-        const filePath_str = C.struct_libqt_string{
+        const filePath_str = qtc.struct_libqt_string{
             .len = filePath.len,
             .data = @constCast(filePath.ptr),
         };
-        C.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
-    /// ``` self: ?*C.QTabWidget, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTabWidget, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_WindowFilePath(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.WindowFilePath: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1858,51 +1923,51 @@ pub const qtabwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
-    /// ``` self: ?*C.QTabWidget, level: f64 ```
+    /// ``` self: QtC.QTabWidget, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        C.QWidget_SetWindowOpacity(@ptrCast(self), @floatCast(level));
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @floatCast(level));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return C.QWidget_WindowOpacity(@ptrCast(self));
+        return qtc.QWidget_WindowOpacity(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return C.QWidget_IsWindowModified(@ptrCast(self));
+        return qtc.QWidget_IsWindowModified(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
-    /// ``` self: ?*C.QTabWidget, toolTip: []const u8 ```
+    /// ``` self: QtC.QTabWidget, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
-        const toolTip_str = C.struct_libqt_string{
+        const toolTip_str = qtc.struct_libqt_string{
             .len = toolTip.len,
             .data = @constCast(toolTip.ptr),
         };
-        C.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
-    /// ``` self: ?*C.QTabWidget, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTabWidget, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_ToolTip(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_ToolTip(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.ToolTip: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1913,42 +1978,42 @@ pub const qtabwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
-    /// ``` self: ?*C.QTabWidget, msec: i32 ```
+    /// ``` self: QtC.QTabWidget, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        C.QWidget_SetToolTipDuration(@ptrCast(self), @intCast(msec));
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @intCast(msec));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return C.QWidget_ToolTipDuration(@ptrCast(self));
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
-    /// ``` self: ?*C.QTabWidget, statusTip: []const u8 ```
+    /// ``` self: QtC.QTabWidget, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
-        const statusTip_str = C.struct_libqt_string{
+        const statusTip_str = qtc.struct_libqt_string{
             .len = statusTip.len,
             .data = @constCast(statusTip.ptr),
         };
-        C.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
-    /// ``` self: ?*C.QTabWidget, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTabWidget, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_StatusTip(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_StatusTip(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.StatusTip: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1959,24 +2024,24 @@ pub const qtabwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
-    /// ``` self: ?*C.QTabWidget, whatsThis: []const u8 ```
+    /// ``` self: QtC.QTabWidget, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
-        const whatsThis_str = C.struct_libqt_string{
+        const whatsThis_str = qtc.struct_libqt_string{
             .len = whatsThis.len,
             .data = @constCast(whatsThis.ptr),
         };
-        C.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
-    /// ``` self: ?*C.QTabWidget, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTabWidget, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_WhatsThis(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.WhatsThis: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1987,11 +2052,11 @@ pub const qtabwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
-    /// ``` self: ?*C.QTabWidget, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTabWidget, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_AccessibleName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.AccessibleName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2002,24 +2067,24 @@ pub const qtabwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
-    /// ``` self: ?*C.QTabWidget, name: []const u8 ```
+    /// ``` self: QtC.QTabWidget, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = C.struct_libqt_string{
+        const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = @constCast(name.ptr),
         };
-        C.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
-    /// ``` self: ?*C.QTabWidget, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTabWidget, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_AccessibleDescription(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.AccessibleDescription: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2030,283 +2095,283 @@ pub const qtabwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
-    /// ``` self: ?*C.QTabWidget, description: []const u8 ```
+    /// ``` self: QtC.QTabWidget, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
-        const description_str = C.struct_libqt_string{
+        const description_str = qtc.struct_libqt_string{
             .len = description.len,
             .data = @constCast(description.ptr),
         };
-        C.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
-    /// ``` self: ?*C.QTabWidget, direction: qnamespace_enums.LayoutDirection ```
+    /// ``` self: QtC.QTabWidget, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
-        C.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
-        return C.QWidget_LayoutDirection(@ptrCast(self));
+        return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        C.QWidget_UnsetLayoutDirection(@ptrCast(self));
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
-    /// ``` self: ?*C.QTabWidget, locale: ?*C.QLocale ```
+    /// ``` self: QtC.QTabWidget, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        C.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Locale(self: ?*anyopaque) ?*C.QLocale {
-        return C.QWidget_Locale(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
+        return qtc.QWidget_Locale(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
-        C.QWidget_UnsetLocale(@ptrCast(self));
+        qtc.QWidget_UnsetLocale(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return C.QWidget_IsRightToLeft(@ptrCast(self));
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return C.QWidget_IsLeftToRight(@ptrCast(self));
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn SetFocus(self: ?*anyopaque) void {
-        C.QWidget_SetFocus(@ptrCast(self));
+        qtc.QWidget_SetFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return C.QWidget_IsActiveWindow(@ptrCast(self));
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
-        C.QWidget_ActivateWindow(@ptrCast(self));
+        qtc.QWidget_ActivateWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn ClearFocus(self: ?*anyopaque) void {
-        C.QWidget_ClearFocus(@ptrCast(self));
+        qtc.QWidget_ClearFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
-    /// ``` self: ?*C.QTabWidget, reason: qnamespace_enums.FocusReason ```
+    /// ``` self: QtC.QTabWidget, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocusWithReason(self: ?*anyopaque, reason: i64) void {
-        C.QWidget_SetFocusWithReason(@ptrCast(self), @intCast(reason));
+        qtc.QWidget_SetFocusWithReason(@ptrCast(self), @intCast(reason));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn FocusPolicy(self: ?*anyopaque) i64 {
-        return C.QWidget_FocusPolicy(@ptrCast(self));
+        return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
-    /// ``` self: ?*C.QTabWidget, policy: qnamespace_enums.FocusPolicy ```
+    /// ``` self: QtC.QTabWidget, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
-        C.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn HasFocus(self: ?*anyopaque) bool {
-        return C.QWidget_HasFocus(@ptrCast(self));
+        return qtc.QWidget_HasFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
-    /// ``` param1: ?*C.QWidget, param2: ?*C.QWidget ```
+    /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        C.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
-    /// ``` self: ?*C.QTabWidget, focusProxy: ?*C.QWidget ```
+    /// ``` self: QtC.QTabWidget, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        C.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn FocusProxy(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_FocusProxy(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_FocusProxy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
-        return C.QWidget_ContextMenuPolicy(@ptrCast(self));
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
-    /// ``` self: ?*C.QTabWidget, policy: qnamespace_enums.ContextMenuPolicy ```
+    /// ``` self: QtC.QTabWidget, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i64) void {
-        C.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn GrabMouse(self: ?*anyopaque) void {
-        C.QWidget_GrabMouse(@ptrCast(self));
+        qtc.QWidget_GrabMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QCursor ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QCursor ```
     pub fn GrabMouseWithQCursor(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_GrabMouseWithQCursor(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_GrabMouseWithQCursor(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
-        C.QWidget_ReleaseMouse(@ptrCast(self));
+        qtc.QWidget_ReleaseMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
-        C.QWidget_GrabKeyboard(@ptrCast(self));
+        qtc.QWidget_GrabKeyboard(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        C.QWidget_ReleaseKeyboard(@ptrCast(self));
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
-    /// ``` self: ?*C.QTabWidget, key: ?*C.QKeySequence ```
+    /// ``` self: QtC.QTabWidget, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return C.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
-    /// ``` self: ?*C.QTabWidget, id: i32 ```
+    /// ``` self: QtC.QTabWidget, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        C.QWidget_ReleaseShortcut(@ptrCast(self), @intCast(id));
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
-    /// ``` self: ?*C.QTabWidget, id: i32 ```
+    /// ``` self: QtC.QTabWidget, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        C.QWidget_SetShortcutEnabled(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
-    /// ``` self: ?*C.QTabWidget, id: i32 ```
+    /// ``` self: QtC.QTabWidget, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        C.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
@@ -2314,8 +2379,8 @@ pub const qtabwidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
-    pub fn MouseGrabber() ?*C.QWidget {
-        return C.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QtC.QWidget {
+        return qtc.QWidget_MouseGrabber();
     }
 
     /// Inherited from QWidget
@@ -2323,271 +2388,271 @@ pub const qtabwidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
-    pub fn KeyboardGrabber() ?*C.QWidget {
-        return C.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QtC.QWidget {
+        return qtc.QWidget_KeyboardGrabber();
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return C.QWidget_UpdatesEnabled(@ptrCast(self));
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
-    /// ``` self: ?*C.QTabWidget, enable: bool ```
+    /// ``` self: QtC.QTabWidget, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        C.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) ?*C.QGraphicsProxyWidget {
-        return C.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
+        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn Update(self: ?*anyopaque) void {
-        C.QWidget_Update(@ptrCast(self));
+        qtc.QWidget_Update(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn Repaint(self: ?*anyopaque) void {
-        C.QWidget_Repaint(@ptrCast(self));
+        qtc.QWidget_Repaint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: ?*C.QTabWidget, x: i32, y: i32, w: i32, h: i32 ```
+    /// ``` self: QtC.QTabWidget, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        C.QWidget_Update2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Update2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QRect ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QRect ```
     pub fn UpdateWithQRect(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_UpdateWithQRect(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_UpdateWithQRect(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QRegion ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QRegion ```
     pub fn UpdateWithQRegion(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_UpdateWithQRegion(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_UpdateWithQRegion(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: ?*C.QTabWidget, x: i32, y: i32, w: i32, h: i32 ```
+    /// ``` self: QtC.QTabWidget, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        C.QWidget_Repaint2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Repaint2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QRect ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QRect ```
     pub fn RepaintWithQRect(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_RepaintWithQRect(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_RepaintWithQRect(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QRegion ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QRegion ```
     pub fn RepaintWithQRegion(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_RepaintWithQRegion(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_RepaintWithQRegion(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
-    /// ``` self: ?*C.QTabWidget, hidden: bool ```
+    /// ``` self: QtC.QTabWidget, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        C.QWidget_SetHidden(@ptrCast(self), hidden);
+        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn Show(self: ?*anyopaque) void {
-        C.QWidget_Show(@ptrCast(self));
+        qtc.QWidget_Show(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn Hide(self: ?*anyopaque) void {
-        C.QWidget_Hide(@ptrCast(self));
+        qtc.QWidget_Hide(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
-        C.QWidget_ShowMinimized(@ptrCast(self));
+        qtc.QWidget_ShowMinimized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
-        C.QWidget_ShowMaximized(@ptrCast(self));
+        qtc.QWidget_ShowMaximized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
-        C.QWidget_ShowFullScreen(@ptrCast(self));
+        qtc.QWidget_ShowFullScreen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn ShowNormal(self: ?*anyopaque) void {
-        C.QWidget_ShowNormal(@ptrCast(self));
+        qtc.QWidget_ShowNormal(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn Close(self: ?*anyopaque) bool {
-        return C.QWidget_Close(@ptrCast(self));
+        return qtc.QWidget_Close(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn Raise(self: ?*anyopaque) void {
-        C.QWidget_Raise(@ptrCast(self));
+        qtc.QWidget_Raise(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn Lower(self: ?*anyopaque) void {
-        C.QWidget_Lower(@ptrCast(self));
+        qtc.QWidget_Lower(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QWidget ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
-    /// ``` self: ?*C.QTabWidget, x: i32, y: i32 ```
+    /// ``` self: QtC.QTabWidget, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        C.QWidget_Move(@ptrCast(self), @intCast(x), @intCast(y));
+        qtc.QWidget_Move(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QPoint ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QPoint ```
     pub fn MoveWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_MoveWithQPoint(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_MoveWithQPoint(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
-    /// ``` self: ?*C.QTabWidget, w: i32, h: i32 ```
+    /// ``` self: QtC.QTabWidget, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        C.QWidget_Resize(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_Resize(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QSize ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QSize ```
     pub fn ResizeWithQSize(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_ResizeWithQSize(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_ResizeWithQSize(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
-    /// ``` self: ?*C.QTabWidget, x: i32, y: i32, w: i32, h: i32 ```
+    /// ``` self: QtC.QTabWidget, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        C.QWidget_SetGeometry(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_SetGeometry(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
-    /// ``` self: ?*C.QTabWidget, geometry: ?*C.QRect ```
+    /// ``` self: QtC.QTabWidget, geometry: QtC.QRect ```
     pub fn SetGeometryWithGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        C.QWidget_SetGeometryWithGeometry(@ptrCast(self), @ptrCast(geometry));
+        qtc.QWidget_SetGeometryWithGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
-    /// ``` self: ?*C.QTabWidget, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTabWidget, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: C.struct_libqt_string = C.QWidget_SaveGeometry(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_bytearray));
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Memory allocation failed");
+        const _bytearray: qtc.struct_libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtabwidget.SaveGeometry: Memory allocation failed");
         for (0.._bytearray.len) |_i| {
             _ret[_i] = _bytearray.data[_i];
         }
@@ -2598,348 +2663,348 @@ pub const qtabwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
-    /// ``` self: ?*C.QTabWidget, geometry: []u8 ```
+    /// ``` self: QtC.QTabWidget, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
-        const geometry_str = C.struct_libqt_string{
+        const geometry_str = qtc.struct_libqt_string{
             .len = geometry.len,
             .data = @constCast(geometry.ptr),
         };
-        return C.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn AdjustSize(self: ?*anyopaque) void {
-        C.QWidget_AdjustSize(@ptrCast(self));
+        qtc.QWidget_AdjustSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsVisible(self: ?*anyopaque) bool {
-        return C.QWidget_IsVisible(@ptrCast(self));
+        return qtc.QWidget_IsVisible(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QWidget ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return C.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsHidden(self: ?*anyopaque) bool {
-        return C.QWidget_IsHidden(@ptrCast(self));
+        return qtc.QWidget_IsHidden(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
-        return C.QWidget_IsMinimized(@ptrCast(self));
+        return qtc.QWidget_IsMinimized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
-        return C.QWidget_IsMaximized(@ptrCast(self));
+        return qtc.QWidget_IsMaximized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return C.QWidget_IsFullScreen(@ptrCast(self));
+        return qtc.QWidget_IsFullScreen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn WindowState(self: ?*anyopaque) i64 {
-        return C.QWidget_WindowState(@ptrCast(self));
+        return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
-    /// ``` self: ?*C.QTabWidget, state: i32 ```
+    /// ``` self: QtC.QTabWidget, state: i32 ```
     pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
-        C.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
-    /// ``` self: ?*C.QTabWidget, state: i32 ```
+    /// ``` self: QtC.QTabWidget, state: i32 ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
-        C.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn SizePolicy(self: ?*anyopaque) ?*C.QSizePolicy {
-        return C.QWidget_SizePolicy(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
+        return qtc.QWidget_SizePolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
-    /// ``` self: ?*C.QTabWidget, sizePolicy: ?*C.QSizePolicy ```
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: ?*C.QSizePolicy) void {
-        C.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    /// ``` self: QtC.QTabWidget, sizePolicy: QtC.QSizePolicy ```
+    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
+        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
-    /// ``` self: ?*C.QTabWidget, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
+    /// ``` self: QtC.QTabWidget, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i64, vertical: i64) void {
-        C.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn VisibleRegion(self: ?*anyopaque) ?*C.QRegion {
-        return C.QWidget_VisibleRegion(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
+        return qtc.QWidget_VisibleRegion(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
-    /// ``` self: ?*C.QTabWidget, left: i32, top: i32, right: i32, bottom: i32 ```
+    /// ``` self: QtC.QTabWidget, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        C.QWidget_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QWidget_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
-    /// ``` self: ?*C.QTabWidget, margins: ?*C.QMargins ```
+    /// ``` self: QtC.QTabWidget, margins: QtC.QMargins ```
     pub fn SetContentsMarginsWithMargins(self: ?*anyopaque, margins: ?*anyopaque) void {
-        C.QWidget_SetContentsMarginsWithMargins(@ptrCast(self), @ptrCast(margins));
+        qtc.QWidget_SetContentsMarginsWithMargins(@ptrCast(self), @ptrCast(margins));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn ContentsMargins(self: ?*anyopaque) ?*C.QMargins {
-        return C.QWidget_ContentsMargins(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
+        return qtc.QWidget_ContentsMargins(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn ContentsRect(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_ContentsRect(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_ContentsRect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Layout(self: ?*anyopaque) ?*C.QLayout {
-        return C.QWidget_Layout(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
+        return qtc.QWidget_Layout(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
-    /// ``` self: ?*C.QTabWidget, layout: ?*C.QLayout ```
+    /// ``` self: QtC.QTabWidget, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        C.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
-        C.QWidget_UpdateGeometry(@ptrCast(self));
+        qtc.QWidget_UpdateGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: ?*C.QTabWidget, parent: ?*C.QWidget ```
+    /// ``` self: QtC.QTabWidget, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        C.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: ?*C.QTabWidget, parent: ?*C.QWidget, f: i32 ```
+    /// ``` self: QtC.QTabWidget, parent: QtC.QWidget, f: i32 ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
-        C.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
+        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
-    /// ``` self: ?*C.QTabWidget, dx: i32, dy: i32 ```
+    /// ``` self: QtC.QTabWidget, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        C.QWidget_Scroll(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QWidget_Scroll(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
-    /// ``` self: ?*C.QTabWidget, dx: i32, dy: i32, param3: ?*C.QRect ```
+    /// ``` self: QtC.QTabWidget, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        C.QWidget_Scroll2(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(param3));
+        qtc.QWidget_Scroll2(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(param3));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn FocusWidget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_FocusWidget(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_FocusWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn NextInFocusChain(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_NextInFocusChain(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn PreviousInFocusChain(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_PreviousInFocusChain(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return C.QWidget_AcceptDrops(@ptrCast(self));
+        return qtc.QWidget_AcceptDrops(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
-    /// ``` self: ?*C.QTabWidget, on: bool ```
+    /// ``` self: QtC.QTabWidget, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        C.QWidget_SetAcceptDrops(@ptrCast(self), on);
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: ?*C.QTabWidget, action: ?*C.QAction ```
+    /// ``` self: QtC.QTabWidget, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        C.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
-    /// ``` self: ?*C.QTabWidget, actions: []?*C.QAction ```
+    /// ``` self: QtC.QTabWidget, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = C.struct_libqt_list{
+        const actions_list = qtc.struct_libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        C.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
-    /// ``` self: ?*C.QTabWidget, before: ?*C.QAction, actions: []?*C.QAction ```
+    /// ``` self: QtC.QTabWidget, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = C.struct_libqt_list{
+        const actions_list = qtc.struct_libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        C.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
-    /// ``` self: ?*C.QTabWidget, before: ?*C.QAction, action: ?*C.QAction ```
+    /// ``` self: QtC.QTabWidget, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        C.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
-    /// ``` self: ?*C.QTabWidget, action: ?*C.QAction ```
+    /// ``` self: QtC.QTabWidget, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        C.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
-    /// ``` self: ?*C.QTabWidget, allocator: std.mem.Allocator ```
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QAction {
-        const _arr: C.struct_libqt_list = C.QWidget_Actions(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QAction, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QAction = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QTabWidget, allocator: std.mem.Allocator ```
+    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
+        const _arr: qtc.struct_libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qtabwidget.Actions: Memory allocation failed");
+        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -2950,106 +3015,106 @@ pub const qtabwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: ?*C.QTabWidget, text: []const u8 ```
-    pub fn AddActionWithText(self: ?*anyopaque, text: []const u8) ?*C.QAction {
-        const text_str = C.struct_libqt_string{
+    /// ``` self: QtC.QTabWidget, text: []const u8 ```
+    pub fn AddActionWithText(self: ?*anyopaque, text: []const u8) QtC.QAction {
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        return C.QWidget_AddActionWithText(@ptrCast(self), text_str);
+        return qtc.QWidget_AddActionWithText(@ptrCast(self), text_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: ?*C.QTabWidget, icon: ?*C.QIcon, text: []const u8 ```
-    pub fn AddAction2(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) ?*C.QAction {
-        const text_str = C.struct_libqt_string{
+    /// ``` self: QtC.QTabWidget, icon: QtC.QIcon, text: []const u8 ```
+    pub fn AddAction2(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        return C.QWidget_AddAction2(@ptrCast(self), @ptrCast(icon), text_str);
+        return qtc.QWidget_AddAction2(@ptrCast(self), @ptrCast(icon), text_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: ?*C.QTabWidget, text: []const u8, shortcut: ?*C.QKeySequence ```
-    pub fn AddAction3(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) ?*C.QAction {
-        const text_str = C.struct_libqt_string{
+    /// ``` self: QtC.QTabWidget, text: []const u8, shortcut: QtC.QKeySequence ```
+    pub fn AddAction3(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        return C.QWidget_AddAction3(@ptrCast(self), text_str, @ptrCast(shortcut));
+        return qtc.QWidget_AddAction3(@ptrCast(self), text_str, @ptrCast(shortcut));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: ?*C.QTabWidget, icon: ?*C.QIcon, text: []const u8, shortcut: ?*C.QKeySequence ```
-    pub fn AddAction4(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) ?*C.QAction {
-        const text_str = C.struct_libqt_string{
+    /// ``` self: QtC.QTabWidget, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
+    pub fn AddAction4(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        return C.QWidget_AddAction4(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        return qtc.QWidget_AddAction4(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn ParentWidget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_ParentWidget(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_ParentWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
-    /// ``` self: ?*C.QTabWidget, typeVal: i32 ```
+    /// ``` self: QtC.QTabWidget, typeVal: i32 ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
-        C.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn WindowFlags(self: ?*anyopaque) i64 {
-        return C.QWidget_WindowFlags(@ptrCast(self));
+        return qtc.QWidget_WindowFlags(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: qnamespace_enums.WindowType ```
+    /// ``` self: QtC.QTabWidget, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
-        C.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
-    /// ``` self: ?*C.QTabWidget, typeVal: i32 ```
+    /// ``` self: QtC.QTabWidget, typeVal: i32 ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
-        C.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn WindowType(self: ?*anyopaque) i64 {
-        return C.QWidget_WindowType(@ptrCast(self));
+        return qtc.QWidget_WindowType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -3057,361 +3122,369 @@ pub const qtabwidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
     /// ``` param1: u64 ```
-    pub fn Find(param1: u64) ?*C.QWidget {
-        return C.QWidget_Find(@intCast(param1));
+    pub fn Find(param1: u64) QtC.QWidget {
+        return qtc.QWidget_Find(@intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
-    /// ``` self: ?*C.QTabWidget, x: i32, y: i32 ```
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) ?*C.QWidget {
-        return C.QWidget_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
+    /// ``` self: QtC.QTabWidget, x: i32, y: i32 ```
+    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
+        return qtc.QWidget_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
-    /// ``` self: ?*C.QTabWidget, p: ?*C.QPoint ```
-    pub fn ChildAtWithQPoint(self: ?*anyopaque, p: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_ChildAtWithQPoint(@ptrCast(self), @ptrCast(p));
+    /// ``` self: QtC.QTabWidget, p: QtC.QPoint ```
+    pub fn ChildAtWithQPoint(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_ChildAtWithQPoint(@ptrCast(self), @ptrCast(p));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: qnamespace_enums.WidgetAttribute ```
+    /// ``` self: QtC.QTabWidget, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i64) void {
-        C.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: qnamespace_enums.WidgetAttribute ```
+    /// ``` self: QtC.QTabWidget, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i64) bool {
-        return C.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
+        return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
-        C.QWidget_EnsurePolished(@ptrCast(self));
+        qtc.QWidget_EnsurePolished(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
-    /// ``` self: ?*C.QTabWidget, child: ?*C.QWidget ```
+    /// ``` self: QtC.QTabWidget, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return C.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return C.QWidget_AutoFillBackground(@ptrCast(self));
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
-    /// ``` self: ?*C.QTabWidget, enabled: bool ```
+    /// ``` self: QtC.QTabWidget, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        C.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn BackingStore(self: ?*anyopaque) ?*C.QBackingStore {
-        return C.QWidget_BackingStore(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
+        return qtc.QWidget_BackingStore(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn WindowHandle(self: ?*anyopaque) ?*C.QWindow {
-        return C.QWidget_WindowHandle(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
+        return qtc.QWidget_WindowHandle(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Screen(self: ?*anyopaque) ?*C.QScreen {
-        return C.QWidget_Screen(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
+        return qtc.QWidget_Screen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
-    /// ``` self: ?*C.QTabWidget, screen: ?*C.QScreen ```
+    /// ``` self: QtC.QTabWidget, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        C.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: ?*C.QWindow ```
-    pub fn CreateWindowContainer(window: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_CreateWindowContainer(@ptrCast(window));
+    /// ``` window: QtC.QWindow ```
+    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: ?*C.QTabWidget, title: []const u8 ```
+    /// ``` self: QtC.QTabWidget, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
-        const title_str = C.struct_libqt_string{
+        const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = @constCast(title.ptr),
         };
-        C.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
     }
 
     /// Inherited from QWidget
     ///
-    /// ``` self: ?*C.QWidget, slot: fn (?*C.QWidget, []const u8) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    ///
+    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, title: []const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
-        C.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: ?*C.QTabWidget, icon: ?*C.QIcon ```
+    /// ``` self: QtC.QTabWidget, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        C.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
     }
 
     /// Inherited from QWidget
     ///
-    /// ``` self: ?*C.QWidget, slot: fn (?*C.QWidget, ?*C.QIcon) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    ///
+    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: ?*C.QTabWidget, iconText: []const u8 ```
+    /// ``` self: QtC.QTabWidget, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
-        const iconText_str = C.struct_libqt_string{
+        const iconText_str = qtc.struct_libqt_string{
             .len = iconText.len,
             .data = @constCast(iconText.ptr),
         };
-        C.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
     }
 
     /// Inherited from QWidget
     ///
-    /// ``` self: ?*C.QWidget, slot: fn (?*C.QWidget, []const u8) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    ///
+    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, iconText: []const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
-        C.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: ?*C.QTabWidget, pos: ?*C.QPoint ```
+    /// ``` self: QtC.QTabWidget, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
     }
 
     /// Inherited from QWidget
     ///
-    /// ``` self: ?*C.QWidget, slot: fn (?*C.QWidget, ?*C.QPoint) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    ///
+    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn InputMethodHints(self: ?*anyopaque) i64 {
-        return C.QWidget_InputMethodHints(@ptrCast(self));
+        return qtc.QWidget_InputMethodHints(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
-    /// ``` self: ?*C.QTabWidget, hints: i32 ```
+    /// ``` self: QtC.QTabWidget, hints: i32 ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
-        C.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QTabWidget, target: ?*C.QPaintDevice, targetOffset: ?*C.QPoint ```
+    /// ``` self: QtC.QTabWidget, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render2(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        C.QWidget_Render2(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QTabWidget, target: ?*C.QPaintDevice, targetOffset: ?*C.QPoint, sourceRegion: ?*C.QRegion ```
+    /// ``` self: QtC.QTabWidget, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        C.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QTabWidget, target: ?*C.QPaintDevice, targetOffset: ?*C.QPoint, sourceRegion: ?*C.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QTabWidget, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
-        C.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QTabWidget, painter: ?*C.QPainter, targetOffset: ?*C.QPoint ```
+    /// ``` self: QtC.QTabWidget, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        C.QWidget_Render22(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QTabWidget, painter: ?*C.QPainter, targetOffset: ?*C.QPoint, sourceRegion: ?*C.QRegion ```
+    /// ``` self: QtC.QTabWidget, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        C.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QTabWidget, painter: ?*C.QPainter, targetOffset: ?*C.QPoint, sourceRegion: ?*C.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QTabWidget, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
-        C.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
-    /// ``` self: ?*C.QTabWidget, rectangle: ?*C.QRect ```
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) ?*C.QPixmap {
-        return C.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    /// ``` self: QtC.QTabWidget, rectangle: QtC.QRect ```
+    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
+        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: ?*C.QTabWidget, typeVal: qnamespace_enums.GestureType, flags: i32 ```
+    /// ``` self: QtC.QTabWidget, typeVal: qnamespace_enums.GestureType, flags: i32 ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
-        C.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
+        qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
-    /// ``` self: ?*C.QTabWidget, key: ?*C.QKeySequence, context: qnamespace_enums.ShortcutContext ```
+    /// ``` self: QtC.QTabWidget, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i64) i32 {
-        return C.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
-    /// ``` self: ?*C.QTabWidget, id: i32, enable: bool ```
+    /// ``` self: QtC.QTabWidget, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        C.QWidget_SetShortcutEnabled2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @intCast(id), enable);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
-    /// ``` self: ?*C.QTabWidget, id: i32, enable: bool ```
+    /// ``` self: QtC.QTabWidget, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        C.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @intCast(id), enable);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: qnamespace_enums.WindowType, on: bool ```
+    /// ``` self: QtC.QTabWidget, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
-        C.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: qnamespace_enums.WidgetAttribute, on: bool ```
+    /// ``` self: QtC.QTabWidget, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i64, on: bool) void {
-        C.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: ?*C.QWindow, parent: ?*C.QWidget ```
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
+    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: ?*C.QWindow, parent: ?*C.QWidget, flags: i32 ```
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) ?*C.QWidget {
-        return C.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
+    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: i32 ```
+    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
+        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: ?*C.QTabWidget, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTabWidget, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QObject_ObjectName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabwidget.ObjectName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3422,102 +3495,102 @@ pub const qtabwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: ?*C.QTabWidget, name: []const u8 ```
+    /// ``` self: QtC.QTabWidget, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return C.QObject_IsWidgetType(@ptrCast(self));
+        return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
-        return C.QObject_IsWindowType(@ptrCast(self));
+        return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return C.QObject_IsQuickItemType(@ptrCast(self));
+        return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return C.QObject_SignalsBlocked(@ptrCast(self));
+        return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: ?*C.QTabWidget, b: bool ```
+    /// ``` self: QtC.QTabWidget, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return C.QObject_BlockSignals(@ptrCast(self), b);
+        return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Thread(self: ?*anyopaque) ?*C.QThread {
-        return C.QObject_Thread(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Thread(self: ?*anyopaque) QtC.QThread {
+        return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: ?*C.QTabWidget, thread: ?*C.QThread ```
+    /// ``` self: QtC.QTabWidget, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        C.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QTabWidget, interval: i32 ```
+    /// ``` self: QtC.QTabWidget, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return C.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: ?*C.QTabWidget, id: i32 ```
+    /// ``` self: QtC.QTabWidget, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        C.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: ?*C.QTabWidget, allocator: std.mem.Allocator ```
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QObject {
-        const _arr: C.struct_libqt_list = C.QObject_Children(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QObject, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QObject = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QTabWidget, allocator: std.mem.Allocator ```
+    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
+        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtabwidget.Children: Memory allocation failed");
+        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -3528,114 +3601,114 @@ pub const qtabwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: ?*C.QTabWidget, filterObj: ?*C.QObject ```
+    /// ``` self: QtC.QTabWidget, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        C.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: ?*C.QTabWidget, obj: ?*C.QObject ```
+    /// ``` self: QtC.QTabWidget, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        C.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod ```
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QTabWidget, sender: ?*C.QObject, signal: []const u8, member: []const u8 ```
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QTabWidget, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, member: ?*C.QMetaMethod ```
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return C.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: ?*C.QMetaObject__Connection ```
+    /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return C.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
-        C.QObject_DumpObjectTree(@ptrCast(self));
+        qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        C.QObject_DumpObjectInfo(@ptrCast(self));
+        qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: ?*C.QTabWidget, name: []const u8, value: ?*C.QVariant ```
+    /// ``` self: QtC.QTabWidget, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: ?*C.QTabWidget, name: []const u8 ```
-    pub fn Property(self: ?*anyopaque, name: []const u8) ?*C.QVariant {
+    /// ``` self: QtC.QTabWidget, name: []const u8 ```
+    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_Property(@ptrCast(self), name_Cstring);
+        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: ?*C.QTabWidget, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTabWidget, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: C.struct_libqt_list = C.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtabwidget.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtabwidget.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -3646,206 +3719,210 @@ pub const qtabwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn BindingStorage(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn BindingStorage2(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage2(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn Destroyed(self: ?*anyopaque) void {
-        C.QObject_Destroyed(@ptrCast(self));
+        qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Parent(self: ?*anyopaque) ?*C.QObject {
-        return C.QObject_Parent(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Parent(self: ?*anyopaque) QtC.QObject {
+        return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: ?*C.QTabWidget, classname: []const u8 ```
+    /// ``` self: QtC.QTabWidget, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = @constCast(classname.ptr);
-        return C.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn DeleteLater(self: ?*anyopaque) void {
-        C.QObject_DeleteLater(@ptrCast(self));
+        qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QTabWidget, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ``` self: QtC.QTabWidget, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return C.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QTabWidget, sender: ?*C.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QTabWidget, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QObject ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject, ?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
-        return C.QPaintDevice_PaintingActive(@ptrCast(self));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_WidthMM(@ptrCast(self));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_HeightMM(@ptrCast(self));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_LogicalDpiX(@ptrCast(self));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_LogicalDpiY(@ptrCast(self));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return C.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return C.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_ColorCount(@ptrCast(self));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn Depth(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_Depth(@ptrCast(self));
+        return qtc.QPaintDevice_Depth(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
@@ -3854,7 +3931,7 @@ pub const qtabwidget = struct {
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
-        return C.QPaintDevice_DevicePixelRatioFScale();
+        return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
 
     /// Inherited from QWidget
@@ -3863,27 +3940,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn DevType(self: ?*anyopaque) i32 {
-        return C.QTabWidget_DevType(@ptrCast(self));
+        return qtc.QTabWidget_DevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return C.QTabWidget_QBaseDevType(@ptrCast(self));
+        return qtc.QTabWidget_QBaseDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QTabWidget, slot: fn () callconv(.c) i32 ```
     pub fn OnDevType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QTabWidget_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -3892,27 +3973,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, visible: bool ```
+    /// ``` self: QtC.QTabWidget, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        C.QTabWidget_SetVisible(@ptrCast(self), visible);
+        qtc.QTabWidget_SetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, visible: bool ```
+    /// ``` self: QtC.QTabWidget, visible: bool ```
     pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        C.QTabWidget_QBaseSetVisible(@ptrCast(self), visible);
+        qtc.QTabWidget_QBaseSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, bool) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, visible: bool) callconv(.c) void ```
     pub fn OnSetVisible(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QTabWidget_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -3921,27 +4006,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn PaintEngine(self: ?*anyopaque) ?*C.QPaintEngine {
-        return C.QTabWidget_PaintEngine(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QTabWidget_PaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn QBasePaintEngine(self: ?*anyopaque) ?*C.QPaintEngine {
-        return C.QTabWidget_QBasePaintEngine(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QTabWidget_QBasePaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn () callconv(.c) ?*C.QPaintEngine ```
-    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QPaintEngine) void {
-        C.QTabWidget_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTabWidget, slot: fn () callconv(.c) QtC.QPaintEngine ```
+    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPaintEngine) void {
+        qtc.QTabWidget_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -3950,27 +4039,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_MousePressEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QMouseEvent ```
     pub fn QBaseMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QMouseEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QMouseEvent) callconv(.c) void ```
     pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -3979,27 +4072,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QMouseEvent ```
     pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QMouseEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QMouseEvent) callconv(.c) void ```
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4008,27 +4105,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QMouseEvent ```
     pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QMouseEvent ```
     pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QMouseEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QMouseEvent) callconv(.c) void ```
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4037,27 +4138,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QMouseEvent ```
     pub fn QBaseMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QMouseEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QMouseEvent) callconv(.c) void ```
     pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4066,27 +4171,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QWheelEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QWheelEvent ```
     pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_WheelEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_WheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QWheelEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QWheelEvent ```
     pub fn QBaseWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QWheelEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QWheelEvent) callconv(.c) void ```
     pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4095,27 +4204,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QKeyEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QKeyEvent ```
     pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QKeyEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QKeyEvent ```
     pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QKeyEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QKeyEvent) callconv(.c) void ```
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4124,27 +4237,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QFocusEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QFocusEvent ```
     pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_FocusInEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QFocusEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QFocusEvent ```
     pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QFocusEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QFocusEvent) callconv(.c) void ```
     pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4153,27 +4270,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QFocusEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QFocusEvent ```
     pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QFocusEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QFocusEvent ```
     pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QFocusEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QFocusEvent) callconv(.c) void ```
     pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4182,27 +4303,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QEnterEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QEnterEvent ```
     pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_EnterEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QEnterEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QEnterEvent ```
     pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QEnterEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QEnterEvent) callconv(.c) void ```
     pub fn OnEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4211,27 +4336,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QEvent ```
     pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_LeaveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QEvent ```
     pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QEvent) callconv(.c) void ```
     pub fn OnLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4240,27 +4369,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QMoveEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QMoveEvent ```
     pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_MoveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QMoveEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QMoveEvent ```
     pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QMoveEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QMoveEvent) callconv(.c) void ```
     pub fn OnMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4269,27 +4402,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QCloseEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QCloseEvent ```
     pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_CloseEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QCloseEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QCloseEvent ```
     pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QCloseEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QCloseEvent) callconv(.c) void ```
     pub fn OnCloseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4298,27 +4435,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QContextMenuEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QContextMenuEvent ```
     pub fn ContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QContextMenuEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QContextMenuEvent ```
     pub fn QBaseContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QContextMenuEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QContextMenuEvent) callconv(.c) void ```
     pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4327,27 +4468,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QTabletEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QTabletEvent ```
     pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_TabletEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QTabletEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QTabletEvent ```
     pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QTabletEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QTabletEvent) callconv(.c) void ```
     pub fn OnTabletEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4356,27 +4501,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QActionEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QActionEvent ```
     pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_ActionEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QActionEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QActionEvent ```
     pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QActionEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QActionEvent) callconv(.c) void ```
     pub fn OnActionEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4385,27 +4534,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QDragEnterEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QDragEnterEvent ```
     pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QDragEnterEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QDragEnterEvent ```
     pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QDragEnterEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QDragEnterEvent) callconv(.c) void ```
     pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4414,27 +4567,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QDragMoveEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QDragMoveEvent ```
     pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QDragMoveEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QDragMoveEvent ```
     pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QDragMoveEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QDragMoveEvent) callconv(.c) void ```
     pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4443,27 +4600,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QDragLeaveEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QDragLeaveEvent ```
     pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QDragLeaveEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QDragLeaveEvent ```
     pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QDragLeaveEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QDragLeaveEvent) callconv(.c) void ```
     pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4472,27 +4633,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QDropEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QDropEvent ```
     pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_DropEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QDropEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QDropEvent ```
     pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QDropEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QDropEvent) callconv(.c) void ```
     pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4501,27 +4666,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QHideEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QHideEvent ```
     pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_HideEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QHideEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QHideEvent ```
     pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QHideEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QHideEvent) callconv(.c) void ```
     pub fn OnHideEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4530,35 +4699,39 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
+    /// ``` self: QtC.QTabWidget, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
-        const eventType_str = C.struct_libqt_string{
+        const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = @constCast(eventType.ptr),
         };
-        return C.QTabWidget_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QTabWidget_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
+    /// ``` self: QtC.QTabWidget, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
-        const eventType_str = C.struct_libqt_string{
+        const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = @constCast(eventType.ptr),
         };
-        return C.QTabWidget_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QTabWidget_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, []u8, ?*anyopaque, ?*isize) callconv(.c) bool ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, eventType: []u8, message: ?*anyopaque, result: ?*isize) callconv(.c) bool ```
     pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QTabWidget_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4567,27 +4740,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, param1: qpaintdevice_enums.PaintDeviceMetric ```
+    /// ``` self: QtC.QTabWidget, param1: qpaintdevice_enums.PaintDeviceMetric ```
     pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
-        return C.QTabWidget_Metric(@ptrCast(self), @intCast(param1));
+        return qtc.QTabWidget_Metric(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, param1: qpaintdevice_enums.PaintDeviceMetric ```
+    /// ``` self: QtC.QTabWidget, param1: qpaintdevice_enums.PaintDeviceMetric ```
     pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
-        return C.QTabWidget_QBaseMetric(@ptrCast(self), @intCast(param1));
+        return qtc.QTabWidget_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
     pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
-        C.QTabWidget_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4596,27 +4773,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, painter: ?*C.QPainter ```
+    /// ``` self: QtC.QTabWidget, painter: QtC.QPainter ```
     pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        C.QTabWidget_InitPainter(@ptrCast(self), @ptrCast(painter));
+        qtc.QTabWidget_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, painter: ?*C.QPainter ```
+    /// ``` self: QtC.QTabWidget, painter: QtC.QPainter ```
     pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        C.QTabWidget_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+        qtc.QTabWidget_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QPainter) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, painter: QtC.QPainter) callconv(.c) void ```
     pub fn OnInitPainter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4625,27 +4806,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, offset: ?*C.QPoint ```
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) ?*C.QPaintDevice {
-        return C.QTabWidget_Redirected(@ptrCast(self), @ptrCast(offset));
+    /// ``` self: QtC.QTabWidget, offset: QtC.QPoint ```
+    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QTabWidget_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, offset: ?*C.QPoint ```
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) ?*C.QPaintDevice {
-        return C.QTabWidget_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    /// ``` self: QtC.QTabWidget, offset: QtC.QPoint ```
+    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QTabWidget_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QPoint) callconv(.c) ?*C.QPaintDevice ```
-    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) ?*C.QPaintDevice) void {
-        C.QTabWidget_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
+        qtc.QTabWidget_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4654,27 +4839,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn SharedPainter(self: ?*anyopaque) ?*C.QPainter {
-        return C.QTabWidget_SharedPainter(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QTabWidget_SharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn QBaseSharedPainter(self: ?*anyopaque) ?*C.QPainter {
-        return C.QTabWidget_QBaseSharedPainter(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QTabWidget_QBaseSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn () callconv(.c) ?*C.QPainter ```
-    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QPainter) void {
-        C.QTabWidget_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTabWidget, slot: fn () callconv(.c) QtC.QPainter ```
+    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
+        qtc.QTabWidget_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4683,27 +4872,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QInputMethodEvent ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QInputMethodEvent ```
     pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QTabWidget_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QTabWidget_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, param1: ?*C.QInputMethodEvent ```
+    /// ``` self: QtC.QTabWidget, param1: QtC.QInputMethodEvent ```
     pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QTabWidget_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QTabWidget_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QInputMethodEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, param1: QtC.QInputMethodEvent) callconv(.c) void ```
     pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4712,27 +4905,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, param1: qnamespace_enums.InputMethodQuery ```
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i64) ?*C.QVariant {
-        return C.QTabWidget_InputMethodQuery(@ptrCast(self), @intCast(param1));
+    /// ``` self: QtC.QTabWidget, param1: qnamespace_enums.InputMethodQuery ```
+    pub fn InputMethodQuery(self: ?*anyopaque, param1: i64) QtC.QVariant {
+        return qtc.QTabWidget_InputMethodQuery(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, param1: qnamespace_enums.InputMethodQuery ```
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i64) ?*C.QVariant {
-        return C.QTabWidget_QBaseInputMethodQuery(@ptrCast(self), @intCast(param1));
+    /// ``` self: QtC.QTabWidget, param1: qnamespace_enums.InputMethodQuery ```
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i64) QtC.QVariant {
+        return qtc.QTabWidget_QBaseInputMethodQuery(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, qnamespace_enums.InputMethodQuery) callconv(.c) ?*C.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) ?*C.QVariant) void {
-        C.QTabWidget_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QTabWidget_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4741,27 +4938,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, next: bool ```
+    /// ``` self: QtC.QTabWidget, next: bool ```
     pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return C.QTabWidget_FocusNextPrevChild(@ptrCast(self), next);
+        return qtc.QTabWidget_FocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, next: bool ```
+    /// ``` self: QtC.QTabWidget, next: bool ```
     pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return C.QTabWidget_QBaseFocusNextPrevChild(@ptrCast(self), next);
+        return qtc.QTabWidget_QBaseFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, bool) callconv(.c) bool ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, next: bool) callconv(.c) bool ```
     pub fn OnFocusNextPrevChild(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        C.QTabWidget_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4770,27 +4971,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTabWidget, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QTabWidget_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QTabWidget_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTabWidget, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QTabWidget_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QTabWidget_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QObject, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QTabWidget_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4799,27 +5004,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_TimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QTimerEvent ```
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QTimerEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QTimerEvent) callconv(.c) void ```
     pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4828,27 +5037,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QChildEvent ```
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_ChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QChildEvent ```
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QChildEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QChildEvent) callconv(.c) void ```
     pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4857,27 +5070,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QEvent ```
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_CustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, event: ?*C.QEvent ```
+    /// ``` self: QtC.QTabWidget, event: QtC.QEvent ```
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QTabWidget_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QTabWidget_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, event: QtC.QEvent) callconv(.c) void ```
     pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4886,27 +5103,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTabWidget, signal: QtC.QMetaMethod ```
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QTabWidget_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QTabWidget_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTabWidget, signal: QtC.QMetaMethod ```
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QTabWidget_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QTabWidget_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4915,27 +5136,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTabWidget, signal: QtC.QMetaMethod ```
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QTabWidget_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QTabWidget_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTabWidget, signal: QtC.QMetaMethod ```
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QTabWidget_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QTabWidget_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QTabWidget_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4944,27 +5169,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        C.QTabWidget_UpdateMicroFocus(@ptrCast(self));
+        qtc.QTabWidget_UpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        C.QTabWidget_QBaseUpdateMicroFocus(@ptrCast(self));
+        qtc.QTabWidget_QBaseUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn () callconv(.c) void ```
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QTabWidget_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4973,27 +5202,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn Create(self: ?*anyopaque) void {
-        C.QTabWidget_Create(@ptrCast(self));
+        qtc.QTabWidget_Create(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn QBaseCreate(self: ?*anyopaque) void {
-        C.QTabWidget_QBaseCreate(@ptrCast(self));
+        qtc.QTabWidget_QBaseCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn () callconv(.c) void ```
     pub fn OnCreate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QTabWidget_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -5002,27 +5235,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn Destroy(self: ?*anyopaque) void {
-        C.QTabWidget_Destroy(@ptrCast(self));
+        qtc.QTabWidget_Destroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn QBaseDestroy(self: ?*anyopaque) void {
-        C.QTabWidget_QBaseDestroy(@ptrCast(self));
+        qtc.QTabWidget_QBaseDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QTabWidget, slot: fn () callconv(.c) void ```
     pub fn OnDestroy(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QTabWidget_OnDestroy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnDestroy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -5031,27 +5268,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return C.QTabWidget_FocusNextChild(@ptrCast(self));
+        return qtc.QTabWidget_FocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return C.QTabWidget_QBaseFocusNextChild(@ptrCast(self));
+        return qtc.QTabWidget_QBaseFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn () callconv(.c) bool ```
+    /// ``` self: QtC.QTabWidget, slot: fn () callconv(.c) bool ```
     pub fn OnFocusNextChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        C.QTabWidget_OnFocusNextChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnFocusNextChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -5060,27 +5301,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return C.QTabWidget_FocusPreviousChild(@ptrCast(self));
+        return qtc.QTabWidget_FocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return C.QTabWidget_QBaseFocusPreviousChild(@ptrCast(self));
+        return qtc.QTabWidget_QBaseFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn () callconv(.c) bool ```
+    /// ``` self: QtC.QTabWidget, slot: fn () callconv(.c) bool ```
     pub fn OnFocusPreviousChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        C.QTabWidget_OnFocusPreviousChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnFocusPreviousChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5089,27 +5334,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn Sender(self: ?*anyopaque) ?*C.QObject {
-        return C.QTabWidget_Sender(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn Sender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QTabWidget_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
-    pub fn QBaseSender(self: ?*anyopaque) ?*C.QObject {
-        return C.QTabWidget_QBaseSender(@ptrCast(self));
+    /// ``` self: QtC.QTabWidget ```
+    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QTabWidget_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn () callconv(.c) ?*C.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QObject) void {
-        C.QTabWidget_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTabWidget, slot: fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
+        qtc.QTabWidget_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5118,27 +5367,31 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QTabWidget_SenderSignalIndex(@ptrCast(self));
+        return qtc.QTabWidget_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QTabWidget_QBaseSenderSignalIndex(@ptrCast(self));
+        return qtc.QTabWidget_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QTabWidget, slot: fn () callconv(.c) i32 ```
     pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QTabWidget_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5147,29 +5400,33 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, signal: []const u8 ```
+    /// ``` self: QtC.QTabWidget, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QTabWidget_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTabWidget_Receivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, signal: []const u8 ```
+    /// ``` self: QtC.QTabWidget, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QTabWidget_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTabWidget_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, []const u8) callconv(.c) i32 ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, signal: []const u8) callconv(.c) i32 ```
     pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
-        C.QTabWidget_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5178,34 +5435,51 @@ pub const qtabwidget = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTabWidget, signal: QtC.QMetaMethod ```
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QTabWidget_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QTabWidget_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QTabWidget, signal: QtC.QMetaMethod ```
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QTabWidget_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QTabWidget_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTabWidget, slot: fn (?*C.QTabWidget, ?*C.QMetaMethod) callconv(.c) bool ```
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QTabWidget, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QTabWidget_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTabWidget_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    ///
+    /// Wrapper to allow calling private signal
+    ///
+    /// ``` self: QtC.QTabWidget, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtabwidget.html#dtor.QTabWidget)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QTabWidget ```
+    /// ``` self: QtC.QTabWidget ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QTabWidget_Delete(@ptrCast(self));
+        qtc.QTabWidget_Delete(@ptrCast(self));
     }
 };
 

@@ -6,7 +6,7 @@
 #include "libqmetacontainer.h"
 #include "libqmetacontainer.hxx"
 
-QMetaContainer* QMetaContainer_new(QMetaContainer* other) {
+QMetaContainer* QMetaContainer_new(const QMetaContainer* other) {
     return new QMetaContainer(*other);
 }
 
@@ -18,7 +18,7 @@ QMetaContainer* QMetaContainer_new3() {
     return new QMetaContainer();
 }
 
-QMetaContainer* QMetaContainer_new4(QMetaContainer* param1) {
+QMetaContainer* QMetaContainer_new4(const QMetaContainer* param1) {
     return new QMetaContainer(*param1);
 }
 
@@ -130,7 +130,7 @@ void QMetaContainer_Delete(QMetaContainer* self) {
     delete self;
 }
 
-QMetaSequence* QMetaSequence_new(QMetaSequence* other) {
+QMetaSequence* QMetaSequence_new(const QMetaSequence* other) {
     return new QMetaSequence(*other);
 }
 
@@ -274,7 +274,7 @@ void QMetaSequence_Delete(QMetaSequence* self) {
     delete self;
 }
 
-QMetaAssociation* QMetaAssociation_new(QMetaAssociation* other) {
+QMetaAssociation* QMetaAssociation_new(const QMetaAssociation* other) {
     return new QMetaAssociation(*other);
 }
 

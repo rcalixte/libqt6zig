@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qstorageinfo.html
@@ -6,68 +7,68 @@ pub const qstorageinfo = struct {
     /// New constructs a new QStorageInfo object.
     ///
     ///
-    pub fn New() ?*C.QStorageInfo {
-        return C.QStorageInfo_new();
+    pub fn New() QtC.QStorageInfo {
+        return qtc.QStorageInfo_new();
     }
 
     /// New2 constructs a new QStorageInfo object.
     ///
     /// ``` path: []const u8 ```
-    pub fn New2(path: []const u8) ?*C.QStorageInfo {
-        const path_str = C.struct_libqt_string{
+    pub fn New2(path: []const u8) QtC.QStorageInfo {
+        const path_str = qtc.struct_libqt_string{
             .len = path.len,
             .data = @constCast(path.ptr),
         };
 
-        return C.QStorageInfo_new2(path_str);
+        return qtc.QStorageInfo_new2(path_str);
     }
 
     /// New3 constructs a new QStorageInfo object.
     ///
-    /// ``` dir: ?*C.QDir ```
-    pub fn New3(dir: ?*anyopaque) ?*C.QStorageInfo {
-        return C.QStorageInfo_new3(@ptrCast(dir));
+    /// ``` dir: QtC.QDir ```
+    pub fn New3(dir: ?*anyopaque) QtC.QStorageInfo {
+        return qtc.QStorageInfo_new3(@ptrCast(dir));
     }
 
     /// New4 constructs a new QStorageInfo object.
     ///
-    /// ``` other: ?*C.QStorageInfo ```
-    pub fn New4(other: ?*anyopaque) ?*C.QStorageInfo {
-        return C.QStorageInfo_new4(@ptrCast(other));
+    /// ``` other: QtC.QStorageInfo ```
+    pub fn New4(other: ?*anyopaque) QtC.QStorageInfo {
+        return qtc.QStorageInfo_new4(@ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#operator=)
     ///
-    /// ``` self: ?*C.QStorageInfo, other: ?*C.QStorageInfo ```
+    /// ``` self: QtC.QStorageInfo, other: QtC.QStorageInfo ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStorageInfo_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStorageInfo_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#swap)
     ///
-    /// ``` self: ?*C.QStorageInfo, other: ?*C.QStorageInfo ```
+    /// ``` self: QtC.QStorageInfo, other: QtC.QStorageInfo ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStorageInfo_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QStorageInfo_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#setPath)
     ///
-    /// ``` self: ?*C.QStorageInfo, path: []const u8 ```
+    /// ``` self: QtC.QStorageInfo, path: []const u8 ```
     pub fn SetPath(self: ?*anyopaque, path: []const u8) void {
-        const path_str = C.struct_libqt_string{
+        const path_str = qtc.struct_libqt_string{
             .len = path.len,
             .data = @constCast(path.ptr),
         };
-        C.QStorageInfo_SetPath(@ptrCast(self), path_str);
+        qtc.QStorageInfo_SetPath(@ptrCast(self), path_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#rootPath)
     ///
-    /// ``` self: ?*C.QStorageInfo, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QStorageInfo, allocator: std.mem.Allocator ```
     pub fn RootPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QStorageInfo_RootPath(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QStorageInfo_RootPath(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstorageinfo.RootPath: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -76,11 +77,11 @@ pub const qstorageinfo = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#device)
     ///
-    /// ``` self: ?*C.QStorageInfo, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QStorageInfo, allocator: std.mem.Allocator ```
     pub fn Device(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: C.struct_libqt_string = C.QStorageInfo_Device(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_bytearray));
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Memory allocation failed");
+        const _bytearray: qtc.struct_libqt_string = qtc.QStorageInfo_Device(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qstorageinfo.Device: Memory allocation failed");
         for (0.._bytearray.len) |_i| {
             _ret[_i] = _bytearray.data[_i];
         }
@@ -89,11 +90,11 @@ pub const qstorageinfo = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#subvolume)
     ///
-    /// ``` self: ?*C.QStorageInfo, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QStorageInfo, allocator: std.mem.Allocator ```
     pub fn Subvolume(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: C.struct_libqt_string = C.QStorageInfo_Subvolume(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_bytearray));
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Memory allocation failed");
+        const _bytearray: qtc.struct_libqt_string = qtc.QStorageInfo_Subvolume(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qstorageinfo.Subvolume: Memory allocation failed");
         for (0.._bytearray.len) |_i| {
             _ret[_i] = _bytearray.data[_i];
         }
@@ -102,11 +103,11 @@ pub const qstorageinfo = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#fileSystemType)
     ///
-    /// ``` self: ?*C.QStorageInfo, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QStorageInfo, allocator: std.mem.Allocator ```
     pub fn FileSystemType(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: C.struct_libqt_string = C.QStorageInfo_FileSystemType(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_bytearray));
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Memory allocation failed");
+        const _bytearray: qtc.struct_libqt_string = qtc.QStorageInfo_FileSystemType(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qstorageinfo.FileSystemType: Memory allocation failed");
         for (0.._bytearray.len) |_i| {
             _ret[_i] = _bytearray.data[_i];
         }
@@ -115,11 +116,11 @@ pub const qstorageinfo = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#name)
     ///
-    /// ``` self: ?*C.QStorageInfo, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QStorageInfo, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QStorageInfo_Name(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QStorageInfo_Name(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstorageinfo.Name: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -128,11 +129,11 @@ pub const qstorageinfo = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#displayName)
     ///
-    /// ``` self: ?*C.QStorageInfo, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QStorageInfo, allocator: std.mem.Allocator ```
     pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QStorageInfo_DisplayName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QStorageInfo_DisplayName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstorageinfo.DisplayName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -141,75 +142,75 @@ pub const qstorageinfo = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#bytesTotal)
     ///
-    /// ``` self: ?*C.QStorageInfo ```
+    /// ``` self: QtC.QStorageInfo ```
     pub fn BytesTotal(self: ?*anyopaque) i64 {
-        return C.QStorageInfo_BytesTotal(@ptrCast(self));
+        return qtc.QStorageInfo_BytesTotal(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#bytesFree)
     ///
-    /// ``` self: ?*C.QStorageInfo ```
+    /// ``` self: QtC.QStorageInfo ```
     pub fn BytesFree(self: ?*anyopaque) i64 {
-        return C.QStorageInfo_BytesFree(@ptrCast(self));
+        return qtc.QStorageInfo_BytesFree(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#bytesAvailable)
     ///
-    /// ``` self: ?*C.QStorageInfo ```
+    /// ``` self: QtC.QStorageInfo ```
     pub fn BytesAvailable(self: ?*anyopaque) i64 {
-        return C.QStorageInfo_BytesAvailable(@ptrCast(self));
+        return qtc.QStorageInfo_BytesAvailable(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#blockSize)
     ///
-    /// ``` self: ?*C.QStorageInfo ```
+    /// ``` self: QtC.QStorageInfo ```
     pub fn BlockSize(self: ?*anyopaque) i32 {
-        return C.QStorageInfo_BlockSize(@ptrCast(self));
+        return qtc.QStorageInfo_BlockSize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#isRoot)
     ///
-    /// ``` self: ?*C.QStorageInfo ```
+    /// ``` self: QtC.QStorageInfo ```
     pub fn IsRoot(self: ?*anyopaque) bool {
-        return C.QStorageInfo_IsRoot(@ptrCast(self));
+        return qtc.QStorageInfo_IsRoot(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#isReadOnly)
     ///
-    /// ``` self: ?*C.QStorageInfo ```
+    /// ``` self: QtC.QStorageInfo ```
     pub fn IsReadOnly(self: ?*anyopaque) bool {
-        return C.QStorageInfo_IsReadOnly(@ptrCast(self));
+        return qtc.QStorageInfo_IsReadOnly(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#isReady)
     ///
-    /// ``` self: ?*C.QStorageInfo ```
+    /// ``` self: QtC.QStorageInfo ```
     pub fn IsReady(self: ?*anyopaque) bool {
-        return C.QStorageInfo_IsReady(@ptrCast(self));
+        return qtc.QStorageInfo_IsReady(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#isValid)
     ///
-    /// ``` self: ?*C.QStorageInfo ```
+    /// ``` self: QtC.QStorageInfo ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QStorageInfo_IsValid(@ptrCast(self));
+        return qtc.QStorageInfo_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#refresh)
     ///
-    /// ``` self: ?*C.QStorageInfo ```
+    /// ``` self: QtC.QStorageInfo ```
     pub fn Refresh(self: ?*anyopaque) void {
-        C.QStorageInfo_Refresh(@ptrCast(self));
+        qtc.QStorageInfo_Refresh(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#mountedVolumes)
     ///
     /// ``` allocator: std.mem.Allocator ```
-    pub fn MountedVolumes(allocator: std.mem.Allocator) []?*C.QStorageInfo {
-        const _arr: C.struct_libqt_list = C.QStorageInfo_MountedVolumes();
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QStorageInfo, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QStorageInfo = @ptrCast(@alignCast(_arr.data));
+    pub fn MountedVolumes(allocator: std.mem.Allocator) []QtC.QStorageInfo {
+        const _arr: qtc.struct_libqt_list = qtc.QStorageInfo_MountedVolumes();
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QStorageInfo, _arr.len) catch @panic("qstorageinfo.MountedVolumes: Memory allocation failed");
+        const _data: [*]QtC.QStorageInfo = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -219,14 +220,16 @@ pub const qstorageinfo = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#root)
     ///
     ///
-    pub fn Root() ?*C.QStorageInfo {
-        return C.QStorageInfo_Root();
+    pub fn Root() QtC.QStorageInfo {
+        return qtc.QStorageInfo_Root();
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#dtor.QStorageInfo)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStorageInfo ```
+    /// ``` self: QtC.QStorageInfo ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStorageInfo_Delete(@ptrCast(self));
+        qtc.QStorageInfo_Delete(@ptrCast(self));
     }
 };

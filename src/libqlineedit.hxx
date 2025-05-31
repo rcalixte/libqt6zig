@@ -11,13 +11,16 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QLineEdit so that we can call protected methods
-class VirtualQLineEdit : public QLineEdit {
+class VirtualQLineEdit final : public QLineEdit {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQLineEdit = true;
+
     // Virtual class public types (including callbacks)
-    using QLineEdit_Metacall_Callback = int (*)(QLineEdit*, QMetaObject::Call, int, void**);
-    using QLineEdit_SizeHint_Callback = QSize (*)();
-    using QLineEdit_MinimumSizeHint_Callback = QSize (*)();
+    using QLineEdit_Metacall_Callback = int (*)(QLineEdit*, int, int, void**);
+    using QLineEdit_SizeHint_Callback = QSize* (*)();
+    using QLineEdit_MinimumSizeHint_Callback = QSize* (*)();
     using QLineEdit_MousePressEvent_Callback = void (*)(QLineEdit*, QMouseEvent*);
     using QLineEdit_MouseMoveEvent_Callback = void (*)(QLineEdit*, QMouseEvent*);
     using QLineEdit_MouseReleaseEvent_Callback = void (*)(QLineEdit*, QMouseEvent*);
@@ -35,7 +38,7 @@ class VirtualQLineEdit : public QLineEdit {
     using QLineEdit_ContextMenuEvent_Callback = void (*)(QLineEdit*, QContextMenuEvent*);
     using QLineEdit_InputMethodEvent_Callback = void (*)(QLineEdit*, QInputMethodEvent*);
     using QLineEdit_InitStyleOption_Callback = void (*)(const QLineEdit*, QStyleOptionFrame*);
-    using QLineEdit_InputMethodQuery_Callback = QVariant (*)(const QLineEdit*, Qt::InputMethodQuery);
+    using QLineEdit_InputMethodQuery_Callback = QVariant* (*)(const QLineEdit*, int);
     using QLineEdit_TimerEvent_Callback = void (*)(QLineEdit*, QTimerEvent*);
     using QLineEdit_Event_Callback = bool (*)(QLineEdit*, QEvent*);
     using QLineEdit_DevType_Callback = int (*)();
@@ -53,8 +56,8 @@ class VirtualQLineEdit : public QLineEdit {
     using QLineEdit_ActionEvent_Callback = void (*)(QLineEdit*, QActionEvent*);
     using QLineEdit_ShowEvent_Callback = void (*)(QLineEdit*, QShowEvent*);
     using QLineEdit_HideEvent_Callback = void (*)(QLineEdit*, QHideEvent*);
-    using QLineEdit_NativeEvent_Callback = bool (*)(QLineEdit*, const QByteArray&, void*, qintptr*);
-    using QLineEdit_Metric_Callback = int (*)(const QLineEdit*, QPaintDevice::PaintDeviceMetric);
+    using QLineEdit_NativeEvent_Callback = bool (*)(QLineEdit*, libqt_string, void*, intptr_t*);
+    using QLineEdit_Metric_Callback = int (*)(const QLineEdit*, int);
     using QLineEdit_InitPainter_Callback = void (*)(const QLineEdit*, QPainter*);
     using QLineEdit_Redirected_Callback = QPaintDevice* (*)(const QLineEdit*, QPoint*);
     using QLineEdit_SharedPainter_Callback = QPainter* (*)();
@@ -62,9 +65,9 @@ class VirtualQLineEdit : public QLineEdit {
     using QLineEdit_EventFilter_Callback = bool (*)(QLineEdit*, QObject*, QEvent*);
     using QLineEdit_ChildEvent_Callback = void (*)(QLineEdit*, QChildEvent*);
     using QLineEdit_CustomEvent_Callback = void (*)(QLineEdit*, QEvent*);
-    using QLineEdit_ConnectNotify_Callback = void (*)(QLineEdit*, const QMetaMethod&);
-    using QLineEdit_DisconnectNotify_Callback = void (*)(QLineEdit*, const QMetaMethod&);
-    using QLineEdit_CursorRect_Callback = QRect (*)();
+    using QLineEdit_ConnectNotify_Callback = void (*)(QLineEdit*, QMetaMethod*);
+    using QLineEdit_DisconnectNotify_Callback = void (*)(QLineEdit*, QMetaMethod*);
+    using QLineEdit_CursorRect_Callback = QRect* (*)();
     using QLineEdit_UpdateMicroFocus_Callback = void (*)();
     using QLineEdit_Create_Callback = void (*)();
     using QLineEdit_Destroy_Callback = void (*)();
@@ -73,7 +76,7 @@ class VirtualQLineEdit : public QLineEdit {
     using QLineEdit_Sender_Callback = QObject* (*)();
     using QLineEdit_SenderSignalIndex_Callback = int (*)();
     using QLineEdit_Receivers_Callback = int (*)(const QLineEdit*, const char*);
-    using QLineEdit_IsSignalConnected_Callback = bool (*)(const QLineEdit*, const QMetaMethod&);
+    using QLineEdit_IsSignalConnected_Callback = bool (*)(const QLineEdit*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -267,126 +270,126 @@ class VirtualQLineEdit : public QLineEdit {
     }
 
     // Callback setters
-    void setQLineEdit_Metacall_Callback(QLineEdit_Metacall_Callback cb) { qlineedit_metacall_callback = cb; }
-    void setQLineEdit_SizeHint_Callback(QLineEdit_SizeHint_Callback cb) { qlineedit_sizehint_callback = cb; }
-    void setQLineEdit_MinimumSizeHint_Callback(QLineEdit_MinimumSizeHint_Callback cb) { qlineedit_minimumsizehint_callback = cb; }
-    void setQLineEdit_MousePressEvent_Callback(QLineEdit_MousePressEvent_Callback cb) { qlineedit_mousepressevent_callback = cb; }
-    void setQLineEdit_MouseMoveEvent_Callback(QLineEdit_MouseMoveEvent_Callback cb) { qlineedit_mousemoveevent_callback = cb; }
-    void setQLineEdit_MouseReleaseEvent_Callback(QLineEdit_MouseReleaseEvent_Callback cb) { qlineedit_mousereleaseevent_callback = cb; }
-    void setQLineEdit_MouseDoubleClickEvent_Callback(QLineEdit_MouseDoubleClickEvent_Callback cb) { qlineedit_mousedoubleclickevent_callback = cb; }
-    void setQLineEdit_KeyPressEvent_Callback(QLineEdit_KeyPressEvent_Callback cb) { qlineedit_keypressevent_callback = cb; }
-    void setQLineEdit_KeyReleaseEvent_Callback(QLineEdit_KeyReleaseEvent_Callback cb) { qlineedit_keyreleaseevent_callback = cb; }
-    void setQLineEdit_FocusInEvent_Callback(QLineEdit_FocusInEvent_Callback cb) { qlineedit_focusinevent_callback = cb; }
-    void setQLineEdit_FocusOutEvent_Callback(QLineEdit_FocusOutEvent_Callback cb) { qlineedit_focusoutevent_callback = cb; }
-    void setQLineEdit_PaintEvent_Callback(QLineEdit_PaintEvent_Callback cb) { qlineedit_paintevent_callback = cb; }
-    void setQLineEdit_DragEnterEvent_Callback(QLineEdit_DragEnterEvent_Callback cb) { qlineedit_dragenterevent_callback = cb; }
-    void setQLineEdit_DragMoveEvent_Callback(QLineEdit_DragMoveEvent_Callback cb) { qlineedit_dragmoveevent_callback = cb; }
-    void setQLineEdit_DragLeaveEvent_Callback(QLineEdit_DragLeaveEvent_Callback cb) { qlineedit_dragleaveevent_callback = cb; }
-    void setQLineEdit_DropEvent_Callback(QLineEdit_DropEvent_Callback cb) { qlineedit_dropevent_callback = cb; }
-    void setQLineEdit_ChangeEvent_Callback(QLineEdit_ChangeEvent_Callback cb) { qlineedit_changeevent_callback = cb; }
-    void setQLineEdit_ContextMenuEvent_Callback(QLineEdit_ContextMenuEvent_Callback cb) { qlineedit_contextmenuevent_callback = cb; }
-    void setQLineEdit_InputMethodEvent_Callback(QLineEdit_InputMethodEvent_Callback cb) { qlineedit_inputmethodevent_callback = cb; }
-    void setQLineEdit_InitStyleOption_Callback(QLineEdit_InitStyleOption_Callback cb) { qlineedit_initstyleoption_callback = cb; }
-    void setQLineEdit_InputMethodQuery_Callback(QLineEdit_InputMethodQuery_Callback cb) { qlineedit_inputmethodquery_callback = cb; }
-    void setQLineEdit_TimerEvent_Callback(QLineEdit_TimerEvent_Callback cb) { qlineedit_timerevent_callback = cb; }
-    void setQLineEdit_Event_Callback(QLineEdit_Event_Callback cb) { qlineedit_event_callback = cb; }
-    void setQLineEdit_DevType_Callback(QLineEdit_DevType_Callback cb) { qlineedit_devtype_callback = cb; }
-    void setQLineEdit_SetVisible_Callback(QLineEdit_SetVisible_Callback cb) { qlineedit_setvisible_callback = cb; }
-    void setQLineEdit_HeightForWidth_Callback(QLineEdit_HeightForWidth_Callback cb) { qlineedit_heightforwidth_callback = cb; }
-    void setQLineEdit_HasHeightForWidth_Callback(QLineEdit_HasHeightForWidth_Callback cb) { qlineedit_hasheightforwidth_callback = cb; }
-    void setQLineEdit_PaintEngine_Callback(QLineEdit_PaintEngine_Callback cb) { qlineedit_paintengine_callback = cb; }
-    void setQLineEdit_WheelEvent_Callback(QLineEdit_WheelEvent_Callback cb) { qlineedit_wheelevent_callback = cb; }
-    void setQLineEdit_EnterEvent_Callback(QLineEdit_EnterEvent_Callback cb) { qlineedit_enterevent_callback = cb; }
-    void setQLineEdit_LeaveEvent_Callback(QLineEdit_LeaveEvent_Callback cb) { qlineedit_leaveevent_callback = cb; }
-    void setQLineEdit_MoveEvent_Callback(QLineEdit_MoveEvent_Callback cb) { qlineedit_moveevent_callback = cb; }
-    void setQLineEdit_ResizeEvent_Callback(QLineEdit_ResizeEvent_Callback cb) { qlineedit_resizeevent_callback = cb; }
-    void setQLineEdit_CloseEvent_Callback(QLineEdit_CloseEvent_Callback cb) { qlineedit_closeevent_callback = cb; }
-    void setQLineEdit_TabletEvent_Callback(QLineEdit_TabletEvent_Callback cb) { qlineedit_tabletevent_callback = cb; }
-    void setQLineEdit_ActionEvent_Callback(QLineEdit_ActionEvent_Callback cb) { qlineedit_actionevent_callback = cb; }
-    void setQLineEdit_ShowEvent_Callback(QLineEdit_ShowEvent_Callback cb) { qlineedit_showevent_callback = cb; }
-    void setQLineEdit_HideEvent_Callback(QLineEdit_HideEvent_Callback cb) { qlineedit_hideevent_callback = cb; }
-    void setQLineEdit_NativeEvent_Callback(QLineEdit_NativeEvent_Callback cb) { qlineedit_nativeevent_callback = cb; }
-    void setQLineEdit_Metric_Callback(QLineEdit_Metric_Callback cb) { qlineedit_metric_callback = cb; }
-    void setQLineEdit_InitPainter_Callback(QLineEdit_InitPainter_Callback cb) { qlineedit_initpainter_callback = cb; }
-    void setQLineEdit_Redirected_Callback(QLineEdit_Redirected_Callback cb) { qlineedit_redirected_callback = cb; }
-    void setQLineEdit_SharedPainter_Callback(QLineEdit_SharedPainter_Callback cb) { qlineedit_sharedpainter_callback = cb; }
-    void setQLineEdit_FocusNextPrevChild_Callback(QLineEdit_FocusNextPrevChild_Callback cb) { qlineedit_focusnextprevchild_callback = cb; }
-    void setQLineEdit_EventFilter_Callback(QLineEdit_EventFilter_Callback cb) { qlineedit_eventfilter_callback = cb; }
-    void setQLineEdit_ChildEvent_Callback(QLineEdit_ChildEvent_Callback cb) { qlineedit_childevent_callback = cb; }
-    void setQLineEdit_CustomEvent_Callback(QLineEdit_CustomEvent_Callback cb) { qlineedit_customevent_callback = cb; }
-    void setQLineEdit_ConnectNotify_Callback(QLineEdit_ConnectNotify_Callback cb) { qlineedit_connectnotify_callback = cb; }
-    void setQLineEdit_DisconnectNotify_Callback(QLineEdit_DisconnectNotify_Callback cb) { qlineedit_disconnectnotify_callback = cb; }
-    void setQLineEdit_CursorRect_Callback(QLineEdit_CursorRect_Callback cb) { qlineedit_cursorrect_callback = cb; }
-    void setQLineEdit_UpdateMicroFocus_Callback(QLineEdit_UpdateMicroFocus_Callback cb) { qlineedit_updatemicrofocus_callback = cb; }
-    void setQLineEdit_Create_Callback(QLineEdit_Create_Callback cb) { qlineedit_create_callback = cb; }
-    void setQLineEdit_Destroy_Callback(QLineEdit_Destroy_Callback cb) { qlineedit_destroy_callback = cb; }
-    void setQLineEdit_FocusNextChild_Callback(QLineEdit_FocusNextChild_Callback cb) { qlineedit_focusnextchild_callback = cb; }
-    void setQLineEdit_FocusPreviousChild_Callback(QLineEdit_FocusPreviousChild_Callback cb) { qlineedit_focuspreviouschild_callback = cb; }
-    void setQLineEdit_Sender_Callback(QLineEdit_Sender_Callback cb) { qlineedit_sender_callback = cb; }
-    void setQLineEdit_SenderSignalIndex_Callback(QLineEdit_SenderSignalIndex_Callback cb) { qlineedit_sendersignalindex_callback = cb; }
-    void setQLineEdit_Receivers_Callback(QLineEdit_Receivers_Callback cb) { qlineedit_receivers_callback = cb; }
-    void setQLineEdit_IsSignalConnected_Callback(QLineEdit_IsSignalConnected_Callback cb) { qlineedit_issignalconnected_callback = cb; }
+    inline void setQLineEdit_Metacall_Callback(QLineEdit_Metacall_Callback cb) { qlineedit_metacall_callback = cb; }
+    inline void setQLineEdit_SizeHint_Callback(QLineEdit_SizeHint_Callback cb) { qlineedit_sizehint_callback = cb; }
+    inline void setQLineEdit_MinimumSizeHint_Callback(QLineEdit_MinimumSizeHint_Callback cb) { qlineedit_minimumsizehint_callback = cb; }
+    inline void setQLineEdit_MousePressEvent_Callback(QLineEdit_MousePressEvent_Callback cb) { qlineedit_mousepressevent_callback = cb; }
+    inline void setQLineEdit_MouseMoveEvent_Callback(QLineEdit_MouseMoveEvent_Callback cb) { qlineedit_mousemoveevent_callback = cb; }
+    inline void setQLineEdit_MouseReleaseEvent_Callback(QLineEdit_MouseReleaseEvent_Callback cb) { qlineedit_mousereleaseevent_callback = cb; }
+    inline void setQLineEdit_MouseDoubleClickEvent_Callback(QLineEdit_MouseDoubleClickEvent_Callback cb) { qlineedit_mousedoubleclickevent_callback = cb; }
+    inline void setQLineEdit_KeyPressEvent_Callback(QLineEdit_KeyPressEvent_Callback cb) { qlineedit_keypressevent_callback = cb; }
+    inline void setQLineEdit_KeyReleaseEvent_Callback(QLineEdit_KeyReleaseEvent_Callback cb) { qlineedit_keyreleaseevent_callback = cb; }
+    inline void setQLineEdit_FocusInEvent_Callback(QLineEdit_FocusInEvent_Callback cb) { qlineedit_focusinevent_callback = cb; }
+    inline void setQLineEdit_FocusOutEvent_Callback(QLineEdit_FocusOutEvent_Callback cb) { qlineedit_focusoutevent_callback = cb; }
+    inline void setQLineEdit_PaintEvent_Callback(QLineEdit_PaintEvent_Callback cb) { qlineedit_paintevent_callback = cb; }
+    inline void setQLineEdit_DragEnterEvent_Callback(QLineEdit_DragEnterEvent_Callback cb) { qlineedit_dragenterevent_callback = cb; }
+    inline void setQLineEdit_DragMoveEvent_Callback(QLineEdit_DragMoveEvent_Callback cb) { qlineedit_dragmoveevent_callback = cb; }
+    inline void setQLineEdit_DragLeaveEvent_Callback(QLineEdit_DragLeaveEvent_Callback cb) { qlineedit_dragleaveevent_callback = cb; }
+    inline void setQLineEdit_DropEvent_Callback(QLineEdit_DropEvent_Callback cb) { qlineedit_dropevent_callback = cb; }
+    inline void setQLineEdit_ChangeEvent_Callback(QLineEdit_ChangeEvent_Callback cb) { qlineedit_changeevent_callback = cb; }
+    inline void setQLineEdit_ContextMenuEvent_Callback(QLineEdit_ContextMenuEvent_Callback cb) { qlineedit_contextmenuevent_callback = cb; }
+    inline void setQLineEdit_InputMethodEvent_Callback(QLineEdit_InputMethodEvent_Callback cb) { qlineedit_inputmethodevent_callback = cb; }
+    inline void setQLineEdit_InitStyleOption_Callback(QLineEdit_InitStyleOption_Callback cb) { qlineedit_initstyleoption_callback = cb; }
+    inline void setQLineEdit_InputMethodQuery_Callback(QLineEdit_InputMethodQuery_Callback cb) { qlineedit_inputmethodquery_callback = cb; }
+    inline void setQLineEdit_TimerEvent_Callback(QLineEdit_TimerEvent_Callback cb) { qlineedit_timerevent_callback = cb; }
+    inline void setQLineEdit_Event_Callback(QLineEdit_Event_Callback cb) { qlineedit_event_callback = cb; }
+    inline void setQLineEdit_DevType_Callback(QLineEdit_DevType_Callback cb) { qlineedit_devtype_callback = cb; }
+    inline void setQLineEdit_SetVisible_Callback(QLineEdit_SetVisible_Callback cb) { qlineedit_setvisible_callback = cb; }
+    inline void setQLineEdit_HeightForWidth_Callback(QLineEdit_HeightForWidth_Callback cb) { qlineedit_heightforwidth_callback = cb; }
+    inline void setQLineEdit_HasHeightForWidth_Callback(QLineEdit_HasHeightForWidth_Callback cb) { qlineedit_hasheightforwidth_callback = cb; }
+    inline void setQLineEdit_PaintEngine_Callback(QLineEdit_PaintEngine_Callback cb) { qlineedit_paintengine_callback = cb; }
+    inline void setQLineEdit_WheelEvent_Callback(QLineEdit_WheelEvent_Callback cb) { qlineedit_wheelevent_callback = cb; }
+    inline void setQLineEdit_EnterEvent_Callback(QLineEdit_EnterEvent_Callback cb) { qlineedit_enterevent_callback = cb; }
+    inline void setQLineEdit_LeaveEvent_Callback(QLineEdit_LeaveEvent_Callback cb) { qlineedit_leaveevent_callback = cb; }
+    inline void setQLineEdit_MoveEvent_Callback(QLineEdit_MoveEvent_Callback cb) { qlineedit_moveevent_callback = cb; }
+    inline void setQLineEdit_ResizeEvent_Callback(QLineEdit_ResizeEvent_Callback cb) { qlineedit_resizeevent_callback = cb; }
+    inline void setQLineEdit_CloseEvent_Callback(QLineEdit_CloseEvent_Callback cb) { qlineedit_closeevent_callback = cb; }
+    inline void setQLineEdit_TabletEvent_Callback(QLineEdit_TabletEvent_Callback cb) { qlineedit_tabletevent_callback = cb; }
+    inline void setQLineEdit_ActionEvent_Callback(QLineEdit_ActionEvent_Callback cb) { qlineedit_actionevent_callback = cb; }
+    inline void setQLineEdit_ShowEvent_Callback(QLineEdit_ShowEvent_Callback cb) { qlineedit_showevent_callback = cb; }
+    inline void setQLineEdit_HideEvent_Callback(QLineEdit_HideEvent_Callback cb) { qlineedit_hideevent_callback = cb; }
+    inline void setQLineEdit_NativeEvent_Callback(QLineEdit_NativeEvent_Callback cb) { qlineedit_nativeevent_callback = cb; }
+    inline void setQLineEdit_Metric_Callback(QLineEdit_Metric_Callback cb) { qlineedit_metric_callback = cb; }
+    inline void setQLineEdit_InitPainter_Callback(QLineEdit_InitPainter_Callback cb) { qlineedit_initpainter_callback = cb; }
+    inline void setQLineEdit_Redirected_Callback(QLineEdit_Redirected_Callback cb) { qlineedit_redirected_callback = cb; }
+    inline void setQLineEdit_SharedPainter_Callback(QLineEdit_SharedPainter_Callback cb) { qlineedit_sharedpainter_callback = cb; }
+    inline void setQLineEdit_FocusNextPrevChild_Callback(QLineEdit_FocusNextPrevChild_Callback cb) { qlineedit_focusnextprevchild_callback = cb; }
+    inline void setQLineEdit_EventFilter_Callback(QLineEdit_EventFilter_Callback cb) { qlineedit_eventfilter_callback = cb; }
+    inline void setQLineEdit_ChildEvent_Callback(QLineEdit_ChildEvent_Callback cb) { qlineedit_childevent_callback = cb; }
+    inline void setQLineEdit_CustomEvent_Callback(QLineEdit_CustomEvent_Callback cb) { qlineedit_customevent_callback = cb; }
+    inline void setQLineEdit_ConnectNotify_Callback(QLineEdit_ConnectNotify_Callback cb) { qlineedit_connectnotify_callback = cb; }
+    inline void setQLineEdit_DisconnectNotify_Callback(QLineEdit_DisconnectNotify_Callback cb) { qlineedit_disconnectnotify_callback = cb; }
+    inline void setQLineEdit_CursorRect_Callback(QLineEdit_CursorRect_Callback cb) { qlineedit_cursorrect_callback = cb; }
+    inline void setQLineEdit_UpdateMicroFocus_Callback(QLineEdit_UpdateMicroFocus_Callback cb) { qlineedit_updatemicrofocus_callback = cb; }
+    inline void setQLineEdit_Create_Callback(QLineEdit_Create_Callback cb) { qlineedit_create_callback = cb; }
+    inline void setQLineEdit_Destroy_Callback(QLineEdit_Destroy_Callback cb) { qlineedit_destroy_callback = cb; }
+    inline void setQLineEdit_FocusNextChild_Callback(QLineEdit_FocusNextChild_Callback cb) { qlineedit_focusnextchild_callback = cb; }
+    inline void setQLineEdit_FocusPreviousChild_Callback(QLineEdit_FocusPreviousChild_Callback cb) { qlineedit_focuspreviouschild_callback = cb; }
+    inline void setQLineEdit_Sender_Callback(QLineEdit_Sender_Callback cb) { qlineedit_sender_callback = cb; }
+    inline void setQLineEdit_SenderSignalIndex_Callback(QLineEdit_SenderSignalIndex_Callback cb) { qlineedit_sendersignalindex_callback = cb; }
+    inline void setQLineEdit_Receivers_Callback(QLineEdit_Receivers_Callback cb) { qlineedit_receivers_callback = cb; }
+    inline void setQLineEdit_IsSignalConnected_Callback(QLineEdit_IsSignalConnected_Callback cb) { qlineedit_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQLineEdit_Metacall_IsBase(bool value) const { qlineedit_metacall_isbase = value; }
-    void setQLineEdit_SizeHint_IsBase(bool value) const { qlineedit_sizehint_isbase = value; }
-    void setQLineEdit_MinimumSizeHint_IsBase(bool value) const { qlineedit_minimumsizehint_isbase = value; }
-    void setQLineEdit_MousePressEvent_IsBase(bool value) const { qlineedit_mousepressevent_isbase = value; }
-    void setQLineEdit_MouseMoveEvent_IsBase(bool value) const { qlineedit_mousemoveevent_isbase = value; }
-    void setQLineEdit_MouseReleaseEvent_IsBase(bool value) const { qlineedit_mousereleaseevent_isbase = value; }
-    void setQLineEdit_MouseDoubleClickEvent_IsBase(bool value) const { qlineedit_mousedoubleclickevent_isbase = value; }
-    void setQLineEdit_KeyPressEvent_IsBase(bool value) const { qlineedit_keypressevent_isbase = value; }
-    void setQLineEdit_KeyReleaseEvent_IsBase(bool value) const { qlineedit_keyreleaseevent_isbase = value; }
-    void setQLineEdit_FocusInEvent_IsBase(bool value) const { qlineedit_focusinevent_isbase = value; }
-    void setQLineEdit_FocusOutEvent_IsBase(bool value) const { qlineedit_focusoutevent_isbase = value; }
-    void setQLineEdit_PaintEvent_IsBase(bool value) const { qlineedit_paintevent_isbase = value; }
-    void setQLineEdit_DragEnterEvent_IsBase(bool value) const { qlineedit_dragenterevent_isbase = value; }
-    void setQLineEdit_DragMoveEvent_IsBase(bool value) const { qlineedit_dragmoveevent_isbase = value; }
-    void setQLineEdit_DragLeaveEvent_IsBase(bool value) const { qlineedit_dragleaveevent_isbase = value; }
-    void setQLineEdit_DropEvent_IsBase(bool value) const { qlineedit_dropevent_isbase = value; }
-    void setQLineEdit_ChangeEvent_IsBase(bool value) const { qlineedit_changeevent_isbase = value; }
-    void setQLineEdit_ContextMenuEvent_IsBase(bool value) const { qlineedit_contextmenuevent_isbase = value; }
-    void setQLineEdit_InputMethodEvent_IsBase(bool value) const { qlineedit_inputmethodevent_isbase = value; }
-    void setQLineEdit_InitStyleOption_IsBase(bool value) const { qlineedit_initstyleoption_isbase = value; }
-    void setQLineEdit_InputMethodQuery_IsBase(bool value) const { qlineedit_inputmethodquery_isbase = value; }
-    void setQLineEdit_TimerEvent_IsBase(bool value) const { qlineedit_timerevent_isbase = value; }
-    void setQLineEdit_Event_IsBase(bool value) const { qlineedit_event_isbase = value; }
-    void setQLineEdit_DevType_IsBase(bool value) const { qlineedit_devtype_isbase = value; }
-    void setQLineEdit_SetVisible_IsBase(bool value) const { qlineedit_setvisible_isbase = value; }
-    void setQLineEdit_HeightForWidth_IsBase(bool value) const { qlineedit_heightforwidth_isbase = value; }
-    void setQLineEdit_HasHeightForWidth_IsBase(bool value) const { qlineedit_hasheightforwidth_isbase = value; }
-    void setQLineEdit_PaintEngine_IsBase(bool value) const { qlineedit_paintengine_isbase = value; }
-    void setQLineEdit_WheelEvent_IsBase(bool value) const { qlineedit_wheelevent_isbase = value; }
-    void setQLineEdit_EnterEvent_IsBase(bool value) const { qlineedit_enterevent_isbase = value; }
-    void setQLineEdit_LeaveEvent_IsBase(bool value) const { qlineedit_leaveevent_isbase = value; }
-    void setQLineEdit_MoveEvent_IsBase(bool value) const { qlineedit_moveevent_isbase = value; }
-    void setQLineEdit_ResizeEvent_IsBase(bool value) const { qlineedit_resizeevent_isbase = value; }
-    void setQLineEdit_CloseEvent_IsBase(bool value) const { qlineedit_closeevent_isbase = value; }
-    void setQLineEdit_TabletEvent_IsBase(bool value) const { qlineedit_tabletevent_isbase = value; }
-    void setQLineEdit_ActionEvent_IsBase(bool value) const { qlineedit_actionevent_isbase = value; }
-    void setQLineEdit_ShowEvent_IsBase(bool value) const { qlineedit_showevent_isbase = value; }
-    void setQLineEdit_HideEvent_IsBase(bool value) const { qlineedit_hideevent_isbase = value; }
-    void setQLineEdit_NativeEvent_IsBase(bool value) const { qlineedit_nativeevent_isbase = value; }
-    void setQLineEdit_Metric_IsBase(bool value) const { qlineedit_metric_isbase = value; }
-    void setQLineEdit_InitPainter_IsBase(bool value) const { qlineedit_initpainter_isbase = value; }
-    void setQLineEdit_Redirected_IsBase(bool value) const { qlineedit_redirected_isbase = value; }
-    void setQLineEdit_SharedPainter_IsBase(bool value) const { qlineedit_sharedpainter_isbase = value; }
-    void setQLineEdit_FocusNextPrevChild_IsBase(bool value) const { qlineedit_focusnextprevchild_isbase = value; }
-    void setQLineEdit_EventFilter_IsBase(bool value) const { qlineedit_eventfilter_isbase = value; }
-    void setQLineEdit_ChildEvent_IsBase(bool value) const { qlineedit_childevent_isbase = value; }
-    void setQLineEdit_CustomEvent_IsBase(bool value) const { qlineedit_customevent_isbase = value; }
-    void setQLineEdit_ConnectNotify_IsBase(bool value) const { qlineedit_connectnotify_isbase = value; }
-    void setQLineEdit_DisconnectNotify_IsBase(bool value) const { qlineedit_disconnectnotify_isbase = value; }
-    void setQLineEdit_CursorRect_IsBase(bool value) const { qlineedit_cursorrect_isbase = value; }
-    void setQLineEdit_UpdateMicroFocus_IsBase(bool value) const { qlineedit_updatemicrofocus_isbase = value; }
-    void setQLineEdit_Create_IsBase(bool value) const { qlineedit_create_isbase = value; }
-    void setQLineEdit_Destroy_IsBase(bool value) const { qlineedit_destroy_isbase = value; }
-    void setQLineEdit_FocusNextChild_IsBase(bool value) const { qlineedit_focusnextchild_isbase = value; }
-    void setQLineEdit_FocusPreviousChild_IsBase(bool value) const { qlineedit_focuspreviouschild_isbase = value; }
-    void setQLineEdit_Sender_IsBase(bool value) const { qlineedit_sender_isbase = value; }
-    void setQLineEdit_SenderSignalIndex_IsBase(bool value) const { qlineedit_sendersignalindex_isbase = value; }
-    void setQLineEdit_Receivers_IsBase(bool value) const { qlineedit_receivers_isbase = value; }
-    void setQLineEdit_IsSignalConnected_IsBase(bool value) const { qlineedit_issignalconnected_isbase = value; }
+    inline void setQLineEdit_Metacall_IsBase(bool value) const { qlineedit_metacall_isbase = value; }
+    inline void setQLineEdit_SizeHint_IsBase(bool value) const { qlineedit_sizehint_isbase = value; }
+    inline void setQLineEdit_MinimumSizeHint_IsBase(bool value) const { qlineedit_minimumsizehint_isbase = value; }
+    inline void setQLineEdit_MousePressEvent_IsBase(bool value) const { qlineedit_mousepressevent_isbase = value; }
+    inline void setQLineEdit_MouseMoveEvent_IsBase(bool value) const { qlineedit_mousemoveevent_isbase = value; }
+    inline void setQLineEdit_MouseReleaseEvent_IsBase(bool value) const { qlineedit_mousereleaseevent_isbase = value; }
+    inline void setQLineEdit_MouseDoubleClickEvent_IsBase(bool value) const { qlineedit_mousedoubleclickevent_isbase = value; }
+    inline void setQLineEdit_KeyPressEvent_IsBase(bool value) const { qlineedit_keypressevent_isbase = value; }
+    inline void setQLineEdit_KeyReleaseEvent_IsBase(bool value) const { qlineedit_keyreleaseevent_isbase = value; }
+    inline void setQLineEdit_FocusInEvent_IsBase(bool value) const { qlineedit_focusinevent_isbase = value; }
+    inline void setQLineEdit_FocusOutEvent_IsBase(bool value) const { qlineedit_focusoutevent_isbase = value; }
+    inline void setQLineEdit_PaintEvent_IsBase(bool value) const { qlineedit_paintevent_isbase = value; }
+    inline void setQLineEdit_DragEnterEvent_IsBase(bool value) const { qlineedit_dragenterevent_isbase = value; }
+    inline void setQLineEdit_DragMoveEvent_IsBase(bool value) const { qlineedit_dragmoveevent_isbase = value; }
+    inline void setQLineEdit_DragLeaveEvent_IsBase(bool value) const { qlineedit_dragleaveevent_isbase = value; }
+    inline void setQLineEdit_DropEvent_IsBase(bool value) const { qlineedit_dropevent_isbase = value; }
+    inline void setQLineEdit_ChangeEvent_IsBase(bool value) const { qlineedit_changeevent_isbase = value; }
+    inline void setQLineEdit_ContextMenuEvent_IsBase(bool value) const { qlineedit_contextmenuevent_isbase = value; }
+    inline void setQLineEdit_InputMethodEvent_IsBase(bool value) const { qlineedit_inputmethodevent_isbase = value; }
+    inline void setQLineEdit_InitStyleOption_IsBase(bool value) const { qlineedit_initstyleoption_isbase = value; }
+    inline void setQLineEdit_InputMethodQuery_IsBase(bool value) const { qlineedit_inputmethodquery_isbase = value; }
+    inline void setQLineEdit_TimerEvent_IsBase(bool value) const { qlineedit_timerevent_isbase = value; }
+    inline void setQLineEdit_Event_IsBase(bool value) const { qlineedit_event_isbase = value; }
+    inline void setQLineEdit_DevType_IsBase(bool value) const { qlineedit_devtype_isbase = value; }
+    inline void setQLineEdit_SetVisible_IsBase(bool value) const { qlineedit_setvisible_isbase = value; }
+    inline void setQLineEdit_HeightForWidth_IsBase(bool value) const { qlineedit_heightforwidth_isbase = value; }
+    inline void setQLineEdit_HasHeightForWidth_IsBase(bool value) const { qlineedit_hasheightforwidth_isbase = value; }
+    inline void setQLineEdit_PaintEngine_IsBase(bool value) const { qlineedit_paintengine_isbase = value; }
+    inline void setQLineEdit_WheelEvent_IsBase(bool value) const { qlineedit_wheelevent_isbase = value; }
+    inline void setQLineEdit_EnterEvent_IsBase(bool value) const { qlineedit_enterevent_isbase = value; }
+    inline void setQLineEdit_LeaveEvent_IsBase(bool value) const { qlineedit_leaveevent_isbase = value; }
+    inline void setQLineEdit_MoveEvent_IsBase(bool value) const { qlineedit_moveevent_isbase = value; }
+    inline void setQLineEdit_ResizeEvent_IsBase(bool value) const { qlineedit_resizeevent_isbase = value; }
+    inline void setQLineEdit_CloseEvent_IsBase(bool value) const { qlineedit_closeevent_isbase = value; }
+    inline void setQLineEdit_TabletEvent_IsBase(bool value) const { qlineedit_tabletevent_isbase = value; }
+    inline void setQLineEdit_ActionEvent_IsBase(bool value) const { qlineedit_actionevent_isbase = value; }
+    inline void setQLineEdit_ShowEvent_IsBase(bool value) const { qlineedit_showevent_isbase = value; }
+    inline void setQLineEdit_HideEvent_IsBase(bool value) const { qlineedit_hideevent_isbase = value; }
+    inline void setQLineEdit_NativeEvent_IsBase(bool value) const { qlineedit_nativeevent_isbase = value; }
+    inline void setQLineEdit_Metric_IsBase(bool value) const { qlineedit_metric_isbase = value; }
+    inline void setQLineEdit_InitPainter_IsBase(bool value) const { qlineedit_initpainter_isbase = value; }
+    inline void setQLineEdit_Redirected_IsBase(bool value) const { qlineedit_redirected_isbase = value; }
+    inline void setQLineEdit_SharedPainter_IsBase(bool value) const { qlineedit_sharedpainter_isbase = value; }
+    inline void setQLineEdit_FocusNextPrevChild_IsBase(bool value) const { qlineedit_focusnextprevchild_isbase = value; }
+    inline void setQLineEdit_EventFilter_IsBase(bool value) const { qlineedit_eventfilter_isbase = value; }
+    inline void setQLineEdit_ChildEvent_IsBase(bool value) const { qlineedit_childevent_isbase = value; }
+    inline void setQLineEdit_CustomEvent_IsBase(bool value) const { qlineedit_customevent_isbase = value; }
+    inline void setQLineEdit_ConnectNotify_IsBase(bool value) const { qlineedit_connectnotify_isbase = value; }
+    inline void setQLineEdit_DisconnectNotify_IsBase(bool value) const { qlineedit_disconnectnotify_isbase = value; }
+    inline void setQLineEdit_CursorRect_IsBase(bool value) const { qlineedit_cursorrect_isbase = value; }
+    inline void setQLineEdit_UpdateMicroFocus_IsBase(bool value) const { qlineedit_updatemicrofocus_isbase = value; }
+    inline void setQLineEdit_Create_IsBase(bool value) const { qlineedit_create_isbase = value; }
+    inline void setQLineEdit_Destroy_IsBase(bool value) const { qlineedit_destroy_isbase = value; }
+    inline void setQLineEdit_FocusNextChild_IsBase(bool value) const { qlineedit_focusnextchild_isbase = value; }
+    inline void setQLineEdit_FocusPreviousChild_IsBase(bool value) const { qlineedit_focuspreviouschild_isbase = value; }
+    inline void setQLineEdit_Sender_IsBase(bool value) const { qlineedit_sender_isbase = value; }
+    inline void setQLineEdit_SenderSignalIndex_IsBase(bool value) const { qlineedit_sendersignalindex_isbase = value; }
+    inline void setQLineEdit_Receivers_IsBase(bool value) const { qlineedit_receivers_isbase = value; }
+    inline void setQLineEdit_IsSignalConnected_IsBase(bool value) const { qlineedit_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -394,7 +397,12 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_metacall_isbase = false;
             return QLineEdit::qt_metacall(param1, param2, param3);
         } else if (qlineedit_metacall_callback != nullptr) {
-            return qlineedit_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qlineedit_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QLineEdit::qt_metacall(param1, param2, param3);
         }
@@ -406,7 +414,8 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_sizehint_isbase = false;
             return QLineEdit::sizeHint();
         } else if (qlineedit_sizehint_callback != nullptr) {
-            return qlineedit_sizehint_callback();
+            QSize* callback_ret = qlineedit_sizehint_callback();
+            return *callback_ret;
         } else {
             return QLineEdit::sizeHint();
         }
@@ -418,7 +427,8 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_minimumsizehint_isbase = false;
             return QLineEdit::minimumSizeHint();
         } else if (qlineedit_minimumsizehint_callback != nullptr) {
-            return qlineedit_minimumsizehint_callback();
+            QSize* callback_ret = qlineedit_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QLineEdit::minimumSizeHint();
         }
@@ -430,7 +440,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_mousepressevent_isbase = false;
             QLineEdit::mousePressEvent(param1);
         } else if (qlineedit_mousepressevent_callback != nullptr) {
-            qlineedit_mousepressevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qlineedit_mousepressevent_callback(this, cbval1);
         } else {
             QLineEdit::mousePressEvent(param1);
         }
@@ -442,7 +454,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_mousemoveevent_isbase = false;
             QLineEdit::mouseMoveEvent(param1);
         } else if (qlineedit_mousemoveevent_callback != nullptr) {
-            qlineedit_mousemoveevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qlineedit_mousemoveevent_callback(this, cbval1);
         } else {
             QLineEdit::mouseMoveEvent(param1);
         }
@@ -454,7 +468,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_mousereleaseevent_isbase = false;
             QLineEdit::mouseReleaseEvent(param1);
         } else if (qlineedit_mousereleaseevent_callback != nullptr) {
-            qlineedit_mousereleaseevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qlineedit_mousereleaseevent_callback(this, cbval1);
         } else {
             QLineEdit::mouseReleaseEvent(param1);
         }
@@ -466,7 +482,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_mousedoubleclickevent_isbase = false;
             QLineEdit::mouseDoubleClickEvent(param1);
         } else if (qlineedit_mousedoubleclickevent_callback != nullptr) {
-            qlineedit_mousedoubleclickevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qlineedit_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QLineEdit::mouseDoubleClickEvent(param1);
         }
@@ -478,7 +496,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_keypressevent_isbase = false;
             QLineEdit::keyPressEvent(param1);
         } else if (qlineedit_keypressevent_callback != nullptr) {
-            qlineedit_keypressevent_callback(this, param1);
+            QKeyEvent* cbval1 = param1;
+
+            qlineedit_keypressevent_callback(this, cbval1);
         } else {
             QLineEdit::keyPressEvent(param1);
         }
@@ -490,7 +510,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_keyreleaseevent_isbase = false;
             QLineEdit::keyReleaseEvent(param1);
         } else if (qlineedit_keyreleaseevent_callback != nullptr) {
-            qlineedit_keyreleaseevent_callback(this, param1);
+            QKeyEvent* cbval1 = param1;
+
+            qlineedit_keyreleaseevent_callback(this, cbval1);
         } else {
             QLineEdit::keyReleaseEvent(param1);
         }
@@ -502,7 +524,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_focusinevent_isbase = false;
             QLineEdit::focusInEvent(param1);
         } else if (qlineedit_focusinevent_callback != nullptr) {
-            qlineedit_focusinevent_callback(this, param1);
+            QFocusEvent* cbval1 = param1;
+
+            qlineedit_focusinevent_callback(this, cbval1);
         } else {
             QLineEdit::focusInEvent(param1);
         }
@@ -514,7 +538,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_focusoutevent_isbase = false;
             QLineEdit::focusOutEvent(param1);
         } else if (qlineedit_focusoutevent_callback != nullptr) {
-            qlineedit_focusoutevent_callback(this, param1);
+            QFocusEvent* cbval1 = param1;
+
+            qlineedit_focusoutevent_callback(this, cbval1);
         } else {
             QLineEdit::focusOutEvent(param1);
         }
@@ -526,7 +552,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_paintevent_isbase = false;
             QLineEdit::paintEvent(param1);
         } else if (qlineedit_paintevent_callback != nullptr) {
-            qlineedit_paintevent_callback(this, param1);
+            QPaintEvent* cbval1 = param1;
+
+            qlineedit_paintevent_callback(this, cbval1);
         } else {
             QLineEdit::paintEvent(param1);
         }
@@ -538,7 +566,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_dragenterevent_isbase = false;
             QLineEdit::dragEnterEvent(param1);
         } else if (qlineedit_dragenterevent_callback != nullptr) {
-            qlineedit_dragenterevent_callback(this, param1);
+            QDragEnterEvent* cbval1 = param1;
+
+            qlineedit_dragenterevent_callback(this, cbval1);
         } else {
             QLineEdit::dragEnterEvent(param1);
         }
@@ -550,7 +580,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_dragmoveevent_isbase = false;
             QLineEdit::dragMoveEvent(e);
         } else if (qlineedit_dragmoveevent_callback != nullptr) {
-            qlineedit_dragmoveevent_callback(this, e);
+            QDragMoveEvent* cbval1 = e;
+
+            qlineedit_dragmoveevent_callback(this, cbval1);
         } else {
             QLineEdit::dragMoveEvent(e);
         }
@@ -562,7 +594,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_dragleaveevent_isbase = false;
             QLineEdit::dragLeaveEvent(e);
         } else if (qlineedit_dragleaveevent_callback != nullptr) {
-            qlineedit_dragleaveevent_callback(this, e);
+            QDragLeaveEvent* cbval1 = e;
+
+            qlineedit_dragleaveevent_callback(this, cbval1);
         } else {
             QLineEdit::dragLeaveEvent(e);
         }
@@ -574,7 +608,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_dropevent_isbase = false;
             QLineEdit::dropEvent(param1);
         } else if (qlineedit_dropevent_callback != nullptr) {
-            qlineedit_dropevent_callback(this, param1);
+            QDropEvent* cbval1 = param1;
+
+            qlineedit_dropevent_callback(this, cbval1);
         } else {
             QLineEdit::dropEvent(param1);
         }
@@ -586,7 +622,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_changeevent_isbase = false;
             QLineEdit::changeEvent(param1);
         } else if (qlineedit_changeevent_callback != nullptr) {
-            qlineedit_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qlineedit_changeevent_callback(this, cbval1);
         } else {
             QLineEdit::changeEvent(param1);
         }
@@ -598,7 +636,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_contextmenuevent_isbase = false;
             QLineEdit::contextMenuEvent(param1);
         } else if (qlineedit_contextmenuevent_callback != nullptr) {
-            qlineedit_contextmenuevent_callback(this, param1);
+            QContextMenuEvent* cbval1 = param1;
+
+            qlineedit_contextmenuevent_callback(this, cbval1);
         } else {
             QLineEdit::contextMenuEvent(param1);
         }
@@ -610,7 +650,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_inputmethodevent_isbase = false;
             QLineEdit::inputMethodEvent(param1);
         } else if (qlineedit_inputmethodevent_callback != nullptr) {
-            qlineedit_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qlineedit_inputmethodevent_callback(this, cbval1);
         } else {
             QLineEdit::inputMethodEvent(param1);
         }
@@ -622,7 +664,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_initstyleoption_isbase = false;
             QLineEdit::initStyleOption(option);
         } else if (qlineedit_initstyleoption_callback != nullptr) {
-            qlineedit_initstyleoption_callback(this, option);
+            QStyleOptionFrame* cbval1 = option;
+
+            qlineedit_initstyleoption_callback(this, cbval1);
         } else {
             QLineEdit::initStyleOption(option);
         }
@@ -634,7 +678,10 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_inputmethodquery_isbase = false;
             return QLineEdit::inputMethodQuery(param1);
         } else if (qlineedit_inputmethodquery_callback != nullptr) {
-            return qlineedit_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qlineedit_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QLineEdit::inputMethodQuery(param1);
         }
@@ -646,7 +693,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_timerevent_isbase = false;
             QLineEdit::timerEvent(param1);
         } else if (qlineedit_timerevent_callback != nullptr) {
-            qlineedit_timerevent_callback(this, param1);
+            QTimerEvent* cbval1 = param1;
+
+            qlineedit_timerevent_callback(this, cbval1);
         } else {
             QLineEdit::timerEvent(param1);
         }
@@ -658,7 +707,10 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_event_isbase = false;
             return QLineEdit::event(param1);
         } else if (qlineedit_event_callback != nullptr) {
-            return qlineedit_event_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            bool callback_ret = qlineedit_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QLineEdit::event(param1);
         }
@@ -670,7 +722,8 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_devtype_isbase = false;
             return QLineEdit::devType();
         } else if (qlineedit_devtype_callback != nullptr) {
-            return qlineedit_devtype_callback();
+            int callback_ret = qlineedit_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QLineEdit::devType();
         }
@@ -682,7 +735,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_setvisible_isbase = false;
             QLineEdit::setVisible(visible);
         } else if (qlineedit_setvisible_callback != nullptr) {
-            qlineedit_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qlineedit_setvisible_callback(this, cbval1);
         } else {
             QLineEdit::setVisible(visible);
         }
@@ -694,7 +749,10 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_heightforwidth_isbase = false;
             return QLineEdit::heightForWidth(param1);
         } else if (qlineedit_heightforwidth_callback != nullptr) {
-            return qlineedit_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qlineedit_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QLineEdit::heightForWidth(param1);
         }
@@ -706,7 +764,8 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_hasheightforwidth_isbase = false;
             return QLineEdit::hasHeightForWidth();
         } else if (qlineedit_hasheightforwidth_callback != nullptr) {
-            return qlineedit_hasheightforwidth_callback();
+            bool callback_ret = qlineedit_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QLineEdit::hasHeightForWidth();
         }
@@ -718,7 +777,8 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_paintengine_isbase = false;
             return QLineEdit::paintEngine();
         } else if (qlineedit_paintengine_callback != nullptr) {
-            return qlineedit_paintengine_callback();
+            QPaintEngine* callback_ret = qlineedit_paintengine_callback();
+            return callback_ret;
         } else {
             return QLineEdit::paintEngine();
         }
@@ -730,7 +790,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_wheelevent_isbase = false;
             QLineEdit::wheelEvent(event);
         } else if (qlineedit_wheelevent_callback != nullptr) {
-            qlineedit_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qlineedit_wheelevent_callback(this, cbval1);
         } else {
             QLineEdit::wheelEvent(event);
         }
@@ -742,7 +804,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_enterevent_isbase = false;
             QLineEdit::enterEvent(event);
         } else if (qlineedit_enterevent_callback != nullptr) {
-            qlineedit_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qlineedit_enterevent_callback(this, cbval1);
         } else {
             QLineEdit::enterEvent(event);
         }
@@ -754,7 +818,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_leaveevent_isbase = false;
             QLineEdit::leaveEvent(event);
         } else if (qlineedit_leaveevent_callback != nullptr) {
-            qlineedit_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qlineedit_leaveevent_callback(this, cbval1);
         } else {
             QLineEdit::leaveEvent(event);
         }
@@ -766,7 +832,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_moveevent_isbase = false;
             QLineEdit::moveEvent(event);
         } else if (qlineedit_moveevent_callback != nullptr) {
-            qlineedit_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qlineedit_moveevent_callback(this, cbval1);
         } else {
             QLineEdit::moveEvent(event);
         }
@@ -778,7 +846,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_resizeevent_isbase = false;
             QLineEdit::resizeEvent(event);
         } else if (qlineedit_resizeevent_callback != nullptr) {
-            qlineedit_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qlineedit_resizeevent_callback(this, cbval1);
         } else {
             QLineEdit::resizeEvent(event);
         }
@@ -790,7 +860,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_closeevent_isbase = false;
             QLineEdit::closeEvent(event);
         } else if (qlineedit_closeevent_callback != nullptr) {
-            qlineedit_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qlineedit_closeevent_callback(this, cbval1);
         } else {
             QLineEdit::closeEvent(event);
         }
@@ -802,7 +874,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_tabletevent_isbase = false;
             QLineEdit::tabletEvent(event);
         } else if (qlineedit_tabletevent_callback != nullptr) {
-            qlineedit_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qlineedit_tabletevent_callback(this, cbval1);
         } else {
             QLineEdit::tabletEvent(event);
         }
@@ -814,7 +888,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_actionevent_isbase = false;
             QLineEdit::actionEvent(event);
         } else if (qlineedit_actionevent_callback != nullptr) {
-            qlineedit_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qlineedit_actionevent_callback(this, cbval1);
         } else {
             QLineEdit::actionEvent(event);
         }
@@ -826,7 +902,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_showevent_isbase = false;
             QLineEdit::showEvent(event);
         } else if (qlineedit_showevent_callback != nullptr) {
-            qlineedit_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qlineedit_showevent_callback(this, cbval1);
         } else {
             QLineEdit::showEvent(event);
         }
@@ -838,7 +916,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_hideevent_isbase = false;
             QLineEdit::hideEvent(event);
         } else if (qlineedit_hideevent_callback != nullptr) {
-            qlineedit_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qlineedit_hideevent_callback(this, cbval1);
         } else {
             QLineEdit::hideEvent(event);
         }
@@ -850,7 +930,19 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_nativeevent_isbase = false;
             return QLineEdit::nativeEvent(eventType, message, result);
         } else if (qlineedit_nativeevent_callback != nullptr) {
-            return qlineedit_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qlineedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QLineEdit::nativeEvent(eventType, message, result);
         }
@@ -862,7 +954,10 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_metric_isbase = false;
             return QLineEdit::metric(param1);
         } else if (qlineedit_metric_callback != nullptr) {
-            return qlineedit_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qlineedit_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QLineEdit::metric(param1);
         }
@@ -874,7 +969,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_initpainter_isbase = false;
             QLineEdit::initPainter(painter);
         } else if (qlineedit_initpainter_callback != nullptr) {
-            qlineedit_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qlineedit_initpainter_callback(this, cbval1);
         } else {
             QLineEdit::initPainter(painter);
         }
@@ -886,7 +983,10 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_redirected_isbase = false;
             return QLineEdit::redirected(offset);
         } else if (qlineedit_redirected_callback != nullptr) {
-            return qlineedit_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qlineedit_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QLineEdit::redirected(offset);
         }
@@ -898,7 +998,8 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_sharedpainter_isbase = false;
             return QLineEdit::sharedPainter();
         } else if (qlineedit_sharedpainter_callback != nullptr) {
-            return qlineedit_sharedpainter_callback();
+            QPainter* callback_ret = qlineedit_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QLineEdit::sharedPainter();
         }
@@ -910,7 +1011,10 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_focusnextprevchild_isbase = false;
             return QLineEdit::focusNextPrevChild(next);
         } else if (qlineedit_focusnextprevchild_callback != nullptr) {
-            return qlineedit_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qlineedit_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QLineEdit::focusNextPrevChild(next);
         }
@@ -922,7 +1026,11 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_eventfilter_isbase = false;
             return QLineEdit::eventFilter(watched, event);
         } else if (qlineedit_eventfilter_callback != nullptr) {
-            return qlineedit_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qlineedit_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QLineEdit::eventFilter(watched, event);
         }
@@ -934,7 +1042,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_childevent_isbase = false;
             QLineEdit::childEvent(event);
         } else if (qlineedit_childevent_callback != nullptr) {
-            qlineedit_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qlineedit_childevent_callback(this, cbval1);
         } else {
             QLineEdit::childEvent(event);
         }
@@ -946,7 +1056,9 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_customevent_isbase = false;
             QLineEdit::customEvent(event);
         } else if (qlineedit_customevent_callback != nullptr) {
-            qlineedit_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qlineedit_customevent_callback(this, cbval1);
         } else {
             QLineEdit::customEvent(event);
         }
@@ -958,7 +1070,11 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_connectnotify_isbase = false;
             QLineEdit::connectNotify(signal);
         } else if (qlineedit_connectnotify_callback != nullptr) {
-            qlineedit_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qlineedit_connectnotify_callback(this, cbval1);
         } else {
             QLineEdit::connectNotify(signal);
         }
@@ -970,7 +1086,11 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_disconnectnotify_isbase = false;
             QLineEdit::disconnectNotify(signal);
         } else if (qlineedit_disconnectnotify_callback != nullptr) {
-            qlineedit_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qlineedit_disconnectnotify_callback(this, cbval1);
         } else {
             QLineEdit::disconnectNotify(signal);
         }
@@ -982,7 +1102,8 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_cursorrect_isbase = false;
             return QLineEdit::cursorRect();
         } else if (qlineedit_cursorrect_callback != nullptr) {
-            return qlineedit_cursorrect_callback();
+            QRect* callback_ret = qlineedit_cursorrect_callback();
+            return *callback_ret;
         } else {
             return QLineEdit::cursorRect();
         }
@@ -1030,7 +1151,8 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_focusnextchild_isbase = false;
             return QLineEdit::focusNextChild();
         } else if (qlineedit_focusnextchild_callback != nullptr) {
-            return qlineedit_focusnextchild_callback();
+            bool callback_ret = qlineedit_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QLineEdit::focusNextChild();
         }
@@ -1042,7 +1164,8 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_focuspreviouschild_isbase = false;
             return QLineEdit::focusPreviousChild();
         } else if (qlineedit_focuspreviouschild_callback != nullptr) {
-            return qlineedit_focuspreviouschild_callback();
+            bool callback_ret = qlineedit_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QLineEdit::focusPreviousChild();
         }
@@ -1054,7 +1177,8 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_sender_isbase = false;
             return QLineEdit::sender();
         } else if (qlineedit_sender_callback != nullptr) {
-            return qlineedit_sender_callback();
+            QObject* callback_ret = qlineedit_sender_callback();
+            return callback_ret;
         } else {
             return QLineEdit::sender();
         }
@@ -1066,7 +1190,8 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_sendersignalindex_isbase = false;
             return QLineEdit::senderSignalIndex();
         } else if (qlineedit_sendersignalindex_callback != nullptr) {
-            return qlineedit_sendersignalindex_callback();
+            int callback_ret = qlineedit_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QLineEdit::senderSignalIndex();
         }
@@ -1078,7 +1203,10 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_receivers_isbase = false;
             return QLineEdit::receivers(signal);
         } else if (qlineedit_receivers_callback != nullptr) {
-            return qlineedit_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qlineedit_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QLineEdit::receivers(signal);
         }
@@ -1090,11 +1218,112 @@ class VirtualQLineEdit : public QLineEdit {
             qlineedit_issignalconnected_isbase = false;
             return QLineEdit::isSignalConnected(signal);
         } else if (qlineedit_issignalconnected_callback != nullptr) {
-            return qlineedit_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qlineedit_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QLineEdit::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QLineEdit_MousePressEvent(QLineEdit* self, QMouseEvent* param1);
+    friend void QLineEdit_QBaseMousePressEvent(QLineEdit* self, QMouseEvent* param1);
+    friend void QLineEdit_MouseMoveEvent(QLineEdit* self, QMouseEvent* param1);
+    friend void QLineEdit_QBaseMouseMoveEvent(QLineEdit* self, QMouseEvent* param1);
+    friend void QLineEdit_MouseReleaseEvent(QLineEdit* self, QMouseEvent* param1);
+    friend void QLineEdit_QBaseMouseReleaseEvent(QLineEdit* self, QMouseEvent* param1);
+    friend void QLineEdit_MouseDoubleClickEvent(QLineEdit* self, QMouseEvent* param1);
+    friend void QLineEdit_QBaseMouseDoubleClickEvent(QLineEdit* self, QMouseEvent* param1);
+    friend void QLineEdit_KeyPressEvent(QLineEdit* self, QKeyEvent* param1);
+    friend void QLineEdit_QBaseKeyPressEvent(QLineEdit* self, QKeyEvent* param1);
+    friend void QLineEdit_KeyReleaseEvent(QLineEdit* self, QKeyEvent* param1);
+    friend void QLineEdit_QBaseKeyReleaseEvent(QLineEdit* self, QKeyEvent* param1);
+    friend void QLineEdit_FocusInEvent(QLineEdit* self, QFocusEvent* param1);
+    friend void QLineEdit_QBaseFocusInEvent(QLineEdit* self, QFocusEvent* param1);
+    friend void QLineEdit_FocusOutEvent(QLineEdit* self, QFocusEvent* param1);
+    friend void QLineEdit_QBaseFocusOutEvent(QLineEdit* self, QFocusEvent* param1);
+    friend void QLineEdit_PaintEvent(QLineEdit* self, QPaintEvent* param1);
+    friend void QLineEdit_QBasePaintEvent(QLineEdit* self, QPaintEvent* param1);
+    friend void QLineEdit_DragEnterEvent(QLineEdit* self, QDragEnterEvent* param1);
+    friend void QLineEdit_QBaseDragEnterEvent(QLineEdit* self, QDragEnterEvent* param1);
+    friend void QLineEdit_DragMoveEvent(QLineEdit* self, QDragMoveEvent* e);
+    friend void QLineEdit_QBaseDragMoveEvent(QLineEdit* self, QDragMoveEvent* e);
+    friend void QLineEdit_DragLeaveEvent(QLineEdit* self, QDragLeaveEvent* e);
+    friend void QLineEdit_QBaseDragLeaveEvent(QLineEdit* self, QDragLeaveEvent* e);
+    friend void QLineEdit_DropEvent(QLineEdit* self, QDropEvent* param1);
+    friend void QLineEdit_QBaseDropEvent(QLineEdit* self, QDropEvent* param1);
+    friend void QLineEdit_ChangeEvent(QLineEdit* self, QEvent* param1);
+    friend void QLineEdit_QBaseChangeEvent(QLineEdit* self, QEvent* param1);
+    friend void QLineEdit_ContextMenuEvent(QLineEdit* self, QContextMenuEvent* param1);
+    friend void QLineEdit_QBaseContextMenuEvent(QLineEdit* self, QContextMenuEvent* param1);
+    friend void QLineEdit_InputMethodEvent(QLineEdit* self, QInputMethodEvent* param1);
+    friend void QLineEdit_QBaseInputMethodEvent(QLineEdit* self, QInputMethodEvent* param1);
+    friend void QLineEdit_InitStyleOption(const QLineEdit* self, QStyleOptionFrame* option);
+    friend void QLineEdit_QBaseInitStyleOption(const QLineEdit* self, QStyleOptionFrame* option);
+    friend void QLineEdit_WheelEvent(QLineEdit* self, QWheelEvent* event);
+    friend void QLineEdit_QBaseWheelEvent(QLineEdit* self, QWheelEvent* event);
+    friend void QLineEdit_EnterEvent(QLineEdit* self, QEnterEvent* event);
+    friend void QLineEdit_QBaseEnterEvent(QLineEdit* self, QEnterEvent* event);
+    friend void QLineEdit_LeaveEvent(QLineEdit* self, QEvent* event);
+    friend void QLineEdit_QBaseLeaveEvent(QLineEdit* self, QEvent* event);
+    friend void QLineEdit_MoveEvent(QLineEdit* self, QMoveEvent* event);
+    friend void QLineEdit_QBaseMoveEvent(QLineEdit* self, QMoveEvent* event);
+    friend void QLineEdit_ResizeEvent(QLineEdit* self, QResizeEvent* event);
+    friend void QLineEdit_QBaseResizeEvent(QLineEdit* self, QResizeEvent* event);
+    friend void QLineEdit_CloseEvent(QLineEdit* self, QCloseEvent* event);
+    friend void QLineEdit_QBaseCloseEvent(QLineEdit* self, QCloseEvent* event);
+    friend void QLineEdit_TabletEvent(QLineEdit* self, QTabletEvent* event);
+    friend void QLineEdit_QBaseTabletEvent(QLineEdit* self, QTabletEvent* event);
+    friend void QLineEdit_ActionEvent(QLineEdit* self, QActionEvent* event);
+    friend void QLineEdit_QBaseActionEvent(QLineEdit* self, QActionEvent* event);
+    friend void QLineEdit_ShowEvent(QLineEdit* self, QShowEvent* event);
+    friend void QLineEdit_QBaseShowEvent(QLineEdit* self, QShowEvent* event);
+    friend void QLineEdit_HideEvent(QLineEdit* self, QHideEvent* event);
+    friend void QLineEdit_QBaseHideEvent(QLineEdit* self, QHideEvent* event);
+    friend bool QLineEdit_NativeEvent(QLineEdit* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QLineEdit_QBaseNativeEvent(QLineEdit* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QLineEdit_Metric(const QLineEdit* self, int param1);
+    friend int QLineEdit_QBaseMetric(const QLineEdit* self, int param1);
+    friend void QLineEdit_InitPainter(const QLineEdit* self, QPainter* painter);
+    friend void QLineEdit_QBaseInitPainter(const QLineEdit* self, QPainter* painter);
+    friend QPaintDevice* QLineEdit_Redirected(const QLineEdit* self, QPoint* offset);
+    friend QPaintDevice* QLineEdit_QBaseRedirected(const QLineEdit* self, QPoint* offset);
+    friend QPainter* QLineEdit_SharedPainter(const QLineEdit* self);
+    friend QPainter* QLineEdit_QBaseSharedPainter(const QLineEdit* self);
+    friend bool QLineEdit_FocusNextPrevChild(QLineEdit* self, bool next);
+    friend bool QLineEdit_QBaseFocusNextPrevChild(QLineEdit* self, bool next);
+    friend void QLineEdit_ChildEvent(QLineEdit* self, QChildEvent* event);
+    friend void QLineEdit_QBaseChildEvent(QLineEdit* self, QChildEvent* event);
+    friend void QLineEdit_CustomEvent(QLineEdit* self, QEvent* event);
+    friend void QLineEdit_QBaseCustomEvent(QLineEdit* self, QEvent* event);
+    friend void QLineEdit_ConnectNotify(QLineEdit* self, const QMetaMethod* signal);
+    friend void QLineEdit_QBaseConnectNotify(QLineEdit* self, const QMetaMethod* signal);
+    friend void QLineEdit_DisconnectNotify(QLineEdit* self, const QMetaMethod* signal);
+    friend void QLineEdit_QBaseDisconnectNotify(QLineEdit* self, const QMetaMethod* signal);
+    friend QRect* QLineEdit_CursorRect(const QLineEdit* self);
+    friend QRect* QLineEdit_QBaseCursorRect(const QLineEdit* self);
+    friend void QLineEdit_UpdateMicroFocus(QLineEdit* self);
+    friend void QLineEdit_QBaseUpdateMicroFocus(QLineEdit* self);
+    friend void QLineEdit_Create(QLineEdit* self);
+    friend void QLineEdit_QBaseCreate(QLineEdit* self);
+    friend void QLineEdit_Destroy(QLineEdit* self);
+    friend void QLineEdit_QBaseDestroy(QLineEdit* self);
+    friend bool QLineEdit_FocusNextChild(QLineEdit* self);
+    friend bool QLineEdit_QBaseFocusNextChild(QLineEdit* self);
+    friend bool QLineEdit_FocusPreviousChild(QLineEdit* self);
+    friend bool QLineEdit_QBaseFocusPreviousChild(QLineEdit* self);
+    friend QObject* QLineEdit_Sender(const QLineEdit* self);
+    friend QObject* QLineEdit_QBaseSender(const QLineEdit* self);
+    friend int QLineEdit_SenderSignalIndex(const QLineEdit* self);
+    friend int QLineEdit_QBaseSenderSignalIndex(const QLineEdit* self);
+    friend int QLineEdit_Receivers(const QLineEdit* self, const char* signal);
+    friend int QLineEdit_QBaseReceivers(const QLineEdit* self, const char* signal);
+    friend bool QLineEdit_IsSignalConnected(const QLineEdit* self, const QMetaMethod* signal);
+    friend bool QLineEdit_QBaseIsSignalConnected(const QLineEdit* self, const QMetaMethod* signal);
 };
 
 #endif

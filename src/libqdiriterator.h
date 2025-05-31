@@ -29,15 +29,15 @@ typedef int IteratorFlag;  // C ABI enum
 typedef int IteratorFlags; // C ABI QFlags
 #endif
 
-QDirIterator* QDirIterator_new(QDir* dir);
-QDirIterator* QDirIterator_new2(libqt_string path);
-QDirIterator* QDirIterator_new3(libqt_string path, int filter);
-QDirIterator* QDirIterator_new4(libqt_string path, libqt_list /* of libqt_string */ nameFilters);
-QDirIterator* QDirIterator_new5(QDir* dir, int flags);
-QDirIterator* QDirIterator_new6(libqt_string path, int flags);
-QDirIterator* QDirIterator_new7(libqt_string path, int filter, int flags);
-QDirIterator* QDirIterator_new8(libqt_string path, libqt_list /* of libqt_string */ nameFilters, int filters);
-QDirIterator* QDirIterator_new9(libqt_string path, libqt_list /* of libqt_string */ nameFilters, int filters, int flags);
+QDirIterator* QDirIterator_new(const QDir* dir);
+QDirIterator* QDirIterator_new2(const libqt_string path);
+QDirIterator* QDirIterator_new3(const libqt_string path, int filter);
+QDirIterator* QDirIterator_new4(const libqt_string path, const libqt_list /* of libqt_string */ nameFilters);
+QDirIterator* QDirIterator_new5(const QDir* dir, int flags);
+QDirIterator* QDirIterator_new6(const libqt_string path, int flags);
+QDirIterator* QDirIterator_new7(const libqt_string path, int filter, int flags);
+QDirIterator* QDirIterator_new8(const libqt_string path, const libqt_list /* of libqt_string */ nameFilters, int filters);
+QDirIterator* QDirIterator_new9(const libqt_string path, const libqt_list /* of libqt_string */ nameFilters, int filters, int flags);
 libqt_string QDirIterator_Next(QDirIterator* self);
 QFileInfo* QDirIterator_NextFileInfo(QDirIterator* self);
 bool QDirIterator_HasNext(const QDirIterator* self);

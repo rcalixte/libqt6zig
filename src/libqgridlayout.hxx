@@ -11,50 +11,53 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QGridLayout so that we can call protected methods
-class VirtualQGridLayout : public QGridLayout {
+class VirtualQGridLayout final : public QGridLayout {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGridLayout = true;
+
     // Virtual class public types (including callbacks)
-    using QGridLayout_Metacall_Callback = int (*)(QGridLayout*, QMetaObject::Call, int, void**);
-    using QGridLayout_SizeHint_Callback = QSize (*)();
-    using QGridLayout_MinimumSize_Callback = QSize (*)();
-    using QGridLayout_MaximumSize_Callback = QSize (*)();
+    using QGridLayout_Metacall_Callback = int (*)(QGridLayout*, int, int, void**);
+    using QGridLayout_SizeHint_Callback = QSize* (*)();
+    using QGridLayout_MinimumSize_Callback = QSize* (*)();
+    using QGridLayout_MaximumSize_Callback = QSize* (*)();
     using QGridLayout_SetSpacing_Callback = void (*)(QGridLayout*, int);
     using QGridLayout_Spacing_Callback = int (*)();
     using QGridLayout_HasHeightForWidth_Callback = bool (*)();
     using QGridLayout_HeightForWidth_Callback = int (*)(const QGridLayout*, int);
     using QGridLayout_MinimumHeightForWidth_Callback = int (*)(const QGridLayout*, int);
-    using QGridLayout_ExpandingDirections_Callback = Qt::Orientations (*)();
+    using QGridLayout_ExpandingDirections_Callback = int (*)();
     using QGridLayout_Invalidate_Callback = void (*)();
     using QGridLayout_ItemAt_Callback = QLayoutItem* (*)(const QGridLayout*, int);
     using QGridLayout_TakeAt_Callback = QLayoutItem* (*)(QGridLayout*, int);
     using QGridLayout_Count_Callback = int (*)();
-    using QGridLayout_SetGeometry_Callback = void (*)(QGridLayout*, const QRect&);
+    using QGridLayout_SetGeometry_Callback = void (*)(QGridLayout*, QRect*);
     using QGridLayout_AddItemWithQLayoutItem_Callback = void (*)(QGridLayout*, QLayoutItem*);
-    using QGridLayout_Geometry_Callback = QRect (*)();
-    using QGridLayout_IndexOf_Callback = int (*)(const QGridLayout*, const QWidget*);
+    using QGridLayout_Geometry_Callback = QRect* (*)();
+    using QGridLayout_IndexOf_Callback = int (*)(const QGridLayout*, QWidget*);
     using QGridLayout_IsEmpty_Callback = bool (*)();
-    using QGridLayout_ControlTypes_Callback = QSizePolicy::ControlTypes (*)();
-    using QGridLayout_ReplaceWidget_Callback = QLayoutItem* (*)(QGridLayout*, QWidget*, QWidget*, Qt::FindChildOptions);
+    using QGridLayout_ControlTypes_Callback = int (*)();
+    using QGridLayout_ReplaceWidget_Callback = QLayoutItem* (*)(QGridLayout*, QWidget*, QWidget*, int);
     using QGridLayout_Layout_Callback = QLayout* (*)();
     using QGridLayout_ChildEvent_Callback = void (*)(QGridLayout*, QChildEvent*);
     using QGridLayout_Event_Callback = bool (*)(QGridLayout*, QEvent*);
     using QGridLayout_EventFilter_Callback = bool (*)(QGridLayout*, QObject*, QEvent*);
     using QGridLayout_TimerEvent_Callback = void (*)(QGridLayout*, QTimerEvent*);
     using QGridLayout_CustomEvent_Callback = void (*)(QGridLayout*, QEvent*);
-    using QGridLayout_ConnectNotify_Callback = void (*)(QGridLayout*, const QMetaMethod&);
-    using QGridLayout_DisconnectNotify_Callback = void (*)(QGridLayout*, const QMetaMethod&);
+    using QGridLayout_ConnectNotify_Callback = void (*)(QGridLayout*, QMetaMethod*);
+    using QGridLayout_DisconnectNotify_Callback = void (*)(QGridLayout*, QMetaMethod*);
     using QGridLayout_Widget_Callback = QWidget* (*)();
     using QGridLayout_SpacerItem_Callback = QSpacerItem* (*)();
     using QGridLayout_WidgetEvent_Callback = void (*)(QGridLayout*, QEvent*);
     using QGridLayout_AddChildLayout_Callback = void (*)(QGridLayout*, QLayout*);
     using QGridLayout_AddChildWidget_Callback = void (*)(QGridLayout*, QWidget*);
     using QGridLayout_AdoptLayout_Callback = bool (*)(QGridLayout*, QLayout*);
-    using QGridLayout_AlignmentRect_Callback = QRect (*)(const QGridLayout*, const QRect&);
+    using QGridLayout_AlignmentRect_Callback = QRect* (*)(const QGridLayout*, QRect*);
     using QGridLayout_Sender_Callback = QObject* (*)();
     using QGridLayout_SenderSignalIndex_Callback = int (*)();
     using QGridLayout_Receivers_Callback = int (*)(const QGridLayout*, const char*);
-    using QGridLayout_IsSignalConnected_Callback = bool (*)(const QGridLayout*, const QMetaMethod&);
+    using QGridLayout_IsSignalConnected_Callback = bool (*)(const QGridLayout*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -189,88 +192,88 @@ class VirtualQGridLayout : public QGridLayout {
     }
 
     // Callback setters
-    void setQGridLayout_Metacall_Callback(QGridLayout_Metacall_Callback cb) { qgridlayout_metacall_callback = cb; }
-    void setQGridLayout_SizeHint_Callback(QGridLayout_SizeHint_Callback cb) { qgridlayout_sizehint_callback = cb; }
-    void setQGridLayout_MinimumSize_Callback(QGridLayout_MinimumSize_Callback cb) { qgridlayout_minimumsize_callback = cb; }
-    void setQGridLayout_MaximumSize_Callback(QGridLayout_MaximumSize_Callback cb) { qgridlayout_maximumsize_callback = cb; }
-    void setQGridLayout_SetSpacing_Callback(QGridLayout_SetSpacing_Callback cb) { qgridlayout_setspacing_callback = cb; }
-    void setQGridLayout_Spacing_Callback(QGridLayout_Spacing_Callback cb) { qgridlayout_spacing_callback = cb; }
-    void setQGridLayout_HasHeightForWidth_Callback(QGridLayout_HasHeightForWidth_Callback cb) { qgridlayout_hasheightforwidth_callback = cb; }
-    void setQGridLayout_HeightForWidth_Callback(QGridLayout_HeightForWidth_Callback cb) { qgridlayout_heightforwidth_callback = cb; }
-    void setQGridLayout_MinimumHeightForWidth_Callback(QGridLayout_MinimumHeightForWidth_Callback cb) { qgridlayout_minimumheightforwidth_callback = cb; }
-    void setQGridLayout_ExpandingDirections_Callback(QGridLayout_ExpandingDirections_Callback cb) { qgridlayout_expandingdirections_callback = cb; }
-    void setQGridLayout_Invalidate_Callback(QGridLayout_Invalidate_Callback cb) { qgridlayout_invalidate_callback = cb; }
-    void setQGridLayout_ItemAt_Callback(QGridLayout_ItemAt_Callback cb) { qgridlayout_itemat_callback = cb; }
-    void setQGridLayout_TakeAt_Callback(QGridLayout_TakeAt_Callback cb) { qgridlayout_takeat_callback = cb; }
-    void setQGridLayout_Count_Callback(QGridLayout_Count_Callback cb) { qgridlayout_count_callback = cb; }
-    void setQGridLayout_SetGeometry_Callback(QGridLayout_SetGeometry_Callback cb) { qgridlayout_setgeometry_callback = cb; }
-    void setQGridLayout_AddItemWithQLayoutItem_Callback(QGridLayout_AddItemWithQLayoutItem_Callback cb) { qgridlayout_additemwithqlayoutitem_callback = cb; }
-    void setQGridLayout_Geometry_Callback(QGridLayout_Geometry_Callback cb) { qgridlayout_geometry_callback = cb; }
-    void setQGridLayout_IndexOf_Callback(QGridLayout_IndexOf_Callback cb) { qgridlayout_indexof_callback = cb; }
-    void setQGridLayout_IsEmpty_Callback(QGridLayout_IsEmpty_Callback cb) { qgridlayout_isempty_callback = cb; }
-    void setQGridLayout_ControlTypes_Callback(QGridLayout_ControlTypes_Callback cb) { qgridlayout_controltypes_callback = cb; }
-    void setQGridLayout_ReplaceWidget_Callback(QGridLayout_ReplaceWidget_Callback cb) { qgridlayout_replacewidget_callback = cb; }
-    void setQGridLayout_Layout_Callback(QGridLayout_Layout_Callback cb) { qgridlayout_layout_callback = cb; }
-    void setQGridLayout_ChildEvent_Callback(QGridLayout_ChildEvent_Callback cb) { qgridlayout_childevent_callback = cb; }
-    void setQGridLayout_Event_Callback(QGridLayout_Event_Callback cb) { qgridlayout_event_callback = cb; }
-    void setQGridLayout_EventFilter_Callback(QGridLayout_EventFilter_Callback cb) { qgridlayout_eventfilter_callback = cb; }
-    void setQGridLayout_TimerEvent_Callback(QGridLayout_TimerEvent_Callback cb) { qgridlayout_timerevent_callback = cb; }
-    void setQGridLayout_CustomEvent_Callback(QGridLayout_CustomEvent_Callback cb) { qgridlayout_customevent_callback = cb; }
-    void setQGridLayout_ConnectNotify_Callback(QGridLayout_ConnectNotify_Callback cb) { qgridlayout_connectnotify_callback = cb; }
-    void setQGridLayout_DisconnectNotify_Callback(QGridLayout_DisconnectNotify_Callback cb) { qgridlayout_disconnectnotify_callback = cb; }
-    void setQGridLayout_Widget_Callback(QGridLayout_Widget_Callback cb) { qgridlayout_widget_callback = cb; }
-    void setQGridLayout_SpacerItem_Callback(QGridLayout_SpacerItem_Callback cb) { qgridlayout_spaceritem_callback = cb; }
-    void setQGridLayout_WidgetEvent_Callback(QGridLayout_WidgetEvent_Callback cb) { qgridlayout_widgetevent_callback = cb; }
-    void setQGridLayout_AddChildLayout_Callback(QGridLayout_AddChildLayout_Callback cb) { qgridlayout_addchildlayout_callback = cb; }
-    void setQGridLayout_AddChildWidget_Callback(QGridLayout_AddChildWidget_Callback cb) { qgridlayout_addchildwidget_callback = cb; }
-    void setQGridLayout_AdoptLayout_Callback(QGridLayout_AdoptLayout_Callback cb) { qgridlayout_adoptlayout_callback = cb; }
-    void setQGridLayout_AlignmentRect_Callback(QGridLayout_AlignmentRect_Callback cb) { qgridlayout_alignmentrect_callback = cb; }
-    void setQGridLayout_Sender_Callback(QGridLayout_Sender_Callback cb) { qgridlayout_sender_callback = cb; }
-    void setQGridLayout_SenderSignalIndex_Callback(QGridLayout_SenderSignalIndex_Callback cb) { qgridlayout_sendersignalindex_callback = cb; }
-    void setQGridLayout_Receivers_Callback(QGridLayout_Receivers_Callback cb) { qgridlayout_receivers_callback = cb; }
-    void setQGridLayout_IsSignalConnected_Callback(QGridLayout_IsSignalConnected_Callback cb) { qgridlayout_issignalconnected_callback = cb; }
+    inline void setQGridLayout_Metacall_Callback(QGridLayout_Metacall_Callback cb) { qgridlayout_metacall_callback = cb; }
+    inline void setQGridLayout_SizeHint_Callback(QGridLayout_SizeHint_Callback cb) { qgridlayout_sizehint_callback = cb; }
+    inline void setQGridLayout_MinimumSize_Callback(QGridLayout_MinimumSize_Callback cb) { qgridlayout_minimumsize_callback = cb; }
+    inline void setQGridLayout_MaximumSize_Callback(QGridLayout_MaximumSize_Callback cb) { qgridlayout_maximumsize_callback = cb; }
+    inline void setQGridLayout_SetSpacing_Callback(QGridLayout_SetSpacing_Callback cb) { qgridlayout_setspacing_callback = cb; }
+    inline void setQGridLayout_Spacing_Callback(QGridLayout_Spacing_Callback cb) { qgridlayout_spacing_callback = cb; }
+    inline void setQGridLayout_HasHeightForWidth_Callback(QGridLayout_HasHeightForWidth_Callback cb) { qgridlayout_hasheightforwidth_callback = cb; }
+    inline void setQGridLayout_HeightForWidth_Callback(QGridLayout_HeightForWidth_Callback cb) { qgridlayout_heightforwidth_callback = cb; }
+    inline void setQGridLayout_MinimumHeightForWidth_Callback(QGridLayout_MinimumHeightForWidth_Callback cb) { qgridlayout_minimumheightforwidth_callback = cb; }
+    inline void setQGridLayout_ExpandingDirections_Callback(QGridLayout_ExpandingDirections_Callback cb) { qgridlayout_expandingdirections_callback = cb; }
+    inline void setQGridLayout_Invalidate_Callback(QGridLayout_Invalidate_Callback cb) { qgridlayout_invalidate_callback = cb; }
+    inline void setQGridLayout_ItemAt_Callback(QGridLayout_ItemAt_Callback cb) { qgridlayout_itemat_callback = cb; }
+    inline void setQGridLayout_TakeAt_Callback(QGridLayout_TakeAt_Callback cb) { qgridlayout_takeat_callback = cb; }
+    inline void setQGridLayout_Count_Callback(QGridLayout_Count_Callback cb) { qgridlayout_count_callback = cb; }
+    inline void setQGridLayout_SetGeometry_Callback(QGridLayout_SetGeometry_Callback cb) { qgridlayout_setgeometry_callback = cb; }
+    inline void setQGridLayout_AddItemWithQLayoutItem_Callback(QGridLayout_AddItemWithQLayoutItem_Callback cb) { qgridlayout_additemwithqlayoutitem_callback = cb; }
+    inline void setQGridLayout_Geometry_Callback(QGridLayout_Geometry_Callback cb) { qgridlayout_geometry_callback = cb; }
+    inline void setQGridLayout_IndexOf_Callback(QGridLayout_IndexOf_Callback cb) { qgridlayout_indexof_callback = cb; }
+    inline void setQGridLayout_IsEmpty_Callback(QGridLayout_IsEmpty_Callback cb) { qgridlayout_isempty_callback = cb; }
+    inline void setQGridLayout_ControlTypes_Callback(QGridLayout_ControlTypes_Callback cb) { qgridlayout_controltypes_callback = cb; }
+    inline void setQGridLayout_ReplaceWidget_Callback(QGridLayout_ReplaceWidget_Callback cb) { qgridlayout_replacewidget_callback = cb; }
+    inline void setQGridLayout_Layout_Callback(QGridLayout_Layout_Callback cb) { qgridlayout_layout_callback = cb; }
+    inline void setQGridLayout_ChildEvent_Callback(QGridLayout_ChildEvent_Callback cb) { qgridlayout_childevent_callback = cb; }
+    inline void setQGridLayout_Event_Callback(QGridLayout_Event_Callback cb) { qgridlayout_event_callback = cb; }
+    inline void setQGridLayout_EventFilter_Callback(QGridLayout_EventFilter_Callback cb) { qgridlayout_eventfilter_callback = cb; }
+    inline void setQGridLayout_TimerEvent_Callback(QGridLayout_TimerEvent_Callback cb) { qgridlayout_timerevent_callback = cb; }
+    inline void setQGridLayout_CustomEvent_Callback(QGridLayout_CustomEvent_Callback cb) { qgridlayout_customevent_callback = cb; }
+    inline void setQGridLayout_ConnectNotify_Callback(QGridLayout_ConnectNotify_Callback cb) { qgridlayout_connectnotify_callback = cb; }
+    inline void setQGridLayout_DisconnectNotify_Callback(QGridLayout_DisconnectNotify_Callback cb) { qgridlayout_disconnectnotify_callback = cb; }
+    inline void setQGridLayout_Widget_Callback(QGridLayout_Widget_Callback cb) { qgridlayout_widget_callback = cb; }
+    inline void setQGridLayout_SpacerItem_Callback(QGridLayout_SpacerItem_Callback cb) { qgridlayout_spaceritem_callback = cb; }
+    inline void setQGridLayout_WidgetEvent_Callback(QGridLayout_WidgetEvent_Callback cb) { qgridlayout_widgetevent_callback = cb; }
+    inline void setQGridLayout_AddChildLayout_Callback(QGridLayout_AddChildLayout_Callback cb) { qgridlayout_addchildlayout_callback = cb; }
+    inline void setQGridLayout_AddChildWidget_Callback(QGridLayout_AddChildWidget_Callback cb) { qgridlayout_addchildwidget_callback = cb; }
+    inline void setQGridLayout_AdoptLayout_Callback(QGridLayout_AdoptLayout_Callback cb) { qgridlayout_adoptlayout_callback = cb; }
+    inline void setQGridLayout_AlignmentRect_Callback(QGridLayout_AlignmentRect_Callback cb) { qgridlayout_alignmentrect_callback = cb; }
+    inline void setQGridLayout_Sender_Callback(QGridLayout_Sender_Callback cb) { qgridlayout_sender_callback = cb; }
+    inline void setQGridLayout_SenderSignalIndex_Callback(QGridLayout_SenderSignalIndex_Callback cb) { qgridlayout_sendersignalindex_callback = cb; }
+    inline void setQGridLayout_Receivers_Callback(QGridLayout_Receivers_Callback cb) { qgridlayout_receivers_callback = cb; }
+    inline void setQGridLayout_IsSignalConnected_Callback(QGridLayout_IsSignalConnected_Callback cb) { qgridlayout_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQGridLayout_Metacall_IsBase(bool value) const { qgridlayout_metacall_isbase = value; }
-    void setQGridLayout_SizeHint_IsBase(bool value) const { qgridlayout_sizehint_isbase = value; }
-    void setQGridLayout_MinimumSize_IsBase(bool value) const { qgridlayout_minimumsize_isbase = value; }
-    void setQGridLayout_MaximumSize_IsBase(bool value) const { qgridlayout_maximumsize_isbase = value; }
-    void setQGridLayout_SetSpacing_IsBase(bool value) const { qgridlayout_setspacing_isbase = value; }
-    void setQGridLayout_Spacing_IsBase(bool value) const { qgridlayout_spacing_isbase = value; }
-    void setQGridLayout_HasHeightForWidth_IsBase(bool value) const { qgridlayout_hasheightforwidth_isbase = value; }
-    void setQGridLayout_HeightForWidth_IsBase(bool value) const { qgridlayout_heightforwidth_isbase = value; }
-    void setQGridLayout_MinimumHeightForWidth_IsBase(bool value) const { qgridlayout_minimumheightforwidth_isbase = value; }
-    void setQGridLayout_ExpandingDirections_IsBase(bool value) const { qgridlayout_expandingdirections_isbase = value; }
-    void setQGridLayout_Invalidate_IsBase(bool value) const { qgridlayout_invalidate_isbase = value; }
-    void setQGridLayout_ItemAt_IsBase(bool value) const { qgridlayout_itemat_isbase = value; }
-    void setQGridLayout_TakeAt_IsBase(bool value) const { qgridlayout_takeat_isbase = value; }
-    void setQGridLayout_Count_IsBase(bool value) const { qgridlayout_count_isbase = value; }
-    void setQGridLayout_SetGeometry_IsBase(bool value) const { qgridlayout_setgeometry_isbase = value; }
-    void setQGridLayout_AddItemWithQLayoutItem_IsBase(bool value) const { qgridlayout_additemwithqlayoutitem_isbase = value; }
-    void setQGridLayout_Geometry_IsBase(bool value) const { qgridlayout_geometry_isbase = value; }
-    void setQGridLayout_IndexOf_IsBase(bool value) const { qgridlayout_indexof_isbase = value; }
-    void setQGridLayout_IsEmpty_IsBase(bool value) const { qgridlayout_isempty_isbase = value; }
-    void setQGridLayout_ControlTypes_IsBase(bool value) const { qgridlayout_controltypes_isbase = value; }
-    void setQGridLayout_ReplaceWidget_IsBase(bool value) const { qgridlayout_replacewidget_isbase = value; }
-    void setQGridLayout_Layout_IsBase(bool value) const { qgridlayout_layout_isbase = value; }
-    void setQGridLayout_ChildEvent_IsBase(bool value) const { qgridlayout_childevent_isbase = value; }
-    void setQGridLayout_Event_IsBase(bool value) const { qgridlayout_event_isbase = value; }
-    void setQGridLayout_EventFilter_IsBase(bool value) const { qgridlayout_eventfilter_isbase = value; }
-    void setQGridLayout_TimerEvent_IsBase(bool value) const { qgridlayout_timerevent_isbase = value; }
-    void setQGridLayout_CustomEvent_IsBase(bool value) const { qgridlayout_customevent_isbase = value; }
-    void setQGridLayout_ConnectNotify_IsBase(bool value) const { qgridlayout_connectnotify_isbase = value; }
-    void setQGridLayout_DisconnectNotify_IsBase(bool value) const { qgridlayout_disconnectnotify_isbase = value; }
-    void setQGridLayout_Widget_IsBase(bool value) const { qgridlayout_widget_isbase = value; }
-    void setQGridLayout_SpacerItem_IsBase(bool value) const { qgridlayout_spaceritem_isbase = value; }
-    void setQGridLayout_WidgetEvent_IsBase(bool value) const { qgridlayout_widgetevent_isbase = value; }
-    void setQGridLayout_AddChildLayout_IsBase(bool value) const { qgridlayout_addchildlayout_isbase = value; }
-    void setQGridLayout_AddChildWidget_IsBase(bool value) const { qgridlayout_addchildwidget_isbase = value; }
-    void setQGridLayout_AdoptLayout_IsBase(bool value) const { qgridlayout_adoptlayout_isbase = value; }
-    void setQGridLayout_AlignmentRect_IsBase(bool value) const { qgridlayout_alignmentrect_isbase = value; }
-    void setQGridLayout_Sender_IsBase(bool value) const { qgridlayout_sender_isbase = value; }
-    void setQGridLayout_SenderSignalIndex_IsBase(bool value) const { qgridlayout_sendersignalindex_isbase = value; }
-    void setQGridLayout_Receivers_IsBase(bool value) const { qgridlayout_receivers_isbase = value; }
-    void setQGridLayout_IsSignalConnected_IsBase(bool value) const { qgridlayout_issignalconnected_isbase = value; }
+    inline void setQGridLayout_Metacall_IsBase(bool value) const { qgridlayout_metacall_isbase = value; }
+    inline void setQGridLayout_SizeHint_IsBase(bool value) const { qgridlayout_sizehint_isbase = value; }
+    inline void setQGridLayout_MinimumSize_IsBase(bool value) const { qgridlayout_minimumsize_isbase = value; }
+    inline void setQGridLayout_MaximumSize_IsBase(bool value) const { qgridlayout_maximumsize_isbase = value; }
+    inline void setQGridLayout_SetSpacing_IsBase(bool value) const { qgridlayout_setspacing_isbase = value; }
+    inline void setQGridLayout_Spacing_IsBase(bool value) const { qgridlayout_spacing_isbase = value; }
+    inline void setQGridLayout_HasHeightForWidth_IsBase(bool value) const { qgridlayout_hasheightforwidth_isbase = value; }
+    inline void setQGridLayout_HeightForWidth_IsBase(bool value) const { qgridlayout_heightforwidth_isbase = value; }
+    inline void setQGridLayout_MinimumHeightForWidth_IsBase(bool value) const { qgridlayout_minimumheightforwidth_isbase = value; }
+    inline void setQGridLayout_ExpandingDirections_IsBase(bool value) const { qgridlayout_expandingdirections_isbase = value; }
+    inline void setQGridLayout_Invalidate_IsBase(bool value) const { qgridlayout_invalidate_isbase = value; }
+    inline void setQGridLayout_ItemAt_IsBase(bool value) const { qgridlayout_itemat_isbase = value; }
+    inline void setQGridLayout_TakeAt_IsBase(bool value) const { qgridlayout_takeat_isbase = value; }
+    inline void setQGridLayout_Count_IsBase(bool value) const { qgridlayout_count_isbase = value; }
+    inline void setQGridLayout_SetGeometry_IsBase(bool value) const { qgridlayout_setgeometry_isbase = value; }
+    inline void setQGridLayout_AddItemWithQLayoutItem_IsBase(bool value) const { qgridlayout_additemwithqlayoutitem_isbase = value; }
+    inline void setQGridLayout_Geometry_IsBase(bool value) const { qgridlayout_geometry_isbase = value; }
+    inline void setQGridLayout_IndexOf_IsBase(bool value) const { qgridlayout_indexof_isbase = value; }
+    inline void setQGridLayout_IsEmpty_IsBase(bool value) const { qgridlayout_isempty_isbase = value; }
+    inline void setQGridLayout_ControlTypes_IsBase(bool value) const { qgridlayout_controltypes_isbase = value; }
+    inline void setQGridLayout_ReplaceWidget_IsBase(bool value) const { qgridlayout_replacewidget_isbase = value; }
+    inline void setQGridLayout_Layout_IsBase(bool value) const { qgridlayout_layout_isbase = value; }
+    inline void setQGridLayout_ChildEvent_IsBase(bool value) const { qgridlayout_childevent_isbase = value; }
+    inline void setQGridLayout_Event_IsBase(bool value) const { qgridlayout_event_isbase = value; }
+    inline void setQGridLayout_EventFilter_IsBase(bool value) const { qgridlayout_eventfilter_isbase = value; }
+    inline void setQGridLayout_TimerEvent_IsBase(bool value) const { qgridlayout_timerevent_isbase = value; }
+    inline void setQGridLayout_CustomEvent_IsBase(bool value) const { qgridlayout_customevent_isbase = value; }
+    inline void setQGridLayout_ConnectNotify_IsBase(bool value) const { qgridlayout_connectnotify_isbase = value; }
+    inline void setQGridLayout_DisconnectNotify_IsBase(bool value) const { qgridlayout_disconnectnotify_isbase = value; }
+    inline void setQGridLayout_Widget_IsBase(bool value) const { qgridlayout_widget_isbase = value; }
+    inline void setQGridLayout_SpacerItem_IsBase(bool value) const { qgridlayout_spaceritem_isbase = value; }
+    inline void setQGridLayout_WidgetEvent_IsBase(bool value) const { qgridlayout_widgetevent_isbase = value; }
+    inline void setQGridLayout_AddChildLayout_IsBase(bool value) const { qgridlayout_addchildlayout_isbase = value; }
+    inline void setQGridLayout_AddChildWidget_IsBase(bool value) const { qgridlayout_addchildwidget_isbase = value; }
+    inline void setQGridLayout_AdoptLayout_IsBase(bool value) const { qgridlayout_adoptlayout_isbase = value; }
+    inline void setQGridLayout_AlignmentRect_IsBase(bool value) const { qgridlayout_alignmentrect_isbase = value; }
+    inline void setQGridLayout_Sender_IsBase(bool value) const { qgridlayout_sender_isbase = value; }
+    inline void setQGridLayout_SenderSignalIndex_IsBase(bool value) const { qgridlayout_sendersignalindex_isbase = value; }
+    inline void setQGridLayout_Receivers_IsBase(bool value) const { qgridlayout_receivers_isbase = value; }
+    inline void setQGridLayout_IsSignalConnected_IsBase(bool value) const { qgridlayout_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -278,7 +281,12 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_metacall_isbase = false;
             return QGridLayout::qt_metacall(param1, param2, param3);
         } else if (qgridlayout_metacall_callback != nullptr) {
-            return qgridlayout_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qgridlayout_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QGridLayout::qt_metacall(param1, param2, param3);
         }
@@ -290,7 +298,8 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_sizehint_isbase = false;
             return QGridLayout::sizeHint();
         } else if (qgridlayout_sizehint_callback != nullptr) {
-            return qgridlayout_sizehint_callback();
+            QSize* callback_ret = qgridlayout_sizehint_callback();
+            return *callback_ret;
         } else {
             return QGridLayout::sizeHint();
         }
@@ -302,7 +311,8 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_minimumsize_isbase = false;
             return QGridLayout::minimumSize();
         } else if (qgridlayout_minimumsize_callback != nullptr) {
-            return qgridlayout_minimumsize_callback();
+            QSize* callback_ret = qgridlayout_minimumsize_callback();
+            return *callback_ret;
         } else {
             return QGridLayout::minimumSize();
         }
@@ -314,7 +324,8 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_maximumsize_isbase = false;
             return QGridLayout::maximumSize();
         } else if (qgridlayout_maximumsize_callback != nullptr) {
-            return qgridlayout_maximumsize_callback();
+            QSize* callback_ret = qgridlayout_maximumsize_callback();
+            return *callback_ret;
         } else {
             return QGridLayout::maximumSize();
         }
@@ -326,7 +337,9 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_setspacing_isbase = false;
             QGridLayout::setSpacing(spacing);
         } else if (qgridlayout_setspacing_callback != nullptr) {
-            qgridlayout_setspacing_callback(this, spacing);
+            int cbval1 = spacing;
+
+            qgridlayout_setspacing_callback(this, cbval1);
         } else {
             QGridLayout::setSpacing(spacing);
         }
@@ -338,7 +351,8 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_spacing_isbase = false;
             return QGridLayout::spacing();
         } else if (qgridlayout_spacing_callback != nullptr) {
-            return qgridlayout_spacing_callback();
+            int callback_ret = qgridlayout_spacing_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGridLayout::spacing();
         }
@@ -350,7 +364,8 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_hasheightforwidth_isbase = false;
             return QGridLayout::hasHeightForWidth();
         } else if (qgridlayout_hasheightforwidth_callback != nullptr) {
-            return qgridlayout_hasheightforwidth_callback();
+            bool callback_ret = qgridlayout_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QGridLayout::hasHeightForWidth();
         }
@@ -362,7 +377,10 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_heightforwidth_isbase = false;
             return QGridLayout::heightForWidth(param1);
         } else if (qgridlayout_heightforwidth_callback != nullptr) {
-            return qgridlayout_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qgridlayout_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QGridLayout::heightForWidth(param1);
         }
@@ -374,7 +392,10 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_minimumheightforwidth_isbase = false;
             return QGridLayout::minimumHeightForWidth(param1);
         } else if (qgridlayout_minimumheightforwidth_callback != nullptr) {
-            return qgridlayout_minimumheightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qgridlayout_minimumheightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QGridLayout::minimumHeightForWidth(param1);
         }
@@ -386,7 +407,8 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_expandingdirections_isbase = false;
             return QGridLayout::expandingDirections();
         } else if (qgridlayout_expandingdirections_callback != nullptr) {
-            return qgridlayout_expandingdirections_callback();
+            int callback_ret = qgridlayout_expandingdirections_callback();
+            return static_cast<Qt::Orientations>(callback_ret);
         } else {
             return QGridLayout::expandingDirections();
         }
@@ -410,7 +432,10 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_itemat_isbase = false;
             return QGridLayout::itemAt(index);
         } else if (qgridlayout_itemat_callback != nullptr) {
-            return qgridlayout_itemat_callback(this, index);
+            int cbval1 = index;
+
+            QLayoutItem* callback_ret = qgridlayout_itemat_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGridLayout::itemAt(index);
         }
@@ -422,7 +447,10 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_takeat_isbase = false;
             return QGridLayout::takeAt(index);
         } else if (qgridlayout_takeat_callback != nullptr) {
-            return qgridlayout_takeat_callback(this, index);
+            int cbval1 = index;
+
+            QLayoutItem* callback_ret = qgridlayout_takeat_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGridLayout::takeAt(index);
         }
@@ -434,7 +462,8 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_count_isbase = false;
             return QGridLayout::count();
         } else if (qgridlayout_count_callback != nullptr) {
-            return qgridlayout_count_callback();
+            int callback_ret = qgridlayout_count_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGridLayout::count();
         }
@@ -446,7 +475,11 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_setgeometry_isbase = false;
             QGridLayout::setGeometry(geometry);
         } else if (qgridlayout_setgeometry_callback != nullptr) {
-            qgridlayout_setgeometry_callback(this, geometry);
+            const QRect& geometry_ret = geometry;
+            // Cast returned reference into pointer
+            QRect* cbval1 = const_cast<QRect*>(&geometry_ret);
+
+            qgridlayout_setgeometry_callback(this, cbval1);
         } else {
             QGridLayout::setGeometry(geometry);
         }
@@ -458,7 +491,9 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_additemwithqlayoutitem_isbase = false;
             QGridLayout::addItem(param1);
         } else if (qgridlayout_additemwithqlayoutitem_callback != nullptr) {
-            qgridlayout_additemwithqlayoutitem_callback(this, param1);
+            QLayoutItem* cbval1 = param1;
+
+            qgridlayout_additemwithqlayoutitem_callback(this, cbval1);
         } else {
             QGridLayout::addItem(param1);
         }
@@ -470,7 +505,8 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_geometry_isbase = false;
             return QGridLayout::geometry();
         } else if (qgridlayout_geometry_callback != nullptr) {
-            return qgridlayout_geometry_callback();
+            QRect* callback_ret = qgridlayout_geometry_callback();
+            return *callback_ret;
         } else {
             return QGridLayout::geometry();
         }
@@ -482,7 +518,10 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_indexof_isbase = false;
             return QGridLayout::indexOf(param1);
         } else if (qgridlayout_indexof_callback != nullptr) {
-            return qgridlayout_indexof_callback(this, param1);
+            QWidget* cbval1 = (QWidget*)param1;
+
+            int callback_ret = qgridlayout_indexof_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QGridLayout::indexOf(param1);
         }
@@ -494,7 +533,8 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_isempty_isbase = false;
             return QGridLayout::isEmpty();
         } else if (qgridlayout_isempty_callback != nullptr) {
-            return qgridlayout_isempty_callback();
+            bool callback_ret = qgridlayout_isempty_callback();
+            return callback_ret;
         } else {
             return QGridLayout::isEmpty();
         }
@@ -506,7 +546,8 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_controltypes_isbase = false;
             return QGridLayout::controlTypes();
         } else if (qgridlayout_controltypes_callback != nullptr) {
-            return qgridlayout_controltypes_callback();
+            int callback_ret = qgridlayout_controltypes_callback();
+            return static_cast<QSizePolicy::ControlTypes>(callback_ret);
         } else {
             return QGridLayout::controlTypes();
         }
@@ -518,7 +559,12 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_replacewidget_isbase = false;
             return QGridLayout::replaceWidget(from, to, options);
         } else if (qgridlayout_replacewidget_callback != nullptr) {
-            return qgridlayout_replacewidget_callback(this, from, to, options);
+            QWidget* cbval1 = from;
+            QWidget* cbval2 = to;
+            int cbval3 = static_cast<int>(options);
+
+            QLayoutItem* callback_ret = qgridlayout_replacewidget_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QGridLayout::replaceWidget(from, to, options);
         }
@@ -530,7 +576,8 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_layout_isbase = false;
             return QGridLayout::layout();
         } else if (qgridlayout_layout_callback != nullptr) {
-            return qgridlayout_layout_callback();
+            QLayout* callback_ret = qgridlayout_layout_callback();
+            return callback_ret;
         } else {
             return QGridLayout::layout();
         }
@@ -542,7 +589,9 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_childevent_isbase = false;
             QGridLayout::childEvent(e);
         } else if (qgridlayout_childevent_callback != nullptr) {
-            qgridlayout_childevent_callback(this, e);
+            QChildEvent* cbval1 = e;
+
+            qgridlayout_childevent_callback(this, cbval1);
         } else {
             QGridLayout::childEvent(e);
         }
@@ -554,7 +603,10 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_event_isbase = false;
             return QGridLayout::event(event);
         } else if (qgridlayout_event_callback != nullptr) {
-            return qgridlayout_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgridlayout_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGridLayout::event(event);
         }
@@ -566,7 +618,11 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_eventfilter_isbase = false;
             return QGridLayout::eventFilter(watched, event);
         } else if (qgridlayout_eventfilter_callback != nullptr) {
-            return qgridlayout_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgridlayout_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGridLayout::eventFilter(watched, event);
         }
@@ -578,7 +634,9 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_timerevent_isbase = false;
             QGridLayout::timerEvent(event);
         } else if (qgridlayout_timerevent_callback != nullptr) {
-            qgridlayout_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qgridlayout_timerevent_callback(this, cbval1);
         } else {
             QGridLayout::timerEvent(event);
         }
@@ -590,7 +648,9 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_customevent_isbase = false;
             QGridLayout::customEvent(event);
         } else if (qgridlayout_customevent_callback != nullptr) {
-            qgridlayout_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qgridlayout_customevent_callback(this, cbval1);
         } else {
             QGridLayout::customEvent(event);
         }
@@ -602,7 +662,11 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_connectnotify_isbase = false;
             QGridLayout::connectNotify(signal);
         } else if (qgridlayout_connectnotify_callback != nullptr) {
-            qgridlayout_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qgridlayout_connectnotify_callback(this, cbval1);
         } else {
             QGridLayout::connectNotify(signal);
         }
@@ -614,7 +678,11 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_disconnectnotify_isbase = false;
             QGridLayout::disconnectNotify(signal);
         } else if (qgridlayout_disconnectnotify_callback != nullptr) {
-            qgridlayout_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qgridlayout_disconnectnotify_callback(this, cbval1);
         } else {
             QGridLayout::disconnectNotify(signal);
         }
@@ -626,7 +694,8 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_widget_isbase = false;
             return QGridLayout::widget();
         } else if (qgridlayout_widget_callback != nullptr) {
-            return qgridlayout_widget_callback();
+            QWidget* callback_ret = qgridlayout_widget_callback();
+            return callback_ret;
         } else {
             return QGridLayout::widget();
         }
@@ -638,7 +707,8 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_spaceritem_isbase = false;
             return QGridLayout::spacerItem();
         } else if (qgridlayout_spaceritem_callback != nullptr) {
-            return qgridlayout_spaceritem_callback();
+            QSpacerItem* callback_ret = qgridlayout_spaceritem_callback();
+            return callback_ret;
         } else {
             return QGridLayout::spacerItem();
         }
@@ -650,7 +720,9 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_widgetevent_isbase = false;
             QGridLayout::widgetEvent(param1);
         } else if (qgridlayout_widgetevent_callback != nullptr) {
-            qgridlayout_widgetevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qgridlayout_widgetevent_callback(this, cbval1);
         } else {
             QGridLayout::widgetEvent(param1);
         }
@@ -662,7 +734,9 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_addchildlayout_isbase = false;
             QGridLayout::addChildLayout(l);
         } else if (qgridlayout_addchildlayout_callback != nullptr) {
-            qgridlayout_addchildlayout_callback(this, l);
+            QLayout* cbval1 = l;
+
+            qgridlayout_addchildlayout_callback(this, cbval1);
         } else {
             QGridLayout::addChildLayout(l);
         }
@@ -674,7 +748,9 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_addchildwidget_isbase = false;
             QGridLayout::addChildWidget(w);
         } else if (qgridlayout_addchildwidget_callback != nullptr) {
-            qgridlayout_addchildwidget_callback(this, w);
+            QWidget* cbval1 = w;
+
+            qgridlayout_addchildwidget_callback(this, cbval1);
         } else {
             QGridLayout::addChildWidget(w);
         }
@@ -686,7 +762,10 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_adoptlayout_isbase = false;
             return QGridLayout::adoptLayout(layout);
         } else if (qgridlayout_adoptlayout_callback != nullptr) {
-            return qgridlayout_adoptlayout_callback(this, layout);
+            QLayout* cbval1 = layout;
+
+            bool callback_ret = qgridlayout_adoptlayout_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGridLayout::adoptLayout(layout);
         }
@@ -698,7 +777,12 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_alignmentrect_isbase = false;
             return QGridLayout::alignmentRect(param1);
         } else if (qgridlayout_alignmentrect_callback != nullptr) {
-            return qgridlayout_alignmentrect_callback(this, param1);
+            const QRect& param1_ret = param1;
+            // Cast returned reference into pointer
+            QRect* cbval1 = const_cast<QRect*>(&param1_ret);
+
+            QRect* callback_ret = qgridlayout_alignmentrect_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGridLayout::alignmentRect(param1);
         }
@@ -710,7 +794,8 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_sender_isbase = false;
             return QGridLayout::sender();
         } else if (qgridlayout_sender_callback != nullptr) {
-            return qgridlayout_sender_callback();
+            QObject* callback_ret = qgridlayout_sender_callback();
+            return callback_ret;
         } else {
             return QGridLayout::sender();
         }
@@ -722,7 +807,8 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_sendersignalindex_isbase = false;
             return QGridLayout::senderSignalIndex();
         } else if (qgridlayout_sendersignalindex_callback != nullptr) {
-            return qgridlayout_sendersignalindex_callback();
+            int callback_ret = qgridlayout_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGridLayout::senderSignalIndex();
         }
@@ -734,7 +820,10 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_receivers_isbase = false;
             return QGridLayout::receivers(signal);
         } else if (qgridlayout_receivers_callback != nullptr) {
-            return qgridlayout_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qgridlayout_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QGridLayout::receivers(signal);
         }
@@ -746,11 +835,48 @@ class VirtualQGridLayout : public QGridLayout {
             qgridlayout_issignalconnected_isbase = false;
             return QGridLayout::isSignalConnected(signal);
         } else if (qgridlayout_issignalconnected_callback != nullptr) {
-            return qgridlayout_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qgridlayout_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGridLayout::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QGridLayout_AddItemWithQLayoutItem(QGridLayout* self, QLayoutItem* param1);
+    friend void QGridLayout_QBaseAddItemWithQLayoutItem(QGridLayout* self, QLayoutItem* param1);
+    friend void QGridLayout_ChildEvent(QGridLayout* self, QChildEvent* e);
+    friend void QGridLayout_QBaseChildEvent(QGridLayout* self, QChildEvent* e);
+    friend void QGridLayout_TimerEvent(QGridLayout* self, QTimerEvent* event);
+    friend void QGridLayout_QBaseTimerEvent(QGridLayout* self, QTimerEvent* event);
+    friend void QGridLayout_CustomEvent(QGridLayout* self, QEvent* event);
+    friend void QGridLayout_QBaseCustomEvent(QGridLayout* self, QEvent* event);
+    friend void QGridLayout_ConnectNotify(QGridLayout* self, const QMetaMethod* signal);
+    friend void QGridLayout_QBaseConnectNotify(QGridLayout* self, const QMetaMethod* signal);
+    friend void QGridLayout_DisconnectNotify(QGridLayout* self, const QMetaMethod* signal);
+    friend void QGridLayout_QBaseDisconnectNotify(QGridLayout* self, const QMetaMethod* signal);
+    friend void QGridLayout_WidgetEvent(QGridLayout* self, QEvent* param1);
+    friend void QGridLayout_QBaseWidgetEvent(QGridLayout* self, QEvent* param1);
+    friend void QGridLayout_AddChildLayout(QGridLayout* self, QLayout* l);
+    friend void QGridLayout_QBaseAddChildLayout(QGridLayout* self, QLayout* l);
+    friend void QGridLayout_AddChildWidget(QGridLayout* self, QWidget* w);
+    friend void QGridLayout_QBaseAddChildWidget(QGridLayout* self, QWidget* w);
+    friend bool QGridLayout_AdoptLayout(QGridLayout* self, QLayout* layout);
+    friend bool QGridLayout_QBaseAdoptLayout(QGridLayout* self, QLayout* layout);
+    friend QRect* QGridLayout_AlignmentRect(const QGridLayout* self, const QRect* param1);
+    friend QRect* QGridLayout_QBaseAlignmentRect(const QGridLayout* self, const QRect* param1);
+    friend QObject* QGridLayout_Sender(const QGridLayout* self);
+    friend QObject* QGridLayout_QBaseSender(const QGridLayout* self);
+    friend int QGridLayout_SenderSignalIndex(const QGridLayout* self);
+    friend int QGridLayout_QBaseSenderSignalIndex(const QGridLayout* self);
+    friend int QGridLayout_Receivers(const QGridLayout* self, const char* signal);
+    friend int QGridLayout_QBaseReceivers(const QGridLayout* self, const char* signal);
+    friend bool QGridLayout_IsSignalConnected(const QGridLayout* self, const QMetaMethod* signal);
+    friend bool QGridLayout_QBaseIsSignalConnected(const QGridLayout* self, const QMetaMethod* signal);
 };
 
 #endif

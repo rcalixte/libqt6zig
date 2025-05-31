@@ -10,7 +10,7 @@
 #include "libqfontdatabase.h"
 #include "libqfontdatabase.hxx"
 
-QFontDatabase* QFontDatabase_new(QFontDatabase* other) {
+QFontDatabase* QFontDatabase_new(const QFontDatabase* other) {
     return new QFontDatabase(*other);
 }
 
@@ -56,7 +56,7 @@ libqt_list /* of int */ QFontDatabase_WritingSystems() {
     return _out;
 }
 
-libqt_list /* of int */ QFontDatabase_WritingSystemsWithFamily(libqt_string family) {
+libqt_list /* of int */ QFontDatabase_WritingSystemsWithFamily(const libqt_string family) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     QList<QFontDatabase::WritingSystem> _ret = QFontDatabase::writingSystems(family_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -91,7 +91,7 @@ libqt_list /* of libqt_string */ QFontDatabase_Families() {
     return _out;
 }
 
-libqt_list /* of libqt_string */ QFontDatabase_Styles(libqt_string family) {
+libqt_list /* of libqt_string */ QFontDatabase_Styles(const libqt_string family) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     QStringList _ret = QFontDatabase::styles(family_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -113,7 +113,7 @@ libqt_list /* of libqt_string */ QFontDatabase_Styles(libqt_string family) {
     return _out;
 }
 
-libqt_list /* of int */ QFontDatabase_PointSizes(libqt_string family) {
+libqt_list /* of int */ QFontDatabase_PointSizes(const libqt_string family) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     QList<int> _ret = QFontDatabase::pointSizes(family_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -127,7 +127,7 @@ libqt_list /* of int */ QFontDatabase_PointSizes(libqt_string family) {
     return _out;
 }
 
-libqt_list /* of int */ QFontDatabase_SmoothSizes(libqt_string family, libqt_string style) {
+libqt_list /* of int */ QFontDatabase_SmoothSizes(const libqt_string family, const libqt_string style) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     QString style_QString = QString::fromUtf8(style.data, style.len);
     QList<int> _ret = QFontDatabase::smoothSizes(family_QString, style_QString);
@@ -142,7 +142,7 @@ libqt_list /* of int */ QFontDatabase_SmoothSizes(libqt_string family, libqt_str
     return _out;
 }
 
-libqt_string QFontDatabase_StyleString(QFont* font) {
+libqt_string QFontDatabase_StyleString(const QFont* font) {
     QString _ret = QFontDatabase::styleString(*font);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
@@ -154,7 +154,7 @@ libqt_string QFontDatabase_StyleString(QFont* font) {
     return _str;
 }
 
-libqt_string QFontDatabase_StyleStringWithFontInfo(QFontInfo* fontInfo) {
+libqt_string QFontDatabase_StyleStringWithFontInfo(const QFontInfo* fontInfo) {
     QString _ret = QFontDatabase::styleString(*fontInfo);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
@@ -166,56 +166,56 @@ libqt_string QFontDatabase_StyleStringWithFontInfo(QFontInfo* fontInfo) {
     return _str;
 }
 
-QFont* QFontDatabase_Font(libqt_string family, libqt_string style, int pointSize) {
+QFont* QFontDatabase_Font(const libqt_string family, const libqt_string style, int pointSize) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     QString style_QString = QString::fromUtf8(style.data, style.len);
     return new QFont(QFontDatabase::font(family_QString, style_QString, static_cast<int>(pointSize)));
 }
 
-bool QFontDatabase_IsBitmapScalable(libqt_string family) {
+bool QFontDatabase_IsBitmapScalable(const libqt_string family) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     return QFontDatabase::isBitmapScalable(family_QString);
 }
 
-bool QFontDatabase_IsSmoothlyScalable(libqt_string family) {
+bool QFontDatabase_IsSmoothlyScalable(const libqt_string family) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     return QFontDatabase::isSmoothlyScalable(family_QString);
 }
 
-bool QFontDatabase_IsScalable(libqt_string family) {
+bool QFontDatabase_IsScalable(const libqt_string family) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     return QFontDatabase::isScalable(family_QString);
 }
 
-bool QFontDatabase_IsFixedPitch(libqt_string family) {
+bool QFontDatabase_IsFixedPitch(const libqt_string family) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     return QFontDatabase::isFixedPitch(family_QString);
 }
 
-bool QFontDatabase_Italic(libqt_string family, libqt_string style) {
+bool QFontDatabase_Italic(const libqt_string family, const libqt_string style) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     QString style_QString = QString::fromUtf8(style.data, style.len);
     return QFontDatabase::italic(family_QString, style_QString);
 }
 
-bool QFontDatabase_Bold(libqt_string family, libqt_string style) {
+bool QFontDatabase_Bold(const libqt_string family, const libqt_string style) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     QString style_QString = QString::fromUtf8(style.data, style.len);
     return QFontDatabase::bold(family_QString, style_QString);
 }
 
-int QFontDatabase_Weight(libqt_string family, libqt_string style) {
+int QFontDatabase_Weight(const libqt_string family, const libqt_string style) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     QString style_QString = QString::fromUtf8(style.data, style.len);
     return QFontDatabase::weight(family_QString, style_QString);
 }
 
-bool QFontDatabase_HasFamily(libqt_string family) {
+bool QFontDatabase_HasFamily(const libqt_string family) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     return QFontDatabase::hasFamily(family_QString);
 }
 
-bool QFontDatabase_IsPrivateFamily(libqt_string family) {
+bool QFontDatabase_IsPrivateFamily(const libqt_string family) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     return QFontDatabase::isPrivateFamily(family_QString);
 }
@@ -244,12 +244,12 @@ libqt_string QFontDatabase_WritingSystemSample(int writingSystem) {
     return _str;
 }
 
-int QFontDatabase_AddApplicationFont(libqt_string fileName) {
+int QFontDatabase_AddApplicationFont(const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return QFontDatabase::addApplicationFont(fileName_QString);
 }
 
-int QFontDatabase_AddApplicationFontFromData(libqt_string fontData) {
+int QFontDatabase_AddApplicationFontFromData(const libqt_string fontData) {
     QByteArray fontData_QByteArray(fontData.data, fontData.len);
     return QFontDatabase::addApplicationFontFromData(fontData_QByteArray);
 }
@@ -308,7 +308,7 @@ libqt_list /* of libqt_string */ QFontDatabase_Families1(int writingSystem) {
     return _out;
 }
 
-libqt_list /* of int */ QFontDatabase_PointSizes2(libqt_string family, libqt_string style) {
+libqt_list /* of int */ QFontDatabase_PointSizes2(const libqt_string family, const libqt_string style) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     QString style_QString = QString::fromUtf8(style.data, style.len);
     QList<int> _ret = QFontDatabase::pointSizes(family_QString, style_QString);
@@ -323,25 +323,25 @@ libqt_list /* of int */ QFontDatabase_PointSizes2(libqt_string family, libqt_str
     return _out;
 }
 
-bool QFontDatabase_IsBitmapScalable2(libqt_string family, libqt_string style) {
+bool QFontDatabase_IsBitmapScalable2(const libqt_string family, const libqt_string style) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     QString style_QString = QString::fromUtf8(style.data, style.len);
     return QFontDatabase::isBitmapScalable(family_QString, style_QString);
 }
 
-bool QFontDatabase_IsSmoothlyScalable2(libqt_string family, libqt_string style) {
+bool QFontDatabase_IsSmoothlyScalable2(const libqt_string family, const libqt_string style) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     QString style_QString = QString::fromUtf8(style.data, style.len);
     return QFontDatabase::isSmoothlyScalable(family_QString, style_QString);
 }
 
-bool QFontDatabase_IsScalable2(libqt_string family, libqt_string style) {
+bool QFontDatabase_IsScalable2(const libqt_string family, const libqt_string style) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     QString style_QString = QString::fromUtf8(style.data, style.len);
     return QFontDatabase::isScalable(family_QString, style_QString);
 }
 
-bool QFontDatabase_IsFixedPitch2(libqt_string family, libqt_string style) {
+bool QFontDatabase_IsFixedPitch2(const libqt_string family, const libqt_string style) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     QString style_QString = QString::fromUtf8(style.data, style.len);
     return QFontDatabase::isFixedPitch(family_QString, style_QString);

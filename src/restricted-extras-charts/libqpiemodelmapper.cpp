@@ -1,22 +1,12 @@
 #include <QAbstractItemModel>
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
-#include <QChildEvent>
-#include <QEvent>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QPieModelMapper>
 #include <QPieSeries>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
-#include <QVariant>
 #include <qpiemodelmapper.h>
 #include "libqpiemodelmapper.h"
 #include "libqpiemodelmapper.hxx"
@@ -67,14 +57,6 @@ libqt_string QPieModelMapper_Tr3(const char* s, const char* c, int n) {
     memcpy(_str.data, _b.data(), _str.len);
     _str.data[_str.len] = '\0';
     return _str;
-}
-
-bool QPieModelMapper_Event(QPieModelMapper* self, QEvent* event) {
-    return self->event(event);
-}
-
-bool QPieModelMapper_EventFilter(QPieModelMapper* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
 }
 
 void QPieModelMapper_Delete(QPieModelMapper* self) {

@@ -11,13 +11,16 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QPixmap so that we can call protected methods
-class VirtualQPixmap : public QPixmap {
+class VirtualQPixmap final : public QPixmap {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQPixmap = true;
+
     // Virtual class public types (including callbacks)
     using QPixmap_DevType_Callback = int (*)();
     using QPixmap_PaintEngine_Callback = QPaintEngine* (*)();
-    using QPixmap_Metric_Callback = int (*)(const QPixmap*, QPaintDevice::PaintDeviceMetric);
+    using QPixmap_Metric_Callback = int (*)(const QPixmap*, int);
     using QPixmap_InitPainter_Callback = void (*)(const QPixmap*, QPainter*);
     using QPixmap_Redirected_Callback = QPaintDevice* (*)(const QPixmap*, QPoint*);
     using QPixmap_SharedPainter_Callback = QPainter* (*)();
@@ -58,20 +61,20 @@ class VirtualQPixmap : public QPixmap {
     }
 
     // Callback setters
-    void setQPixmap_DevType_Callback(QPixmap_DevType_Callback cb) { qpixmap_devtype_callback = cb; }
-    void setQPixmap_PaintEngine_Callback(QPixmap_PaintEngine_Callback cb) { qpixmap_paintengine_callback = cb; }
-    void setQPixmap_Metric_Callback(QPixmap_Metric_Callback cb) { qpixmap_metric_callback = cb; }
-    void setQPixmap_InitPainter_Callback(QPixmap_InitPainter_Callback cb) { qpixmap_initpainter_callback = cb; }
-    void setQPixmap_Redirected_Callback(QPixmap_Redirected_Callback cb) { qpixmap_redirected_callback = cb; }
-    void setQPixmap_SharedPainter_Callback(QPixmap_SharedPainter_Callback cb) { qpixmap_sharedpainter_callback = cb; }
+    inline void setQPixmap_DevType_Callback(QPixmap_DevType_Callback cb) { qpixmap_devtype_callback = cb; }
+    inline void setQPixmap_PaintEngine_Callback(QPixmap_PaintEngine_Callback cb) { qpixmap_paintengine_callback = cb; }
+    inline void setQPixmap_Metric_Callback(QPixmap_Metric_Callback cb) { qpixmap_metric_callback = cb; }
+    inline void setQPixmap_InitPainter_Callback(QPixmap_InitPainter_Callback cb) { qpixmap_initpainter_callback = cb; }
+    inline void setQPixmap_Redirected_Callback(QPixmap_Redirected_Callback cb) { qpixmap_redirected_callback = cb; }
+    inline void setQPixmap_SharedPainter_Callback(QPixmap_SharedPainter_Callback cb) { qpixmap_sharedpainter_callback = cb; }
 
     // Base flag setters
-    void setQPixmap_DevType_IsBase(bool value) const { qpixmap_devtype_isbase = value; }
-    void setQPixmap_PaintEngine_IsBase(bool value) const { qpixmap_paintengine_isbase = value; }
-    void setQPixmap_Metric_IsBase(bool value) const { qpixmap_metric_isbase = value; }
-    void setQPixmap_InitPainter_IsBase(bool value) const { qpixmap_initpainter_isbase = value; }
-    void setQPixmap_Redirected_IsBase(bool value) const { qpixmap_redirected_isbase = value; }
-    void setQPixmap_SharedPainter_IsBase(bool value) const { qpixmap_sharedpainter_isbase = value; }
+    inline void setQPixmap_DevType_IsBase(bool value) const { qpixmap_devtype_isbase = value; }
+    inline void setQPixmap_PaintEngine_IsBase(bool value) const { qpixmap_paintengine_isbase = value; }
+    inline void setQPixmap_Metric_IsBase(bool value) const { qpixmap_metric_isbase = value; }
+    inline void setQPixmap_InitPainter_IsBase(bool value) const { qpixmap_initpainter_isbase = value; }
+    inline void setQPixmap_Redirected_IsBase(bool value) const { qpixmap_redirected_isbase = value; }
+    inline void setQPixmap_SharedPainter_IsBase(bool value) const { qpixmap_sharedpainter_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
@@ -79,7 +82,8 @@ class VirtualQPixmap : public QPixmap {
             qpixmap_devtype_isbase = false;
             return QPixmap::devType();
         } else if (qpixmap_devtype_callback != nullptr) {
-            return qpixmap_devtype_callback();
+            int callback_ret = qpixmap_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QPixmap::devType();
         }
@@ -91,7 +95,8 @@ class VirtualQPixmap : public QPixmap {
             qpixmap_paintengine_isbase = false;
             return QPixmap::paintEngine();
         } else if (qpixmap_paintengine_callback != nullptr) {
-            return qpixmap_paintengine_callback();
+            QPaintEngine* callback_ret = qpixmap_paintengine_callback();
+            return callback_ret;
         } else {
             return QPixmap::paintEngine();
         }
@@ -103,7 +108,10 @@ class VirtualQPixmap : public QPixmap {
             qpixmap_metric_isbase = false;
             return QPixmap::metric(param1);
         } else if (qpixmap_metric_callback != nullptr) {
-            return qpixmap_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qpixmap_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QPixmap::metric(param1);
         }
@@ -115,7 +123,9 @@ class VirtualQPixmap : public QPixmap {
             qpixmap_initpainter_isbase = false;
             QPixmap::initPainter(painter);
         } else if (qpixmap_initpainter_callback != nullptr) {
-            qpixmap_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qpixmap_initpainter_callback(this, cbval1);
         } else {
             QPixmap::initPainter(painter);
         }
@@ -127,7 +137,10 @@ class VirtualQPixmap : public QPixmap {
             qpixmap_redirected_isbase = false;
             return QPixmap::redirected(offset);
         } else if (qpixmap_redirected_callback != nullptr) {
-            return qpixmap_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qpixmap_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QPixmap::redirected(offset);
         }
@@ -139,11 +152,22 @@ class VirtualQPixmap : public QPixmap {
             qpixmap_sharedpainter_isbase = false;
             return QPixmap::sharedPainter();
         } else if (qpixmap_sharedpainter_callback != nullptr) {
-            return qpixmap_sharedpainter_callback();
+            QPainter* callback_ret = qpixmap_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QPixmap::sharedPainter();
         }
     }
+
+    // Friend functions
+    friend int QPixmap_Metric(const QPixmap* self, int param1);
+    friend int QPixmap_QBaseMetric(const QPixmap* self, int param1);
+    friend void QPixmap_InitPainter(const QPixmap* self, QPainter* painter);
+    friend void QPixmap_QBaseInitPainter(const QPixmap* self, QPainter* painter);
+    friend QPaintDevice* QPixmap_Redirected(const QPixmap* self, QPoint* offset);
+    friend QPaintDevice* QPixmap_QBaseRedirected(const QPixmap* self, QPoint* offset);
+    friend QPainter* QPixmap_SharedPainter(const QPixmap* self);
+    friend QPainter* QPixmap_QBaseSharedPainter(const QPixmap* self);
 };
 
 #endif

@@ -13,25 +13,25 @@ QFileInfo* QFileInfo_new() {
     return new QFileInfo();
 }
 
-QFileInfo* QFileInfo_new2(libqt_string file) {
+QFileInfo* QFileInfo_new2(const libqt_string file) {
     QString file_QString = QString::fromUtf8(file.data, file.len);
     return new QFileInfo(file_QString);
 }
 
-QFileInfo* QFileInfo_new3(QFileDevice* file) {
+QFileInfo* QFileInfo_new3(const QFileDevice* file) {
     return new QFileInfo(*file);
 }
 
-QFileInfo* QFileInfo_new4(QDir* dir, libqt_string file) {
+QFileInfo* QFileInfo_new4(const QDir* dir, const libqt_string file) {
     QString file_QString = QString::fromUtf8(file.data, file.len);
     return new QFileInfo(*dir, file_QString);
 }
 
-QFileInfo* QFileInfo_new5(QFileInfo* fileinfo) {
+QFileInfo* QFileInfo_new5(const QFileInfo* fileinfo) {
     return new QFileInfo(*fileinfo);
 }
 
-void QFileInfo_OperatorAssign(QFileInfo* self, QFileInfo* fileinfo) {
+void QFileInfo_OperatorAssign(QFileInfo* self, const QFileInfo* fileinfo) {
     self->operator=(*fileinfo);
 }
 
@@ -39,24 +39,24 @@ void QFileInfo_Swap(QFileInfo* self, QFileInfo* other) {
     self->swap(*other);
 }
 
-bool QFileInfo_OperatorEqual(const QFileInfo* self, QFileInfo* fileinfo) {
+bool QFileInfo_OperatorEqual(const QFileInfo* self, const QFileInfo* fileinfo) {
     return (*self == *fileinfo);
 }
 
-bool QFileInfo_OperatorNotEqual(const QFileInfo* self, QFileInfo* fileinfo) {
+bool QFileInfo_OperatorNotEqual(const QFileInfo* self, const QFileInfo* fileinfo) {
     return (*self != *fileinfo);
 }
 
-void QFileInfo_SetFile(QFileInfo* self, libqt_string file) {
+void QFileInfo_SetFile(QFileInfo* self, const libqt_string file) {
     QString file_QString = QString::fromUtf8(file.data, file.len);
     self->setFile(file_QString);
 }
 
-void QFileInfo_SetFileWithFile(QFileInfo* self, QFileDevice* file) {
+void QFileInfo_SetFileWithFile(QFileInfo* self, const QFileDevice* file) {
     self->setFile(*file);
 }
 
-void QFileInfo_SetFile2(QFileInfo* self, QDir* dir, libqt_string file) {
+void QFileInfo_SetFile2(QFileInfo* self, const QDir* dir, const libqt_string file) {
     QString file_QString = QString::fromUtf8(file.data, file.len);
     self->setFile(*dir, file_QString);
 }
@@ -65,7 +65,7 @@ bool QFileInfo_Exists(const QFileInfo* self) {
     return self->exists();
 }
 
-bool QFileInfo_ExistsWithFile(libqt_string file) {
+bool QFileInfo_ExistsWithFile(const libqt_string file) {
     QString file_QString = QString::fromUtf8(file.data, file.len);
     return QFileInfo::exists(file_QString);
 }

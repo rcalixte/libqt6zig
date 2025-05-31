@@ -15,25 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSettings QSettings;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
-typedef struct QsciAbstractAPIs QsciAbstractAPIs;
 typedef struct QsciLexer QsciLexer;
 typedef struct QsciLexerHTML QsciLexerHTML;
 typedef struct QsciScintilla QsciScintilla;
@@ -140,21 +131,24 @@ int QsciLexerHTML_QBaseStyleBitsNeeded(const QsciLexerHTML* self);
 void QsciLexerHTML_SetAutoIndentStyle(QsciLexerHTML* self, int autoindentstyle);
 void QsciLexerHTML_OnSetAutoIndentStyle(QsciLexerHTML* self, intptr_t slot);
 void QsciLexerHTML_QBaseSetAutoIndentStyle(QsciLexerHTML* self, int autoindentstyle);
-void QsciLexerHTML_SetColor(QsciLexerHTML* self, QColor* c, int style);
+void QsciLexerHTML_SetColor(QsciLexerHTML* self, const QColor* c, int style);
 void QsciLexerHTML_OnSetColor(QsciLexerHTML* self, intptr_t slot);
-void QsciLexerHTML_QBaseSetColor(QsciLexerHTML* self, QColor* c, int style);
+void QsciLexerHTML_QBaseSetColor(QsciLexerHTML* self, const QColor* c, int style);
 void QsciLexerHTML_SetEolFill(QsciLexerHTML* self, bool eoffill, int style);
 void QsciLexerHTML_OnSetEolFill(QsciLexerHTML* self, intptr_t slot);
 void QsciLexerHTML_QBaseSetEolFill(QsciLexerHTML* self, bool eoffill, int style);
-void QsciLexerHTML_SetFont(QsciLexerHTML* self, QFont* f, int style);
+void QsciLexerHTML_SetFont(QsciLexerHTML* self, const QFont* f, int style);
 void QsciLexerHTML_OnSetFont(QsciLexerHTML* self, intptr_t slot);
-void QsciLexerHTML_QBaseSetFont(QsciLexerHTML* self, QFont* f, int style);
-void QsciLexerHTML_SetPaper(QsciLexerHTML* self, QColor* c, int style);
+void QsciLexerHTML_QBaseSetFont(QsciLexerHTML* self, const QFont* f, int style);
+void QsciLexerHTML_SetPaper(QsciLexerHTML* self, const QColor* c, int style);
 void QsciLexerHTML_OnSetPaper(QsciLexerHTML* self, intptr_t slot);
-void QsciLexerHTML_QBaseSetPaper(QsciLexerHTML* self, QColor* c, int style);
-bool QsciLexerHTML_ReadProperties(QsciLexerHTML* self, QSettings* qs, libqt_string prefix);
+void QsciLexerHTML_QBaseSetPaper(QsciLexerHTML* self, const QColor* c, int style);
+bool QsciLexerHTML_ReadProperties(QsciLexerHTML* self, QSettings* qs, const libqt_string prefix);
 void QsciLexerHTML_OnReadProperties(QsciLexerHTML* self, intptr_t slot);
-bool QsciLexerHTML_QBaseReadProperties(QsciLexerHTML* self, QSettings* qs, libqt_string prefix);
+bool QsciLexerHTML_QBaseReadProperties(QsciLexerHTML* self, QSettings* qs, const libqt_string prefix);
+bool QsciLexerHTML_WriteProperties(const QsciLexerHTML* self, QSettings* qs, const libqt_string prefix);
+void QsciLexerHTML_OnWriteProperties(const QsciLexerHTML* self, intptr_t slot);
+bool QsciLexerHTML_QBaseWriteProperties(const QsciLexerHTML* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexerHTML_Event(QsciLexerHTML* self, QEvent* event);
 void QsciLexerHTML_OnEvent(QsciLexerHTML* self, intptr_t slot);
 bool QsciLexerHTML_QBaseEvent(QsciLexerHTML* self, QEvent* event);
@@ -170,15 +164,12 @@ void QsciLexerHTML_QBaseChildEvent(QsciLexerHTML* self, QChildEvent* event);
 void QsciLexerHTML_CustomEvent(QsciLexerHTML* self, QEvent* event);
 void QsciLexerHTML_OnCustomEvent(QsciLexerHTML* self, intptr_t slot);
 void QsciLexerHTML_QBaseCustomEvent(QsciLexerHTML* self, QEvent* event);
-void QsciLexerHTML_ConnectNotify(QsciLexerHTML* self, QMetaMethod* signal);
+void QsciLexerHTML_ConnectNotify(QsciLexerHTML* self, const QMetaMethod* signal);
 void QsciLexerHTML_OnConnectNotify(QsciLexerHTML* self, intptr_t slot);
-void QsciLexerHTML_QBaseConnectNotify(QsciLexerHTML* self, QMetaMethod* signal);
-void QsciLexerHTML_DisconnectNotify(QsciLexerHTML* self, QMetaMethod* signal);
+void QsciLexerHTML_QBaseConnectNotify(QsciLexerHTML* self, const QMetaMethod* signal);
+void QsciLexerHTML_DisconnectNotify(QsciLexerHTML* self, const QMetaMethod* signal);
 void QsciLexerHTML_OnDisconnectNotify(QsciLexerHTML* self, intptr_t slot);
-void QsciLexerHTML_QBaseDisconnectNotify(QsciLexerHTML* self, QMetaMethod* signal);
-bool QsciLexerHTML_WriteProperties(const QsciLexerHTML* self, QSettings* qs, libqt_string prefix);
-void QsciLexerHTML_OnWriteProperties(const QsciLexerHTML* self, intptr_t slot);
-bool QsciLexerHTML_QBaseWriteProperties(const QsciLexerHTML* self, QSettings* qs, libqt_string prefix);
+void QsciLexerHTML_QBaseDisconnectNotify(QsciLexerHTML* self, const QMetaMethod* signal);
 QObject* QsciLexerHTML_Sender(const QsciLexerHTML* self);
 void QsciLexerHTML_OnSender(const QsciLexerHTML* self, intptr_t slot);
 QObject* QsciLexerHTML_QBaseSender(const QsciLexerHTML* self);
@@ -188,9 +179,9 @@ int QsciLexerHTML_QBaseSenderSignalIndex(const QsciLexerHTML* self);
 int QsciLexerHTML_Receivers(const QsciLexerHTML* self, const char* signal);
 void QsciLexerHTML_OnReceivers(const QsciLexerHTML* self, intptr_t slot);
 int QsciLexerHTML_QBaseReceivers(const QsciLexerHTML* self, const char* signal);
-bool QsciLexerHTML_IsSignalConnected(const QsciLexerHTML* self, QMetaMethod* signal);
+bool QsciLexerHTML_IsSignalConnected(const QsciLexerHTML* self, const QMetaMethod* signal);
 void QsciLexerHTML_OnIsSignalConnected(const QsciLexerHTML* self, intptr_t slot);
-bool QsciLexerHTML_QBaseIsSignalConnected(const QsciLexerHTML* self, QMetaMethod* signal);
+bool QsciLexerHTML_QBaseIsSignalConnected(const QsciLexerHTML* self, const QMetaMethod* signal);
 void QsciLexerHTML_Delete(QsciLexerHTML* self);
 
 #ifdef __cplusplus

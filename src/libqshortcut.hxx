@@ -11,22 +11,25 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QShortcut so that we can call protected methods
-class VirtualQShortcut : public QShortcut {
+class VirtualQShortcut final : public QShortcut {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQShortcut = true;
+
     // Virtual class public types (including callbacks)
-    using QShortcut_Metacall_Callback = int (*)(QShortcut*, QMetaObject::Call, int, void**);
+    using QShortcut_Metacall_Callback = int (*)(QShortcut*, int, int, void**);
     using QShortcut_Event_Callback = bool (*)(QShortcut*, QEvent*);
     using QShortcut_EventFilter_Callback = bool (*)(QShortcut*, QObject*, QEvent*);
     using QShortcut_TimerEvent_Callback = void (*)(QShortcut*, QTimerEvent*);
     using QShortcut_ChildEvent_Callback = void (*)(QShortcut*, QChildEvent*);
     using QShortcut_CustomEvent_Callback = void (*)(QShortcut*, QEvent*);
-    using QShortcut_ConnectNotify_Callback = void (*)(QShortcut*, const QMetaMethod&);
-    using QShortcut_DisconnectNotify_Callback = void (*)(QShortcut*, const QMetaMethod&);
+    using QShortcut_ConnectNotify_Callback = void (*)(QShortcut*, QMetaMethod*);
+    using QShortcut_DisconnectNotify_Callback = void (*)(QShortcut*, QMetaMethod*);
     using QShortcut_Sender_Callback = QObject* (*)();
     using QShortcut_SenderSignalIndex_Callback = int (*)();
     using QShortcut_Receivers_Callback = int (*)(const QShortcut*, const char*);
-    using QShortcut_IsSignalConnected_Callback = bool (*)(const QShortcut*, const QMetaMethod&);
+    using QShortcut_IsSignalConnected_Callback = bool (*)(const QShortcut*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -84,32 +87,32 @@ class VirtualQShortcut : public QShortcut {
     }
 
     // Callback setters
-    void setQShortcut_Metacall_Callback(QShortcut_Metacall_Callback cb) { qshortcut_metacall_callback = cb; }
-    void setQShortcut_Event_Callback(QShortcut_Event_Callback cb) { qshortcut_event_callback = cb; }
-    void setQShortcut_EventFilter_Callback(QShortcut_EventFilter_Callback cb) { qshortcut_eventfilter_callback = cb; }
-    void setQShortcut_TimerEvent_Callback(QShortcut_TimerEvent_Callback cb) { qshortcut_timerevent_callback = cb; }
-    void setQShortcut_ChildEvent_Callback(QShortcut_ChildEvent_Callback cb) { qshortcut_childevent_callback = cb; }
-    void setQShortcut_CustomEvent_Callback(QShortcut_CustomEvent_Callback cb) { qshortcut_customevent_callback = cb; }
-    void setQShortcut_ConnectNotify_Callback(QShortcut_ConnectNotify_Callback cb) { qshortcut_connectnotify_callback = cb; }
-    void setQShortcut_DisconnectNotify_Callback(QShortcut_DisconnectNotify_Callback cb) { qshortcut_disconnectnotify_callback = cb; }
-    void setQShortcut_Sender_Callback(QShortcut_Sender_Callback cb) { qshortcut_sender_callback = cb; }
-    void setQShortcut_SenderSignalIndex_Callback(QShortcut_SenderSignalIndex_Callback cb) { qshortcut_sendersignalindex_callback = cb; }
-    void setQShortcut_Receivers_Callback(QShortcut_Receivers_Callback cb) { qshortcut_receivers_callback = cb; }
-    void setQShortcut_IsSignalConnected_Callback(QShortcut_IsSignalConnected_Callback cb) { qshortcut_issignalconnected_callback = cb; }
+    inline void setQShortcut_Metacall_Callback(QShortcut_Metacall_Callback cb) { qshortcut_metacall_callback = cb; }
+    inline void setQShortcut_Event_Callback(QShortcut_Event_Callback cb) { qshortcut_event_callback = cb; }
+    inline void setQShortcut_EventFilter_Callback(QShortcut_EventFilter_Callback cb) { qshortcut_eventfilter_callback = cb; }
+    inline void setQShortcut_TimerEvent_Callback(QShortcut_TimerEvent_Callback cb) { qshortcut_timerevent_callback = cb; }
+    inline void setQShortcut_ChildEvent_Callback(QShortcut_ChildEvent_Callback cb) { qshortcut_childevent_callback = cb; }
+    inline void setQShortcut_CustomEvent_Callback(QShortcut_CustomEvent_Callback cb) { qshortcut_customevent_callback = cb; }
+    inline void setQShortcut_ConnectNotify_Callback(QShortcut_ConnectNotify_Callback cb) { qshortcut_connectnotify_callback = cb; }
+    inline void setQShortcut_DisconnectNotify_Callback(QShortcut_DisconnectNotify_Callback cb) { qshortcut_disconnectnotify_callback = cb; }
+    inline void setQShortcut_Sender_Callback(QShortcut_Sender_Callback cb) { qshortcut_sender_callback = cb; }
+    inline void setQShortcut_SenderSignalIndex_Callback(QShortcut_SenderSignalIndex_Callback cb) { qshortcut_sendersignalindex_callback = cb; }
+    inline void setQShortcut_Receivers_Callback(QShortcut_Receivers_Callback cb) { qshortcut_receivers_callback = cb; }
+    inline void setQShortcut_IsSignalConnected_Callback(QShortcut_IsSignalConnected_Callback cb) { qshortcut_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQShortcut_Metacall_IsBase(bool value) const { qshortcut_metacall_isbase = value; }
-    void setQShortcut_Event_IsBase(bool value) const { qshortcut_event_isbase = value; }
-    void setQShortcut_EventFilter_IsBase(bool value) const { qshortcut_eventfilter_isbase = value; }
-    void setQShortcut_TimerEvent_IsBase(bool value) const { qshortcut_timerevent_isbase = value; }
-    void setQShortcut_ChildEvent_IsBase(bool value) const { qshortcut_childevent_isbase = value; }
-    void setQShortcut_CustomEvent_IsBase(bool value) const { qshortcut_customevent_isbase = value; }
-    void setQShortcut_ConnectNotify_IsBase(bool value) const { qshortcut_connectnotify_isbase = value; }
-    void setQShortcut_DisconnectNotify_IsBase(bool value) const { qshortcut_disconnectnotify_isbase = value; }
-    void setQShortcut_Sender_IsBase(bool value) const { qshortcut_sender_isbase = value; }
-    void setQShortcut_SenderSignalIndex_IsBase(bool value) const { qshortcut_sendersignalindex_isbase = value; }
-    void setQShortcut_Receivers_IsBase(bool value) const { qshortcut_receivers_isbase = value; }
-    void setQShortcut_IsSignalConnected_IsBase(bool value) const { qshortcut_issignalconnected_isbase = value; }
+    inline void setQShortcut_Metacall_IsBase(bool value) const { qshortcut_metacall_isbase = value; }
+    inline void setQShortcut_Event_IsBase(bool value) const { qshortcut_event_isbase = value; }
+    inline void setQShortcut_EventFilter_IsBase(bool value) const { qshortcut_eventfilter_isbase = value; }
+    inline void setQShortcut_TimerEvent_IsBase(bool value) const { qshortcut_timerevent_isbase = value; }
+    inline void setQShortcut_ChildEvent_IsBase(bool value) const { qshortcut_childevent_isbase = value; }
+    inline void setQShortcut_CustomEvent_IsBase(bool value) const { qshortcut_customevent_isbase = value; }
+    inline void setQShortcut_ConnectNotify_IsBase(bool value) const { qshortcut_connectnotify_isbase = value; }
+    inline void setQShortcut_DisconnectNotify_IsBase(bool value) const { qshortcut_disconnectnotify_isbase = value; }
+    inline void setQShortcut_Sender_IsBase(bool value) const { qshortcut_sender_isbase = value; }
+    inline void setQShortcut_SenderSignalIndex_IsBase(bool value) const { qshortcut_sendersignalindex_isbase = value; }
+    inline void setQShortcut_Receivers_IsBase(bool value) const { qshortcut_receivers_isbase = value; }
+    inline void setQShortcut_IsSignalConnected_IsBase(bool value) const { qshortcut_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -117,7 +120,12 @@ class VirtualQShortcut : public QShortcut {
             qshortcut_metacall_isbase = false;
             return QShortcut::qt_metacall(param1, param2, param3);
         } else if (qshortcut_metacall_callback != nullptr) {
-            return qshortcut_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qshortcut_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QShortcut::qt_metacall(param1, param2, param3);
         }
@@ -129,7 +137,10 @@ class VirtualQShortcut : public QShortcut {
             qshortcut_event_isbase = false;
             return QShortcut::event(e);
         } else if (qshortcut_event_callback != nullptr) {
-            return qshortcut_event_callback(this, e);
+            QEvent* cbval1 = e;
+
+            bool callback_ret = qshortcut_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QShortcut::event(e);
         }
@@ -141,7 +152,11 @@ class VirtualQShortcut : public QShortcut {
             qshortcut_eventfilter_isbase = false;
             return QShortcut::eventFilter(watched, event);
         } else if (qshortcut_eventfilter_callback != nullptr) {
-            return qshortcut_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qshortcut_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QShortcut::eventFilter(watched, event);
         }
@@ -153,7 +168,9 @@ class VirtualQShortcut : public QShortcut {
             qshortcut_timerevent_isbase = false;
             QShortcut::timerEvent(event);
         } else if (qshortcut_timerevent_callback != nullptr) {
-            qshortcut_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qshortcut_timerevent_callback(this, cbval1);
         } else {
             QShortcut::timerEvent(event);
         }
@@ -165,7 +182,9 @@ class VirtualQShortcut : public QShortcut {
             qshortcut_childevent_isbase = false;
             QShortcut::childEvent(event);
         } else if (qshortcut_childevent_callback != nullptr) {
-            qshortcut_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qshortcut_childevent_callback(this, cbval1);
         } else {
             QShortcut::childEvent(event);
         }
@@ -177,7 +196,9 @@ class VirtualQShortcut : public QShortcut {
             qshortcut_customevent_isbase = false;
             QShortcut::customEvent(event);
         } else if (qshortcut_customevent_callback != nullptr) {
-            qshortcut_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qshortcut_customevent_callback(this, cbval1);
         } else {
             QShortcut::customEvent(event);
         }
@@ -189,7 +210,11 @@ class VirtualQShortcut : public QShortcut {
             qshortcut_connectnotify_isbase = false;
             QShortcut::connectNotify(signal);
         } else if (qshortcut_connectnotify_callback != nullptr) {
-            qshortcut_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qshortcut_connectnotify_callback(this, cbval1);
         } else {
             QShortcut::connectNotify(signal);
         }
@@ -201,7 +226,11 @@ class VirtualQShortcut : public QShortcut {
             qshortcut_disconnectnotify_isbase = false;
             QShortcut::disconnectNotify(signal);
         } else if (qshortcut_disconnectnotify_callback != nullptr) {
-            qshortcut_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qshortcut_disconnectnotify_callback(this, cbval1);
         } else {
             QShortcut::disconnectNotify(signal);
         }
@@ -213,7 +242,8 @@ class VirtualQShortcut : public QShortcut {
             qshortcut_sender_isbase = false;
             return QShortcut::sender();
         } else if (qshortcut_sender_callback != nullptr) {
-            return qshortcut_sender_callback();
+            QObject* callback_ret = qshortcut_sender_callback();
+            return callback_ret;
         } else {
             return QShortcut::sender();
         }
@@ -225,7 +255,8 @@ class VirtualQShortcut : public QShortcut {
             qshortcut_sendersignalindex_isbase = false;
             return QShortcut::senderSignalIndex();
         } else if (qshortcut_sendersignalindex_callback != nullptr) {
-            return qshortcut_sendersignalindex_callback();
+            int callback_ret = qshortcut_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QShortcut::senderSignalIndex();
         }
@@ -237,7 +268,10 @@ class VirtualQShortcut : public QShortcut {
             qshortcut_receivers_isbase = false;
             return QShortcut::receivers(signal);
         } else if (qshortcut_receivers_callback != nullptr) {
-            return qshortcut_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qshortcut_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QShortcut::receivers(signal);
         }
@@ -249,11 +283,38 @@ class VirtualQShortcut : public QShortcut {
             qshortcut_issignalconnected_isbase = false;
             return QShortcut::isSignalConnected(signal);
         } else if (qshortcut_issignalconnected_callback != nullptr) {
-            return qshortcut_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qshortcut_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QShortcut::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QShortcut_Event(QShortcut* self, QEvent* e);
+    friend bool QShortcut_QBaseEvent(QShortcut* self, QEvent* e);
+    friend void QShortcut_TimerEvent(QShortcut* self, QTimerEvent* event);
+    friend void QShortcut_QBaseTimerEvent(QShortcut* self, QTimerEvent* event);
+    friend void QShortcut_ChildEvent(QShortcut* self, QChildEvent* event);
+    friend void QShortcut_QBaseChildEvent(QShortcut* self, QChildEvent* event);
+    friend void QShortcut_CustomEvent(QShortcut* self, QEvent* event);
+    friend void QShortcut_QBaseCustomEvent(QShortcut* self, QEvent* event);
+    friend void QShortcut_ConnectNotify(QShortcut* self, const QMetaMethod* signal);
+    friend void QShortcut_QBaseConnectNotify(QShortcut* self, const QMetaMethod* signal);
+    friend void QShortcut_DisconnectNotify(QShortcut* self, const QMetaMethod* signal);
+    friend void QShortcut_QBaseDisconnectNotify(QShortcut* self, const QMetaMethod* signal);
+    friend QObject* QShortcut_Sender(const QShortcut* self);
+    friend QObject* QShortcut_QBaseSender(const QShortcut* self);
+    friend int QShortcut_SenderSignalIndex(const QShortcut* self);
+    friend int QShortcut_QBaseSenderSignalIndex(const QShortcut* self);
+    friend int QShortcut_Receivers(const QShortcut* self, const char* signal);
+    friend int QShortcut_QBaseReceivers(const QShortcut* self, const char* signal);
+    friend bool QShortcut_IsSignalConnected(const QShortcut* self, const QMetaMethod* signal);
+    friend bool QShortcut_QBaseIsSignalConnected(const QShortcut* self, const QMetaMethod* signal);
 };
 
 #endif

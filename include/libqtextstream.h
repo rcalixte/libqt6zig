@@ -39,15 +39,15 @@ typedef int Status;             // C ABI enum
 
 QTextStream* QTextStream_new();
 QTextStream* QTextStream_new2(QIODevice* device);
-QTextStream* QTextStream_new3(libqt_string array);
-QTextStream* QTextStream_new4(libqt_string array, int openMode);
+QTextStream* QTextStream_new3(const libqt_string array);
+QTextStream* QTextStream_new4(const libqt_string array, int openMode);
 void QTextStream_SetEncoding(QTextStream* self, int encoding);
 int QTextStream_Encoding(const QTextStream* self);
 void QTextStream_SetAutoDetectUnicode(QTextStream* self, bool enabled);
 bool QTextStream_AutoDetectUnicode(const QTextStream* self);
 void QTextStream_SetGenerateByteOrderMark(QTextStream* self, bool generate);
 bool QTextStream_GenerateByteOrderMark(const QTextStream* self);
-void QTextStream_SetLocale(QTextStream* self, QLocale* locale);
+void QTextStream_SetLocale(QTextStream* self, const QLocale* locale);
 QLocale* QTextStream_Locale(const QTextStream* self);
 void QTextStream_SetDevice(QTextStream* self, QIODevice* device);
 QIODevice* QTextStream_Device(const QTextStream* self);
@@ -105,8 +105,8 @@ QTextStream* QTextStream_OperatorShiftLeftWithQlonglong(QTextStream* self, long 
 QTextStream* QTextStream_OperatorShiftLeftWithQulonglong(QTextStream* self, unsigned long long i);
 QTextStream* QTextStream_OperatorShiftLeftWithFloat(QTextStream* self, float f);
 QTextStream* QTextStream_OperatorShiftLeftWithDouble(QTextStream* self, double f);
-QTextStream* QTextStream_OperatorShiftLeftWithQString(QTextStream* self, libqt_string s);
-QTextStream* QTextStream_OperatorShiftLeftWithArray(QTextStream* self, libqt_string array);
+QTextStream* QTextStream_OperatorShiftLeftWithQString(QTextStream* self, const libqt_string s);
+QTextStream* QTextStream_OperatorShiftLeftWithArray(QTextStream* self, const libqt_string array);
 QTextStream* QTextStream_OperatorShiftLeftWithChar(QTextStream* self, const char* c);
 QTextStream* QTextStream_OperatorShiftLeftWithPtr(QTextStream* self, const void* ptr);
 libqt_string QTextStream_ReadLine1(QTextStream* self, long long maxlen);

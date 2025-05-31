@@ -6,11 +6,11 @@ QsciDocument* QsciDocument_new() {
     return new QsciDocument();
 }
 
-QsciDocument* QsciDocument_new2(QsciDocument* param1) {
+QsciDocument* QsciDocument_new2(const QsciDocument* param1) {
     return new QsciDocument(*param1);
 }
 
-void QsciDocument_OperatorAssign(QsciDocument* self, QsciDocument* param1) {
+void QsciDocument_OperatorAssign(QsciDocument* self, const QsciDocument* param1) {
     self->operator=(*param1);
 }
 

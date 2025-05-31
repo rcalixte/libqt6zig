@@ -1,20 +1,10 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
-#include <QChildEvent>
-#include <QEvent>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
 #include <QUrl>
-#include <QVariant>
 #include <QWebEngineDownloadRequest>
 #include <QWebEnginePage>
 #include <qwebenginedownloadrequest.h>
@@ -137,7 +127,7 @@ libqt_string QWebEngineDownloadRequest_DownloadDirectory(const QWebEngineDownloa
     return _str;
 }
 
-void QWebEngineDownloadRequest_SetDownloadDirectory(QWebEngineDownloadRequest* self, libqt_string directory) {
+void QWebEngineDownloadRequest_SetDownloadDirectory(QWebEngineDownloadRequest* self, const libqt_string directory) {
     QString directory_QString = QString::fromUtf8(directory.data, directory.len);
     self->setDownloadDirectory(directory_QString);
 }
@@ -154,7 +144,7 @@ libqt_string QWebEngineDownloadRequest_DownloadFileName(const QWebEngineDownload
     return _str;
 }
 
-void QWebEngineDownloadRequest_SetDownloadFileName(QWebEngineDownloadRequest* self, libqt_string fileName) {
+void QWebEngineDownloadRequest_SetDownloadFileName(QWebEngineDownloadRequest* self, const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     self->setDownloadFileName(fileName_QString);
 }
@@ -301,14 +291,6 @@ libqt_string QWebEngineDownloadRequest_Tr3(const char* s, const char* c, int n) 
     memcpy(_str.data, _b.data(), _str.len);
     _str.data[_str.len] = '\0';
     return _str;
-}
-
-bool QWebEngineDownloadRequest_Event(QWebEngineDownloadRequest* self, QEvent* event) {
-    return self->event(event);
-}
-
-bool QWebEngineDownloadRequest_EventFilter(QWebEngineDownloadRequest* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
 }
 
 void QWebEngineDownloadRequest_Delete(QWebEngineDownloadRequest* self) {

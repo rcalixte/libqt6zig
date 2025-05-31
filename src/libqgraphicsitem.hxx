@@ -11,20 +11,23 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QGraphicsItem so that we can call protected methods
-class VirtualQGraphicsItem : public QGraphicsItem {
+class VirtualQGraphicsItem final : public QGraphicsItem {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsItem = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
     using QGraphicsItem_Advance_Callback = void (*)(QGraphicsItem*, int);
-    using QGraphicsItem_BoundingRect_Callback = QRectF (*)();
-    using QGraphicsItem_Shape_Callback = QPainterPath (*)();
-    using QGraphicsItem_Contains_Callback = bool (*)(const QGraphicsItem*, const QPointF&);
-    using QGraphicsItem_CollidesWithItem_Callback = bool (*)(const QGraphicsItem*, const QGraphicsItem*, Qt::ItemSelectionMode);
-    using QGraphicsItem_CollidesWithPath_Callback = bool (*)(const QGraphicsItem*, const QPainterPath&, Qt::ItemSelectionMode);
-    using QGraphicsItem_IsObscuredBy_Callback = bool (*)(const QGraphicsItem*, const QGraphicsItem*);
-    using QGraphicsItem_OpaqueArea_Callback = QPainterPath (*)();
-    using QGraphicsItem_Paint_Callback = void (*)(QGraphicsItem*, QPainter*, const QStyleOptionGraphicsItem*, QWidget*);
+    using QGraphicsItem_BoundingRect_Callback = QRectF* (*)();
+    using QGraphicsItem_Shape_Callback = QPainterPath* (*)();
+    using QGraphicsItem_Contains_Callback = bool (*)(const QGraphicsItem*, QPointF*);
+    using QGraphicsItem_CollidesWithItem_Callback = bool (*)(const QGraphicsItem*, QGraphicsItem*, int);
+    using QGraphicsItem_CollidesWithPath_Callback = bool (*)(const QGraphicsItem*, QPainterPath*, int);
+    using QGraphicsItem_IsObscuredBy_Callback = bool (*)(const QGraphicsItem*, QGraphicsItem*);
+    using QGraphicsItem_OpaqueArea_Callback = QPainterPath* (*)();
+    using QGraphicsItem_Paint_Callback = void (*)(QGraphicsItem*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
     using QGraphicsItem_Type_Callback = int (*)();
     using QGraphicsItem_SceneEventFilter_Callback = bool (*)(QGraphicsItem*, QGraphicsItem*, QEvent*);
     using QGraphicsItem_SceneEvent_Callback = bool (*)(QGraphicsItem*, QEvent*);
@@ -46,11 +49,11 @@ class VirtualQGraphicsItem : public QGraphicsItem {
     using QGraphicsItem_MouseDoubleClickEvent_Callback = void (*)(QGraphicsItem*, QGraphicsSceneMouseEvent*);
     using QGraphicsItem_WheelEvent_Callback = void (*)(QGraphicsItem*, QGraphicsSceneWheelEvent*);
     using QGraphicsItem_InputMethodEvent_Callback = void (*)(QGraphicsItem*, QInputMethodEvent*);
-    using QGraphicsItem_InputMethodQuery_Callback = QVariant (*)(const QGraphicsItem*, Qt::InputMethodQuery);
-    using QGraphicsItem_ItemChange_Callback = QVariant (*)(QGraphicsItem*, QGraphicsItem::GraphicsItemChange, const QVariant&);
+    using QGraphicsItem_InputMethodQuery_Callback = QVariant* (*)(const QGraphicsItem*, int);
+    using QGraphicsItem_ItemChange_Callback = QVariant* (*)(QGraphicsItem*, int, QVariant*);
     using QGraphicsItem_SupportsExtension_Callback = bool (*)(const QGraphicsItem*, int);
-    using QGraphicsItem_SetExtension_Callback = void (*)(QGraphicsItem*, int, const QVariant&);
-    using QGraphicsItem_Extension_Callback = QVariant (*)(const QGraphicsItem*, const QVariant&);
+    using QGraphicsItem_SetExtension_Callback = void (*)(QGraphicsItem*, int, QVariant*);
+    using QGraphicsItem_Extension_Callback = QVariant* (*)(const QGraphicsItem*, QVariant*);
     using QGraphicsItem_UpdateMicroFocus_Callback = void (*)();
     using QGraphicsItem_AddToIndex_Callback = void (*)();
     using QGraphicsItem_RemoveFromIndex_Callback = void (*)();
@@ -186,86 +189,86 @@ class VirtualQGraphicsItem : public QGraphicsItem {
     }
 
     // Callback setters
-    void setQGraphicsItem_Advance_Callback(QGraphicsItem_Advance_Callback cb) { qgraphicsitem_advance_callback = cb; }
-    void setQGraphicsItem_BoundingRect_Callback(QGraphicsItem_BoundingRect_Callback cb) { qgraphicsitem_boundingrect_callback = cb; }
-    void setQGraphicsItem_Shape_Callback(QGraphicsItem_Shape_Callback cb) { qgraphicsitem_shape_callback = cb; }
-    void setQGraphicsItem_Contains_Callback(QGraphicsItem_Contains_Callback cb) { qgraphicsitem_contains_callback = cb; }
-    void setQGraphicsItem_CollidesWithItem_Callback(QGraphicsItem_CollidesWithItem_Callback cb) { qgraphicsitem_collideswithitem_callback = cb; }
-    void setQGraphicsItem_CollidesWithPath_Callback(QGraphicsItem_CollidesWithPath_Callback cb) { qgraphicsitem_collideswithpath_callback = cb; }
-    void setQGraphicsItem_IsObscuredBy_Callback(QGraphicsItem_IsObscuredBy_Callback cb) { qgraphicsitem_isobscuredby_callback = cb; }
-    void setQGraphicsItem_OpaqueArea_Callback(QGraphicsItem_OpaqueArea_Callback cb) { qgraphicsitem_opaquearea_callback = cb; }
-    void setQGraphicsItem_Paint_Callback(QGraphicsItem_Paint_Callback cb) { qgraphicsitem_paint_callback = cb; }
-    void setQGraphicsItem_Type_Callback(QGraphicsItem_Type_Callback cb) { qgraphicsitem_type_callback = cb; }
-    void setQGraphicsItem_SceneEventFilter_Callback(QGraphicsItem_SceneEventFilter_Callback cb) { qgraphicsitem_sceneeventfilter_callback = cb; }
-    void setQGraphicsItem_SceneEvent_Callback(QGraphicsItem_SceneEvent_Callback cb) { qgraphicsitem_sceneevent_callback = cb; }
-    void setQGraphicsItem_ContextMenuEvent_Callback(QGraphicsItem_ContextMenuEvent_Callback cb) { qgraphicsitem_contextmenuevent_callback = cb; }
-    void setQGraphicsItem_DragEnterEvent_Callback(QGraphicsItem_DragEnterEvent_Callback cb) { qgraphicsitem_dragenterevent_callback = cb; }
-    void setQGraphicsItem_DragLeaveEvent_Callback(QGraphicsItem_DragLeaveEvent_Callback cb) { qgraphicsitem_dragleaveevent_callback = cb; }
-    void setQGraphicsItem_DragMoveEvent_Callback(QGraphicsItem_DragMoveEvent_Callback cb) { qgraphicsitem_dragmoveevent_callback = cb; }
-    void setQGraphicsItem_DropEvent_Callback(QGraphicsItem_DropEvent_Callback cb) { qgraphicsitem_dropevent_callback = cb; }
-    void setQGraphicsItem_FocusInEvent_Callback(QGraphicsItem_FocusInEvent_Callback cb) { qgraphicsitem_focusinevent_callback = cb; }
-    void setQGraphicsItem_FocusOutEvent_Callback(QGraphicsItem_FocusOutEvent_Callback cb) { qgraphicsitem_focusoutevent_callback = cb; }
-    void setQGraphicsItem_HoverEnterEvent_Callback(QGraphicsItem_HoverEnterEvent_Callback cb) { qgraphicsitem_hoverenterevent_callback = cb; }
-    void setQGraphicsItem_HoverMoveEvent_Callback(QGraphicsItem_HoverMoveEvent_Callback cb) { qgraphicsitem_hovermoveevent_callback = cb; }
-    void setQGraphicsItem_HoverLeaveEvent_Callback(QGraphicsItem_HoverLeaveEvent_Callback cb) { qgraphicsitem_hoverleaveevent_callback = cb; }
-    void setQGraphicsItem_KeyPressEvent_Callback(QGraphicsItem_KeyPressEvent_Callback cb) { qgraphicsitem_keypressevent_callback = cb; }
-    void setQGraphicsItem_KeyReleaseEvent_Callback(QGraphicsItem_KeyReleaseEvent_Callback cb) { qgraphicsitem_keyreleaseevent_callback = cb; }
-    void setQGraphicsItem_MousePressEvent_Callback(QGraphicsItem_MousePressEvent_Callback cb) { qgraphicsitem_mousepressevent_callback = cb; }
-    void setQGraphicsItem_MouseMoveEvent_Callback(QGraphicsItem_MouseMoveEvent_Callback cb) { qgraphicsitem_mousemoveevent_callback = cb; }
-    void setQGraphicsItem_MouseReleaseEvent_Callback(QGraphicsItem_MouseReleaseEvent_Callback cb) { qgraphicsitem_mousereleaseevent_callback = cb; }
-    void setQGraphicsItem_MouseDoubleClickEvent_Callback(QGraphicsItem_MouseDoubleClickEvent_Callback cb) { qgraphicsitem_mousedoubleclickevent_callback = cb; }
-    void setQGraphicsItem_WheelEvent_Callback(QGraphicsItem_WheelEvent_Callback cb) { qgraphicsitem_wheelevent_callback = cb; }
-    void setQGraphicsItem_InputMethodEvent_Callback(QGraphicsItem_InputMethodEvent_Callback cb) { qgraphicsitem_inputmethodevent_callback = cb; }
-    void setQGraphicsItem_InputMethodQuery_Callback(QGraphicsItem_InputMethodQuery_Callback cb) { qgraphicsitem_inputmethodquery_callback = cb; }
-    void setQGraphicsItem_ItemChange_Callback(QGraphicsItem_ItemChange_Callback cb) { qgraphicsitem_itemchange_callback = cb; }
-    void setQGraphicsItem_SupportsExtension_Callback(QGraphicsItem_SupportsExtension_Callback cb) { qgraphicsitem_supportsextension_callback = cb; }
-    void setQGraphicsItem_SetExtension_Callback(QGraphicsItem_SetExtension_Callback cb) { qgraphicsitem_setextension_callback = cb; }
-    void setQGraphicsItem_Extension_Callback(QGraphicsItem_Extension_Callback cb) { qgraphicsitem_extension_callback = cb; }
-    void setQGraphicsItem_UpdateMicroFocus_Callback(QGraphicsItem_UpdateMicroFocus_Callback cb) { qgraphicsitem_updatemicrofocus_callback = cb; }
-    void setQGraphicsItem_AddToIndex_Callback(QGraphicsItem_AddToIndex_Callback cb) { qgraphicsitem_addtoindex_callback = cb; }
-    void setQGraphicsItem_RemoveFromIndex_Callback(QGraphicsItem_RemoveFromIndex_Callback cb) { qgraphicsitem_removefromindex_callback = cb; }
-    void setQGraphicsItem_PrepareGeometryChange_Callback(QGraphicsItem_PrepareGeometryChange_Callback cb) { qgraphicsitem_preparegeometrychange_callback = cb; }
+    inline void setQGraphicsItem_Advance_Callback(QGraphicsItem_Advance_Callback cb) { qgraphicsitem_advance_callback = cb; }
+    inline void setQGraphicsItem_BoundingRect_Callback(QGraphicsItem_BoundingRect_Callback cb) { qgraphicsitem_boundingrect_callback = cb; }
+    inline void setQGraphicsItem_Shape_Callback(QGraphicsItem_Shape_Callback cb) { qgraphicsitem_shape_callback = cb; }
+    inline void setQGraphicsItem_Contains_Callback(QGraphicsItem_Contains_Callback cb) { qgraphicsitem_contains_callback = cb; }
+    inline void setQGraphicsItem_CollidesWithItem_Callback(QGraphicsItem_CollidesWithItem_Callback cb) { qgraphicsitem_collideswithitem_callback = cb; }
+    inline void setQGraphicsItem_CollidesWithPath_Callback(QGraphicsItem_CollidesWithPath_Callback cb) { qgraphicsitem_collideswithpath_callback = cb; }
+    inline void setQGraphicsItem_IsObscuredBy_Callback(QGraphicsItem_IsObscuredBy_Callback cb) { qgraphicsitem_isobscuredby_callback = cb; }
+    inline void setQGraphicsItem_OpaqueArea_Callback(QGraphicsItem_OpaqueArea_Callback cb) { qgraphicsitem_opaquearea_callback = cb; }
+    inline void setQGraphicsItem_Paint_Callback(QGraphicsItem_Paint_Callback cb) { qgraphicsitem_paint_callback = cb; }
+    inline void setQGraphicsItem_Type_Callback(QGraphicsItem_Type_Callback cb) { qgraphicsitem_type_callback = cb; }
+    inline void setQGraphicsItem_SceneEventFilter_Callback(QGraphicsItem_SceneEventFilter_Callback cb) { qgraphicsitem_sceneeventfilter_callback = cb; }
+    inline void setQGraphicsItem_SceneEvent_Callback(QGraphicsItem_SceneEvent_Callback cb) { qgraphicsitem_sceneevent_callback = cb; }
+    inline void setQGraphicsItem_ContextMenuEvent_Callback(QGraphicsItem_ContextMenuEvent_Callback cb) { qgraphicsitem_contextmenuevent_callback = cb; }
+    inline void setQGraphicsItem_DragEnterEvent_Callback(QGraphicsItem_DragEnterEvent_Callback cb) { qgraphicsitem_dragenterevent_callback = cb; }
+    inline void setQGraphicsItem_DragLeaveEvent_Callback(QGraphicsItem_DragLeaveEvent_Callback cb) { qgraphicsitem_dragleaveevent_callback = cb; }
+    inline void setQGraphicsItem_DragMoveEvent_Callback(QGraphicsItem_DragMoveEvent_Callback cb) { qgraphicsitem_dragmoveevent_callback = cb; }
+    inline void setQGraphicsItem_DropEvent_Callback(QGraphicsItem_DropEvent_Callback cb) { qgraphicsitem_dropevent_callback = cb; }
+    inline void setQGraphicsItem_FocusInEvent_Callback(QGraphicsItem_FocusInEvent_Callback cb) { qgraphicsitem_focusinevent_callback = cb; }
+    inline void setQGraphicsItem_FocusOutEvent_Callback(QGraphicsItem_FocusOutEvent_Callback cb) { qgraphicsitem_focusoutevent_callback = cb; }
+    inline void setQGraphicsItem_HoverEnterEvent_Callback(QGraphicsItem_HoverEnterEvent_Callback cb) { qgraphicsitem_hoverenterevent_callback = cb; }
+    inline void setQGraphicsItem_HoverMoveEvent_Callback(QGraphicsItem_HoverMoveEvent_Callback cb) { qgraphicsitem_hovermoveevent_callback = cb; }
+    inline void setQGraphicsItem_HoverLeaveEvent_Callback(QGraphicsItem_HoverLeaveEvent_Callback cb) { qgraphicsitem_hoverleaveevent_callback = cb; }
+    inline void setQGraphicsItem_KeyPressEvent_Callback(QGraphicsItem_KeyPressEvent_Callback cb) { qgraphicsitem_keypressevent_callback = cb; }
+    inline void setQGraphicsItem_KeyReleaseEvent_Callback(QGraphicsItem_KeyReleaseEvent_Callback cb) { qgraphicsitem_keyreleaseevent_callback = cb; }
+    inline void setQGraphicsItem_MousePressEvent_Callback(QGraphicsItem_MousePressEvent_Callback cb) { qgraphicsitem_mousepressevent_callback = cb; }
+    inline void setQGraphicsItem_MouseMoveEvent_Callback(QGraphicsItem_MouseMoveEvent_Callback cb) { qgraphicsitem_mousemoveevent_callback = cb; }
+    inline void setQGraphicsItem_MouseReleaseEvent_Callback(QGraphicsItem_MouseReleaseEvent_Callback cb) { qgraphicsitem_mousereleaseevent_callback = cb; }
+    inline void setQGraphicsItem_MouseDoubleClickEvent_Callback(QGraphicsItem_MouseDoubleClickEvent_Callback cb) { qgraphicsitem_mousedoubleclickevent_callback = cb; }
+    inline void setQGraphicsItem_WheelEvent_Callback(QGraphicsItem_WheelEvent_Callback cb) { qgraphicsitem_wheelevent_callback = cb; }
+    inline void setQGraphicsItem_InputMethodEvent_Callback(QGraphicsItem_InputMethodEvent_Callback cb) { qgraphicsitem_inputmethodevent_callback = cb; }
+    inline void setQGraphicsItem_InputMethodQuery_Callback(QGraphicsItem_InputMethodQuery_Callback cb) { qgraphicsitem_inputmethodquery_callback = cb; }
+    inline void setQGraphicsItem_ItemChange_Callback(QGraphicsItem_ItemChange_Callback cb) { qgraphicsitem_itemchange_callback = cb; }
+    inline void setQGraphicsItem_SupportsExtension_Callback(QGraphicsItem_SupportsExtension_Callback cb) { qgraphicsitem_supportsextension_callback = cb; }
+    inline void setQGraphicsItem_SetExtension_Callback(QGraphicsItem_SetExtension_Callback cb) { qgraphicsitem_setextension_callback = cb; }
+    inline void setQGraphicsItem_Extension_Callback(QGraphicsItem_Extension_Callback cb) { qgraphicsitem_extension_callback = cb; }
+    inline void setQGraphicsItem_UpdateMicroFocus_Callback(QGraphicsItem_UpdateMicroFocus_Callback cb) { qgraphicsitem_updatemicrofocus_callback = cb; }
+    inline void setQGraphicsItem_AddToIndex_Callback(QGraphicsItem_AddToIndex_Callback cb) { qgraphicsitem_addtoindex_callback = cb; }
+    inline void setQGraphicsItem_RemoveFromIndex_Callback(QGraphicsItem_RemoveFromIndex_Callback cb) { qgraphicsitem_removefromindex_callback = cb; }
+    inline void setQGraphicsItem_PrepareGeometryChange_Callback(QGraphicsItem_PrepareGeometryChange_Callback cb) { qgraphicsitem_preparegeometrychange_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsItem_Advance_IsBase(bool value) const { qgraphicsitem_advance_isbase = value; }
-    void setQGraphicsItem_BoundingRect_IsBase(bool value) const { qgraphicsitem_boundingrect_isbase = value; }
-    void setQGraphicsItem_Shape_IsBase(bool value) const { qgraphicsitem_shape_isbase = value; }
-    void setQGraphicsItem_Contains_IsBase(bool value) const { qgraphicsitem_contains_isbase = value; }
-    void setQGraphicsItem_CollidesWithItem_IsBase(bool value) const { qgraphicsitem_collideswithitem_isbase = value; }
-    void setQGraphicsItem_CollidesWithPath_IsBase(bool value) const { qgraphicsitem_collideswithpath_isbase = value; }
-    void setQGraphicsItem_IsObscuredBy_IsBase(bool value) const { qgraphicsitem_isobscuredby_isbase = value; }
-    void setQGraphicsItem_OpaqueArea_IsBase(bool value) const { qgraphicsitem_opaquearea_isbase = value; }
-    void setQGraphicsItem_Paint_IsBase(bool value) const { qgraphicsitem_paint_isbase = value; }
-    void setQGraphicsItem_Type_IsBase(bool value) const { qgraphicsitem_type_isbase = value; }
-    void setQGraphicsItem_SceneEventFilter_IsBase(bool value) const { qgraphicsitem_sceneeventfilter_isbase = value; }
-    void setQGraphicsItem_SceneEvent_IsBase(bool value) const { qgraphicsitem_sceneevent_isbase = value; }
-    void setQGraphicsItem_ContextMenuEvent_IsBase(bool value) const { qgraphicsitem_contextmenuevent_isbase = value; }
-    void setQGraphicsItem_DragEnterEvent_IsBase(bool value) const { qgraphicsitem_dragenterevent_isbase = value; }
-    void setQGraphicsItem_DragLeaveEvent_IsBase(bool value) const { qgraphicsitem_dragleaveevent_isbase = value; }
-    void setQGraphicsItem_DragMoveEvent_IsBase(bool value) const { qgraphicsitem_dragmoveevent_isbase = value; }
-    void setQGraphicsItem_DropEvent_IsBase(bool value) const { qgraphicsitem_dropevent_isbase = value; }
-    void setQGraphicsItem_FocusInEvent_IsBase(bool value) const { qgraphicsitem_focusinevent_isbase = value; }
-    void setQGraphicsItem_FocusOutEvent_IsBase(bool value) const { qgraphicsitem_focusoutevent_isbase = value; }
-    void setQGraphicsItem_HoverEnterEvent_IsBase(bool value) const { qgraphicsitem_hoverenterevent_isbase = value; }
-    void setQGraphicsItem_HoverMoveEvent_IsBase(bool value) const { qgraphicsitem_hovermoveevent_isbase = value; }
-    void setQGraphicsItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicsitem_hoverleaveevent_isbase = value; }
-    void setQGraphicsItem_KeyPressEvent_IsBase(bool value) const { qgraphicsitem_keypressevent_isbase = value; }
-    void setQGraphicsItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicsitem_keyreleaseevent_isbase = value; }
-    void setQGraphicsItem_MousePressEvent_IsBase(bool value) const { qgraphicsitem_mousepressevent_isbase = value; }
-    void setQGraphicsItem_MouseMoveEvent_IsBase(bool value) const { qgraphicsitem_mousemoveevent_isbase = value; }
-    void setQGraphicsItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicsitem_mousereleaseevent_isbase = value; }
-    void setQGraphicsItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicsitem_mousedoubleclickevent_isbase = value; }
-    void setQGraphicsItem_WheelEvent_IsBase(bool value) const { qgraphicsitem_wheelevent_isbase = value; }
-    void setQGraphicsItem_InputMethodEvent_IsBase(bool value) const { qgraphicsitem_inputmethodevent_isbase = value; }
-    void setQGraphicsItem_InputMethodQuery_IsBase(bool value) const { qgraphicsitem_inputmethodquery_isbase = value; }
-    void setQGraphicsItem_ItemChange_IsBase(bool value) const { qgraphicsitem_itemchange_isbase = value; }
-    void setQGraphicsItem_SupportsExtension_IsBase(bool value) const { qgraphicsitem_supportsextension_isbase = value; }
-    void setQGraphicsItem_SetExtension_IsBase(bool value) const { qgraphicsitem_setextension_isbase = value; }
-    void setQGraphicsItem_Extension_IsBase(bool value) const { qgraphicsitem_extension_isbase = value; }
-    void setQGraphicsItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicsitem_updatemicrofocus_isbase = value; }
-    void setQGraphicsItem_AddToIndex_IsBase(bool value) const { qgraphicsitem_addtoindex_isbase = value; }
-    void setQGraphicsItem_RemoveFromIndex_IsBase(bool value) const { qgraphicsitem_removefromindex_isbase = value; }
-    void setQGraphicsItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicsitem_preparegeometrychange_isbase = value; }
+    inline void setQGraphicsItem_Advance_IsBase(bool value) const { qgraphicsitem_advance_isbase = value; }
+    inline void setQGraphicsItem_BoundingRect_IsBase(bool value) const { qgraphicsitem_boundingrect_isbase = value; }
+    inline void setQGraphicsItem_Shape_IsBase(bool value) const { qgraphicsitem_shape_isbase = value; }
+    inline void setQGraphicsItem_Contains_IsBase(bool value) const { qgraphicsitem_contains_isbase = value; }
+    inline void setQGraphicsItem_CollidesWithItem_IsBase(bool value) const { qgraphicsitem_collideswithitem_isbase = value; }
+    inline void setQGraphicsItem_CollidesWithPath_IsBase(bool value) const { qgraphicsitem_collideswithpath_isbase = value; }
+    inline void setQGraphicsItem_IsObscuredBy_IsBase(bool value) const { qgraphicsitem_isobscuredby_isbase = value; }
+    inline void setQGraphicsItem_OpaqueArea_IsBase(bool value) const { qgraphicsitem_opaquearea_isbase = value; }
+    inline void setQGraphicsItem_Paint_IsBase(bool value) const { qgraphicsitem_paint_isbase = value; }
+    inline void setQGraphicsItem_Type_IsBase(bool value) const { qgraphicsitem_type_isbase = value; }
+    inline void setQGraphicsItem_SceneEventFilter_IsBase(bool value) const { qgraphicsitem_sceneeventfilter_isbase = value; }
+    inline void setQGraphicsItem_SceneEvent_IsBase(bool value) const { qgraphicsitem_sceneevent_isbase = value; }
+    inline void setQGraphicsItem_ContextMenuEvent_IsBase(bool value) const { qgraphicsitem_contextmenuevent_isbase = value; }
+    inline void setQGraphicsItem_DragEnterEvent_IsBase(bool value) const { qgraphicsitem_dragenterevent_isbase = value; }
+    inline void setQGraphicsItem_DragLeaveEvent_IsBase(bool value) const { qgraphicsitem_dragleaveevent_isbase = value; }
+    inline void setQGraphicsItem_DragMoveEvent_IsBase(bool value) const { qgraphicsitem_dragmoveevent_isbase = value; }
+    inline void setQGraphicsItem_DropEvent_IsBase(bool value) const { qgraphicsitem_dropevent_isbase = value; }
+    inline void setQGraphicsItem_FocusInEvent_IsBase(bool value) const { qgraphicsitem_focusinevent_isbase = value; }
+    inline void setQGraphicsItem_FocusOutEvent_IsBase(bool value) const { qgraphicsitem_focusoutevent_isbase = value; }
+    inline void setQGraphicsItem_HoverEnterEvent_IsBase(bool value) const { qgraphicsitem_hoverenterevent_isbase = value; }
+    inline void setQGraphicsItem_HoverMoveEvent_IsBase(bool value) const { qgraphicsitem_hovermoveevent_isbase = value; }
+    inline void setQGraphicsItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicsitem_hoverleaveevent_isbase = value; }
+    inline void setQGraphicsItem_KeyPressEvent_IsBase(bool value) const { qgraphicsitem_keypressevent_isbase = value; }
+    inline void setQGraphicsItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicsitem_keyreleaseevent_isbase = value; }
+    inline void setQGraphicsItem_MousePressEvent_IsBase(bool value) const { qgraphicsitem_mousepressevent_isbase = value; }
+    inline void setQGraphicsItem_MouseMoveEvent_IsBase(bool value) const { qgraphicsitem_mousemoveevent_isbase = value; }
+    inline void setQGraphicsItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicsitem_mousereleaseevent_isbase = value; }
+    inline void setQGraphicsItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicsitem_mousedoubleclickevent_isbase = value; }
+    inline void setQGraphicsItem_WheelEvent_IsBase(bool value) const { qgraphicsitem_wheelevent_isbase = value; }
+    inline void setQGraphicsItem_InputMethodEvent_IsBase(bool value) const { qgraphicsitem_inputmethodevent_isbase = value; }
+    inline void setQGraphicsItem_InputMethodQuery_IsBase(bool value) const { qgraphicsitem_inputmethodquery_isbase = value; }
+    inline void setQGraphicsItem_ItemChange_IsBase(bool value) const { qgraphicsitem_itemchange_isbase = value; }
+    inline void setQGraphicsItem_SupportsExtension_IsBase(bool value) const { qgraphicsitem_supportsextension_isbase = value; }
+    inline void setQGraphicsItem_SetExtension_IsBase(bool value) const { qgraphicsitem_setextension_isbase = value; }
+    inline void setQGraphicsItem_Extension_IsBase(bool value) const { qgraphicsitem_extension_isbase = value; }
+    inline void setQGraphicsItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicsitem_updatemicrofocus_isbase = value; }
+    inline void setQGraphicsItem_AddToIndex_IsBase(bool value) const { qgraphicsitem_addtoindex_isbase = value; }
+    inline void setQGraphicsItem_RemoveFromIndex_IsBase(bool value) const { qgraphicsitem_removefromindex_isbase = value; }
+    inline void setQGraphicsItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicsitem_preparegeometrychange_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void advance(int phase) override {
@@ -273,7 +276,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_advance_isbase = false;
             QGraphicsItem::advance(phase);
         } else if (qgraphicsitem_advance_callback != nullptr) {
-            qgraphicsitem_advance_callback(this, phase);
+            int cbval1 = phase;
+
+            qgraphicsitem_advance_callback(this, cbval1);
         } else {
             QGraphicsItem::advance(phase);
         }
@@ -281,7 +286,12 @@ class VirtualQGraphicsItem : public QGraphicsItem {
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF boundingRect() const override {
-        return qgraphicsitem_boundingrect_callback();
+        if (qgraphicsitem_boundingrect_callback != nullptr) {
+            QRectF* callback_ret = qgraphicsitem_boundingrect_callback();
+            return *callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -290,7 +300,8 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_shape_isbase = false;
             return QGraphicsItem::shape();
         } else if (qgraphicsitem_shape_callback != nullptr) {
-            return qgraphicsitem_shape_callback();
+            QPainterPath* callback_ret = qgraphicsitem_shape_callback();
+            return *callback_ret;
         } else {
             return QGraphicsItem::shape();
         }
@@ -302,7 +313,12 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_contains_isbase = false;
             return QGraphicsItem::contains(point);
         } else if (qgraphicsitem_contains_callback != nullptr) {
-            return qgraphicsitem_contains_callback(this, point);
+            const QPointF& point_ret = point;
+            // Cast returned reference into pointer
+            QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
+
+            bool callback_ret = qgraphicsitem_contains_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsItem::contains(point);
         }
@@ -314,7 +330,11 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_collideswithitem_isbase = false;
             return QGraphicsItem::collidesWithItem(other, mode);
         } else if (qgraphicsitem_collideswithitem_callback != nullptr) {
-            return qgraphicsitem_collideswithitem_callback(this, other, mode);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)other;
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicsitem_collideswithitem_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsItem::collidesWithItem(other, mode);
         }
@@ -326,7 +346,13 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_collideswithpath_isbase = false;
             return QGraphicsItem::collidesWithPath(path, mode);
         } else if (qgraphicsitem_collideswithpath_callback != nullptr) {
-            return qgraphicsitem_collideswithpath_callback(this, path, mode);
+            const QPainterPath& path_ret = path;
+            // Cast returned reference into pointer
+            QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicsitem_collideswithpath_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsItem::collidesWithPath(path, mode);
         }
@@ -338,7 +364,10 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_isobscuredby_isbase = false;
             return QGraphicsItem::isObscuredBy(item);
         } else if (qgraphicsitem_isobscuredby_callback != nullptr) {
-            return qgraphicsitem_isobscuredby_callback(this, item);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)item;
+
+            bool callback_ret = qgraphicsitem_isobscuredby_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsItem::isObscuredBy(item);
         }
@@ -350,7 +379,8 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_opaquearea_isbase = false;
             return QGraphicsItem::opaqueArea();
         } else if (qgraphicsitem_opaquearea_callback != nullptr) {
-            return qgraphicsitem_opaquearea_callback();
+            QPainterPath* callback_ret = qgraphicsitem_opaquearea_callback();
+            return *callback_ret;
         } else {
             return QGraphicsItem::opaqueArea();
         }
@@ -358,7 +388,13 @@ class VirtualQGraphicsItem : public QGraphicsItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override {
-        qgraphicsitem_paint_callback(this, painter, option, widget);
+        if (qgraphicsitem_paint_callback != nullptr) {
+            QPainter* cbval1 = painter;
+            QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
+            QWidget* cbval3 = widget;
+
+            qgraphicsitem_paint_callback(this, cbval1, cbval2, cbval3);
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -367,7 +403,8 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_type_isbase = false;
             return QGraphicsItem::type();
         } else if (qgraphicsitem_type_callback != nullptr) {
-            return qgraphicsitem_type_callback();
+            int callback_ret = qgraphicsitem_type_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsItem::type();
         }
@@ -379,7 +416,11 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_sceneeventfilter_isbase = false;
             return QGraphicsItem::sceneEventFilter(watched, event);
         } else if (qgraphicsitem_sceneeventfilter_callback != nullptr) {
-            return qgraphicsitem_sceneeventfilter_callback(this, watched, event);
+            QGraphicsItem* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicsitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsItem::sceneEventFilter(watched, event);
         }
@@ -391,7 +432,10 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_sceneevent_isbase = false;
             return QGraphicsItem::sceneEvent(event);
         } else if (qgraphicsitem_sceneevent_callback != nullptr) {
-            return qgraphicsitem_sceneevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgraphicsitem_sceneevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsItem::sceneEvent(event);
         }
@@ -403,7 +447,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_contextmenuevent_isbase = false;
             QGraphicsItem::contextMenuEvent(event);
         } else if (qgraphicsitem_contextmenuevent_callback != nullptr) {
-            qgraphicsitem_contextmenuevent_callback(this, event);
+            QGraphicsSceneContextMenuEvent* cbval1 = event;
+
+            qgraphicsitem_contextmenuevent_callback(this, cbval1);
         } else {
             QGraphicsItem::contextMenuEvent(event);
         }
@@ -415,7 +461,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_dragenterevent_isbase = false;
             QGraphicsItem::dragEnterEvent(event);
         } else if (qgraphicsitem_dragenterevent_callback != nullptr) {
-            qgraphicsitem_dragenterevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsitem_dragenterevent_callback(this, cbval1);
         } else {
             QGraphicsItem::dragEnterEvent(event);
         }
@@ -427,7 +475,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_dragleaveevent_isbase = false;
             QGraphicsItem::dragLeaveEvent(event);
         } else if (qgraphicsitem_dragleaveevent_callback != nullptr) {
-            qgraphicsitem_dragleaveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsitem_dragleaveevent_callback(this, cbval1);
         } else {
             QGraphicsItem::dragLeaveEvent(event);
         }
@@ -439,7 +489,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_dragmoveevent_isbase = false;
             QGraphicsItem::dragMoveEvent(event);
         } else if (qgraphicsitem_dragmoveevent_callback != nullptr) {
-            qgraphicsitem_dragmoveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsitem_dragmoveevent_callback(this, cbval1);
         } else {
             QGraphicsItem::dragMoveEvent(event);
         }
@@ -451,7 +503,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_dropevent_isbase = false;
             QGraphicsItem::dropEvent(event);
         } else if (qgraphicsitem_dropevent_callback != nullptr) {
-            qgraphicsitem_dropevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsitem_dropevent_callback(this, cbval1);
         } else {
             QGraphicsItem::dropEvent(event);
         }
@@ -463,7 +517,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_focusinevent_isbase = false;
             QGraphicsItem::focusInEvent(event);
         } else if (qgraphicsitem_focusinevent_callback != nullptr) {
-            qgraphicsitem_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicsitem_focusinevent_callback(this, cbval1);
         } else {
             QGraphicsItem::focusInEvent(event);
         }
@@ -475,7 +531,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_focusoutevent_isbase = false;
             QGraphicsItem::focusOutEvent(event);
         } else if (qgraphicsitem_focusoutevent_callback != nullptr) {
-            qgraphicsitem_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicsitem_focusoutevent_callback(this, cbval1);
         } else {
             QGraphicsItem::focusOutEvent(event);
         }
@@ -487,7 +545,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_hoverenterevent_isbase = false;
             QGraphicsItem::hoverEnterEvent(event);
         } else if (qgraphicsitem_hoverenterevent_callback != nullptr) {
-            qgraphicsitem_hoverenterevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsitem_hoverenterevent_callback(this, cbval1);
         } else {
             QGraphicsItem::hoverEnterEvent(event);
         }
@@ -499,7 +559,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_hovermoveevent_isbase = false;
             QGraphicsItem::hoverMoveEvent(event);
         } else if (qgraphicsitem_hovermoveevent_callback != nullptr) {
-            qgraphicsitem_hovermoveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsitem_hovermoveevent_callback(this, cbval1);
         } else {
             QGraphicsItem::hoverMoveEvent(event);
         }
@@ -511,7 +573,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_hoverleaveevent_isbase = false;
             QGraphicsItem::hoverLeaveEvent(event);
         } else if (qgraphicsitem_hoverleaveevent_callback != nullptr) {
-            qgraphicsitem_hoverleaveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsitem_hoverleaveevent_callback(this, cbval1);
         } else {
             QGraphicsItem::hoverLeaveEvent(event);
         }
@@ -523,7 +587,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_keypressevent_isbase = false;
             QGraphicsItem::keyPressEvent(event);
         } else if (qgraphicsitem_keypressevent_callback != nullptr) {
-            qgraphicsitem_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicsitem_keypressevent_callback(this, cbval1);
         } else {
             QGraphicsItem::keyPressEvent(event);
         }
@@ -535,7 +601,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_keyreleaseevent_isbase = false;
             QGraphicsItem::keyReleaseEvent(event);
         } else if (qgraphicsitem_keyreleaseevent_callback != nullptr) {
-            qgraphicsitem_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicsitem_keyreleaseevent_callback(this, cbval1);
         } else {
             QGraphicsItem::keyReleaseEvent(event);
         }
@@ -547,7 +615,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_mousepressevent_isbase = false;
             QGraphicsItem::mousePressEvent(event);
         } else if (qgraphicsitem_mousepressevent_callback != nullptr) {
-            qgraphicsitem_mousepressevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsitem_mousepressevent_callback(this, cbval1);
         } else {
             QGraphicsItem::mousePressEvent(event);
         }
@@ -559,7 +629,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_mousemoveevent_isbase = false;
             QGraphicsItem::mouseMoveEvent(event);
         } else if (qgraphicsitem_mousemoveevent_callback != nullptr) {
-            qgraphicsitem_mousemoveevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsitem_mousemoveevent_callback(this, cbval1);
         } else {
             QGraphicsItem::mouseMoveEvent(event);
         }
@@ -571,7 +643,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_mousereleaseevent_isbase = false;
             QGraphicsItem::mouseReleaseEvent(event);
         } else if (qgraphicsitem_mousereleaseevent_callback != nullptr) {
-            qgraphicsitem_mousereleaseevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsitem_mousereleaseevent_callback(this, cbval1);
         } else {
             QGraphicsItem::mouseReleaseEvent(event);
         }
@@ -583,7 +657,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_mousedoubleclickevent_isbase = false;
             QGraphicsItem::mouseDoubleClickEvent(event);
         } else if (qgraphicsitem_mousedoubleclickevent_callback != nullptr) {
-            qgraphicsitem_mousedoubleclickevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsitem_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QGraphicsItem::mouseDoubleClickEvent(event);
         }
@@ -595,7 +671,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_wheelevent_isbase = false;
             QGraphicsItem::wheelEvent(event);
         } else if (qgraphicsitem_wheelevent_callback != nullptr) {
-            qgraphicsitem_wheelevent_callback(this, event);
+            QGraphicsSceneWheelEvent* cbval1 = event;
+
+            qgraphicsitem_wheelevent_callback(this, cbval1);
         } else {
             QGraphicsItem::wheelEvent(event);
         }
@@ -607,7 +685,9 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_inputmethodevent_isbase = false;
             QGraphicsItem::inputMethodEvent(event);
         } else if (qgraphicsitem_inputmethodevent_callback != nullptr) {
-            qgraphicsitem_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qgraphicsitem_inputmethodevent_callback(this, cbval1);
         } else {
             QGraphicsItem::inputMethodEvent(event);
         }
@@ -619,7 +699,10 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_inputmethodquery_isbase = false;
             return QGraphicsItem::inputMethodQuery(query);
         } else if (qgraphicsitem_inputmethodquery_callback != nullptr) {
-            return qgraphicsitem_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qgraphicsitem_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsItem::inputMethodQuery(query);
         }
@@ -631,7 +714,13 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_itemchange_isbase = false;
             return QGraphicsItem::itemChange(change, value);
         } else if (qgraphicsitem_itemchange_callback != nullptr) {
-            return qgraphicsitem_itemchange_callback(this, change, value);
+            int cbval1 = static_cast<int>(change);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            QVariant* callback_ret = qgraphicsitem_itemchange_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QGraphicsItem::itemChange(change, value);
         }
@@ -643,7 +732,10 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_supportsextension_isbase = false;
             return QGraphicsItem::supportsExtension(extension);
         } else if (qgraphicsitem_supportsextension_callback != nullptr) {
-            return qgraphicsitem_supportsextension_callback(this, extension);
+            int cbval1 = static_cast<int>(extension);
+
+            bool callback_ret = qgraphicsitem_supportsextension_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsItem::supportsExtension(extension);
         }
@@ -655,7 +747,12 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_setextension_isbase = false;
             QGraphicsItem::setExtension(extension, variant);
         } else if (qgraphicsitem_setextension_callback != nullptr) {
-            qgraphicsitem_setextension_callback(this, extension, variant);
+            int cbval1 = static_cast<int>(extension);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
+
+            qgraphicsitem_setextension_callback(this, cbval1, cbval2);
         } else {
             QGraphicsItem::setExtension(extension, variant);
         }
@@ -667,7 +764,12 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             qgraphicsitem_extension_isbase = false;
             return QGraphicsItem::extension(variant);
         } else if (qgraphicsitem_extension_callback != nullptr) {
-            return qgraphicsitem_extension_callback(this, variant);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
+
+            QVariant* callback_ret = qgraphicsitem_extension_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsItem::extension(variant);
         }
@@ -720,31 +822,94 @@ class VirtualQGraphicsItem : public QGraphicsItem {
             QGraphicsItem::prepareGeometryChange();
         }
     }
+
+    // Friend functions
+    friend bool QGraphicsItem_SceneEventFilter(QGraphicsItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsItem_QBaseSceneEventFilter(QGraphicsItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsItem_SceneEvent(QGraphicsItem* self, QEvent* event);
+    friend bool QGraphicsItem_QBaseSceneEvent(QGraphicsItem* self, QEvent* event);
+    friend void QGraphicsItem_ContextMenuEvent(QGraphicsItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsItem_QBaseContextMenuEvent(QGraphicsItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsItem_DragEnterEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsItem_QBaseDragEnterEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsItem_DragLeaveEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsItem_QBaseDragLeaveEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsItem_DragMoveEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsItem_QBaseDragMoveEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsItem_DropEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsItem_QBaseDropEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsItem_FocusInEvent(QGraphicsItem* self, QFocusEvent* event);
+    friend void QGraphicsItem_QBaseFocusInEvent(QGraphicsItem* self, QFocusEvent* event);
+    friend void QGraphicsItem_FocusOutEvent(QGraphicsItem* self, QFocusEvent* event);
+    friend void QGraphicsItem_QBaseFocusOutEvent(QGraphicsItem* self, QFocusEvent* event);
+    friend void QGraphicsItem_HoverEnterEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsItem_QBaseHoverEnterEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsItem_HoverMoveEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsItem_QBaseHoverMoveEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsItem_HoverLeaveEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsItem_QBaseHoverLeaveEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsItem_KeyPressEvent(QGraphicsItem* self, QKeyEvent* event);
+    friend void QGraphicsItem_QBaseKeyPressEvent(QGraphicsItem* self, QKeyEvent* event);
+    friend void QGraphicsItem_KeyReleaseEvent(QGraphicsItem* self, QKeyEvent* event);
+    friend void QGraphicsItem_QBaseKeyReleaseEvent(QGraphicsItem* self, QKeyEvent* event);
+    friend void QGraphicsItem_MousePressEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsItem_QBaseMousePressEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsItem_MouseMoveEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsItem_QBaseMouseMoveEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsItem_MouseReleaseEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsItem_QBaseMouseReleaseEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsItem_MouseDoubleClickEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsItem_QBaseMouseDoubleClickEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsItem_WheelEvent(QGraphicsItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsItem_QBaseWheelEvent(QGraphicsItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsItem_InputMethodEvent(QGraphicsItem* self, QInputMethodEvent* event);
+    friend void QGraphicsItem_QBaseInputMethodEvent(QGraphicsItem* self, QInputMethodEvent* event);
+    friend QVariant* QGraphicsItem_InputMethodQuery(const QGraphicsItem* self, int query);
+    friend QVariant* QGraphicsItem_QBaseInputMethodQuery(const QGraphicsItem* self, int query);
+    friend QVariant* QGraphicsItem_ItemChange(QGraphicsItem* self, int change, const QVariant* value);
+    friend QVariant* QGraphicsItem_QBaseItemChange(QGraphicsItem* self, int change, const QVariant* value);
+    friend bool QGraphicsItem_SupportsExtension(const QGraphicsItem* self, int extension);
+    friend bool QGraphicsItem_QBaseSupportsExtension(const QGraphicsItem* self, int extension);
+    friend void QGraphicsItem_SetExtension(QGraphicsItem* self, int extension, const QVariant* variant);
+    friend void QGraphicsItem_QBaseSetExtension(QGraphicsItem* self, int extension, const QVariant* variant);
+    friend QVariant* QGraphicsItem_Extension(const QGraphicsItem* self, const QVariant* variant);
+    friend QVariant* QGraphicsItem_QBaseExtension(const QGraphicsItem* self, const QVariant* variant);
+    friend void QGraphicsItem_UpdateMicroFocus(QGraphicsItem* self);
+    friend void QGraphicsItem_QBaseUpdateMicroFocus(QGraphicsItem* self);
+    friend void QGraphicsItem_AddToIndex(QGraphicsItem* self);
+    friend void QGraphicsItem_QBaseAddToIndex(QGraphicsItem* self);
+    friend void QGraphicsItem_RemoveFromIndex(QGraphicsItem* self);
+    friend void QGraphicsItem_QBaseRemoveFromIndex(QGraphicsItem* self);
+    friend void QGraphicsItem_PrepareGeometryChange(QGraphicsItem* self);
+    friend void QGraphicsItem_QBasePrepareGeometryChange(QGraphicsItem* self);
 };
 
 // This class is a subclass of QGraphicsObject so that we can call protected methods
-class VirtualQGraphicsObject : public QGraphicsObject {
+class VirtualQGraphicsObject final : public QGraphicsObject {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsObject = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
-    using QGraphicsObject_Metacall_Callback = int (*)(QGraphicsObject*, QMetaObject::Call, int, void**);
+    using QGraphicsObject_Metacall_Callback = int (*)(QGraphicsObject*, int, int, void**);
     using QGraphicsObject_Event_Callback = bool (*)(QGraphicsObject*, QEvent*);
     using QGraphicsObject_EventFilter_Callback = bool (*)(QGraphicsObject*, QObject*, QEvent*);
     using QGraphicsObject_TimerEvent_Callback = void (*)(QGraphicsObject*, QTimerEvent*);
     using QGraphicsObject_ChildEvent_Callback = void (*)(QGraphicsObject*, QChildEvent*);
     using QGraphicsObject_CustomEvent_Callback = void (*)(QGraphicsObject*, QEvent*);
-    using QGraphicsObject_ConnectNotify_Callback = void (*)(QGraphicsObject*, const QMetaMethod&);
-    using QGraphicsObject_DisconnectNotify_Callback = void (*)(QGraphicsObject*, const QMetaMethod&);
+    using QGraphicsObject_ConnectNotify_Callback = void (*)(QGraphicsObject*, QMetaMethod*);
+    using QGraphicsObject_DisconnectNotify_Callback = void (*)(QGraphicsObject*, QMetaMethod*);
     using QGraphicsObject_Advance_Callback = void (*)(QGraphicsObject*, int);
-    using QGraphicsObject_BoundingRect_Callback = QRectF (*)();
-    using QGraphicsObject_Shape_Callback = QPainterPath (*)();
-    using QGraphicsObject_Contains_Callback = bool (*)(const QGraphicsObject*, const QPointF&);
-    using QGraphicsObject_CollidesWithItem_Callback = bool (*)(const QGraphicsObject*, const QGraphicsItem*, Qt::ItemSelectionMode);
-    using QGraphicsObject_CollidesWithPath_Callback = bool (*)(const QGraphicsObject*, const QPainterPath&, Qt::ItemSelectionMode);
-    using QGraphicsObject_IsObscuredBy_Callback = bool (*)(const QGraphicsObject*, const QGraphicsItem*);
-    using QGraphicsObject_OpaqueArea_Callback = QPainterPath (*)();
-    using QGraphicsObject_Paint_Callback = void (*)(QGraphicsObject*, QPainter*, const QStyleOptionGraphicsItem*, QWidget*);
+    using QGraphicsObject_BoundingRect_Callback = QRectF* (*)();
+    using QGraphicsObject_Shape_Callback = QPainterPath* (*)();
+    using QGraphicsObject_Contains_Callback = bool (*)(const QGraphicsObject*, QPointF*);
+    using QGraphicsObject_CollidesWithItem_Callback = bool (*)(const QGraphicsObject*, QGraphicsItem*, int);
+    using QGraphicsObject_CollidesWithPath_Callback = bool (*)(const QGraphicsObject*, QPainterPath*, int);
+    using QGraphicsObject_IsObscuredBy_Callback = bool (*)(const QGraphicsObject*, QGraphicsItem*);
+    using QGraphicsObject_OpaqueArea_Callback = QPainterPath* (*)();
+    using QGraphicsObject_Paint_Callback = void (*)(QGraphicsObject*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
     using QGraphicsObject_Type_Callback = int (*)();
     using QGraphicsObject_SceneEventFilter_Callback = bool (*)(QGraphicsObject*, QGraphicsItem*, QEvent*);
     using QGraphicsObject_SceneEvent_Callback = bool (*)(QGraphicsObject*, QEvent*);
@@ -766,16 +931,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
     using QGraphicsObject_MouseDoubleClickEvent_Callback = void (*)(QGraphicsObject*, QGraphicsSceneMouseEvent*);
     using QGraphicsObject_WheelEvent_Callback = void (*)(QGraphicsObject*, QGraphicsSceneWheelEvent*);
     using QGraphicsObject_InputMethodEvent_Callback = void (*)(QGraphicsObject*, QInputMethodEvent*);
-    using QGraphicsObject_InputMethodQuery_Callback = QVariant (*)(const QGraphicsObject*, Qt::InputMethodQuery);
-    using QGraphicsObject_ItemChange_Callback = QVariant (*)(QGraphicsObject*, QGraphicsItem::GraphicsItemChange, const QVariant&);
+    using QGraphicsObject_InputMethodQuery_Callback = QVariant* (*)(const QGraphicsObject*, int);
+    using QGraphicsObject_ItemChange_Callback = QVariant* (*)(QGraphicsObject*, int, QVariant*);
     using QGraphicsObject_SupportsExtension_Callback = bool (*)(const QGraphicsObject*, int);
-    using QGraphicsObject_SetExtension_Callback = void (*)(QGraphicsObject*, int, const QVariant&);
-    using QGraphicsObject_Extension_Callback = QVariant (*)(const QGraphicsObject*, const QVariant&);
+    using QGraphicsObject_SetExtension_Callback = void (*)(QGraphicsObject*, int, QVariant*);
+    using QGraphicsObject_Extension_Callback = QVariant* (*)(const QGraphicsObject*, QVariant*);
     using QGraphicsObject_UpdateMicroFocus_Callback = void (*)();
     using QGraphicsObject_Sender_Callback = QObject* (*)();
     using QGraphicsObject_SenderSignalIndex_Callback = int (*)();
     using QGraphicsObject_Receivers_Callback = int (*)(const QGraphicsObject*, const char*);
-    using QGraphicsObject_IsSignalConnected_Callback = bool (*)(const QGraphicsObject*, const QMetaMethod&);
+    using QGraphicsObject_IsSignalConnected_Callback = bool (*)(const QGraphicsObject*, QMetaMethod*);
     using QGraphicsObject_AddToIndex_Callback = void (*)();
     using QGraphicsObject_RemoveFromIndex_Callback = void (*)();
     using QGraphicsObject_PrepareGeometryChange_Callback = void (*)();
@@ -946,110 +1111,110 @@ class VirtualQGraphicsObject : public QGraphicsObject {
     }
 
     // Callback setters
-    void setQGraphicsObject_Metacall_Callback(QGraphicsObject_Metacall_Callback cb) { qgraphicsobject_metacall_callback = cb; }
-    void setQGraphicsObject_Event_Callback(QGraphicsObject_Event_Callback cb) { qgraphicsobject_event_callback = cb; }
-    void setQGraphicsObject_EventFilter_Callback(QGraphicsObject_EventFilter_Callback cb) { qgraphicsobject_eventfilter_callback = cb; }
-    void setQGraphicsObject_TimerEvent_Callback(QGraphicsObject_TimerEvent_Callback cb) { qgraphicsobject_timerevent_callback = cb; }
-    void setQGraphicsObject_ChildEvent_Callback(QGraphicsObject_ChildEvent_Callback cb) { qgraphicsobject_childevent_callback = cb; }
-    void setQGraphicsObject_CustomEvent_Callback(QGraphicsObject_CustomEvent_Callback cb) { qgraphicsobject_customevent_callback = cb; }
-    void setQGraphicsObject_ConnectNotify_Callback(QGraphicsObject_ConnectNotify_Callback cb) { qgraphicsobject_connectnotify_callback = cb; }
-    void setQGraphicsObject_DisconnectNotify_Callback(QGraphicsObject_DisconnectNotify_Callback cb) { qgraphicsobject_disconnectnotify_callback = cb; }
-    void setQGraphicsObject_Advance_Callback(QGraphicsObject_Advance_Callback cb) { qgraphicsobject_advance_callback = cb; }
-    void setQGraphicsObject_BoundingRect_Callback(QGraphicsObject_BoundingRect_Callback cb) { qgraphicsobject_boundingrect_callback = cb; }
-    void setQGraphicsObject_Shape_Callback(QGraphicsObject_Shape_Callback cb) { qgraphicsobject_shape_callback = cb; }
-    void setQGraphicsObject_Contains_Callback(QGraphicsObject_Contains_Callback cb) { qgraphicsobject_contains_callback = cb; }
-    void setQGraphicsObject_CollidesWithItem_Callback(QGraphicsObject_CollidesWithItem_Callback cb) { qgraphicsobject_collideswithitem_callback = cb; }
-    void setQGraphicsObject_CollidesWithPath_Callback(QGraphicsObject_CollidesWithPath_Callback cb) { qgraphicsobject_collideswithpath_callback = cb; }
-    void setQGraphicsObject_IsObscuredBy_Callback(QGraphicsObject_IsObscuredBy_Callback cb) { qgraphicsobject_isobscuredby_callback = cb; }
-    void setQGraphicsObject_OpaqueArea_Callback(QGraphicsObject_OpaqueArea_Callback cb) { qgraphicsobject_opaquearea_callback = cb; }
-    void setQGraphicsObject_Paint_Callback(QGraphicsObject_Paint_Callback cb) { qgraphicsobject_paint_callback = cb; }
-    void setQGraphicsObject_Type_Callback(QGraphicsObject_Type_Callback cb) { qgraphicsobject_type_callback = cb; }
-    void setQGraphicsObject_SceneEventFilter_Callback(QGraphicsObject_SceneEventFilter_Callback cb) { qgraphicsobject_sceneeventfilter_callback = cb; }
-    void setQGraphicsObject_SceneEvent_Callback(QGraphicsObject_SceneEvent_Callback cb) { qgraphicsobject_sceneevent_callback = cb; }
-    void setQGraphicsObject_ContextMenuEvent_Callback(QGraphicsObject_ContextMenuEvent_Callback cb) { qgraphicsobject_contextmenuevent_callback = cb; }
-    void setQGraphicsObject_DragEnterEvent_Callback(QGraphicsObject_DragEnterEvent_Callback cb) { qgraphicsobject_dragenterevent_callback = cb; }
-    void setQGraphicsObject_DragLeaveEvent_Callback(QGraphicsObject_DragLeaveEvent_Callback cb) { qgraphicsobject_dragleaveevent_callback = cb; }
-    void setQGraphicsObject_DragMoveEvent_Callback(QGraphicsObject_DragMoveEvent_Callback cb) { qgraphicsobject_dragmoveevent_callback = cb; }
-    void setQGraphicsObject_DropEvent_Callback(QGraphicsObject_DropEvent_Callback cb) { qgraphicsobject_dropevent_callback = cb; }
-    void setQGraphicsObject_FocusInEvent_Callback(QGraphicsObject_FocusInEvent_Callback cb) { qgraphicsobject_focusinevent_callback = cb; }
-    void setQGraphicsObject_FocusOutEvent_Callback(QGraphicsObject_FocusOutEvent_Callback cb) { qgraphicsobject_focusoutevent_callback = cb; }
-    void setQGraphicsObject_HoverEnterEvent_Callback(QGraphicsObject_HoverEnterEvent_Callback cb) { qgraphicsobject_hoverenterevent_callback = cb; }
-    void setQGraphicsObject_HoverMoveEvent_Callback(QGraphicsObject_HoverMoveEvent_Callback cb) { qgraphicsobject_hovermoveevent_callback = cb; }
-    void setQGraphicsObject_HoverLeaveEvent_Callback(QGraphicsObject_HoverLeaveEvent_Callback cb) { qgraphicsobject_hoverleaveevent_callback = cb; }
-    void setQGraphicsObject_KeyPressEvent_Callback(QGraphicsObject_KeyPressEvent_Callback cb) { qgraphicsobject_keypressevent_callback = cb; }
-    void setQGraphicsObject_KeyReleaseEvent_Callback(QGraphicsObject_KeyReleaseEvent_Callback cb) { qgraphicsobject_keyreleaseevent_callback = cb; }
-    void setQGraphicsObject_MousePressEvent_Callback(QGraphicsObject_MousePressEvent_Callback cb) { qgraphicsobject_mousepressevent_callback = cb; }
-    void setQGraphicsObject_MouseMoveEvent_Callback(QGraphicsObject_MouseMoveEvent_Callback cb) { qgraphicsobject_mousemoveevent_callback = cb; }
-    void setQGraphicsObject_MouseReleaseEvent_Callback(QGraphicsObject_MouseReleaseEvent_Callback cb) { qgraphicsobject_mousereleaseevent_callback = cb; }
-    void setQGraphicsObject_MouseDoubleClickEvent_Callback(QGraphicsObject_MouseDoubleClickEvent_Callback cb) { qgraphicsobject_mousedoubleclickevent_callback = cb; }
-    void setQGraphicsObject_WheelEvent_Callback(QGraphicsObject_WheelEvent_Callback cb) { qgraphicsobject_wheelevent_callback = cb; }
-    void setQGraphicsObject_InputMethodEvent_Callback(QGraphicsObject_InputMethodEvent_Callback cb) { qgraphicsobject_inputmethodevent_callback = cb; }
-    void setQGraphicsObject_InputMethodQuery_Callback(QGraphicsObject_InputMethodQuery_Callback cb) { qgraphicsobject_inputmethodquery_callback = cb; }
-    void setQGraphicsObject_ItemChange_Callback(QGraphicsObject_ItemChange_Callback cb) { qgraphicsobject_itemchange_callback = cb; }
-    void setQGraphicsObject_SupportsExtension_Callback(QGraphicsObject_SupportsExtension_Callback cb) { qgraphicsobject_supportsextension_callback = cb; }
-    void setQGraphicsObject_SetExtension_Callback(QGraphicsObject_SetExtension_Callback cb) { qgraphicsobject_setextension_callback = cb; }
-    void setQGraphicsObject_Extension_Callback(QGraphicsObject_Extension_Callback cb) { qgraphicsobject_extension_callback = cb; }
-    void setQGraphicsObject_UpdateMicroFocus_Callback(QGraphicsObject_UpdateMicroFocus_Callback cb) { qgraphicsobject_updatemicrofocus_callback = cb; }
-    void setQGraphicsObject_Sender_Callback(QGraphicsObject_Sender_Callback cb) { qgraphicsobject_sender_callback = cb; }
-    void setQGraphicsObject_SenderSignalIndex_Callback(QGraphicsObject_SenderSignalIndex_Callback cb) { qgraphicsobject_sendersignalindex_callback = cb; }
-    void setQGraphicsObject_Receivers_Callback(QGraphicsObject_Receivers_Callback cb) { qgraphicsobject_receivers_callback = cb; }
-    void setQGraphicsObject_IsSignalConnected_Callback(QGraphicsObject_IsSignalConnected_Callback cb) { qgraphicsobject_issignalconnected_callback = cb; }
-    void setQGraphicsObject_AddToIndex_Callback(QGraphicsObject_AddToIndex_Callback cb) { qgraphicsobject_addtoindex_callback = cb; }
-    void setQGraphicsObject_RemoveFromIndex_Callback(QGraphicsObject_RemoveFromIndex_Callback cb) { qgraphicsobject_removefromindex_callback = cb; }
-    void setQGraphicsObject_PrepareGeometryChange_Callback(QGraphicsObject_PrepareGeometryChange_Callback cb) { qgraphicsobject_preparegeometrychange_callback = cb; }
+    inline void setQGraphicsObject_Metacall_Callback(QGraphicsObject_Metacall_Callback cb) { qgraphicsobject_metacall_callback = cb; }
+    inline void setQGraphicsObject_Event_Callback(QGraphicsObject_Event_Callback cb) { qgraphicsobject_event_callback = cb; }
+    inline void setQGraphicsObject_EventFilter_Callback(QGraphicsObject_EventFilter_Callback cb) { qgraphicsobject_eventfilter_callback = cb; }
+    inline void setQGraphicsObject_TimerEvent_Callback(QGraphicsObject_TimerEvent_Callback cb) { qgraphicsobject_timerevent_callback = cb; }
+    inline void setQGraphicsObject_ChildEvent_Callback(QGraphicsObject_ChildEvent_Callback cb) { qgraphicsobject_childevent_callback = cb; }
+    inline void setQGraphicsObject_CustomEvent_Callback(QGraphicsObject_CustomEvent_Callback cb) { qgraphicsobject_customevent_callback = cb; }
+    inline void setQGraphicsObject_ConnectNotify_Callback(QGraphicsObject_ConnectNotify_Callback cb) { qgraphicsobject_connectnotify_callback = cb; }
+    inline void setQGraphicsObject_DisconnectNotify_Callback(QGraphicsObject_DisconnectNotify_Callback cb) { qgraphicsobject_disconnectnotify_callback = cb; }
+    inline void setQGraphicsObject_Advance_Callback(QGraphicsObject_Advance_Callback cb) { qgraphicsobject_advance_callback = cb; }
+    inline void setQGraphicsObject_BoundingRect_Callback(QGraphicsObject_BoundingRect_Callback cb) { qgraphicsobject_boundingrect_callback = cb; }
+    inline void setQGraphicsObject_Shape_Callback(QGraphicsObject_Shape_Callback cb) { qgraphicsobject_shape_callback = cb; }
+    inline void setQGraphicsObject_Contains_Callback(QGraphicsObject_Contains_Callback cb) { qgraphicsobject_contains_callback = cb; }
+    inline void setQGraphicsObject_CollidesWithItem_Callback(QGraphicsObject_CollidesWithItem_Callback cb) { qgraphicsobject_collideswithitem_callback = cb; }
+    inline void setQGraphicsObject_CollidesWithPath_Callback(QGraphicsObject_CollidesWithPath_Callback cb) { qgraphicsobject_collideswithpath_callback = cb; }
+    inline void setQGraphicsObject_IsObscuredBy_Callback(QGraphicsObject_IsObscuredBy_Callback cb) { qgraphicsobject_isobscuredby_callback = cb; }
+    inline void setQGraphicsObject_OpaqueArea_Callback(QGraphicsObject_OpaqueArea_Callback cb) { qgraphicsobject_opaquearea_callback = cb; }
+    inline void setQGraphicsObject_Paint_Callback(QGraphicsObject_Paint_Callback cb) { qgraphicsobject_paint_callback = cb; }
+    inline void setQGraphicsObject_Type_Callback(QGraphicsObject_Type_Callback cb) { qgraphicsobject_type_callback = cb; }
+    inline void setQGraphicsObject_SceneEventFilter_Callback(QGraphicsObject_SceneEventFilter_Callback cb) { qgraphicsobject_sceneeventfilter_callback = cb; }
+    inline void setQGraphicsObject_SceneEvent_Callback(QGraphicsObject_SceneEvent_Callback cb) { qgraphicsobject_sceneevent_callback = cb; }
+    inline void setQGraphicsObject_ContextMenuEvent_Callback(QGraphicsObject_ContextMenuEvent_Callback cb) { qgraphicsobject_contextmenuevent_callback = cb; }
+    inline void setQGraphicsObject_DragEnterEvent_Callback(QGraphicsObject_DragEnterEvent_Callback cb) { qgraphicsobject_dragenterevent_callback = cb; }
+    inline void setQGraphicsObject_DragLeaveEvent_Callback(QGraphicsObject_DragLeaveEvent_Callback cb) { qgraphicsobject_dragleaveevent_callback = cb; }
+    inline void setQGraphicsObject_DragMoveEvent_Callback(QGraphicsObject_DragMoveEvent_Callback cb) { qgraphicsobject_dragmoveevent_callback = cb; }
+    inline void setQGraphicsObject_DropEvent_Callback(QGraphicsObject_DropEvent_Callback cb) { qgraphicsobject_dropevent_callback = cb; }
+    inline void setQGraphicsObject_FocusInEvent_Callback(QGraphicsObject_FocusInEvent_Callback cb) { qgraphicsobject_focusinevent_callback = cb; }
+    inline void setQGraphicsObject_FocusOutEvent_Callback(QGraphicsObject_FocusOutEvent_Callback cb) { qgraphicsobject_focusoutevent_callback = cb; }
+    inline void setQGraphicsObject_HoverEnterEvent_Callback(QGraphicsObject_HoverEnterEvent_Callback cb) { qgraphicsobject_hoverenterevent_callback = cb; }
+    inline void setQGraphicsObject_HoverMoveEvent_Callback(QGraphicsObject_HoverMoveEvent_Callback cb) { qgraphicsobject_hovermoveevent_callback = cb; }
+    inline void setQGraphicsObject_HoverLeaveEvent_Callback(QGraphicsObject_HoverLeaveEvent_Callback cb) { qgraphicsobject_hoverleaveevent_callback = cb; }
+    inline void setQGraphicsObject_KeyPressEvent_Callback(QGraphicsObject_KeyPressEvent_Callback cb) { qgraphicsobject_keypressevent_callback = cb; }
+    inline void setQGraphicsObject_KeyReleaseEvent_Callback(QGraphicsObject_KeyReleaseEvent_Callback cb) { qgraphicsobject_keyreleaseevent_callback = cb; }
+    inline void setQGraphicsObject_MousePressEvent_Callback(QGraphicsObject_MousePressEvent_Callback cb) { qgraphicsobject_mousepressevent_callback = cb; }
+    inline void setQGraphicsObject_MouseMoveEvent_Callback(QGraphicsObject_MouseMoveEvent_Callback cb) { qgraphicsobject_mousemoveevent_callback = cb; }
+    inline void setQGraphicsObject_MouseReleaseEvent_Callback(QGraphicsObject_MouseReleaseEvent_Callback cb) { qgraphicsobject_mousereleaseevent_callback = cb; }
+    inline void setQGraphicsObject_MouseDoubleClickEvent_Callback(QGraphicsObject_MouseDoubleClickEvent_Callback cb) { qgraphicsobject_mousedoubleclickevent_callback = cb; }
+    inline void setQGraphicsObject_WheelEvent_Callback(QGraphicsObject_WheelEvent_Callback cb) { qgraphicsobject_wheelevent_callback = cb; }
+    inline void setQGraphicsObject_InputMethodEvent_Callback(QGraphicsObject_InputMethodEvent_Callback cb) { qgraphicsobject_inputmethodevent_callback = cb; }
+    inline void setQGraphicsObject_InputMethodQuery_Callback(QGraphicsObject_InputMethodQuery_Callback cb) { qgraphicsobject_inputmethodquery_callback = cb; }
+    inline void setQGraphicsObject_ItemChange_Callback(QGraphicsObject_ItemChange_Callback cb) { qgraphicsobject_itemchange_callback = cb; }
+    inline void setQGraphicsObject_SupportsExtension_Callback(QGraphicsObject_SupportsExtension_Callback cb) { qgraphicsobject_supportsextension_callback = cb; }
+    inline void setQGraphicsObject_SetExtension_Callback(QGraphicsObject_SetExtension_Callback cb) { qgraphicsobject_setextension_callback = cb; }
+    inline void setQGraphicsObject_Extension_Callback(QGraphicsObject_Extension_Callback cb) { qgraphicsobject_extension_callback = cb; }
+    inline void setQGraphicsObject_UpdateMicroFocus_Callback(QGraphicsObject_UpdateMicroFocus_Callback cb) { qgraphicsobject_updatemicrofocus_callback = cb; }
+    inline void setQGraphicsObject_Sender_Callback(QGraphicsObject_Sender_Callback cb) { qgraphicsobject_sender_callback = cb; }
+    inline void setQGraphicsObject_SenderSignalIndex_Callback(QGraphicsObject_SenderSignalIndex_Callback cb) { qgraphicsobject_sendersignalindex_callback = cb; }
+    inline void setQGraphicsObject_Receivers_Callback(QGraphicsObject_Receivers_Callback cb) { qgraphicsobject_receivers_callback = cb; }
+    inline void setQGraphicsObject_IsSignalConnected_Callback(QGraphicsObject_IsSignalConnected_Callback cb) { qgraphicsobject_issignalconnected_callback = cb; }
+    inline void setQGraphicsObject_AddToIndex_Callback(QGraphicsObject_AddToIndex_Callback cb) { qgraphicsobject_addtoindex_callback = cb; }
+    inline void setQGraphicsObject_RemoveFromIndex_Callback(QGraphicsObject_RemoveFromIndex_Callback cb) { qgraphicsobject_removefromindex_callback = cb; }
+    inline void setQGraphicsObject_PrepareGeometryChange_Callback(QGraphicsObject_PrepareGeometryChange_Callback cb) { qgraphicsobject_preparegeometrychange_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsObject_Metacall_IsBase(bool value) const { qgraphicsobject_metacall_isbase = value; }
-    void setQGraphicsObject_Event_IsBase(bool value) const { qgraphicsobject_event_isbase = value; }
-    void setQGraphicsObject_EventFilter_IsBase(bool value) const { qgraphicsobject_eventfilter_isbase = value; }
-    void setQGraphicsObject_TimerEvent_IsBase(bool value) const { qgraphicsobject_timerevent_isbase = value; }
-    void setQGraphicsObject_ChildEvent_IsBase(bool value) const { qgraphicsobject_childevent_isbase = value; }
-    void setQGraphicsObject_CustomEvent_IsBase(bool value) const { qgraphicsobject_customevent_isbase = value; }
-    void setQGraphicsObject_ConnectNotify_IsBase(bool value) const { qgraphicsobject_connectnotify_isbase = value; }
-    void setQGraphicsObject_DisconnectNotify_IsBase(bool value) const { qgraphicsobject_disconnectnotify_isbase = value; }
-    void setQGraphicsObject_Advance_IsBase(bool value) const { qgraphicsobject_advance_isbase = value; }
-    void setQGraphicsObject_BoundingRect_IsBase(bool value) const { qgraphicsobject_boundingrect_isbase = value; }
-    void setQGraphicsObject_Shape_IsBase(bool value) const { qgraphicsobject_shape_isbase = value; }
-    void setQGraphicsObject_Contains_IsBase(bool value) const { qgraphicsobject_contains_isbase = value; }
-    void setQGraphicsObject_CollidesWithItem_IsBase(bool value) const { qgraphicsobject_collideswithitem_isbase = value; }
-    void setQGraphicsObject_CollidesWithPath_IsBase(bool value) const { qgraphicsobject_collideswithpath_isbase = value; }
-    void setQGraphicsObject_IsObscuredBy_IsBase(bool value) const { qgraphicsobject_isobscuredby_isbase = value; }
-    void setQGraphicsObject_OpaqueArea_IsBase(bool value) const { qgraphicsobject_opaquearea_isbase = value; }
-    void setQGraphicsObject_Paint_IsBase(bool value) const { qgraphicsobject_paint_isbase = value; }
-    void setQGraphicsObject_Type_IsBase(bool value) const { qgraphicsobject_type_isbase = value; }
-    void setQGraphicsObject_SceneEventFilter_IsBase(bool value) const { qgraphicsobject_sceneeventfilter_isbase = value; }
-    void setQGraphicsObject_SceneEvent_IsBase(bool value) const { qgraphicsobject_sceneevent_isbase = value; }
-    void setQGraphicsObject_ContextMenuEvent_IsBase(bool value) const { qgraphicsobject_contextmenuevent_isbase = value; }
-    void setQGraphicsObject_DragEnterEvent_IsBase(bool value) const { qgraphicsobject_dragenterevent_isbase = value; }
-    void setQGraphicsObject_DragLeaveEvent_IsBase(bool value) const { qgraphicsobject_dragleaveevent_isbase = value; }
-    void setQGraphicsObject_DragMoveEvent_IsBase(bool value) const { qgraphicsobject_dragmoveevent_isbase = value; }
-    void setQGraphicsObject_DropEvent_IsBase(bool value) const { qgraphicsobject_dropevent_isbase = value; }
-    void setQGraphicsObject_FocusInEvent_IsBase(bool value) const { qgraphicsobject_focusinevent_isbase = value; }
-    void setQGraphicsObject_FocusOutEvent_IsBase(bool value) const { qgraphicsobject_focusoutevent_isbase = value; }
-    void setQGraphicsObject_HoverEnterEvent_IsBase(bool value) const { qgraphicsobject_hoverenterevent_isbase = value; }
-    void setQGraphicsObject_HoverMoveEvent_IsBase(bool value) const { qgraphicsobject_hovermoveevent_isbase = value; }
-    void setQGraphicsObject_HoverLeaveEvent_IsBase(bool value) const { qgraphicsobject_hoverleaveevent_isbase = value; }
-    void setQGraphicsObject_KeyPressEvent_IsBase(bool value) const { qgraphicsobject_keypressevent_isbase = value; }
-    void setQGraphicsObject_KeyReleaseEvent_IsBase(bool value) const { qgraphicsobject_keyreleaseevent_isbase = value; }
-    void setQGraphicsObject_MousePressEvent_IsBase(bool value) const { qgraphicsobject_mousepressevent_isbase = value; }
-    void setQGraphicsObject_MouseMoveEvent_IsBase(bool value) const { qgraphicsobject_mousemoveevent_isbase = value; }
-    void setQGraphicsObject_MouseReleaseEvent_IsBase(bool value) const { qgraphicsobject_mousereleaseevent_isbase = value; }
-    void setQGraphicsObject_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicsobject_mousedoubleclickevent_isbase = value; }
-    void setQGraphicsObject_WheelEvent_IsBase(bool value) const { qgraphicsobject_wheelevent_isbase = value; }
-    void setQGraphicsObject_InputMethodEvent_IsBase(bool value) const { qgraphicsobject_inputmethodevent_isbase = value; }
-    void setQGraphicsObject_InputMethodQuery_IsBase(bool value) const { qgraphicsobject_inputmethodquery_isbase = value; }
-    void setQGraphicsObject_ItemChange_IsBase(bool value) const { qgraphicsobject_itemchange_isbase = value; }
-    void setQGraphicsObject_SupportsExtension_IsBase(bool value) const { qgraphicsobject_supportsextension_isbase = value; }
-    void setQGraphicsObject_SetExtension_IsBase(bool value) const { qgraphicsobject_setextension_isbase = value; }
-    void setQGraphicsObject_Extension_IsBase(bool value) const { qgraphicsobject_extension_isbase = value; }
-    void setQGraphicsObject_UpdateMicroFocus_IsBase(bool value) const { qgraphicsobject_updatemicrofocus_isbase = value; }
-    void setQGraphicsObject_Sender_IsBase(bool value) const { qgraphicsobject_sender_isbase = value; }
-    void setQGraphicsObject_SenderSignalIndex_IsBase(bool value) const { qgraphicsobject_sendersignalindex_isbase = value; }
-    void setQGraphicsObject_Receivers_IsBase(bool value) const { qgraphicsobject_receivers_isbase = value; }
-    void setQGraphicsObject_IsSignalConnected_IsBase(bool value) const { qgraphicsobject_issignalconnected_isbase = value; }
-    void setQGraphicsObject_AddToIndex_IsBase(bool value) const { qgraphicsobject_addtoindex_isbase = value; }
-    void setQGraphicsObject_RemoveFromIndex_IsBase(bool value) const { qgraphicsobject_removefromindex_isbase = value; }
-    void setQGraphicsObject_PrepareGeometryChange_IsBase(bool value) const { qgraphicsobject_preparegeometrychange_isbase = value; }
+    inline void setQGraphicsObject_Metacall_IsBase(bool value) const { qgraphicsobject_metacall_isbase = value; }
+    inline void setQGraphicsObject_Event_IsBase(bool value) const { qgraphicsobject_event_isbase = value; }
+    inline void setQGraphicsObject_EventFilter_IsBase(bool value) const { qgraphicsobject_eventfilter_isbase = value; }
+    inline void setQGraphicsObject_TimerEvent_IsBase(bool value) const { qgraphicsobject_timerevent_isbase = value; }
+    inline void setQGraphicsObject_ChildEvent_IsBase(bool value) const { qgraphicsobject_childevent_isbase = value; }
+    inline void setQGraphicsObject_CustomEvent_IsBase(bool value) const { qgraphicsobject_customevent_isbase = value; }
+    inline void setQGraphicsObject_ConnectNotify_IsBase(bool value) const { qgraphicsobject_connectnotify_isbase = value; }
+    inline void setQGraphicsObject_DisconnectNotify_IsBase(bool value) const { qgraphicsobject_disconnectnotify_isbase = value; }
+    inline void setQGraphicsObject_Advance_IsBase(bool value) const { qgraphicsobject_advance_isbase = value; }
+    inline void setQGraphicsObject_BoundingRect_IsBase(bool value) const { qgraphicsobject_boundingrect_isbase = value; }
+    inline void setQGraphicsObject_Shape_IsBase(bool value) const { qgraphicsobject_shape_isbase = value; }
+    inline void setQGraphicsObject_Contains_IsBase(bool value) const { qgraphicsobject_contains_isbase = value; }
+    inline void setQGraphicsObject_CollidesWithItem_IsBase(bool value) const { qgraphicsobject_collideswithitem_isbase = value; }
+    inline void setQGraphicsObject_CollidesWithPath_IsBase(bool value) const { qgraphicsobject_collideswithpath_isbase = value; }
+    inline void setQGraphicsObject_IsObscuredBy_IsBase(bool value) const { qgraphicsobject_isobscuredby_isbase = value; }
+    inline void setQGraphicsObject_OpaqueArea_IsBase(bool value) const { qgraphicsobject_opaquearea_isbase = value; }
+    inline void setQGraphicsObject_Paint_IsBase(bool value) const { qgraphicsobject_paint_isbase = value; }
+    inline void setQGraphicsObject_Type_IsBase(bool value) const { qgraphicsobject_type_isbase = value; }
+    inline void setQGraphicsObject_SceneEventFilter_IsBase(bool value) const { qgraphicsobject_sceneeventfilter_isbase = value; }
+    inline void setQGraphicsObject_SceneEvent_IsBase(bool value) const { qgraphicsobject_sceneevent_isbase = value; }
+    inline void setQGraphicsObject_ContextMenuEvent_IsBase(bool value) const { qgraphicsobject_contextmenuevent_isbase = value; }
+    inline void setQGraphicsObject_DragEnterEvent_IsBase(bool value) const { qgraphicsobject_dragenterevent_isbase = value; }
+    inline void setQGraphicsObject_DragLeaveEvent_IsBase(bool value) const { qgraphicsobject_dragleaveevent_isbase = value; }
+    inline void setQGraphicsObject_DragMoveEvent_IsBase(bool value) const { qgraphicsobject_dragmoveevent_isbase = value; }
+    inline void setQGraphicsObject_DropEvent_IsBase(bool value) const { qgraphicsobject_dropevent_isbase = value; }
+    inline void setQGraphicsObject_FocusInEvent_IsBase(bool value) const { qgraphicsobject_focusinevent_isbase = value; }
+    inline void setQGraphicsObject_FocusOutEvent_IsBase(bool value) const { qgraphicsobject_focusoutevent_isbase = value; }
+    inline void setQGraphicsObject_HoverEnterEvent_IsBase(bool value) const { qgraphicsobject_hoverenterevent_isbase = value; }
+    inline void setQGraphicsObject_HoverMoveEvent_IsBase(bool value) const { qgraphicsobject_hovermoveevent_isbase = value; }
+    inline void setQGraphicsObject_HoverLeaveEvent_IsBase(bool value) const { qgraphicsobject_hoverleaveevent_isbase = value; }
+    inline void setQGraphicsObject_KeyPressEvent_IsBase(bool value) const { qgraphicsobject_keypressevent_isbase = value; }
+    inline void setQGraphicsObject_KeyReleaseEvent_IsBase(bool value) const { qgraphicsobject_keyreleaseevent_isbase = value; }
+    inline void setQGraphicsObject_MousePressEvent_IsBase(bool value) const { qgraphicsobject_mousepressevent_isbase = value; }
+    inline void setQGraphicsObject_MouseMoveEvent_IsBase(bool value) const { qgraphicsobject_mousemoveevent_isbase = value; }
+    inline void setQGraphicsObject_MouseReleaseEvent_IsBase(bool value) const { qgraphicsobject_mousereleaseevent_isbase = value; }
+    inline void setQGraphicsObject_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicsobject_mousedoubleclickevent_isbase = value; }
+    inline void setQGraphicsObject_WheelEvent_IsBase(bool value) const { qgraphicsobject_wheelevent_isbase = value; }
+    inline void setQGraphicsObject_InputMethodEvent_IsBase(bool value) const { qgraphicsobject_inputmethodevent_isbase = value; }
+    inline void setQGraphicsObject_InputMethodQuery_IsBase(bool value) const { qgraphicsobject_inputmethodquery_isbase = value; }
+    inline void setQGraphicsObject_ItemChange_IsBase(bool value) const { qgraphicsobject_itemchange_isbase = value; }
+    inline void setQGraphicsObject_SupportsExtension_IsBase(bool value) const { qgraphicsobject_supportsextension_isbase = value; }
+    inline void setQGraphicsObject_SetExtension_IsBase(bool value) const { qgraphicsobject_setextension_isbase = value; }
+    inline void setQGraphicsObject_Extension_IsBase(bool value) const { qgraphicsobject_extension_isbase = value; }
+    inline void setQGraphicsObject_UpdateMicroFocus_IsBase(bool value) const { qgraphicsobject_updatemicrofocus_isbase = value; }
+    inline void setQGraphicsObject_Sender_IsBase(bool value) const { qgraphicsobject_sender_isbase = value; }
+    inline void setQGraphicsObject_SenderSignalIndex_IsBase(bool value) const { qgraphicsobject_sendersignalindex_isbase = value; }
+    inline void setQGraphicsObject_Receivers_IsBase(bool value) const { qgraphicsobject_receivers_isbase = value; }
+    inline void setQGraphicsObject_IsSignalConnected_IsBase(bool value) const { qgraphicsobject_issignalconnected_isbase = value; }
+    inline void setQGraphicsObject_AddToIndex_IsBase(bool value) const { qgraphicsobject_addtoindex_isbase = value; }
+    inline void setQGraphicsObject_RemoveFromIndex_IsBase(bool value) const { qgraphicsobject_removefromindex_isbase = value; }
+    inline void setQGraphicsObject_PrepareGeometryChange_IsBase(bool value) const { qgraphicsobject_preparegeometrychange_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1057,7 +1222,12 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_metacall_isbase = false;
             return QGraphicsObject::qt_metacall(param1, param2, param3);
         } else if (qgraphicsobject_metacall_callback != nullptr) {
-            return qgraphicsobject_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qgraphicsobject_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsObject::qt_metacall(param1, param2, param3);
         }
@@ -1069,7 +1239,10 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_event_isbase = false;
             return QGraphicsObject::event(ev);
         } else if (qgraphicsobject_event_callback != nullptr) {
-            return qgraphicsobject_event_callback(this, ev);
+            QEvent* cbval1 = ev;
+
+            bool callback_ret = qgraphicsobject_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsObject::event(ev);
         }
@@ -1081,7 +1254,11 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_eventfilter_isbase = false;
             return QGraphicsObject::eventFilter(watched, event);
         } else if (qgraphicsobject_eventfilter_callback != nullptr) {
-            return qgraphicsobject_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicsobject_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsObject::eventFilter(watched, event);
         }
@@ -1093,7 +1270,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_timerevent_isbase = false;
             QGraphicsObject::timerEvent(event);
         } else if (qgraphicsobject_timerevent_callback != nullptr) {
-            qgraphicsobject_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qgraphicsobject_timerevent_callback(this, cbval1);
         } else {
             QGraphicsObject::timerEvent(event);
         }
@@ -1105,7 +1284,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_childevent_isbase = false;
             QGraphicsObject::childEvent(event);
         } else if (qgraphicsobject_childevent_callback != nullptr) {
-            qgraphicsobject_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qgraphicsobject_childevent_callback(this, cbval1);
         } else {
             QGraphicsObject::childEvent(event);
         }
@@ -1117,7 +1298,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_customevent_isbase = false;
             QGraphicsObject::customEvent(event);
         } else if (qgraphicsobject_customevent_callback != nullptr) {
-            qgraphicsobject_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qgraphicsobject_customevent_callback(this, cbval1);
         } else {
             QGraphicsObject::customEvent(event);
         }
@@ -1129,7 +1312,11 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_connectnotify_isbase = false;
             QGraphicsObject::connectNotify(signal);
         } else if (qgraphicsobject_connectnotify_callback != nullptr) {
-            qgraphicsobject_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qgraphicsobject_connectnotify_callback(this, cbval1);
         } else {
             QGraphicsObject::connectNotify(signal);
         }
@@ -1141,7 +1328,11 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_disconnectnotify_isbase = false;
             QGraphicsObject::disconnectNotify(signal);
         } else if (qgraphicsobject_disconnectnotify_callback != nullptr) {
-            qgraphicsobject_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qgraphicsobject_disconnectnotify_callback(this, cbval1);
         } else {
             QGraphicsObject::disconnectNotify(signal);
         }
@@ -1153,7 +1344,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_advance_isbase = false;
             QGraphicsObject::advance(phase);
         } else if (qgraphicsobject_advance_callback != nullptr) {
-            qgraphicsobject_advance_callback(this, phase);
+            int cbval1 = phase;
+
+            qgraphicsobject_advance_callback(this, cbval1);
         } else {
             QGraphicsObject::advance(phase);
         }
@@ -1161,7 +1354,12 @@ class VirtualQGraphicsObject : public QGraphicsObject {
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF boundingRect() const override {
-        return qgraphicsobject_boundingrect_callback();
+        if (qgraphicsobject_boundingrect_callback != nullptr) {
+            QRectF* callback_ret = qgraphicsobject_boundingrect_callback();
+            return *callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1170,7 +1368,8 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_shape_isbase = false;
             return QGraphicsObject::shape();
         } else if (qgraphicsobject_shape_callback != nullptr) {
-            return qgraphicsobject_shape_callback();
+            QPainterPath* callback_ret = qgraphicsobject_shape_callback();
+            return *callback_ret;
         } else {
             return QGraphicsObject::shape();
         }
@@ -1182,7 +1381,12 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_contains_isbase = false;
             return QGraphicsObject::contains(point);
         } else if (qgraphicsobject_contains_callback != nullptr) {
-            return qgraphicsobject_contains_callback(this, point);
+            const QPointF& point_ret = point;
+            // Cast returned reference into pointer
+            QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
+
+            bool callback_ret = qgraphicsobject_contains_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsObject::contains(point);
         }
@@ -1194,7 +1398,11 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_collideswithitem_isbase = false;
             return QGraphicsObject::collidesWithItem(other, mode);
         } else if (qgraphicsobject_collideswithitem_callback != nullptr) {
-            return qgraphicsobject_collideswithitem_callback(this, other, mode);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)other;
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicsobject_collideswithitem_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsObject::collidesWithItem(other, mode);
         }
@@ -1206,7 +1414,13 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_collideswithpath_isbase = false;
             return QGraphicsObject::collidesWithPath(path, mode);
         } else if (qgraphicsobject_collideswithpath_callback != nullptr) {
-            return qgraphicsobject_collideswithpath_callback(this, path, mode);
+            const QPainterPath& path_ret = path;
+            // Cast returned reference into pointer
+            QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicsobject_collideswithpath_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsObject::collidesWithPath(path, mode);
         }
@@ -1218,7 +1432,10 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_isobscuredby_isbase = false;
             return QGraphicsObject::isObscuredBy(item);
         } else if (qgraphicsobject_isobscuredby_callback != nullptr) {
-            return qgraphicsobject_isobscuredby_callback(this, item);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)item;
+
+            bool callback_ret = qgraphicsobject_isobscuredby_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsObject::isObscuredBy(item);
         }
@@ -1230,7 +1447,8 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_opaquearea_isbase = false;
             return QGraphicsObject::opaqueArea();
         } else if (qgraphicsobject_opaquearea_callback != nullptr) {
-            return qgraphicsobject_opaquearea_callback();
+            QPainterPath* callback_ret = qgraphicsobject_opaquearea_callback();
+            return *callback_ret;
         } else {
             return QGraphicsObject::opaqueArea();
         }
@@ -1238,7 +1456,13 @@ class VirtualQGraphicsObject : public QGraphicsObject {
 
     // Virtual method for C ABI access and custom callback
     virtual void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override {
-        qgraphicsobject_paint_callback(this, painter, option, widget);
+        if (qgraphicsobject_paint_callback != nullptr) {
+            QPainter* cbval1 = painter;
+            QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
+            QWidget* cbval3 = widget;
+
+            qgraphicsobject_paint_callback(this, cbval1, cbval2, cbval3);
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1247,7 +1471,8 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_type_isbase = false;
             return QGraphicsObject::type();
         } else if (qgraphicsobject_type_callback != nullptr) {
-            return qgraphicsobject_type_callback();
+            int callback_ret = qgraphicsobject_type_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsObject::type();
         }
@@ -1259,7 +1484,11 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_sceneeventfilter_isbase = false;
             return QGraphicsObject::sceneEventFilter(watched, event);
         } else if (qgraphicsobject_sceneeventfilter_callback != nullptr) {
-            return qgraphicsobject_sceneeventfilter_callback(this, watched, event);
+            QGraphicsItem* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicsobject_sceneeventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsObject::sceneEventFilter(watched, event);
         }
@@ -1271,7 +1500,10 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_sceneevent_isbase = false;
             return QGraphicsObject::sceneEvent(event);
         } else if (qgraphicsobject_sceneevent_callback != nullptr) {
-            return qgraphicsobject_sceneevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgraphicsobject_sceneevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsObject::sceneEvent(event);
         }
@@ -1283,7 +1515,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_contextmenuevent_isbase = false;
             QGraphicsObject::contextMenuEvent(event);
         } else if (qgraphicsobject_contextmenuevent_callback != nullptr) {
-            qgraphicsobject_contextmenuevent_callback(this, event);
+            QGraphicsSceneContextMenuEvent* cbval1 = event;
+
+            qgraphicsobject_contextmenuevent_callback(this, cbval1);
         } else {
             QGraphicsObject::contextMenuEvent(event);
         }
@@ -1295,7 +1529,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_dragenterevent_isbase = false;
             QGraphicsObject::dragEnterEvent(event);
         } else if (qgraphicsobject_dragenterevent_callback != nullptr) {
-            qgraphicsobject_dragenterevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsobject_dragenterevent_callback(this, cbval1);
         } else {
             QGraphicsObject::dragEnterEvent(event);
         }
@@ -1307,7 +1543,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_dragleaveevent_isbase = false;
             QGraphicsObject::dragLeaveEvent(event);
         } else if (qgraphicsobject_dragleaveevent_callback != nullptr) {
-            qgraphicsobject_dragleaveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsobject_dragleaveevent_callback(this, cbval1);
         } else {
             QGraphicsObject::dragLeaveEvent(event);
         }
@@ -1319,7 +1557,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_dragmoveevent_isbase = false;
             QGraphicsObject::dragMoveEvent(event);
         } else if (qgraphicsobject_dragmoveevent_callback != nullptr) {
-            qgraphicsobject_dragmoveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsobject_dragmoveevent_callback(this, cbval1);
         } else {
             QGraphicsObject::dragMoveEvent(event);
         }
@@ -1331,7 +1571,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_dropevent_isbase = false;
             QGraphicsObject::dropEvent(event);
         } else if (qgraphicsobject_dropevent_callback != nullptr) {
-            qgraphicsobject_dropevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsobject_dropevent_callback(this, cbval1);
         } else {
             QGraphicsObject::dropEvent(event);
         }
@@ -1343,7 +1585,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_focusinevent_isbase = false;
             QGraphicsObject::focusInEvent(event);
         } else if (qgraphicsobject_focusinevent_callback != nullptr) {
-            qgraphicsobject_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicsobject_focusinevent_callback(this, cbval1);
         } else {
             QGraphicsObject::focusInEvent(event);
         }
@@ -1355,7 +1599,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_focusoutevent_isbase = false;
             QGraphicsObject::focusOutEvent(event);
         } else if (qgraphicsobject_focusoutevent_callback != nullptr) {
-            qgraphicsobject_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicsobject_focusoutevent_callback(this, cbval1);
         } else {
             QGraphicsObject::focusOutEvent(event);
         }
@@ -1367,7 +1613,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_hoverenterevent_isbase = false;
             QGraphicsObject::hoverEnterEvent(event);
         } else if (qgraphicsobject_hoverenterevent_callback != nullptr) {
-            qgraphicsobject_hoverenterevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsobject_hoverenterevent_callback(this, cbval1);
         } else {
             QGraphicsObject::hoverEnterEvent(event);
         }
@@ -1379,7 +1627,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_hovermoveevent_isbase = false;
             QGraphicsObject::hoverMoveEvent(event);
         } else if (qgraphicsobject_hovermoveevent_callback != nullptr) {
-            qgraphicsobject_hovermoveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsobject_hovermoveevent_callback(this, cbval1);
         } else {
             QGraphicsObject::hoverMoveEvent(event);
         }
@@ -1391,7 +1641,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_hoverleaveevent_isbase = false;
             QGraphicsObject::hoverLeaveEvent(event);
         } else if (qgraphicsobject_hoverleaveevent_callback != nullptr) {
-            qgraphicsobject_hoverleaveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsobject_hoverleaveevent_callback(this, cbval1);
         } else {
             QGraphicsObject::hoverLeaveEvent(event);
         }
@@ -1403,7 +1655,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_keypressevent_isbase = false;
             QGraphicsObject::keyPressEvent(event);
         } else if (qgraphicsobject_keypressevent_callback != nullptr) {
-            qgraphicsobject_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicsobject_keypressevent_callback(this, cbval1);
         } else {
             QGraphicsObject::keyPressEvent(event);
         }
@@ -1415,7 +1669,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_keyreleaseevent_isbase = false;
             QGraphicsObject::keyReleaseEvent(event);
         } else if (qgraphicsobject_keyreleaseevent_callback != nullptr) {
-            qgraphicsobject_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicsobject_keyreleaseevent_callback(this, cbval1);
         } else {
             QGraphicsObject::keyReleaseEvent(event);
         }
@@ -1427,7 +1683,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_mousepressevent_isbase = false;
             QGraphicsObject::mousePressEvent(event);
         } else if (qgraphicsobject_mousepressevent_callback != nullptr) {
-            qgraphicsobject_mousepressevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsobject_mousepressevent_callback(this, cbval1);
         } else {
             QGraphicsObject::mousePressEvent(event);
         }
@@ -1439,7 +1697,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_mousemoveevent_isbase = false;
             QGraphicsObject::mouseMoveEvent(event);
         } else if (qgraphicsobject_mousemoveevent_callback != nullptr) {
-            qgraphicsobject_mousemoveevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsobject_mousemoveevent_callback(this, cbval1);
         } else {
             QGraphicsObject::mouseMoveEvent(event);
         }
@@ -1451,7 +1711,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_mousereleaseevent_isbase = false;
             QGraphicsObject::mouseReleaseEvent(event);
         } else if (qgraphicsobject_mousereleaseevent_callback != nullptr) {
-            qgraphicsobject_mousereleaseevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsobject_mousereleaseevent_callback(this, cbval1);
         } else {
             QGraphicsObject::mouseReleaseEvent(event);
         }
@@ -1463,7 +1725,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_mousedoubleclickevent_isbase = false;
             QGraphicsObject::mouseDoubleClickEvent(event);
         } else if (qgraphicsobject_mousedoubleclickevent_callback != nullptr) {
-            qgraphicsobject_mousedoubleclickevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsobject_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QGraphicsObject::mouseDoubleClickEvent(event);
         }
@@ -1475,7 +1739,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_wheelevent_isbase = false;
             QGraphicsObject::wheelEvent(event);
         } else if (qgraphicsobject_wheelevent_callback != nullptr) {
-            qgraphicsobject_wheelevent_callback(this, event);
+            QGraphicsSceneWheelEvent* cbval1 = event;
+
+            qgraphicsobject_wheelevent_callback(this, cbval1);
         } else {
             QGraphicsObject::wheelEvent(event);
         }
@@ -1487,7 +1753,9 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_inputmethodevent_isbase = false;
             QGraphicsObject::inputMethodEvent(event);
         } else if (qgraphicsobject_inputmethodevent_callback != nullptr) {
-            qgraphicsobject_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qgraphicsobject_inputmethodevent_callback(this, cbval1);
         } else {
             QGraphicsObject::inputMethodEvent(event);
         }
@@ -1499,7 +1767,10 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_inputmethodquery_isbase = false;
             return QGraphicsObject::inputMethodQuery(query);
         } else if (qgraphicsobject_inputmethodquery_callback != nullptr) {
-            return qgraphicsobject_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qgraphicsobject_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsObject::inputMethodQuery(query);
         }
@@ -1511,7 +1782,13 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_itemchange_isbase = false;
             return QGraphicsObject::itemChange(change, value);
         } else if (qgraphicsobject_itemchange_callback != nullptr) {
-            return qgraphicsobject_itemchange_callback(this, change, value);
+            int cbval1 = static_cast<int>(change);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            QVariant* callback_ret = qgraphicsobject_itemchange_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QGraphicsObject::itemChange(change, value);
         }
@@ -1523,7 +1800,10 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_supportsextension_isbase = false;
             return QGraphicsObject::supportsExtension(extension);
         } else if (qgraphicsobject_supportsextension_callback != nullptr) {
-            return qgraphicsobject_supportsextension_callback(this, extension);
+            int cbval1 = static_cast<int>(extension);
+
+            bool callback_ret = qgraphicsobject_supportsextension_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsObject::supportsExtension(extension);
         }
@@ -1535,7 +1815,12 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_setextension_isbase = false;
             QGraphicsObject::setExtension(extension, variant);
         } else if (qgraphicsobject_setextension_callback != nullptr) {
-            qgraphicsobject_setextension_callback(this, extension, variant);
+            int cbval1 = static_cast<int>(extension);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
+
+            qgraphicsobject_setextension_callback(this, cbval1, cbval2);
         } else {
             QGraphicsObject::setExtension(extension, variant);
         }
@@ -1547,7 +1832,12 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_extension_isbase = false;
             return QGraphicsObject::extension(variant);
         } else if (qgraphicsobject_extension_callback != nullptr) {
-            return qgraphicsobject_extension_callback(this, variant);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
+
+            QVariant* callback_ret = qgraphicsobject_extension_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsObject::extension(variant);
         }
@@ -1571,7 +1861,8 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_sender_isbase = false;
             return QGraphicsObject::sender();
         } else if (qgraphicsobject_sender_callback != nullptr) {
-            return qgraphicsobject_sender_callback();
+            QObject* callback_ret = qgraphicsobject_sender_callback();
+            return callback_ret;
         } else {
             return QGraphicsObject::sender();
         }
@@ -1583,7 +1874,8 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_sendersignalindex_isbase = false;
             return QGraphicsObject::senderSignalIndex();
         } else if (qgraphicsobject_sendersignalindex_callback != nullptr) {
-            return qgraphicsobject_sendersignalindex_callback();
+            int callback_ret = qgraphicsobject_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsObject::senderSignalIndex();
         }
@@ -1595,7 +1887,10 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_receivers_isbase = false;
             return QGraphicsObject::receivers(signal);
         } else if (qgraphicsobject_receivers_callback != nullptr) {
-            return qgraphicsobject_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qgraphicsobject_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsObject::receivers(signal);
         }
@@ -1607,7 +1902,12 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             qgraphicsobject_issignalconnected_isbase = false;
             return QGraphicsObject::isSignalConnected(signal);
         } else if (qgraphicsobject_issignalconnected_callback != nullptr) {
-            return qgraphicsobject_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qgraphicsobject_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsObject::isSignalConnected(signal);
         }
@@ -1648,23 +1948,106 @@ class VirtualQGraphicsObject : public QGraphicsObject {
             QGraphicsObject::prepareGeometryChange();
         }
     }
+
+    // Friend functions
+    friend bool QGraphicsObject_Event(QGraphicsObject* self, QEvent* ev);
+    friend bool QGraphicsObject_QBaseEvent(QGraphicsObject* self, QEvent* ev);
+    friend void QGraphicsObject_TimerEvent(QGraphicsObject* self, QTimerEvent* event);
+    friend void QGraphicsObject_QBaseTimerEvent(QGraphicsObject* self, QTimerEvent* event);
+    friend void QGraphicsObject_ChildEvent(QGraphicsObject* self, QChildEvent* event);
+    friend void QGraphicsObject_QBaseChildEvent(QGraphicsObject* self, QChildEvent* event);
+    friend void QGraphicsObject_CustomEvent(QGraphicsObject* self, QEvent* event);
+    friend void QGraphicsObject_QBaseCustomEvent(QGraphicsObject* self, QEvent* event);
+    friend void QGraphicsObject_ConnectNotify(QGraphicsObject* self, const QMetaMethod* signal);
+    friend void QGraphicsObject_QBaseConnectNotify(QGraphicsObject* self, const QMetaMethod* signal);
+    friend void QGraphicsObject_DisconnectNotify(QGraphicsObject* self, const QMetaMethod* signal);
+    friend void QGraphicsObject_QBaseDisconnectNotify(QGraphicsObject* self, const QMetaMethod* signal);
+    friend bool QGraphicsObject_SceneEventFilter(QGraphicsObject* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsObject_QBaseSceneEventFilter(QGraphicsObject* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsObject_SceneEvent(QGraphicsObject* self, QEvent* event);
+    friend bool QGraphicsObject_QBaseSceneEvent(QGraphicsObject* self, QEvent* event);
+    friend void QGraphicsObject_ContextMenuEvent(QGraphicsObject* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsObject_QBaseContextMenuEvent(QGraphicsObject* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsObject_DragEnterEvent(QGraphicsObject* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsObject_QBaseDragEnterEvent(QGraphicsObject* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsObject_DragLeaveEvent(QGraphicsObject* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsObject_QBaseDragLeaveEvent(QGraphicsObject* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsObject_DragMoveEvent(QGraphicsObject* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsObject_QBaseDragMoveEvent(QGraphicsObject* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsObject_DropEvent(QGraphicsObject* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsObject_QBaseDropEvent(QGraphicsObject* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsObject_FocusInEvent(QGraphicsObject* self, QFocusEvent* event);
+    friend void QGraphicsObject_QBaseFocusInEvent(QGraphicsObject* self, QFocusEvent* event);
+    friend void QGraphicsObject_FocusOutEvent(QGraphicsObject* self, QFocusEvent* event);
+    friend void QGraphicsObject_QBaseFocusOutEvent(QGraphicsObject* self, QFocusEvent* event);
+    friend void QGraphicsObject_HoverEnterEvent(QGraphicsObject* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsObject_QBaseHoverEnterEvent(QGraphicsObject* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsObject_HoverMoveEvent(QGraphicsObject* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsObject_QBaseHoverMoveEvent(QGraphicsObject* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsObject_HoverLeaveEvent(QGraphicsObject* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsObject_QBaseHoverLeaveEvent(QGraphicsObject* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsObject_KeyPressEvent(QGraphicsObject* self, QKeyEvent* event);
+    friend void QGraphicsObject_QBaseKeyPressEvent(QGraphicsObject* self, QKeyEvent* event);
+    friend void QGraphicsObject_KeyReleaseEvent(QGraphicsObject* self, QKeyEvent* event);
+    friend void QGraphicsObject_QBaseKeyReleaseEvent(QGraphicsObject* self, QKeyEvent* event);
+    friend void QGraphicsObject_MousePressEvent(QGraphicsObject* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsObject_QBaseMousePressEvent(QGraphicsObject* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsObject_MouseMoveEvent(QGraphicsObject* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsObject_QBaseMouseMoveEvent(QGraphicsObject* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsObject_MouseReleaseEvent(QGraphicsObject* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsObject_QBaseMouseReleaseEvent(QGraphicsObject* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsObject_MouseDoubleClickEvent(QGraphicsObject* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsObject_QBaseMouseDoubleClickEvent(QGraphicsObject* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsObject_WheelEvent(QGraphicsObject* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsObject_QBaseWheelEvent(QGraphicsObject* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsObject_InputMethodEvent(QGraphicsObject* self, QInputMethodEvent* event);
+    friend void QGraphicsObject_QBaseInputMethodEvent(QGraphicsObject* self, QInputMethodEvent* event);
+    friend QVariant* QGraphicsObject_InputMethodQuery(const QGraphicsObject* self, int query);
+    friend QVariant* QGraphicsObject_QBaseInputMethodQuery(const QGraphicsObject* self, int query);
+    friend QVariant* QGraphicsObject_ItemChange(QGraphicsObject* self, int change, const QVariant* value);
+    friend QVariant* QGraphicsObject_QBaseItemChange(QGraphicsObject* self, int change, const QVariant* value);
+    friend bool QGraphicsObject_SupportsExtension(const QGraphicsObject* self, int extension);
+    friend bool QGraphicsObject_QBaseSupportsExtension(const QGraphicsObject* self, int extension);
+    friend void QGraphicsObject_SetExtension(QGraphicsObject* self, int extension, const QVariant* variant);
+    friend void QGraphicsObject_QBaseSetExtension(QGraphicsObject* self, int extension, const QVariant* variant);
+    friend QVariant* QGraphicsObject_Extension(const QGraphicsObject* self, const QVariant* variant);
+    friend QVariant* QGraphicsObject_QBaseExtension(const QGraphicsObject* self, const QVariant* variant);
+    friend void QGraphicsObject_UpdateMicroFocus(QGraphicsObject* self);
+    friend void QGraphicsObject_QBaseUpdateMicroFocus(QGraphicsObject* self);
+    friend QObject* QGraphicsObject_Sender(const QGraphicsObject* self);
+    friend QObject* QGraphicsObject_QBaseSender(const QGraphicsObject* self);
+    friend int QGraphicsObject_SenderSignalIndex(const QGraphicsObject* self);
+    friend int QGraphicsObject_QBaseSenderSignalIndex(const QGraphicsObject* self);
+    friend int QGraphicsObject_Receivers(const QGraphicsObject* self, const char* signal);
+    friend int QGraphicsObject_QBaseReceivers(const QGraphicsObject* self, const char* signal);
+    friend bool QGraphicsObject_IsSignalConnected(const QGraphicsObject* self, const QMetaMethod* signal);
+    friend bool QGraphicsObject_QBaseIsSignalConnected(const QGraphicsObject* self, const QMetaMethod* signal);
+    friend void QGraphicsObject_AddToIndex(QGraphicsObject* self);
+    friend void QGraphicsObject_QBaseAddToIndex(QGraphicsObject* self);
+    friend void QGraphicsObject_RemoveFromIndex(QGraphicsObject* self);
+    friend void QGraphicsObject_QBaseRemoveFromIndex(QGraphicsObject* self);
+    friend void QGraphicsObject_PrepareGeometryChange(QGraphicsObject* self);
+    friend void QGraphicsObject_QBasePrepareGeometryChange(QGraphicsObject* self);
 };
 
 // This class is a subclass of QAbstractGraphicsShapeItem so that we can call protected methods
-class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
+class VirtualQAbstractGraphicsShapeItem final : public QAbstractGraphicsShapeItem {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQAbstractGraphicsShapeItem = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
-    using QAbstractGraphicsShapeItem_IsObscuredBy_Callback = bool (*)(const QAbstractGraphicsShapeItem*, const QGraphicsItem*);
-    using QAbstractGraphicsShapeItem_OpaqueArea_Callback = QPainterPath (*)();
+    using QAbstractGraphicsShapeItem_IsObscuredBy_Callback = bool (*)(const QAbstractGraphicsShapeItem*, QGraphicsItem*);
+    using QAbstractGraphicsShapeItem_OpaqueArea_Callback = QPainterPath* (*)();
     using QAbstractGraphicsShapeItem_Advance_Callback = void (*)(QAbstractGraphicsShapeItem*, int);
-    using QAbstractGraphicsShapeItem_BoundingRect_Callback = QRectF (*)();
-    using QAbstractGraphicsShapeItem_Shape_Callback = QPainterPath (*)();
-    using QAbstractGraphicsShapeItem_Contains_Callback = bool (*)(const QAbstractGraphicsShapeItem*, const QPointF&);
-    using QAbstractGraphicsShapeItem_CollidesWithItem_Callback = bool (*)(const QAbstractGraphicsShapeItem*, const QGraphicsItem*, Qt::ItemSelectionMode);
-    using QAbstractGraphicsShapeItem_CollidesWithPath_Callback = bool (*)(const QAbstractGraphicsShapeItem*, const QPainterPath&, Qt::ItemSelectionMode);
-    using QAbstractGraphicsShapeItem_Paint_Callback = void (*)(QAbstractGraphicsShapeItem*, QPainter*, const QStyleOptionGraphicsItem*, QWidget*);
+    using QAbstractGraphicsShapeItem_BoundingRect_Callback = QRectF* (*)();
+    using QAbstractGraphicsShapeItem_Shape_Callback = QPainterPath* (*)();
+    using QAbstractGraphicsShapeItem_Contains_Callback = bool (*)(const QAbstractGraphicsShapeItem*, QPointF*);
+    using QAbstractGraphicsShapeItem_CollidesWithItem_Callback = bool (*)(const QAbstractGraphicsShapeItem*, QGraphicsItem*, int);
+    using QAbstractGraphicsShapeItem_CollidesWithPath_Callback = bool (*)(const QAbstractGraphicsShapeItem*, QPainterPath*, int);
+    using QAbstractGraphicsShapeItem_Paint_Callback = void (*)(QAbstractGraphicsShapeItem*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
     using QAbstractGraphicsShapeItem_Type_Callback = int (*)();
     using QAbstractGraphicsShapeItem_SceneEventFilter_Callback = bool (*)(QAbstractGraphicsShapeItem*, QGraphicsItem*, QEvent*);
     using QAbstractGraphicsShapeItem_SceneEvent_Callback = bool (*)(QAbstractGraphicsShapeItem*, QEvent*);
@@ -1686,11 +2069,11 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
     using QAbstractGraphicsShapeItem_MouseDoubleClickEvent_Callback = void (*)(QAbstractGraphicsShapeItem*, QGraphicsSceneMouseEvent*);
     using QAbstractGraphicsShapeItem_WheelEvent_Callback = void (*)(QAbstractGraphicsShapeItem*, QGraphicsSceneWheelEvent*);
     using QAbstractGraphicsShapeItem_InputMethodEvent_Callback = void (*)(QAbstractGraphicsShapeItem*, QInputMethodEvent*);
-    using QAbstractGraphicsShapeItem_InputMethodQuery_Callback = QVariant (*)(const QAbstractGraphicsShapeItem*, Qt::InputMethodQuery);
-    using QAbstractGraphicsShapeItem_ItemChange_Callback = QVariant (*)(QAbstractGraphicsShapeItem*, QGraphicsItem::GraphicsItemChange, const QVariant&);
+    using QAbstractGraphicsShapeItem_InputMethodQuery_Callback = QVariant* (*)(const QAbstractGraphicsShapeItem*, int);
+    using QAbstractGraphicsShapeItem_ItemChange_Callback = QVariant* (*)(QAbstractGraphicsShapeItem*, int, QVariant*);
     using QAbstractGraphicsShapeItem_SupportsExtension_Callback = bool (*)(const QAbstractGraphicsShapeItem*, int);
-    using QAbstractGraphicsShapeItem_SetExtension_Callback = void (*)(QAbstractGraphicsShapeItem*, int, const QVariant&);
-    using QAbstractGraphicsShapeItem_Extension_Callback = QVariant (*)(const QAbstractGraphicsShapeItem*, const QVariant&);
+    using QAbstractGraphicsShapeItem_SetExtension_Callback = void (*)(QAbstractGraphicsShapeItem*, int, QVariant*);
+    using QAbstractGraphicsShapeItem_Extension_Callback = QVariant* (*)(const QAbstractGraphicsShapeItem*, QVariant*);
     using QAbstractGraphicsShapeItem_UpdateMicroFocus_Callback = void (*)();
     using QAbstractGraphicsShapeItem_AddToIndex_Callback = void (*)();
     using QAbstractGraphicsShapeItem_RemoveFromIndex_Callback = void (*)();
@@ -1826,86 +2209,86 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
     }
 
     // Callback setters
-    void setQAbstractGraphicsShapeItem_IsObscuredBy_Callback(QAbstractGraphicsShapeItem_IsObscuredBy_Callback cb) { qabstractgraphicsshapeitem_isobscuredby_callback = cb; }
-    void setQAbstractGraphicsShapeItem_OpaqueArea_Callback(QAbstractGraphicsShapeItem_OpaqueArea_Callback cb) { qabstractgraphicsshapeitem_opaquearea_callback = cb; }
-    void setQAbstractGraphicsShapeItem_Advance_Callback(QAbstractGraphicsShapeItem_Advance_Callback cb) { qabstractgraphicsshapeitem_advance_callback = cb; }
-    void setQAbstractGraphicsShapeItem_BoundingRect_Callback(QAbstractGraphicsShapeItem_BoundingRect_Callback cb) { qabstractgraphicsshapeitem_boundingrect_callback = cb; }
-    void setQAbstractGraphicsShapeItem_Shape_Callback(QAbstractGraphicsShapeItem_Shape_Callback cb) { qabstractgraphicsshapeitem_shape_callback = cb; }
-    void setQAbstractGraphicsShapeItem_Contains_Callback(QAbstractGraphicsShapeItem_Contains_Callback cb) { qabstractgraphicsshapeitem_contains_callback = cb; }
-    void setQAbstractGraphicsShapeItem_CollidesWithItem_Callback(QAbstractGraphicsShapeItem_CollidesWithItem_Callback cb) { qabstractgraphicsshapeitem_collideswithitem_callback = cb; }
-    void setQAbstractGraphicsShapeItem_CollidesWithPath_Callback(QAbstractGraphicsShapeItem_CollidesWithPath_Callback cb) { qabstractgraphicsshapeitem_collideswithpath_callback = cb; }
-    void setQAbstractGraphicsShapeItem_Paint_Callback(QAbstractGraphicsShapeItem_Paint_Callback cb) { qabstractgraphicsshapeitem_paint_callback = cb; }
-    void setQAbstractGraphicsShapeItem_Type_Callback(QAbstractGraphicsShapeItem_Type_Callback cb) { qabstractgraphicsshapeitem_type_callback = cb; }
-    void setQAbstractGraphicsShapeItem_SceneEventFilter_Callback(QAbstractGraphicsShapeItem_SceneEventFilter_Callback cb) { qabstractgraphicsshapeitem_sceneeventfilter_callback = cb; }
-    void setQAbstractGraphicsShapeItem_SceneEvent_Callback(QAbstractGraphicsShapeItem_SceneEvent_Callback cb) { qabstractgraphicsshapeitem_sceneevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_ContextMenuEvent_Callback(QAbstractGraphicsShapeItem_ContextMenuEvent_Callback cb) { qabstractgraphicsshapeitem_contextmenuevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_DragEnterEvent_Callback(QAbstractGraphicsShapeItem_DragEnterEvent_Callback cb) { qabstractgraphicsshapeitem_dragenterevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_DragLeaveEvent_Callback(QAbstractGraphicsShapeItem_DragLeaveEvent_Callback cb) { qabstractgraphicsshapeitem_dragleaveevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_DragMoveEvent_Callback(QAbstractGraphicsShapeItem_DragMoveEvent_Callback cb) { qabstractgraphicsshapeitem_dragmoveevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_DropEvent_Callback(QAbstractGraphicsShapeItem_DropEvent_Callback cb) { qabstractgraphicsshapeitem_dropevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_FocusInEvent_Callback(QAbstractGraphicsShapeItem_FocusInEvent_Callback cb) { qabstractgraphicsshapeitem_focusinevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_FocusOutEvent_Callback(QAbstractGraphicsShapeItem_FocusOutEvent_Callback cb) { qabstractgraphicsshapeitem_focusoutevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_HoverEnterEvent_Callback(QAbstractGraphicsShapeItem_HoverEnterEvent_Callback cb) { qabstractgraphicsshapeitem_hoverenterevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_HoverMoveEvent_Callback(QAbstractGraphicsShapeItem_HoverMoveEvent_Callback cb) { qabstractgraphicsshapeitem_hovermoveevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_HoverLeaveEvent_Callback(QAbstractGraphicsShapeItem_HoverLeaveEvent_Callback cb) { qabstractgraphicsshapeitem_hoverleaveevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_KeyPressEvent_Callback(QAbstractGraphicsShapeItem_KeyPressEvent_Callback cb) { qabstractgraphicsshapeitem_keypressevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_KeyReleaseEvent_Callback(QAbstractGraphicsShapeItem_KeyReleaseEvent_Callback cb) { qabstractgraphicsshapeitem_keyreleaseevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_MousePressEvent_Callback(QAbstractGraphicsShapeItem_MousePressEvent_Callback cb) { qabstractgraphicsshapeitem_mousepressevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_MouseMoveEvent_Callback(QAbstractGraphicsShapeItem_MouseMoveEvent_Callback cb) { qabstractgraphicsshapeitem_mousemoveevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_MouseReleaseEvent_Callback(QAbstractGraphicsShapeItem_MouseReleaseEvent_Callback cb) { qabstractgraphicsshapeitem_mousereleaseevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_MouseDoubleClickEvent_Callback(QAbstractGraphicsShapeItem_MouseDoubleClickEvent_Callback cb) { qabstractgraphicsshapeitem_mousedoubleclickevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_WheelEvent_Callback(QAbstractGraphicsShapeItem_WheelEvent_Callback cb) { qabstractgraphicsshapeitem_wheelevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_InputMethodEvent_Callback(QAbstractGraphicsShapeItem_InputMethodEvent_Callback cb) { qabstractgraphicsshapeitem_inputmethodevent_callback = cb; }
-    void setQAbstractGraphicsShapeItem_InputMethodQuery_Callback(QAbstractGraphicsShapeItem_InputMethodQuery_Callback cb) { qabstractgraphicsshapeitem_inputmethodquery_callback = cb; }
-    void setQAbstractGraphicsShapeItem_ItemChange_Callback(QAbstractGraphicsShapeItem_ItemChange_Callback cb) { qabstractgraphicsshapeitem_itemchange_callback = cb; }
-    void setQAbstractGraphicsShapeItem_SupportsExtension_Callback(QAbstractGraphicsShapeItem_SupportsExtension_Callback cb) { qabstractgraphicsshapeitem_supportsextension_callback = cb; }
-    void setQAbstractGraphicsShapeItem_SetExtension_Callback(QAbstractGraphicsShapeItem_SetExtension_Callback cb) { qabstractgraphicsshapeitem_setextension_callback = cb; }
-    void setQAbstractGraphicsShapeItem_Extension_Callback(QAbstractGraphicsShapeItem_Extension_Callback cb) { qabstractgraphicsshapeitem_extension_callback = cb; }
-    void setQAbstractGraphicsShapeItem_UpdateMicroFocus_Callback(QAbstractGraphicsShapeItem_UpdateMicroFocus_Callback cb) { qabstractgraphicsshapeitem_updatemicrofocus_callback = cb; }
-    void setQAbstractGraphicsShapeItem_AddToIndex_Callback(QAbstractGraphicsShapeItem_AddToIndex_Callback cb) { qabstractgraphicsshapeitem_addtoindex_callback = cb; }
-    void setQAbstractGraphicsShapeItem_RemoveFromIndex_Callback(QAbstractGraphicsShapeItem_RemoveFromIndex_Callback cb) { qabstractgraphicsshapeitem_removefromindex_callback = cb; }
-    void setQAbstractGraphicsShapeItem_PrepareGeometryChange_Callback(QAbstractGraphicsShapeItem_PrepareGeometryChange_Callback cb) { qabstractgraphicsshapeitem_preparegeometrychange_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_IsObscuredBy_Callback(QAbstractGraphicsShapeItem_IsObscuredBy_Callback cb) { qabstractgraphicsshapeitem_isobscuredby_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_OpaqueArea_Callback(QAbstractGraphicsShapeItem_OpaqueArea_Callback cb) { qabstractgraphicsshapeitem_opaquearea_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_Advance_Callback(QAbstractGraphicsShapeItem_Advance_Callback cb) { qabstractgraphicsshapeitem_advance_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_BoundingRect_Callback(QAbstractGraphicsShapeItem_BoundingRect_Callback cb) { qabstractgraphicsshapeitem_boundingrect_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_Shape_Callback(QAbstractGraphicsShapeItem_Shape_Callback cb) { qabstractgraphicsshapeitem_shape_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_Contains_Callback(QAbstractGraphicsShapeItem_Contains_Callback cb) { qabstractgraphicsshapeitem_contains_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_CollidesWithItem_Callback(QAbstractGraphicsShapeItem_CollidesWithItem_Callback cb) { qabstractgraphicsshapeitem_collideswithitem_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_CollidesWithPath_Callback(QAbstractGraphicsShapeItem_CollidesWithPath_Callback cb) { qabstractgraphicsshapeitem_collideswithpath_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_Paint_Callback(QAbstractGraphicsShapeItem_Paint_Callback cb) { qabstractgraphicsshapeitem_paint_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_Type_Callback(QAbstractGraphicsShapeItem_Type_Callback cb) { qabstractgraphicsshapeitem_type_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_SceneEventFilter_Callback(QAbstractGraphicsShapeItem_SceneEventFilter_Callback cb) { qabstractgraphicsshapeitem_sceneeventfilter_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_SceneEvent_Callback(QAbstractGraphicsShapeItem_SceneEvent_Callback cb) { qabstractgraphicsshapeitem_sceneevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_ContextMenuEvent_Callback(QAbstractGraphicsShapeItem_ContextMenuEvent_Callback cb) { qabstractgraphicsshapeitem_contextmenuevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_DragEnterEvent_Callback(QAbstractGraphicsShapeItem_DragEnterEvent_Callback cb) { qabstractgraphicsshapeitem_dragenterevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_DragLeaveEvent_Callback(QAbstractGraphicsShapeItem_DragLeaveEvent_Callback cb) { qabstractgraphicsshapeitem_dragleaveevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_DragMoveEvent_Callback(QAbstractGraphicsShapeItem_DragMoveEvent_Callback cb) { qabstractgraphicsshapeitem_dragmoveevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_DropEvent_Callback(QAbstractGraphicsShapeItem_DropEvent_Callback cb) { qabstractgraphicsshapeitem_dropevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_FocusInEvent_Callback(QAbstractGraphicsShapeItem_FocusInEvent_Callback cb) { qabstractgraphicsshapeitem_focusinevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_FocusOutEvent_Callback(QAbstractGraphicsShapeItem_FocusOutEvent_Callback cb) { qabstractgraphicsshapeitem_focusoutevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_HoverEnterEvent_Callback(QAbstractGraphicsShapeItem_HoverEnterEvent_Callback cb) { qabstractgraphicsshapeitem_hoverenterevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_HoverMoveEvent_Callback(QAbstractGraphicsShapeItem_HoverMoveEvent_Callback cb) { qabstractgraphicsshapeitem_hovermoveevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_HoverLeaveEvent_Callback(QAbstractGraphicsShapeItem_HoverLeaveEvent_Callback cb) { qabstractgraphicsshapeitem_hoverleaveevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_KeyPressEvent_Callback(QAbstractGraphicsShapeItem_KeyPressEvent_Callback cb) { qabstractgraphicsshapeitem_keypressevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_KeyReleaseEvent_Callback(QAbstractGraphicsShapeItem_KeyReleaseEvent_Callback cb) { qabstractgraphicsshapeitem_keyreleaseevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_MousePressEvent_Callback(QAbstractGraphicsShapeItem_MousePressEvent_Callback cb) { qabstractgraphicsshapeitem_mousepressevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_MouseMoveEvent_Callback(QAbstractGraphicsShapeItem_MouseMoveEvent_Callback cb) { qabstractgraphicsshapeitem_mousemoveevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_MouseReleaseEvent_Callback(QAbstractGraphicsShapeItem_MouseReleaseEvent_Callback cb) { qabstractgraphicsshapeitem_mousereleaseevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_MouseDoubleClickEvent_Callback(QAbstractGraphicsShapeItem_MouseDoubleClickEvent_Callback cb) { qabstractgraphicsshapeitem_mousedoubleclickevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_WheelEvent_Callback(QAbstractGraphicsShapeItem_WheelEvent_Callback cb) { qabstractgraphicsshapeitem_wheelevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_InputMethodEvent_Callback(QAbstractGraphicsShapeItem_InputMethodEvent_Callback cb) { qabstractgraphicsshapeitem_inputmethodevent_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_InputMethodQuery_Callback(QAbstractGraphicsShapeItem_InputMethodQuery_Callback cb) { qabstractgraphicsshapeitem_inputmethodquery_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_ItemChange_Callback(QAbstractGraphicsShapeItem_ItemChange_Callback cb) { qabstractgraphicsshapeitem_itemchange_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_SupportsExtension_Callback(QAbstractGraphicsShapeItem_SupportsExtension_Callback cb) { qabstractgraphicsshapeitem_supportsextension_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_SetExtension_Callback(QAbstractGraphicsShapeItem_SetExtension_Callback cb) { qabstractgraphicsshapeitem_setextension_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_Extension_Callback(QAbstractGraphicsShapeItem_Extension_Callback cb) { qabstractgraphicsshapeitem_extension_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_UpdateMicroFocus_Callback(QAbstractGraphicsShapeItem_UpdateMicroFocus_Callback cb) { qabstractgraphicsshapeitem_updatemicrofocus_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_AddToIndex_Callback(QAbstractGraphicsShapeItem_AddToIndex_Callback cb) { qabstractgraphicsshapeitem_addtoindex_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_RemoveFromIndex_Callback(QAbstractGraphicsShapeItem_RemoveFromIndex_Callback cb) { qabstractgraphicsshapeitem_removefromindex_callback = cb; }
+    inline void setQAbstractGraphicsShapeItem_PrepareGeometryChange_Callback(QAbstractGraphicsShapeItem_PrepareGeometryChange_Callback cb) { qabstractgraphicsshapeitem_preparegeometrychange_callback = cb; }
 
     // Base flag setters
-    void setQAbstractGraphicsShapeItem_IsObscuredBy_IsBase(bool value) const { qabstractgraphicsshapeitem_isobscuredby_isbase = value; }
-    void setQAbstractGraphicsShapeItem_OpaqueArea_IsBase(bool value) const { qabstractgraphicsshapeitem_opaquearea_isbase = value; }
-    void setQAbstractGraphicsShapeItem_Advance_IsBase(bool value) const { qabstractgraphicsshapeitem_advance_isbase = value; }
-    void setQAbstractGraphicsShapeItem_BoundingRect_IsBase(bool value) const { qabstractgraphicsshapeitem_boundingrect_isbase = value; }
-    void setQAbstractGraphicsShapeItem_Shape_IsBase(bool value) const { qabstractgraphicsshapeitem_shape_isbase = value; }
-    void setQAbstractGraphicsShapeItem_Contains_IsBase(bool value) const { qabstractgraphicsshapeitem_contains_isbase = value; }
-    void setQAbstractGraphicsShapeItem_CollidesWithItem_IsBase(bool value) const { qabstractgraphicsshapeitem_collideswithitem_isbase = value; }
-    void setQAbstractGraphicsShapeItem_CollidesWithPath_IsBase(bool value) const { qabstractgraphicsshapeitem_collideswithpath_isbase = value; }
-    void setQAbstractGraphicsShapeItem_Paint_IsBase(bool value) const { qabstractgraphicsshapeitem_paint_isbase = value; }
-    void setQAbstractGraphicsShapeItem_Type_IsBase(bool value) const { qabstractgraphicsshapeitem_type_isbase = value; }
-    void setQAbstractGraphicsShapeItem_SceneEventFilter_IsBase(bool value) const { qabstractgraphicsshapeitem_sceneeventfilter_isbase = value; }
-    void setQAbstractGraphicsShapeItem_SceneEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_sceneevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_ContextMenuEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_contextmenuevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_DragEnterEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_dragenterevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_DragLeaveEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_dragleaveevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_DragMoveEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_dragmoveevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_DropEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_dropevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_FocusInEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_focusinevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_FocusOutEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_focusoutevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_HoverEnterEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_hoverenterevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_HoverMoveEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_hovermoveevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_HoverLeaveEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_hoverleaveevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_KeyPressEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_keypressevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_KeyReleaseEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_keyreleaseevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_MousePressEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_mousepressevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_MouseMoveEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_mousemoveevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_MouseReleaseEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_mousereleaseevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_MouseDoubleClickEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_mousedoubleclickevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_WheelEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_wheelevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_InputMethodEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_inputmethodevent_isbase = value; }
-    void setQAbstractGraphicsShapeItem_InputMethodQuery_IsBase(bool value) const { qabstractgraphicsshapeitem_inputmethodquery_isbase = value; }
-    void setQAbstractGraphicsShapeItem_ItemChange_IsBase(bool value) const { qabstractgraphicsshapeitem_itemchange_isbase = value; }
-    void setQAbstractGraphicsShapeItem_SupportsExtension_IsBase(bool value) const { qabstractgraphicsshapeitem_supportsextension_isbase = value; }
-    void setQAbstractGraphicsShapeItem_SetExtension_IsBase(bool value) const { qabstractgraphicsshapeitem_setextension_isbase = value; }
-    void setQAbstractGraphicsShapeItem_Extension_IsBase(bool value) const { qabstractgraphicsshapeitem_extension_isbase = value; }
-    void setQAbstractGraphicsShapeItem_UpdateMicroFocus_IsBase(bool value) const { qabstractgraphicsshapeitem_updatemicrofocus_isbase = value; }
-    void setQAbstractGraphicsShapeItem_AddToIndex_IsBase(bool value) const { qabstractgraphicsshapeitem_addtoindex_isbase = value; }
-    void setQAbstractGraphicsShapeItem_RemoveFromIndex_IsBase(bool value) const { qabstractgraphicsshapeitem_removefromindex_isbase = value; }
-    void setQAbstractGraphicsShapeItem_PrepareGeometryChange_IsBase(bool value) const { qabstractgraphicsshapeitem_preparegeometrychange_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_IsObscuredBy_IsBase(bool value) const { qabstractgraphicsshapeitem_isobscuredby_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_OpaqueArea_IsBase(bool value) const { qabstractgraphicsshapeitem_opaquearea_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_Advance_IsBase(bool value) const { qabstractgraphicsshapeitem_advance_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_BoundingRect_IsBase(bool value) const { qabstractgraphicsshapeitem_boundingrect_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_Shape_IsBase(bool value) const { qabstractgraphicsshapeitem_shape_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_Contains_IsBase(bool value) const { qabstractgraphicsshapeitem_contains_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_CollidesWithItem_IsBase(bool value) const { qabstractgraphicsshapeitem_collideswithitem_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_CollidesWithPath_IsBase(bool value) const { qabstractgraphicsshapeitem_collideswithpath_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_Paint_IsBase(bool value) const { qabstractgraphicsshapeitem_paint_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_Type_IsBase(bool value) const { qabstractgraphicsshapeitem_type_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_SceneEventFilter_IsBase(bool value) const { qabstractgraphicsshapeitem_sceneeventfilter_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_SceneEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_sceneevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_ContextMenuEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_contextmenuevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_DragEnterEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_dragenterevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_DragLeaveEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_dragleaveevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_DragMoveEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_dragmoveevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_DropEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_dropevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_FocusInEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_focusinevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_FocusOutEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_focusoutevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_HoverEnterEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_hoverenterevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_HoverMoveEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_hovermoveevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_HoverLeaveEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_hoverleaveevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_KeyPressEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_keypressevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_KeyReleaseEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_keyreleaseevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_MousePressEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_mousepressevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_MouseMoveEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_mousemoveevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_MouseReleaseEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_mousereleaseevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_MouseDoubleClickEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_mousedoubleclickevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_WheelEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_wheelevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_InputMethodEvent_IsBase(bool value) const { qabstractgraphicsshapeitem_inputmethodevent_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_InputMethodQuery_IsBase(bool value) const { qabstractgraphicsshapeitem_inputmethodquery_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_ItemChange_IsBase(bool value) const { qabstractgraphicsshapeitem_itemchange_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_SupportsExtension_IsBase(bool value) const { qabstractgraphicsshapeitem_supportsextension_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_SetExtension_IsBase(bool value) const { qabstractgraphicsshapeitem_setextension_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_Extension_IsBase(bool value) const { qabstractgraphicsshapeitem_extension_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_UpdateMicroFocus_IsBase(bool value) const { qabstractgraphicsshapeitem_updatemicrofocus_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_AddToIndex_IsBase(bool value) const { qabstractgraphicsshapeitem_addtoindex_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_RemoveFromIndex_IsBase(bool value) const { qabstractgraphicsshapeitem_removefromindex_isbase = value; }
+    inline void setQAbstractGraphicsShapeItem_PrepareGeometryChange_IsBase(bool value) const { qabstractgraphicsshapeitem_preparegeometrychange_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isObscuredBy(const QGraphicsItem* item) const override {
@@ -1913,7 +2296,10 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_isobscuredby_isbase = false;
             return QAbstractGraphicsShapeItem::isObscuredBy(item);
         } else if (qabstractgraphicsshapeitem_isobscuredby_callback != nullptr) {
-            return qabstractgraphicsshapeitem_isobscuredby_callback(this, item);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)item;
+
+            bool callback_ret = qabstractgraphicsshapeitem_isobscuredby_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractGraphicsShapeItem::isObscuredBy(item);
         }
@@ -1925,7 +2311,8 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_opaquearea_isbase = false;
             return QAbstractGraphicsShapeItem::opaqueArea();
         } else if (qabstractgraphicsshapeitem_opaquearea_callback != nullptr) {
-            return qabstractgraphicsshapeitem_opaquearea_callback();
+            QPainterPath* callback_ret = qabstractgraphicsshapeitem_opaquearea_callback();
+            return *callback_ret;
         } else {
             return QAbstractGraphicsShapeItem::opaqueArea();
         }
@@ -1937,7 +2324,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_advance_isbase = false;
             QAbstractGraphicsShapeItem::advance(phase);
         } else if (qabstractgraphicsshapeitem_advance_callback != nullptr) {
-            qabstractgraphicsshapeitem_advance_callback(this, phase);
+            int cbval1 = phase;
+
+            qabstractgraphicsshapeitem_advance_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::advance(phase);
         }
@@ -1945,7 +2334,12 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF boundingRect() const override {
-        return qabstractgraphicsshapeitem_boundingrect_callback();
+        if (qabstractgraphicsshapeitem_boundingrect_callback != nullptr) {
+            QRectF* callback_ret = qabstractgraphicsshapeitem_boundingrect_callback();
+            return *callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1954,7 +2348,8 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_shape_isbase = false;
             return QAbstractGraphicsShapeItem::shape();
         } else if (qabstractgraphicsshapeitem_shape_callback != nullptr) {
-            return qabstractgraphicsshapeitem_shape_callback();
+            QPainterPath* callback_ret = qabstractgraphicsshapeitem_shape_callback();
+            return *callback_ret;
         } else {
             return QAbstractGraphicsShapeItem::shape();
         }
@@ -1966,7 +2361,12 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_contains_isbase = false;
             return QAbstractGraphicsShapeItem::contains(point);
         } else if (qabstractgraphicsshapeitem_contains_callback != nullptr) {
-            return qabstractgraphicsshapeitem_contains_callback(this, point);
+            const QPointF& point_ret = point;
+            // Cast returned reference into pointer
+            QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
+
+            bool callback_ret = qabstractgraphicsshapeitem_contains_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractGraphicsShapeItem::contains(point);
         }
@@ -1978,7 +2378,11 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_collideswithitem_isbase = false;
             return QAbstractGraphicsShapeItem::collidesWithItem(other, mode);
         } else if (qabstractgraphicsshapeitem_collideswithitem_callback != nullptr) {
-            return qabstractgraphicsshapeitem_collideswithitem_callback(this, other, mode);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)other;
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qabstractgraphicsshapeitem_collideswithitem_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QAbstractGraphicsShapeItem::collidesWithItem(other, mode);
         }
@@ -1990,7 +2394,13 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_collideswithpath_isbase = false;
             return QAbstractGraphicsShapeItem::collidesWithPath(path, mode);
         } else if (qabstractgraphicsshapeitem_collideswithpath_callback != nullptr) {
-            return qabstractgraphicsshapeitem_collideswithpath_callback(this, path, mode);
+            const QPainterPath& path_ret = path;
+            // Cast returned reference into pointer
+            QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qabstractgraphicsshapeitem_collideswithpath_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QAbstractGraphicsShapeItem::collidesWithPath(path, mode);
         }
@@ -1998,7 +2408,13 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override {
-        qabstractgraphicsshapeitem_paint_callback(this, painter, option, widget);
+        if (qabstractgraphicsshapeitem_paint_callback != nullptr) {
+            QPainter* cbval1 = painter;
+            QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
+            QWidget* cbval3 = widget;
+
+            qabstractgraphicsshapeitem_paint_callback(this, cbval1, cbval2, cbval3);
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2007,7 +2423,8 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_type_isbase = false;
             return QAbstractGraphicsShapeItem::type();
         } else if (qabstractgraphicsshapeitem_type_callback != nullptr) {
-            return qabstractgraphicsshapeitem_type_callback();
+            int callback_ret = qabstractgraphicsshapeitem_type_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractGraphicsShapeItem::type();
         }
@@ -2019,7 +2436,11 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_sceneeventfilter_isbase = false;
             return QAbstractGraphicsShapeItem::sceneEventFilter(watched, event);
         } else if (qabstractgraphicsshapeitem_sceneeventfilter_callback != nullptr) {
-            return qabstractgraphicsshapeitem_sceneeventfilter_callback(this, watched, event);
+            QGraphicsItem* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qabstractgraphicsshapeitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QAbstractGraphicsShapeItem::sceneEventFilter(watched, event);
         }
@@ -2031,7 +2452,10 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_sceneevent_isbase = false;
             return QAbstractGraphicsShapeItem::sceneEvent(event);
         } else if (qabstractgraphicsshapeitem_sceneevent_callback != nullptr) {
-            return qabstractgraphicsshapeitem_sceneevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qabstractgraphicsshapeitem_sceneevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractGraphicsShapeItem::sceneEvent(event);
         }
@@ -2043,7 +2467,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_contextmenuevent_isbase = false;
             QAbstractGraphicsShapeItem::contextMenuEvent(event);
         } else if (qabstractgraphicsshapeitem_contextmenuevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_contextmenuevent_callback(this, event);
+            QGraphicsSceneContextMenuEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_contextmenuevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::contextMenuEvent(event);
         }
@@ -2055,7 +2481,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_dragenterevent_isbase = false;
             QAbstractGraphicsShapeItem::dragEnterEvent(event);
         } else if (qabstractgraphicsshapeitem_dragenterevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_dragenterevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_dragenterevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::dragEnterEvent(event);
         }
@@ -2067,7 +2495,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_dragleaveevent_isbase = false;
             QAbstractGraphicsShapeItem::dragLeaveEvent(event);
         } else if (qabstractgraphicsshapeitem_dragleaveevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_dragleaveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_dragleaveevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::dragLeaveEvent(event);
         }
@@ -2079,7 +2509,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_dragmoveevent_isbase = false;
             QAbstractGraphicsShapeItem::dragMoveEvent(event);
         } else if (qabstractgraphicsshapeitem_dragmoveevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_dragmoveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_dragmoveevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::dragMoveEvent(event);
         }
@@ -2091,7 +2523,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_dropevent_isbase = false;
             QAbstractGraphicsShapeItem::dropEvent(event);
         } else if (qabstractgraphicsshapeitem_dropevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_dropevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_dropevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::dropEvent(event);
         }
@@ -2103,7 +2537,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_focusinevent_isbase = false;
             QAbstractGraphicsShapeItem::focusInEvent(event);
         } else if (qabstractgraphicsshapeitem_focusinevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_focusinevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::focusInEvent(event);
         }
@@ -2115,7 +2551,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_focusoutevent_isbase = false;
             QAbstractGraphicsShapeItem::focusOutEvent(event);
         } else if (qabstractgraphicsshapeitem_focusoutevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_focusoutevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::focusOutEvent(event);
         }
@@ -2127,7 +2565,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_hoverenterevent_isbase = false;
             QAbstractGraphicsShapeItem::hoverEnterEvent(event);
         } else if (qabstractgraphicsshapeitem_hoverenterevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_hoverenterevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_hoverenterevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::hoverEnterEvent(event);
         }
@@ -2139,7 +2579,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_hovermoveevent_isbase = false;
             QAbstractGraphicsShapeItem::hoverMoveEvent(event);
         } else if (qabstractgraphicsshapeitem_hovermoveevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_hovermoveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_hovermoveevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::hoverMoveEvent(event);
         }
@@ -2151,7 +2593,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_hoverleaveevent_isbase = false;
             QAbstractGraphicsShapeItem::hoverLeaveEvent(event);
         } else if (qabstractgraphicsshapeitem_hoverleaveevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_hoverleaveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_hoverleaveevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::hoverLeaveEvent(event);
         }
@@ -2163,7 +2607,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_keypressevent_isbase = false;
             QAbstractGraphicsShapeItem::keyPressEvent(event);
         } else if (qabstractgraphicsshapeitem_keypressevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_keypressevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::keyPressEvent(event);
         }
@@ -2175,7 +2621,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_keyreleaseevent_isbase = false;
             QAbstractGraphicsShapeItem::keyReleaseEvent(event);
         } else if (qabstractgraphicsshapeitem_keyreleaseevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_keyreleaseevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::keyReleaseEvent(event);
         }
@@ -2187,7 +2635,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_mousepressevent_isbase = false;
             QAbstractGraphicsShapeItem::mousePressEvent(event);
         } else if (qabstractgraphicsshapeitem_mousepressevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_mousepressevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_mousepressevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::mousePressEvent(event);
         }
@@ -2199,7 +2649,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_mousemoveevent_isbase = false;
             QAbstractGraphicsShapeItem::mouseMoveEvent(event);
         } else if (qabstractgraphicsshapeitem_mousemoveevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_mousemoveevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_mousemoveevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::mouseMoveEvent(event);
         }
@@ -2211,7 +2663,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_mousereleaseevent_isbase = false;
             QAbstractGraphicsShapeItem::mouseReleaseEvent(event);
         } else if (qabstractgraphicsshapeitem_mousereleaseevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_mousereleaseevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_mousereleaseevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::mouseReleaseEvent(event);
         }
@@ -2223,7 +2677,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_mousedoubleclickevent_isbase = false;
             QAbstractGraphicsShapeItem::mouseDoubleClickEvent(event);
         } else if (qabstractgraphicsshapeitem_mousedoubleclickevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_mousedoubleclickevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::mouseDoubleClickEvent(event);
         }
@@ -2235,7 +2691,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_wheelevent_isbase = false;
             QAbstractGraphicsShapeItem::wheelEvent(event);
         } else if (qabstractgraphicsshapeitem_wheelevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_wheelevent_callback(this, event);
+            QGraphicsSceneWheelEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_wheelevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::wheelEvent(event);
         }
@@ -2247,7 +2705,9 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_inputmethodevent_isbase = false;
             QAbstractGraphicsShapeItem::inputMethodEvent(event);
         } else if (qabstractgraphicsshapeitem_inputmethodevent_callback != nullptr) {
-            qabstractgraphicsshapeitem_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qabstractgraphicsshapeitem_inputmethodevent_callback(this, cbval1);
         } else {
             QAbstractGraphicsShapeItem::inputMethodEvent(event);
         }
@@ -2259,7 +2719,10 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_inputmethodquery_isbase = false;
             return QAbstractGraphicsShapeItem::inputMethodQuery(query);
         } else if (qabstractgraphicsshapeitem_inputmethodquery_callback != nullptr) {
-            return qabstractgraphicsshapeitem_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qabstractgraphicsshapeitem_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QAbstractGraphicsShapeItem::inputMethodQuery(query);
         }
@@ -2271,7 +2734,13 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_itemchange_isbase = false;
             return QAbstractGraphicsShapeItem::itemChange(change, value);
         } else if (qabstractgraphicsshapeitem_itemchange_callback != nullptr) {
-            return qabstractgraphicsshapeitem_itemchange_callback(this, change, value);
+            int cbval1 = static_cast<int>(change);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            QVariant* callback_ret = qabstractgraphicsshapeitem_itemchange_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QAbstractGraphicsShapeItem::itemChange(change, value);
         }
@@ -2283,7 +2752,10 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_supportsextension_isbase = false;
             return QAbstractGraphicsShapeItem::supportsExtension(extension);
         } else if (qabstractgraphicsshapeitem_supportsextension_callback != nullptr) {
-            return qabstractgraphicsshapeitem_supportsextension_callback(this, extension);
+            int cbval1 = static_cast<int>(extension);
+
+            bool callback_ret = qabstractgraphicsshapeitem_supportsextension_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractGraphicsShapeItem::supportsExtension(extension);
         }
@@ -2295,7 +2767,12 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_setextension_isbase = false;
             QAbstractGraphicsShapeItem::setExtension(extension, variant);
         } else if (qabstractgraphicsshapeitem_setextension_callback != nullptr) {
-            qabstractgraphicsshapeitem_setextension_callback(this, extension, variant);
+            int cbval1 = static_cast<int>(extension);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
+
+            qabstractgraphicsshapeitem_setextension_callback(this, cbval1, cbval2);
         } else {
             QAbstractGraphicsShapeItem::setExtension(extension, variant);
         }
@@ -2307,7 +2784,12 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             qabstractgraphicsshapeitem_extension_isbase = false;
             return QAbstractGraphicsShapeItem::extension(variant);
         } else if (qabstractgraphicsshapeitem_extension_callback != nullptr) {
-            return qabstractgraphicsshapeitem_extension_callback(this, variant);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
+
+            QVariant* callback_ret = qabstractgraphicsshapeitem_extension_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QAbstractGraphicsShapeItem::extension(variant);
         }
@@ -2360,27 +2842,90 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
             QAbstractGraphicsShapeItem::prepareGeometryChange();
         }
     }
+
+    // Friend functions
+    friend bool QAbstractGraphicsShapeItem_SceneEventFilter(QAbstractGraphicsShapeItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QAbstractGraphicsShapeItem_QBaseSceneEventFilter(QAbstractGraphicsShapeItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QAbstractGraphicsShapeItem_SceneEvent(QAbstractGraphicsShapeItem* self, QEvent* event);
+    friend bool QAbstractGraphicsShapeItem_QBaseSceneEvent(QAbstractGraphicsShapeItem* self, QEvent* event);
+    friend void QAbstractGraphicsShapeItem_ContextMenuEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseContextMenuEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QAbstractGraphicsShapeItem_DragEnterEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseDragEnterEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QAbstractGraphicsShapeItem_DragLeaveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseDragLeaveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QAbstractGraphicsShapeItem_DragMoveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseDragMoveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QAbstractGraphicsShapeItem_DropEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseDropEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QAbstractGraphicsShapeItem_FocusInEvent(QAbstractGraphicsShapeItem* self, QFocusEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseFocusInEvent(QAbstractGraphicsShapeItem* self, QFocusEvent* event);
+    friend void QAbstractGraphicsShapeItem_FocusOutEvent(QAbstractGraphicsShapeItem* self, QFocusEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseFocusOutEvent(QAbstractGraphicsShapeItem* self, QFocusEvent* event);
+    friend void QAbstractGraphicsShapeItem_HoverEnterEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseHoverEnterEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QAbstractGraphicsShapeItem_HoverMoveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseHoverMoveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QAbstractGraphicsShapeItem_HoverLeaveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseHoverLeaveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QAbstractGraphicsShapeItem_KeyPressEvent(QAbstractGraphicsShapeItem* self, QKeyEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseKeyPressEvent(QAbstractGraphicsShapeItem* self, QKeyEvent* event);
+    friend void QAbstractGraphicsShapeItem_KeyReleaseEvent(QAbstractGraphicsShapeItem* self, QKeyEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseKeyReleaseEvent(QAbstractGraphicsShapeItem* self, QKeyEvent* event);
+    friend void QAbstractGraphicsShapeItem_MousePressEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseMousePressEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QAbstractGraphicsShapeItem_MouseMoveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseMouseMoveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QAbstractGraphicsShapeItem_MouseReleaseEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseMouseReleaseEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QAbstractGraphicsShapeItem_MouseDoubleClickEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseMouseDoubleClickEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QAbstractGraphicsShapeItem_WheelEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseWheelEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QAbstractGraphicsShapeItem_InputMethodEvent(QAbstractGraphicsShapeItem* self, QInputMethodEvent* event);
+    friend void QAbstractGraphicsShapeItem_QBaseInputMethodEvent(QAbstractGraphicsShapeItem* self, QInputMethodEvent* event);
+    friend QVariant* QAbstractGraphicsShapeItem_InputMethodQuery(const QAbstractGraphicsShapeItem* self, int query);
+    friend QVariant* QAbstractGraphicsShapeItem_QBaseInputMethodQuery(const QAbstractGraphicsShapeItem* self, int query);
+    friend QVariant* QAbstractGraphicsShapeItem_ItemChange(QAbstractGraphicsShapeItem* self, int change, const QVariant* value);
+    friend QVariant* QAbstractGraphicsShapeItem_QBaseItemChange(QAbstractGraphicsShapeItem* self, int change, const QVariant* value);
+    friend bool QAbstractGraphicsShapeItem_SupportsExtension(const QAbstractGraphicsShapeItem* self, int extension);
+    friend bool QAbstractGraphicsShapeItem_QBaseSupportsExtension(const QAbstractGraphicsShapeItem* self, int extension);
+    friend void QAbstractGraphicsShapeItem_SetExtension(QAbstractGraphicsShapeItem* self, int extension, const QVariant* variant);
+    friend void QAbstractGraphicsShapeItem_QBaseSetExtension(QAbstractGraphicsShapeItem* self, int extension, const QVariant* variant);
+    friend QVariant* QAbstractGraphicsShapeItem_Extension(const QAbstractGraphicsShapeItem* self, const QVariant* variant);
+    friend QVariant* QAbstractGraphicsShapeItem_QBaseExtension(const QAbstractGraphicsShapeItem* self, const QVariant* variant);
+    friend void QAbstractGraphicsShapeItem_UpdateMicroFocus(QAbstractGraphicsShapeItem* self);
+    friend void QAbstractGraphicsShapeItem_QBaseUpdateMicroFocus(QAbstractGraphicsShapeItem* self);
+    friend void QAbstractGraphicsShapeItem_AddToIndex(QAbstractGraphicsShapeItem* self);
+    friend void QAbstractGraphicsShapeItem_QBaseAddToIndex(QAbstractGraphicsShapeItem* self);
+    friend void QAbstractGraphicsShapeItem_RemoveFromIndex(QAbstractGraphicsShapeItem* self);
+    friend void QAbstractGraphicsShapeItem_QBaseRemoveFromIndex(QAbstractGraphicsShapeItem* self);
+    friend void QAbstractGraphicsShapeItem_PrepareGeometryChange(QAbstractGraphicsShapeItem* self);
+    friend void QAbstractGraphicsShapeItem_QBasePrepareGeometryChange(QAbstractGraphicsShapeItem* self);
 };
 
 // This class is a subclass of QGraphicsPathItem so that we can call protected methods
-class VirtualQGraphicsPathItem : public QGraphicsPathItem {
+class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsPathItem = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
-    using QGraphicsPathItem_BoundingRect_Callback = QRectF (*)();
-    using QGraphicsPathItem_Shape_Callback = QPainterPath (*)();
-    using QGraphicsPathItem_Contains_Callback = bool (*)(const QGraphicsPathItem*, const QPointF&);
-    using QGraphicsPathItem_Paint_Callback = void (*)(QGraphicsPathItem*, QPainter*, const QStyleOptionGraphicsItem*, QWidget*);
-    using QGraphicsPathItem_IsObscuredBy_Callback = bool (*)(const QGraphicsPathItem*, const QGraphicsItem*);
-    using QGraphicsPathItem_OpaqueArea_Callback = QPainterPath (*)();
+    using QGraphicsPathItem_BoundingRect_Callback = QRectF* (*)();
+    using QGraphicsPathItem_Shape_Callback = QPainterPath* (*)();
+    using QGraphicsPathItem_Contains_Callback = bool (*)(const QGraphicsPathItem*, QPointF*);
+    using QGraphicsPathItem_Paint_Callback = void (*)(QGraphicsPathItem*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
+    using QGraphicsPathItem_IsObscuredBy_Callback = bool (*)(const QGraphicsPathItem*, QGraphicsItem*);
+    using QGraphicsPathItem_OpaqueArea_Callback = QPainterPath* (*)();
     using QGraphicsPathItem_Type_Callback = int (*)();
     using QGraphicsPathItem_SupportsExtension_Callback = bool (*)(const QGraphicsPathItem*, int);
-    using QGraphicsPathItem_SetExtension_Callback = void (*)(QGraphicsPathItem*, int, const QVariant&);
-    using QGraphicsPathItem_Extension_Callback = QVariant (*)(const QGraphicsPathItem*, const QVariant&);
+    using QGraphicsPathItem_SetExtension_Callback = void (*)(QGraphicsPathItem*, int, QVariant*);
+    using QGraphicsPathItem_Extension_Callback = QVariant* (*)(const QGraphicsPathItem*, QVariant*);
     using QGraphicsPathItem_Advance_Callback = void (*)(QGraphicsPathItem*, int);
-    using QGraphicsPathItem_CollidesWithItem_Callback = bool (*)(const QGraphicsPathItem*, const QGraphicsItem*, Qt::ItemSelectionMode);
-    using QGraphicsPathItem_CollidesWithPath_Callback = bool (*)(const QGraphicsPathItem*, const QPainterPath&, Qt::ItemSelectionMode);
+    using QGraphicsPathItem_CollidesWithItem_Callback = bool (*)(const QGraphicsPathItem*, QGraphicsItem*, int);
+    using QGraphicsPathItem_CollidesWithPath_Callback = bool (*)(const QGraphicsPathItem*, QPainterPath*, int);
     using QGraphicsPathItem_SceneEventFilter_Callback = bool (*)(QGraphicsPathItem*, QGraphicsItem*, QEvent*);
     using QGraphicsPathItem_SceneEvent_Callback = bool (*)(QGraphicsPathItem*, QEvent*);
     using QGraphicsPathItem_ContextMenuEvent_Callback = void (*)(QGraphicsPathItem*, QGraphicsSceneContextMenuEvent*);
@@ -2401,8 +2946,8 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
     using QGraphicsPathItem_MouseDoubleClickEvent_Callback = void (*)(QGraphicsPathItem*, QGraphicsSceneMouseEvent*);
     using QGraphicsPathItem_WheelEvent_Callback = void (*)(QGraphicsPathItem*, QGraphicsSceneWheelEvent*);
     using QGraphicsPathItem_InputMethodEvent_Callback = void (*)(QGraphicsPathItem*, QInputMethodEvent*);
-    using QGraphicsPathItem_InputMethodQuery_Callback = QVariant (*)(const QGraphicsPathItem*, Qt::InputMethodQuery);
-    using QGraphicsPathItem_ItemChange_Callback = QVariant (*)(QGraphicsPathItem*, QGraphicsItem::GraphicsItemChange, const QVariant&);
+    using QGraphicsPathItem_InputMethodQuery_Callback = QVariant* (*)(const QGraphicsPathItem*, int);
+    using QGraphicsPathItem_ItemChange_Callback = QVariant* (*)(QGraphicsPathItem*, int, QVariant*);
     using QGraphicsPathItem_UpdateMicroFocus_Callback = void (*)();
     using QGraphicsPathItem_AddToIndex_Callback = void (*)();
     using QGraphicsPathItem_RemoveFromIndex_Callback = void (*)();
@@ -2540,86 +3085,86 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
     }
 
     // Callback setters
-    void setQGraphicsPathItem_BoundingRect_Callback(QGraphicsPathItem_BoundingRect_Callback cb) { qgraphicspathitem_boundingrect_callback = cb; }
-    void setQGraphicsPathItem_Shape_Callback(QGraphicsPathItem_Shape_Callback cb) { qgraphicspathitem_shape_callback = cb; }
-    void setQGraphicsPathItem_Contains_Callback(QGraphicsPathItem_Contains_Callback cb) { qgraphicspathitem_contains_callback = cb; }
-    void setQGraphicsPathItem_Paint_Callback(QGraphicsPathItem_Paint_Callback cb) { qgraphicspathitem_paint_callback = cb; }
-    void setQGraphicsPathItem_IsObscuredBy_Callback(QGraphicsPathItem_IsObscuredBy_Callback cb) { qgraphicspathitem_isobscuredby_callback = cb; }
-    void setQGraphicsPathItem_OpaqueArea_Callback(QGraphicsPathItem_OpaqueArea_Callback cb) { qgraphicspathitem_opaquearea_callback = cb; }
-    void setQGraphicsPathItem_Type_Callback(QGraphicsPathItem_Type_Callback cb) { qgraphicspathitem_type_callback = cb; }
-    void setQGraphicsPathItem_SupportsExtension_Callback(QGraphicsPathItem_SupportsExtension_Callback cb) { qgraphicspathitem_supportsextension_callback = cb; }
-    void setQGraphicsPathItem_SetExtension_Callback(QGraphicsPathItem_SetExtension_Callback cb) { qgraphicspathitem_setextension_callback = cb; }
-    void setQGraphicsPathItem_Extension_Callback(QGraphicsPathItem_Extension_Callback cb) { qgraphicspathitem_extension_callback = cb; }
-    void setQGraphicsPathItem_Advance_Callback(QGraphicsPathItem_Advance_Callback cb) { qgraphicspathitem_advance_callback = cb; }
-    void setQGraphicsPathItem_CollidesWithItem_Callback(QGraphicsPathItem_CollidesWithItem_Callback cb) { qgraphicspathitem_collideswithitem_callback = cb; }
-    void setQGraphicsPathItem_CollidesWithPath_Callback(QGraphicsPathItem_CollidesWithPath_Callback cb) { qgraphicspathitem_collideswithpath_callback = cb; }
-    void setQGraphicsPathItem_SceneEventFilter_Callback(QGraphicsPathItem_SceneEventFilter_Callback cb) { qgraphicspathitem_sceneeventfilter_callback = cb; }
-    void setQGraphicsPathItem_SceneEvent_Callback(QGraphicsPathItem_SceneEvent_Callback cb) { qgraphicspathitem_sceneevent_callback = cb; }
-    void setQGraphicsPathItem_ContextMenuEvent_Callback(QGraphicsPathItem_ContextMenuEvent_Callback cb) { qgraphicspathitem_contextmenuevent_callback = cb; }
-    void setQGraphicsPathItem_DragEnterEvent_Callback(QGraphicsPathItem_DragEnterEvent_Callback cb) { qgraphicspathitem_dragenterevent_callback = cb; }
-    void setQGraphicsPathItem_DragLeaveEvent_Callback(QGraphicsPathItem_DragLeaveEvent_Callback cb) { qgraphicspathitem_dragleaveevent_callback = cb; }
-    void setQGraphicsPathItem_DragMoveEvent_Callback(QGraphicsPathItem_DragMoveEvent_Callback cb) { qgraphicspathitem_dragmoveevent_callback = cb; }
-    void setQGraphicsPathItem_DropEvent_Callback(QGraphicsPathItem_DropEvent_Callback cb) { qgraphicspathitem_dropevent_callback = cb; }
-    void setQGraphicsPathItem_FocusInEvent_Callback(QGraphicsPathItem_FocusInEvent_Callback cb) { qgraphicspathitem_focusinevent_callback = cb; }
-    void setQGraphicsPathItem_FocusOutEvent_Callback(QGraphicsPathItem_FocusOutEvent_Callback cb) { qgraphicspathitem_focusoutevent_callback = cb; }
-    void setQGraphicsPathItem_HoverEnterEvent_Callback(QGraphicsPathItem_HoverEnterEvent_Callback cb) { qgraphicspathitem_hoverenterevent_callback = cb; }
-    void setQGraphicsPathItem_HoverMoveEvent_Callback(QGraphicsPathItem_HoverMoveEvent_Callback cb) { qgraphicspathitem_hovermoveevent_callback = cb; }
-    void setQGraphicsPathItem_HoverLeaveEvent_Callback(QGraphicsPathItem_HoverLeaveEvent_Callback cb) { qgraphicspathitem_hoverleaveevent_callback = cb; }
-    void setQGraphicsPathItem_KeyPressEvent_Callback(QGraphicsPathItem_KeyPressEvent_Callback cb) { qgraphicspathitem_keypressevent_callback = cb; }
-    void setQGraphicsPathItem_KeyReleaseEvent_Callback(QGraphicsPathItem_KeyReleaseEvent_Callback cb) { qgraphicspathitem_keyreleaseevent_callback = cb; }
-    void setQGraphicsPathItem_MousePressEvent_Callback(QGraphicsPathItem_MousePressEvent_Callback cb) { qgraphicspathitem_mousepressevent_callback = cb; }
-    void setQGraphicsPathItem_MouseMoveEvent_Callback(QGraphicsPathItem_MouseMoveEvent_Callback cb) { qgraphicspathitem_mousemoveevent_callback = cb; }
-    void setQGraphicsPathItem_MouseReleaseEvent_Callback(QGraphicsPathItem_MouseReleaseEvent_Callback cb) { qgraphicspathitem_mousereleaseevent_callback = cb; }
-    void setQGraphicsPathItem_MouseDoubleClickEvent_Callback(QGraphicsPathItem_MouseDoubleClickEvent_Callback cb) { qgraphicspathitem_mousedoubleclickevent_callback = cb; }
-    void setQGraphicsPathItem_WheelEvent_Callback(QGraphicsPathItem_WheelEvent_Callback cb) { qgraphicspathitem_wheelevent_callback = cb; }
-    void setQGraphicsPathItem_InputMethodEvent_Callback(QGraphicsPathItem_InputMethodEvent_Callback cb) { qgraphicspathitem_inputmethodevent_callback = cb; }
-    void setQGraphicsPathItem_InputMethodQuery_Callback(QGraphicsPathItem_InputMethodQuery_Callback cb) { qgraphicspathitem_inputmethodquery_callback = cb; }
-    void setQGraphicsPathItem_ItemChange_Callback(QGraphicsPathItem_ItemChange_Callback cb) { qgraphicspathitem_itemchange_callback = cb; }
-    void setQGraphicsPathItem_UpdateMicroFocus_Callback(QGraphicsPathItem_UpdateMicroFocus_Callback cb) { qgraphicspathitem_updatemicrofocus_callback = cb; }
-    void setQGraphicsPathItem_AddToIndex_Callback(QGraphicsPathItem_AddToIndex_Callback cb) { qgraphicspathitem_addtoindex_callback = cb; }
-    void setQGraphicsPathItem_RemoveFromIndex_Callback(QGraphicsPathItem_RemoveFromIndex_Callback cb) { qgraphicspathitem_removefromindex_callback = cb; }
-    void setQGraphicsPathItem_PrepareGeometryChange_Callback(QGraphicsPathItem_PrepareGeometryChange_Callback cb) { qgraphicspathitem_preparegeometrychange_callback = cb; }
+    inline void setQGraphicsPathItem_BoundingRect_Callback(QGraphicsPathItem_BoundingRect_Callback cb) { qgraphicspathitem_boundingrect_callback = cb; }
+    inline void setQGraphicsPathItem_Shape_Callback(QGraphicsPathItem_Shape_Callback cb) { qgraphicspathitem_shape_callback = cb; }
+    inline void setQGraphicsPathItem_Contains_Callback(QGraphicsPathItem_Contains_Callback cb) { qgraphicspathitem_contains_callback = cb; }
+    inline void setQGraphicsPathItem_Paint_Callback(QGraphicsPathItem_Paint_Callback cb) { qgraphicspathitem_paint_callback = cb; }
+    inline void setQGraphicsPathItem_IsObscuredBy_Callback(QGraphicsPathItem_IsObscuredBy_Callback cb) { qgraphicspathitem_isobscuredby_callback = cb; }
+    inline void setQGraphicsPathItem_OpaqueArea_Callback(QGraphicsPathItem_OpaqueArea_Callback cb) { qgraphicspathitem_opaquearea_callback = cb; }
+    inline void setQGraphicsPathItem_Type_Callback(QGraphicsPathItem_Type_Callback cb) { qgraphicspathitem_type_callback = cb; }
+    inline void setQGraphicsPathItem_SupportsExtension_Callback(QGraphicsPathItem_SupportsExtension_Callback cb) { qgraphicspathitem_supportsextension_callback = cb; }
+    inline void setQGraphicsPathItem_SetExtension_Callback(QGraphicsPathItem_SetExtension_Callback cb) { qgraphicspathitem_setextension_callback = cb; }
+    inline void setQGraphicsPathItem_Extension_Callback(QGraphicsPathItem_Extension_Callback cb) { qgraphicspathitem_extension_callback = cb; }
+    inline void setQGraphicsPathItem_Advance_Callback(QGraphicsPathItem_Advance_Callback cb) { qgraphicspathitem_advance_callback = cb; }
+    inline void setQGraphicsPathItem_CollidesWithItem_Callback(QGraphicsPathItem_CollidesWithItem_Callback cb) { qgraphicspathitem_collideswithitem_callback = cb; }
+    inline void setQGraphicsPathItem_CollidesWithPath_Callback(QGraphicsPathItem_CollidesWithPath_Callback cb) { qgraphicspathitem_collideswithpath_callback = cb; }
+    inline void setQGraphicsPathItem_SceneEventFilter_Callback(QGraphicsPathItem_SceneEventFilter_Callback cb) { qgraphicspathitem_sceneeventfilter_callback = cb; }
+    inline void setQGraphicsPathItem_SceneEvent_Callback(QGraphicsPathItem_SceneEvent_Callback cb) { qgraphicspathitem_sceneevent_callback = cb; }
+    inline void setQGraphicsPathItem_ContextMenuEvent_Callback(QGraphicsPathItem_ContextMenuEvent_Callback cb) { qgraphicspathitem_contextmenuevent_callback = cb; }
+    inline void setQGraphicsPathItem_DragEnterEvent_Callback(QGraphicsPathItem_DragEnterEvent_Callback cb) { qgraphicspathitem_dragenterevent_callback = cb; }
+    inline void setQGraphicsPathItem_DragLeaveEvent_Callback(QGraphicsPathItem_DragLeaveEvent_Callback cb) { qgraphicspathitem_dragleaveevent_callback = cb; }
+    inline void setQGraphicsPathItem_DragMoveEvent_Callback(QGraphicsPathItem_DragMoveEvent_Callback cb) { qgraphicspathitem_dragmoveevent_callback = cb; }
+    inline void setQGraphicsPathItem_DropEvent_Callback(QGraphicsPathItem_DropEvent_Callback cb) { qgraphicspathitem_dropevent_callback = cb; }
+    inline void setQGraphicsPathItem_FocusInEvent_Callback(QGraphicsPathItem_FocusInEvent_Callback cb) { qgraphicspathitem_focusinevent_callback = cb; }
+    inline void setQGraphicsPathItem_FocusOutEvent_Callback(QGraphicsPathItem_FocusOutEvent_Callback cb) { qgraphicspathitem_focusoutevent_callback = cb; }
+    inline void setQGraphicsPathItem_HoverEnterEvent_Callback(QGraphicsPathItem_HoverEnterEvent_Callback cb) { qgraphicspathitem_hoverenterevent_callback = cb; }
+    inline void setQGraphicsPathItem_HoverMoveEvent_Callback(QGraphicsPathItem_HoverMoveEvent_Callback cb) { qgraphicspathitem_hovermoveevent_callback = cb; }
+    inline void setQGraphicsPathItem_HoverLeaveEvent_Callback(QGraphicsPathItem_HoverLeaveEvent_Callback cb) { qgraphicspathitem_hoverleaveevent_callback = cb; }
+    inline void setQGraphicsPathItem_KeyPressEvent_Callback(QGraphicsPathItem_KeyPressEvent_Callback cb) { qgraphicspathitem_keypressevent_callback = cb; }
+    inline void setQGraphicsPathItem_KeyReleaseEvent_Callback(QGraphicsPathItem_KeyReleaseEvent_Callback cb) { qgraphicspathitem_keyreleaseevent_callback = cb; }
+    inline void setQGraphicsPathItem_MousePressEvent_Callback(QGraphicsPathItem_MousePressEvent_Callback cb) { qgraphicspathitem_mousepressevent_callback = cb; }
+    inline void setQGraphicsPathItem_MouseMoveEvent_Callback(QGraphicsPathItem_MouseMoveEvent_Callback cb) { qgraphicspathitem_mousemoveevent_callback = cb; }
+    inline void setQGraphicsPathItem_MouseReleaseEvent_Callback(QGraphicsPathItem_MouseReleaseEvent_Callback cb) { qgraphicspathitem_mousereleaseevent_callback = cb; }
+    inline void setQGraphicsPathItem_MouseDoubleClickEvent_Callback(QGraphicsPathItem_MouseDoubleClickEvent_Callback cb) { qgraphicspathitem_mousedoubleclickevent_callback = cb; }
+    inline void setQGraphicsPathItem_WheelEvent_Callback(QGraphicsPathItem_WheelEvent_Callback cb) { qgraphicspathitem_wheelevent_callback = cb; }
+    inline void setQGraphicsPathItem_InputMethodEvent_Callback(QGraphicsPathItem_InputMethodEvent_Callback cb) { qgraphicspathitem_inputmethodevent_callback = cb; }
+    inline void setQGraphicsPathItem_InputMethodQuery_Callback(QGraphicsPathItem_InputMethodQuery_Callback cb) { qgraphicspathitem_inputmethodquery_callback = cb; }
+    inline void setQGraphicsPathItem_ItemChange_Callback(QGraphicsPathItem_ItemChange_Callback cb) { qgraphicspathitem_itemchange_callback = cb; }
+    inline void setQGraphicsPathItem_UpdateMicroFocus_Callback(QGraphicsPathItem_UpdateMicroFocus_Callback cb) { qgraphicspathitem_updatemicrofocus_callback = cb; }
+    inline void setQGraphicsPathItem_AddToIndex_Callback(QGraphicsPathItem_AddToIndex_Callback cb) { qgraphicspathitem_addtoindex_callback = cb; }
+    inline void setQGraphicsPathItem_RemoveFromIndex_Callback(QGraphicsPathItem_RemoveFromIndex_Callback cb) { qgraphicspathitem_removefromindex_callback = cb; }
+    inline void setQGraphicsPathItem_PrepareGeometryChange_Callback(QGraphicsPathItem_PrepareGeometryChange_Callback cb) { qgraphicspathitem_preparegeometrychange_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsPathItem_BoundingRect_IsBase(bool value) const { qgraphicspathitem_boundingrect_isbase = value; }
-    void setQGraphicsPathItem_Shape_IsBase(bool value) const { qgraphicspathitem_shape_isbase = value; }
-    void setQGraphicsPathItem_Contains_IsBase(bool value) const { qgraphicspathitem_contains_isbase = value; }
-    void setQGraphicsPathItem_Paint_IsBase(bool value) const { qgraphicspathitem_paint_isbase = value; }
-    void setQGraphicsPathItem_IsObscuredBy_IsBase(bool value) const { qgraphicspathitem_isobscuredby_isbase = value; }
-    void setQGraphicsPathItem_OpaqueArea_IsBase(bool value) const { qgraphicspathitem_opaquearea_isbase = value; }
-    void setQGraphicsPathItem_Type_IsBase(bool value) const { qgraphicspathitem_type_isbase = value; }
-    void setQGraphicsPathItem_SupportsExtension_IsBase(bool value) const { qgraphicspathitem_supportsextension_isbase = value; }
-    void setQGraphicsPathItem_SetExtension_IsBase(bool value) const { qgraphicspathitem_setextension_isbase = value; }
-    void setQGraphicsPathItem_Extension_IsBase(bool value) const { qgraphicspathitem_extension_isbase = value; }
-    void setQGraphicsPathItem_Advance_IsBase(bool value) const { qgraphicspathitem_advance_isbase = value; }
-    void setQGraphicsPathItem_CollidesWithItem_IsBase(bool value) const { qgraphicspathitem_collideswithitem_isbase = value; }
-    void setQGraphicsPathItem_CollidesWithPath_IsBase(bool value) const { qgraphicspathitem_collideswithpath_isbase = value; }
-    void setQGraphicsPathItem_SceneEventFilter_IsBase(bool value) const { qgraphicspathitem_sceneeventfilter_isbase = value; }
-    void setQGraphicsPathItem_SceneEvent_IsBase(bool value) const { qgraphicspathitem_sceneevent_isbase = value; }
-    void setQGraphicsPathItem_ContextMenuEvent_IsBase(bool value) const { qgraphicspathitem_contextmenuevent_isbase = value; }
-    void setQGraphicsPathItem_DragEnterEvent_IsBase(bool value) const { qgraphicspathitem_dragenterevent_isbase = value; }
-    void setQGraphicsPathItem_DragLeaveEvent_IsBase(bool value) const { qgraphicspathitem_dragleaveevent_isbase = value; }
-    void setQGraphicsPathItem_DragMoveEvent_IsBase(bool value) const { qgraphicspathitem_dragmoveevent_isbase = value; }
-    void setQGraphicsPathItem_DropEvent_IsBase(bool value) const { qgraphicspathitem_dropevent_isbase = value; }
-    void setQGraphicsPathItem_FocusInEvent_IsBase(bool value) const { qgraphicspathitem_focusinevent_isbase = value; }
-    void setQGraphicsPathItem_FocusOutEvent_IsBase(bool value) const { qgraphicspathitem_focusoutevent_isbase = value; }
-    void setQGraphicsPathItem_HoverEnterEvent_IsBase(bool value) const { qgraphicspathitem_hoverenterevent_isbase = value; }
-    void setQGraphicsPathItem_HoverMoveEvent_IsBase(bool value) const { qgraphicspathitem_hovermoveevent_isbase = value; }
-    void setQGraphicsPathItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicspathitem_hoverleaveevent_isbase = value; }
-    void setQGraphicsPathItem_KeyPressEvent_IsBase(bool value) const { qgraphicspathitem_keypressevent_isbase = value; }
-    void setQGraphicsPathItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicspathitem_keyreleaseevent_isbase = value; }
-    void setQGraphicsPathItem_MousePressEvent_IsBase(bool value) const { qgraphicspathitem_mousepressevent_isbase = value; }
-    void setQGraphicsPathItem_MouseMoveEvent_IsBase(bool value) const { qgraphicspathitem_mousemoveevent_isbase = value; }
-    void setQGraphicsPathItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicspathitem_mousereleaseevent_isbase = value; }
-    void setQGraphicsPathItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicspathitem_mousedoubleclickevent_isbase = value; }
-    void setQGraphicsPathItem_WheelEvent_IsBase(bool value) const { qgraphicspathitem_wheelevent_isbase = value; }
-    void setQGraphicsPathItem_InputMethodEvent_IsBase(bool value) const { qgraphicspathitem_inputmethodevent_isbase = value; }
-    void setQGraphicsPathItem_InputMethodQuery_IsBase(bool value) const { qgraphicspathitem_inputmethodquery_isbase = value; }
-    void setQGraphicsPathItem_ItemChange_IsBase(bool value) const { qgraphicspathitem_itemchange_isbase = value; }
-    void setQGraphicsPathItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicspathitem_updatemicrofocus_isbase = value; }
-    void setQGraphicsPathItem_AddToIndex_IsBase(bool value) const { qgraphicspathitem_addtoindex_isbase = value; }
-    void setQGraphicsPathItem_RemoveFromIndex_IsBase(bool value) const { qgraphicspathitem_removefromindex_isbase = value; }
-    void setQGraphicsPathItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicspathitem_preparegeometrychange_isbase = value; }
+    inline void setQGraphicsPathItem_BoundingRect_IsBase(bool value) const { qgraphicspathitem_boundingrect_isbase = value; }
+    inline void setQGraphicsPathItem_Shape_IsBase(bool value) const { qgraphicspathitem_shape_isbase = value; }
+    inline void setQGraphicsPathItem_Contains_IsBase(bool value) const { qgraphicspathitem_contains_isbase = value; }
+    inline void setQGraphicsPathItem_Paint_IsBase(bool value) const { qgraphicspathitem_paint_isbase = value; }
+    inline void setQGraphicsPathItem_IsObscuredBy_IsBase(bool value) const { qgraphicspathitem_isobscuredby_isbase = value; }
+    inline void setQGraphicsPathItem_OpaqueArea_IsBase(bool value) const { qgraphicspathitem_opaquearea_isbase = value; }
+    inline void setQGraphicsPathItem_Type_IsBase(bool value) const { qgraphicspathitem_type_isbase = value; }
+    inline void setQGraphicsPathItem_SupportsExtension_IsBase(bool value) const { qgraphicspathitem_supportsextension_isbase = value; }
+    inline void setQGraphicsPathItem_SetExtension_IsBase(bool value) const { qgraphicspathitem_setextension_isbase = value; }
+    inline void setQGraphicsPathItem_Extension_IsBase(bool value) const { qgraphicspathitem_extension_isbase = value; }
+    inline void setQGraphicsPathItem_Advance_IsBase(bool value) const { qgraphicspathitem_advance_isbase = value; }
+    inline void setQGraphicsPathItem_CollidesWithItem_IsBase(bool value) const { qgraphicspathitem_collideswithitem_isbase = value; }
+    inline void setQGraphicsPathItem_CollidesWithPath_IsBase(bool value) const { qgraphicspathitem_collideswithpath_isbase = value; }
+    inline void setQGraphicsPathItem_SceneEventFilter_IsBase(bool value) const { qgraphicspathitem_sceneeventfilter_isbase = value; }
+    inline void setQGraphicsPathItem_SceneEvent_IsBase(bool value) const { qgraphicspathitem_sceneevent_isbase = value; }
+    inline void setQGraphicsPathItem_ContextMenuEvent_IsBase(bool value) const { qgraphicspathitem_contextmenuevent_isbase = value; }
+    inline void setQGraphicsPathItem_DragEnterEvent_IsBase(bool value) const { qgraphicspathitem_dragenterevent_isbase = value; }
+    inline void setQGraphicsPathItem_DragLeaveEvent_IsBase(bool value) const { qgraphicspathitem_dragleaveevent_isbase = value; }
+    inline void setQGraphicsPathItem_DragMoveEvent_IsBase(bool value) const { qgraphicspathitem_dragmoveevent_isbase = value; }
+    inline void setQGraphicsPathItem_DropEvent_IsBase(bool value) const { qgraphicspathitem_dropevent_isbase = value; }
+    inline void setQGraphicsPathItem_FocusInEvent_IsBase(bool value) const { qgraphicspathitem_focusinevent_isbase = value; }
+    inline void setQGraphicsPathItem_FocusOutEvent_IsBase(bool value) const { qgraphicspathitem_focusoutevent_isbase = value; }
+    inline void setQGraphicsPathItem_HoverEnterEvent_IsBase(bool value) const { qgraphicspathitem_hoverenterevent_isbase = value; }
+    inline void setQGraphicsPathItem_HoverMoveEvent_IsBase(bool value) const { qgraphicspathitem_hovermoveevent_isbase = value; }
+    inline void setQGraphicsPathItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicspathitem_hoverleaveevent_isbase = value; }
+    inline void setQGraphicsPathItem_KeyPressEvent_IsBase(bool value) const { qgraphicspathitem_keypressevent_isbase = value; }
+    inline void setQGraphicsPathItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicspathitem_keyreleaseevent_isbase = value; }
+    inline void setQGraphicsPathItem_MousePressEvent_IsBase(bool value) const { qgraphicspathitem_mousepressevent_isbase = value; }
+    inline void setQGraphicsPathItem_MouseMoveEvent_IsBase(bool value) const { qgraphicspathitem_mousemoveevent_isbase = value; }
+    inline void setQGraphicsPathItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicspathitem_mousereleaseevent_isbase = value; }
+    inline void setQGraphicsPathItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicspathitem_mousedoubleclickevent_isbase = value; }
+    inline void setQGraphicsPathItem_WheelEvent_IsBase(bool value) const { qgraphicspathitem_wheelevent_isbase = value; }
+    inline void setQGraphicsPathItem_InputMethodEvent_IsBase(bool value) const { qgraphicspathitem_inputmethodevent_isbase = value; }
+    inline void setQGraphicsPathItem_InputMethodQuery_IsBase(bool value) const { qgraphicspathitem_inputmethodquery_isbase = value; }
+    inline void setQGraphicsPathItem_ItemChange_IsBase(bool value) const { qgraphicspathitem_itemchange_isbase = value; }
+    inline void setQGraphicsPathItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicspathitem_updatemicrofocus_isbase = value; }
+    inline void setQGraphicsPathItem_AddToIndex_IsBase(bool value) const { qgraphicspathitem_addtoindex_isbase = value; }
+    inline void setQGraphicsPathItem_RemoveFromIndex_IsBase(bool value) const { qgraphicspathitem_removefromindex_isbase = value; }
+    inline void setQGraphicsPathItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicspathitem_preparegeometrychange_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF boundingRect() const override {
@@ -2627,7 +3172,8 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_boundingrect_isbase = false;
             return QGraphicsPathItem::boundingRect();
         } else if (qgraphicspathitem_boundingrect_callback != nullptr) {
-            return qgraphicspathitem_boundingrect_callback();
+            QRectF* callback_ret = qgraphicspathitem_boundingrect_callback();
+            return *callback_ret;
         } else {
             return QGraphicsPathItem::boundingRect();
         }
@@ -2639,7 +3185,8 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_shape_isbase = false;
             return QGraphicsPathItem::shape();
         } else if (qgraphicspathitem_shape_callback != nullptr) {
-            return qgraphicspathitem_shape_callback();
+            QPainterPath* callback_ret = qgraphicspathitem_shape_callback();
+            return *callback_ret;
         } else {
             return QGraphicsPathItem::shape();
         }
@@ -2651,7 +3198,12 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_contains_isbase = false;
             return QGraphicsPathItem::contains(point);
         } else if (qgraphicspathitem_contains_callback != nullptr) {
-            return qgraphicspathitem_contains_callback(this, point);
+            const QPointF& point_ret = point;
+            // Cast returned reference into pointer
+            QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
+
+            bool callback_ret = qgraphicspathitem_contains_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsPathItem::contains(point);
         }
@@ -2663,7 +3215,11 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_paint_isbase = false;
             QGraphicsPathItem::paint(painter, option, widget);
         } else if (qgraphicspathitem_paint_callback != nullptr) {
-            qgraphicspathitem_paint_callback(this, painter, option, widget);
+            QPainter* cbval1 = painter;
+            QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
+            QWidget* cbval3 = widget;
+
+            qgraphicspathitem_paint_callback(this, cbval1, cbval2, cbval3);
         } else {
             QGraphicsPathItem::paint(painter, option, widget);
         }
@@ -2675,7 +3231,10 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_isobscuredby_isbase = false;
             return QGraphicsPathItem::isObscuredBy(item);
         } else if (qgraphicspathitem_isobscuredby_callback != nullptr) {
-            return qgraphicspathitem_isobscuredby_callback(this, item);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)item;
+
+            bool callback_ret = qgraphicspathitem_isobscuredby_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsPathItem::isObscuredBy(item);
         }
@@ -2687,7 +3246,8 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_opaquearea_isbase = false;
             return QGraphicsPathItem::opaqueArea();
         } else if (qgraphicspathitem_opaquearea_callback != nullptr) {
-            return qgraphicspathitem_opaquearea_callback();
+            QPainterPath* callback_ret = qgraphicspathitem_opaquearea_callback();
+            return *callback_ret;
         } else {
             return QGraphicsPathItem::opaqueArea();
         }
@@ -2699,7 +3259,8 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_type_isbase = false;
             return QGraphicsPathItem::type();
         } else if (qgraphicspathitem_type_callback != nullptr) {
-            return qgraphicspathitem_type_callback();
+            int callback_ret = qgraphicspathitem_type_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsPathItem::type();
         }
@@ -2711,7 +3272,10 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_supportsextension_isbase = false;
             return QGraphicsPathItem::supportsExtension(extension);
         } else if (qgraphicspathitem_supportsextension_callback != nullptr) {
-            return qgraphicspathitem_supportsextension_callback(this, extension);
+            int cbval1 = static_cast<int>(extension);
+
+            bool callback_ret = qgraphicspathitem_supportsextension_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsPathItem::supportsExtension(extension);
         }
@@ -2723,7 +3287,12 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_setextension_isbase = false;
             QGraphicsPathItem::setExtension(extension, variant);
         } else if (qgraphicspathitem_setextension_callback != nullptr) {
-            qgraphicspathitem_setextension_callback(this, extension, variant);
+            int cbval1 = static_cast<int>(extension);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
+
+            qgraphicspathitem_setextension_callback(this, cbval1, cbval2);
         } else {
             QGraphicsPathItem::setExtension(extension, variant);
         }
@@ -2735,7 +3304,12 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_extension_isbase = false;
             return QGraphicsPathItem::extension(variant);
         } else if (qgraphicspathitem_extension_callback != nullptr) {
-            return qgraphicspathitem_extension_callback(this, variant);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
+
+            QVariant* callback_ret = qgraphicspathitem_extension_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsPathItem::extension(variant);
         }
@@ -2747,7 +3321,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_advance_isbase = false;
             QGraphicsPathItem::advance(phase);
         } else if (qgraphicspathitem_advance_callback != nullptr) {
-            qgraphicspathitem_advance_callback(this, phase);
+            int cbval1 = phase;
+
+            qgraphicspathitem_advance_callback(this, cbval1);
         } else {
             QGraphicsPathItem::advance(phase);
         }
@@ -2759,7 +3335,11 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_collideswithitem_isbase = false;
             return QGraphicsPathItem::collidesWithItem(other, mode);
         } else if (qgraphicspathitem_collideswithitem_callback != nullptr) {
-            return qgraphicspathitem_collideswithitem_callback(this, other, mode);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)other;
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicspathitem_collideswithitem_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsPathItem::collidesWithItem(other, mode);
         }
@@ -2771,7 +3351,13 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_collideswithpath_isbase = false;
             return QGraphicsPathItem::collidesWithPath(path, mode);
         } else if (qgraphicspathitem_collideswithpath_callback != nullptr) {
-            return qgraphicspathitem_collideswithpath_callback(this, path, mode);
+            const QPainterPath& path_ret = path;
+            // Cast returned reference into pointer
+            QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicspathitem_collideswithpath_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsPathItem::collidesWithPath(path, mode);
         }
@@ -2783,7 +3369,11 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_sceneeventfilter_isbase = false;
             return QGraphicsPathItem::sceneEventFilter(watched, event);
         } else if (qgraphicspathitem_sceneeventfilter_callback != nullptr) {
-            return qgraphicspathitem_sceneeventfilter_callback(this, watched, event);
+            QGraphicsItem* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicspathitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsPathItem::sceneEventFilter(watched, event);
         }
@@ -2795,7 +3385,10 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_sceneevent_isbase = false;
             return QGraphicsPathItem::sceneEvent(event);
         } else if (qgraphicspathitem_sceneevent_callback != nullptr) {
-            return qgraphicspathitem_sceneevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgraphicspathitem_sceneevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsPathItem::sceneEvent(event);
         }
@@ -2807,7 +3400,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_contextmenuevent_isbase = false;
             QGraphicsPathItem::contextMenuEvent(event);
         } else if (qgraphicspathitem_contextmenuevent_callback != nullptr) {
-            qgraphicspathitem_contextmenuevent_callback(this, event);
+            QGraphicsSceneContextMenuEvent* cbval1 = event;
+
+            qgraphicspathitem_contextmenuevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::contextMenuEvent(event);
         }
@@ -2819,7 +3414,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_dragenterevent_isbase = false;
             QGraphicsPathItem::dragEnterEvent(event);
         } else if (qgraphicspathitem_dragenterevent_callback != nullptr) {
-            qgraphicspathitem_dragenterevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicspathitem_dragenterevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::dragEnterEvent(event);
         }
@@ -2831,7 +3428,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_dragleaveevent_isbase = false;
             QGraphicsPathItem::dragLeaveEvent(event);
         } else if (qgraphicspathitem_dragleaveevent_callback != nullptr) {
-            qgraphicspathitem_dragleaveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicspathitem_dragleaveevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::dragLeaveEvent(event);
         }
@@ -2843,7 +3442,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_dragmoveevent_isbase = false;
             QGraphicsPathItem::dragMoveEvent(event);
         } else if (qgraphicspathitem_dragmoveevent_callback != nullptr) {
-            qgraphicspathitem_dragmoveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicspathitem_dragmoveevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::dragMoveEvent(event);
         }
@@ -2855,7 +3456,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_dropevent_isbase = false;
             QGraphicsPathItem::dropEvent(event);
         } else if (qgraphicspathitem_dropevent_callback != nullptr) {
-            qgraphicspathitem_dropevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicspathitem_dropevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::dropEvent(event);
         }
@@ -2867,7 +3470,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_focusinevent_isbase = false;
             QGraphicsPathItem::focusInEvent(event);
         } else if (qgraphicspathitem_focusinevent_callback != nullptr) {
-            qgraphicspathitem_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicspathitem_focusinevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::focusInEvent(event);
         }
@@ -2879,7 +3484,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_focusoutevent_isbase = false;
             QGraphicsPathItem::focusOutEvent(event);
         } else if (qgraphicspathitem_focusoutevent_callback != nullptr) {
-            qgraphicspathitem_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicspathitem_focusoutevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::focusOutEvent(event);
         }
@@ -2891,7 +3498,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_hoverenterevent_isbase = false;
             QGraphicsPathItem::hoverEnterEvent(event);
         } else if (qgraphicspathitem_hoverenterevent_callback != nullptr) {
-            qgraphicspathitem_hoverenterevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicspathitem_hoverenterevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::hoverEnterEvent(event);
         }
@@ -2903,7 +3512,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_hovermoveevent_isbase = false;
             QGraphicsPathItem::hoverMoveEvent(event);
         } else if (qgraphicspathitem_hovermoveevent_callback != nullptr) {
-            qgraphicspathitem_hovermoveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicspathitem_hovermoveevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::hoverMoveEvent(event);
         }
@@ -2915,7 +3526,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_hoverleaveevent_isbase = false;
             QGraphicsPathItem::hoverLeaveEvent(event);
         } else if (qgraphicspathitem_hoverleaveevent_callback != nullptr) {
-            qgraphicspathitem_hoverleaveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicspathitem_hoverleaveevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::hoverLeaveEvent(event);
         }
@@ -2927,7 +3540,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_keypressevent_isbase = false;
             QGraphicsPathItem::keyPressEvent(event);
         } else if (qgraphicspathitem_keypressevent_callback != nullptr) {
-            qgraphicspathitem_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicspathitem_keypressevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::keyPressEvent(event);
         }
@@ -2939,7 +3554,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_keyreleaseevent_isbase = false;
             QGraphicsPathItem::keyReleaseEvent(event);
         } else if (qgraphicspathitem_keyreleaseevent_callback != nullptr) {
-            qgraphicspathitem_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicspathitem_keyreleaseevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::keyReleaseEvent(event);
         }
@@ -2951,7 +3568,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_mousepressevent_isbase = false;
             QGraphicsPathItem::mousePressEvent(event);
         } else if (qgraphicspathitem_mousepressevent_callback != nullptr) {
-            qgraphicspathitem_mousepressevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicspathitem_mousepressevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::mousePressEvent(event);
         }
@@ -2963,7 +3582,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_mousemoveevent_isbase = false;
             QGraphicsPathItem::mouseMoveEvent(event);
         } else if (qgraphicspathitem_mousemoveevent_callback != nullptr) {
-            qgraphicspathitem_mousemoveevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicspathitem_mousemoveevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::mouseMoveEvent(event);
         }
@@ -2975,7 +3596,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_mousereleaseevent_isbase = false;
             QGraphicsPathItem::mouseReleaseEvent(event);
         } else if (qgraphicspathitem_mousereleaseevent_callback != nullptr) {
-            qgraphicspathitem_mousereleaseevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicspathitem_mousereleaseevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::mouseReleaseEvent(event);
         }
@@ -2987,7 +3610,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_mousedoubleclickevent_isbase = false;
             QGraphicsPathItem::mouseDoubleClickEvent(event);
         } else if (qgraphicspathitem_mousedoubleclickevent_callback != nullptr) {
-            qgraphicspathitem_mousedoubleclickevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicspathitem_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::mouseDoubleClickEvent(event);
         }
@@ -2999,7 +3624,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_wheelevent_isbase = false;
             QGraphicsPathItem::wheelEvent(event);
         } else if (qgraphicspathitem_wheelevent_callback != nullptr) {
-            qgraphicspathitem_wheelevent_callback(this, event);
+            QGraphicsSceneWheelEvent* cbval1 = event;
+
+            qgraphicspathitem_wheelevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::wheelEvent(event);
         }
@@ -3011,7 +3638,9 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_inputmethodevent_isbase = false;
             QGraphicsPathItem::inputMethodEvent(event);
         } else if (qgraphicspathitem_inputmethodevent_callback != nullptr) {
-            qgraphicspathitem_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qgraphicspathitem_inputmethodevent_callback(this, cbval1);
         } else {
             QGraphicsPathItem::inputMethodEvent(event);
         }
@@ -3023,7 +3652,10 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_inputmethodquery_isbase = false;
             return QGraphicsPathItem::inputMethodQuery(query);
         } else if (qgraphicspathitem_inputmethodquery_callback != nullptr) {
-            return qgraphicspathitem_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qgraphicspathitem_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsPathItem::inputMethodQuery(query);
         }
@@ -3035,7 +3667,13 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             qgraphicspathitem_itemchange_isbase = false;
             return QGraphicsPathItem::itemChange(change, value);
         } else if (qgraphicspathitem_itemchange_callback != nullptr) {
-            return qgraphicspathitem_itemchange_callback(this, change, value);
+            int cbval1 = static_cast<int>(change);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            QVariant* callback_ret = qgraphicspathitem_itemchange_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QGraphicsPathItem::itemChange(change, value);
         }
@@ -3088,27 +3726,90 @@ class VirtualQGraphicsPathItem : public QGraphicsPathItem {
             QGraphicsPathItem::prepareGeometryChange();
         }
     }
+
+    // Friend functions
+    friend bool QGraphicsPathItem_SupportsExtension(const QGraphicsPathItem* self, int extension);
+    friend bool QGraphicsPathItem_QBaseSupportsExtension(const QGraphicsPathItem* self, int extension);
+    friend void QGraphicsPathItem_SetExtension(QGraphicsPathItem* self, int extension, const QVariant* variant);
+    friend void QGraphicsPathItem_QBaseSetExtension(QGraphicsPathItem* self, int extension, const QVariant* variant);
+    friend QVariant* QGraphicsPathItem_Extension(const QGraphicsPathItem* self, const QVariant* variant);
+    friend QVariant* QGraphicsPathItem_QBaseExtension(const QGraphicsPathItem* self, const QVariant* variant);
+    friend bool QGraphicsPathItem_SceneEventFilter(QGraphicsPathItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsPathItem_QBaseSceneEventFilter(QGraphicsPathItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsPathItem_SceneEvent(QGraphicsPathItem* self, QEvent* event);
+    friend bool QGraphicsPathItem_QBaseSceneEvent(QGraphicsPathItem* self, QEvent* event);
+    friend void QGraphicsPathItem_ContextMenuEvent(QGraphicsPathItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsPathItem_QBaseContextMenuEvent(QGraphicsPathItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsPathItem_DragEnterEvent(QGraphicsPathItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPathItem_QBaseDragEnterEvent(QGraphicsPathItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPathItem_DragLeaveEvent(QGraphicsPathItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPathItem_QBaseDragLeaveEvent(QGraphicsPathItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPathItem_DragMoveEvent(QGraphicsPathItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPathItem_QBaseDragMoveEvent(QGraphicsPathItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPathItem_DropEvent(QGraphicsPathItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPathItem_QBaseDropEvent(QGraphicsPathItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPathItem_FocusInEvent(QGraphicsPathItem* self, QFocusEvent* event);
+    friend void QGraphicsPathItem_QBaseFocusInEvent(QGraphicsPathItem* self, QFocusEvent* event);
+    friend void QGraphicsPathItem_FocusOutEvent(QGraphicsPathItem* self, QFocusEvent* event);
+    friend void QGraphicsPathItem_QBaseFocusOutEvent(QGraphicsPathItem* self, QFocusEvent* event);
+    friend void QGraphicsPathItem_HoverEnterEvent(QGraphicsPathItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPathItem_QBaseHoverEnterEvent(QGraphicsPathItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPathItem_HoverMoveEvent(QGraphicsPathItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPathItem_QBaseHoverMoveEvent(QGraphicsPathItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPathItem_HoverLeaveEvent(QGraphicsPathItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPathItem_QBaseHoverLeaveEvent(QGraphicsPathItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPathItem_KeyPressEvent(QGraphicsPathItem* self, QKeyEvent* event);
+    friend void QGraphicsPathItem_QBaseKeyPressEvent(QGraphicsPathItem* self, QKeyEvent* event);
+    friend void QGraphicsPathItem_KeyReleaseEvent(QGraphicsPathItem* self, QKeyEvent* event);
+    friend void QGraphicsPathItem_QBaseKeyReleaseEvent(QGraphicsPathItem* self, QKeyEvent* event);
+    friend void QGraphicsPathItem_MousePressEvent(QGraphicsPathItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPathItem_QBaseMousePressEvent(QGraphicsPathItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPathItem_MouseMoveEvent(QGraphicsPathItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPathItem_QBaseMouseMoveEvent(QGraphicsPathItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPathItem_MouseReleaseEvent(QGraphicsPathItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPathItem_QBaseMouseReleaseEvent(QGraphicsPathItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPathItem_MouseDoubleClickEvent(QGraphicsPathItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPathItem_QBaseMouseDoubleClickEvent(QGraphicsPathItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPathItem_WheelEvent(QGraphicsPathItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsPathItem_QBaseWheelEvent(QGraphicsPathItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsPathItem_InputMethodEvent(QGraphicsPathItem* self, QInputMethodEvent* event);
+    friend void QGraphicsPathItem_QBaseInputMethodEvent(QGraphicsPathItem* self, QInputMethodEvent* event);
+    friend QVariant* QGraphicsPathItem_InputMethodQuery(const QGraphicsPathItem* self, int query);
+    friend QVariant* QGraphicsPathItem_QBaseInputMethodQuery(const QGraphicsPathItem* self, int query);
+    friend QVariant* QGraphicsPathItem_ItemChange(QGraphicsPathItem* self, int change, const QVariant* value);
+    friend QVariant* QGraphicsPathItem_QBaseItemChange(QGraphicsPathItem* self, int change, const QVariant* value);
+    friend void QGraphicsPathItem_UpdateMicroFocus(QGraphicsPathItem* self);
+    friend void QGraphicsPathItem_QBaseUpdateMicroFocus(QGraphicsPathItem* self);
+    friend void QGraphicsPathItem_AddToIndex(QGraphicsPathItem* self);
+    friend void QGraphicsPathItem_QBaseAddToIndex(QGraphicsPathItem* self);
+    friend void QGraphicsPathItem_RemoveFromIndex(QGraphicsPathItem* self);
+    friend void QGraphicsPathItem_QBaseRemoveFromIndex(QGraphicsPathItem* self);
+    friend void QGraphicsPathItem_PrepareGeometryChange(QGraphicsPathItem* self);
+    friend void QGraphicsPathItem_QBasePrepareGeometryChange(QGraphicsPathItem* self);
 };
 
 // This class is a subclass of QGraphicsRectItem so that we can call protected methods
-class VirtualQGraphicsRectItem : public QGraphicsRectItem {
+class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsRectItem = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
-    using QGraphicsRectItem_BoundingRect_Callback = QRectF (*)();
-    using QGraphicsRectItem_Shape_Callback = QPainterPath (*)();
-    using QGraphicsRectItem_Contains_Callback = bool (*)(const QGraphicsRectItem*, const QPointF&);
-    using QGraphicsRectItem_Paint_Callback = void (*)(QGraphicsRectItem*, QPainter*, const QStyleOptionGraphicsItem*, QWidget*);
-    using QGraphicsRectItem_IsObscuredBy_Callback = bool (*)(const QGraphicsRectItem*, const QGraphicsItem*);
-    using QGraphicsRectItem_OpaqueArea_Callback = QPainterPath (*)();
+    using QGraphicsRectItem_BoundingRect_Callback = QRectF* (*)();
+    using QGraphicsRectItem_Shape_Callback = QPainterPath* (*)();
+    using QGraphicsRectItem_Contains_Callback = bool (*)(const QGraphicsRectItem*, QPointF*);
+    using QGraphicsRectItem_Paint_Callback = void (*)(QGraphicsRectItem*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
+    using QGraphicsRectItem_IsObscuredBy_Callback = bool (*)(const QGraphicsRectItem*, QGraphicsItem*);
+    using QGraphicsRectItem_OpaqueArea_Callback = QPainterPath* (*)();
     using QGraphicsRectItem_Type_Callback = int (*)();
     using QGraphicsRectItem_SupportsExtension_Callback = bool (*)(const QGraphicsRectItem*, int);
-    using QGraphicsRectItem_SetExtension_Callback = void (*)(QGraphicsRectItem*, int, const QVariant&);
-    using QGraphicsRectItem_Extension_Callback = QVariant (*)(const QGraphicsRectItem*, const QVariant&);
+    using QGraphicsRectItem_SetExtension_Callback = void (*)(QGraphicsRectItem*, int, QVariant*);
+    using QGraphicsRectItem_Extension_Callback = QVariant* (*)(const QGraphicsRectItem*, QVariant*);
     using QGraphicsRectItem_Advance_Callback = void (*)(QGraphicsRectItem*, int);
-    using QGraphicsRectItem_CollidesWithItem_Callback = bool (*)(const QGraphicsRectItem*, const QGraphicsItem*, Qt::ItemSelectionMode);
-    using QGraphicsRectItem_CollidesWithPath_Callback = bool (*)(const QGraphicsRectItem*, const QPainterPath&, Qt::ItemSelectionMode);
+    using QGraphicsRectItem_CollidesWithItem_Callback = bool (*)(const QGraphicsRectItem*, QGraphicsItem*, int);
+    using QGraphicsRectItem_CollidesWithPath_Callback = bool (*)(const QGraphicsRectItem*, QPainterPath*, int);
     using QGraphicsRectItem_SceneEventFilter_Callback = bool (*)(QGraphicsRectItem*, QGraphicsItem*, QEvent*);
     using QGraphicsRectItem_SceneEvent_Callback = bool (*)(QGraphicsRectItem*, QEvent*);
     using QGraphicsRectItem_ContextMenuEvent_Callback = void (*)(QGraphicsRectItem*, QGraphicsSceneContextMenuEvent*);
@@ -3129,8 +3830,8 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
     using QGraphicsRectItem_MouseDoubleClickEvent_Callback = void (*)(QGraphicsRectItem*, QGraphicsSceneMouseEvent*);
     using QGraphicsRectItem_WheelEvent_Callback = void (*)(QGraphicsRectItem*, QGraphicsSceneWheelEvent*);
     using QGraphicsRectItem_InputMethodEvent_Callback = void (*)(QGraphicsRectItem*, QInputMethodEvent*);
-    using QGraphicsRectItem_InputMethodQuery_Callback = QVariant (*)(const QGraphicsRectItem*, Qt::InputMethodQuery);
-    using QGraphicsRectItem_ItemChange_Callback = QVariant (*)(QGraphicsRectItem*, QGraphicsItem::GraphicsItemChange, const QVariant&);
+    using QGraphicsRectItem_InputMethodQuery_Callback = QVariant* (*)(const QGraphicsRectItem*, int);
+    using QGraphicsRectItem_ItemChange_Callback = QVariant* (*)(QGraphicsRectItem*, int, QVariant*);
     using QGraphicsRectItem_UpdateMicroFocus_Callback = void (*)();
     using QGraphicsRectItem_AddToIndex_Callback = void (*)();
     using QGraphicsRectItem_RemoveFromIndex_Callback = void (*)();
@@ -3270,86 +3971,86 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
     }
 
     // Callback setters
-    void setQGraphicsRectItem_BoundingRect_Callback(QGraphicsRectItem_BoundingRect_Callback cb) { qgraphicsrectitem_boundingrect_callback = cb; }
-    void setQGraphicsRectItem_Shape_Callback(QGraphicsRectItem_Shape_Callback cb) { qgraphicsrectitem_shape_callback = cb; }
-    void setQGraphicsRectItem_Contains_Callback(QGraphicsRectItem_Contains_Callback cb) { qgraphicsrectitem_contains_callback = cb; }
-    void setQGraphicsRectItem_Paint_Callback(QGraphicsRectItem_Paint_Callback cb) { qgraphicsrectitem_paint_callback = cb; }
-    void setQGraphicsRectItem_IsObscuredBy_Callback(QGraphicsRectItem_IsObscuredBy_Callback cb) { qgraphicsrectitem_isobscuredby_callback = cb; }
-    void setQGraphicsRectItem_OpaqueArea_Callback(QGraphicsRectItem_OpaqueArea_Callback cb) { qgraphicsrectitem_opaquearea_callback = cb; }
-    void setQGraphicsRectItem_Type_Callback(QGraphicsRectItem_Type_Callback cb) { qgraphicsrectitem_type_callback = cb; }
-    void setQGraphicsRectItem_SupportsExtension_Callback(QGraphicsRectItem_SupportsExtension_Callback cb) { qgraphicsrectitem_supportsextension_callback = cb; }
-    void setQGraphicsRectItem_SetExtension_Callback(QGraphicsRectItem_SetExtension_Callback cb) { qgraphicsrectitem_setextension_callback = cb; }
-    void setQGraphicsRectItem_Extension_Callback(QGraphicsRectItem_Extension_Callback cb) { qgraphicsrectitem_extension_callback = cb; }
-    void setQGraphicsRectItem_Advance_Callback(QGraphicsRectItem_Advance_Callback cb) { qgraphicsrectitem_advance_callback = cb; }
-    void setQGraphicsRectItem_CollidesWithItem_Callback(QGraphicsRectItem_CollidesWithItem_Callback cb) { qgraphicsrectitem_collideswithitem_callback = cb; }
-    void setQGraphicsRectItem_CollidesWithPath_Callback(QGraphicsRectItem_CollidesWithPath_Callback cb) { qgraphicsrectitem_collideswithpath_callback = cb; }
-    void setQGraphicsRectItem_SceneEventFilter_Callback(QGraphicsRectItem_SceneEventFilter_Callback cb) { qgraphicsrectitem_sceneeventfilter_callback = cb; }
-    void setQGraphicsRectItem_SceneEvent_Callback(QGraphicsRectItem_SceneEvent_Callback cb) { qgraphicsrectitem_sceneevent_callback = cb; }
-    void setQGraphicsRectItem_ContextMenuEvent_Callback(QGraphicsRectItem_ContextMenuEvent_Callback cb) { qgraphicsrectitem_contextmenuevent_callback = cb; }
-    void setQGraphicsRectItem_DragEnterEvent_Callback(QGraphicsRectItem_DragEnterEvent_Callback cb) { qgraphicsrectitem_dragenterevent_callback = cb; }
-    void setQGraphicsRectItem_DragLeaveEvent_Callback(QGraphicsRectItem_DragLeaveEvent_Callback cb) { qgraphicsrectitem_dragleaveevent_callback = cb; }
-    void setQGraphicsRectItem_DragMoveEvent_Callback(QGraphicsRectItem_DragMoveEvent_Callback cb) { qgraphicsrectitem_dragmoveevent_callback = cb; }
-    void setQGraphicsRectItem_DropEvent_Callback(QGraphicsRectItem_DropEvent_Callback cb) { qgraphicsrectitem_dropevent_callback = cb; }
-    void setQGraphicsRectItem_FocusInEvent_Callback(QGraphicsRectItem_FocusInEvent_Callback cb) { qgraphicsrectitem_focusinevent_callback = cb; }
-    void setQGraphicsRectItem_FocusOutEvent_Callback(QGraphicsRectItem_FocusOutEvent_Callback cb) { qgraphicsrectitem_focusoutevent_callback = cb; }
-    void setQGraphicsRectItem_HoverEnterEvent_Callback(QGraphicsRectItem_HoverEnterEvent_Callback cb) { qgraphicsrectitem_hoverenterevent_callback = cb; }
-    void setQGraphicsRectItem_HoverMoveEvent_Callback(QGraphicsRectItem_HoverMoveEvent_Callback cb) { qgraphicsrectitem_hovermoveevent_callback = cb; }
-    void setQGraphicsRectItem_HoverLeaveEvent_Callback(QGraphicsRectItem_HoverLeaveEvent_Callback cb) { qgraphicsrectitem_hoverleaveevent_callback = cb; }
-    void setQGraphicsRectItem_KeyPressEvent_Callback(QGraphicsRectItem_KeyPressEvent_Callback cb) { qgraphicsrectitem_keypressevent_callback = cb; }
-    void setQGraphicsRectItem_KeyReleaseEvent_Callback(QGraphicsRectItem_KeyReleaseEvent_Callback cb) { qgraphicsrectitem_keyreleaseevent_callback = cb; }
-    void setQGraphicsRectItem_MousePressEvent_Callback(QGraphicsRectItem_MousePressEvent_Callback cb) { qgraphicsrectitem_mousepressevent_callback = cb; }
-    void setQGraphicsRectItem_MouseMoveEvent_Callback(QGraphicsRectItem_MouseMoveEvent_Callback cb) { qgraphicsrectitem_mousemoveevent_callback = cb; }
-    void setQGraphicsRectItem_MouseReleaseEvent_Callback(QGraphicsRectItem_MouseReleaseEvent_Callback cb) { qgraphicsrectitem_mousereleaseevent_callback = cb; }
-    void setQGraphicsRectItem_MouseDoubleClickEvent_Callback(QGraphicsRectItem_MouseDoubleClickEvent_Callback cb) { qgraphicsrectitem_mousedoubleclickevent_callback = cb; }
-    void setQGraphicsRectItem_WheelEvent_Callback(QGraphicsRectItem_WheelEvent_Callback cb) { qgraphicsrectitem_wheelevent_callback = cb; }
-    void setQGraphicsRectItem_InputMethodEvent_Callback(QGraphicsRectItem_InputMethodEvent_Callback cb) { qgraphicsrectitem_inputmethodevent_callback = cb; }
-    void setQGraphicsRectItem_InputMethodQuery_Callback(QGraphicsRectItem_InputMethodQuery_Callback cb) { qgraphicsrectitem_inputmethodquery_callback = cb; }
-    void setQGraphicsRectItem_ItemChange_Callback(QGraphicsRectItem_ItemChange_Callback cb) { qgraphicsrectitem_itemchange_callback = cb; }
-    void setQGraphicsRectItem_UpdateMicroFocus_Callback(QGraphicsRectItem_UpdateMicroFocus_Callback cb) { qgraphicsrectitem_updatemicrofocus_callback = cb; }
-    void setQGraphicsRectItem_AddToIndex_Callback(QGraphicsRectItem_AddToIndex_Callback cb) { qgraphicsrectitem_addtoindex_callback = cb; }
-    void setQGraphicsRectItem_RemoveFromIndex_Callback(QGraphicsRectItem_RemoveFromIndex_Callback cb) { qgraphicsrectitem_removefromindex_callback = cb; }
-    void setQGraphicsRectItem_PrepareGeometryChange_Callback(QGraphicsRectItem_PrepareGeometryChange_Callback cb) { qgraphicsrectitem_preparegeometrychange_callback = cb; }
+    inline void setQGraphicsRectItem_BoundingRect_Callback(QGraphicsRectItem_BoundingRect_Callback cb) { qgraphicsrectitem_boundingrect_callback = cb; }
+    inline void setQGraphicsRectItem_Shape_Callback(QGraphicsRectItem_Shape_Callback cb) { qgraphicsrectitem_shape_callback = cb; }
+    inline void setQGraphicsRectItem_Contains_Callback(QGraphicsRectItem_Contains_Callback cb) { qgraphicsrectitem_contains_callback = cb; }
+    inline void setQGraphicsRectItem_Paint_Callback(QGraphicsRectItem_Paint_Callback cb) { qgraphicsrectitem_paint_callback = cb; }
+    inline void setQGraphicsRectItem_IsObscuredBy_Callback(QGraphicsRectItem_IsObscuredBy_Callback cb) { qgraphicsrectitem_isobscuredby_callback = cb; }
+    inline void setQGraphicsRectItem_OpaqueArea_Callback(QGraphicsRectItem_OpaqueArea_Callback cb) { qgraphicsrectitem_opaquearea_callback = cb; }
+    inline void setQGraphicsRectItem_Type_Callback(QGraphicsRectItem_Type_Callback cb) { qgraphicsrectitem_type_callback = cb; }
+    inline void setQGraphicsRectItem_SupportsExtension_Callback(QGraphicsRectItem_SupportsExtension_Callback cb) { qgraphicsrectitem_supportsextension_callback = cb; }
+    inline void setQGraphicsRectItem_SetExtension_Callback(QGraphicsRectItem_SetExtension_Callback cb) { qgraphicsrectitem_setextension_callback = cb; }
+    inline void setQGraphicsRectItem_Extension_Callback(QGraphicsRectItem_Extension_Callback cb) { qgraphicsrectitem_extension_callback = cb; }
+    inline void setQGraphicsRectItem_Advance_Callback(QGraphicsRectItem_Advance_Callback cb) { qgraphicsrectitem_advance_callback = cb; }
+    inline void setQGraphicsRectItem_CollidesWithItem_Callback(QGraphicsRectItem_CollidesWithItem_Callback cb) { qgraphicsrectitem_collideswithitem_callback = cb; }
+    inline void setQGraphicsRectItem_CollidesWithPath_Callback(QGraphicsRectItem_CollidesWithPath_Callback cb) { qgraphicsrectitem_collideswithpath_callback = cb; }
+    inline void setQGraphicsRectItem_SceneEventFilter_Callback(QGraphicsRectItem_SceneEventFilter_Callback cb) { qgraphicsrectitem_sceneeventfilter_callback = cb; }
+    inline void setQGraphicsRectItem_SceneEvent_Callback(QGraphicsRectItem_SceneEvent_Callback cb) { qgraphicsrectitem_sceneevent_callback = cb; }
+    inline void setQGraphicsRectItem_ContextMenuEvent_Callback(QGraphicsRectItem_ContextMenuEvent_Callback cb) { qgraphicsrectitem_contextmenuevent_callback = cb; }
+    inline void setQGraphicsRectItem_DragEnterEvent_Callback(QGraphicsRectItem_DragEnterEvent_Callback cb) { qgraphicsrectitem_dragenterevent_callback = cb; }
+    inline void setQGraphicsRectItem_DragLeaveEvent_Callback(QGraphicsRectItem_DragLeaveEvent_Callback cb) { qgraphicsrectitem_dragleaveevent_callback = cb; }
+    inline void setQGraphicsRectItem_DragMoveEvent_Callback(QGraphicsRectItem_DragMoveEvent_Callback cb) { qgraphicsrectitem_dragmoveevent_callback = cb; }
+    inline void setQGraphicsRectItem_DropEvent_Callback(QGraphicsRectItem_DropEvent_Callback cb) { qgraphicsrectitem_dropevent_callback = cb; }
+    inline void setQGraphicsRectItem_FocusInEvent_Callback(QGraphicsRectItem_FocusInEvent_Callback cb) { qgraphicsrectitem_focusinevent_callback = cb; }
+    inline void setQGraphicsRectItem_FocusOutEvent_Callback(QGraphicsRectItem_FocusOutEvent_Callback cb) { qgraphicsrectitem_focusoutevent_callback = cb; }
+    inline void setQGraphicsRectItem_HoverEnterEvent_Callback(QGraphicsRectItem_HoverEnterEvent_Callback cb) { qgraphicsrectitem_hoverenterevent_callback = cb; }
+    inline void setQGraphicsRectItem_HoverMoveEvent_Callback(QGraphicsRectItem_HoverMoveEvent_Callback cb) { qgraphicsrectitem_hovermoveevent_callback = cb; }
+    inline void setQGraphicsRectItem_HoverLeaveEvent_Callback(QGraphicsRectItem_HoverLeaveEvent_Callback cb) { qgraphicsrectitem_hoverleaveevent_callback = cb; }
+    inline void setQGraphicsRectItem_KeyPressEvent_Callback(QGraphicsRectItem_KeyPressEvent_Callback cb) { qgraphicsrectitem_keypressevent_callback = cb; }
+    inline void setQGraphicsRectItem_KeyReleaseEvent_Callback(QGraphicsRectItem_KeyReleaseEvent_Callback cb) { qgraphicsrectitem_keyreleaseevent_callback = cb; }
+    inline void setQGraphicsRectItem_MousePressEvent_Callback(QGraphicsRectItem_MousePressEvent_Callback cb) { qgraphicsrectitem_mousepressevent_callback = cb; }
+    inline void setQGraphicsRectItem_MouseMoveEvent_Callback(QGraphicsRectItem_MouseMoveEvent_Callback cb) { qgraphicsrectitem_mousemoveevent_callback = cb; }
+    inline void setQGraphicsRectItem_MouseReleaseEvent_Callback(QGraphicsRectItem_MouseReleaseEvent_Callback cb) { qgraphicsrectitem_mousereleaseevent_callback = cb; }
+    inline void setQGraphicsRectItem_MouseDoubleClickEvent_Callback(QGraphicsRectItem_MouseDoubleClickEvent_Callback cb) { qgraphicsrectitem_mousedoubleclickevent_callback = cb; }
+    inline void setQGraphicsRectItem_WheelEvent_Callback(QGraphicsRectItem_WheelEvent_Callback cb) { qgraphicsrectitem_wheelevent_callback = cb; }
+    inline void setQGraphicsRectItem_InputMethodEvent_Callback(QGraphicsRectItem_InputMethodEvent_Callback cb) { qgraphicsrectitem_inputmethodevent_callback = cb; }
+    inline void setQGraphicsRectItem_InputMethodQuery_Callback(QGraphicsRectItem_InputMethodQuery_Callback cb) { qgraphicsrectitem_inputmethodquery_callback = cb; }
+    inline void setQGraphicsRectItem_ItemChange_Callback(QGraphicsRectItem_ItemChange_Callback cb) { qgraphicsrectitem_itemchange_callback = cb; }
+    inline void setQGraphicsRectItem_UpdateMicroFocus_Callback(QGraphicsRectItem_UpdateMicroFocus_Callback cb) { qgraphicsrectitem_updatemicrofocus_callback = cb; }
+    inline void setQGraphicsRectItem_AddToIndex_Callback(QGraphicsRectItem_AddToIndex_Callback cb) { qgraphicsrectitem_addtoindex_callback = cb; }
+    inline void setQGraphicsRectItem_RemoveFromIndex_Callback(QGraphicsRectItem_RemoveFromIndex_Callback cb) { qgraphicsrectitem_removefromindex_callback = cb; }
+    inline void setQGraphicsRectItem_PrepareGeometryChange_Callback(QGraphicsRectItem_PrepareGeometryChange_Callback cb) { qgraphicsrectitem_preparegeometrychange_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsRectItem_BoundingRect_IsBase(bool value) const { qgraphicsrectitem_boundingrect_isbase = value; }
-    void setQGraphicsRectItem_Shape_IsBase(bool value) const { qgraphicsrectitem_shape_isbase = value; }
-    void setQGraphicsRectItem_Contains_IsBase(bool value) const { qgraphicsrectitem_contains_isbase = value; }
-    void setQGraphicsRectItem_Paint_IsBase(bool value) const { qgraphicsrectitem_paint_isbase = value; }
-    void setQGraphicsRectItem_IsObscuredBy_IsBase(bool value) const { qgraphicsrectitem_isobscuredby_isbase = value; }
-    void setQGraphicsRectItem_OpaqueArea_IsBase(bool value) const { qgraphicsrectitem_opaquearea_isbase = value; }
-    void setQGraphicsRectItem_Type_IsBase(bool value) const { qgraphicsrectitem_type_isbase = value; }
-    void setQGraphicsRectItem_SupportsExtension_IsBase(bool value) const { qgraphicsrectitem_supportsextension_isbase = value; }
-    void setQGraphicsRectItem_SetExtension_IsBase(bool value) const { qgraphicsrectitem_setextension_isbase = value; }
-    void setQGraphicsRectItem_Extension_IsBase(bool value) const { qgraphicsrectitem_extension_isbase = value; }
-    void setQGraphicsRectItem_Advance_IsBase(bool value) const { qgraphicsrectitem_advance_isbase = value; }
-    void setQGraphicsRectItem_CollidesWithItem_IsBase(bool value) const { qgraphicsrectitem_collideswithitem_isbase = value; }
-    void setQGraphicsRectItem_CollidesWithPath_IsBase(bool value) const { qgraphicsrectitem_collideswithpath_isbase = value; }
-    void setQGraphicsRectItem_SceneEventFilter_IsBase(bool value) const { qgraphicsrectitem_sceneeventfilter_isbase = value; }
-    void setQGraphicsRectItem_SceneEvent_IsBase(bool value) const { qgraphicsrectitem_sceneevent_isbase = value; }
-    void setQGraphicsRectItem_ContextMenuEvent_IsBase(bool value) const { qgraphicsrectitem_contextmenuevent_isbase = value; }
-    void setQGraphicsRectItem_DragEnterEvent_IsBase(bool value) const { qgraphicsrectitem_dragenterevent_isbase = value; }
-    void setQGraphicsRectItem_DragLeaveEvent_IsBase(bool value) const { qgraphicsrectitem_dragleaveevent_isbase = value; }
-    void setQGraphicsRectItem_DragMoveEvent_IsBase(bool value) const { qgraphicsrectitem_dragmoveevent_isbase = value; }
-    void setQGraphicsRectItem_DropEvent_IsBase(bool value) const { qgraphicsrectitem_dropevent_isbase = value; }
-    void setQGraphicsRectItem_FocusInEvent_IsBase(bool value) const { qgraphicsrectitem_focusinevent_isbase = value; }
-    void setQGraphicsRectItem_FocusOutEvent_IsBase(bool value) const { qgraphicsrectitem_focusoutevent_isbase = value; }
-    void setQGraphicsRectItem_HoverEnterEvent_IsBase(bool value) const { qgraphicsrectitem_hoverenterevent_isbase = value; }
-    void setQGraphicsRectItem_HoverMoveEvent_IsBase(bool value) const { qgraphicsrectitem_hovermoveevent_isbase = value; }
-    void setQGraphicsRectItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicsrectitem_hoverleaveevent_isbase = value; }
-    void setQGraphicsRectItem_KeyPressEvent_IsBase(bool value) const { qgraphicsrectitem_keypressevent_isbase = value; }
-    void setQGraphicsRectItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicsrectitem_keyreleaseevent_isbase = value; }
-    void setQGraphicsRectItem_MousePressEvent_IsBase(bool value) const { qgraphicsrectitem_mousepressevent_isbase = value; }
-    void setQGraphicsRectItem_MouseMoveEvent_IsBase(bool value) const { qgraphicsrectitem_mousemoveevent_isbase = value; }
-    void setQGraphicsRectItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicsrectitem_mousereleaseevent_isbase = value; }
-    void setQGraphicsRectItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicsrectitem_mousedoubleclickevent_isbase = value; }
-    void setQGraphicsRectItem_WheelEvent_IsBase(bool value) const { qgraphicsrectitem_wheelevent_isbase = value; }
-    void setQGraphicsRectItem_InputMethodEvent_IsBase(bool value) const { qgraphicsrectitem_inputmethodevent_isbase = value; }
-    void setQGraphicsRectItem_InputMethodQuery_IsBase(bool value) const { qgraphicsrectitem_inputmethodquery_isbase = value; }
-    void setQGraphicsRectItem_ItemChange_IsBase(bool value) const { qgraphicsrectitem_itemchange_isbase = value; }
-    void setQGraphicsRectItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicsrectitem_updatemicrofocus_isbase = value; }
-    void setQGraphicsRectItem_AddToIndex_IsBase(bool value) const { qgraphicsrectitem_addtoindex_isbase = value; }
-    void setQGraphicsRectItem_RemoveFromIndex_IsBase(bool value) const { qgraphicsrectitem_removefromindex_isbase = value; }
-    void setQGraphicsRectItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicsrectitem_preparegeometrychange_isbase = value; }
+    inline void setQGraphicsRectItem_BoundingRect_IsBase(bool value) const { qgraphicsrectitem_boundingrect_isbase = value; }
+    inline void setQGraphicsRectItem_Shape_IsBase(bool value) const { qgraphicsrectitem_shape_isbase = value; }
+    inline void setQGraphicsRectItem_Contains_IsBase(bool value) const { qgraphicsrectitem_contains_isbase = value; }
+    inline void setQGraphicsRectItem_Paint_IsBase(bool value) const { qgraphicsrectitem_paint_isbase = value; }
+    inline void setQGraphicsRectItem_IsObscuredBy_IsBase(bool value) const { qgraphicsrectitem_isobscuredby_isbase = value; }
+    inline void setQGraphicsRectItem_OpaqueArea_IsBase(bool value) const { qgraphicsrectitem_opaquearea_isbase = value; }
+    inline void setQGraphicsRectItem_Type_IsBase(bool value) const { qgraphicsrectitem_type_isbase = value; }
+    inline void setQGraphicsRectItem_SupportsExtension_IsBase(bool value) const { qgraphicsrectitem_supportsextension_isbase = value; }
+    inline void setQGraphicsRectItem_SetExtension_IsBase(bool value) const { qgraphicsrectitem_setextension_isbase = value; }
+    inline void setQGraphicsRectItem_Extension_IsBase(bool value) const { qgraphicsrectitem_extension_isbase = value; }
+    inline void setQGraphicsRectItem_Advance_IsBase(bool value) const { qgraphicsrectitem_advance_isbase = value; }
+    inline void setQGraphicsRectItem_CollidesWithItem_IsBase(bool value) const { qgraphicsrectitem_collideswithitem_isbase = value; }
+    inline void setQGraphicsRectItem_CollidesWithPath_IsBase(bool value) const { qgraphicsrectitem_collideswithpath_isbase = value; }
+    inline void setQGraphicsRectItem_SceneEventFilter_IsBase(bool value) const { qgraphicsrectitem_sceneeventfilter_isbase = value; }
+    inline void setQGraphicsRectItem_SceneEvent_IsBase(bool value) const { qgraphicsrectitem_sceneevent_isbase = value; }
+    inline void setQGraphicsRectItem_ContextMenuEvent_IsBase(bool value) const { qgraphicsrectitem_contextmenuevent_isbase = value; }
+    inline void setQGraphicsRectItem_DragEnterEvent_IsBase(bool value) const { qgraphicsrectitem_dragenterevent_isbase = value; }
+    inline void setQGraphicsRectItem_DragLeaveEvent_IsBase(bool value) const { qgraphicsrectitem_dragleaveevent_isbase = value; }
+    inline void setQGraphicsRectItem_DragMoveEvent_IsBase(bool value) const { qgraphicsrectitem_dragmoveevent_isbase = value; }
+    inline void setQGraphicsRectItem_DropEvent_IsBase(bool value) const { qgraphicsrectitem_dropevent_isbase = value; }
+    inline void setQGraphicsRectItem_FocusInEvent_IsBase(bool value) const { qgraphicsrectitem_focusinevent_isbase = value; }
+    inline void setQGraphicsRectItem_FocusOutEvent_IsBase(bool value) const { qgraphicsrectitem_focusoutevent_isbase = value; }
+    inline void setQGraphicsRectItem_HoverEnterEvent_IsBase(bool value) const { qgraphicsrectitem_hoverenterevent_isbase = value; }
+    inline void setQGraphicsRectItem_HoverMoveEvent_IsBase(bool value) const { qgraphicsrectitem_hovermoveevent_isbase = value; }
+    inline void setQGraphicsRectItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicsrectitem_hoverleaveevent_isbase = value; }
+    inline void setQGraphicsRectItem_KeyPressEvent_IsBase(bool value) const { qgraphicsrectitem_keypressevent_isbase = value; }
+    inline void setQGraphicsRectItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicsrectitem_keyreleaseevent_isbase = value; }
+    inline void setQGraphicsRectItem_MousePressEvent_IsBase(bool value) const { qgraphicsrectitem_mousepressevent_isbase = value; }
+    inline void setQGraphicsRectItem_MouseMoveEvent_IsBase(bool value) const { qgraphicsrectitem_mousemoveevent_isbase = value; }
+    inline void setQGraphicsRectItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicsrectitem_mousereleaseevent_isbase = value; }
+    inline void setQGraphicsRectItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicsrectitem_mousedoubleclickevent_isbase = value; }
+    inline void setQGraphicsRectItem_WheelEvent_IsBase(bool value) const { qgraphicsrectitem_wheelevent_isbase = value; }
+    inline void setQGraphicsRectItem_InputMethodEvent_IsBase(bool value) const { qgraphicsrectitem_inputmethodevent_isbase = value; }
+    inline void setQGraphicsRectItem_InputMethodQuery_IsBase(bool value) const { qgraphicsrectitem_inputmethodquery_isbase = value; }
+    inline void setQGraphicsRectItem_ItemChange_IsBase(bool value) const { qgraphicsrectitem_itemchange_isbase = value; }
+    inline void setQGraphicsRectItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicsrectitem_updatemicrofocus_isbase = value; }
+    inline void setQGraphicsRectItem_AddToIndex_IsBase(bool value) const { qgraphicsrectitem_addtoindex_isbase = value; }
+    inline void setQGraphicsRectItem_RemoveFromIndex_IsBase(bool value) const { qgraphicsrectitem_removefromindex_isbase = value; }
+    inline void setQGraphicsRectItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicsrectitem_preparegeometrychange_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF boundingRect() const override {
@@ -3357,7 +4058,8 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_boundingrect_isbase = false;
             return QGraphicsRectItem::boundingRect();
         } else if (qgraphicsrectitem_boundingrect_callback != nullptr) {
-            return qgraphicsrectitem_boundingrect_callback();
+            QRectF* callback_ret = qgraphicsrectitem_boundingrect_callback();
+            return *callback_ret;
         } else {
             return QGraphicsRectItem::boundingRect();
         }
@@ -3369,7 +4071,8 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_shape_isbase = false;
             return QGraphicsRectItem::shape();
         } else if (qgraphicsrectitem_shape_callback != nullptr) {
-            return qgraphicsrectitem_shape_callback();
+            QPainterPath* callback_ret = qgraphicsrectitem_shape_callback();
+            return *callback_ret;
         } else {
             return QGraphicsRectItem::shape();
         }
@@ -3381,7 +4084,12 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_contains_isbase = false;
             return QGraphicsRectItem::contains(point);
         } else if (qgraphicsrectitem_contains_callback != nullptr) {
-            return qgraphicsrectitem_contains_callback(this, point);
+            const QPointF& point_ret = point;
+            // Cast returned reference into pointer
+            QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
+
+            bool callback_ret = qgraphicsrectitem_contains_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsRectItem::contains(point);
         }
@@ -3393,7 +4101,11 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_paint_isbase = false;
             QGraphicsRectItem::paint(painter, option, widget);
         } else if (qgraphicsrectitem_paint_callback != nullptr) {
-            qgraphicsrectitem_paint_callback(this, painter, option, widget);
+            QPainter* cbval1 = painter;
+            QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
+            QWidget* cbval3 = widget;
+
+            qgraphicsrectitem_paint_callback(this, cbval1, cbval2, cbval3);
         } else {
             QGraphicsRectItem::paint(painter, option, widget);
         }
@@ -3405,7 +4117,10 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_isobscuredby_isbase = false;
             return QGraphicsRectItem::isObscuredBy(item);
         } else if (qgraphicsrectitem_isobscuredby_callback != nullptr) {
-            return qgraphicsrectitem_isobscuredby_callback(this, item);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)item;
+
+            bool callback_ret = qgraphicsrectitem_isobscuredby_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsRectItem::isObscuredBy(item);
         }
@@ -3417,7 +4132,8 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_opaquearea_isbase = false;
             return QGraphicsRectItem::opaqueArea();
         } else if (qgraphicsrectitem_opaquearea_callback != nullptr) {
-            return qgraphicsrectitem_opaquearea_callback();
+            QPainterPath* callback_ret = qgraphicsrectitem_opaquearea_callback();
+            return *callback_ret;
         } else {
             return QGraphicsRectItem::opaqueArea();
         }
@@ -3429,7 +4145,8 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_type_isbase = false;
             return QGraphicsRectItem::type();
         } else if (qgraphicsrectitem_type_callback != nullptr) {
-            return qgraphicsrectitem_type_callback();
+            int callback_ret = qgraphicsrectitem_type_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsRectItem::type();
         }
@@ -3441,7 +4158,10 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_supportsextension_isbase = false;
             return QGraphicsRectItem::supportsExtension(extension);
         } else if (qgraphicsrectitem_supportsextension_callback != nullptr) {
-            return qgraphicsrectitem_supportsextension_callback(this, extension);
+            int cbval1 = static_cast<int>(extension);
+
+            bool callback_ret = qgraphicsrectitem_supportsextension_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsRectItem::supportsExtension(extension);
         }
@@ -3453,7 +4173,12 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_setextension_isbase = false;
             QGraphicsRectItem::setExtension(extension, variant);
         } else if (qgraphicsrectitem_setextension_callback != nullptr) {
-            qgraphicsrectitem_setextension_callback(this, extension, variant);
+            int cbval1 = static_cast<int>(extension);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
+
+            qgraphicsrectitem_setextension_callback(this, cbval1, cbval2);
         } else {
             QGraphicsRectItem::setExtension(extension, variant);
         }
@@ -3465,7 +4190,12 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_extension_isbase = false;
             return QGraphicsRectItem::extension(variant);
         } else if (qgraphicsrectitem_extension_callback != nullptr) {
-            return qgraphicsrectitem_extension_callback(this, variant);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
+
+            QVariant* callback_ret = qgraphicsrectitem_extension_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsRectItem::extension(variant);
         }
@@ -3477,7 +4207,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_advance_isbase = false;
             QGraphicsRectItem::advance(phase);
         } else if (qgraphicsrectitem_advance_callback != nullptr) {
-            qgraphicsrectitem_advance_callback(this, phase);
+            int cbval1 = phase;
+
+            qgraphicsrectitem_advance_callback(this, cbval1);
         } else {
             QGraphicsRectItem::advance(phase);
         }
@@ -3489,7 +4221,11 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_collideswithitem_isbase = false;
             return QGraphicsRectItem::collidesWithItem(other, mode);
         } else if (qgraphicsrectitem_collideswithitem_callback != nullptr) {
-            return qgraphicsrectitem_collideswithitem_callback(this, other, mode);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)other;
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicsrectitem_collideswithitem_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsRectItem::collidesWithItem(other, mode);
         }
@@ -3501,7 +4237,13 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_collideswithpath_isbase = false;
             return QGraphicsRectItem::collidesWithPath(path, mode);
         } else if (qgraphicsrectitem_collideswithpath_callback != nullptr) {
-            return qgraphicsrectitem_collideswithpath_callback(this, path, mode);
+            const QPainterPath& path_ret = path;
+            // Cast returned reference into pointer
+            QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicsrectitem_collideswithpath_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsRectItem::collidesWithPath(path, mode);
         }
@@ -3513,7 +4255,11 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_sceneeventfilter_isbase = false;
             return QGraphicsRectItem::sceneEventFilter(watched, event);
         } else if (qgraphicsrectitem_sceneeventfilter_callback != nullptr) {
-            return qgraphicsrectitem_sceneeventfilter_callback(this, watched, event);
+            QGraphicsItem* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicsrectitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsRectItem::sceneEventFilter(watched, event);
         }
@@ -3525,7 +4271,10 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_sceneevent_isbase = false;
             return QGraphicsRectItem::sceneEvent(event);
         } else if (qgraphicsrectitem_sceneevent_callback != nullptr) {
-            return qgraphicsrectitem_sceneevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgraphicsrectitem_sceneevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsRectItem::sceneEvent(event);
         }
@@ -3537,7 +4286,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_contextmenuevent_isbase = false;
             QGraphicsRectItem::contextMenuEvent(event);
         } else if (qgraphicsrectitem_contextmenuevent_callback != nullptr) {
-            qgraphicsrectitem_contextmenuevent_callback(this, event);
+            QGraphicsSceneContextMenuEvent* cbval1 = event;
+
+            qgraphicsrectitem_contextmenuevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::contextMenuEvent(event);
         }
@@ -3549,7 +4300,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_dragenterevent_isbase = false;
             QGraphicsRectItem::dragEnterEvent(event);
         } else if (qgraphicsrectitem_dragenterevent_callback != nullptr) {
-            qgraphicsrectitem_dragenterevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsrectitem_dragenterevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::dragEnterEvent(event);
         }
@@ -3561,7 +4314,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_dragleaveevent_isbase = false;
             QGraphicsRectItem::dragLeaveEvent(event);
         } else if (qgraphicsrectitem_dragleaveevent_callback != nullptr) {
-            qgraphicsrectitem_dragleaveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsrectitem_dragleaveevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::dragLeaveEvent(event);
         }
@@ -3573,7 +4328,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_dragmoveevent_isbase = false;
             QGraphicsRectItem::dragMoveEvent(event);
         } else if (qgraphicsrectitem_dragmoveevent_callback != nullptr) {
-            qgraphicsrectitem_dragmoveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsrectitem_dragmoveevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::dragMoveEvent(event);
         }
@@ -3585,7 +4342,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_dropevent_isbase = false;
             QGraphicsRectItem::dropEvent(event);
         } else if (qgraphicsrectitem_dropevent_callback != nullptr) {
-            qgraphicsrectitem_dropevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsrectitem_dropevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::dropEvent(event);
         }
@@ -3597,7 +4356,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_focusinevent_isbase = false;
             QGraphicsRectItem::focusInEvent(event);
         } else if (qgraphicsrectitem_focusinevent_callback != nullptr) {
-            qgraphicsrectitem_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicsrectitem_focusinevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::focusInEvent(event);
         }
@@ -3609,7 +4370,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_focusoutevent_isbase = false;
             QGraphicsRectItem::focusOutEvent(event);
         } else if (qgraphicsrectitem_focusoutevent_callback != nullptr) {
-            qgraphicsrectitem_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicsrectitem_focusoutevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::focusOutEvent(event);
         }
@@ -3621,7 +4384,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_hoverenterevent_isbase = false;
             QGraphicsRectItem::hoverEnterEvent(event);
         } else if (qgraphicsrectitem_hoverenterevent_callback != nullptr) {
-            qgraphicsrectitem_hoverenterevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsrectitem_hoverenterevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::hoverEnterEvent(event);
         }
@@ -3633,7 +4398,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_hovermoveevent_isbase = false;
             QGraphicsRectItem::hoverMoveEvent(event);
         } else if (qgraphicsrectitem_hovermoveevent_callback != nullptr) {
-            qgraphicsrectitem_hovermoveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsrectitem_hovermoveevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::hoverMoveEvent(event);
         }
@@ -3645,7 +4412,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_hoverleaveevent_isbase = false;
             QGraphicsRectItem::hoverLeaveEvent(event);
         } else if (qgraphicsrectitem_hoverleaveevent_callback != nullptr) {
-            qgraphicsrectitem_hoverleaveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsrectitem_hoverleaveevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::hoverLeaveEvent(event);
         }
@@ -3657,7 +4426,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_keypressevent_isbase = false;
             QGraphicsRectItem::keyPressEvent(event);
         } else if (qgraphicsrectitem_keypressevent_callback != nullptr) {
-            qgraphicsrectitem_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicsrectitem_keypressevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::keyPressEvent(event);
         }
@@ -3669,7 +4440,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_keyreleaseevent_isbase = false;
             QGraphicsRectItem::keyReleaseEvent(event);
         } else if (qgraphicsrectitem_keyreleaseevent_callback != nullptr) {
-            qgraphicsrectitem_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicsrectitem_keyreleaseevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::keyReleaseEvent(event);
         }
@@ -3681,7 +4454,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_mousepressevent_isbase = false;
             QGraphicsRectItem::mousePressEvent(event);
         } else if (qgraphicsrectitem_mousepressevent_callback != nullptr) {
-            qgraphicsrectitem_mousepressevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsrectitem_mousepressevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::mousePressEvent(event);
         }
@@ -3693,7 +4468,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_mousemoveevent_isbase = false;
             QGraphicsRectItem::mouseMoveEvent(event);
         } else if (qgraphicsrectitem_mousemoveevent_callback != nullptr) {
-            qgraphicsrectitem_mousemoveevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsrectitem_mousemoveevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::mouseMoveEvent(event);
         }
@@ -3705,7 +4482,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_mousereleaseevent_isbase = false;
             QGraphicsRectItem::mouseReleaseEvent(event);
         } else if (qgraphicsrectitem_mousereleaseevent_callback != nullptr) {
-            qgraphicsrectitem_mousereleaseevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsrectitem_mousereleaseevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::mouseReleaseEvent(event);
         }
@@ -3717,7 +4496,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_mousedoubleclickevent_isbase = false;
             QGraphicsRectItem::mouseDoubleClickEvent(event);
         } else if (qgraphicsrectitem_mousedoubleclickevent_callback != nullptr) {
-            qgraphicsrectitem_mousedoubleclickevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsrectitem_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::mouseDoubleClickEvent(event);
         }
@@ -3729,7 +4510,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_wheelevent_isbase = false;
             QGraphicsRectItem::wheelEvent(event);
         } else if (qgraphicsrectitem_wheelevent_callback != nullptr) {
-            qgraphicsrectitem_wheelevent_callback(this, event);
+            QGraphicsSceneWheelEvent* cbval1 = event;
+
+            qgraphicsrectitem_wheelevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::wheelEvent(event);
         }
@@ -3741,7 +4524,9 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_inputmethodevent_isbase = false;
             QGraphicsRectItem::inputMethodEvent(event);
         } else if (qgraphicsrectitem_inputmethodevent_callback != nullptr) {
-            qgraphicsrectitem_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qgraphicsrectitem_inputmethodevent_callback(this, cbval1);
         } else {
             QGraphicsRectItem::inputMethodEvent(event);
         }
@@ -3753,7 +4538,10 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_inputmethodquery_isbase = false;
             return QGraphicsRectItem::inputMethodQuery(query);
         } else if (qgraphicsrectitem_inputmethodquery_callback != nullptr) {
-            return qgraphicsrectitem_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qgraphicsrectitem_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsRectItem::inputMethodQuery(query);
         }
@@ -3765,7 +4553,13 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             qgraphicsrectitem_itemchange_isbase = false;
             return QGraphicsRectItem::itemChange(change, value);
         } else if (qgraphicsrectitem_itemchange_callback != nullptr) {
-            return qgraphicsrectitem_itemchange_callback(this, change, value);
+            int cbval1 = static_cast<int>(change);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            QVariant* callback_ret = qgraphicsrectitem_itemchange_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QGraphicsRectItem::itemChange(change, value);
         }
@@ -3818,27 +4612,90 @@ class VirtualQGraphicsRectItem : public QGraphicsRectItem {
             QGraphicsRectItem::prepareGeometryChange();
         }
     }
+
+    // Friend functions
+    friend bool QGraphicsRectItem_SupportsExtension(const QGraphicsRectItem* self, int extension);
+    friend bool QGraphicsRectItem_QBaseSupportsExtension(const QGraphicsRectItem* self, int extension);
+    friend void QGraphicsRectItem_SetExtension(QGraphicsRectItem* self, int extension, const QVariant* variant);
+    friend void QGraphicsRectItem_QBaseSetExtension(QGraphicsRectItem* self, int extension, const QVariant* variant);
+    friend QVariant* QGraphicsRectItem_Extension(const QGraphicsRectItem* self, const QVariant* variant);
+    friend QVariant* QGraphicsRectItem_QBaseExtension(const QGraphicsRectItem* self, const QVariant* variant);
+    friend bool QGraphicsRectItem_SceneEventFilter(QGraphicsRectItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsRectItem_QBaseSceneEventFilter(QGraphicsRectItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsRectItem_SceneEvent(QGraphicsRectItem* self, QEvent* event);
+    friend bool QGraphicsRectItem_QBaseSceneEvent(QGraphicsRectItem* self, QEvent* event);
+    friend void QGraphicsRectItem_ContextMenuEvent(QGraphicsRectItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsRectItem_QBaseContextMenuEvent(QGraphicsRectItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsRectItem_DragEnterEvent(QGraphicsRectItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsRectItem_QBaseDragEnterEvent(QGraphicsRectItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsRectItem_DragLeaveEvent(QGraphicsRectItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsRectItem_QBaseDragLeaveEvent(QGraphicsRectItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsRectItem_DragMoveEvent(QGraphicsRectItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsRectItem_QBaseDragMoveEvent(QGraphicsRectItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsRectItem_DropEvent(QGraphicsRectItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsRectItem_QBaseDropEvent(QGraphicsRectItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsRectItem_FocusInEvent(QGraphicsRectItem* self, QFocusEvent* event);
+    friend void QGraphicsRectItem_QBaseFocusInEvent(QGraphicsRectItem* self, QFocusEvent* event);
+    friend void QGraphicsRectItem_FocusOutEvent(QGraphicsRectItem* self, QFocusEvent* event);
+    friend void QGraphicsRectItem_QBaseFocusOutEvent(QGraphicsRectItem* self, QFocusEvent* event);
+    friend void QGraphicsRectItem_HoverEnterEvent(QGraphicsRectItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsRectItem_QBaseHoverEnterEvent(QGraphicsRectItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsRectItem_HoverMoveEvent(QGraphicsRectItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsRectItem_QBaseHoverMoveEvent(QGraphicsRectItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsRectItem_HoverLeaveEvent(QGraphicsRectItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsRectItem_QBaseHoverLeaveEvent(QGraphicsRectItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsRectItem_KeyPressEvent(QGraphicsRectItem* self, QKeyEvent* event);
+    friend void QGraphicsRectItem_QBaseKeyPressEvent(QGraphicsRectItem* self, QKeyEvent* event);
+    friend void QGraphicsRectItem_KeyReleaseEvent(QGraphicsRectItem* self, QKeyEvent* event);
+    friend void QGraphicsRectItem_QBaseKeyReleaseEvent(QGraphicsRectItem* self, QKeyEvent* event);
+    friend void QGraphicsRectItem_MousePressEvent(QGraphicsRectItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsRectItem_QBaseMousePressEvent(QGraphicsRectItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsRectItem_MouseMoveEvent(QGraphicsRectItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsRectItem_QBaseMouseMoveEvent(QGraphicsRectItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsRectItem_MouseReleaseEvent(QGraphicsRectItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsRectItem_QBaseMouseReleaseEvent(QGraphicsRectItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsRectItem_MouseDoubleClickEvent(QGraphicsRectItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsRectItem_QBaseMouseDoubleClickEvent(QGraphicsRectItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsRectItem_WheelEvent(QGraphicsRectItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsRectItem_QBaseWheelEvent(QGraphicsRectItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsRectItem_InputMethodEvent(QGraphicsRectItem* self, QInputMethodEvent* event);
+    friend void QGraphicsRectItem_QBaseInputMethodEvent(QGraphicsRectItem* self, QInputMethodEvent* event);
+    friend QVariant* QGraphicsRectItem_InputMethodQuery(const QGraphicsRectItem* self, int query);
+    friend QVariant* QGraphicsRectItem_QBaseInputMethodQuery(const QGraphicsRectItem* self, int query);
+    friend QVariant* QGraphicsRectItem_ItemChange(QGraphicsRectItem* self, int change, const QVariant* value);
+    friend QVariant* QGraphicsRectItem_QBaseItemChange(QGraphicsRectItem* self, int change, const QVariant* value);
+    friend void QGraphicsRectItem_UpdateMicroFocus(QGraphicsRectItem* self);
+    friend void QGraphicsRectItem_QBaseUpdateMicroFocus(QGraphicsRectItem* self);
+    friend void QGraphicsRectItem_AddToIndex(QGraphicsRectItem* self);
+    friend void QGraphicsRectItem_QBaseAddToIndex(QGraphicsRectItem* self);
+    friend void QGraphicsRectItem_RemoveFromIndex(QGraphicsRectItem* self);
+    friend void QGraphicsRectItem_QBaseRemoveFromIndex(QGraphicsRectItem* self);
+    friend void QGraphicsRectItem_PrepareGeometryChange(QGraphicsRectItem* self);
+    friend void QGraphicsRectItem_QBasePrepareGeometryChange(QGraphicsRectItem* self);
 };
 
 // This class is a subclass of QGraphicsEllipseItem so that we can call protected methods
-class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
+class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsEllipseItem = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
-    using QGraphicsEllipseItem_BoundingRect_Callback = QRectF (*)();
-    using QGraphicsEllipseItem_Shape_Callback = QPainterPath (*)();
-    using QGraphicsEllipseItem_Contains_Callback = bool (*)(const QGraphicsEllipseItem*, const QPointF&);
-    using QGraphicsEllipseItem_Paint_Callback = void (*)(QGraphicsEllipseItem*, QPainter*, const QStyleOptionGraphicsItem*, QWidget*);
-    using QGraphicsEllipseItem_IsObscuredBy_Callback = bool (*)(const QGraphicsEllipseItem*, const QGraphicsItem*);
-    using QGraphicsEllipseItem_OpaqueArea_Callback = QPainterPath (*)();
+    using QGraphicsEllipseItem_BoundingRect_Callback = QRectF* (*)();
+    using QGraphicsEllipseItem_Shape_Callback = QPainterPath* (*)();
+    using QGraphicsEllipseItem_Contains_Callback = bool (*)(const QGraphicsEllipseItem*, QPointF*);
+    using QGraphicsEllipseItem_Paint_Callback = void (*)(QGraphicsEllipseItem*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
+    using QGraphicsEllipseItem_IsObscuredBy_Callback = bool (*)(const QGraphicsEllipseItem*, QGraphicsItem*);
+    using QGraphicsEllipseItem_OpaqueArea_Callback = QPainterPath* (*)();
     using QGraphicsEllipseItem_Type_Callback = int (*)();
     using QGraphicsEllipseItem_SupportsExtension_Callback = bool (*)(const QGraphicsEllipseItem*, int);
-    using QGraphicsEllipseItem_SetExtension_Callback = void (*)(QGraphicsEllipseItem*, int, const QVariant&);
-    using QGraphicsEllipseItem_Extension_Callback = QVariant (*)(const QGraphicsEllipseItem*, const QVariant&);
+    using QGraphicsEllipseItem_SetExtension_Callback = void (*)(QGraphicsEllipseItem*, int, QVariant*);
+    using QGraphicsEllipseItem_Extension_Callback = QVariant* (*)(const QGraphicsEllipseItem*, QVariant*);
     using QGraphicsEllipseItem_Advance_Callback = void (*)(QGraphicsEllipseItem*, int);
-    using QGraphicsEllipseItem_CollidesWithItem_Callback = bool (*)(const QGraphicsEllipseItem*, const QGraphicsItem*, Qt::ItemSelectionMode);
-    using QGraphicsEllipseItem_CollidesWithPath_Callback = bool (*)(const QGraphicsEllipseItem*, const QPainterPath&, Qt::ItemSelectionMode);
+    using QGraphicsEllipseItem_CollidesWithItem_Callback = bool (*)(const QGraphicsEllipseItem*, QGraphicsItem*, int);
+    using QGraphicsEllipseItem_CollidesWithPath_Callback = bool (*)(const QGraphicsEllipseItem*, QPainterPath*, int);
     using QGraphicsEllipseItem_SceneEventFilter_Callback = bool (*)(QGraphicsEllipseItem*, QGraphicsItem*, QEvent*);
     using QGraphicsEllipseItem_SceneEvent_Callback = bool (*)(QGraphicsEllipseItem*, QEvent*);
     using QGraphicsEllipseItem_ContextMenuEvent_Callback = void (*)(QGraphicsEllipseItem*, QGraphicsSceneContextMenuEvent*);
@@ -3859,8 +4716,8 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
     using QGraphicsEllipseItem_MouseDoubleClickEvent_Callback = void (*)(QGraphicsEllipseItem*, QGraphicsSceneMouseEvent*);
     using QGraphicsEllipseItem_WheelEvent_Callback = void (*)(QGraphicsEllipseItem*, QGraphicsSceneWheelEvent*);
     using QGraphicsEllipseItem_InputMethodEvent_Callback = void (*)(QGraphicsEllipseItem*, QInputMethodEvent*);
-    using QGraphicsEllipseItem_InputMethodQuery_Callback = QVariant (*)(const QGraphicsEllipseItem*, Qt::InputMethodQuery);
-    using QGraphicsEllipseItem_ItemChange_Callback = QVariant (*)(QGraphicsEllipseItem*, QGraphicsItem::GraphicsItemChange, const QVariant&);
+    using QGraphicsEllipseItem_InputMethodQuery_Callback = QVariant* (*)(const QGraphicsEllipseItem*, int);
+    using QGraphicsEllipseItem_ItemChange_Callback = QVariant* (*)(QGraphicsEllipseItem*, int, QVariant*);
     using QGraphicsEllipseItem_UpdateMicroFocus_Callback = void (*)();
     using QGraphicsEllipseItem_AddToIndex_Callback = void (*)();
     using QGraphicsEllipseItem_RemoveFromIndex_Callback = void (*)();
@@ -4000,86 +4857,86 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
     }
 
     // Callback setters
-    void setQGraphicsEllipseItem_BoundingRect_Callback(QGraphicsEllipseItem_BoundingRect_Callback cb) { qgraphicsellipseitem_boundingrect_callback = cb; }
-    void setQGraphicsEllipseItem_Shape_Callback(QGraphicsEllipseItem_Shape_Callback cb) { qgraphicsellipseitem_shape_callback = cb; }
-    void setQGraphicsEllipseItem_Contains_Callback(QGraphicsEllipseItem_Contains_Callback cb) { qgraphicsellipseitem_contains_callback = cb; }
-    void setQGraphicsEllipseItem_Paint_Callback(QGraphicsEllipseItem_Paint_Callback cb) { qgraphicsellipseitem_paint_callback = cb; }
-    void setQGraphicsEllipseItem_IsObscuredBy_Callback(QGraphicsEllipseItem_IsObscuredBy_Callback cb) { qgraphicsellipseitem_isobscuredby_callback = cb; }
-    void setQGraphicsEllipseItem_OpaqueArea_Callback(QGraphicsEllipseItem_OpaqueArea_Callback cb) { qgraphicsellipseitem_opaquearea_callback = cb; }
-    void setQGraphicsEllipseItem_Type_Callback(QGraphicsEllipseItem_Type_Callback cb) { qgraphicsellipseitem_type_callback = cb; }
-    void setQGraphicsEllipseItem_SupportsExtension_Callback(QGraphicsEllipseItem_SupportsExtension_Callback cb) { qgraphicsellipseitem_supportsextension_callback = cb; }
-    void setQGraphicsEllipseItem_SetExtension_Callback(QGraphicsEllipseItem_SetExtension_Callback cb) { qgraphicsellipseitem_setextension_callback = cb; }
-    void setQGraphicsEllipseItem_Extension_Callback(QGraphicsEllipseItem_Extension_Callback cb) { qgraphicsellipseitem_extension_callback = cb; }
-    void setQGraphicsEllipseItem_Advance_Callback(QGraphicsEllipseItem_Advance_Callback cb) { qgraphicsellipseitem_advance_callback = cb; }
-    void setQGraphicsEllipseItem_CollidesWithItem_Callback(QGraphicsEllipseItem_CollidesWithItem_Callback cb) { qgraphicsellipseitem_collideswithitem_callback = cb; }
-    void setQGraphicsEllipseItem_CollidesWithPath_Callback(QGraphicsEllipseItem_CollidesWithPath_Callback cb) { qgraphicsellipseitem_collideswithpath_callback = cb; }
-    void setQGraphicsEllipseItem_SceneEventFilter_Callback(QGraphicsEllipseItem_SceneEventFilter_Callback cb) { qgraphicsellipseitem_sceneeventfilter_callback = cb; }
-    void setQGraphicsEllipseItem_SceneEvent_Callback(QGraphicsEllipseItem_SceneEvent_Callback cb) { qgraphicsellipseitem_sceneevent_callback = cb; }
-    void setQGraphicsEllipseItem_ContextMenuEvent_Callback(QGraphicsEllipseItem_ContextMenuEvent_Callback cb) { qgraphicsellipseitem_contextmenuevent_callback = cb; }
-    void setQGraphicsEllipseItem_DragEnterEvent_Callback(QGraphicsEllipseItem_DragEnterEvent_Callback cb) { qgraphicsellipseitem_dragenterevent_callback = cb; }
-    void setQGraphicsEllipseItem_DragLeaveEvent_Callback(QGraphicsEllipseItem_DragLeaveEvent_Callback cb) { qgraphicsellipseitem_dragleaveevent_callback = cb; }
-    void setQGraphicsEllipseItem_DragMoveEvent_Callback(QGraphicsEllipseItem_DragMoveEvent_Callback cb) { qgraphicsellipseitem_dragmoveevent_callback = cb; }
-    void setQGraphicsEllipseItem_DropEvent_Callback(QGraphicsEllipseItem_DropEvent_Callback cb) { qgraphicsellipseitem_dropevent_callback = cb; }
-    void setQGraphicsEllipseItem_FocusInEvent_Callback(QGraphicsEllipseItem_FocusInEvent_Callback cb) { qgraphicsellipseitem_focusinevent_callback = cb; }
-    void setQGraphicsEllipseItem_FocusOutEvent_Callback(QGraphicsEllipseItem_FocusOutEvent_Callback cb) { qgraphicsellipseitem_focusoutevent_callback = cb; }
-    void setQGraphicsEllipseItem_HoverEnterEvent_Callback(QGraphicsEllipseItem_HoverEnterEvent_Callback cb) { qgraphicsellipseitem_hoverenterevent_callback = cb; }
-    void setQGraphicsEllipseItem_HoverMoveEvent_Callback(QGraphicsEllipseItem_HoverMoveEvent_Callback cb) { qgraphicsellipseitem_hovermoveevent_callback = cb; }
-    void setQGraphicsEllipseItem_HoverLeaveEvent_Callback(QGraphicsEllipseItem_HoverLeaveEvent_Callback cb) { qgraphicsellipseitem_hoverleaveevent_callback = cb; }
-    void setQGraphicsEllipseItem_KeyPressEvent_Callback(QGraphicsEllipseItem_KeyPressEvent_Callback cb) { qgraphicsellipseitem_keypressevent_callback = cb; }
-    void setQGraphicsEllipseItem_KeyReleaseEvent_Callback(QGraphicsEllipseItem_KeyReleaseEvent_Callback cb) { qgraphicsellipseitem_keyreleaseevent_callback = cb; }
-    void setQGraphicsEllipseItem_MousePressEvent_Callback(QGraphicsEllipseItem_MousePressEvent_Callback cb) { qgraphicsellipseitem_mousepressevent_callback = cb; }
-    void setQGraphicsEllipseItem_MouseMoveEvent_Callback(QGraphicsEllipseItem_MouseMoveEvent_Callback cb) { qgraphicsellipseitem_mousemoveevent_callback = cb; }
-    void setQGraphicsEllipseItem_MouseReleaseEvent_Callback(QGraphicsEllipseItem_MouseReleaseEvent_Callback cb) { qgraphicsellipseitem_mousereleaseevent_callback = cb; }
-    void setQGraphicsEllipseItem_MouseDoubleClickEvent_Callback(QGraphicsEllipseItem_MouseDoubleClickEvent_Callback cb) { qgraphicsellipseitem_mousedoubleclickevent_callback = cb; }
-    void setQGraphicsEllipseItem_WheelEvent_Callback(QGraphicsEllipseItem_WheelEvent_Callback cb) { qgraphicsellipseitem_wheelevent_callback = cb; }
-    void setQGraphicsEllipseItem_InputMethodEvent_Callback(QGraphicsEllipseItem_InputMethodEvent_Callback cb) { qgraphicsellipseitem_inputmethodevent_callback = cb; }
-    void setQGraphicsEllipseItem_InputMethodQuery_Callback(QGraphicsEllipseItem_InputMethodQuery_Callback cb) { qgraphicsellipseitem_inputmethodquery_callback = cb; }
-    void setQGraphicsEllipseItem_ItemChange_Callback(QGraphicsEllipseItem_ItemChange_Callback cb) { qgraphicsellipseitem_itemchange_callback = cb; }
-    void setQGraphicsEllipseItem_UpdateMicroFocus_Callback(QGraphicsEllipseItem_UpdateMicroFocus_Callback cb) { qgraphicsellipseitem_updatemicrofocus_callback = cb; }
-    void setQGraphicsEllipseItem_AddToIndex_Callback(QGraphicsEllipseItem_AddToIndex_Callback cb) { qgraphicsellipseitem_addtoindex_callback = cb; }
-    void setQGraphicsEllipseItem_RemoveFromIndex_Callback(QGraphicsEllipseItem_RemoveFromIndex_Callback cb) { qgraphicsellipseitem_removefromindex_callback = cb; }
-    void setQGraphicsEllipseItem_PrepareGeometryChange_Callback(QGraphicsEllipseItem_PrepareGeometryChange_Callback cb) { qgraphicsellipseitem_preparegeometrychange_callback = cb; }
+    inline void setQGraphicsEllipseItem_BoundingRect_Callback(QGraphicsEllipseItem_BoundingRect_Callback cb) { qgraphicsellipseitem_boundingrect_callback = cb; }
+    inline void setQGraphicsEllipseItem_Shape_Callback(QGraphicsEllipseItem_Shape_Callback cb) { qgraphicsellipseitem_shape_callback = cb; }
+    inline void setQGraphicsEllipseItem_Contains_Callback(QGraphicsEllipseItem_Contains_Callback cb) { qgraphicsellipseitem_contains_callback = cb; }
+    inline void setQGraphicsEllipseItem_Paint_Callback(QGraphicsEllipseItem_Paint_Callback cb) { qgraphicsellipseitem_paint_callback = cb; }
+    inline void setQGraphicsEllipseItem_IsObscuredBy_Callback(QGraphicsEllipseItem_IsObscuredBy_Callback cb) { qgraphicsellipseitem_isobscuredby_callback = cb; }
+    inline void setQGraphicsEllipseItem_OpaqueArea_Callback(QGraphicsEllipseItem_OpaqueArea_Callback cb) { qgraphicsellipseitem_opaquearea_callback = cb; }
+    inline void setQGraphicsEllipseItem_Type_Callback(QGraphicsEllipseItem_Type_Callback cb) { qgraphicsellipseitem_type_callback = cb; }
+    inline void setQGraphicsEllipseItem_SupportsExtension_Callback(QGraphicsEllipseItem_SupportsExtension_Callback cb) { qgraphicsellipseitem_supportsextension_callback = cb; }
+    inline void setQGraphicsEllipseItem_SetExtension_Callback(QGraphicsEllipseItem_SetExtension_Callback cb) { qgraphicsellipseitem_setextension_callback = cb; }
+    inline void setQGraphicsEllipseItem_Extension_Callback(QGraphicsEllipseItem_Extension_Callback cb) { qgraphicsellipseitem_extension_callback = cb; }
+    inline void setQGraphicsEllipseItem_Advance_Callback(QGraphicsEllipseItem_Advance_Callback cb) { qgraphicsellipseitem_advance_callback = cb; }
+    inline void setQGraphicsEllipseItem_CollidesWithItem_Callback(QGraphicsEllipseItem_CollidesWithItem_Callback cb) { qgraphicsellipseitem_collideswithitem_callback = cb; }
+    inline void setQGraphicsEllipseItem_CollidesWithPath_Callback(QGraphicsEllipseItem_CollidesWithPath_Callback cb) { qgraphicsellipseitem_collideswithpath_callback = cb; }
+    inline void setQGraphicsEllipseItem_SceneEventFilter_Callback(QGraphicsEllipseItem_SceneEventFilter_Callback cb) { qgraphicsellipseitem_sceneeventfilter_callback = cb; }
+    inline void setQGraphicsEllipseItem_SceneEvent_Callback(QGraphicsEllipseItem_SceneEvent_Callback cb) { qgraphicsellipseitem_sceneevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_ContextMenuEvent_Callback(QGraphicsEllipseItem_ContextMenuEvent_Callback cb) { qgraphicsellipseitem_contextmenuevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_DragEnterEvent_Callback(QGraphicsEllipseItem_DragEnterEvent_Callback cb) { qgraphicsellipseitem_dragenterevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_DragLeaveEvent_Callback(QGraphicsEllipseItem_DragLeaveEvent_Callback cb) { qgraphicsellipseitem_dragleaveevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_DragMoveEvent_Callback(QGraphicsEllipseItem_DragMoveEvent_Callback cb) { qgraphicsellipseitem_dragmoveevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_DropEvent_Callback(QGraphicsEllipseItem_DropEvent_Callback cb) { qgraphicsellipseitem_dropevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_FocusInEvent_Callback(QGraphicsEllipseItem_FocusInEvent_Callback cb) { qgraphicsellipseitem_focusinevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_FocusOutEvent_Callback(QGraphicsEllipseItem_FocusOutEvent_Callback cb) { qgraphicsellipseitem_focusoutevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_HoverEnterEvent_Callback(QGraphicsEllipseItem_HoverEnterEvent_Callback cb) { qgraphicsellipseitem_hoverenterevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_HoverMoveEvent_Callback(QGraphicsEllipseItem_HoverMoveEvent_Callback cb) { qgraphicsellipseitem_hovermoveevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_HoverLeaveEvent_Callback(QGraphicsEllipseItem_HoverLeaveEvent_Callback cb) { qgraphicsellipseitem_hoverleaveevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_KeyPressEvent_Callback(QGraphicsEllipseItem_KeyPressEvent_Callback cb) { qgraphicsellipseitem_keypressevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_KeyReleaseEvent_Callback(QGraphicsEllipseItem_KeyReleaseEvent_Callback cb) { qgraphicsellipseitem_keyreleaseevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_MousePressEvent_Callback(QGraphicsEllipseItem_MousePressEvent_Callback cb) { qgraphicsellipseitem_mousepressevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_MouseMoveEvent_Callback(QGraphicsEllipseItem_MouseMoveEvent_Callback cb) { qgraphicsellipseitem_mousemoveevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_MouseReleaseEvent_Callback(QGraphicsEllipseItem_MouseReleaseEvent_Callback cb) { qgraphicsellipseitem_mousereleaseevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_MouseDoubleClickEvent_Callback(QGraphicsEllipseItem_MouseDoubleClickEvent_Callback cb) { qgraphicsellipseitem_mousedoubleclickevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_WheelEvent_Callback(QGraphicsEllipseItem_WheelEvent_Callback cb) { qgraphicsellipseitem_wheelevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_InputMethodEvent_Callback(QGraphicsEllipseItem_InputMethodEvent_Callback cb) { qgraphicsellipseitem_inputmethodevent_callback = cb; }
+    inline void setQGraphicsEllipseItem_InputMethodQuery_Callback(QGraphicsEllipseItem_InputMethodQuery_Callback cb) { qgraphicsellipseitem_inputmethodquery_callback = cb; }
+    inline void setQGraphicsEllipseItem_ItemChange_Callback(QGraphicsEllipseItem_ItemChange_Callback cb) { qgraphicsellipseitem_itemchange_callback = cb; }
+    inline void setQGraphicsEllipseItem_UpdateMicroFocus_Callback(QGraphicsEllipseItem_UpdateMicroFocus_Callback cb) { qgraphicsellipseitem_updatemicrofocus_callback = cb; }
+    inline void setQGraphicsEllipseItem_AddToIndex_Callback(QGraphicsEllipseItem_AddToIndex_Callback cb) { qgraphicsellipseitem_addtoindex_callback = cb; }
+    inline void setQGraphicsEllipseItem_RemoveFromIndex_Callback(QGraphicsEllipseItem_RemoveFromIndex_Callback cb) { qgraphicsellipseitem_removefromindex_callback = cb; }
+    inline void setQGraphicsEllipseItem_PrepareGeometryChange_Callback(QGraphicsEllipseItem_PrepareGeometryChange_Callback cb) { qgraphicsellipseitem_preparegeometrychange_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsEllipseItem_BoundingRect_IsBase(bool value) const { qgraphicsellipseitem_boundingrect_isbase = value; }
-    void setQGraphicsEllipseItem_Shape_IsBase(bool value) const { qgraphicsellipseitem_shape_isbase = value; }
-    void setQGraphicsEllipseItem_Contains_IsBase(bool value) const { qgraphicsellipseitem_contains_isbase = value; }
-    void setQGraphicsEllipseItem_Paint_IsBase(bool value) const { qgraphicsellipseitem_paint_isbase = value; }
-    void setQGraphicsEllipseItem_IsObscuredBy_IsBase(bool value) const { qgraphicsellipseitem_isobscuredby_isbase = value; }
-    void setQGraphicsEllipseItem_OpaqueArea_IsBase(bool value) const { qgraphicsellipseitem_opaquearea_isbase = value; }
-    void setQGraphicsEllipseItem_Type_IsBase(bool value) const { qgraphicsellipseitem_type_isbase = value; }
-    void setQGraphicsEllipseItem_SupportsExtension_IsBase(bool value) const { qgraphicsellipseitem_supportsextension_isbase = value; }
-    void setQGraphicsEllipseItem_SetExtension_IsBase(bool value) const { qgraphicsellipseitem_setextension_isbase = value; }
-    void setQGraphicsEllipseItem_Extension_IsBase(bool value) const { qgraphicsellipseitem_extension_isbase = value; }
-    void setQGraphicsEllipseItem_Advance_IsBase(bool value) const { qgraphicsellipseitem_advance_isbase = value; }
-    void setQGraphicsEllipseItem_CollidesWithItem_IsBase(bool value) const { qgraphicsellipseitem_collideswithitem_isbase = value; }
-    void setQGraphicsEllipseItem_CollidesWithPath_IsBase(bool value) const { qgraphicsellipseitem_collideswithpath_isbase = value; }
-    void setQGraphicsEllipseItem_SceneEventFilter_IsBase(bool value) const { qgraphicsellipseitem_sceneeventfilter_isbase = value; }
-    void setQGraphicsEllipseItem_SceneEvent_IsBase(bool value) const { qgraphicsellipseitem_sceneevent_isbase = value; }
-    void setQGraphicsEllipseItem_ContextMenuEvent_IsBase(bool value) const { qgraphicsellipseitem_contextmenuevent_isbase = value; }
-    void setQGraphicsEllipseItem_DragEnterEvent_IsBase(bool value) const { qgraphicsellipseitem_dragenterevent_isbase = value; }
-    void setQGraphicsEllipseItem_DragLeaveEvent_IsBase(bool value) const { qgraphicsellipseitem_dragleaveevent_isbase = value; }
-    void setQGraphicsEllipseItem_DragMoveEvent_IsBase(bool value) const { qgraphicsellipseitem_dragmoveevent_isbase = value; }
-    void setQGraphicsEllipseItem_DropEvent_IsBase(bool value) const { qgraphicsellipseitem_dropevent_isbase = value; }
-    void setQGraphicsEllipseItem_FocusInEvent_IsBase(bool value) const { qgraphicsellipseitem_focusinevent_isbase = value; }
-    void setQGraphicsEllipseItem_FocusOutEvent_IsBase(bool value) const { qgraphicsellipseitem_focusoutevent_isbase = value; }
-    void setQGraphicsEllipseItem_HoverEnterEvent_IsBase(bool value) const { qgraphicsellipseitem_hoverenterevent_isbase = value; }
-    void setQGraphicsEllipseItem_HoverMoveEvent_IsBase(bool value) const { qgraphicsellipseitem_hovermoveevent_isbase = value; }
-    void setQGraphicsEllipseItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicsellipseitem_hoverleaveevent_isbase = value; }
-    void setQGraphicsEllipseItem_KeyPressEvent_IsBase(bool value) const { qgraphicsellipseitem_keypressevent_isbase = value; }
-    void setQGraphicsEllipseItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicsellipseitem_keyreleaseevent_isbase = value; }
-    void setQGraphicsEllipseItem_MousePressEvent_IsBase(bool value) const { qgraphicsellipseitem_mousepressevent_isbase = value; }
-    void setQGraphicsEllipseItem_MouseMoveEvent_IsBase(bool value) const { qgraphicsellipseitem_mousemoveevent_isbase = value; }
-    void setQGraphicsEllipseItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicsellipseitem_mousereleaseevent_isbase = value; }
-    void setQGraphicsEllipseItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicsellipseitem_mousedoubleclickevent_isbase = value; }
-    void setQGraphicsEllipseItem_WheelEvent_IsBase(bool value) const { qgraphicsellipseitem_wheelevent_isbase = value; }
-    void setQGraphicsEllipseItem_InputMethodEvent_IsBase(bool value) const { qgraphicsellipseitem_inputmethodevent_isbase = value; }
-    void setQGraphicsEllipseItem_InputMethodQuery_IsBase(bool value) const { qgraphicsellipseitem_inputmethodquery_isbase = value; }
-    void setQGraphicsEllipseItem_ItemChange_IsBase(bool value) const { qgraphicsellipseitem_itemchange_isbase = value; }
-    void setQGraphicsEllipseItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicsellipseitem_updatemicrofocus_isbase = value; }
-    void setQGraphicsEllipseItem_AddToIndex_IsBase(bool value) const { qgraphicsellipseitem_addtoindex_isbase = value; }
-    void setQGraphicsEllipseItem_RemoveFromIndex_IsBase(bool value) const { qgraphicsellipseitem_removefromindex_isbase = value; }
-    void setQGraphicsEllipseItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicsellipseitem_preparegeometrychange_isbase = value; }
+    inline void setQGraphicsEllipseItem_BoundingRect_IsBase(bool value) const { qgraphicsellipseitem_boundingrect_isbase = value; }
+    inline void setQGraphicsEllipseItem_Shape_IsBase(bool value) const { qgraphicsellipseitem_shape_isbase = value; }
+    inline void setQGraphicsEllipseItem_Contains_IsBase(bool value) const { qgraphicsellipseitem_contains_isbase = value; }
+    inline void setQGraphicsEllipseItem_Paint_IsBase(bool value) const { qgraphicsellipseitem_paint_isbase = value; }
+    inline void setQGraphicsEllipseItem_IsObscuredBy_IsBase(bool value) const { qgraphicsellipseitem_isobscuredby_isbase = value; }
+    inline void setQGraphicsEllipseItem_OpaqueArea_IsBase(bool value) const { qgraphicsellipseitem_opaquearea_isbase = value; }
+    inline void setQGraphicsEllipseItem_Type_IsBase(bool value) const { qgraphicsellipseitem_type_isbase = value; }
+    inline void setQGraphicsEllipseItem_SupportsExtension_IsBase(bool value) const { qgraphicsellipseitem_supportsextension_isbase = value; }
+    inline void setQGraphicsEllipseItem_SetExtension_IsBase(bool value) const { qgraphicsellipseitem_setextension_isbase = value; }
+    inline void setQGraphicsEllipseItem_Extension_IsBase(bool value) const { qgraphicsellipseitem_extension_isbase = value; }
+    inline void setQGraphicsEllipseItem_Advance_IsBase(bool value) const { qgraphicsellipseitem_advance_isbase = value; }
+    inline void setQGraphicsEllipseItem_CollidesWithItem_IsBase(bool value) const { qgraphicsellipseitem_collideswithitem_isbase = value; }
+    inline void setQGraphicsEllipseItem_CollidesWithPath_IsBase(bool value) const { qgraphicsellipseitem_collideswithpath_isbase = value; }
+    inline void setQGraphicsEllipseItem_SceneEventFilter_IsBase(bool value) const { qgraphicsellipseitem_sceneeventfilter_isbase = value; }
+    inline void setQGraphicsEllipseItem_SceneEvent_IsBase(bool value) const { qgraphicsellipseitem_sceneevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_ContextMenuEvent_IsBase(bool value) const { qgraphicsellipseitem_contextmenuevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_DragEnterEvent_IsBase(bool value) const { qgraphicsellipseitem_dragenterevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_DragLeaveEvent_IsBase(bool value) const { qgraphicsellipseitem_dragleaveevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_DragMoveEvent_IsBase(bool value) const { qgraphicsellipseitem_dragmoveevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_DropEvent_IsBase(bool value) const { qgraphicsellipseitem_dropevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_FocusInEvent_IsBase(bool value) const { qgraphicsellipseitem_focusinevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_FocusOutEvent_IsBase(bool value) const { qgraphicsellipseitem_focusoutevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_HoverEnterEvent_IsBase(bool value) const { qgraphicsellipseitem_hoverenterevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_HoverMoveEvent_IsBase(bool value) const { qgraphicsellipseitem_hovermoveevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicsellipseitem_hoverleaveevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_KeyPressEvent_IsBase(bool value) const { qgraphicsellipseitem_keypressevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicsellipseitem_keyreleaseevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_MousePressEvent_IsBase(bool value) const { qgraphicsellipseitem_mousepressevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_MouseMoveEvent_IsBase(bool value) const { qgraphicsellipseitem_mousemoveevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicsellipseitem_mousereleaseevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicsellipseitem_mousedoubleclickevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_WheelEvent_IsBase(bool value) const { qgraphicsellipseitem_wheelevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_InputMethodEvent_IsBase(bool value) const { qgraphicsellipseitem_inputmethodevent_isbase = value; }
+    inline void setQGraphicsEllipseItem_InputMethodQuery_IsBase(bool value) const { qgraphicsellipseitem_inputmethodquery_isbase = value; }
+    inline void setQGraphicsEllipseItem_ItemChange_IsBase(bool value) const { qgraphicsellipseitem_itemchange_isbase = value; }
+    inline void setQGraphicsEllipseItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicsellipseitem_updatemicrofocus_isbase = value; }
+    inline void setQGraphicsEllipseItem_AddToIndex_IsBase(bool value) const { qgraphicsellipseitem_addtoindex_isbase = value; }
+    inline void setQGraphicsEllipseItem_RemoveFromIndex_IsBase(bool value) const { qgraphicsellipseitem_removefromindex_isbase = value; }
+    inline void setQGraphicsEllipseItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicsellipseitem_preparegeometrychange_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF boundingRect() const override {
@@ -4087,7 +4944,8 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_boundingrect_isbase = false;
             return QGraphicsEllipseItem::boundingRect();
         } else if (qgraphicsellipseitem_boundingrect_callback != nullptr) {
-            return qgraphicsellipseitem_boundingrect_callback();
+            QRectF* callback_ret = qgraphicsellipseitem_boundingrect_callback();
+            return *callback_ret;
         } else {
             return QGraphicsEllipseItem::boundingRect();
         }
@@ -4099,7 +4957,8 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_shape_isbase = false;
             return QGraphicsEllipseItem::shape();
         } else if (qgraphicsellipseitem_shape_callback != nullptr) {
-            return qgraphicsellipseitem_shape_callback();
+            QPainterPath* callback_ret = qgraphicsellipseitem_shape_callback();
+            return *callback_ret;
         } else {
             return QGraphicsEllipseItem::shape();
         }
@@ -4111,7 +4970,12 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_contains_isbase = false;
             return QGraphicsEllipseItem::contains(point);
         } else if (qgraphicsellipseitem_contains_callback != nullptr) {
-            return qgraphicsellipseitem_contains_callback(this, point);
+            const QPointF& point_ret = point;
+            // Cast returned reference into pointer
+            QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
+
+            bool callback_ret = qgraphicsellipseitem_contains_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsEllipseItem::contains(point);
         }
@@ -4123,7 +4987,11 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_paint_isbase = false;
             QGraphicsEllipseItem::paint(painter, option, widget);
         } else if (qgraphicsellipseitem_paint_callback != nullptr) {
-            qgraphicsellipseitem_paint_callback(this, painter, option, widget);
+            QPainter* cbval1 = painter;
+            QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
+            QWidget* cbval3 = widget;
+
+            qgraphicsellipseitem_paint_callback(this, cbval1, cbval2, cbval3);
         } else {
             QGraphicsEllipseItem::paint(painter, option, widget);
         }
@@ -4135,7 +5003,10 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_isobscuredby_isbase = false;
             return QGraphicsEllipseItem::isObscuredBy(item);
         } else if (qgraphicsellipseitem_isobscuredby_callback != nullptr) {
-            return qgraphicsellipseitem_isobscuredby_callback(this, item);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)item;
+
+            bool callback_ret = qgraphicsellipseitem_isobscuredby_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsEllipseItem::isObscuredBy(item);
         }
@@ -4147,7 +5018,8 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_opaquearea_isbase = false;
             return QGraphicsEllipseItem::opaqueArea();
         } else if (qgraphicsellipseitem_opaquearea_callback != nullptr) {
-            return qgraphicsellipseitem_opaquearea_callback();
+            QPainterPath* callback_ret = qgraphicsellipseitem_opaquearea_callback();
+            return *callback_ret;
         } else {
             return QGraphicsEllipseItem::opaqueArea();
         }
@@ -4159,7 +5031,8 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_type_isbase = false;
             return QGraphicsEllipseItem::type();
         } else if (qgraphicsellipseitem_type_callback != nullptr) {
-            return qgraphicsellipseitem_type_callback();
+            int callback_ret = qgraphicsellipseitem_type_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsEllipseItem::type();
         }
@@ -4171,7 +5044,10 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_supportsextension_isbase = false;
             return QGraphicsEllipseItem::supportsExtension(extension);
         } else if (qgraphicsellipseitem_supportsextension_callback != nullptr) {
-            return qgraphicsellipseitem_supportsextension_callback(this, extension);
+            int cbval1 = static_cast<int>(extension);
+
+            bool callback_ret = qgraphicsellipseitem_supportsextension_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsEllipseItem::supportsExtension(extension);
         }
@@ -4183,7 +5059,12 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_setextension_isbase = false;
             QGraphicsEllipseItem::setExtension(extension, variant);
         } else if (qgraphicsellipseitem_setextension_callback != nullptr) {
-            qgraphicsellipseitem_setextension_callback(this, extension, variant);
+            int cbval1 = static_cast<int>(extension);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
+
+            qgraphicsellipseitem_setextension_callback(this, cbval1, cbval2);
         } else {
             QGraphicsEllipseItem::setExtension(extension, variant);
         }
@@ -4195,7 +5076,12 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_extension_isbase = false;
             return QGraphicsEllipseItem::extension(variant);
         } else if (qgraphicsellipseitem_extension_callback != nullptr) {
-            return qgraphicsellipseitem_extension_callback(this, variant);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
+
+            QVariant* callback_ret = qgraphicsellipseitem_extension_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsEllipseItem::extension(variant);
         }
@@ -4207,7 +5093,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_advance_isbase = false;
             QGraphicsEllipseItem::advance(phase);
         } else if (qgraphicsellipseitem_advance_callback != nullptr) {
-            qgraphicsellipseitem_advance_callback(this, phase);
+            int cbval1 = phase;
+
+            qgraphicsellipseitem_advance_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::advance(phase);
         }
@@ -4219,7 +5107,11 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_collideswithitem_isbase = false;
             return QGraphicsEllipseItem::collidesWithItem(other, mode);
         } else if (qgraphicsellipseitem_collideswithitem_callback != nullptr) {
-            return qgraphicsellipseitem_collideswithitem_callback(this, other, mode);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)other;
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicsellipseitem_collideswithitem_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsEllipseItem::collidesWithItem(other, mode);
         }
@@ -4231,7 +5123,13 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_collideswithpath_isbase = false;
             return QGraphicsEllipseItem::collidesWithPath(path, mode);
         } else if (qgraphicsellipseitem_collideswithpath_callback != nullptr) {
-            return qgraphicsellipseitem_collideswithpath_callback(this, path, mode);
+            const QPainterPath& path_ret = path;
+            // Cast returned reference into pointer
+            QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicsellipseitem_collideswithpath_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsEllipseItem::collidesWithPath(path, mode);
         }
@@ -4243,7 +5141,11 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_sceneeventfilter_isbase = false;
             return QGraphicsEllipseItem::sceneEventFilter(watched, event);
         } else if (qgraphicsellipseitem_sceneeventfilter_callback != nullptr) {
-            return qgraphicsellipseitem_sceneeventfilter_callback(this, watched, event);
+            QGraphicsItem* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicsellipseitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsEllipseItem::sceneEventFilter(watched, event);
         }
@@ -4255,7 +5157,10 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_sceneevent_isbase = false;
             return QGraphicsEllipseItem::sceneEvent(event);
         } else if (qgraphicsellipseitem_sceneevent_callback != nullptr) {
-            return qgraphicsellipseitem_sceneevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgraphicsellipseitem_sceneevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsEllipseItem::sceneEvent(event);
         }
@@ -4267,7 +5172,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_contextmenuevent_isbase = false;
             QGraphicsEllipseItem::contextMenuEvent(event);
         } else if (qgraphicsellipseitem_contextmenuevent_callback != nullptr) {
-            qgraphicsellipseitem_contextmenuevent_callback(this, event);
+            QGraphicsSceneContextMenuEvent* cbval1 = event;
+
+            qgraphicsellipseitem_contextmenuevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::contextMenuEvent(event);
         }
@@ -4279,7 +5186,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_dragenterevent_isbase = false;
             QGraphicsEllipseItem::dragEnterEvent(event);
         } else if (qgraphicsellipseitem_dragenterevent_callback != nullptr) {
-            qgraphicsellipseitem_dragenterevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsellipseitem_dragenterevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::dragEnterEvent(event);
         }
@@ -4291,7 +5200,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_dragleaveevent_isbase = false;
             QGraphicsEllipseItem::dragLeaveEvent(event);
         } else if (qgraphicsellipseitem_dragleaveevent_callback != nullptr) {
-            qgraphicsellipseitem_dragleaveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsellipseitem_dragleaveevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::dragLeaveEvent(event);
         }
@@ -4303,7 +5214,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_dragmoveevent_isbase = false;
             QGraphicsEllipseItem::dragMoveEvent(event);
         } else if (qgraphicsellipseitem_dragmoveevent_callback != nullptr) {
-            qgraphicsellipseitem_dragmoveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsellipseitem_dragmoveevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::dragMoveEvent(event);
         }
@@ -4315,7 +5228,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_dropevent_isbase = false;
             QGraphicsEllipseItem::dropEvent(event);
         } else if (qgraphicsellipseitem_dropevent_callback != nullptr) {
-            qgraphicsellipseitem_dropevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsellipseitem_dropevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::dropEvent(event);
         }
@@ -4327,7 +5242,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_focusinevent_isbase = false;
             QGraphicsEllipseItem::focusInEvent(event);
         } else if (qgraphicsellipseitem_focusinevent_callback != nullptr) {
-            qgraphicsellipseitem_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicsellipseitem_focusinevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::focusInEvent(event);
         }
@@ -4339,7 +5256,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_focusoutevent_isbase = false;
             QGraphicsEllipseItem::focusOutEvent(event);
         } else if (qgraphicsellipseitem_focusoutevent_callback != nullptr) {
-            qgraphicsellipseitem_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicsellipseitem_focusoutevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::focusOutEvent(event);
         }
@@ -4351,7 +5270,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_hoverenterevent_isbase = false;
             QGraphicsEllipseItem::hoverEnterEvent(event);
         } else if (qgraphicsellipseitem_hoverenterevent_callback != nullptr) {
-            qgraphicsellipseitem_hoverenterevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsellipseitem_hoverenterevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::hoverEnterEvent(event);
         }
@@ -4363,7 +5284,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_hovermoveevent_isbase = false;
             QGraphicsEllipseItem::hoverMoveEvent(event);
         } else if (qgraphicsellipseitem_hovermoveevent_callback != nullptr) {
-            qgraphicsellipseitem_hovermoveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsellipseitem_hovermoveevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::hoverMoveEvent(event);
         }
@@ -4375,7 +5298,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_hoverleaveevent_isbase = false;
             QGraphicsEllipseItem::hoverLeaveEvent(event);
         } else if (qgraphicsellipseitem_hoverleaveevent_callback != nullptr) {
-            qgraphicsellipseitem_hoverleaveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsellipseitem_hoverleaveevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::hoverLeaveEvent(event);
         }
@@ -4387,7 +5312,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_keypressevent_isbase = false;
             QGraphicsEllipseItem::keyPressEvent(event);
         } else if (qgraphicsellipseitem_keypressevent_callback != nullptr) {
-            qgraphicsellipseitem_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicsellipseitem_keypressevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::keyPressEvent(event);
         }
@@ -4399,7 +5326,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_keyreleaseevent_isbase = false;
             QGraphicsEllipseItem::keyReleaseEvent(event);
         } else if (qgraphicsellipseitem_keyreleaseevent_callback != nullptr) {
-            qgraphicsellipseitem_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicsellipseitem_keyreleaseevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::keyReleaseEvent(event);
         }
@@ -4411,7 +5340,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_mousepressevent_isbase = false;
             QGraphicsEllipseItem::mousePressEvent(event);
         } else if (qgraphicsellipseitem_mousepressevent_callback != nullptr) {
-            qgraphicsellipseitem_mousepressevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsellipseitem_mousepressevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::mousePressEvent(event);
         }
@@ -4423,7 +5354,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_mousemoveevent_isbase = false;
             QGraphicsEllipseItem::mouseMoveEvent(event);
         } else if (qgraphicsellipseitem_mousemoveevent_callback != nullptr) {
-            qgraphicsellipseitem_mousemoveevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsellipseitem_mousemoveevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::mouseMoveEvent(event);
         }
@@ -4435,7 +5368,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_mousereleaseevent_isbase = false;
             QGraphicsEllipseItem::mouseReleaseEvent(event);
         } else if (qgraphicsellipseitem_mousereleaseevent_callback != nullptr) {
-            qgraphicsellipseitem_mousereleaseevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsellipseitem_mousereleaseevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::mouseReleaseEvent(event);
         }
@@ -4447,7 +5382,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_mousedoubleclickevent_isbase = false;
             QGraphicsEllipseItem::mouseDoubleClickEvent(event);
         } else if (qgraphicsellipseitem_mousedoubleclickevent_callback != nullptr) {
-            qgraphicsellipseitem_mousedoubleclickevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsellipseitem_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::mouseDoubleClickEvent(event);
         }
@@ -4459,7 +5396,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_wheelevent_isbase = false;
             QGraphicsEllipseItem::wheelEvent(event);
         } else if (qgraphicsellipseitem_wheelevent_callback != nullptr) {
-            qgraphicsellipseitem_wheelevent_callback(this, event);
+            QGraphicsSceneWheelEvent* cbval1 = event;
+
+            qgraphicsellipseitem_wheelevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::wheelEvent(event);
         }
@@ -4471,7 +5410,9 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_inputmethodevent_isbase = false;
             QGraphicsEllipseItem::inputMethodEvent(event);
         } else if (qgraphicsellipseitem_inputmethodevent_callback != nullptr) {
-            qgraphicsellipseitem_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qgraphicsellipseitem_inputmethodevent_callback(this, cbval1);
         } else {
             QGraphicsEllipseItem::inputMethodEvent(event);
         }
@@ -4483,7 +5424,10 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_inputmethodquery_isbase = false;
             return QGraphicsEllipseItem::inputMethodQuery(query);
         } else if (qgraphicsellipseitem_inputmethodquery_callback != nullptr) {
-            return qgraphicsellipseitem_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qgraphicsellipseitem_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsEllipseItem::inputMethodQuery(query);
         }
@@ -4495,7 +5439,13 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             qgraphicsellipseitem_itemchange_isbase = false;
             return QGraphicsEllipseItem::itemChange(change, value);
         } else if (qgraphicsellipseitem_itemchange_callback != nullptr) {
-            return qgraphicsellipseitem_itemchange_callback(this, change, value);
+            int cbval1 = static_cast<int>(change);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            QVariant* callback_ret = qgraphicsellipseitem_itemchange_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QGraphicsEllipseItem::itemChange(change, value);
         }
@@ -4548,27 +5498,90 @@ class VirtualQGraphicsEllipseItem : public QGraphicsEllipseItem {
             QGraphicsEllipseItem::prepareGeometryChange();
         }
     }
+
+    // Friend functions
+    friend bool QGraphicsEllipseItem_SupportsExtension(const QGraphicsEllipseItem* self, int extension);
+    friend bool QGraphicsEllipseItem_QBaseSupportsExtension(const QGraphicsEllipseItem* self, int extension);
+    friend void QGraphicsEllipseItem_SetExtension(QGraphicsEllipseItem* self, int extension, const QVariant* variant);
+    friend void QGraphicsEllipseItem_QBaseSetExtension(QGraphicsEllipseItem* self, int extension, const QVariant* variant);
+    friend QVariant* QGraphicsEllipseItem_Extension(const QGraphicsEllipseItem* self, const QVariant* variant);
+    friend QVariant* QGraphicsEllipseItem_QBaseExtension(const QGraphicsEllipseItem* self, const QVariant* variant);
+    friend bool QGraphicsEllipseItem_SceneEventFilter(QGraphicsEllipseItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsEllipseItem_QBaseSceneEventFilter(QGraphicsEllipseItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsEllipseItem_SceneEvent(QGraphicsEllipseItem* self, QEvent* event);
+    friend bool QGraphicsEllipseItem_QBaseSceneEvent(QGraphicsEllipseItem* self, QEvent* event);
+    friend void QGraphicsEllipseItem_ContextMenuEvent(QGraphicsEllipseItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsEllipseItem_QBaseContextMenuEvent(QGraphicsEllipseItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsEllipseItem_DragEnterEvent(QGraphicsEllipseItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsEllipseItem_QBaseDragEnterEvent(QGraphicsEllipseItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsEllipseItem_DragLeaveEvent(QGraphicsEllipseItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsEllipseItem_QBaseDragLeaveEvent(QGraphicsEllipseItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsEllipseItem_DragMoveEvent(QGraphicsEllipseItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsEllipseItem_QBaseDragMoveEvent(QGraphicsEllipseItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsEllipseItem_DropEvent(QGraphicsEllipseItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsEllipseItem_QBaseDropEvent(QGraphicsEllipseItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsEllipseItem_FocusInEvent(QGraphicsEllipseItem* self, QFocusEvent* event);
+    friend void QGraphicsEllipseItem_QBaseFocusInEvent(QGraphicsEllipseItem* self, QFocusEvent* event);
+    friend void QGraphicsEllipseItem_FocusOutEvent(QGraphicsEllipseItem* self, QFocusEvent* event);
+    friend void QGraphicsEllipseItem_QBaseFocusOutEvent(QGraphicsEllipseItem* self, QFocusEvent* event);
+    friend void QGraphicsEllipseItem_HoverEnterEvent(QGraphicsEllipseItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsEllipseItem_QBaseHoverEnterEvent(QGraphicsEllipseItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsEllipseItem_HoverMoveEvent(QGraphicsEllipseItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsEllipseItem_QBaseHoverMoveEvent(QGraphicsEllipseItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsEllipseItem_HoverLeaveEvent(QGraphicsEllipseItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsEllipseItem_QBaseHoverLeaveEvent(QGraphicsEllipseItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsEllipseItem_KeyPressEvent(QGraphicsEllipseItem* self, QKeyEvent* event);
+    friend void QGraphicsEllipseItem_QBaseKeyPressEvent(QGraphicsEllipseItem* self, QKeyEvent* event);
+    friend void QGraphicsEllipseItem_KeyReleaseEvent(QGraphicsEllipseItem* self, QKeyEvent* event);
+    friend void QGraphicsEllipseItem_QBaseKeyReleaseEvent(QGraphicsEllipseItem* self, QKeyEvent* event);
+    friend void QGraphicsEllipseItem_MousePressEvent(QGraphicsEllipseItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsEllipseItem_QBaseMousePressEvent(QGraphicsEllipseItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsEllipseItem_MouseMoveEvent(QGraphicsEllipseItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsEllipseItem_QBaseMouseMoveEvent(QGraphicsEllipseItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsEllipseItem_MouseReleaseEvent(QGraphicsEllipseItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsEllipseItem_QBaseMouseReleaseEvent(QGraphicsEllipseItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsEllipseItem_MouseDoubleClickEvent(QGraphicsEllipseItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsEllipseItem_QBaseMouseDoubleClickEvent(QGraphicsEllipseItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsEllipseItem_WheelEvent(QGraphicsEllipseItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsEllipseItem_QBaseWheelEvent(QGraphicsEllipseItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsEllipseItem_InputMethodEvent(QGraphicsEllipseItem* self, QInputMethodEvent* event);
+    friend void QGraphicsEllipseItem_QBaseInputMethodEvent(QGraphicsEllipseItem* self, QInputMethodEvent* event);
+    friend QVariant* QGraphicsEllipseItem_InputMethodQuery(const QGraphicsEllipseItem* self, int query);
+    friend QVariant* QGraphicsEllipseItem_QBaseInputMethodQuery(const QGraphicsEllipseItem* self, int query);
+    friend QVariant* QGraphicsEllipseItem_ItemChange(QGraphicsEllipseItem* self, int change, const QVariant* value);
+    friend QVariant* QGraphicsEllipseItem_QBaseItemChange(QGraphicsEllipseItem* self, int change, const QVariant* value);
+    friend void QGraphicsEllipseItem_UpdateMicroFocus(QGraphicsEllipseItem* self);
+    friend void QGraphicsEllipseItem_QBaseUpdateMicroFocus(QGraphicsEllipseItem* self);
+    friend void QGraphicsEllipseItem_AddToIndex(QGraphicsEllipseItem* self);
+    friend void QGraphicsEllipseItem_QBaseAddToIndex(QGraphicsEllipseItem* self);
+    friend void QGraphicsEllipseItem_RemoveFromIndex(QGraphicsEllipseItem* self);
+    friend void QGraphicsEllipseItem_QBaseRemoveFromIndex(QGraphicsEllipseItem* self);
+    friend void QGraphicsEllipseItem_PrepareGeometryChange(QGraphicsEllipseItem* self);
+    friend void QGraphicsEllipseItem_QBasePrepareGeometryChange(QGraphicsEllipseItem* self);
 };
 
 // This class is a subclass of QGraphicsPolygonItem so that we can call protected methods
-class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
+class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsPolygonItem = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
-    using QGraphicsPolygonItem_BoundingRect_Callback = QRectF (*)();
-    using QGraphicsPolygonItem_Shape_Callback = QPainterPath (*)();
-    using QGraphicsPolygonItem_Contains_Callback = bool (*)(const QGraphicsPolygonItem*, const QPointF&);
-    using QGraphicsPolygonItem_Paint_Callback = void (*)(QGraphicsPolygonItem*, QPainter*, const QStyleOptionGraphicsItem*, QWidget*);
-    using QGraphicsPolygonItem_IsObscuredBy_Callback = bool (*)(const QGraphicsPolygonItem*, const QGraphicsItem*);
-    using QGraphicsPolygonItem_OpaqueArea_Callback = QPainterPath (*)();
+    using QGraphicsPolygonItem_BoundingRect_Callback = QRectF* (*)();
+    using QGraphicsPolygonItem_Shape_Callback = QPainterPath* (*)();
+    using QGraphicsPolygonItem_Contains_Callback = bool (*)(const QGraphicsPolygonItem*, QPointF*);
+    using QGraphicsPolygonItem_Paint_Callback = void (*)(QGraphicsPolygonItem*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
+    using QGraphicsPolygonItem_IsObscuredBy_Callback = bool (*)(const QGraphicsPolygonItem*, QGraphicsItem*);
+    using QGraphicsPolygonItem_OpaqueArea_Callback = QPainterPath* (*)();
     using QGraphicsPolygonItem_Type_Callback = int (*)();
     using QGraphicsPolygonItem_SupportsExtension_Callback = bool (*)(const QGraphicsPolygonItem*, int);
-    using QGraphicsPolygonItem_SetExtension_Callback = void (*)(QGraphicsPolygonItem*, int, const QVariant&);
-    using QGraphicsPolygonItem_Extension_Callback = QVariant (*)(const QGraphicsPolygonItem*, const QVariant&);
+    using QGraphicsPolygonItem_SetExtension_Callback = void (*)(QGraphicsPolygonItem*, int, QVariant*);
+    using QGraphicsPolygonItem_Extension_Callback = QVariant* (*)(const QGraphicsPolygonItem*, QVariant*);
     using QGraphicsPolygonItem_Advance_Callback = void (*)(QGraphicsPolygonItem*, int);
-    using QGraphicsPolygonItem_CollidesWithItem_Callback = bool (*)(const QGraphicsPolygonItem*, const QGraphicsItem*, Qt::ItemSelectionMode);
-    using QGraphicsPolygonItem_CollidesWithPath_Callback = bool (*)(const QGraphicsPolygonItem*, const QPainterPath&, Qt::ItemSelectionMode);
+    using QGraphicsPolygonItem_CollidesWithItem_Callback = bool (*)(const QGraphicsPolygonItem*, QGraphicsItem*, int);
+    using QGraphicsPolygonItem_CollidesWithPath_Callback = bool (*)(const QGraphicsPolygonItem*, QPainterPath*, int);
     using QGraphicsPolygonItem_SceneEventFilter_Callback = bool (*)(QGraphicsPolygonItem*, QGraphicsItem*, QEvent*);
     using QGraphicsPolygonItem_SceneEvent_Callback = bool (*)(QGraphicsPolygonItem*, QEvent*);
     using QGraphicsPolygonItem_ContextMenuEvent_Callback = void (*)(QGraphicsPolygonItem*, QGraphicsSceneContextMenuEvent*);
@@ -4589,8 +5602,8 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
     using QGraphicsPolygonItem_MouseDoubleClickEvent_Callback = void (*)(QGraphicsPolygonItem*, QGraphicsSceneMouseEvent*);
     using QGraphicsPolygonItem_WheelEvent_Callback = void (*)(QGraphicsPolygonItem*, QGraphicsSceneWheelEvent*);
     using QGraphicsPolygonItem_InputMethodEvent_Callback = void (*)(QGraphicsPolygonItem*, QInputMethodEvent*);
-    using QGraphicsPolygonItem_InputMethodQuery_Callback = QVariant (*)(const QGraphicsPolygonItem*, Qt::InputMethodQuery);
-    using QGraphicsPolygonItem_ItemChange_Callback = QVariant (*)(QGraphicsPolygonItem*, QGraphicsItem::GraphicsItemChange, const QVariant&);
+    using QGraphicsPolygonItem_InputMethodQuery_Callback = QVariant* (*)(const QGraphicsPolygonItem*, int);
+    using QGraphicsPolygonItem_ItemChange_Callback = QVariant* (*)(QGraphicsPolygonItem*, int, QVariant*);
     using QGraphicsPolygonItem_UpdateMicroFocus_Callback = void (*)();
     using QGraphicsPolygonItem_AddToIndex_Callback = void (*)();
     using QGraphicsPolygonItem_RemoveFromIndex_Callback = void (*)();
@@ -4726,86 +5739,86 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
     }
 
     // Callback setters
-    void setQGraphicsPolygonItem_BoundingRect_Callback(QGraphicsPolygonItem_BoundingRect_Callback cb) { qgraphicspolygonitem_boundingrect_callback = cb; }
-    void setQGraphicsPolygonItem_Shape_Callback(QGraphicsPolygonItem_Shape_Callback cb) { qgraphicspolygonitem_shape_callback = cb; }
-    void setQGraphicsPolygonItem_Contains_Callback(QGraphicsPolygonItem_Contains_Callback cb) { qgraphicspolygonitem_contains_callback = cb; }
-    void setQGraphicsPolygonItem_Paint_Callback(QGraphicsPolygonItem_Paint_Callback cb) { qgraphicspolygonitem_paint_callback = cb; }
-    void setQGraphicsPolygonItem_IsObscuredBy_Callback(QGraphicsPolygonItem_IsObscuredBy_Callback cb) { qgraphicspolygonitem_isobscuredby_callback = cb; }
-    void setQGraphicsPolygonItem_OpaqueArea_Callback(QGraphicsPolygonItem_OpaqueArea_Callback cb) { qgraphicspolygonitem_opaquearea_callback = cb; }
-    void setQGraphicsPolygonItem_Type_Callback(QGraphicsPolygonItem_Type_Callback cb) { qgraphicspolygonitem_type_callback = cb; }
-    void setQGraphicsPolygonItem_SupportsExtension_Callback(QGraphicsPolygonItem_SupportsExtension_Callback cb) { qgraphicspolygonitem_supportsextension_callback = cb; }
-    void setQGraphicsPolygonItem_SetExtension_Callback(QGraphicsPolygonItem_SetExtension_Callback cb) { qgraphicspolygonitem_setextension_callback = cb; }
-    void setQGraphicsPolygonItem_Extension_Callback(QGraphicsPolygonItem_Extension_Callback cb) { qgraphicspolygonitem_extension_callback = cb; }
-    void setQGraphicsPolygonItem_Advance_Callback(QGraphicsPolygonItem_Advance_Callback cb) { qgraphicspolygonitem_advance_callback = cb; }
-    void setQGraphicsPolygonItem_CollidesWithItem_Callback(QGraphicsPolygonItem_CollidesWithItem_Callback cb) { qgraphicspolygonitem_collideswithitem_callback = cb; }
-    void setQGraphicsPolygonItem_CollidesWithPath_Callback(QGraphicsPolygonItem_CollidesWithPath_Callback cb) { qgraphicspolygonitem_collideswithpath_callback = cb; }
-    void setQGraphicsPolygonItem_SceneEventFilter_Callback(QGraphicsPolygonItem_SceneEventFilter_Callback cb) { qgraphicspolygonitem_sceneeventfilter_callback = cb; }
-    void setQGraphicsPolygonItem_SceneEvent_Callback(QGraphicsPolygonItem_SceneEvent_Callback cb) { qgraphicspolygonitem_sceneevent_callback = cb; }
-    void setQGraphicsPolygonItem_ContextMenuEvent_Callback(QGraphicsPolygonItem_ContextMenuEvent_Callback cb) { qgraphicspolygonitem_contextmenuevent_callback = cb; }
-    void setQGraphicsPolygonItem_DragEnterEvent_Callback(QGraphicsPolygonItem_DragEnterEvent_Callback cb) { qgraphicspolygonitem_dragenterevent_callback = cb; }
-    void setQGraphicsPolygonItem_DragLeaveEvent_Callback(QGraphicsPolygonItem_DragLeaveEvent_Callback cb) { qgraphicspolygonitem_dragleaveevent_callback = cb; }
-    void setQGraphicsPolygonItem_DragMoveEvent_Callback(QGraphicsPolygonItem_DragMoveEvent_Callback cb) { qgraphicspolygonitem_dragmoveevent_callback = cb; }
-    void setQGraphicsPolygonItem_DropEvent_Callback(QGraphicsPolygonItem_DropEvent_Callback cb) { qgraphicspolygonitem_dropevent_callback = cb; }
-    void setQGraphicsPolygonItem_FocusInEvent_Callback(QGraphicsPolygonItem_FocusInEvent_Callback cb) { qgraphicspolygonitem_focusinevent_callback = cb; }
-    void setQGraphicsPolygonItem_FocusOutEvent_Callback(QGraphicsPolygonItem_FocusOutEvent_Callback cb) { qgraphicspolygonitem_focusoutevent_callback = cb; }
-    void setQGraphicsPolygonItem_HoverEnterEvent_Callback(QGraphicsPolygonItem_HoverEnterEvent_Callback cb) { qgraphicspolygonitem_hoverenterevent_callback = cb; }
-    void setQGraphicsPolygonItem_HoverMoveEvent_Callback(QGraphicsPolygonItem_HoverMoveEvent_Callback cb) { qgraphicspolygonitem_hovermoveevent_callback = cb; }
-    void setQGraphicsPolygonItem_HoverLeaveEvent_Callback(QGraphicsPolygonItem_HoverLeaveEvent_Callback cb) { qgraphicspolygonitem_hoverleaveevent_callback = cb; }
-    void setQGraphicsPolygonItem_KeyPressEvent_Callback(QGraphicsPolygonItem_KeyPressEvent_Callback cb) { qgraphicspolygonitem_keypressevent_callback = cb; }
-    void setQGraphicsPolygonItem_KeyReleaseEvent_Callback(QGraphicsPolygonItem_KeyReleaseEvent_Callback cb) { qgraphicspolygonitem_keyreleaseevent_callback = cb; }
-    void setQGraphicsPolygonItem_MousePressEvent_Callback(QGraphicsPolygonItem_MousePressEvent_Callback cb) { qgraphicspolygonitem_mousepressevent_callback = cb; }
-    void setQGraphicsPolygonItem_MouseMoveEvent_Callback(QGraphicsPolygonItem_MouseMoveEvent_Callback cb) { qgraphicspolygonitem_mousemoveevent_callback = cb; }
-    void setQGraphicsPolygonItem_MouseReleaseEvent_Callback(QGraphicsPolygonItem_MouseReleaseEvent_Callback cb) { qgraphicspolygonitem_mousereleaseevent_callback = cb; }
-    void setQGraphicsPolygonItem_MouseDoubleClickEvent_Callback(QGraphicsPolygonItem_MouseDoubleClickEvent_Callback cb) { qgraphicspolygonitem_mousedoubleclickevent_callback = cb; }
-    void setQGraphicsPolygonItem_WheelEvent_Callback(QGraphicsPolygonItem_WheelEvent_Callback cb) { qgraphicspolygonitem_wheelevent_callback = cb; }
-    void setQGraphicsPolygonItem_InputMethodEvent_Callback(QGraphicsPolygonItem_InputMethodEvent_Callback cb) { qgraphicspolygonitem_inputmethodevent_callback = cb; }
-    void setQGraphicsPolygonItem_InputMethodQuery_Callback(QGraphicsPolygonItem_InputMethodQuery_Callback cb) { qgraphicspolygonitem_inputmethodquery_callback = cb; }
-    void setQGraphicsPolygonItem_ItemChange_Callback(QGraphicsPolygonItem_ItemChange_Callback cb) { qgraphicspolygonitem_itemchange_callback = cb; }
-    void setQGraphicsPolygonItem_UpdateMicroFocus_Callback(QGraphicsPolygonItem_UpdateMicroFocus_Callback cb) { qgraphicspolygonitem_updatemicrofocus_callback = cb; }
-    void setQGraphicsPolygonItem_AddToIndex_Callback(QGraphicsPolygonItem_AddToIndex_Callback cb) { qgraphicspolygonitem_addtoindex_callback = cb; }
-    void setQGraphicsPolygonItem_RemoveFromIndex_Callback(QGraphicsPolygonItem_RemoveFromIndex_Callback cb) { qgraphicspolygonitem_removefromindex_callback = cb; }
-    void setQGraphicsPolygonItem_PrepareGeometryChange_Callback(QGraphicsPolygonItem_PrepareGeometryChange_Callback cb) { qgraphicspolygonitem_preparegeometrychange_callback = cb; }
+    inline void setQGraphicsPolygonItem_BoundingRect_Callback(QGraphicsPolygonItem_BoundingRect_Callback cb) { qgraphicspolygonitem_boundingrect_callback = cb; }
+    inline void setQGraphicsPolygonItem_Shape_Callback(QGraphicsPolygonItem_Shape_Callback cb) { qgraphicspolygonitem_shape_callback = cb; }
+    inline void setQGraphicsPolygonItem_Contains_Callback(QGraphicsPolygonItem_Contains_Callback cb) { qgraphicspolygonitem_contains_callback = cb; }
+    inline void setQGraphicsPolygonItem_Paint_Callback(QGraphicsPolygonItem_Paint_Callback cb) { qgraphicspolygonitem_paint_callback = cb; }
+    inline void setQGraphicsPolygonItem_IsObscuredBy_Callback(QGraphicsPolygonItem_IsObscuredBy_Callback cb) { qgraphicspolygonitem_isobscuredby_callback = cb; }
+    inline void setQGraphicsPolygonItem_OpaqueArea_Callback(QGraphicsPolygonItem_OpaqueArea_Callback cb) { qgraphicspolygonitem_opaquearea_callback = cb; }
+    inline void setQGraphicsPolygonItem_Type_Callback(QGraphicsPolygonItem_Type_Callback cb) { qgraphicspolygonitem_type_callback = cb; }
+    inline void setQGraphicsPolygonItem_SupportsExtension_Callback(QGraphicsPolygonItem_SupportsExtension_Callback cb) { qgraphicspolygonitem_supportsextension_callback = cb; }
+    inline void setQGraphicsPolygonItem_SetExtension_Callback(QGraphicsPolygonItem_SetExtension_Callback cb) { qgraphicspolygonitem_setextension_callback = cb; }
+    inline void setQGraphicsPolygonItem_Extension_Callback(QGraphicsPolygonItem_Extension_Callback cb) { qgraphicspolygonitem_extension_callback = cb; }
+    inline void setQGraphicsPolygonItem_Advance_Callback(QGraphicsPolygonItem_Advance_Callback cb) { qgraphicspolygonitem_advance_callback = cb; }
+    inline void setQGraphicsPolygonItem_CollidesWithItem_Callback(QGraphicsPolygonItem_CollidesWithItem_Callback cb) { qgraphicspolygonitem_collideswithitem_callback = cb; }
+    inline void setQGraphicsPolygonItem_CollidesWithPath_Callback(QGraphicsPolygonItem_CollidesWithPath_Callback cb) { qgraphicspolygonitem_collideswithpath_callback = cb; }
+    inline void setQGraphicsPolygonItem_SceneEventFilter_Callback(QGraphicsPolygonItem_SceneEventFilter_Callback cb) { qgraphicspolygonitem_sceneeventfilter_callback = cb; }
+    inline void setQGraphicsPolygonItem_SceneEvent_Callback(QGraphicsPolygonItem_SceneEvent_Callback cb) { qgraphicspolygonitem_sceneevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_ContextMenuEvent_Callback(QGraphicsPolygonItem_ContextMenuEvent_Callback cb) { qgraphicspolygonitem_contextmenuevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_DragEnterEvent_Callback(QGraphicsPolygonItem_DragEnterEvent_Callback cb) { qgraphicspolygonitem_dragenterevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_DragLeaveEvent_Callback(QGraphicsPolygonItem_DragLeaveEvent_Callback cb) { qgraphicspolygonitem_dragleaveevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_DragMoveEvent_Callback(QGraphicsPolygonItem_DragMoveEvent_Callback cb) { qgraphicspolygonitem_dragmoveevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_DropEvent_Callback(QGraphicsPolygonItem_DropEvent_Callback cb) { qgraphicspolygonitem_dropevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_FocusInEvent_Callback(QGraphicsPolygonItem_FocusInEvent_Callback cb) { qgraphicspolygonitem_focusinevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_FocusOutEvent_Callback(QGraphicsPolygonItem_FocusOutEvent_Callback cb) { qgraphicspolygonitem_focusoutevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_HoverEnterEvent_Callback(QGraphicsPolygonItem_HoverEnterEvent_Callback cb) { qgraphicspolygonitem_hoverenterevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_HoverMoveEvent_Callback(QGraphicsPolygonItem_HoverMoveEvent_Callback cb) { qgraphicspolygonitem_hovermoveevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_HoverLeaveEvent_Callback(QGraphicsPolygonItem_HoverLeaveEvent_Callback cb) { qgraphicspolygonitem_hoverleaveevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_KeyPressEvent_Callback(QGraphicsPolygonItem_KeyPressEvent_Callback cb) { qgraphicspolygonitem_keypressevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_KeyReleaseEvent_Callback(QGraphicsPolygonItem_KeyReleaseEvent_Callback cb) { qgraphicspolygonitem_keyreleaseevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_MousePressEvent_Callback(QGraphicsPolygonItem_MousePressEvent_Callback cb) { qgraphicspolygonitem_mousepressevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_MouseMoveEvent_Callback(QGraphicsPolygonItem_MouseMoveEvent_Callback cb) { qgraphicspolygonitem_mousemoveevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_MouseReleaseEvent_Callback(QGraphicsPolygonItem_MouseReleaseEvent_Callback cb) { qgraphicspolygonitem_mousereleaseevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_MouseDoubleClickEvent_Callback(QGraphicsPolygonItem_MouseDoubleClickEvent_Callback cb) { qgraphicspolygonitem_mousedoubleclickevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_WheelEvent_Callback(QGraphicsPolygonItem_WheelEvent_Callback cb) { qgraphicspolygonitem_wheelevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_InputMethodEvent_Callback(QGraphicsPolygonItem_InputMethodEvent_Callback cb) { qgraphicspolygonitem_inputmethodevent_callback = cb; }
+    inline void setQGraphicsPolygonItem_InputMethodQuery_Callback(QGraphicsPolygonItem_InputMethodQuery_Callback cb) { qgraphicspolygonitem_inputmethodquery_callback = cb; }
+    inline void setQGraphicsPolygonItem_ItemChange_Callback(QGraphicsPolygonItem_ItemChange_Callback cb) { qgraphicspolygonitem_itemchange_callback = cb; }
+    inline void setQGraphicsPolygonItem_UpdateMicroFocus_Callback(QGraphicsPolygonItem_UpdateMicroFocus_Callback cb) { qgraphicspolygonitem_updatemicrofocus_callback = cb; }
+    inline void setQGraphicsPolygonItem_AddToIndex_Callback(QGraphicsPolygonItem_AddToIndex_Callback cb) { qgraphicspolygonitem_addtoindex_callback = cb; }
+    inline void setQGraphicsPolygonItem_RemoveFromIndex_Callback(QGraphicsPolygonItem_RemoveFromIndex_Callback cb) { qgraphicspolygonitem_removefromindex_callback = cb; }
+    inline void setQGraphicsPolygonItem_PrepareGeometryChange_Callback(QGraphicsPolygonItem_PrepareGeometryChange_Callback cb) { qgraphicspolygonitem_preparegeometrychange_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsPolygonItem_BoundingRect_IsBase(bool value) const { qgraphicspolygonitem_boundingrect_isbase = value; }
-    void setQGraphicsPolygonItem_Shape_IsBase(bool value) const { qgraphicspolygonitem_shape_isbase = value; }
-    void setQGraphicsPolygonItem_Contains_IsBase(bool value) const { qgraphicspolygonitem_contains_isbase = value; }
-    void setQGraphicsPolygonItem_Paint_IsBase(bool value) const { qgraphicspolygonitem_paint_isbase = value; }
-    void setQGraphicsPolygonItem_IsObscuredBy_IsBase(bool value) const { qgraphicspolygonitem_isobscuredby_isbase = value; }
-    void setQGraphicsPolygonItem_OpaqueArea_IsBase(bool value) const { qgraphicspolygonitem_opaquearea_isbase = value; }
-    void setQGraphicsPolygonItem_Type_IsBase(bool value) const { qgraphicspolygonitem_type_isbase = value; }
-    void setQGraphicsPolygonItem_SupportsExtension_IsBase(bool value) const { qgraphicspolygonitem_supportsextension_isbase = value; }
-    void setQGraphicsPolygonItem_SetExtension_IsBase(bool value) const { qgraphicspolygonitem_setextension_isbase = value; }
-    void setQGraphicsPolygonItem_Extension_IsBase(bool value) const { qgraphicspolygonitem_extension_isbase = value; }
-    void setQGraphicsPolygonItem_Advance_IsBase(bool value) const { qgraphicspolygonitem_advance_isbase = value; }
-    void setQGraphicsPolygonItem_CollidesWithItem_IsBase(bool value) const { qgraphicspolygonitem_collideswithitem_isbase = value; }
-    void setQGraphicsPolygonItem_CollidesWithPath_IsBase(bool value) const { qgraphicspolygonitem_collideswithpath_isbase = value; }
-    void setQGraphicsPolygonItem_SceneEventFilter_IsBase(bool value) const { qgraphicspolygonitem_sceneeventfilter_isbase = value; }
-    void setQGraphicsPolygonItem_SceneEvent_IsBase(bool value) const { qgraphicspolygonitem_sceneevent_isbase = value; }
-    void setQGraphicsPolygonItem_ContextMenuEvent_IsBase(bool value) const { qgraphicspolygonitem_contextmenuevent_isbase = value; }
-    void setQGraphicsPolygonItem_DragEnterEvent_IsBase(bool value) const { qgraphicspolygonitem_dragenterevent_isbase = value; }
-    void setQGraphicsPolygonItem_DragLeaveEvent_IsBase(bool value) const { qgraphicspolygonitem_dragleaveevent_isbase = value; }
-    void setQGraphicsPolygonItem_DragMoveEvent_IsBase(bool value) const { qgraphicspolygonitem_dragmoveevent_isbase = value; }
-    void setQGraphicsPolygonItem_DropEvent_IsBase(bool value) const { qgraphicspolygonitem_dropevent_isbase = value; }
-    void setQGraphicsPolygonItem_FocusInEvent_IsBase(bool value) const { qgraphicspolygonitem_focusinevent_isbase = value; }
-    void setQGraphicsPolygonItem_FocusOutEvent_IsBase(bool value) const { qgraphicspolygonitem_focusoutevent_isbase = value; }
-    void setQGraphicsPolygonItem_HoverEnterEvent_IsBase(bool value) const { qgraphicspolygonitem_hoverenterevent_isbase = value; }
-    void setQGraphicsPolygonItem_HoverMoveEvent_IsBase(bool value) const { qgraphicspolygonitem_hovermoveevent_isbase = value; }
-    void setQGraphicsPolygonItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicspolygonitem_hoverleaveevent_isbase = value; }
-    void setQGraphicsPolygonItem_KeyPressEvent_IsBase(bool value) const { qgraphicspolygonitem_keypressevent_isbase = value; }
-    void setQGraphicsPolygonItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicspolygonitem_keyreleaseevent_isbase = value; }
-    void setQGraphicsPolygonItem_MousePressEvent_IsBase(bool value) const { qgraphicspolygonitem_mousepressevent_isbase = value; }
-    void setQGraphicsPolygonItem_MouseMoveEvent_IsBase(bool value) const { qgraphicspolygonitem_mousemoveevent_isbase = value; }
-    void setQGraphicsPolygonItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicspolygonitem_mousereleaseevent_isbase = value; }
-    void setQGraphicsPolygonItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicspolygonitem_mousedoubleclickevent_isbase = value; }
-    void setQGraphicsPolygonItem_WheelEvent_IsBase(bool value) const { qgraphicspolygonitem_wheelevent_isbase = value; }
-    void setQGraphicsPolygonItem_InputMethodEvent_IsBase(bool value) const { qgraphicspolygonitem_inputmethodevent_isbase = value; }
-    void setQGraphicsPolygonItem_InputMethodQuery_IsBase(bool value) const { qgraphicspolygonitem_inputmethodquery_isbase = value; }
-    void setQGraphicsPolygonItem_ItemChange_IsBase(bool value) const { qgraphicspolygonitem_itemchange_isbase = value; }
-    void setQGraphicsPolygonItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicspolygonitem_updatemicrofocus_isbase = value; }
-    void setQGraphicsPolygonItem_AddToIndex_IsBase(bool value) const { qgraphicspolygonitem_addtoindex_isbase = value; }
-    void setQGraphicsPolygonItem_RemoveFromIndex_IsBase(bool value) const { qgraphicspolygonitem_removefromindex_isbase = value; }
-    void setQGraphicsPolygonItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicspolygonitem_preparegeometrychange_isbase = value; }
+    inline void setQGraphicsPolygonItem_BoundingRect_IsBase(bool value) const { qgraphicspolygonitem_boundingrect_isbase = value; }
+    inline void setQGraphicsPolygonItem_Shape_IsBase(bool value) const { qgraphicspolygonitem_shape_isbase = value; }
+    inline void setQGraphicsPolygonItem_Contains_IsBase(bool value) const { qgraphicspolygonitem_contains_isbase = value; }
+    inline void setQGraphicsPolygonItem_Paint_IsBase(bool value) const { qgraphicspolygonitem_paint_isbase = value; }
+    inline void setQGraphicsPolygonItem_IsObscuredBy_IsBase(bool value) const { qgraphicspolygonitem_isobscuredby_isbase = value; }
+    inline void setQGraphicsPolygonItem_OpaqueArea_IsBase(bool value) const { qgraphicspolygonitem_opaquearea_isbase = value; }
+    inline void setQGraphicsPolygonItem_Type_IsBase(bool value) const { qgraphicspolygonitem_type_isbase = value; }
+    inline void setQGraphicsPolygonItem_SupportsExtension_IsBase(bool value) const { qgraphicspolygonitem_supportsextension_isbase = value; }
+    inline void setQGraphicsPolygonItem_SetExtension_IsBase(bool value) const { qgraphicspolygonitem_setextension_isbase = value; }
+    inline void setQGraphicsPolygonItem_Extension_IsBase(bool value) const { qgraphicspolygonitem_extension_isbase = value; }
+    inline void setQGraphicsPolygonItem_Advance_IsBase(bool value) const { qgraphicspolygonitem_advance_isbase = value; }
+    inline void setQGraphicsPolygonItem_CollidesWithItem_IsBase(bool value) const { qgraphicspolygonitem_collideswithitem_isbase = value; }
+    inline void setQGraphicsPolygonItem_CollidesWithPath_IsBase(bool value) const { qgraphicspolygonitem_collideswithpath_isbase = value; }
+    inline void setQGraphicsPolygonItem_SceneEventFilter_IsBase(bool value) const { qgraphicspolygonitem_sceneeventfilter_isbase = value; }
+    inline void setQGraphicsPolygonItem_SceneEvent_IsBase(bool value) const { qgraphicspolygonitem_sceneevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_ContextMenuEvent_IsBase(bool value) const { qgraphicspolygonitem_contextmenuevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_DragEnterEvent_IsBase(bool value) const { qgraphicspolygonitem_dragenterevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_DragLeaveEvent_IsBase(bool value) const { qgraphicspolygonitem_dragleaveevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_DragMoveEvent_IsBase(bool value) const { qgraphicspolygonitem_dragmoveevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_DropEvent_IsBase(bool value) const { qgraphicspolygonitem_dropevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_FocusInEvent_IsBase(bool value) const { qgraphicspolygonitem_focusinevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_FocusOutEvent_IsBase(bool value) const { qgraphicspolygonitem_focusoutevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_HoverEnterEvent_IsBase(bool value) const { qgraphicspolygonitem_hoverenterevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_HoverMoveEvent_IsBase(bool value) const { qgraphicspolygonitem_hovermoveevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicspolygonitem_hoverleaveevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_KeyPressEvent_IsBase(bool value) const { qgraphicspolygonitem_keypressevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicspolygonitem_keyreleaseevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_MousePressEvent_IsBase(bool value) const { qgraphicspolygonitem_mousepressevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_MouseMoveEvent_IsBase(bool value) const { qgraphicspolygonitem_mousemoveevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicspolygonitem_mousereleaseevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicspolygonitem_mousedoubleclickevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_WheelEvent_IsBase(bool value) const { qgraphicspolygonitem_wheelevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_InputMethodEvent_IsBase(bool value) const { qgraphicspolygonitem_inputmethodevent_isbase = value; }
+    inline void setQGraphicsPolygonItem_InputMethodQuery_IsBase(bool value) const { qgraphicspolygonitem_inputmethodquery_isbase = value; }
+    inline void setQGraphicsPolygonItem_ItemChange_IsBase(bool value) const { qgraphicspolygonitem_itemchange_isbase = value; }
+    inline void setQGraphicsPolygonItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicspolygonitem_updatemicrofocus_isbase = value; }
+    inline void setQGraphicsPolygonItem_AddToIndex_IsBase(bool value) const { qgraphicspolygonitem_addtoindex_isbase = value; }
+    inline void setQGraphicsPolygonItem_RemoveFromIndex_IsBase(bool value) const { qgraphicspolygonitem_removefromindex_isbase = value; }
+    inline void setQGraphicsPolygonItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicspolygonitem_preparegeometrychange_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF boundingRect() const override {
@@ -4813,7 +5826,8 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_boundingrect_isbase = false;
             return QGraphicsPolygonItem::boundingRect();
         } else if (qgraphicspolygonitem_boundingrect_callback != nullptr) {
-            return qgraphicspolygonitem_boundingrect_callback();
+            QRectF* callback_ret = qgraphicspolygonitem_boundingrect_callback();
+            return *callback_ret;
         } else {
             return QGraphicsPolygonItem::boundingRect();
         }
@@ -4825,7 +5839,8 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_shape_isbase = false;
             return QGraphicsPolygonItem::shape();
         } else if (qgraphicspolygonitem_shape_callback != nullptr) {
-            return qgraphicspolygonitem_shape_callback();
+            QPainterPath* callback_ret = qgraphicspolygonitem_shape_callback();
+            return *callback_ret;
         } else {
             return QGraphicsPolygonItem::shape();
         }
@@ -4837,7 +5852,12 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_contains_isbase = false;
             return QGraphicsPolygonItem::contains(point);
         } else if (qgraphicspolygonitem_contains_callback != nullptr) {
-            return qgraphicspolygonitem_contains_callback(this, point);
+            const QPointF& point_ret = point;
+            // Cast returned reference into pointer
+            QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
+
+            bool callback_ret = qgraphicspolygonitem_contains_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsPolygonItem::contains(point);
         }
@@ -4849,7 +5869,11 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_paint_isbase = false;
             QGraphicsPolygonItem::paint(painter, option, widget);
         } else if (qgraphicspolygonitem_paint_callback != nullptr) {
-            qgraphicspolygonitem_paint_callback(this, painter, option, widget);
+            QPainter* cbval1 = painter;
+            QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
+            QWidget* cbval3 = widget;
+
+            qgraphicspolygonitem_paint_callback(this, cbval1, cbval2, cbval3);
         } else {
             QGraphicsPolygonItem::paint(painter, option, widget);
         }
@@ -4861,7 +5885,10 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_isobscuredby_isbase = false;
             return QGraphicsPolygonItem::isObscuredBy(item);
         } else if (qgraphicspolygonitem_isobscuredby_callback != nullptr) {
-            return qgraphicspolygonitem_isobscuredby_callback(this, item);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)item;
+
+            bool callback_ret = qgraphicspolygonitem_isobscuredby_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsPolygonItem::isObscuredBy(item);
         }
@@ -4873,7 +5900,8 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_opaquearea_isbase = false;
             return QGraphicsPolygonItem::opaqueArea();
         } else if (qgraphicspolygonitem_opaquearea_callback != nullptr) {
-            return qgraphicspolygonitem_opaquearea_callback();
+            QPainterPath* callback_ret = qgraphicspolygonitem_opaquearea_callback();
+            return *callback_ret;
         } else {
             return QGraphicsPolygonItem::opaqueArea();
         }
@@ -4885,7 +5913,8 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_type_isbase = false;
             return QGraphicsPolygonItem::type();
         } else if (qgraphicspolygonitem_type_callback != nullptr) {
-            return qgraphicspolygonitem_type_callback();
+            int callback_ret = qgraphicspolygonitem_type_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsPolygonItem::type();
         }
@@ -4897,7 +5926,10 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_supportsextension_isbase = false;
             return QGraphicsPolygonItem::supportsExtension(extension);
         } else if (qgraphicspolygonitem_supportsextension_callback != nullptr) {
-            return qgraphicspolygonitem_supportsextension_callback(this, extension);
+            int cbval1 = static_cast<int>(extension);
+
+            bool callback_ret = qgraphicspolygonitem_supportsextension_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsPolygonItem::supportsExtension(extension);
         }
@@ -4909,7 +5941,12 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_setextension_isbase = false;
             QGraphicsPolygonItem::setExtension(extension, variant);
         } else if (qgraphicspolygonitem_setextension_callback != nullptr) {
-            qgraphicspolygonitem_setextension_callback(this, extension, variant);
+            int cbval1 = static_cast<int>(extension);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
+
+            qgraphicspolygonitem_setextension_callback(this, cbval1, cbval2);
         } else {
             QGraphicsPolygonItem::setExtension(extension, variant);
         }
@@ -4921,7 +5958,12 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_extension_isbase = false;
             return QGraphicsPolygonItem::extension(variant);
         } else if (qgraphicspolygonitem_extension_callback != nullptr) {
-            return qgraphicspolygonitem_extension_callback(this, variant);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
+
+            QVariant* callback_ret = qgraphicspolygonitem_extension_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsPolygonItem::extension(variant);
         }
@@ -4933,7 +5975,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_advance_isbase = false;
             QGraphicsPolygonItem::advance(phase);
         } else if (qgraphicspolygonitem_advance_callback != nullptr) {
-            qgraphicspolygonitem_advance_callback(this, phase);
+            int cbval1 = phase;
+
+            qgraphicspolygonitem_advance_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::advance(phase);
         }
@@ -4945,7 +5989,11 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_collideswithitem_isbase = false;
             return QGraphicsPolygonItem::collidesWithItem(other, mode);
         } else if (qgraphicspolygonitem_collideswithitem_callback != nullptr) {
-            return qgraphicspolygonitem_collideswithitem_callback(this, other, mode);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)other;
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicspolygonitem_collideswithitem_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsPolygonItem::collidesWithItem(other, mode);
         }
@@ -4957,7 +6005,13 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_collideswithpath_isbase = false;
             return QGraphicsPolygonItem::collidesWithPath(path, mode);
         } else if (qgraphicspolygonitem_collideswithpath_callback != nullptr) {
-            return qgraphicspolygonitem_collideswithpath_callback(this, path, mode);
+            const QPainterPath& path_ret = path;
+            // Cast returned reference into pointer
+            QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicspolygonitem_collideswithpath_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsPolygonItem::collidesWithPath(path, mode);
         }
@@ -4969,7 +6023,11 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_sceneeventfilter_isbase = false;
             return QGraphicsPolygonItem::sceneEventFilter(watched, event);
         } else if (qgraphicspolygonitem_sceneeventfilter_callback != nullptr) {
-            return qgraphicspolygonitem_sceneeventfilter_callback(this, watched, event);
+            QGraphicsItem* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicspolygonitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsPolygonItem::sceneEventFilter(watched, event);
         }
@@ -4981,7 +6039,10 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_sceneevent_isbase = false;
             return QGraphicsPolygonItem::sceneEvent(event);
         } else if (qgraphicspolygonitem_sceneevent_callback != nullptr) {
-            return qgraphicspolygonitem_sceneevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgraphicspolygonitem_sceneevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsPolygonItem::sceneEvent(event);
         }
@@ -4993,7 +6054,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_contextmenuevent_isbase = false;
             QGraphicsPolygonItem::contextMenuEvent(event);
         } else if (qgraphicspolygonitem_contextmenuevent_callback != nullptr) {
-            qgraphicspolygonitem_contextmenuevent_callback(this, event);
+            QGraphicsSceneContextMenuEvent* cbval1 = event;
+
+            qgraphicspolygonitem_contextmenuevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::contextMenuEvent(event);
         }
@@ -5005,7 +6068,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_dragenterevent_isbase = false;
             QGraphicsPolygonItem::dragEnterEvent(event);
         } else if (qgraphicspolygonitem_dragenterevent_callback != nullptr) {
-            qgraphicspolygonitem_dragenterevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicspolygonitem_dragenterevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::dragEnterEvent(event);
         }
@@ -5017,7 +6082,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_dragleaveevent_isbase = false;
             QGraphicsPolygonItem::dragLeaveEvent(event);
         } else if (qgraphicspolygonitem_dragleaveevent_callback != nullptr) {
-            qgraphicspolygonitem_dragleaveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicspolygonitem_dragleaveevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::dragLeaveEvent(event);
         }
@@ -5029,7 +6096,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_dragmoveevent_isbase = false;
             QGraphicsPolygonItem::dragMoveEvent(event);
         } else if (qgraphicspolygonitem_dragmoveevent_callback != nullptr) {
-            qgraphicspolygonitem_dragmoveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicspolygonitem_dragmoveevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::dragMoveEvent(event);
         }
@@ -5041,7 +6110,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_dropevent_isbase = false;
             QGraphicsPolygonItem::dropEvent(event);
         } else if (qgraphicspolygonitem_dropevent_callback != nullptr) {
-            qgraphicspolygonitem_dropevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicspolygonitem_dropevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::dropEvent(event);
         }
@@ -5053,7 +6124,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_focusinevent_isbase = false;
             QGraphicsPolygonItem::focusInEvent(event);
         } else if (qgraphicspolygonitem_focusinevent_callback != nullptr) {
-            qgraphicspolygonitem_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicspolygonitem_focusinevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::focusInEvent(event);
         }
@@ -5065,7 +6138,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_focusoutevent_isbase = false;
             QGraphicsPolygonItem::focusOutEvent(event);
         } else if (qgraphicspolygonitem_focusoutevent_callback != nullptr) {
-            qgraphicspolygonitem_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicspolygonitem_focusoutevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::focusOutEvent(event);
         }
@@ -5077,7 +6152,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_hoverenterevent_isbase = false;
             QGraphicsPolygonItem::hoverEnterEvent(event);
         } else if (qgraphicspolygonitem_hoverenterevent_callback != nullptr) {
-            qgraphicspolygonitem_hoverenterevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicspolygonitem_hoverenterevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::hoverEnterEvent(event);
         }
@@ -5089,7 +6166,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_hovermoveevent_isbase = false;
             QGraphicsPolygonItem::hoverMoveEvent(event);
         } else if (qgraphicspolygonitem_hovermoveevent_callback != nullptr) {
-            qgraphicspolygonitem_hovermoveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicspolygonitem_hovermoveevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::hoverMoveEvent(event);
         }
@@ -5101,7 +6180,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_hoverleaveevent_isbase = false;
             QGraphicsPolygonItem::hoverLeaveEvent(event);
         } else if (qgraphicspolygonitem_hoverleaveevent_callback != nullptr) {
-            qgraphicspolygonitem_hoverleaveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicspolygonitem_hoverleaveevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::hoverLeaveEvent(event);
         }
@@ -5113,7 +6194,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_keypressevent_isbase = false;
             QGraphicsPolygonItem::keyPressEvent(event);
         } else if (qgraphicspolygonitem_keypressevent_callback != nullptr) {
-            qgraphicspolygonitem_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicspolygonitem_keypressevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::keyPressEvent(event);
         }
@@ -5125,7 +6208,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_keyreleaseevent_isbase = false;
             QGraphicsPolygonItem::keyReleaseEvent(event);
         } else if (qgraphicspolygonitem_keyreleaseevent_callback != nullptr) {
-            qgraphicspolygonitem_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicspolygonitem_keyreleaseevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::keyReleaseEvent(event);
         }
@@ -5137,7 +6222,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_mousepressevent_isbase = false;
             QGraphicsPolygonItem::mousePressEvent(event);
         } else if (qgraphicspolygonitem_mousepressevent_callback != nullptr) {
-            qgraphicspolygonitem_mousepressevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicspolygonitem_mousepressevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::mousePressEvent(event);
         }
@@ -5149,7 +6236,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_mousemoveevent_isbase = false;
             QGraphicsPolygonItem::mouseMoveEvent(event);
         } else if (qgraphicspolygonitem_mousemoveevent_callback != nullptr) {
-            qgraphicspolygonitem_mousemoveevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicspolygonitem_mousemoveevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::mouseMoveEvent(event);
         }
@@ -5161,7 +6250,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_mousereleaseevent_isbase = false;
             QGraphicsPolygonItem::mouseReleaseEvent(event);
         } else if (qgraphicspolygonitem_mousereleaseevent_callback != nullptr) {
-            qgraphicspolygonitem_mousereleaseevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicspolygonitem_mousereleaseevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::mouseReleaseEvent(event);
         }
@@ -5173,7 +6264,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_mousedoubleclickevent_isbase = false;
             QGraphicsPolygonItem::mouseDoubleClickEvent(event);
         } else if (qgraphicspolygonitem_mousedoubleclickevent_callback != nullptr) {
-            qgraphicspolygonitem_mousedoubleclickevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicspolygonitem_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::mouseDoubleClickEvent(event);
         }
@@ -5185,7 +6278,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_wheelevent_isbase = false;
             QGraphicsPolygonItem::wheelEvent(event);
         } else if (qgraphicspolygonitem_wheelevent_callback != nullptr) {
-            qgraphicspolygonitem_wheelevent_callback(this, event);
+            QGraphicsSceneWheelEvent* cbval1 = event;
+
+            qgraphicspolygonitem_wheelevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::wheelEvent(event);
         }
@@ -5197,7 +6292,9 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_inputmethodevent_isbase = false;
             QGraphicsPolygonItem::inputMethodEvent(event);
         } else if (qgraphicspolygonitem_inputmethodevent_callback != nullptr) {
-            qgraphicspolygonitem_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qgraphicspolygonitem_inputmethodevent_callback(this, cbval1);
         } else {
             QGraphicsPolygonItem::inputMethodEvent(event);
         }
@@ -5209,7 +6306,10 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_inputmethodquery_isbase = false;
             return QGraphicsPolygonItem::inputMethodQuery(query);
         } else if (qgraphicspolygonitem_inputmethodquery_callback != nullptr) {
-            return qgraphicspolygonitem_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qgraphicspolygonitem_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsPolygonItem::inputMethodQuery(query);
         }
@@ -5221,7 +6321,13 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             qgraphicspolygonitem_itemchange_isbase = false;
             return QGraphicsPolygonItem::itemChange(change, value);
         } else if (qgraphicspolygonitem_itemchange_callback != nullptr) {
-            return qgraphicspolygonitem_itemchange_callback(this, change, value);
+            int cbval1 = static_cast<int>(change);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            QVariant* callback_ret = qgraphicspolygonitem_itemchange_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QGraphicsPolygonItem::itemChange(change, value);
         }
@@ -5274,27 +6380,90 @@ class VirtualQGraphicsPolygonItem : public QGraphicsPolygonItem {
             QGraphicsPolygonItem::prepareGeometryChange();
         }
     }
+
+    // Friend functions
+    friend bool QGraphicsPolygonItem_SupportsExtension(const QGraphicsPolygonItem* self, int extension);
+    friend bool QGraphicsPolygonItem_QBaseSupportsExtension(const QGraphicsPolygonItem* self, int extension);
+    friend void QGraphicsPolygonItem_SetExtension(QGraphicsPolygonItem* self, int extension, const QVariant* variant);
+    friend void QGraphicsPolygonItem_QBaseSetExtension(QGraphicsPolygonItem* self, int extension, const QVariant* variant);
+    friend QVariant* QGraphicsPolygonItem_Extension(const QGraphicsPolygonItem* self, const QVariant* variant);
+    friend QVariant* QGraphicsPolygonItem_QBaseExtension(const QGraphicsPolygonItem* self, const QVariant* variant);
+    friend bool QGraphicsPolygonItem_SceneEventFilter(QGraphicsPolygonItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsPolygonItem_QBaseSceneEventFilter(QGraphicsPolygonItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsPolygonItem_SceneEvent(QGraphicsPolygonItem* self, QEvent* event);
+    friend bool QGraphicsPolygonItem_QBaseSceneEvent(QGraphicsPolygonItem* self, QEvent* event);
+    friend void QGraphicsPolygonItem_ContextMenuEvent(QGraphicsPolygonItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsPolygonItem_QBaseContextMenuEvent(QGraphicsPolygonItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsPolygonItem_DragEnterEvent(QGraphicsPolygonItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPolygonItem_QBaseDragEnterEvent(QGraphicsPolygonItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPolygonItem_DragLeaveEvent(QGraphicsPolygonItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPolygonItem_QBaseDragLeaveEvent(QGraphicsPolygonItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPolygonItem_DragMoveEvent(QGraphicsPolygonItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPolygonItem_QBaseDragMoveEvent(QGraphicsPolygonItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPolygonItem_DropEvent(QGraphicsPolygonItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPolygonItem_QBaseDropEvent(QGraphicsPolygonItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPolygonItem_FocusInEvent(QGraphicsPolygonItem* self, QFocusEvent* event);
+    friend void QGraphicsPolygonItem_QBaseFocusInEvent(QGraphicsPolygonItem* self, QFocusEvent* event);
+    friend void QGraphicsPolygonItem_FocusOutEvent(QGraphicsPolygonItem* self, QFocusEvent* event);
+    friend void QGraphicsPolygonItem_QBaseFocusOutEvent(QGraphicsPolygonItem* self, QFocusEvent* event);
+    friend void QGraphicsPolygonItem_HoverEnterEvent(QGraphicsPolygonItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPolygonItem_QBaseHoverEnterEvent(QGraphicsPolygonItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPolygonItem_HoverMoveEvent(QGraphicsPolygonItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPolygonItem_QBaseHoverMoveEvent(QGraphicsPolygonItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPolygonItem_HoverLeaveEvent(QGraphicsPolygonItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPolygonItem_QBaseHoverLeaveEvent(QGraphicsPolygonItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPolygonItem_KeyPressEvent(QGraphicsPolygonItem* self, QKeyEvent* event);
+    friend void QGraphicsPolygonItem_QBaseKeyPressEvent(QGraphicsPolygonItem* self, QKeyEvent* event);
+    friend void QGraphicsPolygonItem_KeyReleaseEvent(QGraphicsPolygonItem* self, QKeyEvent* event);
+    friend void QGraphicsPolygonItem_QBaseKeyReleaseEvent(QGraphicsPolygonItem* self, QKeyEvent* event);
+    friend void QGraphicsPolygonItem_MousePressEvent(QGraphicsPolygonItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPolygonItem_QBaseMousePressEvent(QGraphicsPolygonItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPolygonItem_MouseMoveEvent(QGraphicsPolygonItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPolygonItem_QBaseMouseMoveEvent(QGraphicsPolygonItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPolygonItem_MouseReleaseEvent(QGraphicsPolygonItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPolygonItem_QBaseMouseReleaseEvent(QGraphicsPolygonItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPolygonItem_MouseDoubleClickEvent(QGraphicsPolygonItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPolygonItem_QBaseMouseDoubleClickEvent(QGraphicsPolygonItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPolygonItem_WheelEvent(QGraphicsPolygonItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsPolygonItem_QBaseWheelEvent(QGraphicsPolygonItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsPolygonItem_InputMethodEvent(QGraphicsPolygonItem* self, QInputMethodEvent* event);
+    friend void QGraphicsPolygonItem_QBaseInputMethodEvent(QGraphicsPolygonItem* self, QInputMethodEvent* event);
+    friend QVariant* QGraphicsPolygonItem_InputMethodQuery(const QGraphicsPolygonItem* self, int query);
+    friend QVariant* QGraphicsPolygonItem_QBaseInputMethodQuery(const QGraphicsPolygonItem* self, int query);
+    friend QVariant* QGraphicsPolygonItem_ItemChange(QGraphicsPolygonItem* self, int change, const QVariant* value);
+    friend QVariant* QGraphicsPolygonItem_QBaseItemChange(QGraphicsPolygonItem* self, int change, const QVariant* value);
+    friend void QGraphicsPolygonItem_UpdateMicroFocus(QGraphicsPolygonItem* self);
+    friend void QGraphicsPolygonItem_QBaseUpdateMicroFocus(QGraphicsPolygonItem* self);
+    friend void QGraphicsPolygonItem_AddToIndex(QGraphicsPolygonItem* self);
+    friend void QGraphicsPolygonItem_QBaseAddToIndex(QGraphicsPolygonItem* self);
+    friend void QGraphicsPolygonItem_RemoveFromIndex(QGraphicsPolygonItem* self);
+    friend void QGraphicsPolygonItem_QBaseRemoveFromIndex(QGraphicsPolygonItem* self);
+    friend void QGraphicsPolygonItem_PrepareGeometryChange(QGraphicsPolygonItem* self);
+    friend void QGraphicsPolygonItem_QBasePrepareGeometryChange(QGraphicsPolygonItem* self);
 };
 
 // This class is a subclass of QGraphicsLineItem so that we can call protected methods
-class VirtualQGraphicsLineItem : public QGraphicsLineItem {
+class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsLineItem = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
-    using QGraphicsLineItem_BoundingRect_Callback = QRectF (*)();
-    using QGraphicsLineItem_Shape_Callback = QPainterPath (*)();
-    using QGraphicsLineItem_Contains_Callback = bool (*)(const QGraphicsLineItem*, const QPointF&);
-    using QGraphicsLineItem_Paint_Callback = void (*)(QGraphicsLineItem*, QPainter*, const QStyleOptionGraphicsItem*, QWidget*);
-    using QGraphicsLineItem_IsObscuredBy_Callback = bool (*)(const QGraphicsLineItem*, const QGraphicsItem*);
-    using QGraphicsLineItem_OpaqueArea_Callback = QPainterPath (*)();
+    using QGraphicsLineItem_BoundingRect_Callback = QRectF* (*)();
+    using QGraphicsLineItem_Shape_Callback = QPainterPath* (*)();
+    using QGraphicsLineItem_Contains_Callback = bool (*)(const QGraphicsLineItem*, QPointF*);
+    using QGraphicsLineItem_Paint_Callback = void (*)(QGraphicsLineItem*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
+    using QGraphicsLineItem_IsObscuredBy_Callback = bool (*)(const QGraphicsLineItem*, QGraphicsItem*);
+    using QGraphicsLineItem_OpaqueArea_Callback = QPainterPath* (*)();
     using QGraphicsLineItem_Type_Callback = int (*)();
     using QGraphicsLineItem_SupportsExtension_Callback = bool (*)(const QGraphicsLineItem*, int);
-    using QGraphicsLineItem_SetExtension_Callback = void (*)(QGraphicsLineItem*, int, const QVariant&);
-    using QGraphicsLineItem_Extension_Callback = QVariant (*)(const QGraphicsLineItem*, const QVariant&);
+    using QGraphicsLineItem_SetExtension_Callback = void (*)(QGraphicsLineItem*, int, QVariant*);
+    using QGraphicsLineItem_Extension_Callback = QVariant* (*)(const QGraphicsLineItem*, QVariant*);
     using QGraphicsLineItem_Advance_Callback = void (*)(QGraphicsLineItem*, int);
-    using QGraphicsLineItem_CollidesWithItem_Callback = bool (*)(const QGraphicsLineItem*, const QGraphicsItem*, Qt::ItemSelectionMode);
-    using QGraphicsLineItem_CollidesWithPath_Callback = bool (*)(const QGraphicsLineItem*, const QPainterPath&, Qt::ItemSelectionMode);
+    using QGraphicsLineItem_CollidesWithItem_Callback = bool (*)(const QGraphicsLineItem*, QGraphicsItem*, int);
+    using QGraphicsLineItem_CollidesWithPath_Callback = bool (*)(const QGraphicsLineItem*, QPainterPath*, int);
     using QGraphicsLineItem_SceneEventFilter_Callback = bool (*)(QGraphicsLineItem*, QGraphicsItem*, QEvent*);
     using QGraphicsLineItem_SceneEvent_Callback = bool (*)(QGraphicsLineItem*, QEvent*);
     using QGraphicsLineItem_ContextMenuEvent_Callback = void (*)(QGraphicsLineItem*, QGraphicsSceneContextMenuEvent*);
@@ -5315,8 +6484,8 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
     using QGraphicsLineItem_MouseDoubleClickEvent_Callback = void (*)(QGraphicsLineItem*, QGraphicsSceneMouseEvent*);
     using QGraphicsLineItem_WheelEvent_Callback = void (*)(QGraphicsLineItem*, QGraphicsSceneWheelEvent*);
     using QGraphicsLineItem_InputMethodEvent_Callback = void (*)(QGraphicsLineItem*, QInputMethodEvent*);
-    using QGraphicsLineItem_InputMethodQuery_Callback = QVariant (*)(const QGraphicsLineItem*, Qt::InputMethodQuery);
-    using QGraphicsLineItem_ItemChange_Callback = QVariant (*)(QGraphicsLineItem*, QGraphicsItem::GraphicsItemChange, const QVariant&);
+    using QGraphicsLineItem_InputMethodQuery_Callback = QVariant* (*)(const QGraphicsLineItem*, int);
+    using QGraphicsLineItem_ItemChange_Callback = QVariant* (*)(QGraphicsLineItem*, int, QVariant*);
     using QGraphicsLineItem_UpdateMicroFocus_Callback = void (*)();
     using QGraphicsLineItem_AddToIndex_Callback = void (*)();
     using QGraphicsLineItem_RemoveFromIndex_Callback = void (*)();
@@ -5456,86 +6625,86 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
     }
 
     // Callback setters
-    void setQGraphicsLineItem_BoundingRect_Callback(QGraphicsLineItem_BoundingRect_Callback cb) { qgraphicslineitem_boundingrect_callback = cb; }
-    void setQGraphicsLineItem_Shape_Callback(QGraphicsLineItem_Shape_Callback cb) { qgraphicslineitem_shape_callback = cb; }
-    void setQGraphicsLineItem_Contains_Callback(QGraphicsLineItem_Contains_Callback cb) { qgraphicslineitem_contains_callback = cb; }
-    void setQGraphicsLineItem_Paint_Callback(QGraphicsLineItem_Paint_Callback cb) { qgraphicslineitem_paint_callback = cb; }
-    void setQGraphicsLineItem_IsObscuredBy_Callback(QGraphicsLineItem_IsObscuredBy_Callback cb) { qgraphicslineitem_isobscuredby_callback = cb; }
-    void setQGraphicsLineItem_OpaqueArea_Callback(QGraphicsLineItem_OpaqueArea_Callback cb) { qgraphicslineitem_opaquearea_callback = cb; }
-    void setQGraphicsLineItem_Type_Callback(QGraphicsLineItem_Type_Callback cb) { qgraphicslineitem_type_callback = cb; }
-    void setQGraphicsLineItem_SupportsExtension_Callback(QGraphicsLineItem_SupportsExtension_Callback cb) { qgraphicslineitem_supportsextension_callback = cb; }
-    void setQGraphicsLineItem_SetExtension_Callback(QGraphicsLineItem_SetExtension_Callback cb) { qgraphicslineitem_setextension_callback = cb; }
-    void setQGraphicsLineItem_Extension_Callback(QGraphicsLineItem_Extension_Callback cb) { qgraphicslineitem_extension_callback = cb; }
-    void setQGraphicsLineItem_Advance_Callback(QGraphicsLineItem_Advance_Callback cb) { qgraphicslineitem_advance_callback = cb; }
-    void setQGraphicsLineItem_CollidesWithItem_Callback(QGraphicsLineItem_CollidesWithItem_Callback cb) { qgraphicslineitem_collideswithitem_callback = cb; }
-    void setQGraphicsLineItem_CollidesWithPath_Callback(QGraphicsLineItem_CollidesWithPath_Callback cb) { qgraphicslineitem_collideswithpath_callback = cb; }
-    void setQGraphicsLineItem_SceneEventFilter_Callback(QGraphicsLineItem_SceneEventFilter_Callback cb) { qgraphicslineitem_sceneeventfilter_callback = cb; }
-    void setQGraphicsLineItem_SceneEvent_Callback(QGraphicsLineItem_SceneEvent_Callback cb) { qgraphicslineitem_sceneevent_callback = cb; }
-    void setQGraphicsLineItem_ContextMenuEvent_Callback(QGraphicsLineItem_ContextMenuEvent_Callback cb) { qgraphicslineitem_contextmenuevent_callback = cb; }
-    void setQGraphicsLineItem_DragEnterEvent_Callback(QGraphicsLineItem_DragEnterEvent_Callback cb) { qgraphicslineitem_dragenterevent_callback = cb; }
-    void setQGraphicsLineItem_DragLeaveEvent_Callback(QGraphicsLineItem_DragLeaveEvent_Callback cb) { qgraphicslineitem_dragleaveevent_callback = cb; }
-    void setQGraphicsLineItem_DragMoveEvent_Callback(QGraphicsLineItem_DragMoveEvent_Callback cb) { qgraphicslineitem_dragmoveevent_callback = cb; }
-    void setQGraphicsLineItem_DropEvent_Callback(QGraphicsLineItem_DropEvent_Callback cb) { qgraphicslineitem_dropevent_callback = cb; }
-    void setQGraphicsLineItem_FocusInEvent_Callback(QGraphicsLineItem_FocusInEvent_Callback cb) { qgraphicslineitem_focusinevent_callback = cb; }
-    void setQGraphicsLineItem_FocusOutEvent_Callback(QGraphicsLineItem_FocusOutEvent_Callback cb) { qgraphicslineitem_focusoutevent_callback = cb; }
-    void setQGraphicsLineItem_HoverEnterEvent_Callback(QGraphicsLineItem_HoverEnterEvent_Callback cb) { qgraphicslineitem_hoverenterevent_callback = cb; }
-    void setQGraphicsLineItem_HoverMoveEvent_Callback(QGraphicsLineItem_HoverMoveEvent_Callback cb) { qgraphicslineitem_hovermoveevent_callback = cb; }
-    void setQGraphicsLineItem_HoverLeaveEvent_Callback(QGraphicsLineItem_HoverLeaveEvent_Callback cb) { qgraphicslineitem_hoverleaveevent_callback = cb; }
-    void setQGraphicsLineItem_KeyPressEvent_Callback(QGraphicsLineItem_KeyPressEvent_Callback cb) { qgraphicslineitem_keypressevent_callback = cb; }
-    void setQGraphicsLineItem_KeyReleaseEvent_Callback(QGraphicsLineItem_KeyReleaseEvent_Callback cb) { qgraphicslineitem_keyreleaseevent_callback = cb; }
-    void setQGraphicsLineItem_MousePressEvent_Callback(QGraphicsLineItem_MousePressEvent_Callback cb) { qgraphicslineitem_mousepressevent_callback = cb; }
-    void setQGraphicsLineItem_MouseMoveEvent_Callback(QGraphicsLineItem_MouseMoveEvent_Callback cb) { qgraphicslineitem_mousemoveevent_callback = cb; }
-    void setQGraphicsLineItem_MouseReleaseEvent_Callback(QGraphicsLineItem_MouseReleaseEvent_Callback cb) { qgraphicslineitem_mousereleaseevent_callback = cb; }
-    void setQGraphicsLineItem_MouseDoubleClickEvent_Callback(QGraphicsLineItem_MouseDoubleClickEvent_Callback cb) { qgraphicslineitem_mousedoubleclickevent_callback = cb; }
-    void setQGraphicsLineItem_WheelEvent_Callback(QGraphicsLineItem_WheelEvent_Callback cb) { qgraphicslineitem_wheelevent_callback = cb; }
-    void setQGraphicsLineItem_InputMethodEvent_Callback(QGraphicsLineItem_InputMethodEvent_Callback cb) { qgraphicslineitem_inputmethodevent_callback = cb; }
-    void setQGraphicsLineItem_InputMethodQuery_Callback(QGraphicsLineItem_InputMethodQuery_Callback cb) { qgraphicslineitem_inputmethodquery_callback = cb; }
-    void setQGraphicsLineItem_ItemChange_Callback(QGraphicsLineItem_ItemChange_Callback cb) { qgraphicslineitem_itemchange_callback = cb; }
-    void setQGraphicsLineItem_UpdateMicroFocus_Callback(QGraphicsLineItem_UpdateMicroFocus_Callback cb) { qgraphicslineitem_updatemicrofocus_callback = cb; }
-    void setQGraphicsLineItem_AddToIndex_Callback(QGraphicsLineItem_AddToIndex_Callback cb) { qgraphicslineitem_addtoindex_callback = cb; }
-    void setQGraphicsLineItem_RemoveFromIndex_Callback(QGraphicsLineItem_RemoveFromIndex_Callback cb) { qgraphicslineitem_removefromindex_callback = cb; }
-    void setQGraphicsLineItem_PrepareGeometryChange_Callback(QGraphicsLineItem_PrepareGeometryChange_Callback cb) { qgraphicslineitem_preparegeometrychange_callback = cb; }
+    inline void setQGraphicsLineItem_BoundingRect_Callback(QGraphicsLineItem_BoundingRect_Callback cb) { qgraphicslineitem_boundingrect_callback = cb; }
+    inline void setQGraphicsLineItem_Shape_Callback(QGraphicsLineItem_Shape_Callback cb) { qgraphicslineitem_shape_callback = cb; }
+    inline void setQGraphicsLineItem_Contains_Callback(QGraphicsLineItem_Contains_Callback cb) { qgraphicslineitem_contains_callback = cb; }
+    inline void setQGraphicsLineItem_Paint_Callback(QGraphicsLineItem_Paint_Callback cb) { qgraphicslineitem_paint_callback = cb; }
+    inline void setQGraphicsLineItem_IsObscuredBy_Callback(QGraphicsLineItem_IsObscuredBy_Callback cb) { qgraphicslineitem_isobscuredby_callback = cb; }
+    inline void setQGraphicsLineItem_OpaqueArea_Callback(QGraphicsLineItem_OpaqueArea_Callback cb) { qgraphicslineitem_opaquearea_callback = cb; }
+    inline void setQGraphicsLineItem_Type_Callback(QGraphicsLineItem_Type_Callback cb) { qgraphicslineitem_type_callback = cb; }
+    inline void setQGraphicsLineItem_SupportsExtension_Callback(QGraphicsLineItem_SupportsExtension_Callback cb) { qgraphicslineitem_supportsextension_callback = cb; }
+    inline void setQGraphicsLineItem_SetExtension_Callback(QGraphicsLineItem_SetExtension_Callback cb) { qgraphicslineitem_setextension_callback = cb; }
+    inline void setQGraphicsLineItem_Extension_Callback(QGraphicsLineItem_Extension_Callback cb) { qgraphicslineitem_extension_callback = cb; }
+    inline void setQGraphicsLineItem_Advance_Callback(QGraphicsLineItem_Advance_Callback cb) { qgraphicslineitem_advance_callback = cb; }
+    inline void setQGraphicsLineItem_CollidesWithItem_Callback(QGraphicsLineItem_CollidesWithItem_Callback cb) { qgraphicslineitem_collideswithitem_callback = cb; }
+    inline void setQGraphicsLineItem_CollidesWithPath_Callback(QGraphicsLineItem_CollidesWithPath_Callback cb) { qgraphicslineitem_collideswithpath_callback = cb; }
+    inline void setQGraphicsLineItem_SceneEventFilter_Callback(QGraphicsLineItem_SceneEventFilter_Callback cb) { qgraphicslineitem_sceneeventfilter_callback = cb; }
+    inline void setQGraphicsLineItem_SceneEvent_Callback(QGraphicsLineItem_SceneEvent_Callback cb) { qgraphicslineitem_sceneevent_callback = cb; }
+    inline void setQGraphicsLineItem_ContextMenuEvent_Callback(QGraphicsLineItem_ContextMenuEvent_Callback cb) { qgraphicslineitem_contextmenuevent_callback = cb; }
+    inline void setQGraphicsLineItem_DragEnterEvent_Callback(QGraphicsLineItem_DragEnterEvent_Callback cb) { qgraphicslineitem_dragenterevent_callback = cb; }
+    inline void setQGraphicsLineItem_DragLeaveEvent_Callback(QGraphicsLineItem_DragLeaveEvent_Callback cb) { qgraphicslineitem_dragleaveevent_callback = cb; }
+    inline void setQGraphicsLineItem_DragMoveEvent_Callback(QGraphicsLineItem_DragMoveEvent_Callback cb) { qgraphicslineitem_dragmoveevent_callback = cb; }
+    inline void setQGraphicsLineItem_DropEvent_Callback(QGraphicsLineItem_DropEvent_Callback cb) { qgraphicslineitem_dropevent_callback = cb; }
+    inline void setQGraphicsLineItem_FocusInEvent_Callback(QGraphicsLineItem_FocusInEvent_Callback cb) { qgraphicslineitem_focusinevent_callback = cb; }
+    inline void setQGraphicsLineItem_FocusOutEvent_Callback(QGraphicsLineItem_FocusOutEvent_Callback cb) { qgraphicslineitem_focusoutevent_callback = cb; }
+    inline void setQGraphicsLineItem_HoverEnterEvent_Callback(QGraphicsLineItem_HoverEnterEvent_Callback cb) { qgraphicslineitem_hoverenterevent_callback = cb; }
+    inline void setQGraphicsLineItem_HoverMoveEvent_Callback(QGraphicsLineItem_HoverMoveEvent_Callback cb) { qgraphicslineitem_hovermoveevent_callback = cb; }
+    inline void setQGraphicsLineItem_HoverLeaveEvent_Callback(QGraphicsLineItem_HoverLeaveEvent_Callback cb) { qgraphicslineitem_hoverleaveevent_callback = cb; }
+    inline void setQGraphicsLineItem_KeyPressEvent_Callback(QGraphicsLineItem_KeyPressEvent_Callback cb) { qgraphicslineitem_keypressevent_callback = cb; }
+    inline void setQGraphicsLineItem_KeyReleaseEvent_Callback(QGraphicsLineItem_KeyReleaseEvent_Callback cb) { qgraphicslineitem_keyreleaseevent_callback = cb; }
+    inline void setQGraphicsLineItem_MousePressEvent_Callback(QGraphicsLineItem_MousePressEvent_Callback cb) { qgraphicslineitem_mousepressevent_callback = cb; }
+    inline void setQGraphicsLineItem_MouseMoveEvent_Callback(QGraphicsLineItem_MouseMoveEvent_Callback cb) { qgraphicslineitem_mousemoveevent_callback = cb; }
+    inline void setQGraphicsLineItem_MouseReleaseEvent_Callback(QGraphicsLineItem_MouseReleaseEvent_Callback cb) { qgraphicslineitem_mousereleaseevent_callback = cb; }
+    inline void setQGraphicsLineItem_MouseDoubleClickEvent_Callback(QGraphicsLineItem_MouseDoubleClickEvent_Callback cb) { qgraphicslineitem_mousedoubleclickevent_callback = cb; }
+    inline void setQGraphicsLineItem_WheelEvent_Callback(QGraphicsLineItem_WheelEvent_Callback cb) { qgraphicslineitem_wheelevent_callback = cb; }
+    inline void setQGraphicsLineItem_InputMethodEvent_Callback(QGraphicsLineItem_InputMethodEvent_Callback cb) { qgraphicslineitem_inputmethodevent_callback = cb; }
+    inline void setQGraphicsLineItem_InputMethodQuery_Callback(QGraphicsLineItem_InputMethodQuery_Callback cb) { qgraphicslineitem_inputmethodquery_callback = cb; }
+    inline void setQGraphicsLineItem_ItemChange_Callback(QGraphicsLineItem_ItemChange_Callback cb) { qgraphicslineitem_itemchange_callback = cb; }
+    inline void setQGraphicsLineItem_UpdateMicroFocus_Callback(QGraphicsLineItem_UpdateMicroFocus_Callback cb) { qgraphicslineitem_updatemicrofocus_callback = cb; }
+    inline void setQGraphicsLineItem_AddToIndex_Callback(QGraphicsLineItem_AddToIndex_Callback cb) { qgraphicslineitem_addtoindex_callback = cb; }
+    inline void setQGraphicsLineItem_RemoveFromIndex_Callback(QGraphicsLineItem_RemoveFromIndex_Callback cb) { qgraphicslineitem_removefromindex_callback = cb; }
+    inline void setQGraphicsLineItem_PrepareGeometryChange_Callback(QGraphicsLineItem_PrepareGeometryChange_Callback cb) { qgraphicslineitem_preparegeometrychange_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsLineItem_BoundingRect_IsBase(bool value) const { qgraphicslineitem_boundingrect_isbase = value; }
-    void setQGraphicsLineItem_Shape_IsBase(bool value) const { qgraphicslineitem_shape_isbase = value; }
-    void setQGraphicsLineItem_Contains_IsBase(bool value) const { qgraphicslineitem_contains_isbase = value; }
-    void setQGraphicsLineItem_Paint_IsBase(bool value) const { qgraphicslineitem_paint_isbase = value; }
-    void setQGraphicsLineItem_IsObscuredBy_IsBase(bool value) const { qgraphicslineitem_isobscuredby_isbase = value; }
-    void setQGraphicsLineItem_OpaqueArea_IsBase(bool value) const { qgraphicslineitem_opaquearea_isbase = value; }
-    void setQGraphicsLineItem_Type_IsBase(bool value) const { qgraphicslineitem_type_isbase = value; }
-    void setQGraphicsLineItem_SupportsExtension_IsBase(bool value) const { qgraphicslineitem_supportsextension_isbase = value; }
-    void setQGraphicsLineItem_SetExtension_IsBase(bool value) const { qgraphicslineitem_setextension_isbase = value; }
-    void setQGraphicsLineItem_Extension_IsBase(bool value) const { qgraphicslineitem_extension_isbase = value; }
-    void setQGraphicsLineItem_Advance_IsBase(bool value) const { qgraphicslineitem_advance_isbase = value; }
-    void setQGraphicsLineItem_CollidesWithItem_IsBase(bool value) const { qgraphicslineitem_collideswithitem_isbase = value; }
-    void setQGraphicsLineItem_CollidesWithPath_IsBase(bool value) const { qgraphicslineitem_collideswithpath_isbase = value; }
-    void setQGraphicsLineItem_SceneEventFilter_IsBase(bool value) const { qgraphicslineitem_sceneeventfilter_isbase = value; }
-    void setQGraphicsLineItem_SceneEvent_IsBase(bool value) const { qgraphicslineitem_sceneevent_isbase = value; }
-    void setQGraphicsLineItem_ContextMenuEvent_IsBase(bool value) const { qgraphicslineitem_contextmenuevent_isbase = value; }
-    void setQGraphicsLineItem_DragEnterEvent_IsBase(bool value) const { qgraphicslineitem_dragenterevent_isbase = value; }
-    void setQGraphicsLineItem_DragLeaveEvent_IsBase(bool value) const { qgraphicslineitem_dragleaveevent_isbase = value; }
-    void setQGraphicsLineItem_DragMoveEvent_IsBase(bool value) const { qgraphicslineitem_dragmoveevent_isbase = value; }
-    void setQGraphicsLineItem_DropEvent_IsBase(bool value) const { qgraphicslineitem_dropevent_isbase = value; }
-    void setQGraphicsLineItem_FocusInEvent_IsBase(bool value) const { qgraphicslineitem_focusinevent_isbase = value; }
-    void setQGraphicsLineItem_FocusOutEvent_IsBase(bool value) const { qgraphicslineitem_focusoutevent_isbase = value; }
-    void setQGraphicsLineItem_HoverEnterEvent_IsBase(bool value) const { qgraphicslineitem_hoverenterevent_isbase = value; }
-    void setQGraphicsLineItem_HoverMoveEvent_IsBase(bool value) const { qgraphicslineitem_hovermoveevent_isbase = value; }
-    void setQGraphicsLineItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicslineitem_hoverleaveevent_isbase = value; }
-    void setQGraphicsLineItem_KeyPressEvent_IsBase(bool value) const { qgraphicslineitem_keypressevent_isbase = value; }
-    void setQGraphicsLineItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicslineitem_keyreleaseevent_isbase = value; }
-    void setQGraphicsLineItem_MousePressEvent_IsBase(bool value) const { qgraphicslineitem_mousepressevent_isbase = value; }
-    void setQGraphicsLineItem_MouseMoveEvent_IsBase(bool value) const { qgraphicslineitem_mousemoveevent_isbase = value; }
-    void setQGraphicsLineItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicslineitem_mousereleaseevent_isbase = value; }
-    void setQGraphicsLineItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicslineitem_mousedoubleclickevent_isbase = value; }
-    void setQGraphicsLineItem_WheelEvent_IsBase(bool value) const { qgraphicslineitem_wheelevent_isbase = value; }
-    void setQGraphicsLineItem_InputMethodEvent_IsBase(bool value) const { qgraphicslineitem_inputmethodevent_isbase = value; }
-    void setQGraphicsLineItem_InputMethodQuery_IsBase(bool value) const { qgraphicslineitem_inputmethodquery_isbase = value; }
-    void setQGraphicsLineItem_ItemChange_IsBase(bool value) const { qgraphicslineitem_itemchange_isbase = value; }
-    void setQGraphicsLineItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicslineitem_updatemicrofocus_isbase = value; }
-    void setQGraphicsLineItem_AddToIndex_IsBase(bool value) const { qgraphicslineitem_addtoindex_isbase = value; }
-    void setQGraphicsLineItem_RemoveFromIndex_IsBase(bool value) const { qgraphicslineitem_removefromindex_isbase = value; }
-    void setQGraphicsLineItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicslineitem_preparegeometrychange_isbase = value; }
+    inline void setQGraphicsLineItem_BoundingRect_IsBase(bool value) const { qgraphicslineitem_boundingrect_isbase = value; }
+    inline void setQGraphicsLineItem_Shape_IsBase(bool value) const { qgraphicslineitem_shape_isbase = value; }
+    inline void setQGraphicsLineItem_Contains_IsBase(bool value) const { qgraphicslineitem_contains_isbase = value; }
+    inline void setQGraphicsLineItem_Paint_IsBase(bool value) const { qgraphicslineitem_paint_isbase = value; }
+    inline void setQGraphicsLineItem_IsObscuredBy_IsBase(bool value) const { qgraphicslineitem_isobscuredby_isbase = value; }
+    inline void setQGraphicsLineItem_OpaqueArea_IsBase(bool value) const { qgraphicslineitem_opaquearea_isbase = value; }
+    inline void setQGraphicsLineItem_Type_IsBase(bool value) const { qgraphicslineitem_type_isbase = value; }
+    inline void setQGraphicsLineItem_SupportsExtension_IsBase(bool value) const { qgraphicslineitem_supportsextension_isbase = value; }
+    inline void setQGraphicsLineItem_SetExtension_IsBase(bool value) const { qgraphicslineitem_setextension_isbase = value; }
+    inline void setQGraphicsLineItem_Extension_IsBase(bool value) const { qgraphicslineitem_extension_isbase = value; }
+    inline void setQGraphicsLineItem_Advance_IsBase(bool value) const { qgraphicslineitem_advance_isbase = value; }
+    inline void setQGraphicsLineItem_CollidesWithItem_IsBase(bool value) const { qgraphicslineitem_collideswithitem_isbase = value; }
+    inline void setQGraphicsLineItem_CollidesWithPath_IsBase(bool value) const { qgraphicslineitem_collideswithpath_isbase = value; }
+    inline void setQGraphicsLineItem_SceneEventFilter_IsBase(bool value) const { qgraphicslineitem_sceneeventfilter_isbase = value; }
+    inline void setQGraphicsLineItem_SceneEvent_IsBase(bool value) const { qgraphicslineitem_sceneevent_isbase = value; }
+    inline void setQGraphicsLineItem_ContextMenuEvent_IsBase(bool value) const { qgraphicslineitem_contextmenuevent_isbase = value; }
+    inline void setQGraphicsLineItem_DragEnterEvent_IsBase(bool value) const { qgraphicslineitem_dragenterevent_isbase = value; }
+    inline void setQGraphicsLineItem_DragLeaveEvent_IsBase(bool value) const { qgraphicslineitem_dragleaveevent_isbase = value; }
+    inline void setQGraphicsLineItem_DragMoveEvent_IsBase(bool value) const { qgraphicslineitem_dragmoveevent_isbase = value; }
+    inline void setQGraphicsLineItem_DropEvent_IsBase(bool value) const { qgraphicslineitem_dropevent_isbase = value; }
+    inline void setQGraphicsLineItem_FocusInEvent_IsBase(bool value) const { qgraphicslineitem_focusinevent_isbase = value; }
+    inline void setQGraphicsLineItem_FocusOutEvent_IsBase(bool value) const { qgraphicslineitem_focusoutevent_isbase = value; }
+    inline void setQGraphicsLineItem_HoverEnterEvent_IsBase(bool value) const { qgraphicslineitem_hoverenterevent_isbase = value; }
+    inline void setQGraphicsLineItem_HoverMoveEvent_IsBase(bool value) const { qgraphicslineitem_hovermoveevent_isbase = value; }
+    inline void setQGraphicsLineItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicslineitem_hoverleaveevent_isbase = value; }
+    inline void setQGraphicsLineItem_KeyPressEvent_IsBase(bool value) const { qgraphicslineitem_keypressevent_isbase = value; }
+    inline void setQGraphicsLineItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicslineitem_keyreleaseevent_isbase = value; }
+    inline void setQGraphicsLineItem_MousePressEvent_IsBase(bool value) const { qgraphicslineitem_mousepressevent_isbase = value; }
+    inline void setQGraphicsLineItem_MouseMoveEvent_IsBase(bool value) const { qgraphicslineitem_mousemoveevent_isbase = value; }
+    inline void setQGraphicsLineItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicslineitem_mousereleaseevent_isbase = value; }
+    inline void setQGraphicsLineItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicslineitem_mousedoubleclickevent_isbase = value; }
+    inline void setQGraphicsLineItem_WheelEvent_IsBase(bool value) const { qgraphicslineitem_wheelevent_isbase = value; }
+    inline void setQGraphicsLineItem_InputMethodEvent_IsBase(bool value) const { qgraphicslineitem_inputmethodevent_isbase = value; }
+    inline void setQGraphicsLineItem_InputMethodQuery_IsBase(bool value) const { qgraphicslineitem_inputmethodquery_isbase = value; }
+    inline void setQGraphicsLineItem_ItemChange_IsBase(bool value) const { qgraphicslineitem_itemchange_isbase = value; }
+    inline void setQGraphicsLineItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicslineitem_updatemicrofocus_isbase = value; }
+    inline void setQGraphicsLineItem_AddToIndex_IsBase(bool value) const { qgraphicslineitem_addtoindex_isbase = value; }
+    inline void setQGraphicsLineItem_RemoveFromIndex_IsBase(bool value) const { qgraphicslineitem_removefromindex_isbase = value; }
+    inline void setQGraphicsLineItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicslineitem_preparegeometrychange_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF boundingRect() const override {
@@ -5543,7 +6712,8 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_boundingrect_isbase = false;
             return QGraphicsLineItem::boundingRect();
         } else if (qgraphicslineitem_boundingrect_callback != nullptr) {
-            return qgraphicslineitem_boundingrect_callback();
+            QRectF* callback_ret = qgraphicslineitem_boundingrect_callback();
+            return *callback_ret;
         } else {
             return QGraphicsLineItem::boundingRect();
         }
@@ -5555,7 +6725,8 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_shape_isbase = false;
             return QGraphicsLineItem::shape();
         } else if (qgraphicslineitem_shape_callback != nullptr) {
-            return qgraphicslineitem_shape_callback();
+            QPainterPath* callback_ret = qgraphicslineitem_shape_callback();
+            return *callback_ret;
         } else {
             return QGraphicsLineItem::shape();
         }
@@ -5567,7 +6738,12 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_contains_isbase = false;
             return QGraphicsLineItem::contains(point);
         } else if (qgraphicslineitem_contains_callback != nullptr) {
-            return qgraphicslineitem_contains_callback(this, point);
+            const QPointF& point_ret = point;
+            // Cast returned reference into pointer
+            QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
+
+            bool callback_ret = qgraphicslineitem_contains_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsLineItem::contains(point);
         }
@@ -5579,7 +6755,11 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_paint_isbase = false;
             QGraphicsLineItem::paint(painter, option, widget);
         } else if (qgraphicslineitem_paint_callback != nullptr) {
-            qgraphicslineitem_paint_callback(this, painter, option, widget);
+            QPainter* cbval1 = painter;
+            QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
+            QWidget* cbval3 = widget;
+
+            qgraphicslineitem_paint_callback(this, cbval1, cbval2, cbval3);
         } else {
             QGraphicsLineItem::paint(painter, option, widget);
         }
@@ -5591,7 +6771,10 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_isobscuredby_isbase = false;
             return QGraphicsLineItem::isObscuredBy(item);
         } else if (qgraphicslineitem_isobscuredby_callback != nullptr) {
-            return qgraphicslineitem_isobscuredby_callback(this, item);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)item;
+
+            bool callback_ret = qgraphicslineitem_isobscuredby_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsLineItem::isObscuredBy(item);
         }
@@ -5603,7 +6786,8 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_opaquearea_isbase = false;
             return QGraphicsLineItem::opaqueArea();
         } else if (qgraphicslineitem_opaquearea_callback != nullptr) {
-            return qgraphicslineitem_opaquearea_callback();
+            QPainterPath* callback_ret = qgraphicslineitem_opaquearea_callback();
+            return *callback_ret;
         } else {
             return QGraphicsLineItem::opaqueArea();
         }
@@ -5615,7 +6799,8 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_type_isbase = false;
             return QGraphicsLineItem::type();
         } else if (qgraphicslineitem_type_callback != nullptr) {
-            return qgraphicslineitem_type_callback();
+            int callback_ret = qgraphicslineitem_type_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsLineItem::type();
         }
@@ -5627,7 +6812,10 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_supportsextension_isbase = false;
             return QGraphicsLineItem::supportsExtension(extension);
         } else if (qgraphicslineitem_supportsextension_callback != nullptr) {
-            return qgraphicslineitem_supportsextension_callback(this, extension);
+            int cbval1 = static_cast<int>(extension);
+
+            bool callback_ret = qgraphicslineitem_supportsextension_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsLineItem::supportsExtension(extension);
         }
@@ -5639,7 +6827,12 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_setextension_isbase = false;
             QGraphicsLineItem::setExtension(extension, variant);
         } else if (qgraphicslineitem_setextension_callback != nullptr) {
-            qgraphicslineitem_setextension_callback(this, extension, variant);
+            int cbval1 = static_cast<int>(extension);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
+
+            qgraphicslineitem_setextension_callback(this, cbval1, cbval2);
         } else {
             QGraphicsLineItem::setExtension(extension, variant);
         }
@@ -5651,7 +6844,12 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_extension_isbase = false;
             return QGraphicsLineItem::extension(variant);
         } else if (qgraphicslineitem_extension_callback != nullptr) {
-            return qgraphicslineitem_extension_callback(this, variant);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
+
+            QVariant* callback_ret = qgraphicslineitem_extension_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsLineItem::extension(variant);
         }
@@ -5663,7 +6861,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_advance_isbase = false;
             QGraphicsLineItem::advance(phase);
         } else if (qgraphicslineitem_advance_callback != nullptr) {
-            qgraphicslineitem_advance_callback(this, phase);
+            int cbval1 = phase;
+
+            qgraphicslineitem_advance_callback(this, cbval1);
         } else {
             QGraphicsLineItem::advance(phase);
         }
@@ -5675,7 +6875,11 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_collideswithitem_isbase = false;
             return QGraphicsLineItem::collidesWithItem(other, mode);
         } else if (qgraphicslineitem_collideswithitem_callback != nullptr) {
-            return qgraphicslineitem_collideswithitem_callback(this, other, mode);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)other;
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicslineitem_collideswithitem_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsLineItem::collidesWithItem(other, mode);
         }
@@ -5687,7 +6891,13 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_collideswithpath_isbase = false;
             return QGraphicsLineItem::collidesWithPath(path, mode);
         } else if (qgraphicslineitem_collideswithpath_callback != nullptr) {
-            return qgraphicslineitem_collideswithpath_callback(this, path, mode);
+            const QPainterPath& path_ret = path;
+            // Cast returned reference into pointer
+            QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicslineitem_collideswithpath_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsLineItem::collidesWithPath(path, mode);
         }
@@ -5699,7 +6909,11 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_sceneeventfilter_isbase = false;
             return QGraphicsLineItem::sceneEventFilter(watched, event);
         } else if (qgraphicslineitem_sceneeventfilter_callback != nullptr) {
-            return qgraphicslineitem_sceneeventfilter_callback(this, watched, event);
+            QGraphicsItem* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicslineitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsLineItem::sceneEventFilter(watched, event);
         }
@@ -5711,7 +6925,10 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_sceneevent_isbase = false;
             return QGraphicsLineItem::sceneEvent(event);
         } else if (qgraphicslineitem_sceneevent_callback != nullptr) {
-            return qgraphicslineitem_sceneevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgraphicslineitem_sceneevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsLineItem::sceneEvent(event);
         }
@@ -5723,7 +6940,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_contextmenuevent_isbase = false;
             QGraphicsLineItem::contextMenuEvent(event);
         } else if (qgraphicslineitem_contextmenuevent_callback != nullptr) {
-            qgraphicslineitem_contextmenuevent_callback(this, event);
+            QGraphicsSceneContextMenuEvent* cbval1 = event;
+
+            qgraphicslineitem_contextmenuevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::contextMenuEvent(event);
         }
@@ -5735,7 +6954,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_dragenterevent_isbase = false;
             QGraphicsLineItem::dragEnterEvent(event);
         } else if (qgraphicslineitem_dragenterevent_callback != nullptr) {
-            qgraphicslineitem_dragenterevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicslineitem_dragenterevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::dragEnterEvent(event);
         }
@@ -5747,7 +6968,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_dragleaveevent_isbase = false;
             QGraphicsLineItem::dragLeaveEvent(event);
         } else if (qgraphicslineitem_dragleaveevent_callback != nullptr) {
-            qgraphicslineitem_dragleaveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicslineitem_dragleaveevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::dragLeaveEvent(event);
         }
@@ -5759,7 +6982,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_dragmoveevent_isbase = false;
             QGraphicsLineItem::dragMoveEvent(event);
         } else if (qgraphicslineitem_dragmoveevent_callback != nullptr) {
-            qgraphicslineitem_dragmoveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicslineitem_dragmoveevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::dragMoveEvent(event);
         }
@@ -5771,7 +6996,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_dropevent_isbase = false;
             QGraphicsLineItem::dropEvent(event);
         } else if (qgraphicslineitem_dropevent_callback != nullptr) {
-            qgraphicslineitem_dropevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicslineitem_dropevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::dropEvent(event);
         }
@@ -5783,7 +7010,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_focusinevent_isbase = false;
             QGraphicsLineItem::focusInEvent(event);
         } else if (qgraphicslineitem_focusinevent_callback != nullptr) {
-            qgraphicslineitem_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicslineitem_focusinevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::focusInEvent(event);
         }
@@ -5795,7 +7024,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_focusoutevent_isbase = false;
             QGraphicsLineItem::focusOutEvent(event);
         } else if (qgraphicslineitem_focusoutevent_callback != nullptr) {
-            qgraphicslineitem_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicslineitem_focusoutevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::focusOutEvent(event);
         }
@@ -5807,7 +7038,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_hoverenterevent_isbase = false;
             QGraphicsLineItem::hoverEnterEvent(event);
         } else if (qgraphicslineitem_hoverenterevent_callback != nullptr) {
-            qgraphicslineitem_hoverenterevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicslineitem_hoverenterevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::hoverEnterEvent(event);
         }
@@ -5819,7 +7052,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_hovermoveevent_isbase = false;
             QGraphicsLineItem::hoverMoveEvent(event);
         } else if (qgraphicslineitem_hovermoveevent_callback != nullptr) {
-            qgraphicslineitem_hovermoveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicslineitem_hovermoveevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::hoverMoveEvent(event);
         }
@@ -5831,7 +7066,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_hoverleaveevent_isbase = false;
             QGraphicsLineItem::hoverLeaveEvent(event);
         } else if (qgraphicslineitem_hoverleaveevent_callback != nullptr) {
-            qgraphicslineitem_hoverleaveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicslineitem_hoverleaveevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::hoverLeaveEvent(event);
         }
@@ -5843,7 +7080,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_keypressevent_isbase = false;
             QGraphicsLineItem::keyPressEvent(event);
         } else if (qgraphicslineitem_keypressevent_callback != nullptr) {
-            qgraphicslineitem_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicslineitem_keypressevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::keyPressEvent(event);
         }
@@ -5855,7 +7094,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_keyreleaseevent_isbase = false;
             QGraphicsLineItem::keyReleaseEvent(event);
         } else if (qgraphicslineitem_keyreleaseevent_callback != nullptr) {
-            qgraphicslineitem_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicslineitem_keyreleaseevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::keyReleaseEvent(event);
         }
@@ -5867,7 +7108,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_mousepressevent_isbase = false;
             QGraphicsLineItem::mousePressEvent(event);
         } else if (qgraphicslineitem_mousepressevent_callback != nullptr) {
-            qgraphicslineitem_mousepressevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicslineitem_mousepressevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::mousePressEvent(event);
         }
@@ -5879,7 +7122,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_mousemoveevent_isbase = false;
             QGraphicsLineItem::mouseMoveEvent(event);
         } else if (qgraphicslineitem_mousemoveevent_callback != nullptr) {
-            qgraphicslineitem_mousemoveevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicslineitem_mousemoveevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::mouseMoveEvent(event);
         }
@@ -5891,7 +7136,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_mousereleaseevent_isbase = false;
             QGraphicsLineItem::mouseReleaseEvent(event);
         } else if (qgraphicslineitem_mousereleaseevent_callback != nullptr) {
-            qgraphicslineitem_mousereleaseevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicslineitem_mousereleaseevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::mouseReleaseEvent(event);
         }
@@ -5903,7 +7150,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_mousedoubleclickevent_isbase = false;
             QGraphicsLineItem::mouseDoubleClickEvent(event);
         } else if (qgraphicslineitem_mousedoubleclickevent_callback != nullptr) {
-            qgraphicslineitem_mousedoubleclickevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicslineitem_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::mouseDoubleClickEvent(event);
         }
@@ -5915,7 +7164,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_wheelevent_isbase = false;
             QGraphicsLineItem::wheelEvent(event);
         } else if (qgraphicslineitem_wheelevent_callback != nullptr) {
-            qgraphicslineitem_wheelevent_callback(this, event);
+            QGraphicsSceneWheelEvent* cbval1 = event;
+
+            qgraphicslineitem_wheelevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::wheelEvent(event);
         }
@@ -5927,7 +7178,9 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_inputmethodevent_isbase = false;
             QGraphicsLineItem::inputMethodEvent(event);
         } else if (qgraphicslineitem_inputmethodevent_callback != nullptr) {
-            qgraphicslineitem_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qgraphicslineitem_inputmethodevent_callback(this, cbval1);
         } else {
             QGraphicsLineItem::inputMethodEvent(event);
         }
@@ -5939,7 +7192,10 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_inputmethodquery_isbase = false;
             return QGraphicsLineItem::inputMethodQuery(query);
         } else if (qgraphicslineitem_inputmethodquery_callback != nullptr) {
-            return qgraphicslineitem_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qgraphicslineitem_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsLineItem::inputMethodQuery(query);
         }
@@ -5951,7 +7207,13 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             qgraphicslineitem_itemchange_isbase = false;
             return QGraphicsLineItem::itemChange(change, value);
         } else if (qgraphicslineitem_itemchange_callback != nullptr) {
-            return qgraphicslineitem_itemchange_callback(this, change, value);
+            int cbval1 = static_cast<int>(change);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            QVariant* callback_ret = qgraphicslineitem_itemchange_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QGraphicsLineItem::itemChange(change, value);
         }
@@ -6004,27 +7266,90 @@ class VirtualQGraphicsLineItem : public QGraphicsLineItem {
             QGraphicsLineItem::prepareGeometryChange();
         }
     }
+
+    // Friend functions
+    friend bool QGraphicsLineItem_SupportsExtension(const QGraphicsLineItem* self, int extension);
+    friend bool QGraphicsLineItem_QBaseSupportsExtension(const QGraphicsLineItem* self, int extension);
+    friend void QGraphicsLineItem_SetExtension(QGraphicsLineItem* self, int extension, const QVariant* variant);
+    friend void QGraphicsLineItem_QBaseSetExtension(QGraphicsLineItem* self, int extension, const QVariant* variant);
+    friend QVariant* QGraphicsLineItem_Extension(const QGraphicsLineItem* self, const QVariant* variant);
+    friend QVariant* QGraphicsLineItem_QBaseExtension(const QGraphicsLineItem* self, const QVariant* variant);
+    friend bool QGraphicsLineItem_SceneEventFilter(QGraphicsLineItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsLineItem_QBaseSceneEventFilter(QGraphicsLineItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsLineItem_SceneEvent(QGraphicsLineItem* self, QEvent* event);
+    friend bool QGraphicsLineItem_QBaseSceneEvent(QGraphicsLineItem* self, QEvent* event);
+    friend void QGraphicsLineItem_ContextMenuEvent(QGraphicsLineItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsLineItem_QBaseContextMenuEvent(QGraphicsLineItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsLineItem_DragEnterEvent(QGraphicsLineItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsLineItem_QBaseDragEnterEvent(QGraphicsLineItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsLineItem_DragLeaveEvent(QGraphicsLineItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsLineItem_QBaseDragLeaveEvent(QGraphicsLineItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsLineItem_DragMoveEvent(QGraphicsLineItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsLineItem_QBaseDragMoveEvent(QGraphicsLineItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsLineItem_DropEvent(QGraphicsLineItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsLineItem_QBaseDropEvent(QGraphicsLineItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsLineItem_FocusInEvent(QGraphicsLineItem* self, QFocusEvent* event);
+    friend void QGraphicsLineItem_QBaseFocusInEvent(QGraphicsLineItem* self, QFocusEvent* event);
+    friend void QGraphicsLineItem_FocusOutEvent(QGraphicsLineItem* self, QFocusEvent* event);
+    friend void QGraphicsLineItem_QBaseFocusOutEvent(QGraphicsLineItem* self, QFocusEvent* event);
+    friend void QGraphicsLineItem_HoverEnterEvent(QGraphicsLineItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsLineItem_QBaseHoverEnterEvent(QGraphicsLineItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsLineItem_HoverMoveEvent(QGraphicsLineItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsLineItem_QBaseHoverMoveEvent(QGraphicsLineItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsLineItem_HoverLeaveEvent(QGraphicsLineItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsLineItem_QBaseHoverLeaveEvent(QGraphicsLineItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsLineItem_KeyPressEvent(QGraphicsLineItem* self, QKeyEvent* event);
+    friend void QGraphicsLineItem_QBaseKeyPressEvent(QGraphicsLineItem* self, QKeyEvent* event);
+    friend void QGraphicsLineItem_KeyReleaseEvent(QGraphicsLineItem* self, QKeyEvent* event);
+    friend void QGraphicsLineItem_QBaseKeyReleaseEvent(QGraphicsLineItem* self, QKeyEvent* event);
+    friend void QGraphicsLineItem_MousePressEvent(QGraphicsLineItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsLineItem_QBaseMousePressEvent(QGraphicsLineItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsLineItem_MouseMoveEvent(QGraphicsLineItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsLineItem_QBaseMouseMoveEvent(QGraphicsLineItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsLineItem_MouseReleaseEvent(QGraphicsLineItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsLineItem_QBaseMouseReleaseEvent(QGraphicsLineItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsLineItem_MouseDoubleClickEvent(QGraphicsLineItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsLineItem_QBaseMouseDoubleClickEvent(QGraphicsLineItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsLineItem_WheelEvent(QGraphicsLineItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsLineItem_QBaseWheelEvent(QGraphicsLineItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsLineItem_InputMethodEvent(QGraphicsLineItem* self, QInputMethodEvent* event);
+    friend void QGraphicsLineItem_QBaseInputMethodEvent(QGraphicsLineItem* self, QInputMethodEvent* event);
+    friend QVariant* QGraphicsLineItem_InputMethodQuery(const QGraphicsLineItem* self, int query);
+    friend QVariant* QGraphicsLineItem_QBaseInputMethodQuery(const QGraphicsLineItem* self, int query);
+    friend QVariant* QGraphicsLineItem_ItemChange(QGraphicsLineItem* self, int change, const QVariant* value);
+    friend QVariant* QGraphicsLineItem_QBaseItemChange(QGraphicsLineItem* self, int change, const QVariant* value);
+    friend void QGraphicsLineItem_UpdateMicroFocus(QGraphicsLineItem* self);
+    friend void QGraphicsLineItem_QBaseUpdateMicroFocus(QGraphicsLineItem* self);
+    friend void QGraphicsLineItem_AddToIndex(QGraphicsLineItem* self);
+    friend void QGraphicsLineItem_QBaseAddToIndex(QGraphicsLineItem* self);
+    friend void QGraphicsLineItem_RemoveFromIndex(QGraphicsLineItem* self);
+    friend void QGraphicsLineItem_QBaseRemoveFromIndex(QGraphicsLineItem* self);
+    friend void QGraphicsLineItem_PrepareGeometryChange(QGraphicsLineItem* self);
+    friend void QGraphicsLineItem_QBasePrepareGeometryChange(QGraphicsLineItem* self);
 };
 
 // This class is a subclass of QGraphicsPixmapItem so that we can call protected methods
-class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
+class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsPixmapItem = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
-    using QGraphicsPixmapItem_BoundingRect_Callback = QRectF (*)();
-    using QGraphicsPixmapItem_Shape_Callback = QPainterPath (*)();
-    using QGraphicsPixmapItem_Contains_Callback = bool (*)(const QGraphicsPixmapItem*, const QPointF&);
-    using QGraphicsPixmapItem_Paint_Callback = void (*)(QGraphicsPixmapItem*, QPainter*, const QStyleOptionGraphicsItem*, QWidget*);
-    using QGraphicsPixmapItem_IsObscuredBy_Callback = bool (*)(const QGraphicsPixmapItem*, const QGraphicsItem*);
-    using QGraphicsPixmapItem_OpaqueArea_Callback = QPainterPath (*)();
+    using QGraphicsPixmapItem_BoundingRect_Callback = QRectF* (*)();
+    using QGraphicsPixmapItem_Shape_Callback = QPainterPath* (*)();
+    using QGraphicsPixmapItem_Contains_Callback = bool (*)(const QGraphicsPixmapItem*, QPointF*);
+    using QGraphicsPixmapItem_Paint_Callback = void (*)(QGraphicsPixmapItem*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
+    using QGraphicsPixmapItem_IsObscuredBy_Callback = bool (*)(const QGraphicsPixmapItem*, QGraphicsItem*);
+    using QGraphicsPixmapItem_OpaqueArea_Callback = QPainterPath* (*)();
     using QGraphicsPixmapItem_Type_Callback = int (*)();
     using QGraphicsPixmapItem_SupportsExtension_Callback = bool (*)(const QGraphicsPixmapItem*, int);
-    using QGraphicsPixmapItem_SetExtension_Callback = void (*)(QGraphicsPixmapItem*, int, const QVariant&);
-    using QGraphicsPixmapItem_Extension_Callback = QVariant (*)(const QGraphicsPixmapItem*, const QVariant&);
+    using QGraphicsPixmapItem_SetExtension_Callback = void (*)(QGraphicsPixmapItem*, int, QVariant*);
+    using QGraphicsPixmapItem_Extension_Callback = QVariant* (*)(const QGraphicsPixmapItem*, QVariant*);
     using QGraphicsPixmapItem_Advance_Callback = void (*)(QGraphicsPixmapItem*, int);
-    using QGraphicsPixmapItem_CollidesWithItem_Callback = bool (*)(const QGraphicsPixmapItem*, const QGraphicsItem*, Qt::ItemSelectionMode);
-    using QGraphicsPixmapItem_CollidesWithPath_Callback = bool (*)(const QGraphicsPixmapItem*, const QPainterPath&, Qt::ItemSelectionMode);
+    using QGraphicsPixmapItem_CollidesWithItem_Callback = bool (*)(const QGraphicsPixmapItem*, QGraphicsItem*, int);
+    using QGraphicsPixmapItem_CollidesWithPath_Callback = bool (*)(const QGraphicsPixmapItem*, QPainterPath*, int);
     using QGraphicsPixmapItem_SceneEventFilter_Callback = bool (*)(QGraphicsPixmapItem*, QGraphicsItem*, QEvent*);
     using QGraphicsPixmapItem_SceneEvent_Callback = bool (*)(QGraphicsPixmapItem*, QEvent*);
     using QGraphicsPixmapItem_ContextMenuEvent_Callback = void (*)(QGraphicsPixmapItem*, QGraphicsSceneContextMenuEvent*);
@@ -6045,8 +7370,8 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
     using QGraphicsPixmapItem_MouseDoubleClickEvent_Callback = void (*)(QGraphicsPixmapItem*, QGraphicsSceneMouseEvent*);
     using QGraphicsPixmapItem_WheelEvent_Callback = void (*)(QGraphicsPixmapItem*, QGraphicsSceneWheelEvent*);
     using QGraphicsPixmapItem_InputMethodEvent_Callback = void (*)(QGraphicsPixmapItem*, QInputMethodEvent*);
-    using QGraphicsPixmapItem_InputMethodQuery_Callback = QVariant (*)(const QGraphicsPixmapItem*, Qt::InputMethodQuery);
-    using QGraphicsPixmapItem_ItemChange_Callback = QVariant (*)(QGraphicsPixmapItem*, QGraphicsItem::GraphicsItemChange, const QVariant&);
+    using QGraphicsPixmapItem_InputMethodQuery_Callback = QVariant* (*)(const QGraphicsPixmapItem*, int);
+    using QGraphicsPixmapItem_ItemChange_Callback = QVariant* (*)(QGraphicsPixmapItem*, int, QVariant*);
     using QGraphicsPixmapItem_UpdateMicroFocus_Callback = void (*)();
     using QGraphicsPixmapItem_AddToIndex_Callback = void (*)();
     using QGraphicsPixmapItem_RemoveFromIndex_Callback = void (*)();
@@ -6184,86 +7509,86 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
     }
 
     // Callback setters
-    void setQGraphicsPixmapItem_BoundingRect_Callback(QGraphicsPixmapItem_BoundingRect_Callback cb) { qgraphicspixmapitem_boundingrect_callback = cb; }
-    void setQGraphicsPixmapItem_Shape_Callback(QGraphicsPixmapItem_Shape_Callback cb) { qgraphicspixmapitem_shape_callback = cb; }
-    void setQGraphicsPixmapItem_Contains_Callback(QGraphicsPixmapItem_Contains_Callback cb) { qgraphicspixmapitem_contains_callback = cb; }
-    void setQGraphicsPixmapItem_Paint_Callback(QGraphicsPixmapItem_Paint_Callback cb) { qgraphicspixmapitem_paint_callback = cb; }
-    void setQGraphicsPixmapItem_IsObscuredBy_Callback(QGraphicsPixmapItem_IsObscuredBy_Callback cb) { qgraphicspixmapitem_isobscuredby_callback = cb; }
-    void setQGraphicsPixmapItem_OpaqueArea_Callback(QGraphicsPixmapItem_OpaqueArea_Callback cb) { qgraphicspixmapitem_opaquearea_callback = cb; }
-    void setQGraphicsPixmapItem_Type_Callback(QGraphicsPixmapItem_Type_Callback cb) { qgraphicspixmapitem_type_callback = cb; }
-    void setQGraphicsPixmapItem_SupportsExtension_Callback(QGraphicsPixmapItem_SupportsExtension_Callback cb) { qgraphicspixmapitem_supportsextension_callback = cb; }
-    void setQGraphicsPixmapItem_SetExtension_Callback(QGraphicsPixmapItem_SetExtension_Callback cb) { qgraphicspixmapitem_setextension_callback = cb; }
-    void setQGraphicsPixmapItem_Extension_Callback(QGraphicsPixmapItem_Extension_Callback cb) { qgraphicspixmapitem_extension_callback = cb; }
-    void setQGraphicsPixmapItem_Advance_Callback(QGraphicsPixmapItem_Advance_Callback cb) { qgraphicspixmapitem_advance_callback = cb; }
-    void setQGraphicsPixmapItem_CollidesWithItem_Callback(QGraphicsPixmapItem_CollidesWithItem_Callback cb) { qgraphicspixmapitem_collideswithitem_callback = cb; }
-    void setQGraphicsPixmapItem_CollidesWithPath_Callback(QGraphicsPixmapItem_CollidesWithPath_Callback cb) { qgraphicspixmapitem_collideswithpath_callback = cb; }
-    void setQGraphicsPixmapItem_SceneEventFilter_Callback(QGraphicsPixmapItem_SceneEventFilter_Callback cb) { qgraphicspixmapitem_sceneeventfilter_callback = cb; }
-    void setQGraphicsPixmapItem_SceneEvent_Callback(QGraphicsPixmapItem_SceneEvent_Callback cb) { qgraphicspixmapitem_sceneevent_callback = cb; }
-    void setQGraphicsPixmapItem_ContextMenuEvent_Callback(QGraphicsPixmapItem_ContextMenuEvent_Callback cb) { qgraphicspixmapitem_contextmenuevent_callback = cb; }
-    void setQGraphicsPixmapItem_DragEnterEvent_Callback(QGraphicsPixmapItem_DragEnterEvent_Callback cb) { qgraphicspixmapitem_dragenterevent_callback = cb; }
-    void setQGraphicsPixmapItem_DragLeaveEvent_Callback(QGraphicsPixmapItem_DragLeaveEvent_Callback cb) { qgraphicspixmapitem_dragleaveevent_callback = cb; }
-    void setQGraphicsPixmapItem_DragMoveEvent_Callback(QGraphicsPixmapItem_DragMoveEvent_Callback cb) { qgraphicspixmapitem_dragmoveevent_callback = cb; }
-    void setQGraphicsPixmapItem_DropEvent_Callback(QGraphicsPixmapItem_DropEvent_Callback cb) { qgraphicspixmapitem_dropevent_callback = cb; }
-    void setQGraphicsPixmapItem_FocusInEvent_Callback(QGraphicsPixmapItem_FocusInEvent_Callback cb) { qgraphicspixmapitem_focusinevent_callback = cb; }
-    void setQGraphicsPixmapItem_FocusOutEvent_Callback(QGraphicsPixmapItem_FocusOutEvent_Callback cb) { qgraphicspixmapitem_focusoutevent_callback = cb; }
-    void setQGraphicsPixmapItem_HoverEnterEvent_Callback(QGraphicsPixmapItem_HoverEnterEvent_Callback cb) { qgraphicspixmapitem_hoverenterevent_callback = cb; }
-    void setQGraphicsPixmapItem_HoverMoveEvent_Callback(QGraphicsPixmapItem_HoverMoveEvent_Callback cb) { qgraphicspixmapitem_hovermoveevent_callback = cb; }
-    void setQGraphicsPixmapItem_HoverLeaveEvent_Callback(QGraphicsPixmapItem_HoverLeaveEvent_Callback cb) { qgraphicspixmapitem_hoverleaveevent_callback = cb; }
-    void setQGraphicsPixmapItem_KeyPressEvent_Callback(QGraphicsPixmapItem_KeyPressEvent_Callback cb) { qgraphicspixmapitem_keypressevent_callback = cb; }
-    void setQGraphicsPixmapItem_KeyReleaseEvent_Callback(QGraphicsPixmapItem_KeyReleaseEvent_Callback cb) { qgraphicspixmapitem_keyreleaseevent_callback = cb; }
-    void setQGraphicsPixmapItem_MousePressEvent_Callback(QGraphicsPixmapItem_MousePressEvent_Callback cb) { qgraphicspixmapitem_mousepressevent_callback = cb; }
-    void setQGraphicsPixmapItem_MouseMoveEvent_Callback(QGraphicsPixmapItem_MouseMoveEvent_Callback cb) { qgraphicspixmapitem_mousemoveevent_callback = cb; }
-    void setQGraphicsPixmapItem_MouseReleaseEvent_Callback(QGraphicsPixmapItem_MouseReleaseEvent_Callback cb) { qgraphicspixmapitem_mousereleaseevent_callback = cb; }
-    void setQGraphicsPixmapItem_MouseDoubleClickEvent_Callback(QGraphicsPixmapItem_MouseDoubleClickEvent_Callback cb) { qgraphicspixmapitem_mousedoubleclickevent_callback = cb; }
-    void setQGraphicsPixmapItem_WheelEvent_Callback(QGraphicsPixmapItem_WheelEvent_Callback cb) { qgraphicspixmapitem_wheelevent_callback = cb; }
-    void setQGraphicsPixmapItem_InputMethodEvent_Callback(QGraphicsPixmapItem_InputMethodEvent_Callback cb) { qgraphicspixmapitem_inputmethodevent_callback = cb; }
-    void setQGraphicsPixmapItem_InputMethodQuery_Callback(QGraphicsPixmapItem_InputMethodQuery_Callback cb) { qgraphicspixmapitem_inputmethodquery_callback = cb; }
-    void setQGraphicsPixmapItem_ItemChange_Callback(QGraphicsPixmapItem_ItemChange_Callback cb) { qgraphicspixmapitem_itemchange_callback = cb; }
-    void setQGraphicsPixmapItem_UpdateMicroFocus_Callback(QGraphicsPixmapItem_UpdateMicroFocus_Callback cb) { qgraphicspixmapitem_updatemicrofocus_callback = cb; }
-    void setQGraphicsPixmapItem_AddToIndex_Callback(QGraphicsPixmapItem_AddToIndex_Callback cb) { qgraphicspixmapitem_addtoindex_callback = cb; }
-    void setQGraphicsPixmapItem_RemoveFromIndex_Callback(QGraphicsPixmapItem_RemoveFromIndex_Callback cb) { qgraphicspixmapitem_removefromindex_callback = cb; }
-    void setQGraphicsPixmapItem_PrepareGeometryChange_Callback(QGraphicsPixmapItem_PrepareGeometryChange_Callback cb) { qgraphicspixmapitem_preparegeometrychange_callback = cb; }
+    inline void setQGraphicsPixmapItem_BoundingRect_Callback(QGraphicsPixmapItem_BoundingRect_Callback cb) { qgraphicspixmapitem_boundingrect_callback = cb; }
+    inline void setQGraphicsPixmapItem_Shape_Callback(QGraphicsPixmapItem_Shape_Callback cb) { qgraphicspixmapitem_shape_callback = cb; }
+    inline void setQGraphicsPixmapItem_Contains_Callback(QGraphicsPixmapItem_Contains_Callback cb) { qgraphicspixmapitem_contains_callback = cb; }
+    inline void setQGraphicsPixmapItem_Paint_Callback(QGraphicsPixmapItem_Paint_Callback cb) { qgraphicspixmapitem_paint_callback = cb; }
+    inline void setQGraphicsPixmapItem_IsObscuredBy_Callback(QGraphicsPixmapItem_IsObscuredBy_Callback cb) { qgraphicspixmapitem_isobscuredby_callback = cb; }
+    inline void setQGraphicsPixmapItem_OpaqueArea_Callback(QGraphicsPixmapItem_OpaqueArea_Callback cb) { qgraphicspixmapitem_opaquearea_callback = cb; }
+    inline void setQGraphicsPixmapItem_Type_Callback(QGraphicsPixmapItem_Type_Callback cb) { qgraphicspixmapitem_type_callback = cb; }
+    inline void setQGraphicsPixmapItem_SupportsExtension_Callback(QGraphicsPixmapItem_SupportsExtension_Callback cb) { qgraphicspixmapitem_supportsextension_callback = cb; }
+    inline void setQGraphicsPixmapItem_SetExtension_Callback(QGraphicsPixmapItem_SetExtension_Callback cb) { qgraphicspixmapitem_setextension_callback = cb; }
+    inline void setQGraphicsPixmapItem_Extension_Callback(QGraphicsPixmapItem_Extension_Callback cb) { qgraphicspixmapitem_extension_callback = cb; }
+    inline void setQGraphicsPixmapItem_Advance_Callback(QGraphicsPixmapItem_Advance_Callback cb) { qgraphicspixmapitem_advance_callback = cb; }
+    inline void setQGraphicsPixmapItem_CollidesWithItem_Callback(QGraphicsPixmapItem_CollidesWithItem_Callback cb) { qgraphicspixmapitem_collideswithitem_callback = cb; }
+    inline void setQGraphicsPixmapItem_CollidesWithPath_Callback(QGraphicsPixmapItem_CollidesWithPath_Callback cb) { qgraphicspixmapitem_collideswithpath_callback = cb; }
+    inline void setQGraphicsPixmapItem_SceneEventFilter_Callback(QGraphicsPixmapItem_SceneEventFilter_Callback cb) { qgraphicspixmapitem_sceneeventfilter_callback = cb; }
+    inline void setQGraphicsPixmapItem_SceneEvent_Callback(QGraphicsPixmapItem_SceneEvent_Callback cb) { qgraphicspixmapitem_sceneevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_ContextMenuEvent_Callback(QGraphicsPixmapItem_ContextMenuEvent_Callback cb) { qgraphicspixmapitem_contextmenuevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_DragEnterEvent_Callback(QGraphicsPixmapItem_DragEnterEvent_Callback cb) { qgraphicspixmapitem_dragenterevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_DragLeaveEvent_Callback(QGraphicsPixmapItem_DragLeaveEvent_Callback cb) { qgraphicspixmapitem_dragleaveevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_DragMoveEvent_Callback(QGraphicsPixmapItem_DragMoveEvent_Callback cb) { qgraphicspixmapitem_dragmoveevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_DropEvent_Callback(QGraphicsPixmapItem_DropEvent_Callback cb) { qgraphicspixmapitem_dropevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_FocusInEvent_Callback(QGraphicsPixmapItem_FocusInEvent_Callback cb) { qgraphicspixmapitem_focusinevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_FocusOutEvent_Callback(QGraphicsPixmapItem_FocusOutEvent_Callback cb) { qgraphicspixmapitem_focusoutevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_HoverEnterEvent_Callback(QGraphicsPixmapItem_HoverEnterEvent_Callback cb) { qgraphicspixmapitem_hoverenterevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_HoverMoveEvent_Callback(QGraphicsPixmapItem_HoverMoveEvent_Callback cb) { qgraphicspixmapitem_hovermoveevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_HoverLeaveEvent_Callback(QGraphicsPixmapItem_HoverLeaveEvent_Callback cb) { qgraphicspixmapitem_hoverleaveevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_KeyPressEvent_Callback(QGraphicsPixmapItem_KeyPressEvent_Callback cb) { qgraphicspixmapitem_keypressevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_KeyReleaseEvent_Callback(QGraphicsPixmapItem_KeyReleaseEvent_Callback cb) { qgraphicspixmapitem_keyreleaseevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_MousePressEvent_Callback(QGraphicsPixmapItem_MousePressEvent_Callback cb) { qgraphicspixmapitem_mousepressevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_MouseMoveEvent_Callback(QGraphicsPixmapItem_MouseMoveEvent_Callback cb) { qgraphicspixmapitem_mousemoveevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_MouseReleaseEvent_Callback(QGraphicsPixmapItem_MouseReleaseEvent_Callback cb) { qgraphicspixmapitem_mousereleaseevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_MouseDoubleClickEvent_Callback(QGraphicsPixmapItem_MouseDoubleClickEvent_Callback cb) { qgraphicspixmapitem_mousedoubleclickevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_WheelEvent_Callback(QGraphicsPixmapItem_WheelEvent_Callback cb) { qgraphicspixmapitem_wheelevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_InputMethodEvent_Callback(QGraphicsPixmapItem_InputMethodEvent_Callback cb) { qgraphicspixmapitem_inputmethodevent_callback = cb; }
+    inline void setQGraphicsPixmapItem_InputMethodQuery_Callback(QGraphicsPixmapItem_InputMethodQuery_Callback cb) { qgraphicspixmapitem_inputmethodquery_callback = cb; }
+    inline void setQGraphicsPixmapItem_ItemChange_Callback(QGraphicsPixmapItem_ItemChange_Callback cb) { qgraphicspixmapitem_itemchange_callback = cb; }
+    inline void setQGraphicsPixmapItem_UpdateMicroFocus_Callback(QGraphicsPixmapItem_UpdateMicroFocus_Callback cb) { qgraphicspixmapitem_updatemicrofocus_callback = cb; }
+    inline void setQGraphicsPixmapItem_AddToIndex_Callback(QGraphicsPixmapItem_AddToIndex_Callback cb) { qgraphicspixmapitem_addtoindex_callback = cb; }
+    inline void setQGraphicsPixmapItem_RemoveFromIndex_Callback(QGraphicsPixmapItem_RemoveFromIndex_Callback cb) { qgraphicspixmapitem_removefromindex_callback = cb; }
+    inline void setQGraphicsPixmapItem_PrepareGeometryChange_Callback(QGraphicsPixmapItem_PrepareGeometryChange_Callback cb) { qgraphicspixmapitem_preparegeometrychange_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsPixmapItem_BoundingRect_IsBase(bool value) const { qgraphicspixmapitem_boundingrect_isbase = value; }
-    void setQGraphicsPixmapItem_Shape_IsBase(bool value) const { qgraphicspixmapitem_shape_isbase = value; }
-    void setQGraphicsPixmapItem_Contains_IsBase(bool value) const { qgraphicspixmapitem_contains_isbase = value; }
-    void setQGraphicsPixmapItem_Paint_IsBase(bool value) const { qgraphicspixmapitem_paint_isbase = value; }
-    void setQGraphicsPixmapItem_IsObscuredBy_IsBase(bool value) const { qgraphicspixmapitem_isobscuredby_isbase = value; }
-    void setQGraphicsPixmapItem_OpaqueArea_IsBase(bool value) const { qgraphicspixmapitem_opaquearea_isbase = value; }
-    void setQGraphicsPixmapItem_Type_IsBase(bool value) const { qgraphicspixmapitem_type_isbase = value; }
-    void setQGraphicsPixmapItem_SupportsExtension_IsBase(bool value) const { qgraphicspixmapitem_supportsextension_isbase = value; }
-    void setQGraphicsPixmapItem_SetExtension_IsBase(bool value) const { qgraphicspixmapitem_setextension_isbase = value; }
-    void setQGraphicsPixmapItem_Extension_IsBase(bool value) const { qgraphicspixmapitem_extension_isbase = value; }
-    void setQGraphicsPixmapItem_Advance_IsBase(bool value) const { qgraphicspixmapitem_advance_isbase = value; }
-    void setQGraphicsPixmapItem_CollidesWithItem_IsBase(bool value) const { qgraphicspixmapitem_collideswithitem_isbase = value; }
-    void setQGraphicsPixmapItem_CollidesWithPath_IsBase(bool value) const { qgraphicspixmapitem_collideswithpath_isbase = value; }
-    void setQGraphicsPixmapItem_SceneEventFilter_IsBase(bool value) const { qgraphicspixmapitem_sceneeventfilter_isbase = value; }
-    void setQGraphicsPixmapItem_SceneEvent_IsBase(bool value) const { qgraphicspixmapitem_sceneevent_isbase = value; }
-    void setQGraphicsPixmapItem_ContextMenuEvent_IsBase(bool value) const { qgraphicspixmapitem_contextmenuevent_isbase = value; }
-    void setQGraphicsPixmapItem_DragEnterEvent_IsBase(bool value) const { qgraphicspixmapitem_dragenterevent_isbase = value; }
-    void setQGraphicsPixmapItem_DragLeaveEvent_IsBase(bool value) const { qgraphicspixmapitem_dragleaveevent_isbase = value; }
-    void setQGraphicsPixmapItem_DragMoveEvent_IsBase(bool value) const { qgraphicspixmapitem_dragmoveevent_isbase = value; }
-    void setQGraphicsPixmapItem_DropEvent_IsBase(bool value) const { qgraphicspixmapitem_dropevent_isbase = value; }
-    void setQGraphicsPixmapItem_FocusInEvent_IsBase(bool value) const { qgraphicspixmapitem_focusinevent_isbase = value; }
-    void setQGraphicsPixmapItem_FocusOutEvent_IsBase(bool value) const { qgraphicspixmapitem_focusoutevent_isbase = value; }
-    void setQGraphicsPixmapItem_HoverEnterEvent_IsBase(bool value) const { qgraphicspixmapitem_hoverenterevent_isbase = value; }
-    void setQGraphicsPixmapItem_HoverMoveEvent_IsBase(bool value) const { qgraphicspixmapitem_hovermoveevent_isbase = value; }
-    void setQGraphicsPixmapItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicspixmapitem_hoverleaveevent_isbase = value; }
-    void setQGraphicsPixmapItem_KeyPressEvent_IsBase(bool value) const { qgraphicspixmapitem_keypressevent_isbase = value; }
-    void setQGraphicsPixmapItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicspixmapitem_keyreleaseevent_isbase = value; }
-    void setQGraphicsPixmapItem_MousePressEvent_IsBase(bool value) const { qgraphicspixmapitem_mousepressevent_isbase = value; }
-    void setQGraphicsPixmapItem_MouseMoveEvent_IsBase(bool value) const { qgraphicspixmapitem_mousemoveevent_isbase = value; }
-    void setQGraphicsPixmapItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicspixmapitem_mousereleaseevent_isbase = value; }
-    void setQGraphicsPixmapItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicspixmapitem_mousedoubleclickevent_isbase = value; }
-    void setQGraphicsPixmapItem_WheelEvent_IsBase(bool value) const { qgraphicspixmapitem_wheelevent_isbase = value; }
-    void setQGraphicsPixmapItem_InputMethodEvent_IsBase(bool value) const { qgraphicspixmapitem_inputmethodevent_isbase = value; }
-    void setQGraphicsPixmapItem_InputMethodQuery_IsBase(bool value) const { qgraphicspixmapitem_inputmethodquery_isbase = value; }
-    void setQGraphicsPixmapItem_ItemChange_IsBase(bool value) const { qgraphicspixmapitem_itemchange_isbase = value; }
-    void setQGraphicsPixmapItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicspixmapitem_updatemicrofocus_isbase = value; }
-    void setQGraphicsPixmapItem_AddToIndex_IsBase(bool value) const { qgraphicspixmapitem_addtoindex_isbase = value; }
-    void setQGraphicsPixmapItem_RemoveFromIndex_IsBase(bool value) const { qgraphicspixmapitem_removefromindex_isbase = value; }
-    void setQGraphicsPixmapItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicspixmapitem_preparegeometrychange_isbase = value; }
+    inline void setQGraphicsPixmapItem_BoundingRect_IsBase(bool value) const { qgraphicspixmapitem_boundingrect_isbase = value; }
+    inline void setQGraphicsPixmapItem_Shape_IsBase(bool value) const { qgraphicspixmapitem_shape_isbase = value; }
+    inline void setQGraphicsPixmapItem_Contains_IsBase(bool value) const { qgraphicspixmapitem_contains_isbase = value; }
+    inline void setQGraphicsPixmapItem_Paint_IsBase(bool value) const { qgraphicspixmapitem_paint_isbase = value; }
+    inline void setQGraphicsPixmapItem_IsObscuredBy_IsBase(bool value) const { qgraphicspixmapitem_isobscuredby_isbase = value; }
+    inline void setQGraphicsPixmapItem_OpaqueArea_IsBase(bool value) const { qgraphicspixmapitem_opaquearea_isbase = value; }
+    inline void setQGraphicsPixmapItem_Type_IsBase(bool value) const { qgraphicspixmapitem_type_isbase = value; }
+    inline void setQGraphicsPixmapItem_SupportsExtension_IsBase(bool value) const { qgraphicspixmapitem_supportsextension_isbase = value; }
+    inline void setQGraphicsPixmapItem_SetExtension_IsBase(bool value) const { qgraphicspixmapitem_setextension_isbase = value; }
+    inline void setQGraphicsPixmapItem_Extension_IsBase(bool value) const { qgraphicspixmapitem_extension_isbase = value; }
+    inline void setQGraphicsPixmapItem_Advance_IsBase(bool value) const { qgraphicspixmapitem_advance_isbase = value; }
+    inline void setQGraphicsPixmapItem_CollidesWithItem_IsBase(bool value) const { qgraphicspixmapitem_collideswithitem_isbase = value; }
+    inline void setQGraphicsPixmapItem_CollidesWithPath_IsBase(bool value) const { qgraphicspixmapitem_collideswithpath_isbase = value; }
+    inline void setQGraphicsPixmapItem_SceneEventFilter_IsBase(bool value) const { qgraphicspixmapitem_sceneeventfilter_isbase = value; }
+    inline void setQGraphicsPixmapItem_SceneEvent_IsBase(bool value) const { qgraphicspixmapitem_sceneevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_ContextMenuEvent_IsBase(bool value) const { qgraphicspixmapitem_contextmenuevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_DragEnterEvent_IsBase(bool value) const { qgraphicspixmapitem_dragenterevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_DragLeaveEvent_IsBase(bool value) const { qgraphicspixmapitem_dragleaveevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_DragMoveEvent_IsBase(bool value) const { qgraphicspixmapitem_dragmoveevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_DropEvent_IsBase(bool value) const { qgraphicspixmapitem_dropevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_FocusInEvent_IsBase(bool value) const { qgraphicspixmapitem_focusinevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_FocusOutEvent_IsBase(bool value) const { qgraphicspixmapitem_focusoutevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_HoverEnterEvent_IsBase(bool value) const { qgraphicspixmapitem_hoverenterevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_HoverMoveEvent_IsBase(bool value) const { qgraphicspixmapitem_hovermoveevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicspixmapitem_hoverleaveevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_KeyPressEvent_IsBase(bool value) const { qgraphicspixmapitem_keypressevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicspixmapitem_keyreleaseevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_MousePressEvent_IsBase(bool value) const { qgraphicspixmapitem_mousepressevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_MouseMoveEvent_IsBase(bool value) const { qgraphicspixmapitem_mousemoveevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicspixmapitem_mousereleaseevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicspixmapitem_mousedoubleclickevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_WheelEvent_IsBase(bool value) const { qgraphicspixmapitem_wheelevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_InputMethodEvent_IsBase(bool value) const { qgraphicspixmapitem_inputmethodevent_isbase = value; }
+    inline void setQGraphicsPixmapItem_InputMethodQuery_IsBase(bool value) const { qgraphicspixmapitem_inputmethodquery_isbase = value; }
+    inline void setQGraphicsPixmapItem_ItemChange_IsBase(bool value) const { qgraphicspixmapitem_itemchange_isbase = value; }
+    inline void setQGraphicsPixmapItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicspixmapitem_updatemicrofocus_isbase = value; }
+    inline void setQGraphicsPixmapItem_AddToIndex_IsBase(bool value) const { qgraphicspixmapitem_addtoindex_isbase = value; }
+    inline void setQGraphicsPixmapItem_RemoveFromIndex_IsBase(bool value) const { qgraphicspixmapitem_removefromindex_isbase = value; }
+    inline void setQGraphicsPixmapItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicspixmapitem_preparegeometrychange_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF boundingRect() const override {
@@ -6271,7 +7596,8 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_boundingrect_isbase = false;
             return QGraphicsPixmapItem::boundingRect();
         } else if (qgraphicspixmapitem_boundingrect_callback != nullptr) {
-            return qgraphicspixmapitem_boundingrect_callback();
+            QRectF* callback_ret = qgraphicspixmapitem_boundingrect_callback();
+            return *callback_ret;
         } else {
             return QGraphicsPixmapItem::boundingRect();
         }
@@ -6283,7 +7609,8 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_shape_isbase = false;
             return QGraphicsPixmapItem::shape();
         } else if (qgraphicspixmapitem_shape_callback != nullptr) {
-            return qgraphicspixmapitem_shape_callback();
+            QPainterPath* callback_ret = qgraphicspixmapitem_shape_callback();
+            return *callback_ret;
         } else {
             return QGraphicsPixmapItem::shape();
         }
@@ -6295,7 +7622,12 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_contains_isbase = false;
             return QGraphicsPixmapItem::contains(point);
         } else if (qgraphicspixmapitem_contains_callback != nullptr) {
-            return qgraphicspixmapitem_contains_callback(this, point);
+            const QPointF& point_ret = point;
+            // Cast returned reference into pointer
+            QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
+
+            bool callback_ret = qgraphicspixmapitem_contains_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsPixmapItem::contains(point);
         }
@@ -6307,7 +7639,11 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_paint_isbase = false;
             QGraphicsPixmapItem::paint(painter, option, widget);
         } else if (qgraphicspixmapitem_paint_callback != nullptr) {
-            qgraphicspixmapitem_paint_callback(this, painter, option, widget);
+            QPainter* cbval1 = painter;
+            QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
+            QWidget* cbval3 = widget;
+
+            qgraphicspixmapitem_paint_callback(this, cbval1, cbval2, cbval3);
         } else {
             QGraphicsPixmapItem::paint(painter, option, widget);
         }
@@ -6319,7 +7655,10 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_isobscuredby_isbase = false;
             return QGraphicsPixmapItem::isObscuredBy(item);
         } else if (qgraphicspixmapitem_isobscuredby_callback != nullptr) {
-            return qgraphicspixmapitem_isobscuredby_callback(this, item);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)item;
+
+            bool callback_ret = qgraphicspixmapitem_isobscuredby_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsPixmapItem::isObscuredBy(item);
         }
@@ -6331,7 +7670,8 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_opaquearea_isbase = false;
             return QGraphicsPixmapItem::opaqueArea();
         } else if (qgraphicspixmapitem_opaquearea_callback != nullptr) {
-            return qgraphicspixmapitem_opaquearea_callback();
+            QPainterPath* callback_ret = qgraphicspixmapitem_opaquearea_callback();
+            return *callback_ret;
         } else {
             return QGraphicsPixmapItem::opaqueArea();
         }
@@ -6343,7 +7683,8 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_type_isbase = false;
             return QGraphicsPixmapItem::type();
         } else if (qgraphicspixmapitem_type_callback != nullptr) {
-            return qgraphicspixmapitem_type_callback();
+            int callback_ret = qgraphicspixmapitem_type_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsPixmapItem::type();
         }
@@ -6355,7 +7696,10 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_supportsextension_isbase = false;
             return QGraphicsPixmapItem::supportsExtension(extension);
         } else if (qgraphicspixmapitem_supportsextension_callback != nullptr) {
-            return qgraphicspixmapitem_supportsextension_callback(this, extension);
+            int cbval1 = static_cast<int>(extension);
+
+            bool callback_ret = qgraphicspixmapitem_supportsextension_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsPixmapItem::supportsExtension(extension);
         }
@@ -6367,7 +7711,12 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_setextension_isbase = false;
             QGraphicsPixmapItem::setExtension(extension, variant);
         } else if (qgraphicspixmapitem_setextension_callback != nullptr) {
-            qgraphicspixmapitem_setextension_callback(this, extension, variant);
+            int cbval1 = static_cast<int>(extension);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
+
+            qgraphicspixmapitem_setextension_callback(this, cbval1, cbval2);
         } else {
             QGraphicsPixmapItem::setExtension(extension, variant);
         }
@@ -6379,7 +7728,12 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_extension_isbase = false;
             return QGraphicsPixmapItem::extension(variant);
         } else if (qgraphicspixmapitem_extension_callback != nullptr) {
-            return qgraphicspixmapitem_extension_callback(this, variant);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
+
+            QVariant* callback_ret = qgraphicspixmapitem_extension_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsPixmapItem::extension(variant);
         }
@@ -6391,7 +7745,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_advance_isbase = false;
             QGraphicsPixmapItem::advance(phase);
         } else if (qgraphicspixmapitem_advance_callback != nullptr) {
-            qgraphicspixmapitem_advance_callback(this, phase);
+            int cbval1 = phase;
+
+            qgraphicspixmapitem_advance_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::advance(phase);
         }
@@ -6403,7 +7759,11 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_collideswithitem_isbase = false;
             return QGraphicsPixmapItem::collidesWithItem(other, mode);
         } else if (qgraphicspixmapitem_collideswithitem_callback != nullptr) {
-            return qgraphicspixmapitem_collideswithitem_callback(this, other, mode);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)other;
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicspixmapitem_collideswithitem_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsPixmapItem::collidesWithItem(other, mode);
         }
@@ -6415,7 +7775,13 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_collideswithpath_isbase = false;
             return QGraphicsPixmapItem::collidesWithPath(path, mode);
         } else if (qgraphicspixmapitem_collideswithpath_callback != nullptr) {
-            return qgraphicspixmapitem_collideswithpath_callback(this, path, mode);
+            const QPainterPath& path_ret = path;
+            // Cast returned reference into pointer
+            QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicspixmapitem_collideswithpath_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsPixmapItem::collidesWithPath(path, mode);
         }
@@ -6427,7 +7793,11 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_sceneeventfilter_isbase = false;
             return QGraphicsPixmapItem::sceneEventFilter(watched, event);
         } else if (qgraphicspixmapitem_sceneeventfilter_callback != nullptr) {
-            return qgraphicspixmapitem_sceneeventfilter_callback(this, watched, event);
+            QGraphicsItem* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicspixmapitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsPixmapItem::sceneEventFilter(watched, event);
         }
@@ -6439,7 +7809,10 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_sceneevent_isbase = false;
             return QGraphicsPixmapItem::sceneEvent(event);
         } else if (qgraphicspixmapitem_sceneevent_callback != nullptr) {
-            return qgraphicspixmapitem_sceneevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgraphicspixmapitem_sceneevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsPixmapItem::sceneEvent(event);
         }
@@ -6451,7 +7824,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_contextmenuevent_isbase = false;
             QGraphicsPixmapItem::contextMenuEvent(event);
         } else if (qgraphicspixmapitem_contextmenuevent_callback != nullptr) {
-            qgraphicspixmapitem_contextmenuevent_callback(this, event);
+            QGraphicsSceneContextMenuEvent* cbval1 = event;
+
+            qgraphicspixmapitem_contextmenuevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::contextMenuEvent(event);
         }
@@ -6463,7 +7838,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_dragenterevent_isbase = false;
             QGraphicsPixmapItem::dragEnterEvent(event);
         } else if (qgraphicspixmapitem_dragenterevent_callback != nullptr) {
-            qgraphicspixmapitem_dragenterevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicspixmapitem_dragenterevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::dragEnterEvent(event);
         }
@@ -6475,7 +7852,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_dragleaveevent_isbase = false;
             QGraphicsPixmapItem::dragLeaveEvent(event);
         } else if (qgraphicspixmapitem_dragleaveevent_callback != nullptr) {
-            qgraphicspixmapitem_dragleaveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicspixmapitem_dragleaveevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::dragLeaveEvent(event);
         }
@@ -6487,7 +7866,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_dragmoveevent_isbase = false;
             QGraphicsPixmapItem::dragMoveEvent(event);
         } else if (qgraphicspixmapitem_dragmoveevent_callback != nullptr) {
-            qgraphicspixmapitem_dragmoveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicspixmapitem_dragmoveevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::dragMoveEvent(event);
         }
@@ -6499,7 +7880,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_dropevent_isbase = false;
             QGraphicsPixmapItem::dropEvent(event);
         } else if (qgraphicspixmapitem_dropevent_callback != nullptr) {
-            qgraphicspixmapitem_dropevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicspixmapitem_dropevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::dropEvent(event);
         }
@@ -6511,7 +7894,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_focusinevent_isbase = false;
             QGraphicsPixmapItem::focusInEvent(event);
         } else if (qgraphicspixmapitem_focusinevent_callback != nullptr) {
-            qgraphicspixmapitem_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicspixmapitem_focusinevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::focusInEvent(event);
         }
@@ -6523,7 +7908,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_focusoutevent_isbase = false;
             QGraphicsPixmapItem::focusOutEvent(event);
         } else if (qgraphicspixmapitem_focusoutevent_callback != nullptr) {
-            qgraphicspixmapitem_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicspixmapitem_focusoutevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::focusOutEvent(event);
         }
@@ -6535,7 +7922,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_hoverenterevent_isbase = false;
             QGraphicsPixmapItem::hoverEnterEvent(event);
         } else if (qgraphicspixmapitem_hoverenterevent_callback != nullptr) {
-            qgraphicspixmapitem_hoverenterevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicspixmapitem_hoverenterevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::hoverEnterEvent(event);
         }
@@ -6547,7 +7936,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_hovermoveevent_isbase = false;
             QGraphicsPixmapItem::hoverMoveEvent(event);
         } else if (qgraphicspixmapitem_hovermoveevent_callback != nullptr) {
-            qgraphicspixmapitem_hovermoveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicspixmapitem_hovermoveevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::hoverMoveEvent(event);
         }
@@ -6559,7 +7950,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_hoverleaveevent_isbase = false;
             QGraphicsPixmapItem::hoverLeaveEvent(event);
         } else if (qgraphicspixmapitem_hoverleaveevent_callback != nullptr) {
-            qgraphicspixmapitem_hoverleaveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicspixmapitem_hoverleaveevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::hoverLeaveEvent(event);
         }
@@ -6571,7 +7964,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_keypressevent_isbase = false;
             QGraphicsPixmapItem::keyPressEvent(event);
         } else if (qgraphicspixmapitem_keypressevent_callback != nullptr) {
-            qgraphicspixmapitem_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicspixmapitem_keypressevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::keyPressEvent(event);
         }
@@ -6583,7 +7978,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_keyreleaseevent_isbase = false;
             QGraphicsPixmapItem::keyReleaseEvent(event);
         } else if (qgraphicspixmapitem_keyreleaseevent_callback != nullptr) {
-            qgraphicspixmapitem_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicspixmapitem_keyreleaseevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::keyReleaseEvent(event);
         }
@@ -6595,7 +7992,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_mousepressevent_isbase = false;
             QGraphicsPixmapItem::mousePressEvent(event);
         } else if (qgraphicspixmapitem_mousepressevent_callback != nullptr) {
-            qgraphicspixmapitem_mousepressevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicspixmapitem_mousepressevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::mousePressEvent(event);
         }
@@ -6607,7 +8006,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_mousemoveevent_isbase = false;
             QGraphicsPixmapItem::mouseMoveEvent(event);
         } else if (qgraphicspixmapitem_mousemoveevent_callback != nullptr) {
-            qgraphicspixmapitem_mousemoveevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicspixmapitem_mousemoveevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::mouseMoveEvent(event);
         }
@@ -6619,7 +8020,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_mousereleaseevent_isbase = false;
             QGraphicsPixmapItem::mouseReleaseEvent(event);
         } else if (qgraphicspixmapitem_mousereleaseevent_callback != nullptr) {
-            qgraphicspixmapitem_mousereleaseevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicspixmapitem_mousereleaseevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::mouseReleaseEvent(event);
         }
@@ -6631,7 +8034,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_mousedoubleclickevent_isbase = false;
             QGraphicsPixmapItem::mouseDoubleClickEvent(event);
         } else if (qgraphicspixmapitem_mousedoubleclickevent_callback != nullptr) {
-            qgraphicspixmapitem_mousedoubleclickevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicspixmapitem_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::mouseDoubleClickEvent(event);
         }
@@ -6643,7 +8048,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_wheelevent_isbase = false;
             QGraphicsPixmapItem::wheelEvent(event);
         } else if (qgraphicspixmapitem_wheelevent_callback != nullptr) {
-            qgraphicspixmapitem_wheelevent_callback(this, event);
+            QGraphicsSceneWheelEvent* cbval1 = event;
+
+            qgraphicspixmapitem_wheelevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::wheelEvent(event);
         }
@@ -6655,7 +8062,9 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_inputmethodevent_isbase = false;
             QGraphicsPixmapItem::inputMethodEvent(event);
         } else if (qgraphicspixmapitem_inputmethodevent_callback != nullptr) {
-            qgraphicspixmapitem_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qgraphicspixmapitem_inputmethodevent_callback(this, cbval1);
         } else {
             QGraphicsPixmapItem::inputMethodEvent(event);
         }
@@ -6667,7 +8076,10 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_inputmethodquery_isbase = false;
             return QGraphicsPixmapItem::inputMethodQuery(query);
         } else if (qgraphicspixmapitem_inputmethodquery_callback != nullptr) {
-            return qgraphicspixmapitem_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qgraphicspixmapitem_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsPixmapItem::inputMethodQuery(query);
         }
@@ -6679,7 +8091,13 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             qgraphicspixmapitem_itemchange_isbase = false;
             return QGraphicsPixmapItem::itemChange(change, value);
         } else if (qgraphicspixmapitem_itemchange_callback != nullptr) {
-            return qgraphicspixmapitem_itemchange_callback(this, change, value);
+            int cbval1 = static_cast<int>(change);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            QVariant* callback_ret = qgraphicspixmapitem_itemchange_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QGraphicsPixmapItem::itemChange(change, value);
         }
@@ -6732,21 +8150,84 @@ class VirtualQGraphicsPixmapItem : public QGraphicsPixmapItem {
             QGraphicsPixmapItem::prepareGeometryChange();
         }
     }
+
+    // Friend functions
+    friend bool QGraphicsPixmapItem_SupportsExtension(const QGraphicsPixmapItem* self, int extension);
+    friend bool QGraphicsPixmapItem_QBaseSupportsExtension(const QGraphicsPixmapItem* self, int extension);
+    friend void QGraphicsPixmapItem_SetExtension(QGraphicsPixmapItem* self, int extension, const QVariant* variant);
+    friend void QGraphicsPixmapItem_QBaseSetExtension(QGraphicsPixmapItem* self, int extension, const QVariant* variant);
+    friend QVariant* QGraphicsPixmapItem_Extension(const QGraphicsPixmapItem* self, const QVariant* variant);
+    friend QVariant* QGraphicsPixmapItem_QBaseExtension(const QGraphicsPixmapItem* self, const QVariant* variant);
+    friend bool QGraphicsPixmapItem_SceneEventFilter(QGraphicsPixmapItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsPixmapItem_QBaseSceneEventFilter(QGraphicsPixmapItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsPixmapItem_SceneEvent(QGraphicsPixmapItem* self, QEvent* event);
+    friend bool QGraphicsPixmapItem_QBaseSceneEvent(QGraphicsPixmapItem* self, QEvent* event);
+    friend void QGraphicsPixmapItem_ContextMenuEvent(QGraphicsPixmapItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsPixmapItem_QBaseContextMenuEvent(QGraphicsPixmapItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsPixmapItem_DragEnterEvent(QGraphicsPixmapItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPixmapItem_QBaseDragEnterEvent(QGraphicsPixmapItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPixmapItem_DragLeaveEvent(QGraphicsPixmapItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPixmapItem_QBaseDragLeaveEvent(QGraphicsPixmapItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPixmapItem_DragMoveEvent(QGraphicsPixmapItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPixmapItem_QBaseDragMoveEvent(QGraphicsPixmapItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPixmapItem_DropEvent(QGraphicsPixmapItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPixmapItem_QBaseDropEvent(QGraphicsPixmapItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsPixmapItem_FocusInEvent(QGraphicsPixmapItem* self, QFocusEvent* event);
+    friend void QGraphicsPixmapItem_QBaseFocusInEvent(QGraphicsPixmapItem* self, QFocusEvent* event);
+    friend void QGraphicsPixmapItem_FocusOutEvent(QGraphicsPixmapItem* self, QFocusEvent* event);
+    friend void QGraphicsPixmapItem_QBaseFocusOutEvent(QGraphicsPixmapItem* self, QFocusEvent* event);
+    friend void QGraphicsPixmapItem_HoverEnterEvent(QGraphicsPixmapItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPixmapItem_QBaseHoverEnterEvent(QGraphicsPixmapItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPixmapItem_HoverMoveEvent(QGraphicsPixmapItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPixmapItem_QBaseHoverMoveEvent(QGraphicsPixmapItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPixmapItem_HoverLeaveEvent(QGraphicsPixmapItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPixmapItem_QBaseHoverLeaveEvent(QGraphicsPixmapItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsPixmapItem_KeyPressEvent(QGraphicsPixmapItem* self, QKeyEvent* event);
+    friend void QGraphicsPixmapItem_QBaseKeyPressEvent(QGraphicsPixmapItem* self, QKeyEvent* event);
+    friend void QGraphicsPixmapItem_KeyReleaseEvent(QGraphicsPixmapItem* self, QKeyEvent* event);
+    friend void QGraphicsPixmapItem_QBaseKeyReleaseEvent(QGraphicsPixmapItem* self, QKeyEvent* event);
+    friend void QGraphicsPixmapItem_MousePressEvent(QGraphicsPixmapItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPixmapItem_QBaseMousePressEvent(QGraphicsPixmapItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPixmapItem_MouseMoveEvent(QGraphicsPixmapItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPixmapItem_QBaseMouseMoveEvent(QGraphicsPixmapItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPixmapItem_MouseReleaseEvent(QGraphicsPixmapItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPixmapItem_QBaseMouseReleaseEvent(QGraphicsPixmapItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPixmapItem_MouseDoubleClickEvent(QGraphicsPixmapItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPixmapItem_QBaseMouseDoubleClickEvent(QGraphicsPixmapItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsPixmapItem_WheelEvent(QGraphicsPixmapItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsPixmapItem_QBaseWheelEvent(QGraphicsPixmapItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsPixmapItem_InputMethodEvent(QGraphicsPixmapItem* self, QInputMethodEvent* event);
+    friend void QGraphicsPixmapItem_QBaseInputMethodEvent(QGraphicsPixmapItem* self, QInputMethodEvent* event);
+    friend QVariant* QGraphicsPixmapItem_InputMethodQuery(const QGraphicsPixmapItem* self, int query);
+    friend QVariant* QGraphicsPixmapItem_QBaseInputMethodQuery(const QGraphicsPixmapItem* self, int query);
+    friend QVariant* QGraphicsPixmapItem_ItemChange(QGraphicsPixmapItem* self, int change, const QVariant* value);
+    friend QVariant* QGraphicsPixmapItem_QBaseItemChange(QGraphicsPixmapItem* self, int change, const QVariant* value);
+    friend void QGraphicsPixmapItem_UpdateMicroFocus(QGraphicsPixmapItem* self);
+    friend void QGraphicsPixmapItem_QBaseUpdateMicroFocus(QGraphicsPixmapItem* self);
+    friend void QGraphicsPixmapItem_AddToIndex(QGraphicsPixmapItem* self);
+    friend void QGraphicsPixmapItem_QBaseAddToIndex(QGraphicsPixmapItem* self);
+    friend void QGraphicsPixmapItem_RemoveFromIndex(QGraphicsPixmapItem* self);
+    friend void QGraphicsPixmapItem_QBaseRemoveFromIndex(QGraphicsPixmapItem* self);
+    friend void QGraphicsPixmapItem_PrepareGeometryChange(QGraphicsPixmapItem* self);
+    friend void QGraphicsPixmapItem_QBasePrepareGeometryChange(QGraphicsPixmapItem* self);
 };
 
 // This class is a subclass of QGraphicsTextItem so that we can call protected methods
-class VirtualQGraphicsTextItem : public QGraphicsTextItem {
+class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsTextItem = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
-    using QGraphicsTextItem_Metacall_Callback = int (*)(QGraphicsTextItem*, QMetaObject::Call, int, void**);
-    using QGraphicsTextItem_BoundingRect_Callback = QRectF (*)();
-    using QGraphicsTextItem_Shape_Callback = QPainterPath (*)();
-    using QGraphicsTextItem_Contains_Callback = bool (*)(const QGraphicsTextItem*, const QPointF&);
-    using QGraphicsTextItem_Paint_Callback = void (*)(QGraphicsTextItem*, QPainter*, const QStyleOptionGraphicsItem*, QWidget*);
-    using QGraphicsTextItem_IsObscuredBy_Callback = bool (*)(const QGraphicsTextItem*, const QGraphicsItem*);
-    using QGraphicsTextItem_OpaqueArea_Callback = QPainterPath (*)();
+    using QGraphicsTextItem_Metacall_Callback = int (*)(QGraphicsTextItem*, int, int, void**);
+    using QGraphicsTextItem_BoundingRect_Callback = QRectF* (*)();
+    using QGraphicsTextItem_Shape_Callback = QPainterPath* (*)();
+    using QGraphicsTextItem_Contains_Callback = bool (*)(const QGraphicsTextItem*, QPointF*);
+    using QGraphicsTextItem_Paint_Callback = void (*)(QGraphicsTextItem*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
+    using QGraphicsTextItem_IsObscuredBy_Callback = bool (*)(const QGraphicsTextItem*, QGraphicsItem*);
+    using QGraphicsTextItem_OpaqueArea_Callback = QPainterPath* (*)();
     using QGraphicsTextItem_Type_Callback = int (*)();
     using QGraphicsTextItem_SceneEvent_Callback = bool (*)(QGraphicsTextItem*, QEvent*);
     using QGraphicsTextItem_MousePressEvent_Callback = void (*)(QGraphicsTextItem*, QGraphicsSceneMouseEvent*);
@@ -6766,28 +8247,28 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
     using QGraphicsTextItem_HoverEnterEvent_Callback = void (*)(QGraphicsTextItem*, QGraphicsSceneHoverEvent*);
     using QGraphicsTextItem_HoverMoveEvent_Callback = void (*)(QGraphicsTextItem*, QGraphicsSceneHoverEvent*);
     using QGraphicsTextItem_HoverLeaveEvent_Callback = void (*)(QGraphicsTextItem*, QGraphicsSceneHoverEvent*);
-    using QGraphicsTextItem_InputMethodQuery_Callback = QVariant (*)(const QGraphicsTextItem*, Qt::InputMethodQuery);
+    using QGraphicsTextItem_InputMethodQuery_Callback = QVariant* (*)(const QGraphicsTextItem*, int);
     using QGraphicsTextItem_SupportsExtension_Callback = bool (*)(const QGraphicsTextItem*, int);
-    using QGraphicsTextItem_SetExtension_Callback = void (*)(QGraphicsTextItem*, int, const QVariant&);
-    using QGraphicsTextItem_Extension_Callback = QVariant (*)(const QGraphicsTextItem*, const QVariant&);
+    using QGraphicsTextItem_SetExtension_Callback = void (*)(QGraphicsTextItem*, int, QVariant*);
+    using QGraphicsTextItem_Extension_Callback = QVariant* (*)(const QGraphicsTextItem*, QVariant*);
     using QGraphicsTextItem_Event_Callback = bool (*)(QGraphicsTextItem*, QEvent*);
     using QGraphicsTextItem_EventFilter_Callback = bool (*)(QGraphicsTextItem*, QObject*, QEvent*);
     using QGraphicsTextItem_TimerEvent_Callback = void (*)(QGraphicsTextItem*, QTimerEvent*);
     using QGraphicsTextItem_ChildEvent_Callback = void (*)(QGraphicsTextItem*, QChildEvent*);
     using QGraphicsTextItem_CustomEvent_Callback = void (*)(QGraphicsTextItem*, QEvent*);
-    using QGraphicsTextItem_ConnectNotify_Callback = void (*)(QGraphicsTextItem*, const QMetaMethod&);
-    using QGraphicsTextItem_DisconnectNotify_Callback = void (*)(QGraphicsTextItem*, const QMetaMethod&);
+    using QGraphicsTextItem_ConnectNotify_Callback = void (*)(QGraphicsTextItem*, QMetaMethod*);
+    using QGraphicsTextItem_DisconnectNotify_Callback = void (*)(QGraphicsTextItem*, QMetaMethod*);
     using QGraphicsTextItem_Advance_Callback = void (*)(QGraphicsTextItem*, int);
-    using QGraphicsTextItem_CollidesWithItem_Callback = bool (*)(const QGraphicsTextItem*, const QGraphicsItem*, Qt::ItemSelectionMode);
-    using QGraphicsTextItem_CollidesWithPath_Callback = bool (*)(const QGraphicsTextItem*, const QPainterPath&, Qt::ItemSelectionMode);
+    using QGraphicsTextItem_CollidesWithItem_Callback = bool (*)(const QGraphicsTextItem*, QGraphicsItem*, int);
+    using QGraphicsTextItem_CollidesWithPath_Callback = bool (*)(const QGraphicsTextItem*, QPainterPath*, int);
     using QGraphicsTextItem_SceneEventFilter_Callback = bool (*)(QGraphicsTextItem*, QGraphicsItem*, QEvent*);
     using QGraphicsTextItem_WheelEvent_Callback = void (*)(QGraphicsTextItem*, QGraphicsSceneWheelEvent*);
-    using QGraphicsTextItem_ItemChange_Callback = QVariant (*)(QGraphicsTextItem*, QGraphicsItem::GraphicsItemChange, const QVariant&);
+    using QGraphicsTextItem_ItemChange_Callback = QVariant* (*)(QGraphicsTextItem*, int, QVariant*);
     using QGraphicsTextItem_UpdateMicroFocus_Callback = void (*)();
     using QGraphicsTextItem_Sender_Callback = QObject* (*)();
     using QGraphicsTextItem_SenderSignalIndex_Callback = int (*)();
     using QGraphicsTextItem_Receivers_Callback = int (*)(const QGraphicsTextItem*, const char*);
-    using QGraphicsTextItem_IsSignalConnected_Callback = bool (*)(const QGraphicsTextItem*, const QMetaMethod&);
+    using QGraphicsTextItem_IsSignalConnected_Callback = bool (*)(const QGraphicsTextItem*, QMetaMethod*);
     using QGraphicsTextItem_AddToIndex_Callback = void (*)();
     using QGraphicsTextItem_RemoveFromIndex_Callback = void (*)();
     using QGraphicsTextItem_PrepareGeometryChange_Callback = void (*)();
@@ -6960,110 +8441,110 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
     }
 
     // Callback setters
-    void setQGraphicsTextItem_Metacall_Callback(QGraphicsTextItem_Metacall_Callback cb) { qgraphicstextitem_metacall_callback = cb; }
-    void setQGraphicsTextItem_BoundingRect_Callback(QGraphicsTextItem_BoundingRect_Callback cb) { qgraphicstextitem_boundingrect_callback = cb; }
-    void setQGraphicsTextItem_Shape_Callback(QGraphicsTextItem_Shape_Callback cb) { qgraphicstextitem_shape_callback = cb; }
-    void setQGraphicsTextItem_Contains_Callback(QGraphicsTextItem_Contains_Callback cb) { qgraphicstextitem_contains_callback = cb; }
-    void setQGraphicsTextItem_Paint_Callback(QGraphicsTextItem_Paint_Callback cb) { qgraphicstextitem_paint_callback = cb; }
-    void setQGraphicsTextItem_IsObscuredBy_Callback(QGraphicsTextItem_IsObscuredBy_Callback cb) { qgraphicstextitem_isobscuredby_callback = cb; }
-    void setQGraphicsTextItem_OpaqueArea_Callback(QGraphicsTextItem_OpaqueArea_Callback cb) { qgraphicstextitem_opaquearea_callback = cb; }
-    void setQGraphicsTextItem_Type_Callback(QGraphicsTextItem_Type_Callback cb) { qgraphicstextitem_type_callback = cb; }
-    void setQGraphicsTextItem_SceneEvent_Callback(QGraphicsTextItem_SceneEvent_Callback cb) { qgraphicstextitem_sceneevent_callback = cb; }
-    void setQGraphicsTextItem_MousePressEvent_Callback(QGraphicsTextItem_MousePressEvent_Callback cb) { qgraphicstextitem_mousepressevent_callback = cb; }
-    void setQGraphicsTextItem_MouseMoveEvent_Callback(QGraphicsTextItem_MouseMoveEvent_Callback cb) { qgraphicstextitem_mousemoveevent_callback = cb; }
-    void setQGraphicsTextItem_MouseReleaseEvent_Callback(QGraphicsTextItem_MouseReleaseEvent_Callback cb) { qgraphicstextitem_mousereleaseevent_callback = cb; }
-    void setQGraphicsTextItem_MouseDoubleClickEvent_Callback(QGraphicsTextItem_MouseDoubleClickEvent_Callback cb) { qgraphicstextitem_mousedoubleclickevent_callback = cb; }
-    void setQGraphicsTextItem_ContextMenuEvent_Callback(QGraphicsTextItem_ContextMenuEvent_Callback cb) { qgraphicstextitem_contextmenuevent_callback = cb; }
-    void setQGraphicsTextItem_KeyPressEvent_Callback(QGraphicsTextItem_KeyPressEvent_Callback cb) { qgraphicstextitem_keypressevent_callback = cb; }
-    void setQGraphicsTextItem_KeyReleaseEvent_Callback(QGraphicsTextItem_KeyReleaseEvent_Callback cb) { qgraphicstextitem_keyreleaseevent_callback = cb; }
-    void setQGraphicsTextItem_FocusInEvent_Callback(QGraphicsTextItem_FocusInEvent_Callback cb) { qgraphicstextitem_focusinevent_callback = cb; }
-    void setQGraphicsTextItem_FocusOutEvent_Callback(QGraphicsTextItem_FocusOutEvent_Callback cb) { qgraphicstextitem_focusoutevent_callback = cb; }
-    void setQGraphicsTextItem_DragEnterEvent_Callback(QGraphicsTextItem_DragEnterEvent_Callback cb) { qgraphicstextitem_dragenterevent_callback = cb; }
-    void setQGraphicsTextItem_DragLeaveEvent_Callback(QGraphicsTextItem_DragLeaveEvent_Callback cb) { qgraphicstextitem_dragleaveevent_callback = cb; }
-    void setQGraphicsTextItem_DragMoveEvent_Callback(QGraphicsTextItem_DragMoveEvent_Callback cb) { qgraphicstextitem_dragmoveevent_callback = cb; }
-    void setQGraphicsTextItem_DropEvent_Callback(QGraphicsTextItem_DropEvent_Callback cb) { qgraphicstextitem_dropevent_callback = cb; }
-    void setQGraphicsTextItem_InputMethodEvent_Callback(QGraphicsTextItem_InputMethodEvent_Callback cb) { qgraphicstextitem_inputmethodevent_callback = cb; }
-    void setQGraphicsTextItem_HoverEnterEvent_Callback(QGraphicsTextItem_HoverEnterEvent_Callback cb) { qgraphicstextitem_hoverenterevent_callback = cb; }
-    void setQGraphicsTextItem_HoverMoveEvent_Callback(QGraphicsTextItem_HoverMoveEvent_Callback cb) { qgraphicstextitem_hovermoveevent_callback = cb; }
-    void setQGraphicsTextItem_HoverLeaveEvent_Callback(QGraphicsTextItem_HoverLeaveEvent_Callback cb) { qgraphicstextitem_hoverleaveevent_callback = cb; }
-    void setQGraphicsTextItem_InputMethodQuery_Callback(QGraphicsTextItem_InputMethodQuery_Callback cb) { qgraphicstextitem_inputmethodquery_callback = cb; }
-    void setQGraphicsTextItem_SupportsExtension_Callback(QGraphicsTextItem_SupportsExtension_Callback cb) { qgraphicstextitem_supportsextension_callback = cb; }
-    void setQGraphicsTextItem_SetExtension_Callback(QGraphicsTextItem_SetExtension_Callback cb) { qgraphicstextitem_setextension_callback = cb; }
-    void setQGraphicsTextItem_Extension_Callback(QGraphicsTextItem_Extension_Callback cb) { qgraphicstextitem_extension_callback = cb; }
-    void setQGraphicsTextItem_Event_Callback(QGraphicsTextItem_Event_Callback cb) { qgraphicstextitem_event_callback = cb; }
-    void setQGraphicsTextItem_EventFilter_Callback(QGraphicsTextItem_EventFilter_Callback cb) { qgraphicstextitem_eventfilter_callback = cb; }
-    void setQGraphicsTextItem_TimerEvent_Callback(QGraphicsTextItem_TimerEvent_Callback cb) { qgraphicstextitem_timerevent_callback = cb; }
-    void setQGraphicsTextItem_ChildEvent_Callback(QGraphicsTextItem_ChildEvent_Callback cb) { qgraphicstextitem_childevent_callback = cb; }
-    void setQGraphicsTextItem_CustomEvent_Callback(QGraphicsTextItem_CustomEvent_Callback cb) { qgraphicstextitem_customevent_callback = cb; }
-    void setQGraphicsTextItem_ConnectNotify_Callback(QGraphicsTextItem_ConnectNotify_Callback cb) { qgraphicstextitem_connectnotify_callback = cb; }
-    void setQGraphicsTextItem_DisconnectNotify_Callback(QGraphicsTextItem_DisconnectNotify_Callback cb) { qgraphicstextitem_disconnectnotify_callback = cb; }
-    void setQGraphicsTextItem_Advance_Callback(QGraphicsTextItem_Advance_Callback cb) { qgraphicstextitem_advance_callback = cb; }
-    void setQGraphicsTextItem_CollidesWithItem_Callback(QGraphicsTextItem_CollidesWithItem_Callback cb) { qgraphicstextitem_collideswithitem_callback = cb; }
-    void setQGraphicsTextItem_CollidesWithPath_Callback(QGraphicsTextItem_CollidesWithPath_Callback cb) { qgraphicstextitem_collideswithpath_callback = cb; }
-    void setQGraphicsTextItem_SceneEventFilter_Callback(QGraphicsTextItem_SceneEventFilter_Callback cb) { qgraphicstextitem_sceneeventfilter_callback = cb; }
-    void setQGraphicsTextItem_WheelEvent_Callback(QGraphicsTextItem_WheelEvent_Callback cb) { qgraphicstextitem_wheelevent_callback = cb; }
-    void setQGraphicsTextItem_ItemChange_Callback(QGraphicsTextItem_ItemChange_Callback cb) { qgraphicstextitem_itemchange_callback = cb; }
-    void setQGraphicsTextItem_UpdateMicroFocus_Callback(QGraphicsTextItem_UpdateMicroFocus_Callback cb) { qgraphicstextitem_updatemicrofocus_callback = cb; }
-    void setQGraphicsTextItem_Sender_Callback(QGraphicsTextItem_Sender_Callback cb) { qgraphicstextitem_sender_callback = cb; }
-    void setQGraphicsTextItem_SenderSignalIndex_Callback(QGraphicsTextItem_SenderSignalIndex_Callback cb) { qgraphicstextitem_sendersignalindex_callback = cb; }
-    void setQGraphicsTextItem_Receivers_Callback(QGraphicsTextItem_Receivers_Callback cb) { qgraphicstextitem_receivers_callback = cb; }
-    void setQGraphicsTextItem_IsSignalConnected_Callback(QGraphicsTextItem_IsSignalConnected_Callback cb) { qgraphicstextitem_issignalconnected_callback = cb; }
-    void setQGraphicsTextItem_AddToIndex_Callback(QGraphicsTextItem_AddToIndex_Callback cb) { qgraphicstextitem_addtoindex_callback = cb; }
-    void setQGraphicsTextItem_RemoveFromIndex_Callback(QGraphicsTextItem_RemoveFromIndex_Callback cb) { qgraphicstextitem_removefromindex_callback = cb; }
-    void setQGraphicsTextItem_PrepareGeometryChange_Callback(QGraphicsTextItem_PrepareGeometryChange_Callback cb) { qgraphicstextitem_preparegeometrychange_callback = cb; }
+    inline void setQGraphicsTextItem_Metacall_Callback(QGraphicsTextItem_Metacall_Callback cb) { qgraphicstextitem_metacall_callback = cb; }
+    inline void setQGraphicsTextItem_BoundingRect_Callback(QGraphicsTextItem_BoundingRect_Callback cb) { qgraphicstextitem_boundingrect_callback = cb; }
+    inline void setQGraphicsTextItem_Shape_Callback(QGraphicsTextItem_Shape_Callback cb) { qgraphicstextitem_shape_callback = cb; }
+    inline void setQGraphicsTextItem_Contains_Callback(QGraphicsTextItem_Contains_Callback cb) { qgraphicstextitem_contains_callback = cb; }
+    inline void setQGraphicsTextItem_Paint_Callback(QGraphicsTextItem_Paint_Callback cb) { qgraphicstextitem_paint_callback = cb; }
+    inline void setQGraphicsTextItem_IsObscuredBy_Callback(QGraphicsTextItem_IsObscuredBy_Callback cb) { qgraphicstextitem_isobscuredby_callback = cb; }
+    inline void setQGraphicsTextItem_OpaqueArea_Callback(QGraphicsTextItem_OpaqueArea_Callback cb) { qgraphicstextitem_opaquearea_callback = cb; }
+    inline void setQGraphicsTextItem_Type_Callback(QGraphicsTextItem_Type_Callback cb) { qgraphicstextitem_type_callback = cb; }
+    inline void setQGraphicsTextItem_SceneEvent_Callback(QGraphicsTextItem_SceneEvent_Callback cb) { qgraphicstextitem_sceneevent_callback = cb; }
+    inline void setQGraphicsTextItem_MousePressEvent_Callback(QGraphicsTextItem_MousePressEvent_Callback cb) { qgraphicstextitem_mousepressevent_callback = cb; }
+    inline void setQGraphicsTextItem_MouseMoveEvent_Callback(QGraphicsTextItem_MouseMoveEvent_Callback cb) { qgraphicstextitem_mousemoveevent_callback = cb; }
+    inline void setQGraphicsTextItem_MouseReleaseEvent_Callback(QGraphicsTextItem_MouseReleaseEvent_Callback cb) { qgraphicstextitem_mousereleaseevent_callback = cb; }
+    inline void setQGraphicsTextItem_MouseDoubleClickEvent_Callback(QGraphicsTextItem_MouseDoubleClickEvent_Callback cb) { qgraphicstextitem_mousedoubleclickevent_callback = cb; }
+    inline void setQGraphicsTextItem_ContextMenuEvent_Callback(QGraphicsTextItem_ContextMenuEvent_Callback cb) { qgraphicstextitem_contextmenuevent_callback = cb; }
+    inline void setQGraphicsTextItem_KeyPressEvent_Callback(QGraphicsTextItem_KeyPressEvent_Callback cb) { qgraphicstextitem_keypressevent_callback = cb; }
+    inline void setQGraphicsTextItem_KeyReleaseEvent_Callback(QGraphicsTextItem_KeyReleaseEvent_Callback cb) { qgraphicstextitem_keyreleaseevent_callback = cb; }
+    inline void setQGraphicsTextItem_FocusInEvent_Callback(QGraphicsTextItem_FocusInEvent_Callback cb) { qgraphicstextitem_focusinevent_callback = cb; }
+    inline void setQGraphicsTextItem_FocusOutEvent_Callback(QGraphicsTextItem_FocusOutEvent_Callback cb) { qgraphicstextitem_focusoutevent_callback = cb; }
+    inline void setQGraphicsTextItem_DragEnterEvent_Callback(QGraphicsTextItem_DragEnterEvent_Callback cb) { qgraphicstextitem_dragenterevent_callback = cb; }
+    inline void setQGraphicsTextItem_DragLeaveEvent_Callback(QGraphicsTextItem_DragLeaveEvent_Callback cb) { qgraphicstextitem_dragleaveevent_callback = cb; }
+    inline void setQGraphicsTextItem_DragMoveEvent_Callback(QGraphicsTextItem_DragMoveEvent_Callback cb) { qgraphicstextitem_dragmoveevent_callback = cb; }
+    inline void setQGraphicsTextItem_DropEvent_Callback(QGraphicsTextItem_DropEvent_Callback cb) { qgraphicstextitem_dropevent_callback = cb; }
+    inline void setQGraphicsTextItem_InputMethodEvent_Callback(QGraphicsTextItem_InputMethodEvent_Callback cb) { qgraphicstextitem_inputmethodevent_callback = cb; }
+    inline void setQGraphicsTextItem_HoverEnterEvent_Callback(QGraphicsTextItem_HoverEnterEvent_Callback cb) { qgraphicstextitem_hoverenterevent_callback = cb; }
+    inline void setQGraphicsTextItem_HoverMoveEvent_Callback(QGraphicsTextItem_HoverMoveEvent_Callback cb) { qgraphicstextitem_hovermoveevent_callback = cb; }
+    inline void setQGraphicsTextItem_HoverLeaveEvent_Callback(QGraphicsTextItem_HoverLeaveEvent_Callback cb) { qgraphicstextitem_hoverleaveevent_callback = cb; }
+    inline void setQGraphicsTextItem_InputMethodQuery_Callback(QGraphicsTextItem_InputMethodQuery_Callback cb) { qgraphicstextitem_inputmethodquery_callback = cb; }
+    inline void setQGraphicsTextItem_SupportsExtension_Callback(QGraphicsTextItem_SupportsExtension_Callback cb) { qgraphicstextitem_supportsextension_callback = cb; }
+    inline void setQGraphicsTextItem_SetExtension_Callback(QGraphicsTextItem_SetExtension_Callback cb) { qgraphicstextitem_setextension_callback = cb; }
+    inline void setQGraphicsTextItem_Extension_Callback(QGraphicsTextItem_Extension_Callback cb) { qgraphicstextitem_extension_callback = cb; }
+    inline void setQGraphicsTextItem_Event_Callback(QGraphicsTextItem_Event_Callback cb) { qgraphicstextitem_event_callback = cb; }
+    inline void setQGraphicsTextItem_EventFilter_Callback(QGraphicsTextItem_EventFilter_Callback cb) { qgraphicstextitem_eventfilter_callback = cb; }
+    inline void setQGraphicsTextItem_TimerEvent_Callback(QGraphicsTextItem_TimerEvent_Callback cb) { qgraphicstextitem_timerevent_callback = cb; }
+    inline void setQGraphicsTextItem_ChildEvent_Callback(QGraphicsTextItem_ChildEvent_Callback cb) { qgraphicstextitem_childevent_callback = cb; }
+    inline void setQGraphicsTextItem_CustomEvent_Callback(QGraphicsTextItem_CustomEvent_Callback cb) { qgraphicstextitem_customevent_callback = cb; }
+    inline void setQGraphicsTextItem_ConnectNotify_Callback(QGraphicsTextItem_ConnectNotify_Callback cb) { qgraphicstextitem_connectnotify_callback = cb; }
+    inline void setQGraphicsTextItem_DisconnectNotify_Callback(QGraphicsTextItem_DisconnectNotify_Callback cb) { qgraphicstextitem_disconnectnotify_callback = cb; }
+    inline void setQGraphicsTextItem_Advance_Callback(QGraphicsTextItem_Advance_Callback cb) { qgraphicstextitem_advance_callback = cb; }
+    inline void setQGraphicsTextItem_CollidesWithItem_Callback(QGraphicsTextItem_CollidesWithItem_Callback cb) { qgraphicstextitem_collideswithitem_callback = cb; }
+    inline void setQGraphicsTextItem_CollidesWithPath_Callback(QGraphicsTextItem_CollidesWithPath_Callback cb) { qgraphicstextitem_collideswithpath_callback = cb; }
+    inline void setQGraphicsTextItem_SceneEventFilter_Callback(QGraphicsTextItem_SceneEventFilter_Callback cb) { qgraphicstextitem_sceneeventfilter_callback = cb; }
+    inline void setQGraphicsTextItem_WheelEvent_Callback(QGraphicsTextItem_WheelEvent_Callback cb) { qgraphicstextitem_wheelevent_callback = cb; }
+    inline void setQGraphicsTextItem_ItemChange_Callback(QGraphicsTextItem_ItemChange_Callback cb) { qgraphicstextitem_itemchange_callback = cb; }
+    inline void setQGraphicsTextItem_UpdateMicroFocus_Callback(QGraphicsTextItem_UpdateMicroFocus_Callback cb) { qgraphicstextitem_updatemicrofocus_callback = cb; }
+    inline void setQGraphicsTextItem_Sender_Callback(QGraphicsTextItem_Sender_Callback cb) { qgraphicstextitem_sender_callback = cb; }
+    inline void setQGraphicsTextItem_SenderSignalIndex_Callback(QGraphicsTextItem_SenderSignalIndex_Callback cb) { qgraphicstextitem_sendersignalindex_callback = cb; }
+    inline void setQGraphicsTextItem_Receivers_Callback(QGraphicsTextItem_Receivers_Callback cb) { qgraphicstextitem_receivers_callback = cb; }
+    inline void setQGraphicsTextItem_IsSignalConnected_Callback(QGraphicsTextItem_IsSignalConnected_Callback cb) { qgraphicstextitem_issignalconnected_callback = cb; }
+    inline void setQGraphicsTextItem_AddToIndex_Callback(QGraphicsTextItem_AddToIndex_Callback cb) { qgraphicstextitem_addtoindex_callback = cb; }
+    inline void setQGraphicsTextItem_RemoveFromIndex_Callback(QGraphicsTextItem_RemoveFromIndex_Callback cb) { qgraphicstextitem_removefromindex_callback = cb; }
+    inline void setQGraphicsTextItem_PrepareGeometryChange_Callback(QGraphicsTextItem_PrepareGeometryChange_Callback cb) { qgraphicstextitem_preparegeometrychange_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsTextItem_Metacall_IsBase(bool value) const { qgraphicstextitem_metacall_isbase = value; }
-    void setQGraphicsTextItem_BoundingRect_IsBase(bool value) const { qgraphicstextitem_boundingrect_isbase = value; }
-    void setQGraphicsTextItem_Shape_IsBase(bool value) const { qgraphicstextitem_shape_isbase = value; }
-    void setQGraphicsTextItem_Contains_IsBase(bool value) const { qgraphicstextitem_contains_isbase = value; }
-    void setQGraphicsTextItem_Paint_IsBase(bool value) const { qgraphicstextitem_paint_isbase = value; }
-    void setQGraphicsTextItem_IsObscuredBy_IsBase(bool value) const { qgraphicstextitem_isobscuredby_isbase = value; }
-    void setQGraphicsTextItem_OpaqueArea_IsBase(bool value) const { qgraphicstextitem_opaquearea_isbase = value; }
-    void setQGraphicsTextItem_Type_IsBase(bool value) const { qgraphicstextitem_type_isbase = value; }
-    void setQGraphicsTextItem_SceneEvent_IsBase(bool value) const { qgraphicstextitem_sceneevent_isbase = value; }
-    void setQGraphicsTextItem_MousePressEvent_IsBase(bool value) const { qgraphicstextitem_mousepressevent_isbase = value; }
-    void setQGraphicsTextItem_MouseMoveEvent_IsBase(bool value) const { qgraphicstextitem_mousemoveevent_isbase = value; }
-    void setQGraphicsTextItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicstextitem_mousereleaseevent_isbase = value; }
-    void setQGraphicsTextItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicstextitem_mousedoubleclickevent_isbase = value; }
-    void setQGraphicsTextItem_ContextMenuEvent_IsBase(bool value) const { qgraphicstextitem_contextmenuevent_isbase = value; }
-    void setQGraphicsTextItem_KeyPressEvent_IsBase(bool value) const { qgraphicstextitem_keypressevent_isbase = value; }
-    void setQGraphicsTextItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicstextitem_keyreleaseevent_isbase = value; }
-    void setQGraphicsTextItem_FocusInEvent_IsBase(bool value) const { qgraphicstextitem_focusinevent_isbase = value; }
-    void setQGraphicsTextItem_FocusOutEvent_IsBase(bool value) const { qgraphicstextitem_focusoutevent_isbase = value; }
-    void setQGraphicsTextItem_DragEnterEvent_IsBase(bool value) const { qgraphicstextitem_dragenterevent_isbase = value; }
-    void setQGraphicsTextItem_DragLeaveEvent_IsBase(bool value) const { qgraphicstextitem_dragleaveevent_isbase = value; }
-    void setQGraphicsTextItem_DragMoveEvent_IsBase(bool value) const { qgraphicstextitem_dragmoveevent_isbase = value; }
-    void setQGraphicsTextItem_DropEvent_IsBase(bool value) const { qgraphicstextitem_dropevent_isbase = value; }
-    void setQGraphicsTextItem_InputMethodEvent_IsBase(bool value) const { qgraphicstextitem_inputmethodevent_isbase = value; }
-    void setQGraphicsTextItem_HoverEnterEvent_IsBase(bool value) const { qgraphicstextitem_hoverenterevent_isbase = value; }
-    void setQGraphicsTextItem_HoverMoveEvent_IsBase(bool value) const { qgraphicstextitem_hovermoveevent_isbase = value; }
-    void setQGraphicsTextItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicstextitem_hoverleaveevent_isbase = value; }
-    void setQGraphicsTextItem_InputMethodQuery_IsBase(bool value) const { qgraphicstextitem_inputmethodquery_isbase = value; }
-    void setQGraphicsTextItem_SupportsExtension_IsBase(bool value) const { qgraphicstextitem_supportsextension_isbase = value; }
-    void setQGraphicsTextItem_SetExtension_IsBase(bool value) const { qgraphicstextitem_setextension_isbase = value; }
-    void setQGraphicsTextItem_Extension_IsBase(bool value) const { qgraphicstextitem_extension_isbase = value; }
-    void setQGraphicsTextItem_Event_IsBase(bool value) const { qgraphicstextitem_event_isbase = value; }
-    void setQGraphicsTextItem_EventFilter_IsBase(bool value) const { qgraphicstextitem_eventfilter_isbase = value; }
-    void setQGraphicsTextItem_TimerEvent_IsBase(bool value) const { qgraphicstextitem_timerevent_isbase = value; }
-    void setQGraphicsTextItem_ChildEvent_IsBase(bool value) const { qgraphicstextitem_childevent_isbase = value; }
-    void setQGraphicsTextItem_CustomEvent_IsBase(bool value) const { qgraphicstextitem_customevent_isbase = value; }
-    void setQGraphicsTextItem_ConnectNotify_IsBase(bool value) const { qgraphicstextitem_connectnotify_isbase = value; }
-    void setQGraphicsTextItem_DisconnectNotify_IsBase(bool value) const { qgraphicstextitem_disconnectnotify_isbase = value; }
-    void setQGraphicsTextItem_Advance_IsBase(bool value) const { qgraphicstextitem_advance_isbase = value; }
-    void setQGraphicsTextItem_CollidesWithItem_IsBase(bool value) const { qgraphicstextitem_collideswithitem_isbase = value; }
-    void setQGraphicsTextItem_CollidesWithPath_IsBase(bool value) const { qgraphicstextitem_collideswithpath_isbase = value; }
-    void setQGraphicsTextItem_SceneEventFilter_IsBase(bool value) const { qgraphicstextitem_sceneeventfilter_isbase = value; }
-    void setQGraphicsTextItem_WheelEvent_IsBase(bool value) const { qgraphicstextitem_wheelevent_isbase = value; }
-    void setQGraphicsTextItem_ItemChange_IsBase(bool value) const { qgraphicstextitem_itemchange_isbase = value; }
-    void setQGraphicsTextItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicstextitem_updatemicrofocus_isbase = value; }
-    void setQGraphicsTextItem_Sender_IsBase(bool value) const { qgraphicstextitem_sender_isbase = value; }
-    void setQGraphicsTextItem_SenderSignalIndex_IsBase(bool value) const { qgraphicstextitem_sendersignalindex_isbase = value; }
-    void setQGraphicsTextItem_Receivers_IsBase(bool value) const { qgraphicstextitem_receivers_isbase = value; }
-    void setQGraphicsTextItem_IsSignalConnected_IsBase(bool value) const { qgraphicstextitem_issignalconnected_isbase = value; }
-    void setQGraphicsTextItem_AddToIndex_IsBase(bool value) const { qgraphicstextitem_addtoindex_isbase = value; }
-    void setQGraphicsTextItem_RemoveFromIndex_IsBase(bool value) const { qgraphicstextitem_removefromindex_isbase = value; }
-    void setQGraphicsTextItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicstextitem_preparegeometrychange_isbase = value; }
+    inline void setQGraphicsTextItem_Metacall_IsBase(bool value) const { qgraphicstextitem_metacall_isbase = value; }
+    inline void setQGraphicsTextItem_BoundingRect_IsBase(bool value) const { qgraphicstextitem_boundingrect_isbase = value; }
+    inline void setQGraphicsTextItem_Shape_IsBase(bool value) const { qgraphicstextitem_shape_isbase = value; }
+    inline void setQGraphicsTextItem_Contains_IsBase(bool value) const { qgraphicstextitem_contains_isbase = value; }
+    inline void setQGraphicsTextItem_Paint_IsBase(bool value) const { qgraphicstextitem_paint_isbase = value; }
+    inline void setQGraphicsTextItem_IsObscuredBy_IsBase(bool value) const { qgraphicstextitem_isobscuredby_isbase = value; }
+    inline void setQGraphicsTextItem_OpaqueArea_IsBase(bool value) const { qgraphicstextitem_opaquearea_isbase = value; }
+    inline void setQGraphicsTextItem_Type_IsBase(bool value) const { qgraphicstextitem_type_isbase = value; }
+    inline void setQGraphicsTextItem_SceneEvent_IsBase(bool value) const { qgraphicstextitem_sceneevent_isbase = value; }
+    inline void setQGraphicsTextItem_MousePressEvent_IsBase(bool value) const { qgraphicstextitem_mousepressevent_isbase = value; }
+    inline void setQGraphicsTextItem_MouseMoveEvent_IsBase(bool value) const { qgraphicstextitem_mousemoveevent_isbase = value; }
+    inline void setQGraphicsTextItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicstextitem_mousereleaseevent_isbase = value; }
+    inline void setQGraphicsTextItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicstextitem_mousedoubleclickevent_isbase = value; }
+    inline void setQGraphicsTextItem_ContextMenuEvent_IsBase(bool value) const { qgraphicstextitem_contextmenuevent_isbase = value; }
+    inline void setQGraphicsTextItem_KeyPressEvent_IsBase(bool value) const { qgraphicstextitem_keypressevent_isbase = value; }
+    inline void setQGraphicsTextItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicstextitem_keyreleaseevent_isbase = value; }
+    inline void setQGraphicsTextItem_FocusInEvent_IsBase(bool value) const { qgraphicstextitem_focusinevent_isbase = value; }
+    inline void setQGraphicsTextItem_FocusOutEvent_IsBase(bool value) const { qgraphicstextitem_focusoutevent_isbase = value; }
+    inline void setQGraphicsTextItem_DragEnterEvent_IsBase(bool value) const { qgraphicstextitem_dragenterevent_isbase = value; }
+    inline void setQGraphicsTextItem_DragLeaveEvent_IsBase(bool value) const { qgraphicstextitem_dragleaveevent_isbase = value; }
+    inline void setQGraphicsTextItem_DragMoveEvent_IsBase(bool value) const { qgraphicstextitem_dragmoveevent_isbase = value; }
+    inline void setQGraphicsTextItem_DropEvent_IsBase(bool value) const { qgraphicstextitem_dropevent_isbase = value; }
+    inline void setQGraphicsTextItem_InputMethodEvent_IsBase(bool value) const { qgraphicstextitem_inputmethodevent_isbase = value; }
+    inline void setQGraphicsTextItem_HoverEnterEvent_IsBase(bool value) const { qgraphicstextitem_hoverenterevent_isbase = value; }
+    inline void setQGraphicsTextItem_HoverMoveEvent_IsBase(bool value) const { qgraphicstextitem_hovermoveevent_isbase = value; }
+    inline void setQGraphicsTextItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicstextitem_hoverleaveevent_isbase = value; }
+    inline void setQGraphicsTextItem_InputMethodQuery_IsBase(bool value) const { qgraphicstextitem_inputmethodquery_isbase = value; }
+    inline void setQGraphicsTextItem_SupportsExtension_IsBase(bool value) const { qgraphicstextitem_supportsextension_isbase = value; }
+    inline void setQGraphicsTextItem_SetExtension_IsBase(bool value) const { qgraphicstextitem_setextension_isbase = value; }
+    inline void setQGraphicsTextItem_Extension_IsBase(bool value) const { qgraphicstextitem_extension_isbase = value; }
+    inline void setQGraphicsTextItem_Event_IsBase(bool value) const { qgraphicstextitem_event_isbase = value; }
+    inline void setQGraphicsTextItem_EventFilter_IsBase(bool value) const { qgraphicstextitem_eventfilter_isbase = value; }
+    inline void setQGraphicsTextItem_TimerEvent_IsBase(bool value) const { qgraphicstextitem_timerevent_isbase = value; }
+    inline void setQGraphicsTextItem_ChildEvent_IsBase(bool value) const { qgraphicstextitem_childevent_isbase = value; }
+    inline void setQGraphicsTextItem_CustomEvent_IsBase(bool value) const { qgraphicstextitem_customevent_isbase = value; }
+    inline void setQGraphicsTextItem_ConnectNotify_IsBase(bool value) const { qgraphicstextitem_connectnotify_isbase = value; }
+    inline void setQGraphicsTextItem_DisconnectNotify_IsBase(bool value) const { qgraphicstextitem_disconnectnotify_isbase = value; }
+    inline void setQGraphicsTextItem_Advance_IsBase(bool value) const { qgraphicstextitem_advance_isbase = value; }
+    inline void setQGraphicsTextItem_CollidesWithItem_IsBase(bool value) const { qgraphicstextitem_collideswithitem_isbase = value; }
+    inline void setQGraphicsTextItem_CollidesWithPath_IsBase(bool value) const { qgraphicstextitem_collideswithpath_isbase = value; }
+    inline void setQGraphicsTextItem_SceneEventFilter_IsBase(bool value) const { qgraphicstextitem_sceneeventfilter_isbase = value; }
+    inline void setQGraphicsTextItem_WheelEvent_IsBase(bool value) const { qgraphicstextitem_wheelevent_isbase = value; }
+    inline void setQGraphicsTextItem_ItemChange_IsBase(bool value) const { qgraphicstextitem_itemchange_isbase = value; }
+    inline void setQGraphicsTextItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicstextitem_updatemicrofocus_isbase = value; }
+    inline void setQGraphicsTextItem_Sender_IsBase(bool value) const { qgraphicstextitem_sender_isbase = value; }
+    inline void setQGraphicsTextItem_SenderSignalIndex_IsBase(bool value) const { qgraphicstextitem_sendersignalindex_isbase = value; }
+    inline void setQGraphicsTextItem_Receivers_IsBase(bool value) const { qgraphicstextitem_receivers_isbase = value; }
+    inline void setQGraphicsTextItem_IsSignalConnected_IsBase(bool value) const { qgraphicstextitem_issignalconnected_isbase = value; }
+    inline void setQGraphicsTextItem_AddToIndex_IsBase(bool value) const { qgraphicstextitem_addtoindex_isbase = value; }
+    inline void setQGraphicsTextItem_RemoveFromIndex_IsBase(bool value) const { qgraphicstextitem_removefromindex_isbase = value; }
+    inline void setQGraphicsTextItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicstextitem_preparegeometrychange_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -7071,7 +8552,12 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_metacall_isbase = false;
             return QGraphicsTextItem::qt_metacall(param1, param2, param3);
         } else if (qgraphicstextitem_metacall_callback != nullptr) {
-            return qgraphicstextitem_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qgraphicstextitem_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsTextItem::qt_metacall(param1, param2, param3);
         }
@@ -7083,7 +8569,8 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_boundingrect_isbase = false;
             return QGraphicsTextItem::boundingRect();
         } else if (qgraphicstextitem_boundingrect_callback != nullptr) {
-            return qgraphicstextitem_boundingrect_callback();
+            QRectF* callback_ret = qgraphicstextitem_boundingrect_callback();
+            return *callback_ret;
         } else {
             return QGraphicsTextItem::boundingRect();
         }
@@ -7095,7 +8582,8 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_shape_isbase = false;
             return QGraphicsTextItem::shape();
         } else if (qgraphicstextitem_shape_callback != nullptr) {
-            return qgraphicstextitem_shape_callback();
+            QPainterPath* callback_ret = qgraphicstextitem_shape_callback();
+            return *callback_ret;
         } else {
             return QGraphicsTextItem::shape();
         }
@@ -7107,7 +8595,12 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_contains_isbase = false;
             return QGraphicsTextItem::contains(point);
         } else if (qgraphicstextitem_contains_callback != nullptr) {
-            return qgraphicstextitem_contains_callback(this, point);
+            const QPointF& point_ret = point;
+            // Cast returned reference into pointer
+            QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
+
+            bool callback_ret = qgraphicstextitem_contains_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsTextItem::contains(point);
         }
@@ -7119,7 +8612,11 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_paint_isbase = false;
             QGraphicsTextItem::paint(painter, option, widget);
         } else if (qgraphicstextitem_paint_callback != nullptr) {
-            qgraphicstextitem_paint_callback(this, painter, option, widget);
+            QPainter* cbval1 = painter;
+            QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
+            QWidget* cbval3 = widget;
+
+            qgraphicstextitem_paint_callback(this, cbval1, cbval2, cbval3);
         } else {
             QGraphicsTextItem::paint(painter, option, widget);
         }
@@ -7131,7 +8628,10 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_isobscuredby_isbase = false;
             return QGraphicsTextItem::isObscuredBy(item);
         } else if (qgraphicstextitem_isobscuredby_callback != nullptr) {
-            return qgraphicstextitem_isobscuredby_callback(this, item);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)item;
+
+            bool callback_ret = qgraphicstextitem_isobscuredby_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsTextItem::isObscuredBy(item);
         }
@@ -7143,7 +8643,8 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_opaquearea_isbase = false;
             return QGraphicsTextItem::opaqueArea();
         } else if (qgraphicstextitem_opaquearea_callback != nullptr) {
-            return qgraphicstextitem_opaquearea_callback();
+            QPainterPath* callback_ret = qgraphicstextitem_opaquearea_callback();
+            return *callback_ret;
         } else {
             return QGraphicsTextItem::opaqueArea();
         }
@@ -7155,7 +8656,8 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_type_isbase = false;
             return QGraphicsTextItem::type();
         } else if (qgraphicstextitem_type_callback != nullptr) {
-            return qgraphicstextitem_type_callback();
+            int callback_ret = qgraphicstextitem_type_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsTextItem::type();
         }
@@ -7167,7 +8669,10 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_sceneevent_isbase = false;
             return QGraphicsTextItem::sceneEvent(event);
         } else if (qgraphicstextitem_sceneevent_callback != nullptr) {
-            return qgraphicstextitem_sceneevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgraphicstextitem_sceneevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsTextItem::sceneEvent(event);
         }
@@ -7179,7 +8684,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_mousepressevent_isbase = false;
             QGraphicsTextItem::mousePressEvent(event);
         } else if (qgraphicstextitem_mousepressevent_callback != nullptr) {
-            qgraphicstextitem_mousepressevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicstextitem_mousepressevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::mousePressEvent(event);
         }
@@ -7191,7 +8698,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_mousemoveevent_isbase = false;
             QGraphicsTextItem::mouseMoveEvent(event);
         } else if (qgraphicstextitem_mousemoveevent_callback != nullptr) {
-            qgraphicstextitem_mousemoveevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicstextitem_mousemoveevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::mouseMoveEvent(event);
         }
@@ -7203,7 +8712,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_mousereleaseevent_isbase = false;
             QGraphicsTextItem::mouseReleaseEvent(event);
         } else if (qgraphicstextitem_mousereleaseevent_callback != nullptr) {
-            qgraphicstextitem_mousereleaseevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicstextitem_mousereleaseevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::mouseReleaseEvent(event);
         }
@@ -7215,7 +8726,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_mousedoubleclickevent_isbase = false;
             QGraphicsTextItem::mouseDoubleClickEvent(event);
         } else if (qgraphicstextitem_mousedoubleclickevent_callback != nullptr) {
-            qgraphicstextitem_mousedoubleclickevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicstextitem_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::mouseDoubleClickEvent(event);
         }
@@ -7227,7 +8740,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_contextmenuevent_isbase = false;
             QGraphicsTextItem::contextMenuEvent(event);
         } else if (qgraphicstextitem_contextmenuevent_callback != nullptr) {
-            qgraphicstextitem_contextmenuevent_callback(this, event);
+            QGraphicsSceneContextMenuEvent* cbval1 = event;
+
+            qgraphicstextitem_contextmenuevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::contextMenuEvent(event);
         }
@@ -7239,7 +8754,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_keypressevent_isbase = false;
             QGraphicsTextItem::keyPressEvent(event);
         } else if (qgraphicstextitem_keypressevent_callback != nullptr) {
-            qgraphicstextitem_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicstextitem_keypressevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::keyPressEvent(event);
         }
@@ -7251,7 +8768,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_keyreleaseevent_isbase = false;
             QGraphicsTextItem::keyReleaseEvent(event);
         } else if (qgraphicstextitem_keyreleaseevent_callback != nullptr) {
-            qgraphicstextitem_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicstextitem_keyreleaseevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::keyReleaseEvent(event);
         }
@@ -7263,7 +8782,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_focusinevent_isbase = false;
             QGraphicsTextItem::focusInEvent(event);
         } else if (qgraphicstextitem_focusinevent_callback != nullptr) {
-            qgraphicstextitem_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicstextitem_focusinevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::focusInEvent(event);
         }
@@ -7275,7 +8796,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_focusoutevent_isbase = false;
             QGraphicsTextItem::focusOutEvent(event);
         } else if (qgraphicstextitem_focusoutevent_callback != nullptr) {
-            qgraphicstextitem_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicstextitem_focusoutevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::focusOutEvent(event);
         }
@@ -7287,7 +8810,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_dragenterevent_isbase = false;
             QGraphicsTextItem::dragEnterEvent(event);
         } else if (qgraphicstextitem_dragenterevent_callback != nullptr) {
-            qgraphicstextitem_dragenterevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicstextitem_dragenterevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::dragEnterEvent(event);
         }
@@ -7299,7 +8824,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_dragleaveevent_isbase = false;
             QGraphicsTextItem::dragLeaveEvent(event);
         } else if (qgraphicstextitem_dragleaveevent_callback != nullptr) {
-            qgraphicstextitem_dragleaveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicstextitem_dragleaveevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::dragLeaveEvent(event);
         }
@@ -7311,7 +8838,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_dragmoveevent_isbase = false;
             QGraphicsTextItem::dragMoveEvent(event);
         } else if (qgraphicstextitem_dragmoveevent_callback != nullptr) {
-            qgraphicstextitem_dragmoveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicstextitem_dragmoveevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::dragMoveEvent(event);
         }
@@ -7323,7 +8852,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_dropevent_isbase = false;
             QGraphicsTextItem::dropEvent(event);
         } else if (qgraphicstextitem_dropevent_callback != nullptr) {
-            qgraphicstextitem_dropevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicstextitem_dropevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::dropEvent(event);
         }
@@ -7335,7 +8866,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_inputmethodevent_isbase = false;
             QGraphicsTextItem::inputMethodEvent(event);
         } else if (qgraphicstextitem_inputmethodevent_callback != nullptr) {
-            qgraphicstextitem_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qgraphicstextitem_inputmethodevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::inputMethodEvent(event);
         }
@@ -7347,7 +8880,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_hoverenterevent_isbase = false;
             QGraphicsTextItem::hoverEnterEvent(event);
         } else if (qgraphicstextitem_hoverenterevent_callback != nullptr) {
-            qgraphicstextitem_hoverenterevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicstextitem_hoverenterevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::hoverEnterEvent(event);
         }
@@ -7359,7 +8894,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_hovermoveevent_isbase = false;
             QGraphicsTextItem::hoverMoveEvent(event);
         } else if (qgraphicstextitem_hovermoveevent_callback != nullptr) {
-            qgraphicstextitem_hovermoveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicstextitem_hovermoveevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::hoverMoveEvent(event);
         }
@@ -7371,7 +8908,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_hoverleaveevent_isbase = false;
             QGraphicsTextItem::hoverLeaveEvent(event);
         } else if (qgraphicstextitem_hoverleaveevent_callback != nullptr) {
-            qgraphicstextitem_hoverleaveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicstextitem_hoverleaveevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::hoverLeaveEvent(event);
         }
@@ -7383,7 +8922,10 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_inputmethodquery_isbase = false;
             return QGraphicsTextItem::inputMethodQuery(query);
         } else if (qgraphicstextitem_inputmethodquery_callback != nullptr) {
-            return qgraphicstextitem_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qgraphicstextitem_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsTextItem::inputMethodQuery(query);
         }
@@ -7395,7 +8937,10 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_supportsextension_isbase = false;
             return QGraphicsTextItem::supportsExtension(extension);
         } else if (qgraphicstextitem_supportsextension_callback != nullptr) {
-            return qgraphicstextitem_supportsextension_callback(this, extension);
+            int cbval1 = static_cast<int>(extension);
+
+            bool callback_ret = qgraphicstextitem_supportsextension_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsTextItem::supportsExtension(extension);
         }
@@ -7407,7 +8952,12 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_setextension_isbase = false;
             QGraphicsTextItem::setExtension(extension, variant);
         } else if (qgraphicstextitem_setextension_callback != nullptr) {
-            qgraphicstextitem_setextension_callback(this, extension, variant);
+            int cbval1 = static_cast<int>(extension);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
+
+            qgraphicstextitem_setextension_callback(this, cbval1, cbval2);
         } else {
             QGraphicsTextItem::setExtension(extension, variant);
         }
@@ -7419,7 +8969,12 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_extension_isbase = false;
             return QGraphicsTextItem::extension(variant);
         } else if (qgraphicstextitem_extension_callback != nullptr) {
-            return qgraphicstextitem_extension_callback(this, variant);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
+
+            QVariant* callback_ret = qgraphicstextitem_extension_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsTextItem::extension(variant);
         }
@@ -7431,7 +8986,10 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_event_isbase = false;
             return QGraphicsTextItem::event(ev);
         } else if (qgraphicstextitem_event_callback != nullptr) {
-            return qgraphicstextitem_event_callback(this, ev);
+            QEvent* cbval1 = ev;
+
+            bool callback_ret = qgraphicstextitem_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsTextItem::event(ev);
         }
@@ -7443,7 +9001,11 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_eventfilter_isbase = false;
             return QGraphicsTextItem::eventFilter(watched, event);
         } else if (qgraphicstextitem_eventfilter_callback != nullptr) {
-            return qgraphicstextitem_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicstextitem_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsTextItem::eventFilter(watched, event);
         }
@@ -7455,7 +9017,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_timerevent_isbase = false;
             QGraphicsTextItem::timerEvent(event);
         } else if (qgraphicstextitem_timerevent_callback != nullptr) {
-            qgraphicstextitem_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qgraphicstextitem_timerevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::timerEvent(event);
         }
@@ -7467,7 +9031,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_childevent_isbase = false;
             QGraphicsTextItem::childEvent(event);
         } else if (qgraphicstextitem_childevent_callback != nullptr) {
-            qgraphicstextitem_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qgraphicstextitem_childevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::childEvent(event);
         }
@@ -7479,7 +9045,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_customevent_isbase = false;
             QGraphicsTextItem::customEvent(event);
         } else if (qgraphicstextitem_customevent_callback != nullptr) {
-            qgraphicstextitem_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qgraphicstextitem_customevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::customEvent(event);
         }
@@ -7491,7 +9059,11 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_connectnotify_isbase = false;
             QGraphicsTextItem::connectNotify(signal);
         } else if (qgraphicstextitem_connectnotify_callback != nullptr) {
-            qgraphicstextitem_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qgraphicstextitem_connectnotify_callback(this, cbval1);
         } else {
             QGraphicsTextItem::connectNotify(signal);
         }
@@ -7503,7 +9075,11 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_disconnectnotify_isbase = false;
             QGraphicsTextItem::disconnectNotify(signal);
         } else if (qgraphicstextitem_disconnectnotify_callback != nullptr) {
-            qgraphicstextitem_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qgraphicstextitem_disconnectnotify_callback(this, cbval1);
         } else {
             QGraphicsTextItem::disconnectNotify(signal);
         }
@@ -7515,7 +9091,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_advance_isbase = false;
             QGraphicsTextItem::advance(phase);
         } else if (qgraphicstextitem_advance_callback != nullptr) {
-            qgraphicstextitem_advance_callback(this, phase);
+            int cbval1 = phase;
+
+            qgraphicstextitem_advance_callback(this, cbval1);
         } else {
             QGraphicsTextItem::advance(phase);
         }
@@ -7527,7 +9105,11 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_collideswithitem_isbase = false;
             return QGraphicsTextItem::collidesWithItem(other, mode);
         } else if (qgraphicstextitem_collideswithitem_callback != nullptr) {
-            return qgraphicstextitem_collideswithitem_callback(this, other, mode);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)other;
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicstextitem_collideswithitem_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsTextItem::collidesWithItem(other, mode);
         }
@@ -7539,7 +9121,13 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_collideswithpath_isbase = false;
             return QGraphicsTextItem::collidesWithPath(path, mode);
         } else if (qgraphicstextitem_collideswithpath_callback != nullptr) {
-            return qgraphicstextitem_collideswithpath_callback(this, path, mode);
+            const QPainterPath& path_ret = path;
+            // Cast returned reference into pointer
+            QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicstextitem_collideswithpath_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsTextItem::collidesWithPath(path, mode);
         }
@@ -7551,7 +9139,11 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_sceneeventfilter_isbase = false;
             return QGraphicsTextItem::sceneEventFilter(watched, event);
         } else if (qgraphicstextitem_sceneeventfilter_callback != nullptr) {
-            return qgraphicstextitem_sceneeventfilter_callback(this, watched, event);
+            QGraphicsItem* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicstextitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsTextItem::sceneEventFilter(watched, event);
         }
@@ -7563,7 +9155,9 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_wheelevent_isbase = false;
             QGraphicsTextItem::wheelEvent(event);
         } else if (qgraphicstextitem_wheelevent_callback != nullptr) {
-            qgraphicstextitem_wheelevent_callback(this, event);
+            QGraphicsSceneWheelEvent* cbval1 = event;
+
+            qgraphicstextitem_wheelevent_callback(this, cbval1);
         } else {
             QGraphicsTextItem::wheelEvent(event);
         }
@@ -7575,7 +9169,13 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_itemchange_isbase = false;
             return QGraphicsTextItem::itemChange(change, value);
         } else if (qgraphicstextitem_itemchange_callback != nullptr) {
-            return qgraphicstextitem_itemchange_callback(this, change, value);
+            int cbval1 = static_cast<int>(change);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            QVariant* callback_ret = qgraphicstextitem_itemchange_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QGraphicsTextItem::itemChange(change, value);
         }
@@ -7599,7 +9199,8 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_sender_isbase = false;
             return QGraphicsTextItem::sender();
         } else if (qgraphicstextitem_sender_callback != nullptr) {
-            return qgraphicstextitem_sender_callback();
+            QObject* callback_ret = qgraphicstextitem_sender_callback();
+            return callback_ret;
         } else {
             return QGraphicsTextItem::sender();
         }
@@ -7611,7 +9212,8 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_sendersignalindex_isbase = false;
             return QGraphicsTextItem::senderSignalIndex();
         } else if (qgraphicstextitem_sendersignalindex_callback != nullptr) {
-            return qgraphicstextitem_sendersignalindex_callback();
+            int callback_ret = qgraphicstextitem_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsTextItem::senderSignalIndex();
         }
@@ -7623,7 +9225,10 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_receivers_isbase = false;
             return QGraphicsTextItem::receivers(signal);
         } else if (qgraphicstextitem_receivers_callback != nullptr) {
-            return qgraphicstextitem_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qgraphicstextitem_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsTextItem::receivers(signal);
         }
@@ -7635,7 +9240,12 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             qgraphicstextitem_issignalconnected_isbase = false;
             return QGraphicsTextItem::isSignalConnected(signal);
         } else if (qgraphicstextitem_issignalconnected_callback != nullptr) {
-            return qgraphicstextitem_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qgraphicstextitem_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsTextItem::isSignalConnected(signal);
         }
@@ -7676,27 +9286,110 @@ class VirtualQGraphicsTextItem : public QGraphicsTextItem {
             QGraphicsTextItem::prepareGeometryChange();
         }
     }
+
+    // Friend functions
+    friend bool QGraphicsTextItem_SceneEvent(QGraphicsTextItem* self, QEvent* event);
+    friend bool QGraphicsTextItem_QBaseSceneEvent(QGraphicsTextItem* self, QEvent* event);
+    friend void QGraphicsTextItem_MousePressEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsTextItem_QBaseMousePressEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsTextItem_MouseMoveEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsTextItem_QBaseMouseMoveEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsTextItem_MouseReleaseEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsTextItem_QBaseMouseReleaseEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsTextItem_MouseDoubleClickEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsTextItem_QBaseMouseDoubleClickEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsTextItem_ContextMenuEvent(QGraphicsTextItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsTextItem_QBaseContextMenuEvent(QGraphicsTextItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsTextItem_KeyPressEvent(QGraphicsTextItem* self, QKeyEvent* event);
+    friend void QGraphicsTextItem_QBaseKeyPressEvent(QGraphicsTextItem* self, QKeyEvent* event);
+    friend void QGraphicsTextItem_KeyReleaseEvent(QGraphicsTextItem* self, QKeyEvent* event);
+    friend void QGraphicsTextItem_QBaseKeyReleaseEvent(QGraphicsTextItem* self, QKeyEvent* event);
+    friend void QGraphicsTextItem_FocusInEvent(QGraphicsTextItem* self, QFocusEvent* event);
+    friend void QGraphicsTextItem_QBaseFocusInEvent(QGraphicsTextItem* self, QFocusEvent* event);
+    friend void QGraphicsTextItem_FocusOutEvent(QGraphicsTextItem* self, QFocusEvent* event);
+    friend void QGraphicsTextItem_QBaseFocusOutEvent(QGraphicsTextItem* self, QFocusEvent* event);
+    friend void QGraphicsTextItem_DragEnterEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsTextItem_QBaseDragEnterEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsTextItem_DragLeaveEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsTextItem_QBaseDragLeaveEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsTextItem_DragMoveEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsTextItem_QBaseDragMoveEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsTextItem_DropEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsTextItem_QBaseDropEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsTextItem_InputMethodEvent(QGraphicsTextItem* self, QInputMethodEvent* event);
+    friend void QGraphicsTextItem_QBaseInputMethodEvent(QGraphicsTextItem* self, QInputMethodEvent* event);
+    friend void QGraphicsTextItem_HoverEnterEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsTextItem_QBaseHoverEnterEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsTextItem_HoverMoveEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsTextItem_QBaseHoverMoveEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsTextItem_HoverLeaveEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsTextItem_QBaseHoverLeaveEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event);
+    friend QVariant* QGraphicsTextItem_InputMethodQuery(const QGraphicsTextItem* self, int query);
+    friend QVariant* QGraphicsTextItem_QBaseInputMethodQuery(const QGraphicsTextItem* self, int query);
+    friend bool QGraphicsTextItem_SupportsExtension(const QGraphicsTextItem* self, int extension);
+    friend bool QGraphicsTextItem_QBaseSupportsExtension(const QGraphicsTextItem* self, int extension);
+    friend void QGraphicsTextItem_SetExtension(QGraphicsTextItem* self, int extension, const QVariant* variant);
+    friend void QGraphicsTextItem_QBaseSetExtension(QGraphicsTextItem* self, int extension, const QVariant* variant);
+    friend QVariant* QGraphicsTextItem_Extension(const QGraphicsTextItem* self, const QVariant* variant);
+    friend QVariant* QGraphicsTextItem_QBaseExtension(const QGraphicsTextItem* self, const QVariant* variant);
+    friend bool QGraphicsTextItem_Event(QGraphicsTextItem* self, QEvent* ev);
+    friend bool QGraphicsTextItem_QBaseEvent(QGraphicsTextItem* self, QEvent* ev);
+    friend void QGraphicsTextItem_TimerEvent(QGraphicsTextItem* self, QTimerEvent* event);
+    friend void QGraphicsTextItem_QBaseTimerEvent(QGraphicsTextItem* self, QTimerEvent* event);
+    friend void QGraphicsTextItem_ChildEvent(QGraphicsTextItem* self, QChildEvent* event);
+    friend void QGraphicsTextItem_QBaseChildEvent(QGraphicsTextItem* self, QChildEvent* event);
+    friend void QGraphicsTextItem_CustomEvent(QGraphicsTextItem* self, QEvent* event);
+    friend void QGraphicsTextItem_QBaseCustomEvent(QGraphicsTextItem* self, QEvent* event);
+    friend void QGraphicsTextItem_ConnectNotify(QGraphicsTextItem* self, const QMetaMethod* signal);
+    friend void QGraphicsTextItem_QBaseConnectNotify(QGraphicsTextItem* self, const QMetaMethod* signal);
+    friend void QGraphicsTextItem_DisconnectNotify(QGraphicsTextItem* self, const QMetaMethod* signal);
+    friend void QGraphicsTextItem_QBaseDisconnectNotify(QGraphicsTextItem* self, const QMetaMethod* signal);
+    friend bool QGraphicsTextItem_SceneEventFilter(QGraphicsTextItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsTextItem_QBaseSceneEventFilter(QGraphicsTextItem* self, QGraphicsItem* watched, QEvent* event);
+    friend void QGraphicsTextItem_WheelEvent(QGraphicsTextItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsTextItem_QBaseWheelEvent(QGraphicsTextItem* self, QGraphicsSceneWheelEvent* event);
+    friend QVariant* QGraphicsTextItem_ItemChange(QGraphicsTextItem* self, int change, const QVariant* value);
+    friend QVariant* QGraphicsTextItem_QBaseItemChange(QGraphicsTextItem* self, int change, const QVariant* value);
+    friend void QGraphicsTextItem_UpdateMicroFocus(QGraphicsTextItem* self);
+    friend void QGraphicsTextItem_QBaseUpdateMicroFocus(QGraphicsTextItem* self);
+    friend QObject* QGraphicsTextItem_Sender(const QGraphicsTextItem* self);
+    friend QObject* QGraphicsTextItem_QBaseSender(const QGraphicsTextItem* self);
+    friend int QGraphicsTextItem_SenderSignalIndex(const QGraphicsTextItem* self);
+    friend int QGraphicsTextItem_QBaseSenderSignalIndex(const QGraphicsTextItem* self);
+    friend int QGraphicsTextItem_Receivers(const QGraphicsTextItem* self, const char* signal);
+    friend int QGraphicsTextItem_QBaseReceivers(const QGraphicsTextItem* self, const char* signal);
+    friend bool QGraphicsTextItem_IsSignalConnected(const QGraphicsTextItem* self, const QMetaMethod* signal);
+    friend bool QGraphicsTextItem_QBaseIsSignalConnected(const QGraphicsTextItem* self, const QMetaMethod* signal);
+    friend void QGraphicsTextItem_AddToIndex(QGraphicsTextItem* self);
+    friend void QGraphicsTextItem_QBaseAddToIndex(QGraphicsTextItem* self);
+    friend void QGraphicsTextItem_RemoveFromIndex(QGraphicsTextItem* self);
+    friend void QGraphicsTextItem_QBaseRemoveFromIndex(QGraphicsTextItem* self);
+    friend void QGraphicsTextItem_PrepareGeometryChange(QGraphicsTextItem* self);
+    friend void QGraphicsTextItem_QBasePrepareGeometryChange(QGraphicsTextItem* self);
 };
 
 // This class is a subclass of QGraphicsSimpleTextItem so that we can call protected methods
-class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
+class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsSimpleTextItem = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
-    using QGraphicsSimpleTextItem_BoundingRect_Callback = QRectF (*)();
-    using QGraphicsSimpleTextItem_Shape_Callback = QPainterPath (*)();
-    using QGraphicsSimpleTextItem_Contains_Callback = bool (*)(const QGraphicsSimpleTextItem*, const QPointF&);
-    using QGraphicsSimpleTextItem_Paint_Callback = void (*)(QGraphicsSimpleTextItem*, QPainter*, const QStyleOptionGraphicsItem*, QWidget*);
-    using QGraphicsSimpleTextItem_IsObscuredBy_Callback = bool (*)(const QGraphicsSimpleTextItem*, const QGraphicsItem*);
-    using QGraphicsSimpleTextItem_OpaqueArea_Callback = QPainterPath (*)();
+    using QGraphicsSimpleTextItem_BoundingRect_Callback = QRectF* (*)();
+    using QGraphicsSimpleTextItem_Shape_Callback = QPainterPath* (*)();
+    using QGraphicsSimpleTextItem_Contains_Callback = bool (*)(const QGraphicsSimpleTextItem*, QPointF*);
+    using QGraphicsSimpleTextItem_Paint_Callback = void (*)(QGraphicsSimpleTextItem*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
+    using QGraphicsSimpleTextItem_IsObscuredBy_Callback = bool (*)(const QGraphicsSimpleTextItem*, QGraphicsItem*);
+    using QGraphicsSimpleTextItem_OpaqueArea_Callback = QPainterPath* (*)();
     using QGraphicsSimpleTextItem_Type_Callback = int (*)();
     using QGraphicsSimpleTextItem_SupportsExtension_Callback = bool (*)(const QGraphicsSimpleTextItem*, int);
-    using QGraphicsSimpleTextItem_SetExtension_Callback = void (*)(QGraphicsSimpleTextItem*, int, const QVariant&);
-    using QGraphicsSimpleTextItem_Extension_Callback = QVariant (*)(const QGraphicsSimpleTextItem*, const QVariant&);
+    using QGraphicsSimpleTextItem_SetExtension_Callback = void (*)(QGraphicsSimpleTextItem*, int, QVariant*);
+    using QGraphicsSimpleTextItem_Extension_Callback = QVariant* (*)(const QGraphicsSimpleTextItem*, QVariant*);
     using QGraphicsSimpleTextItem_Advance_Callback = void (*)(QGraphicsSimpleTextItem*, int);
-    using QGraphicsSimpleTextItem_CollidesWithItem_Callback = bool (*)(const QGraphicsSimpleTextItem*, const QGraphicsItem*, Qt::ItemSelectionMode);
-    using QGraphicsSimpleTextItem_CollidesWithPath_Callback = bool (*)(const QGraphicsSimpleTextItem*, const QPainterPath&, Qt::ItemSelectionMode);
+    using QGraphicsSimpleTextItem_CollidesWithItem_Callback = bool (*)(const QGraphicsSimpleTextItem*, QGraphicsItem*, int);
+    using QGraphicsSimpleTextItem_CollidesWithPath_Callback = bool (*)(const QGraphicsSimpleTextItem*, QPainterPath*, int);
     using QGraphicsSimpleTextItem_SceneEventFilter_Callback = bool (*)(QGraphicsSimpleTextItem*, QGraphicsItem*, QEvent*);
     using QGraphicsSimpleTextItem_SceneEvent_Callback = bool (*)(QGraphicsSimpleTextItem*, QEvent*);
     using QGraphicsSimpleTextItem_ContextMenuEvent_Callback = void (*)(QGraphicsSimpleTextItem*, QGraphicsSceneContextMenuEvent*);
@@ -7717,8 +9410,8 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
     using QGraphicsSimpleTextItem_MouseDoubleClickEvent_Callback = void (*)(QGraphicsSimpleTextItem*, QGraphicsSceneMouseEvent*);
     using QGraphicsSimpleTextItem_WheelEvent_Callback = void (*)(QGraphicsSimpleTextItem*, QGraphicsSceneWheelEvent*);
     using QGraphicsSimpleTextItem_InputMethodEvent_Callback = void (*)(QGraphicsSimpleTextItem*, QInputMethodEvent*);
-    using QGraphicsSimpleTextItem_InputMethodQuery_Callback = QVariant (*)(const QGraphicsSimpleTextItem*, Qt::InputMethodQuery);
-    using QGraphicsSimpleTextItem_ItemChange_Callback = QVariant (*)(QGraphicsSimpleTextItem*, QGraphicsItem::GraphicsItemChange, const QVariant&);
+    using QGraphicsSimpleTextItem_InputMethodQuery_Callback = QVariant* (*)(const QGraphicsSimpleTextItem*, int);
+    using QGraphicsSimpleTextItem_ItemChange_Callback = QVariant* (*)(QGraphicsSimpleTextItem*, int, QVariant*);
     using QGraphicsSimpleTextItem_UpdateMicroFocus_Callback = void (*)();
     using QGraphicsSimpleTextItem_AddToIndex_Callback = void (*)();
     using QGraphicsSimpleTextItem_RemoveFromIndex_Callback = void (*)();
@@ -7856,86 +9549,86 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
     }
 
     // Callback setters
-    void setQGraphicsSimpleTextItem_BoundingRect_Callback(QGraphicsSimpleTextItem_BoundingRect_Callback cb) { qgraphicssimpletextitem_boundingrect_callback = cb; }
-    void setQGraphicsSimpleTextItem_Shape_Callback(QGraphicsSimpleTextItem_Shape_Callback cb) { qgraphicssimpletextitem_shape_callback = cb; }
-    void setQGraphicsSimpleTextItem_Contains_Callback(QGraphicsSimpleTextItem_Contains_Callback cb) { qgraphicssimpletextitem_contains_callback = cb; }
-    void setQGraphicsSimpleTextItem_Paint_Callback(QGraphicsSimpleTextItem_Paint_Callback cb) { qgraphicssimpletextitem_paint_callback = cb; }
-    void setQGraphicsSimpleTextItem_IsObscuredBy_Callback(QGraphicsSimpleTextItem_IsObscuredBy_Callback cb) { qgraphicssimpletextitem_isobscuredby_callback = cb; }
-    void setQGraphicsSimpleTextItem_OpaqueArea_Callback(QGraphicsSimpleTextItem_OpaqueArea_Callback cb) { qgraphicssimpletextitem_opaquearea_callback = cb; }
-    void setQGraphicsSimpleTextItem_Type_Callback(QGraphicsSimpleTextItem_Type_Callback cb) { qgraphicssimpletextitem_type_callback = cb; }
-    void setQGraphicsSimpleTextItem_SupportsExtension_Callback(QGraphicsSimpleTextItem_SupportsExtension_Callback cb) { qgraphicssimpletextitem_supportsextension_callback = cb; }
-    void setQGraphicsSimpleTextItem_SetExtension_Callback(QGraphicsSimpleTextItem_SetExtension_Callback cb) { qgraphicssimpletextitem_setextension_callback = cb; }
-    void setQGraphicsSimpleTextItem_Extension_Callback(QGraphicsSimpleTextItem_Extension_Callback cb) { qgraphicssimpletextitem_extension_callback = cb; }
-    void setQGraphicsSimpleTextItem_Advance_Callback(QGraphicsSimpleTextItem_Advance_Callback cb) { qgraphicssimpletextitem_advance_callback = cb; }
-    void setQGraphicsSimpleTextItem_CollidesWithItem_Callback(QGraphicsSimpleTextItem_CollidesWithItem_Callback cb) { qgraphicssimpletextitem_collideswithitem_callback = cb; }
-    void setQGraphicsSimpleTextItem_CollidesWithPath_Callback(QGraphicsSimpleTextItem_CollidesWithPath_Callback cb) { qgraphicssimpletextitem_collideswithpath_callback = cb; }
-    void setQGraphicsSimpleTextItem_SceneEventFilter_Callback(QGraphicsSimpleTextItem_SceneEventFilter_Callback cb) { qgraphicssimpletextitem_sceneeventfilter_callback = cb; }
-    void setQGraphicsSimpleTextItem_SceneEvent_Callback(QGraphicsSimpleTextItem_SceneEvent_Callback cb) { qgraphicssimpletextitem_sceneevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_ContextMenuEvent_Callback(QGraphicsSimpleTextItem_ContextMenuEvent_Callback cb) { qgraphicssimpletextitem_contextmenuevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_DragEnterEvent_Callback(QGraphicsSimpleTextItem_DragEnterEvent_Callback cb) { qgraphicssimpletextitem_dragenterevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_DragLeaveEvent_Callback(QGraphicsSimpleTextItem_DragLeaveEvent_Callback cb) { qgraphicssimpletextitem_dragleaveevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_DragMoveEvent_Callback(QGraphicsSimpleTextItem_DragMoveEvent_Callback cb) { qgraphicssimpletextitem_dragmoveevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_DropEvent_Callback(QGraphicsSimpleTextItem_DropEvent_Callback cb) { qgraphicssimpletextitem_dropevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_FocusInEvent_Callback(QGraphicsSimpleTextItem_FocusInEvent_Callback cb) { qgraphicssimpletextitem_focusinevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_FocusOutEvent_Callback(QGraphicsSimpleTextItem_FocusOutEvent_Callback cb) { qgraphicssimpletextitem_focusoutevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_HoverEnterEvent_Callback(QGraphicsSimpleTextItem_HoverEnterEvent_Callback cb) { qgraphicssimpletextitem_hoverenterevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_HoverMoveEvent_Callback(QGraphicsSimpleTextItem_HoverMoveEvent_Callback cb) { qgraphicssimpletextitem_hovermoveevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_HoverLeaveEvent_Callback(QGraphicsSimpleTextItem_HoverLeaveEvent_Callback cb) { qgraphicssimpletextitem_hoverleaveevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_KeyPressEvent_Callback(QGraphicsSimpleTextItem_KeyPressEvent_Callback cb) { qgraphicssimpletextitem_keypressevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_KeyReleaseEvent_Callback(QGraphicsSimpleTextItem_KeyReleaseEvent_Callback cb) { qgraphicssimpletextitem_keyreleaseevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_MousePressEvent_Callback(QGraphicsSimpleTextItem_MousePressEvent_Callback cb) { qgraphicssimpletextitem_mousepressevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_MouseMoveEvent_Callback(QGraphicsSimpleTextItem_MouseMoveEvent_Callback cb) { qgraphicssimpletextitem_mousemoveevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_MouseReleaseEvent_Callback(QGraphicsSimpleTextItem_MouseReleaseEvent_Callback cb) { qgraphicssimpletextitem_mousereleaseevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_MouseDoubleClickEvent_Callback(QGraphicsSimpleTextItem_MouseDoubleClickEvent_Callback cb) { qgraphicssimpletextitem_mousedoubleclickevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_WheelEvent_Callback(QGraphicsSimpleTextItem_WheelEvent_Callback cb) { qgraphicssimpletextitem_wheelevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_InputMethodEvent_Callback(QGraphicsSimpleTextItem_InputMethodEvent_Callback cb) { qgraphicssimpletextitem_inputmethodevent_callback = cb; }
-    void setQGraphicsSimpleTextItem_InputMethodQuery_Callback(QGraphicsSimpleTextItem_InputMethodQuery_Callback cb) { qgraphicssimpletextitem_inputmethodquery_callback = cb; }
-    void setQGraphicsSimpleTextItem_ItemChange_Callback(QGraphicsSimpleTextItem_ItemChange_Callback cb) { qgraphicssimpletextitem_itemchange_callback = cb; }
-    void setQGraphicsSimpleTextItem_UpdateMicroFocus_Callback(QGraphicsSimpleTextItem_UpdateMicroFocus_Callback cb) { qgraphicssimpletextitem_updatemicrofocus_callback = cb; }
-    void setQGraphicsSimpleTextItem_AddToIndex_Callback(QGraphicsSimpleTextItem_AddToIndex_Callback cb) { qgraphicssimpletextitem_addtoindex_callback = cb; }
-    void setQGraphicsSimpleTextItem_RemoveFromIndex_Callback(QGraphicsSimpleTextItem_RemoveFromIndex_Callback cb) { qgraphicssimpletextitem_removefromindex_callback = cb; }
-    void setQGraphicsSimpleTextItem_PrepareGeometryChange_Callback(QGraphicsSimpleTextItem_PrepareGeometryChange_Callback cb) { qgraphicssimpletextitem_preparegeometrychange_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_BoundingRect_Callback(QGraphicsSimpleTextItem_BoundingRect_Callback cb) { qgraphicssimpletextitem_boundingrect_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_Shape_Callback(QGraphicsSimpleTextItem_Shape_Callback cb) { qgraphicssimpletextitem_shape_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_Contains_Callback(QGraphicsSimpleTextItem_Contains_Callback cb) { qgraphicssimpletextitem_contains_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_Paint_Callback(QGraphicsSimpleTextItem_Paint_Callback cb) { qgraphicssimpletextitem_paint_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_IsObscuredBy_Callback(QGraphicsSimpleTextItem_IsObscuredBy_Callback cb) { qgraphicssimpletextitem_isobscuredby_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_OpaqueArea_Callback(QGraphicsSimpleTextItem_OpaqueArea_Callback cb) { qgraphicssimpletextitem_opaquearea_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_Type_Callback(QGraphicsSimpleTextItem_Type_Callback cb) { qgraphicssimpletextitem_type_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_SupportsExtension_Callback(QGraphicsSimpleTextItem_SupportsExtension_Callback cb) { qgraphicssimpletextitem_supportsextension_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_SetExtension_Callback(QGraphicsSimpleTextItem_SetExtension_Callback cb) { qgraphicssimpletextitem_setextension_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_Extension_Callback(QGraphicsSimpleTextItem_Extension_Callback cb) { qgraphicssimpletextitem_extension_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_Advance_Callback(QGraphicsSimpleTextItem_Advance_Callback cb) { qgraphicssimpletextitem_advance_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_CollidesWithItem_Callback(QGraphicsSimpleTextItem_CollidesWithItem_Callback cb) { qgraphicssimpletextitem_collideswithitem_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_CollidesWithPath_Callback(QGraphicsSimpleTextItem_CollidesWithPath_Callback cb) { qgraphicssimpletextitem_collideswithpath_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_SceneEventFilter_Callback(QGraphicsSimpleTextItem_SceneEventFilter_Callback cb) { qgraphicssimpletextitem_sceneeventfilter_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_SceneEvent_Callback(QGraphicsSimpleTextItem_SceneEvent_Callback cb) { qgraphicssimpletextitem_sceneevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_ContextMenuEvent_Callback(QGraphicsSimpleTextItem_ContextMenuEvent_Callback cb) { qgraphicssimpletextitem_contextmenuevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_DragEnterEvent_Callback(QGraphicsSimpleTextItem_DragEnterEvent_Callback cb) { qgraphicssimpletextitem_dragenterevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_DragLeaveEvent_Callback(QGraphicsSimpleTextItem_DragLeaveEvent_Callback cb) { qgraphicssimpletextitem_dragleaveevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_DragMoveEvent_Callback(QGraphicsSimpleTextItem_DragMoveEvent_Callback cb) { qgraphicssimpletextitem_dragmoveevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_DropEvent_Callback(QGraphicsSimpleTextItem_DropEvent_Callback cb) { qgraphicssimpletextitem_dropevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_FocusInEvent_Callback(QGraphicsSimpleTextItem_FocusInEvent_Callback cb) { qgraphicssimpletextitem_focusinevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_FocusOutEvent_Callback(QGraphicsSimpleTextItem_FocusOutEvent_Callback cb) { qgraphicssimpletextitem_focusoutevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_HoverEnterEvent_Callback(QGraphicsSimpleTextItem_HoverEnterEvent_Callback cb) { qgraphicssimpletextitem_hoverenterevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_HoverMoveEvent_Callback(QGraphicsSimpleTextItem_HoverMoveEvent_Callback cb) { qgraphicssimpletextitem_hovermoveevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_HoverLeaveEvent_Callback(QGraphicsSimpleTextItem_HoverLeaveEvent_Callback cb) { qgraphicssimpletextitem_hoverleaveevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_KeyPressEvent_Callback(QGraphicsSimpleTextItem_KeyPressEvent_Callback cb) { qgraphicssimpletextitem_keypressevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_KeyReleaseEvent_Callback(QGraphicsSimpleTextItem_KeyReleaseEvent_Callback cb) { qgraphicssimpletextitem_keyreleaseevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_MousePressEvent_Callback(QGraphicsSimpleTextItem_MousePressEvent_Callback cb) { qgraphicssimpletextitem_mousepressevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_MouseMoveEvent_Callback(QGraphicsSimpleTextItem_MouseMoveEvent_Callback cb) { qgraphicssimpletextitem_mousemoveevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_MouseReleaseEvent_Callback(QGraphicsSimpleTextItem_MouseReleaseEvent_Callback cb) { qgraphicssimpletextitem_mousereleaseevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_MouseDoubleClickEvent_Callback(QGraphicsSimpleTextItem_MouseDoubleClickEvent_Callback cb) { qgraphicssimpletextitem_mousedoubleclickevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_WheelEvent_Callback(QGraphicsSimpleTextItem_WheelEvent_Callback cb) { qgraphicssimpletextitem_wheelevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_InputMethodEvent_Callback(QGraphicsSimpleTextItem_InputMethodEvent_Callback cb) { qgraphicssimpletextitem_inputmethodevent_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_InputMethodQuery_Callback(QGraphicsSimpleTextItem_InputMethodQuery_Callback cb) { qgraphicssimpletextitem_inputmethodquery_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_ItemChange_Callback(QGraphicsSimpleTextItem_ItemChange_Callback cb) { qgraphicssimpletextitem_itemchange_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_UpdateMicroFocus_Callback(QGraphicsSimpleTextItem_UpdateMicroFocus_Callback cb) { qgraphicssimpletextitem_updatemicrofocus_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_AddToIndex_Callback(QGraphicsSimpleTextItem_AddToIndex_Callback cb) { qgraphicssimpletextitem_addtoindex_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_RemoveFromIndex_Callback(QGraphicsSimpleTextItem_RemoveFromIndex_Callback cb) { qgraphicssimpletextitem_removefromindex_callback = cb; }
+    inline void setQGraphicsSimpleTextItem_PrepareGeometryChange_Callback(QGraphicsSimpleTextItem_PrepareGeometryChange_Callback cb) { qgraphicssimpletextitem_preparegeometrychange_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsSimpleTextItem_BoundingRect_IsBase(bool value) const { qgraphicssimpletextitem_boundingrect_isbase = value; }
-    void setQGraphicsSimpleTextItem_Shape_IsBase(bool value) const { qgraphicssimpletextitem_shape_isbase = value; }
-    void setQGraphicsSimpleTextItem_Contains_IsBase(bool value) const { qgraphicssimpletextitem_contains_isbase = value; }
-    void setQGraphicsSimpleTextItem_Paint_IsBase(bool value) const { qgraphicssimpletextitem_paint_isbase = value; }
-    void setQGraphicsSimpleTextItem_IsObscuredBy_IsBase(bool value) const { qgraphicssimpletextitem_isobscuredby_isbase = value; }
-    void setQGraphicsSimpleTextItem_OpaqueArea_IsBase(bool value) const { qgraphicssimpletextitem_opaquearea_isbase = value; }
-    void setQGraphicsSimpleTextItem_Type_IsBase(bool value) const { qgraphicssimpletextitem_type_isbase = value; }
-    void setQGraphicsSimpleTextItem_SupportsExtension_IsBase(bool value) const { qgraphicssimpletextitem_supportsextension_isbase = value; }
-    void setQGraphicsSimpleTextItem_SetExtension_IsBase(bool value) const { qgraphicssimpletextitem_setextension_isbase = value; }
-    void setQGraphicsSimpleTextItem_Extension_IsBase(bool value) const { qgraphicssimpletextitem_extension_isbase = value; }
-    void setQGraphicsSimpleTextItem_Advance_IsBase(bool value) const { qgraphicssimpletextitem_advance_isbase = value; }
-    void setQGraphicsSimpleTextItem_CollidesWithItem_IsBase(bool value) const { qgraphicssimpletextitem_collideswithitem_isbase = value; }
-    void setQGraphicsSimpleTextItem_CollidesWithPath_IsBase(bool value) const { qgraphicssimpletextitem_collideswithpath_isbase = value; }
-    void setQGraphicsSimpleTextItem_SceneEventFilter_IsBase(bool value) const { qgraphicssimpletextitem_sceneeventfilter_isbase = value; }
-    void setQGraphicsSimpleTextItem_SceneEvent_IsBase(bool value) const { qgraphicssimpletextitem_sceneevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_ContextMenuEvent_IsBase(bool value) const { qgraphicssimpletextitem_contextmenuevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_DragEnterEvent_IsBase(bool value) const { qgraphicssimpletextitem_dragenterevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_DragLeaveEvent_IsBase(bool value) const { qgraphicssimpletextitem_dragleaveevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_DragMoveEvent_IsBase(bool value) const { qgraphicssimpletextitem_dragmoveevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_DropEvent_IsBase(bool value) const { qgraphicssimpletextitem_dropevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_FocusInEvent_IsBase(bool value) const { qgraphicssimpletextitem_focusinevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_FocusOutEvent_IsBase(bool value) const { qgraphicssimpletextitem_focusoutevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_HoverEnterEvent_IsBase(bool value) const { qgraphicssimpletextitem_hoverenterevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_HoverMoveEvent_IsBase(bool value) const { qgraphicssimpletextitem_hovermoveevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicssimpletextitem_hoverleaveevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_KeyPressEvent_IsBase(bool value) const { qgraphicssimpletextitem_keypressevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicssimpletextitem_keyreleaseevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_MousePressEvent_IsBase(bool value) const { qgraphicssimpletextitem_mousepressevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_MouseMoveEvent_IsBase(bool value) const { qgraphicssimpletextitem_mousemoveevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicssimpletextitem_mousereleaseevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicssimpletextitem_mousedoubleclickevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_WheelEvent_IsBase(bool value) const { qgraphicssimpletextitem_wheelevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_InputMethodEvent_IsBase(bool value) const { qgraphicssimpletextitem_inputmethodevent_isbase = value; }
-    void setQGraphicsSimpleTextItem_InputMethodQuery_IsBase(bool value) const { qgraphicssimpletextitem_inputmethodquery_isbase = value; }
-    void setQGraphicsSimpleTextItem_ItemChange_IsBase(bool value) const { qgraphicssimpletextitem_itemchange_isbase = value; }
-    void setQGraphicsSimpleTextItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicssimpletextitem_updatemicrofocus_isbase = value; }
-    void setQGraphicsSimpleTextItem_AddToIndex_IsBase(bool value) const { qgraphicssimpletextitem_addtoindex_isbase = value; }
-    void setQGraphicsSimpleTextItem_RemoveFromIndex_IsBase(bool value) const { qgraphicssimpletextitem_removefromindex_isbase = value; }
-    void setQGraphicsSimpleTextItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicssimpletextitem_preparegeometrychange_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_BoundingRect_IsBase(bool value) const { qgraphicssimpletextitem_boundingrect_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_Shape_IsBase(bool value) const { qgraphicssimpletextitem_shape_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_Contains_IsBase(bool value) const { qgraphicssimpletextitem_contains_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_Paint_IsBase(bool value) const { qgraphicssimpletextitem_paint_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_IsObscuredBy_IsBase(bool value) const { qgraphicssimpletextitem_isobscuredby_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_OpaqueArea_IsBase(bool value) const { qgraphicssimpletextitem_opaquearea_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_Type_IsBase(bool value) const { qgraphicssimpletextitem_type_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_SupportsExtension_IsBase(bool value) const { qgraphicssimpletextitem_supportsextension_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_SetExtension_IsBase(bool value) const { qgraphicssimpletextitem_setextension_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_Extension_IsBase(bool value) const { qgraphicssimpletextitem_extension_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_Advance_IsBase(bool value) const { qgraphicssimpletextitem_advance_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_CollidesWithItem_IsBase(bool value) const { qgraphicssimpletextitem_collideswithitem_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_CollidesWithPath_IsBase(bool value) const { qgraphicssimpletextitem_collideswithpath_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_SceneEventFilter_IsBase(bool value) const { qgraphicssimpletextitem_sceneeventfilter_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_SceneEvent_IsBase(bool value) const { qgraphicssimpletextitem_sceneevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_ContextMenuEvent_IsBase(bool value) const { qgraphicssimpletextitem_contextmenuevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_DragEnterEvent_IsBase(bool value) const { qgraphicssimpletextitem_dragenterevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_DragLeaveEvent_IsBase(bool value) const { qgraphicssimpletextitem_dragleaveevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_DragMoveEvent_IsBase(bool value) const { qgraphicssimpletextitem_dragmoveevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_DropEvent_IsBase(bool value) const { qgraphicssimpletextitem_dropevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_FocusInEvent_IsBase(bool value) const { qgraphicssimpletextitem_focusinevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_FocusOutEvent_IsBase(bool value) const { qgraphicssimpletextitem_focusoutevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_HoverEnterEvent_IsBase(bool value) const { qgraphicssimpletextitem_hoverenterevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_HoverMoveEvent_IsBase(bool value) const { qgraphicssimpletextitem_hovermoveevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicssimpletextitem_hoverleaveevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_KeyPressEvent_IsBase(bool value) const { qgraphicssimpletextitem_keypressevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicssimpletextitem_keyreleaseevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_MousePressEvent_IsBase(bool value) const { qgraphicssimpletextitem_mousepressevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_MouseMoveEvent_IsBase(bool value) const { qgraphicssimpletextitem_mousemoveevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicssimpletextitem_mousereleaseevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicssimpletextitem_mousedoubleclickevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_WheelEvent_IsBase(bool value) const { qgraphicssimpletextitem_wheelevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_InputMethodEvent_IsBase(bool value) const { qgraphicssimpletextitem_inputmethodevent_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_InputMethodQuery_IsBase(bool value) const { qgraphicssimpletextitem_inputmethodquery_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_ItemChange_IsBase(bool value) const { qgraphicssimpletextitem_itemchange_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicssimpletextitem_updatemicrofocus_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_AddToIndex_IsBase(bool value) const { qgraphicssimpletextitem_addtoindex_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_RemoveFromIndex_IsBase(bool value) const { qgraphicssimpletextitem_removefromindex_isbase = value; }
+    inline void setQGraphicsSimpleTextItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicssimpletextitem_preparegeometrychange_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF boundingRect() const override {
@@ -7943,7 +9636,8 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_boundingrect_isbase = false;
             return QGraphicsSimpleTextItem::boundingRect();
         } else if (qgraphicssimpletextitem_boundingrect_callback != nullptr) {
-            return qgraphicssimpletextitem_boundingrect_callback();
+            QRectF* callback_ret = qgraphicssimpletextitem_boundingrect_callback();
+            return *callback_ret;
         } else {
             return QGraphicsSimpleTextItem::boundingRect();
         }
@@ -7955,7 +9649,8 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_shape_isbase = false;
             return QGraphicsSimpleTextItem::shape();
         } else if (qgraphicssimpletextitem_shape_callback != nullptr) {
-            return qgraphicssimpletextitem_shape_callback();
+            QPainterPath* callback_ret = qgraphicssimpletextitem_shape_callback();
+            return *callback_ret;
         } else {
             return QGraphicsSimpleTextItem::shape();
         }
@@ -7967,7 +9662,12 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_contains_isbase = false;
             return QGraphicsSimpleTextItem::contains(point);
         } else if (qgraphicssimpletextitem_contains_callback != nullptr) {
-            return qgraphicssimpletextitem_contains_callback(this, point);
+            const QPointF& point_ret = point;
+            // Cast returned reference into pointer
+            QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
+
+            bool callback_ret = qgraphicssimpletextitem_contains_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsSimpleTextItem::contains(point);
         }
@@ -7979,7 +9679,11 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_paint_isbase = false;
             QGraphicsSimpleTextItem::paint(painter, option, widget);
         } else if (qgraphicssimpletextitem_paint_callback != nullptr) {
-            qgraphicssimpletextitem_paint_callback(this, painter, option, widget);
+            QPainter* cbval1 = painter;
+            QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
+            QWidget* cbval3 = widget;
+
+            qgraphicssimpletextitem_paint_callback(this, cbval1, cbval2, cbval3);
         } else {
             QGraphicsSimpleTextItem::paint(painter, option, widget);
         }
@@ -7991,7 +9695,10 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_isobscuredby_isbase = false;
             return QGraphicsSimpleTextItem::isObscuredBy(item);
         } else if (qgraphicssimpletextitem_isobscuredby_callback != nullptr) {
-            return qgraphicssimpletextitem_isobscuredby_callback(this, item);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)item;
+
+            bool callback_ret = qgraphicssimpletextitem_isobscuredby_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsSimpleTextItem::isObscuredBy(item);
         }
@@ -8003,7 +9710,8 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_opaquearea_isbase = false;
             return QGraphicsSimpleTextItem::opaqueArea();
         } else if (qgraphicssimpletextitem_opaquearea_callback != nullptr) {
-            return qgraphicssimpletextitem_opaquearea_callback();
+            QPainterPath* callback_ret = qgraphicssimpletextitem_opaquearea_callback();
+            return *callback_ret;
         } else {
             return QGraphicsSimpleTextItem::opaqueArea();
         }
@@ -8015,7 +9723,8 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_type_isbase = false;
             return QGraphicsSimpleTextItem::type();
         } else if (qgraphicssimpletextitem_type_callback != nullptr) {
-            return qgraphicssimpletextitem_type_callback();
+            int callback_ret = qgraphicssimpletextitem_type_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsSimpleTextItem::type();
         }
@@ -8027,7 +9736,10 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_supportsextension_isbase = false;
             return QGraphicsSimpleTextItem::supportsExtension(extension);
         } else if (qgraphicssimpletextitem_supportsextension_callback != nullptr) {
-            return qgraphicssimpletextitem_supportsextension_callback(this, extension);
+            int cbval1 = static_cast<int>(extension);
+
+            bool callback_ret = qgraphicssimpletextitem_supportsextension_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsSimpleTextItem::supportsExtension(extension);
         }
@@ -8039,7 +9751,12 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_setextension_isbase = false;
             QGraphicsSimpleTextItem::setExtension(extension, variant);
         } else if (qgraphicssimpletextitem_setextension_callback != nullptr) {
-            qgraphicssimpletextitem_setextension_callback(this, extension, variant);
+            int cbval1 = static_cast<int>(extension);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
+
+            qgraphicssimpletextitem_setextension_callback(this, cbval1, cbval2);
         } else {
             QGraphicsSimpleTextItem::setExtension(extension, variant);
         }
@@ -8051,7 +9768,12 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_extension_isbase = false;
             return QGraphicsSimpleTextItem::extension(variant);
         } else if (qgraphicssimpletextitem_extension_callback != nullptr) {
-            return qgraphicssimpletextitem_extension_callback(this, variant);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
+
+            QVariant* callback_ret = qgraphicssimpletextitem_extension_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsSimpleTextItem::extension(variant);
         }
@@ -8063,7 +9785,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_advance_isbase = false;
             QGraphicsSimpleTextItem::advance(phase);
         } else if (qgraphicssimpletextitem_advance_callback != nullptr) {
-            qgraphicssimpletextitem_advance_callback(this, phase);
+            int cbval1 = phase;
+
+            qgraphicssimpletextitem_advance_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::advance(phase);
         }
@@ -8075,7 +9799,11 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_collideswithitem_isbase = false;
             return QGraphicsSimpleTextItem::collidesWithItem(other, mode);
         } else if (qgraphicssimpletextitem_collideswithitem_callback != nullptr) {
-            return qgraphicssimpletextitem_collideswithitem_callback(this, other, mode);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)other;
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicssimpletextitem_collideswithitem_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsSimpleTextItem::collidesWithItem(other, mode);
         }
@@ -8087,7 +9815,13 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_collideswithpath_isbase = false;
             return QGraphicsSimpleTextItem::collidesWithPath(path, mode);
         } else if (qgraphicssimpletextitem_collideswithpath_callback != nullptr) {
-            return qgraphicssimpletextitem_collideswithpath_callback(this, path, mode);
+            const QPainterPath& path_ret = path;
+            // Cast returned reference into pointer
+            QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicssimpletextitem_collideswithpath_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsSimpleTextItem::collidesWithPath(path, mode);
         }
@@ -8099,7 +9833,11 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_sceneeventfilter_isbase = false;
             return QGraphicsSimpleTextItem::sceneEventFilter(watched, event);
         } else if (qgraphicssimpletextitem_sceneeventfilter_callback != nullptr) {
-            return qgraphicssimpletextitem_sceneeventfilter_callback(this, watched, event);
+            QGraphicsItem* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicssimpletextitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsSimpleTextItem::sceneEventFilter(watched, event);
         }
@@ -8111,7 +9849,10 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_sceneevent_isbase = false;
             return QGraphicsSimpleTextItem::sceneEvent(event);
         } else if (qgraphicssimpletextitem_sceneevent_callback != nullptr) {
-            return qgraphicssimpletextitem_sceneevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgraphicssimpletextitem_sceneevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsSimpleTextItem::sceneEvent(event);
         }
@@ -8123,7 +9864,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_contextmenuevent_isbase = false;
             QGraphicsSimpleTextItem::contextMenuEvent(event);
         } else if (qgraphicssimpletextitem_contextmenuevent_callback != nullptr) {
-            qgraphicssimpletextitem_contextmenuevent_callback(this, event);
+            QGraphicsSceneContextMenuEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_contextmenuevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::contextMenuEvent(event);
         }
@@ -8135,7 +9878,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_dragenterevent_isbase = false;
             QGraphicsSimpleTextItem::dragEnterEvent(event);
         } else if (qgraphicssimpletextitem_dragenterevent_callback != nullptr) {
-            qgraphicssimpletextitem_dragenterevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_dragenterevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::dragEnterEvent(event);
         }
@@ -8147,7 +9892,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_dragleaveevent_isbase = false;
             QGraphicsSimpleTextItem::dragLeaveEvent(event);
         } else if (qgraphicssimpletextitem_dragleaveevent_callback != nullptr) {
-            qgraphicssimpletextitem_dragleaveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_dragleaveevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::dragLeaveEvent(event);
         }
@@ -8159,7 +9906,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_dragmoveevent_isbase = false;
             QGraphicsSimpleTextItem::dragMoveEvent(event);
         } else if (qgraphicssimpletextitem_dragmoveevent_callback != nullptr) {
-            qgraphicssimpletextitem_dragmoveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_dragmoveevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::dragMoveEvent(event);
         }
@@ -8171,7 +9920,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_dropevent_isbase = false;
             QGraphicsSimpleTextItem::dropEvent(event);
         } else if (qgraphicssimpletextitem_dropevent_callback != nullptr) {
-            qgraphicssimpletextitem_dropevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_dropevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::dropEvent(event);
         }
@@ -8183,7 +9934,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_focusinevent_isbase = false;
             QGraphicsSimpleTextItem::focusInEvent(event);
         } else if (qgraphicssimpletextitem_focusinevent_callback != nullptr) {
-            qgraphicssimpletextitem_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_focusinevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::focusInEvent(event);
         }
@@ -8195,7 +9948,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_focusoutevent_isbase = false;
             QGraphicsSimpleTextItem::focusOutEvent(event);
         } else if (qgraphicssimpletextitem_focusoutevent_callback != nullptr) {
-            qgraphicssimpletextitem_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_focusoutevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::focusOutEvent(event);
         }
@@ -8207,7 +9962,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_hoverenterevent_isbase = false;
             QGraphicsSimpleTextItem::hoverEnterEvent(event);
         } else if (qgraphicssimpletextitem_hoverenterevent_callback != nullptr) {
-            qgraphicssimpletextitem_hoverenterevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_hoverenterevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::hoverEnterEvent(event);
         }
@@ -8219,7 +9976,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_hovermoveevent_isbase = false;
             QGraphicsSimpleTextItem::hoverMoveEvent(event);
         } else if (qgraphicssimpletextitem_hovermoveevent_callback != nullptr) {
-            qgraphicssimpletextitem_hovermoveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_hovermoveevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::hoverMoveEvent(event);
         }
@@ -8231,7 +9990,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_hoverleaveevent_isbase = false;
             QGraphicsSimpleTextItem::hoverLeaveEvent(event);
         } else if (qgraphicssimpletextitem_hoverleaveevent_callback != nullptr) {
-            qgraphicssimpletextitem_hoverleaveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_hoverleaveevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::hoverLeaveEvent(event);
         }
@@ -8243,7 +10004,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_keypressevent_isbase = false;
             QGraphicsSimpleTextItem::keyPressEvent(event);
         } else if (qgraphicssimpletextitem_keypressevent_callback != nullptr) {
-            qgraphicssimpletextitem_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_keypressevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::keyPressEvent(event);
         }
@@ -8255,7 +10018,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_keyreleaseevent_isbase = false;
             QGraphicsSimpleTextItem::keyReleaseEvent(event);
         } else if (qgraphicssimpletextitem_keyreleaseevent_callback != nullptr) {
-            qgraphicssimpletextitem_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_keyreleaseevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::keyReleaseEvent(event);
         }
@@ -8267,7 +10032,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_mousepressevent_isbase = false;
             QGraphicsSimpleTextItem::mousePressEvent(event);
         } else if (qgraphicssimpletextitem_mousepressevent_callback != nullptr) {
-            qgraphicssimpletextitem_mousepressevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_mousepressevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::mousePressEvent(event);
         }
@@ -8279,7 +10046,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_mousemoveevent_isbase = false;
             QGraphicsSimpleTextItem::mouseMoveEvent(event);
         } else if (qgraphicssimpletextitem_mousemoveevent_callback != nullptr) {
-            qgraphicssimpletextitem_mousemoveevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_mousemoveevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::mouseMoveEvent(event);
         }
@@ -8291,7 +10060,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_mousereleaseevent_isbase = false;
             QGraphicsSimpleTextItem::mouseReleaseEvent(event);
         } else if (qgraphicssimpletextitem_mousereleaseevent_callback != nullptr) {
-            qgraphicssimpletextitem_mousereleaseevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_mousereleaseevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::mouseReleaseEvent(event);
         }
@@ -8303,7 +10074,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_mousedoubleclickevent_isbase = false;
             QGraphicsSimpleTextItem::mouseDoubleClickEvent(event);
         } else if (qgraphicssimpletextitem_mousedoubleclickevent_callback != nullptr) {
-            qgraphicssimpletextitem_mousedoubleclickevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::mouseDoubleClickEvent(event);
         }
@@ -8315,7 +10088,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_wheelevent_isbase = false;
             QGraphicsSimpleTextItem::wheelEvent(event);
         } else if (qgraphicssimpletextitem_wheelevent_callback != nullptr) {
-            qgraphicssimpletextitem_wheelevent_callback(this, event);
+            QGraphicsSceneWheelEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_wheelevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::wheelEvent(event);
         }
@@ -8327,7 +10102,9 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_inputmethodevent_isbase = false;
             QGraphicsSimpleTextItem::inputMethodEvent(event);
         } else if (qgraphicssimpletextitem_inputmethodevent_callback != nullptr) {
-            qgraphicssimpletextitem_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qgraphicssimpletextitem_inputmethodevent_callback(this, cbval1);
         } else {
             QGraphicsSimpleTextItem::inputMethodEvent(event);
         }
@@ -8339,7 +10116,10 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_inputmethodquery_isbase = false;
             return QGraphicsSimpleTextItem::inputMethodQuery(query);
         } else if (qgraphicssimpletextitem_inputmethodquery_callback != nullptr) {
-            return qgraphicssimpletextitem_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qgraphicssimpletextitem_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsSimpleTextItem::inputMethodQuery(query);
         }
@@ -8351,7 +10131,13 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             qgraphicssimpletextitem_itemchange_isbase = false;
             return QGraphicsSimpleTextItem::itemChange(change, value);
         } else if (qgraphicssimpletextitem_itemchange_callback != nullptr) {
-            return qgraphicssimpletextitem_itemchange_callback(this, change, value);
+            int cbval1 = static_cast<int>(change);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            QVariant* callback_ret = qgraphicssimpletextitem_itemchange_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QGraphicsSimpleTextItem::itemChange(change, value);
         }
@@ -8404,24 +10190,87 @@ class VirtualQGraphicsSimpleTextItem : public QGraphicsSimpleTextItem {
             QGraphicsSimpleTextItem::prepareGeometryChange();
         }
     }
+
+    // Friend functions
+    friend bool QGraphicsSimpleTextItem_SupportsExtension(const QGraphicsSimpleTextItem* self, int extension);
+    friend bool QGraphicsSimpleTextItem_QBaseSupportsExtension(const QGraphicsSimpleTextItem* self, int extension);
+    friend void QGraphicsSimpleTextItem_SetExtension(QGraphicsSimpleTextItem* self, int extension, const QVariant* variant);
+    friend void QGraphicsSimpleTextItem_QBaseSetExtension(QGraphicsSimpleTextItem* self, int extension, const QVariant* variant);
+    friend QVariant* QGraphicsSimpleTextItem_Extension(const QGraphicsSimpleTextItem* self, const QVariant* variant);
+    friend QVariant* QGraphicsSimpleTextItem_QBaseExtension(const QGraphicsSimpleTextItem* self, const QVariant* variant);
+    friend bool QGraphicsSimpleTextItem_SceneEventFilter(QGraphicsSimpleTextItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsSimpleTextItem_QBaseSceneEventFilter(QGraphicsSimpleTextItem* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsSimpleTextItem_SceneEvent(QGraphicsSimpleTextItem* self, QEvent* event);
+    friend bool QGraphicsSimpleTextItem_QBaseSceneEvent(QGraphicsSimpleTextItem* self, QEvent* event);
+    friend void QGraphicsSimpleTextItem_ContextMenuEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseContextMenuEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsSimpleTextItem_DragEnterEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseDragEnterEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsSimpleTextItem_DragLeaveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseDragLeaveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsSimpleTextItem_DragMoveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseDragMoveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsSimpleTextItem_DropEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseDropEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsSimpleTextItem_FocusInEvent(QGraphicsSimpleTextItem* self, QFocusEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseFocusInEvent(QGraphicsSimpleTextItem* self, QFocusEvent* event);
+    friend void QGraphicsSimpleTextItem_FocusOutEvent(QGraphicsSimpleTextItem* self, QFocusEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseFocusOutEvent(QGraphicsSimpleTextItem* self, QFocusEvent* event);
+    friend void QGraphicsSimpleTextItem_HoverEnterEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseHoverEnterEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsSimpleTextItem_HoverMoveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseHoverMoveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsSimpleTextItem_HoverLeaveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseHoverLeaveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsSimpleTextItem_KeyPressEvent(QGraphicsSimpleTextItem* self, QKeyEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseKeyPressEvent(QGraphicsSimpleTextItem* self, QKeyEvent* event);
+    friend void QGraphicsSimpleTextItem_KeyReleaseEvent(QGraphicsSimpleTextItem* self, QKeyEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseKeyReleaseEvent(QGraphicsSimpleTextItem* self, QKeyEvent* event);
+    friend void QGraphicsSimpleTextItem_MousePressEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseMousePressEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsSimpleTextItem_MouseMoveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseMouseMoveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsSimpleTextItem_MouseReleaseEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseMouseReleaseEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsSimpleTextItem_MouseDoubleClickEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseMouseDoubleClickEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsSimpleTextItem_WheelEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseWheelEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsSimpleTextItem_InputMethodEvent(QGraphicsSimpleTextItem* self, QInputMethodEvent* event);
+    friend void QGraphicsSimpleTextItem_QBaseInputMethodEvent(QGraphicsSimpleTextItem* self, QInputMethodEvent* event);
+    friend QVariant* QGraphicsSimpleTextItem_InputMethodQuery(const QGraphicsSimpleTextItem* self, int query);
+    friend QVariant* QGraphicsSimpleTextItem_QBaseInputMethodQuery(const QGraphicsSimpleTextItem* self, int query);
+    friend QVariant* QGraphicsSimpleTextItem_ItemChange(QGraphicsSimpleTextItem* self, int change, const QVariant* value);
+    friend QVariant* QGraphicsSimpleTextItem_QBaseItemChange(QGraphicsSimpleTextItem* self, int change, const QVariant* value);
+    friend void QGraphicsSimpleTextItem_UpdateMicroFocus(QGraphicsSimpleTextItem* self);
+    friend void QGraphicsSimpleTextItem_QBaseUpdateMicroFocus(QGraphicsSimpleTextItem* self);
+    friend void QGraphicsSimpleTextItem_AddToIndex(QGraphicsSimpleTextItem* self);
+    friend void QGraphicsSimpleTextItem_QBaseAddToIndex(QGraphicsSimpleTextItem* self);
+    friend void QGraphicsSimpleTextItem_RemoveFromIndex(QGraphicsSimpleTextItem* self);
+    friend void QGraphicsSimpleTextItem_QBaseRemoveFromIndex(QGraphicsSimpleTextItem* self);
+    friend void QGraphicsSimpleTextItem_PrepareGeometryChange(QGraphicsSimpleTextItem* self);
+    friend void QGraphicsSimpleTextItem_QBasePrepareGeometryChange(QGraphicsSimpleTextItem* self);
 };
 
 // This class is a subclass of QGraphicsItemGroup so that we can call protected methods
-class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
+class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsItemGroup = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
-    using QGraphicsItemGroup_BoundingRect_Callback = QRectF (*)();
-    using QGraphicsItemGroup_Paint_Callback = void (*)(QGraphicsItemGroup*, QPainter*, const QStyleOptionGraphicsItem*, QWidget*);
-    using QGraphicsItemGroup_IsObscuredBy_Callback = bool (*)(const QGraphicsItemGroup*, const QGraphicsItem*);
-    using QGraphicsItemGroup_OpaqueArea_Callback = QPainterPath (*)();
+    using QGraphicsItemGroup_BoundingRect_Callback = QRectF* (*)();
+    using QGraphicsItemGroup_Paint_Callback = void (*)(QGraphicsItemGroup*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
+    using QGraphicsItemGroup_IsObscuredBy_Callback = bool (*)(const QGraphicsItemGroup*, QGraphicsItem*);
+    using QGraphicsItemGroup_OpaqueArea_Callback = QPainterPath* (*)();
     using QGraphicsItemGroup_Type_Callback = int (*)();
     using QGraphicsItemGroup_Advance_Callback = void (*)(QGraphicsItemGroup*, int);
-    using QGraphicsItemGroup_Shape_Callback = QPainterPath (*)();
-    using QGraphicsItemGroup_Contains_Callback = bool (*)(const QGraphicsItemGroup*, const QPointF&);
-    using QGraphicsItemGroup_CollidesWithItem_Callback = bool (*)(const QGraphicsItemGroup*, const QGraphicsItem*, Qt::ItemSelectionMode);
-    using QGraphicsItemGroup_CollidesWithPath_Callback = bool (*)(const QGraphicsItemGroup*, const QPainterPath&, Qt::ItemSelectionMode);
+    using QGraphicsItemGroup_Shape_Callback = QPainterPath* (*)();
+    using QGraphicsItemGroup_Contains_Callback = bool (*)(const QGraphicsItemGroup*, QPointF*);
+    using QGraphicsItemGroup_CollidesWithItem_Callback = bool (*)(const QGraphicsItemGroup*, QGraphicsItem*, int);
+    using QGraphicsItemGroup_CollidesWithPath_Callback = bool (*)(const QGraphicsItemGroup*, QPainterPath*, int);
     using QGraphicsItemGroup_SceneEventFilter_Callback = bool (*)(QGraphicsItemGroup*, QGraphicsItem*, QEvent*);
     using QGraphicsItemGroup_SceneEvent_Callback = bool (*)(QGraphicsItemGroup*, QEvent*);
     using QGraphicsItemGroup_ContextMenuEvent_Callback = void (*)(QGraphicsItemGroup*, QGraphicsSceneContextMenuEvent*);
@@ -8442,11 +10291,11 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
     using QGraphicsItemGroup_MouseDoubleClickEvent_Callback = void (*)(QGraphicsItemGroup*, QGraphicsSceneMouseEvent*);
     using QGraphicsItemGroup_WheelEvent_Callback = void (*)(QGraphicsItemGroup*, QGraphicsSceneWheelEvent*);
     using QGraphicsItemGroup_InputMethodEvent_Callback = void (*)(QGraphicsItemGroup*, QInputMethodEvent*);
-    using QGraphicsItemGroup_InputMethodQuery_Callback = QVariant (*)(const QGraphicsItemGroup*, Qt::InputMethodQuery);
-    using QGraphicsItemGroup_ItemChange_Callback = QVariant (*)(QGraphicsItemGroup*, QGraphicsItem::GraphicsItemChange, const QVariant&);
+    using QGraphicsItemGroup_InputMethodQuery_Callback = QVariant* (*)(const QGraphicsItemGroup*, int);
+    using QGraphicsItemGroup_ItemChange_Callback = QVariant* (*)(QGraphicsItemGroup*, int, QVariant*);
     using QGraphicsItemGroup_SupportsExtension_Callback = bool (*)(const QGraphicsItemGroup*, int);
-    using QGraphicsItemGroup_SetExtension_Callback = void (*)(QGraphicsItemGroup*, int, const QVariant&);
-    using QGraphicsItemGroup_Extension_Callback = QVariant (*)(const QGraphicsItemGroup*, const QVariant&);
+    using QGraphicsItemGroup_SetExtension_Callback = void (*)(QGraphicsItemGroup*, int, QVariant*);
+    using QGraphicsItemGroup_Extension_Callback = QVariant* (*)(const QGraphicsItemGroup*, QVariant*);
     using QGraphicsItemGroup_UpdateMicroFocus_Callback = void (*)();
     using QGraphicsItemGroup_AddToIndex_Callback = void (*)();
     using QGraphicsItemGroup_RemoveFromIndex_Callback = void (*)();
@@ -8582,86 +10431,86 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
     }
 
     // Callback setters
-    void setQGraphicsItemGroup_BoundingRect_Callback(QGraphicsItemGroup_BoundingRect_Callback cb) { qgraphicsitemgroup_boundingrect_callback = cb; }
-    void setQGraphicsItemGroup_Paint_Callback(QGraphicsItemGroup_Paint_Callback cb) { qgraphicsitemgroup_paint_callback = cb; }
-    void setQGraphicsItemGroup_IsObscuredBy_Callback(QGraphicsItemGroup_IsObscuredBy_Callback cb) { qgraphicsitemgroup_isobscuredby_callback = cb; }
-    void setQGraphicsItemGroup_OpaqueArea_Callback(QGraphicsItemGroup_OpaqueArea_Callback cb) { qgraphicsitemgroup_opaquearea_callback = cb; }
-    void setQGraphicsItemGroup_Type_Callback(QGraphicsItemGroup_Type_Callback cb) { qgraphicsitemgroup_type_callback = cb; }
-    void setQGraphicsItemGroup_Advance_Callback(QGraphicsItemGroup_Advance_Callback cb) { qgraphicsitemgroup_advance_callback = cb; }
-    void setQGraphicsItemGroup_Shape_Callback(QGraphicsItemGroup_Shape_Callback cb) { qgraphicsitemgroup_shape_callback = cb; }
-    void setQGraphicsItemGroup_Contains_Callback(QGraphicsItemGroup_Contains_Callback cb) { qgraphicsitemgroup_contains_callback = cb; }
-    void setQGraphicsItemGroup_CollidesWithItem_Callback(QGraphicsItemGroup_CollidesWithItem_Callback cb) { qgraphicsitemgroup_collideswithitem_callback = cb; }
-    void setQGraphicsItemGroup_CollidesWithPath_Callback(QGraphicsItemGroup_CollidesWithPath_Callback cb) { qgraphicsitemgroup_collideswithpath_callback = cb; }
-    void setQGraphicsItemGroup_SceneEventFilter_Callback(QGraphicsItemGroup_SceneEventFilter_Callback cb) { qgraphicsitemgroup_sceneeventfilter_callback = cb; }
-    void setQGraphicsItemGroup_SceneEvent_Callback(QGraphicsItemGroup_SceneEvent_Callback cb) { qgraphicsitemgroup_sceneevent_callback = cb; }
-    void setQGraphicsItemGroup_ContextMenuEvent_Callback(QGraphicsItemGroup_ContextMenuEvent_Callback cb) { qgraphicsitemgroup_contextmenuevent_callback = cb; }
-    void setQGraphicsItemGroup_DragEnterEvent_Callback(QGraphicsItemGroup_DragEnterEvent_Callback cb) { qgraphicsitemgroup_dragenterevent_callback = cb; }
-    void setQGraphicsItemGroup_DragLeaveEvent_Callback(QGraphicsItemGroup_DragLeaveEvent_Callback cb) { qgraphicsitemgroup_dragleaveevent_callback = cb; }
-    void setQGraphicsItemGroup_DragMoveEvent_Callback(QGraphicsItemGroup_DragMoveEvent_Callback cb) { qgraphicsitemgroup_dragmoveevent_callback = cb; }
-    void setQGraphicsItemGroup_DropEvent_Callback(QGraphicsItemGroup_DropEvent_Callback cb) { qgraphicsitemgroup_dropevent_callback = cb; }
-    void setQGraphicsItemGroup_FocusInEvent_Callback(QGraphicsItemGroup_FocusInEvent_Callback cb) { qgraphicsitemgroup_focusinevent_callback = cb; }
-    void setQGraphicsItemGroup_FocusOutEvent_Callback(QGraphicsItemGroup_FocusOutEvent_Callback cb) { qgraphicsitemgroup_focusoutevent_callback = cb; }
-    void setQGraphicsItemGroup_HoverEnterEvent_Callback(QGraphicsItemGroup_HoverEnterEvent_Callback cb) { qgraphicsitemgroup_hoverenterevent_callback = cb; }
-    void setQGraphicsItemGroup_HoverMoveEvent_Callback(QGraphicsItemGroup_HoverMoveEvent_Callback cb) { qgraphicsitemgroup_hovermoveevent_callback = cb; }
-    void setQGraphicsItemGroup_HoverLeaveEvent_Callback(QGraphicsItemGroup_HoverLeaveEvent_Callback cb) { qgraphicsitemgroup_hoverleaveevent_callback = cb; }
-    void setQGraphicsItemGroup_KeyPressEvent_Callback(QGraphicsItemGroup_KeyPressEvent_Callback cb) { qgraphicsitemgroup_keypressevent_callback = cb; }
-    void setQGraphicsItemGroup_KeyReleaseEvent_Callback(QGraphicsItemGroup_KeyReleaseEvent_Callback cb) { qgraphicsitemgroup_keyreleaseevent_callback = cb; }
-    void setQGraphicsItemGroup_MousePressEvent_Callback(QGraphicsItemGroup_MousePressEvent_Callback cb) { qgraphicsitemgroup_mousepressevent_callback = cb; }
-    void setQGraphicsItemGroup_MouseMoveEvent_Callback(QGraphicsItemGroup_MouseMoveEvent_Callback cb) { qgraphicsitemgroup_mousemoveevent_callback = cb; }
-    void setQGraphicsItemGroup_MouseReleaseEvent_Callback(QGraphicsItemGroup_MouseReleaseEvent_Callback cb) { qgraphicsitemgroup_mousereleaseevent_callback = cb; }
-    void setQGraphicsItemGroup_MouseDoubleClickEvent_Callback(QGraphicsItemGroup_MouseDoubleClickEvent_Callback cb) { qgraphicsitemgroup_mousedoubleclickevent_callback = cb; }
-    void setQGraphicsItemGroup_WheelEvent_Callback(QGraphicsItemGroup_WheelEvent_Callback cb) { qgraphicsitemgroup_wheelevent_callback = cb; }
-    void setQGraphicsItemGroup_InputMethodEvent_Callback(QGraphicsItemGroup_InputMethodEvent_Callback cb) { qgraphicsitemgroup_inputmethodevent_callback = cb; }
-    void setQGraphicsItemGroup_InputMethodQuery_Callback(QGraphicsItemGroup_InputMethodQuery_Callback cb) { qgraphicsitemgroup_inputmethodquery_callback = cb; }
-    void setQGraphicsItemGroup_ItemChange_Callback(QGraphicsItemGroup_ItemChange_Callback cb) { qgraphicsitemgroup_itemchange_callback = cb; }
-    void setQGraphicsItemGroup_SupportsExtension_Callback(QGraphicsItemGroup_SupportsExtension_Callback cb) { qgraphicsitemgroup_supportsextension_callback = cb; }
-    void setQGraphicsItemGroup_SetExtension_Callback(QGraphicsItemGroup_SetExtension_Callback cb) { qgraphicsitemgroup_setextension_callback = cb; }
-    void setQGraphicsItemGroup_Extension_Callback(QGraphicsItemGroup_Extension_Callback cb) { qgraphicsitemgroup_extension_callback = cb; }
-    void setQGraphicsItemGroup_UpdateMicroFocus_Callback(QGraphicsItemGroup_UpdateMicroFocus_Callback cb) { qgraphicsitemgroup_updatemicrofocus_callback = cb; }
-    void setQGraphicsItemGroup_AddToIndex_Callback(QGraphicsItemGroup_AddToIndex_Callback cb) { qgraphicsitemgroup_addtoindex_callback = cb; }
-    void setQGraphicsItemGroup_RemoveFromIndex_Callback(QGraphicsItemGroup_RemoveFromIndex_Callback cb) { qgraphicsitemgroup_removefromindex_callback = cb; }
-    void setQGraphicsItemGroup_PrepareGeometryChange_Callback(QGraphicsItemGroup_PrepareGeometryChange_Callback cb) { qgraphicsitemgroup_preparegeometrychange_callback = cb; }
+    inline void setQGraphicsItemGroup_BoundingRect_Callback(QGraphicsItemGroup_BoundingRect_Callback cb) { qgraphicsitemgroup_boundingrect_callback = cb; }
+    inline void setQGraphicsItemGroup_Paint_Callback(QGraphicsItemGroup_Paint_Callback cb) { qgraphicsitemgroup_paint_callback = cb; }
+    inline void setQGraphicsItemGroup_IsObscuredBy_Callback(QGraphicsItemGroup_IsObscuredBy_Callback cb) { qgraphicsitemgroup_isobscuredby_callback = cb; }
+    inline void setQGraphicsItemGroup_OpaqueArea_Callback(QGraphicsItemGroup_OpaqueArea_Callback cb) { qgraphicsitemgroup_opaquearea_callback = cb; }
+    inline void setQGraphicsItemGroup_Type_Callback(QGraphicsItemGroup_Type_Callback cb) { qgraphicsitemgroup_type_callback = cb; }
+    inline void setQGraphicsItemGroup_Advance_Callback(QGraphicsItemGroup_Advance_Callback cb) { qgraphicsitemgroup_advance_callback = cb; }
+    inline void setQGraphicsItemGroup_Shape_Callback(QGraphicsItemGroup_Shape_Callback cb) { qgraphicsitemgroup_shape_callback = cb; }
+    inline void setQGraphicsItemGroup_Contains_Callback(QGraphicsItemGroup_Contains_Callback cb) { qgraphicsitemgroup_contains_callback = cb; }
+    inline void setQGraphicsItemGroup_CollidesWithItem_Callback(QGraphicsItemGroup_CollidesWithItem_Callback cb) { qgraphicsitemgroup_collideswithitem_callback = cb; }
+    inline void setQGraphicsItemGroup_CollidesWithPath_Callback(QGraphicsItemGroup_CollidesWithPath_Callback cb) { qgraphicsitemgroup_collideswithpath_callback = cb; }
+    inline void setQGraphicsItemGroup_SceneEventFilter_Callback(QGraphicsItemGroup_SceneEventFilter_Callback cb) { qgraphicsitemgroup_sceneeventfilter_callback = cb; }
+    inline void setQGraphicsItemGroup_SceneEvent_Callback(QGraphicsItemGroup_SceneEvent_Callback cb) { qgraphicsitemgroup_sceneevent_callback = cb; }
+    inline void setQGraphicsItemGroup_ContextMenuEvent_Callback(QGraphicsItemGroup_ContextMenuEvent_Callback cb) { qgraphicsitemgroup_contextmenuevent_callback = cb; }
+    inline void setQGraphicsItemGroup_DragEnterEvent_Callback(QGraphicsItemGroup_DragEnterEvent_Callback cb) { qgraphicsitemgroup_dragenterevent_callback = cb; }
+    inline void setQGraphicsItemGroup_DragLeaveEvent_Callback(QGraphicsItemGroup_DragLeaveEvent_Callback cb) { qgraphicsitemgroup_dragleaveevent_callback = cb; }
+    inline void setQGraphicsItemGroup_DragMoveEvent_Callback(QGraphicsItemGroup_DragMoveEvent_Callback cb) { qgraphicsitemgroup_dragmoveevent_callback = cb; }
+    inline void setQGraphicsItemGroup_DropEvent_Callback(QGraphicsItemGroup_DropEvent_Callback cb) { qgraphicsitemgroup_dropevent_callback = cb; }
+    inline void setQGraphicsItemGroup_FocusInEvent_Callback(QGraphicsItemGroup_FocusInEvent_Callback cb) { qgraphicsitemgroup_focusinevent_callback = cb; }
+    inline void setQGraphicsItemGroup_FocusOutEvent_Callback(QGraphicsItemGroup_FocusOutEvent_Callback cb) { qgraphicsitemgroup_focusoutevent_callback = cb; }
+    inline void setQGraphicsItemGroup_HoverEnterEvent_Callback(QGraphicsItemGroup_HoverEnterEvent_Callback cb) { qgraphicsitemgroup_hoverenterevent_callback = cb; }
+    inline void setQGraphicsItemGroup_HoverMoveEvent_Callback(QGraphicsItemGroup_HoverMoveEvent_Callback cb) { qgraphicsitemgroup_hovermoveevent_callback = cb; }
+    inline void setQGraphicsItemGroup_HoverLeaveEvent_Callback(QGraphicsItemGroup_HoverLeaveEvent_Callback cb) { qgraphicsitemgroup_hoverleaveevent_callback = cb; }
+    inline void setQGraphicsItemGroup_KeyPressEvent_Callback(QGraphicsItemGroup_KeyPressEvent_Callback cb) { qgraphicsitemgroup_keypressevent_callback = cb; }
+    inline void setQGraphicsItemGroup_KeyReleaseEvent_Callback(QGraphicsItemGroup_KeyReleaseEvent_Callback cb) { qgraphicsitemgroup_keyreleaseevent_callback = cb; }
+    inline void setQGraphicsItemGroup_MousePressEvent_Callback(QGraphicsItemGroup_MousePressEvent_Callback cb) { qgraphicsitemgroup_mousepressevent_callback = cb; }
+    inline void setQGraphicsItemGroup_MouseMoveEvent_Callback(QGraphicsItemGroup_MouseMoveEvent_Callback cb) { qgraphicsitemgroup_mousemoveevent_callback = cb; }
+    inline void setQGraphicsItemGroup_MouseReleaseEvent_Callback(QGraphicsItemGroup_MouseReleaseEvent_Callback cb) { qgraphicsitemgroup_mousereleaseevent_callback = cb; }
+    inline void setQGraphicsItemGroup_MouseDoubleClickEvent_Callback(QGraphicsItemGroup_MouseDoubleClickEvent_Callback cb) { qgraphicsitemgroup_mousedoubleclickevent_callback = cb; }
+    inline void setQGraphicsItemGroup_WheelEvent_Callback(QGraphicsItemGroup_WheelEvent_Callback cb) { qgraphicsitemgroup_wheelevent_callback = cb; }
+    inline void setQGraphicsItemGroup_InputMethodEvent_Callback(QGraphicsItemGroup_InputMethodEvent_Callback cb) { qgraphicsitemgroup_inputmethodevent_callback = cb; }
+    inline void setQGraphicsItemGroup_InputMethodQuery_Callback(QGraphicsItemGroup_InputMethodQuery_Callback cb) { qgraphicsitemgroup_inputmethodquery_callback = cb; }
+    inline void setQGraphicsItemGroup_ItemChange_Callback(QGraphicsItemGroup_ItemChange_Callback cb) { qgraphicsitemgroup_itemchange_callback = cb; }
+    inline void setQGraphicsItemGroup_SupportsExtension_Callback(QGraphicsItemGroup_SupportsExtension_Callback cb) { qgraphicsitemgroup_supportsextension_callback = cb; }
+    inline void setQGraphicsItemGroup_SetExtension_Callback(QGraphicsItemGroup_SetExtension_Callback cb) { qgraphicsitemgroup_setextension_callback = cb; }
+    inline void setQGraphicsItemGroup_Extension_Callback(QGraphicsItemGroup_Extension_Callback cb) { qgraphicsitemgroup_extension_callback = cb; }
+    inline void setQGraphicsItemGroup_UpdateMicroFocus_Callback(QGraphicsItemGroup_UpdateMicroFocus_Callback cb) { qgraphicsitemgroup_updatemicrofocus_callback = cb; }
+    inline void setQGraphicsItemGroup_AddToIndex_Callback(QGraphicsItemGroup_AddToIndex_Callback cb) { qgraphicsitemgroup_addtoindex_callback = cb; }
+    inline void setQGraphicsItemGroup_RemoveFromIndex_Callback(QGraphicsItemGroup_RemoveFromIndex_Callback cb) { qgraphicsitemgroup_removefromindex_callback = cb; }
+    inline void setQGraphicsItemGroup_PrepareGeometryChange_Callback(QGraphicsItemGroup_PrepareGeometryChange_Callback cb) { qgraphicsitemgroup_preparegeometrychange_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsItemGroup_BoundingRect_IsBase(bool value) const { qgraphicsitemgroup_boundingrect_isbase = value; }
-    void setQGraphicsItemGroup_Paint_IsBase(bool value) const { qgraphicsitemgroup_paint_isbase = value; }
-    void setQGraphicsItemGroup_IsObscuredBy_IsBase(bool value) const { qgraphicsitemgroup_isobscuredby_isbase = value; }
-    void setQGraphicsItemGroup_OpaqueArea_IsBase(bool value) const { qgraphicsitemgroup_opaquearea_isbase = value; }
-    void setQGraphicsItemGroup_Type_IsBase(bool value) const { qgraphicsitemgroup_type_isbase = value; }
-    void setQGraphicsItemGroup_Advance_IsBase(bool value) const { qgraphicsitemgroup_advance_isbase = value; }
-    void setQGraphicsItemGroup_Shape_IsBase(bool value) const { qgraphicsitemgroup_shape_isbase = value; }
-    void setQGraphicsItemGroup_Contains_IsBase(bool value) const { qgraphicsitemgroup_contains_isbase = value; }
-    void setQGraphicsItemGroup_CollidesWithItem_IsBase(bool value) const { qgraphicsitemgroup_collideswithitem_isbase = value; }
-    void setQGraphicsItemGroup_CollidesWithPath_IsBase(bool value) const { qgraphicsitemgroup_collideswithpath_isbase = value; }
-    void setQGraphicsItemGroup_SceneEventFilter_IsBase(bool value) const { qgraphicsitemgroup_sceneeventfilter_isbase = value; }
-    void setQGraphicsItemGroup_SceneEvent_IsBase(bool value) const { qgraphicsitemgroup_sceneevent_isbase = value; }
-    void setQGraphicsItemGroup_ContextMenuEvent_IsBase(bool value) const { qgraphicsitemgroup_contextmenuevent_isbase = value; }
-    void setQGraphicsItemGroup_DragEnterEvent_IsBase(bool value) const { qgraphicsitemgroup_dragenterevent_isbase = value; }
-    void setQGraphicsItemGroup_DragLeaveEvent_IsBase(bool value) const { qgraphicsitemgroup_dragleaveevent_isbase = value; }
-    void setQGraphicsItemGroup_DragMoveEvent_IsBase(bool value) const { qgraphicsitemgroup_dragmoveevent_isbase = value; }
-    void setQGraphicsItemGroup_DropEvent_IsBase(bool value) const { qgraphicsitemgroup_dropevent_isbase = value; }
-    void setQGraphicsItemGroup_FocusInEvent_IsBase(bool value) const { qgraphicsitemgroup_focusinevent_isbase = value; }
-    void setQGraphicsItemGroup_FocusOutEvent_IsBase(bool value) const { qgraphicsitemgroup_focusoutevent_isbase = value; }
-    void setQGraphicsItemGroup_HoverEnterEvent_IsBase(bool value) const { qgraphicsitemgroup_hoverenterevent_isbase = value; }
-    void setQGraphicsItemGroup_HoverMoveEvent_IsBase(bool value) const { qgraphicsitemgroup_hovermoveevent_isbase = value; }
-    void setQGraphicsItemGroup_HoverLeaveEvent_IsBase(bool value) const { qgraphicsitemgroup_hoverleaveevent_isbase = value; }
-    void setQGraphicsItemGroup_KeyPressEvent_IsBase(bool value) const { qgraphicsitemgroup_keypressevent_isbase = value; }
-    void setQGraphicsItemGroup_KeyReleaseEvent_IsBase(bool value) const { qgraphicsitemgroup_keyreleaseevent_isbase = value; }
-    void setQGraphicsItemGroup_MousePressEvent_IsBase(bool value) const { qgraphicsitemgroup_mousepressevent_isbase = value; }
-    void setQGraphicsItemGroup_MouseMoveEvent_IsBase(bool value) const { qgraphicsitemgroup_mousemoveevent_isbase = value; }
-    void setQGraphicsItemGroup_MouseReleaseEvent_IsBase(bool value) const { qgraphicsitemgroup_mousereleaseevent_isbase = value; }
-    void setQGraphicsItemGroup_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicsitemgroup_mousedoubleclickevent_isbase = value; }
-    void setQGraphicsItemGroup_WheelEvent_IsBase(bool value) const { qgraphicsitemgroup_wheelevent_isbase = value; }
-    void setQGraphicsItemGroup_InputMethodEvent_IsBase(bool value) const { qgraphicsitemgroup_inputmethodevent_isbase = value; }
-    void setQGraphicsItemGroup_InputMethodQuery_IsBase(bool value) const { qgraphicsitemgroup_inputmethodquery_isbase = value; }
-    void setQGraphicsItemGroup_ItemChange_IsBase(bool value) const { qgraphicsitemgroup_itemchange_isbase = value; }
-    void setQGraphicsItemGroup_SupportsExtension_IsBase(bool value) const { qgraphicsitemgroup_supportsextension_isbase = value; }
-    void setQGraphicsItemGroup_SetExtension_IsBase(bool value) const { qgraphicsitemgroup_setextension_isbase = value; }
-    void setQGraphicsItemGroup_Extension_IsBase(bool value) const { qgraphicsitemgroup_extension_isbase = value; }
-    void setQGraphicsItemGroup_UpdateMicroFocus_IsBase(bool value) const { qgraphicsitemgroup_updatemicrofocus_isbase = value; }
-    void setQGraphicsItemGroup_AddToIndex_IsBase(bool value) const { qgraphicsitemgroup_addtoindex_isbase = value; }
-    void setQGraphicsItemGroup_RemoveFromIndex_IsBase(bool value) const { qgraphicsitemgroup_removefromindex_isbase = value; }
-    void setQGraphicsItemGroup_PrepareGeometryChange_IsBase(bool value) const { qgraphicsitemgroup_preparegeometrychange_isbase = value; }
+    inline void setQGraphicsItemGroup_BoundingRect_IsBase(bool value) const { qgraphicsitemgroup_boundingrect_isbase = value; }
+    inline void setQGraphicsItemGroup_Paint_IsBase(bool value) const { qgraphicsitemgroup_paint_isbase = value; }
+    inline void setQGraphicsItemGroup_IsObscuredBy_IsBase(bool value) const { qgraphicsitemgroup_isobscuredby_isbase = value; }
+    inline void setQGraphicsItemGroup_OpaqueArea_IsBase(bool value) const { qgraphicsitemgroup_opaquearea_isbase = value; }
+    inline void setQGraphicsItemGroup_Type_IsBase(bool value) const { qgraphicsitemgroup_type_isbase = value; }
+    inline void setQGraphicsItemGroup_Advance_IsBase(bool value) const { qgraphicsitemgroup_advance_isbase = value; }
+    inline void setQGraphicsItemGroup_Shape_IsBase(bool value) const { qgraphicsitemgroup_shape_isbase = value; }
+    inline void setQGraphicsItemGroup_Contains_IsBase(bool value) const { qgraphicsitemgroup_contains_isbase = value; }
+    inline void setQGraphicsItemGroup_CollidesWithItem_IsBase(bool value) const { qgraphicsitemgroup_collideswithitem_isbase = value; }
+    inline void setQGraphicsItemGroup_CollidesWithPath_IsBase(bool value) const { qgraphicsitemgroup_collideswithpath_isbase = value; }
+    inline void setQGraphicsItemGroup_SceneEventFilter_IsBase(bool value) const { qgraphicsitemgroup_sceneeventfilter_isbase = value; }
+    inline void setQGraphicsItemGroup_SceneEvent_IsBase(bool value) const { qgraphicsitemgroup_sceneevent_isbase = value; }
+    inline void setQGraphicsItemGroup_ContextMenuEvent_IsBase(bool value) const { qgraphicsitemgroup_contextmenuevent_isbase = value; }
+    inline void setQGraphicsItemGroup_DragEnterEvent_IsBase(bool value) const { qgraphicsitemgroup_dragenterevent_isbase = value; }
+    inline void setQGraphicsItemGroup_DragLeaveEvent_IsBase(bool value) const { qgraphicsitemgroup_dragleaveevent_isbase = value; }
+    inline void setQGraphicsItemGroup_DragMoveEvent_IsBase(bool value) const { qgraphicsitemgroup_dragmoveevent_isbase = value; }
+    inline void setQGraphicsItemGroup_DropEvent_IsBase(bool value) const { qgraphicsitemgroup_dropevent_isbase = value; }
+    inline void setQGraphicsItemGroup_FocusInEvent_IsBase(bool value) const { qgraphicsitemgroup_focusinevent_isbase = value; }
+    inline void setQGraphicsItemGroup_FocusOutEvent_IsBase(bool value) const { qgraphicsitemgroup_focusoutevent_isbase = value; }
+    inline void setQGraphicsItemGroup_HoverEnterEvent_IsBase(bool value) const { qgraphicsitemgroup_hoverenterevent_isbase = value; }
+    inline void setQGraphicsItemGroup_HoverMoveEvent_IsBase(bool value) const { qgraphicsitemgroup_hovermoveevent_isbase = value; }
+    inline void setQGraphicsItemGroup_HoverLeaveEvent_IsBase(bool value) const { qgraphicsitemgroup_hoverleaveevent_isbase = value; }
+    inline void setQGraphicsItemGroup_KeyPressEvent_IsBase(bool value) const { qgraphicsitemgroup_keypressevent_isbase = value; }
+    inline void setQGraphicsItemGroup_KeyReleaseEvent_IsBase(bool value) const { qgraphicsitemgroup_keyreleaseevent_isbase = value; }
+    inline void setQGraphicsItemGroup_MousePressEvent_IsBase(bool value) const { qgraphicsitemgroup_mousepressevent_isbase = value; }
+    inline void setQGraphicsItemGroup_MouseMoveEvent_IsBase(bool value) const { qgraphicsitemgroup_mousemoveevent_isbase = value; }
+    inline void setQGraphicsItemGroup_MouseReleaseEvent_IsBase(bool value) const { qgraphicsitemgroup_mousereleaseevent_isbase = value; }
+    inline void setQGraphicsItemGroup_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicsitemgroup_mousedoubleclickevent_isbase = value; }
+    inline void setQGraphicsItemGroup_WheelEvent_IsBase(bool value) const { qgraphicsitemgroup_wheelevent_isbase = value; }
+    inline void setQGraphicsItemGroup_InputMethodEvent_IsBase(bool value) const { qgraphicsitemgroup_inputmethodevent_isbase = value; }
+    inline void setQGraphicsItemGroup_InputMethodQuery_IsBase(bool value) const { qgraphicsitemgroup_inputmethodquery_isbase = value; }
+    inline void setQGraphicsItemGroup_ItemChange_IsBase(bool value) const { qgraphicsitemgroup_itemchange_isbase = value; }
+    inline void setQGraphicsItemGroup_SupportsExtension_IsBase(bool value) const { qgraphicsitemgroup_supportsextension_isbase = value; }
+    inline void setQGraphicsItemGroup_SetExtension_IsBase(bool value) const { qgraphicsitemgroup_setextension_isbase = value; }
+    inline void setQGraphicsItemGroup_Extension_IsBase(bool value) const { qgraphicsitemgroup_extension_isbase = value; }
+    inline void setQGraphicsItemGroup_UpdateMicroFocus_IsBase(bool value) const { qgraphicsitemgroup_updatemicrofocus_isbase = value; }
+    inline void setQGraphicsItemGroup_AddToIndex_IsBase(bool value) const { qgraphicsitemgroup_addtoindex_isbase = value; }
+    inline void setQGraphicsItemGroup_RemoveFromIndex_IsBase(bool value) const { qgraphicsitemgroup_removefromindex_isbase = value; }
+    inline void setQGraphicsItemGroup_PrepareGeometryChange_IsBase(bool value) const { qgraphicsitemgroup_preparegeometrychange_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF boundingRect() const override {
@@ -8669,7 +10518,8 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_boundingrect_isbase = false;
             return QGraphicsItemGroup::boundingRect();
         } else if (qgraphicsitemgroup_boundingrect_callback != nullptr) {
-            return qgraphicsitemgroup_boundingrect_callback();
+            QRectF* callback_ret = qgraphicsitemgroup_boundingrect_callback();
+            return *callback_ret;
         } else {
             return QGraphicsItemGroup::boundingRect();
         }
@@ -8681,7 +10531,11 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_paint_isbase = false;
             QGraphicsItemGroup::paint(painter, option, widget);
         } else if (qgraphicsitemgroup_paint_callback != nullptr) {
-            qgraphicsitemgroup_paint_callback(this, painter, option, widget);
+            QPainter* cbval1 = painter;
+            QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
+            QWidget* cbval3 = widget;
+
+            qgraphicsitemgroup_paint_callback(this, cbval1, cbval2, cbval3);
         } else {
             QGraphicsItemGroup::paint(painter, option, widget);
         }
@@ -8693,7 +10547,10 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_isobscuredby_isbase = false;
             return QGraphicsItemGroup::isObscuredBy(item);
         } else if (qgraphicsitemgroup_isobscuredby_callback != nullptr) {
-            return qgraphicsitemgroup_isobscuredby_callback(this, item);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)item;
+
+            bool callback_ret = qgraphicsitemgroup_isobscuredby_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsItemGroup::isObscuredBy(item);
         }
@@ -8705,7 +10562,8 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_opaquearea_isbase = false;
             return QGraphicsItemGroup::opaqueArea();
         } else if (qgraphicsitemgroup_opaquearea_callback != nullptr) {
-            return qgraphicsitemgroup_opaquearea_callback();
+            QPainterPath* callback_ret = qgraphicsitemgroup_opaquearea_callback();
+            return *callback_ret;
         } else {
             return QGraphicsItemGroup::opaqueArea();
         }
@@ -8717,7 +10575,8 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_type_isbase = false;
             return QGraphicsItemGroup::type();
         } else if (qgraphicsitemgroup_type_callback != nullptr) {
-            return qgraphicsitemgroup_type_callback();
+            int callback_ret = qgraphicsitemgroup_type_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsItemGroup::type();
         }
@@ -8729,7 +10588,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_advance_isbase = false;
             QGraphicsItemGroup::advance(phase);
         } else if (qgraphicsitemgroup_advance_callback != nullptr) {
-            qgraphicsitemgroup_advance_callback(this, phase);
+            int cbval1 = phase;
+
+            qgraphicsitemgroup_advance_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::advance(phase);
         }
@@ -8741,7 +10602,8 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_shape_isbase = false;
             return QGraphicsItemGroup::shape();
         } else if (qgraphicsitemgroup_shape_callback != nullptr) {
-            return qgraphicsitemgroup_shape_callback();
+            QPainterPath* callback_ret = qgraphicsitemgroup_shape_callback();
+            return *callback_ret;
         } else {
             return QGraphicsItemGroup::shape();
         }
@@ -8753,7 +10615,12 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_contains_isbase = false;
             return QGraphicsItemGroup::contains(point);
         } else if (qgraphicsitemgroup_contains_callback != nullptr) {
-            return qgraphicsitemgroup_contains_callback(this, point);
+            const QPointF& point_ret = point;
+            // Cast returned reference into pointer
+            QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
+
+            bool callback_ret = qgraphicsitemgroup_contains_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsItemGroup::contains(point);
         }
@@ -8765,7 +10632,11 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_collideswithitem_isbase = false;
             return QGraphicsItemGroup::collidesWithItem(other, mode);
         } else if (qgraphicsitemgroup_collideswithitem_callback != nullptr) {
-            return qgraphicsitemgroup_collideswithitem_callback(this, other, mode);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)other;
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicsitemgroup_collideswithitem_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsItemGroup::collidesWithItem(other, mode);
         }
@@ -8777,7 +10648,13 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_collideswithpath_isbase = false;
             return QGraphicsItemGroup::collidesWithPath(path, mode);
         } else if (qgraphicsitemgroup_collideswithpath_callback != nullptr) {
-            return qgraphicsitemgroup_collideswithpath_callback(this, path, mode);
+            const QPainterPath& path_ret = path;
+            // Cast returned reference into pointer
+            QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicsitemgroup_collideswithpath_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsItemGroup::collidesWithPath(path, mode);
         }
@@ -8789,7 +10666,11 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_sceneeventfilter_isbase = false;
             return QGraphicsItemGroup::sceneEventFilter(watched, event);
         } else if (qgraphicsitemgroup_sceneeventfilter_callback != nullptr) {
-            return qgraphicsitemgroup_sceneeventfilter_callback(this, watched, event);
+            QGraphicsItem* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicsitemgroup_sceneeventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsItemGroup::sceneEventFilter(watched, event);
         }
@@ -8801,7 +10682,10 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_sceneevent_isbase = false;
             return QGraphicsItemGroup::sceneEvent(event);
         } else if (qgraphicsitemgroup_sceneevent_callback != nullptr) {
-            return qgraphicsitemgroup_sceneevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgraphicsitemgroup_sceneevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsItemGroup::sceneEvent(event);
         }
@@ -8813,7 +10697,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_contextmenuevent_isbase = false;
             QGraphicsItemGroup::contextMenuEvent(event);
         } else if (qgraphicsitemgroup_contextmenuevent_callback != nullptr) {
-            qgraphicsitemgroup_contextmenuevent_callback(this, event);
+            QGraphicsSceneContextMenuEvent* cbval1 = event;
+
+            qgraphicsitemgroup_contextmenuevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::contextMenuEvent(event);
         }
@@ -8825,7 +10711,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_dragenterevent_isbase = false;
             QGraphicsItemGroup::dragEnterEvent(event);
         } else if (qgraphicsitemgroup_dragenterevent_callback != nullptr) {
-            qgraphicsitemgroup_dragenterevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsitemgroup_dragenterevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::dragEnterEvent(event);
         }
@@ -8837,7 +10725,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_dragleaveevent_isbase = false;
             QGraphicsItemGroup::dragLeaveEvent(event);
         } else if (qgraphicsitemgroup_dragleaveevent_callback != nullptr) {
-            qgraphicsitemgroup_dragleaveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsitemgroup_dragleaveevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::dragLeaveEvent(event);
         }
@@ -8849,7 +10739,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_dragmoveevent_isbase = false;
             QGraphicsItemGroup::dragMoveEvent(event);
         } else if (qgraphicsitemgroup_dragmoveevent_callback != nullptr) {
-            qgraphicsitemgroup_dragmoveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsitemgroup_dragmoveevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::dragMoveEvent(event);
         }
@@ -8861,7 +10753,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_dropevent_isbase = false;
             QGraphicsItemGroup::dropEvent(event);
         } else if (qgraphicsitemgroup_dropevent_callback != nullptr) {
-            qgraphicsitemgroup_dropevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsitemgroup_dropevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::dropEvent(event);
         }
@@ -8873,7 +10767,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_focusinevent_isbase = false;
             QGraphicsItemGroup::focusInEvent(event);
         } else if (qgraphicsitemgroup_focusinevent_callback != nullptr) {
-            qgraphicsitemgroup_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicsitemgroup_focusinevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::focusInEvent(event);
         }
@@ -8885,7 +10781,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_focusoutevent_isbase = false;
             QGraphicsItemGroup::focusOutEvent(event);
         } else if (qgraphicsitemgroup_focusoutevent_callback != nullptr) {
-            qgraphicsitemgroup_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicsitemgroup_focusoutevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::focusOutEvent(event);
         }
@@ -8897,7 +10795,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_hoverenterevent_isbase = false;
             QGraphicsItemGroup::hoverEnterEvent(event);
         } else if (qgraphicsitemgroup_hoverenterevent_callback != nullptr) {
-            qgraphicsitemgroup_hoverenterevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsitemgroup_hoverenterevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::hoverEnterEvent(event);
         }
@@ -8909,7 +10809,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_hovermoveevent_isbase = false;
             QGraphicsItemGroup::hoverMoveEvent(event);
         } else if (qgraphicsitemgroup_hovermoveevent_callback != nullptr) {
-            qgraphicsitemgroup_hovermoveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsitemgroup_hovermoveevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::hoverMoveEvent(event);
         }
@@ -8921,7 +10823,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_hoverleaveevent_isbase = false;
             QGraphicsItemGroup::hoverLeaveEvent(event);
         } else if (qgraphicsitemgroup_hoverleaveevent_callback != nullptr) {
-            qgraphicsitemgroup_hoverleaveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsitemgroup_hoverleaveevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::hoverLeaveEvent(event);
         }
@@ -8933,7 +10837,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_keypressevent_isbase = false;
             QGraphicsItemGroup::keyPressEvent(event);
         } else if (qgraphicsitemgroup_keypressevent_callback != nullptr) {
-            qgraphicsitemgroup_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicsitemgroup_keypressevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::keyPressEvent(event);
         }
@@ -8945,7 +10851,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_keyreleaseevent_isbase = false;
             QGraphicsItemGroup::keyReleaseEvent(event);
         } else if (qgraphicsitemgroup_keyreleaseevent_callback != nullptr) {
-            qgraphicsitemgroup_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicsitemgroup_keyreleaseevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::keyReleaseEvent(event);
         }
@@ -8957,7 +10865,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_mousepressevent_isbase = false;
             QGraphicsItemGroup::mousePressEvent(event);
         } else if (qgraphicsitemgroup_mousepressevent_callback != nullptr) {
-            qgraphicsitemgroup_mousepressevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsitemgroup_mousepressevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::mousePressEvent(event);
         }
@@ -8969,7 +10879,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_mousemoveevent_isbase = false;
             QGraphicsItemGroup::mouseMoveEvent(event);
         } else if (qgraphicsitemgroup_mousemoveevent_callback != nullptr) {
-            qgraphicsitemgroup_mousemoveevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsitemgroup_mousemoveevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::mouseMoveEvent(event);
         }
@@ -8981,7 +10893,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_mousereleaseevent_isbase = false;
             QGraphicsItemGroup::mouseReleaseEvent(event);
         } else if (qgraphicsitemgroup_mousereleaseevent_callback != nullptr) {
-            qgraphicsitemgroup_mousereleaseevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsitemgroup_mousereleaseevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::mouseReleaseEvent(event);
         }
@@ -8993,7 +10907,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_mousedoubleclickevent_isbase = false;
             QGraphicsItemGroup::mouseDoubleClickEvent(event);
         } else if (qgraphicsitemgroup_mousedoubleclickevent_callback != nullptr) {
-            qgraphicsitemgroup_mousedoubleclickevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsitemgroup_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::mouseDoubleClickEvent(event);
         }
@@ -9005,7 +10921,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_wheelevent_isbase = false;
             QGraphicsItemGroup::wheelEvent(event);
         } else if (qgraphicsitemgroup_wheelevent_callback != nullptr) {
-            qgraphicsitemgroup_wheelevent_callback(this, event);
+            QGraphicsSceneWheelEvent* cbval1 = event;
+
+            qgraphicsitemgroup_wheelevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::wheelEvent(event);
         }
@@ -9017,7 +10935,9 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_inputmethodevent_isbase = false;
             QGraphicsItemGroup::inputMethodEvent(event);
         } else if (qgraphicsitemgroup_inputmethodevent_callback != nullptr) {
-            qgraphicsitemgroup_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qgraphicsitemgroup_inputmethodevent_callback(this, cbval1);
         } else {
             QGraphicsItemGroup::inputMethodEvent(event);
         }
@@ -9029,7 +10949,10 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_inputmethodquery_isbase = false;
             return QGraphicsItemGroup::inputMethodQuery(query);
         } else if (qgraphicsitemgroup_inputmethodquery_callback != nullptr) {
-            return qgraphicsitemgroup_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qgraphicsitemgroup_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsItemGroup::inputMethodQuery(query);
         }
@@ -9041,7 +10964,13 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_itemchange_isbase = false;
             return QGraphicsItemGroup::itemChange(change, value);
         } else if (qgraphicsitemgroup_itemchange_callback != nullptr) {
-            return qgraphicsitemgroup_itemchange_callback(this, change, value);
+            int cbval1 = static_cast<int>(change);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            QVariant* callback_ret = qgraphicsitemgroup_itemchange_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QGraphicsItemGroup::itemChange(change, value);
         }
@@ -9053,7 +10982,10 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_supportsextension_isbase = false;
             return QGraphicsItemGroup::supportsExtension(extension);
         } else if (qgraphicsitemgroup_supportsextension_callback != nullptr) {
-            return qgraphicsitemgroup_supportsextension_callback(this, extension);
+            int cbval1 = static_cast<int>(extension);
+
+            bool callback_ret = qgraphicsitemgroup_supportsextension_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsItemGroup::supportsExtension(extension);
         }
@@ -9065,7 +10997,12 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_setextension_isbase = false;
             QGraphicsItemGroup::setExtension(extension, variant);
         } else if (qgraphicsitemgroup_setextension_callback != nullptr) {
-            qgraphicsitemgroup_setextension_callback(this, extension, variant);
+            int cbval1 = static_cast<int>(extension);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
+
+            qgraphicsitemgroup_setextension_callback(this, cbval1, cbval2);
         } else {
             QGraphicsItemGroup::setExtension(extension, variant);
         }
@@ -9077,7 +11014,12 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             qgraphicsitemgroup_extension_isbase = false;
             return QGraphicsItemGroup::extension(variant);
         } else if (qgraphicsitemgroup_extension_callback != nullptr) {
-            return qgraphicsitemgroup_extension_callback(this, variant);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
+
+            QVariant* callback_ret = qgraphicsitemgroup_extension_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsItemGroup::extension(variant);
         }
@@ -9130,6 +11072,66 @@ class VirtualQGraphicsItemGroup : public QGraphicsItemGroup {
             QGraphicsItemGroup::prepareGeometryChange();
         }
     }
+
+    // Friend functions
+    friend bool QGraphicsItemGroup_SceneEventFilter(QGraphicsItemGroup* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsItemGroup_QBaseSceneEventFilter(QGraphicsItemGroup* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsItemGroup_SceneEvent(QGraphicsItemGroup* self, QEvent* event);
+    friend bool QGraphicsItemGroup_QBaseSceneEvent(QGraphicsItemGroup* self, QEvent* event);
+    friend void QGraphicsItemGroup_ContextMenuEvent(QGraphicsItemGroup* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsItemGroup_QBaseContextMenuEvent(QGraphicsItemGroup* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsItemGroup_DragEnterEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsItemGroup_QBaseDragEnterEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsItemGroup_DragLeaveEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsItemGroup_QBaseDragLeaveEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsItemGroup_DragMoveEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsItemGroup_QBaseDragMoveEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsItemGroup_DropEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsItemGroup_QBaseDropEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsItemGroup_FocusInEvent(QGraphicsItemGroup* self, QFocusEvent* event);
+    friend void QGraphicsItemGroup_QBaseFocusInEvent(QGraphicsItemGroup* self, QFocusEvent* event);
+    friend void QGraphicsItemGroup_FocusOutEvent(QGraphicsItemGroup* self, QFocusEvent* event);
+    friend void QGraphicsItemGroup_QBaseFocusOutEvent(QGraphicsItemGroup* self, QFocusEvent* event);
+    friend void QGraphicsItemGroup_HoverEnterEvent(QGraphicsItemGroup* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsItemGroup_QBaseHoverEnterEvent(QGraphicsItemGroup* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsItemGroup_HoverMoveEvent(QGraphicsItemGroup* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsItemGroup_QBaseHoverMoveEvent(QGraphicsItemGroup* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsItemGroup_HoverLeaveEvent(QGraphicsItemGroup* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsItemGroup_QBaseHoverLeaveEvent(QGraphicsItemGroup* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsItemGroup_KeyPressEvent(QGraphicsItemGroup* self, QKeyEvent* event);
+    friend void QGraphicsItemGroup_QBaseKeyPressEvent(QGraphicsItemGroup* self, QKeyEvent* event);
+    friend void QGraphicsItemGroup_KeyReleaseEvent(QGraphicsItemGroup* self, QKeyEvent* event);
+    friend void QGraphicsItemGroup_QBaseKeyReleaseEvent(QGraphicsItemGroup* self, QKeyEvent* event);
+    friend void QGraphicsItemGroup_MousePressEvent(QGraphicsItemGroup* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsItemGroup_QBaseMousePressEvent(QGraphicsItemGroup* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsItemGroup_MouseMoveEvent(QGraphicsItemGroup* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsItemGroup_QBaseMouseMoveEvent(QGraphicsItemGroup* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsItemGroup_MouseReleaseEvent(QGraphicsItemGroup* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsItemGroup_QBaseMouseReleaseEvent(QGraphicsItemGroup* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsItemGroup_MouseDoubleClickEvent(QGraphicsItemGroup* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsItemGroup_QBaseMouseDoubleClickEvent(QGraphicsItemGroup* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsItemGroup_WheelEvent(QGraphicsItemGroup* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsItemGroup_QBaseWheelEvent(QGraphicsItemGroup* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsItemGroup_InputMethodEvent(QGraphicsItemGroup* self, QInputMethodEvent* event);
+    friend void QGraphicsItemGroup_QBaseInputMethodEvent(QGraphicsItemGroup* self, QInputMethodEvent* event);
+    friend QVariant* QGraphicsItemGroup_InputMethodQuery(const QGraphicsItemGroup* self, int query);
+    friend QVariant* QGraphicsItemGroup_QBaseInputMethodQuery(const QGraphicsItemGroup* self, int query);
+    friend QVariant* QGraphicsItemGroup_ItemChange(QGraphicsItemGroup* self, int change, const QVariant* value);
+    friend QVariant* QGraphicsItemGroup_QBaseItemChange(QGraphicsItemGroup* self, int change, const QVariant* value);
+    friend bool QGraphicsItemGroup_SupportsExtension(const QGraphicsItemGroup* self, int extension);
+    friend bool QGraphicsItemGroup_QBaseSupportsExtension(const QGraphicsItemGroup* self, int extension);
+    friend void QGraphicsItemGroup_SetExtension(QGraphicsItemGroup* self, int extension, const QVariant* variant);
+    friend void QGraphicsItemGroup_QBaseSetExtension(QGraphicsItemGroup* self, int extension, const QVariant* variant);
+    friend QVariant* QGraphicsItemGroup_Extension(const QGraphicsItemGroup* self, const QVariant* variant);
+    friend QVariant* QGraphicsItemGroup_QBaseExtension(const QGraphicsItemGroup* self, const QVariant* variant);
+    friend void QGraphicsItemGroup_UpdateMicroFocus(QGraphicsItemGroup* self);
+    friend void QGraphicsItemGroup_QBaseUpdateMicroFocus(QGraphicsItemGroup* self);
+    friend void QGraphicsItemGroup_AddToIndex(QGraphicsItemGroup* self);
+    friend void QGraphicsItemGroup_QBaseAddToIndex(QGraphicsItemGroup* self);
+    friend void QGraphicsItemGroup_RemoveFromIndex(QGraphicsItemGroup* self);
+    friend void QGraphicsItemGroup_QBaseRemoveFromIndex(QGraphicsItemGroup* self);
+    friend void QGraphicsItemGroup_PrepareGeometryChange(QGraphicsItemGroup* self);
+    friend void QGraphicsItemGroup_QBasePrepareGeometryChange(QGraphicsItemGroup* self);
 };
 
 #endif

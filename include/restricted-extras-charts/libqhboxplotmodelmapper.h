@@ -15,13 +15,8 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractItemModel QAbstractItemModel;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QBoxPlotModelMapper QBoxPlotModelMapper;
 typedef struct QBoxPlotSeries QBoxPlotSeries;
 typedef struct QChildEvent QChildEvent;
@@ -29,11 +24,8 @@ typedef struct QEvent QEvent;
 typedef struct QHBoxPlotModelMapper QHBoxPlotModelMapper;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QHBoxPlotModelMapper* QHBoxPlotModelMapper_new();
@@ -85,12 +77,12 @@ void QHBoxPlotModelMapper_QBaseChildEvent(QHBoxPlotModelMapper* self, QChildEven
 void QHBoxPlotModelMapper_CustomEvent(QHBoxPlotModelMapper* self, QEvent* event);
 void QHBoxPlotModelMapper_OnCustomEvent(QHBoxPlotModelMapper* self, intptr_t slot);
 void QHBoxPlotModelMapper_QBaseCustomEvent(QHBoxPlotModelMapper* self, QEvent* event);
-void QHBoxPlotModelMapper_ConnectNotify(QHBoxPlotModelMapper* self, QMetaMethod* signal);
+void QHBoxPlotModelMapper_ConnectNotify(QHBoxPlotModelMapper* self, const QMetaMethod* signal);
 void QHBoxPlotModelMapper_OnConnectNotify(QHBoxPlotModelMapper* self, intptr_t slot);
-void QHBoxPlotModelMapper_QBaseConnectNotify(QHBoxPlotModelMapper* self, QMetaMethod* signal);
-void QHBoxPlotModelMapper_DisconnectNotify(QHBoxPlotModelMapper* self, QMetaMethod* signal);
+void QHBoxPlotModelMapper_QBaseConnectNotify(QHBoxPlotModelMapper* self, const QMetaMethod* signal);
+void QHBoxPlotModelMapper_DisconnectNotify(QHBoxPlotModelMapper* self, const QMetaMethod* signal);
 void QHBoxPlotModelMapper_OnDisconnectNotify(QHBoxPlotModelMapper* self, intptr_t slot);
-void QHBoxPlotModelMapper_QBaseDisconnectNotify(QHBoxPlotModelMapper* self, QMetaMethod* signal);
+void QHBoxPlotModelMapper_QBaseDisconnectNotify(QHBoxPlotModelMapper* self, const QMetaMethod* signal);
 int QHBoxPlotModelMapper_First(const QHBoxPlotModelMapper* self);
 void QHBoxPlotModelMapper_OnFirst(const QHBoxPlotModelMapper* self, intptr_t slot);
 int QHBoxPlotModelMapper_QBaseFirst(const QHBoxPlotModelMapper* self);
@@ -130,9 +122,9 @@ int QHBoxPlotModelMapper_QBaseSenderSignalIndex(const QHBoxPlotModelMapper* self
 int QHBoxPlotModelMapper_Receivers(const QHBoxPlotModelMapper* self, const char* signal);
 void QHBoxPlotModelMapper_OnReceivers(const QHBoxPlotModelMapper* self, intptr_t slot);
 int QHBoxPlotModelMapper_QBaseReceivers(const QHBoxPlotModelMapper* self, const char* signal);
-bool QHBoxPlotModelMapper_IsSignalConnected(const QHBoxPlotModelMapper* self, QMetaMethod* signal);
+bool QHBoxPlotModelMapper_IsSignalConnected(const QHBoxPlotModelMapper* self, const QMetaMethod* signal);
 void QHBoxPlotModelMapper_OnIsSignalConnected(const QHBoxPlotModelMapper* self, intptr_t slot);
-bool QHBoxPlotModelMapper_QBaseIsSignalConnected(const QHBoxPlotModelMapper* self, QMetaMethod* signal);
+bool QHBoxPlotModelMapper_QBaseIsSignalConnected(const QHBoxPlotModelMapper* self, const QMetaMethod* signal);
 void QHBoxPlotModelMapper_Delete(QHBoxPlotModelMapper* self);
 
 #ifdef __cplusplus

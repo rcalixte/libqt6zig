@@ -8,7 +8,7 @@ QWebEngineQuotaRequest* QWebEngineQuotaRequest_new() {
     return new QWebEngineQuotaRequest();
 }
 
-QWebEngineQuotaRequest* QWebEngineQuotaRequest_new2(QWebEngineQuotaRequest* param1) {
+QWebEngineQuotaRequest* QWebEngineQuotaRequest_new2(const QWebEngineQuotaRequest* param1) {
     return new QWebEngineQuotaRequest(*param1);
 }
 
@@ -28,11 +28,11 @@ long long QWebEngineQuotaRequest_RequestedSize(const QWebEngineQuotaRequest* sel
     return static_cast<long long>(self->requestedSize());
 }
 
-bool QWebEngineQuotaRequest_OperatorEqual(const QWebEngineQuotaRequest* self, QWebEngineQuotaRequest* that) {
+bool QWebEngineQuotaRequest_OperatorEqual(const QWebEngineQuotaRequest* self, const QWebEngineQuotaRequest* that) {
     return (*self == *that);
 }
 
-bool QWebEngineQuotaRequest_OperatorNotEqual(const QWebEngineQuotaRequest* self, QWebEngineQuotaRequest* that) {
+bool QWebEngineQuotaRequest_OperatorNotEqual(const QWebEngineQuotaRequest* self, const QWebEngineQuotaRequest* that) {
     return (*self != *that);
 }
 

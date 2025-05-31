@@ -28,12 +28,12 @@ typedef int Compression; // C ABI enum
 #endif
 
 QResource* QResource_new();
-QResource* QResource_new2(libqt_string file);
-QResource* QResource_new3(libqt_string file, QLocale* locale);
-void QResource_SetFileName(QResource* self, libqt_string file);
+QResource* QResource_new2(const libqt_string file);
+QResource* QResource_new3(const libqt_string file, const QLocale* locale);
+void QResource_SetFileName(QResource* self, const libqt_string file);
 libqt_string QResource_FileName(const QResource* self);
 libqt_string QResource_AbsoluteFilePath(const QResource* self);
-void QResource_SetLocale(QResource* self, QLocale* locale);
+void QResource_SetLocale(QResource* self, const QLocale* locale);
 QLocale* QResource_Locale(const QResource* self);
 bool QResource_IsValid(const QResource* self);
 int QResource_CompressionAlgorithm(const QResource* self);
@@ -42,14 +42,14 @@ const unsigned char* QResource_Data(const QResource* self);
 long long QResource_UncompressedSize(const QResource* self);
 libqt_string QResource_UncompressedData(const QResource* self);
 QDateTime* QResource_LastModified(const QResource* self);
-bool QResource_RegisterResource(libqt_string rccFilename);
-bool QResource_UnregisterResource(libqt_string rccFilename);
+bool QResource_RegisterResource(const libqt_string rccFilename);
+bool QResource_UnregisterResource(const libqt_string rccFilename);
 bool QResource_RegisterResourceWithRccData(const unsigned char* rccData);
 bool QResource_UnregisterResourceWithRccData(const unsigned char* rccData);
-bool QResource_RegisterResource2(libqt_string rccFilename, libqt_string resourceRoot);
-bool QResource_UnregisterResource2(libqt_string rccFilename, libqt_string resourceRoot);
-bool QResource_RegisterResource22(const unsigned char* rccData, libqt_string resourceRoot);
-bool QResource_UnregisterResource22(const unsigned char* rccData, libqt_string resourceRoot);
+bool QResource_RegisterResource2(const libqt_string rccFilename, const libqt_string resourceRoot);
+bool QResource_UnregisterResource2(const libqt_string rccFilename, const libqt_string resourceRoot);
+bool QResource_RegisterResource22(const unsigned char* rccData, const libqt_string resourceRoot);
+bool QResource_UnregisterResource22(const unsigned char* rccData, const libqt_string resourceRoot);
 void QResource_Delete(QResource* self);
 
 #ifdef __cplusplus

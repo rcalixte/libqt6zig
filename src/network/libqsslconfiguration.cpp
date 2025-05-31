@@ -18,11 +18,11 @@ QSslConfiguration* QSslConfiguration_new() {
     return new QSslConfiguration();
 }
 
-QSslConfiguration* QSslConfiguration_new2(QSslConfiguration* other) {
+QSslConfiguration* QSslConfiguration_new2(const QSslConfiguration* other) {
     return new QSslConfiguration(*other);
 }
 
-void QSslConfiguration_OperatorAssign(QSslConfiguration* self, QSslConfiguration* other) {
+void QSslConfiguration_OperatorAssign(QSslConfiguration* self, const QSslConfiguration* other) {
     self->operator=(*other);
 }
 
@@ -30,11 +30,11 @@ void QSslConfiguration_Swap(QSslConfiguration* self, QSslConfiguration* other) {
     self->swap(*other);
 }
 
-bool QSslConfiguration_OperatorEqual(const QSslConfiguration* self, QSslConfiguration* other) {
+bool QSslConfiguration_OperatorEqual(const QSslConfiguration* self, const QSslConfiguration* other) {
     return (*self == *other);
 }
 
-bool QSslConfiguration_OperatorNotEqual(const QSslConfiguration* self, QSslConfiguration* other) {
+bool QSslConfiguration_OperatorNotEqual(const QSslConfiguration* self, const QSslConfiguration* other) {
     return (*self != *other);
 }
 
@@ -79,7 +79,7 @@ libqt_list /* of QSslCertificate* */ QSslConfiguration_LocalCertificateChain(con
     return _out;
 }
 
-void QSslConfiguration_SetLocalCertificateChain(QSslConfiguration* self, libqt_list /* of QSslCertificate* */ localChain) {
+void QSslConfiguration_SetLocalCertificateChain(QSslConfiguration* self, const libqt_list /* of QSslCertificate* */ localChain) {
     QList<QSslCertificate> localChain_QList;
     localChain_QList.reserve(localChain.len);
     QSslCertificate** localChain_arr = static_cast<QSslCertificate**>(localChain.data);
@@ -93,7 +93,7 @@ QSslCertificate* QSslConfiguration_LocalCertificate(const QSslConfiguration* sel
     return new QSslCertificate(self->localCertificate());
 }
 
-void QSslConfiguration_SetLocalCertificate(QSslConfiguration* self, QSslCertificate* certificate) {
+void QSslConfiguration_SetLocalCertificate(QSslConfiguration* self, const QSslCertificate* certificate) {
     self->setLocalCertificate(*certificate);
 }
 
@@ -126,7 +126,7 @@ QSslKey* QSslConfiguration_PrivateKey(const QSslConfiguration* self) {
     return new QSslKey(self->privateKey());
 }
 
-void QSslConfiguration_SetPrivateKey(QSslConfiguration* self, QSslKey* key) {
+void QSslConfiguration_SetPrivateKey(QSslConfiguration* self, const QSslKey* key) {
     self->setPrivateKey(*key);
 }
 
@@ -143,7 +143,7 @@ libqt_list /* of QSslCipher* */ QSslConfiguration_Ciphers(const QSslConfiguratio
     return _out;
 }
 
-void QSslConfiguration_SetCiphers(QSslConfiguration* self, libqt_list /* of QSslCipher* */ ciphers) {
+void QSslConfiguration_SetCiphers(QSslConfiguration* self, const libqt_list /* of QSslCipher* */ ciphers) {
     QList<QSslCipher> ciphers_QList;
     ciphers_QList.reserve(ciphers.len);
     QSslCipher** ciphers_arr = static_cast<QSslCipher**>(ciphers.data);
@@ -153,7 +153,7 @@ void QSslConfiguration_SetCiphers(QSslConfiguration* self, libqt_list /* of QSsl
     self->setCiphers(ciphers_QList);
 }
 
-void QSslConfiguration_SetCiphersWithCiphers(QSslConfiguration* self, libqt_string ciphers) {
+void QSslConfiguration_SetCiphersWithCiphers(QSslConfiguration* self, const libqt_string ciphers) {
     QString ciphers_QString = QString::fromUtf8(ciphers.data, ciphers.len);
     self->setCiphers(ciphers_QString);
 }
@@ -184,7 +184,7 @@ libqt_list /* of QSslCertificate* */ QSslConfiguration_CaCertificates(const QSsl
     return _out;
 }
 
-void QSslConfiguration_SetCaCertificates(QSslConfiguration* self, libqt_list /* of QSslCertificate* */ certificates) {
+void QSslConfiguration_SetCaCertificates(QSslConfiguration* self, const libqt_list /* of QSslCertificate* */ certificates) {
     QList<QSslCertificate> certificates_QList;
     certificates_QList.reserve(certificates.len);
     QSslCertificate** certificates_arr = static_cast<QSslCertificate**>(certificates.data);
@@ -194,16 +194,16 @@ void QSslConfiguration_SetCaCertificates(QSslConfiguration* self, libqt_list /* 
     self->setCaCertificates(certificates_QList);
 }
 
-bool QSslConfiguration_AddCaCertificates(QSslConfiguration* self, libqt_string path) {
+bool QSslConfiguration_AddCaCertificates(QSslConfiguration* self, const libqt_string path) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
     return self->addCaCertificates(path_QString);
 }
 
-void QSslConfiguration_AddCaCertificate(QSslConfiguration* self, QSslCertificate* certificate) {
+void QSslConfiguration_AddCaCertificate(QSslConfiguration* self, const QSslCertificate* certificate) {
     self->addCaCertificate(*certificate);
 }
 
-void QSslConfiguration_AddCaCertificatesWithCertificates(QSslConfiguration* self, libqt_list /* of QSslCertificate* */ certificates) {
+void QSslConfiguration_AddCaCertificatesWithCertificates(QSslConfiguration* self, const libqt_list /* of QSslCertificate* */ certificates) {
     QList<QSslCertificate> certificates_QList;
     certificates_QList.reserve(certificates.len);
     QSslCertificate** certificates_arr = static_cast<QSslCertificate**>(certificates.data);
@@ -244,7 +244,7 @@ libqt_string QSslConfiguration_SessionTicket(const QSslConfiguration* self) {
     return _str;
 }
 
-void QSslConfiguration_SetSessionTicket(QSslConfiguration* self, libqt_string sessionTicket) {
+void QSslConfiguration_SetSessionTicket(QSslConfiguration* self, const libqt_string sessionTicket) {
     QByteArray sessionTicket_QByteArray(sessionTicket.data, sessionTicket.len);
     self->setSessionTicket(sessionTicket_QByteArray);
 }
@@ -270,7 +270,7 @@ libqt_list /* of QSslEllipticCurve* */ QSslConfiguration_EllipticCurves(const QS
     return _out;
 }
 
-void QSslConfiguration_SetEllipticCurves(QSslConfiguration* self, libqt_list /* of QSslEllipticCurve* */ curves) {
+void QSslConfiguration_SetEllipticCurves(QSslConfiguration* self, const libqt_list /* of QSslEllipticCurve* */ curves) {
     QList<QSslEllipticCurve> curves_QList;
     curves_QList.reserve(curves.len);
     QSslEllipticCurve** curves_arr = static_cast<QSslEllipticCurve**>(curves.data);
@@ -303,7 +303,7 @@ libqt_string QSslConfiguration_PreSharedKeyIdentityHint(const QSslConfiguration*
     return _str;
 }
 
-void QSslConfiguration_SetPreSharedKeyIdentityHint(QSslConfiguration* self, libqt_string hint) {
+void QSslConfiguration_SetPreSharedKeyIdentityHint(QSslConfiguration* self, const libqt_string hint) {
     QByteArray hint_QByteArray(hint.data, hint.len);
     self->setPreSharedKeyIdentityHint(hint_QByteArray);
 }
@@ -312,11 +312,11 @@ QSslDiffieHellmanParameters* QSslConfiguration_DiffieHellmanParameters(const QSs
     return new QSslDiffieHellmanParameters(self->diffieHellmanParameters());
 }
 
-void QSslConfiguration_SetDiffieHellmanParameters(QSslConfiguration* self, QSslDiffieHellmanParameters* dhparams) {
+void QSslConfiguration_SetDiffieHellmanParameters(QSslConfiguration* self, const QSslDiffieHellmanParameters* dhparams) {
     self->setDiffieHellmanParameters(*dhparams);
 }
 
-void QSslConfiguration_SetBackendConfigurationOption(QSslConfiguration* self, libqt_string name, QVariant* value) {
+void QSslConfiguration_SetBackendConfigurationOption(QSslConfiguration* self, const libqt_string name, const QVariant* value) {
     QByteArray name_QByteArray(name.data, name.len);
     self->setBackendConfigurationOption(name_QByteArray, *value);
 }
@@ -329,7 +329,7 @@ QSslConfiguration* QSslConfiguration_DefaultConfiguration() {
     return new QSslConfiguration(QSslConfiguration::defaultConfiguration());
 }
 
-void QSslConfiguration_SetDefaultConfiguration(QSslConfiguration* configuration) {
+void QSslConfiguration_SetDefaultConfiguration(const QSslConfiguration* configuration) {
     QSslConfiguration::setDefaultConfiguration(*configuration);
 }
 
@@ -345,7 +345,7 @@ QSslConfiguration* QSslConfiguration_DefaultDtlsConfiguration() {
     return new QSslConfiguration(QSslConfiguration::defaultDtlsConfiguration());
 }
 
-void QSslConfiguration_SetDefaultDtlsConfiguration(QSslConfiguration* configuration) {
+void QSslConfiguration_SetDefaultDtlsConfiguration(const QSslConfiguration* configuration) {
     QSslConfiguration::setDefaultDtlsConfiguration(*configuration);
 }
 
@@ -373,7 +373,7 @@ bool QSslConfiguration_OcspStaplingEnabled(const QSslConfiguration* self) {
     return self->ocspStaplingEnabled();
 }
 
-void QSslConfiguration_SetAllowedNextProtocols(QSslConfiguration* self, libqt_list /* of libqt_string */ protocols) {
+void QSslConfiguration_SetAllowedNextProtocols(QSslConfiguration* self, const libqt_list /* of libqt_string */ protocols) {
     QList<QByteArray> protocols_QList;
     protocols_QList.reserve(protocols.len);
     libqt_string* protocols_arr = static_cast<libqt_string*>(protocols.data);
@@ -417,12 +417,12 @@ int QSslConfiguration_NextProtocolNegotiationStatus(const QSslConfiguration* sel
     return static_cast<int>(self->nextProtocolNegotiationStatus());
 }
 
-bool QSslConfiguration_AddCaCertificates2(QSslConfiguration* self, libqt_string path, int format) {
+bool QSslConfiguration_AddCaCertificates2(QSslConfiguration* self, const libqt_string path, int format) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
     return self->addCaCertificates(path_QString, static_cast<QSsl::EncodingFormat>(format));
 }
 
-bool QSslConfiguration_AddCaCertificates3(QSslConfiguration* self, libqt_string path, int format, int syntax) {
+bool QSslConfiguration_AddCaCertificates3(QSslConfiguration* self, const libqt_string path, int format, int syntax) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
     return self->addCaCertificates(path_QString, static_cast<QSsl::EncodingFormat>(format), static_cast<QSslCertificate::PatternSyntax>(syntax));
 }

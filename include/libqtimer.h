@@ -15,22 +15,14 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimer QTimer;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QTimer* QTimer_new();
@@ -70,12 +62,12 @@ void QTimer_QBaseChildEvent(QTimer* self, QChildEvent* event);
 void QTimer_CustomEvent(QTimer* self, QEvent* event);
 void QTimer_OnCustomEvent(QTimer* self, intptr_t slot);
 void QTimer_QBaseCustomEvent(QTimer* self, QEvent* event);
-void QTimer_ConnectNotify(QTimer* self, QMetaMethod* signal);
+void QTimer_ConnectNotify(QTimer* self, const QMetaMethod* signal);
 void QTimer_OnConnectNotify(QTimer* self, intptr_t slot);
-void QTimer_QBaseConnectNotify(QTimer* self, QMetaMethod* signal);
-void QTimer_DisconnectNotify(QTimer* self, QMetaMethod* signal);
+void QTimer_QBaseConnectNotify(QTimer* self, const QMetaMethod* signal);
+void QTimer_DisconnectNotify(QTimer* self, const QMetaMethod* signal);
 void QTimer_OnDisconnectNotify(QTimer* self, intptr_t slot);
-void QTimer_QBaseDisconnectNotify(QTimer* self, QMetaMethod* signal);
+void QTimer_QBaseDisconnectNotify(QTimer* self, const QMetaMethod* signal);
 QObject* QTimer_Sender(const QTimer* self);
 void QTimer_OnSender(const QTimer* self, intptr_t slot);
 QObject* QTimer_QBaseSender(const QTimer* self);
@@ -85,9 +77,10 @@ int QTimer_QBaseSenderSignalIndex(const QTimer* self);
 int QTimer_Receivers(const QTimer* self, const char* signal);
 void QTimer_OnReceivers(const QTimer* self, intptr_t slot);
 int QTimer_QBaseReceivers(const QTimer* self, const char* signal);
-bool QTimer_IsSignalConnected(const QTimer* self, QMetaMethod* signal);
+bool QTimer_IsSignalConnected(const QTimer* self, const QMetaMethod* signal);
 void QTimer_OnIsSignalConnected(const QTimer* self, intptr_t slot);
-bool QTimer_QBaseIsSignalConnected(const QTimer* self, QMetaMethod* signal);
+bool QTimer_QBaseIsSignalConnected(const QTimer* self, const QMetaMethod* signal);
+void QTimer_Connect_Timeout(QTimer* self, intptr_t slot);
 void QTimer_Delete(QTimer* self);
 
 #ifdef __cplusplus

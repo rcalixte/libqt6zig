@@ -11,18 +11,21 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QFontComboBox so that we can call protected methods
-class VirtualQFontComboBox : public QFontComboBox {
+class VirtualQFontComboBox final : public QFontComboBox {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQFontComboBox = true;
+
     // Virtual class public types (including callbacks)
-    using QFontComboBox_Metacall_Callback = int (*)(QFontComboBox*, QMetaObject::Call, int, void**);
-    using QFontComboBox_SizeHint_Callback = QSize (*)();
+    using QFontComboBox_Metacall_Callback = int (*)(QFontComboBox*, int, int, void**);
+    using QFontComboBox_SizeHint_Callback = QSize* (*)();
     using QFontComboBox_Event_Callback = bool (*)(QFontComboBox*, QEvent*);
     using QFontComboBox_SetModel_Callback = void (*)(QFontComboBox*, QAbstractItemModel*);
-    using QFontComboBox_MinimumSizeHint_Callback = QSize (*)();
+    using QFontComboBox_MinimumSizeHint_Callback = QSize* (*)();
     using QFontComboBox_ShowPopup_Callback = void (*)();
     using QFontComboBox_HidePopup_Callback = void (*)();
-    using QFontComboBox_InputMethodQuery_Callback = QVariant (*)(const QFontComboBox*, Qt::InputMethodQuery);
+    using QFontComboBox_InputMethodQuery_Callback = QVariant* (*)(const QFontComboBox*, int);
     using QFontComboBox_FocusInEvent_Callback = void (*)(QFontComboBox*, QFocusEvent*);
     using QFontComboBox_FocusOutEvent_Callback = void (*)(QFontComboBox*, QFocusEvent*);
     using QFontComboBox_ChangeEvent_Callback = void (*)(QFontComboBox*, QEvent*);
@@ -55,8 +58,8 @@ class VirtualQFontComboBox : public QFontComboBox {
     using QFontComboBox_DragMoveEvent_Callback = void (*)(QFontComboBox*, QDragMoveEvent*);
     using QFontComboBox_DragLeaveEvent_Callback = void (*)(QFontComboBox*, QDragLeaveEvent*);
     using QFontComboBox_DropEvent_Callback = void (*)(QFontComboBox*, QDropEvent*);
-    using QFontComboBox_NativeEvent_Callback = bool (*)(QFontComboBox*, const QByteArray&, void*, qintptr*);
-    using QFontComboBox_Metric_Callback = int (*)(const QFontComboBox*, QPaintDevice::PaintDeviceMetric);
+    using QFontComboBox_NativeEvent_Callback = bool (*)(QFontComboBox*, libqt_string, void*, intptr_t*);
+    using QFontComboBox_Metric_Callback = int (*)(const QFontComboBox*, int);
     using QFontComboBox_InitPainter_Callback = void (*)(const QFontComboBox*, QPainter*);
     using QFontComboBox_Redirected_Callback = QPaintDevice* (*)(const QFontComboBox*, QPoint*);
     using QFontComboBox_SharedPainter_Callback = QPainter* (*)();
@@ -65,8 +68,8 @@ class VirtualQFontComboBox : public QFontComboBox {
     using QFontComboBox_TimerEvent_Callback = void (*)(QFontComboBox*, QTimerEvent*);
     using QFontComboBox_ChildEvent_Callback = void (*)(QFontComboBox*, QChildEvent*);
     using QFontComboBox_CustomEvent_Callback = void (*)(QFontComboBox*, QEvent*);
-    using QFontComboBox_ConnectNotify_Callback = void (*)(QFontComboBox*, const QMetaMethod&);
-    using QFontComboBox_DisconnectNotify_Callback = void (*)(QFontComboBox*, const QMetaMethod&);
+    using QFontComboBox_ConnectNotify_Callback = void (*)(QFontComboBox*, QMetaMethod*);
+    using QFontComboBox_DisconnectNotify_Callback = void (*)(QFontComboBox*, QMetaMethod*);
     using QFontComboBox_UpdateMicroFocus_Callback = void (*)();
     using QFontComboBox_Create_Callback = void (*)();
     using QFontComboBox_Destroy_Callback = void (*)();
@@ -75,7 +78,7 @@ class VirtualQFontComboBox : public QFontComboBox {
     using QFontComboBox_Sender_Callback = QObject* (*)();
     using QFontComboBox_SenderSignalIndex_Callback = int (*)();
     using QFontComboBox_Receivers_Callback = int (*)(const QFontComboBox*, const char*);
-    using QFontComboBox_IsSignalConnected_Callback = bool (*)(const QFontComboBox*, const QMetaMethod&);
+    using QFontComboBox_IsSignalConnected_Callback = bool (*)(const QFontComboBox*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -273,130 +276,130 @@ class VirtualQFontComboBox : public QFontComboBox {
     }
 
     // Callback setters
-    void setQFontComboBox_Metacall_Callback(QFontComboBox_Metacall_Callback cb) { qfontcombobox_metacall_callback = cb; }
-    void setQFontComboBox_SizeHint_Callback(QFontComboBox_SizeHint_Callback cb) { qfontcombobox_sizehint_callback = cb; }
-    void setQFontComboBox_Event_Callback(QFontComboBox_Event_Callback cb) { qfontcombobox_event_callback = cb; }
-    void setQFontComboBox_SetModel_Callback(QFontComboBox_SetModel_Callback cb) { qfontcombobox_setmodel_callback = cb; }
-    void setQFontComboBox_MinimumSizeHint_Callback(QFontComboBox_MinimumSizeHint_Callback cb) { qfontcombobox_minimumsizehint_callback = cb; }
-    void setQFontComboBox_ShowPopup_Callback(QFontComboBox_ShowPopup_Callback cb) { qfontcombobox_showpopup_callback = cb; }
-    void setQFontComboBox_HidePopup_Callback(QFontComboBox_HidePopup_Callback cb) { qfontcombobox_hidepopup_callback = cb; }
-    void setQFontComboBox_InputMethodQuery_Callback(QFontComboBox_InputMethodQuery_Callback cb) { qfontcombobox_inputmethodquery_callback = cb; }
-    void setQFontComboBox_FocusInEvent_Callback(QFontComboBox_FocusInEvent_Callback cb) { qfontcombobox_focusinevent_callback = cb; }
-    void setQFontComboBox_FocusOutEvent_Callback(QFontComboBox_FocusOutEvent_Callback cb) { qfontcombobox_focusoutevent_callback = cb; }
-    void setQFontComboBox_ChangeEvent_Callback(QFontComboBox_ChangeEvent_Callback cb) { qfontcombobox_changeevent_callback = cb; }
-    void setQFontComboBox_ResizeEvent_Callback(QFontComboBox_ResizeEvent_Callback cb) { qfontcombobox_resizeevent_callback = cb; }
-    void setQFontComboBox_PaintEvent_Callback(QFontComboBox_PaintEvent_Callback cb) { qfontcombobox_paintevent_callback = cb; }
-    void setQFontComboBox_ShowEvent_Callback(QFontComboBox_ShowEvent_Callback cb) { qfontcombobox_showevent_callback = cb; }
-    void setQFontComboBox_HideEvent_Callback(QFontComboBox_HideEvent_Callback cb) { qfontcombobox_hideevent_callback = cb; }
-    void setQFontComboBox_MousePressEvent_Callback(QFontComboBox_MousePressEvent_Callback cb) { qfontcombobox_mousepressevent_callback = cb; }
-    void setQFontComboBox_MouseReleaseEvent_Callback(QFontComboBox_MouseReleaseEvent_Callback cb) { qfontcombobox_mousereleaseevent_callback = cb; }
-    void setQFontComboBox_KeyPressEvent_Callback(QFontComboBox_KeyPressEvent_Callback cb) { qfontcombobox_keypressevent_callback = cb; }
-    void setQFontComboBox_KeyReleaseEvent_Callback(QFontComboBox_KeyReleaseEvent_Callback cb) { qfontcombobox_keyreleaseevent_callback = cb; }
-    void setQFontComboBox_WheelEvent_Callback(QFontComboBox_WheelEvent_Callback cb) { qfontcombobox_wheelevent_callback = cb; }
-    void setQFontComboBox_ContextMenuEvent_Callback(QFontComboBox_ContextMenuEvent_Callback cb) { qfontcombobox_contextmenuevent_callback = cb; }
-    void setQFontComboBox_InputMethodEvent_Callback(QFontComboBox_InputMethodEvent_Callback cb) { qfontcombobox_inputmethodevent_callback = cb; }
-    void setQFontComboBox_InitStyleOption_Callback(QFontComboBox_InitStyleOption_Callback cb) { qfontcombobox_initstyleoption_callback = cb; }
-    void setQFontComboBox_DevType_Callback(QFontComboBox_DevType_Callback cb) { qfontcombobox_devtype_callback = cb; }
-    void setQFontComboBox_SetVisible_Callback(QFontComboBox_SetVisible_Callback cb) { qfontcombobox_setvisible_callback = cb; }
-    void setQFontComboBox_HeightForWidth_Callback(QFontComboBox_HeightForWidth_Callback cb) { qfontcombobox_heightforwidth_callback = cb; }
-    void setQFontComboBox_HasHeightForWidth_Callback(QFontComboBox_HasHeightForWidth_Callback cb) { qfontcombobox_hasheightforwidth_callback = cb; }
-    void setQFontComboBox_PaintEngine_Callback(QFontComboBox_PaintEngine_Callback cb) { qfontcombobox_paintengine_callback = cb; }
-    void setQFontComboBox_MouseDoubleClickEvent_Callback(QFontComboBox_MouseDoubleClickEvent_Callback cb) { qfontcombobox_mousedoubleclickevent_callback = cb; }
-    void setQFontComboBox_MouseMoveEvent_Callback(QFontComboBox_MouseMoveEvent_Callback cb) { qfontcombobox_mousemoveevent_callback = cb; }
-    void setQFontComboBox_EnterEvent_Callback(QFontComboBox_EnterEvent_Callback cb) { qfontcombobox_enterevent_callback = cb; }
-    void setQFontComboBox_LeaveEvent_Callback(QFontComboBox_LeaveEvent_Callback cb) { qfontcombobox_leaveevent_callback = cb; }
-    void setQFontComboBox_MoveEvent_Callback(QFontComboBox_MoveEvent_Callback cb) { qfontcombobox_moveevent_callback = cb; }
-    void setQFontComboBox_CloseEvent_Callback(QFontComboBox_CloseEvent_Callback cb) { qfontcombobox_closeevent_callback = cb; }
-    void setQFontComboBox_TabletEvent_Callback(QFontComboBox_TabletEvent_Callback cb) { qfontcombobox_tabletevent_callback = cb; }
-    void setQFontComboBox_ActionEvent_Callback(QFontComboBox_ActionEvent_Callback cb) { qfontcombobox_actionevent_callback = cb; }
-    void setQFontComboBox_DragEnterEvent_Callback(QFontComboBox_DragEnterEvent_Callback cb) { qfontcombobox_dragenterevent_callback = cb; }
-    void setQFontComboBox_DragMoveEvent_Callback(QFontComboBox_DragMoveEvent_Callback cb) { qfontcombobox_dragmoveevent_callback = cb; }
-    void setQFontComboBox_DragLeaveEvent_Callback(QFontComboBox_DragLeaveEvent_Callback cb) { qfontcombobox_dragleaveevent_callback = cb; }
-    void setQFontComboBox_DropEvent_Callback(QFontComboBox_DropEvent_Callback cb) { qfontcombobox_dropevent_callback = cb; }
-    void setQFontComboBox_NativeEvent_Callback(QFontComboBox_NativeEvent_Callback cb) { qfontcombobox_nativeevent_callback = cb; }
-    void setQFontComboBox_Metric_Callback(QFontComboBox_Metric_Callback cb) { qfontcombobox_metric_callback = cb; }
-    void setQFontComboBox_InitPainter_Callback(QFontComboBox_InitPainter_Callback cb) { qfontcombobox_initpainter_callback = cb; }
-    void setQFontComboBox_Redirected_Callback(QFontComboBox_Redirected_Callback cb) { qfontcombobox_redirected_callback = cb; }
-    void setQFontComboBox_SharedPainter_Callback(QFontComboBox_SharedPainter_Callback cb) { qfontcombobox_sharedpainter_callback = cb; }
-    void setQFontComboBox_FocusNextPrevChild_Callback(QFontComboBox_FocusNextPrevChild_Callback cb) { qfontcombobox_focusnextprevchild_callback = cb; }
-    void setQFontComboBox_EventFilter_Callback(QFontComboBox_EventFilter_Callback cb) { qfontcombobox_eventfilter_callback = cb; }
-    void setQFontComboBox_TimerEvent_Callback(QFontComboBox_TimerEvent_Callback cb) { qfontcombobox_timerevent_callback = cb; }
-    void setQFontComboBox_ChildEvent_Callback(QFontComboBox_ChildEvent_Callback cb) { qfontcombobox_childevent_callback = cb; }
-    void setQFontComboBox_CustomEvent_Callback(QFontComboBox_CustomEvent_Callback cb) { qfontcombobox_customevent_callback = cb; }
-    void setQFontComboBox_ConnectNotify_Callback(QFontComboBox_ConnectNotify_Callback cb) { qfontcombobox_connectnotify_callback = cb; }
-    void setQFontComboBox_DisconnectNotify_Callback(QFontComboBox_DisconnectNotify_Callback cb) { qfontcombobox_disconnectnotify_callback = cb; }
-    void setQFontComboBox_UpdateMicroFocus_Callback(QFontComboBox_UpdateMicroFocus_Callback cb) { qfontcombobox_updatemicrofocus_callback = cb; }
-    void setQFontComboBox_Create_Callback(QFontComboBox_Create_Callback cb) { qfontcombobox_create_callback = cb; }
-    void setQFontComboBox_Destroy_Callback(QFontComboBox_Destroy_Callback cb) { qfontcombobox_destroy_callback = cb; }
-    void setQFontComboBox_FocusNextChild_Callback(QFontComboBox_FocusNextChild_Callback cb) { qfontcombobox_focusnextchild_callback = cb; }
-    void setQFontComboBox_FocusPreviousChild_Callback(QFontComboBox_FocusPreviousChild_Callback cb) { qfontcombobox_focuspreviouschild_callback = cb; }
-    void setQFontComboBox_Sender_Callback(QFontComboBox_Sender_Callback cb) { qfontcombobox_sender_callback = cb; }
-    void setQFontComboBox_SenderSignalIndex_Callback(QFontComboBox_SenderSignalIndex_Callback cb) { qfontcombobox_sendersignalindex_callback = cb; }
-    void setQFontComboBox_Receivers_Callback(QFontComboBox_Receivers_Callback cb) { qfontcombobox_receivers_callback = cb; }
-    void setQFontComboBox_IsSignalConnected_Callback(QFontComboBox_IsSignalConnected_Callback cb) { qfontcombobox_issignalconnected_callback = cb; }
+    inline void setQFontComboBox_Metacall_Callback(QFontComboBox_Metacall_Callback cb) { qfontcombobox_metacall_callback = cb; }
+    inline void setQFontComboBox_SizeHint_Callback(QFontComboBox_SizeHint_Callback cb) { qfontcombobox_sizehint_callback = cb; }
+    inline void setQFontComboBox_Event_Callback(QFontComboBox_Event_Callback cb) { qfontcombobox_event_callback = cb; }
+    inline void setQFontComboBox_SetModel_Callback(QFontComboBox_SetModel_Callback cb) { qfontcombobox_setmodel_callback = cb; }
+    inline void setQFontComboBox_MinimumSizeHint_Callback(QFontComboBox_MinimumSizeHint_Callback cb) { qfontcombobox_minimumsizehint_callback = cb; }
+    inline void setQFontComboBox_ShowPopup_Callback(QFontComboBox_ShowPopup_Callback cb) { qfontcombobox_showpopup_callback = cb; }
+    inline void setQFontComboBox_HidePopup_Callback(QFontComboBox_HidePopup_Callback cb) { qfontcombobox_hidepopup_callback = cb; }
+    inline void setQFontComboBox_InputMethodQuery_Callback(QFontComboBox_InputMethodQuery_Callback cb) { qfontcombobox_inputmethodquery_callback = cb; }
+    inline void setQFontComboBox_FocusInEvent_Callback(QFontComboBox_FocusInEvent_Callback cb) { qfontcombobox_focusinevent_callback = cb; }
+    inline void setQFontComboBox_FocusOutEvent_Callback(QFontComboBox_FocusOutEvent_Callback cb) { qfontcombobox_focusoutevent_callback = cb; }
+    inline void setQFontComboBox_ChangeEvent_Callback(QFontComboBox_ChangeEvent_Callback cb) { qfontcombobox_changeevent_callback = cb; }
+    inline void setQFontComboBox_ResizeEvent_Callback(QFontComboBox_ResizeEvent_Callback cb) { qfontcombobox_resizeevent_callback = cb; }
+    inline void setQFontComboBox_PaintEvent_Callback(QFontComboBox_PaintEvent_Callback cb) { qfontcombobox_paintevent_callback = cb; }
+    inline void setQFontComboBox_ShowEvent_Callback(QFontComboBox_ShowEvent_Callback cb) { qfontcombobox_showevent_callback = cb; }
+    inline void setQFontComboBox_HideEvent_Callback(QFontComboBox_HideEvent_Callback cb) { qfontcombobox_hideevent_callback = cb; }
+    inline void setQFontComboBox_MousePressEvent_Callback(QFontComboBox_MousePressEvent_Callback cb) { qfontcombobox_mousepressevent_callback = cb; }
+    inline void setQFontComboBox_MouseReleaseEvent_Callback(QFontComboBox_MouseReleaseEvent_Callback cb) { qfontcombobox_mousereleaseevent_callback = cb; }
+    inline void setQFontComboBox_KeyPressEvent_Callback(QFontComboBox_KeyPressEvent_Callback cb) { qfontcombobox_keypressevent_callback = cb; }
+    inline void setQFontComboBox_KeyReleaseEvent_Callback(QFontComboBox_KeyReleaseEvent_Callback cb) { qfontcombobox_keyreleaseevent_callback = cb; }
+    inline void setQFontComboBox_WheelEvent_Callback(QFontComboBox_WheelEvent_Callback cb) { qfontcombobox_wheelevent_callback = cb; }
+    inline void setQFontComboBox_ContextMenuEvent_Callback(QFontComboBox_ContextMenuEvent_Callback cb) { qfontcombobox_contextmenuevent_callback = cb; }
+    inline void setQFontComboBox_InputMethodEvent_Callback(QFontComboBox_InputMethodEvent_Callback cb) { qfontcombobox_inputmethodevent_callback = cb; }
+    inline void setQFontComboBox_InitStyleOption_Callback(QFontComboBox_InitStyleOption_Callback cb) { qfontcombobox_initstyleoption_callback = cb; }
+    inline void setQFontComboBox_DevType_Callback(QFontComboBox_DevType_Callback cb) { qfontcombobox_devtype_callback = cb; }
+    inline void setQFontComboBox_SetVisible_Callback(QFontComboBox_SetVisible_Callback cb) { qfontcombobox_setvisible_callback = cb; }
+    inline void setQFontComboBox_HeightForWidth_Callback(QFontComboBox_HeightForWidth_Callback cb) { qfontcombobox_heightforwidth_callback = cb; }
+    inline void setQFontComboBox_HasHeightForWidth_Callback(QFontComboBox_HasHeightForWidth_Callback cb) { qfontcombobox_hasheightforwidth_callback = cb; }
+    inline void setQFontComboBox_PaintEngine_Callback(QFontComboBox_PaintEngine_Callback cb) { qfontcombobox_paintengine_callback = cb; }
+    inline void setQFontComboBox_MouseDoubleClickEvent_Callback(QFontComboBox_MouseDoubleClickEvent_Callback cb) { qfontcombobox_mousedoubleclickevent_callback = cb; }
+    inline void setQFontComboBox_MouseMoveEvent_Callback(QFontComboBox_MouseMoveEvent_Callback cb) { qfontcombobox_mousemoveevent_callback = cb; }
+    inline void setQFontComboBox_EnterEvent_Callback(QFontComboBox_EnterEvent_Callback cb) { qfontcombobox_enterevent_callback = cb; }
+    inline void setQFontComboBox_LeaveEvent_Callback(QFontComboBox_LeaveEvent_Callback cb) { qfontcombobox_leaveevent_callback = cb; }
+    inline void setQFontComboBox_MoveEvent_Callback(QFontComboBox_MoveEvent_Callback cb) { qfontcombobox_moveevent_callback = cb; }
+    inline void setQFontComboBox_CloseEvent_Callback(QFontComboBox_CloseEvent_Callback cb) { qfontcombobox_closeevent_callback = cb; }
+    inline void setQFontComboBox_TabletEvent_Callback(QFontComboBox_TabletEvent_Callback cb) { qfontcombobox_tabletevent_callback = cb; }
+    inline void setQFontComboBox_ActionEvent_Callback(QFontComboBox_ActionEvent_Callback cb) { qfontcombobox_actionevent_callback = cb; }
+    inline void setQFontComboBox_DragEnterEvent_Callback(QFontComboBox_DragEnterEvent_Callback cb) { qfontcombobox_dragenterevent_callback = cb; }
+    inline void setQFontComboBox_DragMoveEvent_Callback(QFontComboBox_DragMoveEvent_Callback cb) { qfontcombobox_dragmoveevent_callback = cb; }
+    inline void setQFontComboBox_DragLeaveEvent_Callback(QFontComboBox_DragLeaveEvent_Callback cb) { qfontcombobox_dragleaveevent_callback = cb; }
+    inline void setQFontComboBox_DropEvent_Callback(QFontComboBox_DropEvent_Callback cb) { qfontcombobox_dropevent_callback = cb; }
+    inline void setQFontComboBox_NativeEvent_Callback(QFontComboBox_NativeEvent_Callback cb) { qfontcombobox_nativeevent_callback = cb; }
+    inline void setQFontComboBox_Metric_Callback(QFontComboBox_Metric_Callback cb) { qfontcombobox_metric_callback = cb; }
+    inline void setQFontComboBox_InitPainter_Callback(QFontComboBox_InitPainter_Callback cb) { qfontcombobox_initpainter_callback = cb; }
+    inline void setQFontComboBox_Redirected_Callback(QFontComboBox_Redirected_Callback cb) { qfontcombobox_redirected_callback = cb; }
+    inline void setQFontComboBox_SharedPainter_Callback(QFontComboBox_SharedPainter_Callback cb) { qfontcombobox_sharedpainter_callback = cb; }
+    inline void setQFontComboBox_FocusNextPrevChild_Callback(QFontComboBox_FocusNextPrevChild_Callback cb) { qfontcombobox_focusnextprevchild_callback = cb; }
+    inline void setQFontComboBox_EventFilter_Callback(QFontComboBox_EventFilter_Callback cb) { qfontcombobox_eventfilter_callback = cb; }
+    inline void setQFontComboBox_TimerEvent_Callback(QFontComboBox_TimerEvent_Callback cb) { qfontcombobox_timerevent_callback = cb; }
+    inline void setQFontComboBox_ChildEvent_Callback(QFontComboBox_ChildEvent_Callback cb) { qfontcombobox_childevent_callback = cb; }
+    inline void setQFontComboBox_CustomEvent_Callback(QFontComboBox_CustomEvent_Callback cb) { qfontcombobox_customevent_callback = cb; }
+    inline void setQFontComboBox_ConnectNotify_Callback(QFontComboBox_ConnectNotify_Callback cb) { qfontcombobox_connectnotify_callback = cb; }
+    inline void setQFontComboBox_DisconnectNotify_Callback(QFontComboBox_DisconnectNotify_Callback cb) { qfontcombobox_disconnectnotify_callback = cb; }
+    inline void setQFontComboBox_UpdateMicroFocus_Callback(QFontComboBox_UpdateMicroFocus_Callback cb) { qfontcombobox_updatemicrofocus_callback = cb; }
+    inline void setQFontComboBox_Create_Callback(QFontComboBox_Create_Callback cb) { qfontcombobox_create_callback = cb; }
+    inline void setQFontComboBox_Destroy_Callback(QFontComboBox_Destroy_Callback cb) { qfontcombobox_destroy_callback = cb; }
+    inline void setQFontComboBox_FocusNextChild_Callback(QFontComboBox_FocusNextChild_Callback cb) { qfontcombobox_focusnextchild_callback = cb; }
+    inline void setQFontComboBox_FocusPreviousChild_Callback(QFontComboBox_FocusPreviousChild_Callback cb) { qfontcombobox_focuspreviouschild_callback = cb; }
+    inline void setQFontComboBox_Sender_Callback(QFontComboBox_Sender_Callback cb) { qfontcombobox_sender_callback = cb; }
+    inline void setQFontComboBox_SenderSignalIndex_Callback(QFontComboBox_SenderSignalIndex_Callback cb) { qfontcombobox_sendersignalindex_callback = cb; }
+    inline void setQFontComboBox_Receivers_Callback(QFontComboBox_Receivers_Callback cb) { qfontcombobox_receivers_callback = cb; }
+    inline void setQFontComboBox_IsSignalConnected_Callback(QFontComboBox_IsSignalConnected_Callback cb) { qfontcombobox_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQFontComboBox_Metacall_IsBase(bool value) const { qfontcombobox_metacall_isbase = value; }
-    void setQFontComboBox_SizeHint_IsBase(bool value) const { qfontcombobox_sizehint_isbase = value; }
-    void setQFontComboBox_Event_IsBase(bool value) const { qfontcombobox_event_isbase = value; }
-    void setQFontComboBox_SetModel_IsBase(bool value) const { qfontcombobox_setmodel_isbase = value; }
-    void setQFontComboBox_MinimumSizeHint_IsBase(bool value) const { qfontcombobox_minimumsizehint_isbase = value; }
-    void setQFontComboBox_ShowPopup_IsBase(bool value) const { qfontcombobox_showpopup_isbase = value; }
-    void setQFontComboBox_HidePopup_IsBase(bool value) const { qfontcombobox_hidepopup_isbase = value; }
-    void setQFontComboBox_InputMethodQuery_IsBase(bool value) const { qfontcombobox_inputmethodquery_isbase = value; }
-    void setQFontComboBox_FocusInEvent_IsBase(bool value) const { qfontcombobox_focusinevent_isbase = value; }
-    void setQFontComboBox_FocusOutEvent_IsBase(bool value) const { qfontcombobox_focusoutevent_isbase = value; }
-    void setQFontComboBox_ChangeEvent_IsBase(bool value) const { qfontcombobox_changeevent_isbase = value; }
-    void setQFontComboBox_ResizeEvent_IsBase(bool value) const { qfontcombobox_resizeevent_isbase = value; }
-    void setQFontComboBox_PaintEvent_IsBase(bool value) const { qfontcombobox_paintevent_isbase = value; }
-    void setQFontComboBox_ShowEvent_IsBase(bool value) const { qfontcombobox_showevent_isbase = value; }
-    void setQFontComboBox_HideEvent_IsBase(bool value) const { qfontcombobox_hideevent_isbase = value; }
-    void setQFontComboBox_MousePressEvent_IsBase(bool value) const { qfontcombobox_mousepressevent_isbase = value; }
-    void setQFontComboBox_MouseReleaseEvent_IsBase(bool value) const { qfontcombobox_mousereleaseevent_isbase = value; }
-    void setQFontComboBox_KeyPressEvent_IsBase(bool value) const { qfontcombobox_keypressevent_isbase = value; }
-    void setQFontComboBox_KeyReleaseEvent_IsBase(bool value) const { qfontcombobox_keyreleaseevent_isbase = value; }
-    void setQFontComboBox_WheelEvent_IsBase(bool value) const { qfontcombobox_wheelevent_isbase = value; }
-    void setQFontComboBox_ContextMenuEvent_IsBase(bool value) const { qfontcombobox_contextmenuevent_isbase = value; }
-    void setQFontComboBox_InputMethodEvent_IsBase(bool value) const { qfontcombobox_inputmethodevent_isbase = value; }
-    void setQFontComboBox_InitStyleOption_IsBase(bool value) const { qfontcombobox_initstyleoption_isbase = value; }
-    void setQFontComboBox_DevType_IsBase(bool value) const { qfontcombobox_devtype_isbase = value; }
-    void setQFontComboBox_SetVisible_IsBase(bool value) const { qfontcombobox_setvisible_isbase = value; }
-    void setQFontComboBox_HeightForWidth_IsBase(bool value) const { qfontcombobox_heightforwidth_isbase = value; }
-    void setQFontComboBox_HasHeightForWidth_IsBase(bool value) const { qfontcombobox_hasheightforwidth_isbase = value; }
-    void setQFontComboBox_PaintEngine_IsBase(bool value) const { qfontcombobox_paintengine_isbase = value; }
-    void setQFontComboBox_MouseDoubleClickEvent_IsBase(bool value) const { qfontcombobox_mousedoubleclickevent_isbase = value; }
-    void setQFontComboBox_MouseMoveEvent_IsBase(bool value) const { qfontcombobox_mousemoveevent_isbase = value; }
-    void setQFontComboBox_EnterEvent_IsBase(bool value) const { qfontcombobox_enterevent_isbase = value; }
-    void setQFontComboBox_LeaveEvent_IsBase(bool value) const { qfontcombobox_leaveevent_isbase = value; }
-    void setQFontComboBox_MoveEvent_IsBase(bool value) const { qfontcombobox_moveevent_isbase = value; }
-    void setQFontComboBox_CloseEvent_IsBase(bool value) const { qfontcombobox_closeevent_isbase = value; }
-    void setQFontComboBox_TabletEvent_IsBase(bool value) const { qfontcombobox_tabletevent_isbase = value; }
-    void setQFontComboBox_ActionEvent_IsBase(bool value) const { qfontcombobox_actionevent_isbase = value; }
-    void setQFontComboBox_DragEnterEvent_IsBase(bool value) const { qfontcombobox_dragenterevent_isbase = value; }
-    void setQFontComboBox_DragMoveEvent_IsBase(bool value) const { qfontcombobox_dragmoveevent_isbase = value; }
-    void setQFontComboBox_DragLeaveEvent_IsBase(bool value) const { qfontcombobox_dragleaveevent_isbase = value; }
-    void setQFontComboBox_DropEvent_IsBase(bool value) const { qfontcombobox_dropevent_isbase = value; }
-    void setQFontComboBox_NativeEvent_IsBase(bool value) const { qfontcombobox_nativeevent_isbase = value; }
-    void setQFontComboBox_Metric_IsBase(bool value) const { qfontcombobox_metric_isbase = value; }
-    void setQFontComboBox_InitPainter_IsBase(bool value) const { qfontcombobox_initpainter_isbase = value; }
-    void setQFontComboBox_Redirected_IsBase(bool value) const { qfontcombobox_redirected_isbase = value; }
-    void setQFontComboBox_SharedPainter_IsBase(bool value) const { qfontcombobox_sharedpainter_isbase = value; }
-    void setQFontComboBox_FocusNextPrevChild_IsBase(bool value) const { qfontcombobox_focusnextprevchild_isbase = value; }
-    void setQFontComboBox_EventFilter_IsBase(bool value) const { qfontcombobox_eventfilter_isbase = value; }
-    void setQFontComboBox_TimerEvent_IsBase(bool value) const { qfontcombobox_timerevent_isbase = value; }
-    void setQFontComboBox_ChildEvent_IsBase(bool value) const { qfontcombobox_childevent_isbase = value; }
-    void setQFontComboBox_CustomEvent_IsBase(bool value) const { qfontcombobox_customevent_isbase = value; }
-    void setQFontComboBox_ConnectNotify_IsBase(bool value) const { qfontcombobox_connectnotify_isbase = value; }
-    void setQFontComboBox_DisconnectNotify_IsBase(bool value) const { qfontcombobox_disconnectnotify_isbase = value; }
-    void setQFontComboBox_UpdateMicroFocus_IsBase(bool value) const { qfontcombobox_updatemicrofocus_isbase = value; }
-    void setQFontComboBox_Create_IsBase(bool value) const { qfontcombobox_create_isbase = value; }
-    void setQFontComboBox_Destroy_IsBase(bool value) const { qfontcombobox_destroy_isbase = value; }
-    void setQFontComboBox_FocusNextChild_IsBase(bool value) const { qfontcombobox_focusnextchild_isbase = value; }
-    void setQFontComboBox_FocusPreviousChild_IsBase(bool value) const { qfontcombobox_focuspreviouschild_isbase = value; }
-    void setQFontComboBox_Sender_IsBase(bool value) const { qfontcombobox_sender_isbase = value; }
-    void setQFontComboBox_SenderSignalIndex_IsBase(bool value) const { qfontcombobox_sendersignalindex_isbase = value; }
-    void setQFontComboBox_Receivers_IsBase(bool value) const { qfontcombobox_receivers_isbase = value; }
-    void setQFontComboBox_IsSignalConnected_IsBase(bool value) const { qfontcombobox_issignalconnected_isbase = value; }
+    inline void setQFontComboBox_Metacall_IsBase(bool value) const { qfontcombobox_metacall_isbase = value; }
+    inline void setQFontComboBox_SizeHint_IsBase(bool value) const { qfontcombobox_sizehint_isbase = value; }
+    inline void setQFontComboBox_Event_IsBase(bool value) const { qfontcombobox_event_isbase = value; }
+    inline void setQFontComboBox_SetModel_IsBase(bool value) const { qfontcombobox_setmodel_isbase = value; }
+    inline void setQFontComboBox_MinimumSizeHint_IsBase(bool value) const { qfontcombobox_minimumsizehint_isbase = value; }
+    inline void setQFontComboBox_ShowPopup_IsBase(bool value) const { qfontcombobox_showpopup_isbase = value; }
+    inline void setQFontComboBox_HidePopup_IsBase(bool value) const { qfontcombobox_hidepopup_isbase = value; }
+    inline void setQFontComboBox_InputMethodQuery_IsBase(bool value) const { qfontcombobox_inputmethodquery_isbase = value; }
+    inline void setQFontComboBox_FocusInEvent_IsBase(bool value) const { qfontcombobox_focusinevent_isbase = value; }
+    inline void setQFontComboBox_FocusOutEvent_IsBase(bool value) const { qfontcombobox_focusoutevent_isbase = value; }
+    inline void setQFontComboBox_ChangeEvent_IsBase(bool value) const { qfontcombobox_changeevent_isbase = value; }
+    inline void setQFontComboBox_ResizeEvent_IsBase(bool value) const { qfontcombobox_resizeevent_isbase = value; }
+    inline void setQFontComboBox_PaintEvent_IsBase(bool value) const { qfontcombobox_paintevent_isbase = value; }
+    inline void setQFontComboBox_ShowEvent_IsBase(bool value) const { qfontcombobox_showevent_isbase = value; }
+    inline void setQFontComboBox_HideEvent_IsBase(bool value) const { qfontcombobox_hideevent_isbase = value; }
+    inline void setQFontComboBox_MousePressEvent_IsBase(bool value) const { qfontcombobox_mousepressevent_isbase = value; }
+    inline void setQFontComboBox_MouseReleaseEvent_IsBase(bool value) const { qfontcombobox_mousereleaseevent_isbase = value; }
+    inline void setQFontComboBox_KeyPressEvent_IsBase(bool value) const { qfontcombobox_keypressevent_isbase = value; }
+    inline void setQFontComboBox_KeyReleaseEvent_IsBase(bool value) const { qfontcombobox_keyreleaseevent_isbase = value; }
+    inline void setQFontComboBox_WheelEvent_IsBase(bool value) const { qfontcombobox_wheelevent_isbase = value; }
+    inline void setQFontComboBox_ContextMenuEvent_IsBase(bool value) const { qfontcombobox_contextmenuevent_isbase = value; }
+    inline void setQFontComboBox_InputMethodEvent_IsBase(bool value) const { qfontcombobox_inputmethodevent_isbase = value; }
+    inline void setQFontComboBox_InitStyleOption_IsBase(bool value) const { qfontcombobox_initstyleoption_isbase = value; }
+    inline void setQFontComboBox_DevType_IsBase(bool value) const { qfontcombobox_devtype_isbase = value; }
+    inline void setQFontComboBox_SetVisible_IsBase(bool value) const { qfontcombobox_setvisible_isbase = value; }
+    inline void setQFontComboBox_HeightForWidth_IsBase(bool value) const { qfontcombobox_heightforwidth_isbase = value; }
+    inline void setQFontComboBox_HasHeightForWidth_IsBase(bool value) const { qfontcombobox_hasheightforwidth_isbase = value; }
+    inline void setQFontComboBox_PaintEngine_IsBase(bool value) const { qfontcombobox_paintengine_isbase = value; }
+    inline void setQFontComboBox_MouseDoubleClickEvent_IsBase(bool value) const { qfontcombobox_mousedoubleclickevent_isbase = value; }
+    inline void setQFontComboBox_MouseMoveEvent_IsBase(bool value) const { qfontcombobox_mousemoveevent_isbase = value; }
+    inline void setQFontComboBox_EnterEvent_IsBase(bool value) const { qfontcombobox_enterevent_isbase = value; }
+    inline void setQFontComboBox_LeaveEvent_IsBase(bool value) const { qfontcombobox_leaveevent_isbase = value; }
+    inline void setQFontComboBox_MoveEvent_IsBase(bool value) const { qfontcombobox_moveevent_isbase = value; }
+    inline void setQFontComboBox_CloseEvent_IsBase(bool value) const { qfontcombobox_closeevent_isbase = value; }
+    inline void setQFontComboBox_TabletEvent_IsBase(bool value) const { qfontcombobox_tabletevent_isbase = value; }
+    inline void setQFontComboBox_ActionEvent_IsBase(bool value) const { qfontcombobox_actionevent_isbase = value; }
+    inline void setQFontComboBox_DragEnterEvent_IsBase(bool value) const { qfontcombobox_dragenterevent_isbase = value; }
+    inline void setQFontComboBox_DragMoveEvent_IsBase(bool value) const { qfontcombobox_dragmoveevent_isbase = value; }
+    inline void setQFontComboBox_DragLeaveEvent_IsBase(bool value) const { qfontcombobox_dragleaveevent_isbase = value; }
+    inline void setQFontComboBox_DropEvent_IsBase(bool value) const { qfontcombobox_dropevent_isbase = value; }
+    inline void setQFontComboBox_NativeEvent_IsBase(bool value) const { qfontcombobox_nativeevent_isbase = value; }
+    inline void setQFontComboBox_Metric_IsBase(bool value) const { qfontcombobox_metric_isbase = value; }
+    inline void setQFontComboBox_InitPainter_IsBase(bool value) const { qfontcombobox_initpainter_isbase = value; }
+    inline void setQFontComboBox_Redirected_IsBase(bool value) const { qfontcombobox_redirected_isbase = value; }
+    inline void setQFontComboBox_SharedPainter_IsBase(bool value) const { qfontcombobox_sharedpainter_isbase = value; }
+    inline void setQFontComboBox_FocusNextPrevChild_IsBase(bool value) const { qfontcombobox_focusnextprevchild_isbase = value; }
+    inline void setQFontComboBox_EventFilter_IsBase(bool value) const { qfontcombobox_eventfilter_isbase = value; }
+    inline void setQFontComboBox_TimerEvent_IsBase(bool value) const { qfontcombobox_timerevent_isbase = value; }
+    inline void setQFontComboBox_ChildEvent_IsBase(bool value) const { qfontcombobox_childevent_isbase = value; }
+    inline void setQFontComboBox_CustomEvent_IsBase(bool value) const { qfontcombobox_customevent_isbase = value; }
+    inline void setQFontComboBox_ConnectNotify_IsBase(bool value) const { qfontcombobox_connectnotify_isbase = value; }
+    inline void setQFontComboBox_DisconnectNotify_IsBase(bool value) const { qfontcombobox_disconnectnotify_isbase = value; }
+    inline void setQFontComboBox_UpdateMicroFocus_IsBase(bool value) const { qfontcombobox_updatemicrofocus_isbase = value; }
+    inline void setQFontComboBox_Create_IsBase(bool value) const { qfontcombobox_create_isbase = value; }
+    inline void setQFontComboBox_Destroy_IsBase(bool value) const { qfontcombobox_destroy_isbase = value; }
+    inline void setQFontComboBox_FocusNextChild_IsBase(bool value) const { qfontcombobox_focusnextchild_isbase = value; }
+    inline void setQFontComboBox_FocusPreviousChild_IsBase(bool value) const { qfontcombobox_focuspreviouschild_isbase = value; }
+    inline void setQFontComboBox_Sender_IsBase(bool value) const { qfontcombobox_sender_isbase = value; }
+    inline void setQFontComboBox_SenderSignalIndex_IsBase(bool value) const { qfontcombobox_sendersignalindex_isbase = value; }
+    inline void setQFontComboBox_Receivers_IsBase(bool value) const { qfontcombobox_receivers_isbase = value; }
+    inline void setQFontComboBox_IsSignalConnected_IsBase(bool value) const { qfontcombobox_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -404,7 +407,12 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_metacall_isbase = false;
             return QFontComboBox::qt_metacall(param1, param2, param3);
         } else if (qfontcombobox_metacall_callback != nullptr) {
-            return qfontcombobox_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qfontcombobox_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QFontComboBox::qt_metacall(param1, param2, param3);
         }
@@ -416,7 +424,8 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_sizehint_isbase = false;
             return QFontComboBox::sizeHint();
         } else if (qfontcombobox_sizehint_callback != nullptr) {
-            return qfontcombobox_sizehint_callback();
+            QSize* callback_ret = qfontcombobox_sizehint_callback();
+            return *callback_ret;
         } else {
             return QFontComboBox::sizeHint();
         }
@@ -428,7 +437,10 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_event_isbase = false;
             return QFontComboBox::event(e);
         } else if (qfontcombobox_event_callback != nullptr) {
-            return qfontcombobox_event_callback(this, e);
+            QEvent* cbval1 = e;
+
+            bool callback_ret = qfontcombobox_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFontComboBox::event(e);
         }
@@ -440,7 +452,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_setmodel_isbase = false;
             QFontComboBox::setModel(model);
         } else if (qfontcombobox_setmodel_callback != nullptr) {
-            qfontcombobox_setmodel_callback(this, model);
+            QAbstractItemModel* cbval1 = model;
+
+            qfontcombobox_setmodel_callback(this, cbval1);
         } else {
             QFontComboBox::setModel(model);
         }
@@ -452,7 +466,8 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_minimumsizehint_isbase = false;
             return QFontComboBox::minimumSizeHint();
         } else if (qfontcombobox_minimumsizehint_callback != nullptr) {
-            return qfontcombobox_minimumsizehint_callback();
+            QSize* callback_ret = qfontcombobox_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QFontComboBox::minimumSizeHint();
         }
@@ -488,7 +503,10 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_inputmethodquery_isbase = false;
             return QFontComboBox::inputMethodQuery(param1);
         } else if (qfontcombobox_inputmethodquery_callback != nullptr) {
-            return qfontcombobox_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qfontcombobox_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QFontComboBox::inputMethodQuery(param1);
         }
@@ -500,7 +518,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_focusinevent_isbase = false;
             QFontComboBox::focusInEvent(e);
         } else if (qfontcombobox_focusinevent_callback != nullptr) {
-            qfontcombobox_focusinevent_callback(this, e);
+            QFocusEvent* cbval1 = e;
+
+            qfontcombobox_focusinevent_callback(this, cbval1);
         } else {
             QFontComboBox::focusInEvent(e);
         }
@@ -512,7 +532,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_focusoutevent_isbase = false;
             QFontComboBox::focusOutEvent(e);
         } else if (qfontcombobox_focusoutevent_callback != nullptr) {
-            qfontcombobox_focusoutevent_callback(this, e);
+            QFocusEvent* cbval1 = e;
+
+            qfontcombobox_focusoutevent_callback(this, cbval1);
         } else {
             QFontComboBox::focusOutEvent(e);
         }
@@ -524,7 +546,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_changeevent_isbase = false;
             QFontComboBox::changeEvent(e);
         } else if (qfontcombobox_changeevent_callback != nullptr) {
-            qfontcombobox_changeevent_callback(this, e);
+            QEvent* cbval1 = e;
+
+            qfontcombobox_changeevent_callback(this, cbval1);
         } else {
             QFontComboBox::changeEvent(e);
         }
@@ -536,7 +560,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_resizeevent_isbase = false;
             QFontComboBox::resizeEvent(e);
         } else if (qfontcombobox_resizeevent_callback != nullptr) {
-            qfontcombobox_resizeevent_callback(this, e);
+            QResizeEvent* cbval1 = e;
+
+            qfontcombobox_resizeevent_callback(this, cbval1);
         } else {
             QFontComboBox::resizeEvent(e);
         }
@@ -548,7 +574,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_paintevent_isbase = false;
             QFontComboBox::paintEvent(e);
         } else if (qfontcombobox_paintevent_callback != nullptr) {
-            qfontcombobox_paintevent_callback(this, e);
+            QPaintEvent* cbval1 = e;
+
+            qfontcombobox_paintevent_callback(this, cbval1);
         } else {
             QFontComboBox::paintEvent(e);
         }
@@ -560,7 +588,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_showevent_isbase = false;
             QFontComboBox::showEvent(e);
         } else if (qfontcombobox_showevent_callback != nullptr) {
-            qfontcombobox_showevent_callback(this, e);
+            QShowEvent* cbval1 = e;
+
+            qfontcombobox_showevent_callback(this, cbval1);
         } else {
             QFontComboBox::showEvent(e);
         }
@@ -572,7 +602,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_hideevent_isbase = false;
             QFontComboBox::hideEvent(e);
         } else if (qfontcombobox_hideevent_callback != nullptr) {
-            qfontcombobox_hideevent_callback(this, e);
+            QHideEvent* cbval1 = e;
+
+            qfontcombobox_hideevent_callback(this, cbval1);
         } else {
             QFontComboBox::hideEvent(e);
         }
@@ -584,7 +616,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_mousepressevent_isbase = false;
             QFontComboBox::mousePressEvent(e);
         } else if (qfontcombobox_mousepressevent_callback != nullptr) {
-            qfontcombobox_mousepressevent_callback(this, e);
+            QMouseEvent* cbval1 = e;
+
+            qfontcombobox_mousepressevent_callback(this, cbval1);
         } else {
             QFontComboBox::mousePressEvent(e);
         }
@@ -596,7 +630,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_mousereleaseevent_isbase = false;
             QFontComboBox::mouseReleaseEvent(e);
         } else if (qfontcombobox_mousereleaseevent_callback != nullptr) {
-            qfontcombobox_mousereleaseevent_callback(this, e);
+            QMouseEvent* cbval1 = e;
+
+            qfontcombobox_mousereleaseevent_callback(this, cbval1);
         } else {
             QFontComboBox::mouseReleaseEvent(e);
         }
@@ -608,7 +644,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_keypressevent_isbase = false;
             QFontComboBox::keyPressEvent(e);
         } else if (qfontcombobox_keypressevent_callback != nullptr) {
-            qfontcombobox_keypressevent_callback(this, e);
+            QKeyEvent* cbval1 = e;
+
+            qfontcombobox_keypressevent_callback(this, cbval1);
         } else {
             QFontComboBox::keyPressEvent(e);
         }
@@ -620,7 +658,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_keyreleaseevent_isbase = false;
             QFontComboBox::keyReleaseEvent(e);
         } else if (qfontcombobox_keyreleaseevent_callback != nullptr) {
-            qfontcombobox_keyreleaseevent_callback(this, e);
+            QKeyEvent* cbval1 = e;
+
+            qfontcombobox_keyreleaseevent_callback(this, cbval1);
         } else {
             QFontComboBox::keyReleaseEvent(e);
         }
@@ -632,7 +672,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_wheelevent_isbase = false;
             QFontComboBox::wheelEvent(e);
         } else if (qfontcombobox_wheelevent_callback != nullptr) {
-            qfontcombobox_wheelevent_callback(this, e);
+            QWheelEvent* cbval1 = e;
+
+            qfontcombobox_wheelevent_callback(this, cbval1);
         } else {
             QFontComboBox::wheelEvent(e);
         }
@@ -644,7 +686,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_contextmenuevent_isbase = false;
             QFontComboBox::contextMenuEvent(e);
         } else if (qfontcombobox_contextmenuevent_callback != nullptr) {
-            qfontcombobox_contextmenuevent_callback(this, e);
+            QContextMenuEvent* cbval1 = e;
+
+            qfontcombobox_contextmenuevent_callback(this, cbval1);
         } else {
             QFontComboBox::contextMenuEvent(e);
         }
@@ -656,7 +700,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_inputmethodevent_isbase = false;
             QFontComboBox::inputMethodEvent(param1);
         } else if (qfontcombobox_inputmethodevent_callback != nullptr) {
-            qfontcombobox_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qfontcombobox_inputmethodevent_callback(this, cbval1);
         } else {
             QFontComboBox::inputMethodEvent(param1);
         }
@@ -668,7 +714,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_initstyleoption_isbase = false;
             QFontComboBox::initStyleOption(option);
         } else if (qfontcombobox_initstyleoption_callback != nullptr) {
-            qfontcombobox_initstyleoption_callback(this, option);
+            QStyleOptionComboBox* cbval1 = option;
+
+            qfontcombobox_initstyleoption_callback(this, cbval1);
         } else {
             QFontComboBox::initStyleOption(option);
         }
@@ -680,7 +728,8 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_devtype_isbase = false;
             return QFontComboBox::devType();
         } else if (qfontcombobox_devtype_callback != nullptr) {
-            return qfontcombobox_devtype_callback();
+            int callback_ret = qfontcombobox_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QFontComboBox::devType();
         }
@@ -692,7 +741,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_setvisible_isbase = false;
             QFontComboBox::setVisible(visible);
         } else if (qfontcombobox_setvisible_callback != nullptr) {
-            qfontcombobox_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qfontcombobox_setvisible_callback(this, cbval1);
         } else {
             QFontComboBox::setVisible(visible);
         }
@@ -704,7 +755,10 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_heightforwidth_isbase = false;
             return QFontComboBox::heightForWidth(param1);
         } else if (qfontcombobox_heightforwidth_callback != nullptr) {
-            return qfontcombobox_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qfontcombobox_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QFontComboBox::heightForWidth(param1);
         }
@@ -716,7 +770,8 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_hasheightforwidth_isbase = false;
             return QFontComboBox::hasHeightForWidth();
         } else if (qfontcombobox_hasheightforwidth_callback != nullptr) {
-            return qfontcombobox_hasheightforwidth_callback();
+            bool callback_ret = qfontcombobox_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QFontComboBox::hasHeightForWidth();
         }
@@ -728,7 +783,8 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_paintengine_isbase = false;
             return QFontComboBox::paintEngine();
         } else if (qfontcombobox_paintengine_callback != nullptr) {
-            return qfontcombobox_paintengine_callback();
+            QPaintEngine* callback_ret = qfontcombobox_paintengine_callback();
+            return callback_ret;
         } else {
             return QFontComboBox::paintEngine();
         }
@@ -740,7 +796,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_mousedoubleclickevent_isbase = false;
             QFontComboBox::mouseDoubleClickEvent(event);
         } else if (qfontcombobox_mousedoubleclickevent_callback != nullptr) {
-            qfontcombobox_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qfontcombobox_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QFontComboBox::mouseDoubleClickEvent(event);
         }
@@ -752,7 +810,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_mousemoveevent_isbase = false;
             QFontComboBox::mouseMoveEvent(event);
         } else if (qfontcombobox_mousemoveevent_callback != nullptr) {
-            qfontcombobox_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qfontcombobox_mousemoveevent_callback(this, cbval1);
         } else {
             QFontComboBox::mouseMoveEvent(event);
         }
@@ -764,7 +824,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_enterevent_isbase = false;
             QFontComboBox::enterEvent(event);
         } else if (qfontcombobox_enterevent_callback != nullptr) {
-            qfontcombobox_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qfontcombobox_enterevent_callback(this, cbval1);
         } else {
             QFontComboBox::enterEvent(event);
         }
@@ -776,7 +838,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_leaveevent_isbase = false;
             QFontComboBox::leaveEvent(event);
         } else if (qfontcombobox_leaveevent_callback != nullptr) {
-            qfontcombobox_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qfontcombobox_leaveevent_callback(this, cbval1);
         } else {
             QFontComboBox::leaveEvent(event);
         }
@@ -788,7 +852,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_moveevent_isbase = false;
             QFontComboBox::moveEvent(event);
         } else if (qfontcombobox_moveevent_callback != nullptr) {
-            qfontcombobox_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qfontcombobox_moveevent_callback(this, cbval1);
         } else {
             QFontComboBox::moveEvent(event);
         }
@@ -800,7 +866,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_closeevent_isbase = false;
             QFontComboBox::closeEvent(event);
         } else if (qfontcombobox_closeevent_callback != nullptr) {
-            qfontcombobox_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qfontcombobox_closeevent_callback(this, cbval1);
         } else {
             QFontComboBox::closeEvent(event);
         }
@@ -812,7 +880,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_tabletevent_isbase = false;
             QFontComboBox::tabletEvent(event);
         } else if (qfontcombobox_tabletevent_callback != nullptr) {
-            qfontcombobox_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qfontcombobox_tabletevent_callback(this, cbval1);
         } else {
             QFontComboBox::tabletEvent(event);
         }
@@ -824,7 +894,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_actionevent_isbase = false;
             QFontComboBox::actionEvent(event);
         } else if (qfontcombobox_actionevent_callback != nullptr) {
-            qfontcombobox_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qfontcombobox_actionevent_callback(this, cbval1);
         } else {
             QFontComboBox::actionEvent(event);
         }
@@ -836,7 +908,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_dragenterevent_isbase = false;
             QFontComboBox::dragEnterEvent(event);
         } else if (qfontcombobox_dragenterevent_callback != nullptr) {
-            qfontcombobox_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qfontcombobox_dragenterevent_callback(this, cbval1);
         } else {
             QFontComboBox::dragEnterEvent(event);
         }
@@ -848,7 +922,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_dragmoveevent_isbase = false;
             QFontComboBox::dragMoveEvent(event);
         } else if (qfontcombobox_dragmoveevent_callback != nullptr) {
-            qfontcombobox_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qfontcombobox_dragmoveevent_callback(this, cbval1);
         } else {
             QFontComboBox::dragMoveEvent(event);
         }
@@ -860,7 +936,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_dragleaveevent_isbase = false;
             QFontComboBox::dragLeaveEvent(event);
         } else if (qfontcombobox_dragleaveevent_callback != nullptr) {
-            qfontcombobox_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qfontcombobox_dragleaveevent_callback(this, cbval1);
         } else {
             QFontComboBox::dragLeaveEvent(event);
         }
@@ -872,7 +950,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_dropevent_isbase = false;
             QFontComboBox::dropEvent(event);
         } else if (qfontcombobox_dropevent_callback != nullptr) {
-            qfontcombobox_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qfontcombobox_dropevent_callback(this, cbval1);
         } else {
             QFontComboBox::dropEvent(event);
         }
@@ -884,7 +964,19 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_nativeevent_isbase = false;
             return QFontComboBox::nativeEvent(eventType, message, result);
         } else if (qfontcombobox_nativeevent_callback != nullptr) {
-            return qfontcombobox_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qfontcombobox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QFontComboBox::nativeEvent(eventType, message, result);
         }
@@ -896,7 +988,10 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_metric_isbase = false;
             return QFontComboBox::metric(param1);
         } else if (qfontcombobox_metric_callback != nullptr) {
-            return qfontcombobox_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qfontcombobox_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QFontComboBox::metric(param1);
         }
@@ -908,7 +1003,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_initpainter_isbase = false;
             QFontComboBox::initPainter(painter);
         } else if (qfontcombobox_initpainter_callback != nullptr) {
-            qfontcombobox_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qfontcombobox_initpainter_callback(this, cbval1);
         } else {
             QFontComboBox::initPainter(painter);
         }
@@ -920,7 +1017,10 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_redirected_isbase = false;
             return QFontComboBox::redirected(offset);
         } else if (qfontcombobox_redirected_callback != nullptr) {
-            return qfontcombobox_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qfontcombobox_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFontComboBox::redirected(offset);
         }
@@ -932,7 +1032,8 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_sharedpainter_isbase = false;
             return QFontComboBox::sharedPainter();
         } else if (qfontcombobox_sharedpainter_callback != nullptr) {
-            return qfontcombobox_sharedpainter_callback();
+            QPainter* callback_ret = qfontcombobox_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QFontComboBox::sharedPainter();
         }
@@ -944,7 +1045,10 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_focusnextprevchild_isbase = false;
             return QFontComboBox::focusNextPrevChild(next);
         } else if (qfontcombobox_focusnextprevchild_callback != nullptr) {
-            return qfontcombobox_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qfontcombobox_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFontComboBox::focusNextPrevChild(next);
         }
@@ -956,7 +1060,11 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_eventfilter_isbase = false;
             return QFontComboBox::eventFilter(watched, event);
         } else if (qfontcombobox_eventfilter_callback != nullptr) {
-            return qfontcombobox_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qfontcombobox_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QFontComboBox::eventFilter(watched, event);
         }
@@ -968,7 +1076,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_timerevent_isbase = false;
             QFontComboBox::timerEvent(event);
         } else if (qfontcombobox_timerevent_callback != nullptr) {
-            qfontcombobox_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qfontcombobox_timerevent_callback(this, cbval1);
         } else {
             QFontComboBox::timerEvent(event);
         }
@@ -980,7 +1090,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_childevent_isbase = false;
             QFontComboBox::childEvent(event);
         } else if (qfontcombobox_childevent_callback != nullptr) {
-            qfontcombobox_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qfontcombobox_childevent_callback(this, cbval1);
         } else {
             QFontComboBox::childEvent(event);
         }
@@ -992,7 +1104,9 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_customevent_isbase = false;
             QFontComboBox::customEvent(event);
         } else if (qfontcombobox_customevent_callback != nullptr) {
-            qfontcombobox_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qfontcombobox_customevent_callback(this, cbval1);
         } else {
             QFontComboBox::customEvent(event);
         }
@@ -1004,7 +1118,11 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_connectnotify_isbase = false;
             QFontComboBox::connectNotify(signal);
         } else if (qfontcombobox_connectnotify_callback != nullptr) {
-            qfontcombobox_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qfontcombobox_connectnotify_callback(this, cbval1);
         } else {
             QFontComboBox::connectNotify(signal);
         }
@@ -1016,7 +1134,11 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_disconnectnotify_isbase = false;
             QFontComboBox::disconnectNotify(signal);
         } else if (qfontcombobox_disconnectnotify_callback != nullptr) {
-            qfontcombobox_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qfontcombobox_disconnectnotify_callback(this, cbval1);
         } else {
             QFontComboBox::disconnectNotify(signal);
         }
@@ -1064,7 +1186,8 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_focusnextchild_isbase = false;
             return QFontComboBox::focusNextChild();
         } else if (qfontcombobox_focusnextchild_callback != nullptr) {
-            return qfontcombobox_focusnextchild_callback();
+            bool callback_ret = qfontcombobox_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QFontComboBox::focusNextChild();
         }
@@ -1076,7 +1199,8 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_focuspreviouschild_isbase = false;
             return QFontComboBox::focusPreviousChild();
         } else if (qfontcombobox_focuspreviouschild_callback != nullptr) {
-            return qfontcombobox_focuspreviouschild_callback();
+            bool callback_ret = qfontcombobox_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QFontComboBox::focusPreviousChild();
         }
@@ -1088,7 +1212,8 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_sender_isbase = false;
             return QFontComboBox::sender();
         } else if (qfontcombobox_sender_callback != nullptr) {
-            return qfontcombobox_sender_callback();
+            QObject* callback_ret = qfontcombobox_sender_callback();
+            return callback_ret;
         } else {
             return QFontComboBox::sender();
         }
@@ -1100,7 +1225,8 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_sendersignalindex_isbase = false;
             return QFontComboBox::senderSignalIndex();
         } else if (qfontcombobox_sendersignalindex_callback != nullptr) {
-            return qfontcombobox_sendersignalindex_callback();
+            int callback_ret = qfontcombobox_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QFontComboBox::senderSignalIndex();
         }
@@ -1112,7 +1238,10 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_receivers_isbase = false;
             return QFontComboBox::receivers(signal);
         } else if (qfontcombobox_receivers_callback != nullptr) {
-            return qfontcombobox_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qfontcombobox_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QFontComboBox::receivers(signal);
         }
@@ -1124,11 +1253,114 @@ class VirtualQFontComboBox : public QFontComboBox {
             qfontcombobox_issignalconnected_isbase = false;
             return QFontComboBox::isSignalConnected(signal);
         } else if (qfontcombobox_issignalconnected_callback != nullptr) {
-            return qfontcombobox_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qfontcombobox_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFontComboBox::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QFontComboBox_Event(QFontComboBox* self, QEvent* e);
+    friend bool QFontComboBox_QBaseEvent(QFontComboBox* self, QEvent* e);
+    friend void QFontComboBox_FocusInEvent(QFontComboBox* self, QFocusEvent* e);
+    friend void QFontComboBox_QBaseFocusInEvent(QFontComboBox* self, QFocusEvent* e);
+    friend void QFontComboBox_FocusOutEvent(QFontComboBox* self, QFocusEvent* e);
+    friend void QFontComboBox_QBaseFocusOutEvent(QFontComboBox* self, QFocusEvent* e);
+    friend void QFontComboBox_ChangeEvent(QFontComboBox* self, QEvent* e);
+    friend void QFontComboBox_QBaseChangeEvent(QFontComboBox* self, QEvent* e);
+    friend void QFontComboBox_ResizeEvent(QFontComboBox* self, QResizeEvent* e);
+    friend void QFontComboBox_QBaseResizeEvent(QFontComboBox* self, QResizeEvent* e);
+    friend void QFontComboBox_PaintEvent(QFontComboBox* self, QPaintEvent* e);
+    friend void QFontComboBox_QBasePaintEvent(QFontComboBox* self, QPaintEvent* e);
+    friend void QFontComboBox_ShowEvent(QFontComboBox* self, QShowEvent* e);
+    friend void QFontComboBox_QBaseShowEvent(QFontComboBox* self, QShowEvent* e);
+    friend void QFontComboBox_HideEvent(QFontComboBox* self, QHideEvent* e);
+    friend void QFontComboBox_QBaseHideEvent(QFontComboBox* self, QHideEvent* e);
+    friend void QFontComboBox_MousePressEvent(QFontComboBox* self, QMouseEvent* e);
+    friend void QFontComboBox_QBaseMousePressEvent(QFontComboBox* self, QMouseEvent* e);
+    friend void QFontComboBox_MouseReleaseEvent(QFontComboBox* self, QMouseEvent* e);
+    friend void QFontComboBox_QBaseMouseReleaseEvent(QFontComboBox* self, QMouseEvent* e);
+    friend void QFontComboBox_KeyPressEvent(QFontComboBox* self, QKeyEvent* e);
+    friend void QFontComboBox_QBaseKeyPressEvent(QFontComboBox* self, QKeyEvent* e);
+    friend void QFontComboBox_KeyReleaseEvent(QFontComboBox* self, QKeyEvent* e);
+    friend void QFontComboBox_QBaseKeyReleaseEvent(QFontComboBox* self, QKeyEvent* e);
+    friend void QFontComboBox_WheelEvent(QFontComboBox* self, QWheelEvent* e);
+    friend void QFontComboBox_QBaseWheelEvent(QFontComboBox* self, QWheelEvent* e);
+    friend void QFontComboBox_ContextMenuEvent(QFontComboBox* self, QContextMenuEvent* e);
+    friend void QFontComboBox_QBaseContextMenuEvent(QFontComboBox* self, QContextMenuEvent* e);
+    friend void QFontComboBox_InputMethodEvent(QFontComboBox* self, QInputMethodEvent* param1);
+    friend void QFontComboBox_QBaseInputMethodEvent(QFontComboBox* self, QInputMethodEvent* param1);
+    friend void QFontComboBox_InitStyleOption(const QFontComboBox* self, QStyleOptionComboBox* option);
+    friend void QFontComboBox_QBaseInitStyleOption(const QFontComboBox* self, QStyleOptionComboBox* option);
+    friend void QFontComboBox_MouseDoubleClickEvent(QFontComboBox* self, QMouseEvent* event);
+    friend void QFontComboBox_QBaseMouseDoubleClickEvent(QFontComboBox* self, QMouseEvent* event);
+    friend void QFontComboBox_MouseMoveEvent(QFontComboBox* self, QMouseEvent* event);
+    friend void QFontComboBox_QBaseMouseMoveEvent(QFontComboBox* self, QMouseEvent* event);
+    friend void QFontComboBox_EnterEvent(QFontComboBox* self, QEnterEvent* event);
+    friend void QFontComboBox_QBaseEnterEvent(QFontComboBox* self, QEnterEvent* event);
+    friend void QFontComboBox_LeaveEvent(QFontComboBox* self, QEvent* event);
+    friend void QFontComboBox_QBaseLeaveEvent(QFontComboBox* self, QEvent* event);
+    friend void QFontComboBox_MoveEvent(QFontComboBox* self, QMoveEvent* event);
+    friend void QFontComboBox_QBaseMoveEvent(QFontComboBox* self, QMoveEvent* event);
+    friend void QFontComboBox_CloseEvent(QFontComboBox* self, QCloseEvent* event);
+    friend void QFontComboBox_QBaseCloseEvent(QFontComboBox* self, QCloseEvent* event);
+    friend void QFontComboBox_TabletEvent(QFontComboBox* self, QTabletEvent* event);
+    friend void QFontComboBox_QBaseTabletEvent(QFontComboBox* self, QTabletEvent* event);
+    friend void QFontComboBox_ActionEvent(QFontComboBox* self, QActionEvent* event);
+    friend void QFontComboBox_QBaseActionEvent(QFontComboBox* self, QActionEvent* event);
+    friend void QFontComboBox_DragEnterEvent(QFontComboBox* self, QDragEnterEvent* event);
+    friend void QFontComboBox_QBaseDragEnterEvent(QFontComboBox* self, QDragEnterEvent* event);
+    friend void QFontComboBox_DragMoveEvent(QFontComboBox* self, QDragMoveEvent* event);
+    friend void QFontComboBox_QBaseDragMoveEvent(QFontComboBox* self, QDragMoveEvent* event);
+    friend void QFontComboBox_DragLeaveEvent(QFontComboBox* self, QDragLeaveEvent* event);
+    friend void QFontComboBox_QBaseDragLeaveEvent(QFontComboBox* self, QDragLeaveEvent* event);
+    friend void QFontComboBox_DropEvent(QFontComboBox* self, QDropEvent* event);
+    friend void QFontComboBox_QBaseDropEvent(QFontComboBox* self, QDropEvent* event);
+    friend bool QFontComboBox_NativeEvent(QFontComboBox* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QFontComboBox_QBaseNativeEvent(QFontComboBox* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QFontComboBox_Metric(const QFontComboBox* self, int param1);
+    friend int QFontComboBox_QBaseMetric(const QFontComboBox* self, int param1);
+    friend void QFontComboBox_InitPainter(const QFontComboBox* self, QPainter* painter);
+    friend void QFontComboBox_QBaseInitPainter(const QFontComboBox* self, QPainter* painter);
+    friend QPaintDevice* QFontComboBox_Redirected(const QFontComboBox* self, QPoint* offset);
+    friend QPaintDevice* QFontComboBox_QBaseRedirected(const QFontComboBox* self, QPoint* offset);
+    friend QPainter* QFontComboBox_SharedPainter(const QFontComboBox* self);
+    friend QPainter* QFontComboBox_QBaseSharedPainter(const QFontComboBox* self);
+    friend bool QFontComboBox_FocusNextPrevChild(QFontComboBox* self, bool next);
+    friend bool QFontComboBox_QBaseFocusNextPrevChild(QFontComboBox* self, bool next);
+    friend void QFontComboBox_TimerEvent(QFontComboBox* self, QTimerEvent* event);
+    friend void QFontComboBox_QBaseTimerEvent(QFontComboBox* self, QTimerEvent* event);
+    friend void QFontComboBox_ChildEvent(QFontComboBox* self, QChildEvent* event);
+    friend void QFontComboBox_QBaseChildEvent(QFontComboBox* self, QChildEvent* event);
+    friend void QFontComboBox_CustomEvent(QFontComboBox* self, QEvent* event);
+    friend void QFontComboBox_QBaseCustomEvent(QFontComboBox* self, QEvent* event);
+    friend void QFontComboBox_ConnectNotify(QFontComboBox* self, const QMetaMethod* signal);
+    friend void QFontComboBox_QBaseConnectNotify(QFontComboBox* self, const QMetaMethod* signal);
+    friend void QFontComboBox_DisconnectNotify(QFontComboBox* self, const QMetaMethod* signal);
+    friend void QFontComboBox_QBaseDisconnectNotify(QFontComboBox* self, const QMetaMethod* signal);
+    friend void QFontComboBox_UpdateMicroFocus(QFontComboBox* self);
+    friend void QFontComboBox_QBaseUpdateMicroFocus(QFontComboBox* self);
+    friend void QFontComboBox_Create(QFontComboBox* self);
+    friend void QFontComboBox_QBaseCreate(QFontComboBox* self);
+    friend void QFontComboBox_Destroy(QFontComboBox* self);
+    friend void QFontComboBox_QBaseDestroy(QFontComboBox* self);
+    friend bool QFontComboBox_FocusNextChild(QFontComboBox* self);
+    friend bool QFontComboBox_QBaseFocusNextChild(QFontComboBox* self);
+    friend bool QFontComboBox_FocusPreviousChild(QFontComboBox* self);
+    friend bool QFontComboBox_QBaseFocusPreviousChild(QFontComboBox* self);
+    friend QObject* QFontComboBox_Sender(const QFontComboBox* self);
+    friend QObject* QFontComboBox_QBaseSender(const QFontComboBox* self);
+    friend int QFontComboBox_SenderSignalIndex(const QFontComboBox* self);
+    friend int QFontComboBox_QBaseSenderSignalIndex(const QFontComboBox* self);
+    friend int QFontComboBox_Receivers(const QFontComboBox* self, const char* signal);
+    friend int QFontComboBox_QBaseReceivers(const QFontComboBox* self, const char* signal);
+    friend bool QFontComboBox_IsSignalConnected(const QFontComboBox* self, const QMetaMethod* signal);
+    friend bool QFontComboBox_QBaseIsSignalConnected(const QFontComboBox* self, const QMetaMethod* signal);
 };
 
 #endif

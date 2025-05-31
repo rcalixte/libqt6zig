@@ -11,58 +11,61 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QTableView so that we can call protected methods
-class VirtualQTableView : public QTableView {
+class VirtualQTableView final : public QTableView {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQTableView = true;
+
     // Virtual class public types (including callbacks)
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
-    using QTableView_Metacall_Callback = int (*)(QTableView*, QMetaObject::Call, int, void**);
+    using QTableView_Metacall_Callback = int (*)(QTableView*, int, int, void**);
     using QTableView_SetModel_Callback = void (*)(QTableView*, QAbstractItemModel*);
-    using QTableView_SetRootIndex_Callback = void (*)(QTableView*, const QModelIndex&);
+    using QTableView_SetRootIndex_Callback = void (*)(QTableView*, QModelIndex*);
     using QTableView_SetSelectionModel_Callback = void (*)(QTableView*, QItemSelectionModel*);
     using QTableView_DoItemsLayout_Callback = void (*)();
-    using QTableView_VisualRect_Callback = QRect (*)(const QTableView*, const QModelIndex&);
-    using QTableView_ScrollTo_Callback = void (*)(QTableView*, const QModelIndex&, QAbstractItemView::ScrollHint);
-    using QTableView_IndexAt_Callback = QModelIndex (*)(const QTableView*, const QPoint&);
+    using QTableView_VisualRect_Callback = QRect* (*)(const QTableView*, QModelIndex*);
+    using QTableView_ScrollTo_Callback = void (*)(QTableView*, QModelIndex*, int);
+    using QTableView_IndexAt_Callback = QModelIndex* (*)(const QTableView*, QPoint*);
     using QTableView_ScrollContentsBy_Callback = void (*)(QTableView*, int, int);
     using QTableView_InitViewItemOption_Callback = void (*)(const QTableView*, QStyleOptionViewItem*);
     using QTableView_PaintEvent_Callback = void (*)(QTableView*, QPaintEvent*);
     using QTableView_TimerEvent_Callback = void (*)(QTableView*, QTimerEvent*);
     using QTableView_HorizontalOffset_Callback = int (*)();
     using QTableView_VerticalOffset_Callback = int (*)();
-    using QTableView_MoveCursor_Callback = QModelIndex (*)(QTableView*, int, Qt::KeyboardModifiers);
-    using QTableView_SetSelection_Callback = void (*)(QTableView*, const QRect&, QItemSelectionModel::SelectionFlags);
-    using QTableView_VisualRegionForSelection_Callback = QRegion (*)(const QTableView*, const QItemSelection&);
-    using QTableView_SelectedIndexes_Callback = QModelIndexList (*)();
+    using QTableView_MoveCursor_Callback = QModelIndex* (*)(QTableView*, int, int);
+    using QTableView_SetSelection_Callback = void (*)(QTableView*, QRect*, int);
+    using QTableView_VisualRegionForSelection_Callback = QRegion* (*)(const QTableView*, QItemSelection*);
+    using QTableView_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QTableView_UpdateGeometries_Callback = void (*)();
-    using QTableView_ViewportSizeHint_Callback = QSize (*)();
+    using QTableView_ViewportSizeHint_Callback = QSize* (*)();
     using QTableView_SizeHintForRow_Callback = int (*)(const QTableView*, int);
     using QTableView_SizeHintForColumn_Callback = int (*)(const QTableView*, int);
     using QTableView_VerticalScrollbarAction_Callback = void (*)(QTableView*, int);
     using QTableView_HorizontalScrollbarAction_Callback = void (*)(QTableView*, int);
-    using QTableView_IsIndexHidden_Callback = bool (*)(const QTableView*, const QModelIndex&);
-    using QTableView_SelectionChanged_Callback = void (*)(QTableView*, const QItemSelection&, const QItemSelection&);
-    using QTableView_CurrentChanged_Callback = void (*)(QTableView*, const QModelIndex&, const QModelIndex&);
-    using QTableView_KeyboardSearch_Callback = void (*)(QTableView*, const QString&);
-    using QTableView_ItemDelegateForIndex_Callback = QAbstractItemDelegate* (*)(const QTableView*, const QModelIndex&);
-    using QTableView_InputMethodQuery_Callback = QVariant (*)(const QTableView*, Qt::InputMethodQuery);
+    using QTableView_IsIndexHidden_Callback = bool (*)(const QTableView*, QModelIndex*);
+    using QTableView_SelectionChanged_Callback = void (*)(QTableView*, QItemSelection*, QItemSelection*);
+    using QTableView_CurrentChanged_Callback = void (*)(QTableView*, QModelIndex*, QModelIndex*);
+    using QTableView_KeyboardSearch_Callback = void (*)(QTableView*, libqt_string);
+    using QTableView_ItemDelegateForIndex_Callback = QAbstractItemDelegate* (*)(const QTableView*, QModelIndex*);
+    using QTableView_InputMethodQuery_Callback = QVariant* (*)(const QTableView*, int);
     using QTableView_Reset_Callback = void (*)();
     using QTableView_SelectAll_Callback = void (*)();
-    using QTableView_DataChanged_Callback = void (*)(QTableView*, const QModelIndex&, const QModelIndex&, const QList<int>&);
-    using QTableView_RowsInserted_Callback = void (*)(QTableView*, const QModelIndex&, int, int);
-    using QTableView_RowsAboutToBeRemoved_Callback = void (*)(QTableView*, const QModelIndex&, int, int);
+    using QTableView_DataChanged_Callback = void (*)(QTableView*, QModelIndex*, QModelIndex*, libqt_list /* of int */);
+    using QTableView_RowsInserted_Callback = void (*)(QTableView*, QModelIndex*, int, int);
+    using QTableView_RowsAboutToBeRemoved_Callback = void (*)(QTableView*, QModelIndex*, int, int);
     using QTableView_UpdateEditorData_Callback = void (*)();
     using QTableView_UpdateEditorGeometries_Callback = void (*)();
     using QTableView_VerticalScrollbarValueChanged_Callback = void (*)(QTableView*, int);
     using QTableView_HorizontalScrollbarValueChanged_Callback = void (*)(QTableView*, int);
-    using QTableView_CloseEditor_Callback = void (*)(QTableView*, QWidget*, QAbstractItemDelegate::EndEditHint);
+    using QTableView_CloseEditor_Callback = void (*)(QTableView*, QWidget*, int);
     using QTableView_CommitData_Callback = void (*)(QTableView*, QWidget*);
     using QTableView_EditorDestroyed_Callback = void (*)(QTableView*, QObject*);
-    using QTableView_Edit2_Callback = bool (*)(QTableView*, const QModelIndex&, QAbstractItemView::EditTrigger, QEvent*);
-    using QTableView_SelectionCommand_Callback = QItemSelectionModel::SelectionFlags (*)(const QTableView*, const QModelIndex&, const QEvent*);
-    using QTableView_StartDrag_Callback = void (*)(QTableView*, Qt::DropActions);
+    using QTableView_Edit2_Callback = bool (*)(QTableView*, QModelIndex*, int, QEvent*);
+    using QTableView_SelectionCommand_Callback = int (*)(const QTableView*, QModelIndex*, QEvent*);
+    using QTableView_StartDrag_Callback = void (*)(QTableView*, int);
     using QTableView_FocusNextPrevChild_Callback = bool (*)(QTableView*, bool);
     using QTableView_Event_Callback = bool (*)(QTableView*, QEvent*);
     using QTableView_ViewportEvent_Callback = bool (*)(QTableView*, QEvent*);
@@ -80,8 +83,8 @@ class VirtualQTableView : public QTableView {
     using QTableView_ResizeEvent_Callback = void (*)(QTableView*, QResizeEvent*);
     using QTableView_InputMethodEvent_Callback = void (*)(QTableView*, QInputMethodEvent*);
     using QTableView_EventFilter_Callback = bool (*)(QTableView*, QObject*, QEvent*);
-    using QTableView_MinimumSizeHint_Callback = QSize (*)();
-    using QTableView_SizeHint_Callback = QSize (*)();
+    using QTableView_MinimumSizeHint_Callback = QSize* (*)();
+    using QTableView_SizeHint_Callback = QSize* (*)();
     using QTableView_SetupViewport_Callback = void (*)(QTableView*, QWidget*);
     using QTableView_WheelEvent_Callback = void (*)(QTableView*, QWheelEvent*);
     using QTableView_ContextMenuEvent_Callback = void (*)(QTableView*, QContextMenuEvent*);
@@ -101,34 +104,34 @@ class VirtualQTableView : public QTableView {
     using QTableView_ActionEvent_Callback = void (*)(QTableView*, QActionEvent*);
     using QTableView_ShowEvent_Callback = void (*)(QTableView*, QShowEvent*);
     using QTableView_HideEvent_Callback = void (*)(QTableView*, QHideEvent*);
-    using QTableView_NativeEvent_Callback = bool (*)(QTableView*, const QByteArray&, void*, qintptr*);
-    using QTableView_Metric_Callback = int (*)(const QTableView*, QPaintDevice::PaintDeviceMetric);
+    using QTableView_NativeEvent_Callback = bool (*)(QTableView*, libqt_string, void*, intptr_t*);
+    using QTableView_Metric_Callback = int (*)(const QTableView*, int);
     using QTableView_InitPainter_Callback = void (*)(const QTableView*, QPainter*);
     using QTableView_Redirected_Callback = QPaintDevice* (*)(const QTableView*, QPoint*);
     using QTableView_SharedPainter_Callback = QPainter* (*)();
     using QTableView_ChildEvent_Callback = void (*)(QTableView*, QChildEvent*);
     using QTableView_CustomEvent_Callback = void (*)(QTableView*, QEvent*);
-    using QTableView_ConnectNotify_Callback = void (*)(QTableView*, const QMetaMethod&);
-    using QTableView_DisconnectNotify_Callback = void (*)(QTableView*, const QMetaMethod&);
+    using QTableView_ConnectNotify_Callback = void (*)(QTableView*, QMetaMethod*);
+    using QTableView_DisconnectNotify_Callback = void (*)(QTableView*, QMetaMethod*);
     using QTableView_RowMoved_Callback = void (*)(QTableView*, int, int, int);
     using QTableView_ColumnMoved_Callback = void (*)(QTableView*, int, int, int);
     using QTableView_RowResized_Callback = void (*)(QTableView*, int, int, int);
     using QTableView_ColumnResized_Callback = void (*)(QTableView*, int, int, int);
     using QTableView_RowCountChanged_Callback = void (*)(QTableView*, int, int);
     using QTableView_ColumnCountChanged_Callback = void (*)(QTableView*, int, int);
-    using QTableView_State_Callback = QAbstractItemView::State (*)();
+    using QTableView_State_Callback = int (*)();
     using QTableView_SetState_Callback = void (*)(QTableView*, int);
     using QTableView_ScheduleDelayedItemsLayout_Callback = void (*)();
     using QTableView_ExecuteDelayedItemsLayout_Callback = void (*)();
-    using QTableView_SetDirtyRegion_Callback = void (*)(QTableView*, const QRegion&);
+    using QTableView_SetDirtyRegion_Callback = void (*)(QTableView*, QRegion*);
     using QTableView_ScrollDirtyRegion_Callback = void (*)(QTableView*, int, int);
-    using QTableView_DirtyRegionOffset_Callback = QPoint (*)();
+    using QTableView_DirtyRegionOffset_Callback = QPoint* (*)();
     using QTableView_StartAutoScroll_Callback = void (*)();
     using QTableView_StopAutoScroll_Callback = void (*)();
     using QTableView_DoAutoScroll_Callback = void (*)();
-    using QTableView_DropIndicatorPosition_Callback = QAbstractItemView::DropIndicatorPosition (*)();
+    using QTableView_DropIndicatorPosition_Callback = int (*)();
     using QTableView_SetViewportMargins_Callback = void (*)(QTableView*, int, int, int, int);
-    using QTableView_ViewportMargins_Callback = QMargins (*)();
+    using QTableView_ViewportMargins_Callback = QMargins* (*)();
     using QTableView_DrawFrame_Callback = void (*)(QTableView*, QPainter*);
     using QTableView_UpdateMicroFocus_Callback = void (*)();
     using QTableView_Create_Callback = void (*)();
@@ -138,7 +141,7 @@ class VirtualQTableView : public QTableView {
     using QTableView_Sender_Callback = QObject* (*)();
     using QTableView_SenderSignalIndex_Callback = int (*)();
     using QTableView_Receivers_Callback = int (*)(const QTableView*, const char*);
-    using QTableView_IsSignalConnected_Callback = bool (*)(const QTableView*, const QMetaMethod&);
+    using QTableView_IsSignalConnected_Callback = bool (*)(const QTableView*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -516,250 +519,250 @@ class VirtualQTableView : public QTableView {
     }
 
     // Callback setters
-    void setQTableView_Metacall_Callback(QTableView_Metacall_Callback cb) { qtableview_metacall_callback = cb; }
-    void setQTableView_SetModel_Callback(QTableView_SetModel_Callback cb) { qtableview_setmodel_callback = cb; }
-    void setQTableView_SetRootIndex_Callback(QTableView_SetRootIndex_Callback cb) { qtableview_setrootindex_callback = cb; }
-    void setQTableView_SetSelectionModel_Callback(QTableView_SetSelectionModel_Callback cb) { qtableview_setselectionmodel_callback = cb; }
-    void setQTableView_DoItemsLayout_Callback(QTableView_DoItemsLayout_Callback cb) { qtableview_doitemslayout_callback = cb; }
-    void setQTableView_VisualRect_Callback(QTableView_VisualRect_Callback cb) { qtableview_visualrect_callback = cb; }
-    void setQTableView_ScrollTo_Callback(QTableView_ScrollTo_Callback cb) { qtableview_scrollto_callback = cb; }
-    void setQTableView_IndexAt_Callback(QTableView_IndexAt_Callback cb) { qtableview_indexat_callback = cb; }
-    void setQTableView_ScrollContentsBy_Callback(QTableView_ScrollContentsBy_Callback cb) { qtableview_scrollcontentsby_callback = cb; }
-    void setQTableView_InitViewItemOption_Callback(QTableView_InitViewItemOption_Callback cb) { qtableview_initviewitemoption_callback = cb; }
-    void setQTableView_PaintEvent_Callback(QTableView_PaintEvent_Callback cb) { qtableview_paintevent_callback = cb; }
-    void setQTableView_TimerEvent_Callback(QTableView_TimerEvent_Callback cb) { qtableview_timerevent_callback = cb; }
-    void setQTableView_HorizontalOffset_Callback(QTableView_HorizontalOffset_Callback cb) { qtableview_horizontaloffset_callback = cb; }
-    void setQTableView_VerticalOffset_Callback(QTableView_VerticalOffset_Callback cb) { qtableview_verticaloffset_callback = cb; }
-    void setQTableView_MoveCursor_Callback(QTableView_MoveCursor_Callback cb) { qtableview_movecursor_callback = cb; }
-    void setQTableView_SetSelection_Callback(QTableView_SetSelection_Callback cb) { qtableview_setselection_callback = cb; }
-    void setQTableView_VisualRegionForSelection_Callback(QTableView_VisualRegionForSelection_Callback cb) { qtableview_visualregionforselection_callback = cb; }
-    void setQTableView_SelectedIndexes_Callback(QTableView_SelectedIndexes_Callback cb) { qtableview_selectedindexes_callback = cb; }
-    void setQTableView_UpdateGeometries_Callback(QTableView_UpdateGeometries_Callback cb) { qtableview_updategeometries_callback = cb; }
-    void setQTableView_ViewportSizeHint_Callback(QTableView_ViewportSizeHint_Callback cb) { qtableview_viewportsizehint_callback = cb; }
-    void setQTableView_SizeHintForRow_Callback(QTableView_SizeHintForRow_Callback cb) { qtableview_sizehintforrow_callback = cb; }
-    void setQTableView_SizeHintForColumn_Callback(QTableView_SizeHintForColumn_Callback cb) { qtableview_sizehintforcolumn_callback = cb; }
-    void setQTableView_VerticalScrollbarAction_Callback(QTableView_VerticalScrollbarAction_Callback cb) { qtableview_verticalscrollbaraction_callback = cb; }
-    void setQTableView_HorizontalScrollbarAction_Callback(QTableView_HorizontalScrollbarAction_Callback cb) { qtableview_horizontalscrollbaraction_callback = cb; }
-    void setQTableView_IsIndexHidden_Callback(QTableView_IsIndexHidden_Callback cb) { qtableview_isindexhidden_callback = cb; }
-    void setQTableView_SelectionChanged_Callback(QTableView_SelectionChanged_Callback cb) { qtableview_selectionchanged_callback = cb; }
-    void setQTableView_CurrentChanged_Callback(QTableView_CurrentChanged_Callback cb) { qtableview_currentchanged_callback = cb; }
-    void setQTableView_KeyboardSearch_Callback(QTableView_KeyboardSearch_Callback cb) { qtableview_keyboardsearch_callback = cb; }
-    void setQTableView_ItemDelegateForIndex_Callback(QTableView_ItemDelegateForIndex_Callback cb) { qtableview_itemdelegateforindex_callback = cb; }
-    void setQTableView_InputMethodQuery_Callback(QTableView_InputMethodQuery_Callback cb) { qtableview_inputmethodquery_callback = cb; }
-    void setQTableView_Reset_Callback(QTableView_Reset_Callback cb) { qtableview_reset_callback = cb; }
-    void setQTableView_SelectAll_Callback(QTableView_SelectAll_Callback cb) { qtableview_selectall_callback = cb; }
-    void setQTableView_DataChanged_Callback(QTableView_DataChanged_Callback cb) { qtableview_datachanged_callback = cb; }
-    void setQTableView_RowsInserted_Callback(QTableView_RowsInserted_Callback cb) { qtableview_rowsinserted_callback = cb; }
-    void setQTableView_RowsAboutToBeRemoved_Callback(QTableView_RowsAboutToBeRemoved_Callback cb) { qtableview_rowsabouttoberemoved_callback = cb; }
-    void setQTableView_UpdateEditorData_Callback(QTableView_UpdateEditorData_Callback cb) { qtableview_updateeditordata_callback = cb; }
-    void setQTableView_UpdateEditorGeometries_Callback(QTableView_UpdateEditorGeometries_Callback cb) { qtableview_updateeditorgeometries_callback = cb; }
-    void setQTableView_VerticalScrollbarValueChanged_Callback(QTableView_VerticalScrollbarValueChanged_Callback cb) { qtableview_verticalscrollbarvaluechanged_callback = cb; }
-    void setQTableView_HorizontalScrollbarValueChanged_Callback(QTableView_HorizontalScrollbarValueChanged_Callback cb) { qtableview_horizontalscrollbarvaluechanged_callback = cb; }
-    void setQTableView_CloseEditor_Callback(QTableView_CloseEditor_Callback cb) { qtableview_closeeditor_callback = cb; }
-    void setQTableView_CommitData_Callback(QTableView_CommitData_Callback cb) { qtableview_commitdata_callback = cb; }
-    void setQTableView_EditorDestroyed_Callback(QTableView_EditorDestroyed_Callback cb) { qtableview_editordestroyed_callback = cb; }
-    void setQTableView_Edit2_Callback(QTableView_Edit2_Callback cb) { qtableview_edit2_callback = cb; }
-    void setQTableView_SelectionCommand_Callback(QTableView_SelectionCommand_Callback cb) { qtableview_selectioncommand_callback = cb; }
-    void setQTableView_StartDrag_Callback(QTableView_StartDrag_Callback cb) { qtableview_startdrag_callback = cb; }
-    void setQTableView_FocusNextPrevChild_Callback(QTableView_FocusNextPrevChild_Callback cb) { qtableview_focusnextprevchild_callback = cb; }
-    void setQTableView_Event_Callback(QTableView_Event_Callback cb) { qtableview_event_callback = cb; }
-    void setQTableView_ViewportEvent_Callback(QTableView_ViewportEvent_Callback cb) { qtableview_viewportevent_callback = cb; }
-    void setQTableView_MousePressEvent_Callback(QTableView_MousePressEvent_Callback cb) { qtableview_mousepressevent_callback = cb; }
-    void setQTableView_MouseMoveEvent_Callback(QTableView_MouseMoveEvent_Callback cb) { qtableview_mousemoveevent_callback = cb; }
-    void setQTableView_MouseReleaseEvent_Callback(QTableView_MouseReleaseEvent_Callback cb) { qtableview_mousereleaseevent_callback = cb; }
-    void setQTableView_MouseDoubleClickEvent_Callback(QTableView_MouseDoubleClickEvent_Callback cb) { qtableview_mousedoubleclickevent_callback = cb; }
-    void setQTableView_DragEnterEvent_Callback(QTableView_DragEnterEvent_Callback cb) { qtableview_dragenterevent_callback = cb; }
-    void setQTableView_DragMoveEvent_Callback(QTableView_DragMoveEvent_Callback cb) { qtableview_dragmoveevent_callback = cb; }
-    void setQTableView_DragLeaveEvent_Callback(QTableView_DragLeaveEvent_Callback cb) { qtableview_dragleaveevent_callback = cb; }
-    void setQTableView_DropEvent_Callback(QTableView_DropEvent_Callback cb) { qtableview_dropevent_callback = cb; }
-    void setQTableView_FocusInEvent_Callback(QTableView_FocusInEvent_Callback cb) { qtableview_focusinevent_callback = cb; }
-    void setQTableView_FocusOutEvent_Callback(QTableView_FocusOutEvent_Callback cb) { qtableview_focusoutevent_callback = cb; }
-    void setQTableView_KeyPressEvent_Callback(QTableView_KeyPressEvent_Callback cb) { qtableview_keypressevent_callback = cb; }
-    void setQTableView_ResizeEvent_Callback(QTableView_ResizeEvent_Callback cb) { qtableview_resizeevent_callback = cb; }
-    void setQTableView_InputMethodEvent_Callback(QTableView_InputMethodEvent_Callback cb) { qtableview_inputmethodevent_callback = cb; }
-    void setQTableView_EventFilter_Callback(QTableView_EventFilter_Callback cb) { qtableview_eventfilter_callback = cb; }
-    void setQTableView_MinimumSizeHint_Callback(QTableView_MinimumSizeHint_Callback cb) { qtableview_minimumsizehint_callback = cb; }
-    void setQTableView_SizeHint_Callback(QTableView_SizeHint_Callback cb) { qtableview_sizehint_callback = cb; }
-    void setQTableView_SetupViewport_Callback(QTableView_SetupViewport_Callback cb) { qtableview_setupviewport_callback = cb; }
-    void setQTableView_WheelEvent_Callback(QTableView_WheelEvent_Callback cb) { qtableview_wheelevent_callback = cb; }
-    void setQTableView_ContextMenuEvent_Callback(QTableView_ContextMenuEvent_Callback cb) { qtableview_contextmenuevent_callback = cb; }
-    void setQTableView_ChangeEvent_Callback(QTableView_ChangeEvent_Callback cb) { qtableview_changeevent_callback = cb; }
-    void setQTableView_InitStyleOption_Callback(QTableView_InitStyleOption_Callback cb) { qtableview_initstyleoption_callback = cb; }
-    void setQTableView_DevType_Callback(QTableView_DevType_Callback cb) { qtableview_devtype_callback = cb; }
-    void setQTableView_SetVisible_Callback(QTableView_SetVisible_Callback cb) { qtableview_setvisible_callback = cb; }
-    void setQTableView_HeightForWidth_Callback(QTableView_HeightForWidth_Callback cb) { qtableview_heightforwidth_callback = cb; }
-    void setQTableView_HasHeightForWidth_Callback(QTableView_HasHeightForWidth_Callback cb) { qtableview_hasheightforwidth_callback = cb; }
-    void setQTableView_PaintEngine_Callback(QTableView_PaintEngine_Callback cb) { qtableview_paintengine_callback = cb; }
-    void setQTableView_KeyReleaseEvent_Callback(QTableView_KeyReleaseEvent_Callback cb) { qtableview_keyreleaseevent_callback = cb; }
-    void setQTableView_EnterEvent_Callback(QTableView_EnterEvent_Callback cb) { qtableview_enterevent_callback = cb; }
-    void setQTableView_LeaveEvent_Callback(QTableView_LeaveEvent_Callback cb) { qtableview_leaveevent_callback = cb; }
-    void setQTableView_MoveEvent_Callback(QTableView_MoveEvent_Callback cb) { qtableview_moveevent_callback = cb; }
-    void setQTableView_CloseEvent_Callback(QTableView_CloseEvent_Callback cb) { qtableview_closeevent_callback = cb; }
-    void setQTableView_TabletEvent_Callback(QTableView_TabletEvent_Callback cb) { qtableview_tabletevent_callback = cb; }
-    void setQTableView_ActionEvent_Callback(QTableView_ActionEvent_Callback cb) { qtableview_actionevent_callback = cb; }
-    void setQTableView_ShowEvent_Callback(QTableView_ShowEvent_Callback cb) { qtableview_showevent_callback = cb; }
-    void setQTableView_HideEvent_Callback(QTableView_HideEvent_Callback cb) { qtableview_hideevent_callback = cb; }
-    void setQTableView_NativeEvent_Callback(QTableView_NativeEvent_Callback cb) { qtableview_nativeevent_callback = cb; }
-    void setQTableView_Metric_Callback(QTableView_Metric_Callback cb) { qtableview_metric_callback = cb; }
-    void setQTableView_InitPainter_Callback(QTableView_InitPainter_Callback cb) { qtableview_initpainter_callback = cb; }
-    void setQTableView_Redirected_Callback(QTableView_Redirected_Callback cb) { qtableview_redirected_callback = cb; }
-    void setQTableView_SharedPainter_Callback(QTableView_SharedPainter_Callback cb) { qtableview_sharedpainter_callback = cb; }
-    void setQTableView_ChildEvent_Callback(QTableView_ChildEvent_Callback cb) { qtableview_childevent_callback = cb; }
-    void setQTableView_CustomEvent_Callback(QTableView_CustomEvent_Callback cb) { qtableview_customevent_callback = cb; }
-    void setQTableView_ConnectNotify_Callback(QTableView_ConnectNotify_Callback cb) { qtableview_connectnotify_callback = cb; }
-    void setQTableView_DisconnectNotify_Callback(QTableView_DisconnectNotify_Callback cb) { qtableview_disconnectnotify_callback = cb; }
-    void setQTableView_RowMoved_Callback(QTableView_RowMoved_Callback cb) { qtableview_rowmoved_callback = cb; }
-    void setQTableView_ColumnMoved_Callback(QTableView_ColumnMoved_Callback cb) { qtableview_columnmoved_callback = cb; }
-    void setQTableView_RowResized_Callback(QTableView_RowResized_Callback cb) { qtableview_rowresized_callback = cb; }
-    void setQTableView_ColumnResized_Callback(QTableView_ColumnResized_Callback cb) { qtableview_columnresized_callback = cb; }
-    void setQTableView_RowCountChanged_Callback(QTableView_RowCountChanged_Callback cb) { qtableview_rowcountchanged_callback = cb; }
-    void setQTableView_ColumnCountChanged_Callback(QTableView_ColumnCountChanged_Callback cb) { qtableview_columncountchanged_callback = cb; }
-    void setQTableView_State_Callback(QTableView_State_Callback cb) { qtableview_state_callback = cb; }
-    void setQTableView_SetState_Callback(QTableView_SetState_Callback cb) { qtableview_setstate_callback = cb; }
-    void setQTableView_ScheduleDelayedItemsLayout_Callback(QTableView_ScheduleDelayedItemsLayout_Callback cb) { qtableview_scheduledelayeditemslayout_callback = cb; }
-    void setQTableView_ExecuteDelayedItemsLayout_Callback(QTableView_ExecuteDelayedItemsLayout_Callback cb) { qtableview_executedelayeditemslayout_callback = cb; }
-    void setQTableView_SetDirtyRegion_Callback(QTableView_SetDirtyRegion_Callback cb) { qtableview_setdirtyregion_callback = cb; }
-    void setQTableView_ScrollDirtyRegion_Callback(QTableView_ScrollDirtyRegion_Callback cb) { qtableview_scrolldirtyregion_callback = cb; }
-    void setQTableView_DirtyRegionOffset_Callback(QTableView_DirtyRegionOffset_Callback cb) { qtableview_dirtyregionoffset_callback = cb; }
-    void setQTableView_StartAutoScroll_Callback(QTableView_StartAutoScroll_Callback cb) { qtableview_startautoscroll_callback = cb; }
-    void setQTableView_StopAutoScroll_Callback(QTableView_StopAutoScroll_Callback cb) { qtableview_stopautoscroll_callback = cb; }
-    void setQTableView_DoAutoScroll_Callback(QTableView_DoAutoScroll_Callback cb) { qtableview_doautoscroll_callback = cb; }
-    void setQTableView_DropIndicatorPosition_Callback(QTableView_DropIndicatorPosition_Callback cb) { qtableview_dropindicatorposition_callback = cb; }
-    void setQTableView_SetViewportMargins_Callback(QTableView_SetViewportMargins_Callback cb) { qtableview_setviewportmargins_callback = cb; }
-    void setQTableView_ViewportMargins_Callback(QTableView_ViewportMargins_Callback cb) { qtableview_viewportmargins_callback = cb; }
-    void setQTableView_DrawFrame_Callback(QTableView_DrawFrame_Callback cb) { qtableview_drawframe_callback = cb; }
-    void setQTableView_UpdateMicroFocus_Callback(QTableView_UpdateMicroFocus_Callback cb) { qtableview_updatemicrofocus_callback = cb; }
-    void setQTableView_Create_Callback(QTableView_Create_Callback cb) { qtableview_create_callback = cb; }
-    void setQTableView_Destroy_Callback(QTableView_Destroy_Callback cb) { qtableview_destroy_callback = cb; }
-    void setQTableView_FocusNextChild_Callback(QTableView_FocusNextChild_Callback cb) { qtableview_focusnextchild_callback = cb; }
-    void setQTableView_FocusPreviousChild_Callback(QTableView_FocusPreviousChild_Callback cb) { qtableview_focuspreviouschild_callback = cb; }
-    void setQTableView_Sender_Callback(QTableView_Sender_Callback cb) { qtableview_sender_callback = cb; }
-    void setQTableView_SenderSignalIndex_Callback(QTableView_SenderSignalIndex_Callback cb) { qtableview_sendersignalindex_callback = cb; }
-    void setQTableView_Receivers_Callback(QTableView_Receivers_Callback cb) { qtableview_receivers_callback = cb; }
-    void setQTableView_IsSignalConnected_Callback(QTableView_IsSignalConnected_Callback cb) { qtableview_issignalconnected_callback = cb; }
+    inline void setQTableView_Metacall_Callback(QTableView_Metacall_Callback cb) { qtableview_metacall_callback = cb; }
+    inline void setQTableView_SetModel_Callback(QTableView_SetModel_Callback cb) { qtableview_setmodel_callback = cb; }
+    inline void setQTableView_SetRootIndex_Callback(QTableView_SetRootIndex_Callback cb) { qtableview_setrootindex_callback = cb; }
+    inline void setQTableView_SetSelectionModel_Callback(QTableView_SetSelectionModel_Callback cb) { qtableview_setselectionmodel_callback = cb; }
+    inline void setQTableView_DoItemsLayout_Callback(QTableView_DoItemsLayout_Callback cb) { qtableview_doitemslayout_callback = cb; }
+    inline void setQTableView_VisualRect_Callback(QTableView_VisualRect_Callback cb) { qtableview_visualrect_callback = cb; }
+    inline void setQTableView_ScrollTo_Callback(QTableView_ScrollTo_Callback cb) { qtableview_scrollto_callback = cb; }
+    inline void setQTableView_IndexAt_Callback(QTableView_IndexAt_Callback cb) { qtableview_indexat_callback = cb; }
+    inline void setQTableView_ScrollContentsBy_Callback(QTableView_ScrollContentsBy_Callback cb) { qtableview_scrollcontentsby_callback = cb; }
+    inline void setQTableView_InitViewItemOption_Callback(QTableView_InitViewItemOption_Callback cb) { qtableview_initviewitemoption_callback = cb; }
+    inline void setQTableView_PaintEvent_Callback(QTableView_PaintEvent_Callback cb) { qtableview_paintevent_callback = cb; }
+    inline void setQTableView_TimerEvent_Callback(QTableView_TimerEvent_Callback cb) { qtableview_timerevent_callback = cb; }
+    inline void setQTableView_HorizontalOffset_Callback(QTableView_HorizontalOffset_Callback cb) { qtableview_horizontaloffset_callback = cb; }
+    inline void setQTableView_VerticalOffset_Callback(QTableView_VerticalOffset_Callback cb) { qtableview_verticaloffset_callback = cb; }
+    inline void setQTableView_MoveCursor_Callback(QTableView_MoveCursor_Callback cb) { qtableview_movecursor_callback = cb; }
+    inline void setQTableView_SetSelection_Callback(QTableView_SetSelection_Callback cb) { qtableview_setselection_callback = cb; }
+    inline void setQTableView_VisualRegionForSelection_Callback(QTableView_VisualRegionForSelection_Callback cb) { qtableview_visualregionforselection_callback = cb; }
+    inline void setQTableView_SelectedIndexes_Callback(QTableView_SelectedIndexes_Callback cb) { qtableview_selectedindexes_callback = cb; }
+    inline void setQTableView_UpdateGeometries_Callback(QTableView_UpdateGeometries_Callback cb) { qtableview_updategeometries_callback = cb; }
+    inline void setQTableView_ViewportSizeHint_Callback(QTableView_ViewportSizeHint_Callback cb) { qtableview_viewportsizehint_callback = cb; }
+    inline void setQTableView_SizeHintForRow_Callback(QTableView_SizeHintForRow_Callback cb) { qtableview_sizehintforrow_callback = cb; }
+    inline void setQTableView_SizeHintForColumn_Callback(QTableView_SizeHintForColumn_Callback cb) { qtableview_sizehintforcolumn_callback = cb; }
+    inline void setQTableView_VerticalScrollbarAction_Callback(QTableView_VerticalScrollbarAction_Callback cb) { qtableview_verticalscrollbaraction_callback = cb; }
+    inline void setQTableView_HorizontalScrollbarAction_Callback(QTableView_HorizontalScrollbarAction_Callback cb) { qtableview_horizontalscrollbaraction_callback = cb; }
+    inline void setQTableView_IsIndexHidden_Callback(QTableView_IsIndexHidden_Callback cb) { qtableview_isindexhidden_callback = cb; }
+    inline void setQTableView_SelectionChanged_Callback(QTableView_SelectionChanged_Callback cb) { qtableview_selectionchanged_callback = cb; }
+    inline void setQTableView_CurrentChanged_Callback(QTableView_CurrentChanged_Callback cb) { qtableview_currentchanged_callback = cb; }
+    inline void setQTableView_KeyboardSearch_Callback(QTableView_KeyboardSearch_Callback cb) { qtableview_keyboardsearch_callback = cb; }
+    inline void setQTableView_ItemDelegateForIndex_Callback(QTableView_ItemDelegateForIndex_Callback cb) { qtableview_itemdelegateforindex_callback = cb; }
+    inline void setQTableView_InputMethodQuery_Callback(QTableView_InputMethodQuery_Callback cb) { qtableview_inputmethodquery_callback = cb; }
+    inline void setQTableView_Reset_Callback(QTableView_Reset_Callback cb) { qtableview_reset_callback = cb; }
+    inline void setQTableView_SelectAll_Callback(QTableView_SelectAll_Callback cb) { qtableview_selectall_callback = cb; }
+    inline void setQTableView_DataChanged_Callback(QTableView_DataChanged_Callback cb) { qtableview_datachanged_callback = cb; }
+    inline void setQTableView_RowsInserted_Callback(QTableView_RowsInserted_Callback cb) { qtableview_rowsinserted_callback = cb; }
+    inline void setQTableView_RowsAboutToBeRemoved_Callback(QTableView_RowsAboutToBeRemoved_Callback cb) { qtableview_rowsabouttoberemoved_callback = cb; }
+    inline void setQTableView_UpdateEditorData_Callback(QTableView_UpdateEditorData_Callback cb) { qtableview_updateeditordata_callback = cb; }
+    inline void setQTableView_UpdateEditorGeometries_Callback(QTableView_UpdateEditorGeometries_Callback cb) { qtableview_updateeditorgeometries_callback = cb; }
+    inline void setQTableView_VerticalScrollbarValueChanged_Callback(QTableView_VerticalScrollbarValueChanged_Callback cb) { qtableview_verticalscrollbarvaluechanged_callback = cb; }
+    inline void setQTableView_HorizontalScrollbarValueChanged_Callback(QTableView_HorizontalScrollbarValueChanged_Callback cb) { qtableview_horizontalscrollbarvaluechanged_callback = cb; }
+    inline void setQTableView_CloseEditor_Callback(QTableView_CloseEditor_Callback cb) { qtableview_closeeditor_callback = cb; }
+    inline void setQTableView_CommitData_Callback(QTableView_CommitData_Callback cb) { qtableview_commitdata_callback = cb; }
+    inline void setQTableView_EditorDestroyed_Callback(QTableView_EditorDestroyed_Callback cb) { qtableview_editordestroyed_callback = cb; }
+    inline void setQTableView_Edit2_Callback(QTableView_Edit2_Callback cb) { qtableview_edit2_callback = cb; }
+    inline void setQTableView_SelectionCommand_Callback(QTableView_SelectionCommand_Callback cb) { qtableview_selectioncommand_callback = cb; }
+    inline void setQTableView_StartDrag_Callback(QTableView_StartDrag_Callback cb) { qtableview_startdrag_callback = cb; }
+    inline void setQTableView_FocusNextPrevChild_Callback(QTableView_FocusNextPrevChild_Callback cb) { qtableview_focusnextprevchild_callback = cb; }
+    inline void setQTableView_Event_Callback(QTableView_Event_Callback cb) { qtableview_event_callback = cb; }
+    inline void setQTableView_ViewportEvent_Callback(QTableView_ViewportEvent_Callback cb) { qtableview_viewportevent_callback = cb; }
+    inline void setQTableView_MousePressEvent_Callback(QTableView_MousePressEvent_Callback cb) { qtableview_mousepressevent_callback = cb; }
+    inline void setQTableView_MouseMoveEvent_Callback(QTableView_MouseMoveEvent_Callback cb) { qtableview_mousemoveevent_callback = cb; }
+    inline void setQTableView_MouseReleaseEvent_Callback(QTableView_MouseReleaseEvent_Callback cb) { qtableview_mousereleaseevent_callback = cb; }
+    inline void setQTableView_MouseDoubleClickEvent_Callback(QTableView_MouseDoubleClickEvent_Callback cb) { qtableview_mousedoubleclickevent_callback = cb; }
+    inline void setQTableView_DragEnterEvent_Callback(QTableView_DragEnterEvent_Callback cb) { qtableview_dragenterevent_callback = cb; }
+    inline void setQTableView_DragMoveEvent_Callback(QTableView_DragMoveEvent_Callback cb) { qtableview_dragmoveevent_callback = cb; }
+    inline void setQTableView_DragLeaveEvent_Callback(QTableView_DragLeaveEvent_Callback cb) { qtableview_dragleaveevent_callback = cb; }
+    inline void setQTableView_DropEvent_Callback(QTableView_DropEvent_Callback cb) { qtableview_dropevent_callback = cb; }
+    inline void setQTableView_FocusInEvent_Callback(QTableView_FocusInEvent_Callback cb) { qtableview_focusinevent_callback = cb; }
+    inline void setQTableView_FocusOutEvent_Callback(QTableView_FocusOutEvent_Callback cb) { qtableview_focusoutevent_callback = cb; }
+    inline void setQTableView_KeyPressEvent_Callback(QTableView_KeyPressEvent_Callback cb) { qtableview_keypressevent_callback = cb; }
+    inline void setQTableView_ResizeEvent_Callback(QTableView_ResizeEvent_Callback cb) { qtableview_resizeevent_callback = cb; }
+    inline void setQTableView_InputMethodEvent_Callback(QTableView_InputMethodEvent_Callback cb) { qtableview_inputmethodevent_callback = cb; }
+    inline void setQTableView_EventFilter_Callback(QTableView_EventFilter_Callback cb) { qtableview_eventfilter_callback = cb; }
+    inline void setQTableView_MinimumSizeHint_Callback(QTableView_MinimumSizeHint_Callback cb) { qtableview_minimumsizehint_callback = cb; }
+    inline void setQTableView_SizeHint_Callback(QTableView_SizeHint_Callback cb) { qtableview_sizehint_callback = cb; }
+    inline void setQTableView_SetupViewport_Callback(QTableView_SetupViewport_Callback cb) { qtableview_setupviewport_callback = cb; }
+    inline void setQTableView_WheelEvent_Callback(QTableView_WheelEvent_Callback cb) { qtableview_wheelevent_callback = cb; }
+    inline void setQTableView_ContextMenuEvent_Callback(QTableView_ContextMenuEvent_Callback cb) { qtableview_contextmenuevent_callback = cb; }
+    inline void setQTableView_ChangeEvent_Callback(QTableView_ChangeEvent_Callback cb) { qtableview_changeevent_callback = cb; }
+    inline void setQTableView_InitStyleOption_Callback(QTableView_InitStyleOption_Callback cb) { qtableview_initstyleoption_callback = cb; }
+    inline void setQTableView_DevType_Callback(QTableView_DevType_Callback cb) { qtableview_devtype_callback = cb; }
+    inline void setQTableView_SetVisible_Callback(QTableView_SetVisible_Callback cb) { qtableview_setvisible_callback = cb; }
+    inline void setQTableView_HeightForWidth_Callback(QTableView_HeightForWidth_Callback cb) { qtableview_heightforwidth_callback = cb; }
+    inline void setQTableView_HasHeightForWidth_Callback(QTableView_HasHeightForWidth_Callback cb) { qtableview_hasheightforwidth_callback = cb; }
+    inline void setQTableView_PaintEngine_Callback(QTableView_PaintEngine_Callback cb) { qtableview_paintengine_callback = cb; }
+    inline void setQTableView_KeyReleaseEvent_Callback(QTableView_KeyReleaseEvent_Callback cb) { qtableview_keyreleaseevent_callback = cb; }
+    inline void setQTableView_EnterEvent_Callback(QTableView_EnterEvent_Callback cb) { qtableview_enterevent_callback = cb; }
+    inline void setQTableView_LeaveEvent_Callback(QTableView_LeaveEvent_Callback cb) { qtableview_leaveevent_callback = cb; }
+    inline void setQTableView_MoveEvent_Callback(QTableView_MoveEvent_Callback cb) { qtableview_moveevent_callback = cb; }
+    inline void setQTableView_CloseEvent_Callback(QTableView_CloseEvent_Callback cb) { qtableview_closeevent_callback = cb; }
+    inline void setQTableView_TabletEvent_Callback(QTableView_TabletEvent_Callback cb) { qtableview_tabletevent_callback = cb; }
+    inline void setQTableView_ActionEvent_Callback(QTableView_ActionEvent_Callback cb) { qtableview_actionevent_callback = cb; }
+    inline void setQTableView_ShowEvent_Callback(QTableView_ShowEvent_Callback cb) { qtableview_showevent_callback = cb; }
+    inline void setQTableView_HideEvent_Callback(QTableView_HideEvent_Callback cb) { qtableview_hideevent_callback = cb; }
+    inline void setQTableView_NativeEvent_Callback(QTableView_NativeEvent_Callback cb) { qtableview_nativeevent_callback = cb; }
+    inline void setQTableView_Metric_Callback(QTableView_Metric_Callback cb) { qtableview_metric_callback = cb; }
+    inline void setQTableView_InitPainter_Callback(QTableView_InitPainter_Callback cb) { qtableview_initpainter_callback = cb; }
+    inline void setQTableView_Redirected_Callback(QTableView_Redirected_Callback cb) { qtableview_redirected_callback = cb; }
+    inline void setQTableView_SharedPainter_Callback(QTableView_SharedPainter_Callback cb) { qtableview_sharedpainter_callback = cb; }
+    inline void setQTableView_ChildEvent_Callback(QTableView_ChildEvent_Callback cb) { qtableview_childevent_callback = cb; }
+    inline void setQTableView_CustomEvent_Callback(QTableView_CustomEvent_Callback cb) { qtableview_customevent_callback = cb; }
+    inline void setQTableView_ConnectNotify_Callback(QTableView_ConnectNotify_Callback cb) { qtableview_connectnotify_callback = cb; }
+    inline void setQTableView_DisconnectNotify_Callback(QTableView_DisconnectNotify_Callback cb) { qtableview_disconnectnotify_callback = cb; }
+    inline void setQTableView_RowMoved_Callback(QTableView_RowMoved_Callback cb) { qtableview_rowmoved_callback = cb; }
+    inline void setQTableView_ColumnMoved_Callback(QTableView_ColumnMoved_Callback cb) { qtableview_columnmoved_callback = cb; }
+    inline void setQTableView_RowResized_Callback(QTableView_RowResized_Callback cb) { qtableview_rowresized_callback = cb; }
+    inline void setQTableView_ColumnResized_Callback(QTableView_ColumnResized_Callback cb) { qtableview_columnresized_callback = cb; }
+    inline void setQTableView_RowCountChanged_Callback(QTableView_RowCountChanged_Callback cb) { qtableview_rowcountchanged_callback = cb; }
+    inline void setQTableView_ColumnCountChanged_Callback(QTableView_ColumnCountChanged_Callback cb) { qtableview_columncountchanged_callback = cb; }
+    inline void setQTableView_State_Callback(QTableView_State_Callback cb) { qtableview_state_callback = cb; }
+    inline void setQTableView_SetState_Callback(QTableView_SetState_Callback cb) { qtableview_setstate_callback = cb; }
+    inline void setQTableView_ScheduleDelayedItemsLayout_Callback(QTableView_ScheduleDelayedItemsLayout_Callback cb) { qtableview_scheduledelayeditemslayout_callback = cb; }
+    inline void setQTableView_ExecuteDelayedItemsLayout_Callback(QTableView_ExecuteDelayedItemsLayout_Callback cb) { qtableview_executedelayeditemslayout_callback = cb; }
+    inline void setQTableView_SetDirtyRegion_Callback(QTableView_SetDirtyRegion_Callback cb) { qtableview_setdirtyregion_callback = cb; }
+    inline void setQTableView_ScrollDirtyRegion_Callback(QTableView_ScrollDirtyRegion_Callback cb) { qtableview_scrolldirtyregion_callback = cb; }
+    inline void setQTableView_DirtyRegionOffset_Callback(QTableView_DirtyRegionOffset_Callback cb) { qtableview_dirtyregionoffset_callback = cb; }
+    inline void setQTableView_StartAutoScroll_Callback(QTableView_StartAutoScroll_Callback cb) { qtableview_startautoscroll_callback = cb; }
+    inline void setQTableView_StopAutoScroll_Callback(QTableView_StopAutoScroll_Callback cb) { qtableview_stopautoscroll_callback = cb; }
+    inline void setQTableView_DoAutoScroll_Callback(QTableView_DoAutoScroll_Callback cb) { qtableview_doautoscroll_callback = cb; }
+    inline void setQTableView_DropIndicatorPosition_Callback(QTableView_DropIndicatorPosition_Callback cb) { qtableview_dropindicatorposition_callback = cb; }
+    inline void setQTableView_SetViewportMargins_Callback(QTableView_SetViewportMargins_Callback cb) { qtableview_setviewportmargins_callback = cb; }
+    inline void setQTableView_ViewportMargins_Callback(QTableView_ViewportMargins_Callback cb) { qtableview_viewportmargins_callback = cb; }
+    inline void setQTableView_DrawFrame_Callback(QTableView_DrawFrame_Callback cb) { qtableview_drawframe_callback = cb; }
+    inline void setQTableView_UpdateMicroFocus_Callback(QTableView_UpdateMicroFocus_Callback cb) { qtableview_updatemicrofocus_callback = cb; }
+    inline void setQTableView_Create_Callback(QTableView_Create_Callback cb) { qtableview_create_callback = cb; }
+    inline void setQTableView_Destroy_Callback(QTableView_Destroy_Callback cb) { qtableview_destroy_callback = cb; }
+    inline void setQTableView_FocusNextChild_Callback(QTableView_FocusNextChild_Callback cb) { qtableview_focusnextchild_callback = cb; }
+    inline void setQTableView_FocusPreviousChild_Callback(QTableView_FocusPreviousChild_Callback cb) { qtableview_focuspreviouschild_callback = cb; }
+    inline void setQTableView_Sender_Callback(QTableView_Sender_Callback cb) { qtableview_sender_callback = cb; }
+    inline void setQTableView_SenderSignalIndex_Callback(QTableView_SenderSignalIndex_Callback cb) { qtableview_sendersignalindex_callback = cb; }
+    inline void setQTableView_Receivers_Callback(QTableView_Receivers_Callback cb) { qtableview_receivers_callback = cb; }
+    inline void setQTableView_IsSignalConnected_Callback(QTableView_IsSignalConnected_Callback cb) { qtableview_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQTableView_Metacall_IsBase(bool value) const { qtableview_metacall_isbase = value; }
-    void setQTableView_SetModel_IsBase(bool value) const { qtableview_setmodel_isbase = value; }
-    void setQTableView_SetRootIndex_IsBase(bool value) const { qtableview_setrootindex_isbase = value; }
-    void setQTableView_SetSelectionModel_IsBase(bool value) const { qtableview_setselectionmodel_isbase = value; }
-    void setQTableView_DoItemsLayout_IsBase(bool value) const { qtableview_doitemslayout_isbase = value; }
-    void setQTableView_VisualRect_IsBase(bool value) const { qtableview_visualrect_isbase = value; }
-    void setQTableView_ScrollTo_IsBase(bool value) const { qtableview_scrollto_isbase = value; }
-    void setQTableView_IndexAt_IsBase(bool value) const { qtableview_indexat_isbase = value; }
-    void setQTableView_ScrollContentsBy_IsBase(bool value) const { qtableview_scrollcontentsby_isbase = value; }
-    void setQTableView_InitViewItemOption_IsBase(bool value) const { qtableview_initviewitemoption_isbase = value; }
-    void setQTableView_PaintEvent_IsBase(bool value) const { qtableview_paintevent_isbase = value; }
-    void setQTableView_TimerEvent_IsBase(bool value) const { qtableview_timerevent_isbase = value; }
-    void setQTableView_HorizontalOffset_IsBase(bool value) const { qtableview_horizontaloffset_isbase = value; }
-    void setQTableView_VerticalOffset_IsBase(bool value) const { qtableview_verticaloffset_isbase = value; }
-    void setQTableView_MoveCursor_IsBase(bool value) const { qtableview_movecursor_isbase = value; }
-    void setQTableView_SetSelection_IsBase(bool value) const { qtableview_setselection_isbase = value; }
-    void setQTableView_VisualRegionForSelection_IsBase(bool value) const { qtableview_visualregionforselection_isbase = value; }
-    void setQTableView_SelectedIndexes_IsBase(bool value) const { qtableview_selectedindexes_isbase = value; }
-    void setQTableView_UpdateGeometries_IsBase(bool value) const { qtableview_updategeometries_isbase = value; }
-    void setQTableView_ViewportSizeHint_IsBase(bool value) const { qtableview_viewportsizehint_isbase = value; }
-    void setQTableView_SizeHintForRow_IsBase(bool value) const { qtableview_sizehintforrow_isbase = value; }
-    void setQTableView_SizeHintForColumn_IsBase(bool value) const { qtableview_sizehintforcolumn_isbase = value; }
-    void setQTableView_VerticalScrollbarAction_IsBase(bool value) const { qtableview_verticalscrollbaraction_isbase = value; }
-    void setQTableView_HorizontalScrollbarAction_IsBase(bool value) const { qtableview_horizontalscrollbaraction_isbase = value; }
-    void setQTableView_IsIndexHidden_IsBase(bool value) const { qtableview_isindexhidden_isbase = value; }
-    void setQTableView_SelectionChanged_IsBase(bool value) const { qtableview_selectionchanged_isbase = value; }
-    void setQTableView_CurrentChanged_IsBase(bool value) const { qtableview_currentchanged_isbase = value; }
-    void setQTableView_KeyboardSearch_IsBase(bool value) const { qtableview_keyboardsearch_isbase = value; }
-    void setQTableView_ItemDelegateForIndex_IsBase(bool value) const { qtableview_itemdelegateforindex_isbase = value; }
-    void setQTableView_InputMethodQuery_IsBase(bool value) const { qtableview_inputmethodquery_isbase = value; }
-    void setQTableView_Reset_IsBase(bool value) const { qtableview_reset_isbase = value; }
-    void setQTableView_SelectAll_IsBase(bool value) const { qtableview_selectall_isbase = value; }
-    void setQTableView_DataChanged_IsBase(bool value) const { qtableview_datachanged_isbase = value; }
-    void setQTableView_RowsInserted_IsBase(bool value) const { qtableview_rowsinserted_isbase = value; }
-    void setQTableView_RowsAboutToBeRemoved_IsBase(bool value) const { qtableview_rowsabouttoberemoved_isbase = value; }
-    void setQTableView_UpdateEditorData_IsBase(bool value) const { qtableview_updateeditordata_isbase = value; }
-    void setQTableView_UpdateEditorGeometries_IsBase(bool value) const { qtableview_updateeditorgeometries_isbase = value; }
-    void setQTableView_VerticalScrollbarValueChanged_IsBase(bool value) const { qtableview_verticalscrollbarvaluechanged_isbase = value; }
-    void setQTableView_HorizontalScrollbarValueChanged_IsBase(bool value) const { qtableview_horizontalscrollbarvaluechanged_isbase = value; }
-    void setQTableView_CloseEditor_IsBase(bool value) const { qtableview_closeeditor_isbase = value; }
-    void setQTableView_CommitData_IsBase(bool value) const { qtableview_commitdata_isbase = value; }
-    void setQTableView_EditorDestroyed_IsBase(bool value) const { qtableview_editordestroyed_isbase = value; }
-    void setQTableView_Edit2_IsBase(bool value) const { qtableview_edit2_isbase = value; }
-    void setQTableView_SelectionCommand_IsBase(bool value) const { qtableview_selectioncommand_isbase = value; }
-    void setQTableView_StartDrag_IsBase(bool value) const { qtableview_startdrag_isbase = value; }
-    void setQTableView_FocusNextPrevChild_IsBase(bool value) const { qtableview_focusnextprevchild_isbase = value; }
-    void setQTableView_Event_IsBase(bool value) const { qtableview_event_isbase = value; }
-    void setQTableView_ViewportEvent_IsBase(bool value) const { qtableview_viewportevent_isbase = value; }
-    void setQTableView_MousePressEvent_IsBase(bool value) const { qtableview_mousepressevent_isbase = value; }
-    void setQTableView_MouseMoveEvent_IsBase(bool value) const { qtableview_mousemoveevent_isbase = value; }
-    void setQTableView_MouseReleaseEvent_IsBase(bool value) const { qtableview_mousereleaseevent_isbase = value; }
-    void setQTableView_MouseDoubleClickEvent_IsBase(bool value) const { qtableview_mousedoubleclickevent_isbase = value; }
-    void setQTableView_DragEnterEvent_IsBase(bool value) const { qtableview_dragenterevent_isbase = value; }
-    void setQTableView_DragMoveEvent_IsBase(bool value) const { qtableview_dragmoveevent_isbase = value; }
-    void setQTableView_DragLeaveEvent_IsBase(bool value) const { qtableview_dragleaveevent_isbase = value; }
-    void setQTableView_DropEvent_IsBase(bool value) const { qtableview_dropevent_isbase = value; }
-    void setQTableView_FocusInEvent_IsBase(bool value) const { qtableview_focusinevent_isbase = value; }
-    void setQTableView_FocusOutEvent_IsBase(bool value) const { qtableview_focusoutevent_isbase = value; }
-    void setQTableView_KeyPressEvent_IsBase(bool value) const { qtableview_keypressevent_isbase = value; }
-    void setQTableView_ResizeEvent_IsBase(bool value) const { qtableview_resizeevent_isbase = value; }
-    void setQTableView_InputMethodEvent_IsBase(bool value) const { qtableview_inputmethodevent_isbase = value; }
-    void setQTableView_EventFilter_IsBase(bool value) const { qtableview_eventfilter_isbase = value; }
-    void setQTableView_MinimumSizeHint_IsBase(bool value) const { qtableview_minimumsizehint_isbase = value; }
-    void setQTableView_SizeHint_IsBase(bool value) const { qtableview_sizehint_isbase = value; }
-    void setQTableView_SetupViewport_IsBase(bool value) const { qtableview_setupviewport_isbase = value; }
-    void setQTableView_WheelEvent_IsBase(bool value) const { qtableview_wheelevent_isbase = value; }
-    void setQTableView_ContextMenuEvent_IsBase(bool value) const { qtableview_contextmenuevent_isbase = value; }
-    void setQTableView_ChangeEvent_IsBase(bool value) const { qtableview_changeevent_isbase = value; }
-    void setQTableView_InitStyleOption_IsBase(bool value) const { qtableview_initstyleoption_isbase = value; }
-    void setQTableView_DevType_IsBase(bool value) const { qtableview_devtype_isbase = value; }
-    void setQTableView_SetVisible_IsBase(bool value) const { qtableview_setvisible_isbase = value; }
-    void setQTableView_HeightForWidth_IsBase(bool value) const { qtableview_heightforwidth_isbase = value; }
-    void setQTableView_HasHeightForWidth_IsBase(bool value) const { qtableview_hasheightforwidth_isbase = value; }
-    void setQTableView_PaintEngine_IsBase(bool value) const { qtableview_paintengine_isbase = value; }
-    void setQTableView_KeyReleaseEvent_IsBase(bool value) const { qtableview_keyreleaseevent_isbase = value; }
-    void setQTableView_EnterEvent_IsBase(bool value) const { qtableview_enterevent_isbase = value; }
-    void setQTableView_LeaveEvent_IsBase(bool value) const { qtableview_leaveevent_isbase = value; }
-    void setQTableView_MoveEvent_IsBase(bool value) const { qtableview_moveevent_isbase = value; }
-    void setQTableView_CloseEvent_IsBase(bool value) const { qtableview_closeevent_isbase = value; }
-    void setQTableView_TabletEvent_IsBase(bool value) const { qtableview_tabletevent_isbase = value; }
-    void setQTableView_ActionEvent_IsBase(bool value) const { qtableview_actionevent_isbase = value; }
-    void setQTableView_ShowEvent_IsBase(bool value) const { qtableview_showevent_isbase = value; }
-    void setQTableView_HideEvent_IsBase(bool value) const { qtableview_hideevent_isbase = value; }
-    void setQTableView_NativeEvent_IsBase(bool value) const { qtableview_nativeevent_isbase = value; }
-    void setQTableView_Metric_IsBase(bool value) const { qtableview_metric_isbase = value; }
-    void setQTableView_InitPainter_IsBase(bool value) const { qtableview_initpainter_isbase = value; }
-    void setQTableView_Redirected_IsBase(bool value) const { qtableview_redirected_isbase = value; }
-    void setQTableView_SharedPainter_IsBase(bool value) const { qtableview_sharedpainter_isbase = value; }
-    void setQTableView_ChildEvent_IsBase(bool value) const { qtableview_childevent_isbase = value; }
-    void setQTableView_CustomEvent_IsBase(bool value) const { qtableview_customevent_isbase = value; }
-    void setQTableView_ConnectNotify_IsBase(bool value) const { qtableview_connectnotify_isbase = value; }
-    void setQTableView_DisconnectNotify_IsBase(bool value) const { qtableview_disconnectnotify_isbase = value; }
-    void setQTableView_RowMoved_IsBase(bool value) const { qtableview_rowmoved_isbase = value; }
-    void setQTableView_ColumnMoved_IsBase(bool value) const { qtableview_columnmoved_isbase = value; }
-    void setQTableView_RowResized_IsBase(bool value) const { qtableview_rowresized_isbase = value; }
-    void setQTableView_ColumnResized_IsBase(bool value) const { qtableview_columnresized_isbase = value; }
-    void setQTableView_RowCountChanged_IsBase(bool value) const { qtableview_rowcountchanged_isbase = value; }
-    void setQTableView_ColumnCountChanged_IsBase(bool value) const { qtableview_columncountchanged_isbase = value; }
-    void setQTableView_State_IsBase(bool value) const { qtableview_state_isbase = value; }
-    void setQTableView_SetState_IsBase(bool value) const { qtableview_setstate_isbase = value; }
-    void setQTableView_ScheduleDelayedItemsLayout_IsBase(bool value) const { qtableview_scheduledelayeditemslayout_isbase = value; }
-    void setQTableView_ExecuteDelayedItemsLayout_IsBase(bool value) const { qtableview_executedelayeditemslayout_isbase = value; }
-    void setQTableView_SetDirtyRegion_IsBase(bool value) const { qtableview_setdirtyregion_isbase = value; }
-    void setQTableView_ScrollDirtyRegion_IsBase(bool value) const { qtableview_scrolldirtyregion_isbase = value; }
-    void setQTableView_DirtyRegionOffset_IsBase(bool value) const { qtableview_dirtyregionoffset_isbase = value; }
-    void setQTableView_StartAutoScroll_IsBase(bool value) const { qtableview_startautoscroll_isbase = value; }
-    void setQTableView_StopAutoScroll_IsBase(bool value) const { qtableview_stopautoscroll_isbase = value; }
-    void setQTableView_DoAutoScroll_IsBase(bool value) const { qtableview_doautoscroll_isbase = value; }
-    void setQTableView_DropIndicatorPosition_IsBase(bool value) const { qtableview_dropindicatorposition_isbase = value; }
-    void setQTableView_SetViewportMargins_IsBase(bool value) const { qtableview_setviewportmargins_isbase = value; }
-    void setQTableView_ViewportMargins_IsBase(bool value) const { qtableview_viewportmargins_isbase = value; }
-    void setQTableView_DrawFrame_IsBase(bool value) const { qtableview_drawframe_isbase = value; }
-    void setQTableView_UpdateMicroFocus_IsBase(bool value) const { qtableview_updatemicrofocus_isbase = value; }
-    void setQTableView_Create_IsBase(bool value) const { qtableview_create_isbase = value; }
-    void setQTableView_Destroy_IsBase(bool value) const { qtableview_destroy_isbase = value; }
-    void setQTableView_FocusNextChild_IsBase(bool value) const { qtableview_focusnextchild_isbase = value; }
-    void setQTableView_FocusPreviousChild_IsBase(bool value) const { qtableview_focuspreviouschild_isbase = value; }
-    void setQTableView_Sender_IsBase(bool value) const { qtableview_sender_isbase = value; }
-    void setQTableView_SenderSignalIndex_IsBase(bool value) const { qtableview_sendersignalindex_isbase = value; }
-    void setQTableView_Receivers_IsBase(bool value) const { qtableview_receivers_isbase = value; }
-    void setQTableView_IsSignalConnected_IsBase(bool value) const { qtableview_issignalconnected_isbase = value; }
+    inline void setQTableView_Metacall_IsBase(bool value) const { qtableview_metacall_isbase = value; }
+    inline void setQTableView_SetModel_IsBase(bool value) const { qtableview_setmodel_isbase = value; }
+    inline void setQTableView_SetRootIndex_IsBase(bool value) const { qtableview_setrootindex_isbase = value; }
+    inline void setQTableView_SetSelectionModel_IsBase(bool value) const { qtableview_setselectionmodel_isbase = value; }
+    inline void setQTableView_DoItemsLayout_IsBase(bool value) const { qtableview_doitemslayout_isbase = value; }
+    inline void setQTableView_VisualRect_IsBase(bool value) const { qtableview_visualrect_isbase = value; }
+    inline void setQTableView_ScrollTo_IsBase(bool value) const { qtableview_scrollto_isbase = value; }
+    inline void setQTableView_IndexAt_IsBase(bool value) const { qtableview_indexat_isbase = value; }
+    inline void setQTableView_ScrollContentsBy_IsBase(bool value) const { qtableview_scrollcontentsby_isbase = value; }
+    inline void setQTableView_InitViewItemOption_IsBase(bool value) const { qtableview_initviewitemoption_isbase = value; }
+    inline void setQTableView_PaintEvent_IsBase(bool value) const { qtableview_paintevent_isbase = value; }
+    inline void setQTableView_TimerEvent_IsBase(bool value) const { qtableview_timerevent_isbase = value; }
+    inline void setQTableView_HorizontalOffset_IsBase(bool value) const { qtableview_horizontaloffset_isbase = value; }
+    inline void setQTableView_VerticalOffset_IsBase(bool value) const { qtableview_verticaloffset_isbase = value; }
+    inline void setQTableView_MoveCursor_IsBase(bool value) const { qtableview_movecursor_isbase = value; }
+    inline void setQTableView_SetSelection_IsBase(bool value) const { qtableview_setselection_isbase = value; }
+    inline void setQTableView_VisualRegionForSelection_IsBase(bool value) const { qtableview_visualregionforselection_isbase = value; }
+    inline void setQTableView_SelectedIndexes_IsBase(bool value) const { qtableview_selectedindexes_isbase = value; }
+    inline void setQTableView_UpdateGeometries_IsBase(bool value) const { qtableview_updategeometries_isbase = value; }
+    inline void setQTableView_ViewportSizeHint_IsBase(bool value) const { qtableview_viewportsizehint_isbase = value; }
+    inline void setQTableView_SizeHintForRow_IsBase(bool value) const { qtableview_sizehintforrow_isbase = value; }
+    inline void setQTableView_SizeHintForColumn_IsBase(bool value) const { qtableview_sizehintforcolumn_isbase = value; }
+    inline void setQTableView_VerticalScrollbarAction_IsBase(bool value) const { qtableview_verticalscrollbaraction_isbase = value; }
+    inline void setQTableView_HorizontalScrollbarAction_IsBase(bool value) const { qtableview_horizontalscrollbaraction_isbase = value; }
+    inline void setQTableView_IsIndexHidden_IsBase(bool value) const { qtableview_isindexhidden_isbase = value; }
+    inline void setQTableView_SelectionChanged_IsBase(bool value) const { qtableview_selectionchanged_isbase = value; }
+    inline void setQTableView_CurrentChanged_IsBase(bool value) const { qtableview_currentchanged_isbase = value; }
+    inline void setQTableView_KeyboardSearch_IsBase(bool value) const { qtableview_keyboardsearch_isbase = value; }
+    inline void setQTableView_ItemDelegateForIndex_IsBase(bool value) const { qtableview_itemdelegateforindex_isbase = value; }
+    inline void setQTableView_InputMethodQuery_IsBase(bool value) const { qtableview_inputmethodquery_isbase = value; }
+    inline void setQTableView_Reset_IsBase(bool value) const { qtableview_reset_isbase = value; }
+    inline void setQTableView_SelectAll_IsBase(bool value) const { qtableview_selectall_isbase = value; }
+    inline void setQTableView_DataChanged_IsBase(bool value) const { qtableview_datachanged_isbase = value; }
+    inline void setQTableView_RowsInserted_IsBase(bool value) const { qtableview_rowsinserted_isbase = value; }
+    inline void setQTableView_RowsAboutToBeRemoved_IsBase(bool value) const { qtableview_rowsabouttoberemoved_isbase = value; }
+    inline void setQTableView_UpdateEditorData_IsBase(bool value) const { qtableview_updateeditordata_isbase = value; }
+    inline void setQTableView_UpdateEditorGeometries_IsBase(bool value) const { qtableview_updateeditorgeometries_isbase = value; }
+    inline void setQTableView_VerticalScrollbarValueChanged_IsBase(bool value) const { qtableview_verticalscrollbarvaluechanged_isbase = value; }
+    inline void setQTableView_HorizontalScrollbarValueChanged_IsBase(bool value) const { qtableview_horizontalscrollbarvaluechanged_isbase = value; }
+    inline void setQTableView_CloseEditor_IsBase(bool value) const { qtableview_closeeditor_isbase = value; }
+    inline void setQTableView_CommitData_IsBase(bool value) const { qtableview_commitdata_isbase = value; }
+    inline void setQTableView_EditorDestroyed_IsBase(bool value) const { qtableview_editordestroyed_isbase = value; }
+    inline void setQTableView_Edit2_IsBase(bool value) const { qtableview_edit2_isbase = value; }
+    inline void setQTableView_SelectionCommand_IsBase(bool value) const { qtableview_selectioncommand_isbase = value; }
+    inline void setQTableView_StartDrag_IsBase(bool value) const { qtableview_startdrag_isbase = value; }
+    inline void setQTableView_FocusNextPrevChild_IsBase(bool value) const { qtableview_focusnextprevchild_isbase = value; }
+    inline void setQTableView_Event_IsBase(bool value) const { qtableview_event_isbase = value; }
+    inline void setQTableView_ViewportEvent_IsBase(bool value) const { qtableview_viewportevent_isbase = value; }
+    inline void setQTableView_MousePressEvent_IsBase(bool value) const { qtableview_mousepressevent_isbase = value; }
+    inline void setQTableView_MouseMoveEvent_IsBase(bool value) const { qtableview_mousemoveevent_isbase = value; }
+    inline void setQTableView_MouseReleaseEvent_IsBase(bool value) const { qtableview_mousereleaseevent_isbase = value; }
+    inline void setQTableView_MouseDoubleClickEvent_IsBase(bool value) const { qtableview_mousedoubleclickevent_isbase = value; }
+    inline void setQTableView_DragEnterEvent_IsBase(bool value) const { qtableview_dragenterevent_isbase = value; }
+    inline void setQTableView_DragMoveEvent_IsBase(bool value) const { qtableview_dragmoveevent_isbase = value; }
+    inline void setQTableView_DragLeaveEvent_IsBase(bool value) const { qtableview_dragleaveevent_isbase = value; }
+    inline void setQTableView_DropEvent_IsBase(bool value) const { qtableview_dropevent_isbase = value; }
+    inline void setQTableView_FocusInEvent_IsBase(bool value) const { qtableview_focusinevent_isbase = value; }
+    inline void setQTableView_FocusOutEvent_IsBase(bool value) const { qtableview_focusoutevent_isbase = value; }
+    inline void setQTableView_KeyPressEvent_IsBase(bool value) const { qtableview_keypressevent_isbase = value; }
+    inline void setQTableView_ResizeEvent_IsBase(bool value) const { qtableview_resizeevent_isbase = value; }
+    inline void setQTableView_InputMethodEvent_IsBase(bool value) const { qtableview_inputmethodevent_isbase = value; }
+    inline void setQTableView_EventFilter_IsBase(bool value) const { qtableview_eventfilter_isbase = value; }
+    inline void setQTableView_MinimumSizeHint_IsBase(bool value) const { qtableview_minimumsizehint_isbase = value; }
+    inline void setQTableView_SizeHint_IsBase(bool value) const { qtableview_sizehint_isbase = value; }
+    inline void setQTableView_SetupViewport_IsBase(bool value) const { qtableview_setupviewport_isbase = value; }
+    inline void setQTableView_WheelEvent_IsBase(bool value) const { qtableview_wheelevent_isbase = value; }
+    inline void setQTableView_ContextMenuEvent_IsBase(bool value) const { qtableview_contextmenuevent_isbase = value; }
+    inline void setQTableView_ChangeEvent_IsBase(bool value) const { qtableview_changeevent_isbase = value; }
+    inline void setQTableView_InitStyleOption_IsBase(bool value) const { qtableview_initstyleoption_isbase = value; }
+    inline void setQTableView_DevType_IsBase(bool value) const { qtableview_devtype_isbase = value; }
+    inline void setQTableView_SetVisible_IsBase(bool value) const { qtableview_setvisible_isbase = value; }
+    inline void setQTableView_HeightForWidth_IsBase(bool value) const { qtableview_heightforwidth_isbase = value; }
+    inline void setQTableView_HasHeightForWidth_IsBase(bool value) const { qtableview_hasheightforwidth_isbase = value; }
+    inline void setQTableView_PaintEngine_IsBase(bool value) const { qtableview_paintengine_isbase = value; }
+    inline void setQTableView_KeyReleaseEvent_IsBase(bool value) const { qtableview_keyreleaseevent_isbase = value; }
+    inline void setQTableView_EnterEvent_IsBase(bool value) const { qtableview_enterevent_isbase = value; }
+    inline void setQTableView_LeaveEvent_IsBase(bool value) const { qtableview_leaveevent_isbase = value; }
+    inline void setQTableView_MoveEvent_IsBase(bool value) const { qtableview_moveevent_isbase = value; }
+    inline void setQTableView_CloseEvent_IsBase(bool value) const { qtableview_closeevent_isbase = value; }
+    inline void setQTableView_TabletEvent_IsBase(bool value) const { qtableview_tabletevent_isbase = value; }
+    inline void setQTableView_ActionEvent_IsBase(bool value) const { qtableview_actionevent_isbase = value; }
+    inline void setQTableView_ShowEvent_IsBase(bool value) const { qtableview_showevent_isbase = value; }
+    inline void setQTableView_HideEvent_IsBase(bool value) const { qtableview_hideevent_isbase = value; }
+    inline void setQTableView_NativeEvent_IsBase(bool value) const { qtableview_nativeevent_isbase = value; }
+    inline void setQTableView_Metric_IsBase(bool value) const { qtableview_metric_isbase = value; }
+    inline void setQTableView_InitPainter_IsBase(bool value) const { qtableview_initpainter_isbase = value; }
+    inline void setQTableView_Redirected_IsBase(bool value) const { qtableview_redirected_isbase = value; }
+    inline void setQTableView_SharedPainter_IsBase(bool value) const { qtableview_sharedpainter_isbase = value; }
+    inline void setQTableView_ChildEvent_IsBase(bool value) const { qtableview_childevent_isbase = value; }
+    inline void setQTableView_CustomEvent_IsBase(bool value) const { qtableview_customevent_isbase = value; }
+    inline void setQTableView_ConnectNotify_IsBase(bool value) const { qtableview_connectnotify_isbase = value; }
+    inline void setQTableView_DisconnectNotify_IsBase(bool value) const { qtableview_disconnectnotify_isbase = value; }
+    inline void setQTableView_RowMoved_IsBase(bool value) const { qtableview_rowmoved_isbase = value; }
+    inline void setQTableView_ColumnMoved_IsBase(bool value) const { qtableview_columnmoved_isbase = value; }
+    inline void setQTableView_RowResized_IsBase(bool value) const { qtableview_rowresized_isbase = value; }
+    inline void setQTableView_ColumnResized_IsBase(bool value) const { qtableview_columnresized_isbase = value; }
+    inline void setQTableView_RowCountChanged_IsBase(bool value) const { qtableview_rowcountchanged_isbase = value; }
+    inline void setQTableView_ColumnCountChanged_IsBase(bool value) const { qtableview_columncountchanged_isbase = value; }
+    inline void setQTableView_State_IsBase(bool value) const { qtableview_state_isbase = value; }
+    inline void setQTableView_SetState_IsBase(bool value) const { qtableview_setstate_isbase = value; }
+    inline void setQTableView_ScheduleDelayedItemsLayout_IsBase(bool value) const { qtableview_scheduledelayeditemslayout_isbase = value; }
+    inline void setQTableView_ExecuteDelayedItemsLayout_IsBase(bool value) const { qtableview_executedelayeditemslayout_isbase = value; }
+    inline void setQTableView_SetDirtyRegion_IsBase(bool value) const { qtableview_setdirtyregion_isbase = value; }
+    inline void setQTableView_ScrollDirtyRegion_IsBase(bool value) const { qtableview_scrolldirtyregion_isbase = value; }
+    inline void setQTableView_DirtyRegionOffset_IsBase(bool value) const { qtableview_dirtyregionoffset_isbase = value; }
+    inline void setQTableView_StartAutoScroll_IsBase(bool value) const { qtableview_startautoscroll_isbase = value; }
+    inline void setQTableView_StopAutoScroll_IsBase(bool value) const { qtableview_stopautoscroll_isbase = value; }
+    inline void setQTableView_DoAutoScroll_IsBase(bool value) const { qtableview_doautoscroll_isbase = value; }
+    inline void setQTableView_DropIndicatorPosition_IsBase(bool value) const { qtableview_dropindicatorposition_isbase = value; }
+    inline void setQTableView_SetViewportMargins_IsBase(bool value) const { qtableview_setviewportmargins_isbase = value; }
+    inline void setQTableView_ViewportMargins_IsBase(bool value) const { qtableview_viewportmargins_isbase = value; }
+    inline void setQTableView_DrawFrame_IsBase(bool value) const { qtableview_drawframe_isbase = value; }
+    inline void setQTableView_UpdateMicroFocus_IsBase(bool value) const { qtableview_updatemicrofocus_isbase = value; }
+    inline void setQTableView_Create_IsBase(bool value) const { qtableview_create_isbase = value; }
+    inline void setQTableView_Destroy_IsBase(bool value) const { qtableview_destroy_isbase = value; }
+    inline void setQTableView_FocusNextChild_IsBase(bool value) const { qtableview_focusnextchild_isbase = value; }
+    inline void setQTableView_FocusPreviousChild_IsBase(bool value) const { qtableview_focuspreviouschild_isbase = value; }
+    inline void setQTableView_Sender_IsBase(bool value) const { qtableview_sender_isbase = value; }
+    inline void setQTableView_SenderSignalIndex_IsBase(bool value) const { qtableview_sendersignalindex_isbase = value; }
+    inline void setQTableView_Receivers_IsBase(bool value) const { qtableview_receivers_isbase = value; }
+    inline void setQTableView_IsSignalConnected_IsBase(bool value) const { qtableview_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -767,7 +770,12 @@ class VirtualQTableView : public QTableView {
             qtableview_metacall_isbase = false;
             return QTableView::qt_metacall(param1, param2, param3);
         } else if (qtableview_metacall_callback != nullptr) {
-            return qtableview_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qtableview_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QTableView::qt_metacall(param1, param2, param3);
         }
@@ -779,7 +787,9 @@ class VirtualQTableView : public QTableView {
             qtableview_setmodel_isbase = false;
             QTableView::setModel(model);
         } else if (qtableview_setmodel_callback != nullptr) {
-            qtableview_setmodel_callback(this, model);
+            QAbstractItemModel* cbval1 = model;
+
+            qtableview_setmodel_callback(this, cbval1);
         } else {
             QTableView::setModel(model);
         }
@@ -791,7 +801,11 @@ class VirtualQTableView : public QTableView {
             qtableview_setrootindex_isbase = false;
             QTableView::setRootIndex(index);
         } else if (qtableview_setrootindex_callback != nullptr) {
-            qtableview_setrootindex_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            qtableview_setrootindex_callback(this, cbval1);
         } else {
             QTableView::setRootIndex(index);
         }
@@ -803,7 +817,9 @@ class VirtualQTableView : public QTableView {
             qtableview_setselectionmodel_isbase = false;
             QTableView::setSelectionModel(selectionModel);
         } else if (qtableview_setselectionmodel_callback != nullptr) {
-            qtableview_setselectionmodel_callback(this, selectionModel);
+            QItemSelectionModel* cbval1 = selectionModel;
+
+            qtableview_setselectionmodel_callback(this, cbval1);
         } else {
             QTableView::setSelectionModel(selectionModel);
         }
@@ -827,7 +843,12 @@ class VirtualQTableView : public QTableView {
             qtableview_visualrect_isbase = false;
             return QTableView::visualRect(index);
         } else if (qtableview_visualrect_callback != nullptr) {
-            return qtableview_visualrect_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QRect* callback_ret = qtableview_visualrect_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTableView::visualRect(index);
         }
@@ -839,7 +860,12 @@ class VirtualQTableView : public QTableView {
             qtableview_scrollto_isbase = false;
             QTableView::scrollTo(index, hint);
         } else if (qtableview_scrollto_callback != nullptr) {
-            qtableview_scrollto_callback(this, index, hint);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            int cbval2 = static_cast<int>(hint);
+
+            qtableview_scrollto_callback(this, cbval1, cbval2);
         } else {
             QTableView::scrollTo(index, hint);
         }
@@ -851,7 +877,12 @@ class VirtualQTableView : public QTableView {
             qtableview_indexat_isbase = false;
             return QTableView::indexAt(p);
         } else if (qtableview_indexat_callback != nullptr) {
-            return qtableview_indexat_callback(this, p);
+            const QPoint& p_ret = p;
+            // Cast returned reference into pointer
+            QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
+
+            QModelIndex* callback_ret = qtableview_indexat_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTableView::indexAt(p);
         }
@@ -863,7 +894,10 @@ class VirtualQTableView : public QTableView {
             qtableview_scrollcontentsby_isbase = false;
             QTableView::scrollContentsBy(dx, dy);
         } else if (qtableview_scrollcontentsby_callback != nullptr) {
-            qtableview_scrollcontentsby_callback(this, dx, dy);
+            int cbval1 = dx;
+            int cbval2 = dy;
+
+            qtableview_scrollcontentsby_callback(this, cbval1, cbval2);
         } else {
             QTableView::scrollContentsBy(dx, dy);
         }
@@ -875,7 +909,9 @@ class VirtualQTableView : public QTableView {
             qtableview_initviewitemoption_isbase = false;
             QTableView::initViewItemOption(option);
         } else if (qtableview_initviewitemoption_callback != nullptr) {
-            qtableview_initviewitemoption_callback(this, option);
+            QStyleOptionViewItem* cbval1 = option;
+
+            qtableview_initviewitemoption_callback(this, cbval1);
         } else {
             QTableView::initViewItemOption(option);
         }
@@ -887,7 +923,9 @@ class VirtualQTableView : public QTableView {
             qtableview_paintevent_isbase = false;
             QTableView::paintEvent(e);
         } else if (qtableview_paintevent_callback != nullptr) {
-            qtableview_paintevent_callback(this, e);
+            QPaintEvent* cbval1 = e;
+
+            qtableview_paintevent_callback(this, cbval1);
         } else {
             QTableView::paintEvent(e);
         }
@@ -899,7 +937,9 @@ class VirtualQTableView : public QTableView {
             qtableview_timerevent_isbase = false;
             QTableView::timerEvent(event);
         } else if (qtableview_timerevent_callback != nullptr) {
-            qtableview_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qtableview_timerevent_callback(this, cbval1);
         } else {
             QTableView::timerEvent(event);
         }
@@ -911,7 +951,8 @@ class VirtualQTableView : public QTableView {
             qtableview_horizontaloffset_isbase = false;
             return QTableView::horizontalOffset();
         } else if (qtableview_horizontaloffset_callback != nullptr) {
-            return qtableview_horizontaloffset_callback();
+            int callback_ret = qtableview_horizontaloffset_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QTableView::horizontalOffset();
         }
@@ -923,7 +964,8 @@ class VirtualQTableView : public QTableView {
             qtableview_verticaloffset_isbase = false;
             return QTableView::verticalOffset();
         } else if (qtableview_verticaloffset_callback != nullptr) {
-            return qtableview_verticaloffset_callback();
+            int callback_ret = qtableview_verticaloffset_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QTableView::verticalOffset();
         }
@@ -935,7 +977,11 @@ class VirtualQTableView : public QTableView {
             qtableview_movecursor_isbase = false;
             return QTableView::moveCursor(cursorAction, modifiers);
         } else if (qtableview_movecursor_callback != nullptr) {
-            return qtableview_movecursor_callback(this, cursorAction, modifiers);
+            int cbval1 = static_cast<int>(cursorAction);
+            int cbval2 = static_cast<int>(modifiers);
+
+            QModelIndex* callback_ret = qtableview_movecursor_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QTableView::moveCursor(cursorAction, modifiers);
         }
@@ -947,7 +993,12 @@ class VirtualQTableView : public QTableView {
             qtableview_setselection_isbase = false;
             QTableView::setSelection(rect, command);
         } else if (qtableview_setselection_callback != nullptr) {
-            qtableview_setselection_callback(this, rect, command);
+            const QRect& rect_ret = rect;
+            // Cast returned reference into pointer
+            QRect* cbval1 = const_cast<QRect*>(&rect_ret);
+            int cbval2 = static_cast<int>(command);
+
+            qtableview_setselection_callback(this, cbval1, cbval2);
         } else {
             QTableView::setSelection(rect, command);
         }
@@ -959,7 +1010,12 @@ class VirtualQTableView : public QTableView {
             qtableview_visualregionforselection_isbase = false;
             return QTableView::visualRegionForSelection(selection);
         } else if (qtableview_visualregionforselection_callback != nullptr) {
-            return qtableview_visualregionforselection_callback(this, selection);
+            const QItemSelection& selection_ret = selection;
+            // Cast returned reference into pointer
+            QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
+
+            QRegion* callback_ret = qtableview_visualregionforselection_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTableView::visualRegionForSelection(selection);
         }
@@ -971,7 +1027,14 @@ class VirtualQTableView : public QTableView {
             qtableview_selectedindexes_isbase = false;
             return QTableView::selectedIndexes();
         } else if (qtableview_selectedindexes_callback != nullptr) {
-            return qtableview_selectedindexes_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qtableview_selectedindexes_callback();
+            QModelIndexList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            }
+            return callback_ret_QList;
         } else {
             return QTableView::selectedIndexes();
         }
@@ -995,7 +1058,8 @@ class VirtualQTableView : public QTableView {
             qtableview_viewportsizehint_isbase = false;
             return QTableView::viewportSizeHint();
         } else if (qtableview_viewportsizehint_callback != nullptr) {
-            return qtableview_viewportsizehint_callback();
+            QSize* callback_ret = qtableview_viewportsizehint_callback();
+            return *callback_ret;
         } else {
             return QTableView::viewportSizeHint();
         }
@@ -1007,7 +1071,10 @@ class VirtualQTableView : public QTableView {
             qtableview_sizehintforrow_isbase = false;
             return QTableView::sizeHintForRow(row);
         } else if (qtableview_sizehintforrow_callback != nullptr) {
-            return qtableview_sizehintforrow_callback(this, row);
+            int cbval1 = row;
+
+            int callback_ret = qtableview_sizehintforrow_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTableView::sizeHintForRow(row);
         }
@@ -1019,7 +1086,10 @@ class VirtualQTableView : public QTableView {
             qtableview_sizehintforcolumn_isbase = false;
             return QTableView::sizeHintForColumn(column);
         } else if (qtableview_sizehintforcolumn_callback != nullptr) {
-            return qtableview_sizehintforcolumn_callback(this, column);
+            int cbval1 = column;
+
+            int callback_ret = qtableview_sizehintforcolumn_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTableView::sizeHintForColumn(column);
         }
@@ -1031,7 +1101,9 @@ class VirtualQTableView : public QTableView {
             qtableview_verticalscrollbaraction_isbase = false;
             QTableView::verticalScrollbarAction(action);
         } else if (qtableview_verticalscrollbaraction_callback != nullptr) {
-            qtableview_verticalscrollbaraction_callback(this, action);
+            int cbval1 = action;
+
+            qtableview_verticalscrollbaraction_callback(this, cbval1);
         } else {
             QTableView::verticalScrollbarAction(action);
         }
@@ -1043,7 +1115,9 @@ class VirtualQTableView : public QTableView {
             qtableview_horizontalscrollbaraction_isbase = false;
             QTableView::horizontalScrollbarAction(action);
         } else if (qtableview_horizontalscrollbaraction_callback != nullptr) {
-            qtableview_horizontalscrollbaraction_callback(this, action);
+            int cbval1 = action;
+
+            qtableview_horizontalscrollbaraction_callback(this, cbval1);
         } else {
             QTableView::horizontalScrollbarAction(action);
         }
@@ -1055,7 +1129,12 @@ class VirtualQTableView : public QTableView {
             qtableview_isindexhidden_isbase = false;
             return QTableView::isIndexHidden(index);
         } else if (qtableview_isindexhidden_callback != nullptr) {
-            return qtableview_isindexhidden_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            bool callback_ret = qtableview_isindexhidden_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTableView::isIndexHidden(index);
         }
@@ -1067,7 +1146,14 @@ class VirtualQTableView : public QTableView {
             qtableview_selectionchanged_isbase = false;
             QTableView::selectionChanged(selected, deselected);
         } else if (qtableview_selectionchanged_callback != nullptr) {
-            qtableview_selectionchanged_callback(this, selected, deselected);
+            const QItemSelection& selected_ret = selected;
+            // Cast returned reference into pointer
+            QItemSelection* cbval1 = const_cast<QItemSelection*>(&selected_ret);
+            const QItemSelection& deselected_ret = deselected;
+            // Cast returned reference into pointer
+            QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
+
+            qtableview_selectionchanged_callback(this, cbval1, cbval2);
         } else {
             QTableView::selectionChanged(selected, deselected);
         }
@@ -1079,7 +1165,14 @@ class VirtualQTableView : public QTableView {
             qtableview_currentchanged_isbase = false;
             QTableView::currentChanged(current, previous);
         } else if (qtableview_currentchanged_callback != nullptr) {
-            qtableview_currentchanged_callback(this, current, previous);
+            const QModelIndex& current_ret = current;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&current_ret);
+            const QModelIndex& previous_ret = previous;
+            // Cast returned reference into pointer
+            QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
+
+            qtableview_currentchanged_callback(this, cbval1, cbval2);
         } else {
             QTableView::currentChanged(current, previous);
         }
@@ -1091,7 +1184,17 @@ class VirtualQTableView : public QTableView {
             qtableview_keyboardsearch_isbase = false;
             QTableView::keyboardSearch(search);
         } else if (qtableview_keyboardsearch_callback != nullptr) {
-            qtableview_keyboardsearch_callback(this, search);
+            const QString search_ret = search;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray search_b = search_ret.toUtf8();
+            libqt_string search_str;
+            search_str.len = search_b.length();
+            search_str.data = static_cast<char*>(malloc((search_str.len + 1) * sizeof(char)));
+            memcpy(search_str.data, search_b.data(), search_str.len);
+            search_str.data[search_str.len] = '\0';
+            libqt_string cbval1 = search_str;
+
+            qtableview_keyboardsearch_callback(this, cbval1);
         } else {
             QTableView::keyboardSearch(search);
         }
@@ -1103,7 +1206,12 @@ class VirtualQTableView : public QTableView {
             qtableview_itemdelegateforindex_isbase = false;
             return QTableView::itemDelegateForIndex(index);
         } else if (qtableview_itemdelegateforindex_callback != nullptr) {
-            return qtableview_itemdelegateforindex_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QAbstractItemDelegate* callback_ret = qtableview_itemdelegateforindex_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTableView::itemDelegateForIndex(index);
         }
@@ -1115,7 +1223,10 @@ class VirtualQTableView : public QTableView {
             qtableview_inputmethodquery_isbase = false;
             return QTableView::inputMethodQuery(query);
         } else if (qtableview_inputmethodquery_callback != nullptr) {
-            return qtableview_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qtableview_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTableView::inputMethodQuery(query);
         }
@@ -1151,7 +1262,24 @@ class VirtualQTableView : public QTableView {
             qtableview_datachanged_isbase = false;
             QTableView::dataChanged(topLeft, bottomRight, roles);
         } else if (qtableview_datachanged_callback != nullptr) {
-            qtableview_datachanged_callback(this, topLeft, bottomRight, roles);
+            const QModelIndex& topLeft_ret = topLeft;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&topLeft_ret);
+            const QModelIndex& bottomRight_ret = bottomRight;
+            // Cast returned reference into pointer
+            QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
+            const QList<int>& roles_ret = roles;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.length()));
+            for (size_t i = 0; i < roles_ret.length(); ++i) {
+                roles_arr[i] = roles_ret[i];
+            }
+            libqt_list roles_out;
+            roles_out.len = roles_ret.length();
+            roles_out.data = static_cast<void*>(roles_arr);
+            libqt_list /* of int */ cbval3 = roles_out;
+
+            qtableview_datachanged_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTableView::dataChanged(topLeft, bottomRight, roles);
         }
@@ -1163,7 +1291,13 @@ class VirtualQTableView : public QTableView {
             qtableview_rowsinserted_isbase = false;
             QTableView::rowsInserted(parent, start, end);
         } else if (qtableview_rowsinserted_callback != nullptr) {
-            qtableview_rowsinserted_callback(this, parent, start, end);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = start;
+            int cbval3 = end;
+
+            qtableview_rowsinserted_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTableView::rowsInserted(parent, start, end);
         }
@@ -1175,7 +1309,13 @@ class VirtualQTableView : public QTableView {
             qtableview_rowsabouttoberemoved_isbase = false;
             QTableView::rowsAboutToBeRemoved(parent, start, end);
         } else if (qtableview_rowsabouttoberemoved_callback != nullptr) {
-            qtableview_rowsabouttoberemoved_callback(this, parent, start, end);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = start;
+            int cbval3 = end;
+
+            qtableview_rowsabouttoberemoved_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTableView::rowsAboutToBeRemoved(parent, start, end);
         }
@@ -1211,7 +1351,9 @@ class VirtualQTableView : public QTableView {
             qtableview_verticalscrollbarvaluechanged_isbase = false;
             QTableView::verticalScrollbarValueChanged(value);
         } else if (qtableview_verticalscrollbarvaluechanged_callback != nullptr) {
-            qtableview_verticalscrollbarvaluechanged_callback(this, value);
+            int cbval1 = value;
+
+            qtableview_verticalscrollbarvaluechanged_callback(this, cbval1);
         } else {
             QTableView::verticalScrollbarValueChanged(value);
         }
@@ -1223,7 +1365,9 @@ class VirtualQTableView : public QTableView {
             qtableview_horizontalscrollbarvaluechanged_isbase = false;
             QTableView::horizontalScrollbarValueChanged(value);
         } else if (qtableview_horizontalscrollbarvaluechanged_callback != nullptr) {
-            qtableview_horizontalscrollbarvaluechanged_callback(this, value);
+            int cbval1 = value;
+
+            qtableview_horizontalscrollbarvaluechanged_callback(this, cbval1);
         } else {
             QTableView::horizontalScrollbarValueChanged(value);
         }
@@ -1235,7 +1379,10 @@ class VirtualQTableView : public QTableView {
             qtableview_closeeditor_isbase = false;
             QTableView::closeEditor(editor, hint);
         } else if (qtableview_closeeditor_callback != nullptr) {
-            qtableview_closeeditor_callback(this, editor, hint);
+            QWidget* cbval1 = editor;
+            int cbval2 = static_cast<int>(hint);
+
+            qtableview_closeeditor_callback(this, cbval1, cbval2);
         } else {
             QTableView::closeEditor(editor, hint);
         }
@@ -1247,7 +1394,9 @@ class VirtualQTableView : public QTableView {
             qtableview_commitdata_isbase = false;
             QTableView::commitData(editor);
         } else if (qtableview_commitdata_callback != nullptr) {
-            qtableview_commitdata_callback(this, editor);
+            QWidget* cbval1 = editor;
+
+            qtableview_commitdata_callback(this, cbval1);
         } else {
             QTableView::commitData(editor);
         }
@@ -1259,7 +1408,9 @@ class VirtualQTableView : public QTableView {
             qtableview_editordestroyed_isbase = false;
             QTableView::editorDestroyed(editor);
         } else if (qtableview_editordestroyed_callback != nullptr) {
-            qtableview_editordestroyed_callback(this, editor);
+            QObject* cbval1 = editor;
+
+            qtableview_editordestroyed_callback(this, cbval1);
         } else {
             QTableView::editorDestroyed(editor);
         }
@@ -1271,7 +1422,14 @@ class VirtualQTableView : public QTableView {
             qtableview_edit2_isbase = false;
             return QTableView::edit(index, trigger, event);
         } else if (qtableview_edit2_callback != nullptr) {
-            return qtableview_edit2_callback(this, index, trigger, event);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            int cbval2 = static_cast<int>(trigger);
+            QEvent* cbval3 = event;
+
+            bool callback_ret = qtableview_edit2_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QTableView::edit(index, trigger, event);
         }
@@ -1283,7 +1441,13 @@ class VirtualQTableView : public QTableView {
             qtableview_selectioncommand_isbase = false;
             return QTableView::selectionCommand(index, event);
         } else if (qtableview_selectioncommand_callback != nullptr) {
-            return qtableview_selectioncommand_callback(this, index, event);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            QEvent* cbval2 = (QEvent*)event;
+
+            int callback_ret = qtableview_selectioncommand_callback(this, cbval1, cbval2);
+            return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
         } else {
             return QTableView::selectionCommand(index, event);
         }
@@ -1295,7 +1459,9 @@ class VirtualQTableView : public QTableView {
             qtableview_startdrag_isbase = false;
             QTableView::startDrag(supportedActions);
         } else if (qtableview_startdrag_callback != nullptr) {
-            qtableview_startdrag_callback(this, supportedActions);
+            int cbval1 = static_cast<int>(supportedActions);
+
+            qtableview_startdrag_callback(this, cbval1);
         } else {
             QTableView::startDrag(supportedActions);
         }
@@ -1307,7 +1473,10 @@ class VirtualQTableView : public QTableView {
             qtableview_focusnextprevchild_isbase = false;
             return QTableView::focusNextPrevChild(next);
         } else if (qtableview_focusnextprevchild_callback != nullptr) {
-            return qtableview_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qtableview_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTableView::focusNextPrevChild(next);
         }
@@ -1319,7 +1488,10 @@ class VirtualQTableView : public QTableView {
             qtableview_event_isbase = false;
             return QTableView::event(event);
         } else if (qtableview_event_callback != nullptr) {
-            return qtableview_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qtableview_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTableView::event(event);
         }
@@ -1331,7 +1503,10 @@ class VirtualQTableView : public QTableView {
             qtableview_viewportevent_isbase = false;
             return QTableView::viewportEvent(event);
         } else if (qtableview_viewportevent_callback != nullptr) {
-            return qtableview_viewportevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qtableview_viewportevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTableView::viewportEvent(event);
         }
@@ -1343,7 +1518,9 @@ class VirtualQTableView : public QTableView {
             qtableview_mousepressevent_isbase = false;
             QTableView::mousePressEvent(event);
         } else if (qtableview_mousepressevent_callback != nullptr) {
-            qtableview_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qtableview_mousepressevent_callback(this, cbval1);
         } else {
             QTableView::mousePressEvent(event);
         }
@@ -1355,7 +1532,9 @@ class VirtualQTableView : public QTableView {
             qtableview_mousemoveevent_isbase = false;
             QTableView::mouseMoveEvent(event);
         } else if (qtableview_mousemoveevent_callback != nullptr) {
-            qtableview_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qtableview_mousemoveevent_callback(this, cbval1);
         } else {
             QTableView::mouseMoveEvent(event);
         }
@@ -1367,7 +1546,9 @@ class VirtualQTableView : public QTableView {
             qtableview_mousereleaseevent_isbase = false;
             QTableView::mouseReleaseEvent(event);
         } else if (qtableview_mousereleaseevent_callback != nullptr) {
-            qtableview_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qtableview_mousereleaseevent_callback(this, cbval1);
         } else {
             QTableView::mouseReleaseEvent(event);
         }
@@ -1379,7 +1560,9 @@ class VirtualQTableView : public QTableView {
             qtableview_mousedoubleclickevent_isbase = false;
             QTableView::mouseDoubleClickEvent(event);
         } else if (qtableview_mousedoubleclickevent_callback != nullptr) {
-            qtableview_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qtableview_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QTableView::mouseDoubleClickEvent(event);
         }
@@ -1391,7 +1574,9 @@ class VirtualQTableView : public QTableView {
             qtableview_dragenterevent_isbase = false;
             QTableView::dragEnterEvent(event);
         } else if (qtableview_dragenterevent_callback != nullptr) {
-            qtableview_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qtableview_dragenterevent_callback(this, cbval1);
         } else {
             QTableView::dragEnterEvent(event);
         }
@@ -1403,7 +1588,9 @@ class VirtualQTableView : public QTableView {
             qtableview_dragmoveevent_isbase = false;
             QTableView::dragMoveEvent(event);
         } else if (qtableview_dragmoveevent_callback != nullptr) {
-            qtableview_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qtableview_dragmoveevent_callback(this, cbval1);
         } else {
             QTableView::dragMoveEvent(event);
         }
@@ -1415,7 +1602,9 @@ class VirtualQTableView : public QTableView {
             qtableview_dragleaveevent_isbase = false;
             QTableView::dragLeaveEvent(event);
         } else if (qtableview_dragleaveevent_callback != nullptr) {
-            qtableview_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qtableview_dragleaveevent_callback(this, cbval1);
         } else {
             QTableView::dragLeaveEvent(event);
         }
@@ -1427,7 +1616,9 @@ class VirtualQTableView : public QTableView {
             qtableview_dropevent_isbase = false;
             QTableView::dropEvent(event);
         } else if (qtableview_dropevent_callback != nullptr) {
-            qtableview_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qtableview_dropevent_callback(this, cbval1);
         } else {
             QTableView::dropEvent(event);
         }
@@ -1439,7 +1630,9 @@ class VirtualQTableView : public QTableView {
             qtableview_focusinevent_isbase = false;
             QTableView::focusInEvent(event);
         } else if (qtableview_focusinevent_callback != nullptr) {
-            qtableview_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qtableview_focusinevent_callback(this, cbval1);
         } else {
             QTableView::focusInEvent(event);
         }
@@ -1451,7 +1644,9 @@ class VirtualQTableView : public QTableView {
             qtableview_focusoutevent_isbase = false;
             QTableView::focusOutEvent(event);
         } else if (qtableview_focusoutevent_callback != nullptr) {
-            qtableview_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qtableview_focusoutevent_callback(this, cbval1);
         } else {
             QTableView::focusOutEvent(event);
         }
@@ -1463,7 +1658,9 @@ class VirtualQTableView : public QTableView {
             qtableview_keypressevent_isbase = false;
             QTableView::keyPressEvent(event);
         } else if (qtableview_keypressevent_callback != nullptr) {
-            qtableview_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qtableview_keypressevent_callback(this, cbval1);
         } else {
             QTableView::keyPressEvent(event);
         }
@@ -1475,7 +1672,9 @@ class VirtualQTableView : public QTableView {
             qtableview_resizeevent_isbase = false;
             QTableView::resizeEvent(event);
         } else if (qtableview_resizeevent_callback != nullptr) {
-            qtableview_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qtableview_resizeevent_callback(this, cbval1);
         } else {
             QTableView::resizeEvent(event);
         }
@@ -1487,7 +1686,9 @@ class VirtualQTableView : public QTableView {
             qtableview_inputmethodevent_isbase = false;
             QTableView::inputMethodEvent(event);
         } else if (qtableview_inputmethodevent_callback != nullptr) {
-            qtableview_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qtableview_inputmethodevent_callback(this, cbval1);
         } else {
             QTableView::inputMethodEvent(event);
         }
@@ -1499,7 +1700,11 @@ class VirtualQTableView : public QTableView {
             qtableview_eventfilter_isbase = false;
             return QTableView::eventFilter(object, event);
         } else if (qtableview_eventfilter_callback != nullptr) {
-            return qtableview_eventfilter_callback(this, object, event);
+            QObject* cbval1 = object;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qtableview_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QTableView::eventFilter(object, event);
         }
@@ -1511,7 +1716,8 @@ class VirtualQTableView : public QTableView {
             qtableview_minimumsizehint_isbase = false;
             return QTableView::minimumSizeHint();
         } else if (qtableview_minimumsizehint_callback != nullptr) {
-            return qtableview_minimumsizehint_callback();
+            QSize* callback_ret = qtableview_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QTableView::minimumSizeHint();
         }
@@ -1523,7 +1729,8 @@ class VirtualQTableView : public QTableView {
             qtableview_sizehint_isbase = false;
             return QTableView::sizeHint();
         } else if (qtableview_sizehint_callback != nullptr) {
-            return qtableview_sizehint_callback();
+            QSize* callback_ret = qtableview_sizehint_callback();
+            return *callback_ret;
         } else {
             return QTableView::sizeHint();
         }
@@ -1535,7 +1742,9 @@ class VirtualQTableView : public QTableView {
             qtableview_setupviewport_isbase = false;
             QTableView::setupViewport(viewport);
         } else if (qtableview_setupviewport_callback != nullptr) {
-            qtableview_setupviewport_callback(this, viewport);
+            QWidget* cbval1 = viewport;
+
+            qtableview_setupviewport_callback(this, cbval1);
         } else {
             QTableView::setupViewport(viewport);
         }
@@ -1547,7 +1756,9 @@ class VirtualQTableView : public QTableView {
             qtableview_wheelevent_isbase = false;
             QTableView::wheelEvent(param1);
         } else if (qtableview_wheelevent_callback != nullptr) {
-            qtableview_wheelevent_callback(this, param1);
+            QWheelEvent* cbval1 = param1;
+
+            qtableview_wheelevent_callback(this, cbval1);
         } else {
             QTableView::wheelEvent(param1);
         }
@@ -1559,7 +1770,9 @@ class VirtualQTableView : public QTableView {
             qtableview_contextmenuevent_isbase = false;
             QTableView::contextMenuEvent(param1);
         } else if (qtableview_contextmenuevent_callback != nullptr) {
-            qtableview_contextmenuevent_callback(this, param1);
+            QContextMenuEvent* cbval1 = param1;
+
+            qtableview_contextmenuevent_callback(this, cbval1);
         } else {
             QTableView::contextMenuEvent(param1);
         }
@@ -1571,7 +1784,9 @@ class VirtualQTableView : public QTableView {
             qtableview_changeevent_isbase = false;
             QTableView::changeEvent(param1);
         } else if (qtableview_changeevent_callback != nullptr) {
-            qtableview_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qtableview_changeevent_callback(this, cbval1);
         } else {
             QTableView::changeEvent(param1);
         }
@@ -1583,7 +1798,9 @@ class VirtualQTableView : public QTableView {
             qtableview_initstyleoption_isbase = false;
             QTableView::initStyleOption(option);
         } else if (qtableview_initstyleoption_callback != nullptr) {
-            qtableview_initstyleoption_callback(this, option);
+            QStyleOptionFrame* cbval1 = option;
+
+            qtableview_initstyleoption_callback(this, cbval1);
         } else {
             QTableView::initStyleOption(option);
         }
@@ -1595,7 +1812,8 @@ class VirtualQTableView : public QTableView {
             qtableview_devtype_isbase = false;
             return QTableView::devType();
         } else if (qtableview_devtype_callback != nullptr) {
-            return qtableview_devtype_callback();
+            int callback_ret = qtableview_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QTableView::devType();
         }
@@ -1607,7 +1825,9 @@ class VirtualQTableView : public QTableView {
             qtableview_setvisible_isbase = false;
             QTableView::setVisible(visible);
         } else if (qtableview_setvisible_callback != nullptr) {
-            qtableview_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qtableview_setvisible_callback(this, cbval1);
         } else {
             QTableView::setVisible(visible);
         }
@@ -1619,7 +1839,10 @@ class VirtualQTableView : public QTableView {
             qtableview_heightforwidth_isbase = false;
             return QTableView::heightForWidth(param1);
         } else if (qtableview_heightforwidth_callback != nullptr) {
-            return qtableview_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qtableview_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTableView::heightForWidth(param1);
         }
@@ -1631,7 +1854,8 @@ class VirtualQTableView : public QTableView {
             qtableview_hasheightforwidth_isbase = false;
             return QTableView::hasHeightForWidth();
         } else if (qtableview_hasheightforwidth_callback != nullptr) {
-            return qtableview_hasheightforwidth_callback();
+            bool callback_ret = qtableview_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QTableView::hasHeightForWidth();
         }
@@ -1643,7 +1867,8 @@ class VirtualQTableView : public QTableView {
             qtableview_paintengine_isbase = false;
             return QTableView::paintEngine();
         } else if (qtableview_paintengine_callback != nullptr) {
-            return qtableview_paintengine_callback();
+            QPaintEngine* callback_ret = qtableview_paintengine_callback();
+            return callback_ret;
         } else {
             return QTableView::paintEngine();
         }
@@ -1655,7 +1880,9 @@ class VirtualQTableView : public QTableView {
             qtableview_keyreleaseevent_isbase = false;
             QTableView::keyReleaseEvent(event);
         } else if (qtableview_keyreleaseevent_callback != nullptr) {
-            qtableview_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qtableview_keyreleaseevent_callback(this, cbval1);
         } else {
             QTableView::keyReleaseEvent(event);
         }
@@ -1667,7 +1894,9 @@ class VirtualQTableView : public QTableView {
             qtableview_enterevent_isbase = false;
             QTableView::enterEvent(event);
         } else if (qtableview_enterevent_callback != nullptr) {
-            qtableview_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qtableview_enterevent_callback(this, cbval1);
         } else {
             QTableView::enterEvent(event);
         }
@@ -1679,7 +1908,9 @@ class VirtualQTableView : public QTableView {
             qtableview_leaveevent_isbase = false;
             QTableView::leaveEvent(event);
         } else if (qtableview_leaveevent_callback != nullptr) {
-            qtableview_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qtableview_leaveevent_callback(this, cbval1);
         } else {
             QTableView::leaveEvent(event);
         }
@@ -1691,7 +1922,9 @@ class VirtualQTableView : public QTableView {
             qtableview_moveevent_isbase = false;
             QTableView::moveEvent(event);
         } else if (qtableview_moveevent_callback != nullptr) {
-            qtableview_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qtableview_moveevent_callback(this, cbval1);
         } else {
             QTableView::moveEvent(event);
         }
@@ -1703,7 +1936,9 @@ class VirtualQTableView : public QTableView {
             qtableview_closeevent_isbase = false;
             QTableView::closeEvent(event);
         } else if (qtableview_closeevent_callback != nullptr) {
-            qtableview_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qtableview_closeevent_callback(this, cbval1);
         } else {
             QTableView::closeEvent(event);
         }
@@ -1715,7 +1950,9 @@ class VirtualQTableView : public QTableView {
             qtableview_tabletevent_isbase = false;
             QTableView::tabletEvent(event);
         } else if (qtableview_tabletevent_callback != nullptr) {
-            qtableview_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qtableview_tabletevent_callback(this, cbval1);
         } else {
             QTableView::tabletEvent(event);
         }
@@ -1727,7 +1964,9 @@ class VirtualQTableView : public QTableView {
             qtableview_actionevent_isbase = false;
             QTableView::actionEvent(event);
         } else if (qtableview_actionevent_callback != nullptr) {
-            qtableview_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qtableview_actionevent_callback(this, cbval1);
         } else {
             QTableView::actionEvent(event);
         }
@@ -1739,7 +1978,9 @@ class VirtualQTableView : public QTableView {
             qtableview_showevent_isbase = false;
             QTableView::showEvent(event);
         } else if (qtableview_showevent_callback != nullptr) {
-            qtableview_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qtableview_showevent_callback(this, cbval1);
         } else {
             QTableView::showEvent(event);
         }
@@ -1751,7 +1992,9 @@ class VirtualQTableView : public QTableView {
             qtableview_hideevent_isbase = false;
             QTableView::hideEvent(event);
         } else if (qtableview_hideevent_callback != nullptr) {
-            qtableview_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qtableview_hideevent_callback(this, cbval1);
         } else {
             QTableView::hideEvent(event);
         }
@@ -1763,7 +2006,19 @@ class VirtualQTableView : public QTableView {
             qtableview_nativeevent_isbase = false;
             return QTableView::nativeEvent(eventType, message, result);
         } else if (qtableview_nativeevent_callback != nullptr) {
-            return qtableview_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qtableview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QTableView::nativeEvent(eventType, message, result);
         }
@@ -1775,7 +2030,10 @@ class VirtualQTableView : public QTableView {
             qtableview_metric_isbase = false;
             return QTableView::metric(param1);
         } else if (qtableview_metric_callback != nullptr) {
-            return qtableview_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qtableview_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTableView::metric(param1);
         }
@@ -1787,7 +2045,9 @@ class VirtualQTableView : public QTableView {
             qtableview_initpainter_isbase = false;
             QTableView::initPainter(painter);
         } else if (qtableview_initpainter_callback != nullptr) {
-            qtableview_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qtableview_initpainter_callback(this, cbval1);
         } else {
             QTableView::initPainter(painter);
         }
@@ -1799,7 +2059,10 @@ class VirtualQTableView : public QTableView {
             qtableview_redirected_isbase = false;
             return QTableView::redirected(offset);
         } else if (qtableview_redirected_callback != nullptr) {
-            return qtableview_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qtableview_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTableView::redirected(offset);
         }
@@ -1811,7 +2074,8 @@ class VirtualQTableView : public QTableView {
             qtableview_sharedpainter_isbase = false;
             return QTableView::sharedPainter();
         } else if (qtableview_sharedpainter_callback != nullptr) {
-            return qtableview_sharedpainter_callback();
+            QPainter* callback_ret = qtableview_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QTableView::sharedPainter();
         }
@@ -1823,7 +2087,9 @@ class VirtualQTableView : public QTableView {
             qtableview_childevent_isbase = false;
             QTableView::childEvent(event);
         } else if (qtableview_childevent_callback != nullptr) {
-            qtableview_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qtableview_childevent_callback(this, cbval1);
         } else {
             QTableView::childEvent(event);
         }
@@ -1835,7 +2101,9 @@ class VirtualQTableView : public QTableView {
             qtableview_customevent_isbase = false;
             QTableView::customEvent(event);
         } else if (qtableview_customevent_callback != nullptr) {
-            qtableview_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qtableview_customevent_callback(this, cbval1);
         } else {
             QTableView::customEvent(event);
         }
@@ -1847,7 +2115,11 @@ class VirtualQTableView : public QTableView {
             qtableview_connectnotify_isbase = false;
             QTableView::connectNotify(signal);
         } else if (qtableview_connectnotify_callback != nullptr) {
-            qtableview_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtableview_connectnotify_callback(this, cbval1);
         } else {
             QTableView::connectNotify(signal);
         }
@@ -1859,7 +2131,11 @@ class VirtualQTableView : public QTableView {
             qtableview_disconnectnotify_isbase = false;
             QTableView::disconnectNotify(signal);
         } else if (qtableview_disconnectnotify_callback != nullptr) {
-            qtableview_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtableview_disconnectnotify_callback(this, cbval1);
         } else {
             QTableView::disconnectNotify(signal);
         }
@@ -1871,7 +2147,11 @@ class VirtualQTableView : public QTableView {
             qtableview_rowmoved_isbase = false;
             QTableView::rowMoved(row, oldIndex, newIndex);
         } else if (qtableview_rowmoved_callback != nullptr) {
-            qtableview_rowmoved_callback(this, row, oldIndex, newIndex);
+            int cbval1 = row;
+            int cbval2 = oldIndex;
+            int cbval3 = newIndex;
+
+            qtableview_rowmoved_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTableView::rowMoved(row, oldIndex, newIndex);
         }
@@ -1883,7 +2163,11 @@ class VirtualQTableView : public QTableView {
             qtableview_columnmoved_isbase = false;
             QTableView::columnMoved(column, oldIndex, newIndex);
         } else if (qtableview_columnmoved_callback != nullptr) {
-            qtableview_columnmoved_callback(this, column, oldIndex, newIndex);
+            int cbval1 = column;
+            int cbval2 = oldIndex;
+            int cbval3 = newIndex;
+
+            qtableview_columnmoved_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTableView::columnMoved(column, oldIndex, newIndex);
         }
@@ -1895,7 +2179,11 @@ class VirtualQTableView : public QTableView {
             qtableview_rowresized_isbase = false;
             QTableView::rowResized(row, oldHeight, newHeight);
         } else if (qtableview_rowresized_callback != nullptr) {
-            qtableview_rowresized_callback(this, row, oldHeight, newHeight);
+            int cbval1 = row;
+            int cbval2 = oldHeight;
+            int cbval3 = newHeight;
+
+            qtableview_rowresized_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTableView::rowResized(row, oldHeight, newHeight);
         }
@@ -1907,7 +2195,11 @@ class VirtualQTableView : public QTableView {
             qtableview_columnresized_isbase = false;
             QTableView::columnResized(column, oldWidth, newWidth);
         } else if (qtableview_columnresized_callback != nullptr) {
-            qtableview_columnresized_callback(this, column, oldWidth, newWidth);
+            int cbval1 = column;
+            int cbval2 = oldWidth;
+            int cbval3 = newWidth;
+
+            qtableview_columnresized_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTableView::columnResized(column, oldWidth, newWidth);
         }
@@ -1919,7 +2211,10 @@ class VirtualQTableView : public QTableView {
             qtableview_rowcountchanged_isbase = false;
             QTableView::rowCountChanged(oldCount, newCount);
         } else if (qtableview_rowcountchanged_callback != nullptr) {
-            qtableview_rowcountchanged_callback(this, oldCount, newCount);
+            int cbval1 = oldCount;
+            int cbval2 = newCount;
+
+            qtableview_rowcountchanged_callback(this, cbval1, cbval2);
         } else {
             QTableView::rowCountChanged(oldCount, newCount);
         }
@@ -1931,7 +2226,10 @@ class VirtualQTableView : public QTableView {
             qtableview_columncountchanged_isbase = false;
             QTableView::columnCountChanged(oldCount, newCount);
         } else if (qtableview_columncountchanged_callback != nullptr) {
-            qtableview_columncountchanged_callback(this, oldCount, newCount);
+            int cbval1 = oldCount;
+            int cbval2 = newCount;
+
+            qtableview_columncountchanged_callback(this, cbval1, cbval2);
         } else {
             QTableView::columnCountChanged(oldCount, newCount);
         }
@@ -1943,7 +2241,8 @@ class VirtualQTableView : public QTableView {
             qtableview_state_isbase = false;
             return QTableView::state();
         } else if (qtableview_state_callback != nullptr) {
-            return qtableview_state_callback();
+            int callback_ret = qtableview_state_callback();
+            return static_cast<VirtualQTableView::State>(callback_ret);
         } else {
             return QTableView::state();
         }
@@ -1955,7 +2254,9 @@ class VirtualQTableView : public QTableView {
             qtableview_setstate_isbase = false;
             QTableView::setState(state);
         } else if (qtableview_setstate_callback != nullptr) {
-            qtableview_setstate_callback(this, state);
+            int cbval1 = static_cast<int>(state);
+
+            qtableview_setstate_callback(this, cbval1);
         } else {
             QTableView::setState(state);
         }
@@ -1991,7 +2292,11 @@ class VirtualQTableView : public QTableView {
             qtableview_setdirtyregion_isbase = false;
             QTableView::setDirtyRegion(region);
         } else if (qtableview_setdirtyregion_callback != nullptr) {
-            qtableview_setdirtyregion_callback(this, region);
+            const QRegion& region_ret = region;
+            // Cast returned reference into pointer
+            QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
+
+            qtableview_setdirtyregion_callback(this, cbval1);
         } else {
             QTableView::setDirtyRegion(region);
         }
@@ -2003,7 +2308,10 @@ class VirtualQTableView : public QTableView {
             qtableview_scrolldirtyregion_isbase = false;
             QTableView::scrollDirtyRegion(dx, dy);
         } else if (qtableview_scrolldirtyregion_callback != nullptr) {
-            qtableview_scrolldirtyregion_callback(this, dx, dy);
+            int cbval1 = dx;
+            int cbval2 = dy;
+
+            qtableview_scrolldirtyregion_callback(this, cbval1, cbval2);
         } else {
             QTableView::scrollDirtyRegion(dx, dy);
         }
@@ -2015,7 +2323,8 @@ class VirtualQTableView : public QTableView {
             qtableview_dirtyregionoffset_isbase = false;
             return QTableView::dirtyRegionOffset();
         } else if (qtableview_dirtyregionoffset_callback != nullptr) {
-            return qtableview_dirtyregionoffset_callback();
+            QPoint* callback_ret = qtableview_dirtyregionoffset_callback();
+            return *callback_ret;
         } else {
             return QTableView::dirtyRegionOffset();
         }
@@ -2063,7 +2372,8 @@ class VirtualQTableView : public QTableView {
             qtableview_dropindicatorposition_isbase = false;
             return QTableView::dropIndicatorPosition();
         } else if (qtableview_dropindicatorposition_callback != nullptr) {
-            return qtableview_dropindicatorposition_callback();
+            int callback_ret = qtableview_dropindicatorposition_callback();
+            return static_cast<VirtualQTableView::DropIndicatorPosition>(callback_ret);
         } else {
             return QTableView::dropIndicatorPosition();
         }
@@ -2075,7 +2385,12 @@ class VirtualQTableView : public QTableView {
             qtableview_setviewportmargins_isbase = false;
             QTableView::setViewportMargins(left, top, right, bottom);
         } else if (qtableview_setviewportmargins_callback != nullptr) {
-            qtableview_setviewportmargins_callback(this, left, top, right, bottom);
+            int cbval1 = left;
+            int cbval2 = top;
+            int cbval3 = right;
+            int cbval4 = bottom;
+
+            qtableview_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QTableView::setViewportMargins(left, top, right, bottom);
         }
@@ -2087,7 +2402,8 @@ class VirtualQTableView : public QTableView {
             qtableview_viewportmargins_isbase = false;
             return QTableView::viewportMargins();
         } else if (qtableview_viewportmargins_callback != nullptr) {
-            return qtableview_viewportmargins_callback();
+            QMargins* callback_ret = qtableview_viewportmargins_callback();
+            return *callback_ret;
         } else {
             return QTableView::viewportMargins();
         }
@@ -2099,7 +2415,9 @@ class VirtualQTableView : public QTableView {
             qtableview_drawframe_isbase = false;
             QTableView::drawFrame(param1);
         } else if (qtableview_drawframe_callback != nullptr) {
-            qtableview_drawframe_callback(this, param1);
+            QPainter* cbval1 = param1;
+
+            qtableview_drawframe_callback(this, cbval1);
         } else {
             QTableView::drawFrame(param1);
         }
@@ -2147,7 +2465,8 @@ class VirtualQTableView : public QTableView {
             qtableview_focusnextchild_isbase = false;
             return QTableView::focusNextChild();
         } else if (qtableview_focusnextchild_callback != nullptr) {
-            return qtableview_focusnextchild_callback();
+            bool callback_ret = qtableview_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QTableView::focusNextChild();
         }
@@ -2159,7 +2478,8 @@ class VirtualQTableView : public QTableView {
             qtableview_focuspreviouschild_isbase = false;
             return QTableView::focusPreviousChild();
         } else if (qtableview_focuspreviouschild_callback != nullptr) {
-            return qtableview_focuspreviouschild_callback();
+            bool callback_ret = qtableview_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QTableView::focusPreviousChild();
         }
@@ -2171,7 +2491,8 @@ class VirtualQTableView : public QTableView {
             qtableview_sender_isbase = false;
             return QTableView::sender();
         } else if (qtableview_sender_callback != nullptr) {
-            return qtableview_sender_callback();
+            QObject* callback_ret = qtableview_sender_callback();
+            return callback_ret;
         } else {
             return QTableView::sender();
         }
@@ -2183,7 +2504,8 @@ class VirtualQTableView : public QTableView {
             qtableview_sendersignalindex_isbase = false;
             return QTableView::senderSignalIndex();
         } else if (qtableview_sendersignalindex_callback != nullptr) {
-            return qtableview_sendersignalindex_callback();
+            int callback_ret = qtableview_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QTableView::senderSignalIndex();
         }
@@ -2195,7 +2517,10 @@ class VirtualQTableView : public QTableView {
             qtableview_receivers_isbase = false;
             return QTableView::receivers(signal);
         } else if (qtableview_receivers_callback != nullptr) {
-            return qtableview_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qtableview_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTableView::receivers(signal);
         }
@@ -2207,11 +2532,218 @@ class VirtualQTableView : public QTableView {
             qtableview_issignalconnected_isbase = false;
             return QTableView::isSignalConnected(signal);
         } else if (qtableview_issignalconnected_callback != nullptr) {
-            return qtableview_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qtableview_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTableView::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QTableView_ScrollContentsBy(QTableView* self, int dx, int dy);
+    friend void QTableView_QBaseScrollContentsBy(QTableView* self, int dx, int dy);
+    friend void QTableView_InitViewItemOption(const QTableView* self, QStyleOptionViewItem* option);
+    friend void QTableView_QBaseInitViewItemOption(const QTableView* self, QStyleOptionViewItem* option);
+    friend void QTableView_PaintEvent(QTableView* self, QPaintEvent* e);
+    friend void QTableView_QBasePaintEvent(QTableView* self, QPaintEvent* e);
+    friend void QTableView_TimerEvent(QTableView* self, QTimerEvent* event);
+    friend void QTableView_QBaseTimerEvent(QTableView* self, QTimerEvent* event);
+    friend int QTableView_HorizontalOffset(const QTableView* self);
+    friend int QTableView_QBaseHorizontalOffset(const QTableView* self);
+    friend int QTableView_VerticalOffset(const QTableView* self);
+    friend int QTableView_QBaseVerticalOffset(const QTableView* self);
+    friend QModelIndex* QTableView_MoveCursor(QTableView* self, int cursorAction, int modifiers);
+    friend QModelIndex* QTableView_QBaseMoveCursor(QTableView* self, int cursorAction, int modifiers);
+    friend void QTableView_SetSelection(QTableView* self, const QRect* rect, int command);
+    friend void QTableView_QBaseSetSelection(QTableView* self, const QRect* rect, int command);
+    friend QRegion* QTableView_VisualRegionForSelection(const QTableView* self, const QItemSelection* selection);
+    friend QRegion* QTableView_QBaseVisualRegionForSelection(const QTableView* self, const QItemSelection* selection);
+    friend libqt_list /* of QModelIndex* */ QTableView_SelectedIndexes(const QTableView* self);
+    friend libqt_list /* of QModelIndex* */ QTableView_QBaseSelectedIndexes(const QTableView* self);
+    friend void QTableView_UpdateGeometries(QTableView* self);
+    friend void QTableView_QBaseUpdateGeometries(QTableView* self);
+    friend QSize* QTableView_ViewportSizeHint(const QTableView* self);
+    friend QSize* QTableView_QBaseViewportSizeHint(const QTableView* self);
+    friend int QTableView_SizeHintForRow(const QTableView* self, int row);
+    friend int QTableView_QBaseSizeHintForRow(const QTableView* self, int row);
+    friend int QTableView_SizeHintForColumn(const QTableView* self, int column);
+    friend int QTableView_QBaseSizeHintForColumn(const QTableView* self, int column);
+    friend void QTableView_VerticalScrollbarAction(QTableView* self, int action);
+    friend void QTableView_QBaseVerticalScrollbarAction(QTableView* self, int action);
+    friend void QTableView_HorizontalScrollbarAction(QTableView* self, int action);
+    friend void QTableView_QBaseHorizontalScrollbarAction(QTableView* self, int action);
+    friend bool QTableView_IsIndexHidden(const QTableView* self, const QModelIndex* index);
+    friend bool QTableView_QBaseIsIndexHidden(const QTableView* self, const QModelIndex* index);
+    friend void QTableView_SelectionChanged(QTableView* self, const QItemSelection* selected, const QItemSelection* deselected);
+    friend void QTableView_QBaseSelectionChanged(QTableView* self, const QItemSelection* selected, const QItemSelection* deselected);
+    friend void QTableView_CurrentChanged(QTableView* self, const QModelIndex* current, const QModelIndex* previous);
+    friend void QTableView_QBaseCurrentChanged(QTableView* self, const QModelIndex* current, const QModelIndex* previous);
+    friend void QTableView_DataChanged(QTableView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles);
+    friend void QTableView_QBaseDataChanged(QTableView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles);
+    friend void QTableView_RowsInserted(QTableView* self, const QModelIndex* parent, int start, int end);
+    friend void QTableView_QBaseRowsInserted(QTableView* self, const QModelIndex* parent, int start, int end);
+    friend void QTableView_RowsAboutToBeRemoved(QTableView* self, const QModelIndex* parent, int start, int end);
+    friend void QTableView_QBaseRowsAboutToBeRemoved(QTableView* self, const QModelIndex* parent, int start, int end);
+    friend void QTableView_UpdateEditorData(QTableView* self);
+    friend void QTableView_QBaseUpdateEditorData(QTableView* self);
+    friend void QTableView_UpdateEditorGeometries(QTableView* self);
+    friend void QTableView_QBaseUpdateEditorGeometries(QTableView* self);
+    friend void QTableView_VerticalScrollbarValueChanged(QTableView* self, int value);
+    friend void QTableView_QBaseVerticalScrollbarValueChanged(QTableView* self, int value);
+    friend void QTableView_HorizontalScrollbarValueChanged(QTableView* self, int value);
+    friend void QTableView_QBaseHorizontalScrollbarValueChanged(QTableView* self, int value);
+    friend void QTableView_CloseEditor(QTableView* self, QWidget* editor, int hint);
+    friend void QTableView_QBaseCloseEditor(QTableView* self, QWidget* editor, int hint);
+    friend void QTableView_CommitData(QTableView* self, QWidget* editor);
+    friend void QTableView_QBaseCommitData(QTableView* self, QWidget* editor);
+    friend void QTableView_EditorDestroyed(QTableView* self, QObject* editor);
+    friend void QTableView_QBaseEditorDestroyed(QTableView* self, QObject* editor);
+    friend bool QTableView_Edit2(QTableView* self, const QModelIndex* index, int trigger, QEvent* event);
+    friend bool QTableView_QBaseEdit2(QTableView* self, const QModelIndex* index, int trigger, QEvent* event);
+    friend int QTableView_SelectionCommand(const QTableView* self, const QModelIndex* index, const QEvent* event);
+    friend int QTableView_QBaseSelectionCommand(const QTableView* self, const QModelIndex* index, const QEvent* event);
+    friend void QTableView_StartDrag(QTableView* self, int supportedActions);
+    friend void QTableView_QBaseStartDrag(QTableView* self, int supportedActions);
+    friend bool QTableView_FocusNextPrevChild(QTableView* self, bool next);
+    friend bool QTableView_QBaseFocusNextPrevChild(QTableView* self, bool next);
+    friend bool QTableView_Event(QTableView* self, QEvent* event);
+    friend bool QTableView_QBaseEvent(QTableView* self, QEvent* event);
+    friend bool QTableView_ViewportEvent(QTableView* self, QEvent* event);
+    friend bool QTableView_QBaseViewportEvent(QTableView* self, QEvent* event);
+    friend void QTableView_MousePressEvent(QTableView* self, QMouseEvent* event);
+    friend void QTableView_QBaseMousePressEvent(QTableView* self, QMouseEvent* event);
+    friend void QTableView_MouseMoveEvent(QTableView* self, QMouseEvent* event);
+    friend void QTableView_QBaseMouseMoveEvent(QTableView* self, QMouseEvent* event);
+    friend void QTableView_MouseReleaseEvent(QTableView* self, QMouseEvent* event);
+    friend void QTableView_QBaseMouseReleaseEvent(QTableView* self, QMouseEvent* event);
+    friend void QTableView_MouseDoubleClickEvent(QTableView* self, QMouseEvent* event);
+    friend void QTableView_QBaseMouseDoubleClickEvent(QTableView* self, QMouseEvent* event);
+    friend void QTableView_DragEnterEvent(QTableView* self, QDragEnterEvent* event);
+    friend void QTableView_QBaseDragEnterEvent(QTableView* self, QDragEnterEvent* event);
+    friend void QTableView_DragMoveEvent(QTableView* self, QDragMoveEvent* event);
+    friend void QTableView_QBaseDragMoveEvent(QTableView* self, QDragMoveEvent* event);
+    friend void QTableView_DragLeaveEvent(QTableView* self, QDragLeaveEvent* event);
+    friend void QTableView_QBaseDragLeaveEvent(QTableView* self, QDragLeaveEvent* event);
+    friend void QTableView_DropEvent(QTableView* self, QDropEvent* event);
+    friend void QTableView_QBaseDropEvent(QTableView* self, QDropEvent* event);
+    friend void QTableView_FocusInEvent(QTableView* self, QFocusEvent* event);
+    friend void QTableView_QBaseFocusInEvent(QTableView* self, QFocusEvent* event);
+    friend void QTableView_FocusOutEvent(QTableView* self, QFocusEvent* event);
+    friend void QTableView_QBaseFocusOutEvent(QTableView* self, QFocusEvent* event);
+    friend void QTableView_KeyPressEvent(QTableView* self, QKeyEvent* event);
+    friend void QTableView_QBaseKeyPressEvent(QTableView* self, QKeyEvent* event);
+    friend void QTableView_ResizeEvent(QTableView* self, QResizeEvent* event);
+    friend void QTableView_QBaseResizeEvent(QTableView* self, QResizeEvent* event);
+    friend void QTableView_InputMethodEvent(QTableView* self, QInputMethodEvent* event);
+    friend void QTableView_QBaseInputMethodEvent(QTableView* self, QInputMethodEvent* event);
+    friend bool QTableView_EventFilter(QTableView* self, QObject* object, QEvent* event);
+    friend bool QTableView_QBaseEventFilter(QTableView* self, QObject* object, QEvent* event);
+    friend void QTableView_WheelEvent(QTableView* self, QWheelEvent* param1);
+    friend void QTableView_QBaseWheelEvent(QTableView* self, QWheelEvent* param1);
+    friend void QTableView_ContextMenuEvent(QTableView* self, QContextMenuEvent* param1);
+    friend void QTableView_QBaseContextMenuEvent(QTableView* self, QContextMenuEvent* param1);
+    friend void QTableView_ChangeEvent(QTableView* self, QEvent* param1);
+    friend void QTableView_QBaseChangeEvent(QTableView* self, QEvent* param1);
+    friend void QTableView_InitStyleOption(const QTableView* self, QStyleOptionFrame* option);
+    friend void QTableView_QBaseInitStyleOption(const QTableView* self, QStyleOptionFrame* option);
+    friend void QTableView_KeyReleaseEvent(QTableView* self, QKeyEvent* event);
+    friend void QTableView_QBaseKeyReleaseEvent(QTableView* self, QKeyEvent* event);
+    friend void QTableView_EnterEvent(QTableView* self, QEnterEvent* event);
+    friend void QTableView_QBaseEnterEvent(QTableView* self, QEnterEvent* event);
+    friend void QTableView_LeaveEvent(QTableView* self, QEvent* event);
+    friend void QTableView_QBaseLeaveEvent(QTableView* self, QEvent* event);
+    friend void QTableView_MoveEvent(QTableView* self, QMoveEvent* event);
+    friend void QTableView_QBaseMoveEvent(QTableView* self, QMoveEvent* event);
+    friend void QTableView_CloseEvent(QTableView* self, QCloseEvent* event);
+    friend void QTableView_QBaseCloseEvent(QTableView* self, QCloseEvent* event);
+    friend void QTableView_TabletEvent(QTableView* self, QTabletEvent* event);
+    friend void QTableView_QBaseTabletEvent(QTableView* self, QTabletEvent* event);
+    friend void QTableView_ActionEvent(QTableView* self, QActionEvent* event);
+    friend void QTableView_QBaseActionEvent(QTableView* self, QActionEvent* event);
+    friend void QTableView_ShowEvent(QTableView* self, QShowEvent* event);
+    friend void QTableView_QBaseShowEvent(QTableView* self, QShowEvent* event);
+    friend void QTableView_HideEvent(QTableView* self, QHideEvent* event);
+    friend void QTableView_QBaseHideEvent(QTableView* self, QHideEvent* event);
+    friend bool QTableView_NativeEvent(QTableView* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QTableView_QBaseNativeEvent(QTableView* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QTableView_Metric(const QTableView* self, int param1);
+    friend int QTableView_QBaseMetric(const QTableView* self, int param1);
+    friend void QTableView_InitPainter(const QTableView* self, QPainter* painter);
+    friend void QTableView_QBaseInitPainter(const QTableView* self, QPainter* painter);
+    friend QPaintDevice* QTableView_Redirected(const QTableView* self, QPoint* offset);
+    friend QPaintDevice* QTableView_QBaseRedirected(const QTableView* self, QPoint* offset);
+    friend QPainter* QTableView_SharedPainter(const QTableView* self);
+    friend QPainter* QTableView_QBaseSharedPainter(const QTableView* self);
+    friend void QTableView_ChildEvent(QTableView* self, QChildEvent* event);
+    friend void QTableView_QBaseChildEvent(QTableView* self, QChildEvent* event);
+    friend void QTableView_CustomEvent(QTableView* self, QEvent* event);
+    friend void QTableView_QBaseCustomEvent(QTableView* self, QEvent* event);
+    friend void QTableView_ConnectNotify(QTableView* self, const QMetaMethod* signal);
+    friend void QTableView_QBaseConnectNotify(QTableView* self, const QMetaMethod* signal);
+    friend void QTableView_DisconnectNotify(QTableView* self, const QMetaMethod* signal);
+    friend void QTableView_QBaseDisconnectNotify(QTableView* self, const QMetaMethod* signal);
+    friend void QTableView_RowMoved(QTableView* self, int row, int oldIndex, int newIndex);
+    friend void QTableView_QBaseRowMoved(QTableView* self, int row, int oldIndex, int newIndex);
+    friend void QTableView_ColumnMoved(QTableView* self, int column, int oldIndex, int newIndex);
+    friend void QTableView_QBaseColumnMoved(QTableView* self, int column, int oldIndex, int newIndex);
+    friend void QTableView_RowResized(QTableView* self, int row, int oldHeight, int newHeight);
+    friend void QTableView_QBaseRowResized(QTableView* self, int row, int oldHeight, int newHeight);
+    friend void QTableView_ColumnResized(QTableView* self, int column, int oldWidth, int newWidth);
+    friend void QTableView_QBaseColumnResized(QTableView* self, int column, int oldWidth, int newWidth);
+    friend void QTableView_RowCountChanged(QTableView* self, int oldCount, int newCount);
+    friend void QTableView_QBaseRowCountChanged(QTableView* self, int oldCount, int newCount);
+    friend void QTableView_ColumnCountChanged(QTableView* self, int oldCount, int newCount);
+    friend void QTableView_QBaseColumnCountChanged(QTableView* self, int oldCount, int newCount);
+    friend int QTableView_State(const QTableView* self);
+    friend int QTableView_QBaseState(const QTableView* self);
+    friend void QTableView_SetState(QTableView* self, int state);
+    friend void QTableView_QBaseSetState(QTableView* self, int state);
+    friend void QTableView_ScheduleDelayedItemsLayout(QTableView* self);
+    friend void QTableView_QBaseScheduleDelayedItemsLayout(QTableView* self);
+    friend void QTableView_ExecuteDelayedItemsLayout(QTableView* self);
+    friend void QTableView_QBaseExecuteDelayedItemsLayout(QTableView* self);
+    friend void QTableView_SetDirtyRegion(QTableView* self, const QRegion* region);
+    friend void QTableView_QBaseSetDirtyRegion(QTableView* self, const QRegion* region);
+    friend void QTableView_ScrollDirtyRegion(QTableView* self, int dx, int dy);
+    friend void QTableView_QBaseScrollDirtyRegion(QTableView* self, int dx, int dy);
+    friend QPoint* QTableView_DirtyRegionOffset(const QTableView* self);
+    friend QPoint* QTableView_QBaseDirtyRegionOffset(const QTableView* self);
+    friend void QTableView_StartAutoScroll(QTableView* self);
+    friend void QTableView_QBaseStartAutoScroll(QTableView* self);
+    friend void QTableView_StopAutoScroll(QTableView* self);
+    friend void QTableView_QBaseStopAutoScroll(QTableView* self);
+    friend void QTableView_DoAutoScroll(QTableView* self);
+    friend void QTableView_QBaseDoAutoScroll(QTableView* self);
+    friend int QTableView_DropIndicatorPosition(const QTableView* self);
+    friend int QTableView_QBaseDropIndicatorPosition(const QTableView* self);
+    friend void QTableView_SetViewportMargins(QTableView* self, int left, int top, int right, int bottom);
+    friend void QTableView_QBaseSetViewportMargins(QTableView* self, int left, int top, int right, int bottom);
+    friend QMargins* QTableView_ViewportMargins(const QTableView* self);
+    friend QMargins* QTableView_QBaseViewportMargins(const QTableView* self);
+    friend void QTableView_DrawFrame(QTableView* self, QPainter* param1);
+    friend void QTableView_QBaseDrawFrame(QTableView* self, QPainter* param1);
+    friend void QTableView_UpdateMicroFocus(QTableView* self);
+    friend void QTableView_QBaseUpdateMicroFocus(QTableView* self);
+    friend void QTableView_Create(QTableView* self);
+    friend void QTableView_QBaseCreate(QTableView* self);
+    friend void QTableView_Destroy(QTableView* self);
+    friend void QTableView_QBaseDestroy(QTableView* self);
+    friend bool QTableView_FocusNextChild(QTableView* self);
+    friend bool QTableView_QBaseFocusNextChild(QTableView* self);
+    friend bool QTableView_FocusPreviousChild(QTableView* self);
+    friend bool QTableView_QBaseFocusPreviousChild(QTableView* self);
+    friend QObject* QTableView_Sender(const QTableView* self);
+    friend QObject* QTableView_QBaseSender(const QTableView* self);
+    friend int QTableView_SenderSignalIndex(const QTableView* self);
+    friend int QTableView_QBaseSenderSignalIndex(const QTableView* self);
+    friend int QTableView_Receivers(const QTableView* self, const char* signal);
+    friend int QTableView_QBaseReceivers(const QTableView* self, const char* signal);
+    friend bool QTableView_IsSignalConnected(const QTableView* self, const QMetaMethod* signal);
+    friend bool QTableView_QBaseIsSignalConnected(const QTableView* self, const QMetaMethod* signal);
 };
 
 #endif

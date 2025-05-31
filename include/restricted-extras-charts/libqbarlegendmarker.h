@@ -15,30 +15,18 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractBarSeries QAbstractBarSeries;
-typedef struct QAbstractSeries QAbstractSeries;
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QBarLegendMarker QBarLegendMarker;
 typedef struct QBarSet QBarSet;
-typedef struct QBindingStorage QBindingStorage;
-typedef struct QBrush QBrush;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
-typedef struct QFont QFont;
 typedef struct QLegend QLegend;
 typedef struct QLegendMarker QLegendMarker;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QPen QPen;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QBarLegendMarker* QBarLegendMarker_new(QAbstractBarSeries* series, QBarSet* barset, QLegend* legend);
@@ -73,12 +61,12 @@ void QBarLegendMarker_QBaseChildEvent(QBarLegendMarker* self, QChildEvent* event
 void QBarLegendMarker_CustomEvent(QBarLegendMarker* self, QEvent* event);
 void QBarLegendMarker_OnCustomEvent(QBarLegendMarker* self, intptr_t slot);
 void QBarLegendMarker_QBaseCustomEvent(QBarLegendMarker* self, QEvent* event);
-void QBarLegendMarker_ConnectNotify(QBarLegendMarker* self, QMetaMethod* signal);
+void QBarLegendMarker_ConnectNotify(QBarLegendMarker* self, const QMetaMethod* signal);
 void QBarLegendMarker_OnConnectNotify(QBarLegendMarker* self, intptr_t slot);
-void QBarLegendMarker_QBaseConnectNotify(QBarLegendMarker* self, QMetaMethod* signal);
-void QBarLegendMarker_DisconnectNotify(QBarLegendMarker* self, QMetaMethod* signal);
+void QBarLegendMarker_QBaseConnectNotify(QBarLegendMarker* self, const QMetaMethod* signal);
+void QBarLegendMarker_DisconnectNotify(QBarLegendMarker* self, const QMetaMethod* signal);
 void QBarLegendMarker_OnDisconnectNotify(QBarLegendMarker* self, intptr_t slot);
-void QBarLegendMarker_QBaseDisconnectNotify(QBarLegendMarker* self, QMetaMethod* signal);
+void QBarLegendMarker_QBaseDisconnectNotify(QBarLegendMarker* self, const QMetaMethod* signal);
 QObject* QBarLegendMarker_Sender(const QBarLegendMarker* self);
 void QBarLegendMarker_OnSender(const QBarLegendMarker* self, intptr_t slot);
 QObject* QBarLegendMarker_QBaseSender(const QBarLegendMarker* self);
@@ -88,9 +76,9 @@ int QBarLegendMarker_QBaseSenderSignalIndex(const QBarLegendMarker* self);
 int QBarLegendMarker_Receivers(const QBarLegendMarker* self, const char* signal);
 void QBarLegendMarker_OnReceivers(const QBarLegendMarker* self, intptr_t slot);
 int QBarLegendMarker_QBaseReceivers(const QBarLegendMarker* self, const char* signal);
-bool QBarLegendMarker_IsSignalConnected(const QBarLegendMarker* self, QMetaMethod* signal);
+bool QBarLegendMarker_IsSignalConnected(const QBarLegendMarker* self, const QMetaMethod* signal);
 void QBarLegendMarker_OnIsSignalConnected(const QBarLegendMarker* self, intptr_t slot);
-bool QBarLegendMarker_QBaseIsSignalConnected(const QBarLegendMarker* self, QMetaMethod* signal);
+bool QBarLegendMarker_QBaseIsSignalConnected(const QBarLegendMarker* self, const QMetaMethod* signal);
 void QBarLegendMarker_Delete(QBarLegendMarker* self);
 
 #ifdef __cplusplus

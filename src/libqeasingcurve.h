@@ -30,20 +30,20 @@ typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
 QEasingCurve* QEasingCurve_new();
-QEasingCurve* QEasingCurve_new2(QEasingCurve* other);
+QEasingCurve* QEasingCurve_new2(const QEasingCurve* other);
 QEasingCurve* QEasingCurve_new3(int typeVal);
-void QEasingCurve_OperatorAssign(QEasingCurve* self, QEasingCurve* other);
+void QEasingCurve_OperatorAssign(QEasingCurve* self, const QEasingCurve* other);
 void QEasingCurve_Swap(QEasingCurve* self, QEasingCurve* other);
-bool QEasingCurve_OperatorEqual(const QEasingCurve* self, QEasingCurve* other);
-bool QEasingCurve_OperatorNotEqual(const QEasingCurve* self, QEasingCurve* other);
+bool QEasingCurve_OperatorEqual(const QEasingCurve* self, const QEasingCurve* other);
+bool QEasingCurve_OperatorNotEqual(const QEasingCurve* self, const QEasingCurve* other);
 double QEasingCurve_Amplitude(const QEasingCurve* self);
 void QEasingCurve_SetAmplitude(QEasingCurve* self, double amplitude);
 double QEasingCurve_Period(const QEasingCurve* self);
 void QEasingCurve_SetPeriod(QEasingCurve* self, double period);
 double QEasingCurve_Overshoot(const QEasingCurve* self);
 void QEasingCurve_SetOvershoot(QEasingCurve* self, double overshoot);
-void QEasingCurve_AddCubicBezierSegment(QEasingCurve* self, QPointF* c1, QPointF* c2, QPointF* endPoint);
-void QEasingCurve_AddTCBSegment(QEasingCurve* self, QPointF* nextPoint, double t, double c, double b);
+void QEasingCurve_AddCubicBezierSegment(QEasingCurve* self, const QPointF* c1, const QPointF* c2, const QPointF* endPoint);
+void QEasingCurve_AddTCBSegment(QEasingCurve* self, const QPointF* nextPoint, double t, double c, double b);
 libqt_list /* of QPointF* */ QEasingCurve_ToCubicSpline(const QEasingCurve* self);
 int QEasingCurve_Type(const QEasingCurve* self);
 void QEasingCurve_SetType(QEasingCurve* self, int typeVal);

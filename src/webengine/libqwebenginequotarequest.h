@@ -27,13 +27,13 @@ typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
 QWebEngineQuotaRequest* QWebEngineQuotaRequest_new();
-QWebEngineQuotaRequest* QWebEngineQuotaRequest_new2(QWebEngineQuotaRequest* param1);
+QWebEngineQuotaRequest* QWebEngineQuotaRequest_new2(const QWebEngineQuotaRequest* param1);
 void QWebEngineQuotaRequest_Accept(QWebEngineQuotaRequest* self);
 void QWebEngineQuotaRequest_Reject(QWebEngineQuotaRequest* self);
 QUrl* QWebEngineQuotaRequest_Origin(const QWebEngineQuotaRequest* self);
 long long QWebEngineQuotaRequest_RequestedSize(const QWebEngineQuotaRequest* self);
-bool QWebEngineQuotaRequest_OperatorEqual(const QWebEngineQuotaRequest* self, QWebEngineQuotaRequest* that);
-bool QWebEngineQuotaRequest_OperatorNotEqual(const QWebEngineQuotaRequest* self, QWebEngineQuotaRequest* that);
+bool QWebEngineQuotaRequest_OperatorEqual(const QWebEngineQuotaRequest* self, const QWebEngineQuotaRequest* that);
+bool QWebEngineQuotaRequest_OperatorNotEqual(const QWebEngineQuotaRequest* self, const QWebEngineQuotaRequest* that);
 void QWebEngineQuotaRequest_Delete(QWebEngineQuotaRequest* self);
 
 #ifdef __cplusplus

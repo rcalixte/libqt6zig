@@ -1,21 +1,12 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
-#include <QChildEvent>
-#include <QEvent>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QPoint>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
 #include <QUrl>
-#include <QVariant>
 #include <QWebEngineContextMenuRequest>
 #include <qwebenginecontextmenurequest.h>
 #include "libqwebenginecontextmenurequest.h"
@@ -160,14 +151,6 @@ libqt_string QWebEngineContextMenuRequest_Tr3(const char* s, const char* c, int 
     memcpy(_str.data, _b.data(), _str.len);
     _str.data[_str.len] = '\0';
     return _str;
-}
-
-bool QWebEngineContextMenuRequest_Event(QWebEngineContextMenuRequest* self, QEvent* event) {
-    return self->event(event);
-}
-
-bool QWebEngineContextMenuRequest_EventFilter(QWebEngineContextMenuRequest* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
 }
 
 void QWebEngineContextMenuRequest_Delete(QWebEngineContextMenuRequest* self) {

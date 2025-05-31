@@ -43,12 +43,12 @@ typedef int RotationAngle;          // C ABI enum
 #endif
 
 QVideoFrame* QVideoFrame_new();
-QVideoFrame* QVideoFrame_new2(QVideoFrameFormat* format);
-QVideoFrame* QVideoFrame_new3(QVideoFrame* other);
+QVideoFrame* QVideoFrame_new2(const QVideoFrameFormat* format);
+QVideoFrame* QVideoFrame_new3(const QVideoFrame* other);
 void QVideoFrame_Swap(QVideoFrame* self, QVideoFrame* other);
-void QVideoFrame_OperatorAssign(QVideoFrame* self, QVideoFrame* other);
-bool QVideoFrame_OperatorEqual(const QVideoFrame* self, QVideoFrame* other);
-bool QVideoFrame_OperatorNotEqual(const QVideoFrame* self, QVideoFrame* other);
+void QVideoFrame_OperatorAssign(QVideoFrame* self, const QVideoFrame* other);
+bool QVideoFrame_OperatorEqual(const QVideoFrame* self, const QVideoFrame* other);
+bool QVideoFrame_OperatorNotEqual(const QVideoFrame* self, const QVideoFrame* other);
 bool QVideoFrame_IsValid(const QVideoFrame* self);
 int QVideoFrame_PixelFormat(const QVideoFrame* self);
 QVideoFrameFormat* QVideoFrame_SurfaceFormat(const QVideoFrame* self);
@@ -77,11 +77,11 @@ void QVideoFrame_SetMirrored(QVideoFrame* self, bool mirrored);
 bool QVideoFrame_Mirrored(const QVideoFrame* self);
 QImage* QVideoFrame_ToImage(const QVideoFrame* self);
 libqt_string QVideoFrame_SubtitleText(const QVideoFrame* self);
-void QVideoFrame_SetSubtitleText(QVideoFrame* self, libqt_string text);
-void QVideoFrame_Paint(QVideoFrame* self, QPainter* painter, QRectF* rect, QVideoFrame__PaintOptions* options);
+void QVideoFrame_SetSubtitleText(QVideoFrame* self, const libqt_string text);
+void QVideoFrame_Paint(QVideoFrame* self, QPainter* painter, const QRectF* rect, const QVideoFrame__PaintOptions* options);
 void QVideoFrame_Delete(QVideoFrame* self);
 
-QVideoFrame__PaintOptions* QVideoFrame__PaintOptions_new(QVideoFrame__PaintOptions* other);
+QVideoFrame__PaintOptions* QVideoFrame__PaintOptions_new(const QVideoFrame__PaintOptions* other);
 QVideoFrame__PaintOptions* QVideoFrame__PaintOptions_new2(QVideoFrame__PaintOptions* other);
 void QVideoFrame__PaintOptions_CopyAssign(QVideoFrame__PaintOptions* self, QVideoFrame__PaintOptions* other);
 void QVideoFrame__PaintOptions_MoveAssign(QVideoFrame__PaintOptions* self, QVideoFrame__PaintOptions* other);

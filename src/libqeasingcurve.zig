@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qeasingcurve_enums = enums;
 const std = @import("std");
 
@@ -7,116 +8,116 @@ pub const qeasingcurve = struct {
     /// New constructs a new QEasingCurve object.
     ///
     ///
-    pub fn New() ?*C.QEasingCurve {
-        return C.QEasingCurve_new();
+    pub fn New() QtC.QEasingCurve {
+        return qtc.QEasingCurve_new();
     }
 
     /// New2 constructs a new QEasingCurve object.
     ///
-    /// ``` other: ?*C.QEasingCurve ```
-    pub fn New2(other: ?*anyopaque) ?*C.QEasingCurve {
-        return C.QEasingCurve_new2(@ptrCast(other));
+    /// ``` other: QtC.QEasingCurve ```
+    pub fn New2(other: ?*anyopaque) QtC.QEasingCurve {
+        return qtc.QEasingCurve_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QEasingCurve object.
     ///
     /// ``` typeVal: qeasingcurve_enums.Type ```
-    pub fn New3(typeVal: i64) ?*C.QEasingCurve {
-        return C.QEasingCurve_new3(@intCast(typeVal));
+    pub fn New3(typeVal: i64) QtC.QEasingCurve {
+        return qtc.QEasingCurve_new3(@intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#operator=)
     ///
-    /// ``` self: ?*C.QEasingCurve, other: ?*C.QEasingCurve ```
+    /// ``` self: QtC.QEasingCurve, other: QtC.QEasingCurve ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QEasingCurve_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QEasingCurve_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#swap)
     ///
-    /// ``` self: ?*C.QEasingCurve, other: ?*C.QEasingCurve ```
+    /// ``` self: QtC.QEasingCurve, other: QtC.QEasingCurve ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QEasingCurve_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QEasingCurve_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#operator==)
     ///
-    /// ``` self: ?*C.QEasingCurve, other: ?*C.QEasingCurve ```
+    /// ``` self: QtC.QEasingCurve, other: QtC.QEasingCurve ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return C.QEasingCurve_OperatorEqual(@ptrCast(self), @ptrCast(other));
+        return qtc.QEasingCurve_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#operator!=)
     ///
-    /// ``` self: ?*C.QEasingCurve, other: ?*C.QEasingCurve ```
+    /// ``` self: QtC.QEasingCurve, other: QtC.QEasingCurve ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return C.QEasingCurve_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
+        return qtc.QEasingCurve_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#amplitude)
     ///
-    /// ``` self: ?*C.QEasingCurve ```
+    /// ``` self: QtC.QEasingCurve ```
     pub fn Amplitude(self: ?*anyopaque) f64 {
-        return C.QEasingCurve_Amplitude(@ptrCast(self));
+        return qtc.QEasingCurve_Amplitude(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#setAmplitude)
     ///
-    /// ``` self: ?*C.QEasingCurve, amplitude: f64 ```
+    /// ``` self: QtC.QEasingCurve, amplitude: f64 ```
     pub fn SetAmplitude(self: ?*anyopaque, amplitude: f64) void {
-        C.QEasingCurve_SetAmplitude(@ptrCast(self), @floatCast(amplitude));
+        qtc.QEasingCurve_SetAmplitude(@ptrCast(self), @floatCast(amplitude));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#period)
     ///
-    /// ``` self: ?*C.QEasingCurve ```
+    /// ``` self: QtC.QEasingCurve ```
     pub fn Period(self: ?*anyopaque) f64 {
-        return C.QEasingCurve_Period(@ptrCast(self));
+        return qtc.QEasingCurve_Period(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#setPeriod)
     ///
-    /// ``` self: ?*C.QEasingCurve, period: f64 ```
+    /// ``` self: QtC.QEasingCurve, period: f64 ```
     pub fn SetPeriod(self: ?*anyopaque, period: f64) void {
-        C.QEasingCurve_SetPeriod(@ptrCast(self), @floatCast(period));
+        qtc.QEasingCurve_SetPeriod(@ptrCast(self), @floatCast(period));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#overshoot)
     ///
-    /// ``` self: ?*C.QEasingCurve ```
+    /// ``` self: QtC.QEasingCurve ```
     pub fn Overshoot(self: ?*anyopaque) f64 {
-        return C.QEasingCurve_Overshoot(@ptrCast(self));
+        return qtc.QEasingCurve_Overshoot(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#setOvershoot)
     ///
-    /// ``` self: ?*C.QEasingCurve, overshoot: f64 ```
+    /// ``` self: QtC.QEasingCurve, overshoot: f64 ```
     pub fn SetOvershoot(self: ?*anyopaque, overshoot: f64) void {
-        C.QEasingCurve_SetOvershoot(@ptrCast(self), @floatCast(overshoot));
+        qtc.QEasingCurve_SetOvershoot(@ptrCast(self), @floatCast(overshoot));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#addCubicBezierSegment)
     ///
-    /// ``` self: ?*C.QEasingCurve, c1: ?*C.QPointF, c2: ?*C.QPointF, endPoint: ?*C.QPointF ```
+    /// ``` self: QtC.QEasingCurve, c1: QtC.QPointF, c2: QtC.QPointF, endPoint: QtC.QPointF ```
     pub fn AddCubicBezierSegment(self: ?*anyopaque, c1: ?*anyopaque, c2: ?*anyopaque, endPoint: ?*anyopaque) void {
-        C.QEasingCurve_AddCubicBezierSegment(@ptrCast(self), @ptrCast(c1), @ptrCast(c2), @ptrCast(endPoint));
+        qtc.QEasingCurve_AddCubicBezierSegment(@ptrCast(self), @ptrCast(c1), @ptrCast(c2), @ptrCast(endPoint));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#addTCBSegment)
     ///
-    /// ``` self: ?*C.QEasingCurve, nextPoint: ?*C.QPointF, t: f64, c: f64, b: f64 ```
+    /// ``` self: QtC.QEasingCurve, nextPoint: QtC.QPointF, t: f64, c: f64, b: f64 ```
     pub fn AddTCBSegment(self: ?*anyopaque, nextPoint: ?*anyopaque, t: f64, c: f64, b: f64) void {
-        C.QEasingCurve_AddTCBSegment(@ptrCast(self), @ptrCast(nextPoint), @floatCast(t), @floatCast(c), @floatCast(b));
+        qtc.QEasingCurve_AddTCBSegment(@ptrCast(self), @ptrCast(nextPoint), @floatCast(t), @floatCast(c), @floatCast(b));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#toCubicSpline)
     ///
-    /// ``` self: ?*C.QEasingCurve, allocator: std.mem.Allocator ```
-    pub fn ToCubicSpline(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QPointF {
-        const _arr: C.struct_libqt_list = C.QEasingCurve_ToCubicSpline(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QPointF, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QPointF = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QEasingCurve, allocator: std.mem.Allocator ```
+    pub fn ToCubicSpline(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QPointF {
+        const _arr: qtc.struct_libqt_list = qtc.QEasingCurve_ToCubicSpline(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QPointF, _arr.len) catch @panic("qeasingcurve.ToCubicSpline: Memory allocation failed");
+        const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -125,30 +126,32 @@ pub const qeasingcurve = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#type)
     ///
-    /// ``` self: ?*C.QEasingCurve ```
+    /// ``` self: QtC.QEasingCurve ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QEasingCurve_Type(@ptrCast(self));
+        return qtc.QEasingCurve_Type(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#setType)
     ///
-    /// ``` self: ?*C.QEasingCurve, typeVal: qeasingcurve_enums.Type ```
+    /// ``` self: QtC.QEasingCurve, typeVal: qeasingcurve_enums.Type ```
     pub fn SetType(self: ?*anyopaque, typeVal: i64) void {
-        C.QEasingCurve_SetType(@ptrCast(self), @intCast(typeVal));
+        qtc.QEasingCurve_SetType(@ptrCast(self), @intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#valueForProgress)
     ///
-    /// ``` self: ?*C.QEasingCurve, progress: f64 ```
+    /// ``` self: QtC.QEasingCurve, progress: f64 ```
     pub fn ValueForProgress(self: ?*anyopaque, progress: f64) f64 {
-        return C.QEasingCurve_ValueForProgress(@ptrCast(self), @floatCast(progress));
+        return qtc.QEasingCurve_ValueForProgress(@ptrCast(self), @floatCast(progress));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#dtor.QEasingCurve)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QEasingCurve ```
+    /// ``` self: QtC.QEasingCurve ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QEasingCurve_Delete(@ptrCast(self));
+        qtc.QEasingCurve_Delete(@ptrCast(self));
     }
 };
 

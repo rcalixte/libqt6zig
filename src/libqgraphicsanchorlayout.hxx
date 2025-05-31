@@ -11,17 +11,20 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QGraphicsAnchorLayout so that we can call protected methods
-class VirtualQGraphicsAnchorLayout : public QGraphicsAnchorLayout {
+class VirtualQGraphicsAnchorLayout final : public QGraphicsAnchorLayout {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsAnchorLayout = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsAnchorLayout_RemoveAt_Callback = void (*)(QGraphicsAnchorLayout*, int);
-    using QGraphicsAnchorLayout_SetGeometry_Callback = void (*)(QGraphicsAnchorLayout*, const QRectF&);
+    using QGraphicsAnchorLayout_SetGeometry_Callback = void (*)(QGraphicsAnchorLayout*, QRectF*);
     using QGraphicsAnchorLayout_Count_Callback = int (*)();
     using QGraphicsAnchorLayout_ItemAt_Callback = QGraphicsLayoutItem* (*)(const QGraphicsAnchorLayout*, int);
     using QGraphicsAnchorLayout_Invalidate_Callback = void (*)();
-    using QGraphicsAnchorLayout_SizeHint_Callback = QSizeF (*)(const QGraphicsAnchorLayout*, Qt::SizeHint, const QSizeF&);
-    using QGraphicsAnchorLayout_GetContentsMargins_Callback = void (*)(const QGraphicsAnchorLayout*, qreal*, qreal*, qreal*, qreal*);
+    using QGraphicsAnchorLayout_SizeHint_Callback = QSizeF* (*)(const QGraphicsAnchorLayout*, int, QSizeF*);
+    using QGraphicsAnchorLayout_GetContentsMargins_Callback = void (*)(const QGraphicsAnchorLayout*, double*, double*, double*, double*);
     using QGraphicsAnchorLayout_UpdateGeometry_Callback = void (*)();
     using QGraphicsAnchorLayout_WidgetEvent_Callback = void (*)(QGraphicsAnchorLayout*, QEvent*);
     using QGraphicsAnchorLayout_IsEmpty_Callback = bool (*)();
@@ -81,34 +84,34 @@ class VirtualQGraphicsAnchorLayout : public QGraphicsAnchorLayout {
     }
 
     // Callback setters
-    void setQGraphicsAnchorLayout_RemoveAt_Callback(QGraphicsAnchorLayout_RemoveAt_Callback cb) { qgraphicsanchorlayout_removeat_callback = cb; }
-    void setQGraphicsAnchorLayout_SetGeometry_Callback(QGraphicsAnchorLayout_SetGeometry_Callback cb) { qgraphicsanchorlayout_setgeometry_callback = cb; }
-    void setQGraphicsAnchorLayout_Count_Callback(QGraphicsAnchorLayout_Count_Callback cb) { qgraphicsanchorlayout_count_callback = cb; }
-    void setQGraphicsAnchorLayout_ItemAt_Callback(QGraphicsAnchorLayout_ItemAt_Callback cb) { qgraphicsanchorlayout_itemat_callback = cb; }
-    void setQGraphicsAnchorLayout_Invalidate_Callback(QGraphicsAnchorLayout_Invalidate_Callback cb) { qgraphicsanchorlayout_invalidate_callback = cb; }
-    void setQGraphicsAnchorLayout_SizeHint_Callback(QGraphicsAnchorLayout_SizeHint_Callback cb) { qgraphicsanchorlayout_sizehint_callback = cb; }
-    void setQGraphicsAnchorLayout_GetContentsMargins_Callback(QGraphicsAnchorLayout_GetContentsMargins_Callback cb) { qgraphicsanchorlayout_getcontentsmargins_callback = cb; }
-    void setQGraphicsAnchorLayout_UpdateGeometry_Callback(QGraphicsAnchorLayout_UpdateGeometry_Callback cb) { qgraphicsanchorlayout_updategeometry_callback = cb; }
-    void setQGraphicsAnchorLayout_WidgetEvent_Callback(QGraphicsAnchorLayout_WidgetEvent_Callback cb) { qgraphicsanchorlayout_widgetevent_callback = cb; }
-    void setQGraphicsAnchorLayout_IsEmpty_Callback(QGraphicsAnchorLayout_IsEmpty_Callback cb) { qgraphicsanchorlayout_isempty_callback = cb; }
-    void setQGraphicsAnchorLayout_AddChildLayoutItem_Callback(QGraphicsAnchorLayout_AddChildLayoutItem_Callback cb) { qgraphicsanchorlayout_addchildlayoutitem_callback = cb; }
-    void setQGraphicsAnchorLayout_SetGraphicsItem_Callback(QGraphicsAnchorLayout_SetGraphicsItem_Callback cb) { qgraphicsanchorlayout_setgraphicsitem_callback = cb; }
-    void setQGraphicsAnchorLayout_SetOwnedByLayout_Callback(QGraphicsAnchorLayout_SetOwnedByLayout_Callback cb) { qgraphicsanchorlayout_setownedbylayout_callback = cb; }
+    inline void setQGraphicsAnchorLayout_RemoveAt_Callback(QGraphicsAnchorLayout_RemoveAt_Callback cb) { qgraphicsanchorlayout_removeat_callback = cb; }
+    inline void setQGraphicsAnchorLayout_SetGeometry_Callback(QGraphicsAnchorLayout_SetGeometry_Callback cb) { qgraphicsanchorlayout_setgeometry_callback = cb; }
+    inline void setQGraphicsAnchorLayout_Count_Callback(QGraphicsAnchorLayout_Count_Callback cb) { qgraphicsanchorlayout_count_callback = cb; }
+    inline void setQGraphicsAnchorLayout_ItemAt_Callback(QGraphicsAnchorLayout_ItemAt_Callback cb) { qgraphicsanchorlayout_itemat_callback = cb; }
+    inline void setQGraphicsAnchorLayout_Invalidate_Callback(QGraphicsAnchorLayout_Invalidate_Callback cb) { qgraphicsanchorlayout_invalidate_callback = cb; }
+    inline void setQGraphicsAnchorLayout_SizeHint_Callback(QGraphicsAnchorLayout_SizeHint_Callback cb) { qgraphicsanchorlayout_sizehint_callback = cb; }
+    inline void setQGraphicsAnchorLayout_GetContentsMargins_Callback(QGraphicsAnchorLayout_GetContentsMargins_Callback cb) { qgraphicsanchorlayout_getcontentsmargins_callback = cb; }
+    inline void setQGraphicsAnchorLayout_UpdateGeometry_Callback(QGraphicsAnchorLayout_UpdateGeometry_Callback cb) { qgraphicsanchorlayout_updategeometry_callback = cb; }
+    inline void setQGraphicsAnchorLayout_WidgetEvent_Callback(QGraphicsAnchorLayout_WidgetEvent_Callback cb) { qgraphicsanchorlayout_widgetevent_callback = cb; }
+    inline void setQGraphicsAnchorLayout_IsEmpty_Callback(QGraphicsAnchorLayout_IsEmpty_Callback cb) { qgraphicsanchorlayout_isempty_callback = cb; }
+    inline void setQGraphicsAnchorLayout_AddChildLayoutItem_Callback(QGraphicsAnchorLayout_AddChildLayoutItem_Callback cb) { qgraphicsanchorlayout_addchildlayoutitem_callback = cb; }
+    inline void setQGraphicsAnchorLayout_SetGraphicsItem_Callback(QGraphicsAnchorLayout_SetGraphicsItem_Callback cb) { qgraphicsanchorlayout_setgraphicsitem_callback = cb; }
+    inline void setQGraphicsAnchorLayout_SetOwnedByLayout_Callback(QGraphicsAnchorLayout_SetOwnedByLayout_Callback cb) { qgraphicsanchorlayout_setownedbylayout_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsAnchorLayout_RemoveAt_IsBase(bool value) const { qgraphicsanchorlayout_removeat_isbase = value; }
-    void setQGraphicsAnchorLayout_SetGeometry_IsBase(bool value) const { qgraphicsanchorlayout_setgeometry_isbase = value; }
-    void setQGraphicsAnchorLayout_Count_IsBase(bool value) const { qgraphicsanchorlayout_count_isbase = value; }
-    void setQGraphicsAnchorLayout_ItemAt_IsBase(bool value) const { qgraphicsanchorlayout_itemat_isbase = value; }
-    void setQGraphicsAnchorLayout_Invalidate_IsBase(bool value) const { qgraphicsanchorlayout_invalidate_isbase = value; }
-    void setQGraphicsAnchorLayout_SizeHint_IsBase(bool value) const { qgraphicsanchorlayout_sizehint_isbase = value; }
-    void setQGraphicsAnchorLayout_GetContentsMargins_IsBase(bool value) const { qgraphicsanchorlayout_getcontentsmargins_isbase = value; }
-    void setQGraphicsAnchorLayout_UpdateGeometry_IsBase(bool value) const { qgraphicsanchorlayout_updategeometry_isbase = value; }
-    void setQGraphicsAnchorLayout_WidgetEvent_IsBase(bool value) const { qgraphicsanchorlayout_widgetevent_isbase = value; }
-    void setQGraphicsAnchorLayout_IsEmpty_IsBase(bool value) const { qgraphicsanchorlayout_isempty_isbase = value; }
-    void setQGraphicsAnchorLayout_AddChildLayoutItem_IsBase(bool value) const { qgraphicsanchorlayout_addchildlayoutitem_isbase = value; }
-    void setQGraphicsAnchorLayout_SetGraphicsItem_IsBase(bool value) const { qgraphicsanchorlayout_setgraphicsitem_isbase = value; }
-    void setQGraphicsAnchorLayout_SetOwnedByLayout_IsBase(bool value) const { qgraphicsanchorlayout_setownedbylayout_isbase = value; }
+    inline void setQGraphicsAnchorLayout_RemoveAt_IsBase(bool value) const { qgraphicsanchorlayout_removeat_isbase = value; }
+    inline void setQGraphicsAnchorLayout_SetGeometry_IsBase(bool value) const { qgraphicsanchorlayout_setgeometry_isbase = value; }
+    inline void setQGraphicsAnchorLayout_Count_IsBase(bool value) const { qgraphicsanchorlayout_count_isbase = value; }
+    inline void setQGraphicsAnchorLayout_ItemAt_IsBase(bool value) const { qgraphicsanchorlayout_itemat_isbase = value; }
+    inline void setQGraphicsAnchorLayout_Invalidate_IsBase(bool value) const { qgraphicsanchorlayout_invalidate_isbase = value; }
+    inline void setQGraphicsAnchorLayout_SizeHint_IsBase(bool value) const { qgraphicsanchorlayout_sizehint_isbase = value; }
+    inline void setQGraphicsAnchorLayout_GetContentsMargins_IsBase(bool value) const { qgraphicsanchorlayout_getcontentsmargins_isbase = value; }
+    inline void setQGraphicsAnchorLayout_UpdateGeometry_IsBase(bool value) const { qgraphicsanchorlayout_updategeometry_isbase = value; }
+    inline void setQGraphicsAnchorLayout_WidgetEvent_IsBase(bool value) const { qgraphicsanchorlayout_widgetevent_isbase = value; }
+    inline void setQGraphicsAnchorLayout_IsEmpty_IsBase(bool value) const { qgraphicsanchorlayout_isempty_isbase = value; }
+    inline void setQGraphicsAnchorLayout_AddChildLayoutItem_IsBase(bool value) const { qgraphicsanchorlayout_addchildlayoutitem_isbase = value; }
+    inline void setQGraphicsAnchorLayout_SetGraphicsItem_IsBase(bool value) const { qgraphicsanchorlayout_setgraphicsitem_isbase = value; }
+    inline void setQGraphicsAnchorLayout_SetOwnedByLayout_IsBase(bool value) const { qgraphicsanchorlayout_setownedbylayout_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void removeAt(int index) override {
@@ -116,7 +119,9 @@ class VirtualQGraphicsAnchorLayout : public QGraphicsAnchorLayout {
             qgraphicsanchorlayout_removeat_isbase = false;
             QGraphicsAnchorLayout::removeAt(index);
         } else if (qgraphicsanchorlayout_removeat_callback != nullptr) {
-            qgraphicsanchorlayout_removeat_callback(this, index);
+            int cbval1 = index;
+
+            qgraphicsanchorlayout_removeat_callback(this, cbval1);
         } else {
             QGraphicsAnchorLayout::removeAt(index);
         }
@@ -128,7 +133,11 @@ class VirtualQGraphicsAnchorLayout : public QGraphicsAnchorLayout {
             qgraphicsanchorlayout_setgeometry_isbase = false;
             QGraphicsAnchorLayout::setGeometry(rect);
         } else if (qgraphicsanchorlayout_setgeometry_callback != nullptr) {
-            qgraphicsanchorlayout_setgeometry_callback(this, rect);
+            const QRectF& rect_ret = rect;
+            // Cast returned reference into pointer
+            QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
+
+            qgraphicsanchorlayout_setgeometry_callback(this, cbval1);
         } else {
             QGraphicsAnchorLayout::setGeometry(rect);
         }
@@ -140,7 +149,8 @@ class VirtualQGraphicsAnchorLayout : public QGraphicsAnchorLayout {
             qgraphicsanchorlayout_count_isbase = false;
             return QGraphicsAnchorLayout::count();
         } else if (qgraphicsanchorlayout_count_callback != nullptr) {
-            return qgraphicsanchorlayout_count_callback();
+            int callback_ret = qgraphicsanchorlayout_count_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsAnchorLayout::count();
         }
@@ -152,7 +162,10 @@ class VirtualQGraphicsAnchorLayout : public QGraphicsAnchorLayout {
             qgraphicsanchorlayout_itemat_isbase = false;
             return QGraphicsAnchorLayout::itemAt(index);
         } else if (qgraphicsanchorlayout_itemat_callback != nullptr) {
-            return qgraphicsanchorlayout_itemat_callback(this, index);
+            int cbval1 = index;
+
+            QGraphicsLayoutItem* callback_ret = qgraphicsanchorlayout_itemat_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsAnchorLayout::itemAt(index);
         }
@@ -176,7 +189,13 @@ class VirtualQGraphicsAnchorLayout : public QGraphicsAnchorLayout {
             qgraphicsanchorlayout_sizehint_isbase = false;
             return QGraphicsAnchorLayout::sizeHint(which, constraint);
         } else if (qgraphicsanchorlayout_sizehint_callback != nullptr) {
-            return qgraphicsanchorlayout_sizehint_callback(this, which, constraint);
+            int cbval1 = static_cast<int>(which);
+            const QSizeF& constraint_ret = constraint;
+            // Cast returned reference into pointer
+            QSizeF* cbval2 = const_cast<QSizeF*>(&constraint_ret);
+
+            QSizeF* callback_ret = qgraphicsanchorlayout_sizehint_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QGraphicsAnchorLayout::sizeHint(which, constraint);
         }
@@ -188,7 +207,12 @@ class VirtualQGraphicsAnchorLayout : public QGraphicsAnchorLayout {
             qgraphicsanchorlayout_getcontentsmargins_isbase = false;
             QGraphicsAnchorLayout::getContentsMargins(left, top, right, bottom);
         } else if (qgraphicsanchorlayout_getcontentsmargins_callback != nullptr) {
-            qgraphicsanchorlayout_getcontentsmargins_callback(this, left, top, right, bottom);
+            double* cbval1 = static_cast<double*>(left);
+            double* cbval2 = static_cast<double*>(top);
+            double* cbval3 = static_cast<double*>(right);
+            double* cbval4 = static_cast<double*>(bottom);
+
+            qgraphicsanchorlayout_getcontentsmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QGraphicsAnchorLayout::getContentsMargins(left, top, right, bottom);
         }
@@ -212,7 +236,9 @@ class VirtualQGraphicsAnchorLayout : public QGraphicsAnchorLayout {
             qgraphicsanchorlayout_widgetevent_isbase = false;
             QGraphicsAnchorLayout::widgetEvent(e);
         } else if (qgraphicsanchorlayout_widgetevent_callback != nullptr) {
-            qgraphicsanchorlayout_widgetevent_callback(this, e);
+            QEvent* cbval1 = e;
+
+            qgraphicsanchorlayout_widgetevent_callback(this, cbval1);
         } else {
             QGraphicsAnchorLayout::widgetEvent(e);
         }
@@ -224,7 +250,8 @@ class VirtualQGraphicsAnchorLayout : public QGraphicsAnchorLayout {
             qgraphicsanchorlayout_isempty_isbase = false;
             return QGraphicsAnchorLayout::isEmpty();
         } else if (qgraphicsanchorlayout_isempty_callback != nullptr) {
-            return qgraphicsanchorlayout_isempty_callback();
+            bool callback_ret = qgraphicsanchorlayout_isempty_callback();
+            return callback_ret;
         } else {
             return QGraphicsAnchorLayout::isEmpty();
         }
@@ -236,7 +263,9 @@ class VirtualQGraphicsAnchorLayout : public QGraphicsAnchorLayout {
             qgraphicsanchorlayout_addchildlayoutitem_isbase = false;
             QGraphicsAnchorLayout::addChildLayoutItem(layoutItem);
         } else if (qgraphicsanchorlayout_addchildlayoutitem_callback != nullptr) {
-            qgraphicsanchorlayout_addchildlayoutitem_callback(this, layoutItem);
+            QGraphicsLayoutItem* cbval1 = layoutItem;
+
+            qgraphicsanchorlayout_addchildlayoutitem_callback(this, cbval1);
         } else {
             QGraphicsAnchorLayout::addChildLayoutItem(layoutItem);
         }
@@ -248,7 +277,9 @@ class VirtualQGraphicsAnchorLayout : public QGraphicsAnchorLayout {
             qgraphicsanchorlayout_setgraphicsitem_isbase = false;
             QGraphicsAnchorLayout::setGraphicsItem(item);
         } else if (qgraphicsanchorlayout_setgraphicsitem_callback != nullptr) {
-            qgraphicsanchorlayout_setgraphicsitem_callback(this, item);
+            QGraphicsItem* cbval1 = item;
+
+            qgraphicsanchorlayout_setgraphicsitem_callback(this, cbval1);
         } else {
             QGraphicsAnchorLayout::setGraphicsItem(item);
         }
@@ -260,11 +291,23 @@ class VirtualQGraphicsAnchorLayout : public QGraphicsAnchorLayout {
             qgraphicsanchorlayout_setownedbylayout_isbase = false;
             QGraphicsAnchorLayout::setOwnedByLayout(ownedByLayout);
         } else if (qgraphicsanchorlayout_setownedbylayout_callback != nullptr) {
-            qgraphicsanchorlayout_setownedbylayout_callback(this, ownedByLayout);
+            bool cbval1 = ownedByLayout;
+
+            qgraphicsanchorlayout_setownedbylayout_callback(this, cbval1);
         } else {
             QGraphicsAnchorLayout::setOwnedByLayout(ownedByLayout);
         }
     }
+
+    // Friend functions
+    friend QSizeF* QGraphicsAnchorLayout_SizeHint(const QGraphicsAnchorLayout* self, int which, const QSizeF* constraint);
+    friend QSizeF* QGraphicsAnchorLayout_QBaseSizeHint(const QGraphicsAnchorLayout* self, int which, const QSizeF* constraint);
+    friend void QGraphicsAnchorLayout_AddChildLayoutItem(QGraphicsAnchorLayout* self, QGraphicsLayoutItem* layoutItem);
+    friend void QGraphicsAnchorLayout_QBaseAddChildLayoutItem(QGraphicsAnchorLayout* self, QGraphicsLayoutItem* layoutItem);
+    friend void QGraphicsAnchorLayout_SetGraphicsItem(QGraphicsAnchorLayout* self, QGraphicsItem* item);
+    friend void QGraphicsAnchorLayout_QBaseSetGraphicsItem(QGraphicsAnchorLayout* self, QGraphicsItem* item);
+    friend void QGraphicsAnchorLayout_SetOwnedByLayout(QGraphicsAnchorLayout* self, bool ownedByLayout);
+    friend void QGraphicsAnchorLayout_QBaseSetOwnedByLayout(QGraphicsAnchorLayout* self, bool ownedByLayout);
 };
 
 #endif

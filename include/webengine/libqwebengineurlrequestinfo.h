@@ -36,8 +36,8 @@ QUrl* QWebEngineUrlRequestInfo_Initiator(const QWebEngineUrlRequestInfo* self);
 libqt_string QWebEngineUrlRequestInfo_RequestMethod(const QWebEngineUrlRequestInfo* self);
 bool QWebEngineUrlRequestInfo_Changed(const QWebEngineUrlRequestInfo* self);
 void QWebEngineUrlRequestInfo_Block(QWebEngineUrlRequestInfo* self, bool shouldBlock);
-void QWebEngineUrlRequestInfo_Redirect(QWebEngineUrlRequestInfo* self, QUrl* url);
-void QWebEngineUrlRequestInfo_SetHttpHeader(QWebEngineUrlRequestInfo* self, libqt_string name, libqt_string value);
+void QWebEngineUrlRequestInfo_Redirect(QWebEngineUrlRequestInfo* self, const QUrl* url);
+void QWebEngineUrlRequestInfo_SetHttpHeader(QWebEngineUrlRequestInfo* self, const libqt_string name, const libqt_string value);
 
 #ifdef __cplusplus
 } /* extern C */

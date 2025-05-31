@@ -12,7 +12,7 @@
 #include "libqtransform.h"
 #include "libqtransform.hxx"
 
-QTransform* QTransform_new(QTransform* other) {
+QTransform* QTransform_new(const QTransform* other) {
     return new QTransform(*other);
 }
 
@@ -36,7 +36,7 @@ QTransform* QTransform_new6(double h11, double h12, double h21, double h22, doub
     return new QTransform(static_cast<qreal>(h11), static_cast<qreal>(h12), static_cast<qreal>(h21), static_cast<qreal>(h22), static_cast<qreal>(dx), static_cast<qreal>(dy));
 }
 
-QTransform* QTransform_new7(QTransform* other) {
+QTransform* QTransform_new7(const QTransform* other) {
     return new QTransform(*other);
 }
 
@@ -48,7 +48,7 @@ void QTransform_MoveAssign(QTransform* self, QTransform* other) {
     *self = std::move(*other);
 }
 
-void QTransform_OperatorAssign(QTransform* self, QTransform* param1) {
+void QTransform_OperatorAssign(QTransform* self, const QTransform* param1) {
     self->operator=(*param1);
 }
 
@@ -174,21 +174,21 @@ QTransform* QTransform_RotateRadians(QTransform* self, double a) {
     return &_ret;
 }
 
-bool QTransform_OperatorEqual(const QTransform* self, QTransform* param1) {
+bool QTransform_OperatorEqual(const QTransform* self, const QTransform* param1) {
     return (*self == *param1);
 }
 
-bool QTransform_OperatorNotEqual(const QTransform* self, QTransform* param1) {
+bool QTransform_OperatorNotEqual(const QTransform* self, const QTransform* param1) {
     return (*self != *param1);
 }
 
-QTransform* QTransform_OperatorMultiplyAssign(QTransform* self, QTransform* param1) {
+QTransform* QTransform_OperatorMultiplyAssign(QTransform* self, const QTransform* param1) {
     QTransform& _ret = self->operator*=(*param1);
     // Cast returned reference into pointer
     return &_ret;
 }
 
-QTransform* QTransform_OperatorMultiply(const QTransform* self, QTransform* o) {
+QTransform* QTransform_OperatorMultiply(const QTransform* self, const QTransform* o) {
     return new QTransform(self->operator*(*o));
 }
 
@@ -200,35 +200,35 @@ void QTransform_Reset(QTransform* self) {
     self->reset();
 }
 
-QPoint* QTransform_Map(const QTransform* self, QPoint* p) {
+QPoint* QTransform_Map(const QTransform* self, const QPoint* p) {
     return new QPoint(self->map(*p));
 }
 
-QPointF* QTransform_MapWithQPointF(const QTransform* self, QPointF* p) {
+QPointF* QTransform_MapWithQPointF(const QTransform* self, const QPointF* p) {
     return new QPointF(self->map(*p));
 }
 
-QLine* QTransform_MapWithQLine(const QTransform* self, QLine* l) {
+QLine* QTransform_MapWithQLine(const QTransform* self, const QLine* l) {
     return new QLine(self->map(*l));
 }
 
-QLineF* QTransform_MapWithQLineF(const QTransform* self, QLineF* l) {
+QLineF* QTransform_MapWithQLineF(const QTransform* self, const QLineF* l) {
     return new QLineF(self->map(*l));
 }
 
-QRegion* QTransform_MapWithQRegion(const QTransform* self, QRegion* r) {
+QRegion* QTransform_MapWithQRegion(const QTransform* self, const QRegion* r) {
     return new QRegion(self->map(*r));
 }
 
-QPainterPath* QTransform_MapWithQPainterPath(const QTransform* self, QPainterPath* p) {
+QPainterPath* QTransform_MapWithQPainterPath(const QTransform* self, const QPainterPath* p) {
     return new QPainterPath(self->map(*p));
 }
 
-QRect* QTransform_MapRect(const QTransform* self, QRect* param1) {
+QRect* QTransform_MapRect(const QTransform* self, const QRect* param1) {
     return new QRect(self->mapRect(*param1));
 }
 
-QRectF* QTransform_MapRectWithQRectF(const QTransform* self, QRectF* param1) {
+QRectF* QTransform_MapRectWithQRectF(const QTransform* self, const QRectF* param1) {
     return new QRectF(self->mapRect(*param1));
 }
 

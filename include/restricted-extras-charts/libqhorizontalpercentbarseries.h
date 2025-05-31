@@ -15,27 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAbstractAxis QAbstractAxis;
 typedef struct QAbstractBarSeries QAbstractBarSeries;
 typedef struct QAbstractSeries QAbstractSeries;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBarSet QBarSet;
-typedef struct QBindingStorage QBindingStorage;
-typedef struct QChart QChart;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QHorizontalPercentBarSeries QHorizontalPercentBarSeries;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QHorizontalPercentBarSeries* QHorizontalPercentBarSeries_new();
@@ -66,12 +55,12 @@ void QHorizontalPercentBarSeries_QBaseChildEvent(QHorizontalPercentBarSeries* se
 void QHorizontalPercentBarSeries_CustomEvent(QHorizontalPercentBarSeries* self, QEvent* event);
 void QHorizontalPercentBarSeries_OnCustomEvent(QHorizontalPercentBarSeries* self, intptr_t slot);
 void QHorizontalPercentBarSeries_QBaseCustomEvent(QHorizontalPercentBarSeries* self, QEvent* event);
-void QHorizontalPercentBarSeries_ConnectNotify(QHorizontalPercentBarSeries* self, QMetaMethod* signal);
+void QHorizontalPercentBarSeries_ConnectNotify(QHorizontalPercentBarSeries* self, const QMetaMethod* signal);
 void QHorizontalPercentBarSeries_OnConnectNotify(QHorizontalPercentBarSeries* self, intptr_t slot);
-void QHorizontalPercentBarSeries_QBaseConnectNotify(QHorizontalPercentBarSeries* self, QMetaMethod* signal);
-void QHorizontalPercentBarSeries_DisconnectNotify(QHorizontalPercentBarSeries* self, QMetaMethod* signal);
+void QHorizontalPercentBarSeries_QBaseConnectNotify(QHorizontalPercentBarSeries* self, const QMetaMethod* signal);
+void QHorizontalPercentBarSeries_DisconnectNotify(QHorizontalPercentBarSeries* self, const QMetaMethod* signal);
 void QHorizontalPercentBarSeries_OnDisconnectNotify(QHorizontalPercentBarSeries* self, intptr_t slot);
-void QHorizontalPercentBarSeries_QBaseDisconnectNotify(QHorizontalPercentBarSeries* self, QMetaMethod* signal);
+void QHorizontalPercentBarSeries_QBaseDisconnectNotify(QHorizontalPercentBarSeries* self, const QMetaMethod* signal);
 QObject* QHorizontalPercentBarSeries_Sender(const QHorizontalPercentBarSeries* self);
 void QHorizontalPercentBarSeries_OnSender(const QHorizontalPercentBarSeries* self, intptr_t slot);
 QObject* QHorizontalPercentBarSeries_QBaseSender(const QHorizontalPercentBarSeries* self);
@@ -81,9 +70,9 @@ int QHorizontalPercentBarSeries_QBaseSenderSignalIndex(const QHorizontalPercentB
 int QHorizontalPercentBarSeries_Receivers(const QHorizontalPercentBarSeries* self, const char* signal);
 void QHorizontalPercentBarSeries_OnReceivers(const QHorizontalPercentBarSeries* self, intptr_t slot);
 int QHorizontalPercentBarSeries_QBaseReceivers(const QHorizontalPercentBarSeries* self, const char* signal);
-bool QHorizontalPercentBarSeries_IsSignalConnected(const QHorizontalPercentBarSeries* self, QMetaMethod* signal);
+bool QHorizontalPercentBarSeries_IsSignalConnected(const QHorizontalPercentBarSeries* self, const QMetaMethod* signal);
 void QHorizontalPercentBarSeries_OnIsSignalConnected(const QHorizontalPercentBarSeries* self, intptr_t slot);
-bool QHorizontalPercentBarSeries_QBaseIsSignalConnected(const QHorizontalPercentBarSeries* self, QMetaMethod* signal);
+bool QHorizontalPercentBarSeries_QBaseIsSignalConnected(const QHorizontalPercentBarSeries* self, const QMetaMethod* signal);
 void QHorizontalPercentBarSeries_Delete(QHorizontalPercentBarSeries* self);
 
 #ifdef __cplusplus

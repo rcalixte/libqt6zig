@@ -15,23 +15,15 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEasingCurve QEasingCurve;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimeLine QTimeLine;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
@@ -66,7 +58,7 @@ void QTimeLine_SetFrameRange(QTimeLine* self, int startFrame, int endFrame);
 int QTimeLine_UpdateInterval(const QTimeLine* self);
 void QTimeLine_SetUpdateInterval(QTimeLine* self, int interval);
 QEasingCurve* QTimeLine_EasingCurve(const QTimeLine* self);
-void QTimeLine_SetEasingCurve(QTimeLine* self, QEasingCurve* curve);
+void QTimeLine_SetEasingCurve(QTimeLine* self, const QEasingCurve* curve);
 int QTimeLine_CurrentTime(const QTimeLine* self);
 int QTimeLine_CurrentFrame(const QTimeLine* self);
 double QTimeLine_CurrentValue(const QTimeLine* self);
@@ -97,12 +89,12 @@ void QTimeLine_QBaseChildEvent(QTimeLine* self, QChildEvent* event);
 void QTimeLine_CustomEvent(QTimeLine* self, QEvent* event);
 void QTimeLine_OnCustomEvent(QTimeLine* self, intptr_t slot);
 void QTimeLine_QBaseCustomEvent(QTimeLine* self, QEvent* event);
-void QTimeLine_ConnectNotify(QTimeLine* self, QMetaMethod* signal);
+void QTimeLine_ConnectNotify(QTimeLine* self, const QMetaMethod* signal);
 void QTimeLine_OnConnectNotify(QTimeLine* self, intptr_t slot);
-void QTimeLine_QBaseConnectNotify(QTimeLine* self, QMetaMethod* signal);
-void QTimeLine_DisconnectNotify(QTimeLine* self, QMetaMethod* signal);
+void QTimeLine_QBaseConnectNotify(QTimeLine* self, const QMetaMethod* signal);
+void QTimeLine_DisconnectNotify(QTimeLine* self, const QMetaMethod* signal);
 void QTimeLine_OnDisconnectNotify(QTimeLine* self, intptr_t slot);
-void QTimeLine_QBaseDisconnectNotify(QTimeLine* self, QMetaMethod* signal);
+void QTimeLine_QBaseDisconnectNotify(QTimeLine* self, const QMetaMethod* signal);
 QObject* QTimeLine_Sender(const QTimeLine* self);
 void QTimeLine_OnSender(const QTimeLine* self, intptr_t slot);
 QObject* QTimeLine_QBaseSender(const QTimeLine* self);
@@ -112,9 +104,13 @@ int QTimeLine_QBaseSenderSignalIndex(const QTimeLine* self);
 int QTimeLine_Receivers(const QTimeLine* self, const char* signal);
 void QTimeLine_OnReceivers(const QTimeLine* self, intptr_t slot);
 int QTimeLine_QBaseReceivers(const QTimeLine* self, const char* signal);
-bool QTimeLine_IsSignalConnected(const QTimeLine* self, QMetaMethod* signal);
+bool QTimeLine_IsSignalConnected(const QTimeLine* self, const QMetaMethod* signal);
 void QTimeLine_OnIsSignalConnected(const QTimeLine* self, intptr_t slot);
-bool QTimeLine_QBaseIsSignalConnected(const QTimeLine* self, QMetaMethod* signal);
+bool QTimeLine_QBaseIsSignalConnected(const QTimeLine* self, const QMetaMethod* signal);
+void QTimeLine_Connect_ValueChanged(QTimeLine* self, intptr_t slot);
+void QTimeLine_Connect_FrameChanged(QTimeLine* self, intptr_t slot);
+void QTimeLine_Connect_StateChanged(QTimeLine* self, intptr_t slot);
+void QTimeLine_Connect_Finished(QTimeLine* self, intptr_t slot);
 void QTimeLine_Delete(QTimeLine* self);
 
 #ifdef __cplusplus

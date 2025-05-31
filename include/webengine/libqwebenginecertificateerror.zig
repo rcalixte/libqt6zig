@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qwebenginecertificateerror_enums = enums;
 const std = @import("std");
 
@@ -6,46 +7,46 @@ const std = @import("std");
 pub const qwebenginecertificateerror = struct {
     /// New constructs a new QWebEngineCertificateError object.
     ///
-    /// ``` other: ?*C.QWebEngineCertificateError ```
-    pub fn New(other: ?*anyopaque) ?*C.QWebEngineCertificateError {
-        return C.QWebEngineCertificateError_new(@ptrCast(other));
+    /// ``` other: QtC.QWebEngineCertificateError ```
+    pub fn New(other: ?*anyopaque) QtC.QWebEngineCertificateError {
+        return qtc.QWebEngineCertificateError_new(@ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#operator=)
     ///
-    /// ``` self: ?*C.QWebEngineCertificateError, other: ?*C.QWebEngineCertificateError ```
+    /// ``` self: QtC.QWebEngineCertificateError, other: QtC.QWebEngineCertificateError ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QWebEngineCertificateError_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QWebEngineCertificateError_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#type)
     ///
-    /// ``` self: ?*C.QWebEngineCertificateError ```
+    /// ``` self: QtC.QWebEngineCertificateError ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QWebEngineCertificateError_Type(@ptrCast(self));
+        return qtc.QWebEngineCertificateError_Type(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#url)
     ///
-    /// ``` self: ?*C.QWebEngineCertificateError ```
-    pub fn Url(self: ?*anyopaque) ?*C.QUrl {
-        return C.QWebEngineCertificateError_Url(@ptrCast(self));
+    /// ``` self: QtC.QWebEngineCertificateError ```
+    pub fn Url(self: ?*anyopaque) QtC.QUrl {
+        return qtc.QWebEngineCertificateError_Url(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#isOverridable)
     ///
-    /// ``` self: ?*C.QWebEngineCertificateError ```
+    /// ``` self: QtC.QWebEngineCertificateError ```
     pub fn IsOverridable(self: ?*anyopaque) bool {
-        return C.QWebEngineCertificateError_IsOverridable(@ptrCast(self));
+        return qtc.QWebEngineCertificateError_IsOverridable(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#description)
     ///
-    /// ``` self: ?*C.QWebEngineCertificateError, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QWebEngineCertificateError, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWebEngineCertificateError_Description(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWebEngineCertificateError_Description(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginecertificateerror.Description: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -54,52 +55,46 @@ pub const qwebenginecertificateerror = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#defer)
     ///
-    /// ``` self: ?*C.QWebEngineCertificateError ```
+    /// ``` self: QtC.QWebEngineCertificateError ```
     pub fn Defer(self: ?*anyopaque) void {
-        C.QWebEngineCertificateError_Defer(@ptrCast(self));
+        qtc.QWebEngineCertificateError_Defer(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#rejectCertificate)
     ///
-    /// ``` self: ?*C.QWebEngineCertificateError ```
+    /// ``` self: QtC.QWebEngineCertificateError ```
     pub fn RejectCertificate(self: ?*anyopaque) void {
-        C.QWebEngineCertificateError_RejectCertificate(@ptrCast(self));
+        qtc.QWebEngineCertificateError_RejectCertificate(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#acceptCertificate)
     ///
-    /// ``` self: ?*C.QWebEngineCertificateError ```
+    /// ``` self: QtC.QWebEngineCertificateError ```
     pub fn AcceptCertificate(self: ?*anyopaque) void {
-        C.QWebEngineCertificateError_AcceptCertificate(@ptrCast(self));
+        qtc.QWebEngineCertificateError_AcceptCertificate(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#certificateChain)
     ///
-    /// ``` self: ?*C.QWebEngineCertificateError, allocator: std.mem.Allocator ```
-    pub fn CertificateChain(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QSslCertificate {
-        const _arr: C.struct_libqt_list = C.QWebEngineCertificateError_CertificateChain(@ptrCast(self));
-        defer {
-            const _obj: [*]?*C.QSslCertificate = @ptrCast(@alignCast(_arr.data));
-            for (0.._arr.len) |_i| {
-                if (_obj[_i]) |obj| {
-                    C.libqt_free(obj);
-                }
-            }
-            C.libqt_free(_arr.data);
-        }
-        const _ret = allocator.alloc(?*C.QSslCertificate, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QSslCertificate = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QWebEngineCertificateError, allocator: std.mem.Allocator ```
+    pub fn CertificateChain(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
+        const _arr: qtc.struct_libqt_list = qtc.QWebEngineCertificateError_CertificateChain(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qwebenginecertificateerror.CertificateChain: Memory allocation failed");
+        const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#dtor.QWebEngineCertificateError)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QWebEngineCertificateError ```
+    /// ``` self: QtC.QWebEngineCertificateError ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QWebEngineCertificateError_Delete(@ptrCast(self));
+        qtc.QWebEngineCertificateError_Delete(@ptrCast(self));
     }
 };
 

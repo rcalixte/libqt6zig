@@ -11,45 +11,48 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QFile so that we can call protected methods
-class VirtualQFile : public QFile {
+class VirtualQFile final : public QFile {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQFile = true;
+
     // Virtual class public types (including callbacks)
-    using QFile_Metacall_Callback = int (*)(QFile*, QMetaObject::Call, int, void**);
-    using QFile_FileName_Callback = QString (*)();
-    using QFile_Open_Callback = bool (*)(QFile*, QIODeviceBase::OpenMode);
-    using QFile_Size_Callback = qint64 (*)();
-    using QFile_Resize_Callback = bool (*)(QFile*, qint64);
-    using QFile_Permissions_Callback = QFileDevice::Permissions (*)();
-    using QFile_SetPermissions_Callback = bool (*)(QFile*, QFileDevice::Permissions);
+    using QFile_Metacall_Callback = int (*)(QFile*, int, int, void**);
+    using QFile_FileName_Callback = libqt_string (*)();
+    using QFile_Open_Callback = bool (*)(QFile*, int);
+    using QFile_Size_Callback = long long (*)();
+    using QFile_Resize_Callback = bool (*)(QFile*, long long);
+    using QFile_Permissions_Callback = int (*)();
+    using QFile_SetPermissions_Callback = bool (*)(QFile*, int);
     using QFile_Close_Callback = void (*)();
     using QFile_IsSequential_Callback = bool (*)();
-    using QFile_Pos_Callback = qint64 (*)();
-    using QFile_Seek_Callback = bool (*)(QFile*, qint64);
+    using QFile_Pos_Callback = long long (*)();
+    using QFile_Seek_Callback = bool (*)(QFile*, long long);
     using QFile_AtEnd_Callback = bool (*)();
-    using QFile_ReadData_Callback = qint64 (*)(QFile*, char*, qint64);
-    using QFile_WriteData_Callback = qint64 (*)(QFile*, const char*, qint64);
-    using QFile_ReadLineData_Callback = qint64 (*)(QFile*, char*, qint64);
+    using QFile_ReadData_Callback = long long (*)(QFile*, char*, long long);
+    using QFile_WriteData_Callback = long long (*)(QFile*, const char*, long long);
+    using QFile_ReadLineData_Callback = long long (*)(QFile*, char*, long long);
     using QFile_Reset_Callback = bool (*)();
-    using QFile_BytesAvailable_Callback = qint64 (*)();
-    using QFile_BytesToWrite_Callback = qint64 (*)();
+    using QFile_BytesAvailable_Callback = long long (*)();
+    using QFile_BytesToWrite_Callback = long long (*)();
     using QFile_CanReadLine_Callback = bool (*)();
     using QFile_WaitForReadyRead_Callback = bool (*)(QFile*, int);
     using QFile_WaitForBytesWritten_Callback = bool (*)(QFile*, int);
-    using QFile_SkipData_Callback = qint64 (*)(QFile*, qint64);
+    using QFile_SkipData_Callback = long long (*)(QFile*, long long);
     using QFile_Event_Callback = bool (*)(QFile*, QEvent*);
     using QFile_EventFilter_Callback = bool (*)(QFile*, QObject*, QEvent*);
     using QFile_TimerEvent_Callback = void (*)(QFile*, QTimerEvent*);
     using QFile_ChildEvent_Callback = void (*)(QFile*, QChildEvent*);
     using QFile_CustomEvent_Callback = void (*)(QFile*, QEvent*);
-    using QFile_ConnectNotify_Callback = void (*)(QFile*, const QMetaMethod&);
-    using QFile_DisconnectNotify_Callback = void (*)(QFile*, const QMetaMethod&);
-    using QFile_SetOpenMode_Callback = void (*)(QFile*, QIODeviceBase::OpenMode);
-    using QFile_SetErrorString_Callback = void (*)(QFile*, const QString&);
+    using QFile_ConnectNotify_Callback = void (*)(QFile*, QMetaMethod*);
+    using QFile_DisconnectNotify_Callback = void (*)(QFile*, QMetaMethod*);
+    using QFile_SetOpenMode_Callback = void (*)(QFile*, int);
+    using QFile_SetErrorString_Callback = void (*)(QFile*, libqt_string);
     using QFile_Sender_Callback = QObject* (*)();
     using QFile_SenderSignalIndex_Callback = int (*)();
     using QFile_Receivers_Callback = int (*)(const QFile*, const char*);
-    using QFile_IsSignalConnected_Callback = bool (*)(const QFile*, const QMetaMethod&);
+    using QFile_IsSignalConnected_Callback = bool (*)(const QFile*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -171,78 +174,78 @@ class VirtualQFile : public QFile {
     }
 
     // Callback setters
-    void setQFile_Metacall_Callback(QFile_Metacall_Callback cb) { qfile_metacall_callback = cb; }
-    void setQFile_FileName_Callback(QFile_FileName_Callback cb) { qfile_filename_callback = cb; }
-    void setQFile_Open_Callback(QFile_Open_Callback cb) { qfile_open_callback = cb; }
-    void setQFile_Size_Callback(QFile_Size_Callback cb) { qfile_size_callback = cb; }
-    void setQFile_Resize_Callback(QFile_Resize_Callback cb) { qfile_resize_callback = cb; }
-    void setQFile_Permissions_Callback(QFile_Permissions_Callback cb) { qfile_permissions_callback = cb; }
-    void setQFile_SetPermissions_Callback(QFile_SetPermissions_Callback cb) { qfile_setpermissions_callback = cb; }
-    void setQFile_Close_Callback(QFile_Close_Callback cb) { qfile_close_callback = cb; }
-    void setQFile_IsSequential_Callback(QFile_IsSequential_Callback cb) { qfile_issequential_callback = cb; }
-    void setQFile_Pos_Callback(QFile_Pos_Callback cb) { qfile_pos_callback = cb; }
-    void setQFile_Seek_Callback(QFile_Seek_Callback cb) { qfile_seek_callback = cb; }
-    void setQFile_AtEnd_Callback(QFile_AtEnd_Callback cb) { qfile_atend_callback = cb; }
-    void setQFile_ReadData_Callback(QFile_ReadData_Callback cb) { qfile_readdata_callback = cb; }
-    void setQFile_WriteData_Callback(QFile_WriteData_Callback cb) { qfile_writedata_callback = cb; }
-    void setQFile_ReadLineData_Callback(QFile_ReadLineData_Callback cb) { qfile_readlinedata_callback = cb; }
-    void setQFile_Reset_Callback(QFile_Reset_Callback cb) { qfile_reset_callback = cb; }
-    void setQFile_BytesAvailable_Callback(QFile_BytesAvailable_Callback cb) { qfile_bytesavailable_callback = cb; }
-    void setQFile_BytesToWrite_Callback(QFile_BytesToWrite_Callback cb) { qfile_bytestowrite_callback = cb; }
-    void setQFile_CanReadLine_Callback(QFile_CanReadLine_Callback cb) { qfile_canreadline_callback = cb; }
-    void setQFile_WaitForReadyRead_Callback(QFile_WaitForReadyRead_Callback cb) { qfile_waitforreadyread_callback = cb; }
-    void setQFile_WaitForBytesWritten_Callback(QFile_WaitForBytesWritten_Callback cb) { qfile_waitforbyteswritten_callback = cb; }
-    void setQFile_SkipData_Callback(QFile_SkipData_Callback cb) { qfile_skipdata_callback = cb; }
-    void setQFile_Event_Callback(QFile_Event_Callback cb) { qfile_event_callback = cb; }
-    void setQFile_EventFilter_Callback(QFile_EventFilter_Callback cb) { qfile_eventfilter_callback = cb; }
-    void setQFile_TimerEvent_Callback(QFile_TimerEvent_Callback cb) { qfile_timerevent_callback = cb; }
-    void setQFile_ChildEvent_Callback(QFile_ChildEvent_Callback cb) { qfile_childevent_callback = cb; }
-    void setQFile_CustomEvent_Callback(QFile_CustomEvent_Callback cb) { qfile_customevent_callback = cb; }
-    void setQFile_ConnectNotify_Callback(QFile_ConnectNotify_Callback cb) { qfile_connectnotify_callback = cb; }
-    void setQFile_DisconnectNotify_Callback(QFile_DisconnectNotify_Callback cb) { qfile_disconnectnotify_callback = cb; }
-    void setQFile_SetOpenMode_Callback(QFile_SetOpenMode_Callback cb) { qfile_setopenmode_callback = cb; }
-    void setQFile_SetErrorString_Callback(QFile_SetErrorString_Callback cb) { qfile_seterrorstring_callback = cb; }
-    void setQFile_Sender_Callback(QFile_Sender_Callback cb) { qfile_sender_callback = cb; }
-    void setQFile_SenderSignalIndex_Callback(QFile_SenderSignalIndex_Callback cb) { qfile_sendersignalindex_callback = cb; }
-    void setQFile_Receivers_Callback(QFile_Receivers_Callback cb) { qfile_receivers_callback = cb; }
-    void setQFile_IsSignalConnected_Callback(QFile_IsSignalConnected_Callback cb) { qfile_issignalconnected_callback = cb; }
+    inline void setQFile_Metacall_Callback(QFile_Metacall_Callback cb) { qfile_metacall_callback = cb; }
+    inline void setQFile_FileName_Callback(QFile_FileName_Callback cb) { qfile_filename_callback = cb; }
+    inline void setQFile_Open_Callback(QFile_Open_Callback cb) { qfile_open_callback = cb; }
+    inline void setQFile_Size_Callback(QFile_Size_Callback cb) { qfile_size_callback = cb; }
+    inline void setQFile_Resize_Callback(QFile_Resize_Callback cb) { qfile_resize_callback = cb; }
+    inline void setQFile_Permissions_Callback(QFile_Permissions_Callback cb) { qfile_permissions_callback = cb; }
+    inline void setQFile_SetPermissions_Callback(QFile_SetPermissions_Callback cb) { qfile_setpermissions_callback = cb; }
+    inline void setQFile_Close_Callback(QFile_Close_Callback cb) { qfile_close_callback = cb; }
+    inline void setQFile_IsSequential_Callback(QFile_IsSequential_Callback cb) { qfile_issequential_callback = cb; }
+    inline void setQFile_Pos_Callback(QFile_Pos_Callback cb) { qfile_pos_callback = cb; }
+    inline void setQFile_Seek_Callback(QFile_Seek_Callback cb) { qfile_seek_callback = cb; }
+    inline void setQFile_AtEnd_Callback(QFile_AtEnd_Callback cb) { qfile_atend_callback = cb; }
+    inline void setQFile_ReadData_Callback(QFile_ReadData_Callback cb) { qfile_readdata_callback = cb; }
+    inline void setQFile_WriteData_Callback(QFile_WriteData_Callback cb) { qfile_writedata_callback = cb; }
+    inline void setQFile_ReadLineData_Callback(QFile_ReadLineData_Callback cb) { qfile_readlinedata_callback = cb; }
+    inline void setQFile_Reset_Callback(QFile_Reset_Callback cb) { qfile_reset_callback = cb; }
+    inline void setQFile_BytesAvailable_Callback(QFile_BytesAvailable_Callback cb) { qfile_bytesavailable_callback = cb; }
+    inline void setQFile_BytesToWrite_Callback(QFile_BytesToWrite_Callback cb) { qfile_bytestowrite_callback = cb; }
+    inline void setQFile_CanReadLine_Callback(QFile_CanReadLine_Callback cb) { qfile_canreadline_callback = cb; }
+    inline void setQFile_WaitForReadyRead_Callback(QFile_WaitForReadyRead_Callback cb) { qfile_waitforreadyread_callback = cb; }
+    inline void setQFile_WaitForBytesWritten_Callback(QFile_WaitForBytesWritten_Callback cb) { qfile_waitforbyteswritten_callback = cb; }
+    inline void setQFile_SkipData_Callback(QFile_SkipData_Callback cb) { qfile_skipdata_callback = cb; }
+    inline void setQFile_Event_Callback(QFile_Event_Callback cb) { qfile_event_callback = cb; }
+    inline void setQFile_EventFilter_Callback(QFile_EventFilter_Callback cb) { qfile_eventfilter_callback = cb; }
+    inline void setQFile_TimerEvent_Callback(QFile_TimerEvent_Callback cb) { qfile_timerevent_callback = cb; }
+    inline void setQFile_ChildEvent_Callback(QFile_ChildEvent_Callback cb) { qfile_childevent_callback = cb; }
+    inline void setQFile_CustomEvent_Callback(QFile_CustomEvent_Callback cb) { qfile_customevent_callback = cb; }
+    inline void setQFile_ConnectNotify_Callback(QFile_ConnectNotify_Callback cb) { qfile_connectnotify_callback = cb; }
+    inline void setQFile_DisconnectNotify_Callback(QFile_DisconnectNotify_Callback cb) { qfile_disconnectnotify_callback = cb; }
+    inline void setQFile_SetOpenMode_Callback(QFile_SetOpenMode_Callback cb) { qfile_setopenmode_callback = cb; }
+    inline void setQFile_SetErrorString_Callback(QFile_SetErrorString_Callback cb) { qfile_seterrorstring_callback = cb; }
+    inline void setQFile_Sender_Callback(QFile_Sender_Callback cb) { qfile_sender_callback = cb; }
+    inline void setQFile_SenderSignalIndex_Callback(QFile_SenderSignalIndex_Callback cb) { qfile_sendersignalindex_callback = cb; }
+    inline void setQFile_Receivers_Callback(QFile_Receivers_Callback cb) { qfile_receivers_callback = cb; }
+    inline void setQFile_IsSignalConnected_Callback(QFile_IsSignalConnected_Callback cb) { qfile_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQFile_Metacall_IsBase(bool value) const { qfile_metacall_isbase = value; }
-    void setQFile_FileName_IsBase(bool value) const { qfile_filename_isbase = value; }
-    void setQFile_Open_IsBase(bool value) const { qfile_open_isbase = value; }
-    void setQFile_Size_IsBase(bool value) const { qfile_size_isbase = value; }
-    void setQFile_Resize_IsBase(bool value) const { qfile_resize_isbase = value; }
-    void setQFile_Permissions_IsBase(bool value) const { qfile_permissions_isbase = value; }
-    void setQFile_SetPermissions_IsBase(bool value) const { qfile_setpermissions_isbase = value; }
-    void setQFile_Close_IsBase(bool value) const { qfile_close_isbase = value; }
-    void setQFile_IsSequential_IsBase(bool value) const { qfile_issequential_isbase = value; }
-    void setQFile_Pos_IsBase(bool value) const { qfile_pos_isbase = value; }
-    void setQFile_Seek_IsBase(bool value) const { qfile_seek_isbase = value; }
-    void setQFile_AtEnd_IsBase(bool value) const { qfile_atend_isbase = value; }
-    void setQFile_ReadData_IsBase(bool value) const { qfile_readdata_isbase = value; }
-    void setQFile_WriteData_IsBase(bool value) const { qfile_writedata_isbase = value; }
-    void setQFile_ReadLineData_IsBase(bool value) const { qfile_readlinedata_isbase = value; }
-    void setQFile_Reset_IsBase(bool value) const { qfile_reset_isbase = value; }
-    void setQFile_BytesAvailable_IsBase(bool value) const { qfile_bytesavailable_isbase = value; }
-    void setQFile_BytesToWrite_IsBase(bool value) const { qfile_bytestowrite_isbase = value; }
-    void setQFile_CanReadLine_IsBase(bool value) const { qfile_canreadline_isbase = value; }
-    void setQFile_WaitForReadyRead_IsBase(bool value) const { qfile_waitforreadyread_isbase = value; }
-    void setQFile_WaitForBytesWritten_IsBase(bool value) const { qfile_waitforbyteswritten_isbase = value; }
-    void setQFile_SkipData_IsBase(bool value) const { qfile_skipdata_isbase = value; }
-    void setQFile_Event_IsBase(bool value) const { qfile_event_isbase = value; }
-    void setQFile_EventFilter_IsBase(bool value) const { qfile_eventfilter_isbase = value; }
-    void setQFile_TimerEvent_IsBase(bool value) const { qfile_timerevent_isbase = value; }
-    void setQFile_ChildEvent_IsBase(bool value) const { qfile_childevent_isbase = value; }
-    void setQFile_CustomEvent_IsBase(bool value) const { qfile_customevent_isbase = value; }
-    void setQFile_ConnectNotify_IsBase(bool value) const { qfile_connectnotify_isbase = value; }
-    void setQFile_DisconnectNotify_IsBase(bool value) const { qfile_disconnectnotify_isbase = value; }
-    void setQFile_SetOpenMode_IsBase(bool value) const { qfile_setopenmode_isbase = value; }
-    void setQFile_SetErrorString_IsBase(bool value) const { qfile_seterrorstring_isbase = value; }
-    void setQFile_Sender_IsBase(bool value) const { qfile_sender_isbase = value; }
-    void setQFile_SenderSignalIndex_IsBase(bool value) const { qfile_sendersignalindex_isbase = value; }
-    void setQFile_Receivers_IsBase(bool value) const { qfile_receivers_isbase = value; }
-    void setQFile_IsSignalConnected_IsBase(bool value) const { qfile_issignalconnected_isbase = value; }
+    inline void setQFile_Metacall_IsBase(bool value) const { qfile_metacall_isbase = value; }
+    inline void setQFile_FileName_IsBase(bool value) const { qfile_filename_isbase = value; }
+    inline void setQFile_Open_IsBase(bool value) const { qfile_open_isbase = value; }
+    inline void setQFile_Size_IsBase(bool value) const { qfile_size_isbase = value; }
+    inline void setQFile_Resize_IsBase(bool value) const { qfile_resize_isbase = value; }
+    inline void setQFile_Permissions_IsBase(bool value) const { qfile_permissions_isbase = value; }
+    inline void setQFile_SetPermissions_IsBase(bool value) const { qfile_setpermissions_isbase = value; }
+    inline void setQFile_Close_IsBase(bool value) const { qfile_close_isbase = value; }
+    inline void setQFile_IsSequential_IsBase(bool value) const { qfile_issequential_isbase = value; }
+    inline void setQFile_Pos_IsBase(bool value) const { qfile_pos_isbase = value; }
+    inline void setQFile_Seek_IsBase(bool value) const { qfile_seek_isbase = value; }
+    inline void setQFile_AtEnd_IsBase(bool value) const { qfile_atend_isbase = value; }
+    inline void setQFile_ReadData_IsBase(bool value) const { qfile_readdata_isbase = value; }
+    inline void setQFile_WriteData_IsBase(bool value) const { qfile_writedata_isbase = value; }
+    inline void setQFile_ReadLineData_IsBase(bool value) const { qfile_readlinedata_isbase = value; }
+    inline void setQFile_Reset_IsBase(bool value) const { qfile_reset_isbase = value; }
+    inline void setQFile_BytesAvailable_IsBase(bool value) const { qfile_bytesavailable_isbase = value; }
+    inline void setQFile_BytesToWrite_IsBase(bool value) const { qfile_bytestowrite_isbase = value; }
+    inline void setQFile_CanReadLine_IsBase(bool value) const { qfile_canreadline_isbase = value; }
+    inline void setQFile_WaitForReadyRead_IsBase(bool value) const { qfile_waitforreadyread_isbase = value; }
+    inline void setQFile_WaitForBytesWritten_IsBase(bool value) const { qfile_waitforbyteswritten_isbase = value; }
+    inline void setQFile_SkipData_IsBase(bool value) const { qfile_skipdata_isbase = value; }
+    inline void setQFile_Event_IsBase(bool value) const { qfile_event_isbase = value; }
+    inline void setQFile_EventFilter_IsBase(bool value) const { qfile_eventfilter_isbase = value; }
+    inline void setQFile_TimerEvent_IsBase(bool value) const { qfile_timerevent_isbase = value; }
+    inline void setQFile_ChildEvent_IsBase(bool value) const { qfile_childevent_isbase = value; }
+    inline void setQFile_CustomEvent_IsBase(bool value) const { qfile_customevent_isbase = value; }
+    inline void setQFile_ConnectNotify_IsBase(bool value) const { qfile_connectnotify_isbase = value; }
+    inline void setQFile_DisconnectNotify_IsBase(bool value) const { qfile_disconnectnotify_isbase = value; }
+    inline void setQFile_SetOpenMode_IsBase(bool value) const { qfile_setopenmode_isbase = value; }
+    inline void setQFile_SetErrorString_IsBase(bool value) const { qfile_seterrorstring_isbase = value; }
+    inline void setQFile_Sender_IsBase(bool value) const { qfile_sender_isbase = value; }
+    inline void setQFile_SenderSignalIndex_IsBase(bool value) const { qfile_sendersignalindex_isbase = value; }
+    inline void setQFile_Receivers_IsBase(bool value) const { qfile_receivers_isbase = value; }
+    inline void setQFile_IsSignalConnected_IsBase(bool value) const { qfile_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -250,7 +253,12 @@ class VirtualQFile : public QFile {
             qfile_metacall_isbase = false;
             return QFile::qt_metacall(param1, param2, param3);
         } else if (qfile_metacall_callback != nullptr) {
-            return qfile_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qfile_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QFile::qt_metacall(param1, param2, param3);
         }
@@ -262,7 +270,9 @@ class VirtualQFile : public QFile {
             qfile_filename_isbase = false;
             return QFile::fileName();
         } else if (qfile_filename_callback != nullptr) {
-            return qfile_filename_callback();
+            libqt_string callback_ret = qfile_filename_callback();
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
         } else {
             return QFile::fileName();
         }
@@ -274,7 +284,10 @@ class VirtualQFile : public QFile {
             qfile_open_isbase = false;
             return QFile::open(flags);
         } else if (qfile_open_callback != nullptr) {
-            return qfile_open_callback(this, flags);
+            int cbval1 = static_cast<int>(flags);
+
+            bool callback_ret = qfile_open_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFile::open(flags);
         }
@@ -286,7 +299,8 @@ class VirtualQFile : public QFile {
             qfile_size_isbase = false;
             return QFile::size();
         } else if (qfile_size_callback != nullptr) {
-            return qfile_size_callback();
+            long long callback_ret = qfile_size_callback();
+            return static_cast<qint64>(callback_ret);
         } else {
             return QFile::size();
         }
@@ -298,7 +312,10 @@ class VirtualQFile : public QFile {
             qfile_resize_isbase = false;
             return QFile::resize(sz);
         } else if (qfile_resize_callback != nullptr) {
-            return qfile_resize_callback(this, sz);
+            long long cbval1 = static_cast<long long>(sz);
+
+            bool callback_ret = qfile_resize_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFile::resize(sz);
         }
@@ -310,7 +327,8 @@ class VirtualQFile : public QFile {
             qfile_permissions_isbase = false;
             return QFile::permissions();
         } else if (qfile_permissions_callback != nullptr) {
-            return qfile_permissions_callback();
+            int callback_ret = qfile_permissions_callback();
+            return static_cast<QFileDevice::Permissions>(callback_ret);
         } else {
             return QFile::permissions();
         }
@@ -322,7 +340,10 @@ class VirtualQFile : public QFile {
             qfile_setpermissions_isbase = false;
             return QFile::setPermissions(permissionSpec);
         } else if (qfile_setpermissions_callback != nullptr) {
-            return qfile_setpermissions_callback(this, permissionSpec);
+            int cbval1 = static_cast<int>(permissionSpec);
+
+            bool callback_ret = qfile_setpermissions_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFile::setPermissions(permissionSpec);
         }
@@ -346,7 +367,8 @@ class VirtualQFile : public QFile {
             qfile_issequential_isbase = false;
             return QFile::isSequential();
         } else if (qfile_issequential_callback != nullptr) {
-            return qfile_issequential_callback();
+            bool callback_ret = qfile_issequential_callback();
+            return callback_ret;
         } else {
             return QFile::isSequential();
         }
@@ -358,7 +380,8 @@ class VirtualQFile : public QFile {
             qfile_pos_isbase = false;
             return QFile::pos();
         } else if (qfile_pos_callback != nullptr) {
-            return qfile_pos_callback();
+            long long callback_ret = qfile_pos_callback();
+            return static_cast<qint64>(callback_ret);
         } else {
             return QFile::pos();
         }
@@ -370,7 +393,10 @@ class VirtualQFile : public QFile {
             qfile_seek_isbase = false;
             return QFile::seek(offset);
         } else if (qfile_seek_callback != nullptr) {
-            return qfile_seek_callback(this, offset);
+            long long cbval1 = static_cast<long long>(offset);
+
+            bool callback_ret = qfile_seek_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFile::seek(offset);
         }
@@ -382,7 +408,8 @@ class VirtualQFile : public QFile {
             qfile_atend_isbase = false;
             return QFile::atEnd();
         } else if (qfile_atend_callback != nullptr) {
-            return qfile_atend_callback();
+            bool callback_ret = qfile_atend_callback();
+            return callback_ret;
         } else {
             return QFile::atEnd();
         }
@@ -394,7 +421,11 @@ class VirtualQFile : public QFile {
             qfile_readdata_isbase = false;
             return QFile::readData(data, maxlen);
         } else if (qfile_readdata_callback != nullptr) {
-            return qfile_readdata_callback(this, data, maxlen);
+            char* cbval1 = data;
+            long long cbval2 = static_cast<long long>(maxlen);
+
+            long long callback_ret = qfile_readdata_callback(this, cbval1, cbval2);
+            return static_cast<qint64>(callback_ret);
         } else {
             return QFile::readData(data, maxlen);
         }
@@ -406,7 +437,11 @@ class VirtualQFile : public QFile {
             qfile_writedata_isbase = false;
             return QFile::writeData(data, lenVal);
         } else if (qfile_writedata_callback != nullptr) {
-            return qfile_writedata_callback(this, data, lenVal);
+            const char* cbval1 = (const char*)data;
+            long long cbval2 = static_cast<long long>(lenVal);
+
+            long long callback_ret = qfile_writedata_callback(this, cbval1, cbval2);
+            return static_cast<qint64>(callback_ret);
         } else {
             return QFile::writeData(data, lenVal);
         }
@@ -418,7 +453,11 @@ class VirtualQFile : public QFile {
             qfile_readlinedata_isbase = false;
             return QFile::readLineData(data, maxlen);
         } else if (qfile_readlinedata_callback != nullptr) {
-            return qfile_readlinedata_callback(this, data, maxlen);
+            char* cbval1 = data;
+            long long cbval2 = static_cast<long long>(maxlen);
+
+            long long callback_ret = qfile_readlinedata_callback(this, cbval1, cbval2);
+            return static_cast<qint64>(callback_ret);
         } else {
             return QFile::readLineData(data, maxlen);
         }
@@ -430,7 +469,8 @@ class VirtualQFile : public QFile {
             qfile_reset_isbase = false;
             return QFile::reset();
         } else if (qfile_reset_callback != nullptr) {
-            return qfile_reset_callback();
+            bool callback_ret = qfile_reset_callback();
+            return callback_ret;
         } else {
             return QFile::reset();
         }
@@ -442,7 +482,8 @@ class VirtualQFile : public QFile {
             qfile_bytesavailable_isbase = false;
             return QFile::bytesAvailable();
         } else if (qfile_bytesavailable_callback != nullptr) {
-            return qfile_bytesavailable_callback();
+            long long callback_ret = qfile_bytesavailable_callback();
+            return static_cast<qint64>(callback_ret);
         } else {
             return QFile::bytesAvailable();
         }
@@ -454,7 +495,8 @@ class VirtualQFile : public QFile {
             qfile_bytestowrite_isbase = false;
             return QFile::bytesToWrite();
         } else if (qfile_bytestowrite_callback != nullptr) {
-            return qfile_bytestowrite_callback();
+            long long callback_ret = qfile_bytestowrite_callback();
+            return static_cast<qint64>(callback_ret);
         } else {
             return QFile::bytesToWrite();
         }
@@ -466,7 +508,8 @@ class VirtualQFile : public QFile {
             qfile_canreadline_isbase = false;
             return QFile::canReadLine();
         } else if (qfile_canreadline_callback != nullptr) {
-            return qfile_canreadline_callback();
+            bool callback_ret = qfile_canreadline_callback();
+            return callback_ret;
         } else {
             return QFile::canReadLine();
         }
@@ -478,7 +521,10 @@ class VirtualQFile : public QFile {
             qfile_waitforreadyread_isbase = false;
             return QFile::waitForReadyRead(msecs);
         } else if (qfile_waitforreadyread_callback != nullptr) {
-            return qfile_waitforreadyread_callback(this, msecs);
+            int cbval1 = msecs;
+
+            bool callback_ret = qfile_waitforreadyread_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFile::waitForReadyRead(msecs);
         }
@@ -490,7 +536,10 @@ class VirtualQFile : public QFile {
             qfile_waitforbyteswritten_isbase = false;
             return QFile::waitForBytesWritten(msecs);
         } else if (qfile_waitforbyteswritten_callback != nullptr) {
-            return qfile_waitforbyteswritten_callback(this, msecs);
+            int cbval1 = msecs;
+
+            bool callback_ret = qfile_waitforbyteswritten_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFile::waitForBytesWritten(msecs);
         }
@@ -502,7 +551,10 @@ class VirtualQFile : public QFile {
             qfile_skipdata_isbase = false;
             return QFile::skipData(maxSize);
         } else if (qfile_skipdata_callback != nullptr) {
-            return qfile_skipdata_callback(this, maxSize);
+            long long cbval1 = static_cast<long long>(maxSize);
+
+            long long callback_ret = qfile_skipdata_callback(this, cbval1);
+            return static_cast<qint64>(callback_ret);
         } else {
             return QFile::skipData(maxSize);
         }
@@ -514,7 +566,10 @@ class VirtualQFile : public QFile {
             qfile_event_isbase = false;
             return QFile::event(event);
         } else if (qfile_event_callback != nullptr) {
-            return qfile_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qfile_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFile::event(event);
         }
@@ -526,7 +581,11 @@ class VirtualQFile : public QFile {
             qfile_eventfilter_isbase = false;
             return QFile::eventFilter(watched, event);
         } else if (qfile_eventfilter_callback != nullptr) {
-            return qfile_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qfile_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QFile::eventFilter(watched, event);
         }
@@ -538,7 +597,9 @@ class VirtualQFile : public QFile {
             qfile_timerevent_isbase = false;
             QFile::timerEvent(event);
         } else if (qfile_timerevent_callback != nullptr) {
-            qfile_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qfile_timerevent_callback(this, cbval1);
         } else {
             QFile::timerEvent(event);
         }
@@ -550,7 +611,9 @@ class VirtualQFile : public QFile {
             qfile_childevent_isbase = false;
             QFile::childEvent(event);
         } else if (qfile_childevent_callback != nullptr) {
-            qfile_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qfile_childevent_callback(this, cbval1);
         } else {
             QFile::childEvent(event);
         }
@@ -562,7 +625,9 @@ class VirtualQFile : public QFile {
             qfile_customevent_isbase = false;
             QFile::customEvent(event);
         } else if (qfile_customevent_callback != nullptr) {
-            qfile_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qfile_customevent_callback(this, cbval1);
         } else {
             QFile::customEvent(event);
         }
@@ -574,7 +639,11 @@ class VirtualQFile : public QFile {
             qfile_connectnotify_isbase = false;
             QFile::connectNotify(signal);
         } else if (qfile_connectnotify_callback != nullptr) {
-            qfile_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qfile_connectnotify_callback(this, cbval1);
         } else {
             QFile::connectNotify(signal);
         }
@@ -586,7 +655,11 @@ class VirtualQFile : public QFile {
             qfile_disconnectnotify_isbase = false;
             QFile::disconnectNotify(signal);
         } else if (qfile_disconnectnotify_callback != nullptr) {
-            qfile_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qfile_disconnectnotify_callback(this, cbval1);
         } else {
             QFile::disconnectNotify(signal);
         }
@@ -598,7 +671,9 @@ class VirtualQFile : public QFile {
             qfile_setopenmode_isbase = false;
             QFile::setOpenMode(openMode);
         } else if (qfile_setopenmode_callback != nullptr) {
-            qfile_setopenmode_callback(this, openMode);
+            int cbval1 = static_cast<int>(openMode);
+
+            qfile_setopenmode_callback(this, cbval1);
         } else {
             QFile::setOpenMode(openMode);
         }
@@ -610,7 +685,17 @@ class VirtualQFile : public QFile {
             qfile_seterrorstring_isbase = false;
             QFile::setErrorString(errorString);
         } else if (qfile_seterrorstring_callback != nullptr) {
-            qfile_seterrorstring_callback(this, errorString);
+            const QString errorString_ret = errorString;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray errorString_b = errorString_ret.toUtf8();
+            libqt_string errorString_str;
+            errorString_str.len = errorString_b.length();
+            errorString_str.data = static_cast<char*>(malloc((errorString_str.len + 1) * sizeof(char)));
+            memcpy(errorString_str.data, errorString_b.data(), errorString_str.len);
+            errorString_str.data[errorString_str.len] = '\0';
+            libqt_string cbval1 = errorString_str;
+
+            qfile_seterrorstring_callback(this, cbval1);
         } else {
             QFile::setErrorString(errorString);
         }
@@ -622,7 +707,8 @@ class VirtualQFile : public QFile {
             qfile_sender_isbase = false;
             return QFile::sender();
         } else if (qfile_sender_callback != nullptr) {
-            return qfile_sender_callback();
+            QObject* callback_ret = qfile_sender_callback();
+            return callback_ret;
         } else {
             return QFile::sender();
         }
@@ -634,7 +720,8 @@ class VirtualQFile : public QFile {
             qfile_sendersignalindex_isbase = false;
             return QFile::senderSignalIndex();
         } else if (qfile_sendersignalindex_callback != nullptr) {
-            return qfile_sendersignalindex_callback();
+            int callback_ret = qfile_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QFile::senderSignalIndex();
         }
@@ -646,7 +733,10 @@ class VirtualQFile : public QFile {
             qfile_receivers_isbase = false;
             return QFile::receivers(signal);
         } else if (qfile_receivers_callback != nullptr) {
-            return qfile_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qfile_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QFile::receivers(signal);
         }
@@ -658,11 +748,48 @@ class VirtualQFile : public QFile {
             qfile_issignalconnected_isbase = false;
             return QFile::isSignalConnected(signal);
         } else if (qfile_issignalconnected_callback != nullptr) {
-            return qfile_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qfile_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFile::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend long long QFile_ReadData(QFile* self, char* data, long long maxlen);
+    friend long long QFile_QBaseReadData(QFile* self, char* data, long long maxlen);
+    friend long long QFile_WriteData(QFile* self, const char* data, long long lenVal);
+    friend long long QFile_QBaseWriteData(QFile* self, const char* data, long long lenVal);
+    friend long long QFile_ReadLineData(QFile* self, char* data, long long maxlen);
+    friend long long QFile_QBaseReadLineData(QFile* self, char* data, long long maxlen);
+    friend long long QFile_SkipData(QFile* self, long long maxSize);
+    friend long long QFile_QBaseSkipData(QFile* self, long long maxSize);
+    friend void QFile_TimerEvent(QFile* self, QTimerEvent* event);
+    friend void QFile_QBaseTimerEvent(QFile* self, QTimerEvent* event);
+    friend void QFile_ChildEvent(QFile* self, QChildEvent* event);
+    friend void QFile_QBaseChildEvent(QFile* self, QChildEvent* event);
+    friend void QFile_CustomEvent(QFile* self, QEvent* event);
+    friend void QFile_QBaseCustomEvent(QFile* self, QEvent* event);
+    friend void QFile_ConnectNotify(QFile* self, const QMetaMethod* signal);
+    friend void QFile_QBaseConnectNotify(QFile* self, const QMetaMethod* signal);
+    friend void QFile_DisconnectNotify(QFile* self, const QMetaMethod* signal);
+    friend void QFile_QBaseDisconnectNotify(QFile* self, const QMetaMethod* signal);
+    friend void QFile_SetOpenMode(QFile* self, int openMode);
+    friend void QFile_QBaseSetOpenMode(QFile* self, int openMode);
+    friend void QFile_SetErrorString(QFile* self, const libqt_string errorString);
+    friend void QFile_QBaseSetErrorString(QFile* self, const libqt_string errorString);
+    friend QObject* QFile_Sender(const QFile* self);
+    friend QObject* QFile_QBaseSender(const QFile* self);
+    friend int QFile_SenderSignalIndex(const QFile* self);
+    friend int QFile_QBaseSenderSignalIndex(const QFile* self);
+    friend int QFile_Receivers(const QFile* self, const char* signal);
+    friend int QFile_QBaseReceivers(const QFile* self, const char* signal);
+    friend bool QFile_IsSignalConnected(const QFile* self, const QMetaMethod* signal);
+    friend bool QFile_QBaseIsSignalConnected(const QFile* self, const QMetaMethod* signal);
 };
 
 #endif

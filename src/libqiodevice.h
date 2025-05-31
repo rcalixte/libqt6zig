@@ -15,23 +15,15 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QIODevice QIODevice;
 typedef struct QIODeviceBase QIODeviceBase;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QIODevice* QIODevice_new();
@@ -98,7 +90,7 @@ void QIODevice_RollbackTransaction(QIODevice* self);
 bool QIODevice_IsTransactionStarted(const QIODevice* self);
 long long QIODevice_Write(QIODevice* self, const char* data, long long lenVal);
 long long QIODevice_WriteWithData(QIODevice* self, const char* data);
-long long QIODevice_Write2(QIODevice* self, libqt_string data);
+long long QIODevice_Write2(QIODevice* self, const libqt_string data);
 long long QIODevice_Peek(QIODevice* self, char* data, long long maxlen);
 libqt_string QIODevice_PeekWithMaxlen(QIODevice* self, long long maxlen);
 long long QIODevice_Skip(QIODevice* self, long long maxSize);
@@ -154,18 +146,18 @@ void QIODevice_QBaseChildEvent(QIODevice* self, QChildEvent* event);
 void QIODevice_CustomEvent(QIODevice* self, QEvent* event);
 void QIODevice_OnCustomEvent(QIODevice* self, intptr_t slot);
 void QIODevice_QBaseCustomEvent(QIODevice* self, QEvent* event);
-void QIODevice_ConnectNotify(QIODevice* self, QMetaMethod* signal);
+void QIODevice_ConnectNotify(QIODevice* self, const QMetaMethod* signal);
 void QIODevice_OnConnectNotify(QIODevice* self, intptr_t slot);
-void QIODevice_QBaseConnectNotify(QIODevice* self, QMetaMethod* signal);
-void QIODevice_DisconnectNotify(QIODevice* self, QMetaMethod* signal);
+void QIODevice_QBaseConnectNotify(QIODevice* self, const QMetaMethod* signal);
+void QIODevice_DisconnectNotify(QIODevice* self, const QMetaMethod* signal);
 void QIODevice_OnDisconnectNotify(QIODevice* self, intptr_t slot);
-void QIODevice_QBaseDisconnectNotify(QIODevice* self, QMetaMethod* signal);
+void QIODevice_QBaseDisconnectNotify(QIODevice* self, const QMetaMethod* signal);
 void QIODevice_SetOpenMode(QIODevice* self, int openMode);
 void QIODevice_OnSetOpenMode(QIODevice* self, intptr_t slot);
 void QIODevice_QBaseSetOpenMode(QIODevice* self, int openMode);
-void QIODevice_SetErrorString(QIODevice* self, libqt_string errorString);
+void QIODevice_SetErrorString(QIODevice* self, const libqt_string errorString);
 void QIODevice_OnSetErrorString(QIODevice* self, intptr_t slot);
-void QIODevice_QBaseSetErrorString(QIODevice* self, libqt_string errorString);
+void QIODevice_QBaseSetErrorString(QIODevice* self, const libqt_string errorString);
 QObject* QIODevice_Sender(const QIODevice* self);
 void QIODevice_OnSender(const QIODevice* self, intptr_t slot);
 QObject* QIODevice_QBaseSender(const QIODevice* self);
@@ -175,9 +167,9 @@ int QIODevice_QBaseSenderSignalIndex(const QIODevice* self);
 int QIODevice_Receivers(const QIODevice* self, const char* signal);
 void QIODevice_OnReceivers(const QIODevice* self, intptr_t slot);
 int QIODevice_QBaseReceivers(const QIODevice* self, const char* signal);
-bool QIODevice_IsSignalConnected(const QIODevice* self, QMetaMethod* signal);
+bool QIODevice_IsSignalConnected(const QIODevice* self, const QMetaMethod* signal);
 void QIODevice_OnIsSignalConnected(const QIODevice* self, intptr_t slot);
-bool QIODevice_QBaseIsSignalConnected(const QIODevice* self, QMetaMethod* signal);
+bool QIODevice_QBaseIsSignalConnected(const QIODevice* self, const QMetaMethod* signal);
 void QIODevice_Delete(QIODevice* self);
 
 #ifdef __cplusplus

@@ -1,24 +1,18 @@
 #include <QAbstractItemModel>
 #include <QAbstractItemView>
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QCompleter>
 #include <QEvent>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QModelIndex>
 #include <QObject>
 #include <QRect>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <QWidget>
 #include <qcompleter.h>
 #include "libqcompleter.h"
@@ -32,7 +26,7 @@ QCompleter* QCompleter_new2(QAbstractItemModel* model) {
     return new VirtualQCompleter(model);
 }
 
-QCompleter* QCompleter_new3(libqt_list /* of libqt_string */ completions) {
+QCompleter* QCompleter_new3(const libqt_list /* of libqt_string */ completions) {
     QStringList completions_QList;
     completions_QList.reserve(completions.len);
     libqt_string* completions_arr = static_cast<libqt_string*>(completions.data);
@@ -51,7 +45,7 @@ QCompleter* QCompleter_new5(QAbstractItemModel* model, QObject* parent) {
     return new VirtualQCompleter(model, parent);
 }
 
-QCompleter* QCompleter_new6(libqt_list /* of libqt_string */ completions, QObject* parent) {
+QCompleter* QCompleter_new6(const libqt_list /* of libqt_string */ completions, QObject* parent) {
     QStringList completions_QList;
     completions_QList.reserve(completions.len);
     libqt_string* completions_arr = static_cast<libqt_string*>(completions.data);
@@ -71,27 +65,30 @@ void* QCompleter_Metacast(QCompleter* self, const char* param1) {
 }
 
 int QCompleter_Metacall(QCompleter* self, int param1, int param2, void** param3) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQCompleter*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QCompleter_OnMetacall(QCompleter* self, intptr_t slot) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_Metacall_Callback(reinterpret_cast<VirtualQCompleter::QCompleter_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QCompleter_QBaseMetacall(QCompleter* self, int param1, int param2, void** param3) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_Metacall_IsBase(true);
         return vqcompleter->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQCompleter*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -235,7 +232,7 @@ libqt_string QCompleter_CompletionPrefix(const QCompleter* self) {
     return _str;
 }
 
-void QCompleter_SetCompletionPrefix(QCompleter* self, libqt_string prefix) {
+void QCompleter_SetCompletionPrefix(QCompleter* self, const libqt_string prefix) {
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     self->setCompletionPrefix(prefix_QString);
 }
@@ -248,21 +245,21 @@ void QCompleter_SetWrapAround(QCompleter* self, bool wrap) {
     self->setWrapAround(wrap);
 }
 
-void QCompleter_Activated(QCompleter* self, libqt_string text) {
+void QCompleter_Activated(QCompleter* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->activated(text_QString);
 }
 
-void QCompleter_ActivatedWithIndex(QCompleter* self, QModelIndex* index) {
+void QCompleter_ActivatedWithIndex(QCompleter* self, const QModelIndex* index) {
     self->activated(*index);
 }
 
-void QCompleter_Highlighted(QCompleter* self, libqt_string text) {
+void QCompleter_Highlighted(QCompleter* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->highlighted(text_QString);
 }
 
-void QCompleter_HighlightedWithIndex(QCompleter* self, QModelIndex* index) {
+void QCompleter_HighlightedWithIndex(QCompleter* self, const QModelIndex* index) {
     self->highlighted(*index);
 }
 
@@ -290,13 +287,14 @@ libqt_string QCompleter_Tr3(const char* s, const char* c, int n) {
     return _str;
 }
 
-void QCompleter_Complete1(QCompleter* self, QRect* rect) {
+void QCompleter_Complete1(QCompleter* self, const QRect* rect) {
     self->complete(*rect);
 }
 
 // Derived class handler implementation
-libqt_string QCompleter_PathFromIndex(const QCompleter* self, QModelIndex* index) {
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+libqt_string QCompleter_PathFromIndex(const QCompleter* self, const QModelIndex* index) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         QString _ret = vqcompleter->pathFromIndex(*index);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
@@ -307,7 +305,7 @@ libqt_string QCompleter_PathFromIndex(const QCompleter* self, QModelIndex* index
         _str.data[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = vqcompleter->pathFromIndex(*index);
+        QString _ret = self->QCompleter::pathFromIndex(*index);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -320,8 +318,9 @@ libqt_string QCompleter_PathFromIndex(const QCompleter* self, QModelIndex* index
 }
 
 // Base class handler implementation
-libqt_string QCompleter_QBasePathFromIndex(const QCompleter* self, QModelIndex* index) {
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+libqt_string QCompleter_QBasePathFromIndex(const QCompleter* self, const QModelIndex* index) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_PathFromIndex_IsBase(true);
         QString _ret = vqcompleter->pathFromIndex(*index);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -333,7 +332,7 @@ libqt_string QCompleter_QBasePathFromIndex(const QCompleter* self, QModelIndex* 
         _str.data[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = vqcompleter->pathFromIndex(*index);
+        QString _ret = self->QCompleter::pathFromIndex(*index);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -347,15 +346,17 @@ libqt_string QCompleter_QBasePathFromIndex(const QCompleter* self, QModelIndex* 
 
 // Auxiliary method to allow providing re-implementation
 void QCompleter_OnPathFromIndex(const QCompleter* self, intptr_t slot) {
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_PathFromIndex_Callback(reinterpret_cast<VirtualQCompleter::QCompleter_PathFromIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-libqt_list /* of libqt_string */ QCompleter_SplitPath(const QCompleter* self, libqt_string path) {
+libqt_list /* of libqt_string */ QCompleter_SplitPath(const QCompleter* self, const libqt_string path) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
     QString path_QString = QString::fromUtf8(path.data, path.len);
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         QStringList _ret = vqcompleter->splitPath(path_QString);
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
@@ -375,7 +376,7 @@ libqt_list /* of libqt_string */ QCompleter_SplitPath(const QCompleter* self, li
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = vqcompleter->splitPath(path_QString);
+        QStringList _ret = self->QCompleter::splitPath(path_QString);
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
         for (size_t i = 0; i < _ret.length(); ++i) {
@@ -397,9 +398,10 @@ libqt_list /* of libqt_string */ QCompleter_SplitPath(const QCompleter* self, li
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QCompleter_QBaseSplitPath(const QCompleter* self, libqt_string path) {
+libqt_list /* of libqt_string */ QCompleter_QBaseSplitPath(const QCompleter* self, const libqt_string path) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
     QString path_QString = QString::fromUtf8(path.data, path.len);
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_SplitPath_IsBase(true);
         QStringList _ret = vqcompleter->splitPath(path_QString);
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -420,7 +422,7 @@ libqt_list /* of libqt_string */ QCompleter_QBaseSplitPath(const QCompleter* sel
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = vqcompleter->splitPath(path_QString);
+        QStringList _ret = self->QCompleter::splitPath(path_QString);
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
         for (size_t i = 0; i < _ret.length(); ++i) {
@@ -443,293 +445,327 @@ libqt_list /* of libqt_string */ QCompleter_QBaseSplitPath(const QCompleter* sel
 
 // Auxiliary method to allow providing re-implementation
 void QCompleter_OnSplitPath(const QCompleter* self, intptr_t slot) {
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_SplitPath_Callback(reinterpret_cast<VirtualQCompleter::QCompleter_SplitPath_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QCompleter_EventFilter(QCompleter* self, QObject* o, QEvent* e) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         return vqcompleter->eventFilter(o, e);
     } else {
-        return vqcompleter->eventFilter(o, e);
+        return ((VirtualQCompleter*)self)->eventFilter(o, e);
     }
 }
 
 // Base class handler implementation
 bool QCompleter_QBaseEventFilter(QCompleter* self, QObject* o, QEvent* e) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_EventFilter_IsBase(true);
         return vqcompleter->eventFilter(o, e);
     } else {
-        return vqcompleter->eventFilter(o, e);
+        return ((VirtualQCompleter*)self)->eventFilter(o, e);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCompleter_OnEventFilter(QCompleter* self, intptr_t slot) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_EventFilter_Callback(reinterpret_cast<VirtualQCompleter::QCompleter_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QCompleter_Event(QCompleter* self, QEvent* param1) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         return vqcompleter->event(param1);
     } else {
-        return vqcompleter->event(param1);
+        return ((VirtualQCompleter*)self)->event(param1);
     }
 }
 
 // Base class handler implementation
 bool QCompleter_QBaseEvent(QCompleter* self, QEvent* param1) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_Event_IsBase(true);
         return vqcompleter->event(param1);
     } else {
-        return vqcompleter->event(param1);
+        return ((VirtualQCompleter*)self)->event(param1);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCompleter_OnEvent(QCompleter* self, intptr_t slot) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_Event_Callback(reinterpret_cast<VirtualQCompleter::QCompleter_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QCompleter_TimerEvent(QCompleter* self, QTimerEvent* event) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->timerEvent(event);
     } else {
-        vqcompleter->timerEvent(event);
+        ((VirtualQCompleter*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QCompleter_QBaseTimerEvent(QCompleter* self, QTimerEvent* event) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_TimerEvent_IsBase(true);
         vqcompleter->timerEvent(event);
     } else {
-        vqcompleter->timerEvent(event);
+        ((VirtualQCompleter*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCompleter_OnTimerEvent(QCompleter* self, intptr_t slot) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_TimerEvent_Callback(reinterpret_cast<VirtualQCompleter::QCompleter_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QCompleter_ChildEvent(QCompleter* self, QChildEvent* event) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->childEvent(event);
     } else {
-        vqcompleter->childEvent(event);
+        ((VirtualQCompleter*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QCompleter_QBaseChildEvent(QCompleter* self, QChildEvent* event) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_ChildEvent_IsBase(true);
         vqcompleter->childEvent(event);
     } else {
-        vqcompleter->childEvent(event);
+        ((VirtualQCompleter*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCompleter_OnChildEvent(QCompleter* self, intptr_t slot) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_ChildEvent_Callback(reinterpret_cast<VirtualQCompleter::QCompleter_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QCompleter_CustomEvent(QCompleter* self, QEvent* event) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->customEvent(event);
     } else {
-        vqcompleter->customEvent(event);
+        ((VirtualQCompleter*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QCompleter_QBaseCustomEvent(QCompleter* self, QEvent* event) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_CustomEvent_IsBase(true);
         vqcompleter->customEvent(event);
     } else {
-        vqcompleter->customEvent(event);
+        ((VirtualQCompleter*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCompleter_OnCustomEvent(QCompleter* self, intptr_t slot) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_CustomEvent_Callback(reinterpret_cast<VirtualQCompleter::QCompleter_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QCompleter_ConnectNotify(QCompleter* self, QMetaMethod* signal) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+void QCompleter_ConnectNotify(QCompleter* self, const QMetaMethod* signal) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->connectNotify(*signal);
     } else {
-        vqcompleter->connectNotify(*signal);
+        ((VirtualQCompleter*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QCompleter_QBaseConnectNotify(QCompleter* self, QMetaMethod* signal) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+void QCompleter_QBaseConnectNotify(QCompleter* self, const QMetaMethod* signal) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_ConnectNotify_IsBase(true);
         vqcompleter->connectNotify(*signal);
     } else {
-        vqcompleter->connectNotify(*signal);
+        ((VirtualQCompleter*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCompleter_OnConnectNotify(QCompleter* self, intptr_t slot) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_ConnectNotify_Callback(reinterpret_cast<VirtualQCompleter::QCompleter_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QCompleter_DisconnectNotify(QCompleter* self, QMetaMethod* signal) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+void QCompleter_DisconnectNotify(QCompleter* self, const QMetaMethod* signal) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->disconnectNotify(*signal);
     } else {
-        vqcompleter->disconnectNotify(*signal);
+        ((VirtualQCompleter*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QCompleter_QBaseDisconnectNotify(QCompleter* self, QMetaMethod* signal) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+void QCompleter_QBaseDisconnectNotify(QCompleter* self, const QMetaMethod* signal) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_DisconnectNotify_IsBase(true);
         vqcompleter->disconnectNotify(*signal);
     } else {
-        vqcompleter->disconnectNotify(*signal);
+        ((VirtualQCompleter*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCompleter_OnDisconnectNotify(QCompleter* self, intptr_t slot) {
-    if (auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self)) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_DisconnectNotify_Callback(reinterpret_cast<VirtualQCompleter::QCompleter_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QCompleter_Sender(const QCompleter* self) {
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         return vqcompleter->sender();
     } else {
-        return vqcompleter->sender();
+        return ((VirtualQCompleter*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QCompleter_QBaseSender(const QCompleter* self) {
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_Sender_IsBase(true);
         return vqcompleter->sender();
     } else {
-        return vqcompleter->sender();
+        return ((VirtualQCompleter*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCompleter_OnSender(const QCompleter* self, intptr_t slot) {
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_Sender_Callback(reinterpret_cast<VirtualQCompleter::QCompleter_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QCompleter_SenderSignalIndex(const QCompleter* self) {
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         return vqcompleter->senderSignalIndex();
     } else {
-        return vqcompleter->senderSignalIndex();
+        return ((VirtualQCompleter*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QCompleter_QBaseSenderSignalIndex(const QCompleter* self) {
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_SenderSignalIndex_IsBase(true);
         return vqcompleter->senderSignalIndex();
     } else {
-        return vqcompleter->senderSignalIndex();
+        return ((VirtualQCompleter*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCompleter_OnSenderSignalIndex(const QCompleter* self, intptr_t slot) {
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_SenderSignalIndex_Callback(reinterpret_cast<VirtualQCompleter::QCompleter_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QCompleter_Receivers(const QCompleter* self, const char* signal) {
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         return vqcompleter->receivers(signal);
     } else {
-        return vqcompleter->receivers(signal);
+        return ((VirtualQCompleter*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QCompleter_QBaseReceivers(const QCompleter* self, const char* signal) {
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_Receivers_IsBase(true);
         return vqcompleter->receivers(signal);
     } else {
-        return vqcompleter->receivers(signal);
+        return ((VirtualQCompleter*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCompleter_OnReceivers(const QCompleter* self, intptr_t slot) {
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_Receivers_Callback(reinterpret_cast<VirtualQCompleter::QCompleter_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QCompleter_IsSignalConnected(const QCompleter* self, QMetaMethod* signal) {
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+bool QCompleter_IsSignalConnected(const QCompleter* self, const QMetaMethod* signal) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         return vqcompleter->isSignalConnected(*signal);
     } else {
-        return vqcompleter->isSignalConnected(*signal);
+        return ((VirtualQCompleter*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QCompleter_QBaseIsSignalConnected(const QCompleter* self, QMetaMethod* signal) {
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+bool QCompleter_QBaseIsSignalConnected(const QCompleter* self, const QMetaMethod* signal) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_IsSignalConnected_IsBase(true);
         return vqcompleter->isSignalConnected(*signal);
     } else {
-        return vqcompleter->isSignalConnected(*signal);
+        return ((VirtualQCompleter*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCompleter_OnIsSignalConnected(const QCompleter* self, intptr_t slot) {
-    if (auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self))) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_IsSignalConnected_Callback(reinterpret_cast<VirtualQCompleter::QCompleter_IsSignalConnected_Callback>(slot));
     }
 }

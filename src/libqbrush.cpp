@@ -25,7 +25,7 @@ QBrush* QBrush_new2(int bs) {
     return new QBrush(static_cast<Qt::BrushStyle>(bs));
 }
 
-QBrush* QBrush_new3(QColor* color) {
+QBrush* QBrush_new3(const QColor* color) {
     return new QBrush(*color);
 }
 
@@ -33,31 +33,31 @@ QBrush* QBrush_new4(int color) {
     return new QBrush(static_cast<Qt::GlobalColor>(color));
 }
 
-QBrush* QBrush_new5(QColor* color, QPixmap* pixmap) {
+QBrush* QBrush_new5(const QColor* color, const QPixmap* pixmap) {
     return new QBrush(*color, *pixmap);
 }
 
-QBrush* QBrush_new6(int color, QPixmap* pixmap) {
+QBrush* QBrush_new6(int color, const QPixmap* pixmap) {
     return new QBrush(static_cast<Qt::GlobalColor>(color), *pixmap);
 }
 
-QBrush* QBrush_new7(QPixmap* pixmap) {
+QBrush* QBrush_new7(const QPixmap* pixmap) {
     return new QBrush(*pixmap);
 }
 
-QBrush* QBrush_new8(QImage* image) {
+QBrush* QBrush_new8(const QImage* image) {
     return new QBrush(*image);
 }
 
-QBrush* QBrush_new9(QBrush* brush) {
+QBrush* QBrush_new9(const QBrush* brush) {
     return new QBrush(*brush);
 }
 
-QBrush* QBrush_new10(QGradient* gradient) {
+QBrush* QBrush_new10(const QGradient* gradient) {
     return new QBrush(*gradient);
 }
 
-QBrush* QBrush_new11(QColor* color, int bs) {
+QBrush* QBrush_new11(const QColor* color, int bs) {
     return new QBrush(*color, static_cast<Qt::BrushStyle>(bs));
 }
 
@@ -65,7 +65,7 @@ QBrush* QBrush_new12(int color, int bs) {
     return new QBrush(static_cast<Qt::GlobalColor>(color), static_cast<Qt::BrushStyle>(bs));
 }
 
-void QBrush_OperatorAssign(QBrush* self, QBrush* brush) {
+void QBrush_OperatorAssign(QBrush* self, const QBrush* brush) {
     self->operator=(*brush);
 }
 
@@ -89,7 +89,7 @@ QTransform* QBrush_Transform(const QBrush* self) {
     return new QTransform(self->transform());
 }
 
-void QBrush_SetTransform(QBrush* self, QTransform* transform) {
+void QBrush_SetTransform(QBrush* self, const QTransform* transform) {
     self->setTransform(*transform);
 }
 
@@ -97,7 +97,7 @@ QPixmap* QBrush_Texture(const QBrush* self) {
     return new QPixmap(self->texture());
 }
 
-void QBrush_SetTexture(QBrush* self, QPixmap* pixmap) {
+void QBrush_SetTexture(QBrush* self, const QPixmap* pixmap) {
     self->setTexture(*pixmap);
 }
 
@@ -105,7 +105,7 @@ QImage* QBrush_TextureImage(const QBrush* self) {
     return new QImage(self->textureImage());
 }
 
-void QBrush_SetTextureImage(QBrush* self, QImage* image) {
+void QBrush_SetTextureImage(QBrush* self, const QImage* image) {
     self->setTextureImage(*image);
 }
 
@@ -115,7 +115,7 @@ QColor* QBrush_Color(const QBrush* self) {
     return const_cast<QColor*>(&_ret);
 }
 
-void QBrush_SetColor(QBrush* self, QColor* color) {
+void QBrush_SetColor(QBrush* self, const QColor* color) {
     self->setColor(*color);
 }
 
@@ -131,11 +131,11 @@ bool QBrush_IsOpaque(const QBrush* self) {
     return self->isOpaque();
 }
 
-bool QBrush_OperatorEqual(const QBrush* self, QBrush* b) {
+bool QBrush_OperatorEqual(const QBrush* self, const QBrush* b) {
     return (*self == *b);
 }
 
-bool QBrush_OperatorNotEqual(const QBrush* self, QBrush* b) {
+bool QBrush_OperatorNotEqual(const QBrush* self, const QBrush* b) {
     return (*self != *b);
 }
 
@@ -147,11 +147,11 @@ void QBrush_Delete(QBrush* self) {
     delete self;
 }
 
-QBrushData* QBrushData_new(QBrushData* param1) {
+QBrushData* QBrushData_new(const QBrushData* param1) {
     return new QBrushData(*param1);
 }
 
-void QBrushData_OperatorAssign(QBrushData* self, QBrushData* param1) {
+void QBrushData_OperatorAssign(QBrushData* self, const QBrushData* param1) {
     self->operator=(*param1);
 }
 
@@ -167,7 +167,7 @@ QGradient* QGradient_new2(int param1) {
     return new QGradient(static_cast<QGradient::Preset>(param1));
 }
 
-QGradient* QGradient_new3(QGradient* param1) {
+QGradient* QGradient_new3(const QGradient* param1) {
     return new QGradient(*param1);
 }
 
@@ -183,7 +183,7 @@ int QGradient_Spread(const QGradient* self) {
     return static_cast<int>(self->spread());
 }
 
-void QGradient_SetColorAt(QGradient* self, double pos, QColor* color) {
+void QGradient_SetColorAt(QGradient* self, double pos, const QColor* color) {
     self->setColorAt(static_cast<qreal>(pos), *color);
 }
 
@@ -225,11 +225,11 @@ void QGradient_SetInterpolationMode(QGradient* self, int mode) {
     self->setInterpolationMode(static_cast<QGradient::InterpolationMode>(mode));
 }
 
-bool QGradient_OperatorEqual(const QGradient* self, QGradient* gradient) {
+bool QGradient_OperatorEqual(const QGradient* self, const QGradient* gradient) {
     return (*self == *gradient);
 }
 
-bool QGradient_OperatorNotEqual(const QGradient* self, QGradient* other) {
+bool QGradient_OperatorNotEqual(const QGradient* self, const QGradient* other) {
     return (*self != *other);
 }
 
@@ -241,7 +241,7 @@ QLinearGradient* QLinearGradient_new() {
     return new QLinearGradient();
 }
 
-QLinearGradient* QLinearGradient_new2(QPointF* start, QPointF* finalStop) {
+QLinearGradient* QLinearGradient_new2(const QPointF* start, const QPointF* finalStop) {
     return new QLinearGradient(*start, *finalStop);
 }
 
@@ -249,7 +249,7 @@ QLinearGradient* QLinearGradient_new3(double xStart, double yStart, double xFina
     return new QLinearGradient(static_cast<qreal>(xStart), static_cast<qreal>(yStart), static_cast<qreal>(xFinalStop), static_cast<qreal>(yFinalStop));
 }
 
-QLinearGradient* QLinearGradient_new4(QLinearGradient* param1) {
+QLinearGradient* QLinearGradient_new4(const QLinearGradient* param1) {
     return new QLinearGradient(*param1);
 }
 
@@ -257,7 +257,7 @@ QPointF* QLinearGradient_Start(const QLinearGradient* self) {
     return new QPointF(self->start());
 }
 
-void QLinearGradient_SetStart(QLinearGradient* self, QPointF* start) {
+void QLinearGradient_SetStart(QLinearGradient* self, const QPointF* start) {
     self->setStart(*start);
 }
 
@@ -269,7 +269,7 @@ QPointF* QLinearGradient_FinalStop(const QLinearGradient* self) {
     return new QPointF(self->finalStop());
 }
 
-void QLinearGradient_SetFinalStop(QLinearGradient* self, QPointF* stop) {
+void QLinearGradient_SetFinalStop(QLinearGradient* self, const QPointF* stop) {
     self->setFinalStop(*stop);
 }
 
@@ -285,7 +285,7 @@ QRadialGradient* QRadialGradient_new() {
     return new QRadialGradient();
 }
 
-QRadialGradient* QRadialGradient_new2(QPointF* center, double radius, QPointF* focalPoint) {
+QRadialGradient* QRadialGradient_new2(const QPointF* center, double radius, const QPointF* focalPoint) {
     return new QRadialGradient(*center, static_cast<qreal>(radius), *focalPoint);
 }
 
@@ -293,7 +293,7 @@ QRadialGradient* QRadialGradient_new3(double cx, double cy, double radius, doubl
     return new QRadialGradient(static_cast<qreal>(cx), static_cast<qreal>(cy), static_cast<qreal>(radius), static_cast<qreal>(fx), static_cast<qreal>(fy));
 }
 
-QRadialGradient* QRadialGradient_new4(QPointF* center, double radius) {
+QRadialGradient* QRadialGradient_new4(const QPointF* center, double radius) {
     return new QRadialGradient(*center, static_cast<qreal>(radius));
 }
 
@@ -301,7 +301,7 @@ QRadialGradient* QRadialGradient_new5(double cx, double cy, double radius) {
     return new QRadialGradient(static_cast<qreal>(cx), static_cast<qreal>(cy), static_cast<qreal>(radius));
 }
 
-QRadialGradient* QRadialGradient_new6(QPointF* center, double centerRadius, QPointF* focalPoint, double focalRadius) {
+QRadialGradient* QRadialGradient_new6(const QPointF* center, double centerRadius, const QPointF* focalPoint, double focalRadius) {
     return new QRadialGradient(*center, static_cast<qreal>(centerRadius), *focalPoint, static_cast<qreal>(focalRadius));
 }
 
@@ -309,7 +309,7 @@ QRadialGradient* QRadialGradient_new7(double cx, double cy, double centerRadius,
     return new QRadialGradient(static_cast<qreal>(cx), static_cast<qreal>(cy), static_cast<qreal>(centerRadius), static_cast<qreal>(fx), static_cast<qreal>(fy), static_cast<qreal>(focalRadius));
 }
 
-QRadialGradient* QRadialGradient_new8(QRadialGradient* param1) {
+QRadialGradient* QRadialGradient_new8(const QRadialGradient* param1) {
     return new QRadialGradient(*param1);
 }
 
@@ -317,7 +317,7 @@ QPointF* QRadialGradient_Center(const QRadialGradient* self) {
     return new QPointF(self->center());
 }
 
-void QRadialGradient_SetCenter(QRadialGradient* self, QPointF* center) {
+void QRadialGradient_SetCenter(QRadialGradient* self, const QPointF* center) {
     self->setCenter(*center);
 }
 
@@ -329,7 +329,7 @@ QPointF* QRadialGradient_FocalPoint(const QRadialGradient* self) {
     return new QPointF(self->focalPoint());
 }
 
-void QRadialGradient_SetFocalPoint(QRadialGradient* self, QPointF* focalPoint) {
+void QRadialGradient_SetFocalPoint(QRadialGradient* self, const QPointF* focalPoint) {
     self->setFocalPoint(*focalPoint);
 }
 
@@ -369,7 +369,7 @@ QConicalGradient* QConicalGradient_new() {
     return new QConicalGradient();
 }
 
-QConicalGradient* QConicalGradient_new2(QPointF* center, double startAngle) {
+QConicalGradient* QConicalGradient_new2(const QPointF* center, double startAngle) {
     return new QConicalGradient(*center, static_cast<qreal>(startAngle));
 }
 
@@ -377,7 +377,7 @@ QConicalGradient* QConicalGradient_new3(double cx, double cy, double startAngle)
     return new QConicalGradient(static_cast<qreal>(cx), static_cast<qreal>(cy), static_cast<qreal>(startAngle));
 }
 
-QConicalGradient* QConicalGradient_new4(QConicalGradient* param1) {
+QConicalGradient* QConicalGradient_new4(const QConicalGradient* param1) {
     return new QConicalGradient(*param1);
 }
 
@@ -385,7 +385,7 @@ QPointF* QConicalGradient_Center(const QConicalGradient* self) {
     return new QPointF(self->center());
 }
 
-void QConicalGradient_SetCenter(QConicalGradient* self, QPointF* center) {
+void QConicalGradient_SetCenter(QConicalGradient* self, const QPointF* center) {
     self->setCenter(*center);
 }
 
@@ -405,7 +405,7 @@ void QConicalGradient_Delete(QConicalGradient* self) {
     delete self;
 }
 
-QGradient__QGradientData* QGradient__QGradientData_new(QGradient__QGradientData* param1) {
+QGradient__QGradientData* QGradient__QGradientData_new(const QGradient__QGradientData* param1) {
     return new QGradient::QGradientData(*param1);
 }
 

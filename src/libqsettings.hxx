@@ -11,22 +11,25 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QSettings so that we can call protected methods
-class VirtualQSettings : public QSettings {
+class VirtualQSettings final : public QSettings {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQSettings = true;
+
     // Virtual class public types (including callbacks)
-    using QSettings_Metacall_Callback = int (*)(QSettings*, QMetaObject::Call, int, void**);
+    using QSettings_Metacall_Callback = int (*)(QSettings*, int, int, void**);
     using QSettings_Event_Callback = bool (*)(QSettings*, QEvent*);
     using QSettings_EventFilter_Callback = bool (*)(QSettings*, QObject*, QEvent*);
     using QSettings_TimerEvent_Callback = void (*)(QSettings*, QTimerEvent*);
     using QSettings_ChildEvent_Callback = void (*)(QSettings*, QChildEvent*);
     using QSettings_CustomEvent_Callback = void (*)(QSettings*, QEvent*);
-    using QSettings_ConnectNotify_Callback = void (*)(QSettings*, const QMetaMethod&);
-    using QSettings_DisconnectNotify_Callback = void (*)(QSettings*, const QMetaMethod&);
+    using QSettings_ConnectNotify_Callback = void (*)(QSettings*, QMetaMethod*);
+    using QSettings_DisconnectNotify_Callback = void (*)(QSettings*, QMetaMethod*);
     using QSettings_Sender_Callback = QObject* (*)();
     using QSettings_SenderSignalIndex_Callback = int (*)();
     using QSettings_Receivers_Callback = int (*)(const QSettings*, const char*);
-    using QSettings_IsSignalConnected_Callback = bool (*)(const QSettings*, const QMetaMethod&);
+    using QSettings_IsSignalConnected_Callback = bool (*)(const QSettings*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -90,32 +93,32 @@ class VirtualQSettings : public QSettings {
     }
 
     // Callback setters
-    void setQSettings_Metacall_Callback(QSettings_Metacall_Callback cb) { qsettings_metacall_callback = cb; }
-    void setQSettings_Event_Callback(QSettings_Event_Callback cb) { qsettings_event_callback = cb; }
-    void setQSettings_EventFilter_Callback(QSettings_EventFilter_Callback cb) { qsettings_eventfilter_callback = cb; }
-    void setQSettings_TimerEvent_Callback(QSettings_TimerEvent_Callback cb) { qsettings_timerevent_callback = cb; }
-    void setQSettings_ChildEvent_Callback(QSettings_ChildEvent_Callback cb) { qsettings_childevent_callback = cb; }
-    void setQSettings_CustomEvent_Callback(QSettings_CustomEvent_Callback cb) { qsettings_customevent_callback = cb; }
-    void setQSettings_ConnectNotify_Callback(QSettings_ConnectNotify_Callback cb) { qsettings_connectnotify_callback = cb; }
-    void setQSettings_DisconnectNotify_Callback(QSettings_DisconnectNotify_Callback cb) { qsettings_disconnectnotify_callback = cb; }
-    void setQSettings_Sender_Callback(QSettings_Sender_Callback cb) { qsettings_sender_callback = cb; }
-    void setQSettings_SenderSignalIndex_Callback(QSettings_SenderSignalIndex_Callback cb) { qsettings_sendersignalindex_callback = cb; }
-    void setQSettings_Receivers_Callback(QSettings_Receivers_Callback cb) { qsettings_receivers_callback = cb; }
-    void setQSettings_IsSignalConnected_Callback(QSettings_IsSignalConnected_Callback cb) { qsettings_issignalconnected_callback = cb; }
+    inline void setQSettings_Metacall_Callback(QSettings_Metacall_Callback cb) { qsettings_metacall_callback = cb; }
+    inline void setQSettings_Event_Callback(QSettings_Event_Callback cb) { qsettings_event_callback = cb; }
+    inline void setQSettings_EventFilter_Callback(QSettings_EventFilter_Callback cb) { qsettings_eventfilter_callback = cb; }
+    inline void setQSettings_TimerEvent_Callback(QSettings_TimerEvent_Callback cb) { qsettings_timerevent_callback = cb; }
+    inline void setQSettings_ChildEvent_Callback(QSettings_ChildEvent_Callback cb) { qsettings_childevent_callback = cb; }
+    inline void setQSettings_CustomEvent_Callback(QSettings_CustomEvent_Callback cb) { qsettings_customevent_callback = cb; }
+    inline void setQSettings_ConnectNotify_Callback(QSettings_ConnectNotify_Callback cb) { qsettings_connectnotify_callback = cb; }
+    inline void setQSettings_DisconnectNotify_Callback(QSettings_DisconnectNotify_Callback cb) { qsettings_disconnectnotify_callback = cb; }
+    inline void setQSettings_Sender_Callback(QSettings_Sender_Callback cb) { qsettings_sender_callback = cb; }
+    inline void setQSettings_SenderSignalIndex_Callback(QSettings_SenderSignalIndex_Callback cb) { qsettings_sendersignalindex_callback = cb; }
+    inline void setQSettings_Receivers_Callback(QSettings_Receivers_Callback cb) { qsettings_receivers_callback = cb; }
+    inline void setQSettings_IsSignalConnected_Callback(QSettings_IsSignalConnected_Callback cb) { qsettings_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQSettings_Metacall_IsBase(bool value) const { qsettings_metacall_isbase = value; }
-    void setQSettings_Event_IsBase(bool value) const { qsettings_event_isbase = value; }
-    void setQSettings_EventFilter_IsBase(bool value) const { qsettings_eventfilter_isbase = value; }
-    void setQSettings_TimerEvent_IsBase(bool value) const { qsettings_timerevent_isbase = value; }
-    void setQSettings_ChildEvent_IsBase(bool value) const { qsettings_childevent_isbase = value; }
-    void setQSettings_CustomEvent_IsBase(bool value) const { qsettings_customevent_isbase = value; }
-    void setQSettings_ConnectNotify_IsBase(bool value) const { qsettings_connectnotify_isbase = value; }
-    void setQSettings_DisconnectNotify_IsBase(bool value) const { qsettings_disconnectnotify_isbase = value; }
-    void setQSettings_Sender_IsBase(bool value) const { qsettings_sender_isbase = value; }
-    void setQSettings_SenderSignalIndex_IsBase(bool value) const { qsettings_sendersignalindex_isbase = value; }
-    void setQSettings_Receivers_IsBase(bool value) const { qsettings_receivers_isbase = value; }
-    void setQSettings_IsSignalConnected_IsBase(bool value) const { qsettings_issignalconnected_isbase = value; }
+    inline void setQSettings_Metacall_IsBase(bool value) const { qsettings_metacall_isbase = value; }
+    inline void setQSettings_Event_IsBase(bool value) const { qsettings_event_isbase = value; }
+    inline void setQSettings_EventFilter_IsBase(bool value) const { qsettings_eventfilter_isbase = value; }
+    inline void setQSettings_TimerEvent_IsBase(bool value) const { qsettings_timerevent_isbase = value; }
+    inline void setQSettings_ChildEvent_IsBase(bool value) const { qsettings_childevent_isbase = value; }
+    inline void setQSettings_CustomEvent_IsBase(bool value) const { qsettings_customevent_isbase = value; }
+    inline void setQSettings_ConnectNotify_IsBase(bool value) const { qsettings_connectnotify_isbase = value; }
+    inline void setQSettings_DisconnectNotify_IsBase(bool value) const { qsettings_disconnectnotify_isbase = value; }
+    inline void setQSettings_Sender_IsBase(bool value) const { qsettings_sender_isbase = value; }
+    inline void setQSettings_SenderSignalIndex_IsBase(bool value) const { qsettings_sendersignalindex_isbase = value; }
+    inline void setQSettings_Receivers_IsBase(bool value) const { qsettings_receivers_isbase = value; }
+    inline void setQSettings_IsSignalConnected_IsBase(bool value) const { qsettings_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -123,7 +126,12 @@ class VirtualQSettings : public QSettings {
             qsettings_metacall_isbase = false;
             return QSettings::qt_metacall(param1, param2, param3);
         } else if (qsettings_metacall_callback != nullptr) {
-            return qsettings_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qsettings_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QSettings::qt_metacall(param1, param2, param3);
         }
@@ -135,7 +143,10 @@ class VirtualQSettings : public QSettings {
             qsettings_event_isbase = false;
             return QSettings::event(event);
         } else if (qsettings_event_callback != nullptr) {
-            return qsettings_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qsettings_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QSettings::event(event);
         }
@@ -147,7 +158,11 @@ class VirtualQSettings : public QSettings {
             qsettings_eventfilter_isbase = false;
             return QSettings::eventFilter(watched, event);
         } else if (qsettings_eventfilter_callback != nullptr) {
-            return qsettings_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qsettings_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QSettings::eventFilter(watched, event);
         }
@@ -159,7 +174,9 @@ class VirtualQSettings : public QSettings {
             qsettings_timerevent_isbase = false;
             QSettings::timerEvent(event);
         } else if (qsettings_timerevent_callback != nullptr) {
-            qsettings_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qsettings_timerevent_callback(this, cbval1);
         } else {
             QSettings::timerEvent(event);
         }
@@ -171,7 +188,9 @@ class VirtualQSettings : public QSettings {
             qsettings_childevent_isbase = false;
             QSettings::childEvent(event);
         } else if (qsettings_childevent_callback != nullptr) {
-            qsettings_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qsettings_childevent_callback(this, cbval1);
         } else {
             QSettings::childEvent(event);
         }
@@ -183,7 +202,9 @@ class VirtualQSettings : public QSettings {
             qsettings_customevent_isbase = false;
             QSettings::customEvent(event);
         } else if (qsettings_customevent_callback != nullptr) {
-            qsettings_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qsettings_customevent_callback(this, cbval1);
         } else {
             QSettings::customEvent(event);
         }
@@ -195,7 +216,11 @@ class VirtualQSettings : public QSettings {
             qsettings_connectnotify_isbase = false;
             QSettings::connectNotify(signal);
         } else if (qsettings_connectnotify_callback != nullptr) {
-            qsettings_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qsettings_connectnotify_callback(this, cbval1);
         } else {
             QSettings::connectNotify(signal);
         }
@@ -207,7 +232,11 @@ class VirtualQSettings : public QSettings {
             qsettings_disconnectnotify_isbase = false;
             QSettings::disconnectNotify(signal);
         } else if (qsettings_disconnectnotify_callback != nullptr) {
-            qsettings_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qsettings_disconnectnotify_callback(this, cbval1);
         } else {
             QSettings::disconnectNotify(signal);
         }
@@ -219,7 +248,8 @@ class VirtualQSettings : public QSettings {
             qsettings_sender_isbase = false;
             return QSettings::sender();
         } else if (qsettings_sender_callback != nullptr) {
-            return qsettings_sender_callback();
+            QObject* callback_ret = qsettings_sender_callback();
+            return callback_ret;
         } else {
             return QSettings::sender();
         }
@@ -231,7 +261,8 @@ class VirtualQSettings : public QSettings {
             qsettings_sendersignalindex_isbase = false;
             return QSettings::senderSignalIndex();
         } else if (qsettings_sendersignalindex_callback != nullptr) {
-            return qsettings_sendersignalindex_callback();
+            int callback_ret = qsettings_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QSettings::senderSignalIndex();
         }
@@ -243,7 +274,10 @@ class VirtualQSettings : public QSettings {
             qsettings_receivers_isbase = false;
             return QSettings::receivers(signal);
         } else if (qsettings_receivers_callback != nullptr) {
-            return qsettings_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qsettings_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QSettings::receivers(signal);
         }
@@ -255,11 +289,38 @@ class VirtualQSettings : public QSettings {
             qsettings_issignalconnected_isbase = false;
             return QSettings::isSignalConnected(signal);
         } else if (qsettings_issignalconnected_callback != nullptr) {
-            return qsettings_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qsettings_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QSettings::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QSettings_Event(QSettings* self, QEvent* event);
+    friend bool QSettings_QBaseEvent(QSettings* self, QEvent* event);
+    friend void QSettings_TimerEvent(QSettings* self, QTimerEvent* event);
+    friend void QSettings_QBaseTimerEvent(QSettings* self, QTimerEvent* event);
+    friend void QSettings_ChildEvent(QSettings* self, QChildEvent* event);
+    friend void QSettings_QBaseChildEvent(QSettings* self, QChildEvent* event);
+    friend void QSettings_CustomEvent(QSettings* self, QEvent* event);
+    friend void QSettings_QBaseCustomEvent(QSettings* self, QEvent* event);
+    friend void QSettings_ConnectNotify(QSettings* self, const QMetaMethod* signal);
+    friend void QSettings_QBaseConnectNotify(QSettings* self, const QMetaMethod* signal);
+    friend void QSettings_DisconnectNotify(QSettings* self, const QMetaMethod* signal);
+    friend void QSettings_QBaseDisconnectNotify(QSettings* self, const QMetaMethod* signal);
+    friend QObject* QSettings_Sender(const QSettings* self);
+    friend QObject* QSettings_QBaseSender(const QSettings* self);
+    friend int QSettings_SenderSignalIndex(const QSettings* self);
+    friend int QSettings_QBaseSenderSignalIndex(const QSettings* self);
+    friend int QSettings_Receivers(const QSettings* self, const char* signal);
+    friend int QSettings_QBaseReceivers(const QSettings* self, const char* signal);
+    friend bool QSettings_IsSignalConnected(const QSettings* self, const QMetaMethod* signal);
+    friend bool QSettings_QBaseIsSignalConnected(const QSettings* self, const QMetaMethod* signal);
 };
 
 #endif

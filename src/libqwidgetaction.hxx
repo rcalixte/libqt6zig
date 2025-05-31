@@ -11,11 +11,14 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QWidgetAction so that we can call protected methods
-class VirtualQWidgetAction : public QWidgetAction {
+class VirtualQWidgetAction final : public QWidgetAction {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQWidgetAction = true;
+
     // Virtual class public types (including callbacks)
-    using QWidgetAction_Metacall_Callback = int (*)(QWidgetAction*, QMetaObject::Call, int, void**);
+    using QWidgetAction_Metacall_Callback = int (*)(QWidgetAction*, int, int, void**);
     using QWidgetAction_Event_Callback = bool (*)(QWidgetAction*, QEvent*);
     using QWidgetAction_EventFilter_Callback = bool (*)(QWidgetAction*, QObject*, QEvent*);
     using QWidgetAction_CreateWidget_Callback = QWidget* (*)(QWidgetAction*, QWidget*);
@@ -23,13 +26,13 @@ class VirtualQWidgetAction : public QWidgetAction {
     using QWidgetAction_TimerEvent_Callback = void (*)(QWidgetAction*, QTimerEvent*);
     using QWidgetAction_ChildEvent_Callback = void (*)(QWidgetAction*, QChildEvent*);
     using QWidgetAction_CustomEvent_Callback = void (*)(QWidgetAction*, QEvent*);
-    using QWidgetAction_ConnectNotify_Callback = void (*)(QWidgetAction*, const QMetaMethod&);
-    using QWidgetAction_DisconnectNotify_Callback = void (*)(QWidgetAction*, const QMetaMethod&);
-    using QWidgetAction_CreatedWidgets_Callback = QList<QWidget*> (*)();
+    using QWidgetAction_ConnectNotify_Callback = void (*)(QWidgetAction*, QMetaMethod*);
+    using QWidgetAction_DisconnectNotify_Callback = void (*)(QWidgetAction*, QMetaMethod*);
+    using QWidgetAction_CreatedWidgets_Callback = libqt_list /* of QWidget* */ (*)();
     using QWidgetAction_Sender_Callback = QObject* (*)();
     using QWidgetAction_SenderSignalIndex_Callback = int (*)();
     using QWidgetAction_Receivers_Callback = int (*)(const QWidgetAction*, const char*);
-    using QWidgetAction_IsSignalConnected_Callback = bool (*)(const QWidgetAction*, const QMetaMethod&);
+    using QWidgetAction_IsSignalConnected_Callback = bool (*)(const QWidgetAction*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -88,38 +91,38 @@ class VirtualQWidgetAction : public QWidgetAction {
     }
 
     // Callback setters
-    void setQWidgetAction_Metacall_Callback(QWidgetAction_Metacall_Callback cb) { qwidgetaction_metacall_callback = cb; }
-    void setQWidgetAction_Event_Callback(QWidgetAction_Event_Callback cb) { qwidgetaction_event_callback = cb; }
-    void setQWidgetAction_EventFilter_Callback(QWidgetAction_EventFilter_Callback cb) { qwidgetaction_eventfilter_callback = cb; }
-    void setQWidgetAction_CreateWidget_Callback(QWidgetAction_CreateWidget_Callback cb) { qwidgetaction_createwidget_callback = cb; }
-    void setQWidgetAction_DeleteWidget_Callback(QWidgetAction_DeleteWidget_Callback cb) { qwidgetaction_deletewidget_callback = cb; }
-    void setQWidgetAction_TimerEvent_Callback(QWidgetAction_TimerEvent_Callback cb) { qwidgetaction_timerevent_callback = cb; }
-    void setQWidgetAction_ChildEvent_Callback(QWidgetAction_ChildEvent_Callback cb) { qwidgetaction_childevent_callback = cb; }
-    void setQWidgetAction_CustomEvent_Callback(QWidgetAction_CustomEvent_Callback cb) { qwidgetaction_customevent_callback = cb; }
-    void setQWidgetAction_ConnectNotify_Callback(QWidgetAction_ConnectNotify_Callback cb) { qwidgetaction_connectnotify_callback = cb; }
-    void setQWidgetAction_DisconnectNotify_Callback(QWidgetAction_DisconnectNotify_Callback cb) { qwidgetaction_disconnectnotify_callback = cb; }
-    void setQWidgetAction_CreatedWidgets_Callback(QWidgetAction_CreatedWidgets_Callback cb) { qwidgetaction_createdwidgets_callback = cb; }
-    void setQWidgetAction_Sender_Callback(QWidgetAction_Sender_Callback cb) { qwidgetaction_sender_callback = cb; }
-    void setQWidgetAction_SenderSignalIndex_Callback(QWidgetAction_SenderSignalIndex_Callback cb) { qwidgetaction_sendersignalindex_callback = cb; }
-    void setQWidgetAction_Receivers_Callback(QWidgetAction_Receivers_Callback cb) { qwidgetaction_receivers_callback = cb; }
-    void setQWidgetAction_IsSignalConnected_Callback(QWidgetAction_IsSignalConnected_Callback cb) { qwidgetaction_issignalconnected_callback = cb; }
+    inline void setQWidgetAction_Metacall_Callback(QWidgetAction_Metacall_Callback cb) { qwidgetaction_metacall_callback = cb; }
+    inline void setQWidgetAction_Event_Callback(QWidgetAction_Event_Callback cb) { qwidgetaction_event_callback = cb; }
+    inline void setQWidgetAction_EventFilter_Callback(QWidgetAction_EventFilter_Callback cb) { qwidgetaction_eventfilter_callback = cb; }
+    inline void setQWidgetAction_CreateWidget_Callback(QWidgetAction_CreateWidget_Callback cb) { qwidgetaction_createwidget_callback = cb; }
+    inline void setQWidgetAction_DeleteWidget_Callback(QWidgetAction_DeleteWidget_Callback cb) { qwidgetaction_deletewidget_callback = cb; }
+    inline void setQWidgetAction_TimerEvent_Callback(QWidgetAction_TimerEvent_Callback cb) { qwidgetaction_timerevent_callback = cb; }
+    inline void setQWidgetAction_ChildEvent_Callback(QWidgetAction_ChildEvent_Callback cb) { qwidgetaction_childevent_callback = cb; }
+    inline void setQWidgetAction_CustomEvent_Callback(QWidgetAction_CustomEvent_Callback cb) { qwidgetaction_customevent_callback = cb; }
+    inline void setQWidgetAction_ConnectNotify_Callback(QWidgetAction_ConnectNotify_Callback cb) { qwidgetaction_connectnotify_callback = cb; }
+    inline void setQWidgetAction_DisconnectNotify_Callback(QWidgetAction_DisconnectNotify_Callback cb) { qwidgetaction_disconnectnotify_callback = cb; }
+    inline void setQWidgetAction_CreatedWidgets_Callback(QWidgetAction_CreatedWidgets_Callback cb) { qwidgetaction_createdwidgets_callback = cb; }
+    inline void setQWidgetAction_Sender_Callback(QWidgetAction_Sender_Callback cb) { qwidgetaction_sender_callback = cb; }
+    inline void setQWidgetAction_SenderSignalIndex_Callback(QWidgetAction_SenderSignalIndex_Callback cb) { qwidgetaction_sendersignalindex_callback = cb; }
+    inline void setQWidgetAction_Receivers_Callback(QWidgetAction_Receivers_Callback cb) { qwidgetaction_receivers_callback = cb; }
+    inline void setQWidgetAction_IsSignalConnected_Callback(QWidgetAction_IsSignalConnected_Callback cb) { qwidgetaction_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQWidgetAction_Metacall_IsBase(bool value) const { qwidgetaction_metacall_isbase = value; }
-    void setQWidgetAction_Event_IsBase(bool value) const { qwidgetaction_event_isbase = value; }
-    void setQWidgetAction_EventFilter_IsBase(bool value) const { qwidgetaction_eventfilter_isbase = value; }
-    void setQWidgetAction_CreateWidget_IsBase(bool value) const { qwidgetaction_createwidget_isbase = value; }
-    void setQWidgetAction_DeleteWidget_IsBase(bool value) const { qwidgetaction_deletewidget_isbase = value; }
-    void setQWidgetAction_TimerEvent_IsBase(bool value) const { qwidgetaction_timerevent_isbase = value; }
-    void setQWidgetAction_ChildEvent_IsBase(bool value) const { qwidgetaction_childevent_isbase = value; }
-    void setQWidgetAction_CustomEvent_IsBase(bool value) const { qwidgetaction_customevent_isbase = value; }
-    void setQWidgetAction_ConnectNotify_IsBase(bool value) const { qwidgetaction_connectnotify_isbase = value; }
-    void setQWidgetAction_DisconnectNotify_IsBase(bool value) const { qwidgetaction_disconnectnotify_isbase = value; }
-    void setQWidgetAction_CreatedWidgets_IsBase(bool value) const { qwidgetaction_createdwidgets_isbase = value; }
-    void setQWidgetAction_Sender_IsBase(bool value) const { qwidgetaction_sender_isbase = value; }
-    void setQWidgetAction_SenderSignalIndex_IsBase(bool value) const { qwidgetaction_sendersignalindex_isbase = value; }
-    void setQWidgetAction_Receivers_IsBase(bool value) const { qwidgetaction_receivers_isbase = value; }
-    void setQWidgetAction_IsSignalConnected_IsBase(bool value) const { qwidgetaction_issignalconnected_isbase = value; }
+    inline void setQWidgetAction_Metacall_IsBase(bool value) const { qwidgetaction_metacall_isbase = value; }
+    inline void setQWidgetAction_Event_IsBase(bool value) const { qwidgetaction_event_isbase = value; }
+    inline void setQWidgetAction_EventFilter_IsBase(bool value) const { qwidgetaction_eventfilter_isbase = value; }
+    inline void setQWidgetAction_CreateWidget_IsBase(bool value) const { qwidgetaction_createwidget_isbase = value; }
+    inline void setQWidgetAction_DeleteWidget_IsBase(bool value) const { qwidgetaction_deletewidget_isbase = value; }
+    inline void setQWidgetAction_TimerEvent_IsBase(bool value) const { qwidgetaction_timerevent_isbase = value; }
+    inline void setQWidgetAction_ChildEvent_IsBase(bool value) const { qwidgetaction_childevent_isbase = value; }
+    inline void setQWidgetAction_CustomEvent_IsBase(bool value) const { qwidgetaction_customevent_isbase = value; }
+    inline void setQWidgetAction_ConnectNotify_IsBase(bool value) const { qwidgetaction_connectnotify_isbase = value; }
+    inline void setQWidgetAction_DisconnectNotify_IsBase(bool value) const { qwidgetaction_disconnectnotify_isbase = value; }
+    inline void setQWidgetAction_CreatedWidgets_IsBase(bool value) const { qwidgetaction_createdwidgets_isbase = value; }
+    inline void setQWidgetAction_Sender_IsBase(bool value) const { qwidgetaction_sender_isbase = value; }
+    inline void setQWidgetAction_SenderSignalIndex_IsBase(bool value) const { qwidgetaction_sendersignalindex_isbase = value; }
+    inline void setQWidgetAction_Receivers_IsBase(bool value) const { qwidgetaction_receivers_isbase = value; }
+    inline void setQWidgetAction_IsSignalConnected_IsBase(bool value) const { qwidgetaction_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -127,7 +130,12 @@ class VirtualQWidgetAction : public QWidgetAction {
             qwidgetaction_metacall_isbase = false;
             return QWidgetAction::qt_metacall(param1, param2, param3);
         } else if (qwidgetaction_metacall_callback != nullptr) {
-            return qwidgetaction_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qwidgetaction_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QWidgetAction::qt_metacall(param1, param2, param3);
         }
@@ -139,7 +147,10 @@ class VirtualQWidgetAction : public QWidgetAction {
             qwidgetaction_event_isbase = false;
             return QWidgetAction::event(param1);
         } else if (qwidgetaction_event_callback != nullptr) {
-            return qwidgetaction_event_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            bool callback_ret = qwidgetaction_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QWidgetAction::event(param1);
         }
@@ -151,7 +162,11 @@ class VirtualQWidgetAction : public QWidgetAction {
             qwidgetaction_eventfilter_isbase = false;
             return QWidgetAction::eventFilter(param1, param2);
         } else if (qwidgetaction_eventfilter_callback != nullptr) {
-            return qwidgetaction_eventfilter_callback(this, param1, param2);
+            QObject* cbval1 = param1;
+            QEvent* cbval2 = param2;
+
+            bool callback_ret = qwidgetaction_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QWidgetAction::eventFilter(param1, param2);
         }
@@ -163,7 +178,10 @@ class VirtualQWidgetAction : public QWidgetAction {
             qwidgetaction_createwidget_isbase = false;
             return QWidgetAction::createWidget(parent);
         } else if (qwidgetaction_createwidget_callback != nullptr) {
-            return qwidgetaction_createwidget_callback(this, parent);
+            QWidget* cbval1 = parent;
+
+            QWidget* callback_ret = qwidgetaction_createwidget_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QWidgetAction::createWidget(parent);
         }
@@ -175,7 +193,9 @@ class VirtualQWidgetAction : public QWidgetAction {
             qwidgetaction_deletewidget_isbase = false;
             QWidgetAction::deleteWidget(widget);
         } else if (qwidgetaction_deletewidget_callback != nullptr) {
-            qwidgetaction_deletewidget_callback(this, widget);
+            QWidget* cbval1 = widget;
+
+            qwidgetaction_deletewidget_callback(this, cbval1);
         } else {
             QWidgetAction::deleteWidget(widget);
         }
@@ -187,7 +207,9 @@ class VirtualQWidgetAction : public QWidgetAction {
             qwidgetaction_timerevent_isbase = false;
             QWidgetAction::timerEvent(event);
         } else if (qwidgetaction_timerevent_callback != nullptr) {
-            qwidgetaction_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qwidgetaction_timerevent_callback(this, cbval1);
         } else {
             QWidgetAction::timerEvent(event);
         }
@@ -199,7 +221,9 @@ class VirtualQWidgetAction : public QWidgetAction {
             qwidgetaction_childevent_isbase = false;
             QWidgetAction::childEvent(event);
         } else if (qwidgetaction_childevent_callback != nullptr) {
-            qwidgetaction_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qwidgetaction_childevent_callback(this, cbval1);
         } else {
             QWidgetAction::childEvent(event);
         }
@@ -211,7 +235,9 @@ class VirtualQWidgetAction : public QWidgetAction {
             qwidgetaction_customevent_isbase = false;
             QWidgetAction::customEvent(event);
         } else if (qwidgetaction_customevent_callback != nullptr) {
-            qwidgetaction_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qwidgetaction_customevent_callback(this, cbval1);
         } else {
             QWidgetAction::customEvent(event);
         }
@@ -223,7 +249,11 @@ class VirtualQWidgetAction : public QWidgetAction {
             qwidgetaction_connectnotify_isbase = false;
             QWidgetAction::connectNotify(signal);
         } else if (qwidgetaction_connectnotify_callback != nullptr) {
-            qwidgetaction_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qwidgetaction_connectnotify_callback(this, cbval1);
         } else {
             QWidgetAction::connectNotify(signal);
         }
@@ -235,7 +265,11 @@ class VirtualQWidgetAction : public QWidgetAction {
             qwidgetaction_disconnectnotify_isbase = false;
             QWidgetAction::disconnectNotify(signal);
         } else if (qwidgetaction_disconnectnotify_callback != nullptr) {
-            qwidgetaction_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qwidgetaction_disconnectnotify_callback(this, cbval1);
         } else {
             QWidgetAction::disconnectNotify(signal);
         }
@@ -247,7 +281,14 @@ class VirtualQWidgetAction : public QWidgetAction {
             qwidgetaction_createdwidgets_isbase = false;
             return QWidgetAction::createdWidgets();
         } else if (qwidgetaction_createdwidgets_callback != nullptr) {
-            return qwidgetaction_createdwidgets_callback();
+            libqt_list /* of QWidget* */ callback_ret = qwidgetaction_createdwidgets_callback();
+            QList<QWidget*> callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
+            }
+            return callback_ret_QList;
         } else {
             return QWidgetAction::createdWidgets();
         }
@@ -259,7 +300,8 @@ class VirtualQWidgetAction : public QWidgetAction {
             qwidgetaction_sender_isbase = false;
             return QWidgetAction::sender();
         } else if (qwidgetaction_sender_callback != nullptr) {
-            return qwidgetaction_sender_callback();
+            QObject* callback_ret = qwidgetaction_sender_callback();
+            return callback_ret;
         } else {
             return QWidgetAction::sender();
         }
@@ -271,7 +313,8 @@ class VirtualQWidgetAction : public QWidgetAction {
             qwidgetaction_sendersignalindex_isbase = false;
             return QWidgetAction::senderSignalIndex();
         } else if (qwidgetaction_sendersignalindex_callback != nullptr) {
-            return qwidgetaction_sendersignalindex_callback();
+            int callback_ret = qwidgetaction_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QWidgetAction::senderSignalIndex();
         }
@@ -283,7 +326,10 @@ class VirtualQWidgetAction : public QWidgetAction {
             qwidgetaction_receivers_isbase = false;
             return QWidgetAction::receivers(signal);
         } else if (qwidgetaction_receivers_callback != nullptr) {
-            return qwidgetaction_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qwidgetaction_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QWidgetAction::receivers(signal);
         }
@@ -295,11 +341,46 @@ class VirtualQWidgetAction : public QWidgetAction {
             qwidgetaction_issignalconnected_isbase = false;
             return QWidgetAction::isSignalConnected(signal);
         } else if (qwidgetaction_issignalconnected_callback != nullptr) {
-            return qwidgetaction_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qwidgetaction_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QWidgetAction::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QWidgetAction_Event(QWidgetAction* self, QEvent* param1);
+    friend bool QWidgetAction_QBaseEvent(QWidgetAction* self, QEvent* param1);
+    friend bool QWidgetAction_EventFilter(QWidgetAction* self, QObject* param1, QEvent* param2);
+    friend bool QWidgetAction_QBaseEventFilter(QWidgetAction* self, QObject* param1, QEvent* param2);
+    friend QWidget* QWidgetAction_CreateWidget(QWidgetAction* self, QWidget* parent);
+    friend QWidget* QWidgetAction_QBaseCreateWidget(QWidgetAction* self, QWidget* parent);
+    friend void QWidgetAction_DeleteWidget(QWidgetAction* self, QWidget* widget);
+    friend void QWidgetAction_QBaseDeleteWidget(QWidgetAction* self, QWidget* widget);
+    friend void QWidgetAction_TimerEvent(QWidgetAction* self, QTimerEvent* event);
+    friend void QWidgetAction_QBaseTimerEvent(QWidgetAction* self, QTimerEvent* event);
+    friend void QWidgetAction_ChildEvent(QWidgetAction* self, QChildEvent* event);
+    friend void QWidgetAction_QBaseChildEvent(QWidgetAction* self, QChildEvent* event);
+    friend void QWidgetAction_CustomEvent(QWidgetAction* self, QEvent* event);
+    friend void QWidgetAction_QBaseCustomEvent(QWidgetAction* self, QEvent* event);
+    friend void QWidgetAction_ConnectNotify(QWidgetAction* self, const QMetaMethod* signal);
+    friend void QWidgetAction_QBaseConnectNotify(QWidgetAction* self, const QMetaMethod* signal);
+    friend void QWidgetAction_DisconnectNotify(QWidgetAction* self, const QMetaMethod* signal);
+    friend void QWidgetAction_QBaseDisconnectNotify(QWidgetAction* self, const QMetaMethod* signal);
+    friend libqt_list /* of QWidget* */ QWidgetAction_CreatedWidgets(const QWidgetAction* self);
+    friend libqt_list /* of QWidget* */ QWidgetAction_QBaseCreatedWidgets(const QWidgetAction* self);
+    friend QObject* QWidgetAction_Sender(const QWidgetAction* self);
+    friend QObject* QWidgetAction_QBaseSender(const QWidgetAction* self);
+    friend int QWidgetAction_SenderSignalIndex(const QWidgetAction* self);
+    friend int QWidgetAction_QBaseSenderSignalIndex(const QWidgetAction* self);
+    friend int QWidgetAction_Receivers(const QWidgetAction* self, const char* signal);
+    friend int QWidgetAction_QBaseReceivers(const QWidgetAction* self, const char* signal);
+    friend bool QWidgetAction_IsSignalConnected(const QWidgetAction* self, const QMetaMethod* signal);
+    friend bool QWidgetAction_QBaseIsSignalConnected(const QWidgetAction* self, const QMetaMethod* signal);
 };
 
 #endif

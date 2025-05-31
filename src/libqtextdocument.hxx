@@ -11,25 +11,28 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QTextDocument so that we can call protected methods
-class VirtualQTextDocument : public QTextDocument {
+class VirtualQTextDocument final : public QTextDocument {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQTextDocument = true;
+
     // Virtual class public types (including callbacks)
-    using QTextDocument_Metacall_Callback = int (*)(QTextDocument*, QMetaObject::Call, int, void**);
+    using QTextDocument_Metacall_Callback = int (*)(QTextDocument*, int, int, void**);
     using QTextDocument_Clear_Callback = void (*)();
-    using QTextDocument_CreateObject_Callback = QTextObject* (*)(QTextDocument*, const QTextFormat&);
-    using QTextDocument_LoadResource_Callback = QVariant (*)(QTextDocument*, int, const QUrl&);
+    using QTextDocument_CreateObject_Callback = QTextObject* (*)(QTextDocument*, QTextFormat*);
+    using QTextDocument_LoadResource_Callback = QVariant* (*)(QTextDocument*, int, QUrl*);
     using QTextDocument_Event_Callback = bool (*)(QTextDocument*, QEvent*);
     using QTextDocument_EventFilter_Callback = bool (*)(QTextDocument*, QObject*, QEvent*);
     using QTextDocument_TimerEvent_Callback = void (*)(QTextDocument*, QTimerEvent*);
     using QTextDocument_ChildEvent_Callback = void (*)(QTextDocument*, QChildEvent*);
     using QTextDocument_CustomEvent_Callback = void (*)(QTextDocument*, QEvent*);
-    using QTextDocument_ConnectNotify_Callback = void (*)(QTextDocument*, const QMetaMethod&);
-    using QTextDocument_DisconnectNotify_Callback = void (*)(QTextDocument*, const QMetaMethod&);
+    using QTextDocument_ConnectNotify_Callback = void (*)(QTextDocument*, QMetaMethod*);
+    using QTextDocument_DisconnectNotify_Callback = void (*)(QTextDocument*, QMetaMethod*);
     using QTextDocument_Sender_Callback = QObject* (*)();
     using QTextDocument_SenderSignalIndex_Callback = int (*)();
     using QTextDocument_Receivers_Callback = int (*)(const QTextDocument*, const char*);
-    using QTextDocument_IsSignalConnected_Callback = bool (*)(const QTextDocument*, const QMetaMethod&);
+    using QTextDocument_IsSignalConnected_Callback = bool (*)(const QTextDocument*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -91,38 +94,38 @@ class VirtualQTextDocument : public QTextDocument {
     }
 
     // Callback setters
-    void setQTextDocument_Metacall_Callback(QTextDocument_Metacall_Callback cb) { qtextdocument_metacall_callback = cb; }
-    void setQTextDocument_Clear_Callback(QTextDocument_Clear_Callback cb) { qtextdocument_clear_callback = cb; }
-    void setQTextDocument_CreateObject_Callback(QTextDocument_CreateObject_Callback cb) { qtextdocument_createobject_callback = cb; }
-    void setQTextDocument_LoadResource_Callback(QTextDocument_LoadResource_Callback cb) { qtextdocument_loadresource_callback = cb; }
-    void setQTextDocument_Event_Callback(QTextDocument_Event_Callback cb) { qtextdocument_event_callback = cb; }
-    void setQTextDocument_EventFilter_Callback(QTextDocument_EventFilter_Callback cb) { qtextdocument_eventfilter_callback = cb; }
-    void setQTextDocument_TimerEvent_Callback(QTextDocument_TimerEvent_Callback cb) { qtextdocument_timerevent_callback = cb; }
-    void setQTextDocument_ChildEvent_Callback(QTextDocument_ChildEvent_Callback cb) { qtextdocument_childevent_callback = cb; }
-    void setQTextDocument_CustomEvent_Callback(QTextDocument_CustomEvent_Callback cb) { qtextdocument_customevent_callback = cb; }
-    void setQTextDocument_ConnectNotify_Callback(QTextDocument_ConnectNotify_Callback cb) { qtextdocument_connectnotify_callback = cb; }
-    void setQTextDocument_DisconnectNotify_Callback(QTextDocument_DisconnectNotify_Callback cb) { qtextdocument_disconnectnotify_callback = cb; }
-    void setQTextDocument_Sender_Callback(QTextDocument_Sender_Callback cb) { qtextdocument_sender_callback = cb; }
-    void setQTextDocument_SenderSignalIndex_Callback(QTextDocument_SenderSignalIndex_Callback cb) { qtextdocument_sendersignalindex_callback = cb; }
-    void setQTextDocument_Receivers_Callback(QTextDocument_Receivers_Callback cb) { qtextdocument_receivers_callback = cb; }
-    void setQTextDocument_IsSignalConnected_Callback(QTextDocument_IsSignalConnected_Callback cb) { qtextdocument_issignalconnected_callback = cb; }
+    inline void setQTextDocument_Metacall_Callback(QTextDocument_Metacall_Callback cb) { qtextdocument_metacall_callback = cb; }
+    inline void setQTextDocument_Clear_Callback(QTextDocument_Clear_Callback cb) { qtextdocument_clear_callback = cb; }
+    inline void setQTextDocument_CreateObject_Callback(QTextDocument_CreateObject_Callback cb) { qtextdocument_createobject_callback = cb; }
+    inline void setQTextDocument_LoadResource_Callback(QTextDocument_LoadResource_Callback cb) { qtextdocument_loadresource_callback = cb; }
+    inline void setQTextDocument_Event_Callback(QTextDocument_Event_Callback cb) { qtextdocument_event_callback = cb; }
+    inline void setQTextDocument_EventFilter_Callback(QTextDocument_EventFilter_Callback cb) { qtextdocument_eventfilter_callback = cb; }
+    inline void setQTextDocument_TimerEvent_Callback(QTextDocument_TimerEvent_Callback cb) { qtextdocument_timerevent_callback = cb; }
+    inline void setQTextDocument_ChildEvent_Callback(QTextDocument_ChildEvent_Callback cb) { qtextdocument_childevent_callback = cb; }
+    inline void setQTextDocument_CustomEvent_Callback(QTextDocument_CustomEvent_Callback cb) { qtextdocument_customevent_callback = cb; }
+    inline void setQTextDocument_ConnectNotify_Callback(QTextDocument_ConnectNotify_Callback cb) { qtextdocument_connectnotify_callback = cb; }
+    inline void setQTextDocument_DisconnectNotify_Callback(QTextDocument_DisconnectNotify_Callback cb) { qtextdocument_disconnectnotify_callback = cb; }
+    inline void setQTextDocument_Sender_Callback(QTextDocument_Sender_Callback cb) { qtextdocument_sender_callback = cb; }
+    inline void setQTextDocument_SenderSignalIndex_Callback(QTextDocument_SenderSignalIndex_Callback cb) { qtextdocument_sendersignalindex_callback = cb; }
+    inline void setQTextDocument_Receivers_Callback(QTextDocument_Receivers_Callback cb) { qtextdocument_receivers_callback = cb; }
+    inline void setQTextDocument_IsSignalConnected_Callback(QTextDocument_IsSignalConnected_Callback cb) { qtextdocument_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQTextDocument_Metacall_IsBase(bool value) const { qtextdocument_metacall_isbase = value; }
-    void setQTextDocument_Clear_IsBase(bool value) const { qtextdocument_clear_isbase = value; }
-    void setQTextDocument_CreateObject_IsBase(bool value) const { qtextdocument_createobject_isbase = value; }
-    void setQTextDocument_LoadResource_IsBase(bool value) const { qtextdocument_loadresource_isbase = value; }
-    void setQTextDocument_Event_IsBase(bool value) const { qtextdocument_event_isbase = value; }
-    void setQTextDocument_EventFilter_IsBase(bool value) const { qtextdocument_eventfilter_isbase = value; }
-    void setQTextDocument_TimerEvent_IsBase(bool value) const { qtextdocument_timerevent_isbase = value; }
-    void setQTextDocument_ChildEvent_IsBase(bool value) const { qtextdocument_childevent_isbase = value; }
-    void setQTextDocument_CustomEvent_IsBase(bool value) const { qtextdocument_customevent_isbase = value; }
-    void setQTextDocument_ConnectNotify_IsBase(bool value) const { qtextdocument_connectnotify_isbase = value; }
-    void setQTextDocument_DisconnectNotify_IsBase(bool value) const { qtextdocument_disconnectnotify_isbase = value; }
-    void setQTextDocument_Sender_IsBase(bool value) const { qtextdocument_sender_isbase = value; }
-    void setQTextDocument_SenderSignalIndex_IsBase(bool value) const { qtextdocument_sendersignalindex_isbase = value; }
-    void setQTextDocument_Receivers_IsBase(bool value) const { qtextdocument_receivers_isbase = value; }
-    void setQTextDocument_IsSignalConnected_IsBase(bool value) const { qtextdocument_issignalconnected_isbase = value; }
+    inline void setQTextDocument_Metacall_IsBase(bool value) const { qtextdocument_metacall_isbase = value; }
+    inline void setQTextDocument_Clear_IsBase(bool value) const { qtextdocument_clear_isbase = value; }
+    inline void setQTextDocument_CreateObject_IsBase(bool value) const { qtextdocument_createobject_isbase = value; }
+    inline void setQTextDocument_LoadResource_IsBase(bool value) const { qtextdocument_loadresource_isbase = value; }
+    inline void setQTextDocument_Event_IsBase(bool value) const { qtextdocument_event_isbase = value; }
+    inline void setQTextDocument_EventFilter_IsBase(bool value) const { qtextdocument_eventfilter_isbase = value; }
+    inline void setQTextDocument_TimerEvent_IsBase(bool value) const { qtextdocument_timerevent_isbase = value; }
+    inline void setQTextDocument_ChildEvent_IsBase(bool value) const { qtextdocument_childevent_isbase = value; }
+    inline void setQTextDocument_CustomEvent_IsBase(bool value) const { qtextdocument_customevent_isbase = value; }
+    inline void setQTextDocument_ConnectNotify_IsBase(bool value) const { qtextdocument_connectnotify_isbase = value; }
+    inline void setQTextDocument_DisconnectNotify_IsBase(bool value) const { qtextdocument_disconnectnotify_isbase = value; }
+    inline void setQTextDocument_Sender_IsBase(bool value) const { qtextdocument_sender_isbase = value; }
+    inline void setQTextDocument_SenderSignalIndex_IsBase(bool value) const { qtextdocument_sendersignalindex_isbase = value; }
+    inline void setQTextDocument_Receivers_IsBase(bool value) const { qtextdocument_receivers_isbase = value; }
+    inline void setQTextDocument_IsSignalConnected_IsBase(bool value) const { qtextdocument_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -130,7 +133,12 @@ class VirtualQTextDocument : public QTextDocument {
             qtextdocument_metacall_isbase = false;
             return QTextDocument::qt_metacall(param1, param2, param3);
         } else if (qtextdocument_metacall_callback != nullptr) {
-            return qtextdocument_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qtextdocument_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QTextDocument::qt_metacall(param1, param2, param3);
         }
@@ -154,7 +162,12 @@ class VirtualQTextDocument : public QTextDocument {
             qtextdocument_createobject_isbase = false;
             return QTextDocument::createObject(f);
         } else if (qtextdocument_createobject_callback != nullptr) {
-            return qtextdocument_createobject_callback(this, f);
+            const QTextFormat& f_ret = f;
+            // Cast returned reference into pointer
+            QTextFormat* cbval1 = const_cast<QTextFormat*>(&f_ret);
+
+            QTextObject* callback_ret = qtextdocument_createobject_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTextDocument::createObject(f);
         }
@@ -166,7 +179,13 @@ class VirtualQTextDocument : public QTextDocument {
             qtextdocument_loadresource_isbase = false;
             return QTextDocument::loadResource(typeVal, name);
         } else if (qtextdocument_loadresource_callback != nullptr) {
-            return qtextdocument_loadresource_callback(this, typeVal, name);
+            int cbval1 = typeVal;
+            const QUrl& name_ret = name;
+            // Cast returned reference into pointer
+            QUrl* cbval2 = const_cast<QUrl*>(&name_ret);
+
+            QVariant* callback_ret = qtextdocument_loadresource_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QTextDocument::loadResource(typeVal, name);
         }
@@ -178,7 +197,10 @@ class VirtualQTextDocument : public QTextDocument {
             qtextdocument_event_isbase = false;
             return QTextDocument::event(event);
         } else if (qtextdocument_event_callback != nullptr) {
-            return qtextdocument_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qtextdocument_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTextDocument::event(event);
         }
@@ -190,7 +212,11 @@ class VirtualQTextDocument : public QTextDocument {
             qtextdocument_eventfilter_isbase = false;
             return QTextDocument::eventFilter(watched, event);
         } else if (qtextdocument_eventfilter_callback != nullptr) {
-            return qtextdocument_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qtextdocument_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QTextDocument::eventFilter(watched, event);
         }
@@ -202,7 +228,9 @@ class VirtualQTextDocument : public QTextDocument {
             qtextdocument_timerevent_isbase = false;
             QTextDocument::timerEvent(event);
         } else if (qtextdocument_timerevent_callback != nullptr) {
-            qtextdocument_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qtextdocument_timerevent_callback(this, cbval1);
         } else {
             QTextDocument::timerEvent(event);
         }
@@ -214,7 +242,9 @@ class VirtualQTextDocument : public QTextDocument {
             qtextdocument_childevent_isbase = false;
             QTextDocument::childEvent(event);
         } else if (qtextdocument_childevent_callback != nullptr) {
-            qtextdocument_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qtextdocument_childevent_callback(this, cbval1);
         } else {
             QTextDocument::childEvent(event);
         }
@@ -226,7 +256,9 @@ class VirtualQTextDocument : public QTextDocument {
             qtextdocument_customevent_isbase = false;
             QTextDocument::customEvent(event);
         } else if (qtextdocument_customevent_callback != nullptr) {
-            qtextdocument_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qtextdocument_customevent_callback(this, cbval1);
         } else {
             QTextDocument::customEvent(event);
         }
@@ -238,7 +270,11 @@ class VirtualQTextDocument : public QTextDocument {
             qtextdocument_connectnotify_isbase = false;
             QTextDocument::connectNotify(signal);
         } else if (qtextdocument_connectnotify_callback != nullptr) {
-            qtextdocument_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtextdocument_connectnotify_callback(this, cbval1);
         } else {
             QTextDocument::connectNotify(signal);
         }
@@ -250,7 +286,11 @@ class VirtualQTextDocument : public QTextDocument {
             qtextdocument_disconnectnotify_isbase = false;
             QTextDocument::disconnectNotify(signal);
         } else if (qtextdocument_disconnectnotify_callback != nullptr) {
-            qtextdocument_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtextdocument_disconnectnotify_callback(this, cbval1);
         } else {
             QTextDocument::disconnectNotify(signal);
         }
@@ -262,7 +302,8 @@ class VirtualQTextDocument : public QTextDocument {
             qtextdocument_sender_isbase = false;
             return QTextDocument::sender();
         } else if (qtextdocument_sender_callback != nullptr) {
-            return qtextdocument_sender_callback();
+            QObject* callback_ret = qtextdocument_sender_callback();
+            return callback_ret;
         } else {
             return QTextDocument::sender();
         }
@@ -274,7 +315,8 @@ class VirtualQTextDocument : public QTextDocument {
             qtextdocument_sendersignalindex_isbase = false;
             return QTextDocument::senderSignalIndex();
         } else if (qtextdocument_sendersignalindex_callback != nullptr) {
-            return qtextdocument_sendersignalindex_callback();
+            int callback_ret = qtextdocument_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QTextDocument::senderSignalIndex();
         }
@@ -286,7 +328,10 @@ class VirtualQTextDocument : public QTextDocument {
             qtextdocument_receivers_isbase = false;
             return QTextDocument::receivers(signal);
         } else if (qtextdocument_receivers_callback != nullptr) {
-            return qtextdocument_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qtextdocument_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTextDocument::receivers(signal);
         }
@@ -298,11 +343,40 @@ class VirtualQTextDocument : public QTextDocument {
             qtextdocument_issignalconnected_isbase = false;
             return QTextDocument::isSignalConnected(signal);
         } else if (qtextdocument_issignalconnected_callback != nullptr) {
-            return qtextdocument_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qtextdocument_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTextDocument::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend QTextObject* QTextDocument_CreateObject(QTextDocument* self, const QTextFormat* f);
+    friend QTextObject* QTextDocument_QBaseCreateObject(QTextDocument* self, const QTextFormat* f);
+    friend QVariant* QTextDocument_LoadResource(QTextDocument* self, int typeVal, const QUrl* name);
+    friend QVariant* QTextDocument_QBaseLoadResource(QTextDocument* self, int typeVal, const QUrl* name);
+    friend void QTextDocument_TimerEvent(QTextDocument* self, QTimerEvent* event);
+    friend void QTextDocument_QBaseTimerEvent(QTextDocument* self, QTimerEvent* event);
+    friend void QTextDocument_ChildEvent(QTextDocument* self, QChildEvent* event);
+    friend void QTextDocument_QBaseChildEvent(QTextDocument* self, QChildEvent* event);
+    friend void QTextDocument_CustomEvent(QTextDocument* self, QEvent* event);
+    friend void QTextDocument_QBaseCustomEvent(QTextDocument* self, QEvent* event);
+    friend void QTextDocument_ConnectNotify(QTextDocument* self, const QMetaMethod* signal);
+    friend void QTextDocument_QBaseConnectNotify(QTextDocument* self, const QMetaMethod* signal);
+    friend void QTextDocument_DisconnectNotify(QTextDocument* self, const QMetaMethod* signal);
+    friend void QTextDocument_QBaseDisconnectNotify(QTextDocument* self, const QMetaMethod* signal);
+    friend QObject* QTextDocument_Sender(const QTextDocument* self);
+    friend QObject* QTextDocument_QBaseSender(const QTextDocument* self);
+    friend int QTextDocument_SenderSignalIndex(const QTextDocument* self);
+    friend int QTextDocument_QBaseSenderSignalIndex(const QTextDocument* self);
+    friend int QTextDocument_Receivers(const QTextDocument* self, const char* signal);
+    friend int QTextDocument_QBaseReceivers(const QTextDocument* self, const char* signal);
+    friend bool QTextDocument_IsSignalConnected(const QTextDocument* self, const QMetaMethod* signal);
+    friend bool QTextDocument_QBaseIsSignalConnected(const QTextDocument* self, const QMetaMethod* signal);
 };
 
 #endif

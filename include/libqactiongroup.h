@@ -15,24 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAction QAction;
 typedef struct QActionGroup QActionGroup;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QIcon QIcon;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
@@ -49,8 +41,8 @@ void QActionGroup_OnMetacall(QActionGroup* self, intptr_t slot);
 int QActionGroup_QBaseMetacall(QActionGroup* self, int param1, int param2, void** param3);
 libqt_string QActionGroup_Tr(const char* s);
 QAction* QActionGroup_AddAction(QActionGroup* self, QAction* a);
-QAction* QActionGroup_AddActionWithText(QActionGroup* self, libqt_string text);
-QAction* QActionGroup_AddAction2(QActionGroup* self, QIcon* icon, libqt_string text);
+QAction* QActionGroup_AddActionWithText(QActionGroup* self, const libqt_string text);
+QAction* QActionGroup_AddAction2(QActionGroup* self, const QIcon* icon, const libqt_string text);
 void QActionGroup_RemoveAction(QActionGroup* self, QAction* a);
 libqt_list /* of QAction* */ QActionGroup_Actions(const QActionGroup* self);
 QAction* QActionGroup_CheckedAction(const QActionGroup* self);
@@ -84,12 +76,12 @@ void QActionGroup_QBaseChildEvent(QActionGroup* self, QChildEvent* event);
 void QActionGroup_CustomEvent(QActionGroup* self, QEvent* event);
 void QActionGroup_OnCustomEvent(QActionGroup* self, intptr_t slot);
 void QActionGroup_QBaseCustomEvent(QActionGroup* self, QEvent* event);
-void QActionGroup_ConnectNotify(QActionGroup* self, QMetaMethod* signal);
+void QActionGroup_ConnectNotify(QActionGroup* self, const QMetaMethod* signal);
 void QActionGroup_OnConnectNotify(QActionGroup* self, intptr_t slot);
-void QActionGroup_QBaseConnectNotify(QActionGroup* self, QMetaMethod* signal);
-void QActionGroup_DisconnectNotify(QActionGroup* self, QMetaMethod* signal);
+void QActionGroup_QBaseConnectNotify(QActionGroup* self, const QMetaMethod* signal);
+void QActionGroup_DisconnectNotify(QActionGroup* self, const QMetaMethod* signal);
 void QActionGroup_OnDisconnectNotify(QActionGroup* self, intptr_t slot);
-void QActionGroup_QBaseDisconnectNotify(QActionGroup* self, QMetaMethod* signal);
+void QActionGroup_QBaseDisconnectNotify(QActionGroup* self, const QMetaMethod* signal);
 QObject* QActionGroup_Sender(const QActionGroup* self);
 void QActionGroup_OnSender(const QActionGroup* self, intptr_t slot);
 QObject* QActionGroup_QBaseSender(const QActionGroup* self);
@@ -99,9 +91,9 @@ int QActionGroup_QBaseSenderSignalIndex(const QActionGroup* self);
 int QActionGroup_Receivers(const QActionGroup* self, const char* signal);
 void QActionGroup_OnReceivers(const QActionGroup* self, intptr_t slot);
 int QActionGroup_QBaseReceivers(const QActionGroup* self, const char* signal);
-bool QActionGroup_IsSignalConnected(const QActionGroup* self, QMetaMethod* signal);
+bool QActionGroup_IsSignalConnected(const QActionGroup* self, const QMetaMethod* signal);
 void QActionGroup_OnIsSignalConnected(const QActionGroup* self, intptr_t slot);
-bool QActionGroup_QBaseIsSignalConnected(const QActionGroup* self, QMetaMethod* signal);
+bool QActionGroup_QBaseIsSignalConnected(const QActionGroup* self, const QMetaMethod* signal);
 void QActionGroup_Delete(QActionGroup* self);
 
 #ifdef __cplusplus

@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 
 /// https://doc.qt.io/qt-6/qgesturerecognizer.html
@@ -6,99 +7,113 @@ pub const qgesturerecognizer = struct {
     /// New constructs a new QGestureRecognizer object.
     ///
     ///
-    pub fn New() ?*C.QGestureRecognizer {
-        return C.QGestureRecognizer_new();
+    pub fn New() QtC.QGestureRecognizer {
+        return qtc.QGestureRecognizer_new();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#create)
     ///
-    /// ``` self: ?*C.QGestureRecognizer, target: ?*C.QObject ```
-    pub fn Create(self: ?*anyopaque, target: ?*anyopaque) ?*C.QGesture {
-        return C.QGestureRecognizer_Create(@ptrCast(self), @ptrCast(target));
+    /// ``` self: QtC.QGestureRecognizer, target: QtC.QObject ```
+    pub fn Create(self: ?*anyopaque, target: ?*anyopaque) QtC.QGesture {
+        return qtc.QGestureRecognizer_Create(@ptrCast(self), @ptrCast(target));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#create)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QGestureRecognizer, slot: fn (?*C.QGestureRecognizer, ?*C.QObject) callconv(.c) ?*C.QGesture ```
-    pub fn OnCreate(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) ?*C.QGesture) void {
-        C.QGestureRecognizer_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGestureRecognizer, slot: fn (self: QtC.QGestureRecognizer, target: QtC.QObject) callconv(.c) QtC.QGesture ```
+    pub fn OnCreate(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QGesture) void {
+        qtc.QGestureRecognizer_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#create)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QGestureRecognizer, target: ?*C.QObject ```
-    pub fn QBaseCreate(self: ?*anyopaque, target: ?*anyopaque) ?*C.QGesture {
-        return C.QGestureRecognizer_QBaseCreate(@ptrCast(self), @ptrCast(target));
+    /// ``` self: QtC.QGestureRecognizer, target: QtC.QObject ```
+    pub fn QBaseCreate(self: ?*anyopaque, target: ?*anyopaque) QtC.QGesture {
+        return qtc.QGestureRecognizer_QBaseCreate(@ptrCast(self), @ptrCast(target));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
     ///
-    /// ``` self: ?*C.QGestureRecognizer, state: ?*C.QGesture, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QGestureRecognizer, state: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn Recognize(self: ?*anyopaque, state: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i64 {
-        return C.QGestureRecognizer_Recognize(@ptrCast(self), @ptrCast(state), @ptrCast(watched), @ptrCast(event));
+        return qtc.QGestureRecognizer_Recognize(@ptrCast(self), @ptrCast(state), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QGestureRecognizer, slot: fn (?*C.QGestureRecognizer, ?*C.QGesture, ?*C.QObject, ?*C.QEvent) callconv(.c) i64 ```
+    /// ``` self: QtC.QGestureRecognizer, slot: fn (self: QtC.QGestureRecognizer, state: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) i64 ```
     pub fn OnRecognize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i64) void {
-        C.QGestureRecognizer_OnRecognize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGestureRecognizer_OnRecognize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QGestureRecognizer, state: ?*C.QGesture, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QGestureRecognizer, state: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn QBaseRecognize(self: ?*anyopaque, state: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i64 {
-        return C.QGestureRecognizer_QBaseRecognize(@ptrCast(self), @ptrCast(state), @ptrCast(watched), @ptrCast(event));
+        return qtc.QGestureRecognizer_QBaseRecognize(@ptrCast(self), @ptrCast(state), @ptrCast(watched), @ptrCast(event));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
     ///
-    /// ``` self: ?*C.QGestureRecognizer, state: ?*C.QGesture ```
+    /// ``` self: QtC.QGestureRecognizer, state: QtC.QGesture ```
     pub fn Reset(self: ?*anyopaque, state: ?*anyopaque) void {
-        C.QGestureRecognizer_Reset(@ptrCast(self), @ptrCast(state));
+        qtc.QGestureRecognizer_Reset(@ptrCast(self), @ptrCast(state));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QGestureRecognizer, slot: fn (?*C.QGestureRecognizer, ?*C.QGesture) callconv(.c) void ```
+    /// ``` self: QtC.QGestureRecognizer, slot: fn (self: QtC.QGestureRecognizer, state: QtC.QGesture) callconv(.c) void ```
     pub fn OnReset(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QGestureRecognizer_OnReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGestureRecognizer_OnReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QGestureRecognizer, state: ?*C.QGesture ```
+    /// ``` self: QtC.QGestureRecognizer, state: QtC.QGesture ```
     pub fn QBaseReset(self: ?*anyopaque, state: ?*anyopaque) void {
-        C.QGestureRecognizer_QBaseReset(@ptrCast(self), @ptrCast(state));
+        qtc.QGestureRecognizer_QBaseReset(@ptrCast(self), @ptrCast(state));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#registerRecognizer)
     ///
-    /// ``` recognizer: ?*C.QGestureRecognizer ```
+    /// ``` recognizer: QtC.QGestureRecognizer ```
     pub fn RegisterRecognizer(recognizer: ?*anyopaque) i64 {
-        return C.QGestureRecognizer_RegisterRecognizer(@ptrCast(recognizer));
+        return qtc.QGestureRecognizer_RegisterRecognizer(@ptrCast(recognizer));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#unregisterRecognizer)
     ///
     /// ``` typeVal: qnamespace_enums.GestureType ```
     pub fn UnregisterRecognizer(typeVal: i64) void {
-        C.QGestureRecognizer_UnregisterRecognizer(@intCast(typeVal));
+        qtc.QGestureRecognizer_UnregisterRecognizer(@intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#operator=)
     ///
-    /// ``` self: ?*C.QGestureRecognizer, param1: ?*C.QGestureRecognizer ```
+    /// ``` self: QtC.QGestureRecognizer, param1: QtC.QGestureRecognizer ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QGestureRecognizer_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+        qtc.QGestureRecognizer_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#dtor.QGestureRecognizer)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QGestureRecognizer ```
+    /// ``` self: QtC.QGestureRecognizer ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QGestureRecognizer_Delete(@ptrCast(self));
+        qtc.QGestureRecognizer_Delete(@ptrCast(self));
     }
 };
 

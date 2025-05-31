@@ -15,25 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSettings QSettings;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
-typedef struct QsciAbstractAPIs QsciAbstractAPIs;
 typedef struct QsciLexer QsciLexer;
 typedef struct QsciLexerYAML QsciLexerYAML;
 typedef struct QsciScintilla QsciScintilla;
@@ -128,21 +119,24 @@ const char* QsciLexerYAML_QBaseWordCharacters(const QsciLexerYAML* self);
 void QsciLexerYAML_SetAutoIndentStyle(QsciLexerYAML* self, int autoindentstyle);
 void QsciLexerYAML_OnSetAutoIndentStyle(QsciLexerYAML* self, intptr_t slot);
 void QsciLexerYAML_QBaseSetAutoIndentStyle(QsciLexerYAML* self, int autoindentstyle);
-void QsciLexerYAML_SetColor(QsciLexerYAML* self, QColor* c, int style);
+void QsciLexerYAML_SetColor(QsciLexerYAML* self, const QColor* c, int style);
 void QsciLexerYAML_OnSetColor(QsciLexerYAML* self, intptr_t slot);
-void QsciLexerYAML_QBaseSetColor(QsciLexerYAML* self, QColor* c, int style);
+void QsciLexerYAML_QBaseSetColor(QsciLexerYAML* self, const QColor* c, int style);
 void QsciLexerYAML_SetEolFill(QsciLexerYAML* self, bool eoffill, int style);
 void QsciLexerYAML_OnSetEolFill(QsciLexerYAML* self, intptr_t slot);
 void QsciLexerYAML_QBaseSetEolFill(QsciLexerYAML* self, bool eoffill, int style);
-void QsciLexerYAML_SetFont(QsciLexerYAML* self, QFont* f, int style);
+void QsciLexerYAML_SetFont(QsciLexerYAML* self, const QFont* f, int style);
 void QsciLexerYAML_OnSetFont(QsciLexerYAML* self, intptr_t slot);
-void QsciLexerYAML_QBaseSetFont(QsciLexerYAML* self, QFont* f, int style);
-void QsciLexerYAML_SetPaper(QsciLexerYAML* self, QColor* c, int style);
+void QsciLexerYAML_QBaseSetFont(QsciLexerYAML* self, const QFont* f, int style);
+void QsciLexerYAML_SetPaper(QsciLexerYAML* self, const QColor* c, int style);
 void QsciLexerYAML_OnSetPaper(QsciLexerYAML* self, intptr_t slot);
-void QsciLexerYAML_QBaseSetPaper(QsciLexerYAML* self, QColor* c, int style);
-bool QsciLexerYAML_ReadProperties(QsciLexerYAML* self, QSettings* qs, libqt_string prefix);
+void QsciLexerYAML_QBaseSetPaper(QsciLexerYAML* self, const QColor* c, int style);
+bool QsciLexerYAML_ReadProperties(QsciLexerYAML* self, QSettings* qs, const libqt_string prefix);
 void QsciLexerYAML_OnReadProperties(QsciLexerYAML* self, intptr_t slot);
-bool QsciLexerYAML_QBaseReadProperties(QsciLexerYAML* self, QSettings* qs, libqt_string prefix);
+bool QsciLexerYAML_QBaseReadProperties(QsciLexerYAML* self, QSettings* qs, const libqt_string prefix);
+bool QsciLexerYAML_WriteProperties(const QsciLexerYAML* self, QSettings* qs, const libqt_string prefix);
+void QsciLexerYAML_OnWriteProperties(const QsciLexerYAML* self, intptr_t slot);
+bool QsciLexerYAML_QBaseWriteProperties(const QsciLexerYAML* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexerYAML_Event(QsciLexerYAML* self, QEvent* event);
 void QsciLexerYAML_OnEvent(QsciLexerYAML* self, intptr_t slot);
 bool QsciLexerYAML_QBaseEvent(QsciLexerYAML* self, QEvent* event);
@@ -158,15 +152,12 @@ void QsciLexerYAML_QBaseChildEvent(QsciLexerYAML* self, QChildEvent* event);
 void QsciLexerYAML_CustomEvent(QsciLexerYAML* self, QEvent* event);
 void QsciLexerYAML_OnCustomEvent(QsciLexerYAML* self, intptr_t slot);
 void QsciLexerYAML_QBaseCustomEvent(QsciLexerYAML* self, QEvent* event);
-void QsciLexerYAML_ConnectNotify(QsciLexerYAML* self, QMetaMethod* signal);
+void QsciLexerYAML_ConnectNotify(QsciLexerYAML* self, const QMetaMethod* signal);
 void QsciLexerYAML_OnConnectNotify(QsciLexerYAML* self, intptr_t slot);
-void QsciLexerYAML_QBaseConnectNotify(QsciLexerYAML* self, QMetaMethod* signal);
-void QsciLexerYAML_DisconnectNotify(QsciLexerYAML* self, QMetaMethod* signal);
+void QsciLexerYAML_QBaseConnectNotify(QsciLexerYAML* self, const QMetaMethod* signal);
+void QsciLexerYAML_DisconnectNotify(QsciLexerYAML* self, const QMetaMethod* signal);
 void QsciLexerYAML_OnDisconnectNotify(QsciLexerYAML* self, intptr_t slot);
-void QsciLexerYAML_QBaseDisconnectNotify(QsciLexerYAML* self, QMetaMethod* signal);
-bool QsciLexerYAML_WriteProperties(const QsciLexerYAML* self, QSettings* qs, libqt_string prefix);
-void QsciLexerYAML_OnWriteProperties(const QsciLexerYAML* self, intptr_t slot);
-bool QsciLexerYAML_QBaseWriteProperties(const QsciLexerYAML* self, QSettings* qs, libqt_string prefix);
+void QsciLexerYAML_QBaseDisconnectNotify(QsciLexerYAML* self, const QMetaMethod* signal);
 QObject* QsciLexerYAML_Sender(const QsciLexerYAML* self);
 void QsciLexerYAML_OnSender(const QsciLexerYAML* self, intptr_t slot);
 QObject* QsciLexerYAML_QBaseSender(const QsciLexerYAML* self);
@@ -176,9 +167,9 @@ int QsciLexerYAML_QBaseSenderSignalIndex(const QsciLexerYAML* self);
 int QsciLexerYAML_Receivers(const QsciLexerYAML* self, const char* signal);
 void QsciLexerYAML_OnReceivers(const QsciLexerYAML* self, intptr_t slot);
 int QsciLexerYAML_QBaseReceivers(const QsciLexerYAML* self, const char* signal);
-bool QsciLexerYAML_IsSignalConnected(const QsciLexerYAML* self, QMetaMethod* signal);
+bool QsciLexerYAML_IsSignalConnected(const QsciLexerYAML* self, const QMetaMethod* signal);
 void QsciLexerYAML_OnIsSignalConnected(const QsciLexerYAML* self, intptr_t slot);
-bool QsciLexerYAML_QBaseIsSignalConnected(const QsciLexerYAML* self, QMetaMethod* signal);
+bool QsciLexerYAML_QBaseIsSignalConnected(const QsciLexerYAML* self, const QMetaMethod* signal);
 void QsciLexerYAML_Delete(QsciLexerYAML* self);
 
 #ifdef __cplusplus

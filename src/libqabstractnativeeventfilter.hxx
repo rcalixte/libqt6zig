@@ -11,11 +11,14 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QAbstractNativeEventFilter so that we can call protected methods
-class VirtualQAbstractNativeEventFilter : public QAbstractNativeEventFilter {
+class VirtualQAbstractNativeEventFilter final : public QAbstractNativeEventFilter {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQAbstractNativeEventFilter = true;
+
     // Virtual class public types (including callbacks)
-    using QAbstractNativeEventFilter_NativeEventFilter_Callback = bool (*)(QAbstractNativeEventFilter*, const QByteArray&, void*, qintptr*);
+    using QAbstractNativeEventFilter_NativeEventFilter_Callback = bool (*)(QAbstractNativeEventFilter*, libqt_string, void*, intptr_t*);
 
   protected:
     // Instance callback storage
@@ -32,14 +35,30 @@ class VirtualQAbstractNativeEventFilter : public QAbstractNativeEventFilter {
     }
 
     // Callback setters
-    void setQAbstractNativeEventFilter_NativeEventFilter_Callback(QAbstractNativeEventFilter_NativeEventFilter_Callback cb) { qabstractnativeeventfilter_nativeeventfilter_callback = cb; }
+    inline void setQAbstractNativeEventFilter_NativeEventFilter_Callback(QAbstractNativeEventFilter_NativeEventFilter_Callback cb) { qabstractnativeeventfilter_nativeeventfilter_callback = cb; }
 
     // Base flag setters
-    void setQAbstractNativeEventFilter_NativeEventFilter_IsBase(bool value) const { qabstractnativeeventfilter_nativeeventfilter_isbase = value; }
+    inline void setQAbstractNativeEventFilter_NativeEventFilter_IsBase(bool value) const { qabstractnativeeventfilter_nativeeventfilter_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEventFilter(const QByteArray& eventType, void* message, qintptr* result) override {
-        return qabstractnativeeventfilter_nativeeventfilter_callback(this, eventType, message, result);
+        if (qabstractnativeeventfilter_nativeeventfilter_callback != nullptr) {
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qabstractnativeeventfilter_nativeeventfilter_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
+        } else {
+            return {};
+        }
     }
 };
 

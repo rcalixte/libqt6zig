@@ -2,7 +2,7 @@
 #include "libqstringbuilder.h"
 #include "libqstringbuilder.hxx"
 
-QAbstractConcatenable* QAbstractConcatenable_new(QAbstractConcatenable* other) {
+QAbstractConcatenable* QAbstractConcatenable_new(const QAbstractConcatenable* other) {
     return new QAbstractConcatenable(*other);
 }
 

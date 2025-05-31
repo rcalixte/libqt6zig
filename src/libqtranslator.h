@@ -15,23 +15,15 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QLocale QLocale;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QTranslator QTranslator;
-typedef struct QVariant QVariant;
 #endif
 
 QTranslator* QTranslator_new();
@@ -50,18 +42,18 @@ void QTranslator_OnIsEmpty(const QTranslator* self, intptr_t slot);
 bool QTranslator_QBaseIsEmpty(const QTranslator* self);
 libqt_string QTranslator_Language(const QTranslator* self);
 libqt_string QTranslator_FilePath(const QTranslator* self);
-bool QTranslator_Load(QTranslator* self, libqt_string filename);
-bool QTranslator_Load2(QTranslator* self, QLocale* locale, libqt_string filename);
+bool QTranslator_Load(QTranslator* self, const libqt_string filename);
+bool QTranslator_Load2(QTranslator* self, const QLocale* locale, const libqt_string filename);
 bool QTranslator_Load3(QTranslator* self, const unsigned char* data, int lenVal);
 libqt_string QTranslator_Tr2(const char* s, const char* c);
 libqt_string QTranslator_Tr3(const char* s, const char* c, int n);
-bool QTranslator_Load22(QTranslator* self, libqt_string filename, libqt_string directory);
-bool QTranslator_Load32(QTranslator* self, libqt_string filename, libqt_string directory, libqt_string search_delimiters);
-bool QTranslator_Load4(QTranslator* self, libqt_string filename, libqt_string directory, libqt_string search_delimiters, libqt_string suffix);
-bool QTranslator_Load33(QTranslator* self, QLocale* locale, libqt_string filename, libqt_string prefix);
-bool QTranslator_Load42(QTranslator* self, QLocale* locale, libqt_string filename, libqt_string prefix, libqt_string directory);
-bool QTranslator_Load5(QTranslator* self, QLocale* locale, libqt_string filename, libqt_string prefix, libqt_string directory, libqt_string suffix);
-bool QTranslator_Load34(QTranslator* self, const unsigned char* data, int lenVal, libqt_string directory);
+bool QTranslator_Load22(QTranslator* self, const libqt_string filename, const libqt_string directory);
+bool QTranslator_Load32(QTranslator* self, const libqt_string filename, const libqt_string directory, const libqt_string search_delimiters);
+bool QTranslator_Load4(QTranslator* self, const libqt_string filename, const libqt_string directory, const libqt_string search_delimiters, const libqt_string suffix);
+bool QTranslator_Load33(QTranslator* self, const QLocale* locale, const libqt_string filename, const libqt_string prefix);
+bool QTranslator_Load42(QTranslator* self, const QLocale* locale, const libqt_string filename, const libqt_string prefix, const libqt_string directory);
+bool QTranslator_Load5(QTranslator* self, const QLocale* locale, const libqt_string filename, const libqt_string prefix, const libqt_string directory, const libqt_string suffix);
+bool QTranslator_Load34(QTranslator* self, const unsigned char* data, int lenVal, const libqt_string directory);
 bool QTranslator_Event(QTranslator* self, QEvent* event);
 void QTranslator_OnEvent(QTranslator* self, intptr_t slot);
 bool QTranslator_QBaseEvent(QTranslator* self, QEvent* event);
@@ -77,12 +69,12 @@ void QTranslator_QBaseChildEvent(QTranslator* self, QChildEvent* event);
 void QTranslator_CustomEvent(QTranslator* self, QEvent* event);
 void QTranslator_OnCustomEvent(QTranslator* self, intptr_t slot);
 void QTranslator_QBaseCustomEvent(QTranslator* self, QEvent* event);
-void QTranslator_ConnectNotify(QTranslator* self, QMetaMethod* signal);
+void QTranslator_ConnectNotify(QTranslator* self, const QMetaMethod* signal);
 void QTranslator_OnConnectNotify(QTranslator* self, intptr_t slot);
-void QTranslator_QBaseConnectNotify(QTranslator* self, QMetaMethod* signal);
-void QTranslator_DisconnectNotify(QTranslator* self, QMetaMethod* signal);
+void QTranslator_QBaseConnectNotify(QTranslator* self, const QMetaMethod* signal);
+void QTranslator_DisconnectNotify(QTranslator* self, const QMetaMethod* signal);
 void QTranslator_OnDisconnectNotify(QTranslator* self, intptr_t slot);
-void QTranslator_QBaseDisconnectNotify(QTranslator* self, QMetaMethod* signal);
+void QTranslator_QBaseDisconnectNotify(QTranslator* self, const QMetaMethod* signal);
 QObject* QTranslator_Sender(const QTranslator* self);
 void QTranslator_OnSender(const QTranslator* self, intptr_t slot);
 QObject* QTranslator_QBaseSender(const QTranslator* self);
@@ -92,9 +84,9 @@ int QTranslator_QBaseSenderSignalIndex(const QTranslator* self);
 int QTranslator_Receivers(const QTranslator* self, const char* signal);
 void QTranslator_OnReceivers(const QTranslator* self, intptr_t slot);
 int QTranslator_QBaseReceivers(const QTranslator* self, const char* signal);
-bool QTranslator_IsSignalConnected(const QTranslator* self, QMetaMethod* signal);
+bool QTranslator_IsSignalConnected(const QTranslator* self, const QMetaMethod* signal);
 void QTranslator_OnIsSignalConnected(const QTranslator* self, intptr_t slot);
-bool QTranslator_QBaseIsSignalConnected(const QTranslator* self, QMetaMethod* signal);
+bool QTranslator_QBaseIsSignalConnected(const QTranslator* self, const QMetaMethod* signal);
 void QTranslator_Delete(QTranslator* self);
 
 #ifdef __cplusplus

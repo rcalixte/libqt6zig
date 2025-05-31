@@ -1,12 +1,7 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QPdfLink>
 #include <QPdfPageNavigator>
@@ -14,9 +9,7 @@
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <qpdfpagenavigator.h>
 #include "libqpdfpagenavigator.h"
 #include "libqpdfpagenavigator.hxx"
@@ -38,27 +31,30 @@ void* QPdfPageNavigator_Metacast(QPdfPageNavigator* self, const char* param1) {
 }
 
 int QPdfPageNavigator_Metacall(QPdfPageNavigator* self, int param1, int param2, void** param3) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQPdfPageNavigator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QPdfPageNavigator_OnMetacall(QPdfPageNavigator* self, intptr_t slot) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_Metacall_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QPdfPageNavigator_QBaseMetacall(QPdfPageNavigator* self, int param1, int param2, void** param3) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_Metacall_IsBase(true);
         return vqpdfpagenavigator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQPdfPageNavigator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -102,11 +98,11 @@ void QPdfPageNavigator_Jump(QPdfPageNavigator* self, QPdfLink* destination) {
     self->jump(*destination);
 }
 
-void QPdfPageNavigator_Jump2(QPdfPageNavigator* self, int page, QPointF* location) {
+void QPdfPageNavigator_Jump2(QPdfPageNavigator* self, int page, const QPointF* location) {
     self->jump(static_cast<int>(page), *location);
 }
 
-void QPdfPageNavigator_Update(QPdfPageNavigator* self, int page, QPointF* location, double zoom) {
+void QPdfPageNavigator_Update(QPdfPageNavigator* self, int page, const QPointF* location, double zoom) {
     self->update(static_cast<int>(page), *location, static_cast<qreal>(zoom));
 }
 
@@ -214,195 +210,217 @@ libqt_string QPdfPageNavigator_Tr3(const char* s, const char* c, int n) {
     return _str;
 }
 
-void QPdfPageNavigator_Jump3(QPdfPageNavigator* self, int page, QPointF* location, double zoom) {
+void QPdfPageNavigator_Jump3(QPdfPageNavigator* self, int page, const QPointF* location, double zoom) {
     self->jump(static_cast<int>(page), *location, static_cast<qreal>(zoom));
 }
 
 // Derived class handler implementation
 bool QPdfPageNavigator_Event(QPdfPageNavigator* self, QEvent* event) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         return vqpdfpagenavigator->event(event);
     } else {
-        return vqpdfpagenavigator->event(event);
+        return self->QPdfPageNavigator::event(event);
     }
 }
 
 // Base class handler implementation
 bool QPdfPageNavigator_QBaseEvent(QPdfPageNavigator* self, QEvent* event) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_Event_IsBase(true);
         return vqpdfpagenavigator->event(event);
     } else {
-        return vqpdfpagenavigator->event(event);
+        return self->QPdfPageNavigator::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageNavigator_OnEvent(QPdfPageNavigator* self, intptr_t slot) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_Event_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QPdfPageNavigator_EventFilter(QPdfPageNavigator* self, QObject* watched, QEvent* event) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         return vqpdfpagenavigator->eventFilter(watched, event);
     } else {
-        return vqpdfpagenavigator->eventFilter(watched, event);
+        return self->QPdfPageNavigator::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QPdfPageNavigator_QBaseEventFilter(QPdfPageNavigator* self, QObject* watched, QEvent* event) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_EventFilter_IsBase(true);
         return vqpdfpagenavigator->eventFilter(watched, event);
     } else {
-        return vqpdfpagenavigator->eventFilter(watched, event);
+        return self->QPdfPageNavigator::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageNavigator_OnEventFilter(QPdfPageNavigator* self, intptr_t slot) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_EventFilter_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QPdfPageNavigator_TimerEvent(QPdfPageNavigator* self, QTimerEvent* event) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->timerEvent(event);
     } else {
-        vqpdfpagenavigator->timerEvent(event);
+        ((VirtualQPdfPageNavigator*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QPdfPageNavigator_QBaseTimerEvent(QPdfPageNavigator* self, QTimerEvent* event) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_TimerEvent_IsBase(true);
         vqpdfpagenavigator->timerEvent(event);
     } else {
-        vqpdfpagenavigator->timerEvent(event);
+        ((VirtualQPdfPageNavigator*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageNavigator_OnTimerEvent(QPdfPageNavigator* self, intptr_t slot) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_TimerEvent_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QPdfPageNavigator_ChildEvent(QPdfPageNavigator* self, QChildEvent* event) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->childEvent(event);
     } else {
-        vqpdfpagenavigator->childEvent(event);
+        ((VirtualQPdfPageNavigator*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QPdfPageNavigator_QBaseChildEvent(QPdfPageNavigator* self, QChildEvent* event) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_ChildEvent_IsBase(true);
         vqpdfpagenavigator->childEvent(event);
     } else {
-        vqpdfpagenavigator->childEvent(event);
+        ((VirtualQPdfPageNavigator*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageNavigator_OnChildEvent(QPdfPageNavigator* self, intptr_t slot) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_ChildEvent_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QPdfPageNavigator_CustomEvent(QPdfPageNavigator* self, QEvent* event) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->customEvent(event);
     } else {
-        vqpdfpagenavigator->customEvent(event);
+        ((VirtualQPdfPageNavigator*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QPdfPageNavigator_QBaseCustomEvent(QPdfPageNavigator* self, QEvent* event) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_CustomEvent_IsBase(true);
         vqpdfpagenavigator->customEvent(event);
     } else {
-        vqpdfpagenavigator->customEvent(event);
+        ((VirtualQPdfPageNavigator*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageNavigator_OnCustomEvent(QPdfPageNavigator* self, intptr_t slot) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_CustomEvent_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QPdfPageNavigator_ConnectNotify(QPdfPageNavigator* self, QMetaMethod* signal) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+void QPdfPageNavigator_ConnectNotify(QPdfPageNavigator* self, const QMetaMethod* signal) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->connectNotify(*signal);
     } else {
-        vqpdfpagenavigator->connectNotify(*signal);
+        ((VirtualQPdfPageNavigator*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QPdfPageNavigator_QBaseConnectNotify(QPdfPageNavigator* self, QMetaMethod* signal) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+void QPdfPageNavigator_QBaseConnectNotify(QPdfPageNavigator* self, const QMetaMethod* signal) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_ConnectNotify_IsBase(true);
         vqpdfpagenavigator->connectNotify(*signal);
     } else {
-        vqpdfpagenavigator->connectNotify(*signal);
+        ((VirtualQPdfPageNavigator*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageNavigator_OnConnectNotify(QPdfPageNavigator* self, intptr_t slot) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_ConnectNotify_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QPdfPageNavigator_DisconnectNotify(QPdfPageNavigator* self, QMetaMethod* signal) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+void QPdfPageNavigator_DisconnectNotify(QPdfPageNavigator* self, const QMetaMethod* signal) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->disconnectNotify(*signal);
     } else {
-        vqpdfpagenavigator->disconnectNotify(*signal);
+        ((VirtualQPdfPageNavigator*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QPdfPageNavigator_QBaseDisconnectNotify(QPdfPageNavigator* self, QMetaMethod* signal) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+void QPdfPageNavigator_QBaseDisconnectNotify(QPdfPageNavigator* self, const QMetaMethod* signal) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_DisconnectNotify_IsBase(true);
         vqpdfpagenavigator->disconnectNotify(*signal);
     } else {
-        vqpdfpagenavigator->disconnectNotify(*signal);
+        ((VirtualQPdfPageNavigator*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageNavigator_OnDisconnectNotify(QPdfPageNavigator* self, intptr_t slot) {
-    if (auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self)) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_DisconnectNotify_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QPdfLink* QPdfPageNavigator_CurrentLink(const QPdfPageNavigator* self) {
-    if (auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self))) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         return new QPdfLink(vqpdfpagenavigator->currentLink());
     }
     return {};
@@ -410,7 +428,8 @@ QPdfLink* QPdfPageNavigator_CurrentLink(const QPdfPageNavigator* self) {
 
 // Base class handler implementation
 QPdfLink* QPdfPageNavigator_QBaseCurrentLink(const QPdfPageNavigator* self) {
-    if (auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self))) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_CurrentLink_IsBase(true);
         return new QPdfLink(vqpdfpagenavigator->currentLink());
     }
@@ -419,111 +438,124 @@ QPdfLink* QPdfPageNavigator_QBaseCurrentLink(const QPdfPageNavigator* self) {
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageNavigator_OnCurrentLink(const QPdfPageNavigator* self, intptr_t slot) {
-    if (auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self))) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_CurrentLink_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_CurrentLink_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QPdfPageNavigator_Sender(const QPdfPageNavigator* self) {
-    if (auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self))) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         return vqpdfpagenavigator->sender();
     } else {
-        return vqpdfpagenavigator->sender();
+        return ((VirtualQPdfPageNavigator*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QPdfPageNavigator_QBaseSender(const QPdfPageNavigator* self) {
-    if (auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self))) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_Sender_IsBase(true);
         return vqpdfpagenavigator->sender();
     } else {
-        return vqpdfpagenavigator->sender();
+        return ((VirtualQPdfPageNavigator*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageNavigator_OnSender(const QPdfPageNavigator* self, intptr_t slot) {
-    if (auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self))) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_Sender_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QPdfPageNavigator_SenderSignalIndex(const QPdfPageNavigator* self) {
-    if (auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self))) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         return vqpdfpagenavigator->senderSignalIndex();
     } else {
-        return vqpdfpagenavigator->senderSignalIndex();
+        return ((VirtualQPdfPageNavigator*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QPdfPageNavigator_QBaseSenderSignalIndex(const QPdfPageNavigator* self) {
-    if (auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self))) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_SenderSignalIndex_IsBase(true);
         return vqpdfpagenavigator->senderSignalIndex();
     } else {
-        return vqpdfpagenavigator->senderSignalIndex();
+        return ((VirtualQPdfPageNavigator*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageNavigator_OnSenderSignalIndex(const QPdfPageNavigator* self, intptr_t slot) {
-    if (auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self))) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QPdfPageNavigator_Receivers(const QPdfPageNavigator* self, const char* signal) {
-    if (auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self))) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         return vqpdfpagenavigator->receivers(signal);
     } else {
-        return vqpdfpagenavigator->receivers(signal);
+        return ((VirtualQPdfPageNavigator*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QPdfPageNavigator_QBaseReceivers(const QPdfPageNavigator* self, const char* signal) {
-    if (auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self))) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_Receivers_IsBase(true);
         return vqpdfpagenavigator->receivers(signal);
     } else {
-        return vqpdfpagenavigator->receivers(signal);
+        return ((VirtualQPdfPageNavigator*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageNavigator_OnReceivers(const QPdfPageNavigator* self, intptr_t slot) {
-    if (auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self))) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_Receivers_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QPdfPageNavigator_IsSignalConnected(const QPdfPageNavigator* self, QMetaMethod* signal) {
-    if (auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self))) {
+bool QPdfPageNavigator_IsSignalConnected(const QPdfPageNavigator* self, const QMetaMethod* signal) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         return vqpdfpagenavigator->isSignalConnected(*signal);
     } else {
-        return vqpdfpagenavigator->isSignalConnected(*signal);
+        return ((VirtualQPdfPageNavigator*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QPdfPageNavigator_QBaseIsSignalConnected(const QPdfPageNavigator* self, QMetaMethod* signal) {
-    if (auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self))) {
+bool QPdfPageNavigator_QBaseIsSignalConnected(const QPdfPageNavigator* self, const QMetaMethod* signal) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_IsSignalConnected_IsBase(true);
         return vqpdfpagenavigator->isSignalConnected(*signal);
     } else {
-        return vqpdfpagenavigator->isSignalConnected(*signal);
+        return ((VirtualQPdfPageNavigator*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageNavigator_OnIsSignalConnected(const QPdfPageNavigator* self, intptr_t slot) {
-    if (auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self))) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
         vqpdfpagenavigator->setQPdfPageNavigator_IsSignalConnected_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_IsSignalConnected_Callback>(slot));
     }
 }

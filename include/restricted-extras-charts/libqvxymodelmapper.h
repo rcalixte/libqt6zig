@@ -15,23 +15,15 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractItemModel QAbstractItemModel;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QVXYModelMapper QVXYModelMapper;
-typedef struct QVariant QVariant;
 typedef struct QXYModelMapper QXYModelMapper;
 typedef struct QXYSeries QXYSeries;
 #endif
@@ -85,12 +77,12 @@ void QVXYModelMapper_QBaseChildEvent(QVXYModelMapper* self, QChildEvent* event);
 void QVXYModelMapper_CustomEvent(QVXYModelMapper* self, QEvent* event);
 void QVXYModelMapper_OnCustomEvent(QVXYModelMapper* self, intptr_t slot);
 void QVXYModelMapper_QBaseCustomEvent(QVXYModelMapper* self, QEvent* event);
-void QVXYModelMapper_ConnectNotify(QVXYModelMapper* self, QMetaMethod* signal);
+void QVXYModelMapper_ConnectNotify(QVXYModelMapper* self, const QMetaMethod* signal);
 void QVXYModelMapper_OnConnectNotify(QVXYModelMapper* self, intptr_t slot);
-void QVXYModelMapper_QBaseConnectNotify(QVXYModelMapper* self, QMetaMethod* signal);
-void QVXYModelMapper_DisconnectNotify(QVXYModelMapper* self, QMetaMethod* signal);
+void QVXYModelMapper_QBaseConnectNotify(QVXYModelMapper* self, const QMetaMethod* signal);
+void QVXYModelMapper_DisconnectNotify(QVXYModelMapper* self, const QMetaMethod* signal);
 void QVXYModelMapper_OnDisconnectNotify(QVXYModelMapper* self, intptr_t slot);
-void QVXYModelMapper_QBaseDisconnectNotify(QVXYModelMapper* self, QMetaMethod* signal);
+void QVXYModelMapper_QBaseDisconnectNotify(QVXYModelMapper* self, const QMetaMethod* signal);
 int QVXYModelMapper_First(const QVXYModelMapper* self);
 void QVXYModelMapper_OnFirst(const QVXYModelMapper* self, intptr_t slot);
 int QVXYModelMapper_QBaseFirst(const QVXYModelMapper* self);
@@ -130,9 +122,9 @@ int QVXYModelMapper_QBaseSenderSignalIndex(const QVXYModelMapper* self);
 int QVXYModelMapper_Receivers(const QVXYModelMapper* self, const char* signal);
 void QVXYModelMapper_OnReceivers(const QVXYModelMapper* self, intptr_t slot);
 int QVXYModelMapper_QBaseReceivers(const QVXYModelMapper* self, const char* signal);
-bool QVXYModelMapper_IsSignalConnected(const QVXYModelMapper* self, QMetaMethod* signal);
+bool QVXYModelMapper_IsSignalConnected(const QVXYModelMapper* self, const QMetaMethod* signal);
 void QVXYModelMapper_OnIsSignalConnected(const QVXYModelMapper* self, intptr_t slot);
-bool QVXYModelMapper_QBaseIsSignalConnected(const QVXYModelMapper* self, QMetaMethod* signal);
+bool QVXYModelMapper_QBaseIsSignalConnected(const QVXYModelMapper* self, const QMetaMethod* signal);
 void QVXYModelMapper_Delete(QVXYModelMapper* self);
 
 #ifdef __cplusplus

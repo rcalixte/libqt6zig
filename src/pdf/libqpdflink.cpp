@@ -14,11 +14,11 @@ QPdfLink* QPdfLink_new() {
     return new QPdfLink();
 }
 
-QPdfLink* QPdfLink_new2(QPdfLink* other) {
+QPdfLink* QPdfLink_new2(const QPdfLink* other) {
     return new QPdfLink(*other);
 }
 
-void QPdfLink_OperatorAssign(QPdfLink* self, QPdfLink* other) {
+void QPdfLink_OperatorAssign(QPdfLink* self, const QPdfLink* other) {
     self->operator=(*other);
 }
 

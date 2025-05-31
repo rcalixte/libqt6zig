@@ -70,7 +70,7 @@ QFont* QPainter_Font(const QPainter* self) {
     return const_cast<QFont*>(&_ret);
 }
 
-void QPainter_SetFont(QPainter* self, QFont* f) {
+void QPainter_SetFont(QPainter* self, const QFont* f) {
     self->setFont(*f);
 }
 
@@ -82,11 +82,11 @@ QFontInfo* QPainter_FontInfo(const QPainter* self) {
     return new QFontInfo(self->fontInfo());
 }
 
-void QPainter_SetPen(QPainter* self, QColor* color) {
+void QPainter_SetPen(QPainter* self, const QColor* color) {
     self->setPen(*color);
 }
 
-void QPainter_SetPenWithPen(QPainter* self, QPen* pen) {
+void QPainter_SetPenWithPen(QPainter* self, const QPen* pen) {
     self->setPen(*pen);
 }
 
@@ -100,7 +100,7 @@ QPen* QPainter_Pen(const QPainter* self) {
     return const_cast<QPen*>(&_ret);
 }
 
-void QPainter_SetBrush(QPainter* self, QBrush* brush) {
+void QPainter_SetBrush(QPainter* self, const QBrush* brush) {
     self->setBrush(*brush);
 }
 
@@ -130,15 +130,15 @@ void QPainter_SetBrushOrigin(QPainter* self, int x, int y) {
     self->setBrushOrigin(static_cast<int>(x), static_cast<int>(y));
 }
 
-void QPainter_SetBrushOriginWithBrushOrigin(QPainter* self, QPoint* brushOrigin) {
+void QPainter_SetBrushOriginWithBrushOrigin(QPainter* self, const QPoint* brushOrigin) {
     self->setBrushOrigin(*brushOrigin);
 }
 
-void QPainter_SetBrushOrigin2(QPainter* self, QPointF* brushOrigin) {
+void QPainter_SetBrushOrigin2(QPainter* self, const QPointF* brushOrigin) {
     self->setBrushOrigin(*brushOrigin);
 }
 
-void QPainter_SetBackground(QPainter* self, QBrush* bg) {
+void QPainter_SetBackground(QPainter* self, const QBrush* bg) {
     self->setBackground(*bg);
 }
 
@@ -164,11 +164,11 @@ QPainterPath* QPainter_ClipPath(const QPainter* self) {
     return new QPainterPath(self->clipPath());
 }
 
-void QPainter_SetClipRect(QPainter* self, QRectF* param1) {
+void QPainter_SetClipRect(QPainter* self, const QRectF* param1) {
     self->setClipRect(*param1);
 }
 
-void QPainter_SetClipRectWithQRect(QPainter* self, QRect* param1) {
+void QPainter_SetClipRectWithQRect(QPainter* self, const QRect* param1) {
     self->setClipRect(*param1);
 }
 
@@ -176,11 +176,11 @@ void QPainter_SetClipRect2(QPainter* self, int x, int y, int w, int h) {
     self->setClipRect(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h));
 }
 
-void QPainter_SetClipRegion(QPainter* self, QRegion* param1) {
+void QPainter_SetClipRegion(QPainter* self, const QRegion* param1) {
     self->setClipRegion(*param1);
 }
 
-void QPainter_SetClipPath(QPainter* self, QPainterPath* path) {
+void QPainter_SetClipPath(QPainter* self, const QPainterPath* path) {
     self->setClipPath(*path);
 }
 
@@ -204,7 +204,7 @@ void QPainter_Restore(QPainter* self) {
     self->restore();
 }
 
-void QPainter_SetTransform(QPainter* self, QTransform* transform) {
+void QPainter_SetTransform(QPainter* self, const QTransform* transform) {
     self->setTransform(*transform);
 }
 
@@ -224,7 +224,7 @@ void QPainter_ResetTransform(QPainter* self) {
     self->resetTransform();
 }
 
-void QPainter_SetWorldTransform(QPainter* self, QTransform* matrix) {
+void QPainter_SetWorldTransform(QPainter* self, const QTransform* matrix) {
     self->setWorldTransform(*matrix);
 }
 
@@ -258,11 +258,11 @@ void QPainter_Rotate(QPainter* self, double a) {
     self->rotate(static_cast<qreal>(a));
 }
 
-void QPainter_Translate(QPainter* self, QPointF* offset) {
+void QPainter_Translate(QPainter* self, const QPointF* offset) {
     self->translate(*offset);
 }
 
-void QPainter_TranslateWithOffset(QPainter* self, QPoint* offset) {
+void QPainter_TranslateWithOffset(QPainter* self, const QPoint* offset) {
     self->translate(*offset);
 }
 
@@ -274,7 +274,7 @@ QRect* QPainter_Window(const QPainter* self) {
     return new QRect(self->window());
 }
 
-void QPainter_SetWindow(QPainter* self, QRect* window) {
+void QPainter_SetWindow(QPainter* self, const QRect* window) {
     self->setWindow(*window);
 }
 
@@ -286,7 +286,7 @@ QRect* QPainter_Viewport(const QPainter* self) {
     return new QRect(self->viewport());
 }
 
-void QPainter_SetViewport(QPainter* self, QRect* viewport) {
+void QPainter_SetViewport(QPainter* self, const QRect* viewport) {
     self->setViewport(*viewport);
 }
 
@@ -302,23 +302,23 @@ bool QPainter_ViewTransformEnabled(const QPainter* self) {
     return self->viewTransformEnabled();
 }
 
-void QPainter_StrokePath(QPainter* self, QPainterPath* path, QPen* pen) {
+void QPainter_StrokePath(QPainter* self, const QPainterPath* path, const QPen* pen) {
     self->strokePath(*path, *pen);
 }
 
-void QPainter_FillPath(QPainter* self, QPainterPath* path, QBrush* brush) {
+void QPainter_FillPath(QPainter* self, const QPainterPath* path, const QBrush* brush) {
     self->fillPath(*path, *brush);
 }
 
-void QPainter_DrawPath(QPainter* self, QPainterPath* path) {
+void QPainter_DrawPath(QPainter* self, const QPainterPath* path) {
     self->drawPath(*path);
 }
 
-void QPainter_DrawPoint(QPainter* self, QPointF* pt) {
+void QPainter_DrawPoint(QPainter* self, const QPointF* pt) {
     self->drawPoint(*pt);
 }
 
-void QPainter_DrawPointWithQPoint(QPainter* self, QPoint* p) {
+void QPainter_DrawPointWithQPoint(QPainter* self, const QPoint* p) {
     self->drawPoint(*p);
 }
 
@@ -326,19 +326,19 @@ void QPainter_DrawPoint2(QPainter* self, int x, int y) {
     self->drawPoint(static_cast<int>(x), static_cast<int>(y));
 }
 
-void QPainter_DrawPoints(QPainter* self, QPointF* points, int pointCount) {
+void QPainter_DrawPoints(QPainter* self, const QPointF* points, int pointCount) {
     self->drawPoints(points, static_cast<int>(pointCount));
 }
 
-void QPainter_DrawPoints2(QPainter* self, QPoint* points, int pointCount) {
+void QPainter_DrawPoints2(QPainter* self, const QPoint* points, int pointCount) {
     self->drawPoints(points, static_cast<int>(pointCount));
 }
 
-void QPainter_DrawLine(QPainter* self, QLineF* line) {
+void QPainter_DrawLine(QPainter* self, const QLineF* line) {
     self->drawLine(*line);
 }
 
-void QPainter_DrawLineWithLine(QPainter* self, QLine* line) {
+void QPainter_DrawLineWithLine(QPainter* self, const QLine* line) {
     self->drawLine(*line);
 }
 
@@ -346,19 +346,19 @@ void QPainter_DrawLine2(QPainter* self, int x1, int y1, int x2, int y2) {
     self->drawLine(static_cast<int>(x1), static_cast<int>(y1), static_cast<int>(x2), static_cast<int>(y2));
 }
 
-void QPainter_DrawLine3(QPainter* self, QPoint* p1, QPoint* p2) {
+void QPainter_DrawLine3(QPainter* self, const QPoint* p1, const QPoint* p2) {
     self->drawLine(*p1, *p2);
 }
 
-void QPainter_DrawLine4(QPainter* self, QPointF* p1, QPointF* p2) {
+void QPainter_DrawLine4(QPainter* self, const QPointF* p1, const QPointF* p2) {
     self->drawLine(*p1, *p2);
 }
 
-void QPainter_DrawLines(QPainter* self, QLineF* lines, int lineCount) {
+void QPainter_DrawLines(QPainter* self, const QLineF* lines, int lineCount) {
     self->drawLines(lines, static_cast<int>(lineCount));
 }
 
-void QPainter_DrawLinesWithLines(QPainter* self, libqt_list /* of QLineF* */ lines) {
+void QPainter_DrawLinesWithLines(QPainter* self, const libqt_list /* of QLineF* */ lines) {
     QList<QLineF> lines_QList;
     lines_QList.reserve(lines.len);
     QLineF** lines_arr = static_cast<QLineF**>(lines.data);
@@ -368,11 +368,11 @@ void QPainter_DrawLinesWithLines(QPainter* self, libqt_list /* of QLineF* */ lin
     self->drawLines(lines_QList);
 }
 
-void QPainter_DrawLines2(QPainter* self, QPointF* pointPairs, int lineCount) {
+void QPainter_DrawLines2(QPainter* self, const QPointF* pointPairs, int lineCount) {
     self->drawLines(pointPairs, static_cast<int>(lineCount));
 }
 
-void QPainter_DrawLinesWithPointPairs(QPainter* self, libqt_list /* of QPointF* */ pointPairs) {
+void QPainter_DrawLinesWithPointPairs(QPainter* self, const libqt_list /* of QPointF* */ pointPairs) {
     QList<QPointF> pointPairs_QList;
     pointPairs_QList.reserve(pointPairs.len);
     QPointF** pointPairs_arr = static_cast<QPointF**>(pointPairs.data);
@@ -382,11 +382,11 @@ void QPainter_DrawLinesWithPointPairs(QPainter* self, libqt_list /* of QPointF* 
     self->drawLines(pointPairs_QList);
 }
 
-void QPainter_DrawLines3(QPainter* self, QLine* lines, int lineCount) {
+void QPainter_DrawLines3(QPainter* self, const QLine* lines, int lineCount) {
     self->drawLines(lines, static_cast<int>(lineCount));
 }
 
-void QPainter_DrawLines4(QPainter* self, libqt_list /* of QLine* */ lines) {
+void QPainter_DrawLines4(QPainter* self, const libqt_list /* of QLine* */ lines) {
     QList<QLine> lines_QList;
     lines_QList.reserve(lines.len);
     QLine** lines_arr = static_cast<QLine**>(lines.data);
@@ -396,11 +396,11 @@ void QPainter_DrawLines4(QPainter* self, libqt_list /* of QLine* */ lines) {
     self->drawLines(lines_QList);
 }
 
-void QPainter_DrawLines5(QPainter* self, QPoint* pointPairs, int lineCount) {
+void QPainter_DrawLines5(QPainter* self, const QPoint* pointPairs, int lineCount) {
     self->drawLines(pointPairs, static_cast<int>(lineCount));
 }
 
-void QPainter_DrawLines6(QPainter* self, libqt_list /* of QPoint* */ pointPairs) {
+void QPainter_DrawLines6(QPainter* self, const libqt_list /* of QPoint* */ pointPairs) {
     QList<QPoint> pointPairs_QList;
     pointPairs_QList.reserve(pointPairs.len);
     QPoint** pointPairs_arr = static_cast<QPoint**>(pointPairs.data);
@@ -410,7 +410,7 @@ void QPainter_DrawLines6(QPainter* self, libqt_list /* of QPoint* */ pointPairs)
     self->drawLines(pointPairs_QList);
 }
 
-void QPainter_DrawRect(QPainter* self, QRectF* rect) {
+void QPainter_DrawRect(QPainter* self, const QRectF* rect) {
     self->drawRect(*rect);
 }
 
@@ -418,15 +418,15 @@ void QPainter_DrawRect2(QPainter* self, int x1, int y1, int w, int h) {
     self->drawRect(static_cast<int>(x1), static_cast<int>(y1), static_cast<int>(w), static_cast<int>(h));
 }
 
-void QPainter_DrawRectWithRect(QPainter* self, QRect* rect) {
+void QPainter_DrawRectWithRect(QPainter* self, const QRect* rect) {
     self->drawRect(*rect);
 }
 
-void QPainter_DrawRects(QPainter* self, QRectF* rects, int rectCount) {
+void QPainter_DrawRects(QPainter* self, const QRectF* rects, int rectCount) {
     self->drawRects(rects, static_cast<int>(rectCount));
 }
 
-void QPainter_DrawRectsWithRectangles(QPainter* self, libqt_list /* of QRectF* */ rectangles) {
+void QPainter_DrawRectsWithRectangles(QPainter* self, const libqt_list /* of QRectF* */ rectangles) {
     QList<QRectF> rectangles_QList;
     rectangles_QList.reserve(rectangles.len);
     QRectF** rectangles_arr = static_cast<QRectF**>(rectangles.data);
@@ -436,11 +436,11 @@ void QPainter_DrawRectsWithRectangles(QPainter* self, libqt_list /* of QRectF* *
     self->drawRects(rectangles_QList);
 }
 
-void QPainter_DrawRects2(QPainter* self, QRect* rects, int rectCount) {
+void QPainter_DrawRects2(QPainter* self, const QRect* rects, int rectCount) {
     self->drawRects(rects, static_cast<int>(rectCount));
 }
 
-void QPainter_DrawRects3(QPainter* self, libqt_list /* of QRect* */ rectangles) {
+void QPainter_DrawRects3(QPainter* self, const libqt_list /* of QRect* */ rectangles) {
     QList<QRect> rectangles_QList;
     rectangles_QList.reserve(rectangles.len);
     QRect** rectangles_arr = static_cast<QRect**>(rectangles.data);
@@ -450,11 +450,11 @@ void QPainter_DrawRects3(QPainter* self, libqt_list /* of QRect* */ rectangles) 
     self->drawRects(rectangles_QList);
 }
 
-void QPainter_DrawEllipse(QPainter* self, QRectF* r) {
+void QPainter_DrawEllipse(QPainter* self, const QRectF* r) {
     self->drawEllipse(*r);
 }
 
-void QPainter_DrawEllipseWithQRect(QPainter* self, QRect* r) {
+void QPainter_DrawEllipseWithQRect(QPainter* self, const QRect* r) {
     self->drawEllipse(*r);
 }
 
@@ -462,43 +462,43 @@ void QPainter_DrawEllipse2(QPainter* self, int x, int y, int w, int h) {
     self->drawEllipse(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h));
 }
 
-void QPainter_DrawEllipse3(QPainter* self, QPointF* center, double rx, double ry) {
+void QPainter_DrawEllipse3(QPainter* self, const QPointF* center, double rx, double ry) {
     self->drawEllipse(*center, static_cast<qreal>(rx), static_cast<qreal>(ry));
 }
 
-void QPainter_DrawEllipse4(QPainter* self, QPoint* center, int rx, int ry) {
+void QPainter_DrawEllipse4(QPainter* self, const QPoint* center, int rx, int ry) {
     self->drawEllipse(*center, static_cast<int>(rx), static_cast<int>(ry));
 }
 
-void QPainter_DrawPolyline(QPainter* self, QPointF* points, int pointCount) {
+void QPainter_DrawPolyline(QPainter* self, const QPointF* points, int pointCount) {
     self->drawPolyline(points, static_cast<int>(pointCount));
 }
 
-void QPainter_DrawPolyline2(QPainter* self, QPoint* points, int pointCount) {
+void QPainter_DrawPolyline2(QPainter* self, const QPoint* points, int pointCount) {
     self->drawPolyline(points, static_cast<int>(pointCount));
 }
 
-void QPainter_DrawPolygon(QPainter* self, QPointF* points, int pointCount) {
+void QPainter_DrawPolygon(QPainter* self, const QPointF* points, int pointCount) {
     self->drawPolygon(points, static_cast<int>(pointCount));
 }
 
-void QPainter_DrawPolygon2(QPainter* self, QPoint* points, int pointCount) {
+void QPainter_DrawPolygon2(QPainter* self, const QPoint* points, int pointCount) {
     self->drawPolygon(points, static_cast<int>(pointCount));
 }
 
-void QPainter_DrawConvexPolygon(QPainter* self, QPointF* points, int pointCount) {
+void QPainter_DrawConvexPolygon(QPainter* self, const QPointF* points, int pointCount) {
     self->drawConvexPolygon(points, static_cast<int>(pointCount));
 }
 
-void QPainter_DrawConvexPolygon2(QPainter* self, QPoint* points, int pointCount) {
+void QPainter_DrawConvexPolygon2(QPainter* self, const QPoint* points, int pointCount) {
     self->drawConvexPolygon(points, static_cast<int>(pointCount));
 }
 
-void QPainter_DrawArc(QPainter* self, QRectF* rect, int a, int alen) {
+void QPainter_DrawArc(QPainter* self, const QRectF* rect, int a, int alen) {
     self->drawArc(*rect, static_cast<int>(a), static_cast<int>(alen));
 }
 
-void QPainter_DrawArc2(QPainter* self, QRect* param1, int a, int alen) {
+void QPainter_DrawArc2(QPainter* self, const QRect* param1, int a, int alen) {
     self->drawArc(*param1, static_cast<int>(a), static_cast<int>(alen));
 }
 
@@ -506,7 +506,7 @@ void QPainter_DrawArc3(QPainter* self, int x, int y, int w, int h, int a, int al
     self->drawArc(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<int>(a), static_cast<int>(alen));
 }
 
-void QPainter_DrawPie(QPainter* self, QRectF* rect, int a, int alen) {
+void QPainter_DrawPie(QPainter* self, const QRectF* rect, int a, int alen) {
     self->drawPie(*rect, static_cast<int>(a), static_cast<int>(alen));
 }
 
@@ -514,11 +514,11 @@ void QPainter_DrawPie2(QPainter* self, int x, int y, int w, int h, int a, int al
     self->drawPie(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<int>(a), static_cast<int>(alen));
 }
 
-void QPainter_DrawPie3(QPainter* self, QRect* param1, int a, int alen) {
+void QPainter_DrawPie3(QPainter* self, const QRect* param1, int a, int alen) {
     self->drawPie(*param1, static_cast<int>(a), static_cast<int>(alen));
 }
 
-void QPainter_DrawChord(QPainter* self, QRectF* rect, int a, int alen) {
+void QPainter_DrawChord(QPainter* self, const QRectF* rect, int a, int alen) {
     self->drawChord(*rect, static_cast<int>(a), static_cast<int>(alen));
 }
 
@@ -526,11 +526,11 @@ void QPainter_DrawChord2(QPainter* self, int x, int y, int w, int h, int a, int 
     self->drawChord(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<int>(a), static_cast<int>(alen));
 }
 
-void QPainter_DrawChord3(QPainter* self, QRect* param1, int a, int alen) {
+void QPainter_DrawChord3(QPainter* self, const QRect* param1, int a, int alen) {
     self->drawChord(*param1, static_cast<int>(a), static_cast<int>(alen));
 }
 
-void QPainter_DrawRoundedRect(QPainter* self, QRectF* rect, double xRadius, double yRadius) {
+void QPainter_DrawRoundedRect(QPainter* self, const QRectF* rect, double xRadius, double yRadius) {
     self->drawRoundedRect(*rect, static_cast<qreal>(xRadius), static_cast<qreal>(yRadius));
 }
 
@@ -538,115 +538,115 @@ void QPainter_DrawRoundedRect2(QPainter* self, int x, int y, int w, int h, doubl
     self->drawRoundedRect(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<qreal>(xRadius), static_cast<qreal>(yRadius));
 }
 
-void QPainter_DrawRoundedRect3(QPainter* self, QRect* rect, double xRadius, double yRadius) {
+void QPainter_DrawRoundedRect3(QPainter* self, const QRect* rect, double xRadius, double yRadius) {
     self->drawRoundedRect(*rect, static_cast<qreal>(xRadius), static_cast<qreal>(yRadius));
 }
 
-void QPainter_DrawTiledPixmap(QPainter* self, QRectF* rect, QPixmap* pm) {
+void QPainter_DrawTiledPixmap(QPainter* self, const QRectF* rect, const QPixmap* pm) {
     self->drawTiledPixmap(*rect, *pm);
 }
 
-void QPainter_DrawTiledPixmap2(QPainter* self, int x, int y, int w, int h, QPixmap* param5) {
+void QPainter_DrawTiledPixmap2(QPainter* self, int x, int y, int w, int h, const QPixmap* param5) {
     self->drawTiledPixmap(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), *param5);
 }
 
-void QPainter_DrawTiledPixmap3(QPainter* self, QRect* param1, QPixmap* param2) {
+void QPainter_DrawTiledPixmap3(QPainter* self, const QRect* param1, const QPixmap* param2) {
     self->drawTiledPixmap(*param1, *param2);
 }
 
-void QPainter_DrawPicture(QPainter* self, QPointF* p, QPicture* picture) {
+void QPainter_DrawPicture(QPainter* self, const QPointF* p, const QPicture* picture) {
     self->drawPicture(*p, *picture);
 }
 
-void QPainter_DrawPicture2(QPainter* self, int x, int y, QPicture* picture) {
+void QPainter_DrawPicture2(QPainter* self, int x, int y, const QPicture* picture) {
     self->drawPicture(static_cast<int>(x), static_cast<int>(y), *picture);
 }
 
-void QPainter_DrawPicture3(QPainter* self, QPoint* p, QPicture* picture) {
+void QPainter_DrawPicture3(QPainter* self, const QPoint* p, const QPicture* picture) {
     self->drawPicture(*p, *picture);
 }
 
-void QPainter_DrawPixmap(QPainter* self, QRectF* targetRect, QPixmap* pixmap, QRectF* sourceRect) {
+void QPainter_DrawPixmap(QPainter* self, const QRectF* targetRect, const QPixmap* pixmap, const QRectF* sourceRect) {
     self->drawPixmap(*targetRect, *pixmap, *sourceRect);
 }
 
-void QPainter_DrawPixmap2(QPainter* self, QRect* targetRect, QPixmap* pixmap, QRect* sourceRect) {
+void QPainter_DrawPixmap2(QPainter* self, const QRect* targetRect, const QPixmap* pixmap, const QRect* sourceRect) {
     self->drawPixmap(*targetRect, *pixmap, *sourceRect);
 }
 
-void QPainter_DrawPixmap3(QPainter* self, int x, int y, int w, int h, QPixmap* pm, int sx, int sy, int sw, int sh) {
+void QPainter_DrawPixmap3(QPainter* self, int x, int y, int w, int h, const QPixmap* pm, int sx, int sy, int sw, int sh) {
     self->drawPixmap(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), *pm, static_cast<int>(sx), static_cast<int>(sy), static_cast<int>(sw), static_cast<int>(sh));
 }
 
-void QPainter_DrawPixmap4(QPainter* self, int x, int y, QPixmap* pm, int sx, int sy, int sw, int sh) {
+void QPainter_DrawPixmap4(QPainter* self, int x, int y, const QPixmap* pm, int sx, int sy, int sw, int sh) {
     self->drawPixmap(static_cast<int>(x), static_cast<int>(y), *pm, static_cast<int>(sx), static_cast<int>(sy), static_cast<int>(sw), static_cast<int>(sh));
 }
 
-void QPainter_DrawPixmap5(QPainter* self, QPointF* p, QPixmap* pm, QRectF* sr) {
+void QPainter_DrawPixmap5(QPainter* self, const QPointF* p, const QPixmap* pm, const QRectF* sr) {
     self->drawPixmap(*p, *pm, *sr);
 }
 
-void QPainter_DrawPixmap6(QPainter* self, QPoint* p, QPixmap* pm, QRect* sr) {
+void QPainter_DrawPixmap6(QPainter* self, const QPoint* p, const QPixmap* pm, const QRect* sr) {
     self->drawPixmap(*p, *pm, *sr);
 }
 
-void QPainter_DrawPixmap7(QPainter* self, QPointF* p, QPixmap* pm) {
+void QPainter_DrawPixmap7(QPainter* self, const QPointF* p, const QPixmap* pm) {
     self->drawPixmap(*p, *pm);
 }
 
-void QPainter_DrawPixmap8(QPainter* self, QPoint* p, QPixmap* pm) {
+void QPainter_DrawPixmap8(QPainter* self, const QPoint* p, const QPixmap* pm) {
     self->drawPixmap(*p, *pm);
 }
 
-void QPainter_DrawPixmap9(QPainter* self, int x, int y, QPixmap* pm) {
+void QPainter_DrawPixmap9(QPainter* self, int x, int y, const QPixmap* pm) {
     self->drawPixmap(static_cast<int>(x), static_cast<int>(y), *pm);
 }
 
-void QPainter_DrawPixmap10(QPainter* self, QRect* r, QPixmap* pm) {
+void QPainter_DrawPixmap10(QPainter* self, const QRect* r, const QPixmap* pm) {
     self->drawPixmap(*r, *pm);
 }
 
-void QPainter_DrawPixmap11(QPainter* self, int x, int y, int w, int h, QPixmap* pm) {
+void QPainter_DrawPixmap11(QPainter* self, int x, int y, int w, int h, const QPixmap* pm) {
     self->drawPixmap(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), *pm);
 }
 
-void QPainter_DrawPixmapFragments(QPainter* self, QPainter__PixmapFragment* fragments, int fragmentCount, QPixmap* pixmap) {
+void QPainter_DrawPixmapFragments(QPainter* self, const QPainter__PixmapFragment* fragments, int fragmentCount, const QPixmap* pixmap) {
     self->drawPixmapFragments(fragments, static_cast<int>(fragmentCount), *pixmap);
 }
 
-void QPainter_DrawImage(QPainter* self, QRectF* targetRect, QImage* image, QRectF* sourceRect) {
+void QPainter_DrawImage(QPainter* self, const QRectF* targetRect, const QImage* image, const QRectF* sourceRect) {
     self->drawImage(*targetRect, *image, *sourceRect);
 }
 
-void QPainter_DrawImage2(QPainter* self, QRect* targetRect, QImage* image, QRect* sourceRect) {
+void QPainter_DrawImage2(QPainter* self, const QRect* targetRect, const QImage* image, const QRect* sourceRect) {
     self->drawImage(*targetRect, *image, *sourceRect);
 }
 
-void QPainter_DrawImage3(QPainter* self, QPointF* p, QImage* image, QRectF* sr) {
+void QPainter_DrawImage3(QPainter* self, const QPointF* p, const QImage* image, const QRectF* sr) {
     self->drawImage(*p, *image, *sr);
 }
 
-void QPainter_DrawImage4(QPainter* self, QPoint* p, QImage* image, QRect* sr) {
+void QPainter_DrawImage4(QPainter* self, const QPoint* p, const QImage* image, const QRect* sr) {
     self->drawImage(*p, *image, *sr);
 }
 
-void QPainter_DrawImage5(QPainter* self, QRectF* r, QImage* image) {
+void QPainter_DrawImage5(QPainter* self, const QRectF* r, const QImage* image) {
     self->drawImage(*r, *image);
 }
 
-void QPainter_DrawImage6(QPainter* self, QRect* r, QImage* image) {
+void QPainter_DrawImage6(QPainter* self, const QRect* r, const QImage* image) {
     self->drawImage(*r, *image);
 }
 
-void QPainter_DrawImage7(QPainter* self, QPointF* p, QImage* image) {
+void QPainter_DrawImage7(QPainter* self, const QPointF* p, const QImage* image) {
     self->drawImage(*p, *image);
 }
 
-void QPainter_DrawImage8(QPainter* self, QPoint* p, QImage* image) {
+void QPainter_DrawImage8(QPainter* self, const QPoint* p, const QImage* image) {
     self->drawImage(*p, *image);
 }
 
-void QPainter_DrawImage9(QPainter* self, int x, int y, QImage* image) {
+void QPainter_DrawImage9(QPainter* self, int x, int y, const QImage* image) {
     self->drawImage(static_cast<int>(x), static_cast<int>(y), *image);
 }
 
@@ -658,115 +658,115 @@ int QPainter_LayoutDirection(const QPainter* self) {
     return static_cast<int>(self->layoutDirection());
 }
 
-void QPainter_DrawGlyphRun(QPainter* self, QPointF* position, QGlyphRun* glyphRun) {
+void QPainter_DrawGlyphRun(QPainter* self, const QPointF* position, const QGlyphRun* glyphRun) {
     self->drawGlyphRun(*position, *glyphRun);
 }
 
-void QPainter_DrawStaticText(QPainter* self, QPointF* topLeftPosition, QStaticText* staticText) {
+void QPainter_DrawStaticText(QPainter* self, const QPointF* topLeftPosition, const QStaticText* staticText) {
     self->drawStaticText(*topLeftPosition, *staticText);
 }
 
-void QPainter_DrawStaticText2(QPainter* self, QPoint* topLeftPosition, QStaticText* staticText) {
+void QPainter_DrawStaticText2(QPainter* self, const QPoint* topLeftPosition, const QStaticText* staticText) {
     self->drawStaticText(*topLeftPosition, *staticText);
 }
 
-void QPainter_DrawStaticText3(QPainter* self, int left, int top, QStaticText* staticText) {
+void QPainter_DrawStaticText3(QPainter* self, int left, int top, const QStaticText* staticText) {
     self->drawStaticText(static_cast<int>(left), static_cast<int>(top), *staticText);
 }
 
-void QPainter_DrawText(QPainter* self, QPointF* p, libqt_string s) {
+void QPainter_DrawText(QPainter* self, const QPointF* p, const libqt_string s) {
     QString s_QString = QString::fromUtf8(s.data, s.len);
     self->drawText(*p, s_QString);
 }
 
-void QPainter_DrawText2(QPainter* self, QPoint* p, libqt_string s) {
+void QPainter_DrawText2(QPainter* self, const QPoint* p, const libqt_string s) {
     QString s_QString = QString::fromUtf8(s.data, s.len);
     self->drawText(*p, s_QString);
 }
 
-void QPainter_DrawText3(QPainter* self, int x, int y, libqt_string s) {
+void QPainter_DrawText3(QPainter* self, int x, int y, const libqt_string s) {
     QString s_QString = QString::fromUtf8(s.data, s.len);
     self->drawText(static_cast<int>(x), static_cast<int>(y), s_QString);
 }
 
-void QPainter_DrawText4(QPainter* self, QPointF* p, libqt_string str, int tf, int justificationPadding) {
+void QPainter_DrawText4(QPainter* self, const QPointF* p, const libqt_string str, int tf, int justificationPadding) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
     self->drawText(*p, str_QString, static_cast<int>(tf), static_cast<int>(justificationPadding));
 }
 
-void QPainter_DrawText5(QPainter* self, QRectF* r, int flags, libqt_string text) {
+void QPainter_DrawText5(QPainter* self, const QRectF* r, int flags, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->drawText(*r, static_cast<int>(flags), text_QString);
 }
 
-void QPainter_DrawText6(QPainter* self, QRect* r, int flags, libqt_string text) {
+void QPainter_DrawText6(QPainter* self, const QRect* r, int flags, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->drawText(*r, static_cast<int>(flags), text_QString);
 }
 
-void QPainter_DrawText7(QPainter* self, int x, int y, int w, int h, int flags, libqt_string text) {
+void QPainter_DrawText7(QPainter* self, int x, int y, int w, int h, int flags, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->drawText(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<int>(flags), text_QString);
 }
 
-void QPainter_DrawText8(QPainter* self, QRectF* r, libqt_string text) {
+void QPainter_DrawText8(QPainter* self, const QRectF* r, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->drawText(*r, text_QString);
 }
 
-QRectF* QPainter_BoundingRect(QPainter* self, QRectF* rect, int flags, libqt_string text) {
+QRectF* QPainter_BoundingRect(QPainter* self, const QRectF* rect, int flags, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return new QRectF(self->boundingRect(*rect, static_cast<int>(flags), text_QString));
 }
 
-QRect* QPainter_BoundingRect2(QPainter* self, QRect* rect, int flags, libqt_string text) {
+QRect* QPainter_BoundingRect2(QPainter* self, const QRect* rect, int flags, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return new QRect(self->boundingRect(*rect, static_cast<int>(flags), text_QString));
 }
 
-QRect* QPainter_BoundingRect3(QPainter* self, int x, int y, int w, int h, int flags, libqt_string text) {
+QRect* QPainter_BoundingRect3(QPainter* self, int x, int y, int w, int h, int flags, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return new QRect(self->boundingRect(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<int>(flags), text_QString));
 }
 
-QRectF* QPainter_BoundingRect4(QPainter* self, QRectF* rect, libqt_string text) {
+QRectF* QPainter_BoundingRect4(QPainter* self, const QRectF* rect, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return new QRectF(self->boundingRect(*rect, text_QString));
 }
 
-void QPainter_DrawTextItem(QPainter* self, QPointF* p, QTextItem* ti) {
+void QPainter_DrawTextItem(QPainter* self, const QPointF* p, const QTextItem* ti) {
     self->drawTextItem(*p, *ti);
 }
 
-void QPainter_DrawTextItem2(QPainter* self, int x, int y, QTextItem* ti) {
+void QPainter_DrawTextItem2(QPainter* self, int x, int y, const QTextItem* ti) {
     self->drawTextItem(static_cast<int>(x), static_cast<int>(y), *ti);
 }
 
-void QPainter_DrawTextItem3(QPainter* self, QPoint* p, QTextItem* ti) {
+void QPainter_DrawTextItem3(QPainter* self, const QPoint* p, const QTextItem* ti) {
     self->drawTextItem(*p, *ti);
 }
 
-void QPainter_FillRect(QPainter* self, QRectF* param1, QBrush* param2) {
+void QPainter_FillRect(QPainter* self, const QRectF* param1, const QBrush* param2) {
     self->fillRect(*param1, *param2);
 }
 
-void QPainter_FillRect2(QPainter* self, int x, int y, int w, int h, QBrush* param5) {
+void QPainter_FillRect2(QPainter* self, int x, int y, int w, int h, const QBrush* param5) {
     self->fillRect(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), *param5);
 }
 
-void QPainter_FillRect3(QPainter* self, QRect* param1, QBrush* param2) {
+void QPainter_FillRect3(QPainter* self, const QRect* param1, const QBrush* param2) {
     self->fillRect(*param1, *param2);
 }
 
-void QPainter_FillRect4(QPainter* self, QRectF* param1, QColor* color) {
+void QPainter_FillRect4(QPainter* self, const QRectF* param1, const QColor* color) {
     self->fillRect(*param1, *color);
 }
 
-void QPainter_FillRect5(QPainter* self, int x, int y, int w, int h, QColor* color) {
+void QPainter_FillRect5(QPainter* self, int x, int y, int w, int h, const QColor* color) {
     self->fillRect(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), *color);
 }
 
-void QPainter_FillRect6(QPainter* self, QRect* param1, QColor* color) {
+void QPainter_FillRect6(QPainter* self, const QRect* param1, const QColor* color) {
     self->fillRect(*param1, *color);
 }
 
@@ -774,11 +774,11 @@ void QPainter_FillRect7(QPainter* self, int x, int y, int w, int h, int c) {
     self->fillRect(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<Qt::GlobalColor>(c));
 }
 
-void QPainter_FillRect8(QPainter* self, QRect* r, int c) {
+void QPainter_FillRect8(QPainter* self, const QRect* r, int c) {
     self->fillRect(*r, static_cast<Qt::GlobalColor>(c));
 }
 
-void QPainter_FillRect9(QPainter* self, QRectF* r, int c) {
+void QPainter_FillRect9(QPainter* self, const QRectF* r, int c) {
     self->fillRect(*r, static_cast<Qt::GlobalColor>(c));
 }
 
@@ -786,11 +786,11 @@ void QPainter_FillRect10(QPainter* self, int x, int y, int w, int h, int style) 
     self->fillRect(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<Qt::BrushStyle>(style));
 }
 
-void QPainter_FillRect11(QPainter* self, QRect* r, int style) {
+void QPainter_FillRect11(QPainter* self, const QRect* r, int style) {
     self->fillRect(*r, static_cast<Qt::BrushStyle>(style));
 }
 
-void QPainter_FillRect12(QPainter* self, QRectF* r, int style) {
+void QPainter_FillRect12(QPainter* self, const QRectF* r, int style) {
     self->fillRect(*r, static_cast<Qt::BrushStyle>(style));
 }
 
@@ -798,15 +798,15 @@ void QPainter_FillRect13(QPainter* self, int x, int y, int w, int h, int preset)
     self->fillRect(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<QGradient::Preset>(preset));
 }
 
-void QPainter_FillRect14(QPainter* self, QRect* r, int preset) {
+void QPainter_FillRect14(QPainter* self, const QRect* r, int preset) {
     self->fillRect(*r, static_cast<QGradient::Preset>(preset));
 }
 
-void QPainter_FillRect15(QPainter* self, QRectF* r, int preset) {
+void QPainter_FillRect15(QPainter* self, const QRectF* r, int preset) {
     self->fillRect(*r, static_cast<QGradient::Preset>(preset));
 }
 
-void QPainter_EraseRect(QPainter* self, QRectF* param1) {
+void QPainter_EraseRect(QPainter* self, const QRectF* param1) {
     self->eraseRect(*param1);
 }
 
@@ -814,7 +814,7 @@ void QPainter_EraseRect2(QPainter* self, int x, int y, int w, int h) {
     self->eraseRect(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h));
 }
 
-void QPainter_EraseRectWithQRect(QPainter* self, QRect* param1) {
+void QPainter_EraseRectWithQRect(QPainter* self, const QRect* param1) {
     self->eraseRect(*param1);
 }
 
@@ -846,11 +846,11 @@ void QPainter_EndNativePainting(QPainter* self) {
     self->endNativePainting();
 }
 
-void QPainter_SetClipRect22(QPainter* self, QRectF* param1, int op) {
+void QPainter_SetClipRect22(QPainter* self, const QRectF* param1, int op) {
     self->setClipRect(*param1, static_cast<Qt::ClipOperation>(op));
 }
 
-void QPainter_SetClipRect23(QPainter* self, QRect* param1, int op) {
+void QPainter_SetClipRect23(QPainter* self, const QRect* param1, int op) {
     self->setClipRect(*param1, static_cast<Qt::ClipOperation>(op));
 }
 
@@ -858,31 +858,31 @@ void QPainter_SetClipRect5(QPainter* self, int x, int y, int w, int h, int op) {
     self->setClipRect(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<Qt::ClipOperation>(op));
 }
 
-void QPainter_SetClipRegion2(QPainter* self, QRegion* param1, int op) {
+void QPainter_SetClipRegion2(QPainter* self, const QRegion* param1, int op) {
     self->setClipRegion(*param1, static_cast<Qt::ClipOperation>(op));
 }
 
-void QPainter_SetClipPath2(QPainter* self, QPainterPath* path, int op) {
+void QPainter_SetClipPath2(QPainter* self, const QPainterPath* path, int op) {
     self->setClipPath(*path, static_cast<Qt::ClipOperation>(op));
 }
 
-void QPainter_SetTransform2(QPainter* self, QTransform* transform, bool combine) {
+void QPainter_SetTransform2(QPainter* self, const QTransform* transform, bool combine) {
     self->setTransform(*transform, combine);
 }
 
-void QPainter_SetWorldTransform2(QPainter* self, QTransform* matrix, bool combine) {
+void QPainter_SetWorldTransform2(QPainter* self, const QTransform* matrix, bool combine) {
     self->setWorldTransform(*matrix, combine);
 }
 
-void QPainter_DrawPolygon32(QPainter* self, QPointF* points, int pointCount, int fillRule) {
+void QPainter_DrawPolygon32(QPainter* self, const QPointF* points, int pointCount, int fillRule) {
     self->drawPolygon(points, static_cast<int>(pointCount), static_cast<Qt::FillRule>(fillRule));
 }
 
-void QPainter_DrawPolygon33(QPainter* self, QPoint* points, int pointCount, int fillRule) {
+void QPainter_DrawPolygon33(QPainter* self, const QPoint* points, int pointCount, int fillRule) {
     self->drawPolygon(points, static_cast<int>(pointCount), static_cast<Qt::FillRule>(fillRule));
 }
 
-void QPainter_DrawRoundedRect4(QPainter* self, QRectF* rect, double xRadius, double yRadius, int mode) {
+void QPainter_DrawRoundedRect4(QPainter* self, const QRectF* rect, double xRadius, double yRadius, int mode) {
     self->drawRoundedRect(*rect, static_cast<qreal>(xRadius), static_cast<qreal>(yRadius), static_cast<Qt::SizeMode>(mode));
 }
 
@@ -890,87 +890,87 @@ void QPainter_DrawRoundedRect7(QPainter* self, int x, int y, int w, int h, doubl
     self->drawRoundedRect(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<qreal>(xRadius), static_cast<qreal>(yRadius), static_cast<Qt::SizeMode>(mode));
 }
 
-void QPainter_DrawRoundedRect42(QPainter* self, QRect* rect, double xRadius, double yRadius, int mode) {
+void QPainter_DrawRoundedRect42(QPainter* self, const QRect* rect, double xRadius, double yRadius, int mode) {
     self->drawRoundedRect(*rect, static_cast<qreal>(xRadius), static_cast<qreal>(yRadius), static_cast<Qt::SizeMode>(mode));
 }
 
-void QPainter_DrawTiledPixmap32(QPainter* self, QRectF* rect, QPixmap* pm, QPointF* offset) {
+void QPainter_DrawTiledPixmap32(QPainter* self, const QRectF* rect, const QPixmap* pm, const QPointF* offset) {
     self->drawTiledPixmap(*rect, *pm, *offset);
 }
 
-void QPainter_DrawTiledPixmap6(QPainter* self, int x, int y, int w, int h, QPixmap* param5, int sx) {
+void QPainter_DrawTiledPixmap6(QPainter* self, int x, int y, int w, int h, const QPixmap* param5, int sx) {
     self->drawTiledPixmap(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), *param5, static_cast<int>(sx));
 }
 
-void QPainter_DrawTiledPixmap7(QPainter* self, int x, int y, int w, int h, QPixmap* param5, int sx, int sy) {
+void QPainter_DrawTiledPixmap7(QPainter* self, int x, int y, int w, int h, const QPixmap* param5, int sx, int sy) {
     self->drawTiledPixmap(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), *param5, static_cast<int>(sx), static_cast<int>(sy));
 }
 
-void QPainter_DrawTiledPixmap33(QPainter* self, QRect* param1, QPixmap* param2, QPoint* param3) {
+void QPainter_DrawTiledPixmap33(QPainter* self, const QRect* param1, const QPixmap* param2, const QPoint* param3) {
     self->drawTiledPixmap(*param1, *param2, *param3);
 }
 
-void QPainter_DrawPixmapFragments4(QPainter* self, QPainter__PixmapFragment* fragments, int fragmentCount, QPixmap* pixmap, int hints) {
+void QPainter_DrawPixmapFragments4(QPainter* self, const QPainter__PixmapFragment* fragments, int fragmentCount, const QPixmap* pixmap, int hints) {
     self->drawPixmapFragments(fragments, static_cast<int>(fragmentCount), *pixmap, static_cast<QPainter::PixmapFragmentHints>(hints));
 }
 
-void QPainter_DrawImage42(QPainter* self, QRectF* targetRect, QImage* image, QRectF* sourceRect, int flags) {
+void QPainter_DrawImage42(QPainter* self, const QRectF* targetRect, const QImage* image, const QRectF* sourceRect, int flags) {
     self->drawImage(*targetRect, *image, *sourceRect, static_cast<Qt::ImageConversionFlags>(flags));
 }
 
-void QPainter_DrawImage43(QPainter* self, QRect* targetRect, QImage* image, QRect* sourceRect, int flags) {
+void QPainter_DrawImage43(QPainter* self, const QRect* targetRect, const QImage* image, const QRect* sourceRect, int flags) {
     self->drawImage(*targetRect, *image, *sourceRect, static_cast<Qt::ImageConversionFlags>(flags));
 }
 
-void QPainter_DrawImage44(QPainter* self, QPointF* p, QImage* image, QRectF* sr, int flags) {
+void QPainter_DrawImage44(QPainter* self, const QPointF* p, const QImage* image, const QRectF* sr, int flags) {
     self->drawImage(*p, *image, *sr, static_cast<Qt::ImageConversionFlags>(flags));
 }
 
-void QPainter_DrawImage45(QPainter* self, QPoint* p, QImage* image, QRect* sr, int flags) {
+void QPainter_DrawImage45(QPainter* self, const QPoint* p, const QImage* image, const QRect* sr, int flags) {
     self->drawImage(*p, *image, *sr, static_cast<Qt::ImageConversionFlags>(flags));
 }
 
-void QPainter_DrawImage46(QPainter* self, int x, int y, QImage* image, int sx) {
+void QPainter_DrawImage46(QPainter* self, int x, int y, const QImage* image, int sx) {
     self->drawImage(static_cast<int>(x), static_cast<int>(y), *image, static_cast<int>(sx));
 }
 
-void QPainter_DrawImage52(QPainter* self, int x, int y, QImage* image, int sx, int sy) {
+void QPainter_DrawImage52(QPainter* self, int x, int y, const QImage* image, int sx, int sy) {
     self->drawImage(static_cast<int>(x), static_cast<int>(y), *image, static_cast<int>(sx), static_cast<int>(sy));
 }
 
-void QPainter_DrawImage62(QPainter* self, int x, int y, QImage* image, int sx, int sy, int sw) {
+void QPainter_DrawImage62(QPainter* self, int x, int y, const QImage* image, int sx, int sy, int sw) {
     self->drawImage(static_cast<int>(x), static_cast<int>(y), *image, static_cast<int>(sx), static_cast<int>(sy), static_cast<int>(sw));
 }
 
-void QPainter_DrawImage72(QPainter* self, int x, int y, QImage* image, int sx, int sy, int sw, int sh) {
+void QPainter_DrawImage72(QPainter* self, int x, int y, const QImage* image, int sx, int sy, int sw, int sh) {
     self->drawImage(static_cast<int>(x), static_cast<int>(y), *image, static_cast<int>(sx), static_cast<int>(sy), static_cast<int>(sw), static_cast<int>(sh));
 }
 
-void QPainter_DrawImage82(QPainter* self, int x, int y, QImage* image, int sx, int sy, int sw, int sh, int flags) {
+void QPainter_DrawImage82(QPainter* self, int x, int y, const QImage* image, int sx, int sy, int sw, int sh, int flags) {
     self->drawImage(static_cast<int>(x), static_cast<int>(y), *image, static_cast<int>(sx), static_cast<int>(sy), static_cast<int>(sw), static_cast<int>(sh), static_cast<Qt::ImageConversionFlags>(flags));
 }
 
-void QPainter_DrawText42(QPainter* self, QRectF* r, int flags, libqt_string text, QRectF* br) {
+void QPainter_DrawText42(QPainter* self, const QRectF* r, int flags, const libqt_string text, QRectF* br) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->drawText(*r, static_cast<int>(flags), text_QString, br);
 }
 
-void QPainter_DrawText43(QPainter* self, QRect* r, int flags, libqt_string text, QRect* br) {
+void QPainter_DrawText43(QPainter* self, const QRect* r, int flags, const libqt_string text, QRect* br) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->drawText(*r, static_cast<int>(flags), text_QString, br);
 }
 
-void QPainter_DrawText72(QPainter* self, int x, int y, int w, int h, int flags, libqt_string text, QRect* br) {
+void QPainter_DrawText72(QPainter* self, int x, int y, int w, int h, int flags, const libqt_string text, QRect* br) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->drawText(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<int>(flags), text_QString, br);
 }
 
-void QPainter_DrawText32(QPainter* self, QRectF* r, libqt_string text, QTextOption* o) {
+void QPainter_DrawText32(QPainter* self, const QRectF* r, const libqt_string text, const QTextOption* o) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->drawText(*r, text_QString, *o);
 }
 
-QRectF* QPainter_BoundingRect32(QPainter* self, QRectF* rect, libqt_string text, QTextOption* o) {
+QRectF* QPainter_BoundingRect32(QPainter* self, const QRectF* rect, const libqt_string text, const QTextOption* o) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return new QRectF(self->boundingRect(*rect, text_QString, *o));
 }
@@ -987,23 +987,23 @@ void QPainter_Delete(QPainter* self) {
     delete self;
 }
 
-QPainter__PixmapFragment* QPainter__PixmapFragment_Create(QPointF* pos, QRectF* sourceRect) {
+QPainter__PixmapFragment* QPainter__PixmapFragment_Create(const QPointF* pos, const QRectF* sourceRect) {
     return new QPainter::PixmapFragment(QPainter::PixmapFragment::create(*pos, *sourceRect));
 }
 
-QPainter__PixmapFragment* QPainter__PixmapFragment_Create3(QPointF* pos, QRectF* sourceRect, double scaleX) {
+QPainter__PixmapFragment* QPainter__PixmapFragment_Create3(const QPointF* pos, const QRectF* sourceRect, double scaleX) {
     return new QPainter::PixmapFragment(QPainter::PixmapFragment::create(*pos, *sourceRect, static_cast<qreal>(scaleX)));
 }
 
-QPainter__PixmapFragment* QPainter__PixmapFragment_Create4(QPointF* pos, QRectF* sourceRect, double scaleX, double scaleY) {
+QPainter__PixmapFragment* QPainter__PixmapFragment_Create4(const QPointF* pos, const QRectF* sourceRect, double scaleX, double scaleY) {
     return new QPainter::PixmapFragment(QPainter::PixmapFragment::create(*pos, *sourceRect, static_cast<qreal>(scaleX), static_cast<qreal>(scaleY)));
 }
 
-QPainter__PixmapFragment* QPainter__PixmapFragment_Create5(QPointF* pos, QRectF* sourceRect, double scaleX, double scaleY, double rotation) {
+QPainter__PixmapFragment* QPainter__PixmapFragment_Create5(const QPointF* pos, const QRectF* sourceRect, double scaleX, double scaleY, double rotation) {
     return new QPainter::PixmapFragment(QPainter::PixmapFragment::create(*pos, *sourceRect, static_cast<qreal>(scaleX), static_cast<qreal>(scaleY), static_cast<qreal>(rotation)));
 }
 
-QPainter__PixmapFragment* QPainter__PixmapFragment_Create6(QPointF* pos, QRectF* sourceRect, double scaleX, double scaleY, double rotation, double opacity) {
+QPainter__PixmapFragment* QPainter__PixmapFragment_Create6(const QPointF* pos, const QRectF* sourceRect, double scaleX, double scaleY, double rotation, double opacity) {
     return new QPainter::PixmapFragment(QPainter::PixmapFragment::create(*pos, *sourceRect, static_cast<qreal>(scaleX), static_cast<qreal>(scaleY), static_cast<qreal>(rotation), static_cast<qreal>(opacity)));
 }
 

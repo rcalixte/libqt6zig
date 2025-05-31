@@ -8,7 +8,7 @@
 #include "libqgenericpluginfactory.h"
 #include "libqgenericpluginfactory.hxx"
 
-QGenericPluginFactory* QGenericPluginFactory_new(QGenericPluginFactory* other) {
+QGenericPluginFactory* QGenericPluginFactory_new(const QGenericPluginFactory* other) {
     return new QGenericPluginFactory(*other);
 }
 
@@ -45,7 +45,7 @@ libqt_list /* of libqt_string */ QGenericPluginFactory_Keys() {
     return _out;
 }
 
-QObject* QGenericPluginFactory_Create(libqt_string param1, libqt_string param2) {
+QObject* QGenericPluginFactory_Create(const libqt_string param1, const libqt_string param2) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QString param2_QString = QString::fromUtf8(param2.data, param2.len);
     return QGenericPluginFactory::create(param1_QString, param2_QString);

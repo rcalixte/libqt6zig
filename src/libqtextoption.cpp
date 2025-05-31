@@ -14,11 +14,11 @@ QTextOption* QTextOption_new2(int alignment) {
     return new QTextOption(static_cast<Qt::Alignment>(alignment));
 }
 
-QTextOption* QTextOption_new3(QTextOption* o) {
+QTextOption* QTextOption_new3(const QTextOption* o) {
     return new QTextOption(*o);
 }
 
-void QTextOption_OperatorAssign(QTextOption* self, QTextOption* o) {
+void QTextOption_OperatorAssign(QTextOption* self, const QTextOption* o) {
     self->operator=(*o);
 }
 
@@ -62,7 +62,7 @@ double QTextOption_TabStopDistance(const QTextOption* self) {
     return static_cast<double>(self->tabStopDistance());
 }
 
-void QTextOption_SetTabArray(QTextOption* self, libqt_list /* of double */ tabStops) {
+void QTextOption_SetTabArray(QTextOption* self, const libqt_list /* of double */ tabStops) {
     QList<qreal> tabStops_QList;
     tabStops_QList.reserve(tabStops.len);
     double* tabStops_arr = static_cast<double*>(tabStops.data);
@@ -85,7 +85,7 @@ libqt_list /* of double */ QTextOption_TabArray(const QTextOption* self) {
     return _out;
 }
 
-void QTextOption_SetTabs(QTextOption* self, libqt_list /* of QTextOption__Tab* */ tabStops) {
+void QTextOption_SetTabs(QTextOption* self, const libqt_list /* of QTextOption__Tab* */ tabStops) {
     QList<QTextOption::Tab> tabStops_QList;
     tabStops_QList.reserve(tabStops.len);
     QTextOption__Tab** tabStops_arr = static_cast<QTextOption__Tab**>(tabStops.data);
@@ -120,7 +120,7 @@ void QTextOption_Delete(QTextOption* self) {
     delete self;
 }
 
-QTextOption__Tab* QTextOption__Tab_new(QTextOption__Tab* other) {
+QTextOption__Tab* QTextOption__Tab_new(const QTextOption__Tab* other) {
     return new QTextOption::Tab(*other);
 }
 
@@ -148,11 +148,11 @@ void QTextOption__Tab_MoveAssign(QTextOption__Tab* self, QTextOption__Tab* other
     *self = std::move(*other);
 }
 
-bool QTextOption__Tab_OperatorEqual(const QTextOption__Tab* self, QTextOption__Tab* other) {
+bool QTextOption__Tab_OperatorEqual(const QTextOption__Tab* self, const QTextOption__Tab* other) {
     return (*self == *other);
 }
 
-bool QTextOption__Tab_OperatorNotEqual(const QTextOption__Tab* self, QTextOption__Tab* other) {
+bool QTextOption__Tab_OperatorNotEqual(const QTextOption__Tab* self, const QTextOption__Tab* other) {
     return (*self != *other);
 }
 

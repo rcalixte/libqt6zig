@@ -11,14 +11,17 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QDialog so that we can call protected methods
-class VirtualQDialog : public QDialog {
+class VirtualQDialog final : public QDialog {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQDialog = true;
+
     // Virtual class public types (including callbacks)
-    using QDialog_Metacall_Callback = int (*)(QDialog*, QMetaObject::Call, int, void**);
+    using QDialog_Metacall_Callback = int (*)(QDialog*, int, int, void**);
     using QDialog_SetVisible_Callback = void (*)(QDialog*, bool);
-    using QDialog_SizeHint_Callback = QSize (*)();
-    using QDialog_MinimumSizeHint_Callback = QSize (*)();
+    using QDialog_SizeHint_Callback = QSize* (*)();
+    using QDialog_MinimumSizeHint_Callback = QSize* (*)();
     using QDialog_Open_Callback = void (*)();
     using QDialog_Exec_Callback = int (*)();
     using QDialog_Done_Callback = void (*)(QDialog*, int);
@@ -54,20 +57,20 @@ class VirtualQDialog : public QDialog {
     using QDialog_DragLeaveEvent_Callback = void (*)(QDialog*, QDragLeaveEvent*);
     using QDialog_DropEvent_Callback = void (*)(QDialog*, QDropEvent*);
     using QDialog_HideEvent_Callback = void (*)(QDialog*, QHideEvent*);
-    using QDialog_NativeEvent_Callback = bool (*)(QDialog*, const QByteArray&, void*, qintptr*);
+    using QDialog_NativeEvent_Callback = bool (*)(QDialog*, libqt_string, void*, intptr_t*);
     using QDialog_ChangeEvent_Callback = void (*)(QDialog*, QEvent*);
-    using QDialog_Metric_Callback = int (*)(const QDialog*, QPaintDevice::PaintDeviceMetric);
+    using QDialog_Metric_Callback = int (*)(const QDialog*, int);
     using QDialog_InitPainter_Callback = void (*)(const QDialog*, QPainter*);
     using QDialog_Redirected_Callback = QPaintDevice* (*)(const QDialog*, QPoint*);
     using QDialog_SharedPainter_Callback = QPainter* (*)();
     using QDialog_InputMethodEvent_Callback = void (*)(QDialog*, QInputMethodEvent*);
-    using QDialog_InputMethodQuery_Callback = QVariant (*)(const QDialog*, Qt::InputMethodQuery);
+    using QDialog_InputMethodQuery_Callback = QVariant* (*)(const QDialog*, int);
     using QDialog_FocusNextPrevChild_Callback = bool (*)(QDialog*, bool);
     using QDialog_TimerEvent_Callback = void (*)(QDialog*, QTimerEvent*);
     using QDialog_ChildEvent_Callback = void (*)(QDialog*, QChildEvent*);
     using QDialog_CustomEvent_Callback = void (*)(QDialog*, QEvent*);
-    using QDialog_ConnectNotify_Callback = void (*)(QDialog*, const QMetaMethod&);
-    using QDialog_DisconnectNotify_Callback = void (*)(QDialog*, const QMetaMethod&);
+    using QDialog_ConnectNotify_Callback = void (*)(QDialog*, QMetaMethod*);
+    using QDialog_DisconnectNotify_Callback = void (*)(QDialog*, QMetaMethod*);
     using QDialog_AdjustPosition_Callback = void (*)(QDialog*, QWidget*);
     using QDialog_UpdateMicroFocus_Callback = void (*)();
     using QDialog_Create_Callback = void (*)();
@@ -77,7 +80,7 @@ class VirtualQDialog : public QDialog {
     using QDialog_Sender_Callback = QObject* (*)();
     using QDialog_SenderSignalIndex_Callback = int (*)();
     using QDialog_Receivers_Callback = int (*)(const QDialog*, const char*);
-    using QDialog_IsSignalConnected_Callback = bool (*)(const QDialog*, const QMetaMethod&);
+    using QDialog_IsSignalConnected_Callback = bool (*)(const QDialog*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -282,134 +285,134 @@ class VirtualQDialog : public QDialog {
     }
 
     // Callback setters
-    void setQDialog_Metacall_Callback(QDialog_Metacall_Callback cb) { qdialog_metacall_callback = cb; }
-    void setQDialog_SetVisible_Callback(QDialog_SetVisible_Callback cb) { qdialog_setvisible_callback = cb; }
-    void setQDialog_SizeHint_Callback(QDialog_SizeHint_Callback cb) { qdialog_sizehint_callback = cb; }
-    void setQDialog_MinimumSizeHint_Callback(QDialog_MinimumSizeHint_Callback cb) { qdialog_minimumsizehint_callback = cb; }
-    void setQDialog_Open_Callback(QDialog_Open_Callback cb) { qdialog_open_callback = cb; }
-    void setQDialog_Exec_Callback(QDialog_Exec_Callback cb) { qdialog_exec_callback = cb; }
-    void setQDialog_Done_Callback(QDialog_Done_Callback cb) { qdialog_done_callback = cb; }
-    void setQDialog_Accept_Callback(QDialog_Accept_Callback cb) { qdialog_accept_callback = cb; }
-    void setQDialog_Reject_Callback(QDialog_Reject_Callback cb) { qdialog_reject_callback = cb; }
-    void setQDialog_KeyPressEvent_Callback(QDialog_KeyPressEvent_Callback cb) { qdialog_keypressevent_callback = cb; }
-    void setQDialog_CloseEvent_Callback(QDialog_CloseEvent_Callback cb) { qdialog_closeevent_callback = cb; }
-    void setQDialog_ShowEvent_Callback(QDialog_ShowEvent_Callback cb) { qdialog_showevent_callback = cb; }
-    void setQDialog_ResizeEvent_Callback(QDialog_ResizeEvent_Callback cb) { qdialog_resizeevent_callback = cb; }
-    void setQDialog_ContextMenuEvent_Callback(QDialog_ContextMenuEvent_Callback cb) { qdialog_contextmenuevent_callback = cb; }
-    void setQDialog_EventFilter_Callback(QDialog_EventFilter_Callback cb) { qdialog_eventfilter_callback = cb; }
-    void setQDialog_DevType_Callback(QDialog_DevType_Callback cb) { qdialog_devtype_callback = cb; }
-    void setQDialog_HeightForWidth_Callback(QDialog_HeightForWidth_Callback cb) { qdialog_heightforwidth_callback = cb; }
-    void setQDialog_HasHeightForWidth_Callback(QDialog_HasHeightForWidth_Callback cb) { qdialog_hasheightforwidth_callback = cb; }
-    void setQDialog_PaintEngine_Callback(QDialog_PaintEngine_Callback cb) { qdialog_paintengine_callback = cb; }
-    void setQDialog_Event_Callback(QDialog_Event_Callback cb) { qdialog_event_callback = cb; }
-    void setQDialog_MousePressEvent_Callback(QDialog_MousePressEvent_Callback cb) { qdialog_mousepressevent_callback = cb; }
-    void setQDialog_MouseReleaseEvent_Callback(QDialog_MouseReleaseEvent_Callback cb) { qdialog_mousereleaseevent_callback = cb; }
-    void setQDialog_MouseDoubleClickEvent_Callback(QDialog_MouseDoubleClickEvent_Callback cb) { qdialog_mousedoubleclickevent_callback = cb; }
-    void setQDialog_MouseMoveEvent_Callback(QDialog_MouseMoveEvent_Callback cb) { qdialog_mousemoveevent_callback = cb; }
-    void setQDialog_WheelEvent_Callback(QDialog_WheelEvent_Callback cb) { qdialog_wheelevent_callback = cb; }
-    void setQDialog_KeyReleaseEvent_Callback(QDialog_KeyReleaseEvent_Callback cb) { qdialog_keyreleaseevent_callback = cb; }
-    void setQDialog_FocusInEvent_Callback(QDialog_FocusInEvent_Callback cb) { qdialog_focusinevent_callback = cb; }
-    void setQDialog_FocusOutEvent_Callback(QDialog_FocusOutEvent_Callback cb) { qdialog_focusoutevent_callback = cb; }
-    void setQDialog_EnterEvent_Callback(QDialog_EnterEvent_Callback cb) { qdialog_enterevent_callback = cb; }
-    void setQDialog_LeaveEvent_Callback(QDialog_LeaveEvent_Callback cb) { qdialog_leaveevent_callback = cb; }
-    void setQDialog_PaintEvent_Callback(QDialog_PaintEvent_Callback cb) { qdialog_paintevent_callback = cb; }
-    void setQDialog_MoveEvent_Callback(QDialog_MoveEvent_Callback cb) { qdialog_moveevent_callback = cb; }
-    void setQDialog_TabletEvent_Callback(QDialog_TabletEvent_Callback cb) { qdialog_tabletevent_callback = cb; }
-    void setQDialog_ActionEvent_Callback(QDialog_ActionEvent_Callback cb) { qdialog_actionevent_callback = cb; }
-    void setQDialog_DragEnterEvent_Callback(QDialog_DragEnterEvent_Callback cb) { qdialog_dragenterevent_callback = cb; }
-    void setQDialog_DragMoveEvent_Callback(QDialog_DragMoveEvent_Callback cb) { qdialog_dragmoveevent_callback = cb; }
-    void setQDialog_DragLeaveEvent_Callback(QDialog_DragLeaveEvent_Callback cb) { qdialog_dragleaveevent_callback = cb; }
-    void setQDialog_DropEvent_Callback(QDialog_DropEvent_Callback cb) { qdialog_dropevent_callback = cb; }
-    void setQDialog_HideEvent_Callback(QDialog_HideEvent_Callback cb) { qdialog_hideevent_callback = cb; }
-    void setQDialog_NativeEvent_Callback(QDialog_NativeEvent_Callback cb) { qdialog_nativeevent_callback = cb; }
-    void setQDialog_ChangeEvent_Callback(QDialog_ChangeEvent_Callback cb) { qdialog_changeevent_callback = cb; }
-    void setQDialog_Metric_Callback(QDialog_Metric_Callback cb) { qdialog_metric_callback = cb; }
-    void setQDialog_InitPainter_Callback(QDialog_InitPainter_Callback cb) { qdialog_initpainter_callback = cb; }
-    void setQDialog_Redirected_Callback(QDialog_Redirected_Callback cb) { qdialog_redirected_callback = cb; }
-    void setQDialog_SharedPainter_Callback(QDialog_SharedPainter_Callback cb) { qdialog_sharedpainter_callback = cb; }
-    void setQDialog_InputMethodEvent_Callback(QDialog_InputMethodEvent_Callback cb) { qdialog_inputmethodevent_callback = cb; }
-    void setQDialog_InputMethodQuery_Callback(QDialog_InputMethodQuery_Callback cb) { qdialog_inputmethodquery_callback = cb; }
-    void setQDialog_FocusNextPrevChild_Callback(QDialog_FocusNextPrevChild_Callback cb) { qdialog_focusnextprevchild_callback = cb; }
-    void setQDialog_TimerEvent_Callback(QDialog_TimerEvent_Callback cb) { qdialog_timerevent_callback = cb; }
-    void setQDialog_ChildEvent_Callback(QDialog_ChildEvent_Callback cb) { qdialog_childevent_callback = cb; }
-    void setQDialog_CustomEvent_Callback(QDialog_CustomEvent_Callback cb) { qdialog_customevent_callback = cb; }
-    void setQDialog_ConnectNotify_Callback(QDialog_ConnectNotify_Callback cb) { qdialog_connectnotify_callback = cb; }
-    void setQDialog_DisconnectNotify_Callback(QDialog_DisconnectNotify_Callback cb) { qdialog_disconnectnotify_callback = cb; }
-    void setQDialog_AdjustPosition_Callback(QDialog_AdjustPosition_Callback cb) { qdialog_adjustposition_callback = cb; }
-    void setQDialog_UpdateMicroFocus_Callback(QDialog_UpdateMicroFocus_Callback cb) { qdialog_updatemicrofocus_callback = cb; }
-    void setQDialog_Create_Callback(QDialog_Create_Callback cb) { qdialog_create_callback = cb; }
-    void setQDialog_Destroy_Callback(QDialog_Destroy_Callback cb) { qdialog_destroy_callback = cb; }
-    void setQDialog_FocusNextChild_Callback(QDialog_FocusNextChild_Callback cb) { qdialog_focusnextchild_callback = cb; }
-    void setQDialog_FocusPreviousChild_Callback(QDialog_FocusPreviousChild_Callback cb) { qdialog_focuspreviouschild_callback = cb; }
-    void setQDialog_Sender_Callback(QDialog_Sender_Callback cb) { qdialog_sender_callback = cb; }
-    void setQDialog_SenderSignalIndex_Callback(QDialog_SenderSignalIndex_Callback cb) { qdialog_sendersignalindex_callback = cb; }
-    void setQDialog_Receivers_Callback(QDialog_Receivers_Callback cb) { qdialog_receivers_callback = cb; }
-    void setQDialog_IsSignalConnected_Callback(QDialog_IsSignalConnected_Callback cb) { qdialog_issignalconnected_callback = cb; }
+    inline void setQDialog_Metacall_Callback(QDialog_Metacall_Callback cb) { qdialog_metacall_callback = cb; }
+    inline void setQDialog_SetVisible_Callback(QDialog_SetVisible_Callback cb) { qdialog_setvisible_callback = cb; }
+    inline void setQDialog_SizeHint_Callback(QDialog_SizeHint_Callback cb) { qdialog_sizehint_callback = cb; }
+    inline void setQDialog_MinimumSizeHint_Callback(QDialog_MinimumSizeHint_Callback cb) { qdialog_minimumsizehint_callback = cb; }
+    inline void setQDialog_Open_Callback(QDialog_Open_Callback cb) { qdialog_open_callback = cb; }
+    inline void setQDialog_Exec_Callback(QDialog_Exec_Callback cb) { qdialog_exec_callback = cb; }
+    inline void setQDialog_Done_Callback(QDialog_Done_Callback cb) { qdialog_done_callback = cb; }
+    inline void setQDialog_Accept_Callback(QDialog_Accept_Callback cb) { qdialog_accept_callback = cb; }
+    inline void setQDialog_Reject_Callback(QDialog_Reject_Callback cb) { qdialog_reject_callback = cb; }
+    inline void setQDialog_KeyPressEvent_Callback(QDialog_KeyPressEvent_Callback cb) { qdialog_keypressevent_callback = cb; }
+    inline void setQDialog_CloseEvent_Callback(QDialog_CloseEvent_Callback cb) { qdialog_closeevent_callback = cb; }
+    inline void setQDialog_ShowEvent_Callback(QDialog_ShowEvent_Callback cb) { qdialog_showevent_callback = cb; }
+    inline void setQDialog_ResizeEvent_Callback(QDialog_ResizeEvent_Callback cb) { qdialog_resizeevent_callback = cb; }
+    inline void setQDialog_ContextMenuEvent_Callback(QDialog_ContextMenuEvent_Callback cb) { qdialog_contextmenuevent_callback = cb; }
+    inline void setQDialog_EventFilter_Callback(QDialog_EventFilter_Callback cb) { qdialog_eventfilter_callback = cb; }
+    inline void setQDialog_DevType_Callback(QDialog_DevType_Callback cb) { qdialog_devtype_callback = cb; }
+    inline void setQDialog_HeightForWidth_Callback(QDialog_HeightForWidth_Callback cb) { qdialog_heightforwidth_callback = cb; }
+    inline void setQDialog_HasHeightForWidth_Callback(QDialog_HasHeightForWidth_Callback cb) { qdialog_hasheightforwidth_callback = cb; }
+    inline void setQDialog_PaintEngine_Callback(QDialog_PaintEngine_Callback cb) { qdialog_paintengine_callback = cb; }
+    inline void setQDialog_Event_Callback(QDialog_Event_Callback cb) { qdialog_event_callback = cb; }
+    inline void setQDialog_MousePressEvent_Callback(QDialog_MousePressEvent_Callback cb) { qdialog_mousepressevent_callback = cb; }
+    inline void setQDialog_MouseReleaseEvent_Callback(QDialog_MouseReleaseEvent_Callback cb) { qdialog_mousereleaseevent_callback = cb; }
+    inline void setQDialog_MouseDoubleClickEvent_Callback(QDialog_MouseDoubleClickEvent_Callback cb) { qdialog_mousedoubleclickevent_callback = cb; }
+    inline void setQDialog_MouseMoveEvent_Callback(QDialog_MouseMoveEvent_Callback cb) { qdialog_mousemoveevent_callback = cb; }
+    inline void setQDialog_WheelEvent_Callback(QDialog_WheelEvent_Callback cb) { qdialog_wheelevent_callback = cb; }
+    inline void setQDialog_KeyReleaseEvent_Callback(QDialog_KeyReleaseEvent_Callback cb) { qdialog_keyreleaseevent_callback = cb; }
+    inline void setQDialog_FocusInEvent_Callback(QDialog_FocusInEvent_Callback cb) { qdialog_focusinevent_callback = cb; }
+    inline void setQDialog_FocusOutEvent_Callback(QDialog_FocusOutEvent_Callback cb) { qdialog_focusoutevent_callback = cb; }
+    inline void setQDialog_EnterEvent_Callback(QDialog_EnterEvent_Callback cb) { qdialog_enterevent_callback = cb; }
+    inline void setQDialog_LeaveEvent_Callback(QDialog_LeaveEvent_Callback cb) { qdialog_leaveevent_callback = cb; }
+    inline void setQDialog_PaintEvent_Callback(QDialog_PaintEvent_Callback cb) { qdialog_paintevent_callback = cb; }
+    inline void setQDialog_MoveEvent_Callback(QDialog_MoveEvent_Callback cb) { qdialog_moveevent_callback = cb; }
+    inline void setQDialog_TabletEvent_Callback(QDialog_TabletEvent_Callback cb) { qdialog_tabletevent_callback = cb; }
+    inline void setQDialog_ActionEvent_Callback(QDialog_ActionEvent_Callback cb) { qdialog_actionevent_callback = cb; }
+    inline void setQDialog_DragEnterEvent_Callback(QDialog_DragEnterEvent_Callback cb) { qdialog_dragenterevent_callback = cb; }
+    inline void setQDialog_DragMoveEvent_Callback(QDialog_DragMoveEvent_Callback cb) { qdialog_dragmoveevent_callback = cb; }
+    inline void setQDialog_DragLeaveEvent_Callback(QDialog_DragLeaveEvent_Callback cb) { qdialog_dragleaveevent_callback = cb; }
+    inline void setQDialog_DropEvent_Callback(QDialog_DropEvent_Callback cb) { qdialog_dropevent_callback = cb; }
+    inline void setQDialog_HideEvent_Callback(QDialog_HideEvent_Callback cb) { qdialog_hideevent_callback = cb; }
+    inline void setQDialog_NativeEvent_Callback(QDialog_NativeEvent_Callback cb) { qdialog_nativeevent_callback = cb; }
+    inline void setQDialog_ChangeEvent_Callback(QDialog_ChangeEvent_Callback cb) { qdialog_changeevent_callback = cb; }
+    inline void setQDialog_Metric_Callback(QDialog_Metric_Callback cb) { qdialog_metric_callback = cb; }
+    inline void setQDialog_InitPainter_Callback(QDialog_InitPainter_Callback cb) { qdialog_initpainter_callback = cb; }
+    inline void setQDialog_Redirected_Callback(QDialog_Redirected_Callback cb) { qdialog_redirected_callback = cb; }
+    inline void setQDialog_SharedPainter_Callback(QDialog_SharedPainter_Callback cb) { qdialog_sharedpainter_callback = cb; }
+    inline void setQDialog_InputMethodEvent_Callback(QDialog_InputMethodEvent_Callback cb) { qdialog_inputmethodevent_callback = cb; }
+    inline void setQDialog_InputMethodQuery_Callback(QDialog_InputMethodQuery_Callback cb) { qdialog_inputmethodquery_callback = cb; }
+    inline void setQDialog_FocusNextPrevChild_Callback(QDialog_FocusNextPrevChild_Callback cb) { qdialog_focusnextprevchild_callback = cb; }
+    inline void setQDialog_TimerEvent_Callback(QDialog_TimerEvent_Callback cb) { qdialog_timerevent_callback = cb; }
+    inline void setQDialog_ChildEvent_Callback(QDialog_ChildEvent_Callback cb) { qdialog_childevent_callback = cb; }
+    inline void setQDialog_CustomEvent_Callback(QDialog_CustomEvent_Callback cb) { qdialog_customevent_callback = cb; }
+    inline void setQDialog_ConnectNotify_Callback(QDialog_ConnectNotify_Callback cb) { qdialog_connectnotify_callback = cb; }
+    inline void setQDialog_DisconnectNotify_Callback(QDialog_DisconnectNotify_Callback cb) { qdialog_disconnectnotify_callback = cb; }
+    inline void setQDialog_AdjustPosition_Callback(QDialog_AdjustPosition_Callback cb) { qdialog_adjustposition_callback = cb; }
+    inline void setQDialog_UpdateMicroFocus_Callback(QDialog_UpdateMicroFocus_Callback cb) { qdialog_updatemicrofocus_callback = cb; }
+    inline void setQDialog_Create_Callback(QDialog_Create_Callback cb) { qdialog_create_callback = cb; }
+    inline void setQDialog_Destroy_Callback(QDialog_Destroy_Callback cb) { qdialog_destroy_callback = cb; }
+    inline void setQDialog_FocusNextChild_Callback(QDialog_FocusNextChild_Callback cb) { qdialog_focusnextchild_callback = cb; }
+    inline void setQDialog_FocusPreviousChild_Callback(QDialog_FocusPreviousChild_Callback cb) { qdialog_focuspreviouschild_callback = cb; }
+    inline void setQDialog_Sender_Callback(QDialog_Sender_Callback cb) { qdialog_sender_callback = cb; }
+    inline void setQDialog_SenderSignalIndex_Callback(QDialog_SenderSignalIndex_Callback cb) { qdialog_sendersignalindex_callback = cb; }
+    inline void setQDialog_Receivers_Callback(QDialog_Receivers_Callback cb) { qdialog_receivers_callback = cb; }
+    inline void setQDialog_IsSignalConnected_Callback(QDialog_IsSignalConnected_Callback cb) { qdialog_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQDialog_Metacall_IsBase(bool value) const { qdialog_metacall_isbase = value; }
-    void setQDialog_SetVisible_IsBase(bool value) const { qdialog_setvisible_isbase = value; }
-    void setQDialog_SizeHint_IsBase(bool value) const { qdialog_sizehint_isbase = value; }
-    void setQDialog_MinimumSizeHint_IsBase(bool value) const { qdialog_minimumsizehint_isbase = value; }
-    void setQDialog_Open_IsBase(bool value) const { qdialog_open_isbase = value; }
-    void setQDialog_Exec_IsBase(bool value) const { qdialog_exec_isbase = value; }
-    void setQDialog_Done_IsBase(bool value) const { qdialog_done_isbase = value; }
-    void setQDialog_Accept_IsBase(bool value) const { qdialog_accept_isbase = value; }
-    void setQDialog_Reject_IsBase(bool value) const { qdialog_reject_isbase = value; }
-    void setQDialog_KeyPressEvent_IsBase(bool value) const { qdialog_keypressevent_isbase = value; }
-    void setQDialog_CloseEvent_IsBase(bool value) const { qdialog_closeevent_isbase = value; }
-    void setQDialog_ShowEvent_IsBase(bool value) const { qdialog_showevent_isbase = value; }
-    void setQDialog_ResizeEvent_IsBase(bool value) const { qdialog_resizeevent_isbase = value; }
-    void setQDialog_ContextMenuEvent_IsBase(bool value) const { qdialog_contextmenuevent_isbase = value; }
-    void setQDialog_EventFilter_IsBase(bool value) const { qdialog_eventfilter_isbase = value; }
-    void setQDialog_DevType_IsBase(bool value) const { qdialog_devtype_isbase = value; }
-    void setQDialog_HeightForWidth_IsBase(bool value) const { qdialog_heightforwidth_isbase = value; }
-    void setQDialog_HasHeightForWidth_IsBase(bool value) const { qdialog_hasheightforwidth_isbase = value; }
-    void setQDialog_PaintEngine_IsBase(bool value) const { qdialog_paintengine_isbase = value; }
-    void setQDialog_Event_IsBase(bool value) const { qdialog_event_isbase = value; }
-    void setQDialog_MousePressEvent_IsBase(bool value) const { qdialog_mousepressevent_isbase = value; }
-    void setQDialog_MouseReleaseEvent_IsBase(bool value) const { qdialog_mousereleaseevent_isbase = value; }
-    void setQDialog_MouseDoubleClickEvent_IsBase(bool value) const { qdialog_mousedoubleclickevent_isbase = value; }
-    void setQDialog_MouseMoveEvent_IsBase(bool value) const { qdialog_mousemoveevent_isbase = value; }
-    void setQDialog_WheelEvent_IsBase(bool value) const { qdialog_wheelevent_isbase = value; }
-    void setQDialog_KeyReleaseEvent_IsBase(bool value) const { qdialog_keyreleaseevent_isbase = value; }
-    void setQDialog_FocusInEvent_IsBase(bool value) const { qdialog_focusinevent_isbase = value; }
-    void setQDialog_FocusOutEvent_IsBase(bool value) const { qdialog_focusoutevent_isbase = value; }
-    void setQDialog_EnterEvent_IsBase(bool value) const { qdialog_enterevent_isbase = value; }
-    void setQDialog_LeaveEvent_IsBase(bool value) const { qdialog_leaveevent_isbase = value; }
-    void setQDialog_PaintEvent_IsBase(bool value) const { qdialog_paintevent_isbase = value; }
-    void setQDialog_MoveEvent_IsBase(bool value) const { qdialog_moveevent_isbase = value; }
-    void setQDialog_TabletEvent_IsBase(bool value) const { qdialog_tabletevent_isbase = value; }
-    void setQDialog_ActionEvent_IsBase(bool value) const { qdialog_actionevent_isbase = value; }
-    void setQDialog_DragEnterEvent_IsBase(bool value) const { qdialog_dragenterevent_isbase = value; }
-    void setQDialog_DragMoveEvent_IsBase(bool value) const { qdialog_dragmoveevent_isbase = value; }
-    void setQDialog_DragLeaveEvent_IsBase(bool value) const { qdialog_dragleaveevent_isbase = value; }
-    void setQDialog_DropEvent_IsBase(bool value) const { qdialog_dropevent_isbase = value; }
-    void setQDialog_HideEvent_IsBase(bool value) const { qdialog_hideevent_isbase = value; }
-    void setQDialog_NativeEvent_IsBase(bool value) const { qdialog_nativeevent_isbase = value; }
-    void setQDialog_ChangeEvent_IsBase(bool value) const { qdialog_changeevent_isbase = value; }
-    void setQDialog_Metric_IsBase(bool value) const { qdialog_metric_isbase = value; }
-    void setQDialog_InitPainter_IsBase(bool value) const { qdialog_initpainter_isbase = value; }
-    void setQDialog_Redirected_IsBase(bool value) const { qdialog_redirected_isbase = value; }
-    void setQDialog_SharedPainter_IsBase(bool value) const { qdialog_sharedpainter_isbase = value; }
-    void setQDialog_InputMethodEvent_IsBase(bool value) const { qdialog_inputmethodevent_isbase = value; }
-    void setQDialog_InputMethodQuery_IsBase(bool value) const { qdialog_inputmethodquery_isbase = value; }
-    void setQDialog_FocusNextPrevChild_IsBase(bool value) const { qdialog_focusnextprevchild_isbase = value; }
-    void setQDialog_TimerEvent_IsBase(bool value) const { qdialog_timerevent_isbase = value; }
-    void setQDialog_ChildEvent_IsBase(bool value) const { qdialog_childevent_isbase = value; }
-    void setQDialog_CustomEvent_IsBase(bool value) const { qdialog_customevent_isbase = value; }
-    void setQDialog_ConnectNotify_IsBase(bool value) const { qdialog_connectnotify_isbase = value; }
-    void setQDialog_DisconnectNotify_IsBase(bool value) const { qdialog_disconnectnotify_isbase = value; }
-    void setQDialog_AdjustPosition_IsBase(bool value) const { qdialog_adjustposition_isbase = value; }
-    void setQDialog_UpdateMicroFocus_IsBase(bool value) const { qdialog_updatemicrofocus_isbase = value; }
-    void setQDialog_Create_IsBase(bool value) const { qdialog_create_isbase = value; }
-    void setQDialog_Destroy_IsBase(bool value) const { qdialog_destroy_isbase = value; }
-    void setQDialog_FocusNextChild_IsBase(bool value) const { qdialog_focusnextchild_isbase = value; }
-    void setQDialog_FocusPreviousChild_IsBase(bool value) const { qdialog_focuspreviouschild_isbase = value; }
-    void setQDialog_Sender_IsBase(bool value) const { qdialog_sender_isbase = value; }
-    void setQDialog_SenderSignalIndex_IsBase(bool value) const { qdialog_sendersignalindex_isbase = value; }
-    void setQDialog_Receivers_IsBase(bool value) const { qdialog_receivers_isbase = value; }
-    void setQDialog_IsSignalConnected_IsBase(bool value) const { qdialog_issignalconnected_isbase = value; }
+    inline void setQDialog_Metacall_IsBase(bool value) const { qdialog_metacall_isbase = value; }
+    inline void setQDialog_SetVisible_IsBase(bool value) const { qdialog_setvisible_isbase = value; }
+    inline void setQDialog_SizeHint_IsBase(bool value) const { qdialog_sizehint_isbase = value; }
+    inline void setQDialog_MinimumSizeHint_IsBase(bool value) const { qdialog_minimumsizehint_isbase = value; }
+    inline void setQDialog_Open_IsBase(bool value) const { qdialog_open_isbase = value; }
+    inline void setQDialog_Exec_IsBase(bool value) const { qdialog_exec_isbase = value; }
+    inline void setQDialog_Done_IsBase(bool value) const { qdialog_done_isbase = value; }
+    inline void setQDialog_Accept_IsBase(bool value) const { qdialog_accept_isbase = value; }
+    inline void setQDialog_Reject_IsBase(bool value) const { qdialog_reject_isbase = value; }
+    inline void setQDialog_KeyPressEvent_IsBase(bool value) const { qdialog_keypressevent_isbase = value; }
+    inline void setQDialog_CloseEvent_IsBase(bool value) const { qdialog_closeevent_isbase = value; }
+    inline void setQDialog_ShowEvent_IsBase(bool value) const { qdialog_showevent_isbase = value; }
+    inline void setQDialog_ResizeEvent_IsBase(bool value) const { qdialog_resizeevent_isbase = value; }
+    inline void setQDialog_ContextMenuEvent_IsBase(bool value) const { qdialog_contextmenuevent_isbase = value; }
+    inline void setQDialog_EventFilter_IsBase(bool value) const { qdialog_eventfilter_isbase = value; }
+    inline void setQDialog_DevType_IsBase(bool value) const { qdialog_devtype_isbase = value; }
+    inline void setQDialog_HeightForWidth_IsBase(bool value) const { qdialog_heightforwidth_isbase = value; }
+    inline void setQDialog_HasHeightForWidth_IsBase(bool value) const { qdialog_hasheightforwidth_isbase = value; }
+    inline void setQDialog_PaintEngine_IsBase(bool value) const { qdialog_paintengine_isbase = value; }
+    inline void setQDialog_Event_IsBase(bool value) const { qdialog_event_isbase = value; }
+    inline void setQDialog_MousePressEvent_IsBase(bool value) const { qdialog_mousepressevent_isbase = value; }
+    inline void setQDialog_MouseReleaseEvent_IsBase(bool value) const { qdialog_mousereleaseevent_isbase = value; }
+    inline void setQDialog_MouseDoubleClickEvent_IsBase(bool value) const { qdialog_mousedoubleclickevent_isbase = value; }
+    inline void setQDialog_MouseMoveEvent_IsBase(bool value) const { qdialog_mousemoveevent_isbase = value; }
+    inline void setQDialog_WheelEvent_IsBase(bool value) const { qdialog_wheelevent_isbase = value; }
+    inline void setQDialog_KeyReleaseEvent_IsBase(bool value) const { qdialog_keyreleaseevent_isbase = value; }
+    inline void setQDialog_FocusInEvent_IsBase(bool value) const { qdialog_focusinevent_isbase = value; }
+    inline void setQDialog_FocusOutEvent_IsBase(bool value) const { qdialog_focusoutevent_isbase = value; }
+    inline void setQDialog_EnterEvent_IsBase(bool value) const { qdialog_enterevent_isbase = value; }
+    inline void setQDialog_LeaveEvent_IsBase(bool value) const { qdialog_leaveevent_isbase = value; }
+    inline void setQDialog_PaintEvent_IsBase(bool value) const { qdialog_paintevent_isbase = value; }
+    inline void setQDialog_MoveEvent_IsBase(bool value) const { qdialog_moveevent_isbase = value; }
+    inline void setQDialog_TabletEvent_IsBase(bool value) const { qdialog_tabletevent_isbase = value; }
+    inline void setQDialog_ActionEvent_IsBase(bool value) const { qdialog_actionevent_isbase = value; }
+    inline void setQDialog_DragEnterEvent_IsBase(bool value) const { qdialog_dragenterevent_isbase = value; }
+    inline void setQDialog_DragMoveEvent_IsBase(bool value) const { qdialog_dragmoveevent_isbase = value; }
+    inline void setQDialog_DragLeaveEvent_IsBase(bool value) const { qdialog_dragleaveevent_isbase = value; }
+    inline void setQDialog_DropEvent_IsBase(bool value) const { qdialog_dropevent_isbase = value; }
+    inline void setQDialog_HideEvent_IsBase(bool value) const { qdialog_hideevent_isbase = value; }
+    inline void setQDialog_NativeEvent_IsBase(bool value) const { qdialog_nativeevent_isbase = value; }
+    inline void setQDialog_ChangeEvent_IsBase(bool value) const { qdialog_changeevent_isbase = value; }
+    inline void setQDialog_Metric_IsBase(bool value) const { qdialog_metric_isbase = value; }
+    inline void setQDialog_InitPainter_IsBase(bool value) const { qdialog_initpainter_isbase = value; }
+    inline void setQDialog_Redirected_IsBase(bool value) const { qdialog_redirected_isbase = value; }
+    inline void setQDialog_SharedPainter_IsBase(bool value) const { qdialog_sharedpainter_isbase = value; }
+    inline void setQDialog_InputMethodEvent_IsBase(bool value) const { qdialog_inputmethodevent_isbase = value; }
+    inline void setQDialog_InputMethodQuery_IsBase(bool value) const { qdialog_inputmethodquery_isbase = value; }
+    inline void setQDialog_FocusNextPrevChild_IsBase(bool value) const { qdialog_focusnextprevchild_isbase = value; }
+    inline void setQDialog_TimerEvent_IsBase(bool value) const { qdialog_timerevent_isbase = value; }
+    inline void setQDialog_ChildEvent_IsBase(bool value) const { qdialog_childevent_isbase = value; }
+    inline void setQDialog_CustomEvent_IsBase(bool value) const { qdialog_customevent_isbase = value; }
+    inline void setQDialog_ConnectNotify_IsBase(bool value) const { qdialog_connectnotify_isbase = value; }
+    inline void setQDialog_DisconnectNotify_IsBase(bool value) const { qdialog_disconnectnotify_isbase = value; }
+    inline void setQDialog_AdjustPosition_IsBase(bool value) const { qdialog_adjustposition_isbase = value; }
+    inline void setQDialog_UpdateMicroFocus_IsBase(bool value) const { qdialog_updatemicrofocus_isbase = value; }
+    inline void setQDialog_Create_IsBase(bool value) const { qdialog_create_isbase = value; }
+    inline void setQDialog_Destroy_IsBase(bool value) const { qdialog_destroy_isbase = value; }
+    inline void setQDialog_FocusNextChild_IsBase(bool value) const { qdialog_focusnextchild_isbase = value; }
+    inline void setQDialog_FocusPreviousChild_IsBase(bool value) const { qdialog_focuspreviouschild_isbase = value; }
+    inline void setQDialog_Sender_IsBase(bool value) const { qdialog_sender_isbase = value; }
+    inline void setQDialog_SenderSignalIndex_IsBase(bool value) const { qdialog_sendersignalindex_isbase = value; }
+    inline void setQDialog_Receivers_IsBase(bool value) const { qdialog_receivers_isbase = value; }
+    inline void setQDialog_IsSignalConnected_IsBase(bool value) const { qdialog_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -417,7 +420,12 @@ class VirtualQDialog : public QDialog {
             qdialog_metacall_isbase = false;
             return QDialog::qt_metacall(param1, param2, param3);
         } else if (qdialog_metacall_callback != nullptr) {
-            return qdialog_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QDialog::qt_metacall(param1, param2, param3);
         }
@@ -429,7 +437,9 @@ class VirtualQDialog : public QDialog {
             qdialog_setvisible_isbase = false;
             QDialog::setVisible(visible);
         } else if (qdialog_setvisible_callback != nullptr) {
-            qdialog_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qdialog_setvisible_callback(this, cbval1);
         } else {
             QDialog::setVisible(visible);
         }
@@ -441,7 +451,8 @@ class VirtualQDialog : public QDialog {
             qdialog_sizehint_isbase = false;
             return QDialog::sizeHint();
         } else if (qdialog_sizehint_callback != nullptr) {
-            return qdialog_sizehint_callback();
+            QSize* callback_ret = qdialog_sizehint_callback();
+            return *callback_ret;
         } else {
             return QDialog::sizeHint();
         }
@@ -453,7 +464,8 @@ class VirtualQDialog : public QDialog {
             qdialog_minimumsizehint_isbase = false;
             return QDialog::minimumSizeHint();
         } else if (qdialog_minimumsizehint_callback != nullptr) {
-            return qdialog_minimumsizehint_callback();
+            QSize* callback_ret = qdialog_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QDialog::minimumSizeHint();
         }
@@ -477,7 +489,8 @@ class VirtualQDialog : public QDialog {
             qdialog_exec_isbase = false;
             return QDialog::exec();
         } else if (qdialog_exec_callback != nullptr) {
-            return qdialog_exec_callback();
+            int callback_ret = qdialog_exec_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QDialog::exec();
         }
@@ -489,7 +502,9 @@ class VirtualQDialog : public QDialog {
             qdialog_done_isbase = false;
             QDialog::done(param1);
         } else if (qdialog_done_callback != nullptr) {
-            qdialog_done_callback(this, param1);
+            int cbval1 = param1;
+
+            qdialog_done_callback(this, cbval1);
         } else {
             QDialog::done(param1);
         }
@@ -525,7 +540,9 @@ class VirtualQDialog : public QDialog {
             qdialog_keypressevent_isbase = false;
             QDialog::keyPressEvent(param1);
         } else if (qdialog_keypressevent_callback != nullptr) {
-            qdialog_keypressevent_callback(this, param1);
+            QKeyEvent* cbval1 = param1;
+
+            qdialog_keypressevent_callback(this, cbval1);
         } else {
             QDialog::keyPressEvent(param1);
         }
@@ -537,7 +554,9 @@ class VirtualQDialog : public QDialog {
             qdialog_closeevent_isbase = false;
             QDialog::closeEvent(param1);
         } else if (qdialog_closeevent_callback != nullptr) {
-            qdialog_closeevent_callback(this, param1);
+            QCloseEvent* cbval1 = param1;
+
+            qdialog_closeevent_callback(this, cbval1);
         } else {
             QDialog::closeEvent(param1);
         }
@@ -549,7 +568,9 @@ class VirtualQDialog : public QDialog {
             qdialog_showevent_isbase = false;
             QDialog::showEvent(param1);
         } else if (qdialog_showevent_callback != nullptr) {
-            qdialog_showevent_callback(this, param1);
+            QShowEvent* cbval1 = param1;
+
+            qdialog_showevent_callback(this, cbval1);
         } else {
             QDialog::showEvent(param1);
         }
@@ -561,7 +582,9 @@ class VirtualQDialog : public QDialog {
             qdialog_resizeevent_isbase = false;
             QDialog::resizeEvent(param1);
         } else if (qdialog_resizeevent_callback != nullptr) {
-            qdialog_resizeevent_callback(this, param1);
+            QResizeEvent* cbval1 = param1;
+
+            qdialog_resizeevent_callback(this, cbval1);
         } else {
             QDialog::resizeEvent(param1);
         }
@@ -573,7 +596,9 @@ class VirtualQDialog : public QDialog {
             qdialog_contextmenuevent_isbase = false;
             QDialog::contextMenuEvent(param1);
         } else if (qdialog_contextmenuevent_callback != nullptr) {
-            qdialog_contextmenuevent_callback(this, param1);
+            QContextMenuEvent* cbval1 = param1;
+
+            qdialog_contextmenuevent_callback(this, cbval1);
         } else {
             QDialog::contextMenuEvent(param1);
         }
@@ -585,7 +610,11 @@ class VirtualQDialog : public QDialog {
             qdialog_eventfilter_isbase = false;
             return QDialog::eventFilter(param1, param2);
         } else if (qdialog_eventfilter_callback != nullptr) {
-            return qdialog_eventfilter_callback(this, param1, param2);
+            QObject* cbval1 = param1;
+            QEvent* cbval2 = param2;
+
+            bool callback_ret = qdialog_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QDialog::eventFilter(param1, param2);
         }
@@ -597,7 +626,8 @@ class VirtualQDialog : public QDialog {
             qdialog_devtype_isbase = false;
             return QDialog::devType();
         } else if (qdialog_devtype_callback != nullptr) {
-            return qdialog_devtype_callback();
+            int callback_ret = qdialog_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QDialog::devType();
         }
@@ -609,7 +639,10 @@ class VirtualQDialog : public QDialog {
             qdialog_heightforwidth_isbase = false;
             return QDialog::heightForWidth(param1);
         } else if (qdialog_heightforwidth_callback != nullptr) {
-            return qdialog_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qdialog_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QDialog::heightForWidth(param1);
         }
@@ -621,7 +654,8 @@ class VirtualQDialog : public QDialog {
             qdialog_hasheightforwidth_isbase = false;
             return QDialog::hasHeightForWidth();
         } else if (qdialog_hasheightforwidth_callback != nullptr) {
-            return qdialog_hasheightforwidth_callback();
+            bool callback_ret = qdialog_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QDialog::hasHeightForWidth();
         }
@@ -633,7 +667,8 @@ class VirtualQDialog : public QDialog {
             qdialog_paintengine_isbase = false;
             return QDialog::paintEngine();
         } else if (qdialog_paintengine_callback != nullptr) {
-            return qdialog_paintengine_callback();
+            QPaintEngine* callback_ret = qdialog_paintengine_callback();
+            return callback_ret;
         } else {
             return QDialog::paintEngine();
         }
@@ -645,7 +680,10 @@ class VirtualQDialog : public QDialog {
             qdialog_event_isbase = false;
             return QDialog::event(event);
         } else if (qdialog_event_callback != nullptr) {
-            return qdialog_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qdialog_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QDialog::event(event);
         }
@@ -657,7 +695,9 @@ class VirtualQDialog : public QDialog {
             qdialog_mousepressevent_isbase = false;
             QDialog::mousePressEvent(event);
         } else if (qdialog_mousepressevent_callback != nullptr) {
-            qdialog_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qdialog_mousepressevent_callback(this, cbval1);
         } else {
             QDialog::mousePressEvent(event);
         }
@@ -669,7 +709,9 @@ class VirtualQDialog : public QDialog {
             qdialog_mousereleaseevent_isbase = false;
             QDialog::mouseReleaseEvent(event);
         } else if (qdialog_mousereleaseevent_callback != nullptr) {
-            qdialog_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qdialog_mousereleaseevent_callback(this, cbval1);
         } else {
             QDialog::mouseReleaseEvent(event);
         }
@@ -681,7 +723,9 @@ class VirtualQDialog : public QDialog {
             qdialog_mousedoubleclickevent_isbase = false;
             QDialog::mouseDoubleClickEvent(event);
         } else if (qdialog_mousedoubleclickevent_callback != nullptr) {
-            qdialog_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qdialog_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QDialog::mouseDoubleClickEvent(event);
         }
@@ -693,7 +737,9 @@ class VirtualQDialog : public QDialog {
             qdialog_mousemoveevent_isbase = false;
             QDialog::mouseMoveEvent(event);
         } else if (qdialog_mousemoveevent_callback != nullptr) {
-            qdialog_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qdialog_mousemoveevent_callback(this, cbval1);
         } else {
             QDialog::mouseMoveEvent(event);
         }
@@ -705,7 +751,9 @@ class VirtualQDialog : public QDialog {
             qdialog_wheelevent_isbase = false;
             QDialog::wheelEvent(event);
         } else if (qdialog_wheelevent_callback != nullptr) {
-            qdialog_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qdialog_wheelevent_callback(this, cbval1);
         } else {
             QDialog::wheelEvent(event);
         }
@@ -717,7 +765,9 @@ class VirtualQDialog : public QDialog {
             qdialog_keyreleaseevent_isbase = false;
             QDialog::keyReleaseEvent(event);
         } else if (qdialog_keyreleaseevent_callback != nullptr) {
-            qdialog_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qdialog_keyreleaseevent_callback(this, cbval1);
         } else {
             QDialog::keyReleaseEvent(event);
         }
@@ -729,7 +779,9 @@ class VirtualQDialog : public QDialog {
             qdialog_focusinevent_isbase = false;
             QDialog::focusInEvent(event);
         } else if (qdialog_focusinevent_callback != nullptr) {
-            qdialog_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qdialog_focusinevent_callback(this, cbval1);
         } else {
             QDialog::focusInEvent(event);
         }
@@ -741,7 +793,9 @@ class VirtualQDialog : public QDialog {
             qdialog_focusoutevent_isbase = false;
             QDialog::focusOutEvent(event);
         } else if (qdialog_focusoutevent_callback != nullptr) {
-            qdialog_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qdialog_focusoutevent_callback(this, cbval1);
         } else {
             QDialog::focusOutEvent(event);
         }
@@ -753,7 +807,9 @@ class VirtualQDialog : public QDialog {
             qdialog_enterevent_isbase = false;
             QDialog::enterEvent(event);
         } else if (qdialog_enterevent_callback != nullptr) {
-            qdialog_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qdialog_enterevent_callback(this, cbval1);
         } else {
             QDialog::enterEvent(event);
         }
@@ -765,7 +821,9 @@ class VirtualQDialog : public QDialog {
             qdialog_leaveevent_isbase = false;
             QDialog::leaveEvent(event);
         } else if (qdialog_leaveevent_callback != nullptr) {
-            qdialog_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qdialog_leaveevent_callback(this, cbval1);
         } else {
             QDialog::leaveEvent(event);
         }
@@ -777,7 +835,9 @@ class VirtualQDialog : public QDialog {
             qdialog_paintevent_isbase = false;
             QDialog::paintEvent(event);
         } else if (qdialog_paintevent_callback != nullptr) {
-            qdialog_paintevent_callback(this, event);
+            QPaintEvent* cbval1 = event;
+
+            qdialog_paintevent_callback(this, cbval1);
         } else {
             QDialog::paintEvent(event);
         }
@@ -789,7 +849,9 @@ class VirtualQDialog : public QDialog {
             qdialog_moveevent_isbase = false;
             QDialog::moveEvent(event);
         } else if (qdialog_moveevent_callback != nullptr) {
-            qdialog_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qdialog_moveevent_callback(this, cbval1);
         } else {
             QDialog::moveEvent(event);
         }
@@ -801,7 +863,9 @@ class VirtualQDialog : public QDialog {
             qdialog_tabletevent_isbase = false;
             QDialog::tabletEvent(event);
         } else if (qdialog_tabletevent_callback != nullptr) {
-            qdialog_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qdialog_tabletevent_callback(this, cbval1);
         } else {
             QDialog::tabletEvent(event);
         }
@@ -813,7 +877,9 @@ class VirtualQDialog : public QDialog {
             qdialog_actionevent_isbase = false;
             QDialog::actionEvent(event);
         } else if (qdialog_actionevent_callback != nullptr) {
-            qdialog_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qdialog_actionevent_callback(this, cbval1);
         } else {
             QDialog::actionEvent(event);
         }
@@ -825,7 +891,9 @@ class VirtualQDialog : public QDialog {
             qdialog_dragenterevent_isbase = false;
             QDialog::dragEnterEvent(event);
         } else if (qdialog_dragenterevent_callback != nullptr) {
-            qdialog_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qdialog_dragenterevent_callback(this, cbval1);
         } else {
             QDialog::dragEnterEvent(event);
         }
@@ -837,7 +905,9 @@ class VirtualQDialog : public QDialog {
             qdialog_dragmoveevent_isbase = false;
             QDialog::dragMoveEvent(event);
         } else if (qdialog_dragmoveevent_callback != nullptr) {
-            qdialog_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qdialog_dragmoveevent_callback(this, cbval1);
         } else {
             QDialog::dragMoveEvent(event);
         }
@@ -849,7 +919,9 @@ class VirtualQDialog : public QDialog {
             qdialog_dragleaveevent_isbase = false;
             QDialog::dragLeaveEvent(event);
         } else if (qdialog_dragleaveevent_callback != nullptr) {
-            qdialog_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qdialog_dragleaveevent_callback(this, cbval1);
         } else {
             QDialog::dragLeaveEvent(event);
         }
@@ -861,7 +933,9 @@ class VirtualQDialog : public QDialog {
             qdialog_dropevent_isbase = false;
             QDialog::dropEvent(event);
         } else if (qdialog_dropevent_callback != nullptr) {
-            qdialog_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qdialog_dropevent_callback(this, cbval1);
         } else {
             QDialog::dropEvent(event);
         }
@@ -873,7 +947,9 @@ class VirtualQDialog : public QDialog {
             qdialog_hideevent_isbase = false;
             QDialog::hideEvent(event);
         } else if (qdialog_hideevent_callback != nullptr) {
-            qdialog_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qdialog_hideevent_callback(this, cbval1);
         } else {
             QDialog::hideEvent(event);
         }
@@ -885,7 +961,19 @@ class VirtualQDialog : public QDialog {
             qdialog_nativeevent_isbase = false;
             return QDialog::nativeEvent(eventType, message, result);
         } else if (qdialog_nativeevent_callback != nullptr) {
-            return qdialog_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QDialog::nativeEvent(eventType, message, result);
         }
@@ -897,7 +985,9 @@ class VirtualQDialog : public QDialog {
             qdialog_changeevent_isbase = false;
             QDialog::changeEvent(param1);
         } else if (qdialog_changeevent_callback != nullptr) {
-            qdialog_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qdialog_changeevent_callback(this, cbval1);
         } else {
             QDialog::changeEvent(param1);
         }
@@ -909,7 +999,10 @@ class VirtualQDialog : public QDialog {
             qdialog_metric_isbase = false;
             return QDialog::metric(param1);
         } else if (qdialog_metric_callback != nullptr) {
-            return qdialog_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qdialog_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QDialog::metric(param1);
         }
@@ -921,7 +1014,9 @@ class VirtualQDialog : public QDialog {
             qdialog_initpainter_isbase = false;
             QDialog::initPainter(painter);
         } else if (qdialog_initpainter_callback != nullptr) {
-            qdialog_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qdialog_initpainter_callback(this, cbval1);
         } else {
             QDialog::initPainter(painter);
         }
@@ -933,7 +1028,10 @@ class VirtualQDialog : public QDialog {
             qdialog_redirected_isbase = false;
             return QDialog::redirected(offset);
         } else if (qdialog_redirected_callback != nullptr) {
-            return qdialog_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qdialog_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QDialog::redirected(offset);
         }
@@ -945,7 +1043,8 @@ class VirtualQDialog : public QDialog {
             qdialog_sharedpainter_isbase = false;
             return QDialog::sharedPainter();
         } else if (qdialog_sharedpainter_callback != nullptr) {
-            return qdialog_sharedpainter_callback();
+            QPainter* callback_ret = qdialog_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QDialog::sharedPainter();
         }
@@ -957,7 +1056,9 @@ class VirtualQDialog : public QDialog {
             qdialog_inputmethodevent_isbase = false;
             QDialog::inputMethodEvent(param1);
         } else if (qdialog_inputmethodevent_callback != nullptr) {
-            qdialog_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qdialog_inputmethodevent_callback(this, cbval1);
         } else {
             QDialog::inputMethodEvent(param1);
         }
@@ -969,7 +1070,10 @@ class VirtualQDialog : public QDialog {
             qdialog_inputmethodquery_isbase = false;
             return QDialog::inputMethodQuery(param1);
         } else if (qdialog_inputmethodquery_callback != nullptr) {
-            return qdialog_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qdialog_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QDialog::inputMethodQuery(param1);
         }
@@ -981,7 +1085,10 @@ class VirtualQDialog : public QDialog {
             qdialog_focusnextprevchild_isbase = false;
             return QDialog::focusNextPrevChild(next);
         } else if (qdialog_focusnextprevchild_callback != nullptr) {
-            return qdialog_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qdialog_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QDialog::focusNextPrevChild(next);
         }
@@ -993,7 +1100,9 @@ class VirtualQDialog : public QDialog {
             qdialog_timerevent_isbase = false;
             QDialog::timerEvent(event);
         } else if (qdialog_timerevent_callback != nullptr) {
-            qdialog_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qdialog_timerevent_callback(this, cbval1);
         } else {
             QDialog::timerEvent(event);
         }
@@ -1005,7 +1114,9 @@ class VirtualQDialog : public QDialog {
             qdialog_childevent_isbase = false;
             QDialog::childEvent(event);
         } else if (qdialog_childevent_callback != nullptr) {
-            qdialog_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qdialog_childevent_callback(this, cbval1);
         } else {
             QDialog::childEvent(event);
         }
@@ -1017,7 +1128,9 @@ class VirtualQDialog : public QDialog {
             qdialog_customevent_isbase = false;
             QDialog::customEvent(event);
         } else if (qdialog_customevent_callback != nullptr) {
-            qdialog_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qdialog_customevent_callback(this, cbval1);
         } else {
             QDialog::customEvent(event);
         }
@@ -1029,7 +1142,11 @@ class VirtualQDialog : public QDialog {
             qdialog_connectnotify_isbase = false;
             QDialog::connectNotify(signal);
         } else if (qdialog_connectnotify_callback != nullptr) {
-            qdialog_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qdialog_connectnotify_callback(this, cbval1);
         } else {
             QDialog::connectNotify(signal);
         }
@@ -1041,7 +1158,11 @@ class VirtualQDialog : public QDialog {
             qdialog_disconnectnotify_isbase = false;
             QDialog::disconnectNotify(signal);
         } else if (qdialog_disconnectnotify_callback != nullptr) {
-            qdialog_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qdialog_disconnectnotify_callback(this, cbval1);
         } else {
             QDialog::disconnectNotify(signal);
         }
@@ -1053,7 +1174,9 @@ class VirtualQDialog : public QDialog {
             qdialog_adjustposition_isbase = false;
             QDialog::adjustPosition(param1);
         } else if (qdialog_adjustposition_callback != nullptr) {
-            qdialog_adjustposition_callback(this, param1);
+            QWidget* cbval1 = param1;
+
+            qdialog_adjustposition_callback(this, cbval1);
         } else {
             QDialog::adjustPosition(param1);
         }
@@ -1101,7 +1224,8 @@ class VirtualQDialog : public QDialog {
             qdialog_focusnextchild_isbase = false;
             return QDialog::focusNextChild();
         } else if (qdialog_focusnextchild_callback != nullptr) {
-            return qdialog_focusnextchild_callback();
+            bool callback_ret = qdialog_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QDialog::focusNextChild();
         }
@@ -1113,7 +1237,8 @@ class VirtualQDialog : public QDialog {
             qdialog_focuspreviouschild_isbase = false;
             return QDialog::focusPreviousChild();
         } else if (qdialog_focuspreviouschild_callback != nullptr) {
-            return qdialog_focuspreviouschild_callback();
+            bool callback_ret = qdialog_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QDialog::focusPreviousChild();
         }
@@ -1125,7 +1250,8 @@ class VirtualQDialog : public QDialog {
             qdialog_sender_isbase = false;
             return QDialog::sender();
         } else if (qdialog_sender_callback != nullptr) {
-            return qdialog_sender_callback();
+            QObject* callback_ret = qdialog_sender_callback();
+            return callback_ret;
         } else {
             return QDialog::sender();
         }
@@ -1137,7 +1263,8 @@ class VirtualQDialog : public QDialog {
             qdialog_sendersignalindex_isbase = false;
             return QDialog::senderSignalIndex();
         } else if (qdialog_sendersignalindex_callback != nullptr) {
-            return qdialog_sendersignalindex_callback();
+            int callback_ret = qdialog_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QDialog::senderSignalIndex();
         }
@@ -1149,7 +1276,10 @@ class VirtualQDialog : public QDialog {
             qdialog_receivers_isbase = false;
             return QDialog::receivers(signal);
         } else if (qdialog_receivers_callback != nullptr) {
-            return qdialog_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qdialog_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QDialog::receivers(signal);
         }
@@ -1161,11 +1291,116 @@ class VirtualQDialog : public QDialog {
             qdialog_issignalconnected_isbase = false;
             return QDialog::isSignalConnected(signal);
         } else if (qdialog_issignalconnected_callback != nullptr) {
-            return qdialog_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qdialog_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QDialog::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QDialog_KeyPressEvent(QDialog* self, QKeyEvent* param1);
+    friend void QDialog_QBaseKeyPressEvent(QDialog* self, QKeyEvent* param1);
+    friend void QDialog_CloseEvent(QDialog* self, QCloseEvent* param1);
+    friend void QDialog_QBaseCloseEvent(QDialog* self, QCloseEvent* param1);
+    friend void QDialog_ShowEvent(QDialog* self, QShowEvent* param1);
+    friend void QDialog_QBaseShowEvent(QDialog* self, QShowEvent* param1);
+    friend void QDialog_ResizeEvent(QDialog* self, QResizeEvent* param1);
+    friend void QDialog_QBaseResizeEvent(QDialog* self, QResizeEvent* param1);
+    friend void QDialog_ContextMenuEvent(QDialog* self, QContextMenuEvent* param1);
+    friend void QDialog_QBaseContextMenuEvent(QDialog* self, QContextMenuEvent* param1);
+    friend bool QDialog_EventFilter(QDialog* self, QObject* param1, QEvent* param2);
+    friend bool QDialog_QBaseEventFilter(QDialog* self, QObject* param1, QEvent* param2);
+    friend bool QDialog_Event(QDialog* self, QEvent* event);
+    friend bool QDialog_QBaseEvent(QDialog* self, QEvent* event);
+    friend void QDialog_MousePressEvent(QDialog* self, QMouseEvent* event);
+    friend void QDialog_QBaseMousePressEvent(QDialog* self, QMouseEvent* event);
+    friend void QDialog_MouseReleaseEvent(QDialog* self, QMouseEvent* event);
+    friend void QDialog_QBaseMouseReleaseEvent(QDialog* self, QMouseEvent* event);
+    friend void QDialog_MouseDoubleClickEvent(QDialog* self, QMouseEvent* event);
+    friend void QDialog_QBaseMouseDoubleClickEvent(QDialog* self, QMouseEvent* event);
+    friend void QDialog_MouseMoveEvent(QDialog* self, QMouseEvent* event);
+    friend void QDialog_QBaseMouseMoveEvent(QDialog* self, QMouseEvent* event);
+    friend void QDialog_WheelEvent(QDialog* self, QWheelEvent* event);
+    friend void QDialog_QBaseWheelEvent(QDialog* self, QWheelEvent* event);
+    friend void QDialog_KeyReleaseEvent(QDialog* self, QKeyEvent* event);
+    friend void QDialog_QBaseKeyReleaseEvent(QDialog* self, QKeyEvent* event);
+    friend void QDialog_FocusInEvent(QDialog* self, QFocusEvent* event);
+    friend void QDialog_QBaseFocusInEvent(QDialog* self, QFocusEvent* event);
+    friend void QDialog_FocusOutEvent(QDialog* self, QFocusEvent* event);
+    friend void QDialog_QBaseFocusOutEvent(QDialog* self, QFocusEvent* event);
+    friend void QDialog_EnterEvent(QDialog* self, QEnterEvent* event);
+    friend void QDialog_QBaseEnterEvent(QDialog* self, QEnterEvent* event);
+    friend void QDialog_LeaveEvent(QDialog* self, QEvent* event);
+    friend void QDialog_QBaseLeaveEvent(QDialog* self, QEvent* event);
+    friend void QDialog_PaintEvent(QDialog* self, QPaintEvent* event);
+    friend void QDialog_QBasePaintEvent(QDialog* self, QPaintEvent* event);
+    friend void QDialog_MoveEvent(QDialog* self, QMoveEvent* event);
+    friend void QDialog_QBaseMoveEvent(QDialog* self, QMoveEvent* event);
+    friend void QDialog_TabletEvent(QDialog* self, QTabletEvent* event);
+    friend void QDialog_QBaseTabletEvent(QDialog* self, QTabletEvent* event);
+    friend void QDialog_ActionEvent(QDialog* self, QActionEvent* event);
+    friend void QDialog_QBaseActionEvent(QDialog* self, QActionEvent* event);
+    friend void QDialog_DragEnterEvent(QDialog* self, QDragEnterEvent* event);
+    friend void QDialog_QBaseDragEnterEvent(QDialog* self, QDragEnterEvent* event);
+    friend void QDialog_DragMoveEvent(QDialog* self, QDragMoveEvent* event);
+    friend void QDialog_QBaseDragMoveEvent(QDialog* self, QDragMoveEvent* event);
+    friend void QDialog_DragLeaveEvent(QDialog* self, QDragLeaveEvent* event);
+    friend void QDialog_QBaseDragLeaveEvent(QDialog* self, QDragLeaveEvent* event);
+    friend void QDialog_DropEvent(QDialog* self, QDropEvent* event);
+    friend void QDialog_QBaseDropEvent(QDialog* self, QDropEvent* event);
+    friend void QDialog_HideEvent(QDialog* self, QHideEvent* event);
+    friend void QDialog_QBaseHideEvent(QDialog* self, QHideEvent* event);
+    friend bool QDialog_NativeEvent(QDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QDialog_QBaseNativeEvent(QDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend void QDialog_ChangeEvent(QDialog* self, QEvent* param1);
+    friend void QDialog_QBaseChangeEvent(QDialog* self, QEvent* param1);
+    friend int QDialog_Metric(const QDialog* self, int param1);
+    friend int QDialog_QBaseMetric(const QDialog* self, int param1);
+    friend void QDialog_InitPainter(const QDialog* self, QPainter* painter);
+    friend void QDialog_QBaseInitPainter(const QDialog* self, QPainter* painter);
+    friend QPaintDevice* QDialog_Redirected(const QDialog* self, QPoint* offset);
+    friend QPaintDevice* QDialog_QBaseRedirected(const QDialog* self, QPoint* offset);
+    friend QPainter* QDialog_SharedPainter(const QDialog* self);
+    friend QPainter* QDialog_QBaseSharedPainter(const QDialog* self);
+    friend void QDialog_InputMethodEvent(QDialog* self, QInputMethodEvent* param1);
+    friend void QDialog_QBaseInputMethodEvent(QDialog* self, QInputMethodEvent* param1);
+    friend bool QDialog_FocusNextPrevChild(QDialog* self, bool next);
+    friend bool QDialog_QBaseFocusNextPrevChild(QDialog* self, bool next);
+    friend void QDialog_TimerEvent(QDialog* self, QTimerEvent* event);
+    friend void QDialog_QBaseTimerEvent(QDialog* self, QTimerEvent* event);
+    friend void QDialog_ChildEvent(QDialog* self, QChildEvent* event);
+    friend void QDialog_QBaseChildEvent(QDialog* self, QChildEvent* event);
+    friend void QDialog_CustomEvent(QDialog* self, QEvent* event);
+    friend void QDialog_QBaseCustomEvent(QDialog* self, QEvent* event);
+    friend void QDialog_ConnectNotify(QDialog* self, const QMetaMethod* signal);
+    friend void QDialog_QBaseConnectNotify(QDialog* self, const QMetaMethod* signal);
+    friend void QDialog_DisconnectNotify(QDialog* self, const QMetaMethod* signal);
+    friend void QDialog_QBaseDisconnectNotify(QDialog* self, const QMetaMethod* signal);
+    friend void QDialog_AdjustPosition(QDialog* self, QWidget* param1);
+    friend void QDialog_QBaseAdjustPosition(QDialog* self, QWidget* param1);
+    friend void QDialog_UpdateMicroFocus(QDialog* self);
+    friend void QDialog_QBaseUpdateMicroFocus(QDialog* self);
+    friend void QDialog_Create(QDialog* self);
+    friend void QDialog_QBaseCreate(QDialog* self);
+    friend void QDialog_Destroy(QDialog* self);
+    friend void QDialog_QBaseDestroy(QDialog* self);
+    friend bool QDialog_FocusNextChild(QDialog* self);
+    friend bool QDialog_QBaseFocusNextChild(QDialog* self);
+    friend bool QDialog_FocusPreviousChild(QDialog* self);
+    friend bool QDialog_QBaseFocusPreviousChild(QDialog* self);
+    friend QObject* QDialog_Sender(const QDialog* self);
+    friend QObject* QDialog_QBaseSender(const QDialog* self);
+    friend int QDialog_SenderSignalIndex(const QDialog* self);
+    friend int QDialog_QBaseSenderSignalIndex(const QDialog* self);
+    friend int QDialog_Receivers(const QDialog* self, const char* signal);
+    friend int QDialog_QBaseReceivers(const QDialog* self, const char* signal);
+    friend bool QDialog_IsSignalConnected(const QDialog* self, const QMetaMethod* signal);
+    friend bool QDialog_QBaseIsSignalConnected(const QDialog* self, const QMetaMethod* signal);
 };
 
 #endif

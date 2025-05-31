@@ -15,25 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSettings QSettings;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
-typedef struct QsciAbstractAPIs QsciAbstractAPIs;
 typedef struct QsciLexer QsciLexer;
 typedef struct QsciLexerPOV QsciLexerPOV;
 typedef struct QsciScintilla QsciScintilla;
@@ -132,21 +123,24 @@ int QsciLexerPOV_QBaseStyleBitsNeeded(const QsciLexerPOV* self);
 void QsciLexerPOV_SetAutoIndentStyle(QsciLexerPOV* self, int autoindentstyle);
 void QsciLexerPOV_OnSetAutoIndentStyle(QsciLexerPOV* self, intptr_t slot);
 void QsciLexerPOV_QBaseSetAutoIndentStyle(QsciLexerPOV* self, int autoindentstyle);
-void QsciLexerPOV_SetColor(QsciLexerPOV* self, QColor* c, int style);
+void QsciLexerPOV_SetColor(QsciLexerPOV* self, const QColor* c, int style);
 void QsciLexerPOV_OnSetColor(QsciLexerPOV* self, intptr_t slot);
-void QsciLexerPOV_QBaseSetColor(QsciLexerPOV* self, QColor* c, int style);
+void QsciLexerPOV_QBaseSetColor(QsciLexerPOV* self, const QColor* c, int style);
 void QsciLexerPOV_SetEolFill(QsciLexerPOV* self, bool eoffill, int style);
 void QsciLexerPOV_OnSetEolFill(QsciLexerPOV* self, intptr_t slot);
 void QsciLexerPOV_QBaseSetEolFill(QsciLexerPOV* self, bool eoffill, int style);
-void QsciLexerPOV_SetFont(QsciLexerPOV* self, QFont* f, int style);
+void QsciLexerPOV_SetFont(QsciLexerPOV* self, const QFont* f, int style);
 void QsciLexerPOV_OnSetFont(QsciLexerPOV* self, intptr_t slot);
-void QsciLexerPOV_QBaseSetFont(QsciLexerPOV* self, QFont* f, int style);
-void QsciLexerPOV_SetPaper(QsciLexerPOV* self, QColor* c, int style);
+void QsciLexerPOV_QBaseSetFont(QsciLexerPOV* self, const QFont* f, int style);
+void QsciLexerPOV_SetPaper(QsciLexerPOV* self, const QColor* c, int style);
 void QsciLexerPOV_OnSetPaper(QsciLexerPOV* self, intptr_t slot);
-void QsciLexerPOV_QBaseSetPaper(QsciLexerPOV* self, QColor* c, int style);
-bool QsciLexerPOV_ReadProperties(QsciLexerPOV* self, QSettings* qs, libqt_string prefix);
+void QsciLexerPOV_QBaseSetPaper(QsciLexerPOV* self, const QColor* c, int style);
+bool QsciLexerPOV_ReadProperties(QsciLexerPOV* self, QSettings* qs, const libqt_string prefix);
 void QsciLexerPOV_OnReadProperties(QsciLexerPOV* self, intptr_t slot);
-bool QsciLexerPOV_QBaseReadProperties(QsciLexerPOV* self, QSettings* qs, libqt_string prefix);
+bool QsciLexerPOV_QBaseReadProperties(QsciLexerPOV* self, QSettings* qs, const libqt_string prefix);
+bool QsciLexerPOV_WriteProperties(const QsciLexerPOV* self, QSettings* qs, const libqt_string prefix);
+void QsciLexerPOV_OnWriteProperties(const QsciLexerPOV* self, intptr_t slot);
+bool QsciLexerPOV_QBaseWriteProperties(const QsciLexerPOV* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexerPOV_Event(QsciLexerPOV* self, QEvent* event);
 void QsciLexerPOV_OnEvent(QsciLexerPOV* self, intptr_t slot);
 bool QsciLexerPOV_QBaseEvent(QsciLexerPOV* self, QEvent* event);
@@ -162,15 +156,12 @@ void QsciLexerPOV_QBaseChildEvent(QsciLexerPOV* self, QChildEvent* event);
 void QsciLexerPOV_CustomEvent(QsciLexerPOV* self, QEvent* event);
 void QsciLexerPOV_OnCustomEvent(QsciLexerPOV* self, intptr_t slot);
 void QsciLexerPOV_QBaseCustomEvent(QsciLexerPOV* self, QEvent* event);
-void QsciLexerPOV_ConnectNotify(QsciLexerPOV* self, QMetaMethod* signal);
+void QsciLexerPOV_ConnectNotify(QsciLexerPOV* self, const QMetaMethod* signal);
 void QsciLexerPOV_OnConnectNotify(QsciLexerPOV* self, intptr_t slot);
-void QsciLexerPOV_QBaseConnectNotify(QsciLexerPOV* self, QMetaMethod* signal);
-void QsciLexerPOV_DisconnectNotify(QsciLexerPOV* self, QMetaMethod* signal);
+void QsciLexerPOV_QBaseConnectNotify(QsciLexerPOV* self, const QMetaMethod* signal);
+void QsciLexerPOV_DisconnectNotify(QsciLexerPOV* self, const QMetaMethod* signal);
 void QsciLexerPOV_OnDisconnectNotify(QsciLexerPOV* self, intptr_t slot);
-void QsciLexerPOV_QBaseDisconnectNotify(QsciLexerPOV* self, QMetaMethod* signal);
-bool QsciLexerPOV_WriteProperties(const QsciLexerPOV* self, QSettings* qs, libqt_string prefix);
-void QsciLexerPOV_OnWriteProperties(const QsciLexerPOV* self, intptr_t slot);
-bool QsciLexerPOV_QBaseWriteProperties(const QsciLexerPOV* self, QSettings* qs, libqt_string prefix);
+void QsciLexerPOV_QBaseDisconnectNotify(QsciLexerPOV* self, const QMetaMethod* signal);
 QObject* QsciLexerPOV_Sender(const QsciLexerPOV* self);
 void QsciLexerPOV_OnSender(const QsciLexerPOV* self, intptr_t slot);
 QObject* QsciLexerPOV_QBaseSender(const QsciLexerPOV* self);
@@ -180,9 +171,9 @@ int QsciLexerPOV_QBaseSenderSignalIndex(const QsciLexerPOV* self);
 int QsciLexerPOV_Receivers(const QsciLexerPOV* self, const char* signal);
 void QsciLexerPOV_OnReceivers(const QsciLexerPOV* self, intptr_t slot);
 int QsciLexerPOV_QBaseReceivers(const QsciLexerPOV* self, const char* signal);
-bool QsciLexerPOV_IsSignalConnected(const QsciLexerPOV* self, QMetaMethod* signal);
+bool QsciLexerPOV_IsSignalConnected(const QsciLexerPOV* self, const QMetaMethod* signal);
 void QsciLexerPOV_OnIsSignalConnected(const QsciLexerPOV* self, intptr_t slot);
-bool QsciLexerPOV_QBaseIsSignalConnected(const QsciLexerPOV* self, QMetaMethod* signal);
+bool QsciLexerPOV_QBaseIsSignalConnected(const QsciLexerPOV* self, const QMetaMethod* signal);
 void QsciLexerPOV_Delete(QsciLexerPOV* self);
 
 #ifdef __cplusplus

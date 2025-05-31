@@ -4,7 +4,7 @@
 #include "libqbytearrayview.h"
 #include "libqbytearrayview.hxx"
 
-QByteArrayView* QByteArrayView_new(QByteArrayView* other) {
+QByteArrayView* QByteArrayView_new(const QByteArrayView* other) {
     return new QByteArrayView(*other);
 }
 
@@ -16,7 +16,7 @@ QByteArrayView* QByteArrayView_new3() {
     return new QByteArrayView();
 }
 
-QByteArrayView* QByteArrayView_new4(QByteArrayView* param1) {
+QByteArrayView* QByteArrayView_new4(const QByteArrayView* param1) {
     return new QByteArrayView(*param1);
 }
 

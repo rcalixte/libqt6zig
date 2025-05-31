@@ -15,29 +15,19 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAbstractAxis QAbstractAxis;
 typedef struct QAbstractSeries QAbstractSeries;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QBrush QBrush;
 typedef struct QCandlestickSeries QCandlestickSeries;
 typedef struct QCandlestickSet QCandlestickSet;
-typedef struct QChart QChart;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QPen QPen;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QCandlestickSeries* QCandlestickSeries_new();
@@ -50,8 +40,8 @@ int QCandlestickSeries_QBaseMetacall(QCandlestickSeries* self, int param1, int p
 libqt_string QCandlestickSeries_Tr(const char* s);
 bool QCandlestickSeries_Append(QCandlestickSeries* self, QCandlestickSet* set);
 bool QCandlestickSeries_Remove(QCandlestickSeries* self, QCandlestickSet* set);
-bool QCandlestickSeries_AppendWithSets(QCandlestickSeries* self, libqt_list /* of QCandlestickSet* */ sets);
-bool QCandlestickSeries_RemoveWithSets(QCandlestickSeries* self, libqt_list /* of QCandlestickSet* */ sets);
+bool QCandlestickSeries_AppendWithSets(QCandlestickSeries* self, const libqt_list /* of QCandlestickSet* */ sets);
+bool QCandlestickSeries_RemoveWithSets(QCandlestickSeries* self, const libqt_list /* of QCandlestickSet* */ sets);
 bool QCandlestickSeries_Insert(QCandlestickSeries* self, int index, QCandlestickSet* set);
 bool QCandlestickSeries_Take(QCandlestickSeries* self, QCandlestickSet* set);
 void QCandlestickSeries_Clear(QCandlestickSeries* self);
@@ -72,13 +62,13 @@ void QCandlestickSeries_SetCapsWidth(QCandlestickSeries* self, double capsWidth)
 double QCandlestickSeries_CapsWidth(const QCandlestickSeries* self);
 void QCandlestickSeries_SetCapsVisible(QCandlestickSeries* self, bool capsVisible);
 bool QCandlestickSeries_CapsVisible(const QCandlestickSeries* self);
-void QCandlestickSeries_SetIncreasingColor(QCandlestickSeries* self, QColor* increasingColor);
+void QCandlestickSeries_SetIncreasingColor(QCandlestickSeries* self, const QColor* increasingColor);
 QColor* QCandlestickSeries_IncreasingColor(const QCandlestickSeries* self);
-void QCandlestickSeries_SetDecreasingColor(QCandlestickSeries* self, QColor* decreasingColor);
+void QCandlestickSeries_SetDecreasingColor(QCandlestickSeries* self, const QColor* decreasingColor);
 QColor* QCandlestickSeries_DecreasingColor(const QCandlestickSeries* self);
-void QCandlestickSeries_SetBrush(QCandlestickSeries* self, QBrush* brush);
+void QCandlestickSeries_SetBrush(QCandlestickSeries* self, const QBrush* brush);
 QBrush* QCandlestickSeries_Brush(const QCandlestickSeries* self);
-void QCandlestickSeries_SetPen(QCandlestickSeries* self, QPen* pen);
+void QCandlestickSeries_SetPen(QCandlestickSeries* self, const QPen* pen);
 QPen* QCandlestickSeries_Pen(const QCandlestickSeries* self);
 void QCandlestickSeries_Clicked(QCandlestickSeries* self, QCandlestickSet* set);
 void QCandlestickSeries_Connect_Clicked(QCandlestickSeries* self, intptr_t slot);
@@ -90,9 +80,9 @@ void QCandlestickSeries_Released(QCandlestickSeries* self, QCandlestickSet* set)
 void QCandlestickSeries_Connect_Released(QCandlestickSeries* self, intptr_t slot);
 void QCandlestickSeries_DoubleClicked(QCandlestickSeries* self, QCandlestickSet* set);
 void QCandlestickSeries_Connect_DoubleClicked(QCandlestickSeries* self, intptr_t slot);
-void QCandlestickSeries_CandlestickSetsAdded(QCandlestickSeries* self, libqt_list /* of QCandlestickSet* */ sets);
+void QCandlestickSeries_CandlestickSetsAdded(QCandlestickSeries* self, const libqt_list /* of QCandlestickSet* */ sets);
 void QCandlestickSeries_Connect_CandlestickSetsAdded(QCandlestickSeries* self, intptr_t slot);
-void QCandlestickSeries_CandlestickSetsRemoved(QCandlestickSeries* self, libqt_list /* of QCandlestickSet* */ sets);
+void QCandlestickSeries_CandlestickSetsRemoved(QCandlestickSeries* self, const libqt_list /* of QCandlestickSet* */ sets);
 void QCandlestickSeries_Connect_CandlestickSetsRemoved(QCandlestickSeries* self, intptr_t slot);
 void QCandlestickSeries_CountChanged(QCandlestickSeries* self);
 void QCandlestickSeries_Connect_CountChanged(QCandlestickSeries* self, intptr_t slot);
@@ -133,12 +123,12 @@ void QCandlestickSeries_QBaseChildEvent(QCandlestickSeries* self, QChildEvent* e
 void QCandlestickSeries_CustomEvent(QCandlestickSeries* self, QEvent* event);
 void QCandlestickSeries_OnCustomEvent(QCandlestickSeries* self, intptr_t slot);
 void QCandlestickSeries_QBaseCustomEvent(QCandlestickSeries* self, QEvent* event);
-void QCandlestickSeries_ConnectNotify(QCandlestickSeries* self, QMetaMethod* signal);
+void QCandlestickSeries_ConnectNotify(QCandlestickSeries* self, const QMetaMethod* signal);
 void QCandlestickSeries_OnConnectNotify(QCandlestickSeries* self, intptr_t slot);
-void QCandlestickSeries_QBaseConnectNotify(QCandlestickSeries* self, QMetaMethod* signal);
-void QCandlestickSeries_DisconnectNotify(QCandlestickSeries* self, QMetaMethod* signal);
+void QCandlestickSeries_QBaseConnectNotify(QCandlestickSeries* self, const QMetaMethod* signal);
+void QCandlestickSeries_DisconnectNotify(QCandlestickSeries* self, const QMetaMethod* signal);
 void QCandlestickSeries_OnDisconnectNotify(QCandlestickSeries* self, intptr_t slot);
-void QCandlestickSeries_QBaseDisconnectNotify(QCandlestickSeries* self, QMetaMethod* signal);
+void QCandlestickSeries_QBaseDisconnectNotify(QCandlestickSeries* self, const QMetaMethod* signal);
 QObject* QCandlestickSeries_Sender(const QCandlestickSeries* self);
 void QCandlestickSeries_OnSender(const QCandlestickSeries* self, intptr_t slot);
 QObject* QCandlestickSeries_QBaseSender(const QCandlestickSeries* self);
@@ -148,9 +138,9 @@ int QCandlestickSeries_QBaseSenderSignalIndex(const QCandlestickSeries* self);
 int QCandlestickSeries_Receivers(const QCandlestickSeries* self, const char* signal);
 void QCandlestickSeries_OnReceivers(const QCandlestickSeries* self, intptr_t slot);
 int QCandlestickSeries_QBaseReceivers(const QCandlestickSeries* self, const char* signal);
-bool QCandlestickSeries_IsSignalConnected(const QCandlestickSeries* self, QMetaMethod* signal);
+bool QCandlestickSeries_IsSignalConnected(const QCandlestickSeries* self, const QMetaMethod* signal);
 void QCandlestickSeries_OnIsSignalConnected(const QCandlestickSeries* self, intptr_t slot);
-bool QCandlestickSeries_QBaseIsSignalConnected(const QCandlestickSeries* self, QMetaMethod* signal);
+bool QCandlestickSeries_QBaseIsSignalConnected(const QCandlestickSeries* self, const QMetaMethod* signal);
 void QCandlestickSeries_Delete(QCandlestickSeries* self);
 
 #ifdef __cplusplus

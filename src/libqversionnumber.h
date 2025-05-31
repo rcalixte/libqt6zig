@@ -22,11 +22,11 @@ typedef struct QVersionNumber QVersionNumber;
 #endif
 
 QVersionNumber* QVersionNumber_new();
-QVersionNumber* QVersionNumber_new2(libqt_list /* of int */ seg);
+QVersionNumber* QVersionNumber_new2(const libqt_list /* of int */ seg);
 QVersionNumber* QVersionNumber_new3(int maj);
 QVersionNumber* QVersionNumber_new4(int maj, int min);
 QVersionNumber* QVersionNumber_new5(int maj, int min, int mic);
-QVersionNumber* QVersionNumber_new6(QVersionNumber* param1);
+QVersionNumber* QVersionNumber_new6(const QVersionNumber* param1);
 bool QVersionNumber_IsNull(const QVersionNumber* self);
 bool QVersionNumber_IsNormalized(const QVersionNumber* self);
 int QVersionNumber_MajorVersion(const QVersionNumber* self);
@@ -36,18 +36,18 @@ QVersionNumber* QVersionNumber_Normalized(const QVersionNumber* self);
 libqt_list /* of int */ QVersionNumber_Segments(const QVersionNumber* self);
 int QVersionNumber_SegmentAt(const QVersionNumber* self, ptrdiff_t index);
 ptrdiff_t QVersionNumber_SegmentCount(const QVersionNumber* self);
-bool QVersionNumber_IsPrefixOf(const QVersionNumber* self, QVersionNumber* other);
-int QVersionNumber_Compare(QVersionNumber* v1, QVersionNumber* v2);
-QVersionNumber* QVersionNumber_CommonPrefix(QVersionNumber* v1, QVersionNumber* v2);
+bool QVersionNumber_IsPrefixOf(const QVersionNumber* self, const QVersionNumber* other);
+int QVersionNumber_Compare(const QVersionNumber* v1, const QVersionNumber* v2);
+QVersionNumber* QVersionNumber_CommonPrefix(const QVersionNumber* v1, const QVersionNumber* v2);
 libqt_string QVersionNumber_ToString(const QVersionNumber* self);
 QVersionNumber* QVersionNumber_FromString(char* stringVal);
 QVersionNumber* QVersionNumber_FromString2(char* stringVal, ptrdiff_t* suffixIndex);
 void QVersionNumber_Delete(QVersionNumber* self);
 
-QTypeRevision* QTypeRevision_new(QTypeRevision* other);
+QTypeRevision* QTypeRevision_new(const QTypeRevision* other);
 QTypeRevision* QTypeRevision_new2(QTypeRevision* other);
 QTypeRevision* QTypeRevision_new3();
-QTypeRevision* QTypeRevision_new4(QTypeRevision* param1);
+QTypeRevision* QTypeRevision_new4(const QTypeRevision* param1);
 void QTypeRevision_CopyAssign(QTypeRevision* self, QTypeRevision* other);
 void QTypeRevision_MoveAssign(QTypeRevision* self, QTypeRevision* other);
 QTypeRevision* QTypeRevision_Zero();

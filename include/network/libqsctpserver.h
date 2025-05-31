@@ -15,27 +15,17 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
-typedef struct QHostAddress QHostAddress;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
-typedef struct QNetworkProxy QNetworkProxy;
 typedef struct QObject QObject;
 typedef struct QSctpServer QSctpServer;
 typedef struct QSctpSocket QSctpSocket;
 typedef struct QTcpServer QTcpServer;
 typedef struct QTcpSocket QTcpSocket;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QSctpServer* QSctpServer_new();
@@ -75,12 +65,12 @@ void QSctpServer_QBaseChildEvent(QSctpServer* self, QChildEvent* event);
 void QSctpServer_CustomEvent(QSctpServer* self, QEvent* event);
 void QSctpServer_OnCustomEvent(QSctpServer* self, intptr_t slot);
 void QSctpServer_QBaseCustomEvent(QSctpServer* self, QEvent* event);
-void QSctpServer_ConnectNotify(QSctpServer* self, QMetaMethod* signal);
+void QSctpServer_ConnectNotify(QSctpServer* self, const QMetaMethod* signal);
 void QSctpServer_OnConnectNotify(QSctpServer* self, intptr_t slot);
-void QSctpServer_QBaseConnectNotify(QSctpServer* self, QMetaMethod* signal);
-void QSctpServer_DisconnectNotify(QSctpServer* self, QMetaMethod* signal);
+void QSctpServer_QBaseConnectNotify(QSctpServer* self, const QMetaMethod* signal);
+void QSctpServer_DisconnectNotify(QSctpServer* self, const QMetaMethod* signal);
 void QSctpServer_OnDisconnectNotify(QSctpServer* self, intptr_t slot);
-void QSctpServer_QBaseDisconnectNotify(QSctpServer* self, QMetaMethod* signal);
+void QSctpServer_QBaseDisconnectNotify(QSctpServer* self, const QMetaMethod* signal);
 void QSctpServer_AddPendingConnection(QSctpServer* self, QTcpSocket* socket);
 void QSctpServer_OnAddPendingConnection(QSctpServer* self, intptr_t slot);
 void QSctpServer_QBaseAddPendingConnection(QSctpServer* self, QTcpSocket* socket);
@@ -93,9 +83,9 @@ int QSctpServer_QBaseSenderSignalIndex(const QSctpServer* self);
 int QSctpServer_Receivers(const QSctpServer* self, const char* signal);
 void QSctpServer_OnReceivers(const QSctpServer* self, intptr_t slot);
 int QSctpServer_QBaseReceivers(const QSctpServer* self, const char* signal);
-bool QSctpServer_IsSignalConnected(const QSctpServer* self, QMetaMethod* signal);
+bool QSctpServer_IsSignalConnected(const QSctpServer* self, const QMetaMethod* signal);
 void QSctpServer_OnIsSignalConnected(const QSctpServer* self, intptr_t slot);
-bool QSctpServer_QBaseIsSignalConnected(const QSctpServer* self, QMetaMethod* signal);
+bool QSctpServer_QBaseIsSignalConnected(const QSctpServer* self, const QMetaMethod* signal);
 void QSctpServer_Delete(QSctpServer* self);
 
 #ifdef __cplusplus

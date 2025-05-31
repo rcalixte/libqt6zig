@@ -6,11 +6,11 @@
 #include "libqwebengineclientcertificateselection.h"
 #include "libqwebengineclientcertificateselection.hxx"
 
-QWebEngineClientCertificateSelection* QWebEngineClientCertificateSelection_new(QWebEngineClientCertificateSelection* param1) {
+QWebEngineClientCertificateSelection* QWebEngineClientCertificateSelection_new(const QWebEngineClientCertificateSelection* param1) {
     return new QWebEngineClientCertificateSelection(*param1);
 }
 
-void QWebEngineClientCertificateSelection_OperatorAssign(QWebEngineClientCertificateSelection* self, QWebEngineClientCertificateSelection* param1) {
+void QWebEngineClientCertificateSelection_OperatorAssign(QWebEngineClientCertificateSelection* self, const QWebEngineClientCertificateSelection* param1) {
     self->operator=(*param1);
 }
 
@@ -18,7 +18,7 @@ QUrl* QWebEngineClientCertificateSelection_Host(const QWebEngineClientCertificat
     return new QUrl(self->host());
 }
 
-void QWebEngineClientCertificateSelection_Select(QWebEngineClientCertificateSelection* self, QSslCertificate* certificate) {
+void QWebEngineClientCertificateSelection_Select(QWebEngineClientCertificateSelection* self, const QSslCertificate* certificate) {
     self->select(*certificate);
 }
 

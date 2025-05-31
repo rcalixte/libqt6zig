@@ -11,19 +11,22 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QPrinter so that we can call protected methods
-class VirtualQPrinter : public QPrinter {
+class VirtualQPrinter final : public QPrinter {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQPrinter = true;
+
     // Virtual class public types (including callbacks)
     using QPrinter_DevType_Callback = int (*)();
     using QPrinter_NewPage_Callback = bool (*)();
     using QPrinter_PaintEngine_Callback = QPaintEngine* (*)();
-    using QPrinter_Metric_Callback = int (*)(const QPrinter*, QPaintDevice::PaintDeviceMetric);
-    using QPrinter_SetPageLayout_Callback = bool (*)(QPrinter*, const QPageLayout&);
-    using QPrinter_SetPageSize_Callback = bool (*)(QPrinter*, const QPageSize&);
-    using QPrinter_SetPageOrientation_Callback = bool (*)(QPrinter*, QPageLayout::Orientation);
-    using QPrinter_SetPageMargins_Callback = bool (*)(QPrinter*, const QMarginsF&, QPageLayout::Unit);
-    using QPrinter_SetPageRanges_Callback = void (*)(QPrinter*, const QPageRanges&);
+    using QPrinter_Metric_Callback = int (*)(const QPrinter*, int);
+    using QPrinter_SetPageLayout_Callback = bool (*)(QPrinter*, QPageLayout*);
+    using QPrinter_SetPageSize_Callback = bool (*)(QPrinter*, QPageSize*);
+    using QPrinter_SetPageOrientation_Callback = bool (*)(QPrinter*, int);
+    using QPrinter_SetPageMargins_Callback = bool (*)(QPrinter*, QMarginsF*, int);
+    using QPrinter_SetPageRanges_Callback = void (*)(QPrinter*, QPageRanges*);
     using QPrinter_InitPainter_Callback = void (*)(const QPrinter*, QPainter*);
     using QPrinter_Redirected_Callback = QPaintDevice* (*)(const QPrinter*, QPoint*);
     using QPrinter_SharedPainter_Callback = QPainter* (*)();
@@ -83,34 +86,34 @@ class VirtualQPrinter : public QPrinter {
     }
 
     // Callback setters
-    void setQPrinter_DevType_Callback(QPrinter_DevType_Callback cb) { qprinter_devtype_callback = cb; }
-    void setQPrinter_NewPage_Callback(QPrinter_NewPage_Callback cb) { qprinter_newpage_callback = cb; }
-    void setQPrinter_PaintEngine_Callback(QPrinter_PaintEngine_Callback cb) { qprinter_paintengine_callback = cb; }
-    void setQPrinter_Metric_Callback(QPrinter_Metric_Callback cb) { qprinter_metric_callback = cb; }
-    void setQPrinter_SetPageLayout_Callback(QPrinter_SetPageLayout_Callback cb) { qprinter_setpagelayout_callback = cb; }
-    void setQPrinter_SetPageSize_Callback(QPrinter_SetPageSize_Callback cb) { qprinter_setpagesize_callback = cb; }
-    void setQPrinter_SetPageOrientation_Callback(QPrinter_SetPageOrientation_Callback cb) { qprinter_setpageorientation_callback = cb; }
-    void setQPrinter_SetPageMargins_Callback(QPrinter_SetPageMargins_Callback cb) { qprinter_setpagemargins_callback = cb; }
-    void setQPrinter_SetPageRanges_Callback(QPrinter_SetPageRanges_Callback cb) { qprinter_setpageranges_callback = cb; }
-    void setQPrinter_InitPainter_Callback(QPrinter_InitPainter_Callback cb) { qprinter_initpainter_callback = cb; }
-    void setQPrinter_Redirected_Callback(QPrinter_Redirected_Callback cb) { qprinter_redirected_callback = cb; }
-    void setQPrinter_SharedPainter_Callback(QPrinter_SharedPainter_Callback cb) { qprinter_sharedpainter_callback = cb; }
-    void setQPrinter_SetEngines_Callback(QPrinter_SetEngines_Callback cb) { qprinter_setengines_callback = cb; }
+    inline void setQPrinter_DevType_Callback(QPrinter_DevType_Callback cb) { qprinter_devtype_callback = cb; }
+    inline void setQPrinter_NewPage_Callback(QPrinter_NewPage_Callback cb) { qprinter_newpage_callback = cb; }
+    inline void setQPrinter_PaintEngine_Callback(QPrinter_PaintEngine_Callback cb) { qprinter_paintengine_callback = cb; }
+    inline void setQPrinter_Metric_Callback(QPrinter_Metric_Callback cb) { qprinter_metric_callback = cb; }
+    inline void setQPrinter_SetPageLayout_Callback(QPrinter_SetPageLayout_Callback cb) { qprinter_setpagelayout_callback = cb; }
+    inline void setQPrinter_SetPageSize_Callback(QPrinter_SetPageSize_Callback cb) { qprinter_setpagesize_callback = cb; }
+    inline void setQPrinter_SetPageOrientation_Callback(QPrinter_SetPageOrientation_Callback cb) { qprinter_setpageorientation_callback = cb; }
+    inline void setQPrinter_SetPageMargins_Callback(QPrinter_SetPageMargins_Callback cb) { qprinter_setpagemargins_callback = cb; }
+    inline void setQPrinter_SetPageRanges_Callback(QPrinter_SetPageRanges_Callback cb) { qprinter_setpageranges_callback = cb; }
+    inline void setQPrinter_InitPainter_Callback(QPrinter_InitPainter_Callback cb) { qprinter_initpainter_callback = cb; }
+    inline void setQPrinter_Redirected_Callback(QPrinter_Redirected_Callback cb) { qprinter_redirected_callback = cb; }
+    inline void setQPrinter_SharedPainter_Callback(QPrinter_SharedPainter_Callback cb) { qprinter_sharedpainter_callback = cb; }
+    inline void setQPrinter_SetEngines_Callback(QPrinter_SetEngines_Callback cb) { qprinter_setengines_callback = cb; }
 
     // Base flag setters
-    void setQPrinter_DevType_IsBase(bool value) const { qprinter_devtype_isbase = value; }
-    void setQPrinter_NewPage_IsBase(bool value) const { qprinter_newpage_isbase = value; }
-    void setQPrinter_PaintEngine_IsBase(bool value) const { qprinter_paintengine_isbase = value; }
-    void setQPrinter_Metric_IsBase(bool value) const { qprinter_metric_isbase = value; }
-    void setQPrinter_SetPageLayout_IsBase(bool value) const { qprinter_setpagelayout_isbase = value; }
-    void setQPrinter_SetPageSize_IsBase(bool value) const { qprinter_setpagesize_isbase = value; }
-    void setQPrinter_SetPageOrientation_IsBase(bool value) const { qprinter_setpageorientation_isbase = value; }
-    void setQPrinter_SetPageMargins_IsBase(bool value) const { qprinter_setpagemargins_isbase = value; }
-    void setQPrinter_SetPageRanges_IsBase(bool value) const { qprinter_setpageranges_isbase = value; }
-    void setQPrinter_InitPainter_IsBase(bool value) const { qprinter_initpainter_isbase = value; }
-    void setQPrinter_Redirected_IsBase(bool value) const { qprinter_redirected_isbase = value; }
-    void setQPrinter_SharedPainter_IsBase(bool value) const { qprinter_sharedpainter_isbase = value; }
-    void setQPrinter_SetEngines_IsBase(bool value) const { qprinter_setengines_isbase = value; }
+    inline void setQPrinter_DevType_IsBase(bool value) const { qprinter_devtype_isbase = value; }
+    inline void setQPrinter_NewPage_IsBase(bool value) const { qprinter_newpage_isbase = value; }
+    inline void setQPrinter_PaintEngine_IsBase(bool value) const { qprinter_paintengine_isbase = value; }
+    inline void setQPrinter_Metric_IsBase(bool value) const { qprinter_metric_isbase = value; }
+    inline void setQPrinter_SetPageLayout_IsBase(bool value) const { qprinter_setpagelayout_isbase = value; }
+    inline void setQPrinter_SetPageSize_IsBase(bool value) const { qprinter_setpagesize_isbase = value; }
+    inline void setQPrinter_SetPageOrientation_IsBase(bool value) const { qprinter_setpageorientation_isbase = value; }
+    inline void setQPrinter_SetPageMargins_IsBase(bool value) const { qprinter_setpagemargins_isbase = value; }
+    inline void setQPrinter_SetPageRanges_IsBase(bool value) const { qprinter_setpageranges_isbase = value; }
+    inline void setQPrinter_InitPainter_IsBase(bool value) const { qprinter_initpainter_isbase = value; }
+    inline void setQPrinter_Redirected_IsBase(bool value) const { qprinter_redirected_isbase = value; }
+    inline void setQPrinter_SharedPainter_IsBase(bool value) const { qprinter_sharedpainter_isbase = value; }
+    inline void setQPrinter_SetEngines_IsBase(bool value) const { qprinter_setengines_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
@@ -118,7 +121,8 @@ class VirtualQPrinter : public QPrinter {
             qprinter_devtype_isbase = false;
             return QPrinter::devType();
         } else if (qprinter_devtype_callback != nullptr) {
-            return qprinter_devtype_callback();
+            int callback_ret = qprinter_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QPrinter::devType();
         }
@@ -130,7 +134,8 @@ class VirtualQPrinter : public QPrinter {
             qprinter_newpage_isbase = false;
             return QPrinter::newPage();
         } else if (qprinter_newpage_callback != nullptr) {
-            return qprinter_newpage_callback();
+            bool callback_ret = qprinter_newpage_callback();
+            return callback_ret;
         } else {
             return QPrinter::newPage();
         }
@@ -142,7 +147,8 @@ class VirtualQPrinter : public QPrinter {
             qprinter_paintengine_isbase = false;
             return QPrinter::paintEngine();
         } else if (qprinter_paintengine_callback != nullptr) {
-            return qprinter_paintengine_callback();
+            QPaintEngine* callback_ret = qprinter_paintengine_callback();
+            return callback_ret;
         } else {
             return QPrinter::paintEngine();
         }
@@ -154,7 +160,10 @@ class VirtualQPrinter : public QPrinter {
             qprinter_metric_isbase = false;
             return QPrinter::metric(param1);
         } else if (qprinter_metric_callback != nullptr) {
-            return qprinter_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qprinter_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QPrinter::metric(param1);
         }
@@ -166,7 +175,12 @@ class VirtualQPrinter : public QPrinter {
             qprinter_setpagelayout_isbase = false;
             return QPrinter::setPageLayout(pageLayout);
         } else if (qprinter_setpagelayout_callback != nullptr) {
-            return qprinter_setpagelayout_callback(this, pageLayout);
+            const QPageLayout& pageLayout_ret = pageLayout;
+            // Cast returned reference into pointer
+            QPageLayout* cbval1 = const_cast<QPageLayout*>(&pageLayout_ret);
+
+            bool callback_ret = qprinter_setpagelayout_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QPrinter::setPageLayout(pageLayout);
         }
@@ -178,7 +192,12 @@ class VirtualQPrinter : public QPrinter {
             qprinter_setpagesize_isbase = false;
             return QPrinter::setPageSize(pageSize);
         } else if (qprinter_setpagesize_callback != nullptr) {
-            return qprinter_setpagesize_callback(this, pageSize);
+            const QPageSize& pageSize_ret = pageSize;
+            // Cast returned reference into pointer
+            QPageSize* cbval1 = const_cast<QPageSize*>(&pageSize_ret);
+
+            bool callback_ret = qprinter_setpagesize_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QPrinter::setPageSize(pageSize);
         }
@@ -190,7 +209,10 @@ class VirtualQPrinter : public QPrinter {
             qprinter_setpageorientation_isbase = false;
             return QPrinter::setPageOrientation(orientation);
         } else if (qprinter_setpageorientation_callback != nullptr) {
-            return qprinter_setpageorientation_callback(this, orientation);
+            int cbval1 = static_cast<int>(orientation);
+
+            bool callback_ret = qprinter_setpageorientation_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QPrinter::setPageOrientation(orientation);
         }
@@ -202,7 +224,13 @@ class VirtualQPrinter : public QPrinter {
             qprinter_setpagemargins_isbase = false;
             return QPrinter::setPageMargins(margins, units);
         } else if (qprinter_setpagemargins_callback != nullptr) {
-            return qprinter_setpagemargins_callback(this, margins, units);
+            const QMarginsF& margins_ret = margins;
+            // Cast returned reference into pointer
+            QMarginsF* cbval1 = const_cast<QMarginsF*>(&margins_ret);
+            int cbval2 = static_cast<int>(units);
+
+            bool callback_ret = qprinter_setpagemargins_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QPrinter::setPageMargins(margins, units);
         }
@@ -214,7 +242,11 @@ class VirtualQPrinter : public QPrinter {
             qprinter_setpageranges_isbase = false;
             QPrinter::setPageRanges(ranges);
         } else if (qprinter_setpageranges_callback != nullptr) {
-            qprinter_setpageranges_callback(this, ranges);
+            const QPageRanges& ranges_ret = ranges;
+            // Cast returned reference into pointer
+            QPageRanges* cbval1 = const_cast<QPageRanges*>(&ranges_ret);
+
+            qprinter_setpageranges_callback(this, cbval1);
         } else {
             QPrinter::setPageRanges(ranges);
         }
@@ -226,7 +258,9 @@ class VirtualQPrinter : public QPrinter {
             qprinter_initpainter_isbase = false;
             QPrinter::initPainter(painter);
         } else if (qprinter_initpainter_callback != nullptr) {
-            qprinter_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qprinter_initpainter_callback(this, cbval1);
         } else {
             QPrinter::initPainter(painter);
         }
@@ -238,7 +272,10 @@ class VirtualQPrinter : public QPrinter {
             qprinter_redirected_isbase = false;
             return QPrinter::redirected(offset);
         } else if (qprinter_redirected_callback != nullptr) {
-            return qprinter_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qprinter_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QPrinter::redirected(offset);
         }
@@ -250,7 +287,8 @@ class VirtualQPrinter : public QPrinter {
             qprinter_sharedpainter_isbase = false;
             return QPrinter::sharedPainter();
         } else if (qprinter_sharedpainter_callback != nullptr) {
-            return qprinter_sharedpainter_callback();
+            QPainter* callback_ret = qprinter_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QPrinter::sharedPainter();
         }
@@ -262,11 +300,26 @@ class VirtualQPrinter : public QPrinter {
             qprinter_setengines_isbase = false;
             QPrinter::setEngines(printEngine, paintEngine);
         } else if (qprinter_setengines_callback != nullptr) {
-            qprinter_setengines_callback(this, printEngine, paintEngine);
+            QPrintEngine* cbval1 = printEngine;
+            QPaintEngine* cbval2 = paintEngine;
+
+            qprinter_setengines_callback(this, cbval1, cbval2);
         } else {
             QPrinter::setEngines(printEngine, paintEngine);
         }
     }
+
+    // Friend functions
+    friend int QPrinter_Metric(const QPrinter* self, int param1);
+    friend int QPrinter_QBaseMetric(const QPrinter* self, int param1);
+    friend void QPrinter_InitPainter(const QPrinter* self, QPainter* painter);
+    friend void QPrinter_QBaseInitPainter(const QPrinter* self, QPainter* painter);
+    friend QPaintDevice* QPrinter_Redirected(const QPrinter* self, QPoint* offset);
+    friend QPaintDevice* QPrinter_QBaseRedirected(const QPrinter* self, QPoint* offset);
+    friend QPainter* QPrinter_SharedPainter(const QPrinter* self);
+    friend QPainter* QPrinter_QBaseSharedPainter(const QPrinter* self);
+    friend void QPrinter_SetEngines(QPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine);
+    friend void QPrinter_QBaseSetEngines(QPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine);
 };
 
 #endif

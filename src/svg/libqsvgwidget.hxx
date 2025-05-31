@@ -11,16 +11,19 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QSvgWidget so that we can call protected methods
-class VirtualQSvgWidget : public QSvgWidget {
+class VirtualQSvgWidget final : public QSvgWidget {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQSvgWidget = true;
+
     // Virtual class public types (including callbacks)
-    using QSvgWidget_Metacall_Callback = int (*)(QSvgWidget*, QMetaObject::Call, int, void**);
-    using QSvgWidget_SizeHint_Callback = QSize (*)();
+    using QSvgWidget_Metacall_Callback = int (*)(QSvgWidget*, int, int, void**);
+    using QSvgWidget_SizeHint_Callback = QSize* (*)();
     using QSvgWidget_PaintEvent_Callback = void (*)(QSvgWidget*, QPaintEvent*);
     using QSvgWidget_DevType_Callback = int (*)();
     using QSvgWidget_SetVisible_Callback = void (*)(QSvgWidget*, bool);
-    using QSvgWidget_MinimumSizeHint_Callback = QSize (*)();
+    using QSvgWidget_MinimumSizeHint_Callback = QSize* (*)();
     using QSvgWidget_HeightForWidth_Callback = int (*)(const QSvgWidget*, int);
     using QSvgWidget_HasHeightForWidth_Callback = bool (*)();
     using QSvgWidget_PaintEngine_Callback = QPaintEngine* (*)();
@@ -48,21 +51,21 @@ class VirtualQSvgWidget : public QSvgWidget {
     using QSvgWidget_DropEvent_Callback = void (*)(QSvgWidget*, QDropEvent*);
     using QSvgWidget_ShowEvent_Callback = void (*)(QSvgWidget*, QShowEvent*);
     using QSvgWidget_HideEvent_Callback = void (*)(QSvgWidget*, QHideEvent*);
-    using QSvgWidget_NativeEvent_Callback = bool (*)(QSvgWidget*, const QByteArray&, void*, qintptr*);
+    using QSvgWidget_NativeEvent_Callback = bool (*)(QSvgWidget*, libqt_string, void*, intptr_t*);
     using QSvgWidget_ChangeEvent_Callback = void (*)(QSvgWidget*, QEvent*);
-    using QSvgWidget_Metric_Callback = int (*)(const QSvgWidget*, QPaintDevice::PaintDeviceMetric);
+    using QSvgWidget_Metric_Callback = int (*)(const QSvgWidget*, int);
     using QSvgWidget_InitPainter_Callback = void (*)(const QSvgWidget*, QPainter*);
     using QSvgWidget_Redirected_Callback = QPaintDevice* (*)(const QSvgWidget*, QPoint*);
     using QSvgWidget_SharedPainter_Callback = QPainter* (*)();
     using QSvgWidget_InputMethodEvent_Callback = void (*)(QSvgWidget*, QInputMethodEvent*);
-    using QSvgWidget_InputMethodQuery_Callback = QVariant (*)(const QSvgWidget*, Qt::InputMethodQuery);
+    using QSvgWidget_InputMethodQuery_Callback = QVariant* (*)(const QSvgWidget*, int);
     using QSvgWidget_FocusNextPrevChild_Callback = bool (*)(QSvgWidget*, bool);
     using QSvgWidget_EventFilter_Callback = bool (*)(QSvgWidget*, QObject*, QEvent*);
     using QSvgWidget_TimerEvent_Callback = void (*)(QSvgWidget*, QTimerEvent*);
     using QSvgWidget_ChildEvent_Callback = void (*)(QSvgWidget*, QChildEvent*);
     using QSvgWidget_CustomEvent_Callback = void (*)(QSvgWidget*, QEvent*);
-    using QSvgWidget_ConnectNotify_Callback = void (*)(QSvgWidget*, const QMetaMethod&);
-    using QSvgWidget_DisconnectNotify_Callback = void (*)(QSvgWidget*, const QMetaMethod&);
+    using QSvgWidget_ConnectNotify_Callback = void (*)(QSvgWidget*, QMetaMethod*);
+    using QSvgWidget_DisconnectNotify_Callback = void (*)(QSvgWidget*, QMetaMethod*);
     using QSvgWidget_UpdateMicroFocus_Callback = void (*)();
     using QSvgWidget_Create_Callback = void (*)();
     using QSvgWidget_Destroy_Callback = void (*)();
@@ -71,7 +74,7 @@ class VirtualQSvgWidget : public QSvgWidget {
     using QSvgWidget_Sender_Callback = QObject* (*)();
     using QSvgWidget_SenderSignalIndex_Callback = int (*)();
     using QSvgWidget_Receivers_Callback = int (*)(const QSvgWidget*, const char*);
-    using QSvgWidget_IsSignalConnected_Callback = bool (*)(const QSvgWidget*, const QMetaMethod&);
+    using QSvgWidget_IsSignalConnected_Callback = bool (*)(const QSvgWidget*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -259,122 +262,122 @@ class VirtualQSvgWidget : public QSvgWidget {
     }
 
     // Callback setters
-    void setQSvgWidget_Metacall_Callback(QSvgWidget_Metacall_Callback cb) { qsvgwidget_metacall_callback = cb; }
-    void setQSvgWidget_SizeHint_Callback(QSvgWidget_SizeHint_Callback cb) { qsvgwidget_sizehint_callback = cb; }
-    void setQSvgWidget_PaintEvent_Callback(QSvgWidget_PaintEvent_Callback cb) { qsvgwidget_paintevent_callback = cb; }
-    void setQSvgWidget_DevType_Callback(QSvgWidget_DevType_Callback cb) { qsvgwidget_devtype_callback = cb; }
-    void setQSvgWidget_SetVisible_Callback(QSvgWidget_SetVisible_Callback cb) { qsvgwidget_setvisible_callback = cb; }
-    void setQSvgWidget_MinimumSizeHint_Callback(QSvgWidget_MinimumSizeHint_Callback cb) { qsvgwidget_minimumsizehint_callback = cb; }
-    void setQSvgWidget_HeightForWidth_Callback(QSvgWidget_HeightForWidth_Callback cb) { qsvgwidget_heightforwidth_callback = cb; }
-    void setQSvgWidget_HasHeightForWidth_Callback(QSvgWidget_HasHeightForWidth_Callback cb) { qsvgwidget_hasheightforwidth_callback = cb; }
-    void setQSvgWidget_PaintEngine_Callback(QSvgWidget_PaintEngine_Callback cb) { qsvgwidget_paintengine_callback = cb; }
-    void setQSvgWidget_Event_Callback(QSvgWidget_Event_Callback cb) { qsvgwidget_event_callback = cb; }
-    void setQSvgWidget_MousePressEvent_Callback(QSvgWidget_MousePressEvent_Callback cb) { qsvgwidget_mousepressevent_callback = cb; }
-    void setQSvgWidget_MouseReleaseEvent_Callback(QSvgWidget_MouseReleaseEvent_Callback cb) { qsvgwidget_mousereleaseevent_callback = cb; }
-    void setQSvgWidget_MouseDoubleClickEvent_Callback(QSvgWidget_MouseDoubleClickEvent_Callback cb) { qsvgwidget_mousedoubleclickevent_callback = cb; }
-    void setQSvgWidget_MouseMoveEvent_Callback(QSvgWidget_MouseMoveEvent_Callback cb) { qsvgwidget_mousemoveevent_callback = cb; }
-    void setQSvgWidget_WheelEvent_Callback(QSvgWidget_WheelEvent_Callback cb) { qsvgwidget_wheelevent_callback = cb; }
-    void setQSvgWidget_KeyPressEvent_Callback(QSvgWidget_KeyPressEvent_Callback cb) { qsvgwidget_keypressevent_callback = cb; }
-    void setQSvgWidget_KeyReleaseEvent_Callback(QSvgWidget_KeyReleaseEvent_Callback cb) { qsvgwidget_keyreleaseevent_callback = cb; }
-    void setQSvgWidget_FocusInEvent_Callback(QSvgWidget_FocusInEvent_Callback cb) { qsvgwidget_focusinevent_callback = cb; }
-    void setQSvgWidget_FocusOutEvent_Callback(QSvgWidget_FocusOutEvent_Callback cb) { qsvgwidget_focusoutevent_callback = cb; }
-    void setQSvgWidget_EnterEvent_Callback(QSvgWidget_EnterEvent_Callback cb) { qsvgwidget_enterevent_callback = cb; }
-    void setQSvgWidget_LeaveEvent_Callback(QSvgWidget_LeaveEvent_Callback cb) { qsvgwidget_leaveevent_callback = cb; }
-    void setQSvgWidget_MoveEvent_Callback(QSvgWidget_MoveEvent_Callback cb) { qsvgwidget_moveevent_callback = cb; }
-    void setQSvgWidget_ResizeEvent_Callback(QSvgWidget_ResizeEvent_Callback cb) { qsvgwidget_resizeevent_callback = cb; }
-    void setQSvgWidget_CloseEvent_Callback(QSvgWidget_CloseEvent_Callback cb) { qsvgwidget_closeevent_callback = cb; }
-    void setQSvgWidget_ContextMenuEvent_Callback(QSvgWidget_ContextMenuEvent_Callback cb) { qsvgwidget_contextmenuevent_callback = cb; }
-    void setQSvgWidget_TabletEvent_Callback(QSvgWidget_TabletEvent_Callback cb) { qsvgwidget_tabletevent_callback = cb; }
-    void setQSvgWidget_ActionEvent_Callback(QSvgWidget_ActionEvent_Callback cb) { qsvgwidget_actionevent_callback = cb; }
-    void setQSvgWidget_DragEnterEvent_Callback(QSvgWidget_DragEnterEvent_Callback cb) { qsvgwidget_dragenterevent_callback = cb; }
-    void setQSvgWidget_DragMoveEvent_Callback(QSvgWidget_DragMoveEvent_Callback cb) { qsvgwidget_dragmoveevent_callback = cb; }
-    void setQSvgWidget_DragLeaveEvent_Callback(QSvgWidget_DragLeaveEvent_Callback cb) { qsvgwidget_dragleaveevent_callback = cb; }
-    void setQSvgWidget_DropEvent_Callback(QSvgWidget_DropEvent_Callback cb) { qsvgwidget_dropevent_callback = cb; }
-    void setQSvgWidget_ShowEvent_Callback(QSvgWidget_ShowEvent_Callback cb) { qsvgwidget_showevent_callback = cb; }
-    void setQSvgWidget_HideEvent_Callback(QSvgWidget_HideEvent_Callback cb) { qsvgwidget_hideevent_callback = cb; }
-    void setQSvgWidget_NativeEvent_Callback(QSvgWidget_NativeEvent_Callback cb) { qsvgwidget_nativeevent_callback = cb; }
-    void setQSvgWidget_ChangeEvent_Callback(QSvgWidget_ChangeEvent_Callback cb) { qsvgwidget_changeevent_callback = cb; }
-    void setQSvgWidget_Metric_Callback(QSvgWidget_Metric_Callback cb) { qsvgwidget_metric_callback = cb; }
-    void setQSvgWidget_InitPainter_Callback(QSvgWidget_InitPainter_Callback cb) { qsvgwidget_initpainter_callback = cb; }
-    void setQSvgWidget_Redirected_Callback(QSvgWidget_Redirected_Callback cb) { qsvgwidget_redirected_callback = cb; }
-    void setQSvgWidget_SharedPainter_Callback(QSvgWidget_SharedPainter_Callback cb) { qsvgwidget_sharedpainter_callback = cb; }
-    void setQSvgWidget_InputMethodEvent_Callback(QSvgWidget_InputMethodEvent_Callback cb) { qsvgwidget_inputmethodevent_callback = cb; }
-    void setQSvgWidget_InputMethodQuery_Callback(QSvgWidget_InputMethodQuery_Callback cb) { qsvgwidget_inputmethodquery_callback = cb; }
-    void setQSvgWidget_FocusNextPrevChild_Callback(QSvgWidget_FocusNextPrevChild_Callback cb) { qsvgwidget_focusnextprevchild_callback = cb; }
-    void setQSvgWidget_EventFilter_Callback(QSvgWidget_EventFilter_Callback cb) { qsvgwidget_eventfilter_callback = cb; }
-    void setQSvgWidget_TimerEvent_Callback(QSvgWidget_TimerEvent_Callback cb) { qsvgwidget_timerevent_callback = cb; }
-    void setQSvgWidget_ChildEvent_Callback(QSvgWidget_ChildEvent_Callback cb) { qsvgwidget_childevent_callback = cb; }
-    void setQSvgWidget_CustomEvent_Callback(QSvgWidget_CustomEvent_Callback cb) { qsvgwidget_customevent_callback = cb; }
-    void setQSvgWidget_ConnectNotify_Callback(QSvgWidget_ConnectNotify_Callback cb) { qsvgwidget_connectnotify_callback = cb; }
-    void setQSvgWidget_DisconnectNotify_Callback(QSvgWidget_DisconnectNotify_Callback cb) { qsvgwidget_disconnectnotify_callback = cb; }
-    void setQSvgWidget_UpdateMicroFocus_Callback(QSvgWidget_UpdateMicroFocus_Callback cb) { qsvgwidget_updatemicrofocus_callback = cb; }
-    void setQSvgWidget_Create_Callback(QSvgWidget_Create_Callback cb) { qsvgwidget_create_callback = cb; }
-    void setQSvgWidget_Destroy_Callback(QSvgWidget_Destroy_Callback cb) { qsvgwidget_destroy_callback = cb; }
-    void setQSvgWidget_FocusNextChild_Callback(QSvgWidget_FocusNextChild_Callback cb) { qsvgwidget_focusnextchild_callback = cb; }
-    void setQSvgWidget_FocusPreviousChild_Callback(QSvgWidget_FocusPreviousChild_Callback cb) { qsvgwidget_focuspreviouschild_callback = cb; }
-    void setQSvgWidget_Sender_Callback(QSvgWidget_Sender_Callback cb) { qsvgwidget_sender_callback = cb; }
-    void setQSvgWidget_SenderSignalIndex_Callback(QSvgWidget_SenderSignalIndex_Callback cb) { qsvgwidget_sendersignalindex_callback = cb; }
-    void setQSvgWidget_Receivers_Callback(QSvgWidget_Receivers_Callback cb) { qsvgwidget_receivers_callback = cb; }
-    void setQSvgWidget_IsSignalConnected_Callback(QSvgWidget_IsSignalConnected_Callback cb) { qsvgwidget_issignalconnected_callback = cb; }
+    inline void setQSvgWidget_Metacall_Callback(QSvgWidget_Metacall_Callback cb) { qsvgwidget_metacall_callback = cb; }
+    inline void setQSvgWidget_SizeHint_Callback(QSvgWidget_SizeHint_Callback cb) { qsvgwidget_sizehint_callback = cb; }
+    inline void setQSvgWidget_PaintEvent_Callback(QSvgWidget_PaintEvent_Callback cb) { qsvgwidget_paintevent_callback = cb; }
+    inline void setQSvgWidget_DevType_Callback(QSvgWidget_DevType_Callback cb) { qsvgwidget_devtype_callback = cb; }
+    inline void setQSvgWidget_SetVisible_Callback(QSvgWidget_SetVisible_Callback cb) { qsvgwidget_setvisible_callback = cb; }
+    inline void setQSvgWidget_MinimumSizeHint_Callback(QSvgWidget_MinimumSizeHint_Callback cb) { qsvgwidget_minimumsizehint_callback = cb; }
+    inline void setQSvgWidget_HeightForWidth_Callback(QSvgWidget_HeightForWidth_Callback cb) { qsvgwidget_heightforwidth_callback = cb; }
+    inline void setQSvgWidget_HasHeightForWidth_Callback(QSvgWidget_HasHeightForWidth_Callback cb) { qsvgwidget_hasheightforwidth_callback = cb; }
+    inline void setQSvgWidget_PaintEngine_Callback(QSvgWidget_PaintEngine_Callback cb) { qsvgwidget_paintengine_callback = cb; }
+    inline void setQSvgWidget_Event_Callback(QSvgWidget_Event_Callback cb) { qsvgwidget_event_callback = cb; }
+    inline void setQSvgWidget_MousePressEvent_Callback(QSvgWidget_MousePressEvent_Callback cb) { qsvgwidget_mousepressevent_callback = cb; }
+    inline void setQSvgWidget_MouseReleaseEvent_Callback(QSvgWidget_MouseReleaseEvent_Callback cb) { qsvgwidget_mousereleaseevent_callback = cb; }
+    inline void setQSvgWidget_MouseDoubleClickEvent_Callback(QSvgWidget_MouseDoubleClickEvent_Callback cb) { qsvgwidget_mousedoubleclickevent_callback = cb; }
+    inline void setQSvgWidget_MouseMoveEvent_Callback(QSvgWidget_MouseMoveEvent_Callback cb) { qsvgwidget_mousemoveevent_callback = cb; }
+    inline void setQSvgWidget_WheelEvent_Callback(QSvgWidget_WheelEvent_Callback cb) { qsvgwidget_wheelevent_callback = cb; }
+    inline void setQSvgWidget_KeyPressEvent_Callback(QSvgWidget_KeyPressEvent_Callback cb) { qsvgwidget_keypressevent_callback = cb; }
+    inline void setQSvgWidget_KeyReleaseEvent_Callback(QSvgWidget_KeyReleaseEvent_Callback cb) { qsvgwidget_keyreleaseevent_callback = cb; }
+    inline void setQSvgWidget_FocusInEvent_Callback(QSvgWidget_FocusInEvent_Callback cb) { qsvgwidget_focusinevent_callback = cb; }
+    inline void setQSvgWidget_FocusOutEvent_Callback(QSvgWidget_FocusOutEvent_Callback cb) { qsvgwidget_focusoutevent_callback = cb; }
+    inline void setQSvgWidget_EnterEvent_Callback(QSvgWidget_EnterEvent_Callback cb) { qsvgwidget_enterevent_callback = cb; }
+    inline void setQSvgWidget_LeaveEvent_Callback(QSvgWidget_LeaveEvent_Callback cb) { qsvgwidget_leaveevent_callback = cb; }
+    inline void setQSvgWidget_MoveEvent_Callback(QSvgWidget_MoveEvent_Callback cb) { qsvgwidget_moveevent_callback = cb; }
+    inline void setQSvgWidget_ResizeEvent_Callback(QSvgWidget_ResizeEvent_Callback cb) { qsvgwidget_resizeevent_callback = cb; }
+    inline void setQSvgWidget_CloseEvent_Callback(QSvgWidget_CloseEvent_Callback cb) { qsvgwidget_closeevent_callback = cb; }
+    inline void setQSvgWidget_ContextMenuEvent_Callback(QSvgWidget_ContextMenuEvent_Callback cb) { qsvgwidget_contextmenuevent_callback = cb; }
+    inline void setQSvgWidget_TabletEvent_Callback(QSvgWidget_TabletEvent_Callback cb) { qsvgwidget_tabletevent_callback = cb; }
+    inline void setQSvgWidget_ActionEvent_Callback(QSvgWidget_ActionEvent_Callback cb) { qsvgwidget_actionevent_callback = cb; }
+    inline void setQSvgWidget_DragEnterEvent_Callback(QSvgWidget_DragEnterEvent_Callback cb) { qsvgwidget_dragenterevent_callback = cb; }
+    inline void setQSvgWidget_DragMoveEvent_Callback(QSvgWidget_DragMoveEvent_Callback cb) { qsvgwidget_dragmoveevent_callback = cb; }
+    inline void setQSvgWidget_DragLeaveEvent_Callback(QSvgWidget_DragLeaveEvent_Callback cb) { qsvgwidget_dragleaveevent_callback = cb; }
+    inline void setQSvgWidget_DropEvent_Callback(QSvgWidget_DropEvent_Callback cb) { qsvgwidget_dropevent_callback = cb; }
+    inline void setQSvgWidget_ShowEvent_Callback(QSvgWidget_ShowEvent_Callback cb) { qsvgwidget_showevent_callback = cb; }
+    inline void setQSvgWidget_HideEvent_Callback(QSvgWidget_HideEvent_Callback cb) { qsvgwidget_hideevent_callback = cb; }
+    inline void setQSvgWidget_NativeEvent_Callback(QSvgWidget_NativeEvent_Callback cb) { qsvgwidget_nativeevent_callback = cb; }
+    inline void setQSvgWidget_ChangeEvent_Callback(QSvgWidget_ChangeEvent_Callback cb) { qsvgwidget_changeevent_callback = cb; }
+    inline void setQSvgWidget_Metric_Callback(QSvgWidget_Metric_Callback cb) { qsvgwidget_metric_callback = cb; }
+    inline void setQSvgWidget_InitPainter_Callback(QSvgWidget_InitPainter_Callback cb) { qsvgwidget_initpainter_callback = cb; }
+    inline void setQSvgWidget_Redirected_Callback(QSvgWidget_Redirected_Callback cb) { qsvgwidget_redirected_callback = cb; }
+    inline void setQSvgWidget_SharedPainter_Callback(QSvgWidget_SharedPainter_Callback cb) { qsvgwidget_sharedpainter_callback = cb; }
+    inline void setQSvgWidget_InputMethodEvent_Callback(QSvgWidget_InputMethodEvent_Callback cb) { qsvgwidget_inputmethodevent_callback = cb; }
+    inline void setQSvgWidget_InputMethodQuery_Callback(QSvgWidget_InputMethodQuery_Callback cb) { qsvgwidget_inputmethodquery_callback = cb; }
+    inline void setQSvgWidget_FocusNextPrevChild_Callback(QSvgWidget_FocusNextPrevChild_Callback cb) { qsvgwidget_focusnextprevchild_callback = cb; }
+    inline void setQSvgWidget_EventFilter_Callback(QSvgWidget_EventFilter_Callback cb) { qsvgwidget_eventfilter_callback = cb; }
+    inline void setQSvgWidget_TimerEvent_Callback(QSvgWidget_TimerEvent_Callback cb) { qsvgwidget_timerevent_callback = cb; }
+    inline void setQSvgWidget_ChildEvent_Callback(QSvgWidget_ChildEvent_Callback cb) { qsvgwidget_childevent_callback = cb; }
+    inline void setQSvgWidget_CustomEvent_Callback(QSvgWidget_CustomEvent_Callback cb) { qsvgwidget_customevent_callback = cb; }
+    inline void setQSvgWidget_ConnectNotify_Callback(QSvgWidget_ConnectNotify_Callback cb) { qsvgwidget_connectnotify_callback = cb; }
+    inline void setQSvgWidget_DisconnectNotify_Callback(QSvgWidget_DisconnectNotify_Callback cb) { qsvgwidget_disconnectnotify_callback = cb; }
+    inline void setQSvgWidget_UpdateMicroFocus_Callback(QSvgWidget_UpdateMicroFocus_Callback cb) { qsvgwidget_updatemicrofocus_callback = cb; }
+    inline void setQSvgWidget_Create_Callback(QSvgWidget_Create_Callback cb) { qsvgwidget_create_callback = cb; }
+    inline void setQSvgWidget_Destroy_Callback(QSvgWidget_Destroy_Callback cb) { qsvgwidget_destroy_callback = cb; }
+    inline void setQSvgWidget_FocusNextChild_Callback(QSvgWidget_FocusNextChild_Callback cb) { qsvgwidget_focusnextchild_callback = cb; }
+    inline void setQSvgWidget_FocusPreviousChild_Callback(QSvgWidget_FocusPreviousChild_Callback cb) { qsvgwidget_focuspreviouschild_callback = cb; }
+    inline void setQSvgWidget_Sender_Callback(QSvgWidget_Sender_Callback cb) { qsvgwidget_sender_callback = cb; }
+    inline void setQSvgWidget_SenderSignalIndex_Callback(QSvgWidget_SenderSignalIndex_Callback cb) { qsvgwidget_sendersignalindex_callback = cb; }
+    inline void setQSvgWidget_Receivers_Callback(QSvgWidget_Receivers_Callback cb) { qsvgwidget_receivers_callback = cb; }
+    inline void setQSvgWidget_IsSignalConnected_Callback(QSvgWidget_IsSignalConnected_Callback cb) { qsvgwidget_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQSvgWidget_Metacall_IsBase(bool value) const { qsvgwidget_metacall_isbase = value; }
-    void setQSvgWidget_SizeHint_IsBase(bool value) const { qsvgwidget_sizehint_isbase = value; }
-    void setQSvgWidget_PaintEvent_IsBase(bool value) const { qsvgwidget_paintevent_isbase = value; }
-    void setQSvgWidget_DevType_IsBase(bool value) const { qsvgwidget_devtype_isbase = value; }
-    void setQSvgWidget_SetVisible_IsBase(bool value) const { qsvgwidget_setvisible_isbase = value; }
-    void setQSvgWidget_MinimumSizeHint_IsBase(bool value) const { qsvgwidget_minimumsizehint_isbase = value; }
-    void setQSvgWidget_HeightForWidth_IsBase(bool value) const { qsvgwidget_heightforwidth_isbase = value; }
-    void setQSvgWidget_HasHeightForWidth_IsBase(bool value) const { qsvgwidget_hasheightforwidth_isbase = value; }
-    void setQSvgWidget_PaintEngine_IsBase(bool value) const { qsvgwidget_paintengine_isbase = value; }
-    void setQSvgWidget_Event_IsBase(bool value) const { qsvgwidget_event_isbase = value; }
-    void setQSvgWidget_MousePressEvent_IsBase(bool value) const { qsvgwidget_mousepressevent_isbase = value; }
-    void setQSvgWidget_MouseReleaseEvent_IsBase(bool value) const { qsvgwidget_mousereleaseevent_isbase = value; }
-    void setQSvgWidget_MouseDoubleClickEvent_IsBase(bool value) const { qsvgwidget_mousedoubleclickevent_isbase = value; }
-    void setQSvgWidget_MouseMoveEvent_IsBase(bool value) const { qsvgwidget_mousemoveevent_isbase = value; }
-    void setQSvgWidget_WheelEvent_IsBase(bool value) const { qsvgwidget_wheelevent_isbase = value; }
-    void setQSvgWidget_KeyPressEvent_IsBase(bool value) const { qsvgwidget_keypressevent_isbase = value; }
-    void setQSvgWidget_KeyReleaseEvent_IsBase(bool value) const { qsvgwidget_keyreleaseevent_isbase = value; }
-    void setQSvgWidget_FocusInEvent_IsBase(bool value) const { qsvgwidget_focusinevent_isbase = value; }
-    void setQSvgWidget_FocusOutEvent_IsBase(bool value) const { qsvgwidget_focusoutevent_isbase = value; }
-    void setQSvgWidget_EnterEvent_IsBase(bool value) const { qsvgwidget_enterevent_isbase = value; }
-    void setQSvgWidget_LeaveEvent_IsBase(bool value) const { qsvgwidget_leaveevent_isbase = value; }
-    void setQSvgWidget_MoveEvent_IsBase(bool value) const { qsvgwidget_moveevent_isbase = value; }
-    void setQSvgWidget_ResizeEvent_IsBase(bool value) const { qsvgwidget_resizeevent_isbase = value; }
-    void setQSvgWidget_CloseEvent_IsBase(bool value) const { qsvgwidget_closeevent_isbase = value; }
-    void setQSvgWidget_ContextMenuEvent_IsBase(bool value) const { qsvgwidget_contextmenuevent_isbase = value; }
-    void setQSvgWidget_TabletEvent_IsBase(bool value) const { qsvgwidget_tabletevent_isbase = value; }
-    void setQSvgWidget_ActionEvent_IsBase(bool value) const { qsvgwidget_actionevent_isbase = value; }
-    void setQSvgWidget_DragEnterEvent_IsBase(bool value) const { qsvgwidget_dragenterevent_isbase = value; }
-    void setQSvgWidget_DragMoveEvent_IsBase(bool value) const { qsvgwidget_dragmoveevent_isbase = value; }
-    void setQSvgWidget_DragLeaveEvent_IsBase(bool value) const { qsvgwidget_dragleaveevent_isbase = value; }
-    void setQSvgWidget_DropEvent_IsBase(bool value) const { qsvgwidget_dropevent_isbase = value; }
-    void setQSvgWidget_ShowEvent_IsBase(bool value) const { qsvgwidget_showevent_isbase = value; }
-    void setQSvgWidget_HideEvent_IsBase(bool value) const { qsvgwidget_hideevent_isbase = value; }
-    void setQSvgWidget_NativeEvent_IsBase(bool value) const { qsvgwidget_nativeevent_isbase = value; }
-    void setQSvgWidget_ChangeEvent_IsBase(bool value) const { qsvgwidget_changeevent_isbase = value; }
-    void setQSvgWidget_Metric_IsBase(bool value) const { qsvgwidget_metric_isbase = value; }
-    void setQSvgWidget_InitPainter_IsBase(bool value) const { qsvgwidget_initpainter_isbase = value; }
-    void setQSvgWidget_Redirected_IsBase(bool value) const { qsvgwidget_redirected_isbase = value; }
-    void setQSvgWidget_SharedPainter_IsBase(bool value) const { qsvgwidget_sharedpainter_isbase = value; }
-    void setQSvgWidget_InputMethodEvent_IsBase(bool value) const { qsvgwidget_inputmethodevent_isbase = value; }
-    void setQSvgWidget_InputMethodQuery_IsBase(bool value) const { qsvgwidget_inputmethodquery_isbase = value; }
-    void setQSvgWidget_FocusNextPrevChild_IsBase(bool value) const { qsvgwidget_focusnextprevchild_isbase = value; }
-    void setQSvgWidget_EventFilter_IsBase(bool value) const { qsvgwidget_eventfilter_isbase = value; }
-    void setQSvgWidget_TimerEvent_IsBase(bool value) const { qsvgwidget_timerevent_isbase = value; }
-    void setQSvgWidget_ChildEvent_IsBase(bool value) const { qsvgwidget_childevent_isbase = value; }
-    void setQSvgWidget_CustomEvent_IsBase(bool value) const { qsvgwidget_customevent_isbase = value; }
-    void setQSvgWidget_ConnectNotify_IsBase(bool value) const { qsvgwidget_connectnotify_isbase = value; }
-    void setQSvgWidget_DisconnectNotify_IsBase(bool value) const { qsvgwidget_disconnectnotify_isbase = value; }
-    void setQSvgWidget_UpdateMicroFocus_IsBase(bool value) const { qsvgwidget_updatemicrofocus_isbase = value; }
-    void setQSvgWidget_Create_IsBase(bool value) const { qsvgwidget_create_isbase = value; }
-    void setQSvgWidget_Destroy_IsBase(bool value) const { qsvgwidget_destroy_isbase = value; }
-    void setQSvgWidget_FocusNextChild_IsBase(bool value) const { qsvgwidget_focusnextchild_isbase = value; }
-    void setQSvgWidget_FocusPreviousChild_IsBase(bool value) const { qsvgwidget_focuspreviouschild_isbase = value; }
-    void setQSvgWidget_Sender_IsBase(bool value) const { qsvgwidget_sender_isbase = value; }
-    void setQSvgWidget_SenderSignalIndex_IsBase(bool value) const { qsvgwidget_sendersignalindex_isbase = value; }
-    void setQSvgWidget_Receivers_IsBase(bool value) const { qsvgwidget_receivers_isbase = value; }
-    void setQSvgWidget_IsSignalConnected_IsBase(bool value) const { qsvgwidget_issignalconnected_isbase = value; }
+    inline void setQSvgWidget_Metacall_IsBase(bool value) const { qsvgwidget_metacall_isbase = value; }
+    inline void setQSvgWidget_SizeHint_IsBase(bool value) const { qsvgwidget_sizehint_isbase = value; }
+    inline void setQSvgWidget_PaintEvent_IsBase(bool value) const { qsvgwidget_paintevent_isbase = value; }
+    inline void setQSvgWidget_DevType_IsBase(bool value) const { qsvgwidget_devtype_isbase = value; }
+    inline void setQSvgWidget_SetVisible_IsBase(bool value) const { qsvgwidget_setvisible_isbase = value; }
+    inline void setQSvgWidget_MinimumSizeHint_IsBase(bool value) const { qsvgwidget_minimumsizehint_isbase = value; }
+    inline void setQSvgWidget_HeightForWidth_IsBase(bool value) const { qsvgwidget_heightforwidth_isbase = value; }
+    inline void setQSvgWidget_HasHeightForWidth_IsBase(bool value) const { qsvgwidget_hasheightforwidth_isbase = value; }
+    inline void setQSvgWidget_PaintEngine_IsBase(bool value) const { qsvgwidget_paintengine_isbase = value; }
+    inline void setQSvgWidget_Event_IsBase(bool value) const { qsvgwidget_event_isbase = value; }
+    inline void setQSvgWidget_MousePressEvent_IsBase(bool value) const { qsvgwidget_mousepressevent_isbase = value; }
+    inline void setQSvgWidget_MouseReleaseEvent_IsBase(bool value) const { qsvgwidget_mousereleaseevent_isbase = value; }
+    inline void setQSvgWidget_MouseDoubleClickEvent_IsBase(bool value) const { qsvgwidget_mousedoubleclickevent_isbase = value; }
+    inline void setQSvgWidget_MouseMoveEvent_IsBase(bool value) const { qsvgwidget_mousemoveevent_isbase = value; }
+    inline void setQSvgWidget_WheelEvent_IsBase(bool value) const { qsvgwidget_wheelevent_isbase = value; }
+    inline void setQSvgWidget_KeyPressEvent_IsBase(bool value) const { qsvgwidget_keypressevent_isbase = value; }
+    inline void setQSvgWidget_KeyReleaseEvent_IsBase(bool value) const { qsvgwidget_keyreleaseevent_isbase = value; }
+    inline void setQSvgWidget_FocusInEvent_IsBase(bool value) const { qsvgwidget_focusinevent_isbase = value; }
+    inline void setQSvgWidget_FocusOutEvent_IsBase(bool value) const { qsvgwidget_focusoutevent_isbase = value; }
+    inline void setQSvgWidget_EnterEvent_IsBase(bool value) const { qsvgwidget_enterevent_isbase = value; }
+    inline void setQSvgWidget_LeaveEvent_IsBase(bool value) const { qsvgwidget_leaveevent_isbase = value; }
+    inline void setQSvgWidget_MoveEvent_IsBase(bool value) const { qsvgwidget_moveevent_isbase = value; }
+    inline void setQSvgWidget_ResizeEvent_IsBase(bool value) const { qsvgwidget_resizeevent_isbase = value; }
+    inline void setQSvgWidget_CloseEvent_IsBase(bool value) const { qsvgwidget_closeevent_isbase = value; }
+    inline void setQSvgWidget_ContextMenuEvent_IsBase(bool value) const { qsvgwidget_contextmenuevent_isbase = value; }
+    inline void setQSvgWidget_TabletEvent_IsBase(bool value) const { qsvgwidget_tabletevent_isbase = value; }
+    inline void setQSvgWidget_ActionEvent_IsBase(bool value) const { qsvgwidget_actionevent_isbase = value; }
+    inline void setQSvgWidget_DragEnterEvent_IsBase(bool value) const { qsvgwidget_dragenterevent_isbase = value; }
+    inline void setQSvgWidget_DragMoveEvent_IsBase(bool value) const { qsvgwidget_dragmoveevent_isbase = value; }
+    inline void setQSvgWidget_DragLeaveEvent_IsBase(bool value) const { qsvgwidget_dragleaveevent_isbase = value; }
+    inline void setQSvgWidget_DropEvent_IsBase(bool value) const { qsvgwidget_dropevent_isbase = value; }
+    inline void setQSvgWidget_ShowEvent_IsBase(bool value) const { qsvgwidget_showevent_isbase = value; }
+    inline void setQSvgWidget_HideEvent_IsBase(bool value) const { qsvgwidget_hideevent_isbase = value; }
+    inline void setQSvgWidget_NativeEvent_IsBase(bool value) const { qsvgwidget_nativeevent_isbase = value; }
+    inline void setQSvgWidget_ChangeEvent_IsBase(bool value) const { qsvgwidget_changeevent_isbase = value; }
+    inline void setQSvgWidget_Metric_IsBase(bool value) const { qsvgwidget_metric_isbase = value; }
+    inline void setQSvgWidget_InitPainter_IsBase(bool value) const { qsvgwidget_initpainter_isbase = value; }
+    inline void setQSvgWidget_Redirected_IsBase(bool value) const { qsvgwidget_redirected_isbase = value; }
+    inline void setQSvgWidget_SharedPainter_IsBase(bool value) const { qsvgwidget_sharedpainter_isbase = value; }
+    inline void setQSvgWidget_InputMethodEvent_IsBase(bool value) const { qsvgwidget_inputmethodevent_isbase = value; }
+    inline void setQSvgWidget_InputMethodQuery_IsBase(bool value) const { qsvgwidget_inputmethodquery_isbase = value; }
+    inline void setQSvgWidget_FocusNextPrevChild_IsBase(bool value) const { qsvgwidget_focusnextprevchild_isbase = value; }
+    inline void setQSvgWidget_EventFilter_IsBase(bool value) const { qsvgwidget_eventfilter_isbase = value; }
+    inline void setQSvgWidget_TimerEvent_IsBase(bool value) const { qsvgwidget_timerevent_isbase = value; }
+    inline void setQSvgWidget_ChildEvent_IsBase(bool value) const { qsvgwidget_childevent_isbase = value; }
+    inline void setQSvgWidget_CustomEvent_IsBase(bool value) const { qsvgwidget_customevent_isbase = value; }
+    inline void setQSvgWidget_ConnectNotify_IsBase(bool value) const { qsvgwidget_connectnotify_isbase = value; }
+    inline void setQSvgWidget_DisconnectNotify_IsBase(bool value) const { qsvgwidget_disconnectnotify_isbase = value; }
+    inline void setQSvgWidget_UpdateMicroFocus_IsBase(bool value) const { qsvgwidget_updatemicrofocus_isbase = value; }
+    inline void setQSvgWidget_Create_IsBase(bool value) const { qsvgwidget_create_isbase = value; }
+    inline void setQSvgWidget_Destroy_IsBase(bool value) const { qsvgwidget_destroy_isbase = value; }
+    inline void setQSvgWidget_FocusNextChild_IsBase(bool value) const { qsvgwidget_focusnextchild_isbase = value; }
+    inline void setQSvgWidget_FocusPreviousChild_IsBase(bool value) const { qsvgwidget_focuspreviouschild_isbase = value; }
+    inline void setQSvgWidget_Sender_IsBase(bool value) const { qsvgwidget_sender_isbase = value; }
+    inline void setQSvgWidget_SenderSignalIndex_IsBase(bool value) const { qsvgwidget_sendersignalindex_isbase = value; }
+    inline void setQSvgWidget_Receivers_IsBase(bool value) const { qsvgwidget_receivers_isbase = value; }
+    inline void setQSvgWidget_IsSignalConnected_IsBase(bool value) const { qsvgwidget_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -382,7 +385,12 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_metacall_isbase = false;
             return QSvgWidget::qt_metacall(param1, param2, param3);
         } else if (qsvgwidget_metacall_callback != nullptr) {
-            return qsvgwidget_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qsvgwidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QSvgWidget::qt_metacall(param1, param2, param3);
         }
@@ -394,7 +402,8 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_sizehint_isbase = false;
             return QSvgWidget::sizeHint();
         } else if (qsvgwidget_sizehint_callback != nullptr) {
-            return qsvgwidget_sizehint_callback();
+            QSize* callback_ret = qsvgwidget_sizehint_callback();
+            return *callback_ret;
         } else {
             return QSvgWidget::sizeHint();
         }
@@ -406,7 +415,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_paintevent_isbase = false;
             QSvgWidget::paintEvent(event);
         } else if (qsvgwidget_paintevent_callback != nullptr) {
-            qsvgwidget_paintevent_callback(this, event);
+            QPaintEvent* cbval1 = event;
+
+            qsvgwidget_paintevent_callback(this, cbval1);
         } else {
             QSvgWidget::paintEvent(event);
         }
@@ -418,7 +429,8 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_devtype_isbase = false;
             return QSvgWidget::devType();
         } else if (qsvgwidget_devtype_callback != nullptr) {
-            return qsvgwidget_devtype_callback();
+            int callback_ret = qsvgwidget_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QSvgWidget::devType();
         }
@@ -430,7 +442,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_setvisible_isbase = false;
             QSvgWidget::setVisible(visible);
         } else if (qsvgwidget_setvisible_callback != nullptr) {
-            qsvgwidget_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qsvgwidget_setvisible_callback(this, cbval1);
         } else {
             QSvgWidget::setVisible(visible);
         }
@@ -442,7 +456,8 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_minimumsizehint_isbase = false;
             return QSvgWidget::minimumSizeHint();
         } else if (qsvgwidget_minimumsizehint_callback != nullptr) {
-            return qsvgwidget_minimumsizehint_callback();
+            QSize* callback_ret = qsvgwidget_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QSvgWidget::minimumSizeHint();
         }
@@ -454,7 +469,10 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_heightforwidth_isbase = false;
             return QSvgWidget::heightForWidth(param1);
         } else if (qsvgwidget_heightforwidth_callback != nullptr) {
-            return qsvgwidget_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qsvgwidget_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QSvgWidget::heightForWidth(param1);
         }
@@ -466,7 +484,8 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_hasheightforwidth_isbase = false;
             return QSvgWidget::hasHeightForWidth();
         } else if (qsvgwidget_hasheightforwidth_callback != nullptr) {
-            return qsvgwidget_hasheightforwidth_callback();
+            bool callback_ret = qsvgwidget_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QSvgWidget::hasHeightForWidth();
         }
@@ -478,7 +497,8 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_paintengine_isbase = false;
             return QSvgWidget::paintEngine();
         } else if (qsvgwidget_paintengine_callback != nullptr) {
-            return qsvgwidget_paintengine_callback();
+            QPaintEngine* callback_ret = qsvgwidget_paintengine_callback();
+            return callback_ret;
         } else {
             return QSvgWidget::paintEngine();
         }
@@ -490,7 +510,10 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_event_isbase = false;
             return QSvgWidget::event(event);
         } else if (qsvgwidget_event_callback != nullptr) {
-            return qsvgwidget_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qsvgwidget_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QSvgWidget::event(event);
         }
@@ -502,7 +525,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_mousepressevent_isbase = false;
             QSvgWidget::mousePressEvent(event);
         } else if (qsvgwidget_mousepressevent_callback != nullptr) {
-            qsvgwidget_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qsvgwidget_mousepressevent_callback(this, cbval1);
         } else {
             QSvgWidget::mousePressEvent(event);
         }
@@ -514,7 +539,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_mousereleaseevent_isbase = false;
             QSvgWidget::mouseReleaseEvent(event);
         } else if (qsvgwidget_mousereleaseevent_callback != nullptr) {
-            qsvgwidget_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qsvgwidget_mousereleaseevent_callback(this, cbval1);
         } else {
             QSvgWidget::mouseReleaseEvent(event);
         }
@@ -526,7 +553,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_mousedoubleclickevent_isbase = false;
             QSvgWidget::mouseDoubleClickEvent(event);
         } else if (qsvgwidget_mousedoubleclickevent_callback != nullptr) {
-            qsvgwidget_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qsvgwidget_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QSvgWidget::mouseDoubleClickEvent(event);
         }
@@ -538,7 +567,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_mousemoveevent_isbase = false;
             QSvgWidget::mouseMoveEvent(event);
         } else if (qsvgwidget_mousemoveevent_callback != nullptr) {
-            qsvgwidget_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qsvgwidget_mousemoveevent_callback(this, cbval1);
         } else {
             QSvgWidget::mouseMoveEvent(event);
         }
@@ -550,7 +581,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_wheelevent_isbase = false;
             QSvgWidget::wheelEvent(event);
         } else if (qsvgwidget_wheelevent_callback != nullptr) {
-            qsvgwidget_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qsvgwidget_wheelevent_callback(this, cbval1);
         } else {
             QSvgWidget::wheelEvent(event);
         }
@@ -562,7 +595,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_keypressevent_isbase = false;
             QSvgWidget::keyPressEvent(event);
         } else if (qsvgwidget_keypressevent_callback != nullptr) {
-            qsvgwidget_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qsvgwidget_keypressevent_callback(this, cbval1);
         } else {
             QSvgWidget::keyPressEvent(event);
         }
@@ -574,7 +609,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_keyreleaseevent_isbase = false;
             QSvgWidget::keyReleaseEvent(event);
         } else if (qsvgwidget_keyreleaseevent_callback != nullptr) {
-            qsvgwidget_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qsvgwidget_keyreleaseevent_callback(this, cbval1);
         } else {
             QSvgWidget::keyReleaseEvent(event);
         }
@@ -586,7 +623,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_focusinevent_isbase = false;
             QSvgWidget::focusInEvent(event);
         } else if (qsvgwidget_focusinevent_callback != nullptr) {
-            qsvgwidget_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qsvgwidget_focusinevent_callback(this, cbval1);
         } else {
             QSvgWidget::focusInEvent(event);
         }
@@ -598,7 +637,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_focusoutevent_isbase = false;
             QSvgWidget::focusOutEvent(event);
         } else if (qsvgwidget_focusoutevent_callback != nullptr) {
-            qsvgwidget_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qsvgwidget_focusoutevent_callback(this, cbval1);
         } else {
             QSvgWidget::focusOutEvent(event);
         }
@@ -610,7 +651,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_enterevent_isbase = false;
             QSvgWidget::enterEvent(event);
         } else if (qsvgwidget_enterevent_callback != nullptr) {
-            qsvgwidget_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qsvgwidget_enterevent_callback(this, cbval1);
         } else {
             QSvgWidget::enterEvent(event);
         }
@@ -622,7 +665,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_leaveevent_isbase = false;
             QSvgWidget::leaveEvent(event);
         } else if (qsvgwidget_leaveevent_callback != nullptr) {
-            qsvgwidget_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qsvgwidget_leaveevent_callback(this, cbval1);
         } else {
             QSvgWidget::leaveEvent(event);
         }
@@ -634,7 +679,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_moveevent_isbase = false;
             QSvgWidget::moveEvent(event);
         } else if (qsvgwidget_moveevent_callback != nullptr) {
-            qsvgwidget_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qsvgwidget_moveevent_callback(this, cbval1);
         } else {
             QSvgWidget::moveEvent(event);
         }
@@ -646,7 +693,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_resizeevent_isbase = false;
             QSvgWidget::resizeEvent(event);
         } else if (qsvgwidget_resizeevent_callback != nullptr) {
-            qsvgwidget_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qsvgwidget_resizeevent_callback(this, cbval1);
         } else {
             QSvgWidget::resizeEvent(event);
         }
@@ -658,7 +707,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_closeevent_isbase = false;
             QSvgWidget::closeEvent(event);
         } else if (qsvgwidget_closeevent_callback != nullptr) {
-            qsvgwidget_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qsvgwidget_closeevent_callback(this, cbval1);
         } else {
             QSvgWidget::closeEvent(event);
         }
@@ -670,7 +721,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_contextmenuevent_isbase = false;
             QSvgWidget::contextMenuEvent(event);
         } else if (qsvgwidget_contextmenuevent_callback != nullptr) {
-            qsvgwidget_contextmenuevent_callback(this, event);
+            QContextMenuEvent* cbval1 = event;
+
+            qsvgwidget_contextmenuevent_callback(this, cbval1);
         } else {
             QSvgWidget::contextMenuEvent(event);
         }
@@ -682,7 +735,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_tabletevent_isbase = false;
             QSvgWidget::tabletEvent(event);
         } else if (qsvgwidget_tabletevent_callback != nullptr) {
-            qsvgwidget_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qsvgwidget_tabletevent_callback(this, cbval1);
         } else {
             QSvgWidget::tabletEvent(event);
         }
@@ -694,7 +749,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_actionevent_isbase = false;
             QSvgWidget::actionEvent(event);
         } else if (qsvgwidget_actionevent_callback != nullptr) {
-            qsvgwidget_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qsvgwidget_actionevent_callback(this, cbval1);
         } else {
             QSvgWidget::actionEvent(event);
         }
@@ -706,7 +763,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_dragenterevent_isbase = false;
             QSvgWidget::dragEnterEvent(event);
         } else if (qsvgwidget_dragenterevent_callback != nullptr) {
-            qsvgwidget_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qsvgwidget_dragenterevent_callback(this, cbval1);
         } else {
             QSvgWidget::dragEnterEvent(event);
         }
@@ -718,7 +777,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_dragmoveevent_isbase = false;
             QSvgWidget::dragMoveEvent(event);
         } else if (qsvgwidget_dragmoveevent_callback != nullptr) {
-            qsvgwidget_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qsvgwidget_dragmoveevent_callback(this, cbval1);
         } else {
             QSvgWidget::dragMoveEvent(event);
         }
@@ -730,7 +791,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_dragleaveevent_isbase = false;
             QSvgWidget::dragLeaveEvent(event);
         } else if (qsvgwidget_dragleaveevent_callback != nullptr) {
-            qsvgwidget_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qsvgwidget_dragleaveevent_callback(this, cbval1);
         } else {
             QSvgWidget::dragLeaveEvent(event);
         }
@@ -742,7 +805,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_dropevent_isbase = false;
             QSvgWidget::dropEvent(event);
         } else if (qsvgwidget_dropevent_callback != nullptr) {
-            qsvgwidget_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qsvgwidget_dropevent_callback(this, cbval1);
         } else {
             QSvgWidget::dropEvent(event);
         }
@@ -754,7 +819,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_showevent_isbase = false;
             QSvgWidget::showEvent(event);
         } else if (qsvgwidget_showevent_callback != nullptr) {
-            qsvgwidget_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qsvgwidget_showevent_callback(this, cbval1);
         } else {
             QSvgWidget::showEvent(event);
         }
@@ -766,7 +833,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_hideevent_isbase = false;
             QSvgWidget::hideEvent(event);
         } else if (qsvgwidget_hideevent_callback != nullptr) {
-            qsvgwidget_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qsvgwidget_hideevent_callback(this, cbval1);
         } else {
             QSvgWidget::hideEvent(event);
         }
@@ -778,7 +847,19 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_nativeevent_isbase = false;
             return QSvgWidget::nativeEvent(eventType, message, result);
         } else if (qsvgwidget_nativeevent_callback != nullptr) {
-            return qsvgwidget_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qsvgwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QSvgWidget::nativeEvent(eventType, message, result);
         }
@@ -790,7 +871,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_changeevent_isbase = false;
             QSvgWidget::changeEvent(param1);
         } else if (qsvgwidget_changeevent_callback != nullptr) {
-            qsvgwidget_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qsvgwidget_changeevent_callback(this, cbval1);
         } else {
             QSvgWidget::changeEvent(param1);
         }
@@ -802,7 +885,10 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_metric_isbase = false;
             return QSvgWidget::metric(param1);
         } else if (qsvgwidget_metric_callback != nullptr) {
-            return qsvgwidget_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qsvgwidget_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QSvgWidget::metric(param1);
         }
@@ -814,7 +900,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_initpainter_isbase = false;
             QSvgWidget::initPainter(painter);
         } else if (qsvgwidget_initpainter_callback != nullptr) {
-            qsvgwidget_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qsvgwidget_initpainter_callback(this, cbval1);
         } else {
             QSvgWidget::initPainter(painter);
         }
@@ -826,7 +914,10 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_redirected_isbase = false;
             return QSvgWidget::redirected(offset);
         } else if (qsvgwidget_redirected_callback != nullptr) {
-            return qsvgwidget_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qsvgwidget_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QSvgWidget::redirected(offset);
         }
@@ -838,7 +929,8 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_sharedpainter_isbase = false;
             return QSvgWidget::sharedPainter();
         } else if (qsvgwidget_sharedpainter_callback != nullptr) {
-            return qsvgwidget_sharedpainter_callback();
+            QPainter* callback_ret = qsvgwidget_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QSvgWidget::sharedPainter();
         }
@@ -850,7 +942,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_inputmethodevent_isbase = false;
             QSvgWidget::inputMethodEvent(param1);
         } else if (qsvgwidget_inputmethodevent_callback != nullptr) {
-            qsvgwidget_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qsvgwidget_inputmethodevent_callback(this, cbval1);
         } else {
             QSvgWidget::inputMethodEvent(param1);
         }
@@ -862,7 +956,10 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_inputmethodquery_isbase = false;
             return QSvgWidget::inputMethodQuery(param1);
         } else if (qsvgwidget_inputmethodquery_callback != nullptr) {
-            return qsvgwidget_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qsvgwidget_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QSvgWidget::inputMethodQuery(param1);
         }
@@ -874,7 +971,10 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_focusnextprevchild_isbase = false;
             return QSvgWidget::focusNextPrevChild(next);
         } else if (qsvgwidget_focusnextprevchild_callback != nullptr) {
-            return qsvgwidget_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qsvgwidget_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QSvgWidget::focusNextPrevChild(next);
         }
@@ -886,7 +986,11 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_eventfilter_isbase = false;
             return QSvgWidget::eventFilter(watched, event);
         } else if (qsvgwidget_eventfilter_callback != nullptr) {
-            return qsvgwidget_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qsvgwidget_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QSvgWidget::eventFilter(watched, event);
         }
@@ -898,7 +1002,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_timerevent_isbase = false;
             QSvgWidget::timerEvent(event);
         } else if (qsvgwidget_timerevent_callback != nullptr) {
-            qsvgwidget_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qsvgwidget_timerevent_callback(this, cbval1);
         } else {
             QSvgWidget::timerEvent(event);
         }
@@ -910,7 +1016,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_childevent_isbase = false;
             QSvgWidget::childEvent(event);
         } else if (qsvgwidget_childevent_callback != nullptr) {
-            qsvgwidget_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qsvgwidget_childevent_callback(this, cbval1);
         } else {
             QSvgWidget::childEvent(event);
         }
@@ -922,7 +1030,9 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_customevent_isbase = false;
             QSvgWidget::customEvent(event);
         } else if (qsvgwidget_customevent_callback != nullptr) {
-            qsvgwidget_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qsvgwidget_customevent_callback(this, cbval1);
         } else {
             QSvgWidget::customEvent(event);
         }
@@ -934,7 +1044,11 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_connectnotify_isbase = false;
             QSvgWidget::connectNotify(signal);
         } else if (qsvgwidget_connectnotify_callback != nullptr) {
-            qsvgwidget_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qsvgwidget_connectnotify_callback(this, cbval1);
         } else {
             QSvgWidget::connectNotify(signal);
         }
@@ -946,7 +1060,11 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_disconnectnotify_isbase = false;
             QSvgWidget::disconnectNotify(signal);
         } else if (qsvgwidget_disconnectnotify_callback != nullptr) {
-            qsvgwidget_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qsvgwidget_disconnectnotify_callback(this, cbval1);
         } else {
             QSvgWidget::disconnectNotify(signal);
         }
@@ -994,7 +1112,8 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_focusnextchild_isbase = false;
             return QSvgWidget::focusNextChild();
         } else if (qsvgwidget_focusnextchild_callback != nullptr) {
-            return qsvgwidget_focusnextchild_callback();
+            bool callback_ret = qsvgwidget_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QSvgWidget::focusNextChild();
         }
@@ -1006,7 +1125,8 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_focuspreviouschild_isbase = false;
             return QSvgWidget::focusPreviousChild();
         } else if (qsvgwidget_focuspreviouschild_callback != nullptr) {
-            return qsvgwidget_focuspreviouschild_callback();
+            bool callback_ret = qsvgwidget_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QSvgWidget::focusPreviousChild();
         }
@@ -1018,7 +1138,8 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_sender_isbase = false;
             return QSvgWidget::sender();
         } else if (qsvgwidget_sender_callback != nullptr) {
-            return qsvgwidget_sender_callback();
+            QObject* callback_ret = qsvgwidget_sender_callback();
+            return callback_ret;
         } else {
             return QSvgWidget::sender();
         }
@@ -1030,7 +1151,8 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_sendersignalindex_isbase = false;
             return QSvgWidget::senderSignalIndex();
         } else if (qsvgwidget_sendersignalindex_callback != nullptr) {
-            return qsvgwidget_sendersignalindex_callback();
+            int callback_ret = qsvgwidget_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QSvgWidget::senderSignalIndex();
         }
@@ -1042,7 +1164,10 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_receivers_isbase = false;
             return QSvgWidget::receivers(signal);
         } else if (qsvgwidget_receivers_callback != nullptr) {
-            return qsvgwidget_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qsvgwidget_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QSvgWidget::receivers(signal);
         }
@@ -1054,11 +1179,112 @@ class VirtualQSvgWidget : public QSvgWidget {
             qsvgwidget_issignalconnected_isbase = false;
             return QSvgWidget::isSignalConnected(signal);
         } else if (qsvgwidget_issignalconnected_callback != nullptr) {
-            return qsvgwidget_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qsvgwidget_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QSvgWidget::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QSvgWidget_PaintEvent(QSvgWidget* self, QPaintEvent* event);
+    friend void QSvgWidget_QBasePaintEvent(QSvgWidget* self, QPaintEvent* event);
+    friend bool QSvgWidget_Event(QSvgWidget* self, QEvent* event);
+    friend bool QSvgWidget_QBaseEvent(QSvgWidget* self, QEvent* event);
+    friend void QSvgWidget_MousePressEvent(QSvgWidget* self, QMouseEvent* event);
+    friend void QSvgWidget_QBaseMousePressEvent(QSvgWidget* self, QMouseEvent* event);
+    friend void QSvgWidget_MouseReleaseEvent(QSvgWidget* self, QMouseEvent* event);
+    friend void QSvgWidget_QBaseMouseReleaseEvent(QSvgWidget* self, QMouseEvent* event);
+    friend void QSvgWidget_MouseDoubleClickEvent(QSvgWidget* self, QMouseEvent* event);
+    friend void QSvgWidget_QBaseMouseDoubleClickEvent(QSvgWidget* self, QMouseEvent* event);
+    friend void QSvgWidget_MouseMoveEvent(QSvgWidget* self, QMouseEvent* event);
+    friend void QSvgWidget_QBaseMouseMoveEvent(QSvgWidget* self, QMouseEvent* event);
+    friend void QSvgWidget_WheelEvent(QSvgWidget* self, QWheelEvent* event);
+    friend void QSvgWidget_QBaseWheelEvent(QSvgWidget* self, QWheelEvent* event);
+    friend void QSvgWidget_KeyPressEvent(QSvgWidget* self, QKeyEvent* event);
+    friend void QSvgWidget_QBaseKeyPressEvent(QSvgWidget* self, QKeyEvent* event);
+    friend void QSvgWidget_KeyReleaseEvent(QSvgWidget* self, QKeyEvent* event);
+    friend void QSvgWidget_QBaseKeyReleaseEvent(QSvgWidget* self, QKeyEvent* event);
+    friend void QSvgWidget_FocusInEvent(QSvgWidget* self, QFocusEvent* event);
+    friend void QSvgWidget_QBaseFocusInEvent(QSvgWidget* self, QFocusEvent* event);
+    friend void QSvgWidget_FocusOutEvent(QSvgWidget* self, QFocusEvent* event);
+    friend void QSvgWidget_QBaseFocusOutEvent(QSvgWidget* self, QFocusEvent* event);
+    friend void QSvgWidget_EnterEvent(QSvgWidget* self, QEnterEvent* event);
+    friend void QSvgWidget_QBaseEnterEvent(QSvgWidget* self, QEnterEvent* event);
+    friend void QSvgWidget_LeaveEvent(QSvgWidget* self, QEvent* event);
+    friend void QSvgWidget_QBaseLeaveEvent(QSvgWidget* self, QEvent* event);
+    friend void QSvgWidget_MoveEvent(QSvgWidget* self, QMoveEvent* event);
+    friend void QSvgWidget_QBaseMoveEvent(QSvgWidget* self, QMoveEvent* event);
+    friend void QSvgWidget_ResizeEvent(QSvgWidget* self, QResizeEvent* event);
+    friend void QSvgWidget_QBaseResizeEvent(QSvgWidget* self, QResizeEvent* event);
+    friend void QSvgWidget_CloseEvent(QSvgWidget* self, QCloseEvent* event);
+    friend void QSvgWidget_QBaseCloseEvent(QSvgWidget* self, QCloseEvent* event);
+    friend void QSvgWidget_ContextMenuEvent(QSvgWidget* self, QContextMenuEvent* event);
+    friend void QSvgWidget_QBaseContextMenuEvent(QSvgWidget* self, QContextMenuEvent* event);
+    friend void QSvgWidget_TabletEvent(QSvgWidget* self, QTabletEvent* event);
+    friend void QSvgWidget_QBaseTabletEvent(QSvgWidget* self, QTabletEvent* event);
+    friend void QSvgWidget_ActionEvent(QSvgWidget* self, QActionEvent* event);
+    friend void QSvgWidget_QBaseActionEvent(QSvgWidget* self, QActionEvent* event);
+    friend void QSvgWidget_DragEnterEvent(QSvgWidget* self, QDragEnterEvent* event);
+    friend void QSvgWidget_QBaseDragEnterEvent(QSvgWidget* self, QDragEnterEvent* event);
+    friend void QSvgWidget_DragMoveEvent(QSvgWidget* self, QDragMoveEvent* event);
+    friend void QSvgWidget_QBaseDragMoveEvent(QSvgWidget* self, QDragMoveEvent* event);
+    friend void QSvgWidget_DragLeaveEvent(QSvgWidget* self, QDragLeaveEvent* event);
+    friend void QSvgWidget_QBaseDragLeaveEvent(QSvgWidget* self, QDragLeaveEvent* event);
+    friend void QSvgWidget_DropEvent(QSvgWidget* self, QDropEvent* event);
+    friend void QSvgWidget_QBaseDropEvent(QSvgWidget* self, QDropEvent* event);
+    friend void QSvgWidget_ShowEvent(QSvgWidget* self, QShowEvent* event);
+    friend void QSvgWidget_QBaseShowEvent(QSvgWidget* self, QShowEvent* event);
+    friend void QSvgWidget_HideEvent(QSvgWidget* self, QHideEvent* event);
+    friend void QSvgWidget_QBaseHideEvent(QSvgWidget* self, QHideEvent* event);
+    friend bool QSvgWidget_NativeEvent(QSvgWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QSvgWidget_QBaseNativeEvent(QSvgWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend void QSvgWidget_ChangeEvent(QSvgWidget* self, QEvent* param1);
+    friend void QSvgWidget_QBaseChangeEvent(QSvgWidget* self, QEvent* param1);
+    friend int QSvgWidget_Metric(const QSvgWidget* self, int param1);
+    friend int QSvgWidget_QBaseMetric(const QSvgWidget* self, int param1);
+    friend void QSvgWidget_InitPainter(const QSvgWidget* self, QPainter* painter);
+    friend void QSvgWidget_QBaseInitPainter(const QSvgWidget* self, QPainter* painter);
+    friend QPaintDevice* QSvgWidget_Redirected(const QSvgWidget* self, QPoint* offset);
+    friend QPaintDevice* QSvgWidget_QBaseRedirected(const QSvgWidget* self, QPoint* offset);
+    friend QPainter* QSvgWidget_SharedPainter(const QSvgWidget* self);
+    friend QPainter* QSvgWidget_QBaseSharedPainter(const QSvgWidget* self);
+    friend void QSvgWidget_InputMethodEvent(QSvgWidget* self, QInputMethodEvent* param1);
+    friend void QSvgWidget_QBaseInputMethodEvent(QSvgWidget* self, QInputMethodEvent* param1);
+    friend bool QSvgWidget_FocusNextPrevChild(QSvgWidget* self, bool next);
+    friend bool QSvgWidget_QBaseFocusNextPrevChild(QSvgWidget* self, bool next);
+    friend void QSvgWidget_TimerEvent(QSvgWidget* self, QTimerEvent* event);
+    friend void QSvgWidget_QBaseTimerEvent(QSvgWidget* self, QTimerEvent* event);
+    friend void QSvgWidget_ChildEvent(QSvgWidget* self, QChildEvent* event);
+    friend void QSvgWidget_QBaseChildEvent(QSvgWidget* self, QChildEvent* event);
+    friend void QSvgWidget_CustomEvent(QSvgWidget* self, QEvent* event);
+    friend void QSvgWidget_QBaseCustomEvent(QSvgWidget* self, QEvent* event);
+    friend void QSvgWidget_ConnectNotify(QSvgWidget* self, const QMetaMethod* signal);
+    friend void QSvgWidget_QBaseConnectNotify(QSvgWidget* self, const QMetaMethod* signal);
+    friend void QSvgWidget_DisconnectNotify(QSvgWidget* self, const QMetaMethod* signal);
+    friend void QSvgWidget_QBaseDisconnectNotify(QSvgWidget* self, const QMetaMethod* signal);
+    friend void QSvgWidget_UpdateMicroFocus(QSvgWidget* self);
+    friend void QSvgWidget_QBaseUpdateMicroFocus(QSvgWidget* self);
+    friend void QSvgWidget_Create(QSvgWidget* self);
+    friend void QSvgWidget_QBaseCreate(QSvgWidget* self);
+    friend void QSvgWidget_Destroy(QSvgWidget* self);
+    friend void QSvgWidget_QBaseDestroy(QSvgWidget* self);
+    friend bool QSvgWidget_FocusNextChild(QSvgWidget* self);
+    friend bool QSvgWidget_QBaseFocusNextChild(QSvgWidget* self);
+    friend bool QSvgWidget_FocusPreviousChild(QSvgWidget* self);
+    friend bool QSvgWidget_QBaseFocusPreviousChild(QSvgWidget* self);
+    friend QObject* QSvgWidget_Sender(const QSvgWidget* self);
+    friend QObject* QSvgWidget_QBaseSender(const QSvgWidget* self);
+    friend int QSvgWidget_SenderSignalIndex(const QSvgWidget* self);
+    friend int QSvgWidget_QBaseSenderSignalIndex(const QSvgWidget* self);
+    friend int QSvgWidget_Receivers(const QSvgWidget* self, const char* signal);
+    friend int QSvgWidget_QBaseReceivers(const QSvgWidget* self, const char* signal);
+    friend bool QSvgWidget_IsSignalConnected(const QSvgWidget* self, const QMetaMethod* signal);
+    friend bool QSvgWidget_QBaseIsSignalConnected(const QSvgWidget* self, const QMetaMethod* signal);
 };
 
 #endif

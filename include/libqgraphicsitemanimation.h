@@ -15,26 +15,18 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QGraphicsItem QGraphicsItem;
 typedef struct QGraphicsItemAnimation QGraphicsItemAnimation;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QPointF QPointF;
-typedef struct QThread QThread;
 typedef struct QTimeLine QTimeLine;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QTransform QTransform;
-typedef struct QVariant QVariant;
 #endif
 
 QGraphicsItemAnimation* QGraphicsItemAnimation_new();
@@ -51,7 +43,7 @@ QTimeLine* QGraphicsItemAnimation_TimeLine(const QGraphicsItemAnimation* self);
 void QGraphicsItemAnimation_SetTimeLine(QGraphicsItemAnimation* self, QTimeLine* timeLine);
 QPointF* QGraphicsItemAnimation_PosAt(const QGraphicsItemAnimation* self, double step);
 libqt_list /* of libqt_pair  tuple of double and QPointF*  */ QGraphicsItemAnimation_PosList(const QGraphicsItemAnimation* self);
-void QGraphicsItemAnimation_SetPosAt(QGraphicsItemAnimation* self, double step, QPointF* pos);
+void QGraphicsItemAnimation_SetPosAt(QGraphicsItemAnimation* self, double step, const QPointF* pos);
 QTransform* QGraphicsItemAnimation_TransformAt(const QGraphicsItemAnimation* self, double step);
 double QGraphicsItemAnimation_RotationAt(const QGraphicsItemAnimation* self, double step);
 libqt_list /* of libqt_pair  tuple of double and double  */ QGraphicsItemAnimation_RotationList(const QGraphicsItemAnimation* self);
@@ -93,12 +85,12 @@ void QGraphicsItemAnimation_QBaseChildEvent(QGraphicsItemAnimation* self, QChild
 void QGraphicsItemAnimation_CustomEvent(QGraphicsItemAnimation* self, QEvent* event);
 void QGraphicsItemAnimation_OnCustomEvent(QGraphicsItemAnimation* self, intptr_t slot);
 void QGraphicsItemAnimation_QBaseCustomEvent(QGraphicsItemAnimation* self, QEvent* event);
-void QGraphicsItemAnimation_ConnectNotify(QGraphicsItemAnimation* self, QMetaMethod* signal);
+void QGraphicsItemAnimation_ConnectNotify(QGraphicsItemAnimation* self, const QMetaMethod* signal);
 void QGraphicsItemAnimation_OnConnectNotify(QGraphicsItemAnimation* self, intptr_t slot);
-void QGraphicsItemAnimation_QBaseConnectNotify(QGraphicsItemAnimation* self, QMetaMethod* signal);
-void QGraphicsItemAnimation_DisconnectNotify(QGraphicsItemAnimation* self, QMetaMethod* signal);
+void QGraphicsItemAnimation_QBaseConnectNotify(QGraphicsItemAnimation* self, const QMetaMethod* signal);
+void QGraphicsItemAnimation_DisconnectNotify(QGraphicsItemAnimation* self, const QMetaMethod* signal);
 void QGraphicsItemAnimation_OnDisconnectNotify(QGraphicsItemAnimation* self, intptr_t slot);
-void QGraphicsItemAnimation_QBaseDisconnectNotify(QGraphicsItemAnimation* self, QMetaMethod* signal);
+void QGraphicsItemAnimation_QBaseDisconnectNotify(QGraphicsItemAnimation* self, const QMetaMethod* signal);
 QObject* QGraphicsItemAnimation_Sender(const QGraphicsItemAnimation* self);
 void QGraphicsItemAnimation_OnSender(const QGraphicsItemAnimation* self, intptr_t slot);
 QObject* QGraphicsItemAnimation_QBaseSender(const QGraphicsItemAnimation* self);
@@ -108,9 +100,9 @@ int QGraphicsItemAnimation_QBaseSenderSignalIndex(const QGraphicsItemAnimation* 
 int QGraphicsItemAnimation_Receivers(const QGraphicsItemAnimation* self, const char* signal);
 void QGraphicsItemAnimation_OnReceivers(const QGraphicsItemAnimation* self, intptr_t slot);
 int QGraphicsItemAnimation_QBaseReceivers(const QGraphicsItemAnimation* self, const char* signal);
-bool QGraphicsItemAnimation_IsSignalConnected(const QGraphicsItemAnimation* self, QMetaMethod* signal);
+bool QGraphicsItemAnimation_IsSignalConnected(const QGraphicsItemAnimation* self, const QMetaMethod* signal);
 void QGraphicsItemAnimation_OnIsSignalConnected(const QGraphicsItemAnimation* self, intptr_t slot);
-bool QGraphicsItemAnimation_QBaseIsSignalConnected(const QGraphicsItemAnimation* self, QMetaMethod* signal);
+bool QGraphicsItemAnimation_QBaseIsSignalConnected(const QGraphicsItemAnimation* self, const QMetaMethod* signal);
 void QGraphicsItemAnimation_Delete(QGraphicsItemAnimation* self);
 
 #ifdef __cplusplus

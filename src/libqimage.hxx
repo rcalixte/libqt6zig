@@ -11,23 +11,26 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QImage so that we can call protected methods
-class VirtualQImage : public QImage {
+class VirtualQImage final : public QImage {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQImage = true;
+
     // Virtual class public types (including callbacks)
     using QImage_DevType_Callback = int (*)();
     using QImage_PaintEngine_Callback = QPaintEngine* (*)();
-    using QImage_Metric_Callback = int (*)(const QImage*, QPaintDevice::PaintDeviceMetric);
+    using QImage_Metric_Callback = int (*)(const QImage*, int);
     using QImage_InitPainter_Callback = void (*)(const QImage*, QPainter*);
     using QImage_Redirected_Callback = QPaintDevice* (*)(const QImage*, QPoint*);
     using QImage_SharedPainter_Callback = QPainter* (*)();
-    using QImage_MirroredHelper_Callback = QImage (*)(const QImage*, bool, bool);
-    using QImage_RgbSwappedHelper_Callback = QImage (*)();
+    using QImage_MirroredHelper_Callback = QImage* (*)(const QImage*, bool, bool);
+    using QImage_RgbSwappedHelper_Callback = QImage* (*)();
     using QImage_MirroredInplace_Callback = void (*)(QImage*, bool, bool);
     using QImage_RgbSwappedInplace_Callback = void (*)();
-    using QImage_ConvertToFormatHelper_Callback = QImage (*)(const QImage*, QImage::Format, Qt::ImageConversionFlags);
-    using QImage_ConvertToFormatInplace_Callback = bool (*)(QImage*, QImage::Format, Qt::ImageConversionFlags);
-    using QImage_SmoothScaled_Callback = QImage (*)(const QImage*, int, int);
+    using QImage_ConvertToFormatHelper_Callback = QImage* (*)(const QImage*, int, int);
+    using QImage_ConvertToFormatInplace_Callback = bool (*)(QImage*, int, int);
+    using QImage_SmoothScaled_Callback = QImage* (*)(const QImage*, int, int);
     using QImage_DetachMetadata_Callback = void (*)();
     using QImage_DetachMetadata1_Callback = void (*)(QImage*, bool);
 
@@ -97,38 +100,38 @@ class VirtualQImage : public QImage {
     }
 
     // Callback setters
-    void setQImage_DevType_Callback(QImage_DevType_Callback cb) { qimage_devtype_callback = cb; }
-    void setQImage_PaintEngine_Callback(QImage_PaintEngine_Callback cb) { qimage_paintengine_callback = cb; }
-    void setQImage_Metric_Callback(QImage_Metric_Callback cb) { qimage_metric_callback = cb; }
-    void setQImage_InitPainter_Callback(QImage_InitPainter_Callback cb) { qimage_initpainter_callback = cb; }
-    void setQImage_Redirected_Callback(QImage_Redirected_Callback cb) { qimage_redirected_callback = cb; }
-    void setQImage_SharedPainter_Callback(QImage_SharedPainter_Callback cb) { qimage_sharedpainter_callback = cb; }
-    void setQImage_MirroredHelper_Callback(QImage_MirroredHelper_Callback cb) { qimage_mirroredhelper_callback = cb; }
-    void setQImage_RgbSwappedHelper_Callback(QImage_RgbSwappedHelper_Callback cb) { qimage_rgbswappedhelper_callback = cb; }
-    void setQImage_MirroredInplace_Callback(QImage_MirroredInplace_Callback cb) { qimage_mirroredinplace_callback = cb; }
-    void setQImage_RgbSwappedInplace_Callback(QImage_RgbSwappedInplace_Callback cb) { qimage_rgbswappedinplace_callback = cb; }
-    void setQImage_ConvertToFormatHelper_Callback(QImage_ConvertToFormatHelper_Callback cb) { qimage_converttoformathelper_callback = cb; }
-    void setQImage_ConvertToFormatInplace_Callback(QImage_ConvertToFormatInplace_Callback cb) { qimage_converttoformatinplace_callback = cb; }
-    void setQImage_SmoothScaled_Callback(QImage_SmoothScaled_Callback cb) { qimage_smoothscaled_callback = cb; }
-    void setQImage_DetachMetadata_Callback(QImage_DetachMetadata_Callback cb) { qimage_detachmetadata_callback = cb; }
-    void setQImage_DetachMetadata1_Callback(QImage_DetachMetadata1_Callback cb) { qimage_detachmetadata1_callback = cb; }
+    inline void setQImage_DevType_Callback(QImage_DevType_Callback cb) { qimage_devtype_callback = cb; }
+    inline void setQImage_PaintEngine_Callback(QImage_PaintEngine_Callback cb) { qimage_paintengine_callback = cb; }
+    inline void setQImage_Metric_Callback(QImage_Metric_Callback cb) { qimage_metric_callback = cb; }
+    inline void setQImage_InitPainter_Callback(QImage_InitPainter_Callback cb) { qimage_initpainter_callback = cb; }
+    inline void setQImage_Redirected_Callback(QImage_Redirected_Callback cb) { qimage_redirected_callback = cb; }
+    inline void setQImage_SharedPainter_Callback(QImage_SharedPainter_Callback cb) { qimage_sharedpainter_callback = cb; }
+    inline void setQImage_MirroredHelper_Callback(QImage_MirroredHelper_Callback cb) { qimage_mirroredhelper_callback = cb; }
+    inline void setQImage_RgbSwappedHelper_Callback(QImage_RgbSwappedHelper_Callback cb) { qimage_rgbswappedhelper_callback = cb; }
+    inline void setQImage_MirroredInplace_Callback(QImage_MirroredInplace_Callback cb) { qimage_mirroredinplace_callback = cb; }
+    inline void setQImage_RgbSwappedInplace_Callback(QImage_RgbSwappedInplace_Callback cb) { qimage_rgbswappedinplace_callback = cb; }
+    inline void setQImage_ConvertToFormatHelper_Callback(QImage_ConvertToFormatHelper_Callback cb) { qimage_converttoformathelper_callback = cb; }
+    inline void setQImage_ConvertToFormatInplace_Callback(QImage_ConvertToFormatInplace_Callback cb) { qimage_converttoformatinplace_callback = cb; }
+    inline void setQImage_SmoothScaled_Callback(QImage_SmoothScaled_Callback cb) { qimage_smoothscaled_callback = cb; }
+    inline void setQImage_DetachMetadata_Callback(QImage_DetachMetadata_Callback cb) { qimage_detachmetadata_callback = cb; }
+    inline void setQImage_DetachMetadata1_Callback(QImage_DetachMetadata1_Callback cb) { qimage_detachmetadata1_callback = cb; }
 
     // Base flag setters
-    void setQImage_DevType_IsBase(bool value) const { qimage_devtype_isbase = value; }
-    void setQImage_PaintEngine_IsBase(bool value) const { qimage_paintengine_isbase = value; }
-    void setQImage_Metric_IsBase(bool value) const { qimage_metric_isbase = value; }
-    void setQImage_InitPainter_IsBase(bool value) const { qimage_initpainter_isbase = value; }
-    void setQImage_Redirected_IsBase(bool value) const { qimage_redirected_isbase = value; }
-    void setQImage_SharedPainter_IsBase(bool value) const { qimage_sharedpainter_isbase = value; }
-    void setQImage_MirroredHelper_IsBase(bool value) const { qimage_mirroredhelper_isbase = value; }
-    void setQImage_RgbSwappedHelper_IsBase(bool value) const { qimage_rgbswappedhelper_isbase = value; }
-    void setQImage_MirroredInplace_IsBase(bool value) const { qimage_mirroredinplace_isbase = value; }
-    void setQImage_RgbSwappedInplace_IsBase(bool value) const { qimage_rgbswappedinplace_isbase = value; }
-    void setQImage_ConvertToFormatHelper_IsBase(bool value) const { qimage_converttoformathelper_isbase = value; }
-    void setQImage_ConvertToFormatInplace_IsBase(bool value) const { qimage_converttoformatinplace_isbase = value; }
-    void setQImage_SmoothScaled_IsBase(bool value) const { qimage_smoothscaled_isbase = value; }
-    void setQImage_DetachMetadata_IsBase(bool value) const { qimage_detachmetadata_isbase = value; }
-    void setQImage_DetachMetadata1_IsBase(bool value) const { qimage_detachmetadata1_isbase = value; }
+    inline void setQImage_DevType_IsBase(bool value) const { qimage_devtype_isbase = value; }
+    inline void setQImage_PaintEngine_IsBase(bool value) const { qimage_paintengine_isbase = value; }
+    inline void setQImage_Metric_IsBase(bool value) const { qimage_metric_isbase = value; }
+    inline void setQImage_InitPainter_IsBase(bool value) const { qimage_initpainter_isbase = value; }
+    inline void setQImage_Redirected_IsBase(bool value) const { qimage_redirected_isbase = value; }
+    inline void setQImage_SharedPainter_IsBase(bool value) const { qimage_sharedpainter_isbase = value; }
+    inline void setQImage_MirroredHelper_IsBase(bool value) const { qimage_mirroredhelper_isbase = value; }
+    inline void setQImage_RgbSwappedHelper_IsBase(bool value) const { qimage_rgbswappedhelper_isbase = value; }
+    inline void setQImage_MirroredInplace_IsBase(bool value) const { qimage_mirroredinplace_isbase = value; }
+    inline void setQImage_RgbSwappedInplace_IsBase(bool value) const { qimage_rgbswappedinplace_isbase = value; }
+    inline void setQImage_ConvertToFormatHelper_IsBase(bool value) const { qimage_converttoformathelper_isbase = value; }
+    inline void setQImage_ConvertToFormatInplace_IsBase(bool value) const { qimage_converttoformatinplace_isbase = value; }
+    inline void setQImage_SmoothScaled_IsBase(bool value) const { qimage_smoothscaled_isbase = value; }
+    inline void setQImage_DetachMetadata_IsBase(bool value) const { qimage_detachmetadata_isbase = value; }
+    inline void setQImage_DetachMetadata1_IsBase(bool value) const { qimage_detachmetadata1_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
@@ -136,7 +139,8 @@ class VirtualQImage : public QImage {
             qimage_devtype_isbase = false;
             return QImage::devType();
         } else if (qimage_devtype_callback != nullptr) {
-            return qimage_devtype_callback();
+            int callback_ret = qimage_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QImage::devType();
         }
@@ -148,7 +152,8 @@ class VirtualQImage : public QImage {
             qimage_paintengine_isbase = false;
             return QImage::paintEngine();
         } else if (qimage_paintengine_callback != nullptr) {
-            return qimage_paintengine_callback();
+            QPaintEngine* callback_ret = qimage_paintengine_callback();
+            return callback_ret;
         } else {
             return QImage::paintEngine();
         }
@@ -160,7 +165,10 @@ class VirtualQImage : public QImage {
             qimage_metric_isbase = false;
             return QImage::metric(metric);
         } else if (qimage_metric_callback != nullptr) {
-            return qimage_metric_callback(this, metric);
+            int cbval1 = static_cast<int>(metric);
+
+            int callback_ret = qimage_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QImage::metric(metric);
         }
@@ -172,7 +180,9 @@ class VirtualQImage : public QImage {
             qimage_initpainter_isbase = false;
             QImage::initPainter(painter);
         } else if (qimage_initpainter_callback != nullptr) {
-            qimage_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qimage_initpainter_callback(this, cbval1);
         } else {
             QImage::initPainter(painter);
         }
@@ -184,7 +194,10 @@ class VirtualQImage : public QImage {
             qimage_redirected_isbase = false;
             return QImage::redirected(offset);
         } else if (qimage_redirected_callback != nullptr) {
-            return qimage_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qimage_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QImage::redirected(offset);
         }
@@ -196,7 +209,8 @@ class VirtualQImage : public QImage {
             qimage_sharedpainter_isbase = false;
             return QImage::sharedPainter();
         } else if (qimage_sharedpainter_callback != nullptr) {
-            return qimage_sharedpainter_callback();
+            QPainter* callback_ret = qimage_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QImage::sharedPainter();
         }
@@ -208,7 +222,11 @@ class VirtualQImage : public QImage {
             qimage_mirroredhelper_isbase = false;
             return QImage::mirrored_helper(horizontal, vertical);
         } else if (qimage_mirroredhelper_callback != nullptr) {
-            return qimage_mirroredhelper_callback(this, horizontal, vertical);
+            bool cbval1 = horizontal;
+            bool cbval2 = vertical;
+
+            QImage* callback_ret = qimage_mirroredhelper_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QImage::mirrored_helper(horizontal, vertical);
         }
@@ -220,7 +238,8 @@ class VirtualQImage : public QImage {
             qimage_rgbswappedhelper_isbase = false;
             return QImage::rgbSwapped_helper();
         } else if (qimage_rgbswappedhelper_callback != nullptr) {
-            return qimage_rgbswappedhelper_callback();
+            QImage* callback_ret = qimage_rgbswappedhelper_callback();
+            return *callback_ret;
         } else {
             return QImage::rgbSwapped_helper();
         }
@@ -232,7 +251,10 @@ class VirtualQImage : public QImage {
             qimage_mirroredinplace_isbase = false;
             QImage::mirrored_inplace(horizontal, vertical);
         } else if (qimage_mirroredinplace_callback != nullptr) {
-            qimage_mirroredinplace_callback(this, horizontal, vertical);
+            bool cbval1 = horizontal;
+            bool cbval2 = vertical;
+
+            qimage_mirroredinplace_callback(this, cbval1, cbval2);
         } else {
             QImage::mirrored_inplace(horizontal, vertical);
         }
@@ -256,7 +278,11 @@ class VirtualQImage : public QImage {
             qimage_converttoformathelper_isbase = false;
             return QImage::convertToFormat_helper(format, flags);
         } else if (qimage_converttoformathelper_callback != nullptr) {
-            return qimage_converttoformathelper_callback(this, format, flags);
+            int cbval1 = static_cast<int>(format);
+            int cbval2 = static_cast<int>(flags);
+
+            QImage* callback_ret = qimage_converttoformathelper_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QImage::convertToFormat_helper(format, flags);
         }
@@ -268,7 +294,11 @@ class VirtualQImage : public QImage {
             qimage_converttoformatinplace_isbase = false;
             return QImage::convertToFormat_inplace(format, flags);
         } else if (qimage_converttoformatinplace_callback != nullptr) {
-            return qimage_converttoformatinplace_callback(this, format, flags);
+            int cbval1 = static_cast<int>(format);
+            int cbval2 = static_cast<int>(flags);
+
+            bool callback_ret = qimage_converttoformatinplace_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QImage::convertToFormat_inplace(format, flags);
         }
@@ -280,7 +310,11 @@ class VirtualQImage : public QImage {
             qimage_smoothscaled_isbase = false;
             return QImage::smoothScaled(w, h);
         } else if (qimage_smoothscaled_callback != nullptr) {
-            return qimage_smoothscaled_callback(this, w, h);
+            int cbval1 = w;
+            int cbval2 = h;
+
+            QImage* callback_ret = qimage_smoothscaled_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QImage::smoothScaled(w, h);
         }
@@ -304,11 +338,41 @@ class VirtualQImage : public QImage {
             qimage_detachmetadata1_isbase = false;
             QImage::detachMetadata(invalidateCache);
         } else if (qimage_detachmetadata1_callback != nullptr) {
-            qimage_detachmetadata1_callback(this, invalidateCache);
+            bool cbval1 = invalidateCache;
+
+            qimage_detachmetadata1_callback(this, cbval1);
         } else {
             QImage::detachMetadata(invalidateCache);
         }
     }
+
+    // Friend functions
+    friend int QImage_Metric(const QImage* self, int metric);
+    friend int QImage_QBaseMetric(const QImage* self, int metric);
+    friend void QImage_InitPainter(const QImage* self, QPainter* painter);
+    friend void QImage_QBaseInitPainter(const QImage* self, QPainter* painter);
+    friend QPaintDevice* QImage_Redirected(const QImage* self, QPoint* offset);
+    friend QPaintDevice* QImage_QBaseRedirected(const QImage* self, QPoint* offset);
+    friend QPainter* QImage_SharedPainter(const QImage* self);
+    friend QPainter* QImage_QBaseSharedPainter(const QImage* self);
+    friend QImage* QImage_MirroredHelper(const QImage* self, bool horizontal, bool vertical);
+    friend QImage* QImage_QBaseMirroredHelper(const QImage* self, bool horizontal, bool vertical);
+    friend QImage* QImage_RgbSwappedHelper(const QImage* self);
+    friend QImage* QImage_QBaseRgbSwappedHelper(const QImage* self);
+    friend void QImage_MirroredInplace(QImage* self, bool horizontal, bool vertical);
+    friend void QImage_QBaseMirroredInplace(QImage* self, bool horizontal, bool vertical);
+    friend void QImage_RgbSwappedInplace(QImage* self);
+    friend void QImage_QBaseRgbSwappedInplace(QImage* self);
+    friend QImage* QImage_ConvertToFormatHelper(const QImage* self, int format, int flags);
+    friend QImage* QImage_QBaseConvertToFormatHelper(const QImage* self, int format, int flags);
+    friend bool QImage_ConvertToFormatInplace(QImage* self, int format, int flags);
+    friend bool QImage_QBaseConvertToFormatInplace(QImage* self, int format, int flags);
+    friend QImage* QImage_SmoothScaled(const QImage* self, int w, int h);
+    friend QImage* QImage_QBaseSmoothScaled(const QImage* self, int w, int h);
+    friend void QImage_DetachMetadata(QImage* self);
+    friend void QImage_QBaseDetachMetadata(QImage* self);
+    friend void QImage_DetachMetadata1(QImage* self, bool invalidateCache);
+    friend void QImage_QBaseDetachMetadata1(QImage* self, bool invalidateCache);
 };
 
 #endif

@@ -11,56 +11,59 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QsciLexerMatlab so that we can call protected methods
-class VirtualQsciLexerMatlab : public QsciLexerMatlab {
+class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQsciLexerMatlab = true;
+
     // Virtual class public types (including callbacks)
-    using QsciLexerMatlab_Metacall_Callback = int (*)(QsciLexerMatlab*, QMetaObject::Call, int, void**);
+    using QsciLexerMatlab_Metacall_Callback = int (*)(QsciLexerMatlab*, int, int, void**);
     using QsciLexerMatlab_Language_Callback = const char* (*)();
     using QsciLexerMatlab_Lexer_Callback = const char* (*)();
     using QsciLexerMatlab_LexerId_Callback = int (*)();
     using QsciLexerMatlab_AutoCompletionFillups_Callback = const char* (*)();
-    using QsciLexerMatlab_AutoCompletionWordSeparators_Callback = QStringList (*)();
+    using QsciLexerMatlab_AutoCompletionWordSeparators_Callback = libqt_list /* of libqt_string */ (*)();
     using QsciLexerMatlab_BlockEnd_Callback = const char* (*)(const QsciLexerMatlab*, int*);
     using QsciLexerMatlab_BlockLookback_Callback = int (*)();
     using QsciLexerMatlab_BlockStart_Callback = const char* (*)(const QsciLexerMatlab*, int*);
     using QsciLexerMatlab_BlockStartKeyword_Callback = const char* (*)(const QsciLexerMatlab*, int*);
     using QsciLexerMatlab_BraceStyle_Callback = int (*)();
     using QsciLexerMatlab_CaseSensitive_Callback = bool (*)();
-    using QsciLexerMatlab_Color_Callback = QColor (*)(const QsciLexerMatlab*, int);
+    using QsciLexerMatlab_Color_Callback = QColor* (*)(const QsciLexerMatlab*, int);
     using QsciLexerMatlab_EolFill_Callback = bool (*)(const QsciLexerMatlab*, int);
-    using QsciLexerMatlab_Font_Callback = QFont (*)(const QsciLexerMatlab*, int);
+    using QsciLexerMatlab_Font_Callback = QFont* (*)(const QsciLexerMatlab*, int);
     using QsciLexerMatlab_IndentationGuideView_Callback = int (*)();
     using QsciLexerMatlab_Keywords_Callback = const char* (*)(const QsciLexerMatlab*, int);
     using QsciLexerMatlab_DefaultStyle_Callback = int (*)();
-    using QsciLexerMatlab_Description_Callback = QString (*)(const QsciLexerMatlab*, int);
-    using QsciLexerMatlab_Paper_Callback = QColor (*)(const QsciLexerMatlab*, int);
-    using QsciLexerMatlab_DefaultColorWithStyle_Callback = QColor (*)(const QsciLexerMatlab*, int);
+    using QsciLexerMatlab_Description_Callback = libqt_string (*)(const QsciLexerMatlab*, int);
+    using QsciLexerMatlab_Paper_Callback = QColor* (*)(const QsciLexerMatlab*, int);
+    using QsciLexerMatlab_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerMatlab*, int);
     using QsciLexerMatlab_DefaultEolFill_Callback = bool (*)(const QsciLexerMatlab*, int);
-    using QsciLexerMatlab_DefaultFontWithStyle_Callback = QFont (*)(const QsciLexerMatlab*, int);
-    using QsciLexerMatlab_DefaultPaperWithStyle_Callback = QColor (*)(const QsciLexerMatlab*, int);
+    using QsciLexerMatlab_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerMatlab*, int);
+    using QsciLexerMatlab_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerMatlab*, int);
     using QsciLexerMatlab_SetEditor_Callback = void (*)(QsciLexerMatlab*, QsciScintilla*);
     using QsciLexerMatlab_RefreshProperties_Callback = void (*)();
     using QsciLexerMatlab_StyleBitsNeeded_Callback = int (*)();
     using QsciLexerMatlab_WordCharacters_Callback = const char* (*)();
     using QsciLexerMatlab_SetAutoIndentStyle_Callback = void (*)(QsciLexerMatlab*, int);
-    using QsciLexerMatlab_SetColor_Callback = void (*)(QsciLexerMatlab*, const QColor&, int);
+    using QsciLexerMatlab_SetColor_Callback = void (*)(QsciLexerMatlab*, QColor*, int);
     using QsciLexerMatlab_SetEolFill_Callback = void (*)(QsciLexerMatlab*, bool, int);
-    using QsciLexerMatlab_SetFont_Callback = void (*)(QsciLexerMatlab*, const QFont&, int);
-    using QsciLexerMatlab_SetPaper_Callback = void (*)(QsciLexerMatlab*, const QColor&, int);
-    using QsciLexerMatlab_ReadProperties_Callback = bool (*)(QsciLexerMatlab*, QSettings&, const QString&);
-    using QsciLexerMatlab_WriteProperties_Callback = bool (*)(const QsciLexerMatlab*, QSettings&, const QString&);
+    using QsciLexerMatlab_SetFont_Callback = void (*)(QsciLexerMatlab*, QFont*, int);
+    using QsciLexerMatlab_SetPaper_Callback = void (*)(QsciLexerMatlab*, QColor*, int);
+    using QsciLexerMatlab_ReadProperties_Callback = bool (*)(QsciLexerMatlab*, QSettings*, libqt_string);
+    using QsciLexerMatlab_WriteProperties_Callback = bool (*)(const QsciLexerMatlab*, QSettings*, libqt_string);
     using QsciLexerMatlab_Event_Callback = bool (*)(QsciLexerMatlab*, QEvent*);
     using QsciLexerMatlab_EventFilter_Callback = bool (*)(QsciLexerMatlab*, QObject*, QEvent*);
     using QsciLexerMatlab_TimerEvent_Callback = void (*)(QsciLexerMatlab*, QTimerEvent*);
     using QsciLexerMatlab_ChildEvent_Callback = void (*)(QsciLexerMatlab*, QChildEvent*);
     using QsciLexerMatlab_CustomEvent_Callback = void (*)(QsciLexerMatlab*, QEvent*);
-    using QsciLexerMatlab_ConnectNotify_Callback = void (*)(QsciLexerMatlab*, const QMetaMethod&);
-    using QsciLexerMatlab_DisconnectNotify_Callback = void (*)(QsciLexerMatlab*, const QMetaMethod&);
+    using QsciLexerMatlab_ConnectNotify_Callback = void (*)(QsciLexerMatlab*, QMetaMethod*);
+    using QsciLexerMatlab_DisconnectNotify_Callback = void (*)(QsciLexerMatlab*, QMetaMethod*);
     using QsciLexerMatlab_Sender_Callback = QObject* (*)();
     using QsciLexerMatlab_SenderSignalIndex_Callback = int (*)();
     using QsciLexerMatlab_Receivers_Callback = int (*)(const QsciLexerMatlab*, const char*);
-    using QsciLexerMatlab_IsSignalConnected_Callback = bool (*)(const QsciLexerMatlab*, const QMetaMethod&);
+    using QsciLexerMatlab_IsSignalConnected_Callback = bool (*)(const QsciLexerMatlab*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -213,100 +216,100 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
     }
 
     // Callback setters
-    void setQsciLexerMatlab_Metacall_Callback(QsciLexerMatlab_Metacall_Callback cb) { qscilexermatlab_metacall_callback = cb; }
-    void setQsciLexerMatlab_Language_Callback(QsciLexerMatlab_Language_Callback cb) { qscilexermatlab_language_callback = cb; }
-    void setQsciLexerMatlab_Lexer_Callback(QsciLexerMatlab_Lexer_Callback cb) { qscilexermatlab_lexer_callback = cb; }
-    void setQsciLexerMatlab_LexerId_Callback(QsciLexerMatlab_LexerId_Callback cb) { qscilexermatlab_lexerid_callback = cb; }
-    void setQsciLexerMatlab_AutoCompletionFillups_Callback(QsciLexerMatlab_AutoCompletionFillups_Callback cb) { qscilexermatlab_autocompletionfillups_callback = cb; }
-    void setQsciLexerMatlab_AutoCompletionWordSeparators_Callback(QsciLexerMatlab_AutoCompletionWordSeparators_Callback cb) { qscilexermatlab_autocompletionwordseparators_callback = cb; }
-    void setQsciLexerMatlab_BlockEnd_Callback(QsciLexerMatlab_BlockEnd_Callback cb) { qscilexermatlab_blockend_callback = cb; }
-    void setQsciLexerMatlab_BlockLookback_Callback(QsciLexerMatlab_BlockLookback_Callback cb) { qscilexermatlab_blocklookback_callback = cb; }
-    void setQsciLexerMatlab_BlockStart_Callback(QsciLexerMatlab_BlockStart_Callback cb) { qscilexermatlab_blockstart_callback = cb; }
-    void setQsciLexerMatlab_BlockStartKeyword_Callback(QsciLexerMatlab_BlockStartKeyword_Callback cb) { qscilexermatlab_blockstartkeyword_callback = cb; }
-    void setQsciLexerMatlab_BraceStyle_Callback(QsciLexerMatlab_BraceStyle_Callback cb) { qscilexermatlab_bracestyle_callback = cb; }
-    void setQsciLexerMatlab_CaseSensitive_Callback(QsciLexerMatlab_CaseSensitive_Callback cb) { qscilexermatlab_casesensitive_callback = cb; }
-    void setQsciLexerMatlab_Color_Callback(QsciLexerMatlab_Color_Callback cb) { qscilexermatlab_color_callback = cb; }
-    void setQsciLexerMatlab_EolFill_Callback(QsciLexerMatlab_EolFill_Callback cb) { qscilexermatlab_eolfill_callback = cb; }
-    void setQsciLexerMatlab_Font_Callback(QsciLexerMatlab_Font_Callback cb) { qscilexermatlab_font_callback = cb; }
-    void setQsciLexerMatlab_IndentationGuideView_Callback(QsciLexerMatlab_IndentationGuideView_Callback cb) { qscilexermatlab_indentationguideview_callback = cb; }
-    void setQsciLexerMatlab_Keywords_Callback(QsciLexerMatlab_Keywords_Callback cb) { qscilexermatlab_keywords_callback = cb; }
-    void setQsciLexerMatlab_DefaultStyle_Callback(QsciLexerMatlab_DefaultStyle_Callback cb) { qscilexermatlab_defaultstyle_callback = cb; }
-    void setQsciLexerMatlab_Description_Callback(QsciLexerMatlab_Description_Callback cb) { qscilexermatlab_description_callback = cb; }
-    void setQsciLexerMatlab_Paper_Callback(QsciLexerMatlab_Paper_Callback cb) { qscilexermatlab_paper_callback = cb; }
-    void setQsciLexerMatlab_DefaultColorWithStyle_Callback(QsciLexerMatlab_DefaultColorWithStyle_Callback cb) { qscilexermatlab_defaultcolorwithstyle_callback = cb; }
-    void setQsciLexerMatlab_DefaultEolFill_Callback(QsciLexerMatlab_DefaultEolFill_Callback cb) { qscilexermatlab_defaulteolfill_callback = cb; }
-    void setQsciLexerMatlab_DefaultFontWithStyle_Callback(QsciLexerMatlab_DefaultFontWithStyle_Callback cb) { qscilexermatlab_defaultfontwithstyle_callback = cb; }
-    void setQsciLexerMatlab_DefaultPaperWithStyle_Callback(QsciLexerMatlab_DefaultPaperWithStyle_Callback cb) { qscilexermatlab_defaultpaperwithstyle_callback = cb; }
-    void setQsciLexerMatlab_SetEditor_Callback(QsciLexerMatlab_SetEditor_Callback cb) { qscilexermatlab_seteditor_callback = cb; }
-    void setQsciLexerMatlab_RefreshProperties_Callback(QsciLexerMatlab_RefreshProperties_Callback cb) { qscilexermatlab_refreshproperties_callback = cb; }
-    void setQsciLexerMatlab_StyleBitsNeeded_Callback(QsciLexerMatlab_StyleBitsNeeded_Callback cb) { qscilexermatlab_stylebitsneeded_callback = cb; }
-    void setQsciLexerMatlab_WordCharacters_Callback(QsciLexerMatlab_WordCharacters_Callback cb) { qscilexermatlab_wordcharacters_callback = cb; }
-    void setQsciLexerMatlab_SetAutoIndentStyle_Callback(QsciLexerMatlab_SetAutoIndentStyle_Callback cb) { qscilexermatlab_setautoindentstyle_callback = cb; }
-    void setQsciLexerMatlab_SetColor_Callback(QsciLexerMatlab_SetColor_Callback cb) { qscilexermatlab_setcolor_callback = cb; }
-    void setQsciLexerMatlab_SetEolFill_Callback(QsciLexerMatlab_SetEolFill_Callback cb) { qscilexermatlab_seteolfill_callback = cb; }
-    void setQsciLexerMatlab_SetFont_Callback(QsciLexerMatlab_SetFont_Callback cb) { qscilexermatlab_setfont_callback = cb; }
-    void setQsciLexerMatlab_SetPaper_Callback(QsciLexerMatlab_SetPaper_Callback cb) { qscilexermatlab_setpaper_callback = cb; }
-    void setQsciLexerMatlab_ReadProperties_Callback(QsciLexerMatlab_ReadProperties_Callback cb) { qscilexermatlab_readproperties_callback = cb; }
-    void setQsciLexerMatlab_WriteProperties_Callback(QsciLexerMatlab_WriteProperties_Callback cb) { qscilexermatlab_writeproperties_callback = cb; }
-    void setQsciLexerMatlab_Event_Callback(QsciLexerMatlab_Event_Callback cb) { qscilexermatlab_event_callback = cb; }
-    void setQsciLexerMatlab_EventFilter_Callback(QsciLexerMatlab_EventFilter_Callback cb) { qscilexermatlab_eventfilter_callback = cb; }
-    void setQsciLexerMatlab_TimerEvent_Callback(QsciLexerMatlab_TimerEvent_Callback cb) { qscilexermatlab_timerevent_callback = cb; }
-    void setQsciLexerMatlab_ChildEvent_Callback(QsciLexerMatlab_ChildEvent_Callback cb) { qscilexermatlab_childevent_callback = cb; }
-    void setQsciLexerMatlab_CustomEvent_Callback(QsciLexerMatlab_CustomEvent_Callback cb) { qscilexermatlab_customevent_callback = cb; }
-    void setQsciLexerMatlab_ConnectNotify_Callback(QsciLexerMatlab_ConnectNotify_Callback cb) { qscilexermatlab_connectnotify_callback = cb; }
-    void setQsciLexerMatlab_DisconnectNotify_Callback(QsciLexerMatlab_DisconnectNotify_Callback cb) { qscilexermatlab_disconnectnotify_callback = cb; }
-    void setQsciLexerMatlab_Sender_Callback(QsciLexerMatlab_Sender_Callback cb) { qscilexermatlab_sender_callback = cb; }
-    void setQsciLexerMatlab_SenderSignalIndex_Callback(QsciLexerMatlab_SenderSignalIndex_Callback cb) { qscilexermatlab_sendersignalindex_callback = cb; }
-    void setQsciLexerMatlab_Receivers_Callback(QsciLexerMatlab_Receivers_Callback cb) { qscilexermatlab_receivers_callback = cb; }
-    void setQsciLexerMatlab_IsSignalConnected_Callback(QsciLexerMatlab_IsSignalConnected_Callback cb) { qscilexermatlab_issignalconnected_callback = cb; }
+    inline void setQsciLexerMatlab_Metacall_Callback(QsciLexerMatlab_Metacall_Callback cb) { qscilexermatlab_metacall_callback = cb; }
+    inline void setQsciLexerMatlab_Language_Callback(QsciLexerMatlab_Language_Callback cb) { qscilexermatlab_language_callback = cb; }
+    inline void setQsciLexerMatlab_Lexer_Callback(QsciLexerMatlab_Lexer_Callback cb) { qscilexermatlab_lexer_callback = cb; }
+    inline void setQsciLexerMatlab_LexerId_Callback(QsciLexerMatlab_LexerId_Callback cb) { qscilexermatlab_lexerid_callback = cb; }
+    inline void setQsciLexerMatlab_AutoCompletionFillups_Callback(QsciLexerMatlab_AutoCompletionFillups_Callback cb) { qscilexermatlab_autocompletionfillups_callback = cb; }
+    inline void setQsciLexerMatlab_AutoCompletionWordSeparators_Callback(QsciLexerMatlab_AutoCompletionWordSeparators_Callback cb) { qscilexermatlab_autocompletionwordseparators_callback = cb; }
+    inline void setQsciLexerMatlab_BlockEnd_Callback(QsciLexerMatlab_BlockEnd_Callback cb) { qscilexermatlab_blockend_callback = cb; }
+    inline void setQsciLexerMatlab_BlockLookback_Callback(QsciLexerMatlab_BlockLookback_Callback cb) { qscilexermatlab_blocklookback_callback = cb; }
+    inline void setQsciLexerMatlab_BlockStart_Callback(QsciLexerMatlab_BlockStart_Callback cb) { qscilexermatlab_blockstart_callback = cb; }
+    inline void setQsciLexerMatlab_BlockStartKeyword_Callback(QsciLexerMatlab_BlockStartKeyword_Callback cb) { qscilexermatlab_blockstartkeyword_callback = cb; }
+    inline void setQsciLexerMatlab_BraceStyle_Callback(QsciLexerMatlab_BraceStyle_Callback cb) { qscilexermatlab_bracestyle_callback = cb; }
+    inline void setQsciLexerMatlab_CaseSensitive_Callback(QsciLexerMatlab_CaseSensitive_Callback cb) { qscilexermatlab_casesensitive_callback = cb; }
+    inline void setQsciLexerMatlab_Color_Callback(QsciLexerMatlab_Color_Callback cb) { qscilexermatlab_color_callback = cb; }
+    inline void setQsciLexerMatlab_EolFill_Callback(QsciLexerMatlab_EolFill_Callback cb) { qscilexermatlab_eolfill_callback = cb; }
+    inline void setQsciLexerMatlab_Font_Callback(QsciLexerMatlab_Font_Callback cb) { qscilexermatlab_font_callback = cb; }
+    inline void setQsciLexerMatlab_IndentationGuideView_Callback(QsciLexerMatlab_IndentationGuideView_Callback cb) { qscilexermatlab_indentationguideview_callback = cb; }
+    inline void setQsciLexerMatlab_Keywords_Callback(QsciLexerMatlab_Keywords_Callback cb) { qscilexermatlab_keywords_callback = cb; }
+    inline void setQsciLexerMatlab_DefaultStyle_Callback(QsciLexerMatlab_DefaultStyle_Callback cb) { qscilexermatlab_defaultstyle_callback = cb; }
+    inline void setQsciLexerMatlab_Description_Callback(QsciLexerMatlab_Description_Callback cb) { qscilexermatlab_description_callback = cb; }
+    inline void setQsciLexerMatlab_Paper_Callback(QsciLexerMatlab_Paper_Callback cb) { qscilexermatlab_paper_callback = cb; }
+    inline void setQsciLexerMatlab_DefaultColorWithStyle_Callback(QsciLexerMatlab_DefaultColorWithStyle_Callback cb) { qscilexermatlab_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerMatlab_DefaultEolFill_Callback(QsciLexerMatlab_DefaultEolFill_Callback cb) { qscilexermatlab_defaulteolfill_callback = cb; }
+    inline void setQsciLexerMatlab_DefaultFontWithStyle_Callback(QsciLexerMatlab_DefaultFontWithStyle_Callback cb) { qscilexermatlab_defaultfontwithstyle_callback = cb; }
+    inline void setQsciLexerMatlab_DefaultPaperWithStyle_Callback(QsciLexerMatlab_DefaultPaperWithStyle_Callback cb) { qscilexermatlab_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerMatlab_SetEditor_Callback(QsciLexerMatlab_SetEditor_Callback cb) { qscilexermatlab_seteditor_callback = cb; }
+    inline void setQsciLexerMatlab_RefreshProperties_Callback(QsciLexerMatlab_RefreshProperties_Callback cb) { qscilexermatlab_refreshproperties_callback = cb; }
+    inline void setQsciLexerMatlab_StyleBitsNeeded_Callback(QsciLexerMatlab_StyleBitsNeeded_Callback cb) { qscilexermatlab_stylebitsneeded_callback = cb; }
+    inline void setQsciLexerMatlab_WordCharacters_Callback(QsciLexerMatlab_WordCharacters_Callback cb) { qscilexermatlab_wordcharacters_callback = cb; }
+    inline void setQsciLexerMatlab_SetAutoIndentStyle_Callback(QsciLexerMatlab_SetAutoIndentStyle_Callback cb) { qscilexermatlab_setautoindentstyle_callback = cb; }
+    inline void setQsciLexerMatlab_SetColor_Callback(QsciLexerMatlab_SetColor_Callback cb) { qscilexermatlab_setcolor_callback = cb; }
+    inline void setQsciLexerMatlab_SetEolFill_Callback(QsciLexerMatlab_SetEolFill_Callback cb) { qscilexermatlab_seteolfill_callback = cb; }
+    inline void setQsciLexerMatlab_SetFont_Callback(QsciLexerMatlab_SetFont_Callback cb) { qscilexermatlab_setfont_callback = cb; }
+    inline void setQsciLexerMatlab_SetPaper_Callback(QsciLexerMatlab_SetPaper_Callback cb) { qscilexermatlab_setpaper_callback = cb; }
+    inline void setQsciLexerMatlab_ReadProperties_Callback(QsciLexerMatlab_ReadProperties_Callback cb) { qscilexermatlab_readproperties_callback = cb; }
+    inline void setQsciLexerMatlab_WriteProperties_Callback(QsciLexerMatlab_WriteProperties_Callback cb) { qscilexermatlab_writeproperties_callback = cb; }
+    inline void setQsciLexerMatlab_Event_Callback(QsciLexerMatlab_Event_Callback cb) { qscilexermatlab_event_callback = cb; }
+    inline void setQsciLexerMatlab_EventFilter_Callback(QsciLexerMatlab_EventFilter_Callback cb) { qscilexermatlab_eventfilter_callback = cb; }
+    inline void setQsciLexerMatlab_TimerEvent_Callback(QsciLexerMatlab_TimerEvent_Callback cb) { qscilexermatlab_timerevent_callback = cb; }
+    inline void setQsciLexerMatlab_ChildEvent_Callback(QsciLexerMatlab_ChildEvent_Callback cb) { qscilexermatlab_childevent_callback = cb; }
+    inline void setQsciLexerMatlab_CustomEvent_Callback(QsciLexerMatlab_CustomEvent_Callback cb) { qscilexermatlab_customevent_callback = cb; }
+    inline void setQsciLexerMatlab_ConnectNotify_Callback(QsciLexerMatlab_ConnectNotify_Callback cb) { qscilexermatlab_connectnotify_callback = cb; }
+    inline void setQsciLexerMatlab_DisconnectNotify_Callback(QsciLexerMatlab_DisconnectNotify_Callback cb) { qscilexermatlab_disconnectnotify_callback = cb; }
+    inline void setQsciLexerMatlab_Sender_Callback(QsciLexerMatlab_Sender_Callback cb) { qscilexermatlab_sender_callback = cb; }
+    inline void setQsciLexerMatlab_SenderSignalIndex_Callback(QsciLexerMatlab_SenderSignalIndex_Callback cb) { qscilexermatlab_sendersignalindex_callback = cb; }
+    inline void setQsciLexerMatlab_Receivers_Callback(QsciLexerMatlab_Receivers_Callback cb) { qscilexermatlab_receivers_callback = cb; }
+    inline void setQsciLexerMatlab_IsSignalConnected_Callback(QsciLexerMatlab_IsSignalConnected_Callback cb) { qscilexermatlab_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQsciLexerMatlab_Metacall_IsBase(bool value) const { qscilexermatlab_metacall_isbase = value; }
-    void setQsciLexerMatlab_Language_IsBase(bool value) const { qscilexermatlab_language_isbase = value; }
-    void setQsciLexerMatlab_Lexer_IsBase(bool value) const { qscilexermatlab_lexer_isbase = value; }
-    void setQsciLexerMatlab_LexerId_IsBase(bool value) const { qscilexermatlab_lexerid_isbase = value; }
-    void setQsciLexerMatlab_AutoCompletionFillups_IsBase(bool value) const { qscilexermatlab_autocompletionfillups_isbase = value; }
-    void setQsciLexerMatlab_AutoCompletionWordSeparators_IsBase(bool value) const { qscilexermatlab_autocompletionwordseparators_isbase = value; }
-    void setQsciLexerMatlab_BlockEnd_IsBase(bool value) const { qscilexermatlab_blockend_isbase = value; }
-    void setQsciLexerMatlab_BlockLookback_IsBase(bool value) const { qscilexermatlab_blocklookback_isbase = value; }
-    void setQsciLexerMatlab_BlockStart_IsBase(bool value) const { qscilexermatlab_blockstart_isbase = value; }
-    void setQsciLexerMatlab_BlockStartKeyword_IsBase(bool value) const { qscilexermatlab_blockstartkeyword_isbase = value; }
-    void setQsciLexerMatlab_BraceStyle_IsBase(bool value) const { qscilexermatlab_bracestyle_isbase = value; }
-    void setQsciLexerMatlab_CaseSensitive_IsBase(bool value) const { qscilexermatlab_casesensitive_isbase = value; }
-    void setQsciLexerMatlab_Color_IsBase(bool value) const { qscilexermatlab_color_isbase = value; }
-    void setQsciLexerMatlab_EolFill_IsBase(bool value) const { qscilexermatlab_eolfill_isbase = value; }
-    void setQsciLexerMatlab_Font_IsBase(bool value) const { qscilexermatlab_font_isbase = value; }
-    void setQsciLexerMatlab_IndentationGuideView_IsBase(bool value) const { qscilexermatlab_indentationguideview_isbase = value; }
-    void setQsciLexerMatlab_Keywords_IsBase(bool value) const { qscilexermatlab_keywords_isbase = value; }
-    void setQsciLexerMatlab_DefaultStyle_IsBase(bool value) const { qscilexermatlab_defaultstyle_isbase = value; }
-    void setQsciLexerMatlab_Description_IsBase(bool value) const { qscilexermatlab_description_isbase = value; }
-    void setQsciLexerMatlab_Paper_IsBase(bool value) const { qscilexermatlab_paper_isbase = value; }
-    void setQsciLexerMatlab_DefaultColorWithStyle_IsBase(bool value) const { qscilexermatlab_defaultcolorwithstyle_isbase = value; }
-    void setQsciLexerMatlab_DefaultEolFill_IsBase(bool value) const { qscilexermatlab_defaulteolfill_isbase = value; }
-    void setQsciLexerMatlab_DefaultFontWithStyle_IsBase(bool value) const { qscilexermatlab_defaultfontwithstyle_isbase = value; }
-    void setQsciLexerMatlab_DefaultPaperWithStyle_IsBase(bool value) const { qscilexermatlab_defaultpaperwithstyle_isbase = value; }
-    void setQsciLexerMatlab_SetEditor_IsBase(bool value) const { qscilexermatlab_seteditor_isbase = value; }
-    void setQsciLexerMatlab_RefreshProperties_IsBase(bool value) const { qscilexermatlab_refreshproperties_isbase = value; }
-    void setQsciLexerMatlab_StyleBitsNeeded_IsBase(bool value) const { qscilexermatlab_stylebitsneeded_isbase = value; }
-    void setQsciLexerMatlab_WordCharacters_IsBase(bool value) const { qscilexermatlab_wordcharacters_isbase = value; }
-    void setQsciLexerMatlab_SetAutoIndentStyle_IsBase(bool value) const { qscilexermatlab_setautoindentstyle_isbase = value; }
-    void setQsciLexerMatlab_SetColor_IsBase(bool value) const { qscilexermatlab_setcolor_isbase = value; }
-    void setQsciLexerMatlab_SetEolFill_IsBase(bool value) const { qscilexermatlab_seteolfill_isbase = value; }
-    void setQsciLexerMatlab_SetFont_IsBase(bool value) const { qscilexermatlab_setfont_isbase = value; }
-    void setQsciLexerMatlab_SetPaper_IsBase(bool value) const { qscilexermatlab_setpaper_isbase = value; }
-    void setQsciLexerMatlab_ReadProperties_IsBase(bool value) const { qscilexermatlab_readproperties_isbase = value; }
-    void setQsciLexerMatlab_WriteProperties_IsBase(bool value) const { qscilexermatlab_writeproperties_isbase = value; }
-    void setQsciLexerMatlab_Event_IsBase(bool value) const { qscilexermatlab_event_isbase = value; }
-    void setQsciLexerMatlab_EventFilter_IsBase(bool value) const { qscilexermatlab_eventfilter_isbase = value; }
-    void setQsciLexerMatlab_TimerEvent_IsBase(bool value) const { qscilexermatlab_timerevent_isbase = value; }
-    void setQsciLexerMatlab_ChildEvent_IsBase(bool value) const { qscilexermatlab_childevent_isbase = value; }
-    void setQsciLexerMatlab_CustomEvent_IsBase(bool value) const { qscilexermatlab_customevent_isbase = value; }
-    void setQsciLexerMatlab_ConnectNotify_IsBase(bool value) const { qscilexermatlab_connectnotify_isbase = value; }
-    void setQsciLexerMatlab_DisconnectNotify_IsBase(bool value) const { qscilexermatlab_disconnectnotify_isbase = value; }
-    void setQsciLexerMatlab_Sender_IsBase(bool value) const { qscilexermatlab_sender_isbase = value; }
-    void setQsciLexerMatlab_SenderSignalIndex_IsBase(bool value) const { qscilexermatlab_sendersignalindex_isbase = value; }
-    void setQsciLexerMatlab_Receivers_IsBase(bool value) const { qscilexermatlab_receivers_isbase = value; }
-    void setQsciLexerMatlab_IsSignalConnected_IsBase(bool value) const { qscilexermatlab_issignalconnected_isbase = value; }
+    inline void setQsciLexerMatlab_Metacall_IsBase(bool value) const { qscilexermatlab_metacall_isbase = value; }
+    inline void setQsciLexerMatlab_Language_IsBase(bool value) const { qscilexermatlab_language_isbase = value; }
+    inline void setQsciLexerMatlab_Lexer_IsBase(bool value) const { qscilexermatlab_lexer_isbase = value; }
+    inline void setQsciLexerMatlab_LexerId_IsBase(bool value) const { qscilexermatlab_lexerid_isbase = value; }
+    inline void setQsciLexerMatlab_AutoCompletionFillups_IsBase(bool value) const { qscilexermatlab_autocompletionfillups_isbase = value; }
+    inline void setQsciLexerMatlab_AutoCompletionWordSeparators_IsBase(bool value) const { qscilexermatlab_autocompletionwordseparators_isbase = value; }
+    inline void setQsciLexerMatlab_BlockEnd_IsBase(bool value) const { qscilexermatlab_blockend_isbase = value; }
+    inline void setQsciLexerMatlab_BlockLookback_IsBase(bool value) const { qscilexermatlab_blocklookback_isbase = value; }
+    inline void setQsciLexerMatlab_BlockStart_IsBase(bool value) const { qscilexermatlab_blockstart_isbase = value; }
+    inline void setQsciLexerMatlab_BlockStartKeyword_IsBase(bool value) const { qscilexermatlab_blockstartkeyword_isbase = value; }
+    inline void setQsciLexerMatlab_BraceStyle_IsBase(bool value) const { qscilexermatlab_bracestyle_isbase = value; }
+    inline void setQsciLexerMatlab_CaseSensitive_IsBase(bool value) const { qscilexermatlab_casesensitive_isbase = value; }
+    inline void setQsciLexerMatlab_Color_IsBase(bool value) const { qscilexermatlab_color_isbase = value; }
+    inline void setQsciLexerMatlab_EolFill_IsBase(bool value) const { qscilexermatlab_eolfill_isbase = value; }
+    inline void setQsciLexerMatlab_Font_IsBase(bool value) const { qscilexermatlab_font_isbase = value; }
+    inline void setQsciLexerMatlab_IndentationGuideView_IsBase(bool value) const { qscilexermatlab_indentationguideview_isbase = value; }
+    inline void setQsciLexerMatlab_Keywords_IsBase(bool value) const { qscilexermatlab_keywords_isbase = value; }
+    inline void setQsciLexerMatlab_DefaultStyle_IsBase(bool value) const { qscilexermatlab_defaultstyle_isbase = value; }
+    inline void setQsciLexerMatlab_Description_IsBase(bool value) const { qscilexermatlab_description_isbase = value; }
+    inline void setQsciLexerMatlab_Paper_IsBase(bool value) const { qscilexermatlab_paper_isbase = value; }
+    inline void setQsciLexerMatlab_DefaultColorWithStyle_IsBase(bool value) const { qscilexermatlab_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerMatlab_DefaultEolFill_IsBase(bool value) const { qscilexermatlab_defaulteolfill_isbase = value; }
+    inline void setQsciLexerMatlab_DefaultFontWithStyle_IsBase(bool value) const { qscilexermatlab_defaultfontwithstyle_isbase = value; }
+    inline void setQsciLexerMatlab_DefaultPaperWithStyle_IsBase(bool value) const { qscilexermatlab_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerMatlab_SetEditor_IsBase(bool value) const { qscilexermatlab_seteditor_isbase = value; }
+    inline void setQsciLexerMatlab_RefreshProperties_IsBase(bool value) const { qscilexermatlab_refreshproperties_isbase = value; }
+    inline void setQsciLexerMatlab_StyleBitsNeeded_IsBase(bool value) const { qscilexermatlab_stylebitsneeded_isbase = value; }
+    inline void setQsciLexerMatlab_WordCharacters_IsBase(bool value) const { qscilexermatlab_wordcharacters_isbase = value; }
+    inline void setQsciLexerMatlab_SetAutoIndentStyle_IsBase(bool value) const { qscilexermatlab_setautoindentstyle_isbase = value; }
+    inline void setQsciLexerMatlab_SetColor_IsBase(bool value) const { qscilexermatlab_setcolor_isbase = value; }
+    inline void setQsciLexerMatlab_SetEolFill_IsBase(bool value) const { qscilexermatlab_seteolfill_isbase = value; }
+    inline void setQsciLexerMatlab_SetFont_IsBase(bool value) const { qscilexermatlab_setfont_isbase = value; }
+    inline void setQsciLexerMatlab_SetPaper_IsBase(bool value) const { qscilexermatlab_setpaper_isbase = value; }
+    inline void setQsciLexerMatlab_ReadProperties_IsBase(bool value) const { qscilexermatlab_readproperties_isbase = value; }
+    inline void setQsciLexerMatlab_WriteProperties_IsBase(bool value) const { qscilexermatlab_writeproperties_isbase = value; }
+    inline void setQsciLexerMatlab_Event_IsBase(bool value) const { qscilexermatlab_event_isbase = value; }
+    inline void setQsciLexerMatlab_EventFilter_IsBase(bool value) const { qscilexermatlab_eventfilter_isbase = value; }
+    inline void setQsciLexerMatlab_TimerEvent_IsBase(bool value) const { qscilexermatlab_timerevent_isbase = value; }
+    inline void setQsciLexerMatlab_ChildEvent_IsBase(bool value) const { qscilexermatlab_childevent_isbase = value; }
+    inline void setQsciLexerMatlab_CustomEvent_IsBase(bool value) const { qscilexermatlab_customevent_isbase = value; }
+    inline void setQsciLexerMatlab_ConnectNotify_IsBase(bool value) const { qscilexermatlab_connectnotify_isbase = value; }
+    inline void setQsciLexerMatlab_DisconnectNotify_IsBase(bool value) const { qscilexermatlab_disconnectnotify_isbase = value; }
+    inline void setQsciLexerMatlab_Sender_IsBase(bool value) const { qscilexermatlab_sender_isbase = value; }
+    inline void setQsciLexerMatlab_SenderSignalIndex_IsBase(bool value) const { qscilexermatlab_sendersignalindex_isbase = value; }
+    inline void setQsciLexerMatlab_Receivers_IsBase(bool value) const { qscilexermatlab_receivers_isbase = value; }
+    inline void setQsciLexerMatlab_IsSignalConnected_IsBase(bool value) const { qscilexermatlab_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -314,7 +317,12 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_metacall_isbase = false;
             return QsciLexerMatlab::qt_metacall(param1, param2, param3);
         } else if (qscilexermatlab_metacall_callback != nullptr) {
-            return qscilexermatlab_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qscilexermatlab_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerMatlab::qt_metacall(param1, param2, param3);
         }
@@ -322,7 +330,12 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
 
     // Virtual method for C ABI access and custom callback
     virtual const char* language() const override {
-        return qscilexermatlab_language_callback();
+        if (qscilexermatlab_language_callback != nullptr) {
+            const char* callback_ret = qscilexermatlab_language_callback();
+            return callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -331,7 +344,8 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_lexer_isbase = false;
             return QsciLexerMatlab::lexer();
         } else if (qscilexermatlab_lexer_callback != nullptr) {
-            return qscilexermatlab_lexer_callback();
+            const char* callback_ret = qscilexermatlab_lexer_callback();
+            return callback_ret;
         } else {
             return QsciLexerMatlab::lexer();
         }
@@ -343,7 +357,8 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_lexerid_isbase = false;
             return QsciLexerMatlab::lexerId();
         } else if (qscilexermatlab_lexerid_callback != nullptr) {
-            return qscilexermatlab_lexerid_callback();
+            int callback_ret = qscilexermatlab_lexerid_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerMatlab::lexerId();
         }
@@ -355,7 +370,8 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_autocompletionfillups_isbase = false;
             return QsciLexerMatlab::autoCompletionFillups();
         } else if (qscilexermatlab_autocompletionfillups_callback != nullptr) {
-            return qscilexermatlab_autocompletionfillups_callback();
+            const char* callback_ret = qscilexermatlab_autocompletionfillups_callback();
+            return callback_ret;
         } else {
             return QsciLexerMatlab::autoCompletionFillups();
         }
@@ -367,7 +383,15 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_autocompletionwordseparators_isbase = false;
             return QsciLexerMatlab::autoCompletionWordSeparators();
         } else if (qscilexermatlab_autocompletionwordseparators_callback != nullptr) {
-            return qscilexermatlab_autocompletionwordseparators_callback();
+            libqt_list /* of libqt_string */ callback_ret = qscilexermatlab_autocompletionwordseparators_callback();
+            QStringList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+                callback_ret_QList.push_back(callback_ret_arr_i_QString);
+            }
+            return callback_ret_QList;
         } else {
             return QsciLexerMatlab::autoCompletionWordSeparators();
         }
@@ -379,7 +403,10 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_blockend_isbase = false;
             return QsciLexerMatlab::blockEnd(style);
         } else if (qscilexermatlab_blockend_callback != nullptr) {
-            return qscilexermatlab_blockend_callback(this, style);
+            int* cbval1 = style;
+
+            const char* callback_ret = qscilexermatlab_blockend_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerMatlab::blockEnd(style);
         }
@@ -391,7 +418,8 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_blocklookback_isbase = false;
             return QsciLexerMatlab::blockLookback();
         } else if (qscilexermatlab_blocklookback_callback != nullptr) {
-            return qscilexermatlab_blocklookback_callback();
+            int callback_ret = qscilexermatlab_blocklookback_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerMatlab::blockLookback();
         }
@@ -403,7 +431,10 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_blockstart_isbase = false;
             return QsciLexerMatlab::blockStart(style);
         } else if (qscilexermatlab_blockstart_callback != nullptr) {
-            return qscilexermatlab_blockstart_callback(this, style);
+            int* cbval1 = style;
+
+            const char* callback_ret = qscilexermatlab_blockstart_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerMatlab::blockStart(style);
         }
@@ -415,7 +446,10 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_blockstartkeyword_isbase = false;
             return QsciLexerMatlab::blockStartKeyword(style);
         } else if (qscilexermatlab_blockstartkeyword_callback != nullptr) {
-            return qscilexermatlab_blockstartkeyword_callback(this, style);
+            int* cbval1 = style;
+
+            const char* callback_ret = qscilexermatlab_blockstartkeyword_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerMatlab::blockStartKeyword(style);
         }
@@ -427,7 +461,8 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_bracestyle_isbase = false;
             return QsciLexerMatlab::braceStyle();
         } else if (qscilexermatlab_bracestyle_callback != nullptr) {
-            return qscilexermatlab_bracestyle_callback();
+            int callback_ret = qscilexermatlab_bracestyle_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerMatlab::braceStyle();
         }
@@ -439,7 +474,8 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_casesensitive_isbase = false;
             return QsciLexerMatlab::caseSensitive();
         } else if (qscilexermatlab_casesensitive_callback != nullptr) {
-            return qscilexermatlab_casesensitive_callback();
+            bool callback_ret = qscilexermatlab_casesensitive_callback();
+            return callback_ret;
         } else {
             return QsciLexerMatlab::caseSensitive();
         }
@@ -451,7 +487,10 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_color_isbase = false;
             return QsciLexerMatlab::color(style);
         } else if (qscilexermatlab_color_callback != nullptr) {
-            return qscilexermatlab_color_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexermatlab_color_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerMatlab::color(style);
         }
@@ -463,7 +502,10 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_eolfill_isbase = false;
             return QsciLexerMatlab::eolFill(style);
         } else if (qscilexermatlab_eolfill_callback != nullptr) {
-            return qscilexermatlab_eolfill_callback(this, style);
+            int cbval1 = style;
+
+            bool callback_ret = qscilexermatlab_eolfill_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerMatlab::eolFill(style);
         }
@@ -475,7 +517,10 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_font_isbase = false;
             return QsciLexerMatlab::font(style);
         } else if (qscilexermatlab_font_callback != nullptr) {
-            return qscilexermatlab_font_callback(this, style);
+            int cbval1 = style;
+
+            QFont* callback_ret = qscilexermatlab_font_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerMatlab::font(style);
         }
@@ -487,7 +532,8 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_indentationguideview_isbase = false;
             return QsciLexerMatlab::indentationGuideView();
         } else if (qscilexermatlab_indentationguideview_callback != nullptr) {
-            return qscilexermatlab_indentationguideview_callback();
+            int callback_ret = qscilexermatlab_indentationguideview_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerMatlab::indentationGuideView();
         }
@@ -499,7 +545,10 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_keywords_isbase = false;
             return QsciLexerMatlab::keywords(set);
         } else if (qscilexermatlab_keywords_callback != nullptr) {
-            return qscilexermatlab_keywords_callback(this, set);
+            int cbval1 = set;
+
+            const char* callback_ret = qscilexermatlab_keywords_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerMatlab::keywords(set);
         }
@@ -511,7 +560,8 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_defaultstyle_isbase = false;
             return QsciLexerMatlab::defaultStyle();
         } else if (qscilexermatlab_defaultstyle_callback != nullptr) {
-            return qscilexermatlab_defaultstyle_callback();
+            int callback_ret = qscilexermatlab_defaultstyle_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerMatlab::defaultStyle();
         }
@@ -519,7 +569,15 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
 
     // Virtual method for C ABI access and custom callback
     virtual QString description(int style) const override {
-        return qscilexermatlab_description_callback(this, style);
+        if (qscilexermatlab_description_callback != nullptr) {
+            int cbval1 = style;
+
+            libqt_string callback_ret = qscilexermatlab_description_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -528,7 +586,10 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_paper_isbase = false;
             return QsciLexerMatlab::paper(style);
         } else if (qscilexermatlab_paper_callback != nullptr) {
-            return qscilexermatlab_paper_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexermatlab_paper_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerMatlab::paper(style);
         }
@@ -540,7 +601,10 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_defaultcolorwithstyle_isbase = false;
             return QsciLexerMatlab::defaultColor(style);
         } else if (qscilexermatlab_defaultcolorwithstyle_callback != nullptr) {
-            return qscilexermatlab_defaultcolorwithstyle_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexermatlab_defaultcolorwithstyle_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerMatlab::defaultColor(style);
         }
@@ -552,7 +616,10 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_defaulteolfill_isbase = false;
             return QsciLexerMatlab::defaultEolFill(style);
         } else if (qscilexermatlab_defaulteolfill_callback != nullptr) {
-            return qscilexermatlab_defaulteolfill_callback(this, style);
+            int cbval1 = style;
+
+            bool callback_ret = qscilexermatlab_defaulteolfill_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerMatlab::defaultEolFill(style);
         }
@@ -564,7 +631,10 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_defaultfontwithstyle_isbase = false;
             return QsciLexerMatlab::defaultFont(style);
         } else if (qscilexermatlab_defaultfontwithstyle_callback != nullptr) {
-            return qscilexermatlab_defaultfontwithstyle_callback(this, style);
+            int cbval1 = style;
+
+            QFont* callback_ret = qscilexermatlab_defaultfontwithstyle_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerMatlab::defaultFont(style);
         }
@@ -576,7 +646,10 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_defaultpaperwithstyle_isbase = false;
             return QsciLexerMatlab::defaultPaper(style);
         } else if (qscilexermatlab_defaultpaperwithstyle_callback != nullptr) {
-            return qscilexermatlab_defaultpaperwithstyle_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexermatlab_defaultpaperwithstyle_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerMatlab::defaultPaper(style);
         }
@@ -588,7 +661,9 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_seteditor_isbase = false;
             QsciLexerMatlab::setEditor(editor);
         } else if (qscilexermatlab_seteditor_callback != nullptr) {
-            qscilexermatlab_seteditor_callback(this, editor);
+            QsciScintilla* cbval1 = editor;
+
+            qscilexermatlab_seteditor_callback(this, cbval1);
         } else {
             QsciLexerMatlab::setEditor(editor);
         }
@@ -612,7 +687,8 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_stylebitsneeded_isbase = false;
             return QsciLexerMatlab::styleBitsNeeded();
         } else if (qscilexermatlab_stylebitsneeded_callback != nullptr) {
-            return qscilexermatlab_stylebitsneeded_callback();
+            int callback_ret = qscilexermatlab_stylebitsneeded_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerMatlab::styleBitsNeeded();
         }
@@ -624,7 +700,8 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_wordcharacters_isbase = false;
             return QsciLexerMatlab::wordCharacters();
         } else if (qscilexermatlab_wordcharacters_callback != nullptr) {
-            return qscilexermatlab_wordcharacters_callback();
+            const char* callback_ret = qscilexermatlab_wordcharacters_callback();
+            return callback_ret;
         } else {
             return QsciLexerMatlab::wordCharacters();
         }
@@ -636,7 +713,9 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_setautoindentstyle_isbase = false;
             QsciLexerMatlab::setAutoIndentStyle(autoindentstyle);
         } else if (qscilexermatlab_setautoindentstyle_callback != nullptr) {
-            qscilexermatlab_setautoindentstyle_callback(this, autoindentstyle);
+            int cbval1 = autoindentstyle;
+
+            qscilexermatlab_setautoindentstyle_callback(this, cbval1);
         } else {
             QsciLexerMatlab::setAutoIndentStyle(autoindentstyle);
         }
@@ -648,7 +727,12 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_setcolor_isbase = false;
             QsciLexerMatlab::setColor(c, style);
         } else if (qscilexermatlab_setcolor_callback != nullptr) {
-            qscilexermatlab_setcolor_callback(this, c, style);
+            const QColor& c_ret = c;
+            // Cast returned reference into pointer
+            QColor* cbval1 = const_cast<QColor*>(&c_ret);
+            int cbval2 = style;
+
+            qscilexermatlab_setcolor_callback(this, cbval1, cbval2);
         } else {
             QsciLexerMatlab::setColor(c, style);
         }
@@ -660,7 +744,10 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_seteolfill_isbase = false;
             QsciLexerMatlab::setEolFill(eoffill, style);
         } else if (qscilexermatlab_seteolfill_callback != nullptr) {
-            qscilexermatlab_seteolfill_callback(this, eoffill, style);
+            bool cbval1 = eoffill;
+            int cbval2 = style;
+
+            qscilexermatlab_seteolfill_callback(this, cbval1, cbval2);
         } else {
             QsciLexerMatlab::setEolFill(eoffill, style);
         }
@@ -672,7 +759,12 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_setfont_isbase = false;
             QsciLexerMatlab::setFont(f, style);
         } else if (qscilexermatlab_setfont_callback != nullptr) {
-            qscilexermatlab_setfont_callback(this, f, style);
+            const QFont& f_ret = f;
+            // Cast returned reference into pointer
+            QFont* cbval1 = const_cast<QFont*>(&f_ret);
+            int cbval2 = style;
+
+            qscilexermatlab_setfont_callback(this, cbval1, cbval2);
         } else {
             QsciLexerMatlab::setFont(f, style);
         }
@@ -684,7 +776,12 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_setpaper_isbase = false;
             QsciLexerMatlab::setPaper(c, style);
         } else if (qscilexermatlab_setpaper_callback != nullptr) {
-            qscilexermatlab_setpaper_callback(this, c, style);
+            const QColor& c_ret = c;
+            // Cast returned reference into pointer
+            QColor* cbval1 = const_cast<QColor*>(&c_ret);
+            int cbval2 = style;
+
+            qscilexermatlab_setpaper_callback(this, cbval1, cbval2);
         } else {
             QsciLexerMatlab::setPaper(c, style);
         }
@@ -696,7 +793,21 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_readproperties_isbase = false;
             return QsciLexerMatlab::readProperties(qs, prefix);
         } else if (qscilexermatlab_readproperties_callback != nullptr) {
-            return qscilexermatlab_readproperties_callback(this, qs, prefix);
+            QSettings& qs_ret = qs;
+            // Cast returned reference into pointer
+            QSettings* cbval1 = &qs_ret;
+            const QString prefix_ret = prefix;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray prefix_b = prefix_ret.toUtf8();
+            libqt_string prefix_str;
+            prefix_str.len = prefix_b.length();
+            prefix_str.data = static_cast<char*>(malloc((prefix_str.len + 1) * sizeof(char)));
+            memcpy(prefix_str.data, prefix_b.data(), prefix_str.len);
+            prefix_str.data[prefix_str.len] = '\0';
+            libqt_string cbval2 = prefix_str;
+
+            bool callback_ret = qscilexermatlab_readproperties_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QsciLexerMatlab::readProperties(qs, prefix);
         }
@@ -708,7 +819,21 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_writeproperties_isbase = false;
             return QsciLexerMatlab::writeProperties(qs, prefix);
         } else if (qscilexermatlab_writeproperties_callback != nullptr) {
-            return qscilexermatlab_writeproperties_callback(this, qs, prefix);
+            QSettings& qs_ret = qs;
+            // Cast returned reference into pointer
+            QSettings* cbval1 = &qs_ret;
+            const QString prefix_ret = prefix;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray prefix_b = prefix_ret.toUtf8();
+            libqt_string prefix_str;
+            prefix_str.len = prefix_b.length();
+            prefix_str.data = static_cast<char*>(malloc((prefix_str.len + 1) * sizeof(char)));
+            memcpy(prefix_str.data, prefix_b.data(), prefix_str.len);
+            prefix_str.data[prefix_str.len] = '\0';
+            libqt_string cbval2 = prefix_str;
+
+            bool callback_ret = qscilexermatlab_writeproperties_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QsciLexerMatlab::writeProperties(qs, prefix);
         }
@@ -720,7 +845,10 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_event_isbase = false;
             return QsciLexerMatlab::event(event);
         } else if (qscilexermatlab_event_callback != nullptr) {
-            return qscilexermatlab_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qscilexermatlab_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerMatlab::event(event);
         }
@@ -732,7 +860,11 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_eventfilter_isbase = false;
             return QsciLexerMatlab::eventFilter(watched, event);
         } else if (qscilexermatlab_eventfilter_callback != nullptr) {
-            return qscilexermatlab_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qscilexermatlab_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QsciLexerMatlab::eventFilter(watched, event);
         }
@@ -744,7 +876,9 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_timerevent_isbase = false;
             QsciLexerMatlab::timerEvent(event);
         } else if (qscilexermatlab_timerevent_callback != nullptr) {
-            qscilexermatlab_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qscilexermatlab_timerevent_callback(this, cbval1);
         } else {
             QsciLexerMatlab::timerEvent(event);
         }
@@ -756,7 +890,9 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_childevent_isbase = false;
             QsciLexerMatlab::childEvent(event);
         } else if (qscilexermatlab_childevent_callback != nullptr) {
-            qscilexermatlab_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qscilexermatlab_childevent_callback(this, cbval1);
         } else {
             QsciLexerMatlab::childEvent(event);
         }
@@ -768,7 +904,9 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_customevent_isbase = false;
             QsciLexerMatlab::customEvent(event);
         } else if (qscilexermatlab_customevent_callback != nullptr) {
-            qscilexermatlab_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qscilexermatlab_customevent_callback(this, cbval1);
         } else {
             QsciLexerMatlab::customEvent(event);
         }
@@ -780,7 +918,11 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_connectnotify_isbase = false;
             QsciLexerMatlab::connectNotify(signal);
         } else if (qscilexermatlab_connectnotify_callback != nullptr) {
-            qscilexermatlab_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qscilexermatlab_connectnotify_callback(this, cbval1);
         } else {
             QsciLexerMatlab::connectNotify(signal);
         }
@@ -792,7 +934,11 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_disconnectnotify_isbase = false;
             QsciLexerMatlab::disconnectNotify(signal);
         } else if (qscilexermatlab_disconnectnotify_callback != nullptr) {
-            qscilexermatlab_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qscilexermatlab_disconnectnotify_callback(this, cbval1);
         } else {
             QsciLexerMatlab::disconnectNotify(signal);
         }
@@ -804,7 +950,8 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_sender_isbase = false;
             return QsciLexerMatlab::sender();
         } else if (qscilexermatlab_sender_callback != nullptr) {
-            return qscilexermatlab_sender_callback();
+            QObject* callback_ret = qscilexermatlab_sender_callback();
+            return callback_ret;
         } else {
             return QsciLexerMatlab::sender();
         }
@@ -816,7 +963,8 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_sendersignalindex_isbase = false;
             return QsciLexerMatlab::senderSignalIndex();
         } else if (qscilexermatlab_sendersignalindex_callback != nullptr) {
-            return qscilexermatlab_sendersignalindex_callback();
+            int callback_ret = qscilexermatlab_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerMatlab::senderSignalIndex();
         }
@@ -828,7 +976,10 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_receivers_isbase = false;
             return QsciLexerMatlab::receivers(signal);
         } else if (qscilexermatlab_receivers_callback != nullptr) {
-            return qscilexermatlab_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qscilexermatlab_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerMatlab::receivers(signal);
         }
@@ -840,11 +991,40 @@ class VirtualQsciLexerMatlab : public QsciLexerMatlab {
             qscilexermatlab_issignalconnected_isbase = false;
             return QsciLexerMatlab::isSignalConnected(signal);
         } else if (qscilexermatlab_issignalconnected_callback != nullptr) {
-            return qscilexermatlab_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qscilexermatlab_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerMatlab::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QsciLexerMatlab_ReadProperties(QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerMatlab_QBaseReadProperties(QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerMatlab_WriteProperties(const QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerMatlab_QBaseWriteProperties(const QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix);
+    friend void QsciLexerMatlab_TimerEvent(QsciLexerMatlab* self, QTimerEvent* event);
+    friend void QsciLexerMatlab_QBaseTimerEvent(QsciLexerMatlab* self, QTimerEvent* event);
+    friend void QsciLexerMatlab_ChildEvent(QsciLexerMatlab* self, QChildEvent* event);
+    friend void QsciLexerMatlab_QBaseChildEvent(QsciLexerMatlab* self, QChildEvent* event);
+    friend void QsciLexerMatlab_CustomEvent(QsciLexerMatlab* self, QEvent* event);
+    friend void QsciLexerMatlab_QBaseCustomEvent(QsciLexerMatlab* self, QEvent* event);
+    friend void QsciLexerMatlab_ConnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
+    friend void QsciLexerMatlab_QBaseConnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
+    friend void QsciLexerMatlab_DisconnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
+    friend void QsciLexerMatlab_QBaseDisconnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
+    friend QObject* QsciLexerMatlab_Sender(const QsciLexerMatlab* self);
+    friend QObject* QsciLexerMatlab_QBaseSender(const QsciLexerMatlab* self);
+    friend int QsciLexerMatlab_SenderSignalIndex(const QsciLexerMatlab* self);
+    friend int QsciLexerMatlab_QBaseSenderSignalIndex(const QsciLexerMatlab* self);
+    friend int QsciLexerMatlab_Receivers(const QsciLexerMatlab* self, const char* signal);
+    friend int QsciLexerMatlab_QBaseReceivers(const QsciLexerMatlab* self, const char* signal);
+    friend bool QsciLexerMatlab_IsSignalConnected(const QsciLexerMatlab* self, const QMetaMethod* signal);
+    friend bool QsciLexerMatlab_QBaseIsSignalConnected(const QsciLexerMatlab* self, const QMetaMethod* signal);
 };
 
 #endif

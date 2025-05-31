@@ -11,11 +11,14 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QMessageBox so that we can call protected methods
-class VirtualQMessageBox : public QMessageBox {
+class VirtualQMessageBox final : public QMessageBox {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQMessageBox = true;
+
     // Virtual class public types (including callbacks)
-    using QMessageBox_Metacall_Callback = int (*)(QMessageBox*, QMetaObject::Call, int, void**);
+    using QMessageBox_Metacall_Callback = int (*)(QMessageBox*, int, int, void**);
     using QMessageBox_Event_Callback = bool (*)(QMessageBox*, QEvent*);
     using QMessageBox_ResizeEvent_Callback = void (*)(QMessageBox*, QResizeEvent*);
     using QMessageBox_ShowEvent_Callback = void (*)(QMessageBox*, QShowEvent*);
@@ -23,8 +26,8 @@ class VirtualQMessageBox : public QMessageBox {
     using QMessageBox_KeyPressEvent_Callback = void (*)(QMessageBox*, QKeyEvent*);
     using QMessageBox_ChangeEvent_Callback = void (*)(QMessageBox*, QEvent*);
     using QMessageBox_SetVisible_Callback = void (*)(QMessageBox*, bool);
-    using QMessageBox_SizeHint_Callback = QSize (*)();
-    using QMessageBox_MinimumSizeHint_Callback = QSize (*)();
+    using QMessageBox_SizeHint_Callback = QSize* (*)();
+    using QMessageBox_MinimumSizeHint_Callback = QSize* (*)();
     using QMessageBox_Open_Callback = void (*)();
     using QMessageBox_Exec_Callback = int (*)();
     using QMessageBox_Done_Callback = void (*)(QMessageBox*, int);
@@ -55,19 +58,19 @@ class VirtualQMessageBox : public QMessageBox {
     using QMessageBox_DragLeaveEvent_Callback = void (*)(QMessageBox*, QDragLeaveEvent*);
     using QMessageBox_DropEvent_Callback = void (*)(QMessageBox*, QDropEvent*);
     using QMessageBox_HideEvent_Callback = void (*)(QMessageBox*, QHideEvent*);
-    using QMessageBox_NativeEvent_Callback = bool (*)(QMessageBox*, const QByteArray&, void*, qintptr*);
-    using QMessageBox_Metric_Callback = int (*)(const QMessageBox*, QPaintDevice::PaintDeviceMetric);
+    using QMessageBox_NativeEvent_Callback = bool (*)(QMessageBox*, libqt_string, void*, intptr_t*);
+    using QMessageBox_Metric_Callback = int (*)(const QMessageBox*, int);
     using QMessageBox_InitPainter_Callback = void (*)(const QMessageBox*, QPainter*);
     using QMessageBox_Redirected_Callback = QPaintDevice* (*)(const QMessageBox*, QPoint*);
     using QMessageBox_SharedPainter_Callback = QPainter* (*)();
     using QMessageBox_InputMethodEvent_Callback = void (*)(QMessageBox*, QInputMethodEvent*);
-    using QMessageBox_InputMethodQuery_Callback = QVariant (*)(const QMessageBox*, Qt::InputMethodQuery);
+    using QMessageBox_InputMethodQuery_Callback = QVariant* (*)(const QMessageBox*, int);
     using QMessageBox_FocusNextPrevChild_Callback = bool (*)(QMessageBox*, bool);
     using QMessageBox_TimerEvent_Callback = void (*)(QMessageBox*, QTimerEvent*);
     using QMessageBox_ChildEvent_Callback = void (*)(QMessageBox*, QChildEvent*);
     using QMessageBox_CustomEvent_Callback = void (*)(QMessageBox*, QEvent*);
-    using QMessageBox_ConnectNotify_Callback = void (*)(QMessageBox*, const QMetaMethod&);
-    using QMessageBox_DisconnectNotify_Callback = void (*)(QMessageBox*, const QMetaMethod&);
+    using QMessageBox_ConnectNotify_Callback = void (*)(QMessageBox*, QMetaMethod*);
+    using QMessageBox_DisconnectNotify_Callback = void (*)(QMessageBox*, QMetaMethod*);
     using QMessageBox_AdjustPosition_Callback = void (*)(QMessageBox*, QWidget*);
     using QMessageBox_UpdateMicroFocus_Callback = void (*)();
     using QMessageBox_Create_Callback = void (*)();
@@ -77,7 +80,7 @@ class VirtualQMessageBox : public QMessageBox {
     using QMessageBox_Sender_Callback = QObject* (*)();
     using QMessageBox_SenderSignalIndex_Callback = int (*)();
     using QMessageBox_Receivers_Callback = int (*)(const QMessageBox*, const char*);
-    using QMessageBox_IsSignalConnected_Callback = bool (*)(const QMessageBox*, const QMetaMethod&);
+    using QMessageBox_IsSignalConnected_Callback = bool (*)(const QMessageBox*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -288,134 +291,134 @@ class VirtualQMessageBox : public QMessageBox {
     }
 
     // Callback setters
-    void setQMessageBox_Metacall_Callback(QMessageBox_Metacall_Callback cb) { qmessagebox_metacall_callback = cb; }
-    void setQMessageBox_Event_Callback(QMessageBox_Event_Callback cb) { qmessagebox_event_callback = cb; }
-    void setQMessageBox_ResizeEvent_Callback(QMessageBox_ResizeEvent_Callback cb) { qmessagebox_resizeevent_callback = cb; }
-    void setQMessageBox_ShowEvent_Callback(QMessageBox_ShowEvent_Callback cb) { qmessagebox_showevent_callback = cb; }
-    void setQMessageBox_CloseEvent_Callback(QMessageBox_CloseEvent_Callback cb) { qmessagebox_closeevent_callback = cb; }
-    void setQMessageBox_KeyPressEvent_Callback(QMessageBox_KeyPressEvent_Callback cb) { qmessagebox_keypressevent_callback = cb; }
-    void setQMessageBox_ChangeEvent_Callback(QMessageBox_ChangeEvent_Callback cb) { qmessagebox_changeevent_callback = cb; }
-    void setQMessageBox_SetVisible_Callback(QMessageBox_SetVisible_Callback cb) { qmessagebox_setvisible_callback = cb; }
-    void setQMessageBox_SizeHint_Callback(QMessageBox_SizeHint_Callback cb) { qmessagebox_sizehint_callback = cb; }
-    void setQMessageBox_MinimumSizeHint_Callback(QMessageBox_MinimumSizeHint_Callback cb) { qmessagebox_minimumsizehint_callback = cb; }
-    void setQMessageBox_Open_Callback(QMessageBox_Open_Callback cb) { qmessagebox_open_callback = cb; }
-    void setQMessageBox_Exec_Callback(QMessageBox_Exec_Callback cb) { qmessagebox_exec_callback = cb; }
-    void setQMessageBox_Done_Callback(QMessageBox_Done_Callback cb) { qmessagebox_done_callback = cb; }
-    void setQMessageBox_Accept_Callback(QMessageBox_Accept_Callback cb) { qmessagebox_accept_callback = cb; }
-    void setQMessageBox_Reject_Callback(QMessageBox_Reject_Callback cb) { qmessagebox_reject_callback = cb; }
-    void setQMessageBox_ContextMenuEvent_Callback(QMessageBox_ContextMenuEvent_Callback cb) { qmessagebox_contextmenuevent_callback = cb; }
-    void setQMessageBox_EventFilter_Callback(QMessageBox_EventFilter_Callback cb) { qmessagebox_eventfilter_callback = cb; }
-    void setQMessageBox_DevType_Callback(QMessageBox_DevType_Callback cb) { qmessagebox_devtype_callback = cb; }
-    void setQMessageBox_HeightForWidth_Callback(QMessageBox_HeightForWidth_Callback cb) { qmessagebox_heightforwidth_callback = cb; }
-    void setQMessageBox_HasHeightForWidth_Callback(QMessageBox_HasHeightForWidth_Callback cb) { qmessagebox_hasheightforwidth_callback = cb; }
-    void setQMessageBox_PaintEngine_Callback(QMessageBox_PaintEngine_Callback cb) { qmessagebox_paintengine_callback = cb; }
-    void setQMessageBox_MousePressEvent_Callback(QMessageBox_MousePressEvent_Callback cb) { qmessagebox_mousepressevent_callback = cb; }
-    void setQMessageBox_MouseReleaseEvent_Callback(QMessageBox_MouseReleaseEvent_Callback cb) { qmessagebox_mousereleaseevent_callback = cb; }
-    void setQMessageBox_MouseDoubleClickEvent_Callback(QMessageBox_MouseDoubleClickEvent_Callback cb) { qmessagebox_mousedoubleclickevent_callback = cb; }
-    void setQMessageBox_MouseMoveEvent_Callback(QMessageBox_MouseMoveEvent_Callback cb) { qmessagebox_mousemoveevent_callback = cb; }
-    void setQMessageBox_WheelEvent_Callback(QMessageBox_WheelEvent_Callback cb) { qmessagebox_wheelevent_callback = cb; }
-    void setQMessageBox_KeyReleaseEvent_Callback(QMessageBox_KeyReleaseEvent_Callback cb) { qmessagebox_keyreleaseevent_callback = cb; }
-    void setQMessageBox_FocusInEvent_Callback(QMessageBox_FocusInEvent_Callback cb) { qmessagebox_focusinevent_callback = cb; }
-    void setQMessageBox_FocusOutEvent_Callback(QMessageBox_FocusOutEvent_Callback cb) { qmessagebox_focusoutevent_callback = cb; }
-    void setQMessageBox_EnterEvent_Callback(QMessageBox_EnterEvent_Callback cb) { qmessagebox_enterevent_callback = cb; }
-    void setQMessageBox_LeaveEvent_Callback(QMessageBox_LeaveEvent_Callback cb) { qmessagebox_leaveevent_callback = cb; }
-    void setQMessageBox_PaintEvent_Callback(QMessageBox_PaintEvent_Callback cb) { qmessagebox_paintevent_callback = cb; }
-    void setQMessageBox_MoveEvent_Callback(QMessageBox_MoveEvent_Callback cb) { qmessagebox_moveevent_callback = cb; }
-    void setQMessageBox_TabletEvent_Callback(QMessageBox_TabletEvent_Callback cb) { qmessagebox_tabletevent_callback = cb; }
-    void setQMessageBox_ActionEvent_Callback(QMessageBox_ActionEvent_Callback cb) { qmessagebox_actionevent_callback = cb; }
-    void setQMessageBox_DragEnterEvent_Callback(QMessageBox_DragEnterEvent_Callback cb) { qmessagebox_dragenterevent_callback = cb; }
-    void setQMessageBox_DragMoveEvent_Callback(QMessageBox_DragMoveEvent_Callback cb) { qmessagebox_dragmoveevent_callback = cb; }
-    void setQMessageBox_DragLeaveEvent_Callback(QMessageBox_DragLeaveEvent_Callback cb) { qmessagebox_dragleaveevent_callback = cb; }
-    void setQMessageBox_DropEvent_Callback(QMessageBox_DropEvent_Callback cb) { qmessagebox_dropevent_callback = cb; }
-    void setQMessageBox_HideEvent_Callback(QMessageBox_HideEvent_Callback cb) { qmessagebox_hideevent_callback = cb; }
-    void setQMessageBox_NativeEvent_Callback(QMessageBox_NativeEvent_Callback cb) { qmessagebox_nativeevent_callback = cb; }
-    void setQMessageBox_Metric_Callback(QMessageBox_Metric_Callback cb) { qmessagebox_metric_callback = cb; }
-    void setQMessageBox_InitPainter_Callback(QMessageBox_InitPainter_Callback cb) { qmessagebox_initpainter_callback = cb; }
-    void setQMessageBox_Redirected_Callback(QMessageBox_Redirected_Callback cb) { qmessagebox_redirected_callback = cb; }
-    void setQMessageBox_SharedPainter_Callback(QMessageBox_SharedPainter_Callback cb) { qmessagebox_sharedpainter_callback = cb; }
-    void setQMessageBox_InputMethodEvent_Callback(QMessageBox_InputMethodEvent_Callback cb) { qmessagebox_inputmethodevent_callback = cb; }
-    void setQMessageBox_InputMethodQuery_Callback(QMessageBox_InputMethodQuery_Callback cb) { qmessagebox_inputmethodquery_callback = cb; }
-    void setQMessageBox_FocusNextPrevChild_Callback(QMessageBox_FocusNextPrevChild_Callback cb) { qmessagebox_focusnextprevchild_callback = cb; }
-    void setQMessageBox_TimerEvent_Callback(QMessageBox_TimerEvent_Callback cb) { qmessagebox_timerevent_callback = cb; }
-    void setQMessageBox_ChildEvent_Callback(QMessageBox_ChildEvent_Callback cb) { qmessagebox_childevent_callback = cb; }
-    void setQMessageBox_CustomEvent_Callback(QMessageBox_CustomEvent_Callback cb) { qmessagebox_customevent_callback = cb; }
-    void setQMessageBox_ConnectNotify_Callback(QMessageBox_ConnectNotify_Callback cb) { qmessagebox_connectnotify_callback = cb; }
-    void setQMessageBox_DisconnectNotify_Callback(QMessageBox_DisconnectNotify_Callback cb) { qmessagebox_disconnectnotify_callback = cb; }
-    void setQMessageBox_AdjustPosition_Callback(QMessageBox_AdjustPosition_Callback cb) { qmessagebox_adjustposition_callback = cb; }
-    void setQMessageBox_UpdateMicroFocus_Callback(QMessageBox_UpdateMicroFocus_Callback cb) { qmessagebox_updatemicrofocus_callback = cb; }
-    void setQMessageBox_Create_Callback(QMessageBox_Create_Callback cb) { qmessagebox_create_callback = cb; }
-    void setQMessageBox_Destroy_Callback(QMessageBox_Destroy_Callback cb) { qmessagebox_destroy_callback = cb; }
-    void setQMessageBox_FocusNextChild_Callback(QMessageBox_FocusNextChild_Callback cb) { qmessagebox_focusnextchild_callback = cb; }
-    void setQMessageBox_FocusPreviousChild_Callback(QMessageBox_FocusPreviousChild_Callback cb) { qmessagebox_focuspreviouschild_callback = cb; }
-    void setQMessageBox_Sender_Callback(QMessageBox_Sender_Callback cb) { qmessagebox_sender_callback = cb; }
-    void setQMessageBox_SenderSignalIndex_Callback(QMessageBox_SenderSignalIndex_Callback cb) { qmessagebox_sendersignalindex_callback = cb; }
-    void setQMessageBox_Receivers_Callback(QMessageBox_Receivers_Callback cb) { qmessagebox_receivers_callback = cb; }
-    void setQMessageBox_IsSignalConnected_Callback(QMessageBox_IsSignalConnected_Callback cb) { qmessagebox_issignalconnected_callback = cb; }
+    inline void setQMessageBox_Metacall_Callback(QMessageBox_Metacall_Callback cb) { qmessagebox_metacall_callback = cb; }
+    inline void setQMessageBox_Event_Callback(QMessageBox_Event_Callback cb) { qmessagebox_event_callback = cb; }
+    inline void setQMessageBox_ResizeEvent_Callback(QMessageBox_ResizeEvent_Callback cb) { qmessagebox_resizeevent_callback = cb; }
+    inline void setQMessageBox_ShowEvent_Callback(QMessageBox_ShowEvent_Callback cb) { qmessagebox_showevent_callback = cb; }
+    inline void setQMessageBox_CloseEvent_Callback(QMessageBox_CloseEvent_Callback cb) { qmessagebox_closeevent_callback = cb; }
+    inline void setQMessageBox_KeyPressEvent_Callback(QMessageBox_KeyPressEvent_Callback cb) { qmessagebox_keypressevent_callback = cb; }
+    inline void setQMessageBox_ChangeEvent_Callback(QMessageBox_ChangeEvent_Callback cb) { qmessagebox_changeevent_callback = cb; }
+    inline void setQMessageBox_SetVisible_Callback(QMessageBox_SetVisible_Callback cb) { qmessagebox_setvisible_callback = cb; }
+    inline void setQMessageBox_SizeHint_Callback(QMessageBox_SizeHint_Callback cb) { qmessagebox_sizehint_callback = cb; }
+    inline void setQMessageBox_MinimumSizeHint_Callback(QMessageBox_MinimumSizeHint_Callback cb) { qmessagebox_minimumsizehint_callback = cb; }
+    inline void setQMessageBox_Open_Callback(QMessageBox_Open_Callback cb) { qmessagebox_open_callback = cb; }
+    inline void setQMessageBox_Exec_Callback(QMessageBox_Exec_Callback cb) { qmessagebox_exec_callback = cb; }
+    inline void setQMessageBox_Done_Callback(QMessageBox_Done_Callback cb) { qmessagebox_done_callback = cb; }
+    inline void setQMessageBox_Accept_Callback(QMessageBox_Accept_Callback cb) { qmessagebox_accept_callback = cb; }
+    inline void setQMessageBox_Reject_Callback(QMessageBox_Reject_Callback cb) { qmessagebox_reject_callback = cb; }
+    inline void setQMessageBox_ContextMenuEvent_Callback(QMessageBox_ContextMenuEvent_Callback cb) { qmessagebox_contextmenuevent_callback = cb; }
+    inline void setQMessageBox_EventFilter_Callback(QMessageBox_EventFilter_Callback cb) { qmessagebox_eventfilter_callback = cb; }
+    inline void setQMessageBox_DevType_Callback(QMessageBox_DevType_Callback cb) { qmessagebox_devtype_callback = cb; }
+    inline void setQMessageBox_HeightForWidth_Callback(QMessageBox_HeightForWidth_Callback cb) { qmessagebox_heightforwidth_callback = cb; }
+    inline void setQMessageBox_HasHeightForWidth_Callback(QMessageBox_HasHeightForWidth_Callback cb) { qmessagebox_hasheightforwidth_callback = cb; }
+    inline void setQMessageBox_PaintEngine_Callback(QMessageBox_PaintEngine_Callback cb) { qmessagebox_paintengine_callback = cb; }
+    inline void setQMessageBox_MousePressEvent_Callback(QMessageBox_MousePressEvent_Callback cb) { qmessagebox_mousepressevent_callback = cb; }
+    inline void setQMessageBox_MouseReleaseEvent_Callback(QMessageBox_MouseReleaseEvent_Callback cb) { qmessagebox_mousereleaseevent_callback = cb; }
+    inline void setQMessageBox_MouseDoubleClickEvent_Callback(QMessageBox_MouseDoubleClickEvent_Callback cb) { qmessagebox_mousedoubleclickevent_callback = cb; }
+    inline void setQMessageBox_MouseMoveEvent_Callback(QMessageBox_MouseMoveEvent_Callback cb) { qmessagebox_mousemoveevent_callback = cb; }
+    inline void setQMessageBox_WheelEvent_Callback(QMessageBox_WheelEvent_Callback cb) { qmessagebox_wheelevent_callback = cb; }
+    inline void setQMessageBox_KeyReleaseEvent_Callback(QMessageBox_KeyReleaseEvent_Callback cb) { qmessagebox_keyreleaseevent_callback = cb; }
+    inline void setQMessageBox_FocusInEvent_Callback(QMessageBox_FocusInEvent_Callback cb) { qmessagebox_focusinevent_callback = cb; }
+    inline void setQMessageBox_FocusOutEvent_Callback(QMessageBox_FocusOutEvent_Callback cb) { qmessagebox_focusoutevent_callback = cb; }
+    inline void setQMessageBox_EnterEvent_Callback(QMessageBox_EnterEvent_Callback cb) { qmessagebox_enterevent_callback = cb; }
+    inline void setQMessageBox_LeaveEvent_Callback(QMessageBox_LeaveEvent_Callback cb) { qmessagebox_leaveevent_callback = cb; }
+    inline void setQMessageBox_PaintEvent_Callback(QMessageBox_PaintEvent_Callback cb) { qmessagebox_paintevent_callback = cb; }
+    inline void setQMessageBox_MoveEvent_Callback(QMessageBox_MoveEvent_Callback cb) { qmessagebox_moveevent_callback = cb; }
+    inline void setQMessageBox_TabletEvent_Callback(QMessageBox_TabletEvent_Callback cb) { qmessagebox_tabletevent_callback = cb; }
+    inline void setQMessageBox_ActionEvent_Callback(QMessageBox_ActionEvent_Callback cb) { qmessagebox_actionevent_callback = cb; }
+    inline void setQMessageBox_DragEnterEvent_Callback(QMessageBox_DragEnterEvent_Callback cb) { qmessagebox_dragenterevent_callback = cb; }
+    inline void setQMessageBox_DragMoveEvent_Callback(QMessageBox_DragMoveEvent_Callback cb) { qmessagebox_dragmoveevent_callback = cb; }
+    inline void setQMessageBox_DragLeaveEvent_Callback(QMessageBox_DragLeaveEvent_Callback cb) { qmessagebox_dragleaveevent_callback = cb; }
+    inline void setQMessageBox_DropEvent_Callback(QMessageBox_DropEvent_Callback cb) { qmessagebox_dropevent_callback = cb; }
+    inline void setQMessageBox_HideEvent_Callback(QMessageBox_HideEvent_Callback cb) { qmessagebox_hideevent_callback = cb; }
+    inline void setQMessageBox_NativeEvent_Callback(QMessageBox_NativeEvent_Callback cb) { qmessagebox_nativeevent_callback = cb; }
+    inline void setQMessageBox_Metric_Callback(QMessageBox_Metric_Callback cb) { qmessagebox_metric_callback = cb; }
+    inline void setQMessageBox_InitPainter_Callback(QMessageBox_InitPainter_Callback cb) { qmessagebox_initpainter_callback = cb; }
+    inline void setQMessageBox_Redirected_Callback(QMessageBox_Redirected_Callback cb) { qmessagebox_redirected_callback = cb; }
+    inline void setQMessageBox_SharedPainter_Callback(QMessageBox_SharedPainter_Callback cb) { qmessagebox_sharedpainter_callback = cb; }
+    inline void setQMessageBox_InputMethodEvent_Callback(QMessageBox_InputMethodEvent_Callback cb) { qmessagebox_inputmethodevent_callback = cb; }
+    inline void setQMessageBox_InputMethodQuery_Callback(QMessageBox_InputMethodQuery_Callback cb) { qmessagebox_inputmethodquery_callback = cb; }
+    inline void setQMessageBox_FocusNextPrevChild_Callback(QMessageBox_FocusNextPrevChild_Callback cb) { qmessagebox_focusnextprevchild_callback = cb; }
+    inline void setQMessageBox_TimerEvent_Callback(QMessageBox_TimerEvent_Callback cb) { qmessagebox_timerevent_callback = cb; }
+    inline void setQMessageBox_ChildEvent_Callback(QMessageBox_ChildEvent_Callback cb) { qmessagebox_childevent_callback = cb; }
+    inline void setQMessageBox_CustomEvent_Callback(QMessageBox_CustomEvent_Callback cb) { qmessagebox_customevent_callback = cb; }
+    inline void setQMessageBox_ConnectNotify_Callback(QMessageBox_ConnectNotify_Callback cb) { qmessagebox_connectnotify_callback = cb; }
+    inline void setQMessageBox_DisconnectNotify_Callback(QMessageBox_DisconnectNotify_Callback cb) { qmessagebox_disconnectnotify_callback = cb; }
+    inline void setQMessageBox_AdjustPosition_Callback(QMessageBox_AdjustPosition_Callback cb) { qmessagebox_adjustposition_callback = cb; }
+    inline void setQMessageBox_UpdateMicroFocus_Callback(QMessageBox_UpdateMicroFocus_Callback cb) { qmessagebox_updatemicrofocus_callback = cb; }
+    inline void setQMessageBox_Create_Callback(QMessageBox_Create_Callback cb) { qmessagebox_create_callback = cb; }
+    inline void setQMessageBox_Destroy_Callback(QMessageBox_Destroy_Callback cb) { qmessagebox_destroy_callback = cb; }
+    inline void setQMessageBox_FocusNextChild_Callback(QMessageBox_FocusNextChild_Callback cb) { qmessagebox_focusnextchild_callback = cb; }
+    inline void setQMessageBox_FocusPreviousChild_Callback(QMessageBox_FocusPreviousChild_Callback cb) { qmessagebox_focuspreviouschild_callback = cb; }
+    inline void setQMessageBox_Sender_Callback(QMessageBox_Sender_Callback cb) { qmessagebox_sender_callback = cb; }
+    inline void setQMessageBox_SenderSignalIndex_Callback(QMessageBox_SenderSignalIndex_Callback cb) { qmessagebox_sendersignalindex_callback = cb; }
+    inline void setQMessageBox_Receivers_Callback(QMessageBox_Receivers_Callback cb) { qmessagebox_receivers_callback = cb; }
+    inline void setQMessageBox_IsSignalConnected_Callback(QMessageBox_IsSignalConnected_Callback cb) { qmessagebox_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQMessageBox_Metacall_IsBase(bool value) const { qmessagebox_metacall_isbase = value; }
-    void setQMessageBox_Event_IsBase(bool value) const { qmessagebox_event_isbase = value; }
-    void setQMessageBox_ResizeEvent_IsBase(bool value) const { qmessagebox_resizeevent_isbase = value; }
-    void setQMessageBox_ShowEvent_IsBase(bool value) const { qmessagebox_showevent_isbase = value; }
-    void setQMessageBox_CloseEvent_IsBase(bool value) const { qmessagebox_closeevent_isbase = value; }
-    void setQMessageBox_KeyPressEvent_IsBase(bool value) const { qmessagebox_keypressevent_isbase = value; }
-    void setQMessageBox_ChangeEvent_IsBase(bool value) const { qmessagebox_changeevent_isbase = value; }
-    void setQMessageBox_SetVisible_IsBase(bool value) const { qmessagebox_setvisible_isbase = value; }
-    void setQMessageBox_SizeHint_IsBase(bool value) const { qmessagebox_sizehint_isbase = value; }
-    void setQMessageBox_MinimumSizeHint_IsBase(bool value) const { qmessagebox_minimumsizehint_isbase = value; }
-    void setQMessageBox_Open_IsBase(bool value) const { qmessagebox_open_isbase = value; }
-    void setQMessageBox_Exec_IsBase(bool value) const { qmessagebox_exec_isbase = value; }
-    void setQMessageBox_Done_IsBase(bool value) const { qmessagebox_done_isbase = value; }
-    void setQMessageBox_Accept_IsBase(bool value) const { qmessagebox_accept_isbase = value; }
-    void setQMessageBox_Reject_IsBase(bool value) const { qmessagebox_reject_isbase = value; }
-    void setQMessageBox_ContextMenuEvent_IsBase(bool value) const { qmessagebox_contextmenuevent_isbase = value; }
-    void setQMessageBox_EventFilter_IsBase(bool value) const { qmessagebox_eventfilter_isbase = value; }
-    void setQMessageBox_DevType_IsBase(bool value) const { qmessagebox_devtype_isbase = value; }
-    void setQMessageBox_HeightForWidth_IsBase(bool value) const { qmessagebox_heightforwidth_isbase = value; }
-    void setQMessageBox_HasHeightForWidth_IsBase(bool value) const { qmessagebox_hasheightforwidth_isbase = value; }
-    void setQMessageBox_PaintEngine_IsBase(bool value) const { qmessagebox_paintengine_isbase = value; }
-    void setQMessageBox_MousePressEvent_IsBase(bool value) const { qmessagebox_mousepressevent_isbase = value; }
-    void setQMessageBox_MouseReleaseEvent_IsBase(bool value) const { qmessagebox_mousereleaseevent_isbase = value; }
-    void setQMessageBox_MouseDoubleClickEvent_IsBase(bool value) const { qmessagebox_mousedoubleclickevent_isbase = value; }
-    void setQMessageBox_MouseMoveEvent_IsBase(bool value) const { qmessagebox_mousemoveevent_isbase = value; }
-    void setQMessageBox_WheelEvent_IsBase(bool value) const { qmessagebox_wheelevent_isbase = value; }
-    void setQMessageBox_KeyReleaseEvent_IsBase(bool value) const { qmessagebox_keyreleaseevent_isbase = value; }
-    void setQMessageBox_FocusInEvent_IsBase(bool value) const { qmessagebox_focusinevent_isbase = value; }
-    void setQMessageBox_FocusOutEvent_IsBase(bool value) const { qmessagebox_focusoutevent_isbase = value; }
-    void setQMessageBox_EnterEvent_IsBase(bool value) const { qmessagebox_enterevent_isbase = value; }
-    void setQMessageBox_LeaveEvent_IsBase(bool value) const { qmessagebox_leaveevent_isbase = value; }
-    void setQMessageBox_PaintEvent_IsBase(bool value) const { qmessagebox_paintevent_isbase = value; }
-    void setQMessageBox_MoveEvent_IsBase(bool value) const { qmessagebox_moveevent_isbase = value; }
-    void setQMessageBox_TabletEvent_IsBase(bool value) const { qmessagebox_tabletevent_isbase = value; }
-    void setQMessageBox_ActionEvent_IsBase(bool value) const { qmessagebox_actionevent_isbase = value; }
-    void setQMessageBox_DragEnterEvent_IsBase(bool value) const { qmessagebox_dragenterevent_isbase = value; }
-    void setQMessageBox_DragMoveEvent_IsBase(bool value) const { qmessagebox_dragmoveevent_isbase = value; }
-    void setQMessageBox_DragLeaveEvent_IsBase(bool value) const { qmessagebox_dragleaveevent_isbase = value; }
-    void setQMessageBox_DropEvent_IsBase(bool value) const { qmessagebox_dropevent_isbase = value; }
-    void setQMessageBox_HideEvent_IsBase(bool value) const { qmessagebox_hideevent_isbase = value; }
-    void setQMessageBox_NativeEvent_IsBase(bool value) const { qmessagebox_nativeevent_isbase = value; }
-    void setQMessageBox_Metric_IsBase(bool value) const { qmessagebox_metric_isbase = value; }
-    void setQMessageBox_InitPainter_IsBase(bool value) const { qmessagebox_initpainter_isbase = value; }
-    void setQMessageBox_Redirected_IsBase(bool value) const { qmessagebox_redirected_isbase = value; }
-    void setQMessageBox_SharedPainter_IsBase(bool value) const { qmessagebox_sharedpainter_isbase = value; }
-    void setQMessageBox_InputMethodEvent_IsBase(bool value) const { qmessagebox_inputmethodevent_isbase = value; }
-    void setQMessageBox_InputMethodQuery_IsBase(bool value) const { qmessagebox_inputmethodquery_isbase = value; }
-    void setQMessageBox_FocusNextPrevChild_IsBase(bool value) const { qmessagebox_focusnextprevchild_isbase = value; }
-    void setQMessageBox_TimerEvent_IsBase(bool value) const { qmessagebox_timerevent_isbase = value; }
-    void setQMessageBox_ChildEvent_IsBase(bool value) const { qmessagebox_childevent_isbase = value; }
-    void setQMessageBox_CustomEvent_IsBase(bool value) const { qmessagebox_customevent_isbase = value; }
-    void setQMessageBox_ConnectNotify_IsBase(bool value) const { qmessagebox_connectnotify_isbase = value; }
-    void setQMessageBox_DisconnectNotify_IsBase(bool value) const { qmessagebox_disconnectnotify_isbase = value; }
-    void setQMessageBox_AdjustPosition_IsBase(bool value) const { qmessagebox_adjustposition_isbase = value; }
-    void setQMessageBox_UpdateMicroFocus_IsBase(bool value) const { qmessagebox_updatemicrofocus_isbase = value; }
-    void setQMessageBox_Create_IsBase(bool value) const { qmessagebox_create_isbase = value; }
-    void setQMessageBox_Destroy_IsBase(bool value) const { qmessagebox_destroy_isbase = value; }
-    void setQMessageBox_FocusNextChild_IsBase(bool value) const { qmessagebox_focusnextchild_isbase = value; }
-    void setQMessageBox_FocusPreviousChild_IsBase(bool value) const { qmessagebox_focuspreviouschild_isbase = value; }
-    void setQMessageBox_Sender_IsBase(bool value) const { qmessagebox_sender_isbase = value; }
-    void setQMessageBox_SenderSignalIndex_IsBase(bool value) const { qmessagebox_sendersignalindex_isbase = value; }
-    void setQMessageBox_Receivers_IsBase(bool value) const { qmessagebox_receivers_isbase = value; }
-    void setQMessageBox_IsSignalConnected_IsBase(bool value) const { qmessagebox_issignalconnected_isbase = value; }
+    inline void setQMessageBox_Metacall_IsBase(bool value) const { qmessagebox_metacall_isbase = value; }
+    inline void setQMessageBox_Event_IsBase(bool value) const { qmessagebox_event_isbase = value; }
+    inline void setQMessageBox_ResizeEvent_IsBase(bool value) const { qmessagebox_resizeevent_isbase = value; }
+    inline void setQMessageBox_ShowEvent_IsBase(bool value) const { qmessagebox_showevent_isbase = value; }
+    inline void setQMessageBox_CloseEvent_IsBase(bool value) const { qmessagebox_closeevent_isbase = value; }
+    inline void setQMessageBox_KeyPressEvent_IsBase(bool value) const { qmessagebox_keypressevent_isbase = value; }
+    inline void setQMessageBox_ChangeEvent_IsBase(bool value) const { qmessagebox_changeevent_isbase = value; }
+    inline void setQMessageBox_SetVisible_IsBase(bool value) const { qmessagebox_setvisible_isbase = value; }
+    inline void setQMessageBox_SizeHint_IsBase(bool value) const { qmessagebox_sizehint_isbase = value; }
+    inline void setQMessageBox_MinimumSizeHint_IsBase(bool value) const { qmessagebox_minimumsizehint_isbase = value; }
+    inline void setQMessageBox_Open_IsBase(bool value) const { qmessagebox_open_isbase = value; }
+    inline void setQMessageBox_Exec_IsBase(bool value) const { qmessagebox_exec_isbase = value; }
+    inline void setQMessageBox_Done_IsBase(bool value) const { qmessagebox_done_isbase = value; }
+    inline void setQMessageBox_Accept_IsBase(bool value) const { qmessagebox_accept_isbase = value; }
+    inline void setQMessageBox_Reject_IsBase(bool value) const { qmessagebox_reject_isbase = value; }
+    inline void setQMessageBox_ContextMenuEvent_IsBase(bool value) const { qmessagebox_contextmenuevent_isbase = value; }
+    inline void setQMessageBox_EventFilter_IsBase(bool value) const { qmessagebox_eventfilter_isbase = value; }
+    inline void setQMessageBox_DevType_IsBase(bool value) const { qmessagebox_devtype_isbase = value; }
+    inline void setQMessageBox_HeightForWidth_IsBase(bool value) const { qmessagebox_heightforwidth_isbase = value; }
+    inline void setQMessageBox_HasHeightForWidth_IsBase(bool value) const { qmessagebox_hasheightforwidth_isbase = value; }
+    inline void setQMessageBox_PaintEngine_IsBase(bool value) const { qmessagebox_paintengine_isbase = value; }
+    inline void setQMessageBox_MousePressEvent_IsBase(bool value) const { qmessagebox_mousepressevent_isbase = value; }
+    inline void setQMessageBox_MouseReleaseEvent_IsBase(bool value) const { qmessagebox_mousereleaseevent_isbase = value; }
+    inline void setQMessageBox_MouseDoubleClickEvent_IsBase(bool value) const { qmessagebox_mousedoubleclickevent_isbase = value; }
+    inline void setQMessageBox_MouseMoveEvent_IsBase(bool value) const { qmessagebox_mousemoveevent_isbase = value; }
+    inline void setQMessageBox_WheelEvent_IsBase(bool value) const { qmessagebox_wheelevent_isbase = value; }
+    inline void setQMessageBox_KeyReleaseEvent_IsBase(bool value) const { qmessagebox_keyreleaseevent_isbase = value; }
+    inline void setQMessageBox_FocusInEvent_IsBase(bool value) const { qmessagebox_focusinevent_isbase = value; }
+    inline void setQMessageBox_FocusOutEvent_IsBase(bool value) const { qmessagebox_focusoutevent_isbase = value; }
+    inline void setQMessageBox_EnterEvent_IsBase(bool value) const { qmessagebox_enterevent_isbase = value; }
+    inline void setQMessageBox_LeaveEvent_IsBase(bool value) const { qmessagebox_leaveevent_isbase = value; }
+    inline void setQMessageBox_PaintEvent_IsBase(bool value) const { qmessagebox_paintevent_isbase = value; }
+    inline void setQMessageBox_MoveEvent_IsBase(bool value) const { qmessagebox_moveevent_isbase = value; }
+    inline void setQMessageBox_TabletEvent_IsBase(bool value) const { qmessagebox_tabletevent_isbase = value; }
+    inline void setQMessageBox_ActionEvent_IsBase(bool value) const { qmessagebox_actionevent_isbase = value; }
+    inline void setQMessageBox_DragEnterEvent_IsBase(bool value) const { qmessagebox_dragenterevent_isbase = value; }
+    inline void setQMessageBox_DragMoveEvent_IsBase(bool value) const { qmessagebox_dragmoveevent_isbase = value; }
+    inline void setQMessageBox_DragLeaveEvent_IsBase(bool value) const { qmessagebox_dragleaveevent_isbase = value; }
+    inline void setQMessageBox_DropEvent_IsBase(bool value) const { qmessagebox_dropevent_isbase = value; }
+    inline void setQMessageBox_HideEvent_IsBase(bool value) const { qmessagebox_hideevent_isbase = value; }
+    inline void setQMessageBox_NativeEvent_IsBase(bool value) const { qmessagebox_nativeevent_isbase = value; }
+    inline void setQMessageBox_Metric_IsBase(bool value) const { qmessagebox_metric_isbase = value; }
+    inline void setQMessageBox_InitPainter_IsBase(bool value) const { qmessagebox_initpainter_isbase = value; }
+    inline void setQMessageBox_Redirected_IsBase(bool value) const { qmessagebox_redirected_isbase = value; }
+    inline void setQMessageBox_SharedPainter_IsBase(bool value) const { qmessagebox_sharedpainter_isbase = value; }
+    inline void setQMessageBox_InputMethodEvent_IsBase(bool value) const { qmessagebox_inputmethodevent_isbase = value; }
+    inline void setQMessageBox_InputMethodQuery_IsBase(bool value) const { qmessagebox_inputmethodquery_isbase = value; }
+    inline void setQMessageBox_FocusNextPrevChild_IsBase(bool value) const { qmessagebox_focusnextprevchild_isbase = value; }
+    inline void setQMessageBox_TimerEvent_IsBase(bool value) const { qmessagebox_timerevent_isbase = value; }
+    inline void setQMessageBox_ChildEvent_IsBase(bool value) const { qmessagebox_childevent_isbase = value; }
+    inline void setQMessageBox_CustomEvent_IsBase(bool value) const { qmessagebox_customevent_isbase = value; }
+    inline void setQMessageBox_ConnectNotify_IsBase(bool value) const { qmessagebox_connectnotify_isbase = value; }
+    inline void setQMessageBox_DisconnectNotify_IsBase(bool value) const { qmessagebox_disconnectnotify_isbase = value; }
+    inline void setQMessageBox_AdjustPosition_IsBase(bool value) const { qmessagebox_adjustposition_isbase = value; }
+    inline void setQMessageBox_UpdateMicroFocus_IsBase(bool value) const { qmessagebox_updatemicrofocus_isbase = value; }
+    inline void setQMessageBox_Create_IsBase(bool value) const { qmessagebox_create_isbase = value; }
+    inline void setQMessageBox_Destroy_IsBase(bool value) const { qmessagebox_destroy_isbase = value; }
+    inline void setQMessageBox_FocusNextChild_IsBase(bool value) const { qmessagebox_focusnextchild_isbase = value; }
+    inline void setQMessageBox_FocusPreviousChild_IsBase(bool value) const { qmessagebox_focuspreviouschild_isbase = value; }
+    inline void setQMessageBox_Sender_IsBase(bool value) const { qmessagebox_sender_isbase = value; }
+    inline void setQMessageBox_SenderSignalIndex_IsBase(bool value) const { qmessagebox_sendersignalindex_isbase = value; }
+    inline void setQMessageBox_Receivers_IsBase(bool value) const { qmessagebox_receivers_isbase = value; }
+    inline void setQMessageBox_IsSignalConnected_IsBase(bool value) const { qmessagebox_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -423,7 +426,12 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_metacall_isbase = false;
             return QMessageBox::qt_metacall(param1, param2, param3);
         } else if (qmessagebox_metacall_callback != nullptr) {
-            return qmessagebox_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qmessagebox_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QMessageBox::qt_metacall(param1, param2, param3);
         }
@@ -435,7 +443,10 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_event_isbase = false;
             return QMessageBox::event(e);
         } else if (qmessagebox_event_callback != nullptr) {
-            return qmessagebox_event_callback(this, e);
+            QEvent* cbval1 = e;
+
+            bool callback_ret = qmessagebox_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QMessageBox::event(e);
         }
@@ -447,7 +458,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_resizeevent_isbase = false;
             QMessageBox::resizeEvent(event);
         } else if (qmessagebox_resizeevent_callback != nullptr) {
-            qmessagebox_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qmessagebox_resizeevent_callback(this, cbval1);
         } else {
             QMessageBox::resizeEvent(event);
         }
@@ -459,7 +472,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_showevent_isbase = false;
             QMessageBox::showEvent(event);
         } else if (qmessagebox_showevent_callback != nullptr) {
-            qmessagebox_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qmessagebox_showevent_callback(this, cbval1);
         } else {
             QMessageBox::showEvent(event);
         }
@@ -471,7 +486,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_closeevent_isbase = false;
             QMessageBox::closeEvent(event);
         } else if (qmessagebox_closeevent_callback != nullptr) {
-            qmessagebox_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qmessagebox_closeevent_callback(this, cbval1);
         } else {
             QMessageBox::closeEvent(event);
         }
@@ -483,7 +500,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_keypressevent_isbase = false;
             QMessageBox::keyPressEvent(event);
         } else if (qmessagebox_keypressevent_callback != nullptr) {
-            qmessagebox_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qmessagebox_keypressevent_callback(this, cbval1);
         } else {
             QMessageBox::keyPressEvent(event);
         }
@@ -495,7 +514,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_changeevent_isbase = false;
             QMessageBox::changeEvent(event);
         } else if (qmessagebox_changeevent_callback != nullptr) {
-            qmessagebox_changeevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qmessagebox_changeevent_callback(this, cbval1);
         } else {
             QMessageBox::changeEvent(event);
         }
@@ -507,7 +528,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_setvisible_isbase = false;
             QMessageBox::setVisible(visible);
         } else if (qmessagebox_setvisible_callback != nullptr) {
-            qmessagebox_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qmessagebox_setvisible_callback(this, cbval1);
         } else {
             QMessageBox::setVisible(visible);
         }
@@ -519,7 +542,8 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_sizehint_isbase = false;
             return QMessageBox::sizeHint();
         } else if (qmessagebox_sizehint_callback != nullptr) {
-            return qmessagebox_sizehint_callback();
+            QSize* callback_ret = qmessagebox_sizehint_callback();
+            return *callback_ret;
         } else {
             return QMessageBox::sizeHint();
         }
@@ -531,7 +555,8 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_minimumsizehint_isbase = false;
             return QMessageBox::minimumSizeHint();
         } else if (qmessagebox_minimumsizehint_callback != nullptr) {
-            return qmessagebox_minimumsizehint_callback();
+            QSize* callback_ret = qmessagebox_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QMessageBox::minimumSizeHint();
         }
@@ -555,7 +580,8 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_exec_isbase = false;
             return QMessageBox::exec();
         } else if (qmessagebox_exec_callback != nullptr) {
-            return qmessagebox_exec_callback();
+            int callback_ret = qmessagebox_exec_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QMessageBox::exec();
         }
@@ -567,7 +593,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_done_isbase = false;
             QMessageBox::done(param1);
         } else if (qmessagebox_done_callback != nullptr) {
-            qmessagebox_done_callback(this, param1);
+            int cbval1 = param1;
+
+            qmessagebox_done_callback(this, cbval1);
         } else {
             QMessageBox::done(param1);
         }
@@ -603,7 +631,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_contextmenuevent_isbase = false;
             QMessageBox::contextMenuEvent(param1);
         } else if (qmessagebox_contextmenuevent_callback != nullptr) {
-            qmessagebox_contextmenuevent_callback(this, param1);
+            QContextMenuEvent* cbval1 = param1;
+
+            qmessagebox_contextmenuevent_callback(this, cbval1);
         } else {
             QMessageBox::contextMenuEvent(param1);
         }
@@ -615,7 +645,11 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_eventfilter_isbase = false;
             return QMessageBox::eventFilter(param1, param2);
         } else if (qmessagebox_eventfilter_callback != nullptr) {
-            return qmessagebox_eventfilter_callback(this, param1, param2);
+            QObject* cbval1 = param1;
+            QEvent* cbval2 = param2;
+
+            bool callback_ret = qmessagebox_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QMessageBox::eventFilter(param1, param2);
         }
@@ -627,7 +661,8 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_devtype_isbase = false;
             return QMessageBox::devType();
         } else if (qmessagebox_devtype_callback != nullptr) {
-            return qmessagebox_devtype_callback();
+            int callback_ret = qmessagebox_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QMessageBox::devType();
         }
@@ -639,7 +674,10 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_heightforwidth_isbase = false;
             return QMessageBox::heightForWidth(param1);
         } else if (qmessagebox_heightforwidth_callback != nullptr) {
-            return qmessagebox_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qmessagebox_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QMessageBox::heightForWidth(param1);
         }
@@ -651,7 +689,8 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_hasheightforwidth_isbase = false;
             return QMessageBox::hasHeightForWidth();
         } else if (qmessagebox_hasheightforwidth_callback != nullptr) {
-            return qmessagebox_hasheightforwidth_callback();
+            bool callback_ret = qmessagebox_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QMessageBox::hasHeightForWidth();
         }
@@ -663,7 +702,8 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_paintengine_isbase = false;
             return QMessageBox::paintEngine();
         } else if (qmessagebox_paintengine_callback != nullptr) {
-            return qmessagebox_paintengine_callback();
+            QPaintEngine* callback_ret = qmessagebox_paintengine_callback();
+            return callback_ret;
         } else {
             return QMessageBox::paintEngine();
         }
@@ -675,7 +715,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_mousepressevent_isbase = false;
             QMessageBox::mousePressEvent(event);
         } else if (qmessagebox_mousepressevent_callback != nullptr) {
-            qmessagebox_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qmessagebox_mousepressevent_callback(this, cbval1);
         } else {
             QMessageBox::mousePressEvent(event);
         }
@@ -687,7 +729,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_mousereleaseevent_isbase = false;
             QMessageBox::mouseReleaseEvent(event);
         } else if (qmessagebox_mousereleaseevent_callback != nullptr) {
-            qmessagebox_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qmessagebox_mousereleaseevent_callback(this, cbval1);
         } else {
             QMessageBox::mouseReleaseEvent(event);
         }
@@ -699,7 +743,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_mousedoubleclickevent_isbase = false;
             QMessageBox::mouseDoubleClickEvent(event);
         } else if (qmessagebox_mousedoubleclickevent_callback != nullptr) {
-            qmessagebox_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qmessagebox_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QMessageBox::mouseDoubleClickEvent(event);
         }
@@ -711,7 +757,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_mousemoveevent_isbase = false;
             QMessageBox::mouseMoveEvent(event);
         } else if (qmessagebox_mousemoveevent_callback != nullptr) {
-            qmessagebox_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qmessagebox_mousemoveevent_callback(this, cbval1);
         } else {
             QMessageBox::mouseMoveEvent(event);
         }
@@ -723,7 +771,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_wheelevent_isbase = false;
             QMessageBox::wheelEvent(event);
         } else if (qmessagebox_wheelevent_callback != nullptr) {
-            qmessagebox_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qmessagebox_wheelevent_callback(this, cbval1);
         } else {
             QMessageBox::wheelEvent(event);
         }
@@ -735,7 +785,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_keyreleaseevent_isbase = false;
             QMessageBox::keyReleaseEvent(event);
         } else if (qmessagebox_keyreleaseevent_callback != nullptr) {
-            qmessagebox_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qmessagebox_keyreleaseevent_callback(this, cbval1);
         } else {
             QMessageBox::keyReleaseEvent(event);
         }
@@ -747,7 +799,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_focusinevent_isbase = false;
             QMessageBox::focusInEvent(event);
         } else if (qmessagebox_focusinevent_callback != nullptr) {
-            qmessagebox_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qmessagebox_focusinevent_callback(this, cbval1);
         } else {
             QMessageBox::focusInEvent(event);
         }
@@ -759,7 +813,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_focusoutevent_isbase = false;
             QMessageBox::focusOutEvent(event);
         } else if (qmessagebox_focusoutevent_callback != nullptr) {
-            qmessagebox_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qmessagebox_focusoutevent_callback(this, cbval1);
         } else {
             QMessageBox::focusOutEvent(event);
         }
@@ -771,7 +827,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_enterevent_isbase = false;
             QMessageBox::enterEvent(event);
         } else if (qmessagebox_enterevent_callback != nullptr) {
-            qmessagebox_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qmessagebox_enterevent_callback(this, cbval1);
         } else {
             QMessageBox::enterEvent(event);
         }
@@ -783,7 +841,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_leaveevent_isbase = false;
             QMessageBox::leaveEvent(event);
         } else if (qmessagebox_leaveevent_callback != nullptr) {
-            qmessagebox_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qmessagebox_leaveevent_callback(this, cbval1);
         } else {
             QMessageBox::leaveEvent(event);
         }
@@ -795,7 +855,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_paintevent_isbase = false;
             QMessageBox::paintEvent(event);
         } else if (qmessagebox_paintevent_callback != nullptr) {
-            qmessagebox_paintevent_callback(this, event);
+            QPaintEvent* cbval1 = event;
+
+            qmessagebox_paintevent_callback(this, cbval1);
         } else {
             QMessageBox::paintEvent(event);
         }
@@ -807,7 +869,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_moveevent_isbase = false;
             QMessageBox::moveEvent(event);
         } else if (qmessagebox_moveevent_callback != nullptr) {
-            qmessagebox_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qmessagebox_moveevent_callback(this, cbval1);
         } else {
             QMessageBox::moveEvent(event);
         }
@@ -819,7 +883,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_tabletevent_isbase = false;
             QMessageBox::tabletEvent(event);
         } else if (qmessagebox_tabletevent_callback != nullptr) {
-            qmessagebox_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qmessagebox_tabletevent_callback(this, cbval1);
         } else {
             QMessageBox::tabletEvent(event);
         }
@@ -831,7 +897,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_actionevent_isbase = false;
             QMessageBox::actionEvent(event);
         } else if (qmessagebox_actionevent_callback != nullptr) {
-            qmessagebox_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qmessagebox_actionevent_callback(this, cbval1);
         } else {
             QMessageBox::actionEvent(event);
         }
@@ -843,7 +911,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_dragenterevent_isbase = false;
             QMessageBox::dragEnterEvent(event);
         } else if (qmessagebox_dragenterevent_callback != nullptr) {
-            qmessagebox_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qmessagebox_dragenterevent_callback(this, cbval1);
         } else {
             QMessageBox::dragEnterEvent(event);
         }
@@ -855,7 +925,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_dragmoveevent_isbase = false;
             QMessageBox::dragMoveEvent(event);
         } else if (qmessagebox_dragmoveevent_callback != nullptr) {
-            qmessagebox_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qmessagebox_dragmoveevent_callback(this, cbval1);
         } else {
             QMessageBox::dragMoveEvent(event);
         }
@@ -867,7 +939,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_dragleaveevent_isbase = false;
             QMessageBox::dragLeaveEvent(event);
         } else if (qmessagebox_dragleaveevent_callback != nullptr) {
-            qmessagebox_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qmessagebox_dragleaveevent_callback(this, cbval1);
         } else {
             QMessageBox::dragLeaveEvent(event);
         }
@@ -879,7 +953,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_dropevent_isbase = false;
             QMessageBox::dropEvent(event);
         } else if (qmessagebox_dropevent_callback != nullptr) {
-            qmessagebox_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qmessagebox_dropevent_callback(this, cbval1);
         } else {
             QMessageBox::dropEvent(event);
         }
@@ -891,7 +967,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_hideevent_isbase = false;
             QMessageBox::hideEvent(event);
         } else if (qmessagebox_hideevent_callback != nullptr) {
-            qmessagebox_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qmessagebox_hideevent_callback(this, cbval1);
         } else {
             QMessageBox::hideEvent(event);
         }
@@ -903,7 +981,19 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_nativeevent_isbase = false;
             return QMessageBox::nativeEvent(eventType, message, result);
         } else if (qmessagebox_nativeevent_callback != nullptr) {
-            return qmessagebox_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qmessagebox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QMessageBox::nativeEvent(eventType, message, result);
         }
@@ -915,7 +1005,10 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_metric_isbase = false;
             return QMessageBox::metric(param1);
         } else if (qmessagebox_metric_callback != nullptr) {
-            return qmessagebox_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qmessagebox_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QMessageBox::metric(param1);
         }
@@ -927,7 +1020,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_initpainter_isbase = false;
             QMessageBox::initPainter(painter);
         } else if (qmessagebox_initpainter_callback != nullptr) {
-            qmessagebox_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qmessagebox_initpainter_callback(this, cbval1);
         } else {
             QMessageBox::initPainter(painter);
         }
@@ -939,7 +1034,10 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_redirected_isbase = false;
             return QMessageBox::redirected(offset);
         } else if (qmessagebox_redirected_callback != nullptr) {
-            return qmessagebox_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qmessagebox_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QMessageBox::redirected(offset);
         }
@@ -951,7 +1049,8 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_sharedpainter_isbase = false;
             return QMessageBox::sharedPainter();
         } else if (qmessagebox_sharedpainter_callback != nullptr) {
-            return qmessagebox_sharedpainter_callback();
+            QPainter* callback_ret = qmessagebox_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QMessageBox::sharedPainter();
         }
@@ -963,7 +1062,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_inputmethodevent_isbase = false;
             QMessageBox::inputMethodEvent(param1);
         } else if (qmessagebox_inputmethodevent_callback != nullptr) {
-            qmessagebox_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qmessagebox_inputmethodevent_callback(this, cbval1);
         } else {
             QMessageBox::inputMethodEvent(param1);
         }
@@ -975,7 +1076,10 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_inputmethodquery_isbase = false;
             return QMessageBox::inputMethodQuery(param1);
         } else if (qmessagebox_inputmethodquery_callback != nullptr) {
-            return qmessagebox_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qmessagebox_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QMessageBox::inputMethodQuery(param1);
         }
@@ -987,7 +1091,10 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_focusnextprevchild_isbase = false;
             return QMessageBox::focusNextPrevChild(next);
         } else if (qmessagebox_focusnextprevchild_callback != nullptr) {
-            return qmessagebox_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qmessagebox_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QMessageBox::focusNextPrevChild(next);
         }
@@ -999,7 +1106,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_timerevent_isbase = false;
             QMessageBox::timerEvent(event);
         } else if (qmessagebox_timerevent_callback != nullptr) {
-            qmessagebox_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qmessagebox_timerevent_callback(this, cbval1);
         } else {
             QMessageBox::timerEvent(event);
         }
@@ -1011,7 +1120,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_childevent_isbase = false;
             QMessageBox::childEvent(event);
         } else if (qmessagebox_childevent_callback != nullptr) {
-            qmessagebox_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qmessagebox_childevent_callback(this, cbval1);
         } else {
             QMessageBox::childEvent(event);
         }
@@ -1023,7 +1134,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_customevent_isbase = false;
             QMessageBox::customEvent(event);
         } else if (qmessagebox_customevent_callback != nullptr) {
-            qmessagebox_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qmessagebox_customevent_callback(this, cbval1);
         } else {
             QMessageBox::customEvent(event);
         }
@@ -1035,7 +1148,11 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_connectnotify_isbase = false;
             QMessageBox::connectNotify(signal);
         } else if (qmessagebox_connectnotify_callback != nullptr) {
-            qmessagebox_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qmessagebox_connectnotify_callback(this, cbval1);
         } else {
             QMessageBox::connectNotify(signal);
         }
@@ -1047,7 +1164,11 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_disconnectnotify_isbase = false;
             QMessageBox::disconnectNotify(signal);
         } else if (qmessagebox_disconnectnotify_callback != nullptr) {
-            qmessagebox_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qmessagebox_disconnectnotify_callback(this, cbval1);
         } else {
             QMessageBox::disconnectNotify(signal);
         }
@@ -1059,7 +1180,9 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_adjustposition_isbase = false;
             QMessageBox::adjustPosition(param1);
         } else if (qmessagebox_adjustposition_callback != nullptr) {
-            qmessagebox_adjustposition_callback(this, param1);
+            QWidget* cbval1 = param1;
+
+            qmessagebox_adjustposition_callback(this, cbval1);
         } else {
             QMessageBox::adjustPosition(param1);
         }
@@ -1107,7 +1230,8 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_focusnextchild_isbase = false;
             return QMessageBox::focusNextChild();
         } else if (qmessagebox_focusnextchild_callback != nullptr) {
-            return qmessagebox_focusnextchild_callback();
+            bool callback_ret = qmessagebox_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QMessageBox::focusNextChild();
         }
@@ -1119,7 +1243,8 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_focuspreviouschild_isbase = false;
             return QMessageBox::focusPreviousChild();
         } else if (qmessagebox_focuspreviouschild_callback != nullptr) {
-            return qmessagebox_focuspreviouschild_callback();
+            bool callback_ret = qmessagebox_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QMessageBox::focusPreviousChild();
         }
@@ -1131,7 +1256,8 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_sender_isbase = false;
             return QMessageBox::sender();
         } else if (qmessagebox_sender_callback != nullptr) {
-            return qmessagebox_sender_callback();
+            QObject* callback_ret = qmessagebox_sender_callback();
+            return callback_ret;
         } else {
             return QMessageBox::sender();
         }
@@ -1143,7 +1269,8 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_sendersignalindex_isbase = false;
             return QMessageBox::senderSignalIndex();
         } else if (qmessagebox_sendersignalindex_callback != nullptr) {
-            return qmessagebox_sendersignalindex_callback();
+            int callback_ret = qmessagebox_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QMessageBox::senderSignalIndex();
         }
@@ -1155,7 +1282,10 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_receivers_isbase = false;
             return QMessageBox::receivers(signal);
         } else if (qmessagebox_receivers_callback != nullptr) {
-            return qmessagebox_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qmessagebox_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QMessageBox::receivers(signal);
         }
@@ -1167,11 +1297,116 @@ class VirtualQMessageBox : public QMessageBox {
             qmessagebox_issignalconnected_isbase = false;
             return QMessageBox::isSignalConnected(signal);
         } else if (qmessagebox_issignalconnected_callback != nullptr) {
-            return qmessagebox_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qmessagebox_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QMessageBox::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QMessageBox_Event(QMessageBox* self, QEvent* e);
+    friend bool QMessageBox_QBaseEvent(QMessageBox* self, QEvent* e);
+    friend void QMessageBox_ResizeEvent(QMessageBox* self, QResizeEvent* event);
+    friend void QMessageBox_QBaseResizeEvent(QMessageBox* self, QResizeEvent* event);
+    friend void QMessageBox_ShowEvent(QMessageBox* self, QShowEvent* event);
+    friend void QMessageBox_QBaseShowEvent(QMessageBox* self, QShowEvent* event);
+    friend void QMessageBox_CloseEvent(QMessageBox* self, QCloseEvent* event);
+    friend void QMessageBox_QBaseCloseEvent(QMessageBox* self, QCloseEvent* event);
+    friend void QMessageBox_KeyPressEvent(QMessageBox* self, QKeyEvent* event);
+    friend void QMessageBox_QBaseKeyPressEvent(QMessageBox* self, QKeyEvent* event);
+    friend void QMessageBox_ChangeEvent(QMessageBox* self, QEvent* event);
+    friend void QMessageBox_QBaseChangeEvent(QMessageBox* self, QEvent* event);
+    friend void QMessageBox_ContextMenuEvent(QMessageBox* self, QContextMenuEvent* param1);
+    friend void QMessageBox_QBaseContextMenuEvent(QMessageBox* self, QContextMenuEvent* param1);
+    friend bool QMessageBox_EventFilter(QMessageBox* self, QObject* param1, QEvent* param2);
+    friend bool QMessageBox_QBaseEventFilter(QMessageBox* self, QObject* param1, QEvent* param2);
+    friend void QMessageBox_MousePressEvent(QMessageBox* self, QMouseEvent* event);
+    friend void QMessageBox_QBaseMousePressEvent(QMessageBox* self, QMouseEvent* event);
+    friend void QMessageBox_MouseReleaseEvent(QMessageBox* self, QMouseEvent* event);
+    friend void QMessageBox_QBaseMouseReleaseEvent(QMessageBox* self, QMouseEvent* event);
+    friend void QMessageBox_MouseDoubleClickEvent(QMessageBox* self, QMouseEvent* event);
+    friend void QMessageBox_QBaseMouseDoubleClickEvent(QMessageBox* self, QMouseEvent* event);
+    friend void QMessageBox_MouseMoveEvent(QMessageBox* self, QMouseEvent* event);
+    friend void QMessageBox_QBaseMouseMoveEvent(QMessageBox* self, QMouseEvent* event);
+    friend void QMessageBox_WheelEvent(QMessageBox* self, QWheelEvent* event);
+    friend void QMessageBox_QBaseWheelEvent(QMessageBox* self, QWheelEvent* event);
+    friend void QMessageBox_KeyReleaseEvent(QMessageBox* self, QKeyEvent* event);
+    friend void QMessageBox_QBaseKeyReleaseEvent(QMessageBox* self, QKeyEvent* event);
+    friend void QMessageBox_FocusInEvent(QMessageBox* self, QFocusEvent* event);
+    friend void QMessageBox_QBaseFocusInEvent(QMessageBox* self, QFocusEvent* event);
+    friend void QMessageBox_FocusOutEvent(QMessageBox* self, QFocusEvent* event);
+    friend void QMessageBox_QBaseFocusOutEvent(QMessageBox* self, QFocusEvent* event);
+    friend void QMessageBox_EnterEvent(QMessageBox* self, QEnterEvent* event);
+    friend void QMessageBox_QBaseEnterEvent(QMessageBox* self, QEnterEvent* event);
+    friend void QMessageBox_LeaveEvent(QMessageBox* self, QEvent* event);
+    friend void QMessageBox_QBaseLeaveEvent(QMessageBox* self, QEvent* event);
+    friend void QMessageBox_PaintEvent(QMessageBox* self, QPaintEvent* event);
+    friend void QMessageBox_QBasePaintEvent(QMessageBox* self, QPaintEvent* event);
+    friend void QMessageBox_MoveEvent(QMessageBox* self, QMoveEvent* event);
+    friend void QMessageBox_QBaseMoveEvent(QMessageBox* self, QMoveEvent* event);
+    friend void QMessageBox_TabletEvent(QMessageBox* self, QTabletEvent* event);
+    friend void QMessageBox_QBaseTabletEvent(QMessageBox* self, QTabletEvent* event);
+    friend void QMessageBox_ActionEvent(QMessageBox* self, QActionEvent* event);
+    friend void QMessageBox_QBaseActionEvent(QMessageBox* self, QActionEvent* event);
+    friend void QMessageBox_DragEnterEvent(QMessageBox* self, QDragEnterEvent* event);
+    friend void QMessageBox_QBaseDragEnterEvent(QMessageBox* self, QDragEnterEvent* event);
+    friend void QMessageBox_DragMoveEvent(QMessageBox* self, QDragMoveEvent* event);
+    friend void QMessageBox_QBaseDragMoveEvent(QMessageBox* self, QDragMoveEvent* event);
+    friend void QMessageBox_DragLeaveEvent(QMessageBox* self, QDragLeaveEvent* event);
+    friend void QMessageBox_QBaseDragLeaveEvent(QMessageBox* self, QDragLeaveEvent* event);
+    friend void QMessageBox_DropEvent(QMessageBox* self, QDropEvent* event);
+    friend void QMessageBox_QBaseDropEvent(QMessageBox* self, QDropEvent* event);
+    friend void QMessageBox_HideEvent(QMessageBox* self, QHideEvent* event);
+    friend void QMessageBox_QBaseHideEvent(QMessageBox* self, QHideEvent* event);
+    friend bool QMessageBox_NativeEvent(QMessageBox* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QMessageBox_QBaseNativeEvent(QMessageBox* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QMessageBox_Metric(const QMessageBox* self, int param1);
+    friend int QMessageBox_QBaseMetric(const QMessageBox* self, int param1);
+    friend void QMessageBox_InitPainter(const QMessageBox* self, QPainter* painter);
+    friend void QMessageBox_QBaseInitPainter(const QMessageBox* self, QPainter* painter);
+    friend QPaintDevice* QMessageBox_Redirected(const QMessageBox* self, QPoint* offset);
+    friend QPaintDevice* QMessageBox_QBaseRedirected(const QMessageBox* self, QPoint* offset);
+    friend QPainter* QMessageBox_SharedPainter(const QMessageBox* self);
+    friend QPainter* QMessageBox_QBaseSharedPainter(const QMessageBox* self);
+    friend void QMessageBox_InputMethodEvent(QMessageBox* self, QInputMethodEvent* param1);
+    friend void QMessageBox_QBaseInputMethodEvent(QMessageBox* self, QInputMethodEvent* param1);
+    friend bool QMessageBox_FocusNextPrevChild(QMessageBox* self, bool next);
+    friend bool QMessageBox_QBaseFocusNextPrevChild(QMessageBox* self, bool next);
+    friend void QMessageBox_TimerEvent(QMessageBox* self, QTimerEvent* event);
+    friend void QMessageBox_QBaseTimerEvent(QMessageBox* self, QTimerEvent* event);
+    friend void QMessageBox_ChildEvent(QMessageBox* self, QChildEvent* event);
+    friend void QMessageBox_QBaseChildEvent(QMessageBox* self, QChildEvent* event);
+    friend void QMessageBox_CustomEvent(QMessageBox* self, QEvent* event);
+    friend void QMessageBox_QBaseCustomEvent(QMessageBox* self, QEvent* event);
+    friend void QMessageBox_ConnectNotify(QMessageBox* self, const QMetaMethod* signal);
+    friend void QMessageBox_QBaseConnectNotify(QMessageBox* self, const QMetaMethod* signal);
+    friend void QMessageBox_DisconnectNotify(QMessageBox* self, const QMetaMethod* signal);
+    friend void QMessageBox_QBaseDisconnectNotify(QMessageBox* self, const QMetaMethod* signal);
+    friend void QMessageBox_AdjustPosition(QMessageBox* self, QWidget* param1);
+    friend void QMessageBox_QBaseAdjustPosition(QMessageBox* self, QWidget* param1);
+    friend void QMessageBox_UpdateMicroFocus(QMessageBox* self);
+    friend void QMessageBox_QBaseUpdateMicroFocus(QMessageBox* self);
+    friend void QMessageBox_Create(QMessageBox* self);
+    friend void QMessageBox_QBaseCreate(QMessageBox* self);
+    friend void QMessageBox_Destroy(QMessageBox* self);
+    friend void QMessageBox_QBaseDestroy(QMessageBox* self);
+    friend bool QMessageBox_FocusNextChild(QMessageBox* self);
+    friend bool QMessageBox_QBaseFocusNextChild(QMessageBox* self);
+    friend bool QMessageBox_FocusPreviousChild(QMessageBox* self);
+    friend bool QMessageBox_QBaseFocusPreviousChild(QMessageBox* self);
+    friend QObject* QMessageBox_Sender(const QMessageBox* self);
+    friend QObject* QMessageBox_QBaseSender(const QMessageBox* self);
+    friend int QMessageBox_SenderSignalIndex(const QMessageBox* self);
+    friend int QMessageBox_QBaseSenderSignalIndex(const QMessageBox* self);
+    friend int QMessageBox_Receivers(const QMessageBox* self, const char* signal);
+    friend int QMessageBox_QBaseReceivers(const QMessageBox* self, const char* signal);
+    friend bool QMessageBox_IsSignalConnected(const QMessageBox* self, const QMetaMethod* signal);
+    friend bool QMessageBox_QBaseIsSignalConnected(const QMessageBox* self, const QMetaMethod* signal);
 };
 
 #endif

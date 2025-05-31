@@ -5,7 +5,7 @@
 #include "libqnamespace.h"
 #include "libqnamespace.hxx"
 
-Disambiguated_t* Disambiguated_t_new(Disambiguated_t* other) {
+Disambiguated_t* Disambiguated_t_new(const Disambiguated_t* other) {
     return new Qt::Disambiguated_t(*other);
 }
 
@@ -17,7 +17,7 @@ Disambiguated_t* Disambiguated_t_new3() {
     return new Qt::Disambiguated_t();
 }
 
-Disambiguated_t* Disambiguated_t_new4(Disambiguated_t* param1) {
+Disambiguated_t* Disambiguated_t_new4(const Disambiguated_t* param1) {
     return new Qt::Disambiguated_t(*param1);
 }
 
@@ -33,7 +33,7 @@ void Disambiguated_t_Delete(Disambiguated_t* self) {
     delete self;
 }
 
-QInternal* QInternal_new(QInternal* other) {
+QInternal* QInternal_new(const QInternal* other) {
     return new QInternal(*other);
 }
 
@@ -57,7 +57,7 @@ void QInternal_Delete(QInternal* self) {
     delete self;
 }
 
-QKeyCombination* QKeyCombination_new(QKeyCombination* other) {
+QKeyCombination* QKeyCombination_new(const QKeyCombination* other) {
     return new QKeyCombination(*other);
 }
 
@@ -77,7 +77,7 @@ QKeyCombination* QKeyCombination_new5(int modifiers) {
     return new QKeyCombination(static_cast<Qt::KeyboardModifiers>(modifiers));
 }
 
-QKeyCombination* QKeyCombination_new6(QKeyCombination* param1) {
+QKeyCombination* QKeyCombination_new6(const QKeyCombination* param1) {
     return new QKeyCombination(*param1);
 }
 

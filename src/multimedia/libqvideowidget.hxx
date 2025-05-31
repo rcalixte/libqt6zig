@@ -11,12 +11,15 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QVideoWidget so that we can call protected methods
-class VirtualQVideoWidget : public QVideoWidget {
+class VirtualQVideoWidget final : public QVideoWidget {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQVideoWidget = true;
+
     // Virtual class public types (including callbacks)
-    using QVideoWidget_Metacall_Callback = int (*)(QVideoWidget*, QMetaObject::Call, int, void**);
-    using QVideoWidget_SizeHint_Callback = QSize (*)();
+    using QVideoWidget_Metacall_Callback = int (*)(QVideoWidget*, int, int, void**);
+    using QVideoWidget_SizeHint_Callback = QSize* (*)();
     using QVideoWidget_Event_Callback = bool (*)(QVideoWidget*, QEvent*);
     using QVideoWidget_ShowEvent_Callback = void (*)(QVideoWidget*, QShowEvent*);
     using QVideoWidget_HideEvent_Callback = void (*)(QVideoWidget*, QHideEvent*);
@@ -24,7 +27,7 @@ class VirtualQVideoWidget : public QVideoWidget {
     using QVideoWidget_MoveEvent_Callback = void (*)(QVideoWidget*, QMoveEvent*);
     using QVideoWidget_DevType_Callback = int (*)();
     using QVideoWidget_SetVisible_Callback = void (*)(QVideoWidget*, bool);
-    using QVideoWidget_MinimumSizeHint_Callback = QSize (*)();
+    using QVideoWidget_MinimumSizeHint_Callback = QSize* (*)();
     using QVideoWidget_HeightForWidth_Callback = int (*)(const QVideoWidget*, int);
     using QVideoWidget_HasHeightForWidth_Callback = bool (*)();
     using QVideoWidget_PaintEngine_Callback = QPaintEngine* (*)();
@@ -48,21 +51,21 @@ class VirtualQVideoWidget : public QVideoWidget {
     using QVideoWidget_DragMoveEvent_Callback = void (*)(QVideoWidget*, QDragMoveEvent*);
     using QVideoWidget_DragLeaveEvent_Callback = void (*)(QVideoWidget*, QDragLeaveEvent*);
     using QVideoWidget_DropEvent_Callback = void (*)(QVideoWidget*, QDropEvent*);
-    using QVideoWidget_NativeEvent_Callback = bool (*)(QVideoWidget*, const QByteArray&, void*, qintptr*);
+    using QVideoWidget_NativeEvent_Callback = bool (*)(QVideoWidget*, libqt_string, void*, intptr_t*);
     using QVideoWidget_ChangeEvent_Callback = void (*)(QVideoWidget*, QEvent*);
-    using QVideoWidget_Metric_Callback = int (*)(const QVideoWidget*, QPaintDevice::PaintDeviceMetric);
+    using QVideoWidget_Metric_Callback = int (*)(const QVideoWidget*, int);
     using QVideoWidget_InitPainter_Callback = void (*)(const QVideoWidget*, QPainter*);
     using QVideoWidget_Redirected_Callback = QPaintDevice* (*)(const QVideoWidget*, QPoint*);
     using QVideoWidget_SharedPainter_Callback = QPainter* (*)();
     using QVideoWidget_InputMethodEvent_Callback = void (*)(QVideoWidget*, QInputMethodEvent*);
-    using QVideoWidget_InputMethodQuery_Callback = QVariant (*)(const QVideoWidget*, Qt::InputMethodQuery);
+    using QVideoWidget_InputMethodQuery_Callback = QVariant* (*)(const QVideoWidget*, int);
     using QVideoWidget_FocusNextPrevChild_Callback = bool (*)(QVideoWidget*, bool);
     using QVideoWidget_EventFilter_Callback = bool (*)(QVideoWidget*, QObject*, QEvent*);
     using QVideoWidget_TimerEvent_Callback = void (*)(QVideoWidget*, QTimerEvent*);
     using QVideoWidget_ChildEvent_Callback = void (*)(QVideoWidget*, QChildEvent*);
     using QVideoWidget_CustomEvent_Callback = void (*)(QVideoWidget*, QEvent*);
-    using QVideoWidget_ConnectNotify_Callback = void (*)(QVideoWidget*, const QMetaMethod&);
-    using QVideoWidget_DisconnectNotify_Callback = void (*)(QVideoWidget*, const QMetaMethod&);
+    using QVideoWidget_ConnectNotify_Callback = void (*)(QVideoWidget*, QMetaMethod*);
+    using QVideoWidget_DisconnectNotify_Callback = void (*)(QVideoWidget*, QMetaMethod*);
     using QVideoWidget_UpdateMicroFocus_Callback = void (*)();
     using QVideoWidget_Create_Callback = void (*)();
     using QVideoWidget_Destroy_Callback = void (*)();
@@ -71,7 +74,7 @@ class VirtualQVideoWidget : public QVideoWidget {
     using QVideoWidget_Sender_Callback = QObject* (*)();
     using QVideoWidget_SenderSignalIndex_Callback = int (*)();
     using QVideoWidget_Receivers_Callback = int (*)(const QVideoWidget*, const char*);
-    using QVideoWidget_IsSignalConnected_Callback = bool (*)(const QVideoWidget*, const QMetaMethod&);
+    using QVideoWidget_IsSignalConnected_Callback = bool (*)(const QVideoWidget*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -257,122 +260,122 @@ class VirtualQVideoWidget : public QVideoWidget {
     }
 
     // Callback setters
-    void setQVideoWidget_Metacall_Callback(QVideoWidget_Metacall_Callback cb) { qvideowidget_metacall_callback = cb; }
-    void setQVideoWidget_SizeHint_Callback(QVideoWidget_SizeHint_Callback cb) { qvideowidget_sizehint_callback = cb; }
-    void setQVideoWidget_Event_Callback(QVideoWidget_Event_Callback cb) { qvideowidget_event_callback = cb; }
-    void setQVideoWidget_ShowEvent_Callback(QVideoWidget_ShowEvent_Callback cb) { qvideowidget_showevent_callback = cb; }
-    void setQVideoWidget_HideEvent_Callback(QVideoWidget_HideEvent_Callback cb) { qvideowidget_hideevent_callback = cb; }
-    void setQVideoWidget_ResizeEvent_Callback(QVideoWidget_ResizeEvent_Callback cb) { qvideowidget_resizeevent_callback = cb; }
-    void setQVideoWidget_MoveEvent_Callback(QVideoWidget_MoveEvent_Callback cb) { qvideowidget_moveevent_callback = cb; }
-    void setQVideoWidget_DevType_Callback(QVideoWidget_DevType_Callback cb) { qvideowidget_devtype_callback = cb; }
-    void setQVideoWidget_SetVisible_Callback(QVideoWidget_SetVisible_Callback cb) { qvideowidget_setvisible_callback = cb; }
-    void setQVideoWidget_MinimumSizeHint_Callback(QVideoWidget_MinimumSizeHint_Callback cb) { qvideowidget_minimumsizehint_callback = cb; }
-    void setQVideoWidget_HeightForWidth_Callback(QVideoWidget_HeightForWidth_Callback cb) { qvideowidget_heightforwidth_callback = cb; }
-    void setQVideoWidget_HasHeightForWidth_Callback(QVideoWidget_HasHeightForWidth_Callback cb) { qvideowidget_hasheightforwidth_callback = cb; }
-    void setQVideoWidget_PaintEngine_Callback(QVideoWidget_PaintEngine_Callback cb) { qvideowidget_paintengine_callback = cb; }
-    void setQVideoWidget_MousePressEvent_Callback(QVideoWidget_MousePressEvent_Callback cb) { qvideowidget_mousepressevent_callback = cb; }
-    void setQVideoWidget_MouseReleaseEvent_Callback(QVideoWidget_MouseReleaseEvent_Callback cb) { qvideowidget_mousereleaseevent_callback = cb; }
-    void setQVideoWidget_MouseDoubleClickEvent_Callback(QVideoWidget_MouseDoubleClickEvent_Callback cb) { qvideowidget_mousedoubleclickevent_callback = cb; }
-    void setQVideoWidget_MouseMoveEvent_Callback(QVideoWidget_MouseMoveEvent_Callback cb) { qvideowidget_mousemoveevent_callback = cb; }
-    void setQVideoWidget_WheelEvent_Callback(QVideoWidget_WheelEvent_Callback cb) { qvideowidget_wheelevent_callback = cb; }
-    void setQVideoWidget_KeyPressEvent_Callback(QVideoWidget_KeyPressEvent_Callback cb) { qvideowidget_keypressevent_callback = cb; }
-    void setQVideoWidget_KeyReleaseEvent_Callback(QVideoWidget_KeyReleaseEvent_Callback cb) { qvideowidget_keyreleaseevent_callback = cb; }
-    void setQVideoWidget_FocusInEvent_Callback(QVideoWidget_FocusInEvent_Callback cb) { qvideowidget_focusinevent_callback = cb; }
-    void setQVideoWidget_FocusOutEvent_Callback(QVideoWidget_FocusOutEvent_Callback cb) { qvideowidget_focusoutevent_callback = cb; }
-    void setQVideoWidget_EnterEvent_Callback(QVideoWidget_EnterEvent_Callback cb) { qvideowidget_enterevent_callback = cb; }
-    void setQVideoWidget_LeaveEvent_Callback(QVideoWidget_LeaveEvent_Callback cb) { qvideowidget_leaveevent_callback = cb; }
-    void setQVideoWidget_PaintEvent_Callback(QVideoWidget_PaintEvent_Callback cb) { qvideowidget_paintevent_callback = cb; }
-    void setQVideoWidget_CloseEvent_Callback(QVideoWidget_CloseEvent_Callback cb) { qvideowidget_closeevent_callback = cb; }
-    void setQVideoWidget_ContextMenuEvent_Callback(QVideoWidget_ContextMenuEvent_Callback cb) { qvideowidget_contextmenuevent_callback = cb; }
-    void setQVideoWidget_TabletEvent_Callback(QVideoWidget_TabletEvent_Callback cb) { qvideowidget_tabletevent_callback = cb; }
-    void setQVideoWidget_ActionEvent_Callback(QVideoWidget_ActionEvent_Callback cb) { qvideowidget_actionevent_callback = cb; }
-    void setQVideoWidget_DragEnterEvent_Callback(QVideoWidget_DragEnterEvent_Callback cb) { qvideowidget_dragenterevent_callback = cb; }
-    void setQVideoWidget_DragMoveEvent_Callback(QVideoWidget_DragMoveEvent_Callback cb) { qvideowidget_dragmoveevent_callback = cb; }
-    void setQVideoWidget_DragLeaveEvent_Callback(QVideoWidget_DragLeaveEvent_Callback cb) { qvideowidget_dragleaveevent_callback = cb; }
-    void setQVideoWidget_DropEvent_Callback(QVideoWidget_DropEvent_Callback cb) { qvideowidget_dropevent_callback = cb; }
-    void setQVideoWidget_NativeEvent_Callback(QVideoWidget_NativeEvent_Callback cb) { qvideowidget_nativeevent_callback = cb; }
-    void setQVideoWidget_ChangeEvent_Callback(QVideoWidget_ChangeEvent_Callback cb) { qvideowidget_changeevent_callback = cb; }
-    void setQVideoWidget_Metric_Callback(QVideoWidget_Metric_Callback cb) { qvideowidget_metric_callback = cb; }
-    void setQVideoWidget_InitPainter_Callback(QVideoWidget_InitPainter_Callback cb) { qvideowidget_initpainter_callback = cb; }
-    void setQVideoWidget_Redirected_Callback(QVideoWidget_Redirected_Callback cb) { qvideowidget_redirected_callback = cb; }
-    void setQVideoWidget_SharedPainter_Callback(QVideoWidget_SharedPainter_Callback cb) { qvideowidget_sharedpainter_callback = cb; }
-    void setQVideoWidget_InputMethodEvent_Callback(QVideoWidget_InputMethodEvent_Callback cb) { qvideowidget_inputmethodevent_callback = cb; }
-    void setQVideoWidget_InputMethodQuery_Callback(QVideoWidget_InputMethodQuery_Callback cb) { qvideowidget_inputmethodquery_callback = cb; }
-    void setQVideoWidget_FocusNextPrevChild_Callback(QVideoWidget_FocusNextPrevChild_Callback cb) { qvideowidget_focusnextprevchild_callback = cb; }
-    void setQVideoWidget_EventFilter_Callback(QVideoWidget_EventFilter_Callback cb) { qvideowidget_eventfilter_callback = cb; }
-    void setQVideoWidget_TimerEvent_Callback(QVideoWidget_TimerEvent_Callback cb) { qvideowidget_timerevent_callback = cb; }
-    void setQVideoWidget_ChildEvent_Callback(QVideoWidget_ChildEvent_Callback cb) { qvideowidget_childevent_callback = cb; }
-    void setQVideoWidget_CustomEvent_Callback(QVideoWidget_CustomEvent_Callback cb) { qvideowidget_customevent_callback = cb; }
-    void setQVideoWidget_ConnectNotify_Callback(QVideoWidget_ConnectNotify_Callback cb) { qvideowidget_connectnotify_callback = cb; }
-    void setQVideoWidget_DisconnectNotify_Callback(QVideoWidget_DisconnectNotify_Callback cb) { qvideowidget_disconnectnotify_callback = cb; }
-    void setQVideoWidget_UpdateMicroFocus_Callback(QVideoWidget_UpdateMicroFocus_Callback cb) { qvideowidget_updatemicrofocus_callback = cb; }
-    void setQVideoWidget_Create_Callback(QVideoWidget_Create_Callback cb) { qvideowidget_create_callback = cb; }
-    void setQVideoWidget_Destroy_Callback(QVideoWidget_Destroy_Callback cb) { qvideowidget_destroy_callback = cb; }
-    void setQVideoWidget_FocusNextChild_Callback(QVideoWidget_FocusNextChild_Callback cb) { qvideowidget_focusnextchild_callback = cb; }
-    void setQVideoWidget_FocusPreviousChild_Callback(QVideoWidget_FocusPreviousChild_Callback cb) { qvideowidget_focuspreviouschild_callback = cb; }
-    void setQVideoWidget_Sender_Callback(QVideoWidget_Sender_Callback cb) { qvideowidget_sender_callback = cb; }
-    void setQVideoWidget_SenderSignalIndex_Callback(QVideoWidget_SenderSignalIndex_Callback cb) { qvideowidget_sendersignalindex_callback = cb; }
-    void setQVideoWidget_Receivers_Callback(QVideoWidget_Receivers_Callback cb) { qvideowidget_receivers_callback = cb; }
-    void setQVideoWidget_IsSignalConnected_Callback(QVideoWidget_IsSignalConnected_Callback cb) { qvideowidget_issignalconnected_callback = cb; }
+    inline void setQVideoWidget_Metacall_Callback(QVideoWidget_Metacall_Callback cb) { qvideowidget_metacall_callback = cb; }
+    inline void setQVideoWidget_SizeHint_Callback(QVideoWidget_SizeHint_Callback cb) { qvideowidget_sizehint_callback = cb; }
+    inline void setQVideoWidget_Event_Callback(QVideoWidget_Event_Callback cb) { qvideowidget_event_callback = cb; }
+    inline void setQVideoWidget_ShowEvent_Callback(QVideoWidget_ShowEvent_Callback cb) { qvideowidget_showevent_callback = cb; }
+    inline void setQVideoWidget_HideEvent_Callback(QVideoWidget_HideEvent_Callback cb) { qvideowidget_hideevent_callback = cb; }
+    inline void setQVideoWidget_ResizeEvent_Callback(QVideoWidget_ResizeEvent_Callback cb) { qvideowidget_resizeevent_callback = cb; }
+    inline void setQVideoWidget_MoveEvent_Callback(QVideoWidget_MoveEvent_Callback cb) { qvideowidget_moveevent_callback = cb; }
+    inline void setQVideoWidget_DevType_Callback(QVideoWidget_DevType_Callback cb) { qvideowidget_devtype_callback = cb; }
+    inline void setQVideoWidget_SetVisible_Callback(QVideoWidget_SetVisible_Callback cb) { qvideowidget_setvisible_callback = cb; }
+    inline void setQVideoWidget_MinimumSizeHint_Callback(QVideoWidget_MinimumSizeHint_Callback cb) { qvideowidget_minimumsizehint_callback = cb; }
+    inline void setQVideoWidget_HeightForWidth_Callback(QVideoWidget_HeightForWidth_Callback cb) { qvideowidget_heightforwidth_callback = cb; }
+    inline void setQVideoWidget_HasHeightForWidth_Callback(QVideoWidget_HasHeightForWidth_Callback cb) { qvideowidget_hasheightforwidth_callback = cb; }
+    inline void setQVideoWidget_PaintEngine_Callback(QVideoWidget_PaintEngine_Callback cb) { qvideowidget_paintengine_callback = cb; }
+    inline void setQVideoWidget_MousePressEvent_Callback(QVideoWidget_MousePressEvent_Callback cb) { qvideowidget_mousepressevent_callback = cb; }
+    inline void setQVideoWidget_MouseReleaseEvent_Callback(QVideoWidget_MouseReleaseEvent_Callback cb) { qvideowidget_mousereleaseevent_callback = cb; }
+    inline void setQVideoWidget_MouseDoubleClickEvent_Callback(QVideoWidget_MouseDoubleClickEvent_Callback cb) { qvideowidget_mousedoubleclickevent_callback = cb; }
+    inline void setQVideoWidget_MouseMoveEvent_Callback(QVideoWidget_MouseMoveEvent_Callback cb) { qvideowidget_mousemoveevent_callback = cb; }
+    inline void setQVideoWidget_WheelEvent_Callback(QVideoWidget_WheelEvent_Callback cb) { qvideowidget_wheelevent_callback = cb; }
+    inline void setQVideoWidget_KeyPressEvent_Callback(QVideoWidget_KeyPressEvent_Callback cb) { qvideowidget_keypressevent_callback = cb; }
+    inline void setQVideoWidget_KeyReleaseEvent_Callback(QVideoWidget_KeyReleaseEvent_Callback cb) { qvideowidget_keyreleaseevent_callback = cb; }
+    inline void setQVideoWidget_FocusInEvent_Callback(QVideoWidget_FocusInEvent_Callback cb) { qvideowidget_focusinevent_callback = cb; }
+    inline void setQVideoWidget_FocusOutEvent_Callback(QVideoWidget_FocusOutEvent_Callback cb) { qvideowidget_focusoutevent_callback = cb; }
+    inline void setQVideoWidget_EnterEvent_Callback(QVideoWidget_EnterEvent_Callback cb) { qvideowidget_enterevent_callback = cb; }
+    inline void setQVideoWidget_LeaveEvent_Callback(QVideoWidget_LeaveEvent_Callback cb) { qvideowidget_leaveevent_callback = cb; }
+    inline void setQVideoWidget_PaintEvent_Callback(QVideoWidget_PaintEvent_Callback cb) { qvideowidget_paintevent_callback = cb; }
+    inline void setQVideoWidget_CloseEvent_Callback(QVideoWidget_CloseEvent_Callback cb) { qvideowidget_closeevent_callback = cb; }
+    inline void setQVideoWidget_ContextMenuEvent_Callback(QVideoWidget_ContextMenuEvent_Callback cb) { qvideowidget_contextmenuevent_callback = cb; }
+    inline void setQVideoWidget_TabletEvent_Callback(QVideoWidget_TabletEvent_Callback cb) { qvideowidget_tabletevent_callback = cb; }
+    inline void setQVideoWidget_ActionEvent_Callback(QVideoWidget_ActionEvent_Callback cb) { qvideowidget_actionevent_callback = cb; }
+    inline void setQVideoWidget_DragEnterEvent_Callback(QVideoWidget_DragEnterEvent_Callback cb) { qvideowidget_dragenterevent_callback = cb; }
+    inline void setQVideoWidget_DragMoveEvent_Callback(QVideoWidget_DragMoveEvent_Callback cb) { qvideowidget_dragmoveevent_callback = cb; }
+    inline void setQVideoWidget_DragLeaveEvent_Callback(QVideoWidget_DragLeaveEvent_Callback cb) { qvideowidget_dragleaveevent_callback = cb; }
+    inline void setQVideoWidget_DropEvent_Callback(QVideoWidget_DropEvent_Callback cb) { qvideowidget_dropevent_callback = cb; }
+    inline void setQVideoWidget_NativeEvent_Callback(QVideoWidget_NativeEvent_Callback cb) { qvideowidget_nativeevent_callback = cb; }
+    inline void setQVideoWidget_ChangeEvent_Callback(QVideoWidget_ChangeEvent_Callback cb) { qvideowidget_changeevent_callback = cb; }
+    inline void setQVideoWidget_Metric_Callback(QVideoWidget_Metric_Callback cb) { qvideowidget_metric_callback = cb; }
+    inline void setQVideoWidget_InitPainter_Callback(QVideoWidget_InitPainter_Callback cb) { qvideowidget_initpainter_callback = cb; }
+    inline void setQVideoWidget_Redirected_Callback(QVideoWidget_Redirected_Callback cb) { qvideowidget_redirected_callback = cb; }
+    inline void setQVideoWidget_SharedPainter_Callback(QVideoWidget_SharedPainter_Callback cb) { qvideowidget_sharedpainter_callback = cb; }
+    inline void setQVideoWidget_InputMethodEvent_Callback(QVideoWidget_InputMethodEvent_Callback cb) { qvideowidget_inputmethodevent_callback = cb; }
+    inline void setQVideoWidget_InputMethodQuery_Callback(QVideoWidget_InputMethodQuery_Callback cb) { qvideowidget_inputmethodquery_callback = cb; }
+    inline void setQVideoWidget_FocusNextPrevChild_Callback(QVideoWidget_FocusNextPrevChild_Callback cb) { qvideowidget_focusnextprevchild_callback = cb; }
+    inline void setQVideoWidget_EventFilter_Callback(QVideoWidget_EventFilter_Callback cb) { qvideowidget_eventfilter_callback = cb; }
+    inline void setQVideoWidget_TimerEvent_Callback(QVideoWidget_TimerEvent_Callback cb) { qvideowidget_timerevent_callback = cb; }
+    inline void setQVideoWidget_ChildEvent_Callback(QVideoWidget_ChildEvent_Callback cb) { qvideowidget_childevent_callback = cb; }
+    inline void setQVideoWidget_CustomEvent_Callback(QVideoWidget_CustomEvent_Callback cb) { qvideowidget_customevent_callback = cb; }
+    inline void setQVideoWidget_ConnectNotify_Callback(QVideoWidget_ConnectNotify_Callback cb) { qvideowidget_connectnotify_callback = cb; }
+    inline void setQVideoWidget_DisconnectNotify_Callback(QVideoWidget_DisconnectNotify_Callback cb) { qvideowidget_disconnectnotify_callback = cb; }
+    inline void setQVideoWidget_UpdateMicroFocus_Callback(QVideoWidget_UpdateMicroFocus_Callback cb) { qvideowidget_updatemicrofocus_callback = cb; }
+    inline void setQVideoWidget_Create_Callback(QVideoWidget_Create_Callback cb) { qvideowidget_create_callback = cb; }
+    inline void setQVideoWidget_Destroy_Callback(QVideoWidget_Destroy_Callback cb) { qvideowidget_destroy_callback = cb; }
+    inline void setQVideoWidget_FocusNextChild_Callback(QVideoWidget_FocusNextChild_Callback cb) { qvideowidget_focusnextchild_callback = cb; }
+    inline void setQVideoWidget_FocusPreviousChild_Callback(QVideoWidget_FocusPreviousChild_Callback cb) { qvideowidget_focuspreviouschild_callback = cb; }
+    inline void setQVideoWidget_Sender_Callback(QVideoWidget_Sender_Callback cb) { qvideowidget_sender_callback = cb; }
+    inline void setQVideoWidget_SenderSignalIndex_Callback(QVideoWidget_SenderSignalIndex_Callback cb) { qvideowidget_sendersignalindex_callback = cb; }
+    inline void setQVideoWidget_Receivers_Callback(QVideoWidget_Receivers_Callback cb) { qvideowidget_receivers_callback = cb; }
+    inline void setQVideoWidget_IsSignalConnected_Callback(QVideoWidget_IsSignalConnected_Callback cb) { qvideowidget_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQVideoWidget_Metacall_IsBase(bool value) const { qvideowidget_metacall_isbase = value; }
-    void setQVideoWidget_SizeHint_IsBase(bool value) const { qvideowidget_sizehint_isbase = value; }
-    void setQVideoWidget_Event_IsBase(bool value) const { qvideowidget_event_isbase = value; }
-    void setQVideoWidget_ShowEvent_IsBase(bool value) const { qvideowidget_showevent_isbase = value; }
-    void setQVideoWidget_HideEvent_IsBase(bool value) const { qvideowidget_hideevent_isbase = value; }
-    void setQVideoWidget_ResizeEvent_IsBase(bool value) const { qvideowidget_resizeevent_isbase = value; }
-    void setQVideoWidget_MoveEvent_IsBase(bool value) const { qvideowidget_moveevent_isbase = value; }
-    void setQVideoWidget_DevType_IsBase(bool value) const { qvideowidget_devtype_isbase = value; }
-    void setQVideoWidget_SetVisible_IsBase(bool value) const { qvideowidget_setvisible_isbase = value; }
-    void setQVideoWidget_MinimumSizeHint_IsBase(bool value) const { qvideowidget_minimumsizehint_isbase = value; }
-    void setQVideoWidget_HeightForWidth_IsBase(bool value) const { qvideowidget_heightforwidth_isbase = value; }
-    void setQVideoWidget_HasHeightForWidth_IsBase(bool value) const { qvideowidget_hasheightforwidth_isbase = value; }
-    void setQVideoWidget_PaintEngine_IsBase(bool value) const { qvideowidget_paintengine_isbase = value; }
-    void setQVideoWidget_MousePressEvent_IsBase(bool value) const { qvideowidget_mousepressevent_isbase = value; }
-    void setQVideoWidget_MouseReleaseEvent_IsBase(bool value) const { qvideowidget_mousereleaseevent_isbase = value; }
-    void setQVideoWidget_MouseDoubleClickEvent_IsBase(bool value) const { qvideowidget_mousedoubleclickevent_isbase = value; }
-    void setQVideoWidget_MouseMoveEvent_IsBase(bool value) const { qvideowidget_mousemoveevent_isbase = value; }
-    void setQVideoWidget_WheelEvent_IsBase(bool value) const { qvideowidget_wheelevent_isbase = value; }
-    void setQVideoWidget_KeyPressEvent_IsBase(bool value) const { qvideowidget_keypressevent_isbase = value; }
-    void setQVideoWidget_KeyReleaseEvent_IsBase(bool value) const { qvideowidget_keyreleaseevent_isbase = value; }
-    void setQVideoWidget_FocusInEvent_IsBase(bool value) const { qvideowidget_focusinevent_isbase = value; }
-    void setQVideoWidget_FocusOutEvent_IsBase(bool value) const { qvideowidget_focusoutevent_isbase = value; }
-    void setQVideoWidget_EnterEvent_IsBase(bool value) const { qvideowidget_enterevent_isbase = value; }
-    void setQVideoWidget_LeaveEvent_IsBase(bool value) const { qvideowidget_leaveevent_isbase = value; }
-    void setQVideoWidget_PaintEvent_IsBase(bool value) const { qvideowidget_paintevent_isbase = value; }
-    void setQVideoWidget_CloseEvent_IsBase(bool value) const { qvideowidget_closeevent_isbase = value; }
-    void setQVideoWidget_ContextMenuEvent_IsBase(bool value) const { qvideowidget_contextmenuevent_isbase = value; }
-    void setQVideoWidget_TabletEvent_IsBase(bool value) const { qvideowidget_tabletevent_isbase = value; }
-    void setQVideoWidget_ActionEvent_IsBase(bool value) const { qvideowidget_actionevent_isbase = value; }
-    void setQVideoWidget_DragEnterEvent_IsBase(bool value) const { qvideowidget_dragenterevent_isbase = value; }
-    void setQVideoWidget_DragMoveEvent_IsBase(bool value) const { qvideowidget_dragmoveevent_isbase = value; }
-    void setQVideoWidget_DragLeaveEvent_IsBase(bool value) const { qvideowidget_dragleaveevent_isbase = value; }
-    void setQVideoWidget_DropEvent_IsBase(bool value) const { qvideowidget_dropevent_isbase = value; }
-    void setQVideoWidget_NativeEvent_IsBase(bool value) const { qvideowidget_nativeevent_isbase = value; }
-    void setQVideoWidget_ChangeEvent_IsBase(bool value) const { qvideowidget_changeevent_isbase = value; }
-    void setQVideoWidget_Metric_IsBase(bool value) const { qvideowidget_metric_isbase = value; }
-    void setQVideoWidget_InitPainter_IsBase(bool value) const { qvideowidget_initpainter_isbase = value; }
-    void setQVideoWidget_Redirected_IsBase(bool value) const { qvideowidget_redirected_isbase = value; }
-    void setQVideoWidget_SharedPainter_IsBase(bool value) const { qvideowidget_sharedpainter_isbase = value; }
-    void setQVideoWidget_InputMethodEvent_IsBase(bool value) const { qvideowidget_inputmethodevent_isbase = value; }
-    void setQVideoWidget_InputMethodQuery_IsBase(bool value) const { qvideowidget_inputmethodquery_isbase = value; }
-    void setQVideoWidget_FocusNextPrevChild_IsBase(bool value) const { qvideowidget_focusnextprevchild_isbase = value; }
-    void setQVideoWidget_EventFilter_IsBase(bool value) const { qvideowidget_eventfilter_isbase = value; }
-    void setQVideoWidget_TimerEvent_IsBase(bool value) const { qvideowidget_timerevent_isbase = value; }
-    void setQVideoWidget_ChildEvent_IsBase(bool value) const { qvideowidget_childevent_isbase = value; }
-    void setQVideoWidget_CustomEvent_IsBase(bool value) const { qvideowidget_customevent_isbase = value; }
-    void setQVideoWidget_ConnectNotify_IsBase(bool value) const { qvideowidget_connectnotify_isbase = value; }
-    void setQVideoWidget_DisconnectNotify_IsBase(bool value) const { qvideowidget_disconnectnotify_isbase = value; }
-    void setQVideoWidget_UpdateMicroFocus_IsBase(bool value) const { qvideowidget_updatemicrofocus_isbase = value; }
-    void setQVideoWidget_Create_IsBase(bool value) const { qvideowidget_create_isbase = value; }
-    void setQVideoWidget_Destroy_IsBase(bool value) const { qvideowidget_destroy_isbase = value; }
-    void setQVideoWidget_FocusNextChild_IsBase(bool value) const { qvideowidget_focusnextchild_isbase = value; }
-    void setQVideoWidget_FocusPreviousChild_IsBase(bool value) const { qvideowidget_focuspreviouschild_isbase = value; }
-    void setQVideoWidget_Sender_IsBase(bool value) const { qvideowidget_sender_isbase = value; }
-    void setQVideoWidget_SenderSignalIndex_IsBase(bool value) const { qvideowidget_sendersignalindex_isbase = value; }
-    void setQVideoWidget_Receivers_IsBase(bool value) const { qvideowidget_receivers_isbase = value; }
-    void setQVideoWidget_IsSignalConnected_IsBase(bool value) const { qvideowidget_issignalconnected_isbase = value; }
+    inline void setQVideoWidget_Metacall_IsBase(bool value) const { qvideowidget_metacall_isbase = value; }
+    inline void setQVideoWidget_SizeHint_IsBase(bool value) const { qvideowidget_sizehint_isbase = value; }
+    inline void setQVideoWidget_Event_IsBase(bool value) const { qvideowidget_event_isbase = value; }
+    inline void setQVideoWidget_ShowEvent_IsBase(bool value) const { qvideowidget_showevent_isbase = value; }
+    inline void setQVideoWidget_HideEvent_IsBase(bool value) const { qvideowidget_hideevent_isbase = value; }
+    inline void setQVideoWidget_ResizeEvent_IsBase(bool value) const { qvideowidget_resizeevent_isbase = value; }
+    inline void setQVideoWidget_MoveEvent_IsBase(bool value) const { qvideowidget_moveevent_isbase = value; }
+    inline void setQVideoWidget_DevType_IsBase(bool value) const { qvideowidget_devtype_isbase = value; }
+    inline void setQVideoWidget_SetVisible_IsBase(bool value) const { qvideowidget_setvisible_isbase = value; }
+    inline void setQVideoWidget_MinimumSizeHint_IsBase(bool value) const { qvideowidget_minimumsizehint_isbase = value; }
+    inline void setQVideoWidget_HeightForWidth_IsBase(bool value) const { qvideowidget_heightforwidth_isbase = value; }
+    inline void setQVideoWidget_HasHeightForWidth_IsBase(bool value) const { qvideowidget_hasheightforwidth_isbase = value; }
+    inline void setQVideoWidget_PaintEngine_IsBase(bool value) const { qvideowidget_paintengine_isbase = value; }
+    inline void setQVideoWidget_MousePressEvent_IsBase(bool value) const { qvideowidget_mousepressevent_isbase = value; }
+    inline void setQVideoWidget_MouseReleaseEvent_IsBase(bool value) const { qvideowidget_mousereleaseevent_isbase = value; }
+    inline void setQVideoWidget_MouseDoubleClickEvent_IsBase(bool value) const { qvideowidget_mousedoubleclickevent_isbase = value; }
+    inline void setQVideoWidget_MouseMoveEvent_IsBase(bool value) const { qvideowidget_mousemoveevent_isbase = value; }
+    inline void setQVideoWidget_WheelEvent_IsBase(bool value) const { qvideowidget_wheelevent_isbase = value; }
+    inline void setQVideoWidget_KeyPressEvent_IsBase(bool value) const { qvideowidget_keypressevent_isbase = value; }
+    inline void setQVideoWidget_KeyReleaseEvent_IsBase(bool value) const { qvideowidget_keyreleaseevent_isbase = value; }
+    inline void setQVideoWidget_FocusInEvent_IsBase(bool value) const { qvideowidget_focusinevent_isbase = value; }
+    inline void setQVideoWidget_FocusOutEvent_IsBase(bool value) const { qvideowidget_focusoutevent_isbase = value; }
+    inline void setQVideoWidget_EnterEvent_IsBase(bool value) const { qvideowidget_enterevent_isbase = value; }
+    inline void setQVideoWidget_LeaveEvent_IsBase(bool value) const { qvideowidget_leaveevent_isbase = value; }
+    inline void setQVideoWidget_PaintEvent_IsBase(bool value) const { qvideowidget_paintevent_isbase = value; }
+    inline void setQVideoWidget_CloseEvent_IsBase(bool value) const { qvideowidget_closeevent_isbase = value; }
+    inline void setQVideoWidget_ContextMenuEvent_IsBase(bool value) const { qvideowidget_contextmenuevent_isbase = value; }
+    inline void setQVideoWidget_TabletEvent_IsBase(bool value) const { qvideowidget_tabletevent_isbase = value; }
+    inline void setQVideoWidget_ActionEvent_IsBase(bool value) const { qvideowidget_actionevent_isbase = value; }
+    inline void setQVideoWidget_DragEnterEvent_IsBase(bool value) const { qvideowidget_dragenterevent_isbase = value; }
+    inline void setQVideoWidget_DragMoveEvent_IsBase(bool value) const { qvideowidget_dragmoveevent_isbase = value; }
+    inline void setQVideoWidget_DragLeaveEvent_IsBase(bool value) const { qvideowidget_dragleaveevent_isbase = value; }
+    inline void setQVideoWidget_DropEvent_IsBase(bool value) const { qvideowidget_dropevent_isbase = value; }
+    inline void setQVideoWidget_NativeEvent_IsBase(bool value) const { qvideowidget_nativeevent_isbase = value; }
+    inline void setQVideoWidget_ChangeEvent_IsBase(bool value) const { qvideowidget_changeevent_isbase = value; }
+    inline void setQVideoWidget_Metric_IsBase(bool value) const { qvideowidget_metric_isbase = value; }
+    inline void setQVideoWidget_InitPainter_IsBase(bool value) const { qvideowidget_initpainter_isbase = value; }
+    inline void setQVideoWidget_Redirected_IsBase(bool value) const { qvideowidget_redirected_isbase = value; }
+    inline void setQVideoWidget_SharedPainter_IsBase(bool value) const { qvideowidget_sharedpainter_isbase = value; }
+    inline void setQVideoWidget_InputMethodEvent_IsBase(bool value) const { qvideowidget_inputmethodevent_isbase = value; }
+    inline void setQVideoWidget_InputMethodQuery_IsBase(bool value) const { qvideowidget_inputmethodquery_isbase = value; }
+    inline void setQVideoWidget_FocusNextPrevChild_IsBase(bool value) const { qvideowidget_focusnextprevchild_isbase = value; }
+    inline void setQVideoWidget_EventFilter_IsBase(bool value) const { qvideowidget_eventfilter_isbase = value; }
+    inline void setQVideoWidget_TimerEvent_IsBase(bool value) const { qvideowidget_timerevent_isbase = value; }
+    inline void setQVideoWidget_ChildEvent_IsBase(bool value) const { qvideowidget_childevent_isbase = value; }
+    inline void setQVideoWidget_CustomEvent_IsBase(bool value) const { qvideowidget_customevent_isbase = value; }
+    inline void setQVideoWidget_ConnectNotify_IsBase(bool value) const { qvideowidget_connectnotify_isbase = value; }
+    inline void setQVideoWidget_DisconnectNotify_IsBase(bool value) const { qvideowidget_disconnectnotify_isbase = value; }
+    inline void setQVideoWidget_UpdateMicroFocus_IsBase(bool value) const { qvideowidget_updatemicrofocus_isbase = value; }
+    inline void setQVideoWidget_Create_IsBase(bool value) const { qvideowidget_create_isbase = value; }
+    inline void setQVideoWidget_Destroy_IsBase(bool value) const { qvideowidget_destroy_isbase = value; }
+    inline void setQVideoWidget_FocusNextChild_IsBase(bool value) const { qvideowidget_focusnextchild_isbase = value; }
+    inline void setQVideoWidget_FocusPreviousChild_IsBase(bool value) const { qvideowidget_focuspreviouschild_isbase = value; }
+    inline void setQVideoWidget_Sender_IsBase(bool value) const { qvideowidget_sender_isbase = value; }
+    inline void setQVideoWidget_SenderSignalIndex_IsBase(bool value) const { qvideowidget_sendersignalindex_isbase = value; }
+    inline void setQVideoWidget_Receivers_IsBase(bool value) const { qvideowidget_receivers_isbase = value; }
+    inline void setQVideoWidget_IsSignalConnected_IsBase(bool value) const { qvideowidget_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -380,7 +383,12 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_metacall_isbase = false;
             return QVideoWidget::qt_metacall(param1, param2, param3);
         } else if (qvideowidget_metacall_callback != nullptr) {
-            return qvideowidget_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qvideowidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QVideoWidget::qt_metacall(param1, param2, param3);
         }
@@ -392,7 +400,8 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_sizehint_isbase = false;
             return QVideoWidget::sizeHint();
         } else if (qvideowidget_sizehint_callback != nullptr) {
-            return qvideowidget_sizehint_callback();
+            QSize* callback_ret = qvideowidget_sizehint_callback();
+            return *callback_ret;
         } else {
             return QVideoWidget::sizeHint();
         }
@@ -404,7 +413,10 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_event_isbase = false;
             return QVideoWidget::event(event);
         } else if (qvideowidget_event_callback != nullptr) {
-            return qvideowidget_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qvideowidget_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QVideoWidget::event(event);
         }
@@ -416,7 +428,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_showevent_isbase = false;
             QVideoWidget::showEvent(event);
         } else if (qvideowidget_showevent_callback != nullptr) {
-            qvideowidget_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qvideowidget_showevent_callback(this, cbval1);
         } else {
             QVideoWidget::showEvent(event);
         }
@@ -428,7 +442,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_hideevent_isbase = false;
             QVideoWidget::hideEvent(event);
         } else if (qvideowidget_hideevent_callback != nullptr) {
-            qvideowidget_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qvideowidget_hideevent_callback(this, cbval1);
         } else {
             QVideoWidget::hideEvent(event);
         }
@@ -440,7 +456,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_resizeevent_isbase = false;
             QVideoWidget::resizeEvent(event);
         } else if (qvideowidget_resizeevent_callback != nullptr) {
-            qvideowidget_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qvideowidget_resizeevent_callback(this, cbval1);
         } else {
             QVideoWidget::resizeEvent(event);
         }
@@ -452,7 +470,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_moveevent_isbase = false;
             QVideoWidget::moveEvent(event);
         } else if (qvideowidget_moveevent_callback != nullptr) {
-            qvideowidget_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qvideowidget_moveevent_callback(this, cbval1);
         } else {
             QVideoWidget::moveEvent(event);
         }
@@ -464,7 +484,8 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_devtype_isbase = false;
             return QVideoWidget::devType();
         } else if (qvideowidget_devtype_callback != nullptr) {
-            return qvideowidget_devtype_callback();
+            int callback_ret = qvideowidget_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QVideoWidget::devType();
         }
@@ -476,7 +497,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_setvisible_isbase = false;
             QVideoWidget::setVisible(visible);
         } else if (qvideowidget_setvisible_callback != nullptr) {
-            qvideowidget_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qvideowidget_setvisible_callback(this, cbval1);
         } else {
             QVideoWidget::setVisible(visible);
         }
@@ -488,7 +511,8 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_minimumsizehint_isbase = false;
             return QVideoWidget::minimumSizeHint();
         } else if (qvideowidget_minimumsizehint_callback != nullptr) {
-            return qvideowidget_minimumsizehint_callback();
+            QSize* callback_ret = qvideowidget_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QVideoWidget::minimumSizeHint();
         }
@@ -500,7 +524,10 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_heightforwidth_isbase = false;
             return QVideoWidget::heightForWidth(param1);
         } else if (qvideowidget_heightforwidth_callback != nullptr) {
-            return qvideowidget_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qvideowidget_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QVideoWidget::heightForWidth(param1);
         }
@@ -512,7 +539,8 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_hasheightforwidth_isbase = false;
             return QVideoWidget::hasHeightForWidth();
         } else if (qvideowidget_hasheightforwidth_callback != nullptr) {
-            return qvideowidget_hasheightforwidth_callback();
+            bool callback_ret = qvideowidget_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QVideoWidget::hasHeightForWidth();
         }
@@ -524,7 +552,8 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_paintengine_isbase = false;
             return QVideoWidget::paintEngine();
         } else if (qvideowidget_paintengine_callback != nullptr) {
-            return qvideowidget_paintengine_callback();
+            QPaintEngine* callback_ret = qvideowidget_paintengine_callback();
+            return callback_ret;
         } else {
             return QVideoWidget::paintEngine();
         }
@@ -536,7 +565,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_mousepressevent_isbase = false;
             QVideoWidget::mousePressEvent(event);
         } else if (qvideowidget_mousepressevent_callback != nullptr) {
-            qvideowidget_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qvideowidget_mousepressevent_callback(this, cbval1);
         } else {
             QVideoWidget::mousePressEvent(event);
         }
@@ -548,7 +579,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_mousereleaseevent_isbase = false;
             QVideoWidget::mouseReleaseEvent(event);
         } else if (qvideowidget_mousereleaseevent_callback != nullptr) {
-            qvideowidget_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qvideowidget_mousereleaseevent_callback(this, cbval1);
         } else {
             QVideoWidget::mouseReleaseEvent(event);
         }
@@ -560,7 +593,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_mousedoubleclickevent_isbase = false;
             QVideoWidget::mouseDoubleClickEvent(event);
         } else if (qvideowidget_mousedoubleclickevent_callback != nullptr) {
-            qvideowidget_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qvideowidget_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QVideoWidget::mouseDoubleClickEvent(event);
         }
@@ -572,7 +607,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_mousemoveevent_isbase = false;
             QVideoWidget::mouseMoveEvent(event);
         } else if (qvideowidget_mousemoveevent_callback != nullptr) {
-            qvideowidget_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qvideowidget_mousemoveevent_callback(this, cbval1);
         } else {
             QVideoWidget::mouseMoveEvent(event);
         }
@@ -584,7 +621,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_wheelevent_isbase = false;
             QVideoWidget::wheelEvent(event);
         } else if (qvideowidget_wheelevent_callback != nullptr) {
-            qvideowidget_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qvideowidget_wheelevent_callback(this, cbval1);
         } else {
             QVideoWidget::wheelEvent(event);
         }
@@ -596,7 +635,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_keypressevent_isbase = false;
             QVideoWidget::keyPressEvent(event);
         } else if (qvideowidget_keypressevent_callback != nullptr) {
-            qvideowidget_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qvideowidget_keypressevent_callback(this, cbval1);
         } else {
             QVideoWidget::keyPressEvent(event);
         }
@@ -608,7 +649,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_keyreleaseevent_isbase = false;
             QVideoWidget::keyReleaseEvent(event);
         } else if (qvideowidget_keyreleaseevent_callback != nullptr) {
-            qvideowidget_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qvideowidget_keyreleaseevent_callback(this, cbval1);
         } else {
             QVideoWidget::keyReleaseEvent(event);
         }
@@ -620,7 +663,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_focusinevent_isbase = false;
             QVideoWidget::focusInEvent(event);
         } else if (qvideowidget_focusinevent_callback != nullptr) {
-            qvideowidget_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qvideowidget_focusinevent_callback(this, cbval1);
         } else {
             QVideoWidget::focusInEvent(event);
         }
@@ -632,7 +677,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_focusoutevent_isbase = false;
             QVideoWidget::focusOutEvent(event);
         } else if (qvideowidget_focusoutevent_callback != nullptr) {
-            qvideowidget_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qvideowidget_focusoutevent_callback(this, cbval1);
         } else {
             QVideoWidget::focusOutEvent(event);
         }
@@ -644,7 +691,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_enterevent_isbase = false;
             QVideoWidget::enterEvent(event);
         } else if (qvideowidget_enterevent_callback != nullptr) {
-            qvideowidget_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qvideowidget_enterevent_callback(this, cbval1);
         } else {
             QVideoWidget::enterEvent(event);
         }
@@ -656,7 +705,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_leaveevent_isbase = false;
             QVideoWidget::leaveEvent(event);
         } else if (qvideowidget_leaveevent_callback != nullptr) {
-            qvideowidget_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qvideowidget_leaveevent_callback(this, cbval1);
         } else {
             QVideoWidget::leaveEvent(event);
         }
@@ -668,7 +719,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_paintevent_isbase = false;
             QVideoWidget::paintEvent(event);
         } else if (qvideowidget_paintevent_callback != nullptr) {
-            qvideowidget_paintevent_callback(this, event);
+            QPaintEvent* cbval1 = event;
+
+            qvideowidget_paintevent_callback(this, cbval1);
         } else {
             QVideoWidget::paintEvent(event);
         }
@@ -680,7 +733,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_closeevent_isbase = false;
             QVideoWidget::closeEvent(event);
         } else if (qvideowidget_closeevent_callback != nullptr) {
-            qvideowidget_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qvideowidget_closeevent_callback(this, cbval1);
         } else {
             QVideoWidget::closeEvent(event);
         }
@@ -692,7 +747,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_contextmenuevent_isbase = false;
             QVideoWidget::contextMenuEvent(event);
         } else if (qvideowidget_contextmenuevent_callback != nullptr) {
-            qvideowidget_contextmenuevent_callback(this, event);
+            QContextMenuEvent* cbval1 = event;
+
+            qvideowidget_contextmenuevent_callback(this, cbval1);
         } else {
             QVideoWidget::contextMenuEvent(event);
         }
@@ -704,7 +761,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_tabletevent_isbase = false;
             QVideoWidget::tabletEvent(event);
         } else if (qvideowidget_tabletevent_callback != nullptr) {
-            qvideowidget_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qvideowidget_tabletevent_callback(this, cbval1);
         } else {
             QVideoWidget::tabletEvent(event);
         }
@@ -716,7 +775,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_actionevent_isbase = false;
             QVideoWidget::actionEvent(event);
         } else if (qvideowidget_actionevent_callback != nullptr) {
-            qvideowidget_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qvideowidget_actionevent_callback(this, cbval1);
         } else {
             QVideoWidget::actionEvent(event);
         }
@@ -728,7 +789,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_dragenterevent_isbase = false;
             QVideoWidget::dragEnterEvent(event);
         } else if (qvideowidget_dragenterevent_callback != nullptr) {
-            qvideowidget_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qvideowidget_dragenterevent_callback(this, cbval1);
         } else {
             QVideoWidget::dragEnterEvent(event);
         }
@@ -740,7 +803,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_dragmoveevent_isbase = false;
             QVideoWidget::dragMoveEvent(event);
         } else if (qvideowidget_dragmoveevent_callback != nullptr) {
-            qvideowidget_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qvideowidget_dragmoveevent_callback(this, cbval1);
         } else {
             QVideoWidget::dragMoveEvent(event);
         }
@@ -752,7 +817,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_dragleaveevent_isbase = false;
             QVideoWidget::dragLeaveEvent(event);
         } else if (qvideowidget_dragleaveevent_callback != nullptr) {
-            qvideowidget_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qvideowidget_dragleaveevent_callback(this, cbval1);
         } else {
             QVideoWidget::dragLeaveEvent(event);
         }
@@ -764,7 +831,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_dropevent_isbase = false;
             QVideoWidget::dropEvent(event);
         } else if (qvideowidget_dropevent_callback != nullptr) {
-            qvideowidget_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qvideowidget_dropevent_callback(this, cbval1);
         } else {
             QVideoWidget::dropEvent(event);
         }
@@ -776,7 +845,19 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_nativeevent_isbase = false;
             return QVideoWidget::nativeEvent(eventType, message, result);
         } else if (qvideowidget_nativeevent_callback != nullptr) {
-            return qvideowidget_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qvideowidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QVideoWidget::nativeEvent(eventType, message, result);
         }
@@ -788,7 +869,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_changeevent_isbase = false;
             QVideoWidget::changeEvent(param1);
         } else if (qvideowidget_changeevent_callback != nullptr) {
-            qvideowidget_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qvideowidget_changeevent_callback(this, cbval1);
         } else {
             QVideoWidget::changeEvent(param1);
         }
@@ -800,7 +883,10 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_metric_isbase = false;
             return QVideoWidget::metric(param1);
         } else if (qvideowidget_metric_callback != nullptr) {
-            return qvideowidget_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qvideowidget_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QVideoWidget::metric(param1);
         }
@@ -812,7 +898,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_initpainter_isbase = false;
             QVideoWidget::initPainter(painter);
         } else if (qvideowidget_initpainter_callback != nullptr) {
-            qvideowidget_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qvideowidget_initpainter_callback(this, cbval1);
         } else {
             QVideoWidget::initPainter(painter);
         }
@@ -824,7 +912,10 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_redirected_isbase = false;
             return QVideoWidget::redirected(offset);
         } else if (qvideowidget_redirected_callback != nullptr) {
-            return qvideowidget_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qvideowidget_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QVideoWidget::redirected(offset);
         }
@@ -836,7 +927,8 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_sharedpainter_isbase = false;
             return QVideoWidget::sharedPainter();
         } else if (qvideowidget_sharedpainter_callback != nullptr) {
-            return qvideowidget_sharedpainter_callback();
+            QPainter* callback_ret = qvideowidget_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QVideoWidget::sharedPainter();
         }
@@ -848,7 +940,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_inputmethodevent_isbase = false;
             QVideoWidget::inputMethodEvent(param1);
         } else if (qvideowidget_inputmethodevent_callback != nullptr) {
-            qvideowidget_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qvideowidget_inputmethodevent_callback(this, cbval1);
         } else {
             QVideoWidget::inputMethodEvent(param1);
         }
@@ -860,7 +954,10 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_inputmethodquery_isbase = false;
             return QVideoWidget::inputMethodQuery(param1);
         } else if (qvideowidget_inputmethodquery_callback != nullptr) {
-            return qvideowidget_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qvideowidget_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QVideoWidget::inputMethodQuery(param1);
         }
@@ -872,7 +969,10 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_focusnextprevchild_isbase = false;
             return QVideoWidget::focusNextPrevChild(next);
         } else if (qvideowidget_focusnextprevchild_callback != nullptr) {
-            return qvideowidget_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qvideowidget_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QVideoWidget::focusNextPrevChild(next);
         }
@@ -884,7 +984,11 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_eventfilter_isbase = false;
             return QVideoWidget::eventFilter(watched, event);
         } else if (qvideowidget_eventfilter_callback != nullptr) {
-            return qvideowidget_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qvideowidget_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QVideoWidget::eventFilter(watched, event);
         }
@@ -896,7 +1000,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_timerevent_isbase = false;
             QVideoWidget::timerEvent(event);
         } else if (qvideowidget_timerevent_callback != nullptr) {
-            qvideowidget_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qvideowidget_timerevent_callback(this, cbval1);
         } else {
             QVideoWidget::timerEvent(event);
         }
@@ -908,7 +1014,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_childevent_isbase = false;
             QVideoWidget::childEvent(event);
         } else if (qvideowidget_childevent_callback != nullptr) {
-            qvideowidget_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qvideowidget_childevent_callback(this, cbval1);
         } else {
             QVideoWidget::childEvent(event);
         }
@@ -920,7 +1028,9 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_customevent_isbase = false;
             QVideoWidget::customEvent(event);
         } else if (qvideowidget_customevent_callback != nullptr) {
-            qvideowidget_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qvideowidget_customevent_callback(this, cbval1);
         } else {
             QVideoWidget::customEvent(event);
         }
@@ -932,7 +1042,11 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_connectnotify_isbase = false;
             QVideoWidget::connectNotify(signal);
         } else if (qvideowidget_connectnotify_callback != nullptr) {
-            qvideowidget_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qvideowidget_connectnotify_callback(this, cbval1);
         } else {
             QVideoWidget::connectNotify(signal);
         }
@@ -944,7 +1058,11 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_disconnectnotify_isbase = false;
             QVideoWidget::disconnectNotify(signal);
         } else if (qvideowidget_disconnectnotify_callback != nullptr) {
-            qvideowidget_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qvideowidget_disconnectnotify_callback(this, cbval1);
         } else {
             QVideoWidget::disconnectNotify(signal);
         }
@@ -992,7 +1110,8 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_focusnextchild_isbase = false;
             return QVideoWidget::focusNextChild();
         } else if (qvideowidget_focusnextchild_callback != nullptr) {
-            return qvideowidget_focusnextchild_callback();
+            bool callback_ret = qvideowidget_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QVideoWidget::focusNextChild();
         }
@@ -1004,7 +1123,8 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_focuspreviouschild_isbase = false;
             return QVideoWidget::focusPreviousChild();
         } else if (qvideowidget_focuspreviouschild_callback != nullptr) {
-            return qvideowidget_focuspreviouschild_callback();
+            bool callback_ret = qvideowidget_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QVideoWidget::focusPreviousChild();
         }
@@ -1016,7 +1136,8 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_sender_isbase = false;
             return QVideoWidget::sender();
         } else if (qvideowidget_sender_callback != nullptr) {
-            return qvideowidget_sender_callback();
+            QObject* callback_ret = qvideowidget_sender_callback();
+            return callback_ret;
         } else {
             return QVideoWidget::sender();
         }
@@ -1028,7 +1149,8 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_sendersignalindex_isbase = false;
             return QVideoWidget::senderSignalIndex();
         } else if (qvideowidget_sendersignalindex_callback != nullptr) {
-            return qvideowidget_sendersignalindex_callback();
+            int callback_ret = qvideowidget_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QVideoWidget::senderSignalIndex();
         }
@@ -1040,7 +1162,10 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_receivers_isbase = false;
             return QVideoWidget::receivers(signal);
         } else if (qvideowidget_receivers_callback != nullptr) {
-            return qvideowidget_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qvideowidget_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QVideoWidget::receivers(signal);
         }
@@ -1052,11 +1177,112 @@ class VirtualQVideoWidget : public QVideoWidget {
             qvideowidget_issignalconnected_isbase = false;
             return QVideoWidget::isSignalConnected(signal);
         } else if (qvideowidget_issignalconnected_callback != nullptr) {
-            return qvideowidget_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qvideowidget_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QVideoWidget::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QVideoWidget_Event(QVideoWidget* self, QEvent* event);
+    friend bool QVideoWidget_QBaseEvent(QVideoWidget* self, QEvent* event);
+    friend void QVideoWidget_ShowEvent(QVideoWidget* self, QShowEvent* event);
+    friend void QVideoWidget_QBaseShowEvent(QVideoWidget* self, QShowEvent* event);
+    friend void QVideoWidget_HideEvent(QVideoWidget* self, QHideEvent* event);
+    friend void QVideoWidget_QBaseHideEvent(QVideoWidget* self, QHideEvent* event);
+    friend void QVideoWidget_ResizeEvent(QVideoWidget* self, QResizeEvent* event);
+    friend void QVideoWidget_QBaseResizeEvent(QVideoWidget* self, QResizeEvent* event);
+    friend void QVideoWidget_MoveEvent(QVideoWidget* self, QMoveEvent* event);
+    friend void QVideoWidget_QBaseMoveEvent(QVideoWidget* self, QMoveEvent* event);
+    friend void QVideoWidget_MousePressEvent(QVideoWidget* self, QMouseEvent* event);
+    friend void QVideoWidget_QBaseMousePressEvent(QVideoWidget* self, QMouseEvent* event);
+    friend void QVideoWidget_MouseReleaseEvent(QVideoWidget* self, QMouseEvent* event);
+    friend void QVideoWidget_QBaseMouseReleaseEvent(QVideoWidget* self, QMouseEvent* event);
+    friend void QVideoWidget_MouseDoubleClickEvent(QVideoWidget* self, QMouseEvent* event);
+    friend void QVideoWidget_QBaseMouseDoubleClickEvent(QVideoWidget* self, QMouseEvent* event);
+    friend void QVideoWidget_MouseMoveEvent(QVideoWidget* self, QMouseEvent* event);
+    friend void QVideoWidget_QBaseMouseMoveEvent(QVideoWidget* self, QMouseEvent* event);
+    friend void QVideoWidget_WheelEvent(QVideoWidget* self, QWheelEvent* event);
+    friend void QVideoWidget_QBaseWheelEvent(QVideoWidget* self, QWheelEvent* event);
+    friend void QVideoWidget_KeyPressEvent(QVideoWidget* self, QKeyEvent* event);
+    friend void QVideoWidget_QBaseKeyPressEvent(QVideoWidget* self, QKeyEvent* event);
+    friend void QVideoWidget_KeyReleaseEvent(QVideoWidget* self, QKeyEvent* event);
+    friend void QVideoWidget_QBaseKeyReleaseEvent(QVideoWidget* self, QKeyEvent* event);
+    friend void QVideoWidget_FocusInEvent(QVideoWidget* self, QFocusEvent* event);
+    friend void QVideoWidget_QBaseFocusInEvent(QVideoWidget* self, QFocusEvent* event);
+    friend void QVideoWidget_FocusOutEvent(QVideoWidget* self, QFocusEvent* event);
+    friend void QVideoWidget_QBaseFocusOutEvent(QVideoWidget* self, QFocusEvent* event);
+    friend void QVideoWidget_EnterEvent(QVideoWidget* self, QEnterEvent* event);
+    friend void QVideoWidget_QBaseEnterEvent(QVideoWidget* self, QEnterEvent* event);
+    friend void QVideoWidget_LeaveEvent(QVideoWidget* self, QEvent* event);
+    friend void QVideoWidget_QBaseLeaveEvent(QVideoWidget* self, QEvent* event);
+    friend void QVideoWidget_PaintEvent(QVideoWidget* self, QPaintEvent* event);
+    friend void QVideoWidget_QBasePaintEvent(QVideoWidget* self, QPaintEvent* event);
+    friend void QVideoWidget_CloseEvent(QVideoWidget* self, QCloseEvent* event);
+    friend void QVideoWidget_QBaseCloseEvent(QVideoWidget* self, QCloseEvent* event);
+    friend void QVideoWidget_ContextMenuEvent(QVideoWidget* self, QContextMenuEvent* event);
+    friend void QVideoWidget_QBaseContextMenuEvent(QVideoWidget* self, QContextMenuEvent* event);
+    friend void QVideoWidget_TabletEvent(QVideoWidget* self, QTabletEvent* event);
+    friend void QVideoWidget_QBaseTabletEvent(QVideoWidget* self, QTabletEvent* event);
+    friend void QVideoWidget_ActionEvent(QVideoWidget* self, QActionEvent* event);
+    friend void QVideoWidget_QBaseActionEvent(QVideoWidget* self, QActionEvent* event);
+    friend void QVideoWidget_DragEnterEvent(QVideoWidget* self, QDragEnterEvent* event);
+    friend void QVideoWidget_QBaseDragEnterEvent(QVideoWidget* self, QDragEnterEvent* event);
+    friend void QVideoWidget_DragMoveEvent(QVideoWidget* self, QDragMoveEvent* event);
+    friend void QVideoWidget_QBaseDragMoveEvent(QVideoWidget* self, QDragMoveEvent* event);
+    friend void QVideoWidget_DragLeaveEvent(QVideoWidget* self, QDragLeaveEvent* event);
+    friend void QVideoWidget_QBaseDragLeaveEvent(QVideoWidget* self, QDragLeaveEvent* event);
+    friend void QVideoWidget_DropEvent(QVideoWidget* self, QDropEvent* event);
+    friend void QVideoWidget_QBaseDropEvent(QVideoWidget* self, QDropEvent* event);
+    friend bool QVideoWidget_NativeEvent(QVideoWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QVideoWidget_QBaseNativeEvent(QVideoWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend void QVideoWidget_ChangeEvent(QVideoWidget* self, QEvent* param1);
+    friend void QVideoWidget_QBaseChangeEvent(QVideoWidget* self, QEvent* param1);
+    friend int QVideoWidget_Metric(const QVideoWidget* self, int param1);
+    friend int QVideoWidget_QBaseMetric(const QVideoWidget* self, int param1);
+    friend void QVideoWidget_InitPainter(const QVideoWidget* self, QPainter* painter);
+    friend void QVideoWidget_QBaseInitPainter(const QVideoWidget* self, QPainter* painter);
+    friend QPaintDevice* QVideoWidget_Redirected(const QVideoWidget* self, QPoint* offset);
+    friend QPaintDevice* QVideoWidget_QBaseRedirected(const QVideoWidget* self, QPoint* offset);
+    friend QPainter* QVideoWidget_SharedPainter(const QVideoWidget* self);
+    friend QPainter* QVideoWidget_QBaseSharedPainter(const QVideoWidget* self);
+    friend void QVideoWidget_InputMethodEvent(QVideoWidget* self, QInputMethodEvent* param1);
+    friend void QVideoWidget_QBaseInputMethodEvent(QVideoWidget* self, QInputMethodEvent* param1);
+    friend bool QVideoWidget_FocusNextPrevChild(QVideoWidget* self, bool next);
+    friend bool QVideoWidget_QBaseFocusNextPrevChild(QVideoWidget* self, bool next);
+    friend void QVideoWidget_TimerEvent(QVideoWidget* self, QTimerEvent* event);
+    friend void QVideoWidget_QBaseTimerEvent(QVideoWidget* self, QTimerEvent* event);
+    friend void QVideoWidget_ChildEvent(QVideoWidget* self, QChildEvent* event);
+    friend void QVideoWidget_QBaseChildEvent(QVideoWidget* self, QChildEvent* event);
+    friend void QVideoWidget_CustomEvent(QVideoWidget* self, QEvent* event);
+    friend void QVideoWidget_QBaseCustomEvent(QVideoWidget* self, QEvent* event);
+    friend void QVideoWidget_ConnectNotify(QVideoWidget* self, const QMetaMethod* signal);
+    friend void QVideoWidget_QBaseConnectNotify(QVideoWidget* self, const QMetaMethod* signal);
+    friend void QVideoWidget_DisconnectNotify(QVideoWidget* self, const QMetaMethod* signal);
+    friend void QVideoWidget_QBaseDisconnectNotify(QVideoWidget* self, const QMetaMethod* signal);
+    friend void QVideoWidget_UpdateMicroFocus(QVideoWidget* self);
+    friend void QVideoWidget_QBaseUpdateMicroFocus(QVideoWidget* self);
+    friend void QVideoWidget_Create(QVideoWidget* self);
+    friend void QVideoWidget_QBaseCreate(QVideoWidget* self);
+    friend void QVideoWidget_Destroy(QVideoWidget* self);
+    friend void QVideoWidget_QBaseDestroy(QVideoWidget* self);
+    friend bool QVideoWidget_FocusNextChild(QVideoWidget* self);
+    friend bool QVideoWidget_QBaseFocusNextChild(QVideoWidget* self);
+    friend bool QVideoWidget_FocusPreviousChild(QVideoWidget* self);
+    friend bool QVideoWidget_QBaseFocusPreviousChild(QVideoWidget* self);
+    friend QObject* QVideoWidget_Sender(const QVideoWidget* self);
+    friend QObject* QVideoWidget_QBaseSender(const QVideoWidget* self);
+    friend int QVideoWidget_SenderSignalIndex(const QVideoWidget* self);
+    friend int QVideoWidget_QBaseSenderSignalIndex(const QVideoWidget* self);
+    friend int QVideoWidget_Receivers(const QVideoWidget* self, const char* signal);
+    friend int QVideoWidget_QBaseReceivers(const QVideoWidget* self, const char* signal);
+    friend bool QVideoWidget_IsSignalConnected(const QVideoWidget* self, const QMetaMethod* signal);
+    friend bool QVideoWidget_QBaseIsSignalConnected(const QVideoWidget* self, const QMetaMethod* signal);
 };
 
 #endif

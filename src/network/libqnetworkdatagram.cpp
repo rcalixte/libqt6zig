@@ -9,26 +9,26 @@ QNetworkDatagram* QNetworkDatagram_new() {
     return new QNetworkDatagram();
 }
 
-QNetworkDatagram* QNetworkDatagram_new2(libqt_string data) {
+QNetworkDatagram* QNetworkDatagram_new2(const libqt_string data) {
     QByteArray data_QByteArray(data.data, data.len);
     return new QNetworkDatagram(data_QByteArray);
 }
 
-QNetworkDatagram* QNetworkDatagram_new3(QNetworkDatagram* other) {
+QNetworkDatagram* QNetworkDatagram_new3(const QNetworkDatagram* other) {
     return new QNetworkDatagram(*other);
 }
 
-QNetworkDatagram* QNetworkDatagram_new4(libqt_string data, QHostAddress* destinationAddress) {
+QNetworkDatagram* QNetworkDatagram_new4(const libqt_string data, const QHostAddress* destinationAddress) {
     QByteArray data_QByteArray(data.data, data.len);
     return new QNetworkDatagram(data_QByteArray, *destinationAddress);
 }
 
-QNetworkDatagram* QNetworkDatagram_new5(libqt_string data, QHostAddress* destinationAddress, uint16_t port) {
+QNetworkDatagram* QNetworkDatagram_new5(const libqt_string data, const QHostAddress* destinationAddress, uint16_t port) {
     QByteArray data_QByteArray(data.data, data.len);
     return new QNetworkDatagram(data_QByteArray, *destinationAddress, static_cast<quint16>(port));
 }
 
-void QNetworkDatagram_OperatorAssign(QNetworkDatagram* self, QNetworkDatagram* other) {
+void QNetworkDatagram_OperatorAssign(QNetworkDatagram* self, const QNetworkDatagram* other) {
     self->operator=(*other);
 }
 
@@ -72,11 +72,11 @@ int QNetworkDatagram_DestinationPort(const QNetworkDatagram* self) {
     return self->destinationPort();
 }
 
-void QNetworkDatagram_SetSender(QNetworkDatagram* self, QHostAddress* address) {
+void QNetworkDatagram_SetSender(QNetworkDatagram* self, const QHostAddress* address) {
     self->setSender(*address);
 }
 
-void QNetworkDatagram_SetDestination(QNetworkDatagram* self, QHostAddress* address, uint16_t port) {
+void QNetworkDatagram_SetDestination(QNetworkDatagram* self, const QHostAddress* address, uint16_t port) {
     self->setDestination(*address, static_cast<quint16>(port));
 }
 
@@ -98,17 +98,17 @@ libqt_string QNetworkDatagram_Data(const QNetworkDatagram* self) {
     return _str;
 }
 
-void QNetworkDatagram_SetData(QNetworkDatagram* self, libqt_string data) {
+void QNetworkDatagram_SetData(QNetworkDatagram* self, const libqt_string data) {
     QByteArray data_QByteArray(data.data, data.len);
     self->setData(data_QByteArray);
 }
 
-QNetworkDatagram* QNetworkDatagram_MakeReply(const QNetworkDatagram* self, libqt_string payload) {
+QNetworkDatagram* QNetworkDatagram_MakeReply(const QNetworkDatagram* self, const libqt_string payload) {
     QByteArray payload_QByteArray(payload.data, payload.len);
     return new QNetworkDatagram(self->makeReply(payload_QByteArray));
 }
 
-void QNetworkDatagram_SetSender2(QNetworkDatagram* self, QHostAddress* address, uint16_t port) {
+void QNetworkDatagram_SetSender2(QNetworkDatagram* self, const QHostAddress* address, uint16_t port) {
     self->setSender(*address, static_cast<quint16>(port));
 }
 

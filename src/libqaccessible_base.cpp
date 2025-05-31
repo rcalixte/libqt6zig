@@ -10,7 +10,7 @@
 #include "libqaccessible_base.h"
 #include "libqaccessible_base.hxx"
 
-QAccessible* QAccessible_new(QAccessible* other) {
+QAccessible* QAccessible_new(const QAccessible* other) {
     return new QAccessible(*other);
 }
 
@@ -74,7 +74,7 @@ void QAccessible_Cleanup() {
     QAccessible::cleanup();
 }
 
-libqt_pair /* tuple of int and int */ QAccessible_QAccessibleTextBoundaryHelper(QTextCursor* cursor, int boundaryType) {
+libqt_pair /* tuple of int and int */ QAccessible_QAccessibleTextBoundaryHelper(const QTextCursor* cursor, int boundaryType) {
     QPair<int, int> _ret = QAccessible::qAccessibleTextBoundaryHelper(*cursor, static_cast<QAccessible::TextBoundaryType>(boundaryType));
     // Convert QPair<> from C++ memory to manually-managed C memory
     int* _first = static_cast<int*>(malloc(sizeof(int)));
@@ -91,7 +91,7 @@ void QAccessible_Delete(QAccessible* self) {
     delete self;
 }
 
-QAccessible__State* QAccessible__State_new(QAccessible__State* other) {
+QAccessible__State* QAccessible__State_new(const QAccessible__State* other) {
     return new QAccessible::State(*other);
 }
 
@@ -119,7 +119,7 @@ void QAccessible__ActivationObserver_AccessibilityActiveChanged(QAccessible__Act
     self->accessibilityActiveChanged(active);
 }
 
-void QAccessible__ActivationObserver_OperatorAssign(QAccessible__ActivationObserver* self, QAccessible__ActivationObserver* param1) {
+void QAccessible__ActivationObserver_OperatorAssign(QAccessible__ActivationObserver* self, const QAccessible__ActivationObserver* param1) {
     self->operator=(*param1);
 }
 

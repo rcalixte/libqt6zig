@@ -26,10 +26,10 @@ typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
 QWebEngineFindTextResult* QWebEngineFindTextResult_new();
-QWebEngineFindTextResult* QWebEngineFindTextResult_new2(QWebEngineFindTextResult* other);
+QWebEngineFindTextResult* QWebEngineFindTextResult_new2(const QWebEngineFindTextResult* other);
 int QWebEngineFindTextResult_NumberOfMatches(const QWebEngineFindTextResult* self);
 int QWebEngineFindTextResult_ActiveMatch(const QWebEngineFindTextResult* self);
-void QWebEngineFindTextResult_OperatorAssign(QWebEngineFindTextResult* self, QWebEngineFindTextResult* other);
+void QWebEngineFindTextResult_OperatorAssign(QWebEngineFindTextResult* self, const QWebEngineFindTextResult* other);
 void QWebEngineFindTextResult_Delete(QWebEngineFindTextResult* self);
 
 #ifdef __cplusplus

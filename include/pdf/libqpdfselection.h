@@ -26,8 +26,8 @@ typedef QPdfSelection::QtGadgetHelper QtGadgetHelper; // C++ QFlags
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
-QPdfSelection* QPdfSelection_new(QPdfSelection* other);
-void QPdfSelection_OperatorAssign(QPdfSelection* self, QPdfSelection* other);
+QPdfSelection* QPdfSelection_new(const QPdfSelection* other);
+void QPdfSelection_OperatorAssign(QPdfSelection* self, const QPdfSelection* other);
 void QPdfSelection_Swap(QPdfSelection* self, QPdfSelection* other);
 bool QPdfSelection_IsValid(const QPdfSelection* self);
 libqt_string QPdfSelection_Text(const QPdfSelection* self);

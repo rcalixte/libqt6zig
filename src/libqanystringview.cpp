@@ -8,7 +8,7 @@
 #include "libqanystringview.h"
 #include "libqanystringview.hxx"
 
-QAnyStringView* QAnyStringView_new(char* other) {
+QAnyStringView* QAnyStringView_new(const char* other) {
     return new QAnyStringView(QAnyStringView(other));
 }
 
@@ -20,21 +20,21 @@ QAnyStringView* QAnyStringView_new3() {
     return new QAnyStringView();
 }
 
-QAnyStringView* QAnyStringView_new4(libqt_string str) {
+QAnyStringView* QAnyStringView_new4(const libqt_string str) {
     QByteArray str_QByteArray(str.data, str.len);
     return new QAnyStringView(str_QByteArray);
 }
 
-QAnyStringView* QAnyStringView_new5(libqt_string str) {
+QAnyStringView* QAnyStringView_new5(const libqt_string str) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
     return new QAnyStringView(str_QString);
 }
 
-QAnyStringView* QAnyStringView_new6(QChar* c) {
+QAnyStringView* QAnyStringView_new6(const QChar* c) {
     return new QAnyStringView(*c);
 }
 
-QAnyStringView* QAnyStringView_new7(char* param1) {
+QAnyStringView* QAnyStringView_new7(const char* param1) {
     return new QAnyStringView(QAnyStringView(param1));
 }
 

@@ -15,25 +15,17 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractItemModel QAbstractItemModel;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QPieModelMapper QPieModelMapper;
 typedef struct QPieSeries QPieSeries;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QVPieModelMapper QVPieModelMapper;
-typedef struct QVariant QVariant;
 #endif
 
 QVPieModelMapper* QVPieModelMapper_new();
@@ -85,12 +77,12 @@ void QVPieModelMapper_QBaseChildEvent(QVPieModelMapper* self, QChildEvent* event
 void QVPieModelMapper_CustomEvent(QVPieModelMapper* self, QEvent* event);
 void QVPieModelMapper_OnCustomEvent(QVPieModelMapper* self, intptr_t slot);
 void QVPieModelMapper_QBaseCustomEvent(QVPieModelMapper* self, QEvent* event);
-void QVPieModelMapper_ConnectNotify(QVPieModelMapper* self, QMetaMethod* signal);
+void QVPieModelMapper_ConnectNotify(QVPieModelMapper* self, const QMetaMethod* signal);
 void QVPieModelMapper_OnConnectNotify(QVPieModelMapper* self, intptr_t slot);
-void QVPieModelMapper_QBaseConnectNotify(QVPieModelMapper* self, QMetaMethod* signal);
-void QVPieModelMapper_DisconnectNotify(QVPieModelMapper* self, QMetaMethod* signal);
+void QVPieModelMapper_QBaseConnectNotify(QVPieModelMapper* self, const QMetaMethod* signal);
+void QVPieModelMapper_DisconnectNotify(QVPieModelMapper* self, const QMetaMethod* signal);
 void QVPieModelMapper_OnDisconnectNotify(QVPieModelMapper* self, intptr_t slot);
-void QVPieModelMapper_QBaseDisconnectNotify(QVPieModelMapper* self, QMetaMethod* signal);
+void QVPieModelMapper_QBaseDisconnectNotify(QVPieModelMapper* self, const QMetaMethod* signal);
 int QVPieModelMapper_First(const QVPieModelMapper* self);
 void QVPieModelMapper_OnFirst(const QVPieModelMapper* self, intptr_t slot);
 int QVPieModelMapper_QBaseFirst(const QVPieModelMapper* self);
@@ -130,9 +122,9 @@ int QVPieModelMapper_QBaseSenderSignalIndex(const QVPieModelMapper* self);
 int QVPieModelMapper_Receivers(const QVPieModelMapper* self, const char* signal);
 void QVPieModelMapper_OnReceivers(const QVPieModelMapper* self, intptr_t slot);
 int QVPieModelMapper_QBaseReceivers(const QVPieModelMapper* self, const char* signal);
-bool QVPieModelMapper_IsSignalConnected(const QVPieModelMapper* self, QMetaMethod* signal);
+bool QVPieModelMapper_IsSignalConnected(const QVPieModelMapper* self, const QMetaMethod* signal);
 void QVPieModelMapper_OnIsSignalConnected(const QVPieModelMapper* self, intptr_t slot);
-bool QVPieModelMapper_QBaseIsSignalConnected(const QVPieModelMapper* self, QMetaMethod* signal);
+bool QVPieModelMapper_QBaseIsSignalConnected(const QVPieModelMapper* self, const QMetaMethod* signal);
 void QVPieModelMapper_Delete(QVPieModelMapper* self);
 
 #ifdef __cplusplus

@@ -87,7 +87,7 @@ int QAccessibleInterface_ChildCount(const QAccessibleInterface* self) {
     return self->childCount();
 }
 
-int QAccessibleInterface_IndexOfChild(const QAccessibleInterface* self, QAccessibleInterface* param1) {
+int QAccessibleInterface_IndexOfChild(const QAccessibleInterface* self, const QAccessibleInterface* param1) {
     return self->indexOfChild(param1);
 }
 
@@ -103,7 +103,7 @@ libqt_string QAccessibleInterface_Text(const QAccessibleInterface* self, int t) 
     return _str;
 }
 
-void QAccessibleInterface_SetText(QAccessibleInterface* self, int t, libqt_string text) {
+void QAccessibleInterface_SetText(QAccessibleInterface* self, int t, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->setText(static_cast<QAccessible::Text>(t), text_QString);
 }
@@ -252,7 +252,7 @@ QRect* QAccessibleTextInterface_CharacterRect(const QAccessibleTextInterface* se
     return new QRect(self->characterRect(static_cast<int>(offset)));
 }
 
-int QAccessibleTextInterface_OffsetAtPoint(const QAccessibleTextInterface* self, QPoint* point) {
+int QAccessibleTextInterface_OffsetAtPoint(const QAccessibleTextInterface* self, const QPoint* point) {
     return self->offsetAtPoint(*point);
 }
 
@@ -272,7 +272,7 @@ libqt_string QAccessibleTextInterface_Attributes(const QAccessibleTextInterface*
     return _str;
 }
 
-void QAccessibleTextInterface_OperatorAssign(QAccessibleTextInterface* self, QAccessibleTextInterface* param1) {
+void QAccessibleTextInterface_OperatorAssign(QAccessibleTextInterface* self, const QAccessibleTextInterface* param1) {
     self->operator=(*param1);
 }
 
@@ -284,17 +284,17 @@ void QAccessibleEditableTextInterface_DeleteText(QAccessibleEditableTextInterfac
     self->deleteText(static_cast<int>(startOffset), static_cast<int>(endOffset));
 }
 
-void QAccessibleEditableTextInterface_InsertText(QAccessibleEditableTextInterface* self, int offset, libqt_string text) {
+void QAccessibleEditableTextInterface_InsertText(QAccessibleEditableTextInterface* self, int offset, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->insertText(static_cast<int>(offset), text_QString);
 }
 
-void QAccessibleEditableTextInterface_ReplaceText(QAccessibleEditableTextInterface* self, int startOffset, int endOffset, libqt_string text) {
+void QAccessibleEditableTextInterface_ReplaceText(QAccessibleEditableTextInterface* self, int startOffset, int endOffset, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->replaceText(static_cast<int>(startOffset), static_cast<int>(endOffset), text_QString);
 }
 
-void QAccessibleEditableTextInterface_OperatorAssign(QAccessibleEditableTextInterface* self, QAccessibleEditableTextInterface* param1) {
+void QAccessibleEditableTextInterface_OperatorAssign(QAccessibleEditableTextInterface* self, const QAccessibleEditableTextInterface* param1) {
     self->operator=(*param1);
 }
 
@@ -306,7 +306,7 @@ QVariant* QAccessibleValueInterface_CurrentValue(const QAccessibleValueInterface
     return new QVariant(self->currentValue());
 }
 
-void QAccessibleValueInterface_SetCurrentValue(QAccessibleValueInterface* self, QVariant* value) {
+void QAccessibleValueInterface_SetCurrentValue(QAccessibleValueInterface* self, const QVariant* value) {
     self->setCurrentValue(*value);
 }
 
@@ -322,7 +322,7 @@ QVariant* QAccessibleValueInterface_MinimumStepSize(const QAccessibleValueInterf
     return new QVariant(self->minimumStepSize());
 }
 
-void QAccessibleValueInterface_OperatorAssign(QAccessibleValueInterface* self, QAccessibleValueInterface* param1) {
+void QAccessibleValueInterface_OperatorAssign(QAccessibleValueInterface* self, const QAccessibleValueInterface* param1) {
     self->operator=(*param1);
 }
 
@@ -380,7 +380,7 @@ QAccessibleInterface* QAccessibleTableCellInterface_Table(const QAccessibleTable
     return self->table();
 }
 
-void QAccessibleTableCellInterface_OperatorAssign(QAccessibleTableCellInterface* self, QAccessibleTableCellInterface* param1) {
+void QAccessibleTableCellInterface_OperatorAssign(QAccessibleTableCellInterface* self, const QAccessibleTableCellInterface* param1) {
     self->operator=(*param1);
 }
 
@@ -548,7 +548,7 @@ libqt_list /* of libqt_string */ QAccessibleActionInterface_ActionNames(const QA
     return _out;
 }
 
-libqt_string QAccessibleActionInterface_LocalizedActionName(const QAccessibleActionInterface* self, libqt_string name) {
+libqt_string QAccessibleActionInterface_LocalizedActionName(const QAccessibleActionInterface* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString _ret = self->localizedActionName(name_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -561,7 +561,7 @@ libqt_string QAccessibleActionInterface_LocalizedActionName(const QAccessibleAct
     return _str;
 }
 
-libqt_string QAccessibleActionInterface_LocalizedActionDescription(const QAccessibleActionInterface* self, libqt_string name) {
+libqt_string QAccessibleActionInterface_LocalizedActionDescription(const QAccessibleActionInterface* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString _ret = self->localizedActionDescription(name_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -574,12 +574,12 @@ libqt_string QAccessibleActionInterface_LocalizedActionDescription(const QAccess
     return _str;
 }
 
-void QAccessibleActionInterface_DoAction(QAccessibleActionInterface* self, libqt_string actionName) {
+void QAccessibleActionInterface_DoAction(QAccessibleActionInterface* self, const libqt_string actionName) {
     QString actionName_QString = QString::fromUtf8(actionName.data, actionName.len);
     self->doAction(actionName_QString);
 }
 
-libqt_list /* of libqt_string */ QAccessibleActionInterface_KeyBindingsForAction(const QAccessibleActionInterface* self, libqt_string actionName) {
+libqt_list /* of libqt_string */ QAccessibleActionInterface_KeyBindingsForAction(const QAccessibleActionInterface* self, const libqt_string actionName) {
     QString actionName_QString = QString::fromUtf8(actionName.data, actionName.len);
     QStringList _ret = self->keyBindingsForAction(actionName_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -745,7 +745,7 @@ libqt_string QAccessibleActionInterface_PreviousPageAction() {
     return _str;
 }
 
-void QAccessibleActionInterface_OperatorAssign(QAccessibleActionInterface* self, QAccessibleActionInterface* param1) {
+void QAccessibleActionInterface_OperatorAssign(QAccessibleActionInterface* self, const QAccessibleActionInterface* param1) {
     self->operator=(*param1);
 }
 
@@ -797,7 +797,7 @@ QPoint* QAccessibleImageInterface_ImagePosition(const QAccessibleImageInterface*
     return new QPoint(self->imagePosition());
 }
 
-void QAccessibleImageInterface_OperatorAssign(QAccessibleImageInterface* self, QAccessibleImageInterface* param1) {
+void QAccessibleImageInterface_OperatorAssign(QAccessibleImageInterface* self, const QAccessibleImageInterface* param1) {
     self->operator=(*param1);
 }
 
@@ -841,7 +841,7 @@ bool QAccessibleHyperlinkInterface_IsValid(const QAccessibleHyperlinkInterface* 
     return self->isValid();
 }
 
-void QAccessibleHyperlinkInterface_OperatorAssign(QAccessibleHyperlinkInterface* self, QAccessibleHyperlinkInterface* param1) {
+void QAccessibleHyperlinkInterface_OperatorAssign(QAccessibleHyperlinkInterface* self, const QAccessibleHyperlinkInterface* param1) {
     self->operator=(*param1);
 }
 
@@ -879,26 +879,29 @@ int QAccessibleEvent_Child(const QAccessibleEvent* self) {
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleEvent_AccessibleInterface(const QAccessibleEvent* self) {
-    if (auto* vqaccessibleevent = const_cast<VirtualQAccessibleEvent*>(dynamic_cast<const VirtualQAccessibleEvent*>(self))) {
+    auto* vqaccessibleevent = const_cast<VirtualQAccessibleEvent*>(dynamic_cast<const VirtualQAccessibleEvent*>(self));
+    if (vqaccessibleevent && vqaccessibleevent->isVirtualQAccessibleEvent) {
         return vqaccessibleevent->accessibleInterface();
     } else {
-        return vqaccessibleevent->accessibleInterface();
+        return self->QAccessibleEvent::accessibleInterface();
     }
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleEvent_QBaseAccessibleInterface(const QAccessibleEvent* self) {
-    if (auto* vqaccessibleevent = const_cast<VirtualQAccessibleEvent*>(dynamic_cast<const VirtualQAccessibleEvent*>(self))) {
+    auto* vqaccessibleevent = const_cast<VirtualQAccessibleEvent*>(dynamic_cast<const VirtualQAccessibleEvent*>(self));
+    if (vqaccessibleevent && vqaccessibleevent->isVirtualQAccessibleEvent) {
         vqaccessibleevent->setQAccessibleEvent_AccessibleInterface_IsBase(true);
         return vqaccessibleevent->accessibleInterface();
     } else {
-        return vqaccessibleevent->accessibleInterface();
+        return self->QAccessibleEvent::accessibleInterface();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleEvent_OnAccessibleInterface(const QAccessibleEvent* self, intptr_t slot) {
-    if (auto* vqaccessibleevent = const_cast<VirtualQAccessibleEvent*>(dynamic_cast<const VirtualQAccessibleEvent*>(self))) {
+    auto* vqaccessibleevent = const_cast<VirtualQAccessibleEvent*>(dynamic_cast<const VirtualQAccessibleEvent*>(self));
+    if (vqaccessibleevent && vqaccessibleevent->isVirtualQAccessibleEvent) {
         vqaccessibleevent->setQAccessibleEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleEvent::QAccessibleEvent_AccessibleInterface_Callback>(slot));
     }
 }
@@ -921,26 +924,29 @@ QAccessible__State* QAccessibleStateChangeEvent_ChangedStates(const QAccessibleS
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleStateChangeEvent_AccessibleInterface(const QAccessibleStateChangeEvent* self) {
-    if (auto* vqaccessiblestatechangeevent = const_cast<VirtualQAccessibleStateChangeEvent*>(dynamic_cast<const VirtualQAccessibleStateChangeEvent*>(self))) {
+    auto* vqaccessiblestatechangeevent = const_cast<VirtualQAccessibleStateChangeEvent*>(dynamic_cast<const VirtualQAccessibleStateChangeEvent*>(self));
+    if (vqaccessiblestatechangeevent && vqaccessiblestatechangeevent->isVirtualQAccessibleStateChangeEvent) {
         return vqaccessiblestatechangeevent->accessibleInterface();
     } else {
-        return vqaccessiblestatechangeevent->accessibleInterface();
+        return self->QAccessibleStateChangeEvent::accessibleInterface();
     }
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleStateChangeEvent_QBaseAccessibleInterface(const QAccessibleStateChangeEvent* self) {
-    if (auto* vqaccessiblestatechangeevent = const_cast<VirtualQAccessibleStateChangeEvent*>(dynamic_cast<const VirtualQAccessibleStateChangeEvent*>(self))) {
+    auto* vqaccessiblestatechangeevent = const_cast<VirtualQAccessibleStateChangeEvent*>(dynamic_cast<const VirtualQAccessibleStateChangeEvent*>(self));
+    if (vqaccessiblestatechangeevent && vqaccessiblestatechangeevent->isVirtualQAccessibleStateChangeEvent) {
         vqaccessiblestatechangeevent->setQAccessibleStateChangeEvent_AccessibleInterface_IsBase(true);
         return vqaccessiblestatechangeevent->accessibleInterface();
     } else {
-        return vqaccessiblestatechangeevent->accessibleInterface();
+        return self->QAccessibleStateChangeEvent::accessibleInterface();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleStateChangeEvent_OnAccessibleInterface(const QAccessibleStateChangeEvent* self, intptr_t slot) {
-    if (auto* vqaccessiblestatechangeevent = const_cast<VirtualQAccessibleStateChangeEvent*>(dynamic_cast<const VirtualQAccessibleStateChangeEvent*>(self))) {
+    auto* vqaccessiblestatechangeevent = const_cast<VirtualQAccessibleStateChangeEvent*>(dynamic_cast<const VirtualQAccessibleStateChangeEvent*>(self));
+    if (vqaccessiblestatechangeevent && vqaccessiblestatechangeevent->isVirtualQAccessibleStateChangeEvent) {
         vqaccessiblestatechangeevent->setQAccessibleStateChangeEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleStateChangeEvent::QAccessibleStateChangeEvent_AccessibleInterface_Callback>(slot));
     }
 }
@@ -967,26 +973,29 @@ int QAccessibleTextCursorEvent_CursorPosition(const QAccessibleTextCursorEvent* 
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleTextCursorEvent_AccessibleInterface(const QAccessibleTextCursorEvent* self) {
-    if (auto* vqaccessibletextcursorevent = const_cast<VirtualQAccessibleTextCursorEvent*>(dynamic_cast<const VirtualQAccessibleTextCursorEvent*>(self))) {
+    auto* vqaccessibletextcursorevent = const_cast<VirtualQAccessibleTextCursorEvent*>(dynamic_cast<const VirtualQAccessibleTextCursorEvent*>(self));
+    if (vqaccessibletextcursorevent && vqaccessibletextcursorevent->isVirtualQAccessibleTextCursorEvent) {
         return vqaccessibletextcursorevent->accessibleInterface();
     } else {
-        return vqaccessibletextcursorevent->accessibleInterface();
+        return self->QAccessibleTextCursorEvent::accessibleInterface();
     }
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleTextCursorEvent_QBaseAccessibleInterface(const QAccessibleTextCursorEvent* self) {
-    if (auto* vqaccessibletextcursorevent = const_cast<VirtualQAccessibleTextCursorEvent*>(dynamic_cast<const VirtualQAccessibleTextCursorEvent*>(self))) {
+    auto* vqaccessibletextcursorevent = const_cast<VirtualQAccessibleTextCursorEvent*>(dynamic_cast<const VirtualQAccessibleTextCursorEvent*>(self));
+    if (vqaccessibletextcursorevent && vqaccessibletextcursorevent->isVirtualQAccessibleTextCursorEvent) {
         vqaccessibletextcursorevent->setQAccessibleTextCursorEvent_AccessibleInterface_IsBase(true);
         return vqaccessibletextcursorevent->accessibleInterface();
     } else {
-        return vqaccessibletextcursorevent->accessibleInterface();
+        return self->QAccessibleTextCursorEvent::accessibleInterface();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleTextCursorEvent_OnAccessibleInterface(const QAccessibleTextCursorEvent* self, intptr_t slot) {
-    if (auto* vqaccessibletextcursorevent = const_cast<VirtualQAccessibleTextCursorEvent*>(dynamic_cast<const VirtualQAccessibleTextCursorEvent*>(self))) {
+    auto* vqaccessibletextcursorevent = const_cast<VirtualQAccessibleTextCursorEvent*>(dynamic_cast<const VirtualQAccessibleTextCursorEvent*>(self));
+    if (vqaccessibletextcursorevent && vqaccessibletextcursorevent->isVirtualQAccessibleTextCursorEvent) {
         vqaccessibletextcursorevent->setQAccessibleTextCursorEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleTextCursorEvent::QAccessibleTextCursorEvent_AccessibleInterface_Callback>(slot));
     }
 }
@@ -1017,26 +1026,29 @@ int QAccessibleTextSelectionEvent_SelectionEnd(const QAccessibleTextSelectionEve
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleTextSelectionEvent_AccessibleInterface(const QAccessibleTextSelectionEvent* self) {
-    if (auto* vqaccessibletextselectionevent = const_cast<VirtualQAccessibleTextSelectionEvent*>(dynamic_cast<const VirtualQAccessibleTextSelectionEvent*>(self))) {
+    auto* vqaccessibletextselectionevent = const_cast<VirtualQAccessibleTextSelectionEvent*>(dynamic_cast<const VirtualQAccessibleTextSelectionEvent*>(self));
+    if (vqaccessibletextselectionevent && vqaccessibletextselectionevent->isVirtualQAccessibleTextSelectionEvent) {
         return vqaccessibletextselectionevent->accessibleInterface();
     } else {
-        return vqaccessibletextselectionevent->accessibleInterface();
+        return self->QAccessibleTextSelectionEvent::accessibleInterface();
     }
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleTextSelectionEvent_QBaseAccessibleInterface(const QAccessibleTextSelectionEvent* self) {
-    if (auto* vqaccessibletextselectionevent = const_cast<VirtualQAccessibleTextSelectionEvent*>(dynamic_cast<const VirtualQAccessibleTextSelectionEvent*>(self))) {
+    auto* vqaccessibletextselectionevent = const_cast<VirtualQAccessibleTextSelectionEvent*>(dynamic_cast<const VirtualQAccessibleTextSelectionEvent*>(self));
+    if (vqaccessibletextselectionevent && vqaccessibletextselectionevent->isVirtualQAccessibleTextSelectionEvent) {
         vqaccessibletextselectionevent->setQAccessibleTextSelectionEvent_AccessibleInterface_IsBase(true);
         return vqaccessibletextselectionevent->accessibleInterface();
     } else {
-        return vqaccessibletextselectionevent->accessibleInterface();
+        return self->QAccessibleTextSelectionEvent::accessibleInterface();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleTextSelectionEvent_OnAccessibleInterface(const QAccessibleTextSelectionEvent* self, intptr_t slot) {
-    if (auto* vqaccessibletextselectionevent = const_cast<VirtualQAccessibleTextSelectionEvent*>(dynamic_cast<const VirtualQAccessibleTextSelectionEvent*>(self))) {
+    auto* vqaccessibletextselectionevent = const_cast<VirtualQAccessibleTextSelectionEvent*>(dynamic_cast<const VirtualQAccessibleTextSelectionEvent*>(self));
+    if (vqaccessibletextselectionevent && vqaccessibletextselectionevent->isVirtualQAccessibleTextSelectionEvent) {
         vqaccessibletextselectionevent->setQAccessibleTextSelectionEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleTextSelectionEvent::QAccessibleTextSelectionEvent_AccessibleInterface_Callback>(slot));
     }
 }
@@ -1045,12 +1057,12 @@ void QAccessibleTextSelectionEvent_Delete(QAccessibleTextSelectionEvent* self) {
     delete self;
 }
 
-QAccessibleTextInsertEvent* QAccessibleTextInsertEvent_new(QObject* obj, int position, libqt_string text) {
+QAccessibleTextInsertEvent* QAccessibleTextInsertEvent_new(QObject* obj, int position, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return new VirtualQAccessibleTextInsertEvent(obj, static_cast<int>(position), text_QString);
 }
 
-QAccessibleTextInsertEvent* QAccessibleTextInsertEvent_new2(QAccessibleInterface* iface, int position, libqt_string text) {
+QAccessibleTextInsertEvent* QAccessibleTextInsertEvent_new2(QAccessibleInterface* iface, int position, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return new VirtualQAccessibleTextInsertEvent(iface, static_cast<int>(position), text_QString);
 }
@@ -1073,26 +1085,29 @@ int QAccessibleTextInsertEvent_ChangePosition(const QAccessibleTextInsertEvent* 
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleTextInsertEvent_AccessibleInterface(const QAccessibleTextInsertEvent* self) {
-    if (auto* vqaccessibletextinsertevent = const_cast<VirtualQAccessibleTextInsertEvent*>(dynamic_cast<const VirtualQAccessibleTextInsertEvent*>(self))) {
+    auto* vqaccessibletextinsertevent = const_cast<VirtualQAccessibleTextInsertEvent*>(dynamic_cast<const VirtualQAccessibleTextInsertEvent*>(self));
+    if (vqaccessibletextinsertevent && vqaccessibletextinsertevent->isVirtualQAccessibleTextInsertEvent) {
         return vqaccessibletextinsertevent->accessibleInterface();
     } else {
-        return vqaccessibletextinsertevent->accessibleInterface();
+        return self->QAccessibleTextInsertEvent::accessibleInterface();
     }
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleTextInsertEvent_QBaseAccessibleInterface(const QAccessibleTextInsertEvent* self) {
-    if (auto* vqaccessibletextinsertevent = const_cast<VirtualQAccessibleTextInsertEvent*>(dynamic_cast<const VirtualQAccessibleTextInsertEvent*>(self))) {
+    auto* vqaccessibletextinsertevent = const_cast<VirtualQAccessibleTextInsertEvent*>(dynamic_cast<const VirtualQAccessibleTextInsertEvent*>(self));
+    if (vqaccessibletextinsertevent && vqaccessibletextinsertevent->isVirtualQAccessibleTextInsertEvent) {
         vqaccessibletextinsertevent->setQAccessibleTextInsertEvent_AccessibleInterface_IsBase(true);
         return vqaccessibletextinsertevent->accessibleInterface();
     } else {
-        return vqaccessibletextinsertevent->accessibleInterface();
+        return self->QAccessibleTextInsertEvent::accessibleInterface();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleTextInsertEvent_OnAccessibleInterface(const QAccessibleTextInsertEvent* self, intptr_t slot) {
-    if (auto* vqaccessibletextinsertevent = const_cast<VirtualQAccessibleTextInsertEvent*>(dynamic_cast<const VirtualQAccessibleTextInsertEvent*>(self))) {
+    auto* vqaccessibletextinsertevent = const_cast<VirtualQAccessibleTextInsertEvent*>(dynamic_cast<const VirtualQAccessibleTextInsertEvent*>(self));
+    if (vqaccessibletextinsertevent && vqaccessibletextinsertevent->isVirtualQAccessibleTextInsertEvent) {
         vqaccessibletextinsertevent->setQAccessibleTextInsertEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleTextInsertEvent::QAccessibleTextInsertEvent_AccessibleInterface_Callback>(slot));
     }
 }
@@ -1101,12 +1116,12 @@ void QAccessibleTextInsertEvent_Delete(QAccessibleTextInsertEvent* self) {
     delete self;
 }
 
-QAccessibleTextRemoveEvent* QAccessibleTextRemoveEvent_new(QObject* obj, int position, libqt_string text) {
+QAccessibleTextRemoveEvent* QAccessibleTextRemoveEvent_new(QObject* obj, int position, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return new VirtualQAccessibleTextRemoveEvent(obj, static_cast<int>(position), text_QString);
 }
 
-QAccessibleTextRemoveEvent* QAccessibleTextRemoveEvent_new2(QAccessibleInterface* iface, int position, libqt_string text) {
+QAccessibleTextRemoveEvent* QAccessibleTextRemoveEvent_new2(QAccessibleInterface* iface, int position, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return new VirtualQAccessibleTextRemoveEvent(iface, static_cast<int>(position), text_QString);
 }
@@ -1129,26 +1144,29 @@ int QAccessibleTextRemoveEvent_ChangePosition(const QAccessibleTextRemoveEvent* 
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleTextRemoveEvent_AccessibleInterface(const QAccessibleTextRemoveEvent* self) {
-    if (auto* vqaccessibletextremoveevent = const_cast<VirtualQAccessibleTextRemoveEvent*>(dynamic_cast<const VirtualQAccessibleTextRemoveEvent*>(self))) {
+    auto* vqaccessibletextremoveevent = const_cast<VirtualQAccessibleTextRemoveEvent*>(dynamic_cast<const VirtualQAccessibleTextRemoveEvent*>(self));
+    if (vqaccessibletextremoveevent && vqaccessibletextremoveevent->isVirtualQAccessibleTextRemoveEvent) {
         return vqaccessibletextremoveevent->accessibleInterface();
     } else {
-        return vqaccessibletextremoveevent->accessibleInterface();
+        return self->QAccessibleTextRemoveEvent::accessibleInterface();
     }
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleTextRemoveEvent_QBaseAccessibleInterface(const QAccessibleTextRemoveEvent* self) {
-    if (auto* vqaccessibletextremoveevent = const_cast<VirtualQAccessibleTextRemoveEvent*>(dynamic_cast<const VirtualQAccessibleTextRemoveEvent*>(self))) {
+    auto* vqaccessibletextremoveevent = const_cast<VirtualQAccessibleTextRemoveEvent*>(dynamic_cast<const VirtualQAccessibleTextRemoveEvent*>(self));
+    if (vqaccessibletextremoveevent && vqaccessibletextremoveevent->isVirtualQAccessibleTextRemoveEvent) {
         vqaccessibletextremoveevent->setQAccessibleTextRemoveEvent_AccessibleInterface_IsBase(true);
         return vqaccessibletextremoveevent->accessibleInterface();
     } else {
-        return vqaccessibletextremoveevent->accessibleInterface();
+        return self->QAccessibleTextRemoveEvent::accessibleInterface();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleTextRemoveEvent_OnAccessibleInterface(const QAccessibleTextRemoveEvent* self, intptr_t slot) {
-    if (auto* vqaccessibletextremoveevent = const_cast<VirtualQAccessibleTextRemoveEvent*>(dynamic_cast<const VirtualQAccessibleTextRemoveEvent*>(self))) {
+    auto* vqaccessibletextremoveevent = const_cast<VirtualQAccessibleTextRemoveEvent*>(dynamic_cast<const VirtualQAccessibleTextRemoveEvent*>(self));
+    if (vqaccessibletextremoveevent && vqaccessibletextremoveevent->isVirtualQAccessibleTextRemoveEvent) {
         vqaccessibletextremoveevent->setQAccessibleTextRemoveEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleTextRemoveEvent::QAccessibleTextRemoveEvent_AccessibleInterface_Callback>(slot));
     }
 }
@@ -1157,13 +1175,13 @@ void QAccessibleTextRemoveEvent_Delete(QAccessibleTextRemoveEvent* self) {
     delete self;
 }
 
-QAccessibleTextUpdateEvent* QAccessibleTextUpdateEvent_new(QObject* obj, int position, libqt_string oldText, libqt_string text) {
+QAccessibleTextUpdateEvent* QAccessibleTextUpdateEvent_new(QObject* obj, int position, const libqt_string oldText, const libqt_string text) {
     QString oldText_QString = QString::fromUtf8(oldText.data, oldText.len);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return new VirtualQAccessibleTextUpdateEvent(obj, static_cast<int>(position), oldText_QString, text_QString);
 }
 
-QAccessibleTextUpdateEvent* QAccessibleTextUpdateEvent_new2(QAccessibleInterface* iface, int position, libqt_string oldText, libqt_string text) {
+QAccessibleTextUpdateEvent* QAccessibleTextUpdateEvent_new2(QAccessibleInterface* iface, int position, const libqt_string oldText, const libqt_string text) {
     QString oldText_QString = QString::fromUtf8(oldText.data, oldText.len);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return new VirtualQAccessibleTextUpdateEvent(iface, static_cast<int>(position), oldText_QString, text_QString);
@@ -1199,26 +1217,29 @@ int QAccessibleTextUpdateEvent_ChangePosition(const QAccessibleTextUpdateEvent* 
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleTextUpdateEvent_AccessibleInterface(const QAccessibleTextUpdateEvent* self) {
-    if (auto* vqaccessibletextupdateevent = const_cast<VirtualQAccessibleTextUpdateEvent*>(dynamic_cast<const VirtualQAccessibleTextUpdateEvent*>(self))) {
+    auto* vqaccessibletextupdateevent = const_cast<VirtualQAccessibleTextUpdateEvent*>(dynamic_cast<const VirtualQAccessibleTextUpdateEvent*>(self));
+    if (vqaccessibletextupdateevent && vqaccessibletextupdateevent->isVirtualQAccessibleTextUpdateEvent) {
         return vqaccessibletextupdateevent->accessibleInterface();
     } else {
-        return vqaccessibletextupdateevent->accessibleInterface();
+        return self->QAccessibleTextUpdateEvent::accessibleInterface();
     }
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleTextUpdateEvent_QBaseAccessibleInterface(const QAccessibleTextUpdateEvent* self) {
-    if (auto* vqaccessibletextupdateevent = const_cast<VirtualQAccessibleTextUpdateEvent*>(dynamic_cast<const VirtualQAccessibleTextUpdateEvent*>(self))) {
+    auto* vqaccessibletextupdateevent = const_cast<VirtualQAccessibleTextUpdateEvent*>(dynamic_cast<const VirtualQAccessibleTextUpdateEvent*>(self));
+    if (vqaccessibletextupdateevent && vqaccessibletextupdateevent->isVirtualQAccessibleTextUpdateEvent) {
         vqaccessibletextupdateevent->setQAccessibleTextUpdateEvent_AccessibleInterface_IsBase(true);
         return vqaccessibletextupdateevent->accessibleInterface();
     } else {
-        return vqaccessibletextupdateevent->accessibleInterface();
+        return self->QAccessibleTextUpdateEvent::accessibleInterface();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleTextUpdateEvent_OnAccessibleInterface(const QAccessibleTextUpdateEvent* self, intptr_t slot) {
-    if (auto* vqaccessibletextupdateevent = const_cast<VirtualQAccessibleTextUpdateEvent*>(dynamic_cast<const VirtualQAccessibleTextUpdateEvent*>(self))) {
+    auto* vqaccessibletextupdateevent = const_cast<VirtualQAccessibleTextUpdateEvent*>(dynamic_cast<const VirtualQAccessibleTextUpdateEvent*>(self));
+    if (vqaccessibletextupdateevent && vqaccessibletextupdateevent->isVirtualQAccessibleTextUpdateEvent) {
         vqaccessibletextupdateevent->setQAccessibleTextUpdateEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleTextUpdateEvent::QAccessibleTextUpdateEvent_AccessibleInterface_Callback>(slot));
     }
 }
@@ -1227,15 +1248,15 @@ void QAccessibleTextUpdateEvent_Delete(QAccessibleTextUpdateEvent* self) {
     delete self;
 }
 
-QAccessibleValueChangeEvent* QAccessibleValueChangeEvent_new(QObject* obj, QVariant* val) {
+QAccessibleValueChangeEvent* QAccessibleValueChangeEvent_new(QObject* obj, const QVariant* val) {
     return new VirtualQAccessibleValueChangeEvent(obj, *val);
 }
 
-QAccessibleValueChangeEvent* QAccessibleValueChangeEvent_new2(QAccessibleInterface* iface, QVariant* val) {
+QAccessibleValueChangeEvent* QAccessibleValueChangeEvent_new2(QAccessibleInterface* iface, const QVariant* val) {
     return new VirtualQAccessibleValueChangeEvent(iface, *val);
 }
 
-void QAccessibleValueChangeEvent_SetValue(QAccessibleValueChangeEvent* self, QVariant* val) {
+void QAccessibleValueChangeEvent_SetValue(QAccessibleValueChangeEvent* self, const QVariant* val) {
     self->setValue(*val);
 }
 
@@ -1245,26 +1266,29 @@ QVariant* QAccessibleValueChangeEvent_Value(const QAccessibleValueChangeEvent* s
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleValueChangeEvent_AccessibleInterface(const QAccessibleValueChangeEvent* self) {
-    if (auto* vqaccessiblevaluechangeevent = const_cast<VirtualQAccessibleValueChangeEvent*>(dynamic_cast<const VirtualQAccessibleValueChangeEvent*>(self))) {
+    auto* vqaccessiblevaluechangeevent = const_cast<VirtualQAccessibleValueChangeEvent*>(dynamic_cast<const VirtualQAccessibleValueChangeEvent*>(self));
+    if (vqaccessiblevaluechangeevent && vqaccessiblevaluechangeevent->isVirtualQAccessibleValueChangeEvent) {
         return vqaccessiblevaluechangeevent->accessibleInterface();
     } else {
-        return vqaccessiblevaluechangeevent->accessibleInterface();
+        return self->QAccessibleValueChangeEvent::accessibleInterface();
     }
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleValueChangeEvent_QBaseAccessibleInterface(const QAccessibleValueChangeEvent* self) {
-    if (auto* vqaccessiblevaluechangeevent = const_cast<VirtualQAccessibleValueChangeEvent*>(dynamic_cast<const VirtualQAccessibleValueChangeEvent*>(self))) {
+    auto* vqaccessiblevaluechangeevent = const_cast<VirtualQAccessibleValueChangeEvent*>(dynamic_cast<const VirtualQAccessibleValueChangeEvent*>(self));
+    if (vqaccessiblevaluechangeevent && vqaccessiblevaluechangeevent->isVirtualQAccessibleValueChangeEvent) {
         vqaccessiblevaluechangeevent->setQAccessibleValueChangeEvent_AccessibleInterface_IsBase(true);
         return vqaccessiblevaluechangeevent->accessibleInterface();
     } else {
-        return vqaccessiblevaluechangeevent->accessibleInterface();
+        return self->QAccessibleValueChangeEvent::accessibleInterface();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleValueChangeEvent_OnAccessibleInterface(const QAccessibleValueChangeEvent* self, intptr_t slot) {
-    if (auto* vqaccessiblevaluechangeevent = const_cast<VirtualQAccessibleValueChangeEvent*>(dynamic_cast<const VirtualQAccessibleValueChangeEvent*>(self))) {
+    auto* vqaccessiblevaluechangeevent = const_cast<VirtualQAccessibleValueChangeEvent*>(dynamic_cast<const VirtualQAccessibleValueChangeEvent*>(self));
+    if (vqaccessiblevaluechangeevent && vqaccessiblevaluechangeevent->isVirtualQAccessibleValueChangeEvent) {
         vqaccessiblevaluechangeevent->setQAccessibleValueChangeEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleValueChangeEvent::QAccessibleValueChangeEvent_AccessibleInterface_Callback>(slot));
     }
 }
@@ -1323,26 +1347,29 @@ int QAccessibleTableModelChangeEvent_LastColumn(const QAccessibleTableModelChang
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleTableModelChangeEvent_AccessibleInterface(const QAccessibleTableModelChangeEvent* self) {
-    if (auto* vqaccessibletablemodelchangeevent = const_cast<VirtualQAccessibleTableModelChangeEvent*>(dynamic_cast<const VirtualQAccessibleTableModelChangeEvent*>(self))) {
+    auto* vqaccessibletablemodelchangeevent = const_cast<VirtualQAccessibleTableModelChangeEvent*>(dynamic_cast<const VirtualQAccessibleTableModelChangeEvent*>(self));
+    if (vqaccessibletablemodelchangeevent && vqaccessibletablemodelchangeevent->isVirtualQAccessibleTableModelChangeEvent) {
         return vqaccessibletablemodelchangeevent->accessibleInterface();
     } else {
-        return vqaccessibletablemodelchangeevent->accessibleInterface();
+        return self->QAccessibleTableModelChangeEvent::accessibleInterface();
     }
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleTableModelChangeEvent_QBaseAccessibleInterface(const QAccessibleTableModelChangeEvent* self) {
-    if (auto* vqaccessibletablemodelchangeevent = const_cast<VirtualQAccessibleTableModelChangeEvent*>(dynamic_cast<const VirtualQAccessibleTableModelChangeEvent*>(self))) {
+    auto* vqaccessibletablemodelchangeevent = const_cast<VirtualQAccessibleTableModelChangeEvent*>(dynamic_cast<const VirtualQAccessibleTableModelChangeEvent*>(self));
+    if (vqaccessibletablemodelchangeevent && vqaccessibletablemodelchangeevent->isVirtualQAccessibleTableModelChangeEvent) {
         vqaccessibletablemodelchangeevent->setQAccessibleTableModelChangeEvent_AccessibleInterface_IsBase(true);
         return vqaccessibletablemodelchangeevent->accessibleInterface();
     } else {
-        return vqaccessibletablemodelchangeevent->accessibleInterface();
+        return self->QAccessibleTableModelChangeEvent::accessibleInterface();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleTableModelChangeEvent_OnAccessibleInterface(const QAccessibleTableModelChangeEvent* self, intptr_t slot) {
-    if (auto* vqaccessibletablemodelchangeevent = const_cast<VirtualQAccessibleTableModelChangeEvent*>(dynamic_cast<const VirtualQAccessibleTableModelChangeEvent*>(self))) {
+    auto* vqaccessibletablemodelchangeevent = const_cast<VirtualQAccessibleTableModelChangeEvent*>(dynamic_cast<const VirtualQAccessibleTableModelChangeEvent*>(self));
+    if (vqaccessibletablemodelchangeevent && vqaccessibletablemodelchangeevent->isVirtualQAccessibleTableModelChangeEvent) {
         vqaccessibletablemodelchangeevent->setQAccessibleTableModelChangeEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleTableModelChangeEvent::QAccessibleTableModelChangeEvent_AccessibleInterface_Callback>(slot));
     }
 }

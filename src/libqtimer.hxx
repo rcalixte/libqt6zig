@@ -11,22 +11,25 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QTimer so that we can call protected methods
-class VirtualQTimer : public QTimer {
+class VirtualQTimer final : public QTimer {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQTimer = true;
+
     // Virtual class public types (including callbacks)
-    using QTimer_Metacall_Callback = int (*)(QTimer*, QMetaObject::Call, int, void**);
+    using QTimer_Metacall_Callback = int (*)(QTimer*, int, int, void**);
     using QTimer_TimerEvent_Callback = void (*)(QTimer*, QTimerEvent*);
     using QTimer_Event_Callback = bool (*)(QTimer*, QEvent*);
     using QTimer_EventFilter_Callback = bool (*)(QTimer*, QObject*, QEvent*);
     using QTimer_ChildEvent_Callback = void (*)(QTimer*, QChildEvent*);
     using QTimer_CustomEvent_Callback = void (*)(QTimer*, QEvent*);
-    using QTimer_ConnectNotify_Callback = void (*)(QTimer*, const QMetaMethod&);
-    using QTimer_DisconnectNotify_Callback = void (*)(QTimer*, const QMetaMethod&);
+    using QTimer_ConnectNotify_Callback = void (*)(QTimer*, QMetaMethod*);
+    using QTimer_DisconnectNotify_Callback = void (*)(QTimer*, QMetaMethod*);
     using QTimer_Sender_Callback = QObject* (*)();
     using QTimer_SenderSignalIndex_Callback = int (*)();
     using QTimer_Receivers_Callback = int (*)(const QTimer*, const char*);
-    using QTimer_IsSignalConnected_Callback = bool (*)(const QTimer*, const QMetaMethod&);
+    using QTimer_IsSignalConnected_Callback = bool (*)(const QTimer*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -77,32 +80,32 @@ class VirtualQTimer : public QTimer {
     }
 
     // Callback setters
-    void setQTimer_Metacall_Callback(QTimer_Metacall_Callback cb) { qtimer_metacall_callback = cb; }
-    void setQTimer_TimerEvent_Callback(QTimer_TimerEvent_Callback cb) { qtimer_timerevent_callback = cb; }
-    void setQTimer_Event_Callback(QTimer_Event_Callback cb) { qtimer_event_callback = cb; }
-    void setQTimer_EventFilter_Callback(QTimer_EventFilter_Callback cb) { qtimer_eventfilter_callback = cb; }
-    void setQTimer_ChildEvent_Callback(QTimer_ChildEvent_Callback cb) { qtimer_childevent_callback = cb; }
-    void setQTimer_CustomEvent_Callback(QTimer_CustomEvent_Callback cb) { qtimer_customevent_callback = cb; }
-    void setQTimer_ConnectNotify_Callback(QTimer_ConnectNotify_Callback cb) { qtimer_connectnotify_callback = cb; }
-    void setQTimer_DisconnectNotify_Callback(QTimer_DisconnectNotify_Callback cb) { qtimer_disconnectnotify_callback = cb; }
-    void setQTimer_Sender_Callback(QTimer_Sender_Callback cb) { qtimer_sender_callback = cb; }
-    void setQTimer_SenderSignalIndex_Callback(QTimer_SenderSignalIndex_Callback cb) { qtimer_sendersignalindex_callback = cb; }
-    void setQTimer_Receivers_Callback(QTimer_Receivers_Callback cb) { qtimer_receivers_callback = cb; }
-    void setQTimer_IsSignalConnected_Callback(QTimer_IsSignalConnected_Callback cb) { qtimer_issignalconnected_callback = cb; }
+    inline void setQTimer_Metacall_Callback(QTimer_Metacall_Callback cb) { qtimer_metacall_callback = cb; }
+    inline void setQTimer_TimerEvent_Callback(QTimer_TimerEvent_Callback cb) { qtimer_timerevent_callback = cb; }
+    inline void setQTimer_Event_Callback(QTimer_Event_Callback cb) { qtimer_event_callback = cb; }
+    inline void setQTimer_EventFilter_Callback(QTimer_EventFilter_Callback cb) { qtimer_eventfilter_callback = cb; }
+    inline void setQTimer_ChildEvent_Callback(QTimer_ChildEvent_Callback cb) { qtimer_childevent_callback = cb; }
+    inline void setQTimer_CustomEvent_Callback(QTimer_CustomEvent_Callback cb) { qtimer_customevent_callback = cb; }
+    inline void setQTimer_ConnectNotify_Callback(QTimer_ConnectNotify_Callback cb) { qtimer_connectnotify_callback = cb; }
+    inline void setQTimer_DisconnectNotify_Callback(QTimer_DisconnectNotify_Callback cb) { qtimer_disconnectnotify_callback = cb; }
+    inline void setQTimer_Sender_Callback(QTimer_Sender_Callback cb) { qtimer_sender_callback = cb; }
+    inline void setQTimer_SenderSignalIndex_Callback(QTimer_SenderSignalIndex_Callback cb) { qtimer_sendersignalindex_callback = cb; }
+    inline void setQTimer_Receivers_Callback(QTimer_Receivers_Callback cb) { qtimer_receivers_callback = cb; }
+    inline void setQTimer_IsSignalConnected_Callback(QTimer_IsSignalConnected_Callback cb) { qtimer_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQTimer_Metacall_IsBase(bool value) const { qtimer_metacall_isbase = value; }
-    void setQTimer_TimerEvent_IsBase(bool value) const { qtimer_timerevent_isbase = value; }
-    void setQTimer_Event_IsBase(bool value) const { qtimer_event_isbase = value; }
-    void setQTimer_EventFilter_IsBase(bool value) const { qtimer_eventfilter_isbase = value; }
-    void setQTimer_ChildEvent_IsBase(bool value) const { qtimer_childevent_isbase = value; }
-    void setQTimer_CustomEvent_IsBase(bool value) const { qtimer_customevent_isbase = value; }
-    void setQTimer_ConnectNotify_IsBase(bool value) const { qtimer_connectnotify_isbase = value; }
-    void setQTimer_DisconnectNotify_IsBase(bool value) const { qtimer_disconnectnotify_isbase = value; }
-    void setQTimer_Sender_IsBase(bool value) const { qtimer_sender_isbase = value; }
-    void setQTimer_SenderSignalIndex_IsBase(bool value) const { qtimer_sendersignalindex_isbase = value; }
-    void setQTimer_Receivers_IsBase(bool value) const { qtimer_receivers_isbase = value; }
-    void setQTimer_IsSignalConnected_IsBase(bool value) const { qtimer_issignalconnected_isbase = value; }
+    inline void setQTimer_Metacall_IsBase(bool value) const { qtimer_metacall_isbase = value; }
+    inline void setQTimer_TimerEvent_IsBase(bool value) const { qtimer_timerevent_isbase = value; }
+    inline void setQTimer_Event_IsBase(bool value) const { qtimer_event_isbase = value; }
+    inline void setQTimer_EventFilter_IsBase(bool value) const { qtimer_eventfilter_isbase = value; }
+    inline void setQTimer_ChildEvent_IsBase(bool value) const { qtimer_childevent_isbase = value; }
+    inline void setQTimer_CustomEvent_IsBase(bool value) const { qtimer_customevent_isbase = value; }
+    inline void setQTimer_ConnectNotify_IsBase(bool value) const { qtimer_connectnotify_isbase = value; }
+    inline void setQTimer_DisconnectNotify_IsBase(bool value) const { qtimer_disconnectnotify_isbase = value; }
+    inline void setQTimer_Sender_IsBase(bool value) const { qtimer_sender_isbase = value; }
+    inline void setQTimer_SenderSignalIndex_IsBase(bool value) const { qtimer_sendersignalindex_isbase = value; }
+    inline void setQTimer_Receivers_IsBase(bool value) const { qtimer_receivers_isbase = value; }
+    inline void setQTimer_IsSignalConnected_IsBase(bool value) const { qtimer_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -110,7 +113,12 @@ class VirtualQTimer : public QTimer {
             qtimer_metacall_isbase = false;
             return QTimer::qt_metacall(param1, param2, param3);
         } else if (qtimer_metacall_callback != nullptr) {
-            return qtimer_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qtimer_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QTimer::qt_metacall(param1, param2, param3);
         }
@@ -122,7 +130,9 @@ class VirtualQTimer : public QTimer {
             qtimer_timerevent_isbase = false;
             QTimer::timerEvent(param1);
         } else if (qtimer_timerevent_callback != nullptr) {
-            qtimer_timerevent_callback(this, param1);
+            QTimerEvent* cbval1 = param1;
+
+            qtimer_timerevent_callback(this, cbval1);
         } else {
             QTimer::timerEvent(param1);
         }
@@ -134,7 +144,10 @@ class VirtualQTimer : public QTimer {
             qtimer_event_isbase = false;
             return QTimer::event(event);
         } else if (qtimer_event_callback != nullptr) {
-            return qtimer_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qtimer_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTimer::event(event);
         }
@@ -146,7 +159,11 @@ class VirtualQTimer : public QTimer {
             qtimer_eventfilter_isbase = false;
             return QTimer::eventFilter(watched, event);
         } else if (qtimer_eventfilter_callback != nullptr) {
-            return qtimer_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qtimer_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QTimer::eventFilter(watched, event);
         }
@@ -158,7 +175,9 @@ class VirtualQTimer : public QTimer {
             qtimer_childevent_isbase = false;
             QTimer::childEvent(event);
         } else if (qtimer_childevent_callback != nullptr) {
-            qtimer_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qtimer_childevent_callback(this, cbval1);
         } else {
             QTimer::childEvent(event);
         }
@@ -170,7 +189,9 @@ class VirtualQTimer : public QTimer {
             qtimer_customevent_isbase = false;
             QTimer::customEvent(event);
         } else if (qtimer_customevent_callback != nullptr) {
-            qtimer_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qtimer_customevent_callback(this, cbval1);
         } else {
             QTimer::customEvent(event);
         }
@@ -182,7 +203,11 @@ class VirtualQTimer : public QTimer {
             qtimer_connectnotify_isbase = false;
             QTimer::connectNotify(signal);
         } else if (qtimer_connectnotify_callback != nullptr) {
-            qtimer_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtimer_connectnotify_callback(this, cbval1);
         } else {
             QTimer::connectNotify(signal);
         }
@@ -194,7 +219,11 @@ class VirtualQTimer : public QTimer {
             qtimer_disconnectnotify_isbase = false;
             QTimer::disconnectNotify(signal);
         } else if (qtimer_disconnectnotify_callback != nullptr) {
-            qtimer_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtimer_disconnectnotify_callback(this, cbval1);
         } else {
             QTimer::disconnectNotify(signal);
         }
@@ -206,7 +235,8 @@ class VirtualQTimer : public QTimer {
             qtimer_sender_isbase = false;
             return QTimer::sender();
         } else if (qtimer_sender_callback != nullptr) {
-            return qtimer_sender_callback();
+            QObject* callback_ret = qtimer_sender_callback();
+            return callback_ret;
         } else {
             return QTimer::sender();
         }
@@ -218,7 +248,8 @@ class VirtualQTimer : public QTimer {
             qtimer_sendersignalindex_isbase = false;
             return QTimer::senderSignalIndex();
         } else if (qtimer_sendersignalindex_callback != nullptr) {
-            return qtimer_sendersignalindex_callback();
+            int callback_ret = qtimer_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QTimer::senderSignalIndex();
         }
@@ -230,7 +261,10 @@ class VirtualQTimer : public QTimer {
             qtimer_receivers_isbase = false;
             return QTimer::receivers(signal);
         } else if (qtimer_receivers_callback != nullptr) {
-            return qtimer_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qtimer_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTimer::receivers(signal);
         }
@@ -242,11 +276,36 @@ class VirtualQTimer : public QTimer {
             qtimer_issignalconnected_isbase = false;
             return QTimer::isSignalConnected(signal);
         } else if (qtimer_issignalconnected_callback != nullptr) {
-            return qtimer_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qtimer_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTimer::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QTimer_TimerEvent(QTimer* self, QTimerEvent* param1);
+    friend void QTimer_QBaseTimerEvent(QTimer* self, QTimerEvent* param1);
+    friend void QTimer_ChildEvent(QTimer* self, QChildEvent* event);
+    friend void QTimer_QBaseChildEvent(QTimer* self, QChildEvent* event);
+    friend void QTimer_CustomEvent(QTimer* self, QEvent* event);
+    friend void QTimer_QBaseCustomEvent(QTimer* self, QEvent* event);
+    friend void QTimer_ConnectNotify(QTimer* self, const QMetaMethod* signal);
+    friend void QTimer_QBaseConnectNotify(QTimer* self, const QMetaMethod* signal);
+    friend void QTimer_DisconnectNotify(QTimer* self, const QMetaMethod* signal);
+    friend void QTimer_QBaseDisconnectNotify(QTimer* self, const QMetaMethod* signal);
+    friend QObject* QTimer_Sender(const QTimer* self);
+    friend QObject* QTimer_QBaseSender(const QTimer* self);
+    friend int QTimer_SenderSignalIndex(const QTimer* self);
+    friend int QTimer_QBaseSenderSignalIndex(const QTimer* self);
+    friend int QTimer_Receivers(const QTimer* self, const char* signal);
+    friend int QTimer_QBaseReceivers(const QTimer* self, const char* signal);
+    friend bool QTimer_IsSignalConnected(const QTimer* self, const QMetaMethod* signal);
+    friend bool QTimer_QBaseIsSignalConnected(const QTimer* self, const QMetaMethod* signal);
 };
 
 #endif

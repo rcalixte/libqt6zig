@@ -15,23 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractEventDispatcher QAbstractEventDispatcher;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QDeadlineTimer QDeadlineTimer;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
@@ -95,12 +88,12 @@ void QThread_QBaseChildEvent(QThread* self, QChildEvent* event);
 void QThread_CustomEvent(QThread* self, QEvent* event);
 void QThread_OnCustomEvent(QThread* self, intptr_t slot);
 void QThread_QBaseCustomEvent(QThread* self, QEvent* event);
-void QThread_ConnectNotify(QThread* self, QMetaMethod* signal);
+void QThread_ConnectNotify(QThread* self, const QMetaMethod* signal);
 void QThread_OnConnectNotify(QThread* self, intptr_t slot);
-void QThread_QBaseConnectNotify(QThread* self, QMetaMethod* signal);
-void QThread_DisconnectNotify(QThread* self, QMetaMethod* signal);
+void QThread_QBaseConnectNotify(QThread* self, const QMetaMethod* signal);
+void QThread_DisconnectNotify(QThread* self, const QMetaMethod* signal);
 void QThread_OnDisconnectNotify(QThread* self, intptr_t slot);
-void QThread_QBaseDisconnectNotify(QThread* self, QMetaMethod* signal);
+void QThread_QBaseDisconnectNotify(QThread* self, const QMetaMethod* signal);
 int QThread_Exec(QThread* self);
 void QThread_OnExec(QThread* self, intptr_t slot);
 int QThread_QBaseExec(QThread* self);
@@ -113,9 +106,11 @@ int QThread_QBaseSenderSignalIndex(const QThread* self);
 int QThread_Receivers(const QThread* self, const char* signal);
 void QThread_OnReceivers(const QThread* self, intptr_t slot);
 int QThread_QBaseReceivers(const QThread* self, const char* signal);
-bool QThread_IsSignalConnected(const QThread* self, QMetaMethod* signal);
+bool QThread_IsSignalConnected(const QThread* self, const QMetaMethod* signal);
 void QThread_OnIsSignalConnected(const QThread* self, intptr_t slot);
-bool QThread_QBaseIsSignalConnected(const QThread* self, QMetaMethod* signal);
+bool QThread_QBaseIsSignalConnected(const QThread* self, const QMetaMethod* signal);
+void QThread_Connect_Started(QThread* self, intptr_t slot);
+void QThread_Connect_Finished(QThread* self, intptr_t slot);
 void QThread_Delete(QThread* self);
 
 #ifdef __cplusplus

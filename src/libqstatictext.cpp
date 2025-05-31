@@ -14,16 +14,16 @@ QStaticText* QStaticText_new() {
     return new QStaticText();
 }
 
-QStaticText* QStaticText_new2(libqt_string text) {
+QStaticText* QStaticText_new2(const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return new QStaticText(text_QString);
 }
 
-QStaticText* QStaticText_new3(QStaticText* other) {
+QStaticText* QStaticText_new3(const QStaticText* other) {
     return new QStaticText(*other);
 }
 
-void QStaticText_OperatorAssign(QStaticText* self, QStaticText* param1) {
+void QStaticText_OperatorAssign(QStaticText* self, const QStaticText* param1) {
     self->operator=(*param1);
 }
 
@@ -31,7 +31,7 @@ void QStaticText_Swap(QStaticText* self, QStaticText* other) {
     self->swap(*other);
 }
 
-void QStaticText_SetText(QStaticText* self, libqt_string text) {
+void QStaticText_SetText(QStaticText* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->setText(text_QString);
 }
@@ -64,7 +64,7 @@ double QStaticText_TextWidth(const QStaticText* self) {
     return static_cast<double>(self->textWidth());
 }
 
-void QStaticText_SetTextOption(QStaticText* self, QTextOption* textOption) {
+void QStaticText_SetTextOption(QStaticText* self, const QTextOption* textOption) {
     self->setTextOption(*textOption);
 }
 
@@ -88,19 +88,19 @@ int QStaticText_PerformanceHint(const QStaticText* self) {
     return static_cast<int>(self->performanceHint());
 }
 
-bool QStaticText_OperatorEqual(const QStaticText* self, QStaticText* param1) {
+bool QStaticText_OperatorEqual(const QStaticText* self, const QStaticText* param1) {
     return (*self == *param1);
 }
 
-bool QStaticText_OperatorNotEqual(const QStaticText* self, QStaticText* param1) {
+bool QStaticText_OperatorNotEqual(const QStaticText* self, const QStaticText* param1) {
     return (*self != *param1);
 }
 
-void QStaticText_Prepare1(QStaticText* self, QTransform* matrix) {
+void QStaticText_Prepare1(QStaticText* self, const QTransform* matrix) {
     self->prepare(*matrix);
 }
 
-void QStaticText_Prepare2(QStaticText* self, QTransform* matrix, QFont* font) {
+void QStaticText_Prepare2(QStaticText* self, const QTransform* matrix, const QFont* font) {
     self->prepare(*matrix, *font);
 }
 

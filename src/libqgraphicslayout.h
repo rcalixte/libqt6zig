@@ -22,7 +22,6 @@ typedef struct QGraphicsLayout QGraphicsLayout;
 typedef struct QGraphicsLayoutItem QGraphicsLayoutItem;
 typedef struct QRectF QRectF;
 typedef struct QSizeF QSizeF;
-typedef struct QSizePolicy QSizePolicy;
 #endif
 
 QGraphicsLayout* QGraphicsLayout_new();
@@ -53,15 +52,15 @@ void QGraphicsLayout_OnRemoveAt(QGraphicsLayout* self, intptr_t slot);
 void QGraphicsLayout_QBaseRemoveAt(QGraphicsLayout* self, int index);
 void QGraphicsLayout_SetInstantInvalidatePropagation(bool enable);
 bool QGraphicsLayout_InstantInvalidatePropagation();
-void QGraphicsLayout_SetGeometry(QGraphicsLayout* self, QRectF* rect);
+void QGraphicsLayout_SetGeometry(QGraphicsLayout* self, const QRectF* rect);
 void QGraphicsLayout_OnSetGeometry(QGraphicsLayout* self, intptr_t slot);
-void QGraphicsLayout_QBaseSetGeometry(QGraphicsLayout* self, QRectF* rect);
+void QGraphicsLayout_QBaseSetGeometry(QGraphicsLayout* self, const QRectF* rect);
 bool QGraphicsLayout_IsEmpty(const QGraphicsLayout* self);
 void QGraphicsLayout_OnIsEmpty(const QGraphicsLayout* self, intptr_t slot);
 bool QGraphicsLayout_QBaseIsEmpty(const QGraphicsLayout* self);
-QSizeF* QGraphicsLayout_SizeHint(const QGraphicsLayout* self, int which, QSizeF* constraint);
+QSizeF* QGraphicsLayout_SizeHint(const QGraphicsLayout* self, int which, const QSizeF* constraint);
 void QGraphicsLayout_OnSizeHint(const QGraphicsLayout* self, intptr_t slot);
-QSizeF* QGraphicsLayout_QBaseSizeHint(const QGraphicsLayout* self, int which, QSizeF* constraint);
+QSizeF* QGraphicsLayout_QBaseSizeHint(const QGraphicsLayout* self, int which, const QSizeF* constraint);
 void QGraphicsLayout_AddChildLayoutItem(QGraphicsLayout* self, QGraphicsLayoutItem* layoutItem);
 void QGraphicsLayout_OnAddChildLayoutItem(QGraphicsLayout* self, intptr_t slot);
 void QGraphicsLayout_QBaseAddChildLayoutItem(QGraphicsLayout* self, QGraphicsLayoutItem* layoutItem);

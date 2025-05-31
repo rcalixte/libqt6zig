@@ -11,27 +11,30 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QChart so that we can call protected methods
-class VirtualQChart : public QChart {
+class VirtualQChart final : public QChart {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQChart = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
-    using QChart_Metacall_Callback = int (*)(QChart*, QMetaObject::Call, int, void**);
-    using QChart_SetGeometry_Callback = void (*)(QChart*, const QRectF&);
-    using QChart_GetContentsMargins_Callback = void (*)(const QChart*, qreal*, qreal*, qreal*, qreal*);
+    using QChart_Metacall_Callback = int (*)(QChart*, int, int, void**);
+    using QChart_SetGeometry_Callback = void (*)(QChart*, QRectF*);
+    using QChart_GetContentsMargins_Callback = void (*)(const QChart*, double*, double*, double*, double*);
     using QChart_Type_Callback = int (*)();
-    using QChart_Paint_Callback = void (*)(QChart*, QPainter*, const QStyleOptionGraphicsItem*, QWidget*);
-    using QChart_PaintWindowFrame_Callback = void (*)(QChart*, QPainter*, const QStyleOptionGraphicsItem*, QWidget*);
-    using QChart_BoundingRect_Callback = QRectF (*)();
-    using QChart_Shape_Callback = QPainterPath (*)();
+    using QChart_Paint_Callback = void (*)(QChart*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
+    using QChart_PaintWindowFrame_Callback = void (*)(QChart*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
+    using QChart_BoundingRect_Callback = QRectF* (*)();
+    using QChart_Shape_Callback = QPainterPath* (*)();
     using QChart_InitStyleOption_Callback = void (*)(const QChart*, QStyleOption*);
-    using QChart_SizeHint_Callback = QSizeF (*)(const QChart*, Qt::SizeHint, const QSizeF&);
+    using QChart_SizeHint_Callback = QSizeF* (*)(const QChart*, int, QSizeF*);
     using QChart_UpdateGeometry_Callback = void (*)();
-    using QChart_ItemChange_Callback = QVariant (*)(QChart*, QGraphicsItem::GraphicsItemChange, const QVariant&);
-    using QChart_PropertyChange_Callback = QVariant (*)(QChart*, const QString&, const QVariant&);
+    using QChart_ItemChange_Callback = QVariant* (*)(QChart*, int, QVariant*);
+    using QChart_PropertyChange_Callback = QVariant* (*)(QChart*, libqt_string, QVariant*);
     using QChart_SceneEvent_Callback = bool (*)(QChart*, QEvent*);
     using QChart_WindowFrameEvent_Callback = bool (*)(QChart*, QEvent*);
-    using QChart_WindowFrameSectionAt_Callback = Qt::WindowFrameSection (*)(const QChart*, const QPointF&);
+    using QChart_WindowFrameSectionAt_Callback = int (*)(const QChart*, QPointF*);
     using QChart_Event_Callback = bool (*)(QChart*, QEvent*);
     using QChart_ChangeEvent_Callback = void (*)(QChart*, QEvent*);
     using QChart_CloseEvent_Callback = void (*)(QChart*, QCloseEvent*);
@@ -53,14 +56,14 @@ class VirtualQChart : public QChart {
     using QChart_TimerEvent_Callback = void (*)(QChart*, QTimerEvent*);
     using QChart_ChildEvent_Callback = void (*)(QChart*, QChildEvent*);
     using QChart_CustomEvent_Callback = void (*)(QChart*, QEvent*);
-    using QChart_ConnectNotify_Callback = void (*)(QChart*, const QMetaMethod&);
-    using QChart_DisconnectNotify_Callback = void (*)(QChart*, const QMetaMethod&);
+    using QChart_ConnectNotify_Callback = void (*)(QChart*, QMetaMethod*);
+    using QChart_DisconnectNotify_Callback = void (*)(QChart*, QMetaMethod*);
     using QChart_Advance_Callback = void (*)(QChart*, int);
-    using QChart_Contains_Callback = bool (*)(const QChart*, const QPointF&);
-    using QChart_CollidesWithItem_Callback = bool (*)(const QChart*, const QGraphicsItem*, Qt::ItemSelectionMode);
-    using QChart_CollidesWithPath_Callback = bool (*)(const QChart*, const QPainterPath&, Qt::ItemSelectionMode);
-    using QChart_IsObscuredBy_Callback = bool (*)(const QChart*, const QGraphicsItem*);
-    using QChart_OpaqueArea_Callback = QPainterPath (*)();
+    using QChart_Contains_Callback = bool (*)(const QChart*, QPointF*);
+    using QChart_CollidesWithItem_Callback = bool (*)(const QChart*, QGraphicsItem*, int);
+    using QChart_CollidesWithPath_Callback = bool (*)(const QChart*, QPainterPath*, int);
+    using QChart_IsObscuredBy_Callback = bool (*)(const QChart*, QGraphicsItem*);
+    using QChart_OpaqueArea_Callback = QPainterPath* (*)();
     using QChart_SceneEventFilter_Callback = bool (*)(QChart*, QGraphicsItem*, QEvent*);
     using QChart_ContextMenuEvent_Callback = void (*)(QChart*, QGraphicsSceneContextMenuEvent*);
     using QChart_DragEnterEvent_Callback = void (*)(QChart*, QGraphicsSceneDragDropEvent*);
@@ -76,16 +79,16 @@ class VirtualQChart : public QChart {
     using QChart_MouseDoubleClickEvent_Callback = void (*)(QChart*, QGraphicsSceneMouseEvent*);
     using QChart_WheelEvent_Callback = void (*)(QChart*, QGraphicsSceneWheelEvent*);
     using QChart_InputMethodEvent_Callback = void (*)(QChart*, QInputMethodEvent*);
-    using QChart_InputMethodQuery_Callback = QVariant (*)(const QChart*, Qt::InputMethodQuery);
+    using QChart_InputMethodQuery_Callback = QVariant* (*)(const QChart*, int);
     using QChart_SupportsExtension_Callback = bool (*)(const QChart*, int);
-    using QChart_SetExtension_Callback = void (*)(QChart*, int, const QVariant&);
-    using QChart_Extension_Callback = QVariant (*)(const QChart*, const QVariant&);
+    using QChart_SetExtension_Callback = void (*)(QChart*, int, QVariant*);
+    using QChart_Extension_Callback = QVariant* (*)(const QChart*, QVariant*);
     using QChart_IsEmpty_Callback = bool (*)();
     using QChart_UpdateMicroFocus_Callback = void (*)();
     using QChart_Sender_Callback = QObject* (*)();
     using QChart_SenderSignalIndex_Callback = int (*)();
     using QChart_Receivers_Callback = int (*)(const QChart*, const char*);
-    using QChart_IsSignalConnected_Callback = bool (*)(const QChart*, const QMetaMethod&);
+    using QChart_IsSignalConnected_Callback = bool (*)(const QChart*, QMetaMethod*);
     using QChart_AddToIndex_Callback = void (*)();
     using QChart_RemoveFromIndex_Callback = void (*)();
     using QChart_PrepareGeometryChange_Callback = void (*)();
@@ -331,158 +334,158 @@ class VirtualQChart : public QChart {
     }
 
     // Callback setters
-    void setQChart_Metacall_Callback(QChart_Metacall_Callback cb) { qchart_metacall_callback = cb; }
-    void setQChart_SetGeometry_Callback(QChart_SetGeometry_Callback cb) { qchart_setgeometry_callback = cb; }
-    void setQChart_GetContentsMargins_Callback(QChart_GetContentsMargins_Callback cb) { qchart_getcontentsmargins_callback = cb; }
-    void setQChart_Type_Callback(QChart_Type_Callback cb) { qchart_type_callback = cb; }
-    void setQChart_Paint_Callback(QChart_Paint_Callback cb) { qchart_paint_callback = cb; }
-    void setQChart_PaintWindowFrame_Callback(QChart_PaintWindowFrame_Callback cb) { qchart_paintwindowframe_callback = cb; }
-    void setQChart_BoundingRect_Callback(QChart_BoundingRect_Callback cb) { qchart_boundingrect_callback = cb; }
-    void setQChart_Shape_Callback(QChart_Shape_Callback cb) { qchart_shape_callback = cb; }
-    void setQChart_InitStyleOption_Callback(QChart_InitStyleOption_Callback cb) { qchart_initstyleoption_callback = cb; }
-    void setQChart_SizeHint_Callback(QChart_SizeHint_Callback cb) { qchart_sizehint_callback = cb; }
-    void setQChart_UpdateGeometry_Callback(QChart_UpdateGeometry_Callback cb) { qchart_updategeometry_callback = cb; }
-    void setQChart_ItemChange_Callback(QChart_ItemChange_Callback cb) { qchart_itemchange_callback = cb; }
-    void setQChart_PropertyChange_Callback(QChart_PropertyChange_Callback cb) { qchart_propertychange_callback = cb; }
-    void setQChart_SceneEvent_Callback(QChart_SceneEvent_Callback cb) { qchart_sceneevent_callback = cb; }
-    void setQChart_WindowFrameEvent_Callback(QChart_WindowFrameEvent_Callback cb) { qchart_windowframeevent_callback = cb; }
-    void setQChart_WindowFrameSectionAt_Callback(QChart_WindowFrameSectionAt_Callback cb) { qchart_windowframesectionat_callback = cb; }
-    void setQChart_Event_Callback(QChart_Event_Callback cb) { qchart_event_callback = cb; }
-    void setQChart_ChangeEvent_Callback(QChart_ChangeEvent_Callback cb) { qchart_changeevent_callback = cb; }
-    void setQChart_CloseEvent_Callback(QChart_CloseEvent_Callback cb) { qchart_closeevent_callback = cb; }
-    void setQChart_FocusInEvent_Callback(QChart_FocusInEvent_Callback cb) { qchart_focusinevent_callback = cb; }
-    void setQChart_FocusNextPrevChild_Callback(QChart_FocusNextPrevChild_Callback cb) { qchart_focusnextprevchild_callback = cb; }
-    void setQChart_FocusOutEvent_Callback(QChart_FocusOutEvent_Callback cb) { qchart_focusoutevent_callback = cb; }
-    void setQChart_HideEvent_Callback(QChart_HideEvent_Callback cb) { qchart_hideevent_callback = cb; }
-    void setQChart_MoveEvent_Callback(QChart_MoveEvent_Callback cb) { qchart_moveevent_callback = cb; }
-    void setQChart_PolishEvent_Callback(QChart_PolishEvent_Callback cb) { qchart_polishevent_callback = cb; }
-    void setQChart_ResizeEvent_Callback(QChart_ResizeEvent_Callback cb) { qchart_resizeevent_callback = cb; }
-    void setQChart_ShowEvent_Callback(QChart_ShowEvent_Callback cb) { qchart_showevent_callback = cb; }
-    void setQChart_HoverMoveEvent_Callback(QChart_HoverMoveEvent_Callback cb) { qchart_hovermoveevent_callback = cb; }
-    void setQChart_HoverLeaveEvent_Callback(QChart_HoverLeaveEvent_Callback cb) { qchart_hoverleaveevent_callback = cb; }
-    void setQChart_GrabMouseEvent_Callback(QChart_GrabMouseEvent_Callback cb) { qchart_grabmouseevent_callback = cb; }
-    void setQChart_UngrabMouseEvent_Callback(QChart_UngrabMouseEvent_Callback cb) { qchart_ungrabmouseevent_callback = cb; }
-    void setQChart_GrabKeyboardEvent_Callback(QChart_GrabKeyboardEvent_Callback cb) { qchart_grabkeyboardevent_callback = cb; }
-    void setQChart_UngrabKeyboardEvent_Callback(QChart_UngrabKeyboardEvent_Callback cb) { qchart_ungrabkeyboardevent_callback = cb; }
-    void setQChart_EventFilter_Callback(QChart_EventFilter_Callback cb) { qchart_eventfilter_callback = cb; }
-    void setQChart_TimerEvent_Callback(QChart_TimerEvent_Callback cb) { qchart_timerevent_callback = cb; }
-    void setQChart_ChildEvent_Callback(QChart_ChildEvent_Callback cb) { qchart_childevent_callback = cb; }
-    void setQChart_CustomEvent_Callback(QChart_CustomEvent_Callback cb) { qchart_customevent_callback = cb; }
-    void setQChart_ConnectNotify_Callback(QChart_ConnectNotify_Callback cb) { qchart_connectnotify_callback = cb; }
-    void setQChart_DisconnectNotify_Callback(QChart_DisconnectNotify_Callback cb) { qchart_disconnectnotify_callback = cb; }
-    void setQChart_Advance_Callback(QChart_Advance_Callback cb) { qchart_advance_callback = cb; }
-    void setQChart_Contains_Callback(QChart_Contains_Callback cb) { qchart_contains_callback = cb; }
-    void setQChart_CollidesWithItem_Callback(QChart_CollidesWithItem_Callback cb) { qchart_collideswithitem_callback = cb; }
-    void setQChart_CollidesWithPath_Callback(QChart_CollidesWithPath_Callback cb) { qchart_collideswithpath_callback = cb; }
-    void setQChart_IsObscuredBy_Callback(QChart_IsObscuredBy_Callback cb) { qchart_isobscuredby_callback = cb; }
-    void setQChart_OpaqueArea_Callback(QChart_OpaqueArea_Callback cb) { qchart_opaquearea_callback = cb; }
-    void setQChart_SceneEventFilter_Callback(QChart_SceneEventFilter_Callback cb) { qchart_sceneeventfilter_callback = cb; }
-    void setQChart_ContextMenuEvent_Callback(QChart_ContextMenuEvent_Callback cb) { qchart_contextmenuevent_callback = cb; }
-    void setQChart_DragEnterEvent_Callback(QChart_DragEnterEvent_Callback cb) { qchart_dragenterevent_callback = cb; }
-    void setQChart_DragLeaveEvent_Callback(QChart_DragLeaveEvent_Callback cb) { qchart_dragleaveevent_callback = cb; }
-    void setQChart_DragMoveEvent_Callback(QChart_DragMoveEvent_Callback cb) { qchart_dragmoveevent_callback = cb; }
-    void setQChart_DropEvent_Callback(QChart_DropEvent_Callback cb) { qchart_dropevent_callback = cb; }
-    void setQChart_HoverEnterEvent_Callback(QChart_HoverEnterEvent_Callback cb) { qchart_hoverenterevent_callback = cb; }
-    void setQChart_KeyPressEvent_Callback(QChart_KeyPressEvent_Callback cb) { qchart_keypressevent_callback = cb; }
-    void setQChart_KeyReleaseEvent_Callback(QChart_KeyReleaseEvent_Callback cb) { qchart_keyreleaseevent_callback = cb; }
-    void setQChart_MousePressEvent_Callback(QChart_MousePressEvent_Callback cb) { qchart_mousepressevent_callback = cb; }
-    void setQChart_MouseMoveEvent_Callback(QChart_MouseMoveEvent_Callback cb) { qchart_mousemoveevent_callback = cb; }
-    void setQChart_MouseReleaseEvent_Callback(QChart_MouseReleaseEvent_Callback cb) { qchart_mousereleaseevent_callback = cb; }
-    void setQChart_MouseDoubleClickEvent_Callback(QChart_MouseDoubleClickEvent_Callback cb) { qchart_mousedoubleclickevent_callback = cb; }
-    void setQChart_WheelEvent_Callback(QChart_WheelEvent_Callback cb) { qchart_wheelevent_callback = cb; }
-    void setQChart_InputMethodEvent_Callback(QChart_InputMethodEvent_Callback cb) { qchart_inputmethodevent_callback = cb; }
-    void setQChart_InputMethodQuery_Callback(QChart_InputMethodQuery_Callback cb) { qchart_inputmethodquery_callback = cb; }
-    void setQChart_SupportsExtension_Callback(QChart_SupportsExtension_Callback cb) { qchart_supportsextension_callback = cb; }
-    void setQChart_SetExtension_Callback(QChart_SetExtension_Callback cb) { qchart_setextension_callback = cb; }
-    void setQChart_Extension_Callback(QChart_Extension_Callback cb) { qchart_extension_callback = cb; }
-    void setQChart_IsEmpty_Callback(QChart_IsEmpty_Callback cb) { qchart_isempty_callback = cb; }
-    void setQChart_UpdateMicroFocus_Callback(QChart_UpdateMicroFocus_Callback cb) { qchart_updatemicrofocus_callback = cb; }
-    void setQChart_Sender_Callback(QChart_Sender_Callback cb) { qchart_sender_callback = cb; }
-    void setQChart_SenderSignalIndex_Callback(QChart_SenderSignalIndex_Callback cb) { qchart_sendersignalindex_callback = cb; }
-    void setQChart_Receivers_Callback(QChart_Receivers_Callback cb) { qchart_receivers_callback = cb; }
-    void setQChart_IsSignalConnected_Callback(QChart_IsSignalConnected_Callback cb) { qchart_issignalconnected_callback = cb; }
-    void setQChart_AddToIndex_Callback(QChart_AddToIndex_Callback cb) { qchart_addtoindex_callback = cb; }
-    void setQChart_RemoveFromIndex_Callback(QChart_RemoveFromIndex_Callback cb) { qchart_removefromindex_callback = cb; }
-    void setQChart_PrepareGeometryChange_Callback(QChart_PrepareGeometryChange_Callback cb) { qchart_preparegeometrychange_callback = cb; }
-    void setQChart_SetGraphicsItem_Callback(QChart_SetGraphicsItem_Callback cb) { qchart_setgraphicsitem_callback = cb; }
-    void setQChart_SetOwnedByLayout_Callback(QChart_SetOwnedByLayout_Callback cb) { qchart_setownedbylayout_callback = cb; }
+    inline void setQChart_Metacall_Callback(QChart_Metacall_Callback cb) { qchart_metacall_callback = cb; }
+    inline void setQChart_SetGeometry_Callback(QChart_SetGeometry_Callback cb) { qchart_setgeometry_callback = cb; }
+    inline void setQChart_GetContentsMargins_Callback(QChart_GetContentsMargins_Callback cb) { qchart_getcontentsmargins_callback = cb; }
+    inline void setQChart_Type_Callback(QChart_Type_Callback cb) { qchart_type_callback = cb; }
+    inline void setQChart_Paint_Callback(QChart_Paint_Callback cb) { qchart_paint_callback = cb; }
+    inline void setQChart_PaintWindowFrame_Callback(QChart_PaintWindowFrame_Callback cb) { qchart_paintwindowframe_callback = cb; }
+    inline void setQChart_BoundingRect_Callback(QChart_BoundingRect_Callback cb) { qchart_boundingrect_callback = cb; }
+    inline void setQChart_Shape_Callback(QChart_Shape_Callback cb) { qchart_shape_callback = cb; }
+    inline void setQChart_InitStyleOption_Callback(QChart_InitStyleOption_Callback cb) { qchart_initstyleoption_callback = cb; }
+    inline void setQChart_SizeHint_Callback(QChart_SizeHint_Callback cb) { qchart_sizehint_callback = cb; }
+    inline void setQChart_UpdateGeometry_Callback(QChart_UpdateGeometry_Callback cb) { qchart_updategeometry_callback = cb; }
+    inline void setQChart_ItemChange_Callback(QChart_ItemChange_Callback cb) { qchart_itemchange_callback = cb; }
+    inline void setQChart_PropertyChange_Callback(QChart_PropertyChange_Callback cb) { qchart_propertychange_callback = cb; }
+    inline void setQChart_SceneEvent_Callback(QChart_SceneEvent_Callback cb) { qchart_sceneevent_callback = cb; }
+    inline void setQChart_WindowFrameEvent_Callback(QChart_WindowFrameEvent_Callback cb) { qchart_windowframeevent_callback = cb; }
+    inline void setQChart_WindowFrameSectionAt_Callback(QChart_WindowFrameSectionAt_Callback cb) { qchart_windowframesectionat_callback = cb; }
+    inline void setQChart_Event_Callback(QChart_Event_Callback cb) { qchart_event_callback = cb; }
+    inline void setQChart_ChangeEvent_Callback(QChart_ChangeEvent_Callback cb) { qchart_changeevent_callback = cb; }
+    inline void setQChart_CloseEvent_Callback(QChart_CloseEvent_Callback cb) { qchart_closeevent_callback = cb; }
+    inline void setQChart_FocusInEvent_Callback(QChart_FocusInEvent_Callback cb) { qchart_focusinevent_callback = cb; }
+    inline void setQChart_FocusNextPrevChild_Callback(QChart_FocusNextPrevChild_Callback cb) { qchart_focusnextprevchild_callback = cb; }
+    inline void setQChart_FocusOutEvent_Callback(QChart_FocusOutEvent_Callback cb) { qchart_focusoutevent_callback = cb; }
+    inline void setQChart_HideEvent_Callback(QChart_HideEvent_Callback cb) { qchart_hideevent_callback = cb; }
+    inline void setQChart_MoveEvent_Callback(QChart_MoveEvent_Callback cb) { qchart_moveevent_callback = cb; }
+    inline void setQChart_PolishEvent_Callback(QChart_PolishEvent_Callback cb) { qchart_polishevent_callback = cb; }
+    inline void setQChart_ResizeEvent_Callback(QChart_ResizeEvent_Callback cb) { qchart_resizeevent_callback = cb; }
+    inline void setQChart_ShowEvent_Callback(QChart_ShowEvent_Callback cb) { qchart_showevent_callback = cb; }
+    inline void setQChart_HoverMoveEvent_Callback(QChart_HoverMoveEvent_Callback cb) { qchart_hovermoveevent_callback = cb; }
+    inline void setQChart_HoverLeaveEvent_Callback(QChart_HoverLeaveEvent_Callback cb) { qchart_hoverleaveevent_callback = cb; }
+    inline void setQChart_GrabMouseEvent_Callback(QChart_GrabMouseEvent_Callback cb) { qchart_grabmouseevent_callback = cb; }
+    inline void setQChart_UngrabMouseEvent_Callback(QChart_UngrabMouseEvent_Callback cb) { qchart_ungrabmouseevent_callback = cb; }
+    inline void setQChart_GrabKeyboardEvent_Callback(QChart_GrabKeyboardEvent_Callback cb) { qchart_grabkeyboardevent_callback = cb; }
+    inline void setQChart_UngrabKeyboardEvent_Callback(QChart_UngrabKeyboardEvent_Callback cb) { qchart_ungrabkeyboardevent_callback = cb; }
+    inline void setQChart_EventFilter_Callback(QChart_EventFilter_Callback cb) { qchart_eventfilter_callback = cb; }
+    inline void setQChart_TimerEvent_Callback(QChart_TimerEvent_Callback cb) { qchart_timerevent_callback = cb; }
+    inline void setQChart_ChildEvent_Callback(QChart_ChildEvent_Callback cb) { qchart_childevent_callback = cb; }
+    inline void setQChart_CustomEvent_Callback(QChart_CustomEvent_Callback cb) { qchart_customevent_callback = cb; }
+    inline void setQChart_ConnectNotify_Callback(QChart_ConnectNotify_Callback cb) { qchart_connectnotify_callback = cb; }
+    inline void setQChart_DisconnectNotify_Callback(QChart_DisconnectNotify_Callback cb) { qchart_disconnectnotify_callback = cb; }
+    inline void setQChart_Advance_Callback(QChart_Advance_Callback cb) { qchart_advance_callback = cb; }
+    inline void setQChart_Contains_Callback(QChart_Contains_Callback cb) { qchart_contains_callback = cb; }
+    inline void setQChart_CollidesWithItem_Callback(QChart_CollidesWithItem_Callback cb) { qchart_collideswithitem_callback = cb; }
+    inline void setQChart_CollidesWithPath_Callback(QChart_CollidesWithPath_Callback cb) { qchart_collideswithpath_callback = cb; }
+    inline void setQChart_IsObscuredBy_Callback(QChart_IsObscuredBy_Callback cb) { qchart_isobscuredby_callback = cb; }
+    inline void setQChart_OpaqueArea_Callback(QChart_OpaqueArea_Callback cb) { qchart_opaquearea_callback = cb; }
+    inline void setQChart_SceneEventFilter_Callback(QChart_SceneEventFilter_Callback cb) { qchart_sceneeventfilter_callback = cb; }
+    inline void setQChart_ContextMenuEvent_Callback(QChart_ContextMenuEvent_Callback cb) { qchart_contextmenuevent_callback = cb; }
+    inline void setQChart_DragEnterEvent_Callback(QChart_DragEnterEvent_Callback cb) { qchart_dragenterevent_callback = cb; }
+    inline void setQChart_DragLeaveEvent_Callback(QChart_DragLeaveEvent_Callback cb) { qchart_dragleaveevent_callback = cb; }
+    inline void setQChart_DragMoveEvent_Callback(QChart_DragMoveEvent_Callback cb) { qchart_dragmoveevent_callback = cb; }
+    inline void setQChart_DropEvent_Callback(QChart_DropEvent_Callback cb) { qchart_dropevent_callback = cb; }
+    inline void setQChart_HoverEnterEvent_Callback(QChart_HoverEnterEvent_Callback cb) { qchart_hoverenterevent_callback = cb; }
+    inline void setQChart_KeyPressEvent_Callback(QChart_KeyPressEvent_Callback cb) { qchart_keypressevent_callback = cb; }
+    inline void setQChart_KeyReleaseEvent_Callback(QChart_KeyReleaseEvent_Callback cb) { qchart_keyreleaseevent_callback = cb; }
+    inline void setQChart_MousePressEvent_Callback(QChart_MousePressEvent_Callback cb) { qchart_mousepressevent_callback = cb; }
+    inline void setQChart_MouseMoveEvent_Callback(QChart_MouseMoveEvent_Callback cb) { qchart_mousemoveevent_callback = cb; }
+    inline void setQChart_MouseReleaseEvent_Callback(QChart_MouseReleaseEvent_Callback cb) { qchart_mousereleaseevent_callback = cb; }
+    inline void setQChart_MouseDoubleClickEvent_Callback(QChart_MouseDoubleClickEvent_Callback cb) { qchart_mousedoubleclickevent_callback = cb; }
+    inline void setQChart_WheelEvent_Callback(QChart_WheelEvent_Callback cb) { qchart_wheelevent_callback = cb; }
+    inline void setQChart_InputMethodEvent_Callback(QChart_InputMethodEvent_Callback cb) { qchart_inputmethodevent_callback = cb; }
+    inline void setQChart_InputMethodQuery_Callback(QChart_InputMethodQuery_Callback cb) { qchart_inputmethodquery_callback = cb; }
+    inline void setQChart_SupportsExtension_Callback(QChart_SupportsExtension_Callback cb) { qchart_supportsextension_callback = cb; }
+    inline void setQChart_SetExtension_Callback(QChart_SetExtension_Callback cb) { qchart_setextension_callback = cb; }
+    inline void setQChart_Extension_Callback(QChart_Extension_Callback cb) { qchart_extension_callback = cb; }
+    inline void setQChart_IsEmpty_Callback(QChart_IsEmpty_Callback cb) { qchart_isempty_callback = cb; }
+    inline void setQChart_UpdateMicroFocus_Callback(QChart_UpdateMicroFocus_Callback cb) { qchart_updatemicrofocus_callback = cb; }
+    inline void setQChart_Sender_Callback(QChart_Sender_Callback cb) { qchart_sender_callback = cb; }
+    inline void setQChart_SenderSignalIndex_Callback(QChart_SenderSignalIndex_Callback cb) { qchart_sendersignalindex_callback = cb; }
+    inline void setQChart_Receivers_Callback(QChart_Receivers_Callback cb) { qchart_receivers_callback = cb; }
+    inline void setQChart_IsSignalConnected_Callback(QChart_IsSignalConnected_Callback cb) { qchart_issignalconnected_callback = cb; }
+    inline void setQChart_AddToIndex_Callback(QChart_AddToIndex_Callback cb) { qchart_addtoindex_callback = cb; }
+    inline void setQChart_RemoveFromIndex_Callback(QChart_RemoveFromIndex_Callback cb) { qchart_removefromindex_callback = cb; }
+    inline void setQChart_PrepareGeometryChange_Callback(QChart_PrepareGeometryChange_Callback cb) { qchart_preparegeometrychange_callback = cb; }
+    inline void setQChart_SetGraphicsItem_Callback(QChart_SetGraphicsItem_Callback cb) { qchart_setgraphicsitem_callback = cb; }
+    inline void setQChart_SetOwnedByLayout_Callback(QChart_SetOwnedByLayout_Callback cb) { qchart_setownedbylayout_callback = cb; }
 
     // Base flag setters
-    void setQChart_Metacall_IsBase(bool value) const { qchart_metacall_isbase = value; }
-    void setQChart_SetGeometry_IsBase(bool value) const { qchart_setgeometry_isbase = value; }
-    void setQChart_GetContentsMargins_IsBase(bool value) const { qchart_getcontentsmargins_isbase = value; }
-    void setQChart_Type_IsBase(bool value) const { qchart_type_isbase = value; }
-    void setQChart_Paint_IsBase(bool value) const { qchart_paint_isbase = value; }
-    void setQChart_PaintWindowFrame_IsBase(bool value) const { qchart_paintwindowframe_isbase = value; }
-    void setQChart_BoundingRect_IsBase(bool value) const { qchart_boundingrect_isbase = value; }
-    void setQChart_Shape_IsBase(bool value) const { qchart_shape_isbase = value; }
-    void setQChart_InitStyleOption_IsBase(bool value) const { qchart_initstyleoption_isbase = value; }
-    void setQChart_SizeHint_IsBase(bool value) const { qchart_sizehint_isbase = value; }
-    void setQChart_UpdateGeometry_IsBase(bool value) const { qchart_updategeometry_isbase = value; }
-    void setQChart_ItemChange_IsBase(bool value) const { qchart_itemchange_isbase = value; }
-    void setQChart_PropertyChange_IsBase(bool value) const { qchart_propertychange_isbase = value; }
-    void setQChart_SceneEvent_IsBase(bool value) const { qchart_sceneevent_isbase = value; }
-    void setQChart_WindowFrameEvent_IsBase(bool value) const { qchart_windowframeevent_isbase = value; }
-    void setQChart_WindowFrameSectionAt_IsBase(bool value) const { qchart_windowframesectionat_isbase = value; }
-    void setQChart_Event_IsBase(bool value) const { qchart_event_isbase = value; }
-    void setQChart_ChangeEvent_IsBase(bool value) const { qchart_changeevent_isbase = value; }
-    void setQChart_CloseEvent_IsBase(bool value) const { qchart_closeevent_isbase = value; }
-    void setQChart_FocusInEvent_IsBase(bool value) const { qchart_focusinevent_isbase = value; }
-    void setQChart_FocusNextPrevChild_IsBase(bool value) const { qchart_focusnextprevchild_isbase = value; }
-    void setQChart_FocusOutEvent_IsBase(bool value) const { qchart_focusoutevent_isbase = value; }
-    void setQChart_HideEvent_IsBase(bool value) const { qchart_hideevent_isbase = value; }
-    void setQChart_MoveEvent_IsBase(bool value) const { qchart_moveevent_isbase = value; }
-    void setQChart_PolishEvent_IsBase(bool value) const { qchart_polishevent_isbase = value; }
-    void setQChart_ResizeEvent_IsBase(bool value) const { qchart_resizeevent_isbase = value; }
-    void setQChart_ShowEvent_IsBase(bool value) const { qchart_showevent_isbase = value; }
-    void setQChart_HoverMoveEvent_IsBase(bool value) const { qchart_hovermoveevent_isbase = value; }
-    void setQChart_HoverLeaveEvent_IsBase(bool value) const { qchart_hoverleaveevent_isbase = value; }
-    void setQChart_GrabMouseEvent_IsBase(bool value) const { qchart_grabmouseevent_isbase = value; }
-    void setQChart_UngrabMouseEvent_IsBase(bool value) const { qchart_ungrabmouseevent_isbase = value; }
-    void setQChart_GrabKeyboardEvent_IsBase(bool value) const { qchart_grabkeyboardevent_isbase = value; }
-    void setQChart_UngrabKeyboardEvent_IsBase(bool value) const { qchart_ungrabkeyboardevent_isbase = value; }
-    void setQChart_EventFilter_IsBase(bool value) const { qchart_eventfilter_isbase = value; }
-    void setQChart_TimerEvent_IsBase(bool value) const { qchart_timerevent_isbase = value; }
-    void setQChart_ChildEvent_IsBase(bool value) const { qchart_childevent_isbase = value; }
-    void setQChart_CustomEvent_IsBase(bool value) const { qchart_customevent_isbase = value; }
-    void setQChart_ConnectNotify_IsBase(bool value) const { qchart_connectnotify_isbase = value; }
-    void setQChart_DisconnectNotify_IsBase(bool value) const { qchart_disconnectnotify_isbase = value; }
-    void setQChart_Advance_IsBase(bool value) const { qchart_advance_isbase = value; }
-    void setQChart_Contains_IsBase(bool value) const { qchart_contains_isbase = value; }
-    void setQChart_CollidesWithItem_IsBase(bool value) const { qchart_collideswithitem_isbase = value; }
-    void setQChart_CollidesWithPath_IsBase(bool value) const { qchart_collideswithpath_isbase = value; }
-    void setQChart_IsObscuredBy_IsBase(bool value) const { qchart_isobscuredby_isbase = value; }
-    void setQChart_OpaqueArea_IsBase(bool value) const { qchart_opaquearea_isbase = value; }
-    void setQChart_SceneEventFilter_IsBase(bool value) const { qchart_sceneeventfilter_isbase = value; }
-    void setQChart_ContextMenuEvent_IsBase(bool value) const { qchart_contextmenuevent_isbase = value; }
-    void setQChart_DragEnterEvent_IsBase(bool value) const { qchart_dragenterevent_isbase = value; }
-    void setQChart_DragLeaveEvent_IsBase(bool value) const { qchart_dragleaveevent_isbase = value; }
-    void setQChart_DragMoveEvent_IsBase(bool value) const { qchart_dragmoveevent_isbase = value; }
-    void setQChart_DropEvent_IsBase(bool value) const { qchart_dropevent_isbase = value; }
-    void setQChart_HoverEnterEvent_IsBase(bool value) const { qchart_hoverenterevent_isbase = value; }
-    void setQChart_KeyPressEvent_IsBase(bool value) const { qchart_keypressevent_isbase = value; }
-    void setQChart_KeyReleaseEvent_IsBase(bool value) const { qchart_keyreleaseevent_isbase = value; }
-    void setQChart_MousePressEvent_IsBase(bool value) const { qchart_mousepressevent_isbase = value; }
-    void setQChart_MouseMoveEvent_IsBase(bool value) const { qchart_mousemoveevent_isbase = value; }
-    void setQChart_MouseReleaseEvent_IsBase(bool value) const { qchart_mousereleaseevent_isbase = value; }
-    void setQChart_MouseDoubleClickEvent_IsBase(bool value) const { qchart_mousedoubleclickevent_isbase = value; }
-    void setQChart_WheelEvent_IsBase(bool value) const { qchart_wheelevent_isbase = value; }
-    void setQChart_InputMethodEvent_IsBase(bool value) const { qchart_inputmethodevent_isbase = value; }
-    void setQChart_InputMethodQuery_IsBase(bool value) const { qchart_inputmethodquery_isbase = value; }
-    void setQChart_SupportsExtension_IsBase(bool value) const { qchart_supportsextension_isbase = value; }
-    void setQChart_SetExtension_IsBase(bool value) const { qchart_setextension_isbase = value; }
-    void setQChart_Extension_IsBase(bool value) const { qchart_extension_isbase = value; }
-    void setQChart_IsEmpty_IsBase(bool value) const { qchart_isempty_isbase = value; }
-    void setQChart_UpdateMicroFocus_IsBase(bool value) const { qchart_updatemicrofocus_isbase = value; }
-    void setQChart_Sender_IsBase(bool value) const { qchart_sender_isbase = value; }
-    void setQChart_SenderSignalIndex_IsBase(bool value) const { qchart_sendersignalindex_isbase = value; }
-    void setQChart_Receivers_IsBase(bool value) const { qchart_receivers_isbase = value; }
-    void setQChart_IsSignalConnected_IsBase(bool value) const { qchart_issignalconnected_isbase = value; }
-    void setQChart_AddToIndex_IsBase(bool value) const { qchart_addtoindex_isbase = value; }
-    void setQChart_RemoveFromIndex_IsBase(bool value) const { qchart_removefromindex_isbase = value; }
-    void setQChart_PrepareGeometryChange_IsBase(bool value) const { qchart_preparegeometrychange_isbase = value; }
-    void setQChart_SetGraphicsItem_IsBase(bool value) const { qchart_setgraphicsitem_isbase = value; }
-    void setQChart_SetOwnedByLayout_IsBase(bool value) const { qchart_setownedbylayout_isbase = value; }
+    inline void setQChart_Metacall_IsBase(bool value) const { qchart_metacall_isbase = value; }
+    inline void setQChart_SetGeometry_IsBase(bool value) const { qchart_setgeometry_isbase = value; }
+    inline void setQChart_GetContentsMargins_IsBase(bool value) const { qchart_getcontentsmargins_isbase = value; }
+    inline void setQChart_Type_IsBase(bool value) const { qchart_type_isbase = value; }
+    inline void setQChart_Paint_IsBase(bool value) const { qchart_paint_isbase = value; }
+    inline void setQChart_PaintWindowFrame_IsBase(bool value) const { qchart_paintwindowframe_isbase = value; }
+    inline void setQChart_BoundingRect_IsBase(bool value) const { qchart_boundingrect_isbase = value; }
+    inline void setQChart_Shape_IsBase(bool value) const { qchart_shape_isbase = value; }
+    inline void setQChart_InitStyleOption_IsBase(bool value) const { qchart_initstyleoption_isbase = value; }
+    inline void setQChart_SizeHint_IsBase(bool value) const { qchart_sizehint_isbase = value; }
+    inline void setQChart_UpdateGeometry_IsBase(bool value) const { qchart_updategeometry_isbase = value; }
+    inline void setQChart_ItemChange_IsBase(bool value) const { qchart_itemchange_isbase = value; }
+    inline void setQChart_PropertyChange_IsBase(bool value) const { qchart_propertychange_isbase = value; }
+    inline void setQChart_SceneEvent_IsBase(bool value) const { qchart_sceneevent_isbase = value; }
+    inline void setQChart_WindowFrameEvent_IsBase(bool value) const { qchart_windowframeevent_isbase = value; }
+    inline void setQChart_WindowFrameSectionAt_IsBase(bool value) const { qchart_windowframesectionat_isbase = value; }
+    inline void setQChart_Event_IsBase(bool value) const { qchart_event_isbase = value; }
+    inline void setQChart_ChangeEvent_IsBase(bool value) const { qchart_changeevent_isbase = value; }
+    inline void setQChart_CloseEvent_IsBase(bool value) const { qchart_closeevent_isbase = value; }
+    inline void setQChart_FocusInEvent_IsBase(bool value) const { qchart_focusinevent_isbase = value; }
+    inline void setQChart_FocusNextPrevChild_IsBase(bool value) const { qchart_focusnextprevchild_isbase = value; }
+    inline void setQChart_FocusOutEvent_IsBase(bool value) const { qchart_focusoutevent_isbase = value; }
+    inline void setQChart_HideEvent_IsBase(bool value) const { qchart_hideevent_isbase = value; }
+    inline void setQChart_MoveEvent_IsBase(bool value) const { qchart_moveevent_isbase = value; }
+    inline void setQChart_PolishEvent_IsBase(bool value) const { qchart_polishevent_isbase = value; }
+    inline void setQChart_ResizeEvent_IsBase(bool value) const { qchart_resizeevent_isbase = value; }
+    inline void setQChart_ShowEvent_IsBase(bool value) const { qchart_showevent_isbase = value; }
+    inline void setQChart_HoverMoveEvent_IsBase(bool value) const { qchart_hovermoveevent_isbase = value; }
+    inline void setQChart_HoverLeaveEvent_IsBase(bool value) const { qchart_hoverleaveevent_isbase = value; }
+    inline void setQChart_GrabMouseEvent_IsBase(bool value) const { qchart_grabmouseevent_isbase = value; }
+    inline void setQChart_UngrabMouseEvent_IsBase(bool value) const { qchart_ungrabmouseevent_isbase = value; }
+    inline void setQChart_GrabKeyboardEvent_IsBase(bool value) const { qchart_grabkeyboardevent_isbase = value; }
+    inline void setQChart_UngrabKeyboardEvent_IsBase(bool value) const { qchart_ungrabkeyboardevent_isbase = value; }
+    inline void setQChart_EventFilter_IsBase(bool value) const { qchart_eventfilter_isbase = value; }
+    inline void setQChart_TimerEvent_IsBase(bool value) const { qchart_timerevent_isbase = value; }
+    inline void setQChart_ChildEvent_IsBase(bool value) const { qchart_childevent_isbase = value; }
+    inline void setQChart_CustomEvent_IsBase(bool value) const { qchart_customevent_isbase = value; }
+    inline void setQChart_ConnectNotify_IsBase(bool value) const { qchart_connectnotify_isbase = value; }
+    inline void setQChart_DisconnectNotify_IsBase(bool value) const { qchart_disconnectnotify_isbase = value; }
+    inline void setQChart_Advance_IsBase(bool value) const { qchart_advance_isbase = value; }
+    inline void setQChart_Contains_IsBase(bool value) const { qchart_contains_isbase = value; }
+    inline void setQChart_CollidesWithItem_IsBase(bool value) const { qchart_collideswithitem_isbase = value; }
+    inline void setQChart_CollidesWithPath_IsBase(bool value) const { qchart_collideswithpath_isbase = value; }
+    inline void setQChart_IsObscuredBy_IsBase(bool value) const { qchart_isobscuredby_isbase = value; }
+    inline void setQChart_OpaqueArea_IsBase(bool value) const { qchart_opaquearea_isbase = value; }
+    inline void setQChart_SceneEventFilter_IsBase(bool value) const { qchart_sceneeventfilter_isbase = value; }
+    inline void setQChart_ContextMenuEvent_IsBase(bool value) const { qchart_contextmenuevent_isbase = value; }
+    inline void setQChart_DragEnterEvent_IsBase(bool value) const { qchart_dragenterevent_isbase = value; }
+    inline void setQChart_DragLeaveEvent_IsBase(bool value) const { qchart_dragleaveevent_isbase = value; }
+    inline void setQChart_DragMoveEvent_IsBase(bool value) const { qchart_dragmoveevent_isbase = value; }
+    inline void setQChart_DropEvent_IsBase(bool value) const { qchart_dropevent_isbase = value; }
+    inline void setQChart_HoverEnterEvent_IsBase(bool value) const { qchart_hoverenterevent_isbase = value; }
+    inline void setQChart_KeyPressEvent_IsBase(bool value) const { qchart_keypressevent_isbase = value; }
+    inline void setQChart_KeyReleaseEvent_IsBase(bool value) const { qchart_keyreleaseevent_isbase = value; }
+    inline void setQChart_MousePressEvent_IsBase(bool value) const { qchart_mousepressevent_isbase = value; }
+    inline void setQChart_MouseMoveEvent_IsBase(bool value) const { qchart_mousemoveevent_isbase = value; }
+    inline void setQChart_MouseReleaseEvent_IsBase(bool value) const { qchart_mousereleaseevent_isbase = value; }
+    inline void setQChart_MouseDoubleClickEvent_IsBase(bool value) const { qchart_mousedoubleclickevent_isbase = value; }
+    inline void setQChart_WheelEvent_IsBase(bool value) const { qchart_wheelevent_isbase = value; }
+    inline void setQChart_InputMethodEvent_IsBase(bool value) const { qchart_inputmethodevent_isbase = value; }
+    inline void setQChart_InputMethodQuery_IsBase(bool value) const { qchart_inputmethodquery_isbase = value; }
+    inline void setQChart_SupportsExtension_IsBase(bool value) const { qchart_supportsextension_isbase = value; }
+    inline void setQChart_SetExtension_IsBase(bool value) const { qchart_setextension_isbase = value; }
+    inline void setQChart_Extension_IsBase(bool value) const { qchart_extension_isbase = value; }
+    inline void setQChart_IsEmpty_IsBase(bool value) const { qchart_isempty_isbase = value; }
+    inline void setQChart_UpdateMicroFocus_IsBase(bool value) const { qchart_updatemicrofocus_isbase = value; }
+    inline void setQChart_Sender_IsBase(bool value) const { qchart_sender_isbase = value; }
+    inline void setQChart_SenderSignalIndex_IsBase(bool value) const { qchart_sendersignalindex_isbase = value; }
+    inline void setQChart_Receivers_IsBase(bool value) const { qchart_receivers_isbase = value; }
+    inline void setQChart_IsSignalConnected_IsBase(bool value) const { qchart_issignalconnected_isbase = value; }
+    inline void setQChart_AddToIndex_IsBase(bool value) const { qchart_addtoindex_isbase = value; }
+    inline void setQChart_RemoveFromIndex_IsBase(bool value) const { qchart_removefromindex_isbase = value; }
+    inline void setQChart_PrepareGeometryChange_IsBase(bool value) const { qchart_preparegeometrychange_isbase = value; }
+    inline void setQChart_SetGraphicsItem_IsBase(bool value) const { qchart_setgraphicsitem_isbase = value; }
+    inline void setQChart_SetOwnedByLayout_IsBase(bool value) const { qchart_setownedbylayout_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -490,7 +493,12 @@ class VirtualQChart : public QChart {
             qchart_metacall_isbase = false;
             return QChart::qt_metacall(param1, param2, param3);
         } else if (qchart_metacall_callback != nullptr) {
-            return qchart_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qchart_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QChart::qt_metacall(param1, param2, param3);
         }
@@ -502,7 +510,11 @@ class VirtualQChart : public QChart {
             qchart_setgeometry_isbase = false;
             QChart::setGeometry(rect);
         } else if (qchart_setgeometry_callback != nullptr) {
-            qchart_setgeometry_callback(this, rect);
+            const QRectF& rect_ret = rect;
+            // Cast returned reference into pointer
+            QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
+
+            qchart_setgeometry_callback(this, cbval1);
         } else {
             QChart::setGeometry(rect);
         }
@@ -514,7 +526,12 @@ class VirtualQChart : public QChart {
             qchart_getcontentsmargins_isbase = false;
             QChart::getContentsMargins(left, top, right, bottom);
         } else if (qchart_getcontentsmargins_callback != nullptr) {
-            qchart_getcontentsmargins_callback(this, left, top, right, bottom);
+            double* cbval1 = static_cast<double*>(left);
+            double* cbval2 = static_cast<double*>(top);
+            double* cbval3 = static_cast<double*>(right);
+            double* cbval4 = static_cast<double*>(bottom);
+
+            qchart_getcontentsmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QChart::getContentsMargins(left, top, right, bottom);
         }
@@ -526,7 +543,8 @@ class VirtualQChart : public QChart {
             qchart_type_isbase = false;
             return QChart::type();
         } else if (qchart_type_callback != nullptr) {
-            return qchart_type_callback();
+            int callback_ret = qchart_type_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QChart::type();
         }
@@ -538,7 +556,11 @@ class VirtualQChart : public QChart {
             qchart_paint_isbase = false;
             QChart::paint(painter, option, widget);
         } else if (qchart_paint_callback != nullptr) {
-            qchart_paint_callback(this, painter, option, widget);
+            QPainter* cbval1 = painter;
+            QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
+            QWidget* cbval3 = widget;
+
+            qchart_paint_callback(this, cbval1, cbval2, cbval3);
         } else {
             QChart::paint(painter, option, widget);
         }
@@ -550,7 +572,11 @@ class VirtualQChart : public QChart {
             qchart_paintwindowframe_isbase = false;
             QChart::paintWindowFrame(painter, option, widget);
         } else if (qchart_paintwindowframe_callback != nullptr) {
-            qchart_paintwindowframe_callback(this, painter, option, widget);
+            QPainter* cbval1 = painter;
+            QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
+            QWidget* cbval3 = widget;
+
+            qchart_paintwindowframe_callback(this, cbval1, cbval2, cbval3);
         } else {
             QChart::paintWindowFrame(painter, option, widget);
         }
@@ -562,7 +588,8 @@ class VirtualQChart : public QChart {
             qchart_boundingrect_isbase = false;
             return QChart::boundingRect();
         } else if (qchart_boundingrect_callback != nullptr) {
-            return qchart_boundingrect_callback();
+            QRectF* callback_ret = qchart_boundingrect_callback();
+            return *callback_ret;
         } else {
             return QChart::boundingRect();
         }
@@ -574,7 +601,8 @@ class VirtualQChart : public QChart {
             qchart_shape_isbase = false;
             return QChart::shape();
         } else if (qchart_shape_callback != nullptr) {
-            return qchart_shape_callback();
+            QPainterPath* callback_ret = qchart_shape_callback();
+            return *callback_ret;
         } else {
             return QChart::shape();
         }
@@ -586,7 +614,9 @@ class VirtualQChart : public QChart {
             qchart_initstyleoption_isbase = false;
             QChart::initStyleOption(option);
         } else if (qchart_initstyleoption_callback != nullptr) {
-            qchart_initstyleoption_callback(this, option);
+            QStyleOption* cbval1 = option;
+
+            qchart_initstyleoption_callback(this, cbval1);
         } else {
             QChart::initStyleOption(option);
         }
@@ -598,7 +628,13 @@ class VirtualQChart : public QChart {
             qchart_sizehint_isbase = false;
             return QChart::sizeHint(which, constraint);
         } else if (qchart_sizehint_callback != nullptr) {
-            return qchart_sizehint_callback(this, which, constraint);
+            int cbval1 = static_cast<int>(which);
+            const QSizeF& constraint_ret = constraint;
+            // Cast returned reference into pointer
+            QSizeF* cbval2 = const_cast<QSizeF*>(&constraint_ret);
+
+            QSizeF* callback_ret = qchart_sizehint_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QChart::sizeHint(which, constraint);
         }
@@ -622,7 +658,13 @@ class VirtualQChart : public QChart {
             qchart_itemchange_isbase = false;
             return QChart::itemChange(change, value);
         } else if (qchart_itemchange_callback != nullptr) {
-            return qchart_itemchange_callback(this, change, value);
+            int cbval1 = static_cast<int>(change);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            QVariant* callback_ret = qchart_itemchange_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QChart::itemChange(change, value);
         }
@@ -634,7 +676,21 @@ class VirtualQChart : public QChart {
             qchart_propertychange_isbase = false;
             return QChart::propertyChange(propertyName, value);
         } else if (qchart_propertychange_callback != nullptr) {
-            return qchart_propertychange_callback(this, propertyName, value);
+            const QString propertyName_ret = propertyName;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray propertyName_b = propertyName_ret.toUtf8();
+            libqt_string propertyName_str;
+            propertyName_str.len = propertyName_b.length();
+            propertyName_str.data = static_cast<char*>(malloc((propertyName_str.len + 1) * sizeof(char)));
+            memcpy(propertyName_str.data, propertyName_b.data(), propertyName_str.len);
+            propertyName_str.data[propertyName_str.len] = '\0';
+            libqt_string cbval1 = propertyName_str;
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            QVariant* callback_ret = qchart_propertychange_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QChart::propertyChange(propertyName, value);
         }
@@ -646,7 +702,10 @@ class VirtualQChart : public QChart {
             qchart_sceneevent_isbase = false;
             return QChart::sceneEvent(event);
         } else if (qchart_sceneevent_callback != nullptr) {
-            return qchart_sceneevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qchart_sceneevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QChart::sceneEvent(event);
         }
@@ -658,7 +717,10 @@ class VirtualQChart : public QChart {
             qchart_windowframeevent_isbase = false;
             return QChart::windowFrameEvent(e);
         } else if (qchart_windowframeevent_callback != nullptr) {
-            return qchart_windowframeevent_callback(this, e);
+            QEvent* cbval1 = e;
+
+            bool callback_ret = qchart_windowframeevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QChart::windowFrameEvent(e);
         }
@@ -670,7 +732,12 @@ class VirtualQChart : public QChart {
             qchart_windowframesectionat_isbase = false;
             return QChart::windowFrameSectionAt(pos);
         } else if (qchart_windowframesectionat_callback != nullptr) {
-            return qchart_windowframesectionat_callback(this, pos);
+            const QPointF& pos_ret = pos;
+            // Cast returned reference into pointer
+            QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
+
+            int callback_ret = qchart_windowframesectionat_callback(this, cbval1);
+            return static_cast<Qt::WindowFrameSection>(callback_ret);
         } else {
             return QChart::windowFrameSectionAt(pos);
         }
@@ -682,7 +749,10 @@ class VirtualQChart : public QChart {
             qchart_event_isbase = false;
             return QChart::event(event);
         } else if (qchart_event_callback != nullptr) {
-            return qchart_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qchart_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QChart::event(event);
         }
@@ -694,7 +764,9 @@ class VirtualQChart : public QChart {
             qchart_changeevent_isbase = false;
             QChart::changeEvent(event);
         } else if (qchart_changeevent_callback != nullptr) {
-            qchart_changeevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qchart_changeevent_callback(this, cbval1);
         } else {
             QChart::changeEvent(event);
         }
@@ -706,7 +778,9 @@ class VirtualQChart : public QChart {
             qchart_closeevent_isbase = false;
             QChart::closeEvent(event);
         } else if (qchart_closeevent_callback != nullptr) {
-            qchart_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qchart_closeevent_callback(this, cbval1);
         } else {
             QChart::closeEvent(event);
         }
@@ -718,7 +792,9 @@ class VirtualQChart : public QChart {
             qchart_focusinevent_isbase = false;
             QChart::focusInEvent(event);
         } else if (qchart_focusinevent_callback != nullptr) {
-            qchart_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qchart_focusinevent_callback(this, cbval1);
         } else {
             QChart::focusInEvent(event);
         }
@@ -730,7 +806,10 @@ class VirtualQChart : public QChart {
             qchart_focusnextprevchild_isbase = false;
             return QChart::focusNextPrevChild(next);
         } else if (qchart_focusnextprevchild_callback != nullptr) {
-            return qchart_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qchart_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QChart::focusNextPrevChild(next);
         }
@@ -742,7 +821,9 @@ class VirtualQChart : public QChart {
             qchart_focusoutevent_isbase = false;
             QChart::focusOutEvent(event);
         } else if (qchart_focusoutevent_callback != nullptr) {
-            qchart_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qchart_focusoutevent_callback(this, cbval1);
         } else {
             QChart::focusOutEvent(event);
         }
@@ -754,7 +835,9 @@ class VirtualQChart : public QChart {
             qchart_hideevent_isbase = false;
             QChart::hideEvent(event);
         } else if (qchart_hideevent_callback != nullptr) {
-            qchart_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qchart_hideevent_callback(this, cbval1);
         } else {
             QChart::hideEvent(event);
         }
@@ -766,7 +849,9 @@ class VirtualQChart : public QChart {
             qchart_moveevent_isbase = false;
             QChart::moveEvent(event);
         } else if (qchart_moveevent_callback != nullptr) {
-            qchart_moveevent_callback(this, event);
+            QGraphicsSceneMoveEvent* cbval1 = event;
+
+            qchart_moveevent_callback(this, cbval1);
         } else {
             QChart::moveEvent(event);
         }
@@ -790,7 +875,9 @@ class VirtualQChart : public QChart {
             qchart_resizeevent_isbase = false;
             QChart::resizeEvent(event);
         } else if (qchart_resizeevent_callback != nullptr) {
-            qchart_resizeevent_callback(this, event);
+            QGraphicsSceneResizeEvent* cbval1 = event;
+
+            qchart_resizeevent_callback(this, cbval1);
         } else {
             QChart::resizeEvent(event);
         }
@@ -802,7 +889,9 @@ class VirtualQChart : public QChart {
             qchart_showevent_isbase = false;
             QChart::showEvent(event);
         } else if (qchart_showevent_callback != nullptr) {
-            qchart_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qchart_showevent_callback(this, cbval1);
         } else {
             QChart::showEvent(event);
         }
@@ -814,7 +903,9 @@ class VirtualQChart : public QChart {
             qchart_hovermoveevent_isbase = false;
             QChart::hoverMoveEvent(event);
         } else if (qchart_hovermoveevent_callback != nullptr) {
-            qchart_hovermoveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qchart_hovermoveevent_callback(this, cbval1);
         } else {
             QChart::hoverMoveEvent(event);
         }
@@ -826,7 +917,9 @@ class VirtualQChart : public QChart {
             qchart_hoverleaveevent_isbase = false;
             QChart::hoverLeaveEvent(event);
         } else if (qchart_hoverleaveevent_callback != nullptr) {
-            qchart_hoverleaveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qchart_hoverleaveevent_callback(this, cbval1);
         } else {
             QChart::hoverLeaveEvent(event);
         }
@@ -838,7 +931,9 @@ class VirtualQChart : public QChart {
             qchart_grabmouseevent_isbase = false;
             QChart::grabMouseEvent(event);
         } else if (qchart_grabmouseevent_callback != nullptr) {
-            qchart_grabmouseevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qchart_grabmouseevent_callback(this, cbval1);
         } else {
             QChart::grabMouseEvent(event);
         }
@@ -850,7 +945,9 @@ class VirtualQChart : public QChart {
             qchart_ungrabmouseevent_isbase = false;
             QChart::ungrabMouseEvent(event);
         } else if (qchart_ungrabmouseevent_callback != nullptr) {
-            qchart_ungrabmouseevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qchart_ungrabmouseevent_callback(this, cbval1);
         } else {
             QChart::ungrabMouseEvent(event);
         }
@@ -862,7 +959,9 @@ class VirtualQChart : public QChart {
             qchart_grabkeyboardevent_isbase = false;
             QChart::grabKeyboardEvent(event);
         } else if (qchart_grabkeyboardevent_callback != nullptr) {
-            qchart_grabkeyboardevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qchart_grabkeyboardevent_callback(this, cbval1);
         } else {
             QChart::grabKeyboardEvent(event);
         }
@@ -874,7 +973,9 @@ class VirtualQChart : public QChart {
             qchart_ungrabkeyboardevent_isbase = false;
             QChart::ungrabKeyboardEvent(event);
         } else if (qchart_ungrabkeyboardevent_callback != nullptr) {
-            qchart_ungrabkeyboardevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qchart_ungrabkeyboardevent_callback(this, cbval1);
         } else {
             QChart::ungrabKeyboardEvent(event);
         }
@@ -886,7 +987,11 @@ class VirtualQChart : public QChart {
             qchart_eventfilter_isbase = false;
             return QChart::eventFilter(watched, event);
         } else if (qchart_eventfilter_callback != nullptr) {
-            return qchart_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qchart_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QChart::eventFilter(watched, event);
         }
@@ -898,7 +1003,9 @@ class VirtualQChart : public QChart {
             qchart_timerevent_isbase = false;
             QChart::timerEvent(event);
         } else if (qchart_timerevent_callback != nullptr) {
-            qchart_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qchart_timerevent_callback(this, cbval1);
         } else {
             QChart::timerEvent(event);
         }
@@ -910,7 +1017,9 @@ class VirtualQChart : public QChart {
             qchart_childevent_isbase = false;
             QChart::childEvent(event);
         } else if (qchart_childevent_callback != nullptr) {
-            qchart_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qchart_childevent_callback(this, cbval1);
         } else {
             QChart::childEvent(event);
         }
@@ -922,7 +1031,9 @@ class VirtualQChart : public QChart {
             qchart_customevent_isbase = false;
             QChart::customEvent(event);
         } else if (qchart_customevent_callback != nullptr) {
-            qchart_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qchart_customevent_callback(this, cbval1);
         } else {
             QChart::customEvent(event);
         }
@@ -934,7 +1045,11 @@ class VirtualQChart : public QChart {
             qchart_connectnotify_isbase = false;
             QChart::connectNotify(signal);
         } else if (qchart_connectnotify_callback != nullptr) {
-            qchart_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qchart_connectnotify_callback(this, cbval1);
         } else {
             QChart::connectNotify(signal);
         }
@@ -946,7 +1061,11 @@ class VirtualQChart : public QChart {
             qchart_disconnectnotify_isbase = false;
             QChart::disconnectNotify(signal);
         } else if (qchart_disconnectnotify_callback != nullptr) {
-            qchart_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qchart_disconnectnotify_callback(this, cbval1);
         } else {
             QChart::disconnectNotify(signal);
         }
@@ -958,7 +1077,9 @@ class VirtualQChart : public QChart {
             qchart_advance_isbase = false;
             QChart::advance(phase);
         } else if (qchart_advance_callback != nullptr) {
-            qchart_advance_callback(this, phase);
+            int cbval1 = phase;
+
+            qchart_advance_callback(this, cbval1);
         } else {
             QChart::advance(phase);
         }
@@ -970,7 +1091,12 @@ class VirtualQChart : public QChart {
             qchart_contains_isbase = false;
             return QChart::contains(point);
         } else if (qchart_contains_callback != nullptr) {
-            return qchart_contains_callback(this, point);
+            const QPointF& point_ret = point;
+            // Cast returned reference into pointer
+            QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
+
+            bool callback_ret = qchart_contains_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QChart::contains(point);
         }
@@ -982,7 +1108,11 @@ class VirtualQChart : public QChart {
             qchart_collideswithitem_isbase = false;
             return QChart::collidesWithItem(other, mode);
         } else if (qchart_collideswithitem_callback != nullptr) {
-            return qchart_collideswithitem_callback(this, other, mode);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)other;
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qchart_collideswithitem_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QChart::collidesWithItem(other, mode);
         }
@@ -994,7 +1124,13 @@ class VirtualQChart : public QChart {
             qchart_collideswithpath_isbase = false;
             return QChart::collidesWithPath(path, mode);
         } else if (qchart_collideswithpath_callback != nullptr) {
-            return qchart_collideswithpath_callback(this, path, mode);
+            const QPainterPath& path_ret = path;
+            // Cast returned reference into pointer
+            QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qchart_collideswithpath_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QChart::collidesWithPath(path, mode);
         }
@@ -1006,7 +1142,10 @@ class VirtualQChart : public QChart {
             qchart_isobscuredby_isbase = false;
             return QChart::isObscuredBy(item);
         } else if (qchart_isobscuredby_callback != nullptr) {
-            return qchart_isobscuredby_callback(this, item);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)item;
+
+            bool callback_ret = qchart_isobscuredby_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QChart::isObscuredBy(item);
         }
@@ -1018,7 +1157,8 @@ class VirtualQChart : public QChart {
             qchart_opaquearea_isbase = false;
             return QChart::opaqueArea();
         } else if (qchart_opaquearea_callback != nullptr) {
-            return qchart_opaquearea_callback();
+            QPainterPath* callback_ret = qchart_opaquearea_callback();
+            return *callback_ret;
         } else {
             return QChart::opaqueArea();
         }
@@ -1030,7 +1170,11 @@ class VirtualQChart : public QChart {
             qchart_sceneeventfilter_isbase = false;
             return QChart::sceneEventFilter(watched, event);
         } else if (qchart_sceneeventfilter_callback != nullptr) {
-            return qchart_sceneeventfilter_callback(this, watched, event);
+            QGraphicsItem* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qchart_sceneeventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QChart::sceneEventFilter(watched, event);
         }
@@ -1042,7 +1186,9 @@ class VirtualQChart : public QChart {
             qchart_contextmenuevent_isbase = false;
             QChart::contextMenuEvent(event);
         } else if (qchart_contextmenuevent_callback != nullptr) {
-            qchart_contextmenuevent_callback(this, event);
+            QGraphicsSceneContextMenuEvent* cbval1 = event;
+
+            qchart_contextmenuevent_callback(this, cbval1);
         } else {
             QChart::contextMenuEvent(event);
         }
@@ -1054,7 +1200,9 @@ class VirtualQChart : public QChart {
             qchart_dragenterevent_isbase = false;
             QChart::dragEnterEvent(event);
         } else if (qchart_dragenterevent_callback != nullptr) {
-            qchart_dragenterevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qchart_dragenterevent_callback(this, cbval1);
         } else {
             QChart::dragEnterEvent(event);
         }
@@ -1066,7 +1214,9 @@ class VirtualQChart : public QChart {
             qchart_dragleaveevent_isbase = false;
             QChart::dragLeaveEvent(event);
         } else if (qchart_dragleaveevent_callback != nullptr) {
-            qchart_dragleaveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qchart_dragleaveevent_callback(this, cbval1);
         } else {
             QChart::dragLeaveEvent(event);
         }
@@ -1078,7 +1228,9 @@ class VirtualQChart : public QChart {
             qchart_dragmoveevent_isbase = false;
             QChart::dragMoveEvent(event);
         } else if (qchart_dragmoveevent_callback != nullptr) {
-            qchart_dragmoveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qchart_dragmoveevent_callback(this, cbval1);
         } else {
             QChart::dragMoveEvent(event);
         }
@@ -1090,7 +1242,9 @@ class VirtualQChart : public QChart {
             qchart_dropevent_isbase = false;
             QChart::dropEvent(event);
         } else if (qchart_dropevent_callback != nullptr) {
-            qchart_dropevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qchart_dropevent_callback(this, cbval1);
         } else {
             QChart::dropEvent(event);
         }
@@ -1102,7 +1256,9 @@ class VirtualQChart : public QChart {
             qchart_hoverenterevent_isbase = false;
             QChart::hoverEnterEvent(event);
         } else if (qchart_hoverenterevent_callback != nullptr) {
-            qchart_hoverenterevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qchart_hoverenterevent_callback(this, cbval1);
         } else {
             QChart::hoverEnterEvent(event);
         }
@@ -1114,7 +1270,9 @@ class VirtualQChart : public QChart {
             qchart_keypressevent_isbase = false;
             QChart::keyPressEvent(event);
         } else if (qchart_keypressevent_callback != nullptr) {
-            qchart_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qchart_keypressevent_callback(this, cbval1);
         } else {
             QChart::keyPressEvent(event);
         }
@@ -1126,7 +1284,9 @@ class VirtualQChart : public QChart {
             qchart_keyreleaseevent_isbase = false;
             QChart::keyReleaseEvent(event);
         } else if (qchart_keyreleaseevent_callback != nullptr) {
-            qchart_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qchart_keyreleaseevent_callback(this, cbval1);
         } else {
             QChart::keyReleaseEvent(event);
         }
@@ -1138,7 +1298,9 @@ class VirtualQChart : public QChart {
             qchart_mousepressevent_isbase = false;
             QChart::mousePressEvent(event);
         } else if (qchart_mousepressevent_callback != nullptr) {
-            qchart_mousepressevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qchart_mousepressevent_callback(this, cbval1);
         } else {
             QChart::mousePressEvent(event);
         }
@@ -1150,7 +1312,9 @@ class VirtualQChart : public QChart {
             qchart_mousemoveevent_isbase = false;
             QChart::mouseMoveEvent(event);
         } else if (qchart_mousemoveevent_callback != nullptr) {
-            qchart_mousemoveevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qchart_mousemoveevent_callback(this, cbval1);
         } else {
             QChart::mouseMoveEvent(event);
         }
@@ -1162,7 +1326,9 @@ class VirtualQChart : public QChart {
             qchart_mousereleaseevent_isbase = false;
             QChart::mouseReleaseEvent(event);
         } else if (qchart_mousereleaseevent_callback != nullptr) {
-            qchart_mousereleaseevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qchart_mousereleaseevent_callback(this, cbval1);
         } else {
             QChart::mouseReleaseEvent(event);
         }
@@ -1174,7 +1340,9 @@ class VirtualQChart : public QChart {
             qchart_mousedoubleclickevent_isbase = false;
             QChart::mouseDoubleClickEvent(event);
         } else if (qchart_mousedoubleclickevent_callback != nullptr) {
-            qchart_mousedoubleclickevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qchart_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QChart::mouseDoubleClickEvent(event);
         }
@@ -1186,7 +1354,9 @@ class VirtualQChart : public QChart {
             qchart_wheelevent_isbase = false;
             QChart::wheelEvent(event);
         } else if (qchart_wheelevent_callback != nullptr) {
-            qchart_wheelevent_callback(this, event);
+            QGraphicsSceneWheelEvent* cbval1 = event;
+
+            qchart_wheelevent_callback(this, cbval1);
         } else {
             QChart::wheelEvent(event);
         }
@@ -1198,7 +1368,9 @@ class VirtualQChart : public QChart {
             qchart_inputmethodevent_isbase = false;
             QChart::inputMethodEvent(event);
         } else if (qchart_inputmethodevent_callback != nullptr) {
-            qchart_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qchart_inputmethodevent_callback(this, cbval1);
         } else {
             QChart::inputMethodEvent(event);
         }
@@ -1210,7 +1382,10 @@ class VirtualQChart : public QChart {
             qchart_inputmethodquery_isbase = false;
             return QChart::inputMethodQuery(query);
         } else if (qchart_inputmethodquery_callback != nullptr) {
-            return qchart_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qchart_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QChart::inputMethodQuery(query);
         }
@@ -1222,7 +1397,10 @@ class VirtualQChart : public QChart {
             qchart_supportsextension_isbase = false;
             return QChart::supportsExtension(extension);
         } else if (qchart_supportsextension_callback != nullptr) {
-            return qchart_supportsextension_callback(this, extension);
+            int cbval1 = static_cast<int>(extension);
+
+            bool callback_ret = qchart_supportsextension_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QChart::supportsExtension(extension);
         }
@@ -1234,7 +1412,12 @@ class VirtualQChart : public QChart {
             qchart_setextension_isbase = false;
             QChart::setExtension(extension, variant);
         } else if (qchart_setextension_callback != nullptr) {
-            qchart_setextension_callback(this, extension, variant);
+            int cbval1 = static_cast<int>(extension);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
+
+            qchart_setextension_callback(this, cbval1, cbval2);
         } else {
             QChart::setExtension(extension, variant);
         }
@@ -1246,7 +1429,12 @@ class VirtualQChart : public QChart {
             qchart_extension_isbase = false;
             return QChart::extension(variant);
         } else if (qchart_extension_callback != nullptr) {
-            return qchart_extension_callback(this, variant);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
+
+            QVariant* callback_ret = qchart_extension_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QChart::extension(variant);
         }
@@ -1258,7 +1446,8 @@ class VirtualQChart : public QChart {
             qchart_isempty_isbase = false;
             return QChart::isEmpty();
         } else if (qchart_isempty_callback != nullptr) {
-            return qchart_isempty_callback();
+            bool callback_ret = qchart_isempty_callback();
+            return callback_ret;
         } else {
             return QChart::isEmpty();
         }
@@ -1282,7 +1471,8 @@ class VirtualQChart : public QChart {
             qchart_sender_isbase = false;
             return QChart::sender();
         } else if (qchart_sender_callback != nullptr) {
-            return qchart_sender_callback();
+            QObject* callback_ret = qchart_sender_callback();
+            return callback_ret;
         } else {
             return QChart::sender();
         }
@@ -1294,7 +1484,8 @@ class VirtualQChart : public QChart {
             qchart_sendersignalindex_isbase = false;
             return QChart::senderSignalIndex();
         } else if (qchart_sendersignalindex_callback != nullptr) {
-            return qchart_sendersignalindex_callback();
+            int callback_ret = qchart_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QChart::senderSignalIndex();
         }
@@ -1306,7 +1497,10 @@ class VirtualQChart : public QChart {
             qchart_receivers_isbase = false;
             return QChart::receivers(signal);
         } else if (qchart_receivers_callback != nullptr) {
-            return qchart_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qchart_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QChart::receivers(signal);
         }
@@ -1318,7 +1512,12 @@ class VirtualQChart : public QChart {
             qchart_issignalconnected_isbase = false;
             return QChart::isSignalConnected(signal);
         } else if (qchart_issignalconnected_callback != nullptr) {
-            return qchart_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qchart_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QChart::isSignalConnected(signal);
         }
@@ -1366,7 +1565,9 @@ class VirtualQChart : public QChart {
             qchart_setgraphicsitem_isbase = false;
             QChart::setGraphicsItem(item);
         } else if (qchart_setgraphicsitem_callback != nullptr) {
-            qchart_setgraphicsitem_callback(this, item);
+            QGraphicsItem* cbval1 = item;
+
+            qchart_setgraphicsitem_callback(this, cbval1);
         } else {
             QChart::setGraphicsItem(item);
         }
@@ -1378,11 +1579,133 @@ class VirtualQChart : public QChart {
             qchart_setownedbylayout_isbase = false;
             QChart::setOwnedByLayout(ownedByLayout);
         } else if (qchart_setownedbylayout_callback != nullptr) {
-            qchart_setownedbylayout_callback(this, ownedByLayout);
+            bool cbval1 = ownedByLayout;
+
+            qchart_setownedbylayout_callback(this, cbval1);
         } else {
             QChart::setOwnedByLayout(ownedByLayout);
         }
     }
+
+    // Friend functions
+    friend void QChart_InitStyleOption(const QChart* self, QStyleOption* option);
+    friend void QChart_QBaseInitStyleOption(const QChart* self, QStyleOption* option);
+    friend QSizeF* QChart_SizeHint(const QChart* self, int which, const QSizeF* constraint);
+    friend QSizeF* QChart_QBaseSizeHint(const QChart* self, int which, const QSizeF* constraint);
+    friend void QChart_UpdateGeometry(QChart* self);
+    friend void QChart_QBaseUpdateGeometry(QChart* self);
+    friend QVariant* QChart_ItemChange(QChart* self, int change, const QVariant* value);
+    friend QVariant* QChart_QBaseItemChange(QChart* self, int change, const QVariant* value);
+    friend QVariant* QChart_PropertyChange(QChart* self, const libqt_string propertyName, const QVariant* value);
+    friend QVariant* QChart_QBasePropertyChange(QChart* self, const libqt_string propertyName, const QVariant* value);
+    friend bool QChart_SceneEvent(QChart* self, QEvent* event);
+    friend bool QChart_QBaseSceneEvent(QChart* self, QEvent* event);
+    friend bool QChart_WindowFrameEvent(QChart* self, QEvent* e);
+    friend bool QChart_QBaseWindowFrameEvent(QChart* self, QEvent* e);
+    friend int QChart_WindowFrameSectionAt(const QChart* self, const QPointF* pos);
+    friend int QChart_QBaseWindowFrameSectionAt(const QChart* self, const QPointF* pos);
+    friend bool QChart_Event(QChart* self, QEvent* event);
+    friend bool QChart_QBaseEvent(QChart* self, QEvent* event);
+    friend void QChart_ChangeEvent(QChart* self, QEvent* event);
+    friend void QChart_QBaseChangeEvent(QChart* self, QEvent* event);
+    friend void QChart_CloseEvent(QChart* self, QCloseEvent* event);
+    friend void QChart_QBaseCloseEvent(QChart* self, QCloseEvent* event);
+    friend void QChart_FocusInEvent(QChart* self, QFocusEvent* event);
+    friend void QChart_QBaseFocusInEvent(QChart* self, QFocusEvent* event);
+    friend bool QChart_FocusNextPrevChild(QChart* self, bool next);
+    friend bool QChart_QBaseFocusNextPrevChild(QChart* self, bool next);
+    friend void QChart_FocusOutEvent(QChart* self, QFocusEvent* event);
+    friend void QChart_QBaseFocusOutEvent(QChart* self, QFocusEvent* event);
+    friend void QChart_HideEvent(QChart* self, QHideEvent* event);
+    friend void QChart_QBaseHideEvent(QChart* self, QHideEvent* event);
+    friend void QChart_MoveEvent(QChart* self, QGraphicsSceneMoveEvent* event);
+    friend void QChart_QBaseMoveEvent(QChart* self, QGraphicsSceneMoveEvent* event);
+    friend void QChart_PolishEvent(QChart* self);
+    friend void QChart_QBasePolishEvent(QChart* self);
+    friend void QChart_ResizeEvent(QChart* self, QGraphicsSceneResizeEvent* event);
+    friend void QChart_QBaseResizeEvent(QChart* self, QGraphicsSceneResizeEvent* event);
+    friend void QChart_ShowEvent(QChart* self, QShowEvent* event);
+    friend void QChart_QBaseShowEvent(QChart* self, QShowEvent* event);
+    friend void QChart_HoverMoveEvent(QChart* self, QGraphicsSceneHoverEvent* event);
+    friend void QChart_QBaseHoverMoveEvent(QChart* self, QGraphicsSceneHoverEvent* event);
+    friend void QChart_HoverLeaveEvent(QChart* self, QGraphicsSceneHoverEvent* event);
+    friend void QChart_QBaseHoverLeaveEvent(QChart* self, QGraphicsSceneHoverEvent* event);
+    friend void QChart_GrabMouseEvent(QChart* self, QEvent* event);
+    friend void QChart_QBaseGrabMouseEvent(QChart* self, QEvent* event);
+    friend void QChart_UngrabMouseEvent(QChart* self, QEvent* event);
+    friend void QChart_QBaseUngrabMouseEvent(QChart* self, QEvent* event);
+    friend void QChart_GrabKeyboardEvent(QChart* self, QEvent* event);
+    friend void QChart_QBaseGrabKeyboardEvent(QChart* self, QEvent* event);
+    friend void QChart_UngrabKeyboardEvent(QChart* self, QEvent* event);
+    friend void QChart_QBaseUngrabKeyboardEvent(QChart* self, QEvent* event);
+    friend void QChart_TimerEvent(QChart* self, QTimerEvent* event);
+    friend void QChart_QBaseTimerEvent(QChart* self, QTimerEvent* event);
+    friend void QChart_ChildEvent(QChart* self, QChildEvent* event);
+    friend void QChart_QBaseChildEvent(QChart* self, QChildEvent* event);
+    friend void QChart_CustomEvent(QChart* self, QEvent* event);
+    friend void QChart_QBaseCustomEvent(QChart* self, QEvent* event);
+    friend void QChart_ConnectNotify(QChart* self, const QMetaMethod* signal);
+    friend void QChart_QBaseConnectNotify(QChart* self, const QMetaMethod* signal);
+    friend void QChart_DisconnectNotify(QChart* self, const QMetaMethod* signal);
+    friend void QChart_QBaseDisconnectNotify(QChart* self, const QMetaMethod* signal);
+    friend bool QChart_SceneEventFilter(QChart* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QChart_QBaseSceneEventFilter(QChart* self, QGraphicsItem* watched, QEvent* event);
+    friend void QChart_ContextMenuEvent(QChart* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QChart_QBaseContextMenuEvent(QChart* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QChart_DragEnterEvent(QChart* self, QGraphicsSceneDragDropEvent* event);
+    friend void QChart_QBaseDragEnterEvent(QChart* self, QGraphicsSceneDragDropEvent* event);
+    friend void QChart_DragLeaveEvent(QChart* self, QGraphicsSceneDragDropEvent* event);
+    friend void QChart_QBaseDragLeaveEvent(QChart* self, QGraphicsSceneDragDropEvent* event);
+    friend void QChart_DragMoveEvent(QChart* self, QGraphicsSceneDragDropEvent* event);
+    friend void QChart_QBaseDragMoveEvent(QChart* self, QGraphicsSceneDragDropEvent* event);
+    friend void QChart_DropEvent(QChart* self, QGraphicsSceneDragDropEvent* event);
+    friend void QChart_QBaseDropEvent(QChart* self, QGraphicsSceneDragDropEvent* event);
+    friend void QChart_HoverEnterEvent(QChart* self, QGraphicsSceneHoverEvent* event);
+    friend void QChart_QBaseHoverEnterEvent(QChart* self, QGraphicsSceneHoverEvent* event);
+    friend void QChart_KeyPressEvent(QChart* self, QKeyEvent* event);
+    friend void QChart_QBaseKeyPressEvent(QChart* self, QKeyEvent* event);
+    friend void QChart_KeyReleaseEvent(QChart* self, QKeyEvent* event);
+    friend void QChart_QBaseKeyReleaseEvent(QChart* self, QKeyEvent* event);
+    friend void QChart_MousePressEvent(QChart* self, QGraphicsSceneMouseEvent* event);
+    friend void QChart_QBaseMousePressEvent(QChart* self, QGraphicsSceneMouseEvent* event);
+    friend void QChart_MouseMoveEvent(QChart* self, QGraphicsSceneMouseEvent* event);
+    friend void QChart_QBaseMouseMoveEvent(QChart* self, QGraphicsSceneMouseEvent* event);
+    friend void QChart_MouseReleaseEvent(QChart* self, QGraphicsSceneMouseEvent* event);
+    friend void QChart_QBaseMouseReleaseEvent(QChart* self, QGraphicsSceneMouseEvent* event);
+    friend void QChart_MouseDoubleClickEvent(QChart* self, QGraphicsSceneMouseEvent* event);
+    friend void QChart_QBaseMouseDoubleClickEvent(QChart* self, QGraphicsSceneMouseEvent* event);
+    friend void QChart_WheelEvent(QChart* self, QGraphicsSceneWheelEvent* event);
+    friend void QChart_QBaseWheelEvent(QChart* self, QGraphicsSceneWheelEvent* event);
+    friend void QChart_InputMethodEvent(QChart* self, QInputMethodEvent* event);
+    friend void QChart_QBaseInputMethodEvent(QChart* self, QInputMethodEvent* event);
+    friend QVariant* QChart_InputMethodQuery(const QChart* self, int query);
+    friend QVariant* QChart_QBaseInputMethodQuery(const QChart* self, int query);
+    friend bool QChart_SupportsExtension(const QChart* self, int extension);
+    friend bool QChart_QBaseSupportsExtension(const QChart* self, int extension);
+    friend void QChart_SetExtension(QChart* self, int extension, const QVariant* variant);
+    friend void QChart_QBaseSetExtension(QChart* self, int extension, const QVariant* variant);
+    friend QVariant* QChart_Extension(const QChart* self, const QVariant* variant);
+    friend QVariant* QChart_QBaseExtension(const QChart* self, const QVariant* variant);
+    friend void QChart_UpdateMicroFocus(QChart* self);
+    friend void QChart_QBaseUpdateMicroFocus(QChart* self);
+    friend QObject* QChart_Sender(const QChart* self);
+    friend QObject* QChart_QBaseSender(const QChart* self);
+    friend int QChart_SenderSignalIndex(const QChart* self);
+    friend int QChart_QBaseSenderSignalIndex(const QChart* self);
+    friend int QChart_Receivers(const QChart* self, const char* signal);
+    friend int QChart_QBaseReceivers(const QChart* self, const char* signal);
+    friend bool QChart_IsSignalConnected(const QChart* self, const QMetaMethod* signal);
+    friend bool QChart_QBaseIsSignalConnected(const QChart* self, const QMetaMethod* signal);
+    friend void QChart_AddToIndex(QChart* self);
+    friend void QChart_QBaseAddToIndex(QChart* self);
+    friend void QChart_RemoveFromIndex(QChart* self);
+    friend void QChart_QBaseRemoveFromIndex(QChart* self);
+    friend void QChart_PrepareGeometryChange(QChart* self);
+    friend void QChart_QBasePrepareGeometryChange(QChart* self);
+    friend void QChart_SetGraphicsItem(QChart* self, QGraphicsItem* item);
+    friend void QChart_QBaseSetGraphicsItem(QChart* self, QGraphicsItem* item);
+    friend void QChart_SetOwnedByLayout(QChart* self, bool ownedByLayout);
+    friend void QChart_QBaseSetOwnedByLayout(QChart* self, bool ownedByLayout);
 };
 
 #endif

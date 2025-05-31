@@ -15,23 +15,12 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
-typedef struct QChildEvent QChildEvent;
-typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QPoint QPoint;
-typedef struct QThread QThread;
-typedef struct QTimerEvent QTimerEvent;
 typedef struct QUrl QUrl;
-typedef struct QVariant QVariant;
 typedef struct QWebEngineContextMenuRequest QWebEngineContextMenuRequest;
 #endif
 
@@ -70,8 +59,6 @@ int QWebEngineContextMenuRequest_MediaFlags(const QWebEngineContextMenuRequest* 
 int QWebEngineContextMenuRequest_EditFlags(const QWebEngineContextMenuRequest* self);
 libqt_string QWebEngineContextMenuRequest_Tr2(const char* s, const char* c);
 libqt_string QWebEngineContextMenuRequest_Tr3(const char* s, const char* c, int n);
-bool QWebEngineContextMenuRequest_Event(QWebEngineContextMenuRequest* self, QEvent* event);
-bool QWebEngineContextMenuRequest_EventFilter(QWebEngineContextMenuRequest* self, QObject* watched, QEvent* event);
 void QWebEngineContextMenuRequest_Delete(QWebEngineContextMenuRequest* self);
 
 #ifdef __cplusplus

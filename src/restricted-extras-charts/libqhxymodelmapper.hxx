@@ -11,24 +11,27 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QHXYModelMapper so that we can call protected methods
-class VirtualQHXYModelMapper : public QHXYModelMapper {
+class VirtualQHXYModelMapper final : public QHXYModelMapper {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQHXYModelMapper = true;
+
     // Virtual class public types (including callbacks)
-    using QHXYModelMapper_Metacall_Callback = int (*)(QHXYModelMapper*, QMetaObject::Call, int, void**);
+    using QHXYModelMapper_Metacall_Callback = int (*)(QHXYModelMapper*, int, int, void**);
     using QHXYModelMapper_Event_Callback = bool (*)(QHXYModelMapper*, QEvent*);
     using QHXYModelMapper_EventFilter_Callback = bool (*)(QHXYModelMapper*, QObject*, QEvent*);
     using QHXYModelMapper_TimerEvent_Callback = void (*)(QHXYModelMapper*, QTimerEvent*);
     using QHXYModelMapper_ChildEvent_Callback = void (*)(QHXYModelMapper*, QChildEvent*);
     using QHXYModelMapper_CustomEvent_Callback = void (*)(QHXYModelMapper*, QEvent*);
-    using QHXYModelMapper_ConnectNotify_Callback = void (*)(QHXYModelMapper*, const QMetaMethod&);
-    using QHXYModelMapper_DisconnectNotify_Callback = void (*)(QHXYModelMapper*, const QMetaMethod&);
+    using QHXYModelMapper_ConnectNotify_Callback = void (*)(QHXYModelMapper*, QMetaMethod*);
+    using QHXYModelMapper_DisconnectNotify_Callback = void (*)(QHXYModelMapper*, QMetaMethod*);
     using QHXYModelMapper_First_Callback = int (*)();
     using QHXYModelMapper_SetFirst_Callback = void (*)(QHXYModelMapper*, int);
     using QHXYModelMapper_Count_Callback = int (*)();
     using QHXYModelMapper_SetCount_Callback = void (*)(QHXYModelMapper*, int);
-    using QHXYModelMapper_Orientation_Callback = Qt::Orientation (*)();
-    using QHXYModelMapper_SetOrientation_Callback = void (*)(QHXYModelMapper*, Qt::Orientation);
+    using QHXYModelMapper_Orientation_Callback = int (*)();
+    using QHXYModelMapper_SetOrientation_Callback = void (*)(QHXYModelMapper*, int);
     using QHXYModelMapper_XSection_Callback = int (*)();
     using QHXYModelMapper_SetXSection_Callback = void (*)(QHXYModelMapper*, int);
     using QHXYModelMapper_YSection_Callback = int (*)();
@@ -36,7 +39,7 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
     using QHXYModelMapper_Sender_Callback = QObject* (*)();
     using QHXYModelMapper_SenderSignalIndex_Callback = int (*)();
     using QHXYModelMapper_Receivers_Callback = int (*)(const QHXYModelMapper*, const char*);
-    using QHXYModelMapper_IsSignalConnected_Callback = bool (*)(const QHXYModelMapper*, const QMetaMethod&);
+    using QHXYModelMapper_IsSignalConnected_Callback = bool (*)(const QHXYModelMapper*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -117,52 +120,52 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
     }
 
     // Callback setters
-    void setQHXYModelMapper_Metacall_Callback(QHXYModelMapper_Metacall_Callback cb) { qhxymodelmapper_metacall_callback = cb; }
-    void setQHXYModelMapper_Event_Callback(QHXYModelMapper_Event_Callback cb) { qhxymodelmapper_event_callback = cb; }
-    void setQHXYModelMapper_EventFilter_Callback(QHXYModelMapper_EventFilter_Callback cb) { qhxymodelmapper_eventfilter_callback = cb; }
-    void setQHXYModelMapper_TimerEvent_Callback(QHXYModelMapper_TimerEvent_Callback cb) { qhxymodelmapper_timerevent_callback = cb; }
-    void setQHXYModelMapper_ChildEvent_Callback(QHXYModelMapper_ChildEvent_Callback cb) { qhxymodelmapper_childevent_callback = cb; }
-    void setQHXYModelMapper_CustomEvent_Callback(QHXYModelMapper_CustomEvent_Callback cb) { qhxymodelmapper_customevent_callback = cb; }
-    void setQHXYModelMapper_ConnectNotify_Callback(QHXYModelMapper_ConnectNotify_Callback cb) { qhxymodelmapper_connectnotify_callback = cb; }
-    void setQHXYModelMapper_DisconnectNotify_Callback(QHXYModelMapper_DisconnectNotify_Callback cb) { qhxymodelmapper_disconnectnotify_callback = cb; }
-    void setQHXYModelMapper_First_Callback(QHXYModelMapper_First_Callback cb) { qhxymodelmapper_first_callback = cb; }
-    void setQHXYModelMapper_SetFirst_Callback(QHXYModelMapper_SetFirst_Callback cb) { qhxymodelmapper_setfirst_callback = cb; }
-    void setQHXYModelMapper_Count_Callback(QHXYModelMapper_Count_Callback cb) { qhxymodelmapper_count_callback = cb; }
-    void setQHXYModelMapper_SetCount_Callback(QHXYModelMapper_SetCount_Callback cb) { qhxymodelmapper_setcount_callback = cb; }
-    void setQHXYModelMapper_Orientation_Callback(QHXYModelMapper_Orientation_Callback cb) { qhxymodelmapper_orientation_callback = cb; }
-    void setQHXYModelMapper_SetOrientation_Callback(QHXYModelMapper_SetOrientation_Callback cb) { qhxymodelmapper_setorientation_callback = cb; }
-    void setQHXYModelMapper_XSection_Callback(QHXYModelMapper_XSection_Callback cb) { qhxymodelmapper_xsection_callback = cb; }
-    void setQHXYModelMapper_SetXSection_Callback(QHXYModelMapper_SetXSection_Callback cb) { qhxymodelmapper_setxsection_callback = cb; }
-    void setQHXYModelMapper_YSection_Callback(QHXYModelMapper_YSection_Callback cb) { qhxymodelmapper_ysection_callback = cb; }
-    void setQHXYModelMapper_SetYSection_Callback(QHXYModelMapper_SetYSection_Callback cb) { qhxymodelmapper_setysection_callback = cb; }
-    void setQHXYModelMapper_Sender_Callback(QHXYModelMapper_Sender_Callback cb) { qhxymodelmapper_sender_callback = cb; }
-    void setQHXYModelMapper_SenderSignalIndex_Callback(QHXYModelMapper_SenderSignalIndex_Callback cb) { qhxymodelmapper_sendersignalindex_callback = cb; }
-    void setQHXYModelMapper_Receivers_Callback(QHXYModelMapper_Receivers_Callback cb) { qhxymodelmapper_receivers_callback = cb; }
-    void setQHXYModelMapper_IsSignalConnected_Callback(QHXYModelMapper_IsSignalConnected_Callback cb) { qhxymodelmapper_issignalconnected_callback = cb; }
+    inline void setQHXYModelMapper_Metacall_Callback(QHXYModelMapper_Metacall_Callback cb) { qhxymodelmapper_metacall_callback = cb; }
+    inline void setQHXYModelMapper_Event_Callback(QHXYModelMapper_Event_Callback cb) { qhxymodelmapper_event_callback = cb; }
+    inline void setQHXYModelMapper_EventFilter_Callback(QHXYModelMapper_EventFilter_Callback cb) { qhxymodelmapper_eventfilter_callback = cb; }
+    inline void setQHXYModelMapper_TimerEvent_Callback(QHXYModelMapper_TimerEvent_Callback cb) { qhxymodelmapper_timerevent_callback = cb; }
+    inline void setQHXYModelMapper_ChildEvent_Callback(QHXYModelMapper_ChildEvent_Callback cb) { qhxymodelmapper_childevent_callback = cb; }
+    inline void setQHXYModelMapper_CustomEvent_Callback(QHXYModelMapper_CustomEvent_Callback cb) { qhxymodelmapper_customevent_callback = cb; }
+    inline void setQHXYModelMapper_ConnectNotify_Callback(QHXYModelMapper_ConnectNotify_Callback cb) { qhxymodelmapper_connectnotify_callback = cb; }
+    inline void setQHXYModelMapper_DisconnectNotify_Callback(QHXYModelMapper_DisconnectNotify_Callback cb) { qhxymodelmapper_disconnectnotify_callback = cb; }
+    inline void setQHXYModelMapper_First_Callback(QHXYModelMapper_First_Callback cb) { qhxymodelmapper_first_callback = cb; }
+    inline void setQHXYModelMapper_SetFirst_Callback(QHXYModelMapper_SetFirst_Callback cb) { qhxymodelmapper_setfirst_callback = cb; }
+    inline void setQHXYModelMapper_Count_Callback(QHXYModelMapper_Count_Callback cb) { qhxymodelmapper_count_callback = cb; }
+    inline void setQHXYModelMapper_SetCount_Callback(QHXYModelMapper_SetCount_Callback cb) { qhxymodelmapper_setcount_callback = cb; }
+    inline void setQHXYModelMapper_Orientation_Callback(QHXYModelMapper_Orientation_Callback cb) { qhxymodelmapper_orientation_callback = cb; }
+    inline void setQHXYModelMapper_SetOrientation_Callback(QHXYModelMapper_SetOrientation_Callback cb) { qhxymodelmapper_setorientation_callback = cb; }
+    inline void setQHXYModelMapper_XSection_Callback(QHXYModelMapper_XSection_Callback cb) { qhxymodelmapper_xsection_callback = cb; }
+    inline void setQHXYModelMapper_SetXSection_Callback(QHXYModelMapper_SetXSection_Callback cb) { qhxymodelmapper_setxsection_callback = cb; }
+    inline void setQHXYModelMapper_YSection_Callback(QHXYModelMapper_YSection_Callback cb) { qhxymodelmapper_ysection_callback = cb; }
+    inline void setQHXYModelMapper_SetYSection_Callback(QHXYModelMapper_SetYSection_Callback cb) { qhxymodelmapper_setysection_callback = cb; }
+    inline void setQHXYModelMapper_Sender_Callback(QHXYModelMapper_Sender_Callback cb) { qhxymodelmapper_sender_callback = cb; }
+    inline void setQHXYModelMapper_SenderSignalIndex_Callback(QHXYModelMapper_SenderSignalIndex_Callback cb) { qhxymodelmapper_sendersignalindex_callback = cb; }
+    inline void setQHXYModelMapper_Receivers_Callback(QHXYModelMapper_Receivers_Callback cb) { qhxymodelmapper_receivers_callback = cb; }
+    inline void setQHXYModelMapper_IsSignalConnected_Callback(QHXYModelMapper_IsSignalConnected_Callback cb) { qhxymodelmapper_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQHXYModelMapper_Metacall_IsBase(bool value) const { qhxymodelmapper_metacall_isbase = value; }
-    void setQHXYModelMapper_Event_IsBase(bool value) const { qhxymodelmapper_event_isbase = value; }
-    void setQHXYModelMapper_EventFilter_IsBase(bool value) const { qhxymodelmapper_eventfilter_isbase = value; }
-    void setQHXYModelMapper_TimerEvent_IsBase(bool value) const { qhxymodelmapper_timerevent_isbase = value; }
-    void setQHXYModelMapper_ChildEvent_IsBase(bool value) const { qhxymodelmapper_childevent_isbase = value; }
-    void setQHXYModelMapper_CustomEvent_IsBase(bool value) const { qhxymodelmapper_customevent_isbase = value; }
-    void setQHXYModelMapper_ConnectNotify_IsBase(bool value) const { qhxymodelmapper_connectnotify_isbase = value; }
-    void setQHXYModelMapper_DisconnectNotify_IsBase(bool value) const { qhxymodelmapper_disconnectnotify_isbase = value; }
-    void setQHXYModelMapper_First_IsBase(bool value) const { qhxymodelmapper_first_isbase = value; }
-    void setQHXYModelMapper_SetFirst_IsBase(bool value) const { qhxymodelmapper_setfirst_isbase = value; }
-    void setQHXYModelMapper_Count_IsBase(bool value) const { qhxymodelmapper_count_isbase = value; }
-    void setQHXYModelMapper_SetCount_IsBase(bool value) const { qhxymodelmapper_setcount_isbase = value; }
-    void setQHXYModelMapper_Orientation_IsBase(bool value) const { qhxymodelmapper_orientation_isbase = value; }
-    void setQHXYModelMapper_SetOrientation_IsBase(bool value) const { qhxymodelmapper_setorientation_isbase = value; }
-    void setQHXYModelMapper_XSection_IsBase(bool value) const { qhxymodelmapper_xsection_isbase = value; }
-    void setQHXYModelMapper_SetXSection_IsBase(bool value) const { qhxymodelmapper_setxsection_isbase = value; }
-    void setQHXYModelMapper_YSection_IsBase(bool value) const { qhxymodelmapper_ysection_isbase = value; }
-    void setQHXYModelMapper_SetYSection_IsBase(bool value) const { qhxymodelmapper_setysection_isbase = value; }
-    void setQHXYModelMapper_Sender_IsBase(bool value) const { qhxymodelmapper_sender_isbase = value; }
-    void setQHXYModelMapper_SenderSignalIndex_IsBase(bool value) const { qhxymodelmapper_sendersignalindex_isbase = value; }
-    void setQHXYModelMapper_Receivers_IsBase(bool value) const { qhxymodelmapper_receivers_isbase = value; }
-    void setQHXYModelMapper_IsSignalConnected_IsBase(bool value) const { qhxymodelmapper_issignalconnected_isbase = value; }
+    inline void setQHXYModelMapper_Metacall_IsBase(bool value) const { qhxymodelmapper_metacall_isbase = value; }
+    inline void setQHXYModelMapper_Event_IsBase(bool value) const { qhxymodelmapper_event_isbase = value; }
+    inline void setQHXYModelMapper_EventFilter_IsBase(bool value) const { qhxymodelmapper_eventfilter_isbase = value; }
+    inline void setQHXYModelMapper_TimerEvent_IsBase(bool value) const { qhxymodelmapper_timerevent_isbase = value; }
+    inline void setQHXYModelMapper_ChildEvent_IsBase(bool value) const { qhxymodelmapper_childevent_isbase = value; }
+    inline void setQHXYModelMapper_CustomEvent_IsBase(bool value) const { qhxymodelmapper_customevent_isbase = value; }
+    inline void setQHXYModelMapper_ConnectNotify_IsBase(bool value) const { qhxymodelmapper_connectnotify_isbase = value; }
+    inline void setQHXYModelMapper_DisconnectNotify_IsBase(bool value) const { qhxymodelmapper_disconnectnotify_isbase = value; }
+    inline void setQHXYModelMapper_First_IsBase(bool value) const { qhxymodelmapper_first_isbase = value; }
+    inline void setQHXYModelMapper_SetFirst_IsBase(bool value) const { qhxymodelmapper_setfirst_isbase = value; }
+    inline void setQHXYModelMapper_Count_IsBase(bool value) const { qhxymodelmapper_count_isbase = value; }
+    inline void setQHXYModelMapper_SetCount_IsBase(bool value) const { qhxymodelmapper_setcount_isbase = value; }
+    inline void setQHXYModelMapper_Orientation_IsBase(bool value) const { qhxymodelmapper_orientation_isbase = value; }
+    inline void setQHXYModelMapper_SetOrientation_IsBase(bool value) const { qhxymodelmapper_setorientation_isbase = value; }
+    inline void setQHXYModelMapper_XSection_IsBase(bool value) const { qhxymodelmapper_xsection_isbase = value; }
+    inline void setQHXYModelMapper_SetXSection_IsBase(bool value) const { qhxymodelmapper_setxsection_isbase = value; }
+    inline void setQHXYModelMapper_YSection_IsBase(bool value) const { qhxymodelmapper_ysection_isbase = value; }
+    inline void setQHXYModelMapper_SetYSection_IsBase(bool value) const { qhxymodelmapper_setysection_isbase = value; }
+    inline void setQHXYModelMapper_Sender_IsBase(bool value) const { qhxymodelmapper_sender_isbase = value; }
+    inline void setQHXYModelMapper_SenderSignalIndex_IsBase(bool value) const { qhxymodelmapper_sendersignalindex_isbase = value; }
+    inline void setQHXYModelMapper_Receivers_IsBase(bool value) const { qhxymodelmapper_receivers_isbase = value; }
+    inline void setQHXYModelMapper_IsSignalConnected_IsBase(bool value) const { qhxymodelmapper_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -170,7 +173,12 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_metacall_isbase = false;
             return QHXYModelMapper::qt_metacall(param1, param2, param3);
         } else if (qhxymodelmapper_metacall_callback != nullptr) {
-            return qhxymodelmapper_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qhxymodelmapper_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QHXYModelMapper::qt_metacall(param1, param2, param3);
         }
@@ -182,7 +190,10 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_event_isbase = false;
             return QHXYModelMapper::event(event);
         } else if (qhxymodelmapper_event_callback != nullptr) {
-            return qhxymodelmapper_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qhxymodelmapper_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QHXYModelMapper::event(event);
         }
@@ -194,7 +205,11 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_eventfilter_isbase = false;
             return QHXYModelMapper::eventFilter(watched, event);
         } else if (qhxymodelmapper_eventfilter_callback != nullptr) {
-            return qhxymodelmapper_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qhxymodelmapper_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QHXYModelMapper::eventFilter(watched, event);
         }
@@ -206,7 +221,9 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_timerevent_isbase = false;
             QHXYModelMapper::timerEvent(event);
         } else if (qhxymodelmapper_timerevent_callback != nullptr) {
-            qhxymodelmapper_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qhxymodelmapper_timerevent_callback(this, cbval1);
         } else {
             QHXYModelMapper::timerEvent(event);
         }
@@ -218,7 +235,9 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_childevent_isbase = false;
             QHXYModelMapper::childEvent(event);
         } else if (qhxymodelmapper_childevent_callback != nullptr) {
-            qhxymodelmapper_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qhxymodelmapper_childevent_callback(this, cbval1);
         } else {
             QHXYModelMapper::childEvent(event);
         }
@@ -230,7 +249,9 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_customevent_isbase = false;
             QHXYModelMapper::customEvent(event);
         } else if (qhxymodelmapper_customevent_callback != nullptr) {
-            qhxymodelmapper_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qhxymodelmapper_customevent_callback(this, cbval1);
         } else {
             QHXYModelMapper::customEvent(event);
         }
@@ -242,7 +263,11 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_connectnotify_isbase = false;
             QHXYModelMapper::connectNotify(signal);
         } else if (qhxymodelmapper_connectnotify_callback != nullptr) {
-            qhxymodelmapper_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qhxymodelmapper_connectnotify_callback(this, cbval1);
         } else {
             QHXYModelMapper::connectNotify(signal);
         }
@@ -254,7 +279,11 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_disconnectnotify_isbase = false;
             QHXYModelMapper::disconnectNotify(signal);
         } else if (qhxymodelmapper_disconnectnotify_callback != nullptr) {
-            qhxymodelmapper_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qhxymodelmapper_disconnectnotify_callback(this, cbval1);
         } else {
             QHXYModelMapper::disconnectNotify(signal);
         }
@@ -266,7 +295,8 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_first_isbase = false;
             return QHXYModelMapper::first();
         } else if (qhxymodelmapper_first_callback != nullptr) {
-            return qhxymodelmapper_first_callback();
+            int callback_ret = qhxymodelmapper_first_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QHXYModelMapper::first();
         }
@@ -278,7 +308,9 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_setfirst_isbase = false;
             QHXYModelMapper::setFirst(first);
         } else if (qhxymodelmapper_setfirst_callback != nullptr) {
-            qhxymodelmapper_setfirst_callback(this, first);
+            int cbval1 = first;
+
+            qhxymodelmapper_setfirst_callback(this, cbval1);
         } else {
             QHXYModelMapper::setFirst(first);
         }
@@ -290,7 +322,8 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_count_isbase = false;
             return QHXYModelMapper::count();
         } else if (qhxymodelmapper_count_callback != nullptr) {
-            return qhxymodelmapper_count_callback();
+            int callback_ret = qhxymodelmapper_count_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QHXYModelMapper::count();
         }
@@ -302,7 +335,9 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_setcount_isbase = false;
             QHXYModelMapper::setCount(count);
         } else if (qhxymodelmapper_setcount_callback != nullptr) {
-            qhxymodelmapper_setcount_callback(this, count);
+            int cbval1 = count;
+
+            qhxymodelmapper_setcount_callback(this, cbval1);
         } else {
             QHXYModelMapper::setCount(count);
         }
@@ -314,7 +349,8 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_orientation_isbase = false;
             return QHXYModelMapper::orientation();
         } else if (qhxymodelmapper_orientation_callback != nullptr) {
-            return qhxymodelmapper_orientation_callback();
+            int callback_ret = qhxymodelmapper_orientation_callback();
+            return static_cast<Qt::Orientation>(callback_ret);
         } else {
             return QHXYModelMapper::orientation();
         }
@@ -326,7 +362,9 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_setorientation_isbase = false;
             QHXYModelMapper::setOrientation(orientation);
         } else if (qhxymodelmapper_setorientation_callback != nullptr) {
-            qhxymodelmapper_setorientation_callback(this, orientation);
+            int cbval1 = static_cast<int>(orientation);
+
+            qhxymodelmapper_setorientation_callback(this, cbval1);
         } else {
             QHXYModelMapper::setOrientation(orientation);
         }
@@ -338,7 +376,8 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_xsection_isbase = false;
             return QHXYModelMapper::xSection();
         } else if (qhxymodelmapper_xsection_callback != nullptr) {
-            return qhxymodelmapper_xsection_callback();
+            int callback_ret = qhxymodelmapper_xsection_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QHXYModelMapper::xSection();
         }
@@ -350,7 +389,9 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_setxsection_isbase = false;
             QHXYModelMapper::setXSection(xSection);
         } else if (qhxymodelmapper_setxsection_callback != nullptr) {
-            qhxymodelmapper_setxsection_callback(this, xSection);
+            int cbval1 = xSection;
+
+            qhxymodelmapper_setxsection_callback(this, cbval1);
         } else {
             QHXYModelMapper::setXSection(xSection);
         }
@@ -362,7 +403,8 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_ysection_isbase = false;
             return QHXYModelMapper::ySection();
         } else if (qhxymodelmapper_ysection_callback != nullptr) {
-            return qhxymodelmapper_ysection_callback();
+            int callback_ret = qhxymodelmapper_ysection_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QHXYModelMapper::ySection();
         }
@@ -374,7 +416,9 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_setysection_isbase = false;
             QHXYModelMapper::setYSection(ySection);
         } else if (qhxymodelmapper_setysection_callback != nullptr) {
-            qhxymodelmapper_setysection_callback(this, ySection);
+            int cbval1 = ySection;
+
+            qhxymodelmapper_setysection_callback(this, cbval1);
         } else {
             QHXYModelMapper::setYSection(ySection);
         }
@@ -386,7 +430,8 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_sender_isbase = false;
             return QHXYModelMapper::sender();
         } else if (qhxymodelmapper_sender_callback != nullptr) {
-            return qhxymodelmapper_sender_callback();
+            QObject* callback_ret = qhxymodelmapper_sender_callback();
+            return callback_ret;
         } else {
             return QHXYModelMapper::sender();
         }
@@ -398,7 +443,8 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_sendersignalindex_isbase = false;
             return QHXYModelMapper::senderSignalIndex();
         } else if (qhxymodelmapper_sendersignalindex_callback != nullptr) {
-            return qhxymodelmapper_sendersignalindex_callback();
+            int callback_ret = qhxymodelmapper_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QHXYModelMapper::senderSignalIndex();
         }
@@ -410,7 +456,10 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_receivers_isbase = false;
             return QHXYModelMapper::receivers(signal);
         } else if (qhxymodelmapper_receivers_callback != nullptr) {
-            return qhxymodelmapper_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qhxymodelmapper_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QHXYModelMapper::receivers(signal);
         }
@@ -422,11 +471,56 @@ class VirtualQHXYModelMapper : public QHXYModelMapper {
             qhxymodelmapper_issignalconnected_isbase = false;
             return QHXYModelMapper::isSignalConnected(signal);
         } else if (qhxymodelmapper_issignalconnected_callback != nullptr) {
-            return qhxymodelmapper_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qhxymodelmapper_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QHXYModelMapper::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QHXYModelMapper_TimerEvent(QHXYModelMapper* self, QTimerEvent* event);
+    friend void QHXYModelMapper_QBaseTimerEvent(QHXYModelMapper* self, QTimerEvent* event);
+    friend void QHXYModelMapper_ChildEvent(QHXYModelMapper* self, QChildEvent* event);
+    friend void QHXYModelMapper_QBaseChildEvent(QHXYModelMapper* self, QChildEvent* event);
+    friend void QHXYModelMapper_CustomEvent(QHXYModelMapper* self, QEvent* event);
+    friend void QHXYModelMapper_QBaseCustomEvent(QHXYModelMapper* self, QEvent* event);
+    friend void QHXYModelMapper_ConnectNotify(QHXYModelMapper* self, const QMetaMethod* signal);
+    friend void QHXYModelMapper_QBaseConnectNotify(QHXYModelMapper* self, const QMetaMethod* signal);
+    friend void QHXYModelMapper_DisconnectNotify(QHXYModelMapper* self, const QMetaMethod* signal);
+    friend void QHXYModelMapper_QBaseDisconnectNotify(QHXYModelMapper* self, const QMetaMethod* signal);
+    friend int QHXYModelMapper_First(const QHXYModelMapper* self);
+    friend int QHXYModelMapper_QBaseFirst(const QHXYModelMapper* self);
+    friend void QHXYModelMapper_SetFirst(QHXYModelMapper* self, int first);
+    friend void QHXYModelMapper_QBaseSetFirst(QHXYModelMapper* self, int first);
+    friend int QHXYModelMapper_Count(const QHXYModelMapper* self);
+    friend int QHXYModelMapper_QBaseCount(const QHXYModelMapper* self);
+    friend void QHXYModelMapper_SetCount(QHXYModelMapper* self, int count);
+    friend void QHXYModelMapper_QBaseSetCount(QHXYModelMapper* self, int count);
+    friend int QHXYModelMapper_Orientation(const QHXYModelMapper* self);
+    friend int QHXYModelMapper_QBaseOrientation(const QHXYModelMapper* self);
+    friend void QHXYModelMapper_SetOrientation(QHXYModelMapper* self, int orientation);
+    friend void QHXYModelMapper_QBaseSetOrientation(QHXYModelMapper* self, int orientation);
+    friend int QHXYModelMapper_XSection(const QHXYModelMapper* self);
+    friend int QHXYModelMapper_QBaseXSection(const QHXYModelMapper* self);
+    friend void QHXYModelMapper_SetXSection(QHXYModelMapper* self, int xSection);
+    friend void QHXYModelMapper_QBaseSetXSection(QHXYModelMapper* self, int xSection);
+    friend int QHXYModelMapper_YSection(const QHXYModelMapper* self);
+    friend int QHXYModelMapper_QBaseYSection(const QHXYModelMapper* self);
+    friend void QHXYModelMapper_SetYSection(QHXYModelMapper* self, int ySection);
+    friend void QHXYModelMapper_QBaseSetYSection(QHXYModelMapper* self, int ySection);
+    friend QObject* QHXYModelMapper_Sender(const QHXYModelMapper* self);
+    friend QObject* QHXYModelMapper_QBaseSender(const QHXYModelMapper* self);
+    friend int QHXYModelMapper_SenderSignalIndex(const QHXYModelMapper* self);
+    friend int QHXYModelMapper_QBaseSenderSignalIndex(const QHXYModelMapper* self);
+    friend int QHXYModelMapper_Receivers(const QHXYModelMapper* self, const char* signal);
+    friend int QHXYModelMapper_QBaseReceivers(const QHXYModelMapper* self, const char* signal);
+    friend bool QHXYModelMapper_IsSignalConnected(const QHXYModelMapper* self, const QMetaMethod* signal);
+    friend bool QHXYModelMapper_QBaseIsSignalConnected(const QHXYModelMapper* self, const QMetaMethod* signal);
 };
 
 #endif

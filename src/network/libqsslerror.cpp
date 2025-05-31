@@ -15,11 +15,11 @@ QSslError* QSslError_new2(int errorVal) {
     return new QSslError(static_cast<QSslError::SslError>(errorVal));
 }
 
-QSslError* QSslError_new3(int errorVal, QSslCertificate* certificate) {
+QSslError* QSslError_new3(int errorVal, const QSslCertificate* certificate) {
     return new QSslError(static_cast<QSslError::SslError>(errorVal), *certificate);
 }
 
-QSslError* QSslError_new4(QSslError* other) {
+QSslError* QSslError_new4(const QSslError* other) {
     return new QSslError(*other);
 }
 
@@ -27,15 +27,15 @@ void QSslError_Swap(QSslError* self, QSslError* other) {
     self->swap(*other);
 }
 
-void QSslError_OperatorAssign(QSslError* self, QSslError* other) {
+void QSslError_OperatorAssign(QSslError* self, const QSslError* other) {
     self->operator=(*other);
 }
 
-bool QSslError_OperatorEqual(const QSslError* self, QSslError* other) {
+bool QSslError_OperatorEqual(const QSslError* self, const QSslError* other) {
     return (*self == *other);
 }
 
-bool QSslError_OperatorNotEqual(const QSslError* self, QSslError* other) {
+bool QSslError_OperatorNotEqual(const QSslError* self, const QSslError* other) {
     return (*self != *other);
 }
 

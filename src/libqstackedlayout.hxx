@@ -11,38 +11,41 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QStackedLayout so that we can call protected methods
-class VirtualQStackedLayout : public QStackedLayout {
+class VirtualQStackedLayout final : public QStackedLayout {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQStackedLayout = true;
+
     // Virtual class public types (including callbacks)
-    using QStackedLayout_Metacall_Callback = int (*)(QStackedLayout*, QMetaObject::Call, int, void**);
+    using QStackedLayout_Metacall_Callback = int (*)(QStackedLayout*, int, int, void**);
     using QStackedLayout_Count_Callback = int (*)();
     using QStackedLayout_AddItem_Callback = void (*)(QStackedLayout*, QLayoutItem*);
-    using QStackedLayout_SizeHint_Callback = QSize (*)();
-    using QStackedLayout_MinimumSize_Callback = QSize (*)();
+    using QStackedLayout_SizeHint_Callback = QSize* (*)();
+    using QStackedLayout_MinimumSize_Callback = QSize* (*)();
     using QStackedLayout_ItemAt_Callback = QLayoutItem* (*)(const QStackedLayout*, int);
     using QStackedLayout_TakeAt_Callback = QLayoutItem* (*)(QStackedLayout*, int);
-    using QStackedLayout_SetGeometry_Callback = void (*)(QStackedLayout*, const QRect&);
+    using QStackedLayout_SetGeometry_Callback = void (*)(QStackedLayout*, QRect*);
     using QStackedLayout_HasHeightForWidth_Callback = bool (*)();
     using QStackedLayout_HeightForWidth_Callback = int (*)(const QStackedLayout*, int);
     using QStackedLayout_Spacing_Callback = int (*)();
     using QStackedLayout_SetSpacing_Callback = void (*)(QStackedLayout*, int);
     using QStackedLayout_Invalidate_Callback = void (*)();
-    using QStackedLayout_Geometry_Callback = QRect (*)();
-    using QStackedLayout_ExpandingDirections_Callback = Qt::Orientations (*)();
-    using QStackedLayout_MaximumSize_Callback = QSize (*)();
-    using QStackedLayout_IndexOf_Callback = int (*)(const QStackedLayout*, const QWidget*);
+    using QStackedLayout_Geometry_Callback = QRect* (*)();
+    using QStackedLayout_ExpandingDirections_Callback = int (*)();
+    using QStackedLayout_MaximumSize_Callback = QSize* (*)();
+    using QStackedLayout_IndexOf_Callback = int (*)(const QStackedLayout*, QWidget*);
     using QStackedLayout_IsEmpty_Callback = bool (*)();
-    using QStackedLayout_ControlTypes_Callback = QSizePolicy::ControlTypes (*)();
-    using QStackedLayout_ReplaceWidget_Callback = QLayoutItem* (*)(QStackedLayout*, QWidget*, QWidget*, Qt::FindChildOptions);
+    using QStackedLayout_ControlTypes_Callback = int (*)();
+    using QStackedLayout_ReplaceWidget_Callback = QLayoutItem* (*)(QStackedLayout*, QWidget*, QWidget*, int);
     using QStackedLayout_Layout_Callback = QLayout* (*)();
     using QStackedLayout_ChildEvent_Callback = void (*)(QStackedLayout*, QChildEvent*);
     using QStackedLayout_Event_Callback = bool (*)(QStackedLayout*, QEvent*);
     using QStackedLayout_EventFilter_Callback = bool (*)(QStackedLayout*, QObject*, QEvent*);
     using QStackedLayout_TimerEvent_Callback = void (*)(QStackedLayout*, QTimerEvent*);
     using QStackedLayout_CustomEvent_Callback = void (*)(QStackedLayout*, QEvent*);
-    using QStackedLayout_ConnectNotify_Callback = void (*)(QStackedLayout*, const QMetaMethod&);
-    using QStackedLayout_DisconnectNotify_Callback = void (*)(QStackedLayout*, const QMetaMethod&);
+    using QStackedLayout_ConnectNotify_Callback = void (*)(QStackedLayout*, QMetaMethod*);
+    using QStackedLayout_DisconnectNotify_Callback = void (*)(QStackedLayout*, QMetaMethod*);
     using QStackedLayout_MinimumHeightForWidth_Callback = int (*)(const QStackedLayout*, int);
     using QStackedLayout_Widget_Callback = QWidget* (*)();
     using QStackedLayout_SpacerItem_Callback = QSpacerItem* (*)();
@@ -50,11 +53,11 @@ class VirtualQStackedLayout : public QStackedLayout {
     using QStackedLayout_AddChildLayout_Callback = void (*)(QStackedLayout*, QLayout*);
     using QStackedLayout_AddChildWidget_Callback = void (*)(QStackedLayout*, QWidget*);
     using QStackedLayout_AdoptLayout_Callback = bool (*)(QStackedLayout*, QLayout*);
-    using QStackedLayout_AlignmentRect_Callback = QRect (*)(const QStackedLayout*, const QRect&);
+    using QStackedLayout_AlignmentRect_Callback = QRect* (*)(const QStackedLayout*, QRect*);
     using QStackedLayout_Sender_Callback = QObject* (*)();
     using QStackedLayout_SenderSignalIndex_Callback = int (*)();
     using QStackedLayout_Receivers_Callback = int (*)(const QStackedLayout*, const char*);
-    using QStackedLayout_IsSignalConnected_Callback = bool (*)(const QStackedLayout*, const QMetaMethod&);
+    using QStackedLayout_IsSignalConnected_Callback = bool (*)(const QStackedLayout*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -190,88 +193,88 @@ class VirtualQStackedLayout : public QStackedLayout {
     }
 
     // Callback setters
-    void setQStackedLayout_Metacall_Callback(QStackedLayout_Metacall_Callback cb) { qstackedlayout_metacall_callback = cb; }
-    void setQStackedLayout_Count_Callback(QStackedLayout_Count_Callback cb) { qstackedlayout_count_callback = cb; }
-    void setQStackedLayout_AddItem_Callback(QStackedLayout_AddItem_Callback cb) { qstackedlayout_additem_callback = cb; }
-    void setQStackedLayout_SizeHint_Callback(QStackedLayout_SizeHint_Callback cb) { qstackedlayout_sizehint_callback = cb; }
-    void setQStackedLayout_MinimumSize_Callback(QStackedLayout_MinimumSize_Callback cb) { qstackedlayout_minimumsize_callback = cb; }
-    void setQStackedLayout_ItemAt_Callback(QStackedLayout_ItemAt_Callback cb) { qstackedlayout_itemat_callback = cb; }
-    void setQStackedLayout_TakeAt_Callback(QStackedLayout_TakeAt_Callback cb) { qstackedlayout_takeat_callback = cb; }
-    void setQStackedLayout_SetGeometry_Callback(QStackedLayout_SetGeometry_Callback cb) { qstackedlayout_setgeometry_callback = cb; }
-    void setQStackedLayout_HasHeightForWidth_Callback(QStackedLayout_HasHeightForWidth_Callback cb) { qstackedlayout_hasheightforwidth_callback = cb; }
-    void setQStackedLayout_HeightForWidth_Callback(QStackedLayout_HeightForWidth_Callback cb) { qstackedlayout_heightforwidth_callback = cb; }
-    void setQStackedLayout_Spacing_Callback(QStackedLayout_Spacing_Callback cb) { qstackedlayout_spacing_callback = cb; }
-    void setQStackedLayout_SetSpacing_Callback(QStackedLayout_SetSpacing_Callback cb) { qstackedlayout_setspacing_callback = cb; }
-    void setQStackedLayout_Invalidate_Callback(QStackedLayout_Invalidate_Callback cb) { qstackedlayout_invalidate_callback = cb; }
-    void setQStackedLayout_Geometry_Callback(QStackedLayout_Geometry_Callback cb) { qstackedlayout_geometry_callback = cb; }
-    void setQStackedLayout_ExpandingDirections_Callback(QStackedLayout_ExpandingDirections_Callback cb) { qstackedlayout_expandingdirections_callback = cb; }
-    void setQStackedLayout_MaximumSize_Callback(QStackedLayout_MaximumSize_Callback cb) { qstackedlayout_maximumsize_callback = cb; }
-    void setQStackedLayout_IndexOf_Callback(QStackedLayout_IndexOf_Callback cb) { qstackedlayout_indexof_callback = cb; }
-    void setQStackedLayout_IsEmpty_Callback(QStackedLayout_IsEmpty_Callback cb) { qstackedlayout_isempty_callback = cb; }
-    void setQStackedLayout_ControlTypes_Callback(QStackedLayout_ControlTypes_Callback cb) { qstackedlayout_controltypes_callback = cb; }
-    void setQStackedLayout_ReplaceWidget_Callback(QStackedLayout_ReplaceWidget_Callback cb) { qstackedlayout_replacewidget_callback = cb; }
-    void setQStackedLayout_Layout_Callback(QStackedLayout_Layout_Callback cb) { qstackedlayout_layout_callback = cb; }
-    void setQStackedLayout_ChildEvent_Callback(QStackedLayout_ChildEvent_Callback cb) { qstackedlayout_childevent_callback = cb; }
-    void setQStackedLayout_Event_Callback(QStackedLayout_Event_Callback cb) { qstackedlayout_event_callback = cb; }
-    void setQStackedLayout_EventFilter_Callback(QStackedLayout_EventFilter_Callback cb) { qstackedlayout_eventfilter_callback = cb; }
-    void setQStackedLayout_TimerEvent_Callback(QStackedLayout_TimerEvent_Callback cb) { qstackedlayout_timerevent_callback = cb; }
-    void setQStackedLayout_CustomEvent_Callback(QStackedLayout_CustomEvent_Callback cb) { qstackedlayout_customevent_callback = cb; }
-    void setQStackedLayout_ConnectNotify_Callback(QStackedLayout_ConnectNotify_Callback cb) { qstackedlayout_connectnotify_callback = cb; }
-    void setQStackedLayout_DisconnectNotify_Callback(QStackedLayout_DisconnectNotify_Callback cb) { qstackedlayout_disconnectnotify_callback = cb; }
-    void setQStackedLayout_MinimumHeightForWidth_Callback(QStackedLayout_MinimumHeightForWidth_Callback cb) { qstackedlayout_minimumheightforwidth_callback = cb; }
-    void setQStackedLayout_Widget_Callback(QStackedLayout_Widget_Callback cb) { qstackedlayout_widget_callback = cb; }
-    void setQStackedLayout_SpacerItem_Callback(QStackedLayout_SpacerItem_Callback cb) { qstackedlayout_spaceritem_callback = cb; }
-    void setQStackedLayout_WidgetEvent_Callback(QStackedLayout_WidgetEvent_Callback cb) { qstackedlayout_widgetevent_callback = cb; }
-    void setQStackedLayout_AddChildLayout_Callback(QStackedLayout_AddChildLayout_Callback cb) { qstackedlayout_addchildlayout_callback = cb; }
-    void setQStackedLayout_AddChildWidget_Callback(QStackedLayout_AddChildWidget_Callback cb) { qstackedlayout_addchildwidget_callback = cb; }
-    void setQStackedLayout_AdoptLayout_Callback(QStackedLayout_AdoptLayout_Callback cb) { qstackedlayout_adoptlayout_callback = cb; }
-    void setQStackedLayout_AlignmentRect_Callback(QStackedLayout_AlignmentRect_Callback cb) { qstackedlayout_alignmentrect_callback = cb; }
-    void setQStackedLayout_Sender_Callback(QStackedLayout_Sender_Callback cb) { qstackedlayout_sender_callback = cb; }
-    void setQStackedLayout_SenderSignalIndex_Callback(QStackedLayout_SenderSignalIndex_Callback cb) { qstackedlayout_sendersignalindex_callback = cb; }
-    void setQStackedLayout_Receivers_Callback(QStackedLayout_Receivers_Callback cb) { qstackedlayout_receivers_callback = cb; }
-    void setQStackedLayout_IsSignalConnected_Callback(QStackedLayout_IsSignalConnected_Callback cb) { qstackedlayout_issignalconnected_callback = cb; }
+    inline void setQStackedLayout_Metacall_Callback(QStackedLayout_Metacall_Callback cb) { qstackedlayout_metacall_callback = cb; }
+    inline void setQStackedLayout_Count_Callback(QStackedLayout_Count_Callback cb) { qstackedlayout_count_callback = cb; }
+    inline void setQStackedLayout_AddItem_Callback(QStackedLayout_AddItem_Callback cb) { qstackedlayout_additem_callback = cb; }
+    inline void setQStackedLayout_SizeHint_Callback(QStackedLayout_SizeHint_Callback cb) { qstackedlayout_sizehint_callback = cb; }
+    inline void setQStackedLayout_MinimumSize_Callback(QStackedLayout_MinimumSize_Callback cb) { qstackedlayout_minimumsize_callback = cb; }
+    inline void setQStackedLayout_ItemAt_Callback(QStackedLayout_ItemAt_Callback cb) { qstackedlayout_itemat_callback = cb; }
+    inline void setQStackedLayout_TakeAt_Callback(QStackedLayout_TakeAt_Callback cb) { qstackedlayout_takeat_callback = cb; }
+    inline void setQStackedLayout_SetGeometry_Callback(QStackedLayout_SetGeometry_Callback cb) { qstackedlayout_setgeometry_callback = cb; }
+    inline void setQStackedLayout_HasHeightForWidth_Callback(QStackedLayout_HasHeightForWidth_Callback cb) { qstackedlayout_hasheightforwidth_callback = cb; }
+    inline void setQStackedLayout_HeightForWidth_Callback(QStackedLayout_HeightForWidth_Callback cb) { qstackedlayout_heightforwidth_callback = cb; }
+    inline void setQStackedLayout_Spacing_Callback(QStackedLayout_Spacing_Callback cb) { qstackedlayout_spacing_callback = cb; }
+    inline void setQStackedLayout_SetSpacing_Callback(QStackedLayout_SetSpacing_Callback cb) { qstackedlayout_setspacing_callback = cb; }
+    inline void setQStackedLayout_Invalidate_Callback(QStackedLayout_Invalidate_Callback cb) { qstackedlayout_invalidate_callback = cb; }
+    inline void setQStackedLayout_Geometry_Callback(QStackedLayout_Geometry_Callback cb) { qstackedlayout_geometry_callback = cb; }
+    inline void setQStackedLayout_ExpandingDirections_Callback(QStackedLayout_ExpandingDirections_Callback cb) { qstackedlayout_expandingdirections_callback = cb; }
+    inline void setQStackedLayout_MaximumSize_Callback(QStackedLayout_MaximumSize_Callback cb) { qstackedlayout_maximumsize_callback = cb; }
+    inline void setQStackedLayout_IndexOf_Callback(QStackedLayout_IndexOf_Callback cb) { qstackedlayout_indexof_callback = cb; }
+    inline void setQStackedLayout_IsEmpty_Callback(QStackedLayout_IsEmpty_Callback cb) { qstackedlayout_isempty_callback = cb; }
+    inline void setQStackedLayout_ControlTypes_Callback(QStackedLayout_ControlTypes_Callback cb) { qstackedlayout_controltypes_callback = cb; }
+    inline void setQStackedLayout_ReplaceWidget_Callback(QStackedLayout_ReplaceWidget_Callback cb) { qstackedlayout_replacewidget_callback = cb; }
+    inline void setQStackedLayout_Layout_Callback(QStackedLayout_Layout_Callback cb) { qstackedlayout_layout_callback = cb; }
+    inline void setQStackedLayout_ChildEvent_Callback(QStackedLayout_ChildEvent_Callback cb) { qstackedlayout_childevent_callback = cb; }
+    inline void setQStackedLayout_Event_Callback(QStackedLayout_Event_Callback cb) { qstackedlayout_event_callback = cb; }
+    inline void setQStackedLayout_EventFilter_Callback(QStackedLayout_EventFilter_Callback cb) { qstackedlayout_eventfilter_callback = cb; }
+    inline void setQStackedLayout_TimerEvent_Callback(QStackedLayout_TimerEvent_Callback cb) { qstackedlayout_timerevent_callback = cb; }
+    inline void setQStackedLayout_CustomEvent_Callback(QStackedLayout_CustomEvent_Callback cb) { qstackedlayout_customevent_callback = cb; }
+    inline void setQStackedLayout_ConnectNotify_Callback(QStackedLayout_ConnectNotify_Callback cb) { qstackedlayout_connectnotify_callback = cb; }
+    inline void setQStackedLayout_DisconnectNotify_Callback(QStackedLayout_DisconnectNotify_Callback cb) { qstackedlayout_disconnectnotify_callback = cb; }
+    inline void setQStackedLayout_MinimumHeightForWidth_Callback(QStackedLayout_MinimumHeightForWidth_Callback cb) { qstackedlayout_minimumheightforwidth_callback = cb; }
+    inline void setQStackedLayout_Widget_Callback(QStackedLayout_Widget_Callback cb) { qstackedlayout_widget_callback = cb; }
+    inline void setQStackedLayout_SpacerItem_Callback(QStackedLayout_SpacerItem_Callback cb) { qstackedlayout_spaceritem_callback = cb; }
+    inline void setQStackedLayout_WidgetEvent_Callback(QStackedLayout_WidgetEvent_Callback cb) { qstackedlayout_widgetevent_callback = cb; }
+    inline void setQStackedLayout_AddChildLayout_Callback(QStackedLayout_AddChildLayout_Callback cb) { qstackedlayout_addchildlayout_callback = cb; }
+    inline void setQStackedLayout_AddChildWidget_Callback(QStackedLayout_AddChildWidget_Callback cb) { qstackedlayout_addchildwidget_callback = cb; }
+    inline void setQStackedLayout_AdoptLayout_Callback(QStackedLayout_AdoptLayout_Callback cb) { qstackedlayout_adoptlayout_callback = cb; }
+    inline void setQStackedLayout_AlignmentRect_Callback(QStackedLayout_AlignmentRect_Callback cb) { qstackedlayout_alignmentrect_callback = cb; }
+    inline void setQStackedLayout_Sender_Callback(QStackedLayout_Sender_Callback cb) { qstackedlayout_sender_callback = cb; }
+    inline void setQStackedLayout_SenderSignalIndex_Callback(QStackedLayout_SenderSignalIndex_Callback cb) { qstackedlayout_sendersignalindex_callback = cb; }
+    inline void setQStackedLayout_Receivers_Callback(QStackedLayout_Receivers_Callback cb) { qstackedlayout_receivers_callback = cb; }
+    inline void setQStackedLayout_IsSignalConnected_Callback(QStackedLayout_IsSignalConnected_Callback cb) { qstackedlayout_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQStackedLayout_Metacall_IsBase(bool value) const { qstackedlayout_metacall_isbase = value; }
-    void setQStackedLayout_Count_IsBase(bool value) const { qstackedlayout_count_isbase = value; }
-    void setQStackedLayout_AddItem_IsBase(bool value) const { qstackedlayout_additem_isbase = value; }
-    void setQStackedLayout_SizeHint_IsBase(bool value) const { qstackedlayout_sizehint_isbase = value; }
-    void setQStackedLayout_MinimumSize_IsBase(bool value) const { qstackedlayout_minimumsize_isbase = value; }
-    void setQStackedLayout_ItemAt_IsBase(bool value) const { qstackedlayout_itemat_isbase = value; }
-    void setQStackedLayout_TakeAt_IsBase(bool value) const { qstackedlayout_takeat_isbase = value; }
-    void setQStackedLayout_SetGeometry_IsBase(bool value) const { qstackedlayout_setgeometry_isbase = value; }
-    void setQStackedLayout_HasHeightForWidth_IsBase(bool value) const { qstackedlayout_hasheightforwidth_isbase = value; }
-    void setQStackedLayout_HeightForWidth_IsBase(bool value) const { qstackedlayout_heightforwidth_isbase = value; }
-    void setQStackedLayout_Spacing_IsBase(bool value) const { qstackedlayout_spacing_isbase = value; }
-    void setQStackedLayout_SetSpacing_IsBase(bool value) const { qstackedlayout_setspacing_isbase = value; }
-    void setQStackedLayout_Invalidate_IsBase(bool value) const { qstackedlayout_invalidate_isbase = value; }
-    void setQStackedLayout_Geometry_IsBase(bool value) const { qstackedlayout_geometry_isbase = value; }
-    void setQStackedLayout_ExpandingDirections_IsBase(bool value) const { qstackedlayout_expandingdirections_isbase = value; }
-    void setQStackedLayout_MaximumSize_IsBase(bool value) const { qstackedlayout_maximumsize_isbase = value; }
-    void setQStackedLayout_IndexOf_IsBase(bool value) const { qstackedlayout_indexof_isbase = value; }
-    void setQStackedLayout_IsEmpty_IsBase(bool value) const { qstackedlayout_isempty_isbase = value; }
-    void setQStackedLayout_ControlTypes_IsBase(bool value) const { qstackedlayout_controltypes_isbase = value; }
-    void setQStackedLayout_ReplaceWidget_IsBase(bool value) const { qstackedlayout_replacewidget_isbase = value; }
-    void setQStackedLayout_Layout_IsBase(bool value) const { qstackedlayout_layout_isbase = value; }
-    void setQStackedLayout_ChildEvent_IsBase(bool value) const { qstackedlayout_childevent_isbase = value; }
-    void setQStackedLayout_Event_IsBase(bool value) const { qstackedlayout_event_isbase = value; }
-    void setQStackedLayout_EventFilter_IsBase(bool value) const { qstackedlayout_eventfilter_isbase = value; }
-    void setQStackedLayout_TimerEvent_IsBase(bool value) const { qstackedlayout_timerevent_isbase = value; }
-    void setQStackedLayout_CustomEvent_IsBase(bool value) const { qstackedlayout_customevent_isbase = value; }
-    void setQStackedLayout_ConnectNotify_IsBase(bool value) const { qstackedlayout_connectnotify_isbase = value; }
-    void setQStackedLayout_DisconnectNotify_IsBase(bool value) const { qstackedlayout_disconnectnotify_isbase = value; }
-    void setQStackedLayout_MinimumHeightForWidth_IsBase(bool value) const { qstackedlayout_minimumheightforwidth_isbase = value; }
-    void setQStackedLayout_Widget_IsBase(bool value) const { qstackedlayout_widget_isbase = value; }
-    void setQStackedLayout_SpacerItem_IsBase(bool value) const { qstackedlayout_spaceritem_isbase = value; }
-    void setQStackedLayout_WidgetEvent_IsBase(bool value) const { qstackedlayout_widgetevent_isbase = value; }
-    void setQStackedLayout_AddChildLayout_IsBase(bool value) const { qstackedlayout_addchildlayout_isbase = value; }
-    void setQStackedLayout_AddChildWidget_IsBase(bool value) const { qstackedlayout_addchildwidget_isbase = value; }
-    void setQStackedLayout_AdoptLayout_IsBase(bool value) const { qstackedlayout_adoptlayout_isbase = value; }
-    void setQStackedLayout_AlignmentRect_IsBase(bool value) const { qstackedlayout_alignmentrect_isbase = value; }
-    void setQStackedLayout_Sender_IsBase(bool value) const { qstackedlayout_sender_isbase = value; }
-    void setQStackedLayout_SenderSignalIndex_IsBase(bool value) const { qstackedlayout_sendersignalindex_isbase = value; }
-    void setQStackedLayout_Receivers_IsBase(bool value) const { qstackedlayout_receivers_isbase = value; }
-    void setQStackedLayout_IsSignalConnected_IsBase(bool value) const { qstackedlayout_issignalconnected_isbase = value; }
+    inline void setQStackedLayout_Metacall_IsBase(bool value) const { qstackedlayout_metacall_isbase = value; }
+    inline void setQStackedLayout_Count_IsBase(bool value) const { qstackedlayout_count_isbase = value; }
+    inline void setQStackedLayout_AddItem_IsBase(bool value) const { qstackedlayout_additem_isbase = value; }
+    inline void setQStackedLayout_SizeHint_IsBase(bool value) const { qstackedlayout_sizehint_isbase = value; }
+    inline void setQStackedLayout_MinimumSize_IsBase(bool value) const { qstackedlayout_minimumsize_isbase = value; }
+    inline void setQStackedLayout_ItemAt_IsBase(bool value) const { qstackedlayout_itemat_isbase = value; }
+    inline void setQStackedLayout_TakeAt_IsBase(bool value) const { qstackedlayout_takeat_isbase = value; }
+    inline void setQStackedLayout_SetGeometry_IsBase(bool value) const { qstackedlayout_setgeometry_isbase = value; }
+    inline void setQStackedLayout_HasHeightForWidth_IsBase(bool value) const { qstackedlayout_hasheightforwidth_isbase = value; }
+    inline void setQStackedLayout_HeightForWidth_IsBase(bool value) const { qstackedlayout_heightforwidth_isbase = value; }
+    inline void setQStackedLayout_Spacing_IsBase(bool value) const { qstackedlayout_spacing_isbase = value; }
+    inline void setQStackedLayout_SetSpacing_IsBase(bool value) const { qstackedlayout_setspacing_isbase = value; }
+    inline void setQStackedLayout_Invalidate_IsBase(bool value) const { qstackedlayout_invalidate_isbase = value; }
+    inline void setQStackedLayout_Geometry_IsBase(bool value) const { qstackedlayout_geometry_isbase = value; }
+    inline void setQStackedLayout_ExpandingDirections_IsBase(bool value) const { qstackedlayout_expandingdirections_isbase = value; }
+    inline void setQStackedLayout_MaximumSize_IsBase(bool value) const { qstackedlayout_maximumsize_isbase = value; }
+    inline void setQStackedLayout_IndexOf_IsBase(bool value) const { qstackedlayout_indexof_isbase = value; }
+    inline void setQStackedLayout_IsEmpty_IsBase(bool value) const { qstackedlayout_isempty_isbase = value; }
+    inline void setQStackedLayout_ControlTypes_IsBase(bool value) const { qstackedlayout_controltypes_isbase = value; }
+    inline void setQStackedLayout_ReplaceWidget_IsBase(bool value) const { qstackedlayout_replacewidget_isbase = value; }
+    inline void setQStackedLayout_Layout_IsBase(bool value) const { qstackedlayout_layout_isbase = value; }
+    inline void setQStackedLayout_ChildEvent_IsBase(bool value) const { qstackedlayout_childevent_isbase = value; }
+    inline void setQStackedLayout_Event_IsBase(bool value) const { qstackedlayout_event_isbase = value; }
+    inline void setQStackedLayout_EventFilter_IsBase(bool value) const { qstackedlayout_eventfilter_isbase = value; }
+    inline void setQStackedLayout_TimerEvent_IsBase(bool value) const { qstackedlayout_timerevent_isbase = value; }
+    inline void setQStackedLayout_CustomEvent_IsBase(bool value) const { qstackedlayout_customevent_isbase = value; }
+    inline void setQStackedLayout_ConnectNotify_IsBase(bool value) const { qstackedlayout_connectnotify_isbase = value; }
+    inline void setQStackedLayout_DisconnectNotify_IsBase(bool value) const { qstackedlayout_disconnectnotify_isbase = value; }
+    inline void setQStackedLayout_MinimumHeightForWidth_IsBase(bool value) const { qstackedlayout_minimumheightforwidth_isbase = value; }
+    inline void setQStackedLayout_Widget_IsBase(bool value) const { qstackedlayout_widget_isbase = value; }
+    inline void setQStackedLayout_SpacerItem_IsBase(bool value) const { qstackedlayout_spaceritem_isbase = value; }
+    inline void setQStackedLayout_WidgetEvent_IsBase(bool value) const { qstackedlayout_widgetevent_isbase = value; }
+    inline void setQStackedLayout_AddChildLayout_IsBase(bool value) const { qstackedlayout_addchildlayout_isbase = value; }
+    inline void setQStackedLayout_AddChildWidget_IsBase(bool value) const { qstackedlayout_addchildwidget_isbase = value; }
+    inline void setQStackedLayout_AdoptLayout_IsBase(bool value) const { qstackedlayout_adoptlayout_isbase = value; }
+    inline void setQStackedLayout_AlignmentRect_IsBase(bool value) const { qstackedlayout_alignmentrect_isbase = value; }
+    inline void setQStackedLayout_Sender_IsBase(bool value) const { qstackedlayout_sender_isbase = value; }
+    inline void setQStackedLayout_SenderSignalIndex_IsBase(bool value) const { qstackedlayout_sendersignalindex_isbase = value; }
+    inline void setQStackedLayout_Receivers_IsBase(bool value) const { qstackedlayout_receivers_isbase = value; }
+    inline void setQStackedLayout_IsSignalConnected_IsBase(bool value) const { qstackedlayout_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -279,7 +282,12 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_metacall_isbase = false;
             return QStackedLayout::qt_metacall(param1, param2, param3);
         } else if (qstackedlayout_metacall_callback != nullptr) {
-            return qstackedlayout_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qstackedlayout_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QStackedLayout::qt_metacall(param1, param2, param3);
         }
@@ -291,7 +299,8 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_count_isbase = false;
             return QStackedLayout::count();
         } else if (qstackedlayout_count_callback != nullptr) {
-            return qstackedlayout_count_callback();
+            int callback_ret = qstackedlayout_count_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QStackedLayout::count();
         }
@@ -303,7 +312,9 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_additem_isbase = false;
             QStackedLayout::addItem(item);
         } else if (qstackedlayout_additem_callback != nullptr) {
-            qstackedlayout_additem_callback(this, item);
+            QLayoutItem* cbval1 = item;
+
+            qstackedlayout_additem_callback(this, cbval1);
         } else {
             QStackedLayout::addItem(item);
         }
@@ -315,7 +326,8 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_sizehint_isbase = false;
             return QStackedLayout::sizeHint();
         } else if (qstackedlayout_sizehint_callback != nullptr) {
-            return qstackedlayout_sizehint_callback();
+            QSize* callback_ret = qstackedlayout_sizehint_callback();
+            return *callback_ret;
         } else {
             return QStackedLayout::sizeHint();
         }
@@ -327,7 +339,8 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_minimumsize_isbase = false;
             return QStackedLayout::minimumSize();
         } else if (qstackedlayout_minimumsize_callback != nullptr) {
-            return qstackedlayout_minimumsize_callback();
+            QSize* callback_ret = qstackedlayout_minimumsize_callback();
+            return *callback_ret;
         } else {
             return QStackedLayout::minimumSize();
         }
@@ -339,7 +352,10 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_itemat_isbase = false;
             return QStackedLayout::itemAt(param1);
         } else if (qstackedlayout_itemat_callback != nullptr) {
-            return qstackedlayout_itemat_callback(this, param1);
+            int cbval1 = param1;
+
+            QLayoutItem* callback_ret = qstackedlayout_itemat_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QStackedLayout::itemAt(param1);
         }
@@ -351,7 +367,10 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_takeat_isbase = false;
             return QStackedLayout::takeAt(param1);
         } else if (qstackedlayout_takeat_callback != nullptr) {
-            return qstackedlayout_takeat_callback(this, param1);
+            int cbval1 = param1;
+
+            QLayoutItem* callback_ret = qstackedlayout_takeat_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QStackedLayout::takeAt(param1);
         }
@@ -363,7 +382,11 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_setgeometry_isbase = false;
             QStackedLayout::setGeometry(rect);
         } else if (qstackedlayout_setgeometry_callback != nullptr) {
-            qstackedlayout_setgeometry_callback(this, rect);
+            const QRect& rect_ret = rect;
+            // Cast returned reference into pointer
+            QRect* cbval1 = const_cast<QRect*>(&rect_ret);
+
+            qstackedlayout_setgeometry_callback(this, cbval1);
         } else {
             QStackedLayout::setGeometry(rect);
         }
@@ -375,7 +398,8 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_hasheightforwidth_isbase = false;
             return QStackedLayout::hasHeightForWidth();
         } else if (qstackedlayout_hasheightforwidth_callback != nullptr) {
-            return qstackedlayout_hasheightforwidth_callback();
+            bool callback_ret = qstackedlayout_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QStackedLayout::hasHeightForWidth();
         }
@@ -387,7 +411,10 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_heightforwidth_isbase = false;
             return QStackedLayout::heightForWidth(width);
         } else if (qstackedlayout_heightforwidth_callback != nullptr) {
-            return qstackedlayout_heightforwidth_callback(this, width);
+            int cbval1 = width;
+
+            int callback_ret = qstackedlayout_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QStackedLayout::heightForWidth(width);
         }
@@ -399,7 +426,8 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_spacing_isbase = false;
             return QStackedLayout::spacing();
         } else if (qstackedlayout_spacing_callback != nullptr) {
-            return qstackedlayout_spacing_callback();
+            int callback_ret = qstackedlayout_spacing_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QStackedLayout::spacing();
         }
@@ -411,7 +439,9 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_setspacing_isbase = false;
             QStackedLayout::setSpacing(spacing);
         } else if (qstackedlayout_setspacing_callback != nullptr) {
-            qstackedlayout_setspacing_callback(this, spacing);
+            int cbval1 = spacing;
+
+            qstackedlayout_setspacing_callback(this, cbval1);
         } else {
             QStackedLayout::setSpacing(spacing);
         }
@@ -435,7 +465,8 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_geometry_isbase = false;
             return QStackedLayout::geometry();
         } else if (qstackedlayout_geometry_callback != nullptr) {
-            return qstackedlayout_geometry_callback();
+            QRect* callback_ret = qstackedlayout_geometry_callback();
+            return *callback_ret;
         } else {
             return QStackedLayout::geometry();
         }
@@ -447,7 +478,8 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_expandingdirections_isbase = false;
             return QStackedLayout::expandingDirections();
         } else if (qstackedlayout_expandingdirections_callback != nullptr) {
-            return qstackedlayout_expandingdirections_callback();
+            int callback_ret = qstackedlayout_expandingdirections_callback();
+            return static_cast<Qt::Orientations>(callback_ret);
         } else {
             return QStackedLayout::expandingDirections();
         }
@@ -459,7 +491,8 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_maximumsize_isbase = false;
             return QStackedLayout::maximumSize();
         } else if (qstackedlayout_maximumsize_callback != nullptr) {
-            return qstackedlayout_maximumsize_callback();
+            QSize* callback_ret = qstackedlayout_maximumsize_callback();
+            return *callback_ret;
         } else {
             return QStackedLayout::maximumSize();
         }
@@ -471,7 +504,10 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_indexof_isbase = false;
             return QStackedLayout::indexOf(param1);
         } else if (qstackedlayout_indexof_callback != nullptr) {
-            return qstackedlayout_indexof_callback(this, param1);
+            QWidget* cbval1 = (QWidget*)param1;
+
+            int callback_ret = qstackedlayout_indexof_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QStackedLayout::indexOf(param1);
         }
@@ -483,7 +519,8 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_isempty_isbase = false;
             return QStackedLayout::isEmpty();
         } else if (qstackedlayout_isempty_callback != nullptr) {
-            return qstackedlayout_isempty_callback();
+            bool callback_ret = qstackedlayout_isempty_callback();
+            return callback_ret;
         } else {
             return QStackedLayout::isEmpty();
         }
@@ -495,7 +532,8 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_controltypes_isbase = false;
             return QStackedLayout::controlTypes();
         } else if (qstackedlayout_controltypes_callback != nullptr) {
-            return qstackedlayout_controltypes_callback();
+            int callback_ret = qstackedlayout_controltypes_callback();
+            return static_cast<QSizePolicy::ControlTypes>(callback_ret);
         } else {
             return QStackedLayout::controlTypes();
         }
@@ -507,7 +545,12 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_replacewidget_isbase = false;
             return QStackedLayout::replaceWidget(from, to, options);
         } else if (qstackedlayout_replacewidget_callback != nullptr) {
-            return qstackedlayout_replacewidget_callback(this, from, to, options);
+            QWidget* cbval1 = from;
+            QWidget* cbval2 = to;
+            int cbval3 = static_cast<int>(options);
+
+            QLayoutItem* callback_ret = qstackedlayout_replacewidget_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QStackedLayout::replaceWidget(from, to, options);
         }
@@ -519,7 +562,8 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_layout_isbase = false;
             return QStackedLayout::layout();
         } else if (qstackedlayout_layout_callback != nullptr) {
-            return qstackedlayout_layout_callback();
+            QLayout* callback_ret = qstackedlayout_layout_callback();
+            return callback_ret;
         } else {
             return QStackedLayout::layout();
         }
@@ -531,7 +575,9 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_childevent_isbase = false;
             QStackedLayout::childEvent(e);
         } else if (qstackedlayout_childevent_callback != nullptr) {
-            qstackedlayout_childevent_callback(this, e);
+            QChildEvent* cbval1 = e;
+
+            qstackedlayout_childevent_callback(this, cbval1);
         } else {
             QStackedLayout::childEvent(e);
         }
@@ -543,7 +589,10 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_event_isbase = false;
             return QStackedLayout::event(event);
         } else if (qstackedlayout_event_callback != nullptr) {
-            return qstackedlayout_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qstackedlayout_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QStackedLayout::event(event);
         }
@@ -555,7 +604,11 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_eventfilter_isbase = false;
             return QStackedLayout::eventFilter(watched, event);
         } else if (qstackedlayout_eventfilter_callback != nullptr) {
-            return qstackedlayout_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qstackedlayout_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QStackedLayout::eventFilter(watched, event);
         }
@@ -567,7 +620,9 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_timerevent_isbase = false;
             QStackedLayout::timerEvent(event);
         } else if (qstackedlayout_timerevent_callback != nullptr) {
-            qstackedlayout_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qstackedlayout_timerevent_callback(this, cbval1);
         } else {
             QStackedLayout::timerEvent(event);
         }
@@ -579,7 +634,9 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_customevent_isbase = false;
             QStackedLayout::customEvent(event);
         } else if (qstackedlayout_customevent_callback != nullptr) {
-            qstackedlayout_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qstackedlayout_customevent_callback(this, cbval1);
         } else {
             QStackedLayout::customEvent(event);
         }
@@ -591,7 +648,11 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_connectnotify_isbase = false;
             QStackedLayout::connectNotify(signal);
         } else if (qstackedlayout_connectnotify_callback != nullptr) {
-            qstackedlayout_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qstackedlayout_connectnotify_callback(this, cbval1);
         } else {
             QStackedLayout::connectNotify(signal);
         }
@@ -603,7 +664,11 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_disconnectnotify_isbase = false;
             QStackedLayout::disconnectNotify(signal);
         } else if (qstackedlayout_disconnectnotify_callback != nullptr) {
-            qstackedlayout_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qstackedlayout_disconnectnotify_callback(this, cbval1);
         } else {
             QStackedLayout::disconnectNotify(signal);
         }
@@ -615,7 +680,10 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_minimumheightforwidth_isbase = false;
             return QStackedLayout::minimumHeightForWidth(param1);
         } else if (qstackedlayout_minimumheightforwidth_callback != nullptr) {
-            return qstackedlayout_minimumheightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qstackedlayout_minimumheightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QStackedLayout::minimumHeightForWidth(param1);
         }
@@ -627,7 +695,8 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_widget_isbase = false;
             return QStackedLayout::widget();
         } else if (qstackedlayout_widget_callback != nullptr) {
-            return qstackedlayout_widget_callback();
+            QWidget* callback_ret = qstackedlayout_widget_callback();
+            return callback_ret;
         } else {
             return QStackedLayout::widget();
         }
@@ -639,7 +708,8 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_spaceritem_isbase = false;
             return QStackedLayout::spacerItem();
         } else if (qstackedlayout_spaceritem_callback != nullptr) {
-            return qstackedlayout_spaceritem_callback();
+            QSpacerItem* callback_ret = qstackedlayout_spaceritem_callback();
+            return callback_ret;
         } else {
             return QStackedLayout::spacerItem();
         }
@@ -651,7 +721,9 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_widgetevent_isbase = false;
             QStackedLayout::widgetEvent(param1);
         } else if (qstackedlayout_widgetevent_callback != nullptr) {
-            qstackedlayout_widgetevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qstackedlayout_widgetevent_callback(this, cbval1);
         } else {
             QStackedLayout::widgetEvent(param1);
         }
@@ -663,7 +735,9 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_addchildlayout_isbase = false;
             QStackedLayout::addChildLayout(l);
         } else if (qstackedlayout_addchildlayout_callback != nullptr) {
-            qstackedlayout_addchildlayout_callback(this, l);
+            QLayout* cbval1 = l;
+
+            qstackedlayout_addchildlayout_callback(this, cbval1);
         } else {
             QStackedLayout::addChildLayout(l);
         }
@@ -675,7 +749,9 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_addchildwidget_isbase = false;
             QStackedLayout::addChildWidget(w);
         } else if (qstackedlayout_addchildwidget_callback != nullptr) {
-            qstackedlayout_addchildwidget_callback(this, w);
+            QWidget* cbval1 = w;
+
+            qstackedlayout_addchildwidget_callback(this, cbval1);
         } else {
             QStackedLayout::addChildWidget(w);
         }
@@ -687,7 +763,10 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_adoptlayout_isbase = false;
             return QStackedLayout::adoptLayout(layout);
         } else if (qstackedlayout_adoptlayout_callback != nullptr) {
-            return qstackedlayout_adoptlayout_callback(this, layout);
+            QLayout* cbval1 = layout;
+
+            bool callback_ret = qstackedlayout_adoptlayout_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QStackedLayout::adoptLayout(layout);
         }
@@ -699,7 +778,12 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_alignmentrect_isbase = false;
             return QStackedLayout::alignmentRect(param1);
         } else if (qstackedlayout_alignmentrect_callback != nullptr) {
-            return qstackedlayout_alignmentrect_callback(this, param1);
+            const QRect& param1_ret = param1;
+            // Cast returned reference into pointer
+            QRect* cbval1 = const_cast<QRect*>(&param1_ret);
+
+            QRect* callback_ret = qstackedlayout_alignmentrect_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QStackedLayout::alignmentRect(param1);
         }
@@ -711,7 +795,8 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_sender_isbase = false;
             return QStackedLayout::sender();
         } else if (qstackedlayout_sender_callback != nullptr) {
-            return qstackedlayout_sender_callback();
+            QObject* callback_ret = qstackedlayout_sender_callback();
+            return callback_ret;
         } else {
             return QStackedLayout::sender();
         }
@@ -723,7 +808,8 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_sendersignalindex_isbase = false;
             return QStackedLayout::senderSignalIndex();
         } else if (qstackedlayout_sendersignalindex_callback != nullptr) {
-            return qstackedlayout_sendersignalindex_callback();
+            int callback_ret = qstackedlayout_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QStackedLayout::senderSignalIndex();
         }
@@ -735,7 +821,10 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_receivers_isbase = false;
             return QStackedLayout::receivers(signal);
         } else if (qstackedlayout_receivers_callback != nullptr) {
-            return qstackedlayout_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qstackedlayout_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QStackedLayout::receivers(signal);
         }
@@ -747,11 +836,46 @@ class VirtualQStackedLayout : public QStackedLayout {
             qstackedlayout_issignalconnected_isbase = false;
             return QStackedLayout::isSignalConnected(signal);
         } else if (qstackedlayout_issignalconnected_callback != nullptr) {
-            return qstackedlayout_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qstackedlayout_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QStackedLayout::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QStackedLayout_ChildEvent(QStackedLayout* self, QChildEvent* e);
+    friend void QStackedLayout_QBaseChildEvent(QStackedLayout* self, QChildEvent* e);
+    friend void QStackedLayout_TimerEvent(QStackedLayout* self, QTimerEvent* event);
+    friend void QStackedLayout_QBaseTimerEvent(QStackedLayout* self, QTimerEvent* event);
+    friend void QStackedLayout_CustomEvent(QStackedLayout* self, QEvent* event);
+    friend void QStackedLayout_QBaseCustomEvent(QStackedLayout* self, QEvent* event);
+    friend void QStackedLayout_ConnectNotify(QStackedLayout* self, const QMetaMethod* signal);
+    friend void QStackedLayout_QBaseConnectNotify(QStackedLayout* self, const QMetaMethod* signal);
+    friend void QStackedLayout_DisconnectNotify(QStackedLayout* self, const QMetaMethod* signal);
+    friend void QStackedLayout_QBaseDisconnectNotify(QStackedLayout* self, const QMetaMethod* signal);
+    friend void QStackedLayout_WidgetEvent(QStackedLayout* self, QEvent* param1);
+    friend void QStackedLayout_QBaseWidgetEvent(QStackedLayout* self, QEvent* param1);
+    friend void QStackedLayout_AddChildLayout(QStackedLayout* self, QLayout* l);
+    friend void QStackedLayout_QBaseAddChildLayout(QStackedLayout* self, QLayout* l);
+    friend void QStackedLayout_AddChildWidget(QStackedLayout* self, QWidget* w);
+    friend void QStackedLayout_QBaseAddChildWidget(QStackedLayout* self, QWidget* w);
+    friend bool QStackedLayout_AdoptLayout(QStackedLayout* self, QLayout* layout);
+    friend bool QStackedLayout_QBaseAdoptLayout(QStackedLayout* self, QLayout* layout);
+    friend QRect* QStackedLayout_AlignmentRect(const QStackedLayout* self, const QRect* param1);
+    friend QRect* QStackedLayout_QBaseAlignmentRect(const QStackedLayout* self, const QRect* param1);
+    friend QObject* QStackedLayout_Sender(const QStackedLayout* self);
+    friend QObject* QStackedLayout_QBaseSender(const QStackedLayout* self);
+    friend int QStackedLayout_SenderSignalIndex(const QStackedLayout* self);
+    friend int QStackedLayout_QBaseSenderSignalIndex(const QStackedLayout* self);
+    friend int QStackedLayout_Receivers(const QStackedLayout* self, const char* signal);
+    friend int QStackedLayout_QBaseReceivers(const QStackedLayout* self, const char* signal);
+    friend bool QStackedLayout_IsSignalConnected(const QStackedLayout* self, const QMetaMethod* signal);
+    friend bool QStackedLayout_QBaseIsSignalConnected(const QStackedLayout* self, const QMetaMethod* signal);
 };
 
 #endif

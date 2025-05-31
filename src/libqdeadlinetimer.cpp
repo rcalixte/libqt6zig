@@ -3,7 +3,7 @@
 #include "libqdeadlinetimer.h"
 #include "libqdeadlinetimer.hxx"
 
-QDeadlineTimer* QDeadlineTimer_new(QDeadlineTimer* other) {
+QDeadlineTimer* QDeadlineTimer_new(const QDeadlineTimer* other) {
     return new QDeadlineTimer(*other);
 }
 
@@ -23,7 +23,7 @@ QDeadlineTimer* QDeadlineTimer_new5(long long msecs) {
     return new QDeadlineTimer(static_cast<qint64>(msecs));
 }
 
-QDeadlineTimer* QDeadlineTimer_new6(QDeadlineTimer* param1) {
+QDeadlineTimer* QDeadlineTimer_new6(const QDeadlineTimer* param1) {
     return new QDeadlineTimer(*param1);
 }
 
@@ -119,7 +119,7 @@ QDeadlineTimer* QDeadlineTimer_OperatorMinusAssign(QDeadlineTimer* self, long lo
     return &_ret;
 }
 
-void QDeadlineTimer_OperatorAssign(QDeadlineTimer* self, QDeadlineTimer* param1) {
+void QDeadlineTimer_OperatorAssign(QDeadlineTimer* self, const QDeadlineTimer* param1) {
     self->operator=(*param1);
 }
 

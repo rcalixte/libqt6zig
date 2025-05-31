@@ -11,23 +11,26 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QIconEngine so that we can call protected methods
-class VirtualQIconEngine : public QIconEngine {
+class VirtualQIconEngine final : public QIconEngine {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQIconEngine = true;
+
     // Virtual class public types (including callbacks)
-    using QIconEngine_Paint_Callback = void (*)(QIconEngine*, QPainter*, const QRect&, QIcon::Mode, QIcon::State);
-    using QIconEngine_ActualSize_Callback = QSize (*)(QIconEngine*, const QSize&, QIcon::Mode, QIcon::State);
-    using QIconEngine_Pixmap_Callback = QPixmap (*)(QIconEngine*, const QSize&, QIcon::Mode, QIcon::State);
-    using QIconEngine_AddPixmap_Callback = void (*)(QIconEngine*, const QPixmap&, QIcon::Mode, QIcon::State);
-    using QIconEngine_AddFile_Callback = void (*)(QIconEngine*, const QString&, const QSize&, QIcon::Mode, QIcon::State);
-    using QIconEngine_Key_Callback = QString (*)();
+    using QIconEngine_Paint_Callback = void (*)(QIconEngine*, QPainter*, QRect*, int, int);
+    using QIconEngine_ActualSize_Callback = QSize* (*)(QIconEngine*, QSize*, int, int);
+    using QIconEngine_Pixmap_Callback = QPixmap* (*)(QIconEngine*, QSize*, int, int);
+    using QIconEngine_AddPixmap_Callback = void (*)(QIconEngine*, QPixmap*, int, int);
+    using QIconEngine_AddFile_Callback = void (*)(QIconEngine*, libqt_string, QSize*, int, int);
+    using QIconEngine_Key_Callback = libqt_string (*)();
     using QIconEngine_Clone_Callback = QIconEngine* (*)();
-    using QIconEngine_Read_Callback = bool (*)(QIconEngine*, QDataStream&);
-    using QIconEngine_Write_Callback = bool (*)(const QIconEngine*, QDataStream&);
-    using QIconEngine_AvailableSizes_Callback = QList<QSize> (*)(QIconEngine*, QIcon::Mode, QIcon::State);
-    using QIconEngine_IconName_Callback = QString (*)();
+    using QIconEngine_Read_Callback = bool (*)(QIconEngine*, QDataStream*);
+    using QIconEngine_Write_Callback = bool (*)(const QIconEngine*, QDataStream*);
+    using QIconEngine_AvailableSizes_Callback = libqt_list /* of QSize* */ (*)(QIconEngine*, int, int);
+    using QIconEngine_IconName_Callback = libqt_string (*)();
     using QIconEngine_IsNull_Callback = bool (*)();
-    using QIconEngine_ScaledPixmap_Callback = QPixmap (*)(QIconEngine*, const QSize&, QIcon::Mode, QIcon::State, qreal);
+    using QIconEngine_ScaledPixmap_Callback = QPixmap* (*)(QIconEngine*, QSize*, int, int, double);
     using QIconEngine_VirtualHook_Callback = void (*)(QIconEngine*, int, void*);
 
   protected:
@@ -84,40 +87,49 @@ class VirtualQIconEngine : public QIconEngine {
     }
 
     // Callback setters
-    void setQIconEngine_Paint_Callback(QIconEngine_Paint_Callback cb) { qiconengine_paint_callback = cb; }
-    void setQIconEngine_ActualSize_Callback(QIconEngine_ActualSize_Callback cb) { qiconengine_actualsize_callback = cb; }
-    void setQIconEngine_Pixmap_Callback(QIconEngine_Pixmap_Callback cb) { qiconengine_pixmap_callback = cb; }
-    void setQIconEngine_AddPixmap_Callback(QIconEngine_AddPixmap_Callback cb) { qiconengine_addpixmap_callback = cb; }
-    void setQIconEngine_AddFile_Callback(QIconEngine_AddFile_Callback cb) { qiconengine_addfile_callback = cb; }
-    void setQIconEngine_Key_Callback(QIconEngine_Key_Callback cb) { qiconengine_key_callback = cb; }
-    void setQIconEngine_Clone_Callback(QIconEngine_Clone_Callback cb) { qiconengine_clone_callback = cb; }
-    void setQIconEngine_Read_Callback(QIconEngine_Read_Callback cb) { qiconengine_read_callback = cb; }
-    void setQIconEngine_Write_Callback(QIconEngine_Write_Callback cb) { qiconengine_write_callback = cb; }
-    void setQIconEngine_AvailableSizes_Callback(QIconEngine_AvailableSizes_Callback cb) { qiconengine_availablesizes_callback = cb; }
-    void setQIconEngine_IconName_Callback(QIconEngine_IconName_Callback cb) { qiconengine_iconname_callback = cb; }
-    void setQIconEngine_IsNull_Callback(QIconEngine_IsNull_Callback cb) { qiconengine_isnull_callback = cb; }
-    void setQIconEngine_ScaledPixmap_Callback(QIconEngine_ScaledPixmap_Callback cb) { qiconengine_scaledpixmap_callback = cb; }
-    void setQIconEngine_VirtualHook_Callback(QIconEngine_VirtualHook_Callback cb) { qiconengine_virtualhook_callback = cb; }
+    inline void setQIconEngine_Paint_Callback(QIconEngine_Paint_Callback cb) { qiconengine_paint_callback = cb; }
+    inline void setQIconEngine_ActualSize_Callback(QIconEngine_ActualSize_Callback cb) { qiconengine_actualsize_callback = cb; }
+    inline void setQIconEngine_Pixmap_Callback(QIconEngine_Pixmap_Callback cb) { qiconengine_pixmap_callback = cb; }
+    inline void setQIconEngine_AddPixmap_Callback(QIconEngine_AddPixmap_Callback cb) { qiconengine_addpixmap_callback = cb; }
+    inline void setQIconEngine_AddFile_Callback(QIconEngine_AddFile_Callback cb) { qiconengine_addfile_callback = cb; }
+    inline void setQIconEngine_Key_Callback(QIconEngine_Key_Callback cb) { qiconengine_key_callback = cb; }
+    inline void setQIconEngine_Clone_Callback(QIconEngine_Clone_Callback cb) { qiconengine_clone_callback = cb; }
+    inline void setQIconEngine_Read_Callback(QIconEngine_Read_Callback cb) { qiconengine_read_callback = cb; }
+    inline void setQIconEngine_Write_Callback(QIconEngine_Write_Callback cb) { qiconengine_write_callback = cb; }
+    inline void setQIconEngine_AvailableSizes_Callback(QIconEngine_AvailableSizes_Callback cb) { qiconengine_availablesizes_callback = cb; }
+    inline void setQIconEngine_IconName_Callback(QIconEngine_IconName_Callback cb) { qiconengine_iconname_callback = cb; }
+    inline void setQIconEngine_IsNull_Callback(QIconEngine_IsNull_Callback cb) { qiconengine_isnull_callback = cb; }
+    inline void setQIconEngine_ScaledPixmap_Callback(QIconEngine_ScaledPixmap_Callback cb) { qiconengine_scaledpixmap_callback = cb; }
+    inline void setQIconEngine_VirtualHook_Callback(QIconEngine_VirtualHook_Callback cb) { qiconengine_virtualhook_callback = cb; }
 
     // Base flag setters
-    void setQIconEngine_Paint_IsBase(bool value) const { qiconengine_paint_isbase = value; }
-    void setQIconEngine_ActualSize_IsBase(bool value) const { qiconengine_actualsize_isbase = value; }
-    void setQIconEngine_Pixmap_IsBase(bool value) const { qiconengine_pixmap_isbase = value; }
-    void setQIconEngine_AddPixmap_IsBase(bool value) const { qiconengine_addpixmap_isbase = value; }
-    void setQIconEngine_AddFile_IsBase(bool value) const { qiconengine_addfile_isbase = value; }
-    void setQIconEngine_Key_IsBase(bool value) const { qiconengine_key_isbase = value; }
-    void setQIconEngine_Clone_IsBase(bool value) const { qiconengine_clone_isbase = value; }
-    void setQIconEngine_Read_IsBase(bool value) const { qiconengine_read_isbase = value; }
-    void setQIconEngine_Write_IsBase(bool value) const { qiconengine_write_isbase = value; }
-    void setQIconEngine_AvailableSizes_IsBase(bool value) const { qiconengine_availablesizes_isbase = value; }
-    void setQIconEngine_IconName_IsBase(bool value) const { qiconengine_iconname_isbase = value; }
-    void setQIconEngine_IsNull_IsBase(bool value) const { qiconengine_isnull_isbase = value; }
-    void setQIconEngine_ScaledPixmap_IsBase(bool value) const { qiconengine_scaledpixmap_isbase = value; }
-    void setQIconEngine_VirtualHook_IsBase(bool value) const { qiconengine_virtualhook_isbase = value; }
+    inline void setQIconEngine_Paint_IsBase(bool value) const { qiconengine_paint_isbase = value; }
+    inline void setQIconEngine_ActualSize_IsBase(bool value) const { qiconengine_actualsize_isbase = value; }
+    inline void setQIconEngine_Pixmap_IsBase(bool value) const { qiconengine_pixmap_isbase = value; }
+    inline void setQIconEngine_AddPixmap_IsBase(bool value) const { qiconengine_addpixmap_isbase = value; }
+    inline void setQIconEngine_AddFile_IsBase(bool value) const { qiconengine_addfile_isbase = value; }
+    inline void setQIconEngine_Key_IsBase(bool value) const { qiconengine_key_isbase = value; }
+    inline void setQIconEngine_Clone_IsBase(bool value) const { qiconengine_clone_isbase = value; }
+    inline void setQIconEngine_Read_IsBase(bool value) const { qiconengine_read_isbase = value; }
+    inline void setQIconEngine_Write_IsBase(bool value) const { qiconengine_write_isbase = value; }
+    inline void setQIconEngine_AvailableSizes_IsBase(bool value) const { qiconengine_availablesizes_isbase = value; }
+    inline void setQIconEngine_IconName_IsBase(bool value) const { qiconengine_iconname_isbase = value; }
+    inline void setQIconEngine_IsNull_IsBase(bool value) const { qiconengine_isnull_isbase = value; }
+    inline void setQIconEngine_ScaledPixmap_IsBase(bool value) const { qiconengine_scaledpixmap_isbase = value; }
+    inline void setQIconEngine_VirtualHook_IsBase(bool value) const { qiconengine_virtualhook_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void paint(QPainter* painter, const QRect& rect, QIcon::Mode mode, QIcon::State state) override {
-        qiconengine_paint_callback(this, painter, rect, mode, state);
+        if (qiconengine_paint_callback != nullptr) {
+            QPainter* cbval1 = painter;
+            const QRect& rect_ret = rect;
+            // Cast returned reference into pointer
+            QRect* cbval2 = const_cast<QRect*>(&rect_ret);
+            int cbval3 = static_cast<int>(mode);
+            int cbval4 = static_cast<int>(state);
+
+            qiconengine_paint_callback(this, cbval1, cbval2, cbval3, cbval4);
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -126,7 +138,14 @@ class VirtualQIconEngine : public QIconEngine {
             qiconengine_actualsize_isbase = false;
             return QIconEngine::actualSize(size, mode, state);
         } else if (qiconengine_actualsize_callback != nullptr) {
-            return qiconengine_actualsize_callback(this, size, mode, state);
+            const QSize& size_ret = size;
+            // Cast returned reference into pointer
+            QSize* cbval1 = const_cast<QSize*>(&size_ret);
+            int cbval2 = static_cast<int>(mode);
+            int cbval3 = static_cast<int>(state);
+
+            QSize* callback_ret = qiconengine_actualsize_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QIconEngine::actualSize(size, mode, state);
         }
@@ -138,7 +157,14 @@ class VirtualQIconEngine : public QIconEngine {
             qiconengine_pixmap_isbase = false;
             return QIconEngine::pixmap(size, mode, state);
         } else if (qiconengine_pixmap_callback != nullptr) {
-            return qiconengine_pixmap_callback(this, size, mode, state);
+            const QSize& size_ret = size;
+            // Cast returned reference into pointer
+            QSize* cbval1 = const_cast<QSize*>(&size_ret);
+            int cbval2 = static_cast<int>(mode);
+            int cbval3 = static_cast<int>(state);
+
+            QPixmap* callback_ret = qiconengine_pixmap_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QIconEngine::pixmap(size, mode, state);
         }
@@ -150,7 +176,13 @@ class VirtualQIconEngine : public QIconEngine {
             qiconengine_addpixmap_isbase = false;
             QIconEngine::addPixmap(pixmap, mode, state);
         } else if (qiconengine_addpixmap_callback != nullptr) {
-            qiconengine_addpixmap_callback(this, pixmap, mode, state);
+            const QPixmap& pixmap_ret = pixmap;
+            // Cast returned reference into pointer
+            QPixmap* cbval1 = const_cast<QPixmap*>(&pixmap_ret);
+            int cbval2 = static_cast<int>(mode);
+            int cbval3 = static_cast<int>(state);
+
+            qiconengine_addpixmap_callback(this, cbval1, cbval2, cbval3);
         } else {
             QIconEngine::addPixmap(pixmap, mode, state);
         }
@@ -162,7 +194,22 @@ class VirtualQIconEngine : public QIconEngine {
             qiconengine_addfile_isbase = false;
             QIconEngine::addFile(fileName, size, mode, state);
         } else if (qiconengine_addfile_callback != nullptr) {
-            qiconengine_addfile_callback(this, fileName, size, mode, state);
+            const QString fileName_ret = fileName;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray fileName_b = fileName_ret.toUtf8();
+            libqt_string fileName_str;
+            fileName_str.len = fileName_b.length();
+            fileName_str.data = static_cast<char*>(malloc((fileName_str.len + 1) * sizeof(char)));
+            memcpy(fileName_str.data, fileName_b.data(), fileName_str.len);
+            fileName_str.data[fileName_str.len] = '\0';
+            libqt_string cbval1 = fileName_str;
+            const QSize& size_ret = size;
+            // Cast returned reference into pointer
+            QSize* cbval2 = const_cast<QSize*>(&size_ret);
+            int cbval3 = static_cast<int>(mode);
+            int cbval4 = static_cast<int>(state);
+
+            qiconengine_addfile_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QIconEngine::addFile(fileName, size, mode, state);
         }
@@ -174,7 +221,9 @@ class VirtualQIconEngine : public QIconEngine {
             qiconengine_key_isbase = false;
             return QIconEngine::key();
         } else if (qiconengine_key_callback != nullptr) {
-            return qiconengine_key_callback();
+            libqt_string callback_ret = qiconengine_key_callback();
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
         } else {
             return QIconEngine::key();
         }
@@ -182,7 +231,12 @@ class VirtualQIconEngine : public QIconEngine {
 
     // Virtual method for C ABI access and custom callback
     virtual QIconEngine* clone() const override {
-        return qiconengine_clone_callback();
+        if (qiconengine_clone_callback != nullptr) {
+            QIconEngine* callback_ret = qiconengine_clone_callback();
+            return callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -191,7 +245,12 @@ class VirtualQIconEngine : public QIconEngine {
             qiconengine_read_isbase = false;
             return QIconEngine::read(in);
         } else if (qiconengine_read_callback != nullptr) {
-            return qiconengine_read_callback(this, in);
+            QDataStream& in_ret = in;
+            // Cast returned reference into pointer
+            QDataStream* cbval1 = &in_ret;
+
+            bool callback_ret = qiconengine_read_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QIconEngine::read(in);
         }
@@ -203,7 +262,12 @@ class VirtualQIconEngine : public QIconEngine {
             qiconengine_write_isbase = false;
             return QIconEngine::write(out);
         } else if (qiconengine_write_callback != nullptr) {
-            return qiconengine_write_callback(this, out);
+            QDataStream& out_ret = out;
+            // Cast returned reference into pointer
+            QDataStream* cbval1 = &out_ret;
+
+            bool callback_ret = qiconengine_write_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QIconEngine::write(out);
         }
@@ -215,7 +279,17 @@ class VirtualQIconEngine : public QIconEngine {
             qiconengine_availablesizes_isbase = false;
             return QIconEngine::availableSizes(mode, state);
         } else if (qiconengine_availablesizes_callback != nullptr) {
-            return qiconengine_availablesizes_callback(this, mode, state);
+            int cbval1 = static_cast<int>(mode);
+            int cbval2 = static_cast<int>(state);
+
+            libqt_list /* of QSize* */ callback_ret = qiconengine_availablesizes_callback(this, cbval1, cbval2);
+            QList<QSize> callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            QSize** callback_ret_arr = static_cast<QSize**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            }
+            return callback_ret_QList;
         } else {
             return QIconEngine::availableSizes(mode, state);
         }
@@ -227,7 +301,9 @@ class VirtualQIconEngine : public QIconEngine {
             qiconengine_iconname_isbase = false;
             return QIconEngine::iconName();
         } else if (qiconengine_iconname_callback != nullptr) {
-            return qiconengine_iconname_callback();
+            libqt_string callback_ret = qiconengine_iconname_callback();
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
         } else {
             return QIconEngine::iconName();
         }
@@ -239,7 +315,8 @@ class VirtualQIconEngine : public QIconEngine {
             qiconengine_isnull_isbase = false;
             return QIconEngine::isNull();
         } else if (qiconengine_isnull_callback != nullptr) {
-            return qiconengine_isnull_callback();
+            bool callback_ret = qiconengine_isnull_callback();
+            return callback_ret;
         } else {
             return QIconEngine::isNull();
         }
@@ -251,7 +328,15 @@ class VirtualQIconEngine : public QIconEngine {
             qiconengine_scaledpixmap_isbase = false;
             return QIconEngine::scaledPixmap(size, mode, state, scale);
         } else if (qiconengine_scaledpixmap_callback != nullptr) {
-            return qiconengine_scaledpixmap_callback(this, size, mode, state, scale);
+            const QSize& size_ret = size;
+            // Cast returned reference into pointer
+            QSize* cbval1 = const_cast<QSize*>(&size_ret);
+            int cbval2 = static_cast<int>(mode);
+            int cbval3 = static_cast<int>(state);
+            double cbval4 = static_cast<double>(scale);
+
+            QPixmap* callback_ret = qiconengine_scaledpixmap_callback(this, cbval1, cbval2, cbval3, cbval4);
+            return *callback_ret;
         } else {
             return QIconEngine::scaledPixmap(size, mode, state, scale);
         }
@@ -263,7 +348,10 @@ class VirtualQIconEngine : public QIconEngine {
             qiconengine_virtualhook_isbase = false;
             QIconEngine::virtual_hook(id, data);
         } else if (qiconengine_virtualhook_callback != nullptr) {
-            qiconengine_virtualhook_callback(this, id, data);
+            int cbval1 = id;
+            void* cbval2 = data;
+
+            qiconengine_virtualhook_callback(this, cbval1, cbval2);
         } else {
             QIconEngine::virtual_hook(id, data);
         }

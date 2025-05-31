@@ -15,7 +15,7 @@
 #include "libqmetaobject.h"
 #include "libqmetaobject.hxx"
 
-QMetaMethod* QMetaMethod_new(QMetaMethod* other) {
+QMetaMethod* QMetaMethod_new(const QMetaMethod* other) {
     return new QMetaMethod(*other);
 }
 
@@ -27,7 +27,7 @@ QMetaMethod* QMetaMethod_new3() {
     return new QMetaMethod();
 }
 
-QMetaMethod* QMetaMethod_new4(QMetaMethod* param1) {
+QMetaMethod* QMetaMethod_new4(const QMetaMethod* param1) {
     return new QMetaMethod(*param1);
 }
 
@@ -443,7 +443,7 @@ void QMetaMethod_Delete(QMetaMethod* self) {
     delete self;
 }
 
-QMetaEnum* QMetaEnum_new(QMetaEnum* other) {
+QMetaEnum* QMetaEnum_new(const QMetaEnum* other) {
     return new QMetaEnum(*other);
 }
 
@@ -455,7 +455,7 @@ QMetaEnum* QMetaEnum_new3() {
     return new QMetaEnum();
 }
 
-QMetaEnum* QMetaEnum_new4(QMetaEnum* param1) {
+QMetaEnum* QMetaEnum_new4(const QMetaEnum* param1) {
     return new QMetaEnum(*param1);
 }
 
@@ -541,7 +541,7 @@ void QMetaEnum_Delete(QMetaEnum* self) {
     delete self;
 }
 
-QMetaProperty* QMetaProperty_new(QMetaProperty* other) {
+QMetaProperty* QMetaProperty_new(const QMetaProperty* other) {
     return new QMetaProperty(*other);
 }
 
@@ -665,11 +665,11 @@ int QMetaProperty_Revision(const QMetaProperty* self) {
     return self->revision();
 }
 
-QVariant* QMetaProperty_Read(const QMetaProperty* self, QObject* obj) {
+QVariant* QMetaProperty_Read(const QMetaProperty* self, const QObject* obj) {
     return new QVariant(self->read(obj));
 }
 
-bool QMetaProperty_Write(const QMetaProperty* self, QObject* obj, QVariant* value) {
+bool QMetaProperty_Write(const QMetaProperty* self, QObject* obj, const QVariant* value) {
     return self->write(obj, *value);
 }
 
@@ -685,7 +685,7 @@ QVariant* QMetaProperty_ReadOnGadget(const QMetaProperty* self, const void* gadg
     return new QVariant(self->readOnGadget(gadget));
 }
 
-bool QMetaProperty_WriteOnGadget(const QMetaProperty* self, void* gadget, QVariant* value) {
+bool QMetaProperty_WriteOnGadget(const QMetaProperty* self, void* gadget, const QVariant* value) {
     return self->writeOnGadget(gadget, *value);
 }
 
@@ -713,7 +713,7 @@ void QMetaProperty_Delete(QMetaProperty* self) {
     delete self;
 }
 
-QMetaClassInfo* QMetaClassInfo_new(QMetaClassInfo* other) {
+QMetaClassInfo* QMetaClassInfo_new(const QMetaClassInfo* other) {
     return new QMetaClassInfo(*other);
 }
 

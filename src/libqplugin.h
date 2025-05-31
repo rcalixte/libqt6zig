@@ -36,31 +36,31 @@ typedef struct QStaticPlugin QStaticPlugin;
 unsigned char QPluginMetaData_ArchRequirements();
 void QPluginMetaData_Delete(QPluginMetaData* self);
 
-QStaticPlugin* QStaticPlugin_new(QStaticPlugin* other);
+QStaticPlugin* QStaticPlugin_new(const QStaticPlugin* other);
 QStaticPlugin* QStaticPlugin_new2(QStaticPlugin* other);
 void QStaticPlugin_CopyAssign(QStaticPlugin* self, QStaticPlugin* other);
 void QStaticPlugin_MoveAssign(QStaticPlugin* self, QStaticPlugin* other);
 QJsonObject* QStaticPlugin_MetaData(const QStaticPlugin* self);
 void QStaticPlugin_Delete(QStaticPlugin* self);
 
-QPluginMetaData__Header* QPluginMetaData__Header_new(QPluginMetaData__Header* other);
+QPluginMetaData__Header* QPluginMetaData__Header_new(const QPluginMetaData__Header* other);
 QPluginMetaData__Header* QPluginMetaData__Header_new2(QPluginMetaData__Header* other);
-QPluginMetaData__Header* QPluginMetaData__Header_new3(QPluginMetaData__Header* param1);
+QPluginMetaData__Header* QPluginMetaData__Header_new3(const QPluginMetaData__Header* param1);
 void QPluginMetaData__Header_CopyAssign(QPluginMetaData__Header* self, QPluginMetaData__Header* other);
 void QPluginMetaData__Header_MoveAssign(QPluginMetaData__Header* self, QPluginMetaData__Header* other);
 void QPluginMetaData__Header_Delete(QPluginMetaData__Header* self);
 
-QPluginMetaData__MagicHeader* QPluginMetaData__MagicHeader_new(QPluginMetaData__MagicHeader* other);
+QPluginMetaData__MagicHeader* QPluginMetaData__MagicHeader_new(const QPluginMetaData__MagicHeader* other);
 QPluginMetaData__MagicHeader* QPluginMetaData__MagicHeader_new2(QPluginMetaData__MagicHeader* other);
 QPluginMetaData__MagicHeader* QPluginMetaData__MagicHeader_new3();
 void QPluginMetaData__MagicHeader_CopyAssign(QPluginMetaData__MagicHeader* self, QPluginMetaData__MagicHeader* other);
 void QPluginMetaData__MagicHeader_MoveAssign(QPluginMetaData__MagicHeader* self, QPluginMetaData__MagicHeader* other);
 void QPluginMetaData__MagicHeader_Delete(QPluginMetaData__MagicHeader* self);
 
-QPluginMetaData__ElfNoteHeader* QPluginMetaData__ElfNoteHeader_new(QPluginMetaData__ElfNoteHeader* other);
+QPluginMetaData__ElfNoteHeader* QPluginMetaData__ElfNoteHeader_new(const QPluginMetaData__ElfNoteHeader* other);
 QPluginMetaData__ElfNoteHeader* QPluginMetaData__ElfNoteHeader_new2(QPluginMetaData__ElfNoteHeader* other);
 QPluginMetaData__ElfNoteHeader* QPluginMetaData__ElfNoteHeader_new3(unsigned int payloadSize);
-QPluginMetaData__ElfNoteHeader* QPluginMetaData__ElfNoteHeader_new4(QPluginMetaData__ElfNoteHeader* param1);
+QPluginMetaData__ElfNoteHeader* QPluginMetaData__ElfNoteHeader_new4(const QPluginMetaData__ElfNoteHeader* param1);
 void QPluginMetaData__ElfNoteHeader_CopyAssign(QPluginMetaData__ElfNoteHeader* self, QPluginMetaData__ElfNoteHeader* other);
 void QPluginMetaData__ElfNoteHeader_MoveAssign(QPluginMetaData__ElfNoteHeader* self, QPluginMetaData__ElfNoteHeader* other);
 void QPluginMetaData__ElfNoteHeader_Delete(QPluginMetaData__ElfNoteHeader* self);

@@ -1,26 +1,15 @@
 #include <QAbstractAxis>
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QBrush>
-#include <QByteArray>
 #include <QChildEvent>
-#include <QColor>
 #include <QDateTime>
 #include <QDateTimeAxis>
 #include <QEvent>
-#include <QFont>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
-#include <QPen>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <qdatetimeaxis.h>
 #include "libqdatetimeaxis.h"
 #include "libqdatetimeaxis.hxx"
@@ -42,27 +31,30 @@ void* QDateTimeAxis_Metacast(QDateTimeAxis* self, const char* param1) {
 }
 
 int QDateTimeAxis_Metacall(QDateTimeAxis* self, int param1, int param2, void** param3) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQDateTimeAxis*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QDateTimeAxis_OnMetacall(QDateTimeAxis* self, intptr_t slot) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_Metacall_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QDateTimeAxis_QBaseMetacall(QDateTimeAxis* self, int param1, int param2, void** param3) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_Metacall_IsBase(true);
         return vqdatetimeaxis->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQDateTimeAxis*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -219,312 +211,348 @@ libqt_string QDateTimeAxis_Tr3(const char* s, const char* c, int n) {
 
 // Derived class handler implementation
 int QDateTimeAxis_Type(const QDateTimeAxis* self) {
-    if (auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self))) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         return static_cast<int>(vqdatetimeaxis->type());
     } else {
-        return static_cast<int>(vqdatetimeaxis->type());
+        return static_cast<int>(self->QDateTimeAxis::type());
     }
 }
 
 // Base class handler implementation
 int QDateTimeAxis_QBaseType(const QDateTimeAxis* self) {
-    if (auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self))) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_Type_IsBase(true);
         return static_cast<int>(vqdatetimeaxis->type());
     } else {
-        return static_cast<int>(vqdatetimeaxis->type());
+        return static_cast<int>(self->QDateTimeAxis::type());
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnType(const QDateTimeAxis* self, intptr_t slot) {
-    if (auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self))) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_Type_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Type_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QDateTimeAxis_Event(QDateTimeAxis* self, QEvent* event) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         return vqdatetimeaxis->event(event);
     } else {
-        return vqdatetimeaxis->event(event);
+        return self->QDateTimeAxis::event(event);
     }
 }
 
 // Base class handler implementation
 bool QDateTimeAxis_QBaseEvent(QDateTimeAxis* self, QEvent* event) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_Event_IsBase(true);
         return vqdatetimeaxis->event(event);
     } else {
-        return vqdatetimeaxis->event(event);
+        return self->QDateTimeAxis::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnEvent(QDateTimeAxis* self, intptr_t slot) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_Event_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QDateTimeAxis_EventFilter(QDateTimeAxis* self, QObject* watched, QEvent* event) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         return vqdatetimeaxis->eventFilter(watched, event);
     } else {
-        return vqdatetimeaxis->eventFilter(watched, event);
+        return self->QDateTimeAxis::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QDateTimeAxis_QBaseEventFilter(QDateTimeAxis* self, QObject* watched, QEvent* event) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_EventFilter_IsBase(true);
         return vqdatetimeaxis->eventFilter(watched, event);
     } else {
-        return vqdatetimeaxis->eventFilter(watched, event);
+        return self->QDateTimeAxis::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnEventFilter(QDateTimeAxis* self, intptr_t slot) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_EventFilter_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QDateTimeAxis_TimerEvent(QDateTimeAxis* self, QTimerEvent* event) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->timerEvent(event);
     } else {
-        vqdatetimeaxis->timerEvent(event);
+        ((VirtualQDateTimeAxis*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QDateTimeAxis_QBaseTimerEvent(QDateTimeAxis* self, QTimerEvent* event) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_TimerEvent_IsBase(true);
         vqdatetimeaxis->timerEvent(event);
     } else {
-        vqdatetimeaxis->timerEvent(event);
+        ((VirtualQDateTimeAxis*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnTimerEvent(QDateTimeAxis* self, intptr_t slot) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_TimerEvent_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QDateTimeAxis_ChildEvent(QDateTimeAxis* self, QChildEvent* event) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->childEvent(event);
     } else {
-        vqdatetimeaxis->childEvent(event);
+        ((VirtualQDateTimeAxis*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QDateTimeAxis_QBaseChildEvent(QDateTimeAxis* self, QChildEvent* event) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_ChildEvent_IsBase(true);
         vqdatetimeaxis->childEvent(event);
     } else {
-        vqdatetimeaxis->childEvent(event);
+        ((VirtualQDateTimeAxis*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnChildEvent(QDateTimeAxis* self, intptr_t slot) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_ChildEvent_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QDateTimeAxis_CustomEvent(QDateTimeAxis* self, QEvent* event) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->customEvent(event);
     } else {
-        vqdatetimeaxis->customEvent(event);
+        ((VirtualQDateTimeAxis*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QDateTimeAxis_QBaseCustomEvent(QDateTimeAxis* self, QEvent* event) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_CustomEvent_IsBase(true);
         vqdatetimeaxis->customEvent(event);
     } else {
-        vqdatetimeaxis->customEvent(event);
+        ((VirtualQDateTimeAxis*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnCustomEvent(QDateTimeAxis* self, intptr_t slot) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_CustomEvent_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QDateTimeAxis_ConnectNotify(QDateTimeAxis* self, QMetaMethod* signal) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+void QDateTimeAxis_ConnectNotify(QDateTimeAxis* self, const QMetaMethod* signal) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->connectNotify(*signal);
     } else {
-        vqdatetimeaxis->connectNotify(*signal);
+        ((VirtualQDateTimeAxis*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QDateTimeAxis_QBaseConnectNotify(QDateTimeAxis* self, QMetaMethod* signal) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+void QDateTimeAxis_QBaseConnectNotify(QDateTimeAxis* self, const QMetaMethod* signal) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_ConnectNotify_IsBase(true);
         vqdatetimeaxis->connectNotify(*signal);
     } else {
-        vqdatetimeaxis->connectNotify(*signal);
+        ((VirtualQDateTimeAxis*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnConnectNotify(QDateTimeAxis* self, intptr_t slot) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_ConnectNotify_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QDateTimeAxis_DisconnectNotify(QDateTimeAxis* self, QMetaMethod* signal) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+void QDateTimeAxis_DisconnectNotify(QDateTimeAxis* self, const QMetaMethod* signal) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->disconnectNotify(*signal);
     } else {
-        vqdatetimeaxis->disconnectNotify(*signal);
+        ((VirtualQDateTimeAxis*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QDateTimeAxis_QBaseDisconnectNotify(QDateTimeAxis* self, QMetaMethod* signal) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+void QDateTimeAxis_QBaseDisconnectNotify(QDateTimeAxis* self, const QMetaMethod* signal) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_DisconnectNotify_IsBase(true);
         vqdatetimeaxis->disconnectNotify(*signal);
     } else {
-        vqdatetimeaxis->disconnectNotify(*signal);
+        ((VirtualQDateTimeAxis*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnDisconnectNotify(QDateTimeAxis* self, intptr_t slot) {
-    if (auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self)) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_DisconnectNotify_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QDateTimeAxis_Sender(const QDateTimeAxis* self) {
-    if (auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self))) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         return vqdatetimeaxis->sender();
     } else {
-        return vqdatetimeaxis->sender();
+        return ((VirtualQDateTimeAxis*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QDateTimeAxis_QBaseSender(const QDateTimeAxis* self) {
-    if (auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self))) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_Sender_IsBase(true);
         return vqdatetimeaxis->sender();
     } else {
-        return vqdatetimeaxis->sender();
+        return ((VirtualQDateTimeAxis*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnSender(const QDateTimeAxis* self, intptr_t slot) {
-    if (auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self))) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_Sender_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QDateTimeAxis_SenderSignalIndex(const QDateTimeAxis* self) {
-    if (auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self))) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         return vqdatetimeaxis->senderSignalIndex();
     } else {
-        return vqdatetimeaxis->senderSignalIndex();
+        return ((VirtualQDateTimeAxis*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QDateTimeAxis_QBaseSenderSignalIndex(const QDateTimeAxis* self) {
-    if (auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self))) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_SenderSignalIndex_IsBase(true);
         return vqdatetimeaxis->senderSignalIndex();
     } else {
-        return vqdatetimeaxis->senderSignalIndex();
+        return ((VirtualQDateTimeAxis*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnSenderSignalIndex(const QDateTimeAxis* self, intptr_t slot) {
-    if (auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self))) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QDateTimeAxis_Receivers(const QDateTimeAxis* self, const char* signal) {
-    if (auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self))) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         return vqdatetimeaxis->receivers(signal);
     } else {
-        return vqdatetimeaxis->receivers(signal);
+        return ((VirtualQDateTimeAxis*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QDateTimeAxis_QBaseReceivers(const QDateTimeAxis* self, const char* signal) {
-    if (auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self))) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_Receivers_IsBase(true);
         return vqdatetimeaxis->receivers(signal);
     } else {
-        return vqdatetimeaxis->receivers(signal);
+        return ((VirtualQDateTimeAxis*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnReceivers(const QDateTimeAxis* self, intptr_t slot) {
-    if (auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self))) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_Receivers_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QDateTimeAxis_IsSignalConnected(const QDateTimeAxis* self, QMetaMethod* signal) {
-    if (auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self))) {
+bool QDateTimeAxis_IsSignalConnected(const QDateTimeAxis* self, const QMetaMethod* signal) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         return vqdatetimeaxis->isSignalConnected(*signal);
     } else {
-        return vqdatetimeaxis->isSignalConnected(*signal);
+        return ((VirtualQDateTimeAxis*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QDateTimeAxis_QBaseIsSignalConnected(const QDateTimeAxis* self, QMetaMethod* signal) {
-    if (auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self))) {
+bool QDateTimeAxis_QBaseIsSignalConnected(const QDateTimeAxis* self, const QMetaMethod* signal) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_IsSignalConnected_IsBase(true);
         return vqdatetimeaxis->isSignalConnected(*signal);
     } else {
-        return vqdatetimeaxis->isSignalConnected(*signal);
+        return ((VirtualQDateTimeAxis*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnIsSignalConnected(const QDateTimeAxis* self, intptr_t slot) {
-    if (auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self))) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_IsSignalConnected_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_IsSignalConnected_Callback>(slot));
     }
 }

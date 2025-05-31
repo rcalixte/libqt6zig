@@ -20,7 +20,7 @@
 #include "libqtextlayout.h"
 #include "libqtextlayout.hxx"
 
-QTextInlineObject* QTextInlineObject_new(QTextInlineObject* other) {
+QTextInlineObject* QTextInlineObject_new(const QTextInlineObject* other) {
     return new QTextInlineObject(*other);
 }
 
@@ -100,26 +100,26 @@ QTextLayout* QTextLayout_new() {
     return new QTextLayout();
 }
 
-QTextLayout* QTextLayout_new2(libqt_string text) {
+QTextLayout* QTextLayout_new2(const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return new QTextLayout(text_QString);
 }
 
-QTextLayout* QTextLayout_new3(libqt_string text, QFont* font) {
+QTextLayout* QTextLayout_new3(const libqt_string text, const QFont* font) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return new QTextLayout(text_QString, *font);
 }
 
-QTextLayout* QTextLayout_new4(QTextBlock* b) {
+QTextLayout* QTextLayout_new4(const QTextBlock* b) {
     return new QTextLayout(*b);
 }
 
-QTextLayout* QTextLayout_new5(libqt_string text, QFont* font, QPaintDevice* paintdevice) {
+QTextLayout* QTextLayout_new5(const libqt_string text, const QFont* font, const QPaintDevice* paintdevice) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return new QTextLayout(text_QString, *font, paintdevice);
 }
 
-void QTextLayout_SetFont(QTextLayout* self, QFont* f) {
+void QTextLayout_SetFont(QTextLayout* self, const QFont* f) {
     self->setFont(*f);
 }
 
@@ -127,11 +127,11 @@ QFont* QTextLayout_Font(const QTextLayout* self) {
     return new QFont(self->font());
 }
 
-void QTextLayout_SetRawFont(QTextLayout* self, QRawFont* rawFont) {
+void QTextLayout_SetRawFont(QTextLayout* self, const QRawFont* rawFont) {
     self->setRawFont(*rawFont);
 }
 
-void QTextLayout_SetText(QTextLayout* self, libqt_string stringVal) {
+void QTextLayout_SetText(QTextLayout* self, const libqt_string stringVal) {
     QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
     self->setText(stringVal_QString);
 }
@@ -148,7 +148,7 @@ libqt_string QTextLayout_Text(const QTextLayout* self) {
     return _str;
 }
 
-void QTextLayout_SetTextOption(QTextLayout* self, QTextOption* option) {
+void QTextLayout_SetTextOption(QTextLayout* self, const QTextOption* option) {
     self->setTextOption(*option);
 }
 
@@ -158,7 +158,7 @@ QTextOption* QTextLayout_TextOption(const QTextLayout* self) {
     return const_cast<QTextOption*>(&_ret);
 }
 
-void QTextLayout_SetPreeditArea(QTextLayout* self, int position, libqt_string text) {
+void QTextLayout_SetPreeditArea(QTextLayout* self, int position, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->setPreeditArea(static_cast<int>(position), text_QString);
 }
@@ -179,7 +179,7 @@ libqt_string QTextLayout_PreeditAreaText(const QTextLayout* self) {
     return _str;
 }
 
-void QTextLayout_SetFormats(QTextLayout* self, libqt_list /* of QTextLayout__FormatRange* */ overrides) {
+void QTextLayout_SetFormats(QTextLayout* self, const libqt_list /* of QTextLayout__FormatRange* */ overrides) {
     QList<QTextLayout::FormatRange> overrides_QList;
     overrides_QList.reserve(overrides.len);
     QTextLayout__FormatRange** overrides_arr = static_cast<QTextLayout__FormatRange**>(overrides.data);
@@ -270,15 +270,15 @@ int QTextLayout_RightCursorPosition(const QTextLayout* self, int oldPos) {
     return self->rightCursorPosition(static_cast<int>(oldPos));
 }
 
-void QTextLayout_Draw(const QTextLayout* self, QPainter* p, QPointF* pos) {
+void QTextLayout_Draw(const QTextLayout* self, QPainter* p, const QPointF* pos) {
     self->draw(p, *pos);
 }
 
-void QTextLayout_DrawCursor(const QTextLayout* self, QPainter* p, QPointF* pos, int cursorPosition) {
+void QTextLayout_DrawCursor(const QTextLayout* self, QPainter* p, const QPointF* pos, int cursorPosition) {
     self->drawCursor(p, *pos, static_cast<int>(cursorPosition));
 }
 
-void QTextLayout_DrawCursor2(const QTextLayout* self, QPainter* p, QPointF* pos, int cursorPosition, int width) {
+void QTextLayout_DrawCursor2(const QTextLayout* self, QPainter* p, const QPointF* pos, int cursorPosition, int width) {
     self->drawCursor(p, *pos, static_cast<int>(cursorPosition), static_cast<int>(width));
 }
 
@@ -286,7 +286,7 @@ QPointF* QTextLayout_Position(const QTextLayout* self) {
     return new QPointF(self->position());
 }
 
-void QTextLayout_SetPosition(QTextLayout* self, QPointF* p) {
+void QTextLayout_SetPosition(QTextLayout* self, const QPointF* p) {
     self->setPosition(*p);
 }
 
@@ -327,7 +327,7 @@ int QTextLayout_PreviousCursorPosition2(const QTextLayout* self, int oldPos, int
     return self->previousCursorPosition(static_cast<int>(oldPos), static_cast<QTextLayout::CursorMode>(mode));
 }
 
-void QTextLayout_Draw3(const QTextLayout* self, QPainter* p, QPointF* pos, libqt_list /* of QTextLayout__FormatRange* */ selections) {
+void QTextLayout_Draw3(const QTextLayout* self, QPainter* p, const QPointF* pos, const libqt_list /* of QTextLayout__FormatRange* */ selections) {
     QList<QTextLayout::FormatRange> selections_QList;
     selections_QList.reserve(selections.len);
     QTextLayout__FormatRange** selections_arr = static_cast<QTextLayout__FormatRange**>(selections.data);
@@ -337,7 +337,7 @@ void QTextLayout_Draw3(const QTextLayout* self, QPainter* p, QPointF* pos, libqt
     self->draw(p, *pos, selections_QList);
 }
 
-void QTextLayout_Draw4(const QTextLayout* self, QPainter* p, QPointF* pos, libqt_list /* of QTextLayout__FormatRange* */ selections, QRectF* clip) {
+void QTextLayout_Draw4(const QTextLayout* self, QPainter* p, const QPointF* pos, const libqt_list /* of QTextLayout__FormatRange* */ selections, const QRectF* clip) {
     QList<QTextLayout::FormatRange> selections_QList;
     selections_QList.reserve(selections.len);
     QTextLayout__FormatRange** selections_arr = static_cast<QTextLayout__FormatRange**>(selections.data);
@@ -377,7 +377,7 @@ void QTextLayout_Delete(QTextLayout* self) {
     delete self;
 }
 
-QTextLine* QTextLine_new(QTextLine* other) {
+QTextLine* QTextLine_new(const QTextLine* other) {
     return new QTextLine(*other);
 }
 
@@ -477,7 +477,7 @@ void QTextLine_SetNumColumns2(QTextLine* self, int columns, double alignmentWidt
     self->setNumColumns(static_cast<int>(columns), static_cast<qreal>(alignmentWidth));
 }
 
-void QTextLine_SetPosition(QTextLine* self, QPointF* pos) {
+void QTextLine_SetPosition(QTextLine* self, const QPointF* pos) {
     self->setPosition(*pos);
 }
 
@@ -497,7 +497,7 @@ int QTextLine_LineNumber(const QTextLine* self) {
     return self->lineNumber();
 }
 
-void QTextLine_Draw(const QTextLine* self, QPainter* painter, QPointF* position) {
+void QTextLine_Draw(const QTextLine* self, QPainter* painter, const QPointF* position) {
     self->draw(painter, *position);
 }
 
@@ -556,11 +556,11 @@ void QTextLine_Delete(QTextLine* self) {
     delete self;
 }
 
-QTextLayout__FormatRange* QTextLayout__FormatRange_new(QTextLayout__FormatRange* param1) {
+QTextLayout__FormatRange* QTextLayout__FormatRange_new(const QTextLayout__FormatRange* param1) {
     return new QTextLayout::FormatRange(*param1);
 }
 
-void QTextLayout__FormatRange_OperatorAssign(QTextLayout__FormatRange* self, QTextLayout__FormatRange* param1) {
+void QTextLayout__FormatRange_OperatorAssign(QTextLayout__FormatRange* self, const QTextLayout__FormatRange* param1) {
     self->operator=(*param1);
 }
 

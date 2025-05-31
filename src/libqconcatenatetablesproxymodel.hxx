@@ -11,45 +11,48 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QConcatenateTablesProxyModel so that we can call protected methods
-class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel {
+class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxyModel {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQConcatenateTablesProxyModel = true;
+
     // Virtual class public types (including callbacks)
-    using QConcatenateTablesProxyModel_Metacall_Callback = int (*)(QConcatenateTablesProxyModel*, QMetaObject::Call, int, void**);
-    using QConcatenateTablesProxyModel_Data_Callback = QVariant (*)(const QConcatenateTablesProxyModel*, const QModelIndex&, int);
-    using QConcatenateTablesProxyModel_SetData_Callback = bool (*)(QConcatenateTablesProxyModel*, const QModelIndex&, const QVariant&, int);
-    using QConcatenateTablesProxyModel_ItemData_Callback = QMap<int, QVariant> (*)(const QConcatenateTablesProxyModel*, const QModelIndex&);
-    using QConcatenateTablesProxyModel_SetItemData_Callback = bool (*)(QConcatenateTablesProxyModel*, const QModelIndex&, const QMap<int, QVariant>&);
-    using QConcatenateTablesProxyModel_Flags_Callback = Qt::ItemFlags (*)(const QConcatenateTablesProxyModel*, const QModelIndex&);
-    using QConcatenateTablesProxyModel_Index_Callback = QModelIndex (*)(const QConcatenateTablesProxyModel*, int, int, const QModelIndex&);
-    using QConcatenateTablesProxyModel_Parent_Callback = QModelIndex (*)(const QConcatenateTablesProxyModel*, const QModelIndex&);
-    using QConcatenateTablesProxyModel_RowCount_Callback = int (*)(const QConcatenateTablesProxyModel*, const QModelIndex&);
-    using QConcatenateTablesProxyModel_HeaderData_Callback = QVariant (*)(const QConcatenateTablesProxyModel*, int, Qt::Orientation, int);
-    using QConcatenateTablesProxyModel_ColumnCount_Callback = int (*)(const QConcatenateTablesProxyModel*, const QModelIndex&);
-    using QConcatenateTablesProxyModel_MimeTypes_Callback = QStringList (*)();
-    using QConcatenateTablesProxyModel_MimeData_Callback = QMimeData* (*)(const QConcatenateTablesProxyModel*, const QModelIndexList&);
-    using QConcatenateTablesProxyModel_CanDropMimeData_Callback = bool (*)(const QConcatenateTablesProxyModel*, const QMimeData*, Qt::DropAction, int, int, const QModelIndex&);
-    using QConcatenateTablesProxyModel_DropMimeData_Callback = bool (*)(QConcatenateTablesProxyModel*, const QMimeData*, Qt::DropAction, int, int, const QModelIndex&);
-    using QConcatenateTablesProxyModel_Span_Callback = QSize (*)(const QConcatenateTablesProxyModel*, const QModelIndex&);
-    using QConcatenateTablesProxyModel_Sibling_Callback = QModelIndex (*)(const QConcatenateTablesProxyModel*, int, int, const QModelIndex&);
-    using QConcatenateTablesProxyModel_HasChildren_Callback = bool (*)(const QConcatenateTablesProxyModel*, const QModelIndex&);
-    using QConcatenateTablesProxyModel_SetHeaderData_Callback = bool (*)(QConcatenateTablesProxyModel*, int, Qt::Orientation, const QVariant&, int);
-    using QConcatenateTablesProxyModel_ClearItemData_Callback = bool (*)(QConcatenateTablesProxyModel*, const QModelIndex&);
-    using QConcatenateTablesProxyModel_SupportedDropActions_Callback = Qt::DropActions (*)();
-    using QConcatenateTablesProxyModel_SupportedDragActions_Callback = Qt::DropActions (*)();
-    using QConcatenateTablesProxyModel_InsertRows_Callback = bool (*)(QConcatenateTablesProxyModel*, int, int, const QModelIndex&);
-    using QConcatenateTablesProxyModel_InsertColumns_Callback = bool (*)(QConcatenateTablesProxyModel*, int, int, const QModelIndex&);
-    using QConcatenateTablesProxyModel_RemoveRows_Callback = bool (*)(QConcatenateTablesProxyModel*, int, int, const QModelIndex&);
-    using QConcatenateTablesProxyModel_RemoveColumns_Callback = bool (*)(QConcatenateTablesProxyModel*, int, int, const QModelIndex&);
-    using QConcatenateTablesProxyModel_MoveRows_Callback = bool (*)(QConcatenateTablesProxyModel*, const QModelIndex&, int, int, const QModelIndex&, int);
-    using QConcatenateTablesProxyModel_MoveColumns_Callback = bool (*)(QConcatenateTablesProxyModel*, const QModelIndex&, int, int, const QModelIndex&, int);
-    using QConcatenateTablesProxyModel_FetchMore_Callback = void (*)(QConcatenateTablesProxyModel*, const QModelIndex&);
-    using QConcatenateTablesProxyModel_CanFetchMore_Callback = bool (*)(const QConcatenateTablesProxyModel*, const QModelIndex&);
-    using QConcatenateTablesProxyModel_Sort_Callback = void (*)(QConcatenateTablesProxyModel*, int, Qt::SortOrder);
-    using QConcatenateTablesProxyModel_Buddy_Callback = QModelIndex (*)(const QConcatenateTablesProxyModel*, const QModelIndex&);
-    using QConcatenateTablesProxyModel_Match_Callback = QModelIndexList (*)(const QConcatenateTablesProxyModel*, const QModelIndex&, int, const QVariant&, int, Qt::MatchFlags);
-    using QConcatenateTablesProxyModel_RoleNames_Callback = QHash<int, QByteArray> (*)();
-    using QConcatenateTablesProxyModel_MultiData_Callback = void (*)(const QConcatenateTablesProxyModel*, const QModelIndex&, QModelRoleDataSpan);
+    using QConcatenateTablesProxyModel_Metacall_Callback = int (*)(QConcatenateTablesProxyModel*, int, int, void**);
+    using QConcatenateTablesProxyModel_Data_Callback = QVariant* (*)(const QConcatenateTablesProxyModel*, QModelIndex*, int);
+    using QConcatenateTablesProxyModel_SetData_Callback = bool (*)(QConcatenateTablesProxyModel*, QModelIndex*, QVariant*, int);
+    using QConcatenateTablesProxyModel_ItemData_Callback = libqt_map /* of int to QVariant* */ (*)(const QConcatenateTablesProxyModel*, QModelIndex*);
+    using QConcatenateTablesProxyModel_SetItemData_Callback = bool (*)(QConcatenateTablesProxyModel*, QModelIndex*, libqt_map /* of int to QVariant* */);
+    using QConcatenateTablesProxyModel_Flags_Callback = int (*)(const QConcatenateTablesProxyModel*, QModelIndex*);
+    using QConcatenateTablesProxyModel_Index_Callback = QModelIndex* (*)(const QConcatenateTablesProxyModel*, int, int, QModelIndex*);
+    using QConcatenateTablesProxyModel_Parent_Callback = QModelIndex* (*)(const QConcatenateTablesProxyModel*, QModelIndex*);
+    using QConcatenateTablesProxyModel_RowCount_Callback = int (*)(const QConcatenateTablesProxyModel*, QModelIndex*);
+    using QConcatenateTablesProxyModel_HeaderData_Callback = QVariant* (*)(const QConcatenateTablesProxyModel*, int, int, int);
+    using QConcatenateTablesProxyModel_ColumnCount_Callback = int (*)(const QConcatenateTablesProxyModel*, QModelIndex*);
+    using QConcatenateTablesProxyModel_MimeTypes_Callback = libqt_list /* of libqt_string */ (*)();
+    using QConcatenateTablesProxyModel_MimeData_Callback = QMimeData* (*)(const QConcatenateTablesProxyModel*, libqt_list /* of QModelIndex* */);
+    using QConcatenateTablesProxyModel_CanDropMimeData_Callback = bool (*)(const QConcatenateTablesProxyModel*, QMimeData*, int, int, int, QModelIndex*);
+    using QConcatenateTablesProxyModel_DropMimeData_Callback = bool (*)(QConcatenateTablesProxyModel*, QMimeData*, int, int, int, QModelIndex*);
+    using QConcatenateTablesProxyModel_Span_Callback = QSize* (*)(const QConcatenateTablesProxyModel*, QModelIndex*);
+    using QConcatenateTablesProxyModel_Sibling_Callback = QModelIndex* (*)(const QConcatenateTablesProxyModel*, int, int, QModelIndex*);
+    using QConcatenateTablesProxyModel_HasChildren_Callback = bool (*)(const QConcatenateTablesProxyModel*, QModelIndex*);
+    using QConcatenateTablesProxyModel_SetHeaderData_Callback = bool (*)(QConcatenateTablesProxyModel*, int, int, QVariant*, int);
+    using QConcatenateTablesProxyModel_ClearItemData_Callback = bool (*)(QConcatenateTablesProxyModel*, QModelIndex*);
+    using QConcatenateTablesProxyModel_SupportedDropActions_Callback = int (*)();
+    using QConcatenateTablesProxyModel_SupportedDragActions_Callback = int (*)();
+    using QConcatenateTablesProxyModel_InsertRows_Callback = bool (*)(QConcatenateTablesProxyModel*, int, int, QModelIndex*);
+    using QConcatenateTablesProxyModel_InsertColumns_Callback = bool (*)(QConcatenateTablesProxyModel*, int, int, QModelIndex*);
+    using QConcatenateTablesProxyModel_RemoveRows_Callback = bool (*)(QConcatenateTablesProxyModel*, int, int, QModelIndex*);
+    using QConcatenateTablesProxyModel_RemoveColumns_Callback = bool (*)(QConcatenateTablesProxyModel*, int, int, QModelIndex*);
+    using QConcatenateTablesProxyModel_MoveRows_Callback = bool (*)(QConcatenateTablesProxyModel*, QModelIndex*, int, int, QModelIndex*, int);
+    using QConcatenateTablesProxyModel_MoveColumns_Callback = bool (*)(QConcatenateTablesProxyModel*, QModelIndex*, int, int, QModelIndex*, int);
+    using QConcatenateTablesProxyModel_FetchMore_Callback = void (*)(QConcatenateTablesProxyModel*, QModelIndex*);
+    using QConcatenateTablesProxyModel_CanFetchMore_Callback = bool (*)(const QConcatenateTablesProxyModel*, QModelIndex*);
+    using QConcatenateTablesProxyModel_Sort_Callback = void (*)(QConcatenateTablesProxyModel*, int, int);
+    using QConcatenateTablesProxyModel_Buddy_Callback = QModelIndex* (*)(const QConcatenateTablesProxyModel*, QModelIndex*);
+    using QConcatenateTablesProxyModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const QConcatenateTablesProxyModel*, QModelIndex*, int, QVariant*, int, int);
+    using QConcatenateTablesProxyModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)();
+    using QConcatenateTablesProxyModel_MultiData_Callback = void (*)(const QConcatenateTablesProxyModel*, QModelIndex*, QModelRoleDataSpan*);
     using QConcatenateTablesProxyModel_Submit_Callback = bool (*)();
     using QConcatenateTablesProxyModel_Revert_Callback = void (*)();
     using QConcatenateTablesProxyModel_ResetInternalData_Callback = void (*)();
@@ -58,32 +61,32 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
     using QConcatenateTablesProxyModel_TimerEvent_Callback = void (*)(QConcatenateTablesProxyModel*, QTimerEvent*);
     using QConcatenateTablesProxyModel_ChildEvent_Callback = void (*)(QConcatenateTablesProxyModel*, QChildEvent*);
     using QConcatenateTablesProxyModel_CustomEvent_Callback = void (*)(QConcatenateTablesProxyModel*, QEvent*);
-    using QConcatenateTablesProxyModel_ConnectNotify_Callback = void (*)(QConcatenateTablesProxyModel*, const QMetaMethod&);
-    using QConcatenateTablesProxyModel_DisconnectNotify_Callback = void (*)(QConcatenateTablesProxyModel*, const QMetaMethod&);
-    using QConcatenateTablesProxyModel_CreateIndex_Callback = QModelIndex (*)(const QConcatenateTablesProxyModel*, int, int);
-    using QConcatenateTablesProxyModel_EncodeData_Callback = void (*)(const QConcatenateTablesProxyModel*, const QModelIndexList&, QDataStream&);
-    using QConcatenateTablesProxyModel_DecodeData_Callback = bool (*)(QConcatenateTablesProxyModel*, int, int, const QModelIndex&, QDataStream&);
-    using QConcatenateTablesProxyModel_BeginInsertRows_Callback = void (*)(QConcatenateTablesProxyModel*, const QModelIndex&, int, int);
+    using QConcatenateTablesProxyModel_ConnectNotify_Callback = void (*)(QConcatenateTablesProxyModel*, QMetaMethod*);
+    using QConcatenateTablesProxyModel_DisconnectNotify_Callback = void (*)(QConcatenateTablesProxyModel*, QMetaMethod*);
+    using QConcatenateTablesProxyModel_CreateIndex_Callback = QModelIndex* (*)(const QConcatenateTablesProxyModel*, int, int);
+    using QConcatenateTablesProxyModel_EncodeData_Callback = void (*)(const QConcatenateTablesProxyModel*, libqt_list /* of QModelIndex* */, QDataStream*);
+    using QConcatenateTablesProxyModel_DecodeData_Callback = bool (*)(QConcatenateTablesProxyModel*, int, int, QModelIndex*, QDataStream*);
+    using QConcatenateTablesProxyModel_BeginInsertRows_Callback = void (*)(QConcatenateTablesProxyModel*, QModelIndex*, int, int);
     using QConcatenateTablesProxyModel_EndInsertRows_Callback = void (*)();
-    using QConcatenateTablesProxyModel_BeginRemoveRows_Callback = void (*)(QConcatenateTablesProxyModel*, const QModelIndex&, int, int);
+    using QConcatenateTablesProxyModel_BeginRemoveRows_Callback = void (*)(QConcatenateTablesProxyModel*, QModelIndex*, int, int);
     using QConcatenateTablesProxyModel_EndRemoveRows_Callback = void (*)();
-    using QConcatenateTablesProxyModel_BeginMoveRows_Callback = bool (*)(QConcatenateTablesProxyModel*, const QModelIndex&, int, int, const QModelIndex&, int);
+    using QConcatenateTablesProxyModel_BeginMoveRows_Callback = bool (*)(QConcatenateTablesProxyModel*, QModelIndex*, int, int, QModelIndex*, int);
     using QConcatenateTablesProxyModel_EndMoveRows_Callback = void (*)();
-    using QConcatenateTablesProxyModel_BeginInsertColumns_Callback = void (*)(QConcatenateTablesProxyModel*, const QModelIndex&, int, int);
+    using QConcatenateTablesProxyModel_BeginInsertColumns_Callback = void (*)(QConcatenateTablesProxyModel*, QModelIndex*, int, int);
     using QConcatenateTablesProxyModel_EndInsertColumns_Callback = void (*)();
-    using QConcatenateTablesProxyModel_BeginRemoveColumns_Callback = void (*)(QConcatenateTablesProxyModel*, const QModelIndex&, int, int);
+    using QConcatenateTablesProxyModel_BeginRemoveColumns_Callback = void (*)(QConcatenateTablesProxyModel*, QModelIndex*, int, int);
     using QConcatenateTablesProxyModel_EndRemoveColumns_Callback = void (*)();
-    using QConcatenateTablesProxyModel_BeginMoveColumns_Callback = bool (*)(QConcatenateTablesProxyModel*, const QModelIndex&, int, int, const QModelIndex&, int);
+    using QConcatenateTablesProxyModel_BeginMoveColumns_Callback = bool (*)(QConcatenateTablesProxyModel*, QModelIndex*, int, int, QModelIndex*, int);
     using QConcatenateTablesProxyModel_EndMoveColumns_Callback = void (*)();
     using QConcatenateTablesProxyModel_BeginResetModel_Callback = void (*)();
     using QConcatenateTablesProxyModel_EndResetModel_Callback = void (*)();
-    using QConcatenateTablesProxyModel_ChangePersistentIndex_Callback = void (*)(QConcatenateTablesProxyModel*, const QModelIndex&, const QModelIndex&);
-    using QConcatenateTablesProxyModel_ChangePersistentIndexList_Callback = void (*)(QConcatenateTablesProxyModel*, const QModelIndexList&, const QModelIndexList&);
-    using QConcatenateTablesProxyModel_PersistentIndexList_Callback = QModelIndexList (*)();
+    using QConcatenateTablesProxyModel_ChangePersistentIndex_Callback = void (*)(QConcatenateTablesProxyModel*, QModelIndex*, QModelIndex*);
+    using QConcatenateTablesProxyModel_ChangePersistentIndexList_Callback = void (*)(QConcatenateTablesProxyModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
+    using QConcatenateTablesProxyModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QConcatenateTablesProxyModel_Sender_Callback = QObject* (*)();
     using QConcatenateTablesProxyModel_SenderSignalIndex_Callback = int (*)();
     using QConcatenateTablesProxyModel_Receivers_Callback = int (*)(const QConcatenateTablesProxyModel*, const char*);
-    using QConcatenateTablesProxyModel_IsSignalConnected_Callback = bool (*)(const QConcatenateTablesProxyModel*, const QMetaMethod&);
+    using QConcatenateTablesProxyModel_IsSignalConnected_Callback = bool (*)(const QConcatenateTablesProxyModel*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -305,146 +308,146 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
     }
 
     // Callback setters
-    void setQConcatenateTablesProxyModel_Metacall_Callback(QConcatenateTablesProxyModel_Metacall_Callback cb) { qconcatenatetablesproxymodel_metacall_callback = cb; }
-    void setQConcatenateTablesProxyModel_Data_Callback(QConcatenateTablesProxyModel_Data_Callback cb) { qconcatenatetablesproxymodel_data_callback = cb; }
-    void setQConcatenateTablesProxyModel_SetData_Callback(QConcatenateTablesProxyModel_SetData_Callback cb) { qconcatenatetablesproxymodel_setdata_callback = cb; }
-    void setQConcatenateTablesProxyModel_ItemData_Callback(QConcatenateTablesProxyModel_ItemData_Callback cb) { qconcatenatetablesproxymodel_itemdata_callback = cb; }
-    void setQConcatenateTablesProxyModel_SetItemData_Callback(QConcatenateTablesProxyModel_SetItemData_Callback cb) { qconcatenatetablesproxymodel_setitemdata_callback = cb; }
-    void setQConcatenateTablesProxyModel_Flags_Callback(QConcatenateTablesProxyModel_Flags_Callback cb) { qconcatenatetablesproxymodel_flags_callback = cb; }
-    void setQConcatenateTablesProxyModel_Index_Callback(QConcatenateTablesProxyModel_Index_Callback cb) { qconcatenatetablesproxymodel_index_callback = cb; }
-    void setQConcatenateTablesProxyModel_Parent_Callback(QConcatenateTablesProxyModel_Parent_Callback cb) { qconcatenatetablesproxymodel_parent_callback = cb; }
-    void setQConcatenateTablesProxyModel_RowCount_Callback(QConcatenateTablesProxyModel_RowCount_Callback cb) { qconcatenatetablesproxymodel_rowcount_callback = cb; }
-    void setQConcatenateTablesProxyModel_HeaderData_Callback(QConcatenateTablesProxyModel_HeaderData_Callback cb) { qconcatenatetablesproxymodel_headerdata_callback = cb; }
-    void setQConcatenateTablesProxyModel_ColumnCount_Callback(QConcatenateTablesProxyModel_ColumnCount_Callback cb) { qconcatenatetablesproxymodel_columncount_callback = cb; }
-    void setQConcatenateTablesProxyModel_MimeTypes_Callback(QConcatenateTablesProxyModel_MimeTypes_Callback cb) { qconcatenatetablesproxymodel_mimetypes_callback = cb; }
-    void setQConcatenateTablesProxyModel_MimeData_Callback(QConcatenateTablesProxyModel_MimeData_Callback cb) { qconcatenatetablesproxymodel_mimedata_callback = cb; }
-    void setQConcatenateTablesProxyModel_CanDropMimeData_Callback(QConcatenateTablesProxyModel_CanDropMimeData_Callback cb) { qconcatenatetablesproxymodel_candropmimedata_callback = cb; }
-    void setQConcatenateTablesProxyModel_DropMimeData_Callback(QConcatenateTablesProxyModel_DropMimeData_Callback cb) { qconcatenatetablesproxymodel_dropmimedata_callback = cb; }
-    void setQConcatenateTablesProxyModel_Span_Callback(QConcatenateTablesProxyModel_Span_Callback cb) { qconcatenatetablesproxymodel_span_callback = cb; }
-    void setQConcatenateTablesProxyModel_Sibling_Callback(QConcatenateTablesProxyModel_Sibling_Callback cb) { qconcatenatetablesproxymodel_sibling_callback = cb; }
-    void setQConcatenateTablesProxyModel_HasChildren_Callback(QConcatenateTablesProxyModel_HasChildren_Callback cb) { qconcatenatetablesproxymodel_haschildren_callback = cb; }
-    void setQConcatenateTablesProxyModel_SetHeaderData_Callback(QConcatenateTablesProxyModel_SetHeaderData_Callback cb) { qconcatenatetablesproxymodel_setheaderdata_callback = cb; }
-    void setQConcatenateTablesProxyModel_ClearItemData_Callback(QConcatenateTablesProxyModel_ClearItemData_Callback cb) { qconcatenatetablesproxymodel_clearitemdata_callback = cb; }
-    void setQConcatenateTablesProxyModel_SupportedDropActions_Callback(QConcatenateTablesProxyModel_SupportedDropActions_Callback cb) { qconcatenatetablesproxymodel_supporteddropactions_callback = cb; }
-    void setQConcatenateTablesProxyModel_SupportedDragActions_Callback(QConcatenateTablesProxyModel_SupportedDragActions_Callback cb) { qconcatenatetablesproxymodel_supporteddragactions_callback = cb; }
-    void setQConcatenateTablesProxyModel_InsertRows_Callback(QConcatenateTablesProxyModel_InsertRows_Callback cb) { qconcatenatetablesproxymodel_insertrows_callback = cb; }
-    void setQConcatenateTablesProxyModel_InsertColumns_Callback(QConcatenateTablesProxyModel_InsertColumns_Callback cb) { qconcatenatetablesproxymodel_insertcolumns_callback = cb; }
-    void setQConcatenateTablesProxyModel_RemoveRows_Callback(QConcatenateTablesProxyModel_RemoveRows_Callback cb) { qconcatenatetablesproxymodel_removerows_callback = cb; }
-    void setQConcatenateTablesProxyModel_RemoveColumns_Callback(QConcatenateTablesProxyModel_RemoveColumns_Callback cb) { qconcatenatetablesproxymodel_removecolumns_callback = cb; }
-    void setQConcatenateTablesProxyModel_MoveRows_Callback(QConcatenateTablesProxyModel_MoveRows_Callback cb) { qconcatenatetablesproxymodel_moverows_callback = cb; }
-    void setQConcatenateTablesProxyModel_MoveColumns_Callback(QConcatenateTablesProxyModel_MoveColumns_Callback cb) { qconcatenatetablesproxymodel_movecolumns_callback = cb; }
-    void setQConcatenateTablesProxyModel_FetchMore_Callback(QConcatenateTablesProxyModel_FetchMore_Callback cb) { qconcatenatetablesproxymodel_fetchmore_callback = cb; }
-    void setQConcatenateTablesProxyModel_CanFetchMore_Callback(QConcatenateTablesProxyModel_CanFetchMore_Callback cb) { qconcatenatetablesproxymodel_canfetchmore_callback = cb; }
-    void setQConcatenateTablesProxyModel_Sort_Callback(QConcatenateTablesProxyModel_Sort_Callback cb) { qconcatenatetablesproxymodel_sort_callback = cb; }
-    void setQConcatenateTablesProxyModel_Buddy_Callback(QConcatenateTablesProxyModel_Buddy_Callback cb) { qconcatenatetablesproxymodel_buddy_callback = cb; }
-    void setQConcatenateTablesProxyModel_Match_Callback(QConcatenateTablesProxyModel_Match_Callback cb) { qconcatenatetablesproxymodel_match_callback = cb; }
-    void setQConcatenateTablesProxyModel_RoleNames_Callback(QConcatenateTablesProxyModel_RoleNames_Callback cb) { qconcatenatetablesproxymodel_rolenames_callback = cb; }
-    void setQConcatenateTablesProxyModel_MultiData_Callback(QConcatenateTablesProxyModel_MultiData_Callback cb) { qconcatenatetablesproxymodel_multidata_callback = cb; }
-    void setQConcatenateTablesProxyModel_Submit_Callback(QConcatenateTablesProxyModel_Submit_Callback cb) { qconcatenatetablesproxymodel_submit_callback = cb; }
-    void setQConcatenateTablesProxyModel_Revert_Callback(QConcatenateTablesProxyModel_Revert_Callback cb) { qconcatenatetablesproxymodel_revert_callback = cb; }
-    void setQConcatenateTablesProxyModel_ResetInternalData_Callback(QConcatenateTablesProxyModel_ResetInternalData_Callback cb) { qconcatenatetablesproxymodel_resetinternaldata_callback = cb; }
-    void setQConcatenateTablesProxyModel_Event_Callback(QConcatenateTablesProxyModel_Event_Callback cb) { qconcatenatetablesproxymodel_event_callback = cb; }
-    void setQConcatenateTablesProxyModel_EventFilter_Callback(QConcatenateTablesProxyModel_EventFilter_Callback cb) { qconcatenatetablesproxymodel_eventfilter_callback = cb; }
-    void setQConcatenateTablesProxyModel_TimerEvent_Callback(QConcatenateTablesProxyModel_TimerEvent_Callback cb) { qconcatenatetablesproxymodel_timerevent_callback = cb; }
-    void setQConcatenateTablesProxyModel_ChildEvent_Callback(QConcatenateTablesProxyModel_ChildEvent_Callback cb) { qconcatenatetablesproxymodel_childevent_callback = cb; }
-    void setQConcatenateTablesProxyModel_CustomEvent_Callback(QConcatenateTablesProxyModel_CustomEvent_Callback cb) { qconcatenatetablesproxymodel_customevent_callback = cb; }
-    void setQConcatenateTablesProxyModel_ConnectNotify_Callback(QConcatenateTablesProxyModel_ConnectNotify_Callback cb) { qconcatenatetablesproxymodel_connectnotify_callback = cb; }
-    void setQConcatenateTablesProxyModel_DisconnectNotify_Callback(QConcatenateTablesProxyModel_DisconnectNotify_Callback cb) { qconcatenatetablesproxymodel_disconnectnotify_callback = cb; }
-    void setQConcatenateTablesProxyModel_CreateIndex_Callback(QConcatenateTablesProxyModel_CreateIndex_Callback cb) { qconcatenatetablesproxymodel_createindex_callback = cb; }
-    void setQConcatenateTablesProxyModel_EncodeData_Callback(QConcatenateTablesProxyModel_EncodeData_Callback cb) { qconcatenatetablesproxymodel_encodedata_callback = cb; }
-    void setQConcatenateTablesProxyModel_DecodeData_Callback(QConcatenateTablesProxyModel_DecodeData_Callback cb) { qconcatenatetablesproxymodel_decodedata_callback = cb; }
-    void setQConcatenateTablesProxyModel_BeginInsertRows_Callback(QConcatenateTablesProxyModel_BeginInsertRows_Callback cb) { qconcatenatetablesproxymodel_begininsertrows_callback = cb; }
-    void setQConcatenateTablesProxyModel_EndInsertRows_Callback(QConcatenateTablesProxyModel_EndInsertRows_Callback cb) { qconcatenatetablesproxymodel_endinsertrows_callback = cb; }
-    void setQConcatenateTablesProxyModel_BeginRemoveRows_Callback(QConcatenateTablesProxyModel_BeginRemoveRows_Callback cb) { qconcatenatetablesproxymodel_beginremoverows_callback = cb; }
-    void setQConcatenateTablesProxyModel_EndRemoveRows_Callback(QConcatenateTablesProxyModel_EndRemoveRows_Callback cb) { qconcatenatetablesproxymodel_endremoverows_callback = cb; }
-    void setQConcatenateTablesProxyModel_BeginMoveRows_Callback(QConcatenateTablesProxyModel_BeginMoveRows_Callback cb) { qconcatenatetablesproxymodel_beginmoverows_callback = cb; }
-    void setQConcatenateTablesProxyModel_EndMoveRows_Callback(QConcatenateTablesProxyModel_EndMoveRows_Callback cb) { qconcatenatetablesproxymodel_endmoverows_callback = cb; }
-    void setQConcatenateTablesProxyModel_BeginInsertColumns_Callback(QConcatenateTablesProxyModel_BeginInsertColumns_Callback cb) { qconcatenatetablesproxymodel_begininsertcolumns_callback = cb; }
-    void setQConcatenateTablesProxyModel_EndInsertColumns_Callback(QConcatenateTablesProxyModel_EndInsertColumns_Callback cb) { qconcatenatetablesproxymodel_endinsertcolumns_callback = cb; }
-    void setQConcatenateTablesProxyModel_BeginRemoveColumns_Callback(QConcatenateTablesProxyModel_BeginRemoveColumns_Callback cb) { qconcatenatetablesproxymodel_beginremovecolumns_callback = cb; }
-    void setQConcatenateTablesProxyModel_EndRemoveColumns_Callback(QConcatenateTablesProxyModel_EndRemoveColumns_Callback cb) { qconcatenatetablesproxymodel_endremovecolumns_callback = cb; }
-    void setQConcatenateTablesProxyModel_BeginMoveColumns_Callback(QConcatenateTablesProxyModel_BeginMoveColumns_Callback cb) { qconcatenatetablesproxymodel_beginmovecolumns_callback = cb; }
-    void setQConcatenateTablesProxyModel_EndMoveColumns_Callback(QConcatenateTablesProxyModel_EndMoveColumns_Callback cb) { qconcatenatetablesproxymodel_endmovecolumns_callback = cb; }
-    void setQConcatenateTablesProxyModel_BeginResetModel_Callback(QConcatenateTablesProxyModel_BeginResetModel_Callback cb) { qconcatenatetablesproxymodel_beginresetmodel_callback = cb; }
-    void setQConcatenateTablesProxyModel_EndResetModel_Callback(QConcatenateTablesProxyModel_EndResetModel_Callback cb) { qconcatenatetablesproxymodel_endresetmodel_callback = cb; }
-    void setQConcatenateTablesProxyModel_ChangePersistentIndex_Callback(QConcatenateTablesProxyModel_ChangePersistentIndex_Callback cb) { qconcatenatetablesproxymodel_changepersistentindex_callback = cb; }
-    void setQConcatenateTablesProxyModel_ChangePersistentIndexList_Callback(QConcatenateTablesProxyModel_ChangePersistentIndexList_Callback cb) { qconcatenatetablesproxymodel_changepersistentindexlist_callback = cb; }
-    void setQConcatenateTablesProxyModel_PersistentIndexList_Callback(QConcatenateTablesProxyModel_PersistentIndexList_Callback cb) { qconcatenatetablesproxymodel_persistentindexlist_callback = cb; }
-    void setQConcatenateTablesProxyModel_Sender_Callback(QConcatenateTablesProxyModel_Sender_Callback cb) { qconcatenatetablesproxymodel_sender_callback = cb; }
-    void setQConcatenateTablesProxyModel_SenderSignalIndex_Callback(QConcatenateTablesProxyModel_SenderSignalIndex_Callback cb) { qconcatenatetablesproxymodel_sendersignalindex_callback = cb; }
-    void setQConcatenateTablesProxyModel_Receivers_Callback(QConcatenateTablesProxyModel_Receivers_Callback cb) { qconcatenatetablesproxymodel_receivers_callback = cb; }
-    void setQConcatenateTablesProxyModel_IsSignalConnected_Callback(QConcatenateTablesProxyModel_IsSignalConnected_Callback cb) { qconcatenatetablesproxymodel_issignalconnected_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_Metacall_Callback(QConcatenateTablesProxyModel_Metacall_Callback cb) { qconcatenatetablesproxymodel_metacall_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_Data_Callback(QConcatenateTablesProxyModel_Data_Callback cb) { qconcatenatetablesproxymodel_data_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_SetData_Callback(QConcatenateTablesProxyModel_SetData_Callback cb) { qconcatenatetablesproxymodel_setdata_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_ItemData_Callback(QConcatenateTablesProxyModel_ItemData_Callback cb) { qconcatenatetablesproxymodel_itemdata_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_SetItemData_Callback(QConcatenateTablesProxyModel_SetItemData_Callback cb) { qconcatenatetablesproxymodel_setitemdata_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_Flags_Callback(QConcatenateTablesProxyModel_Flags_Callback cb) { qconcatenatetablesproxymodel_flags_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_Index_Callback(QConcatenateTablesProxyModel_Index_Callback cb) { qconcatenatetablesproxymodel_index_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_Parent_Callback(QConcatenateTablesProxyModel_Parent_Callback cb) { qconcatenatetablesproxymodel_parent_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_RowCount_Callback(QConcatenateTablesProxyModel_RowCount_Callback cb) { qconcatenatetablesproxymodel_rowcount_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_HeaderData_Callback(QConcatenateTablesProxyModel_HeaderData_Callback cb) { qconcatenatetablesproxymodel_headerdata_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_ColumnCount_Callback(QConcatenateTablesProxyModel_ColumnCount_Callback cb) { qconcatenatetablesproxymodel_columncount_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_MimeTypes_Callback(QConcatenateTablesProxyModel_MimeTypes_Callback cb) { qconcatenatetablesproxymodel_mimetypes_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_MimeData_Callback(QConcatenateTablesProxyModel_MimeData_Callback cb) { qconcatenatetablesproxymodel_mimedata_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_CanDropMimeData_Callback(QConcatenateTablesProxyModel_CanDropMimeData_Callback cb) { qconcatenatetablesproxymodel_candropmimedata_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_DropMimeData_Callback(QConcatenateTablesProxyModel_DropMimeData_Callback cb) { qconcatenatetablesproxymodel_dropmimedata_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_Span_Callback(QConcatenateTablesProxyModel_Span_Callback cb) { qconcatenatetablesproxymodel_span_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_Sibling_Callback(QConcatenateTablesProxyModel_Sibling_Callback cb) { qconcatenatetablesproxymodel_sibling_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_HasChildren_Callback(QConcatenateTablesProxyModel_HasChildren_Callback cb) { qconcatenatetablesproxymodel_haschildren_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_SetHeaderData_Callback(QConcatenateTablesProxyModel_SetHeaderData_Callback cb) { qconcatenatetablesproxymodel_setheaderdata_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_ClearItemData_Callback(QConcatenateTablesProxyModel_ClearItemData_Callback cb) { qconcatenatetablesproxymodel_clearitemdata_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_SupportedDropActions_Callback(QConcatenateTablesProxyModel_SupportedDropActions_Callback cb) { qconcatenatetablesproxymodel_supporteddropactions_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_SupportedDragActions_Callback(QConcatenateTablesProxyModel_SupportedDragActions_Callback cb) { qconcatenatetablesproxymodel_supporteddragactions_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_InsertRows_Callback(QConcatenateTablesProxyModel_InsertRows_Callback cb) { qconcatenatetablesproxymodel_insertrows_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_InsertColumns_Callback(QConcatenateTablesProxyModel_InsertColumns_Callback cb) { qconcatenatetablesproxymodel_insertcolumns_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_RemoveRows_Callback(QConcatenateTablesProxyModel_RemoveRows_Callback cb) { qconcatenatetablesproxymodel_removerows_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_RemoveColumns_Callback(QConcatenateTablesProxyModel_RemoveColumns_Callback cb) { qconcatenatetablesproxymodel_removecolumns_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_MoveRows_Callback(QConcatenateTablesProxyModel_MoveRows_Callback cb) { qconcatenatetablesproxymodel_moverows_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_MoveColumns_Callback(QConcatenateTablesProxyModel_MoveColumns_Callback cb) { qconcatenatetablesproxymodel_movecolumns_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_FetchMore_Callback(QConcatenateTablesProxyModel_FetchMore_Callback cb) { qconcatenatetablesproxymodel_fetchmore_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_CanFetchMore_Callback(QConcatenateTablesProxyModel_CanFetchMore_Callback cb) { qconcatenatetablesproxymodel_canfetchmore_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_Sort_Callback(QConcatenateTablesProxyModel_Sort_Callback cb) { qconcatenatetablesproxymodel_sort_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_Buddy_Callback(QConcatenateTablesProxyModel_Buddy_Callback cb) { qconcatenatetablesproxymodel_buddy_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_Match_Callback(QConcatenateTablesProxyModel_Match_Callback cb) { qconcatenatetablesproxymodel_match_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_RoleNames_Callback(QConcatenateTablesProxyModel_RoleNames_Callback cb) { qconcatenatetablesproxymodel_rolenames_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_MultiData_Callback(QConcatenateTablesProxyModel_MultiData_Callback cb) { qconcatenatetablesproxymodel_multidata_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_Submit_Callback(QConcatenateTablesProxyModel_Submit_Callback cb) { qconcatenatetablesproxymodel_submit_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_Revert_Callback(QConcatenateTablesProxyModel_Revert_Callback cb) { qconcatenatetablesproxymodel_revert_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_ResetInternalData_Callback(QConcatenateTablesProxyModel_ResetInternalData_Callback cb) { qconcatenatetablesproxymodel_resetinternaldata_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_Event_Callback(QConcatenateTablesProxyModel_Event_Callback cb) { qconcatenatetablesproxymodel_event_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_EventFilter_Callback(QConcatenateTablesProxyModel_EventFilter_Callback cb) { qconcatenatetablesproxymodel_eventfilter_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_TimerEvent_Callback(QConcatenateTablesProxyModel_TimerEvent_Callback cb) { qconcatenatetablesproxymodel_timerevent_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_ChildEvent_Callback(QConcatenateTablesProxyModel_ChildEvent_Callback cb) { qconcatenatetablesproxymodel_childevent_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_CustomEvent_Callback(QConcatenateTablesProxyModel_CustomEvent_Callback cb) { qconcatenatetablesproxymodel_customevent_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_ConnectNotify_Callback(QConcatenateTablesProxyModel_ConnectNotify_Callback cb) { qconcatenatetablesproxymodel_connectnotify_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_DisconnectNotify_Callback(QConcatenateTablesProxyModel_DisconnectNotify_Callback cb) { qconcatenatetablesproxymodel_disconnectnotify_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_CreateIndex_Callback(QConcatenateTablesProxyModel_CreateIndex_Callback cb) { qconcatenatetablesproxymodel_createindex_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_EncodeData_Callback(QConcatenateTablesProxyModel_EncodeData_Callback cb) { qconcatenatetablesproxymodel_encodedata_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_DecodeData_Callback(QConcatenateTablesProxyModel_DecodeData_Callback cb) { qconcatenatetablesproxymodel_decodedata_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_BeginInsertRows_Callback(QConcatenateTablesProxyModel_BeginInsertRows_Callback cb) { qconcatenatetablesproxymodel_begininsertrows_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_EndInsertRows_Callback(QConcatenateTablesProxyModel_EndInsertRows_Callback cb) { qconcatenatetablesproxymodel_endinsertrows_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_BeginRemoveRows_Callback(QConcatenateTablesProxyModel_BeginRemoveRows_Callback cb) { qconcatenatetablesproxymodel_beginremoverows_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_EndRemoveRows_Callback(QConcatenateTablesProxyModel_EndRemoveRows_Callback cb) { qconcatenatetablesproxymodel_endremoverows_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_BeginMoveRows_Callback(QConcatenateTablesProxyModel_BeginMoveRows_Callback cb) { qconcatenatetablesproxymodel_beginmoverows_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_EndMoveRows_Callback(QConcatenateTablesProxyModel_EndMoveRows_Callback cb) { qconcatenatetablesproxymodel_endmoverows_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_BeginInsertColumns_Callback(QConcatenateTablesProxyModel_BeginInsertColumns_Callback cb) { qconcatenatetablesproxymodel_begininsertcolumns_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_EndInsertColumns_Callback(QConcatenateTablesProxyModel_EndInsertColumns_Callback cb) { qconcatenatetablesproxymodel_endinsertcolumns_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_BeginRemoveColumns_Callback(QConcatenateTablesProxyModel_BeginRemoveColumns_Callback cb) { qconcatenatetablesproxymodel_beginremovecolumns_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_EndRemoveColumns_Callback(QConcatenateTablesProxyModel_EndRemoveColumns_Callback cb) { qconcatenatetablesproxymodel_endremovecolumns_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_BeginMoveColumns_Callback(QConcatenateTablesProxyModel_BeginMoveColumns_Callback cb) { qconcatenatetablesproxymodel_beginmovecolumns_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_EndMoveColumns_Callback(QConcatenateTablesProxyModel_EndMoveColumns_Callback cb) { qconcatenatetablesproxymodel_endmovecolumns_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_BeginResetModel_Callback(QConcatenateTablesProxyModel_BeginResetModel_Callback cb) { qconcatenatetablesproxymodel_beginresetmodel_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_EndResetModel_Callback(QConcatenateTablesProxyModel_EndResetModel_Callback cb) { qconcatenatetablesproxymodel_endresetmodel_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_ChangePersistentIndex_Callback(QConcatenateTablesProxyModel_ChangePersistentIndex_Callback cb) { qconcatenatetablesproxymodel_changepersistentindex_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_ChangePersistentIndexList_Callback(QConcatenateTablesProxyModel_ChangePersistentIndexList_Callback cb) { qconcatenatetablesproxymodel_changepersistentindexlist_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_PersistentIndexList_Callback(QConcatenateTablesProxyModel_PersistentIndexList_Callback cb) { qconcatenatetablesproxymodel_persistentindexlist_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_Sender_Callback(QConcatenateTablesProxyModel_Sender_Callback cb) { qconcatenatetablesproxymodel_sender_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_SenderSignalIndex_Callback(QConcatenateTablesProxyModel_SenderSignalIndex_Callback cb) { qconcatenatetablesproxymodel_sendersignalindex_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_Receivers_Callback(QConcatenateTablesProxyModel_Receivers_Callback cb) { qconcatenatetablesproxymodel_receivers_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_IsSignalConnected_Callback(QConcatenateTablesProxyModel_IsSignalConnected_Callback cb) { qconcatenatetablesproxymodel_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQConcatenateTablesProxyModel_Metacall_IsBase(bool value) const { qconcatenatetablesproxymodel_metacall_isbase = value; }
-    void setQConcatenateTablesProxyModel_Data_IsBase(bool value) const { qconcatenatetablesproxymodel_data_isbase = value; }
-    void setQConcatenateTablesProxyModel_SetData_IsBase(bool value) const { qconcatenatetablesproxymodel_setdata_isbase = value; }
-    void setQConcatenateTablesProxyModel_ItemData_IsBase(bool value) const { qconcatenatetablesproxymodel_itemdata_isbase = value; }
-    void setQConcatenateTablesProxyModel_SetItemData_IsBase(bool value) const { qconcatenatetablesproxymodel_setitemdata_isbase = value; }
-    void setQConcatenateTablesProxyModel_Flags_IsBase(bool value) const { qconcatenatetablesproxymodel_flags_isbase = value; }
-    void setQConcatenateTablesProxyModel_Index_IsBase(bool value) const { qconcatenatetablesproxymodel_index_isbase = value; }
-    void setQConcatenateTablesProxyModel_Parent_IsBase(bool value) const { qconcatenatetablesproxymodel_parent_isbase = value; }
-    void setQConcatenateTablesProxyModel_RowCount_IsBase(bool value) const { qconcatenatetablesproxymodel_rowcount_isbase = value; }
-    void setQConcatenateTablesProxyModel_HeaderData_IsBase(bool value) const { qconcatenatetablesproxymodel_headerdata_isbase = value; }
-    void setQConcatenateTablesProxyModel_ColumnCount_IsBase(bool value) const { qconcatenatetablesproxymodel_columncount_isbase = value; }
-    void setQConcatenateTablesProxyModel_MimeTypes_IsBase(bool value) const { qconcatenatetablesproxymodel_mimetypes_isbase = value; }
-    void setQConcatenateTablesProxyModel_MimeData_IsBase(bool value) const { qconcatenatetablesproxymodel_mimedata_isbase = value; }
-    void setQConcatenateTablesProxyModel_CanDropMimeData_IsBase(bool value) const { qconcatenatetablesproxymodel_candropmimedata_isbase = value; }
-    void setQConcatenateTablesProxyModel_DropMimeData_IsBase(bool value) const { qconcatenatetablesproxymodel_dropmimedata_isbase = value; }
-    void setQConcatenateTablesProxyModel_Span_IsBase(bool value) const { qconcatenatetablesproxymodel_span_isbase = value; }
-    void setQConcatenateTablesProxyModel_Sibling_IsBase(bool value) const { qconcatenatetablesproxymodel_sibling_isbase = value; }
-    void setQConcatenateTablesProxyModel_HasChildren_IsBase(bool value) const { qconcatenatetablesproxymodel_haschildren_isbase = value; }
-    void setQConcatenateTablesProxyModel_SetHeaderData_IsBase(bool value) const { qconcatenatetablesproxymodel_setheaderdata_isbase = value; }
-    void setQConcatenateTablesProxyModel_ClearItemData_IsBase(bool value) const { qconcatenatetablesproxymodel_clearitemdata_isbase = value; }
-    void setQConcatenateTablesProxyModel_SupportedDropActions_IsBase(bool value) const { qconcatenatetablesproxymodel_supporteddropactions_isbase = value; }
-    void setQConcatenateTablesProxyModel_SupportedDragActions_IsBase(bool value) const { qconcatenatetablesproxymodel_supporteddragactions_isbase = value; }
-    void setQConcatenateTablesProxyModel_InsertRows_IsBase(bool value) const { qconcatenatetablesproxymodel_insertrows_isbase = value; }
-    void setQConcatenateTablesProxyModel_InsertColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_insertcolumns_isbase = value; }
-    void setQConcatenateTablesProxyModel_RemoveRows_IsBase(bool value) const { qconcatenatetablesproxymodel_removerows_isbase = value; }
-    void setQConcatenateTablesProxyModel_RemoveColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_removecolumns_isbase = value; }
-    void setQConcatenateTablesProxyModel_MoveRows_IsBase(bool value) const { qconcatenatetablesproxymodel_moverows_isbase = value; }
-    void setQConcatenateTablesProxyModel_MoveColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_movecolumns_isbase = value; }
-    void setQConcatenateTablesProxyModel_FetchMore_IsBase(bool value) const { qconcatenatetablesproxymodel_fetchmore_isbase = value; }
-    void setQConcatenateTablesProxyModel_CanFetchMore_IsBase(bool value) const { qconcatenatetablesproxymodel_canfetchmore_isbase = value; }
-    void setQConcatenateTablesProxyModel_Sort_IsBase(bool value) const { qconcatenatetablesproxymodel_sort_isbase = value; }
-    void setQConcatenateTablesProxyModel_Buddy_IsBase(bool value) const { qconcatenatetablesproxymodel_buddy_isbase = value; }
-    void setQConcatenateTablesProxyModel_Match_IsBase(bool value) const { qconcatenatetablesproxymodel_match_isbase = value; }
-    void setQConcatenateTablesProxyModel_RoleNames_IsBase(bool value) const { qconcatenatetablesproxymodel_rolenames_isbase = value; }
-    void setQConcatenateTablesProxyModel_MultiData_IsBase(bool value) const { qconcatenatetablesproxymodel_multidata_isbase = value; }
-    void setQConcatenateTablesProxyModel_Submit_IsBase(bool value) const { qconcatenatetablesproxymodel_submit_isbase = value; }
-    void setQConcatenateTablesProxyModel_Revert_IsBase(bool value) const { qconcatenatetablesproxymodel_revert_isbase = value; }
-    void setQConcatenateTablesProxyModel_ResetInternalData_IsBase(bool value) const { qconcatenatetablesproxymodel_resetinternaldata_isbase = value; }
-    void setQConcatenateTablesProxyModel_Event_IsBase(bool value) const { qconcatenatetablesproxymodel_event_isbase = value; }
-    void setQConcatenateTablesProxyModel_EventFilter_IsBase(bool value) const { qconcatenatetablesproxymodel_eventfilter_isbase = value; }
-    void setQConcatenateTablesProxyModel_TimerEvent_IsBase(bool value) const { qconcatenatetablesproxymodel_timerevent_isbase = value; }
-    void setQConcatenateTablesProxyModel_ChildEvent_IsBase(bool value) const { qconcatenatetablesproxymodel_childevent_isbase = value; }
-    void setQConcatenateTablesProxyModel_CustomEvent_IsBase(bool value) const { qconcatenatetablesproxymodel_customevent_isbase = value; }
-    void setQConcatenateTablesProxyModel_ConnectNotify_IsBase(bool value) const { qconcatenatetablesproxymodel_connectnotify_isbase = value; }
-    void setQConcatenateTablesProxyModel_DisconnectNotify_IsBase(bool value) const { qconcatenatetablesproxymodel_disconnectnotify_isbase = value; }
-    void setQConcatenateTablesProxyModel_CreateIndex_IsBase(bool value) const { qconcatenatetablesproxymodel_createindex_isbase = value; }
-    void setQConcatenateTablesProxyModel_EncodeData_IsBase(bool value) const { qconcatenatetablesproxymodel_encodedata_isbase = value; }
-    void setQConcatenateTablesProxyModel_DecodeData_IsBase(bool value) const { qconcatenatetablesproxymodel_decodedata_isbase = value; }
-    void setQConcatenateTablesProxyModel_BeginInsertRows_IsBase(bool value) const { qconcatenatetablesproxymodel_begininsertrows_isbase = value; }
-    void setQConcatenateTablesProxyModel_EndInsertRows_IsBase(bool value) const { qconcatenatetablesproxymodel_endinsertrows_isbase = value; }
-    void setQConcatenateTablesProxyModel_BeginRemoveRows_IsBase(bool value) const { qconcatenatetablesproxymodel_beginremoverows_isbase = value; }
-    void setQConcatenateTablesProxyModel_EndRemoveRows_IsBase(bool value) const { qconcatenatetablesproxymodel_endremoverows_isbase = value; }
-    void setQConcatenateTablesProxyModel_BeginMoveRows_IsBase(bool value) const { qconcatenatetablesproxymodel_beginmoverows_isbase = value; }
-    void setQConcatenateTablesProxyModel_EndMoveRows_IsBase(bool value) const { qconcatenatetablesproxymodel_endmoverows_isbase = value; }
-    void setQConcatenateTablesProxyModel_BeginInsertColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_begininsertcolumns_isbase = value; }
-    void setQConcatenateTablesProxyModel_EndInsertColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_endinsertcolumns_isbase = value; }
-    void setQConcatenateTablesProxyModel_BeginRemoveColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_beginremovecolumns_isbase = value; }
-    void setQConcatenateTablesProxyModel_EndRemoveColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_endremovecolumns_isbase = value; }
-    void setQConcatenateTablesProxyModel_BeginMoveColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_beginmovecolumns_isbase = value; }
-    void setQConcatenateTablesProxyModel_EndMoveColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_endmovecolumns_isbase = value; }
-    void setQConcatenateTablesProxyModel_BeginResetModel_IsBase(bool value) const { qconcatenatetablesproxymodel_beginresetmodel_isbase = value; }
-    void setQConcatenateTablesProxyModel_EndResetModel_IsBase(bool value) const { qconcatenatetablesproxymodel_endresetmodel_isbase = value; }
-    void setQConcatenateTablesProxyModel_ChangePersistentIndex_IsBase(bool value) const { qconcatenatetablesproxymodel_changepersistentindex_isbase = value; }
-    void setQConcatenateTablesProxyModel_ChangePersistentIndexList_IsBase(bool value) const { qconcatenatetablesproxymodel_changepersistentindexlist_isbase = value; }
-    void setQConcatenateTablesProxyModel_PersistentIndexList_IsBase(bool value) const { qconcatenatetablesproxymodel_persistentindexlist_isbase = value; }
-    void setQConcatenateTablesProxyModel_Sender_IsBase(bool value) const { qconcatenatetablesproxymodel_sender_isbase = value; }
-    void setQConcatenateTablesProxyModel_SenderSignalIndex_IsBase(bool value) const { qconcatenatetablesproxymodel_sendersignalindex_isbase = value; }
-    void setQConcatenateTablesProxyModel_Receivers_IsBase(bool value) const { qconcatenatetablesproxymodel_receivers_isbase = value; }
-    void setQConcatenateTablesProxyModel_IsSignalConnected_IsBase(bool value) const { qconcatenatetablesproxymodel_issignalconnected_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_Metacall_IsBase(bool value) const { qconcatenatetablesproxymodel_metacall_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_Data_IsBase(bool value) const { qconcatenatetablesproxymodel_data_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_SetData_IsBase(bool value) const { qconcatenatetablesproxymodel_setdata_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_ItemData_IsBase(bool value) const { qconcatenatetablesproxymodel_itemdata_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_SetItemData_IsBase(bool value) const { qconcatenatetablesproxymodel_setitemdata_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_Flags_IsBase(bool value) const { qconcatenatetablesproxymodel_flags_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_Index_IsBase(bool value) const { qconcatenatetablesproxymodel_index_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_Parent_IsBase(bool value) const { qconcatenatetablesproxymodel_parent_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_RowCount_IsBase(bool value) const { qconcatenatetablesproxymodel_rowcount_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_HeaderData_IsBase(bool value) const { qconcatenatetablesproxymodel_headerdata_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_ColumnCount_IsBase(bool value) const { qconcatenatetablesproxymodel_columncount_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_MimeTypes_IsBase(bool value) const { qconcatenatetablesproxymodel_mimetypes_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_MimeData_IsBase(bool value) const { qconcatenatetablesproxymodel_mimedata_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_CanDropMimeData_IsBase(bool value) const { qconcatenatetablesproxymodel_candropmimedata_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_DropMimeData_IsBase(bool value) const { qconcatenatetablesproxymodel_dropmimedata_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_Span_IsBase(bool value) const { qconcatenatetablesproxymodel_span_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_Sibling_IsBase(bool value) const { qconcatenatetablesproxymodel_sibling_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_HasChildren_IsBase(bool value) const { qconcatenatetablesproxymodel_haschildren_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_SetHeaderData_IsBase(bool value) const { qconcatenatetablesproxymodel_setheaderdata_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_ClearItemData_IsBase(bool value) const { qconcatenatetablesproxymodel_clearitemdata_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_SupportedDropActions_IsBase(bool value) const { qconcatenatetablesproxymodel_supporteddropactions_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_SupportedDragActions_IsBase(bool value) const { qconcatenatetablesproxymodel_supporteddragactions_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_InsertRows_IsBase(bool value) const { qconcatenatetablesproxymodel_insertrows_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_InsertColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_insertcolumns_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_RemoveRows_IsBase(bool value) const { qconcatenatetablesproxymodel_removerows_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_RemoveColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_removecolumns_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_MoveRows_IsBase(bool value) const { qconcatenatetablesproxymodel_moverows_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_MoveColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_movecolumns_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_FetchMore_IsBase(bool value) const { qconcatenatetablesproxymodel_fetchmore_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_CanFetchMore_IsBase(bool value) const { qconcatenatetablesproxymodel_canfetchmore_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_Sort_IsBase(bool value) const { qconcatenatetablesproxymodel_sort_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_Buddy_IsBase(bool value) const { qconcatenatetablesproxymodel_buddy_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_Match_IsBase(bool value) const { qconcatenatetablesproxymodel_match_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_RoleNames_IsBase(bool value) const { qconcatenatetablesproxymodel_rolenames_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_MultiData_IsBase(bool value) const { qconcatenatetablesproxymodel_multidata_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_Submit_IsBase(bool value) const { qconcatenatetablesproxymodel_submit_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_Revert_IsBase(bool value) const { qconcatenatetablesproxymodel_revert_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_ResetInternalData_IsBase(bool value) const { qconcatenatetablesproxymodel_resetinternaldata_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_Event_IsBase(bool value) const { qconcatenatetablesproxymodel_event_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_EventFilter_IsBase(bool value) const { qconcatenatetablesproxymodel_eventfilter_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_TimerEvent_IsBase(bool value) const { qconcatenatetablesproxymodel_timerevent_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_ChildEvent_IsBase(bool value) const { qconcatenatetablesproxymodel_childevent_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_CustomEvent_IsBase(bool value) const { qconcatenatetablesproxymodel_customevent_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_ConnectNotify_IsBase(bool value) const { qconcatenatetablesproxymodel_connectnotify_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_DisconnectNotify_IsBase(bool value) const { qconcatenatetablesproxymodel_disconnectnotify_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_CreateIndex_IsBase(bool value) const { qconcatenatetablesproxymodel_createindex_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_EncodeData_IsBase(bool value) const { qconcatenatetablesproxymodel_encodedata_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_DecodeData_IsBase(bool value) const { qconcatenatetablesproxymodel_decodedata_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_BeginInsertRows_IsBase(bool value) const { qconcatenatetablesproxymodel_begininsertrows_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_EndInsertRows_IsBase(bool value) const { qconcatenatetablesproxymodel_endinsertrows_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_BeginRemoveRows_IsBase(bool value) const { qconcatenatetablesproxymodel_beginremoverows_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_EndRemoveRows_IsBase(bool value) const { qconcatenatetablesproxymodel_endremoverows_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_BeginMoveRows_IsBase(bool value) const { qconcatenatetablesproxymodel_beginmoverows_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_EndMoveRows_IsBase(bool value) const { qconcatenatetablesproxymodel_endmoverows_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_BeginInsertColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_begininsertcolumns_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_EndInsertColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_endinsertcolumns_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_BeginRemoveColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_beginremovecolumns_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_EndRemoveColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_endremovecolumns_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_BeginMoveColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_beginmovecolumns_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_EndMoveColumns_IsBase(bool value) const { qconcatenatetablesproxymodel_endmovecolumns_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_BeginResetModel_IsBase(bool value) const { qconcatenatetablesproxymodel_beginresetmodel_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_EndResetModel_IsBase(bool value) const { qconcatenatetablesproxymodel_endresetmodel_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_ChangePersistentIndex_IsBase(bool value) const { qconcatenatetablesproxymodel_changepersistentindex_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_ChangePersistentIndexList_IsBase(bool value) const { qconcatenatetablesproxymodel_changepersistentindexlist_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_PersistentIndexList_IsBase(bool value) const { qconcatenatetablesproxymodel_persistentindexlist_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_Sender_IsBase(bool value) const { qconcatenatetablesproxymodel_sender_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_SenderSignalIndex_IsBase(bool value) const { qconcatenatetablesproxymodel_sendersignalindex_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_Receivers_IsBase(bool value) const { qconcatenatetablesproxymodel_receivers_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_IsSignalConnected_IsBase(bool value) const { qconcatenatetablesproxymodel_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -452,7 +455,12 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_metacall_isbase = false;
             return QConcatenateTablesProxyModel::qt_metacall(param1, param2, param3);
         } else if (qconcatenatetablesproxymodel_metacall_callback != nullptr) {
-            return qconcatenatetablesproxymodel_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qconcatenatetablesproxymodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QConcatenateTablesProxyModel::qt_metacall(param1, param2, param3);
         }
@@ -464,7 +472,13 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_data_isbase = false;
             return QConcatenateTablesProxyModel::data(index, role);
         } else if (qconcatenatetablesproxymodel_data_callback != nullptr) {
-            return qconcatenatetablesproxymodel_data_callback(this, index, role);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            int cbval2 = role;
+
+            QVariant* callback_ret = qconcatenatetablesproxymodel_data_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QConcatenateTablesProxyModel::data(index, role);
         }
@@ -476,7 +490,16 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_setdata_isbase = false;
             return QConcatenateTablesProxyModel::setData(index, value, role);
         } else if (qconcatenatetablesproxymodel_setdata_callback != nullptr) {
-            return qconcatenatetablesproxymodel_setdata_callback(this, index, value, role);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+            int cbval3 = role;
+
+            bool callback_ret = qconcatenatetablesproxymodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::setData(index, value, role);
         }
@@ -488,7 +511,18 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_itemdata_isbase = false;
             return QConcatenateTablesProxyModel::itemData(proxyIndex);
         } else if (qconcatenatetablesproxymodel_itemdata_callback != nullptr) {
-            return qconcatenatetablesproxymodel_itemdata_callback(this, proxyIndex);
+            const QModelIndex& proxyIndex_ret = proxyIndex;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&proxyIndex_ret);
+
+            libqt_map /* of int to QVariant* */ callback_ret = qconcatenatetablesproxymodel_itemdata_callback(this, cbval1);
+            QMap<int, QVariant> callback_ret_QMap;
+            int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
+            QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
+            }
+            return callback_ret_QMap;
         } else {
             return QConcatenateTablesProxyModel::itemData(proxyIndex);
         }
@@ -500,7 +534,27 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_setitemdata_isbase = false;
             return QConcatenateTablesProxyModel::setItemData(index, roles);
         } else if (qconcatenatetablesproxymodel_setitemdata_callback != nullptr) {
-            return qconcatenatetablesproxymodel_setitemdata_callback(this, index, roles);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            const QMap<int, QVariant>& roles_ret = roles;
+            // Convert QMap<> from C++ memory to manually-managed C memory
+            int* roles_karr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
+            QVariant** roles_varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * roles_ret.size()));
+            int roles_ctr = 0;
+            for (auto roles_itr = roles_ret.keyValueBegin(); roles_itr != roles_ret.keyValueEnd(); ++roles_itr) {
+                roles_karr[roles_ctr] = roles_itr->first;
+                roles_varr[roles_ctr] = new QVariant(roles_itr->second);
+                roles_ctr++;
+            }
+            libqt_map roles_out;
+            roles_out.len = roles_ret.size();
+            roles_out.keys = static_cast<void*>(roles_karr);
+            roles_out.values = static_cast<void*>(roles_varr);
+            libqt_map /* of int to QVariant* */ cbval2 = roles_out;
+
+            bool callback_ret = qconcatenatetablesproxymodel_setitemdata_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::setItemData(index, roles);
         }
@@ -512,7 +566,12 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_flags_isbase = false;
             return QConcatenateTablesProxyModel::flags(index);
         } else if (qconcatenatetablesproxymodel_flags_callback != nullptr) {
-            return qconcatenatetablesproxymodel_flags_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            int callback_ret = qconcatenatetablesproxymodel_flags_callback(this, cbval1);
+            return static_cast<Qt::ItemFlags>(callback_ret);
         } else {
             return QConcatenateTablesProxyModel::flags(index);
         }
@@ -524,7 +583,14 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_index_isbase = false;
             return QConcatenateTablesProxyModel::index(row, column, parent);
         } else if (qconcatenatetablesproxymodel_index_callback != nullptr) {
-            return qconcatenatetablesproxymodel_index_callback(this, row, column, parent);
+            int cbval1 = row;
+            int cbval2 = column;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            QModelIndex* callback_ret = qconcatenatetablesproxymodel_index_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QConcatenateTablesProxyModel::index(row, column, parent);
         }
@@ -536,7 +602,12 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_parent_isbase = false;
             return QConcatenateTablesProxyModel::parent(index);
         } else if (qconcatenatetablesproxymodel_parent_callback != nullptr) {
-            return qconcatenatetablesproxymodel_parent_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QModelIndex* callback_ret = qconcatenatetablesproxymodel_parent_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QConcatenateTablesProxyModel::parent(index);
         }
@@ -548,7 +619,12 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_rowcount_isbase = false;
             return QConcatenateTablesProxyModel::rowCount(parent);
         } else if (qconcatenatetablesproxymodel_rowcount_callback != nullptr) {
-            return qconcatenatetablesproxymodel_rowcount_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            int callback_ret = qconcatenatetablesproxymodel_rowcount_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QConcatenateTablesProxyModel::rowCount(parent);
         }
@@ -560,7 +636,12 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_headerdata_isbase = false;
             return QConcatenateTablesProxyModel::headerData(section, orientation, role);
         } else if (qconcatenatetablesproxymodel_headerdata_callback != nullptr) {
-            return qconcatenatetablesproxymodel_headerdata_callback(this, section, orientation, role);
+            int cbval1 = section;
+            int cbval2 = static_cast<int>(orientation);
+            int cbval3 = role;
+
+            QVariant* callback_ret = qconcatenatetablesproxymodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QConcatenateTablesProxyModel::headerData(section, orientation, role);
         }
@@ -572,7 +653,12 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_columncount_isbase = false;
             return QConcatenateTablesProxyModel::columnCount(parent);
         } else if (qconcatenatetablesproxymodel_columncount_callback != nullptr) {
-            return qconcatenatetablesproxymodel_columncount_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            int callback_ret = qconcatenatetablesproxymodel_columncount_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QConcatenateTablesProxyModel::columnCount(parent);
         }
@@ -584,7 +670,15 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_mimetypes_isbase = false;
             return QConcatenateTablesProxyModel::mimeTypes();
         } else if (qconcatenatetablesproxymodel_mimetypes_callback != nullptr) {
-            return qconcatenatetablesproxymodel_mimetypes_callback();
+            libqt_list /* of libqt_string */ callback_ret = qconcatenatetablesproxymodel_mimetypes_callback();
+            QStringList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+                callback_ret_QList.push_back(callback_ret_arr_i_QString);
+            }
+            return callback_ret_QList;
         } else {
             return QConcatenateTablesProxyModel::mimeTypes();
         }
@@ -596,7 +690,19 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_mimedata_isbase = false;
             return QConcatenateTablesProxyModel::mimeData(indexes);
         } else if (qconcatenatetablesproxymodel_mimedata_callback != nullptr) {
-            return qconcatenatetablesproxymodel_mimedata_callback(this, indexes);
+            const QModelIndexList& indexes_ret = indexes;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.length()));
+            for (size_t i = 0; i < indexes_ret.length(); ++i) {
+                indexes_arr[i] = new QModelIndex(indexes_ret[i]);
+            }
+            libqt_list indexes_out;
+            indexes_out.len = indexes_ret.length();
+            indexes_out.data = static_cast<void*>(indexes_arr);
+            libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
+
+            QMimeData* callback_ret = qconcatenatetablesproxymodel_mimedata_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::mimeData(indexes);
         }
@@ -608,7 +714,16 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_candropmimedata_isbase = false;
             return QConcatenateTablesProxyModel::canDropMimeData(data, action, row, column, parent);
         } else if (qconcatenatetablesproxymodel_candropmimedata_callback != nullptr) {
-            return qconcatenatetablesproxymodel_candropmimedata_callback(this, data, action, row, column, parent);
+            QMimeData* cbval1 = (QMimeData*)data;
+            int cbval2 = static_cast<int>(action);
+            int cbval3 = row;
+            int cbval4 = column;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qconcatenatetablesproxymodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::canDropMimeData(data, action, row, column, parent);
         }
@@ -620,7 +735,16 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_dropmimedata_isbase = false;
             return QConcatenateTablesProxyModel::dropMimeData(data, action, row, column, parent);
         } else if (qconcatenatetablesproxymodel_dropmimedata_callback != nullptr) {
-            return qconcatenatetablesproxymodel_dropmimedata_callback(this, data, action, row, column, parent);
+            QMimeData* cbval1 = (QMimeData*)data;
+            int cbval2 = static_cast<int>(action);
+            int cbval3 = row;
+            int cbval4 = column;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qconcatenatetablesproxymodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::dropMimeData(data, action, row, column, parent);
         }
@@ -632,7 +756,12 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_span_isbase = false;
             return QConcatenateTablesProxyModel::span(index);
         } else if (qconcatenatetablesproxymodel_span_callback != nullptr) {
-            return qconcatenatetablesproxymodel_span_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QSize* callback_ret = qconcatenatetablesproxymodel_span_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QConcatenateTablesProxyModel::span(index);
         }
@@ -644,7 +773,14 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_sibling_isbase = false;
             return QConcatenateTablesProxyModel::sibling(row, column, idx);
         } else if (qconcatenatetablesproxymodel_sibling_callback != nullptr) {
-            return qconcatenatetablesproxymodel_sibling_callback(this, row, column, idx);
+            int cbval1 = row;
+            int cbval2 = column;
+            const QModelIndex& idx_ret = idx;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
+
+            QModelIndex* callback_ret = qconcatenatetablesproxymodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QConcatenateTablesProxyModel::sibling(row, column, idx);
         }
@@ -656,7 +792,12 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_haschildren_isbase = false;
             return QConcatenateTablesProxyModel::hasChildren(parent);
         } else if (qconcatenatetablesproxymodel_haschildren_callback != nullptr) {
-            return qconcatenatetablesproxymodel_haschildren_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qconcatenatetablesproxymodel_haschildren_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::hasChildren(parent);
         }
@@ -668,7 +809,15 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_setheaderdata_isbase = false;
             return QConcatenateTablesProxyModel::setHeaderData(section, orientation, value, role);
         } else if (qconcatenatetablesproxymodel_setheaderdata_callback != nullptr) {
-            return qconcatenatetablesproxymodel_setheaderdata_callback(this, section, orientation, value, role);
+            int cbval1 = section;
+            int cbval2 = static_cast<int>(orientation);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
+            int cbval4 = role;
+
+            bool callback_ret = qconcatenatetablesproxymodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::setHeaderData(section, orientation, value, role);
         }
@@ -680,7 +829,12 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_clearitemdata_isbase = false;
             return QConcatenateTablesProxyModel::clearItemData(index);
         } else if (qconcatenatetablesproxymodel_clearitemdata_callback != nullptr) {
-            return qconcatenatetablesproxymodel_clearitemdata_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            bool callback_ret = qconcatenatetablesproxymodel_clearitemdata_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::clearItemData(index);
         }
@@ -692,7 +846,8 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_supporteddropactions_isbase = false;
             return QConcatenateTablesProxyModel::supportedDropActions();
         } else if (qconcatenatetablesproxymodel_supporteddropactions_callback != nullptr) {
-            return qconcatenatetablesproxymodel_supporteddropactions_callback();
+            int callback_ret = qconcatenatetablesproxymodel_supporteddropactions_callback();
+            return static_cast<Qt::DropActions>(callback_ret);
         } else {
             return QConcatenateTablesProxyModel::supportedDropActions();
         }
@@ -704,7 +859,8 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_supporteddragactions_isbase = false;
             return QConcatenateTablesProxyModel::supportedDragActions();
         } else if (qconcatenatetablesproxymodel_supporteddragactions_callback != nullptr) {
-            return qconcatenatetablesproxymodel_supporteddragactions_callback();
+            int callback_ret = qconcatenatetablesproxymodel_supporteddragactions_callback();
+            return static_cast<Qt::DropActions>(callback_ret);
         } else {
             return QConcatenateTablesProxyModel::supportedDragActions();
         }
@@ -716,7 +872,14 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_insertrows_isbase = false;
             return QConcatenateTablesProxyModel::insertRows(row, count, parent);
         } else if (qconcatenatetablesproxymodel_insertrows_callback != nullptr) {
-            return qconcatenatetablesproxymodel_insertrows_callback(this, row, count, parent);
+            int cbval1 = row;
+            int cbval2 = count;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qconcatenatetablesproxymodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::insertRows(row, count, parent);
         }
@@ -728,7 +891,14 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_insertcolumns_isbase = false;
             return QConcatenateTablesProxyModel::insertColumns(column, count, parent);
         } else if (qconcatenatetablesproxymodel_insertcolumns_callback != nullptr) {
-            return qconcatenatetablesproxymodel_insertcolumns_callback(this, column, count, parent);
+            int cbval1 = column;
+            int cbval2 = count;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qconcatenatetablesproxymodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::insertColumns(column, count, parent);
         }
@@ -740,7 +910,14 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_removerows_isbase = false;
             return QConcatenateTablesProxyModel::removeRows(row, count, parent);
         } else if (qconcatenatetablesproxymodel_removerows_callback != nullptr) {
-            return qconcatenatetablesproxymodel_removerows_callback(this, row, count, parent);
+            int cbval1 = row;
+            int cbval2 = count;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qconcatenatetablesproxymodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::removeRows(row, count, parent);
         }
@@ -752,7 +929,14 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_removecolumns_isbase = false;
             return QConcatenateTablesProxyModel::removeColumns(column, count, parent);
         } else if (qconcatenatetablesproxymodel_removecolumns_callback != nullptr) {
-            return qconcatenatetablesproxymodel_removecolumns_callback(this, column, count, parent);
+            int cbval1 = column;
+            int cbval2 = count;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qconcatenatetablesproxymodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::removeColumns(column, count, parent);
         }
@@ -764,7 +948,18 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_moverows_isbase = false;
             return QConcatenateTablesProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         } else if (qconcatenatetablesproxymodel_moverows_callback != nullptr) {
-            return qconcatenatetablesproxymodel_moverows_callback(this, sourceParent, sourceRow, count, destinationParent, destinationChild);
+            const QModelIndex& sourceParent_ret = sourceParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
+            int cbval2 = sourceRow;
+            int cbval3 = count;
+            const QModelIndex& destinationParent_ret = destinationParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
+            int cbval5 = destinationChild;
+
+            bool callback_ret = qconcatenatetablesproxymodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
@@ -776,7 +971,18 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_movecolumns_isbase = false;
             return QConcatenateTablesProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         } else if (qconcatenatetablesproxymodel_movecolumns_callback != nullptr) {
-            return qconcatenatetablesproxymodel_movecolumns_callback(this, sourceParent, sourceColumn, count, destinationParent, destinationChild);
+            const QModelIndex& sourceParent_ret = sourceParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
+            int cbval2 = sourceColumn;
+            int cbval3 = count;
+            const QModelIndex& destinationParent_ret = destinationParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
+            int cbval5 = destinationChild;
+
+            bool callback_ret = qconcatenatetablesproxymodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
@@ -788,7 +994,11 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_fetchmore_isbase = false;
             QConcatenateTablesProxyModel::fetchMore(parent);
         } else if (qconcatenatetablesproxymodel_fetchmore_callback != nullptr) {
-            qconcatenatetablesproxymodel_fetchmore_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            qconcatenatetablesproxymodel_fetchmore_callback(this, cbval1);
         } else {
             QConcatenateTablesProxyModel::fetchMore(parent);
         }
@@ -800,7 +1010,12 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_canfetchmore_isbase = false;
             return QConcatenateTablesProxyModel::canFetchMore(parent);
         } else if (qconcatenatetablesproxymodel_canfetchmore_callback != nullptr) {
-            return qconcatenatetablesproxymodel_canfetchmore_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qconcatenatetablesproxymodel_canfetchmore_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::canFetchMore(parent);
         }
@@ -812,7 +1027,10 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_sort_isbase = false;
             QConcatenateTablesProxyModel::sort(column, order);
         } else if (qconcatenatetablesproxymodel_sort_callback != nullptr) {
-            qconcatenatetablesproxymodel_sort_callback(this, column, order);
+            int cbval1 = column;
+            int cbval2 = static_cast<int>(order);
+
+            qconcatenatetablesproxymodel_sort_callback(this, cbval1, cbval2);
         } else {
             QConcatenateTablesProxyModel::sort(column, order);
         }
@@ -824,7 +1042,12 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_buddy_isbase = false;
             return QConcatenateTablesProxyModel::buddy(index);
         } else if (qconcatenatetablesproxymodel_buddy_callback != nullptr) {
-            return qconcatenatetablesproxymodel_buddy_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QModelIndex* callback_ret = qconcatenatetablesproxymodel_buddy_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QConcatenateTablesProxyModel::buddy(index);
         }
@@ -836,7 +1059,24 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_match_isbase = false;
             return QConcatenateTablesProxyModel::match(start, role, value, hits, flags);
         } else if (qconcatenatetablesproxymodel_match_callback != nullptr) {
-            return qconcatenatetablesproxymodel_match_callback(this, start, role, value, hits, flags);
+            const QModelIndex& start_ret = start;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
+            int cbval2 = role;
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
+            int cbval4 = hits;
+            int cbval5 = static_cast<int>(flags);
+
+            libqt_list /* of QModelIndex* */ callback_ret = qconcatenatetablesproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            QModelIndexList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            }
+            return callback_ret_QList;
         } else {
             return QConcatenateTablesProxyModel::match(start, role, value, hits, flags);
         }
@@ -848,7 +1088,16 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_rolenames_isbase = false;
             return QConcatenateTablesProxyModel::roleNames();
         } else if (qconcatenatetablesproxymodel_rolenames_callback != nullptr) {
-            return qconcatenatetablesproxymodel_rolenames_callback();
+            libqt_map /* of int to libqt_string */ callback_ret = qconcatenatetablesproxymodel_rolenames_callback();
+            QHash<int, QByteArray> callback_ret_QMap;
+            callback_ret_QMap.reserve(callback_ret.len);
+            int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
+            libqt_string* callback_ret_varr = static_cast<libqt_string*>(callback_ret.values);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                QByteArray callback_ret_varr_i_QByteArray(callback_ret_varr[i].data, callback_ret_varr[i].len);
+                callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
+            }
+            return callback_ret_QMap;
         } else {
             return QConcatenateTablesProxyModel::roleNames();
         }
@@ -860,7 +1109,12 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_multidata_isbase = false;
             QConcatenateTablesProxyModel::multiData(index, roleDataSpan);
         } else if (qconcatenatetablesproxymodel_multidata_callback != nullptr) {
-            qconcatenatetablesproxymodel_multidata_callback(this, index, roleDataSpan);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
+
+            qconcatenatetablesproxymodel_multidata_callback(this, cbval1, cbval2);
         } else {
             QConcatenateTablesProxyModel::multiData(index, roleDataSpan);
         }
@@ -872,7 +1126,8 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_submit_isbase = false;
             return QConcatenateTablesProxyModel::submit();
         } else if (qconcatenatetablesproxymodel_submit_callback != nullptr) {
-            return qconcatenatetablesproxymodel_submit_callback();
+            bool callback_ret = qconcatenatetablesproxymodel_submit_callback();
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::submit();
         }
@@ -908,7 +1163,10 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_event_isbase = false;
             return QConcatenateTablesProxyModel::event(event);
         } else if (qconcatenatetablesproxymodel_event_callback != nullptr) {
-            return qconcatenatetablesproxymodel_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qconcatenatetablesproxymodel_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::event(event);
         }
@@ -920,7 +1178,11 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_eventfilter_isbase = false;
             return QConcatenateTablesProxyModel::eventFilter(watched, event);
         } else if (qconcatenatetablesproxymodel_eventfilter_callback != nullptr) {
-            return qconcatenatetablesproxymodel_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qconcatenatetablesproxymodel_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::eventFilter(watched, event);
         }
@@ -932,7 +1194,9 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_timerevent_isbase = false;
             QConcatenateTablesProxyModel::timerEvent(event);
         } else if (qconcatenatetablesproxymodel_timerevent_callback != nullptr) {
-            qconcatenatetablesproxymodel_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qconcatenatetablesproxymodel_timerevent_callback(this, cbval1);
         } else {
             QConcatenateTablesProxyModel::timerEvent(event);
         }
@@ -944,7 +1208,9 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_childevent_isbase = false;
             QConcatenateTablesProxyModel::childEvent(event);
         } else if (qconcatenatetablesproxymodel_childevent_callback != nullptr) {
-            qconcatenatetablesproxymodel_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qconcatenatetablesproxymodel_childevent_callback(this, cbval1);
         } else {
             QConcatenateTablesProxyModel::childEvent(event);
         }
@@ -956,7 +1222,9 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_customevent_isbase = false;
             QConcatenateTablesProxyModel::customEvent(event);
         } else if (qconcatenatetablesproxymodel_customevent_callback != nullptr) {
-            qconcatenatetablesproxymodel_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qconcatenatetablesproxymodel_customevent_callback(this, cbval1);
         } else {
             QConcatenateTablesProxyModel::customEvent(event);
         }
@@ -968,7 +1236,11 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_connectnotify_isbase = false;
             QConcatenateTablesProxyModel::connectNotify(signal);
         } else if (qconcatenatetablesproxymodel_connectnotify_callback != nullptr) {
-            qconcatenatetablesproxymodel_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qconcatenatetablesproxymodel_connectnotify_callback(this, cbval1);
         } else {
             QConcatenateTablesProxyModel::connectNotify(signal);
         }
@@ -980,7 +1252,11 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_disconnectnotify_isbase = false;
             QConcatenateTablesProxyModel::disconnectNotify(signal);
         } else if (qconcatenatetablesproxymodel_disconnectnotify_callback != nullptr) {
-            qconcatenatetablesproxymodel_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qconcatenatetablesproxymodel_disconnectnotify_callback(this, cbval1);
         } else {
             QConcatenateTablesProxyModel::disconnectNotify(signal);
         }
@@ -992,7 +1268,11 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_createindex_isbase = false;
             return QConcatenateTablesProxyModel::createIndex(row, column);
         } else if (qconcatenatetablesproxymodel_createindex_callback != nullptr) {
-            return qconcatenatetablesproxymodel_createindex_callback(this, row, column);
+            int cbval1 = row;
+            int cbval2 = column;
+
+            QModelIndex* callback_ret = qconcatenatetablesproxymodel_createindex_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QConcatenateTablesProxyModel::createIndex(row, column);
         }
@@ -1004,7 +1284,21 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_encodedata_isbase = false;
             QConcatenateTablesProxyModel::encodeData(indexes, stream);
         } else if (qconcatenatetablesproxymodel_encodedata_callback != nullptr) {
-            qconcatenatetablesproxymodel_encodedata_callback(this, indexes, stream);
+            const QModelIndexList& indexes_ret = indexes;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.length()));
+            for (size_t i = 0; i < indexes_ret.length(); ++i) {
+                indexes_arr[i] = new QModelIndex(indexes_ret[i]);
+            }
+            libqt_list indexes_out;
+            indexes_out.len = indexes_ret.length();
+            indexes_out.data = static_cast<void*>(indexes_arr);
+            libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
+            QDataStream& stream_ret = stream;
+            // Cast returned reference into pointer
+            QDataStream* cbval2 = &stream_ret;
+
+            qconcatenatetablesproxymodel_encodedata_callback(this, cbval1, cbval2);
         } else {
             QConcatenateTablesProxyModel::encodeData(indexes, stream);
         }
@@ -1016,7 +1310,17 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_decodedata_isbase = false;
             return QConcatenateTablesProxyModel::decodeData(row, column, parent, stream);
         } else if (qconcatenatetablesproxymodel_decodedata_callback != nullptr) {
-            return qconcatenatetablesproxymodel_decodedata_callback(this, row, column, parent, stream);
+            int cbval1 = row;
+            int cbval2 = column;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+            QDataStream& stream_ret = stream;
+            // Cast returned reference into pointer
+            QDataStream* cbval4 = &stream_ret;
+
+            bool callback_ret = qconcatenatetablesproxymodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::decodeData(row, column, parent, stream);
         }
@@ -1028,7 +1332,13 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_begininsertrows_isbase = false;
             QConcatenateTablesProxyModel::beginInsertRows(parent, first, last);
         } else if (qconcatenatetablesproxymodel_begininsertrows_callback != nullptr) {
-            qconcatenatetablesproxymodel_begininsertrows_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qconcatenatetablesproxymodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
         } else {
             QConcatenateTablesProxyModel::beginInsertRows(parent, first, last);
         }
@@ -1052,7 +1362,13 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_beginremoverows_isbase = false;
             QConcatenateTablesProxyModel::beginRemoveRows(parent, first, last);
         } else if (qconcatenatetablesproxymodel_beginremoverows_callback != nullptr) {
-            qconcatenatetablesproxymodel_beginremoverows_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qconcatenatetablesproxymodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
         } else {
             QConcatenateTablesProxyModel::beginRemoveRows(parent, first, last);
         }
@@ -1076,7 +1392,18 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_beginmoverows_isbase = false;
             return QConcatenateTablesProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         } else if (qconcatenatetablesproxymodel_beginmoverows_callback != nullptr) {
-            return qconcatenatetablesproxymodel_beginmoverows_callback(this, sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
+            const QModelIndex& sourceParent_ret = sourceParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
+            int cbval2 = sourceFirst;
+            int cbval3 = sourceLast;
+            const QModelIndex& destinationParent_ret = destinationParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
+            int cbval5 = destinationRow;
+
+            bool callback_ret = qconcatenatetablesproxymodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
@@ -1100,7 +1427,13 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_begininsertcolumns_isbase = false;
             QConcatenateTablesProxyModel::beginInsertColumns(parent, first, last);
         } else if (qconcatenatetablesproxymodel_begininsertcolumns_callback != nullptr) {
-            qconcatenatetablesproxymodel_begininsertcolumns_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qconcatenatetablesproxymodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
         } else {
             QConcatenateTablesProxyModel::beginInsertColumns(parent, first, last);
         }
@@ -1124,7 +1457,13 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_beginremovecolumns_isbase = false;
             QConcatenateTablesProxyModel::beginRemoveColumns(parent, first, last);
         } else if (qconcatenatetablesproxymodel_beginremovecolumns_callback != nullptr) {
-            qconcatenatetablesproxymodel_beginremovecolumns_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qconcatenatetablesproxymodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
         } else {
             QConcatenateTablesProxyModel::beginRemoveColumns(parent, first, last);
         }
@@ -1148,7 +1487,18 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_beginmovecolumns_isbase = false;
             return QConcatenateTablesProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         } else if (qconcatenatetablesproxymodel_beginmovecolumns_callback != nullptr) {
-            return qconcatenatetablesproxymodel_beginmovecolumns_callback(this, sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
+            const QModelIndex& sourceParent_ret = sourceParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
+            int cbval2 = sourceFirst;
+            int cbval3 = sourceLast;
+            const QModelIndex& destinationParent_ret = destinationParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
+            int cbval5 = destinationColumn;
+
+            bool callback_ret = qconcatenatetablesproxymodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
@@ -1196,7 +1546,14 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_changepersistentindex_isbase = false;
             QConcatenateTablesProxyModel::changePersistentIndex(from, to);
         } else if (qconcatenatetablesproxymodel_changepersistentindex_callback != nullptr) {
-            qconcatenatetablesproxymodel_changepersistentindex_callback(this, from, to);
+            const QModelIndex& from_ret = from;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
+            const QModelIndex& to_ret = to;
+            // Cast returned reference into pointer
+            QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
+
+            qconcatenatetablesproxymodel_changepersistentindex_callback(this, cbval1, cbval2);
         } else {
             QConcatenateTablesProxyModel::changePersistentIndex(from, to);
         }
@@ -1208,7 +1565,28 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_changepersistentindexlist_isbase = false;
             QConcatenateTablesProxyModel::changePersistentIndexList(from, to);
         } else if (qconcatenatetablesproxymodel_changepersistentindexlist_callback != nullptr) {
-            qconcatenatetablesproxymodel_changepersistentindexlist_callback(this, from, to);
+            const QModelIndexList& from_ret = from;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * from_ret.length()));
+            for (size_t i = 0; i < from_ret.length(); ++i) {
+                from_arr[i] = new QModelIndex(from_ret[i]);
+            }
+            libqt_list from_out;
+            from_out.len = from_ret.length();
+            from_out.data = static_cast<void*>(from_arr);
+            libqt_list /* of QModelIndex* */ cbval1 = from_out;
+            const QModelIndexList& to_ret = to;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * to_ret.length()));
+            for (size_t i = 0; i < to_ret.length(); ++i) {
+                to_arr[i] = new QModelIndex(to_ret[i]);
+            }
+            libqt_list to_out;
+            to_out.len = to_ret.length();
+            to_out.data = static_cast<void*>(to_arr);
+            libqt_list /* of QModelIndex* */ cbval2 = to_out;
+
+            qconcatenatetablesproxymodel_changepersistentindexlist_callback(this, cbval1, cbval2);
         } else {
             QConcatenateTablesProxyModel::changePersistentIndexList(from, to);
         }
@@ -1220,7 +1598,14 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_persistentindexlist_isbase = false;
             return QConcatenateTablesProxyModel::persistentIndexList();
         } else if (qconcatenatetablesproxymodel_persistentindexlist_callback != nullptr) {
-            return qconcatenatetablesproxymodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qconcatenatetablesproxymodel_persistentindexlist_callback();
+            QModelIndexList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            }
+            return callback_ret_QList;
         } else {
             return QConcatenateTablesProxyModel::persistentIndexList();
         }
@@ -1232,7 +1617,8 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_sender_isbase = false;
             return QConcatenateTablesProxyModel::sender();
         } else if (qconcatenatetablesproxymodel_sender_callback != nullptr) {
-            return qconcatenatetablesproxymodel_sender_callback();
+            QObject* callback_ret = qconcatenatetablesproxymodel_sender_callback();
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::sender();
         }
@@ -1244,7 +1630,8 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_sendersignalindex_isbase = false;
             return QConcatenateTablesProxyModel::senderSignalIndex();
         } else if (qconcatenatetablesproxymodel_sendersignalindex_callback != nullptr) {
-            return qconcatenatetablesproxymodel_sendersignalindex_callback();
+            int callback_ret = qconcatenatetablesproxymodel_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QConcatenateTablesProxyModel::senderSignalIndex();
         }
@@ -1256,7 +1643,10 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_receivers_isbase = false;
             return QConcatenateTablesProxyModel::receivers(signal);
         } else if (qconcatenatetablesproxymodel_receivers_callback != nullptr) {
-            return qconcatenatetablesproxymodel_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qconcatenatetablesproxymodel_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QConcatenateTablesProxyModel::receivers(signal);
         }
@@ -1268,11 +1658,78 @@ class VirtualQConcatenateTablesProxyModel : public QConcatenateTablesProxyModel 
             qconcatenatetablesproxymodel_issignalconnected_isbase = false;
             return QConcatenateTablesProxyModel::isSignalConnected(signal);
         } else if (qconcatenatetablesproxymodel_issignalconnected_callback != nullptr) {
-            return qconcatenatetablesproxymodel_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qconcatenatetablesproxymodel_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QConcatenateTablesProxyModel_ResetInternalData(QConcatenateTablesProxyModel* self);
+    friend void QConcatenateTablesProxyModel_QBaseResetInternalData(QConcatenateTablesProxyModel* self);
+    friend void QConcatenateTablesProxyModel_TimerEvent(QConcatenateTablesProxyModel* self, QTimerEvent* event);
+    friend void QConcatenateTablesProxyModel_QBaseTimerEvent(QConcatenateTablesProxyModel* self, QTimerEvent* event);
+    friend void QConcatenateTablesProxyModel_ChildEvent(QConcatenateTablesProxyModel* self, QChildEvent* event);
+    friend void QConcatenateTablesProxyModel_QBaseChildEvent(QConcatenateTablesProxyModel* self, QChildEvent* event);
+    friend void QConcatenateTablesProxyModel_CustomEvent(QConcatenateTablesProxyModel* self, QEvent* event);
+    friend void QConcatenateTablesProxyModel_QBaseCustomEvent(QConcatenateTablesProxyModel* self, QEvent* event);
+    friend void QConcatenateTablesProxyModel_ConnectNotify(QConcatenateTablesProxyModel* self, const QMetaMethod* signal);
+    friend void QConcatenateTablesProxyModel_QBaseConnectNotify(QConcatenateTablesProxyModel* self, const QMetaMethod* signal);
+    friend void QConcatenateTablesProxyModel_DisconnectNotify(QConcatenateTablesProxyModel* self, const QMetaMethod* signal);
+    friend void QConcatenateTablesProxyModel_QBaseDisconnectNotify(QConcatenateTablesProxyModel* self, const QMetaMethod* signal);
+    friend QModelIndex* QConcatenateTablesProxyModel_CreateIndex(const QConcatenateTablesProxyModel* self, int row, int column);
+    friend QModelIndex* QConcatenateTablesProxyModel_QBaseCreateIndex(const QConcatenateTablesProxyModel* self, int row, int column);
+    friend void QConcatenateTablesProxyModel_EncodeData(const QConcatenateTablesProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
+    friend void QConcatenateTablesProxyModel_QBaseEncodeData(const QConcatenateTablesProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
+    friend bool QConcatenateTablesProxyModel_DecodeData(QConcatenateTablesProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
+    friend bool QConcatenateTablesProxyModel_QBaseDecodeData(QConcatenateTablesProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
+    friend void QConcatenateTablesProxyModel_BeginInsertRows(QConcatenateTablesProxyModel* self, const QModelIndex* parent, int first, int last);
+    friend void QConcatenateTablesProxyModel_QBaseBeginInsertRows(QConcatenateTablesProxyModel* self, const QModelIndex* parent, int first, int last);
+    friend void QConcatenateTablesProxyModel_EndInsertRows(QConcatenateTablesProxyModel* self);
+    friend void QConcatenateTablesProxyModel_QBaseEndInsertRows(QConcatenateTablesProxyModel* self);
+    friend void QConcatenateTablesProxyModel_BeginRemoveRows(QConcatenateTablesProxyModel* self, const QModelIndex* parent, int first, int last);
+    friend void QConcatenateTablesProxyModel_QBaseBeginRemoveRows(QConcatenateTablesProxyModel* self, const QModelIndex* parent, int first, int last);
+    friend void QConcatenateTablesProxyModel_EndRemoveRows(QConcatenateTablesProxyModel* self);
+    friend void QConcatenateTablesProxyModel_QBaseEndRemoveRows(QConcatenateTablesProxyModel* self);
+    friend bool QConcatenateTablesProxyModel_BeginMoveRows(QConcatenateTablesProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
+    friend bool QConcatenateTablesProxyModel_QBaseBeginMoveRows(QConcatenateTablesProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
+    friend void QConcatenateTablesProxyModel_EndMoveRows(QConcatenateTablesProxyModel* self);
+    friend void QConcatenateTablesProxyModel_QBaseEndMoveRows(QConcatenateTablesProxyModel* self);
+    friend void QConcatenateTablesProxyModel_BeginInsertColumns(QConcatenateTablesProxyModel* self, const QModelIndex* parent, int first, int last);
+    friend void QConcatenateTablesProxyModel_QBaseBeginInsertColumns(QConcatenateTablesProxyModel* self, const QModelIndex* parent, int first, int last);
+    friend void QConcatenateTablesProxyModel_EndInsertColumns(QConcatenateTablesProxyModel* self);
+    friend void QConcatenateTablesProxyModel_QBaseEndInsertColumns(QConcatenateTablesProxyModel* self);
+    friend void QConcatenateTablesProxyModel_BeginRemoveColumns(QConcatenateTablesProxyModel* self, const QModelIndex* parent, int first, int last);
+    friend void QConcatenateTablesProxyModel_QBaseBeginRemoveColumns(QConcatenateTablesProxyModel* self, const QModelIndex* parent, int first, int last);
+    friend void QConcatenateTablesProxyModel_EndRemoveColumns(QConcatenateTablesProxyModel* self);
+    friend void QConcatenateTablesProxyModel_QBaseEndRemoveColumns(QConcatenateTablesProxyModel* self);
+    friend bool QConcatenateTablesProxyModel_BeginMoveColumns(QConcatenateTablesProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
+    friend bool QConcatenateTablesProxyModel_QBaseBeginMoveColumns(QConcatenateTablesProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
+    friend void QConcatenateTablesProxyModel_EndMoveColumns(QConcatenateTablesProxyModel* self);
+    friend void QConcatenateTablesProxyModel_QBaseEndMoveColumns(QConcatenateTablesProxyModel* self);
+    friend void QConcatenateTablesProxyModel_BeginResetModel(QConcatenateTablesProxyModel* self);
+    friend void QConcatenateTablesProxyModel_QBaseBeginResetModel(QConcatenateTablesProxyModel* self);
+    friend void QConcatenateTablesProxyModel_EndResetModel(QConcatenateTablesProxyModel* self);
+    friend void QConcatenateTablesProxyModel_QBaseEndResetModel(QConcatenateTablesProxyModel* self);
+    friend void QConcatenateTablesProxyModel_ChangePersistentIndex(QConcatenateTablesProxyModel* self, const QModelIndex* from, const QModelIndex* to);
+    friend void QConcatenateTablesProxyModel_QBaseChangePersistentIndex(QConcatenateTablesProxyModel* self, const QModelIndex* from, const QModelIndex* to);
+    friend void QConcatenateTablesProxyModel_ChangePersistentIndexList(QConcatenateTablesProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
+    friend void QConcatenateTablesProxyModel_QBaseChangePersistentIndexList(QConcatenateTablesProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
+    friend libqt_list /* of QModelIndex* */ QConcatenateTablesProxyModel_PersistentIndexList(const QConcatenateTablesProxyModel* self);
+    friend libqt_list /* of QModelIndex* */ QConcatenateTablesProxyModel_QBasePersistentIndexList(const QConcatenateTablesProxyModel* self);
+    friend QObject* QConcatenateTablesProxyModel_Sender(const QConcatenateTablesProxyModel* self);
+    friend QObject* QConcatenateTablesProxyModel_QBaseSender(const QConcatenateTablesProxyModel* self);
+    friend int QConcatenateTablesProxyModel_SenderSignalIndex(const QConcatenateTablesProxyModel* self);
+    friend int QConcatenateTablesProxyModel_QBaseSenderSignalIndex(const QConcatenateTablesProxyModel* self);
+    friend int QConcatenateTablesProxyModel_Receivers(const QConcatenateTablesProxyModel* self, const char* signal);
+    friend int QConcatenateTablesProxyModel_QBaseReceivers(const QConcatenateTablesProxyModel* self, const char* signal);
+    friend bool QConcatenateTablesProxyModel_IsSignalConnected(const QConcatenateTablesProxyModel* self, const QMetaMethod* signal);
+    friend bool QConcatenateTablesProxyModel_QBaseIsSignalConnected(const QConcatenateTablesProxyModel* self, const QMetaMethod* signal);
 };
 
 #endif

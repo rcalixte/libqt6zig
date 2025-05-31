@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qlineedit_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
@@ -11,72 +12,72 @@ const std = @import("std");
 pub const qlineedit = struct {
     /// New constructs a new QLineEdit object.
     ///
-    /// ``` parent: ?*C.QWidget ```
-    pub fn New(parent: ?*anyopaque) ?*C.QLineEdit {
-        return C.QLineEdit_new(@ptrCast(parent));
+    /// ``` parent: QtC.QWidget ```
+    pub fn New(parent: ?*anyopaque) QtC.QLineEdit {
+        return qtc.QLineEdit_new(@ptrCast(parent));
     }
 
     /// New2 constructs a new QLineEdit object.
     ///
     ///
-    pub fn New2() ?*C.QLineEdit {
-        return C.QLineEdit_new2();
+    pub fn New2() QtC.QLineEdit {
+        return qtc.QLineEdit_new2();
     }
 
     /// New3 constructs a new QLineEdit object.
     ///
     /// ``` param1: []const u8 ```
-    pub fn New3(param1: []const u8) ?*C.QLineEdit {
-        const param1_str = C.struct_libqt_string{
+    pub fn New3(param1: []const u8) QtC.QLineEdit {
+        const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
             .data = @constCast(param1.ptr),
         };
 
-        return C.QLineEdit_new3(param1_str);
+        return qtc.QLineEdit_new3(param1_str);
     }
 
     /// New4 constructs a new QLineEdit object.
     ///
-    /// ``` param1: []const u8, parent: ?*C.QWidget ```
-    pub fn New4(param1: []const u8, parent: ?*anyopaque) ?*C.QLineEdit {
-        const param1_str = C.struct_libqt_string{
+    /// ``` param1: []const u8, parent: QtC.QWidget ```
+    pub fn New4(param1: []const u8, parent: ?*anyopaque) QtC.QLineEdit {
+        const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
             .data = @constCast(param1.ptr),
         };
 
-        return C.QLineEdit_new4(param1_str, @ptrCast(parent));
+        return qtc.QLineEdit_new4(param1_str, @ptrCast(parent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn MetaObject(self: ?*anyopaque) ?*C.QMetaObject {
-        return C.QLineEdit_MetaObject(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QLineEdit_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QLineEdit, param1: []const u8 ```
+    /// ``` self: QtC.QLineEdit, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = @constCast(param1.ptr);
-        return C.QLineEdit_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QLineEdit_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: ?*C.QLineEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QLineEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QLineEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QLineEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, qobjectdefs_enums.Call, i32, ?*anyopaque) callconv(.c) i32 ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
     pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
-        C.QLineEdit_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QLineEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QLineEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QLineEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -84,9 +85,9 @@ pub const qlineedit = struct {
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
-        const _str = C.QLineEdit_Tr(s_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QLineEdit_Tr(s_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.Tr: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -95,11 +96,11 @@ pub const qlineedit = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#text)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QLineEdit_Text(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QLineEdit_Text(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.Text: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -108,11 +109,11 @@ pub const qlineedit = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#displayText)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn DisplayText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QLineEdit_DisplayText(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QLineEdit_DisplayText(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.DisplayText: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -121,11 +122,11 @@ pub const qlineedit = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#placeholderText)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn PlaceholderText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QLineEdit_PlaceholderText(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QLineEdit_PlaceholderText(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.PlaceholderText: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -134,281 +135,289 @@ pub const qlineedit = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setPlaceholderText)
     ///
-    /// ``` self: ?*C.QLineEdit, placeholderText: []const u8 ```
+    /// ``` self: QtC.QLineEdit, placeholderText: []const u8 ```
     pub fn SetPlaceholderText(self: ?*anyopaque, placeholderText: []const u8) void {
-        const placeholderText_str = C.struct_libqt_string{
+        const placeholderText_str = qtc.struct_libqt_string{
             .len = placeholderText.len,
             .data = @constCast(placeholderText.ptr),
         };
-        C.QLineEdit_SetPlaceholderText(@ptrCast(self), placeholderText_str);
+        qtc.QLineEdit_SetPlaceholderText(@ptrCast(self), placeholderText_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#maxLength)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn MaxLength(self: ?*anyopaque) i32 {
-        return C.QLineEdit_MaxLength(@ptrCast(self));
+        return qtc.QLineEdit_MaxLength(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setMaxLength)
     ///
-    /// ``` self: ?*C.QLineEdit, maxLength: i32 ```
+    /// ``` self: QtC.QLineEdit, maxLength: i32 ```
     pub fn SetMaxLength(self: ?*anyopaque, maxLength: i32) void {
-        C.QLineEdit_SetMaxLength(@ptrCast(self), @intCast(maxLength));
+        qtc.QLineEdit_SetMaxLength(@ptrCast(self), @intCast(maxLength));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setFrame)
     ///
-    /// ``` self: ?*C.QLineEdit, frame: bool ```
+    /// ``` self: QtC.QLineEdit, frame: bool ```
     pub fn SetFrame(self: ?*anyopaque, frame: bool) void {
-        C.QLineEdit_SetFrame(@ptrCast(self), frame);
+        qtc.QLineEdit_SetFrame(@ptrCast(self), frame);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#hasFrame)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn HasFrame(self: ?*anyopaque) bool {
-        return C.QLineEdit_HasFrame(@ptrCast(self));
+        return qtc.QLineEdit_HasFrame(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setClearButtonEnabled)
     ///
-    /// ``` self: ?*C.QLineEdit, enable: bool ```
+    /// ``` self: QtC.QLineEdit, enable: bool ```
     pub fn SetClearButtonEnabled(self: ?*anyopaque, enable: bool) void {
-        C.QLineEdit_SetClearButtonEnabled(@ptrCast(self), enable);
+        qtc.QLineEdit_SetClearButtonEnabled(@ptrCast(self), enable);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#isClearButtonEnabled)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsClearButtonEnabled(self: ?*anyopaque) bool {
-        return C.QLineEdit_IsClearButtonEnabled(@ptrCast(self));
+        return qtc.QLineEdit_IsClearButtonEnabled(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#echoMode)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn EchoMode(self: ?*anyopaque) i64 {
-        return C.QLineEdit_EchoMode(@ptrCast(self));
+        return qtc.QLineEdit_EchoMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setEchoMode)
     ///
-    /// ``` self: ?*C.QLineEdit, echoMode: qlineedit_enums.EchoMode ```
+    /// ``` self: QtC.QLineEdit, echoMode: qlineedit_enums.EchoMode ```
     pub fn SetEchoMode(self: ?*anyopaque, echoMode: i64) void {
-        C.QLineEdit_SetEchoMode(@ptrCast(self), @intCast(echoMode));
+        qtc.QLineEdit_SetEchoMode(@ptrCast(self), @intCast(echoMode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#isReadOnly)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsReadOnly(self: ?*anyopaque) bool {
-        return C.QLineEdit_IsReadOnly(@ptrCast(self));
+        return qtc.QLineEdit_IsReadOnly(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setReadOnly)
     ///
-    /// ``` self: ?*C.QLineEdit, readOnly: bool ```
+    /// ``` self: QtC.QLineEdit, readOnly: bool ```
     pub fn SetReadOnly(self: ?*anyopaque, readOnly: bool) void {
-        C.QLineEdit_SetReadOnly(@ptrCast(self), readOnly);
+        qtc.QLineEdit_SetReadOnly(@ptrCast(self), readOnly);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setValidator)
     ///
-    /// ``` self: ?*C.QLineEdit, validator: ?*C.QValidator ```
+    /// ``` self: QtC.QLineEdit, validator: QtC.QValidator ```
     pub fn SetValidator(self: ?*anyopaque, validator: ?*anyopaque) void {
-        C.QLineEdit_SetValidator(@ptrCast(self), @ptrCast(validator));
+        qtc.QLineEdit_SetValidator(@ptrCast(self), @ptrCast(validator));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#validator)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Validator(self: ?*anyopaque) ?*C.QValidator {
-        return C.QLineEdit_Validator(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Validator(self: ?*anyopaque) QtC.QValidator {
+        return qtc.QLineEdit_Validator(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setCompleter)
     ///
-    /// ``` self: ?*C.QLineEdit, completer: ?*C.QCompleter ```
+    /// ``` self: QtC.QLineEdit, completer: QtC.QCompleter ```
     pub fn SetCompleter(self: ?*anyopaque, completer: ?*anyopaque) void {
-        C.QLineEdit_SetCompleter(@ptrCast(self), @ptrCast(completer));
+        qtc.QLineEdit_SetCompleter(@ptrCast(self), @ptrCast(completer));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#completer)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Completer(self: ?*anyopaque) ?*C.QCompleter {
-        return C.QLineEdit_Completer(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Completer(self: ?*anyopaque) QtC.QCompleter {
+        return qtc.QLineEdit_Completer(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#sizeHint)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn SizeHint(self: ?*anyopaque) ?*C.QSize {
-        return C.QLineEdit_SizeHint(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QLineEdit_SizeHint(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#sizeHint)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn () callconv(.c) ?*C.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QSize) void {
-        C.QLineEdit_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLineEdit, slot: fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
+        qtc.QLineEdit_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#sizeHint)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn QBaseSizeHint(self: ?*anyopaque) ?*C.QSize {
-        return C.QLineEdit_QBaseSizeHint(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QLineEdit_QBaseSizeHint(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#minimumSizeHint)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn MinimumSizeHint(self: ?*anyopaque) ?*C.QSize {
-        return C.QLineEdit_MinimumSizeHint(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QLineEdit_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#minimumSizeHint)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn () callconv(.c) ?*C.QSize ```
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QSize) void {
-        C.QLineEdit_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLineEdit, slot: fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
+        qtc.QLineEdit_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#minimumSizeHint)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) ?*C.QSize {
-        return C.QLineEdit_QBaseMinimumSizeHint(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QLineEdit_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#cursorPosition)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn CursorPosition(self: ?*anyopaque) i32 {
-        return C.QLineEdit_CursorPosition(@ptrCast(self));
+        return qtc.QLineEdit_CursorPosition(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setCursorPosition)
     ///
-    /// ``` self: ?*C.QLineEdit, cursorPosition: i32 ```
+    /// ``` self: QtC.QLineEdit, cursorPosition: i32 ```
     pub fn SetCursorPosition(self: ?*anyopaque, cursorPosition: i32) void {
-        C.QLineEdit_SetCursorPosition(@ptrCast(self), @intCast(cursorPosition));
+        qtc.QLineEdit_SetCursorPosition(@ptrCast(self), @intCast(cursorPosition));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#cursorPositionAt)
     ///
-    /// ``` self: ?*C.QLineEdit, pos: ?*C.QPoint ```
+    /// ``` self: QtC.QLineEdit, pos: QtC.QPoint ```
     pub fn CursorPositionAt(self: ?*anyopaque, pos: ?*anyopaque) i32 {
-        return C.QLineEdit_CursorPositionAt(@ptrCast(self), @ptrCast(pos));
+        return qtc.QLineEdit_CursorPositionAt(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setAlignment)
     ///
-    /// ``` self: ?*C.QLineEdit, flag: i32 ```
+    /// ``` self: QtC.QLineEdit, flag: i32 ```
     pub fn SetAlignment(self: ?*anyopaque, flag: i64) void {
-        C.QLineEdit_SetAlignment(@ptrCast(self), @intCast(flag));
+        qtc.QLineEdit_SetAlignment(@ptrCast(self), @intCast(flag));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#alignment)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Alignment(self: ?*anyopaque) i64 {
-        return C.QLineEdit_Alignment(@ptrCast(self));
+        return qtc.QLineEdit_Alignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#cursorForward)
     ///
-    /// ``` self: ?*C.QLineEdit, mark: bool ```
+    /// ``` self: QtC.QLineEdit, mark: bool ```
     pub fn CursorForward(self: ?*anyopaque, mark: bool) void {
-        C.QLineEdit_CursorForward(@ptrCast(self), mark);
+        qtc.QLineEdit_CursorForward(@ptrCast(self), mark);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#cursorBackward)
     ///
-    /// ``` self: ?*C.QLineEdit, mark: bool ```
+    /// ``` self: QtC.QLineEdit, mark: bool ```
     pub fn CursorBackward(self: ?*anyopaque, mark: bool) void {
-        C.QLineEdit_CursorBackward(@ptrCast(self), mark);
+        qtc.QLineEdit_CursorBackward(@ptrCast(self), mark);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#cursorWordForward)
     ///
-    /// ``` self: ?*C.QLineEdit, mark: bool ```
+    /// ``` self: QtC.QLineEdit, mark: bool ```
     pub fn CursorWordForward(self: ?*anyopaque, mark: bool) void {
-        C.QLineEdit_CursorWordForward(@ptrCast(self), mark);
+        qtc.QLineEdit_CursorWordForward(@ptrCast(self), mark);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#cursorWordBackward)
     ///
-    /// ``` self: ?*C.QLineEdit, mark: bool ```
+    /// ``` self: QtC.QLineEdit, mark: bool ```
     pub fn CursorWordBackward(self: ?*anyopaque, mark: bool) void {
-        C.QLineEdit_CursorWordBackward(@ptrCast(self), mark);
+        qtc.QLineEdit_CursorWordBackward(@ptrCast(self), mark);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#backspace)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Backspace(self: ?*anyopaque) void {
-        C.QLineEdit_Backspace(@ptrCast(self));
+        qtc.QLineEdit_Backspace(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#del)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Del(self: ?*anyopaque) void {
-        C.QLineEdit_Del(@ptrCast(self));
+        qtc.QLineEdit_Del(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#home)
     ///
-    /// ``` self: ?*C.QLineEdit, mark: bool ```
+    /// ``` self: QtC.QLineEdit, mark: bool ```
     pub fn Home(self: ?*anyopaque, mark: bool) void {
-        C.QLineEdit_Home(@ptrCast(self), mark);
+        qtc.QLineEdit_Home(@ptrCast(self), mark);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#end)
     ///
-    /// ``` self: ?*C.QLineEdit, mark: bool ```
+    /// ``` self: QtC.QLineEdit, mark: bool ```
     pub fn End(self: ?*anyopaque, mark: bool) void {
-        C.QLineEdit_End(@ptrCast(self), mark);
+        qtc.QLineEdit_End(@ptrCast(self), mark);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#isModified)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsModified(self: ?*anyopaque) bool {
-        return C.QLineEdit_IsModified(@ptrCast(self));
+        return qtc.QLineEdit_IsModified(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setModified)
     ///
-    /// ``` self: ?*C.QLineEdit, modified: bool ```
+    /// ``` self: QtC.QLineEdit, modified: bool ```
     pub fn SetModified(self: ?*anyopaque, modified: bool) void {
-        C.QLineEdit_SetModified(@ptrCast(self), modified);
+        qtc.QLineEdit_SetModified(@ptrCast(self), modified);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setSelection)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: i32, param2: i32 ```
+    /// ``` self: QtC.QLineEdit, param1: i32, param2: i32 ```
     pub fn SetSelection(self: ?*anyopaque, param1: i32, param2: i32) void {
-        C.QLineEdit_SetSelection(@ptrCast(self), @intCast(param1), @intCast(param2));
+        qtc.QLineEdit_SetSelection(@ptrCast(self), @intCast(param1), @intCast(param2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#hasSelectedText)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn HasSelectedText(self: ?*anyopaque) bool {
-        return C.QLineEdit_HasSelectedText(@ptrCast(self));
+        return qtc.QLineEdit_HasSelectedText(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#selectedText)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn SelectedText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QLineEdit_SelectedText(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QLineEdit_SelectedText(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.SelectedText: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -417,74 +426,74 @@ pub const qlineedit = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#selectionStart)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn SelectionStart(self: ?*anyopaque) i32 {
-        return C.QLineEdit_SelectionStart(@ptrCast(self));
+        return qtc.QLineEdit_SelectionStart(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#selectionEnd)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn SelectionEnd(self: ?*anyopaque) i32 {
-        return C.QLineEdit_SelectionEnd(@ptrCast(self));
+        return qtc.QLineEdit_SelectionEnd(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#selectionLength)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn SelectionLength(self: ?*anyopaque) i32 {
-        return C.QLineEdit_SelectionLength(@ptrCast(self));
+        return qtc.QLineEdit_SelectionLength(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#isUndoAvailable)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsUndoAvailable(self: ?*anyopaque) bool {
-        return C.QLineEdit_IsUndoAvailable(@ptrCast(self));
+        return qtc.QLineEdit_IsUndoAvailable(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#isRedoAvailable)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsRedoAvailable(self: ?*anyopaque) bool {
-        return C.QLineEdit_IsRedoAvailable(@ptrCast(self));
+        return qtc.QLineEdit_IsRedoAvailable(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setDragEnabled)
     ///
-    /// ``` self: ?*C.QLineEdit, b: bool ```
+    /// ``` self: QtC.QLineEdit, b: bool ```
     pub fn SetDragEnabled(self: ?*anyopaque, b: bool) void {
-        C.QLineEdit_SetDragEnabled(@ptrCast(self), b);
+        qtc.QLineEdit_SetDragEnabled(@ptrCast(self), b);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#dragEnabled)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn DragEnabled(self: ?*anyopaque) bool {
-        return C.QLineEdit_DragEnabled(@ptrCast(self));
+        return qtc.QLineEdit_DragEnabled(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setCursorMoveStyle)
     ///
-    /// ``` self: ?*C.QLineEdit, style: qnamespace_enums.CursorMoveStyle ```
+    /// ``` self: QtC.QLineEdit, style: qnamespace_enums.CursorMoveStyle ```
     pub fn SetCursorMoveStyle(self: ?*anyopaque, style: i64) void {
-        C.QLineEdit_SetCursorMoveStyle(@ptrCast(self), @intCast(style));
+        qtc.QLineEdit_SetCursorMoveStyle(@ptrCast(self), @intCast(style));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#cursorMoveStyle)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn CursorMoveStyle(self: ?*anyopaque) i64 {
-        return C.QLineEdit_CursorMoveStyle(@ptrCast(self));
+        return qtc.QLineEdit_CursorMoveStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#inputMask)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn InputMask(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QLineEdit_InputMask(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QLineEdit_InputMask(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.InputMask: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -493,680 +502,778 @@ pub const qlineedit = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setInputMask)
     ///
-    /// ``` self: ?*C.QLineEdit, inputMask: []const u8 ```
+    /// ``` self: QtC.QLineEdit, inputMask: []const u8 ```
     pub fn SetInputMask(self: ?*anyopaque, inputMask: []const u8) void {
-        const inputMask_str = C.struct_libqt_string{
+        const inputMask_str = qtc.struct_libqt_string{
             .len = inputMask.len,
             .data = @constCast(inputMask.ptr),
         };
-        C.QLineEdit_SetInputMask(@ptrCast(self), inputMask_str);
+        qtc.QLineEdit_SetInputMask(@ptrCast(self), inputMask_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#hasAcceptableInput)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn HasAcceptableInput(self: ?*anyopaque) bool {
-        return C.QLineEdit_HasAcceptableInput(@ptrCast(self));
+        return qtc.QLineEdit_HasAcceptableInput(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setTextMargins)
     ///
-    /// ``` self: ?*C.QLineEdit, left: i32, top: i32, right: i32, bottom: i32 ```
+    /// ``` self: QtC.QLineEdit, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetTextMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        C.QLineEdit_SetTextMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QLineEdit_SetTextMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setTextMargins)
     ///
-    /// ``` self: ?*C.QLineEdit, margins: ?*C.QMargins ```
+    /// ``` self: QtC.QLineEdit, margins: QtC.QMargins ```
     pub fn SetTextMarginsWithMargins(self: ?*anyopaque, margins: ?*anyopaque) void {
-        C.QLineEdit_SetTextMarginsWithMargins(@ptrCast(self), @ptrCast(margins));
+        qtc.QLineEdit_SetTextMarginsWithMargins(@ptrCast(self), @ptrCast(margins));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#textMargins)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn TextMargins(self: ?*anyopaque) ?*C.QMargins {
-        return C.QLineEdit_TextMargins(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn TextMargins(self: ?*anyopaque) QtC.QMargins {
+        return qtc.QLineEdit_TextMargins(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#addAction)
     ///
-    /// ``` self: ?*C.QLineEdit, action: ?*C.QAction, position: qlineedit_enums.ActionPosition ```
+    /// ``` self: QtC.QLineEdit, action: QtC.QAction, position: qlineedit_enums.ActionPosition ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque, position: i64) void {
-        C.QLineEdit_AddAction(@ptrCast(self), @ptrCast(action), @intCast(position));
+        qtc.QLineEdit_AddAction(@ptrCast(self), @ptrCast(action), @intCast(position));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#addAction)
     ///
-    /// ``` self: ?*C.QLineEdit, icon: ?*C.QIcon, position: qlineedit_enums.ActionPosition ```
-    pub fn AddAction2(self: ?*anyopaque, icon: ?*anyopaque, position: i64) ?*C.QAction {
-        return C.QLineEdit_AddAction2(@ptrCast(self), @ptrCast(icon), @intCast(position));
+    /// ``` self: QtC.QLineEdit, icon: QtC.QIcon, position: qlineedit_enums.ActionPosition ```
+    pub fn AddAction2(self: ?*anyopaque, icon: ?*anyopaque, position: i64) QtC.QAction {
+        return qtc.QLineEdit_AddAction2(@ptrCast(self), @ptrCast(icon), @intCast(position));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#setText)
     ///
-    /// ``` self: ?*C.QLineEdit, text: []const u8 ```
+    /// ``` self: QtC.QLineEdit, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
-        const text_str = C.struct_libqt_string{
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        C.QLineEdit_SetText(@ptrCast(self), text_str);
+        qtc.QLineEdit_SetText(@ptrCast(self), text_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#clear)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Clear(self: ?*anyopaque) void {
-        C.QLineEdit_Clear(@ptrCast(self));
+        qtc.QLineEdit_Clear(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#selectAll)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn SelectAll(self: ?*anyopaque) void {
-        C.QLineEdit_SelectAll(@ptrCast(self));
+        qtc.QLineEdit_SelectAll(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#undo)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Undo(self: ?*anyopaque) void {
-        C.QLineEdit_Undo(@ptrCast(self));
+        qtc.QLineEdit_Undo(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#redo)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Redo(self: ?*anyopaque) void {
-        C.QLineEdit_Redo(@ptrCast(self));
+        qtc.QLineEdit_Redo(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#cut)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Cut(self: ?*anyopaque) void {
-        C.QLineEdit_Cut(@ptrCast(self));
+        qtc.QLineEdit_Cut(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#copy)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Copy(self: ?*anyopaque) void {
-        C.QLineEdit_Copy(@ptrCast(self));
+        qtc.QLineEdit_Copy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#paste)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Paste(self: ?*anyopaque) void {
-        C.QLineEdit_Paste(@ptrCast(self));
+        qtc.QLineEdit_Paste(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#deselect)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Deselect(self: ?*anyopaque) void {
-        C.QLineEdit_Deselect(@ptrCast(self));
+        qtc.QLineEdit_Deselect(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#insert)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: []const u8 ```
+    /// ``` self: QtC.QLineEdit, param1: []const u8 ```
     pub fn Insert(self: ?*anyopaque, param1: []const u8) void {
-        const param1_str = C.struct_libqt_string{
+        const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
             .data = @constCast(param1.ptr),
         };
-        C.QLineEdit_Insert(@ptrCast(self), param1_str);
+        qtc.QLineEdit_Insert(@ptrCast(self), param1_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#createStandardContextMenu)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn CreateStandardContextMenu(self: ?*anyopaque) ?*C.QMenu {
-        return C.QLineEdit_CreateStandardContextMenu(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn CreateStandardContextMenu(self: ?*anyopaque) QtC.QMenu {
+        return qtc.QLineEdit_CreateStandardContextMenu(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#textChanged)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: []const u8 ```
+    /// ``` self: QtC.QLineEdit, param1: []const u8 ```
     pub fn TextChanged(self: ?*anyopaque, param1: []const u8) void {
-        const param1_str = C.struct_libqt_string{
+        const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
             .data = @constCast(param1.ptr),
         };
-        C.QLineEdit_TextChanged(@ptrCast(self), param1_str);
+        qtc.QLineEdit_TextChanged(@ptrCast(self), param1_str);
     }
 
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, []const u8) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#textChanged)
+    ///
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: []const u8) callconv(.c) void ```
     pub fn OnTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
-        C.QLineEdit_Connect_TextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_Connect_TextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#textEdited)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: []const u8 ```
+    /// ``` self: QtC.QLineEdit, param1: []const u8 ```
     pub fn TextEdited(self: ?*anyopaque, param1: []const u8) void {
-        const param1_str = C.struct_libqt_string{
+        const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
             .data = @constCast(param1.ptr),
         };
-        C.QLineEdit_TextEdited(@ptrCast(self), param1_str);
+        qtc.QLineEdit_TextEdited(@ptrCast(self), param1_str);
     }
 
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, []const u8) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#textEdited)
+    ///
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: []const u8) callconv(.c) void ```
     pub fn OnTextEdited(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
-        C.QLineEdit_Connect_TextEdited(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_Connect_TextEdited(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#cursorPositionChanged)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: i32, param2: i32 ```
+    /// ``` self: QtC.QLineEdit, param1: i32, param2: i32 ```
     pub fn CursorPositionChanged(self: ?*anyopaque, param1: i32, param2: i32) void {
-        C.QLineEdit_CursorPositionChanged(@ptrCast(self), @intCast(param1), @intCast(param2));
+        qtc.QLineEdit_CursorPositionChanged(@ptrCast(self), @intCast(param1), @intCast(param2));
     }
 
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, i32, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#cursorPositionChanged)
+    ///
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: i32, param2: i32) callconv(.c) void ```
     pub fn OnCursorPositionChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        C.QLineEdit_Connect_CursorPositionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_Connect_CursorPositionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#returnPressed)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn ReturnPressed(self: ?*anyopaque) void {
-        C.QLineEdit_ReturnPressed(@ptrCast(self));
+        qtc.QLineEdit_ReturnPressed(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#returnPressed)
+    ///
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit) callconv(.c) void ```
     pub fn OnReturnPressed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_Connect_ReturnPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_Connect_ReturnPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#editingFinished)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn EditingFinished(self: ?*anyopaque) void {
-        C.QLineEdit_EditingFinished(@ptrCast(self));
+        qtc.QLineEdit_EditingFinished(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#editingFinished)
+    ///
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit) callconv(.c) void ```
     pub fn OnEditingFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_Connect_EditingFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_Connect_EditingFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#selectionChanged)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn SelectionChanged(self: ?*anyopaque) void {
-        C.QLineEdit_SelectionChanged(@ptrCast(self));
+        qtc.QLineEdit_SelectionChanged(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#selectionChanged)
+    ///
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit) callconv(.c) void ```
     pub fn OnSelectionChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_Connect_SelectionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_Connect_SelectionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#inputRejected)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn InputRejected(self: ?*anyopaque) void {
-        C.QLineEdit_InputRejected(@ptrCast(self));
+        qtc.QLineEdit_InputRejected(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#inputRejected)
+    ///
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit) callconv(.c) void ```
     pub fn OnInputRejected(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_Connect_InputRejected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_Connect_InputRejected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#mousePressEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_MousePressEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_MousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#mousePressEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QMouseEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: QtC.QMouseEvent) callconv(.c) void ```
     pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#mousePressEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QMouseEvent ```
     pub fn QBaseMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_QBaseMousePressEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_QBaseMousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#mouseMoveEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_MouseMoveEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_MouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#mouseMoveEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QMouseEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: QtC.QMouseEvent) callconv(.c) void ```
     pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#mouseMoveEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QMouseEvent ```
     pub fn QBaseMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#mouseReleaseEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#mouseReleaseEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QMouseEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: QtC.QMouseEvent) callconv(.c) void ```
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#mouseReleaseEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QMouseEvent ```
     pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#mouseDoubleClickEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QMouseEvent ```
     pub fn MouseDoubleClickEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#mouseDoubleClickEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QMouseEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: QtC.QMouseEvent) callconv(.c) void ```
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#mouseDoubleClickEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QMouseEvent ```
     pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#keyPressEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QKeyEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#keyPressEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QKeyEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: QtC.QKeyEvent) callconv(.c) void ```
     pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#keyPressEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QKeyEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QKeyEvent ```
     pub fn QBaseKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#keyReleaseEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QKeyEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QKeyEvent ```
     pub fn KeyReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_KeyReleaseEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_KeyReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#keyReleaseEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QKeyEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: QtC.QKeyEvent) callconv(.c) void ```
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#keyReleaseEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QKeyEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QKeyEvent ```
     pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#focusInEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QFocusEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QFocusEvent ```
     pub fn FocusInEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_FocusInEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_FocusInEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#focusInEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QFocusEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: QtC.QFocusEvent) callconv(.c) void ```
     pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#focusInEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QFocusEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QFocusEvent ```
     pub fn QBaseFocusInEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_QBaseFocusInEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_QBaseFocusInEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#focusOutEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QFocusEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QFocusEvent ```
     pub fn FocusOutEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_FocusOutEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_FocusOutEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#focusOutEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QFocusEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: QtC.QFocusEvent) callconv(.c) void ```
     pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#focusOutEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QFocusEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QFocusEvent ```
     pub fn QBaseFocusOutEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#paintEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QPaintEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_PaintEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#paintEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QPaintEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: QtC.QPaintEvent) callconv(.c) void ```
     pub fn OnPaintEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#paintEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QPaintEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QPaintEvent ```
     pub fn QBasePaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#dragEnterEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QDragEnterEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QDragEnterEvent ```
     pub fn DragEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_DragEnterEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_DragEnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#dragEnterEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QDragEnterEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: QtC.QDragEnterEvent) callconv(.c) void ```
     pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#dragEnterEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QDragEnterEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QDragEnterEvent ```
     pub fn QBaseDragEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#dragMoveEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, e: ?*C.QDragMoveEvent ```
+    /// ``` self: QtC.QLineEdit, e: QtC.QDragMoveEvent ```
     pub fn DragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        C.QLineEdit_DragMoveEvent(@ptrCast(self), @ptrCast(e));
+        qtc.QLineEdit_DragMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#dragMoveEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QDragMoveEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, e: QtC.QDragMoveEvent) callconv(.c) void ```
     pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#dragMoveEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, e: ?*C.QDragMoveEvent ```
+    /// ``` self: QtC.QLineEdit, e: QtC.QDragMoveEvent ```
     pub fn QBaseDragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        C.QLineEdit_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(e));
+        qtc.QLineEdit_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#dragLeaveEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, e: ?*C.QDragLeaveEvent ```
+    /// ``` self: QtC.QLineEdit, e: QtC.QDragLeaveEvent ```
     pub fn DragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        C.QLineEdit_DragLeaveEvent(@ptrCast(self), @ptrCast(e));
+        qtc.QLineEdit_DragLeaveEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#dragLeaveEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QDragLeaveEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, e: QtC.QDragLeaveEvent) callconv(.c) void ```
     pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#dragLeaveEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, e: ?*C.QDragLeaveEvent ```
+    /// ``` self: QtC.QLineEdit, e: QtC.QDragLeaveEvent ```
     pub fn QBaseDragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        C.QLineEdit_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(e));
+        qtc.QLineEdit_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#dropEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QDropEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QDropEvent ```
     pub fn DropEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_DropEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_DropEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#dropEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QDropEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: QtC.QDropEvent) callconv(.c) void ```
     pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#dropEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QDropEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QDropEvent ```
     pub fn QBaseDropEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_QBaseDropEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_QBaseDropEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#changeEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QEvent ```
     pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#changeEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: QtC.QEvent) callconv(.c) void ```
     pub fn OnChangeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#changeEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QEvent ```
     pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#contextMenuEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QContextMenuEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QContextMenuEvent ```
     pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#contextMenuEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QContextMenuEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: QtC.QContextMenuEvent) callconv(.c) void ```
     pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#contextMenuEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QContextMenuEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QContextMenuEvent ```
     pub fn QBaseContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#inputMethodEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QInputMethodEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QInputMethodEvent ```
     pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#inputMethodEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QInputMethodEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: QtC.QInputMethodEvent) callconv(.c) void ```
     pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#inputMethodEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QInputMethodEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QInputMethodEvent ```
     pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#initStyleOption)
     ///
-    /// ``` self: ?*C.QLineEdit, option: ?*C.QStyleOptionFrame ```
+    /// ``` self: QtC.QLineEdit, option: QtC.QStyleOptionFrame ```
     pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        C.QLineEdit_InitStyleOption(@ptrCast(self), @ptrCast(option));
+        qtc.QLineEdit_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#initStyleOption)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QStyleOptionFrame) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, option: QtC.QStyleOptionFrame) callconv(.c) void ```
     pub fn OnInitStyleOption(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnInitStyleOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnInitStyleOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#initStyleOption)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, option: ?*C.QStyleOptionFrame ```
+    /// ``` self: QtC.QLineEdit, option: QtC.QStyleOptionFrame ```
     pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        C.QLineEdit_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
+        qtc.QLineEdit_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#inputMethodQuery)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: qnamespace_enums.InputMethodQuery ```
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i64) ?*C.QVariant {
-        return C.QLineEdit_InputMethodQuery(@ptrCast(self), @intCast(param1));
+    /// ``` self: QtC.QLineEdit, param1: qnamespace_enums.InputMethodQuery ```
+    pub fn InputMethodQuery(self: ?*anyopaque, param1: i64) QtC.QVariant {
+        return qtc.QLineEdit_InputMethodQuery(@ptrCast(self), @intCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#inputMethodQuery)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, qnamespace_enums.InputMethodQuery) callconv(.c) ?*C.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) ?*C.QVariant) void {
-        C.QLineEdit_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// Base class method implementation
-    ///
-    /// ``` self: ?*C.QLineEdit, param1: qnamespace_enums.InputMethodQuery ```
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i64) ?*C.QVariant {
-        return C.QLineEdit_QBaseInputMethodQuery(@ptrCast(self), @intCast(param1));
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QLineEdit_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#inputMethodQuery)
     ///
-    /// ``` self: ?*C.QLineEdit, property: qnamespace_enums.InputMethodQuery, argument: ?*C.QVariant ```
-    pub fn InputMethodQuery2(self: ?*anyopaque, property: i64, argument: ?*C.QVariant) ?*C.QVariant {
-        return C.QLineEdit_InputMethodQuery2(@ptrCast(self), @intCast(property), @ptrCast(argument));
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QLineEdit, param1: qnamespace_enums.InputMethodQuery ```
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i64) QtC.QVariant {
+        return qtc.QLineEdit_QBaseInputMethodQuery(@ptrCast(self), @intCast(param1));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#inputMethodQuery)
+    ///
+    /// ``` self: QtC.QLineEdit, property: qnamespace_enums.InputMethodQuery, argument: QtC.QVariant ```
+    pub fn InputMethodQuery2(self: ?*anyopaque, property: i64, argument: QtC.QVariant) QtC.QVariant {
+        return qtc.QLineEdit_InputMethodQuery2(@ptrCast(self), @intCast(property), @ptrCast(argument));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#timerEvent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_TimerEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_TimerEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#timerEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QTimerEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: QtC.QTimerEvent) callconv(.c) void ```
     pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#timerEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QTimerEvent ```
     pub fn QBaseTimerEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QLineEdit_QBaseTimerEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QLineEdit_QBaseTimerEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#event)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return C.QLineEdit_Event(@ptrCast(self), @ptrCast(param1));
+        return qtc.QLineEdit_Event(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#event)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QLineEdit_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#event)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QEvent ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QEvent ```
     pub fn QBaseEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return C.QLineEdit_QBaseEvent(@ptrCast(self), @ptrCast(param1));
+        return qtc.QLineEdit_QBaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#cursorRect)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn CursorRect(self: ?*anyopaque) ?*C.QRect {
-        return C.QLineEdit_CursorRect(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn CursorRect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QLineEdit_CursorRect(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#cursorRect)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn () callconv(.c) ?*C.QRect ```
-    pub fn OnCursorRect(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QRect) void {
-        C.QLineEdit_OnCursorRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLineEdit, slot: fn () callconv(.c) QtC.QRect ```
+    pub fn OnCursorRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRect) void {
+        qtc.QLineEdit_OnCursorRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#cursorRect)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn QBaseCursorRect(self: ?*anyopaque) ?*C.QRect {
-        return C.QLineEdit_QBaseCursorRect(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn QBaseCursorRect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QLineEdit_QBaseCursorRect(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1175,9 +1282,9 @@ pub const qlineedit = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QLineEdit_Tr2(s_Cstring, c_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QLineEdit_Tr2(s_Cstring, c_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.Tr2: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1190,9 +1297,9 @@ pub const qlineedit = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QLineEdit_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QLineEdit_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.Tr3: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1201,926 +1308,926 @@ pub const qlineedit = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#cursorForward)
     ///
-    /// ``` self: ?*C.QLineEdit, mark: bool, steps: i32 ```
+    /// ``` self: QtC.QLineEdit, mark: bool, steps: i32 ```
     pub fn CursorForward2(self: ?*anyopaque, mark: bool, steps: i32) void {
-        C.QLineEdit_CursorForward2(@ptrCast(self), mark, @intCast(steps));
+        qtc.QLineEdit_CursorForward2(@ptrCast(self), mark, @intCast(steps));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#cursorBackward)
     ///
-    /// ``` self: ?*C.QLineEdit, mark: bool, steps: i32 ```
+    /// ``` self: QtC.QLineEdit, mark: bool, steps: i32 ```
     pub fn CursorBackward2(self: ?*anyopaque, mark: bool, steps: i32) void {
-        C.QLineEdit_CursorBackward2(@ptrCast(self), mark, @intCast(steps));
+        qtc.QLineEdit_CursorBackward2(@ptrCast(self), mark, @intCast(steps));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn WinId(self: ?*anyopaque) usize {
-        return C.QWidget_WinId(@ptrCast(self));
+        return qtc.QWidget_WinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn CreateWinId(self: ?*anyopaque) void {
-        C.QWidget_CreateWinId(@ptrCast(self));
+        qtc.QWidget_CreateWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
-        return C.QWidget_InternalWinId(@ptrCast(self));
+        return qtc.QWidget_InternalWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return C.QWidget_EffectiveWinId(@ptrCast(self));
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Style(self: ?*anyopaque) ?*C.QStyle {
-        return C.QWidget_Style(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Style(self: ?*anyopaque) QtC.QStyle {
+        return qtc.QWidget_Style(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
-    /// ``` self: ?*C.QLineEdit, style: ?*C.QStyle ```
+    /// ``` self: QtC.QLineEdit, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        C.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return C.QWidget_IsTopLevel(@ptrCast(self));
+        return qtc.QWidget_IsTopLevel(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsWindow(self: ?*anyopaque) bool {
-        return C.QWidget_IsWindow(@ptrCast(self));
+        return qtc.QWidget_IsWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsModal(self: ?*anyopaque) bool {
-        return C.QWidget_IsModal(@ptrCast(self));
+        return qtc.QWidget_IsModal(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn WindowModality(self: ?*anyopaque) i64 {
-        return C.QWidget_WindowModality(@ptrCast(self));
+        return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
-    /// ``` self: ?*C.QLineEdit, windowModality: qnamespace_enums.WindowModality ```
+    /// ``` self: QtC.QLineEdit, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i64) void {
-        C.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
+        qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
-        return C.QWidget_IsEnabled(@ptrCast(self));
+        return qtc.QWidget_IsEnabled(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QWidget ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return C.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
-    /// ``` self: ?*C.QLineEdit, enabled: bool ```
+    /// ``` self: QtC.QLineEdit, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        C.QWidget_SetEnabled(@ptrCast(self), enabled);
+        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
-    /// ``` self: ?*C.QLineEdit, disabled: bool ```
+    /// ``` self: QtC.QLineEdit, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        C.QWidget_SetDisabled(@ptrCast(self), disabled);
+        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
-    /// ``` self: ?*C.QLineEdit, windowModified: bool ```
+    /// ``` self: QtC.QLineEdit, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        C.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn FrameGeometry(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_FrameGeometry(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_FrameGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Geometry(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_Geometry(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_Geometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn NormalGeometry(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_NormalGeometry(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_NormalGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn X(self: ?*anyopaque) i32 {
-        return C.QWidget_X(@ptrCast(self));
+        return qtc.QWidget_X(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Y(self: ?*anyopaque) i32 {
-        return C.QWidget_Y(@ptrCast(self));
+        return qtc.QWidget_Y(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Pos(self: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_Pos(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_Pos(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn FrameSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_FrameSize(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_FrameSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Size(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_Size(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Size(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_Size(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Width(self: ?*anyopaque) i32 {
-        return C.QWidget_Width(@ptrCast(self));
+        return qtc.QWidget_Width(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Height(self: ?*anyopaque) i32 {
-        return C.QWidget_Height(@ptrCast(self));
+        return qtc.QWidget_Height(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Rect(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_Rect(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Rect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_Rect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn ChildrenRect(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_ChildrenRect(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_ChildrenRect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn ChildrenRegion(self: ?*anyopaque) ?*C.QRegion {
-        return C.QWidget_ChildrenRegion(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
+        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn MinimumSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_MinimumSize(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_MinimumSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn MaximumSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_MaximumSize(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_MaximumSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return C.QWidget_MinimumWidth(@ptrCast(self));
+        return qtc.QWidget_MinimumWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return C.QWidget_MinimumHeight(@ptrCast(self));
+        return qtc.QWidget_MinimumHeight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return C.QWidget_MaximumWidth(@ptrCast(self));
+        return qtc.QWidget_MaximumWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return C.QWidget_MaximumHeight(@ptrCast(self));
+        return qtc.QWidget_MaximumHeight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
-    /// ``` self: ?*C.QLineEdit, minimumSize: ?*C.QSize ```
+    /// ``` self: QtC.QLineEdit, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        C.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
-    /// ``` self: ?*C.QLineEdit, minw: i32, minh: i32 ```
+    /// ``` self: QtC.QLineEdit, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        C.QWidget_SetMinimumSize2(@ptrCast(self), @intCast(minw), @intCast(minh));
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @intCast(minw), @intCast(minh));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
-    /// ``` self: ?*C.QLineEdit, maximumSize: ?*C.QSize ```
+    /// ``` self: QtC.QLineEdit, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        C.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
-    /// ``` self: ?*C.QLineEdit, maxw: i32, maxh: i32 ```
+    /// ``` self: QtC.QLineEdit, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        C.QWidget_SetMaximumSize2(@ptrCast(self), @intCast(maxw), @intCast(maxh));
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @intCast(maxw), @intCast(maxh));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
-    /// ``` self: ?*C.QLineEdit, minw: i32 ```
+    /// ``` self: QtC.QLineEdit, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        C.QWidget_SetMinimumWidth(@ptrCast(self), @intCast(minw));
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @intCast(minw));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
-    /// ``` self: ?*C.QLineEdit, minh: i32 ```
+    /// ``` self: QtC.QLineEdit, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        C.QWidget_SetMinimumHeight(@ptrCast(self), @intCast(minh));
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @intCast(minh));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
-    /// ``` self: ?*C.QLineEdit, maxw: i32 ```
+    /// ``` self: QtC.QLineEdit, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        C.QWidget_SetMaximumWidth(@ptrCast(self), @intCast(maxw));
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @intCast(maxw));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
-    /// ``` self: ?*C.QLineEdit, maxh: i32 ```
+    /// ``` self: QtC.QLineEdit, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        C.QWidget_SetMaximumHeight(@ptrCast(self), @intCast(maxh));
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @intCast(maxh));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn SizeIncrement(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_SizeIncrement(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_SizeIncrement(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
-    /// ``` self: ?*C.QLineEdit, sizeIncrement: ?*C.QSize ```
+    /// ``` self: QtC.QLineEdit, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        C.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
-    /// ``` self: ?*C.QLineEdit, w: i32, h: i32 ```
+    /// ``` self: QtC.QLineEdit, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        C.QWidget_SetSizeIncrement2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn BaseSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_BaseSize(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_BaseSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
-    /// ``` self: ?*C.QLineEdit, baseSize: ?*C.QSize ```
+    /// ``` self: QtC.QLineEdit, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        C.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
-    /// ``` self: ?*C.QLineEdit, basew: i32, baseh: i32 ```
+    /// ``` self: QtC.QLineEdit, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        C.QWidget_SetBaseSize2(@ptrCast(self), @intCast(basew), @intCast(baseh));
+        qtc.QWidget_SetBaseSize2(@ptrCast(self), @intCast(basew), @intCast(baseh));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
-    /// ``` self: ?*C.QLineEdit, fixedSize: ?*C.QSize ```
+    /// ``` self: QtC.QLineEdit, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        C.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
-    /// ``` self: ?*C.QLineEdit, w: i32, h: i32 ```
+    /// ``` self: QtC.QLineEdit, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        C.QWidget_SetFixedSize2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetFixedSize2(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
-    /// ``` self: ?*C.QLineEdit, w: i32 ```
+    /// ``` self: QtC.QLineEdit, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        C.QWidget_SetFixedWidth(@ptrCast(self), @intCast(w));
+        qtc.QWidget_SetFixedWidth(@ptrCast(self), @intCast(w));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
-    /// ``` self: ?*C.QLineEdit, h: i32 ```
+    /// ``` self: QtC.QLineEdit, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        C.QWidget_SetFixedHeight(@ptrCast(self), @intCast(h));
+        qtc.QWidget_SetFixedHeight(@ptrCast(self), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QPointF ```
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QLineEdit, param1: QtC.QPointF ```
+    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QPoint ```
-    pub fn MapToGlobalWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapToGlobalWithQPoint(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QLineEdit, param1: QtC.QPoint ```
+    pub fn MapToGlobalWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapToGlobalWithQPoint(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QPointF ```
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QLineEdit, param1: QtC.QPointF ```
+    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QPoint ```
-    pub fn MapFromGlobalWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapFromGlobalWithQPoint(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QLineEdit, param1: QtC.QPoint ```
+    pub fn MapFromGlobalWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapFromGlobalWithQPoint(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QPointF ```
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QLineEdit, param1: QtC.QPointF ```
+    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QPoint ```
-    pub fn MapToParentWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapToParentWithQPoint(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QLineEdit, param1: QtC.QPoint ```
+    pub fn MapToParentWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapToParentWithQPoint(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QPointF ```
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QLineEdit, param1: QtC.QPointF ```
+    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QPoint ```
-    pub fn MapFromParentWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapFromParentWithQPoint(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QLineEdit, param1: QtC.QPoint ```
+    pub fn MapFromParentWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapFromParentWithQPoint(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QWidget, param2: ?*C.QPointF ```
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    /// ``` self: QtC.QLineEdit, param1: QtC.QWidget, param2: QtC.QPointF ```
+    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QWidget, param2: ?*C.QPoint ```
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    /// ``` self: QtC.QLineEdit, param1: QtC.QWidget, param2: QtC.QPoint ```
+    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QWidget, param2: ?*C.QPointF ```
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    /// ``` self: QtC.QLineEdit, param1: QtC.QWidget, param2: QtC.QPointF ```
+    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QWidget, param2: ?*C.QPoint ```
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    /// ``` self: QtC.QLineEdit, param1: QtC.QWidget, param2: QtC.QPoint ```
+    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Window(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_Window(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Window(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_Window(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn NativeParentWidget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_NativeParentWidget(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn TopLevelWidget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_TopLevelWidget(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Palette(self: ?*anyopaque) ?*C.QPalette {
-        return C.QWidget_Palette(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
+        return qtc.QWidget_Palette(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
-    /// ``` self: ?*C.QLineEdit, palette: ?*C.QPalette ```
+    /// ``` self: QtC.QLineEdit, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        C.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
-    /// ``` self: ?*C.QLineEdit, backgroundRole: qpalette_enums.ColorRole ```
+    /// ``` self: QtC.QLineEdit, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i64) void {
-        C.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn BackgroundRole(self: ?*anyopaque) i64 {
-        return C.QWidget_BackgroundRole(@ptrCast(self));
+        return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
-    /// ``` self: ?*C.QLineEdit, foregroundRole: qpalette_enums.ColorRole ```
+    /// ``` self: QtC.QLineEdit, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i64) void {
-        C.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
+        qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn ForegroundRole(self: ?*anyopaque) i64 {
-        return C.QWidget_ForegroundRole(@ptrCast(self));
+        return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Font(self: ?*anyopaque) ?*C.QFont {
-        return C.QWidget_Font(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Font(self: ?*anyopaque) QtC.QFont {
+        return qtc.QWidget_Font(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
-    /// ``` self: ?*C.QLineEdit, font: ?*C.QFont ```
+    /// ``` self: QtC.QLineEdit, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        C.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn FontMetrics(self: ?*anyopaque) ?*C.QFontMetrics {
-        return C.QWidget_FontMetrics(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
+        return qtc.QWidget_FontMetrics(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn FontInfo(self: ?*anyopaque) ?*C.QFontInfo {
-        return C.QWidget_FontInfo(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
+        return qtc.QWidget_FontInfo(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Cursor(self: ?*anyopaque) ?*C.QCursor {
-        return C.QWidget_Cursor(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
+        return qtc.QWidget_Cursor(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
-    /// ``` self: ?*C.QLineEdit, cursor: ?*C.QCursor ```
+    /// ``` self: QtC.QLineEdit, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        C.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
-        C.QWidget_UnsetCursor(@ptrCast(self));
+        qtc.QWidget_UnsetCursor(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
-    /// ``` self: ?*C.QLineEdit, enable: bool ```
+    /// ``` self: QtC.QLineEdit, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        C.QWidget_SetMouseTracking(@ptrCast(self), enable);
+        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return C.QWidget_HasMouseTracking(@ptrCast(self));
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
-        return C.QWidget_UnderMouse(@ptrCast(self));
+        return qtc.QWidget_UnderMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
-    /// ``` self: ?*C.QLineEdit, enable: bool ```
+    /// ``` self: QtC.QLineEdit, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        C.QWidget_SetTabletTracking(@ptrCast(self), enable);
+        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return C.QWidget_HasTabletTracking(@ptrCast(self));
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
-    /// ``` self: ?*C.QLineEdit, mask: ?*C.QBitmap ```
+    /// ``` self: QtC.QLineEdit, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        C.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
-    /// ``` self: ?*C.QLineEdit, mask: ?*C.QRegion ```
+    /// ``` self: QtC.QLineEdit, mask: QtC.QRegion ```
     pub fn SetMaskWithMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        C.QWidget_SetMaskWithMask(@ptrCast(self), @ptrCast(mask));
+        qtc.QWidget_SetMaskWithMask(@ptrCast(self), @ptrCast(mask));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Mask(self: ?*anyopaque) ?*C.QRegion {
-        return C.QWidget_Mask(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
+        return qtc.QWidget_Mask(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn ClearMask(self: ?*anyopaque) void {
-        C.QWidget_ClearMask(@ptrCast(self));
+        qtc.QWidget_ClearMask(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QLineEdit, target: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QLineEdit, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        C.QWidget_Render(@ptrCast(self), @ptrCast(target));
+        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QLineEdit, painter: ?*C.QPainter ```
+    /// ``` self: QtC.QLineEdit, painter: QtC.QPainter ```
     pub fn RenderWithPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        C.QWidget_RenderWithPainter(@ptrCast(self), @ptrCast(painter));
+        qtc.QWidget_RenderWithPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Grab(self: ?*anyopaque) ?*C.QPixmap {
-        return C.QWidget_Grab(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
+        return qtc.QWidget_Grab(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn GraphicsEffect(self: ?*anyopaque) ?*C.QGraphicsEffect {
-        return C.QWidget_GraphicsEffect(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
+        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
-    /// ``` self: ?*C.QLineEdit, effect: ?*C.QGraphicsEffect ```
+    /// ``` self: QtC.QLineEdit, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        C.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: ?*C.QLineEdit, typeVal: qnamespace_enums.GestureType ```
+    /// ``` self: QtC.QLineEdit, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
-        C.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
-    /// ``` self: ?*C.QLineEdit, typeVal: qnamespace_enums.GestureType ```
+    /// ``` self: QtC.QLineEdit, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
-        C.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
-    /// ``` self: ?*C.QLineEdit, windowTitle: []const u8 ```
+    /// ``` self: QtC.QLineEdit, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
-        const windowTitle_str = C.struct_libqt_string{
+        const windowTitle_str = qtc.struct_libqt_string{
             .len = windowTitle.len,
             .data = @constCast(windowTitle.ptr),
         };
-        C.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
-    /// ``` self: ?*C.QLineEdit, styleSheet: []const u8 ```
+    /// ``` self: QtC.QLineEdit, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
-        const styleSheet_str = C.struct_libqt_string{
+        const styleSheet_str = qtc.struct_libqt_string{
             .len = styleSheet.len,
             .data = @constCast(styleSheet.ptr),
         };
-        C.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_StyleSheet(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.StyleSheet: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2131,11 +2238,11 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_WindowTitle(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.WindowTitle: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2146,42 +2253,42 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
-    /// ``` self: ?*C.QLineEdit, icon: ?*C.QIcon ```
+    /// ``` self: QtC.QLineEdit, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        C.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn WindowIcon(self: ?*anyopaque) ?*C.QIcon {
-        return C.QWidget_WindowIcon(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
+        return qtc.QWidget_WindowIcon(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
-    /// ``` self: ?*C.QLineEdit, windowIconText: []const u8 ```
+    /// ``` self: QtC.QLineEdit, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
-        const windowIconText_str = C.struct_libqt_string{
+        const windowIconText_str = qtc.struct_libqt_string{
             .len = windowIconText.len,
             .data = @constCast(windowIconText.ptr),
         };
-        C.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_WindowIconText(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.WindowIconText: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2192,24 +2299,24 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
-    /// ``` self: ?*C.QLineEdit, windowRole: []const u8 ```
+    /// ``` self: QtC.QLineEdit, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
-        const windowRole_str = C.struct_libqt_string{
+        const windowRole_str = qtc.struct_libqt_string{
             .len = windowRole.len,
             .data = @constCast(windowRole.ptr),
         };
-        C.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_WindowRole(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_WindowRole(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.WindowRole: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2220,24 +2327,24 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
-    /// ``` self: ?*C.QLineEdit, filePath: []const u8 ```
+    /// ``` self: QtC.QLineEdit, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
-        const filePath_str = C.struct_libqt_string{
+        const filePath_str = qtc.struct_libqt_string{
             .len = filePath.len,
             .data = @constCast(filePath.ptr),
         };
-        C.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_WindowFilePath(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.WindowFilePath: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2248,51 +2355,51 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
-    /// ``` self: ?*C.QLineEdit, level: f64 ```
+    /// ``` self: QtC.QLineEdit, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        C.QWidget_SetWindowOpacity(@ptrCast(self), @floatCast(level));
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @floatCast(level));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return C.QWidget_WindowOpacity(@ptrCast(self));
+        return qtc.QWidget_WindowOpacity(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return C.QWidget_IsWindowModified(@ptrCast(self));
+        return qtc.QWidget_IsWindowModified(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
-    /// ``` self: ?*C.QLineEdit, toolTip: []const u8 ```
+    /// ``` self: QtC.QLineEdit, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
-        const toolTip_str = C.struct_libqt_string{
+        const toolTip_str = qtc.struct_libqt_string{
             .len = toolTip.len,
             .data = @constCast(toolTip.ptr),
         };
-        C.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_ToolTip(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_ToolTip(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.ToolTip: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2303,42 +2410,42 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
-    /// ``` self: ?*C.QLineEdit, msec: i32 ```
+    /// ``` self: QtC.QLineEdit, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        C.QWidget_SetToolTipDuration(@ptrCast(self), @intCast(msec));
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @intCast(msec));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return C.QWidget_ToolTipDuration(@ptrCast(self));
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
-    /// ``` self: ?*C.QLineEdit, statusTip: []const u8 ```
+    /// ``` self: QtC.QLineEdit, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
-        const statusTip_str = C.struct_libqt_string{
+        const statusTip_str = qtc.struct_libqt_string{
             .len = statusTip.len,
             .data = @constCast(statusTip.ptr),
         };
-        C.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_StatusTip(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_StatusTip(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.StatusTip: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2349,24 +2456,24 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
-    /// ``` self: ?*C.QLineEdit, whatsThis: []const u8 ```
+    /// ``` self: QtC.QLineEdit, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
-        const whatsThis_str = C.struct_libqt_string{
+        const whatsThis_str = qtc.struct_libqt_string{
             .len = whatsThis.len,
             .data = @constCast(whatsThis.ptr),
         };
-        C.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_WhatsThis(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.WhatsThis: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2377,11 +2484,11 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_AccessibleName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.AccessibleName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2392,24 +2499,24 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
-    /// ``` self: ?*C.QLineEdit, name: []const u8 ```
+    /// ``` self: QtC.QLineEdit, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = C.struct_libqt_string{
+        const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = @constCast(name.ptr),
         };
-        C.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_AccessibleDescription(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.AccessibleDescription: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2420,283 +2527,283 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
-    /// ``` self: ?*C.QLineEdit, description: []const u8 ```
+    /// ``` self: QtC.QLineEdit, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
-        const description_str = C.struct_libqt_string{
+        const description_str = qtc.struct_libqt_string{
             .len = description.len,
             .data = @constCast(description.ptr),
         };
-        C.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
-    /// ``` self: ?*C.QLineEdit, direction: qnamespace_enums.LayoutDirection ```
+    /// ``` self: QtC.QLineEdit, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
-        C.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
-        return C.QWidget_LayoutDirection(@ptrCast(self));
+        return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        C.QWidget_UnsetLayoutDirection(@ptrCast(self));
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
-    /// ``` self: ?*C.QLineEdit, locale: ?*C.QLocale ```
+    /// ``` self: QtC.QLineEdit, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        C.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Locale(self: ?*anyopaque) ?*C.QLocale {
-        return C.QWidget_Locale(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
+        return qtc.QWidget_Locale(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
-        C.QWidget_UnsetLocale(@ptrCast(self));
+        qtc.QWidget_UnsetLocale(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return C.QWidget_IsRightToLeft(@ptrCast(self));
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return C.QWidget_IsLeftToRight(@ptrCast(self));
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn SetFocus(self: ?*anyopaque) void {
-        C.QWidget_SetFocus(@ptrCast(self));
+        qtc.QWidget_SetFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return C.QWidget_IsActiveWindow(@ptrCast(self));
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
-        C.QWidget_ActivateWindow(@ptrCast(self));
+        qtc.QWidget_ActivateWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn ClearFocus(self: ?*anyopaque) void {
-        C.QWidget_ClearFocus(@ptrCast(self));
+        qtc.QWidget_ClearFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
-    /// ``` self: ?*C.QLineEdit, reason: qnamespace_enums.FocusReason ```
+    /// ``` self: QtC.QLineEdit, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocusWithReason(self: ?*anyopaque, reason: i64) void {
-        C.QWidget_SetFocusWithReason(@ptrCast(self), @intCast(reason));
+        qtc.QWidget_SetFocusWithReason(@ptrCast(self), @intCast(reason));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn FocusPolicy(self: ?*anyopaque) i64 {
-        return C.QWidget_FocusPolicy(@ptrCast(self));
+        return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
-    /// ``` self: ?*C.QLineEdit, policy: qnamespace_enums.FocusPolicy ```
+    /// ``` self: QtC.QLineEdit, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
-        C.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn HasFocus(self: ?*anyopaque) bool {
-        return C.QWidget_HasFocus(@ptrCast(self));
+        return qtc.QWidget_HasFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
-    /// ``` param1: ?*C.QWidget, param2: ?*C.QWidget ```
+    /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        C.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
-    /// ``` self: ?*C.QLineEdit, focusProxy: ?*C.QWidget ```
+    /// ``` self: QtC.QLineEdit, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        C.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn FocusProxy(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_FocusProxy(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_FocusProxy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
-        return C.QWidget_ContextMenuPolicy(@ptrCast(self));
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
-    /// ``` self: ?*C.QLineEdit, policy: qnamespace_enums.ContextMenuPolicy ```
+    /// ``` self: QtC.QLineEdit, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i64) void {
-        C.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn GrabMouse(self: ?*anyopaque) void {
-        C.QWidget_GrabMouse(@ptrCast(self));
+        qtc.QWidget_GrabMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QCursor ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QCursor ```
     pub fn GrabMouseWithQCursor(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_GrabMouseWithQCursor(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_GrabMouseWithQCursor(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
-        C.QWidget_ReleaseMouse(@ptrCast(self));
+        qtc.QWidget_ReleaseMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
-        C.QWidget_GrabKeyboard(@ptrCast(self));
+        qtc.QWidget_GrabKeyboard(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        C.QWidget_ReleaseKeyboard(@ptrCast(self));
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
-    /// ``` self: ?*C.QLineEdit, key: ?*C.QKeySequence ```
+    /// ``` self: QtC.QLineEdit, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return C.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
-    /// ``` self: ?*C.QLineEdit, id: i32 ```
+    /// ``` self: QtC.QLineEdit, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        C.QWidget_ReleaseShortcut(@ptrCast(self), @intCast(id));
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
-    /// ``` self: ?*C.QLineEdit, id: i32 ```
+    /// ``` self: QtC.QLineEdit, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        C.QWidget_SetShortcutEnabled(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
-    /// ``` self: ?*C.QLineEdit, id: i32 ```
+    /// ``` self: QtC.QLineEdit, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        C.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
@@ -2704,8 +2811,8 @@ pub const qlineedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
-    pub fn MouseGrabber() ?*C.QWidget {
-        return C.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QtC.QWidget {
+        return qtc.QWidget_MouseGrabber();
     }
 
     /// Inherited from QWidget
@@ -2713,271 +2820,271 @@ pub const qlineedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
-    pub fn KeyboardGrabber() ?*C.QWidget {
-        return C.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QtC.QWidget {
+        return qtc.QWidget_KeyboardGrabber();
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return C.QWidget_UpdatesEnabled(@ptrCast(self));
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
-    /// ``` self: ?*C.QLineEdit, enable: bool ```
+    /// ``` self: QtC.QLineEdit, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        C.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) ?*C.QGraphicsProxyWidget {
-        return C.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
+        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Update(self: ?*anyopaque) void {
-        C.QWidget_Update(@ptrCast(self));
+        qtc.QWidget_Update(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Repaint(self: ?*anyopaque) void {
-        C.QWidget_Repaint(@ptrCast(self));
+        qtc.QWidget_Repaint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: ?*C.QLineEdit, x: i32, y: i32, w: i32, h: i32 ```
+    /// ``` self: QtC.QLineEdit, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        C.QWidget_Update2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Update2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QRect ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QRect ```
     pub fn UpdateWithQRect(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_UpdateWithQRect(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_UpdateWithQRect(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QRegion ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QRegion ```
     pub fn UpdateWithQRegion(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_UpdateWithQRegion(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_UpdateWithQRegion(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: ?*C.QLineEdit, x: i32, y: i32, w: i32, h: i32 ```
+    /// ``` self: QtC.QLineEdit, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        C.QWidget_Repaint2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Repaint2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QRect ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QRect ```
     pub fn RepaintWithQRect(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_RepaintWithQRect(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_RepaintWithQRect(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QRegion ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QRegion ```
     pub fn RepaintWithQRegion(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_RepaintWithQRegion(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_RepaintWithQRegion(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
-    /// ``` self: ?*C.QLineEdit, hidden: bool ```
+    /// ``` self: QtC.QLineEdit, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        C.QWidget_SetHidden(@ptrCast(self), hidden);
+        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Show(self: ?*anyopaque) void {
-        C.QWidget_Show(@ptrCast(self));
+        qtc.QWidget_Show(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Hide(self: ?*anyopaque) void {
-        C.QWidget_Hide(@ptrCast(self));
+        qtc.QWidget_Hide(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
-        C.QWidget_ShowMinimized(@ptrCast(self));
+        qtc.QWidget_ShowMinimized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
-        C.QWidget_ShowMaximized(@ptrCast(self));
+        qtc.QWidget_ShowMaximized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
-        C.QWidget_ShowFullScreen(@ptrCast(self));
+        qtc.QWidget_ShowFullScreen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn ShowNormal(self: ?*anyopaque) void {
-        C.QWidget_ShowNormal(@ptrCast(self));
+        qtc.QWidget_ShowNormal(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Close(self: ?*anyopaque) bool {
-        return C.QWidget_Close(@ptrCast(self));
+        return qtc.QWidget_Close(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Raise(self: ?*anyopaque) void {
-        C.QWidget_Raise(@ptrCast(self));
+        qtc.QWidget_Raise(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Lower(self: ?*anyopaque) void {
-        C.QWidget_Lower(@ptrCast(self));
+        qtc.QWidget_Lower(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QWidget ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
-    /// ``` self: ?*C.QLineEdit, x: i32, y: i32 ```
+    /// ``` self: QtC.QLineEdit, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        C.QWidget_Move(@ptrCast(self), @intCast(x), @intCast(y));
+        qtc.QWidget_Move(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QPoint ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QPoint ```
     pub fn MoveWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_MoveWithQPoint(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_MoveWithQPoint(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
-    /// ``` self: ?*C.QLineEdit, w: i32, h: i32 ```
+    /// ``` self: QtC.QLineEdit, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        C.QWidget_Resize(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_Resize(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QSize ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QSize ```
     pub fn ResizeWithQSize(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_ResizeWithQSize(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_ResizeWithQSize(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
-    /// ``` self: ?*C.QLineEdit, x: i32, y: i32, w: i32, h: i32 ```
+    /// ``` self: QtC.QLineEdit, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        C.QWidget_SetGeometry(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_SetGeometry(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
-    /// ``` self: ?*C.QLineEdit, geometry: ?*C.QRect ```
+    /// ``` self: QtC.QLineEdit, geometry: QtC.QRect ```
     pub fn SetGeometryWithGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        C.QWidget_SetGeometryWithGeometry(@ptrCast(self), @ptrCast(geometry));
+        qtc.QWidget_SetGeometryWithGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: C.struct_libqt_string = C.QWidget_SaveGeometry(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_bytearray));
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Memory allocation failed");
+        const _bytearray: qtc.struct_libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qlineedit.SaveGeometry: Memory allocation failed");
         for (0.._bytearray.len) |_i| {
             _ret[_i] = _bytearray.data[_i];
         }
@@ -2988,339 +3095,339 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
-    /// ``` self: ?*C.QLineEdit, geometry: []u8 ```
+    /// ``` self: QtC.QLineEdit, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
-        const geometry_str = C.struct_libqt_string{
+        const geometry_str = qtc.struct_libqt_string{
             .len = geometry.len,
             .data = @constCast(geometry.ptr),
         };
-        return C.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn AdjustSize(self: ?*anyopaque) void {
-        C.QWidget_AdjustSize(@ptrCast(self));
+        qtc.QWidget_AdjustSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsVisible(self: ?*anyopaque) bool {
-        return C.QWidget_IsVisible(@ptrCast(self));
+        return qtc.QWidget_IsVisible(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QWidget ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return C.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsHidden(self: ?*anyopaque) bool {
-        return C.QWidget_IsHidden(@ptrCast(self));
+        return qtc.QWidget_IsHidden(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
-        return C.QWidget_IsMinimized(@ptrCast(self));
+        return qtc.QWidget_IsMinimized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
-        return C.QWidget_IsMaximized(@ptrCast(self));
+        return qtc.QWidget_IsMaximized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return C.QWidget_IsFullScreen(@ptrCast(self));
+        return qtc.QWidget_IsFullScreen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn WindowState(self: ?*anyopaque) i64 {
-        return C.QWidget_WindowState(@ptrCast(self));
+        return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
-    /// ``` self: ?*C.QLineEdit, state: i32 ```
+    /// ``` self: QtC.QLineEdit, state: i32 ```
     pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
-        C.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
-    /// ``` self: ?*C.QLineEdit, state: i32 ```
+    /// ``` self: QtC.QLineEdit, state: i32 ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
-        C.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn SizePolicy(self: ?*anyopaque) ?*C.QSizePolicy {
-        return C.QWidget_SizePolicy(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
+        return qtc.QWidget_SizePolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
-    /// ``` self: ?*C.QLineEdit, sizePolicy: ?*C.QSizePolicy ```
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: ?*C.QSizePolicy) void {
-        C.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    /// ``` self: QtC.QLineEdit, sizePolicy: QtC.QSizePolicy ```
+    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
+        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
-    /// ``` self: ?*C.QLineEdit, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
+    /// ``` self: QtC.QLineEdit, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i64, vertical: i64) void {
-        C.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn VisibleRegion(self: ?*anyopaque) ?*C.QRegion {
-        return C.QWidget_VisibleRegion(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
+        return qtc.QWidget_VisibleRegion(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
-    /// ``` self: ?*C.QLineEdit, left: i32, top: i32, right: i32, bottom: i32 ```
+    /// ``` self: QtC.QLineEdit, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        C.QWidget_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QWidget_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
-    /// ``` self: ?*C.QLineEdit, margins: ?*C.QMargins ```
+    /// ``` self: QtC.QLineEdit, margins: QtC.QMargins ```
     pub fn SetContentsMarginsWithMargins(self: ?*anyopaque, margins: ?*anyopaque) void {
-        C.QWidget_SetContentsMarginsWithMargins(@ptrCast(self), @ptrCast(margins));
+        qtc.QWidget_SetContentsMarginsWithMargins(@ptrCast(self), @ptrCast(margins));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn ContentsMargins(self: ?*anyopaque) ?*C.QMargins {
-        return C.QWidget_ContentsMargins(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
+        return qtc.QWidget_ContentsMargins(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn ContentsRect(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_ContentsRect(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_ContentsRect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Layout(self: ?*anyopaque) ?*C.QLayout {
-        return C.QWidget_Layout(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
+        return qtc.QWidget_Layout(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
-    /// ``` self: ?*C.QLineEdit, layout: ?*C.QLayout ```
+    /// ``` self: QtC.QLineEdit, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        C.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
-        C.QWidget_UpdateGeometry(@ptrCast(self));
+        qtc.QWidget_UpdateGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: ?*C.QLineEdit, parent: ?*C.QWidget ```
+    /// ``` self: QtC.QLineEdit, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        C.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: ?*C.QLineEdit, parent: ?*C.QWidget, f: i32 ```
+    /// ``` self: QtC.QLineEdit, parent: QtC.QWidget, f: i32 ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
-        C.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
+        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
-    /// ``` self: ?*C.QLineEdit, dx: i32, dy: i32 ```
+    /// ``` self: QtC.QLineEdit, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        C.QWidget_Scroll(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QWidget_Scroll(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
-    /// ``` self: ?*C.QLineEdit, dx: i32, dy: i32, param3: ?*C.QRect ```
+    /// ``` self: QtC.QLineEdit, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        C.QWidget_Scroll2(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(param3));
+        qtc.QWidget_Scroll2(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(param3));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn FocusWidget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_FocusWidget(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_FocusWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn NextInFocusChain(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_NextInFocusChain(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn PreviousInFocusChain(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_PreviousInFocusChain(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return C.QWidget_AcceptDrops(@ptrCast(self));
+        return qtc.QWidget_AcceptDrops(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
-    /// ``` self: ?*C.QLineEdit, on: bool ```
+    /// ``` self: QtC.QLineEdit, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        C.QWidget_SetAcceptDrops(@ptrCast(self), on);
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
-    /// ``` self: ?*C.QLineEdit, actions: []?*C.QAction ```
+    /// ``` self: QtC.QLineEdit, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = C.struct_libqt_list{
+        const actions_list = qtc.struct_libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        C.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
-    /// ``` self: ?*C.QLineEdit, before: ?*C.QAction, actions: []?*C.QAction ```
+    /// ``` self: QtC.QLineEdit, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = C.struct_libqt_list{
+        const actions_list = qtc.struct_libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        C.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
-    /// ``` self: ?*C.QLineEdit, before: ?*C.QAction, action: ?*C.QAction ```
+    /// ``` self: QtC.QLineEdit, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        C.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
-    /// ``` self: ?*C.QLineEdit, action: ?*C.QAction ```
+    /// ``` self: QtC.QLineEdit, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        C.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QAction {
-        const _arr: C.struct_libqt_list = C.QWidget_Actions(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QAction, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QAction = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
+    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
+        const _arr: qtc.struct_libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qlineedit.Actions: Memory allocation failed");
+        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -3331,93 +3438,93 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: ?*C.QLineEdit, text: []const u8 ```
-    pub fn AddActionWithText(self: ?*anyopaque, text: []const u8) ?*C.QAction {
-        const text_str = C.struct_libqt_string{
+    /// ``` self: QtC.QLineEdit, text: []const u8 ```
+    pub fn AddActionWithText(self: ?*anyopaque, text: []const u8) QtC.QAction {
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        return C.QWidget_AddActionWithText(@ptrCast(self), text_str);
+        return qtc.QWidget_AddActionWithText(@ptrCast(self), text_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: ?*C.QLineEdit, text: []const u8, shortcut: ?*C.QKeySequence ```
-    pub fn AddAction3(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) ?*C.QAction {
-        const text_str = C.struct_libqt_string{
+    /// ``` self: QtC.QLineEdit, text: []const u8, shortcut: QtC.QKeySequence ```
+    pub fn AddAction3(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        return C.QWidget_AddAction3(@ptrCast(self), text_str, @ptrCast(shortcut));
+        return qtc.QWidget_AddAction3(@ptrCast(self), text_str, @ptrCast(shortcut));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: ?*C.QLineEdit, icon: ?*C.QIcon, text: []const u8, shortcut: ?*C.QKeySequence ```
-    pub fn AddAction4(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) ?*C.QAction {
-        const text_str = C.struct_libqt_string{
+    /// ``` self: QtC.QLineEdit, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
+    pub fn AddAction4(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        return C.QWidget_AddAction4(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        return qtc.QWidget_AddAction4(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn ParentWidget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_ParentWidget(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_ParentWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
-    /// ``` self: ?*C.QLineEdit, typeVal: i32 ```
+    /// ``` self: QtC.QLineEdit, typeVal: i32 ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
-        C.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn WindowFlags(self: ?*anyopaque) i64 {
-        return C.QWidget_WindowFlags(@ptrCast(self));
+        return qtc.QWidget_WindowFlags(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: qnamespace_enums.WindowType ```
+    /// ``` self: QtC.QLineEdit, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
-        C.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
-    /// ``` self: ?*C.QLineEdit, typeVal: i32 ```
+    /// ``` self: QtC.QLineEdit, typeVal: i32 ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
-        C.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn WindowType(self: ?*anyopaque) i64 {
-        return C.QWidget_WindowType(@ptrCast(self));
+        return qtc.QWidget_WindowType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -3425,361 +3532,369 @@ pub const qlineedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
     /// ``` param1: u64 ```
-    pub fn Find(param1: u64) ?*C.QWidget {
-        return C.QWidget_Find(@intCast(param1));
+    pub fn Find(param1: u64) QtC.QWidget {
+        return qtc.QWidget_Find(@intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
-    /// ``` self: ?*C.QLineEdit, x: i32, y: i32 ```
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) ?*C.QWidget {
-        return C.QWidget_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
+    /// ``` self: QtC.QLineEdit, x: i32, y: i32 ```
+    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
+        return qtc.QWidget_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
-    /// ``` self: ?*C.QLineEdit, p: ?*C.QPoint ```
-    pub fn ChildAtWithQPoint(self: ?*anyopaque, p: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_ChildAtWithQPoint(@ptrCast(self), @ptrCast(p));
+    /// ``` self: QtC.QLineEdit, p: QtC.QPoint ```
+    pub fn ChildAtWithQPoint(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_ChildAtWithQPoint(@ptrCast(self), @ptrCast(p));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: qnamespace_enums.WidgetAttribute ```
+    /// ``` self: QtC.QLineEdit, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i64) void {
-        C.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: qnamespace_enums.WidgetAttribute ```
+    /// ``` self: QtC.QLineEdit, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i64) bool {
-        return C.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
+        return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
-        C.QWidget_EnsurePolished(@ptrCast(self));
+        qtc.QWidget_EnsurePolished(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
-    /// ``` self: ?*C.QLineEdit, child: ?*C.QWidget ```
+    /// ``` self: QtC.QLineEdit, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return C.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return C.QWidget_AutoFillBackground(@ptrCast(self));
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
-    /// ``` self: ?*C.QLineEdit, enabled: bool ```
+    /// ``` self: QtC.QLineEdit, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        C.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn BackingStore(self: ?*anyopaque) ?*C.QBackingStore {
-        return C.QWidget_BackingStore(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
+        return qtc.QWidget_BackingStore(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn WindowHandle(self: ?*anyopaque) ?*C.QWindow {
-        return C.QWidget_WindowHandle(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
+        return qtc.QWidget_WindowHandle(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Screen(self: ?*anyopaque) ?*C.QScreen {
-        return C.QWidget_Screen(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
+        return qtc.QWidget_Screen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
-    /// ``` self: ?*C.QLineEdit, screen: ?*C.QScreen ```
+    /// ``` self: QtC.QLineEdit, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        C.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: ?*C.QWindow ```
-    pub fn CreateWindowContainer(window: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_CreateWindowContainer(@ptrCast(window));
+    /// ``` window: QtC.QWindow ```
+    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: ?*C.QLineEdit, title: []const u8 ```
+    /// ``` self: QtC.QLineEdit, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
-        const title_str = C.struct_libqt_string{
+        const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = @constCast(title.ptr),
         };
-        C.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
     }
 
     /// Inherited from QWidget
     ///
-    /// ``` self: ?*C.QWidget, slot: fn (?*C.QWidget, []const u8) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    ///
+    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, title: []const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
-        C.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: ?*C.QLineEdit, icon: ?*C.QIcon ```
+    /// ``` self: QtC.QLineEdit, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        C.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
     }
 
     /// Inherited from QWidget
     ///
-    /// ``` self: ?*C.QWidget, slot: fn (?*C.QWidget, ?*C.QIcon) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    ///
+    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: ?*C.QLineEdit, iconText: []const u8 ```
+    /// ``` self: QtC.QLineEdit, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
-        const iconText_str = C.struct_libqt_string{
+        const iconText_str = qtc.struct_libqt_string{
             .len = iconText.len,
             .data = @constCast(iconText.ptr),
         };
-        C.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
     }
 
     /// Inherited from QWidget
     ///
-    /// ``` self: ?*C.QWidget, slot: fn (?*C.QWidget, []const u8) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    ///
+    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, iconText: []const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
-        C.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: ?*C.QLineEdit, pos: ?*C.QPoint ```
+    /// ``` self: QtC.QLineEdit, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
     }
 
     /// Inherited from QWidget
     ///
-    /// ``` self: ?*C.QWidget, slot: fn (?*C.QWidget, ?*C.QPoint) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    ///
+    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn InputMethodHints(self: ?*anyopaque) i64 {
-        return C.QWidget_InputMethodHints(@ptrCast(self));
+        return qtc.QWidget_InputMethodHints(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
-    /// ``` self: ?*C.QLineEdit, hints: i32 ```
+    /// ``` self: QtC.QLineEdit, hints: i32 ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
-        C.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QLineEdit, target: ?*C.QPaintDevice, targetOffset: ?*C.QPoint ```
+    /// ``` self: QtC.QLineEdit, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render2(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        C.QWidget_Render2(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QLineEdit, target: ?*C.QPaintDevice, targetOffset: ?*C.QPoint, sourceRegion: ?*C.QRegion ```
+    /// ``` self: QtC.QLineEdit, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        C.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QLineEdit, target: ?*C.QPaintDevice, targetOffset: ?*C.QPoint, sourceRegion: ?*C.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QLineEdit, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
-        C.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QLineEdit, painter: ?*C.QPainter, targetOffset: ?*C.QPoint ```
+    /// ``` self: QtC.QLineEdit, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        C.QWidget_Render22(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QLineEdit, painter: ?*C.QPainter, targetOffset: ?*C.QPoint, sourceRegion: ?*C.QRegion ```
+    /// ``` self: QtC.QLineEdit, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        C.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QLineEdit, painter: ?*C.QPainter, targetOffset: ?*C.QPoint, sourceRegion: ?*C.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QLineEdit, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
-        C.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
-    /// ``` self: ?*C.QLineEdit, rectangle: ?*C.QRect ```
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) ?*C.QPixmap {
-        return C.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    /// ``` self: QtC.QLineEdit, rectangle: QtC.QRect ```
+    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
+        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: ?*C.QLineEdit, typeVal: qnamespace_enums.GestureType, flags: i32 ```
+    /// ``` self: QtC.QLineEdit, typeVal: qnamespace_enums.GestureType, flags: i32 ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
-        C.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
+        qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
-    /// ``` self: ?*C.QLineEdit, key: ?*C.QKeySequence, context: qnamespace_enums.ShortcutContext ```
+    /// ``` self: QtC.QLineEdit, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i64) i32 {
-        return C.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
-    /// ``` self: ?*C.QLineEdit, id: i32, enable: bool ```
+    /// ``` self: QtC.QLineEdit, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        C.QWidget_SetShortcutEnabled2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @intCast(id), enable);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
-    /// ``` self: ?*C.QLineEdit, id: i32, enable: bool ```
+    /// ``` self: QtC.QLineEdit, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        C.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @intCast(id), enable);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: qnamespace_enums.WindowType, on: bool ```
+    /// ``` self: QtC.QLineEdit, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
-        C.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: qnamespace_enums.WidgetAttribute, on: bool ```
+    /// ``` self: QtC.QLineEdit, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i64, on: bool) void {
-        C.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: ?*C.QWindow, parent: ?*C.QWidget ```
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
+    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: ?*C.QWindow, parent: ?*C.QWidget, flags: i32 ```
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) ?*C.QWidget {
-        return C.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
+    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: i32 ```
+    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
+        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QObject_ObjectName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlineedit.ObjectName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3790,102 +3905,102 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: ?*C.QLineEdit, name: []const u8 ```
+    /// ``` self: QtC.QLineEdit, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return C.QObject_IsWidgetType(@ptrCast(self));
+        return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
-        return C.QObject_IsWindowType(@ptrCast(self));
+        return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return C.QObject_IsQuickItemType(@ptrCast(self));
+        return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return C.QObject_SignalsBlocked(@ptrCast(self));
+        return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: ?*C.QLineEdit, b: bool ```
+    /// ``` self: QtC.QLineEdit, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return C.QObject_BlockSignals(@ptrCast(self), b);
+        return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Thread(self: ?*anyopaque) ?*C.QThread {
-        return C.QObject_Thread(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Thread(self: ?*anyopaque) QtC.QThread {
+        return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: ?*C.QLineEdit, thread: ?*C.QThread ```
+    /// ``` self: QtC.QLineEdit, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        C.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QLineEdit, interval: i32 ```
+    /// ``` self: QtC.QLineEdit, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return C.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: ?*C.QLineEdit, id: i32 ```
+    /// ``` self: QtC.QLineEdit, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        C.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QObject {
-        const _arr: C.struct_libqt_list = C.QObject_Children(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QObject, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QObject = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
+    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
+        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qlineedit.Children: Memory allocation failed");
+        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -3896,114 +4011,114 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: ?*C.QLineEdit, filterObj: ?*C.QObject ```
+    /// ``` self: QtC.QLineEdit, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        C.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: ?*C.QLineEdit, obj: ?*C.QObject ```
+    /// ``` self: QtC.QLineEdit, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        C.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod ```
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QLineEdit, sender: ?*C.QObject, signal: []const u8, member: []const u8 ```
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QLineEdit, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, member: ?*C.QMetaMethod ```
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return C.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: ?*C.QMetaObject__Connection ```
+    /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return C.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
-        C.QObject_DumpObjectTree(@ptrCast(self));
+        qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        C.QObject_DumpObjectInfo(@ptrCast(self));
+        qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: ?*C.QLineEdit, name: []const u8, value: ?*C.QVariant ```
+    /// ``` self: QtC.QLineEdit, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: ?*C.QLineEdit, name: []const u8 ```
-    pub fn Property(self: ?*anyopaque, name: []const u8) ?*C.QVariant {
+    /// ``` self: QtC.QLineEdit, name: []const u8 ```
+    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_Property(@ptrCast(self), name_Cstring);
+        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: ?*C.QLineEdit, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLineEdit, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: C.struct_libqt_list = C.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qlineedit.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qlineedit.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -4014,206 +4129,210 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn BindingStorage(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn BindingStorage2(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage2(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Destroyed(self: ?*anyopaque) void {
-        C.QObject_Destroyed(@ptrCast(self));
+        qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Parent(self: ?*anyopaque) ?*C.QObject {
-        return C.QObject_Parent(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Parent(self: ?*anyopaque) QtC.QObject {
+        return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: ?*C.QLineEdit, classname: []const u8 ```
+    /// ``` self: QtC.QLineEdit, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = @constCast(classname.ptr);
-        return C.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn DeleteLater(self: ?*anyopaque) void {
-        C.QObject_DeleteLater(@ptrCast(self));
+        qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QLineEdit, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ``` self: QtC.QLineEdit, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return C.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QLineEdit, sender: ?*C.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QLineEdit, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QLineEdit, param1: ?*C.QObject ```
+    /// ``` self: QtC.QLineEdit, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject, ?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
-        return C.QPaintDevice_PaintingActive(@ptrCast(self));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_WidthMM(@ptrCast(self));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_HeightMM(@ptrCast(self));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_LogicalDpiX(@ptrCast(self));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_LogicalDpiY(@ptrCast(self));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return C.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return C.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_ColorCount(@ptrCast(self));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Depth(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_Depth(@ptrCast(self));
+        return qtc.QPaintDevice_Depth(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
@@ -4222,7 +4341,7 @@ pub const qlineedit = struct {
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
-        return C.QPaintDevice_DevicePixelRatioFScale();
+        return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
 
     /// Inherited from QWidget
@@ -4231,27 +4350,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn DevType(self: ?*anyopaque) i32 {
-        return C.QLineEdit_DevType(@ptrCast(self));
+        return qtc.QLineEdit_DevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return C.QLineEdit_QBaseDevType(@ptrCast(self));
+        return qtc.QLineEdit_QBaseDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QLineEdit, slot: fn () callconv(.c) i32 ```
     pub fn OnDevType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QLineEdit_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4260,27 +4383,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, visible: bool ```
+    /// ``` self: QtC.QLineEdit, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        C.QLineEdit_SetVisible(@ptrCast(self), visible);
+        qtc.QLineEdit_SetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, visible: bool ```
+    /// ``` self: QtC.QLineEdit, visible: bool ```
     pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        C.QLineEdit_QBaseSetVisible(@ptrCast(self), visible);
+        qtc.QLineEdit_QBaseSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, bool) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, visible: bool) callconv(.c) void ```
     pub fn OnSetVisible(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QLineEdit_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4289,27 +4416,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, param1: i32 ```
+    /// ``` self: QtC.QLineEdit, param1: i32 ```
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return C.QLineEdit_HeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QLineEdit_HeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, param1: i32 ```
+    /// ``` self: QtC.QLineEdit, param1: i32 ```
     pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return C.QLineEdit_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QLineEdit_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, i32) callconv(.c) i32 ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: i32) callconv(.c) i32 ```
     pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        C.QLineEdit_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4318,27 +4449,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return C.QLineEdit_HasHeightForWidth(@ptrCast(self));
+        return qtc.QLineEdit_HasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return C.QLineEdit_QBaseHasHeightForWidth(@ptrCast(self));
+        return qtc.QLineEdit_QBaseHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn () callconv(.c) bool ```
+    /// ``` self: QtC.QLineEdit, slot: fn () callconv(.c) bool ```
     pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        C.QLineEdit_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4347,27 +4482,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn PaintEngine(self: ?*anyopaque) ?*C.QPaintEngine {
-        return C.QLineEdit_PaintEngine(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QLineEdit_PaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn QBasePaintEngine(self: ?*anyopaque) ?*C.QPaintEngine {
-        return C.QLineEdit_QBasePaintEngine(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QLineEdit_QBasePaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn () callconv(.c) ?*C.QPaintEngine ```
-    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QPaintEngine) void {
-        C.QLineEdit_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLineEdit, slot: fn () callconv(.c) QtC.QPaintEngine ```
+    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPaintEngine) void {
+        qtc.QLineEdit_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4376,27 +4515,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QWheelEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QWheelEvent ```
     pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_WheelEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_WheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QWheelEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QWheelEvent ```
     pub fn QBaseWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QWheelEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, event: QtC.QWheelEvent) callconv(.c) void ```
     pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4405,27 +4548,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QEnterEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QEnterEvent ```
     pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_EnterEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QEnterEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QEnterEvent ```
     pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QEnterEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, event: QtC.QEnterEvent) callconv(.c) void ```
     pub fn OnEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4434,27 +4581,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QEvent ```
     pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_LeaveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QEvent ```
     pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, event: QtC.QEvent) callconv(.c) void ```
     pub fn OnLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4463,27 +4614,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QMoveEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QMoveEvent ```
     pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_MoveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QMoveEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QMoveEvent ```
     pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QMoveEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, event: QtC.QMoveEvent) callconv(.c) void ```
     pub fn OnMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4492,27 +4647,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QResizeEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_ResizeEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QResizeEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QResizeEvent ```
     pub fn QBaseResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QResizeEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, event: QtC.QResizeEvent) callconv(.c) void ```
     pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4521,27 +4680,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QCloseEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QCloseEvent ```
     pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_CloseEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QCloseEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QCloseEvent ```
     pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QCloseEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, event: QtC.QCloseEvent) callconv(.c) void ```
     pub fn OnCloseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4550,27 +4713,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QTabletEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QTabletEvent ```
     pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_TabletEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QTabletEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QTabletEvent ```
     pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QTabletEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, event: QtC.QTabletEvent) callconv(.c) void ```
     pub fn OnTabletEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4579,27 +4746,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QActionEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QActionEvent ```
     pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_ActionEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QActionEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QActionEvent ```
     pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QActionEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, event: QtC.QActionEvent) callconv(.c) void ```
     pub fn OnActionEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4608,27 +4779,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QShowEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_ShowEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QShowEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QShowEvent ```
     pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QShowEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, event: QtC.QShowEvent) callconv(.c) void ```
     pub fn OnShowEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4637,27 +4812,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QHideEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QHideEvent ```
     pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_HideEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QHideEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QHideEvent ```
     pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QHideEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, event: QtC.QHideEvent) callconv(.c) void ```
     pub fn OnHideEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4666,35 +4845,39 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
+    /// ``` self: QtC.QLineEdit, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
-        const eventType_str = C.struct_libqt_string{
+        const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = @constCast(eventType.ptr),
         };
-        return C.QLineEdit_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QLineEdit_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
+    /// ``` self: QtC.QLineEdit, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
-        const eventType_str = C.struct_libqt_string{
+        const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = @constCast(eventType.ptr),
         };
-        return C.QLineEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QLineEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, []u8, ?*anyopaque, ?*isize) callconv(.c) bool ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, eventType: []u8, message: ?*anyopaque, result: ?*isize) callconv(.c) bool ```
     pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QLineEdit_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4703,27 +4886,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, param1: qpaintdevice_enums.PaintDeviceMetric ```
+    /// ``` self: QtC.QLineEdit, param1: qpaintdevice_enums.PaintDeviceMetric ```
     pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
-        return C.QLineEdit_Metric(@ptrCast(self), @intCast(param1));
+        return qtc.QLineEdit_Metric(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, param1: qpaintdevice_enums.PaintDeviceMetric ```
+    /// ``` self: QtC.QLineEdit, param1: qpaintdevice_enums.PaintDeviceMetric ```
     pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
-        return C.QLineEdit_QBaseMetric(@ptrCast(self), @intCast(param1));
+        return qtc.QLineEdit_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
     pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
-        C.QLineEdit_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4732,27 +4919,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, painter: ?*C.QPainter ```
+    /// ``` self: QtC.QLineEdit, painter: QtC.QPainter ```
     pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        C.QLineEdit_InitPainter(@ptrCast(self), @ptrCast(painter));
+        qtc.QLineEdit_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, painter: ?*C.QPainter ```
+    /// ``` self: QtC.QLineEdit, painter: QtC.QPainter ```
     pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        C.QLineEdit_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+        qtc.QLineEdit_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QPainter) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, painter: QtC.QPainter) callconv(.c) void ```
     pub fn OnInitPainter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4761,27 +4952,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, offset: ?*C.QPoint ```
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) ?*C.QPaintDevice {
-        return C.QLineEdit_Redirected(@ptrCast(self), @ptrCast(offset));
+    /// ``` self: QtC.QLineEdit, offset: QtC.QPoint ```
+    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QLineEdit_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, offset: ?*C.QPoint ```
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) ?*C.QPaintDevice {
-        return C.QLineEdit_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    /// ``` self: QtC.QLineEdit, offset: QtC.QPoint ```
+    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QLineEdit_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QPoint) callconv(.c) ?*C.QPaintDevice ```
-    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) ?*C.QPaintDevice) void {
-        C.QLineEdit_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
+        qtc.QLineEdit_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4790,27 +4985,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn SharedPainter(self: ?*anyopaque) ?*C.QPainter {
-        return C.QLineEdit_SharedPainter(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QLineEdit_SharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn QBaseSharedPainter(self: ?*anyopaque) ?*C.QPainter {
-        return C.QLineEdit_QBaseSharedPainter(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QLineEdit_QBaseSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn () callconv(.c) ?*C.QPainter ```
-    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QPainter) void {
-        C.QLineEdit_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLineEdit, slot: fn () callconv(.c) QtC.QPainter ```
+    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
+        qtc.QLineEdit_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4819,27 +5018,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, next: bool ```
+    /// ``` self: QtC.QLineEdit, next: bool ```
     pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return C.QLineEdit_FocusNextPrevChild(@ptrCast(self), next);
+        return qtc.QLineEdit_FocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, next: bool ```
+    /// ``` self: QtC.QLineEdit, next: bool ```
     pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return C.QLineEdit_QBaseFocusNextPrevChild(@ptrCast(self), next);
+        return qtc.QLineEdit_QBaseFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, bool) callconv(.c) bool ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, next: bool) callconv(.c) bool ```
     pub fn OnFocusNextPrevChild(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        C.QLineEdit_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4848,27 +5051,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QLineEdit, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QLineEdit_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QLineEdit_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QLineEdit, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QLineEdit_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QLineEdit_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QObject, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QLineEdit_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4877,27 +5084,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QChildEvent ```
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_ChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QChildEvent ```
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QChildEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, event: QtC.QChildEvent) callconv(.c) void ```
     pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4906,27 +5117,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QEvent ```
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_CustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, event: ?*C.QEvent ```
+    /// ``` self: QtC.QLineEdit, event: QtC.QEvent ```
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QLineEdit_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QLineEdit_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, event: QtC.QEvent) callconv(.c) void ```
     pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4935,27 +5150,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QLineEdit, signal: QtC.QMetaMethod ```
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QLineEdit_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QLineEdit_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QLineEdit, signal: QtC.QMetaMethod ```
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QLineEdit_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QLineEdit_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -4964,27 +5183,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QLineEdit, signal: QtC.QMetaMethod ```
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QLineEdit_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QLineEdit_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QLineEdit, signal: QtC.QMetaMethod ```
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QLineEdit_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QLineEdit_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QLineEdit_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -4993,27 +5216,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        C.QLineEdit_UpdateMicroFocus(@ptrCast(self));
+        qtc.QLineEdit_UpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        C.QLineEdit_QBaseUpdateMicroFocus(@ptrCast(self));
+        qtc.QLineEdit_QBaseUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn () callconv(.c) void ```
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QLineEdit_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -5022,27 +5249,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Create(self: ?*anyopaque) void {
-        C.QLineEdit_Create(@ptrCast(self));
+        qtc.QLineEdit_Create(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn QBaseCreate(self: ?*anyopaque) void {
-        C.QLineEdit_QBaseCreate(@ptrCast(self));
+        qtc.QLineEdit_QBaseCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn () callconv(.c) void ```
     pub fn OnCreate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QLineEdit_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -5051,27 +5282,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn Destroy(self: ?*anyopaque) void {
-        C.QLineEdit_Destroy(@ptrCast(self));
+        qtc.QLineEdit_Destroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn QBaseDestroy(self: ?*anyopaque) void {
-        C.QLineEdit_QBaseDestroy(@ptrCast(self));
+        qtc.QLineEdit_QBaseDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QLineEdit, slot: fn () callconv(.c) void ```
     pub fn OnDestroy(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QLineEdit_OnDestroy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnDestroy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -5080,27 +5315,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return C.QLineEdit_FocusNextChild(@ptrCast(self));
+        return qtc.QLineEdit_FocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return C.QLineEdit_QBaseFocusNextChild(@ptrCast(self));
+        return qtc.QLineEdit_QBaseFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn () callconv(.c) bool ```
+    /// ``` self: QtC.QLineEdit, slot: fn () callconv(.c) bool ```
     pub fn OnFocusNextChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        C.QLineEdit_OnFocusNextChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnFocusNextChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -5109,27 +5348,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return C.QLineEdit_FocusPreviousChild(@ptrCast(self));
+        return qtc.QLineEdit_FocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return C.QLineEdit_QBaseFocusPreviousChild(@ptrCast(self));
+        return qtc.QLineEdit_QBaseFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn () callconv(.c) bool ```
+    /// ``` self: QtC.QLineEdit, slot: fn () callconv(.c) bool ```
     pub fn OnFocusPreviousChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        C.QLineEdit_OnFocusPreviousChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnFocusPreviousChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5138,27 +5381,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn Sender(self: ?*anyopaque) ?*C.QObject {
-        return C.QLineEdit_Sender(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn Sender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QLineEdit_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
-    pub fn QBaseSender(self: ?*anyopaque) ?*C.QObject {
-        return C.QLineEdit_QBaseSender(@ptrCast(self));
+    /// ``` self: QtC.QLineEdit ```
+    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QLineEdit_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn () callconv(.c) ?*C.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QObject) void {
-        C.QLineEdit_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLineEdit, slot: fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
+        qtc.QLineEdit_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5167,27 +5414,31 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QLineEdit_SenderSignalIndex(@ptrCast(self));
+        return qtc.QLineEdit_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QLineEdit_QBaseSenderSignalIndex(@ptrCast(self));
+        return qtc.QLineEdit_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QLineEdit, slot: fn () callconv(.c) i32 ```
     pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QLineEdit_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5196,29 +5447,33 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, signal: []const u8 ```
+    /// ``` self: QtC.QLineEdit, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QLineEdit_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QLineEdit_Receivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, signal: []const u8 ```
+    /// ``` self: QtC.QLineEdit, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QLineEdit_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QLineEdit_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, []const u8) callconv(.c) i32 ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, signal: []const u8) callconv(.c) i32 ```
     pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
-        C.QLineEdit_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -5227,34 +5482,51 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QLineEdit, signal: QtC.QMetaMethod ```
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QLineEdit_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QLineEdit_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QLineEdit, signal: QtC.QMetaMethod ```
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QLineEdit_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QLineEdit_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QLineEdit, slot: fn (?*C.QLineEdit, ?*C.QMetaMethod) callconv(.c) bool ```
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QLineEdit_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QLineEdit_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    ///
+    /// Wrapper to allow calling private signal
+    ///
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#dtor.QLineEdit)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QLineEdit ```
+    /// ``` self: QtC.QLineEdit ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QLineEdit_Delete(@ptrCast(self));
+        qtc.QLineEdit_Delete(@ptrCast(self));
     }
 };
 

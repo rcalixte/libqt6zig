@@ -7,11 +7,11 @@
 #include "libqwebengineloadinginfo.h"
 #include "libqwebengineloadinginfo.hxx"
 
-QWebEngineLoadingInfo* QWebEngineLoadingInfo_new(QWebEngineLoadingInfo* other) {
+QWebEngineLoadingInfo* QWebEngineLoadingInfo_new(const QWebEngineLoadingInfo* other) {
     return new QWebEngineLoadingInfo(*other);
 }
 
-void QWebEngineLoadingInfo_OperatorAssign(QWebEngineLoadingInfo* self, QWebEngineLoadingInfo* other) {
+void QWebEngineLoadingInfo_OperatorAssign(QWebEngineLoadingInfo* self, const QWebEngineLoadingInfo* other) {
     self->operator=(*other);
 }
 

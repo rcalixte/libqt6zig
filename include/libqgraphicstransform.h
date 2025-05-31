@@ -15,12 +15,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QGraphicsRotation QGraphicsRotation;
@@ -29,11 +24,8 @@ typedef struct QGraphicsTransform QGraphicsTransform;
 typedef struct QMatrix4x4 QMatrix4x4;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 typedef struct QVector3D QVector3D;
 #endif
 
@@ -65,12 +57,12 @@ void QGraphicsTransform_QBaseChildEvent(QGraphicsTransform* self, QChildEvent* e
 void QGraphicsTransform_CustomEvent(QGraphicsTransform* self, QEvent* event);
 void QGraphicsTransform_OnCustomEvent(QGraphicsTransform* self, intptr_t slot);
 void QGraphicsTransform_QBaseCustomEvent(QGraphicsTransform* self, QEvent* event);
-void QGraphicsTransform_ConnectNotify(QGraphicsTransform* self, QMetaMethod* signal);
+void QGraphicsTransform_ConnectNotify(QGraphicsTransform* self, const QMetaMethod* signal);
 void QGraphicsTransform_OnConnectNotify(QGraphicsTransform* self, intptr_t slot);
-void QGraphicsTransform_QBaseConnectNotify(QGraphicsTransform* self, QMetaMethod* signal);
-void QGraphicsTransform_DisconnectNotify(QGraphicsTransform* self, QMetaMethod* signal);
+void QGraphicsTransform_QBaseConnectNotify(QGraphicsTransform* self, const QMetaMethod* signal);
+void QGraphicsTransform_DisconnectNotify(QGraphicsTransform* self, const QMetaMethod* signal);
 void QGraphicsTransform_OnDisconnectNotify(QGraphicsTransform* self, intptr_t slot);
-void QGraphicsTransform_QBaseDisconnectNotify(QGraphicsTransform* self, QMetaMethod* signal);
+void QGraphicsTransform_QBaseDisconnectNotify(QGraphicsTransform* self, const QMetaMethod* signal);
 void QGraphicsTransform_Update(QGraphicsTransform* self);
 void QGraphicsTransform_OnUpdate(QGraphicsTransform* self, intptr_t slot);
 void QGraphicsTransform_QBaseUpdate(QGraphicsTransform* self);
@@ -83,9 +75,9 @@ int QGraphicsTransform_QBaseSenderSignalIndex(const QGraphicsTransform* self);
 int QGraphicsTransform_Receivers(const QGraphicsTransform* self, const char* signal);
 void QGraphicsTransform_OnReceivers(const QGraphicsTransform* self, intptr_t slot);
 int QGraphicsTransform_QBaseReceivers(const QGraphicsTransform* self, const char* signal);
-bool QGraphicsTransform_IsSignalConnected(const QGraphicsTransform* self, QMetaMethod* signal);
+bool QGraphicsTransform_IsSignalConnected(const QGraphicsTransform* self, const QMetaMethod* signal);
 void QGraphicsTransform_OnIsSignalConnected(const QGraphicsTransform* self, intptr_t slot);
-bool QGraphicsTransform_QBaseIsSignalConnected(const QGraphicsTransform* self, QMetaMethod* signal);
+bool QGraphicsTransform_QBaseIsSignalConnected(const QGraphicsTransform* self, const QMetaMethod* signal);
 void QGraphicsTransform_Delete(QGraphicsTransform* self);
 
 QGraphicsScale* QGraphicsScale_new();
@@ -97,7 +89,7 @@ void QGraphicsScale_OnMetacall(QGraphicsScale* self, intptr_t slot);
 int QGraphicsScale_QBaseMetacall(QGraphicsScale* self, int param1, int param2, void** param3);
 libqt_string QGraphicsScale_Tr(const char* s);
 QVector3D* QGraphicsScale_Origin(const QGraphicsScale* self);
-void QGraphicsScale_SetOrigin(QGraphicsScale* self, QVector3D* point);
+void QGraphicsScale_SetOrigin(QGraphicsScale* self, const QVector3D* point);
 double QGraphicsScale_XScale(const QGraphicsScale* self);
 void QGraphicsScale_SetXScale(QGraphicsScale* self, double xScale);
 double QGraphicsScale_YScale(const QGraphicsScale* self);
@@ -134,12 +126,12 @@ void QGraphicsScale_QBaseChildEvent(QGraphicsScale* self, QChildEvent* event);
 void QGraphicsScale_CustomEvent(QGraphicsScale* self, QEvent* event);
 void QGraphicsScale_OnCustomEvent(QGraphicsScale* self, intptr_t slot);
 void QGraphicsScale_QBaseCustomEvent(QGraphicsScale* self, QEvent* event);
-void QGraphicsScale_ConnectNotify(QGraphicsScale* self, QMetaMethod* signal);
+void QGraphicsScale_ConnectNotify(QGraphicsScale* self, const QMetaMethod* signal);
 void QGraphicsScale_OnConnectNotify(QGraphicsScale* self, intptr_t slot);
-void QGraphicsScale_QBaseConnectNotify(QGraphicsScale* self, QMetaMethod* signal);
-void QGraphicsScale_DisconnectNotify(QGraphicsScale* self, QMetaMethod* signal);
+void QGraphicsScale_QBaseConnectNotify(QGraphicsScale* self, const QMetaMethod* signal);
+void QGraphicsScale_DisconnectNotify(QGraphicsScale* self, const QMetaMethod* signal);
 void QGraphicsScale_OnDisconnectNotify(QGraphicsScale* self, intptr_t slot);
-void QGraphicsScale_QBaseDisconnectNotify(QGraphicsScale* self, QMetaMethod* signal);
+void QGraphicsScale_QBaseDisconnectNotify(QGraphicsScale* self, const QMetaMethod* signal);
 void QGraphicsScale_Update(QGraphicsScale* self);
 void QGraphicsScale_OnUpdate(QGraphicsScale* self, intptr_t slot);
 void QGraphicsScale_QBaseUpdate(QGraphicsScale* self);
@@ -152,9 +144,9 @@ int QGraphicsScale_QBaseSenderSignalIndex(const QGraphicsScale* self);
 int QGraphicsScale_Receivers(const QGraphicsScale* self, const char* signal);
 void QGraphicsScale_OnReceivers(const QGraphicsScale* self, intptr_t slot);
 int QGraphicsScale_QBaseReceivers(const QGraphicsScale* self, const char* signal);
-bool QGraphicsScale_IsSignalConnected(const QGraphicsScale* self, QMetaMethod* signal);
+bool QGraphicsScale_IsSignalConnected(const QGraphicsScale* self, const QMetaMethod* signal);
 void QGraphicsScale_OnIsSignalConnected(const QGraphicsScale* self, intptr_t slot);
-bool QGraphicsScale_QBaseIsSignalConnected(const QGraphicsScale* self, QMetaMethod* signal);
+bool QGraphicsScale_QBaseIsSignalConnected(const QGraphicsScale* self, const QMetaMethod* signal);
 void QGraphicsScale_Delete(QGraphicsScale* self);
 
 QGraphicsRotation* QGraphicsRotation_new();
@@ -166,11 +158,11 @@ void QGraphicsRotation_OnMetacall(QGraphicsRotation* self, intptr_t slot);
 int QGraphicsRotation_QBaseMetacall(QGraphicsRotation* self, int param1, int param2, void** param3);
 libqt_string QGraphicsRotation_Tr(const char* s);
 QVector3D* QGraphicsRotation_Origin(const QGraphicsRotation* self);
-void QGraphicsRotation_SetOrigin(QGraphicsRotation* self, QVector3D* point);
+void QGraphicsRotation_SetOrigin(QGraphicsRotation* self, const QVector3D* point);
 double QGraphicsRotation_Angle(const QGraphicsRotation* self);
 void QGraphicsRotation_SetAngle(QGraphicsRotation* self, double angle);
 QVector3D* QGraphicsRotation_Axis(const QGraphicsRotation* self);
-void QGraphicsRotation_SetAxis(QGraphicsRotation* self, QVector3D* axis);
+void QGraphicsRotation_SetAxis(QGraphicsRotation* self, const QVector3D* axis);
 void QGraphicsRotation_SetAxisWithAxis(QGraphicsRotation* self, int axis);
 void QGraphicsRotation_ApplyTo(const QGraphicsRotation* self, QMatrix4x4* matrix);
 void QGraphicsRotation_OnApplyTo(const QGraphicsRotation* self, intptr_t slot);
@@ -198,12 +190,12 @@ void QGraphicsRotation_QBaseChildEvent(QGraphicsRotation* self, QChildEvent* eve
 void QGraphicsRotation_CustomEvent(QGraphicsRotation* self, QEvent* event);
 void QGraphicsRotation_OnCustomEvent(QGraphicsRotation* self, intptr_t slot);
 void QGraphicsRotation_QBaseCustomEvent(QGraphicsRotation* self, QEvent* event);
-void QGraphicsRotation_ConnectNotify(QGraphicsRotation* self, QMetaMethod* signal);
+void QGraphicsRotation_ConnectNotify(QGraphicsRotation* self, const QMetaMethod* signal);
 void QGraphicsRotation_OnConnectNotify(QGraphicsRotation* self, intptr_t slot);
-void QGraphicsRotation_QBaseConnectNotify(QGraphicsRotation* self, QMetaMethod* signal);
-void QGraphicsRotation_DisconnectNotify(QGraphicsRotation* self, QMetaMethod* signal);
+void QGraphicsRotation_QBaseConnectNotify(QGraphicsRotation* self, const QMetaMethod* signal);
+void QGraphicsRotation_DisconnectNotify(QGraphicsRotation* self, const QMetaMethod* signal);
 void QGraphicsRotation_OnDisconnectNotify(QGraphicsRotation* self, intptr_t slot);
-void QGraphicsRotation_QBaseDisconnectNotify(QGraphicsRotation* self, QMetaMethod* signal);
+void QGraphicsRotation_QBaseDisconnectNotify(QGraphicsRotation* self, const QMetaMethod* signal);
 void QGraphicsRotation_Update(QGraphicsRotation* self);
 void QGraphicsRotation_OnUpdate(QGraphicsRotation* self, intptr_t slot);
 void QGraphicsRotation_QBaseUpdate(QGraphicsRotation* self);
@@ -216,9 +208,9 @@ int QGraphicsRotation_QBaseSenderSignalIndex(const QGraphicsRotation* self);
 int QGraphicsRotation_Receivers(const QGraphicsRotation* self, const char* signal);
 void QGraphicsRotation_OnReceivers(const QGraphicsRotation* self, intptr_t slot);
 int QGraphicsRotation_QBaseReceivers(const QGraphicsRotation* self, const char* signal);
-bool QGraphicsRotation_IsSignalConnected(const QGraphicsRotation* self, QMetaMethod* signal);
+bool QGraphicsRotation_IsSignalConnected(const QGraphicsRotation* self, const QMetaMethod* signal);
 void QGraphicsRotation_OnIsSignalConnected(const QGraphicsRotation* self, intptr_t slot);
-bool QGraphicsRotation_QBaseIsSignalConnected(const QGraphicsRotation* self, QMetaMethod* signal);
+bool QGraphicsRotation_QBaseIsSignalConnected(const QGraphicsRotation* self, const QMetaMethod* signal);
 void QGraphicsRotation_Delete(QGraphicsRotation* self);
 
 #ifdef __cplusplus

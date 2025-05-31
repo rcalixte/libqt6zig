@@ -15,25 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSettings QSettings;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
-typedef struct QsciAbstractAPIs QsciAbstractAPIs;
 typedef struct QsciLexer QsciLexer;
 typedef struct QsciLexerCMake QsciLexerCMake;
 typedef struct QsciScintilla QsciScintilla;
@@ -130,21 +121,24 @@ const char* QsciLexerCMake_QBaseWordCharacters(const QsciLexerCMake* self);
 void QsciLexerCMake_SetAutoIndentStyle(QsciLexerCMake* self, int autoindentstyle);
 void QsciLexerCMake_OnSetAutoIndentStyle(QsciLexerCMake* self, intptr_t slot);
 void QsciLexerCMake_QBaseSetAutoIndentStyle(QsciLexerCMake* self, int autoindentstyle);
-void QsciLexerCMake_SetColor(QsciLexerCMake* self, QColor* c, int style);
+void QsciLexerCMake_SetColor(QsciLexerCMake* self, const QColor* c, int style);
 void QsciLexerCMake_OnSetColor(QsciLexerCMake* self, intptr_t slot);
-void QsciLexerCMake_QBaseSetColor(QsciLexerCMake* self, QColor* c, int style);
+void QsciLexerCMake_QBaseSetColor(QsciLexerCMake* self, const QColor* c, int style);
 void QsciLexerCMake_SetEolFill(QsciLexerCMake* self, bool eoffill, int style);
 void QsciLexerCMake_OnSetEolFill(QsciLexerCMake* self, intptr_t slot);
 void QsciLexerCMake_QBaseSetEolFill(QsciLexerCMake* self, bool eoffill, int style);
-void QsciLexerCMake_SetFont(QsciLexerCMake* self, QFont* f, int style);
+void QsciLexerCMake_SetFont(QsciLexerCMake* self, const QFont* f, int style);
 void QsciLexerCMake_OnSetFont(QsciLexerCMake* self, intptr_t slot);
-void QsciLexerCMake_QBaseSetFont(QsciLexerCMake* self, QFont* f, int style);
-void QsciLexerCMake_SetPaper(QsciLexerCMake* self, QColor* c, int style);
+void QsciLexerCMake_QBaseSetFont(QsciLexerCMake* self, const QFont* f, int style);
+void QsciLexerCMake_SetPaper(QsciLexerCMake* self, const QColor* c, int style);
 void QsciLexerCMake_OnSetPaper(QsciLexerCMake* self, intptr_t slot);
-void QsciLexerCMake_QBaseSetPaper(QsciLexerCMake* self, QColor* c, int style);
-bool QsciLexerCMake_ReadProperties(QsciLexerCMake* self, QSettings* qs, libqt_string prefix);
+void QsciLexerCMake_QBaseSetPaper(QsciLexerCMake* self, const QColor* c, int style);
+bool QsciLexerCMake_ReadProperties(QsciLexerCMake* self, QSettings* qs, const libqt_string prefix);
 void QsciLexerCMake_OnReadProperties(QsciLexerCMake* self, intptr_t slot);
-bool QsciLexerCMake_QBaseReadProperties(QsciLexerCMake* self, QSettings* qs, libqt_string prefix);
+bool QsciLexerCMake_QBaseReadProperties(QsciLexerCMake* self, QSettings* qs, const libqt_string prefix);
+bool QsciLexerCMake_WriteProperties(const QsciLexerCMake* self, QSettings* qs, const libqt_string prefix);
+void QsciLexerCMake_OnWriteProperties(const QsciLexerCMake* self, intptr_t slot);
+bool QsciLexerCMake_QBaseWriteProperties(const QsciLexerCMake* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexerCMake_Event(QsciLexerCMake* self, QEvent* event);
 void QsciLexerCMake_OnEvent(QsciLexerCMake* self, intptr_t slot);
 bool QsciLexerCMake_QBaseEvent(QsciLexerCMake* self, QEvent* event);
@@ -160,15 +154,12 @@ void QsciLexerCMake_QBaseChildEvent(QsciLexerCMake* self, QChildEvent* event);
 void QsciLexerCMake_CustomEvent(QsciLexerCMake* self, QEvent* event);
 void QsciLexerCMake_OnCustomEvent(QsciLexerCMake* self, intptr_t slot);
 void QsciLexerCMake_QBaseCustomEvent(QsciLexerCMake* self, QEvent* event);
-void QsciLexerCMake_ConnectNotify(QsciLexerCMake* self, QMetaMethod* signal);
+void QsciLexerCMake_ConnectNotify(QsciLexerCMake* self, const QMetaMethod* signal);
 void QsciLexerCMake_OnConnectNotify(QsciLexerCMake* self, intptr_t slot);
-void QsciLexerCMake_QBaseConnectNotify(QsciLexerCMake* self, QMetaMethod* signal);
-void QsciLexerCMake_DisconnectNotify(QsciLexerCMake* self, QMetaMethod* signal);
+void QsciLexerCMake_QBaseConnectNotify(QsciLexerCMake* self, const QMetaMethod* signal);
+void QsciLexerCMake_DisconnectNotify(QsciLexerCMake* self, const QMetaMethod* signal);
 void QsciLexerCMake_OnDisconnectNotify(QsciLexerCMake* self, intptr_t slot);
-void QsciLexerCMake_QBaseDisconnectNotify(QsciLexerCMake* self, QMetaMethod* signal);
-bool QsciLexerCMake_WriteProperties(const QsciLexerCMake* self, QSettings* qs, libqt_string prefix);
-void QsciLexerCMake_OnWriteProperties(const QsciLexerCMake* self, intptr_t slot);
-bool QsciLexerCMake_QBaseWriteProperties(const QsciLexerCMake* self, QSettings* qs, libqt_string prefix);
+void QsciLexerCMake_QBaseDisconnectNotify(QsciLexerCMake* self, const QMetaMethod* signal);
 QObject* QsciLexerCMake_Sender(const QsciLexerCMake* self);
 void QsciLexerCMake_OnSender(const QsciLexerCMake* self, intptr_t slot);
 QObject* QsciLexerCMake_QBaseSender(const QsciLexerCMake* self);
@@ -178,9 +169,9 @@ int QsciLexerCMake_QBaseSenderSignalIndex(const QsciLexerCMake* self);
 int QsciLexerCMake_Receivers(const QsciLexerCMake* self, const char* signal);
 void QsciLexerCMake_OnReceivers(const QsciLexerCMake* self, intptr_t slot);
 int QsciLexerCMake_QBaseReceivers(const QsciLexerCMake* self, const char* signal);
-bool QsciLexerCMake_IsSignalConnected(const QsciLexerCMake* self, QMetaMethod* signal);
+bool QsciLexerCMake_IsSignalConnected(const QsciLexerCMake* self, const QMetaMethod* signal);
 void QsciLexerCMake_OnIsSignalConnected(const QsciLexerCMake* self, intptr_t slot);
-bool QsciLexerCMake_QBaseIsSignalConnected(const QsciLexerCMake* self, QMetaMethod* signal);
+bool QsciLexerCMake_QBaseIsSignalConnected(const QsciLexerCMake* self, const QMetaMethod* signal);
 void QsciLexerCMake_Delete(QsciLexerCMake* self);
 
 #ifdef __cplusplus

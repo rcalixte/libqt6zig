@@ -15,28 +15,19 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QLayout QLayout;
 typedef struct QLayoutItem QLayoutItem;
-typedef struct QMargins QMargins;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QRect QRect;
 typedef struct QSize QSize;
 typedef struct QSpacerItem QSpacerItem;
 typedef struct QStackedLayout QStackedLayout;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 typedef struct QWidget QWidget;
 #endif
 
@@ -80,9 +71,9 @@ QLayoutItem* QStackedLayout_QBaseItemAt(const QStackedLayout* self, int param1);
 QLayoutItem* QStackedLayout_TakeAt(QStackedLayout* self, int param1);
 void QStackedLayout_OnTakeAt(QStackedLayout* self, intptr_t slot);
 QLayoutItem* QStackedLayout_QBaseTakeAt(QStackedLayout* self, int param1);
-void QStackedLayout_SetGeometry(QStackedLayout* self, QRect* rect);
+void QStackedLayout_SetGeometry(QStackedLayout* self, const QRect* rect);
 void QStackedLayout_OnSetGeometry(QStackedLayout* self, intptr_t slot);
-void QStackedLayout_QBaseSetGeometry(QStackedLayout* self, QRect* rect);
+void QStackedLayout_QBaseSetGeometry(QStackedLayout* self, const QRect* rect);
 bool QStackedLayout_HasHeightForWidth(const QStackedLayout* self);
 void QStackedLayout_OnHasHeightForWidth(const QStackedLayout* self, intptr_t slot);
 bool QStackedLayout_QBaseHasHeightForWidth(const QStackedLayout* self);
@@ -115,10 +106,9 @@ int QStackedLayout_QBaseExpandingDirections(const QStackedLayout* self);
 QSize* QStackedLayout_MaximumSize(const QStackedLayout* self);
 void QStackedLayout_OnMaximumSize(const QStackedLayout* self, intptr_t slot);
 QSize* QStackedLayout_QBaseMaximumSize(const QStackedLayout* self);
-int QStackedLayout_IndexOf(const QStackedLayout* self, QWidget* param1);
+int QStackedLayout_IndexOf(const QStackedLayout* self, const QWidget* param1);
 void QStackedLayout_OnIndexOf(const QStackedLayout* self, intptr_t slot);
-int QStackedLayout_QBaseIndexOf(const QStackedLayout* self, QWidget* param1);
-int QStackedLayout_IndexOfWithQLayoutItem(const QStackedLayout* self, QLayoutItem* param1);
+int QStackedLayout_QBaseIndexOf(const QStackedLayout* self, const QWidget* param1);
 bool QStackedLayout_IsEmpty(const QStackedLayout* self);
 void QStackedLayout_OnIsEmpty(const QStackedLayout* self, intptr_t slot);
 bool QStackedLayout_QBaseIsEmpty(const QStackedLayout* self);
@@ -146,12 +136,12 @@ void QStackedLayout_QBaseTimerEvent(QStackedLayout* self, QTimerEvent* event);
 void QStackedLayout_CustomEvent(QStackedLayout* self, QEvent* event);
 void QStackedLayout_OnCustomEvent(QStackedLayout* self, intptr_t slot);
 void QStackedLayout_QBaseCustomEvent(QStackedLayout* self, QEvent* event);
-void QStackedLayout_ConnectNotify(QStackedLayout* self, QMetaMethod* signal);
+void QStackedLayout_ConnectNotify(QStackedLayout* self, const QMetaMethod* signal);
 void QStackedLayout_OnConnectNotify(QStackedLayout* self, intptr_t slot);
-void QStackedLayout_QBaseConnectNotify(QStackedLayout* self, QMetaMethod* signal);
-void QStackedLayout_DisconnectNotify(QStackedLayout* self, QMetaMethod* signal);
+void QStackedLayout_QBaseConnectNotify(QStackedLayout* self, const QMetaMethod* signal);
+void QStackedLayout_DisconnectNotify(QStackedLayout* self, const QMetaMethod* signal);
 void QStackedLayout_OnDisconnectNotify(QStackedLayout* self, intptr_t slot);
-void QStackedLayout_QBaseDisconnectNotify(QStackedLayout* self, QMetaMethod* signal);
+void QStackedLayout_QBaseDisconnectNotify(QStackedLayout* self, const QMetaMethod* signal);
 int QStackedLayout_MinimumHeightForWidth(const QStackedLayout* self, int param1);
 void QStackedLayout_OnMinimumHeightForWidth(const QStackedLayout* self, intptr_t slot);
 int QStackedLayout_QBaseMinimumHeightForWidth(const QStackedLayout* self, int param1);
@@ -170,9 +160,9 @@ void QStackedLayout_QBaseAddChildWidget(QStackedLayout* self, QWidget* w);
 bool QStackedLayout_AdoptLayout(QStackedLayout* self, QLayout* layout);
 void QStackedLayout_OnAdoptLayout(QStackedLayout* self, intptr_t slot);
 bool QStackedLayout_QBaseAdoptLayout(QStackedLayout* self, QLayout* layout);
-QRect* QStackedLayout_AlignmentRect(const QStackedLayout* self, QRect* param1);
+QRect* QStackedLayout_AlignmentRect(const QStackedLayout* self, const QRect* param1);
 void QStackedLayout_OnAlignmentRect(const QStackedLayout* self, intptr_t slot);
-QRect* QStackedLayout_QBaseAlignmentRect(const QStackedLayout* self, QRect* param1);
+QRect* QStackedLayout_QBaseAlignmentRect(const QStackedLayout* self, const QRect* param1);
 QObject* QStackedLayout_Sender(const QStackedLayout* self);
 void QStackedLayout_OnSender(const QStackedLayout* self, intptr_t slot);
 QObject* QStackedLayout_QBaseSender(const QStackedLayout* self);
@@ -182,9 +172,9 @@ int QStackedLayout_QBaseSenderSignalIndex(const QStackedLayout* self);
 int QStackedLayout_Receivers(const QStackedLayout* self, const char* signal);
 void QStackedLayout_OnReceivers(const QStackedLayout* self, intptr_t slot);
 int QStackedLayout_QBaseReceivers(const QStackedLayout* self, const char* signal);
-bool QStackedLayout_IsSignalConnected(const QStackedLayout* self, QMetaMethod* signal);
+bool QStackedLayout_IsSignalConnected(const QStackedLayout* self, const QMetaMethod* signal);
 void QStackedLayout_OnIsSignalConnected(const QStackedLayout* self, intptr_t slot);
-bool QStackedLayout_QBaseIsSignalConnected(const QStackedLayout* self, QMetaMethod* signal);
+bool QStackedLayout_QBaseIsSignalConnected(const QStackedLayout* self, const QMetaMethod* signal);
 void QStackedLayout_Delete(QStackedLayout* self);
 
 #ifdef __cplusplus

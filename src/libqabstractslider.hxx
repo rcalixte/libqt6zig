@@ -11,12 +11,15 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QAbstractSlider so that we can call protected methods
-class VirtualQAbstractSlider : public QAbstractSlider {
+class VirtualQAbstractSlider final : public QAbstractSlider {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQAbstractSlider = true;
+
     // Virtual class public types (including callbacks)
     using QAbstractSlider::SliderChange;
-    using QAbstractSlider_Metacall_Callback = int (*)(QAbstractSlider*, QMetaObject::Call, int, void**);
+    using QAbstractSlider_Metacall_Callback = int (*)(QAbstractSlider*, int, int, void**);
     using QAbstractSlider_Event_Callback = bool (*)(QAbstractSlider*, QEvent*);
     using QAbstractSlider_SliderChange_Callback = void (*)(QAbstractSlider*, int);
     using QAbstractSlider_KeyPressEvent_Callback = void (*)(QAbstractSlider*, QKeyEvent*);
@@ -25,8 +28,8 @@ class VirtualQAbstractSlider : public QAbstractSlider {
     using QAbstractSlider_ChangeEvent_Callback = void (*)(QAbstractSlider*, QEvent*);
     using QAbstractSlider_DevType_Callback = int (*)();
     using QAbstractSlider_SetVisible_Callback = void (*)(QAbstractSlider*, bool);
-    using QAbstractSlider_SizeHint_Callback = QSize (*)();
-    using QAbstractSlider_MinimumSizeHint_Callback = QSize (*)();
+    using QAbstractSlider_SizeHint_Callback = QSize* (*)();
+    using QAbstractSlider_MinimumSizeHint_Callback = QSize* (*)();
     using QAbstractSlider_HeightForWidth_Callback = int (*)(const QAbstractSlider*, int);
     using QAbstractSlider_HasHeightForWidth_Callback = bool (*)();
     using QAbstractSlider_PaintEngine_Callback = QPaintEngine* (*)();
@@ -52,23 +55,23 @@ class VirtualQAbstractSlider : public QAbstractSlider {
     using QAbstractSlider_DropEvent_Callback = void (*)(QAbstractSlider*, QDropEvent*);
     using QAbstractSlider_ShowEvent_Callback = void (*)(QAbstractSlider*, QShowEvent*);
     using QAbstractSlider_HideEvent_Callback = void (*)(QAbstractSlider*, QHideEvent*);
-    using QAbstractSlider_NativeEvent_Callback = bool (*)(QAbstractSlider*, const QByteArray&, void*, qintptr*);
-    using QAbstractSlider_Metric_Callback = int (*)(const QAbstractSlider*, QPaintDevice::PaintDeviceMetric);
+    using QAbstractSlider_NativeEvent_Callback = bool (*)(QAbstractSlider*, libqt_string, void*, intptr_t*);
+    using QAbstractSlider_Metric_Callback = int (*)(const QAbstractSlider*, int);
     using QAbstractSlider_InitPainter_Callback = void (*)(const QAbstractSlider*, QPainter*);
     using QAbstractSlider_Redirected_Callback = QPaintDevice* (*)(const QAbstractSlider*, QPoint*);
     using QAbstractSlider_SharedPainter_Callback = QPainter* (*)();
     using QAbstractSlider_InputMethodEvent_Callback = void (*)(QAbstractSlider*, QInputMethodEvent*);
-    using QAbstractSlider_InputMethodQuery_Callback = QVariant (*)(const QAbstractSlider*, Qt::InputMethodQuery);
+    using QAbstractSlider_InputMethodQuery_Callback = QVariant* (*)(const QAbstractSlider*, int);
     using QAbstractSlider_FocusNextPrevChild_Callback = bool (*)(QAbstractSlider*, bool);
     using QAbstractSlider_EventFilter_Callback = bool (*)(QAbstractSlider*, QObject*, QEvent*);
     using QAbstractSlider_ChildEvent_Callback = void (*)(QAbstractSlider*, QChildEvent*);
     using QAbstractSlider_CustomEvent_Callback = void (*)(QAbstractSlider*, QEvent*);
-    using QAbstractSlider_ConnectNotify_Callback = void (*)(QAbstractSlider*, const QMetaMethod&);
-    using QAbstractSlider_DisconnectNotify_Callback = void (*)(QAbstractSlider*, const QMetaMethod&);
-    using QAbstractSlider_SetRepeatAction_Callback = void (*)(QAbstractSlider*, QAbstractSlider::SliderAction);
-    using QAbstractSlider_RepeatAction_Callback = QAbstractSlider::SliderAction (*)();
-    using QAbstractSlider_SetRepeatAction2_Callback = void (*)(QAbstractSlider*, QAbstractSlider::SliderAction, int);
-    using QAbstractSlider_SetRepeatAction3_Callback = void (*)(QAbstractSlider*, QAbstractSlider::SliderAction, int, int);
+    using QAbstractSlider_ConnectNotify_Callback = void (*)(QAbstractSlider*, QMetaMethod*);
+    using QAbstractSlider_DisconnectNotify_Callback = void (*)(QAbstractSlider*, QMetaMethod*);
+    using QAbstractSlider_SetRepeatAction_Callback = void (*)(QAbstractSlider*, int);
+    using QAbstractSlider_RepeatAction_Callback = int (*)();
+    using QAbstractSlider_SetRepeatAction2_Callback = void (*)(QAbstractSlider*, int, int);
+    using QAbstractSlider_SetRepeatAction3_Callback = void (*)(QAbstractSlider*, int, int, int);
     using QAbstractSlider_UpdateMicroFocus_Callback = void (*)();
     using QAbstractSlider_Create_Callback = void (*)();
     using QAbstractSlider_Destroy_Callback = void (*)();
@@ -77,7 +80,7 @@ class VirtualQAbstractSlider : public QAbstractSlider {
     using QAbstractSlider_Sender_Callback = QObject* (*)();
     using QAbstractSlider_SenderSignalIndex_Callback = int (*)();
     using QAbstractSlider_Receivers_Callback = int (*)(const QAbstractSlider*, const char*);
-    using QAbstractSlider_IsSignalConnected_Callback = bool (*)(const QAbstractSlider*, const QMetaMethod&);
+    using QAbstractSlider_IsSignalConnected_Callback = bool (*)(const QAbstractSlider*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -278,132 +281,132 @@ class VirtualQAbstractSlider : public QAbstractSlider {
     }
 
     // Callback setters
-    void setQAbstractSlider_Metacall_Callback(QAbstractSlider_Metacall_Callback cb) { qabstractslider_metacall_callback = cb; }
-    void setQAbstractSlider_Event_Callback(QAbstractSlider_Event_Callback cb) { qabstractslider_event_callback = cb; }
-    void setQAbstractSlider_SliderChange_Callback(QAbstractSlider_SliderChange_Callback cb) { qabstractslider_sliderchange_callback = cb; }
-    void setQAbstractSlider_KeyPressEvent_Callback(QAbstractSlider_KeyPressEvent_Callback cb) { qabstractslider_keypressevent_callback = cb; }
-    void setQAbstractSlider_TimerEvent_Callback(QAbstractSlider_TimerEvent_Callback cb) { qabstractslider_timerevent_callback = cb; }
-    void setQAbstractSlider_WheelEvent_Callback(QAbstractSlider_WheelEvent_Callback cb) { qabstractslider_wheelevent_callback = cb; }
-    void setQAbstractSlider_ChangeEvent_Callback(QAbstractSlider_ChangeEvent_Callback cb) { qabstractslider_changeevent_callback = cb; }
-    void setQAbstractSlider_DevType_Callback(QAbstractSlider_DevType_Callback cb) { qabstractslider_devtype_callback = cb; }
-    void setQAbstractSlider_SetVisible_Callback(QAbstractSlider_SetVisible_Callback cb) { qabstractslider_setvisible_callback = cb; }
-    void setQAbstractSlider_SizeHint_Callback(QAbstractSlider_SizeHint_Callback cb) { qabstractslider_sizehint_callback = cb; }
-    void setQAbstractSlider_MinimumSizeHint_Callback(QAbstractSlider_MinimumSizeHint_Callback cb) { qabstractslider_minimumsizehint_callback = cb; }
-    void setQAbstractSlider_HeightForWidth_Callback(QAbstractSlider_HeightForWidth_Callback cb) { qabstractslider_heightforwidth_callback = cb; }
-    void setQAbstractSlider_HasHeightForWidth_Callback(QAbstractSlider_HasHeightForWidth_Callback cb) { qabstractslider_hasheightforwidth_callback = cb; }
-    void setQAbstractSlider_PaintEngine_Callback(QAbstractSlider_PaintEngine_Callback cb) { qabstractslider_paintengine_callback = cb; }
-    void setQAbstractSlider_MousePressEvent_Callback(QAbstractSlider_MousePressEvent_Callback cb) { qabstractslider_mousepressevent_callback = cb; }
-    void setQAbstractSlider_MouseReleaseEvent_Callback(QAbstractSlider_MouseReleaseEvent_Callback cb) { qabstractslider_mousereleaseevent_callback = cb; }
-    void setQAbstractSlider_MouseDoubleClickEvent_Callback(QAbstractSlider_MouseDoubleClickEvent_Callback cb) { qabstractslider_mousedoubleclickevent_callback = cb; }
-    void setQAbstractSlider_MouseMoveEvent_Callback(QAbstractSlider_MouseMoveEvent_Callback cb) { qabstractslider_mousemoveevent_callback = cb; }
-    void setQAbstractSlider_KeyReleaseEvent_Callback(QAbstractSlider_KeyReleaseEvent_Callback cb) { qabstractslider_keyreleaseevent_callback = cb; }
-    void setQAbstractSlider_FocusInEvent_Callback(QAbstractSlider_FocusInEvent_Callback cb) { qabstractslider_focusinevent_callback = cb; }
-    void setQAbstractSlider_FocusOutEvent_Callback(QAbstractSlider_FocusOutEvent_Callback cb) { qabstractslider_focusoutevent_callback = cb; }
-    void setQAbstractSlider_EnterEvent_Callback(QAbstractSlider_EnterEvent_Callback cb) { qabstractslider_enterevent_callback = cb; }
-    void setQAbstractSlider_LeaveEvent_Callback(QAbstractSlider_LeaveEvent_Callback cb) { qabstractslider_leaveevent_callback = cb; }
-    void setQAbstractSlider_PaintEvent_Callback(QAbstractSlider_PaintEvent_Callback cb) { qabstractslider_paintevent_callback = cb; }
-    void setQAbstractSlider_MoveEvent_Callback(QAbstractSlider_MoveEvent_Callback cb) { qabstractslider_moveevent_callback = cb; }
-    void setQAbstractSlider_ResizeEvent_Callback(QAbstractSlider_ResizeEvent_Callback cb) { qabstractslider_resizeevent_callback = cb; }
-    void setQAbstractSlider_CloseEvent_Callback(QAbstractSlider_CloseEvent_Callback cb) { qabstractslider_closeevent_callback = cb; }
-    void setQAbstractSlider_ContextMenuEvent_Callback(QAbstractSlider_ContextMenuEvent_Callback cb) { qabstractslider_contextmenuevent_callback = cb; }
-    void setQAbstractSlider_TabletEvent_Callback(QAbstractSlider_TabletEvent_Callback cb) { qabstractslider_tabletevent_callback = cb; }
-    void setQAbstractSlider_ActionEvent_Callback(QAbstractSlider_ActionEvent_Callback cb) { qabstractslider_actionevent_callback = cb; }
-    void setQAbstractSlider_DragEnterEvent_Callback(QAbstractSlider_DragEnterEvent_Callback cb) { qabstractslider_dragenterevent_callback = cb; }
-    void setQAbstractSlider_DragMoveEvent_Callback(QAbstractSlider_DragMoveEvent_Callback cb) { qabstractslider_dragmoveevent_callback = cb; }
-    void setQAbstractSlider_DragLeaveEvent_Callback(QAbstractSlider_DragLeaveEvent_Callback cb) { qabstractslider_dragleaveevent_callback = cb; }
-    void setQAbstractSlider_DropEvent_Callback(QAbstractSlider_DropEvent_Callback cb) { qabstractslider_dropevent_callback = cb; }
-    void setQAbstractSlider_ShowEvent_Callback(QAbstractSlider_ShowEvent_Callback cb) { qabstractslider_showevent_callback = cb; }
-    void setQAbstractSlider_HideEvent_Callback(QAbstractSlider_HideEvent_Callback cb) { qabstractslider_hideevent_callback = cb; }
-    void setQAbstractSlider_NativeEvent_Callback(QAbstractSlider_NativeEvent_Callback cb) { qabstractslider_nativeevent_callback = cb; }
-    void setQAbstractSlider_Metric_Callback(QAbstractSlider_Metric_Callback cb) { qabstractslider_metric_callback = cb; }
-    void setQAbstractSlider_InitPainter_Callback(QAbstractSlider_InitPainter_Callback cb) { qabstractslider_initpainter_callback = cb; }
-    void setQAbstractSlider_Redirected_Callback(QAbstractSlider_Redirected_Callback cb) { qabstractslider_redirected_callback = cb; }
-    void setQAbstractSlider_SharedPainter_Callback(QAbstractSlider_SharedPainter_Callback cb) { qabstractslider_sharedpainter_callback = cb; }
-    void setQAbstractSlider_InputMethodEvent_Callback(QAbstractSlider_InputMethodEvent_Callback cb) { qabstractslider_inputmethodevent_callback = cb; }
-    void setQAbstractSlider_InputMethodQuery_Callback(QAbstractSlider_InputMethodQuery_Callback cb) { qabstractslider_inputmethodquery_callback = cb; }
-    void setQAbstractSlider_FocusNextPrevChild_Callback(QAbstractSlider_FocusNextPrevChild_Callback cb) { qabstractslider_focusnextprevchild_callback = cb; }
-    void setQAbstractSlider_EventFilter_Callback(QAbstractSlider_EventFilter_Callback cb) { qabstractslider_eventfilter_callback = cb; }
-    void setQAbstractSlider_ChildEvent_Callback(QAbstractSlider_ChildEvent_Callback cb) { qabstractslider_childevent_callback = cb; }
-    void setQAbstractSlider_CustomEvent_Callback(QAbstractSlider_CustomEvent_Callback cb) { qabstractslider_customevent_callback = cb; }
-    void setQAbstractSlider_ConnectNotify_Callback(QAbstractSlider_ConnectNotify_Callback cb) { qabstractslider_connectnotify_callback = cb; }
-    void setQAbstractSlider_DisconnectNotify_Callback(QAbstractSlider_DisconnectNotify_Callback cb) { qabstractslider_disconnectnotify_callback = cb; }
-    void setQAbstractSlider_SetRepeatAction_Callback(QAbstractSlider_SetRepeatAction_Callback cb) { qabstractslider_setrepeataction_callback = cb; }
-    void setQAbstractSlider_RepeatAction_Callback(QAbstractSlider_RepeatAction_Callback cb) { qabstractslider_repeataction_callback = cb; }
-    void setQAbstractSlider_SetRepeatAction2_Callback(QAbstractSlider_SetRepeatAction2_Callback cb) { qabstractslider_setrepeataction2_callback = cb; }
-    void setQAbstractSlider_SetRepeatAction3_Callback(QAbstractSlider_SetRepeatAction3_Callback cb) { qabstractslider_setrepeataction3_callback = cb; }
-    void setQAbstractSlider_UpdateMicroFocus_Callback(QAbstractSlider_UpdateMicroFocus_Callback cb) { qabstractslider_updatemicrofocus_callback = cb; }
-    void setQAbstractSlider_Create_Callback(QAbstractSlider_Create_Callback cb) { qabstractslider_create_callback = cb; }
-    void setQAbstractSlider_Destroy_Callback(QAbstractSlider_Destroy_Callback cb) { qabstractslider_destroy_callback = cb; }
-    void setQAbstractSlider_FocusNextChild_Callback(QAbstractSlider_FocusNextChild_Callback cb) { qabstractslider_focusnextchild_callback = cb; }
-    void setQAbstractSlider_FocusPreviousChild_Callback(QAbstractSlider_FocusPreviousChild_Callback cb) { qabstractslider_focuspreviouschild_callback = cb; }
-    void setQAbstractSlider_Sender_Callback(QAbstractSlider_Sender_Callback cb) { qabstractslider_sender_callback = cb; }
-    void setQAbstractSlider_SenderSignalIndex_Callback(QAbstractSlider_SenderSignalIndex_Callback cb) { qabstractslider_sendersignalindex_callback = cb; }
-    void setQAbstractSlider_Receivers_Callback(QAbstractSlider_Receivers_Callback cb) { qabstractslider_receivers_callback = cb; }
-    void setQAbstractSlider_IsSignalConnected_Callback(QAbstractSlider_IsSignalConnected_Callback cb) { qabstractslider_issignalconnected_callback = cb; }
+    inline void setQAbstractSlider_Metacall_Callback(QAbstractSlider_Metacall_Callback cb) { qabstractslider_metacall_callback = cb; }
+    inline void setQAbstractSlider_Event_Callback(QAbstractSlider_Event_Callback cb) { qabstractslider_event_callback = cb; }
+    inline void setQAbstractSlider_SliderChange_Callback(QAbstractSlider_SliderChange_Callback cb) { qabstractslider_sliderchange_callback = cb; }
+    inline void setQAbstractSlider_KeyPressEvent_Callback(QAbstractSlider_KeyPressEvent_Callback cb) { qabstractslider_keypressevent_callback = cb; }
+    inline void setQAbstractSlider_TimerEvent_Callback(QAbstractSlider_TimerEvent_Callback cb) { qabstractslider_timerevent_callback = cb; }
+    inline void setQAbstractSlider_WheelEvent_Callback(QAbstractSlider_WheelEvent_Callback cb) { qabstractslider_wheelevent_callback = cb; }
+    inline void setQAbstractSlider_ChangeEvent_Callback(QAbstractSlider_ChangeEvent_Callback cb) { qabstractslider_changeevent_callback = cb; }
+    inline void setQAbstractSlider_DevType_Callback(QAbstractSlider_DevType_Callback cb) { qabstractslider_devtype_callback = cb; }
+    inline void setQAbstractSlider_SetVisible_Callback(QAbstractSlider_SetVisible_Callback cb) { qabstractslider_setvisible_callback = cb; }
+    inline void setQAbstractSlider_SizeHint_Callback(QAbstractSlider_SizeHint_Callback cb) { qabstractslider_sizehint_callback = cb; }
+    inline void setQAbstractSlider_MinimumSizeHint_Callback(QAbstractSlider_MinimumSizeHint_Callback cb) { qabstractslider_minimumsizehint_callback = cb; }
+    inline void setQAbstractSlider_HeightForWidth_Callback(QAbstractSlider_HeightForWidth_Callback cb) { qabstractslider_heightforwidth_callback = cb; }
+    inline void setQAbstractSlider_HasHeightForWidth_Callback(QAbstractSlider_HasHeightForWidth_Callback cb) { qabstractslider_hasheightforwidth_callback = cb; }
+    inline void setQAbstractSlider_PaintEngine_Callback(QAbstractSlider_PaintEngine_Callback cb) { qabstractslider_paintengine_callback = cb; }
+    inline void setQAbstractSlider_MousePressEvent_Callback(QAbstractSlider_MousePressEvent_Callback cb) { qabstractslider_mousepressevent_callback = cb; }
+    inline void setQAbstractSlider_MouseReleaseEvent_Callback(QAbstractSlider_MouseReleaseEvent_Callback cb) { qabstractslider_mousereleaseevent_callback = cb; }
+    inline void setQAbstractSlider_MouseDoubleClickEvent_Callback(QAbstractSlider_MouseDoubleClickEvent_Callback cb) { qabstractslider_mousedoubleclickevent_callback = cb; }
+    inline void setQAbstractSlider_MouseMoveEvent_Callback(QAbstractSlider_MouseMoveEvent_Callback cb) { qabstractslider_mousemoveevent_callback = cb; }
+    inline void setQAbstractSlider_KeyReleaseEvent_Callback(QAbstractSlider_KeyReleaseEvent_Callback cb) { qabstractslider_keyreleaseevent_callback = cb; }
+    inline void setQAbstractSlider_FocusInEvent_Callback(QAbstractSlider_FocusInEvent_Callback cb) { qabstractslider_focusinevent_callback = cb; }
+    inline void setQAbstractSlider_FocusOutEvent_Callback(QAbstractSlider_FocusOutEvent_Callback cb) { qabstractslider_focusoutevent_callback = cb; }
+    inline void setQAbstractSlider_EnterEvent_Callback(QAbstractSlider_EnterEvent_Callback cb) { qabstractslider_enterevent_callback = cb; }
+    inline void setQAbstractSlider_LeaveEvent_Callback(QAbstractSlider_LeaveEvent_Callback cb) { qabstractslider_leaveevent_callback = cb; }
+    inline void setQAbstractSlider_PaintEvent_Callback(QAbstractSlider_PaintEvent_Callback cb) { qabstractslider_paintevent_callback = cb; }
+    inline void setQAbstractSlider_MoveEvent_Callback(QAbstractSlider_MoveEvent_Callback cb) { qabstractslider_moveevent_callback = cb; }
+    inline void setQAbstractSlider_ResizeEvent_Callback(QAbstractSlider_ResizeEvent_Callback cb) { qabstractslider_resizeevent_callback = cb; }
+    inline void setQAbstractSlider_CloseEvent_Callback(QAbstractSlider_CloseEvent_Callback cb) { qabstractslider_closeevent_callback = cb; }
+    inline void setQAbstractSlider_ContextMenuEvent_Callback(QAbstractSlider_ContextMenuEvent_Callback cb) { qabstractslider_contextmenuevent_callback = cb; }
+    inline void setQAbstractSlider_TabletEvent_Callback(QAbstractSlider_TabletEvent_Callback cb) { qabstractslider_tabletevent_callback = cb; }
+    inline void setQAbstractSlider_ActionEvent_Callback(QAbstractSlider_ActionEvent_Callback cb) { qabstractslider_actionevent_callback = cb; }
+    inline void setQAbstractSlider_DragEnterEvent_Callback(QAbstractSlider_DragEnterEvent_Callback cb) { qabstractslider_dragenterevent_callback = cb; }
+    inline void setQAbstractSlider_DragMoveEvent_Callback(QAbstractSlider_DragMoveEvent_Callback cb) { qabstractslider_dragmoveevent_callback = cb; }
+    inline void setQAbstractSlider_DragLeaveEvent_Callback(QAbstractSlider_DragLeaveEvent_Callback cb) { qabstractslider_dragleaveevent_callback = cb; }
+    inline void setQAbstractSlider_DropEvent_Callback(QAbstractSlider_DropEvent_Callback cb) { qabstractslider_dropevent_callback = cb; }
+    inline void setQAbstractSlider_ShowEvent_Callback(QAbstractSlider_ShowEvent_Callback cb) { qabstractslider_showevent_callback = cb; }
+    inline void setQAbstractSlider_HideEvent_Callback(QAbstractSlider_HideEvent_Callback cb) { qabstractslider_hideevent_callback = cb; }
+    inline void setQAbstractSlider_NativeEvent_Callback(QAbstractSlider_NativeEvent_Callback cb) { qabstractslider_nativeevent_callback = cb; }
+    inline void setQAbstractSlider_Metric_Callback(QAbstractSlider_Metric_Callback cb) { qabstractslider_metric_callback = cb; }
+    inline void setQAbstractSlider_InitPainter_Callback(QAbstractSlider_InitPainter_Callback cb) { qabstractslider_initpainter_callback = cb; }
+    inline void setQAbstractSlider_Redirected_Callback(QAbstractSlider_Redirected_Callback cb) { qabstractslider_redirected_callback = cb; }
+    inline void setQAbstractSlider_SharedPainter_Callback(QAbstractSlider_SharedPainter_Callback cb) { qabstractslider_sharedpainter_callback = cb; }
+    inline void setQAbstractSlider_InputMethodEvent_Callback(QAbstractSlider_InputMethodEvent_Callback cb) { qabstractslider_inputmethodevent_callback = cb; }
+    inline void setQAbstractSlider_InputMethodQuery_Callback(QAbstractSlider_InputMethodQuery_Callback cb) { qabstractslider_inputmethodquery_callback = cb; }
+    inline void setQAbstractSlider_FocusNextPrevChild_Callback(QAbstractSlider_FocusNextPrevChild_Callback cb) { qabstractslider_focusnextprevchild_callback = cb; }
+    inline void setQAbstractSlider_EventFilter_Callback(QAbstractSlider_EventFilter_Callback cb) { qabstractslider_eventfilter_callback = cb; }
+    inline void setQAbstractSlider_ChildEvent_Callback(QAbstractSlider_ChildEvent_Callback cb) { qabstractslider_childevent_callback = cb; }
+    inline void setQAbstractSlider_CustomEvent_Callback(QAbstractSlider_CustomEvent_Callback cb) { qabstractslider_customevent_callback = cb; }
+    inline void setQAbstractSlider_ConnectNotify_Callback(QAbstractSlider_ConnectNotify_Callback cb) { qabstractslider_connectnotify_callback = cb; }
+    inline void setQAbstractSlider_DisconnectNotify_Callback(QAbstractSlider_DisconnectNotify_Callback cb) { qabstractslider_disconnectnotify_callback = cb; }
+    inline void setQAbstractSlider_SetRepeatAction_Callback(QAbstractSlider_SetRepeatAction_Callback cb) { qabstractslider_setrepeataction_callback = cb; }
+    inline void setQAbstractSlider_RepeatAction_Callback(QAbstractSlider_RepeatAction_Callback cb) { qabstractslider_repeataction_callback = cb; }
+    inline void setQAbstractSlider_SetRepeatAction2_Callback(QAbstractSlider_SetRepeatAction2_Callback cb) { qabstractslider_setrepeataction2_callback = cb; }
+    inline void setQAbstractSlider_SetRepeatAction3_Callback(QAbstractSlider_SetRepeatAction3_Callback cb) { qabstractslider_setrepeataction3_callback = cb; }
+    inline void setQAbstractSlider_UpdateMicroFocus_Callback(QAbstractSlider_UpdateMicroFocus_Callback cb) { qabstractslider_updatemicrofocus_callback = cb; }
+    inline void setQAbstractSlider_Create_Callback(QAbstractSlider_Create_Callback cb) { qabstractslider_create_callback = cb; }
+    inline void setQAbstractSlider_Destroy_Callback(QAbstractSlider_Destroy_Callback cb) { qabstractslider_destroy_callback = cb; }
+    inline void setQAbstractSlider_FocusNextChild_Callback(QAbstractSlider_FocusNextChild_Callback cb) { qabstractslider_focusnextchild_callback = cb; }
+    inline void setQAbstractSlider_FocusPreviousChild_Callback(QAbstractSlider_FocusPreviousChild_Callback cb) { qabstractslider_focuspreviouschild_callback = cb; }
+    inline void setQAbstractSlider_Sender_Callback(QAbstractSlider_Sender_Callback cb) { qabstractslider_sender_callback = cb; }
+    inline void setQAbstractSlider_SenderSignalIndex_Callback(QAbstractSlider_SenderSignalIndex_Callback cb) { qabstractslider_sendersignalindex_callback = cb; }
+    inline void setQAbstractSlider_Receivers_Callback(QAbstractSlider_Receivers_Callback cb) { qabstractslider_receivers_callback = cb; }
+    inline void setQAbstractSlider_IsSignalConnected_Callback(QAbstractSlider_IsSignalConnected_Callback cb) { qabstractslider_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQAbstractSlider_Metacall_IsBase(bool value) const { qabstractslider_metacall_isbase = value; }
-    void setQAbstractSlider_Event_IsBase(bool value) const { qabstractslider_event_isbase = value; }
-    void setQAbstractSlider_SliderChange_IsBase(bool value) const { qabstractslider_sliderchange_isbase = value; }
-    void setQAbstractSlider_KeyPressEvent_IsBase(bool value) const { qabstractslider_keypressevent_isbase = value; }
-    void setQAbstractSlider_TimerEvent_IsBase(bool value) const { qabstractslider_timerevent_isbase = value; }
-    void setQAbstractSlider_WheelEvent_IsBase(bool value) const { qabstractslider_wheelevent_isbase = value; }
-    void setQAbstractSlider_ChangeEvent_IsBase(bool value) const { qabstractslider_changeevent_isbase = value; }
-    void setQAbstractSlider_DevType_IsBase(bool value) const { qabstractslider_devtype_isbase = value; }
-    void setQAbstractSlider_SetVisible_IsBase(bool value) const { qabstractslider_setvisible_isbase = value; }
-    void setQAbstractSlider_SizeHint_IsBase(bool value) const { qabstractslider_sizehint_isbase = value; }
-    void setQAbstractSlider_MinimumSizeHint_IsBase(bool value) const { qabstractslider_minimumsizehint_isbase = value; }
-    void setQAbstractSlider_HeightForWidth_IsBase(bool value) const { qabstractslider_heightforwidth_isbase = value; }
-    void setQAbstractSlider_HasHeightForWidth_IsBase(bool value) const { qabstractslider_hasheightforwidth_isbase = value; }
-    void setQAbstractSlider_PaintEngine_IsBase(bool value) const { qabstractslider_paintengine_isbase = value; }
-    void setQAbstractSlider_MousePressEvent_IsBase(bool value) const { qabstractslider_mousepressevent_isbase = value; }
-    void setQAbstractSlider_MouseReleaseEvent_IsBase(bool value) const { qabstractslider_mousereleaseevent_isbase = value; }
-    void setQAbstractSlider_MouseDoubleClickEvent_IsBase(bool value) const { qabstractslider_mousedoubleclickevent_isbase = value; }
-    void setQAbstractSlider_MouseMoveEvent_IsBase(bool value) const { qabstractslider_mousemoveevent_isbase = value; }
-    void setQAbstractSlider_KeyReleaseEvent_IsBase(bool value) const { qabstractslider_keyreleaseevent_isbase = value; }
-    void setQAbstractSlider_FocusInEvent_IsBase(bool value) const { qabstractslider_focusinevent_isbase = value; }
-    void setQAbstractSlider_FocusOutEvent_IsBase(bool value) const { qabstractslider_focusoutevent_isbase = value; }
-    void setQAbstractSlider_EnterEvent_IsBase(bool value) const { qabstractslider_enterevent_isbase = value; }
-    void setQAbstractSlider_LeaveEvent_IsBase(bool value) const { qabstractslider_leaveevent_isbase = value; }
-    void setQAbstractSlider_PaintEvent_IsBase(bool value) const { qabstractslider_paintevent_isbase = value; }
-    void setQAbstractSlider_MoveEvent_IsBase(bool value) const { qabstractslider_moveevent_isbase = value; }
-    void setQAbstractSlider_ResizeEvent_IsBase(bool value) const { qabstractslider_resizeevent_isbase = value; }
-    void setQAbstractSlider_CloseEvent_IsBase(bool value) const { qabstractslider_closeevent_isbase = value; }
-    void setQAbstractSlider_ContextMenuEvent_IsBase(bool value) const { qabstractslider_contextmenuevent_isbase = value; }
-    void setQAbstractSlider_TabletEvent_IsBase(bool value) const { qabstractslider_tabletevent_isbase = value; }
-    void setQAbstractSlider_ActionEvent_IsBase(bool value) const { qabstractslider_actionevent_isbase = value; }
-    void setQAbstractSlider_DragEnterEvent_IsBase(bool value) const { qabstractslider_dragenterevent_isbase = value; }
-    void setQAbstractSlider_DragMoveEvent_IsBase(bool value) const { qabstractslider_dragmoveevent_isbase = value; }
-    void setQAbstractSlider_DragLeaveEvent_IsBase(bool value) const { qabstractslider_dragleaveevent_isbase = value; }
-    void setQAbstractSlider_DropEvent_IsBase(bool value) const { qabstractslider_dropevent_isbase = value; }
-    void setQAbstractSlider_ShowEvent_IsBase(bool value) const { qabstractslider_showevent_isbase = value; }
-    void setQAbstractSlider_HideEvent_IsBase(bool value) const { qabstractslider_hideevent_isbase = value; }
-    void setQAbstractSlider_NativeEvent_IsBase(bool value) const { qabstractslider_nativeevent_isbase = value; }
-    void setQAbstractSlider_Metric_IsBase(bool value) const { qabstractslider_metric_isbase = value; }
-    void setQAbstractSlider_InitPainter_IsBase(bool value) const { qabstractslider_initpainter_isbase = value; }
-    void setQAbstractSlider_Redirected_IsBase(bool value) const { qabstractslider_redirected_isbase = value; }
-    void setQAbstractSlider_SharedPainter_IsBase(bool value) const { qabstractslider_sharedpainter_isbase = value; }
-    void setQAbstractSlider_InputMethodEvent_IsBase(bool value) const { qabstractslider_inputmethodevent_isbase = value; }
-    void setQAbstractSlider_InputMethodQuery_IsBase(bool value) const { qabstractslider_inputmethodquery_isbase = value; }
-    void setQAbstractSlider_FocusNextPrevChild_IsBase(bool value) const { qabstractslider_focusnextprevchild_isbase = value; }
-    void setQAbstractSlider_EventFilter_IsBase(bool value) const { qabstractslider_eventfilter_isbase = value; }
-    void setQAbstractSlider_ChildEvent_IsBase(bool value) const { qabstractslider_childevent_isbase = value; }
-    void setQAbstractSlider_CustomEvent_IsBase(bool value) const { qabstractslider_customevent_isbase = value; }
-    void setQAbstractSlider_ConnectNotify_IsBase(bool value) const { qabstractslider_connectnotify_isbase = value; }
-    void setQAbstractSlider_DisconnectNotify_IsBase(bool value) const { qabstractslider_disconnectnotify_isbase = value; }
-    void setQAbstractSlider_SetRepeatAction_IsBase(bool value) const { qabstractslider_setrepeataction_isbase = value; }
-    void setQAbstractSlider_RepeatAction_IsBase(bool value) const { qabstractslider_repeataction_isbase = value; }
-    void setQAbstractSlider_SetRepeatAction2_IsBase(bool value) const { qabstractslider_setrepeataction2_isbase = value; }
-    void setQAbstractSlider_SetRepeatAction3_IsBase(bool value) const { qabstractslider_setrepeataction3_isbase = value; }
-    void setQAbstractSlider_UpdateMicroFocus_IsBase(bool value) const { qabstractslider_updatemicrofocus_isbase = value; }
-    void setQAbstractSlider_Create_IsBase(bool value) const { qabstractslider_create_isbase = value; }
-    void setQAbstractSlider_Destroy_IsBase(bool value) const { qabstractslider_destroy_isbase = value; }
-    void setQAbstractSlider_FocusNextChild_IsBase(bool value) const { qabstractslider_focusnextchild_isbase = value; }
-    void setQAbstractSlider_FocusPreviousChild_IsBase(bool value) const { qabstractslider_focuspreviouschild_isbase = value; }
-    void setQAbstractSlider_Sender_IsBase(bool value) const { qabstractslider_sender_isbase = value; }
-    void setQAbstractSlider_SenderSignalIndex_IsBase(bool value) const { qabstractslider_sendersignalindex_isbase = value; }
-    void setQAbstractSlider_Receivers_IsBase(bool value) const { qabstractslider_receivers_isbase = value; }
-    void setQAbstractSlider_IsSignalConnected_IsBase(bool value) const { qabstractslider_issignalconnected_isbase = value; }
+    inline void setQAbstractSlider_Metacall_IsBase(bool value) const { qabstractslider_metacall_isbase = value; }
+    inline void setQAbstractSlider_Event_IsBase(bool value) const { qabstractslider_event_isbase = value; }
+    inline void setQAbstractSlider_SliderChange_IsBase(bool value) const { qabstractslider_sliderchange_isbase = value; }
+    inline void setQAbstractSlider_KeyPressEvent_IsBase(bool value) const { qabstractslider_keypressevent_isbase = value; }
+    inline void setQAbstractSlider_TimerEvent_IsBase(bool value) const { qabstractslider_timerevent_isbase = value; }
+    inline void setQAbstractSlider_WheelEvent_IsBase(bool value) const { qabstractslider_wheelevent_isbase = value; }
+    inline void setQAbstractSlider_ChangeEvent_IsBase(bool value) const { qabstractslider_changeevent_isbase = value; }
+    inline void setQAbstractSlider_DevType_IsBase(bool value) const { qabstractslider_devtype_isbase = value; }
+    inline void setQAbstractSlider_SetVisible_IsBase(bool value) const { qabstractslider_setvisible_isbase = value; }
+    inline void setQAbstractSlider_SizeHint_IsBase(bool value) const { qabstractslider_sizehint_isbase = value; }
+    inline void setQAbstractSlider_MinimumSizeHint_IsBase(bool value) const { qabstractslider_minimumsizehint_isbase = value; }
+    inline void setQAbstractSlider_HeightForWidth_IsBase(bool value) const { qabstractslider_heightforwidth_isbase = value; }
+    inline void setQAbstractSlider_HasHeightForWidth_IsBase(bool value) const { qabstractslider_hasheightforwidth_isbase = value; }
+    inline void setQAbstractSlider_PaintEngine_IsBase(bool value) const { qabstractslider_paintengine_isbase = value; }
+    inline void setQAbstractSlider_MousePressEvent_IsBase(bool value) const { qabstractslider_mousepressevent_isbase = value; }
+    inline void setQAbstractSlider_MouseReleaseEvent_IsBase(bool value) const { qabstractslider_mousereleaseevent_isbase = value; }
+    inline void setQAbstractSlider_MouseDoubleClickEvent_IsBase(bool value) const { qabstractslider_mousedoubleclickevent_isbase = value; }
+    inline void setQAbstractSlider_MouseMoveEvent_IsBase(bool value) const { qabstractslider_mousemoveevent_isbase = value; }
+    inline void setQAbstractSlider_KeyReleaseEvent_IsBase(bool value) const { qabstractslider_keyreleaseevent_isbase = value; }
+    inline void setQAbstractSlider_FocusInEvent_IsBase(bool value) const { qabstractslider_focusinevent_isbase = value; }
+    inline void setQAbstractSlider_FocusOutEvent_IsBase(bool value) const { qabstractslider_focusoutevent_isbase = value; }
+    inline void setQAbstractSlider_EnterEvent_IsBase(bool value) const { qabstractslider_enterevent_isbase = value; }
+    inline void setQAbstractSlider_LeaveEvent_IsBase(bool value) const { qabstractslider_leaveevent_isbase = value; }
+    inline void setQAbstractSlider_PaintEvent_IsBase(bool value) const { qabstractslider_paintevent_isbase = value; }
+    inline void setQAbstractSlider_MoveEvent_IsBase(bool value) const { qabstractslider_moveevent_isbase = value; }
+    inline void setQAbstractSlider_ResizeEvent_IsBase(bool value) const { qabstractslider_resizeevent_isbase = value; }
+    inline void setQAbstractSlider_CloseEvent_IsBase(bool value) const { qabstractslider_closeevent_isbase = value; }
+    inline void setQAbstractSlider_ContextMenuEvent_IsBase(bool value) const { qabstractslider_contextmenuevent_isbase = value; }
+    inline void setQAbstractSlider_TabletEvent_IsBase(bool value) const { qabstractslider_tabletevent_isbase = value; }
+    inline void setQAbstractSlider_ActionEvent_IsBase(bool value) const { qabstractslider_actionevent_isbase = value; }
+    inline void setQAbstractSlider_DragEnterEvent_IsBase(bool value) const { qabstractslider_dragenterevent_isbase = value; }
+    inline void setQAbstractSlider_DragMoveEvent_IsBase(bool value) const { qabstractslider_dragmoveevent_isbase = value; }
+    inline void setQAbstractSlider_DragLeaveEvent_IsBase(bool value) const { qabstractslider_dragleaveevent_isbase = value; }
+    inline void setQAbstractSlider_DropEvent_IsBase(bool value) const { qabstractslider_dropevent_isbase = value; }
+    inline void setQAbstractSlider_ShowEvent_IsBase(bool value) const { qabstractslider_showevent_isbase = value; }
+    inline void setQAbstractSlider_HideEvent_IsBase(bool value) const { qabstractslider_hideevent_isbase = value; }
+    inline void setQAbstractSlider_NativeEvent_IsBase(bool value) const { qabstractslider_nativeevent_isbase = value; }
+    inline void setQAbstractSlider_Metric_IsBase(bool value) const { qabstractslider_metric_isbase = value; }
+    inline void setQAbstractSlider_InitPainter_IsBase(bool value) const { qabstractslider_initpainter_isbase = value; }
+    inline void setQAbstractSlider_Redirected_IsBase(bool value) const { qabstractslider_redirected_isbase = value; }
+    inline void setQAbstractSlider_SharedPainter_IsBase(bool value) const { qabstractslider_sharedpainter_isbase = value; }
+    inline void setQAbstractSlider_InputMethodEvent_IsBase(bool value) const { qabstractslider_inputmethodevent_isbase = value; }
+    inline void setQAbstractSlider_InputMethodQuery_IsBase(bool value) const { qabstractslider_inputmethodquery_isbase = value; }
+    inline void setQAbstractSlider_FocusNextPrevChild_IsBase(bool value) const { qabstractslider_focusnextprevchild_isbase = value; }
+    inline void setQAbstractSlider_EventFilter_IsBase(bool value) const { qabstractslider_eventfilter_isbase = value; }
+    inline void setQAbstractSlider_ChildEvent_IsBase(bool value) const { qabstractslider_childevent_isbase = value; }
+    inline void setQAbstractSlider_CustomEvent_IsBase(bool value) const { qabstractslider_customevent_isbase = value; }
+    inline void setQAbstractSlider_ConnectNotify_IsBase(bool value) const { qabstractslider_connectnotify_isbase = value; }
+    inline void setQAbstractSlider_DisconnectNotify_IsBase(bool value) const { qabstractslider_disconnectnotify_isbase = value; }
+    inline void setQAbstractSlider_SetRepeatAction_IsBase(bool value) const { qabstractslider_setrepeataction_isbase = value; }
+    inline void setQAbstractSlider_RepeatAction_IsBase(bool value) const { qabstractslider_repeataction_isbase = value; }
+    inline void setQAbstractSlider_SetRepeatAction2_IsBase(bool value) const { qabstractslider_setrepeataction2_isbase = value; }
+    inline void setQAbstractSlider_SetRepeatAction3_IsBase(bool value) const { qabstractslider_setrepeataction3_isbase = value; }
+    inline void setQAbstractSlider_UpdateMicroFocus_IsBase(bool value) const { qabstractslider_updatemicrofocus_isbase = value; }
+    inline void setQAbstractSlider_Create_IsBase(bool value) const { qabstractslider_create_isbase = value; }
+    inline void setQAbstractSlider_Destroy_IsBase(bool value) const { qabstractslider_destroy_isbase = value; }
+    inline void setQAbstractSlider_FocusNextChild_IsBase(bool value) const { qabstractslider_focusnextchild_isbase = value; }
+    inline void setQAbstractSlider_FocusPreviousChild_IsBase(bool value) const { qabstractslider_focuspreviouschild_isbase = value; }
+    inline void setQAbstractSlider_Sender_IsBase(bool value) const { qabstractslider_sender_isbase = value; }
+    inline void setQAbstractSlider_SenderSignalIndex_IsBase(bool value) const { qabstractslider_sendersignalindex_isbase = value; }
+    inline void setQAbstractSlider_Receivers_IsBase(bool value) const { qabstractslider_receivers_isbase = value; }
+    inline void setQAbstractSlider_IsSignalConnected_IsBase(bool value) const { qabstractslider_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -411,7 +414,12 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_metacall_isbase = false;
             return QAbstractSlider::qt_metacall(param1, param2, param3);
         } else if (qabstractslider_metacall_callback != nullptr) {
-            return qabstractslider_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qabstractslider_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractSlider::qt_metacall(param1, param2, param3);
         }
@@ -423,7 +431,10 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_event_isbase = false;
             return QAbstractSlider::event(e);
         } else if (qabstractslider_event_callback != nullptr) {
-            return qabstractslider_event_callback(this, e);
+            QEvent* cbval1 = e;
+
+            bool callback_ret = qabstractslider_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractSlider::event(e);
         }
@@ -435,7 +446,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_sliderchange_isbase = false;
             QAbstractSlider::sliderChange(change);
         } else if (qabstractslider_sliderchange_callback != nullptr) {
-            qabstractslider_sliderchange_callback(this, change);
+            int cbval1 = static_cast<int>(change);
+
+            qabstractslider_sliderchange_callback(this, cbval1);
         } else {
             QAbstractSlider::sliderChange(change);
         }
@@ -447,7 +460,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_keypressevent_isbase = false;
             QAbstractSlider::keyPressEvent(ev);
         } else if (qabstractslider_keypressevent_callback != nullptr) {
-            qabstractslider_keypressevent_callback(this, ev);
+            QKeyEvent* cbval1 = ev;
+
+            qabstractslider_keypressevent_callback(this, cbval1);
         } else {
             QAbstractSlider::keyPressEvent(ev);
         }
@@ -459,7 +474,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_timerevent_isbase = false;
             QAbstractSlider::timerEvent(param1);
         } else if (qabstractslider_timerevent_callback != nullptr) {
-            qabstractslider_timerevent_callback(this, param1);
+            QTimerEvent* cbval1 = param1;
+
+            qabstractslider_timerevent_callback(this, cbval1);
         } else {
             QAbstractSlider::timerEvent(param1);
         }
@@ -471,7 +488,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_wheelevent_isbase = false;
             QAbstractSlider::wheelEvent(e);
         } else if (qabstractslider_wheelevent_callback != nullptr) {
-            qabstractslider_wheelevent_callback(this, e);
+            QWheelEvent* cbval1 = e;
+
+            qabstractslider_wheelevent_callback(this, cbval1);
         } else {
             QAbstractSlider::wheelEvent(e);
         }
@@ -483,7 +502,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_changeevent_isbase = false;
             QAbstractSlider::changeEvent(e);
         } else if (qabstractslider_changeevent_callback != nullptr) {
-            qabstractslider_changeevent_callback(this, e);
+            QEvent* cbval1 = e;
+
+            qabstractslider_changeevent_callback(this, cbval1);
         } else {
             QAbstractSlider::changeEvent(e);
         }
@@ -495,7 +516,8 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_devtype_isbase = false;
             return QAbstractSlider::devType();
         } else if (qabstractslider_devtype_callback != nullptr) {
-            return qabstractslider_devtype_callback();
+            int callback_ret = qabstractslider_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractSlider::devType();
         }
@@ -507,7 +529,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_setvisible_isbase = false;
             QAbstractSlider::setVisible(visible);
         } else if (qabstractslider_setvisible_callback != nullptr) {
-            qabstractslider_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qabstractslider_setvisible_callback(this, cbval1);
         } else {
             QAbstractSlider::setVisible(visible);
         }
@@ -519,7 +543,8 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_sizehint_isbase = false;
             return QAbstractSlider::sizeHint();
         } else if (qabstractslider_sizehint_callback != nullptr) {
-            return qabstractslider_sizehint_callback();
+            QSize* callback_ret = qabstractslider_sizehint_callback();
+            return *callback_ret;
         } else {
             return QAbstractSlider::sizeHint();
         }
@@ -531,7 +556,8 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_minimumsizehint_isbase = false;
             return QAbstractSlider::minimumSizeHint();
         } else if (qabstractslider_minimumsizehint_callback != nullptr) {
-            return qabstractslider_minimumsizehint_callback();
+            QSize* callback_ret = qabstractslider_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QAbstractSlider::minimumSizeHint();
         }
@@ -543,7 +569,10 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_heightforwidth_isbase = false;
             return QAbstractSlider::heightForWidth(param1);
         } else if (qabstractslider_heightforwidth_callback != nullptr) {
-            return qabstractslider_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qabstractslider_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractSlider::heightForWidth(param1);
         }
@@ -555,7 +584,8 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_hasheightforwidth_isbase = false;
             return QAbstractSlider::hasHeightForWidth();
         } else if (qabstractslider_hasheightforwidth_callback != nullptr) {
-            return qabstractslider_hasheightforwidth_callback();
+            bool callback_ret = qabstractslider_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QAbstractSlider::hasHeightForWidth();
         }
@@ -567,7 +597,8 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_paintengine_isbase = false;
             return QAbstractSlider::paintEngine();
         } else if (qabstractslider_paintengine_callback != nullptr) {
-            return qabstractslider_paintengine_callback();
+            QPaintEngine* callback_ret = qabstractslider_paintengine_callback();
+            return callback_ret;
         } else {
             return QAbstractSlider::paintEngine();
         }
@@ -579,7 +610,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_mousepressevent_isbase = false;
             QAbstractSlider::mousePressEvent(event);
         } else if (qabstractslider_mousepressevent_callback != nullptr) {
-            qabstractslider_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qabstractslider_mousepressevent_callback(this, cbval1);
         } else {
             QAbstractSlider::mousePressEvent(event);
         }
@@ -591,7 +624,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_mousereleaseevent_isbase = false;
             QAbstractSlider::mouseReleaseEvent(event);
         } else if (qabstractslider_mousereleaseevent_callback != nullptr) {
-            qabstractslider_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qabstractslider_mousereleaseevent_callback(this, cbval1);
         } else {
             QAbstractSlider::mouseReleaseEvent(event);
         }
@@ -603,7 +638,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_mousedoubleclickevent_isbase = false;
             QAbstractSlider::mouseDoubleClickEvent(event);
         } else if (qabstractslider_mousedoubleclickevent_callback != nullptr) {
-            qabstractslider_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qabstractslider_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QAbstractSlider::mouseDoubleClickEvent(event);
         }
@@ -615,7 +652,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_mousemoveevent_isbase = false;
             QAbstractSlider::mouseMoveEvent(event);
         } else if (qabstractslider_mousemoveevent_callback != nullptr) {
-            qabstractslider_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qabstractslider_mousemoveevent_callback(this, cbval1);
         } else {
             QAbstractSlider::mouseMoveEvent(event);
         }
@@ -627,7 +666,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_keyreleaseevent_isbase = false;
             QAbstractSlider::keyReleaseEvent(event);
         } else if (qabstractslider_keyreleaseevent_callback != nullptr) {
-            qabstractslider_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qabstractslider_keyreleaseevent_callback(this, cbval1);
         } else {
             QAbstractSlider::keyReleaseEvent(event);
         }
@@ -639,7 +680,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_focusinevent_isbase = false;
             QAbstractSlider::focusInEvent(event);
         } else if (qabstractslider_focusinevent_callback != nullptr) {
-            qabstractslider_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qabstractslider_focusinevent_callback(this, cbval1);
         } else {
             QAbstractSlider::focusInEvent(event);
         }
@@ -651,7 +694,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_focusoutevent_isbase = false;
             QAbstractSlider::focusOutEvent(event);
         } else if (qabstractslider_focusoutevent_callback != nullptr) {
-            qabstractslider_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qabstractslider_focusoutevent_callback(this, cbval1);
         } else {
             QAbstractSlider::focusOutEvent(event);
         }
@@ -663,7 +708,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_enterevent_isbase = false;
             QAbstractSlider::enterEvent(event);
         } else if (qabstractslider_enterevent_callback != nullptr) {
-            qabstractslider_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qabstractslider_enterevent_callback(this, cbval1);
         } else {
             QAbstractSlider::enterEvent(event);
         }
@@ -675,7 +722,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_leaveevent_isbase = false;
             QAbstractSlider::leaveEvent(event);
         } else if (qabstractslider_leaveevent_callback != nullptr) {
-            qabstractslider_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qabstractslider_leaveevent_callback(this, cbval1);
         } else {
             QAbstractSlider::leaveEvent(event);
         }
@@ -687,7 +736,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_paintevent_isbase = false;
             QAbstractSlider::paintEvent(event);
         } else if (qabstractslider_paintevent_callback != nullptr) {
-            qabstractslider_paintevent_callback(this, event);
+            QPaintEvent* cbval1 = event;
+
+            qabstractslider_paintevent_callback(this, cbval1);
         } else {
             QAbstractSlider::paintEvent(event);
         }
@@ -699,7 +750,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_moveevent_isbase = false;
             QAbstractSlider::moveEvent(event);
         } else if (qabstractslider_moveevent_callback != nullptr) {
-            qabstractslider_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qabstractslider_moveevent_callback(this, cbval1);
         } else {
             QAbstractSlider::moveEvent(event);
         }
@@ -711,7 +764,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_resizeevent_isbase = false;
             QAbstractSlider::resizeEvent(event);
         } else if (qabstractslider_resizeevent_callback != nullptr) {
-            qabstractslider_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qabstractslider_resizeevent_callback(this, cbval1);
         } else {
             QAbstractSlider::resizeEvent(event);
         }
@@ -723,7 +778,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_closeevent_isbase = false;
             QAbstractSlider::closeEvent(event);
         } else if (qabstractslider_closeevent_callback != nullptr) {
-            qabstractslider_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qabstractslider_closeevent_callback(this, cbval1);
         } else {
             QAbstractSlider::closeEvent(event);
         }
@@ -735,7 +792,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_contextmenuevent_isbase = false;
             QAbstractSlider::contextMenuEvent(event);
         } else if (qabstractslider_contextmenuevent_callback != nullptr) {
-            qabstractslider_contextmenuevent_callback(this, event);
+            QContextMenuEvent* cbval1 = event;
+
+            qabstractslider_contextmenuevent_callback(this, cbval1);
         } else {
             QAbstractSlider::contextMenuEvent(event);
         }
@@ -747,7 +806,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_tabletevent_isbase = false;
             QAbstractSlider::tabletEvent(event);
         } else if (qabstractslider_tabletevent_callback != nullptr) {
-            qabstractslider_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qabstractslider_tabletevent_callback(this, cbval1);
         } else {
             QAbstractSlider::tabletEvent(event);
         }
@@ -759,7 +820,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_actionevent_isbase = false;
             QAbstractSlider::actionEvent(event);
         } else if (qabstractslider_actionevent_callback != nullptr) {
-            qabstractslider_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qabstractslider_actionevent_callback(this, cbval1);
         } else {
             QAbstractSlider::actionEvent(event);
         }
@@ -771,7 +834,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_dragenterevent_isbase = false;
             QAbstractSlider::dragEnterEvent(event);
         } else if (qabstractslider_dragenterevent_callback != nullptr) {
-            qabstractslider_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qabstractslider_dragenterevent_callback(this, cbval1);
         } else {
             QAbstractSlider::dragEnterEvent(event);
         }
@@ -783,7 +848,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_dragmoveevent_isbase = false;
             QAbstractSlider::dragMoveEvent(event);
         } else if (qabstractslider_dragmoveevent_callback != nullptr) {
-            qabstractslider_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qabstractslider_dragmoveevent_callback(this, cbval1);
         } else {
             QAbstractSlider::dragMoveEvent(event);
         }
@@ -795,7 +862,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_dragleaveevent_isbase = false;
             QAbstractSlider::dragLeaveEvent(event);
         } else if (qabstractslider_dragleaveevent_callback != nullptr) {
-            qabstractslider_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qabstractslider_dragleaveevent_callback(this, cbval1);
         } else {
             QAbstractSlider::dragLeaveEvent(event);
         }
@@ -807,7 +876,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_dropevent_isbase = false;
             QAbstractSlider::dropEvent(event);
         } else if (qabstractslider_dropevent_callback != nullptr) {
-            qabstractslider_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qabstractslider_dropevent_callback(this, cbval1);
         } else {
             QAbstractSlider::dropEvent(event);
         }
@@ -819,7 +890,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_showevent_isbase = false;
             QAbstractSlider::showEvent(event);
         } else if (qabstractslider_showevent_callback != nullptr) {
-            qabstractslider_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qabstractslider_showevent_callback(this, cbval1);
         } else {
             QAbstractSlider::showEvent(event);
         }
@@ -831,7 +904,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_hideevent_isbase = false;
             QAbstractSlider::hideEvent(event);
         } else if (qabstractslider_hideevent_callback != nullptr) {
-            qabstractslider_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qabstractslider_hideevent_callback(this, cbval1);
         } else {
             QAbstractSlider::hideEvent(event);
         }
@@ -843,7 +918,19 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_nativeevent_isbase = false;
             return QAbstractSlider::nativeEvent(eventType, message, result);
         } else if (qabstractslider_nativeevent_callback != nullptr) {
-            return qabstractslider_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qabstractslider_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QAbstractSlider::nativeEvent(eventType, message, result);
         }
@@ -855,7 +942,10 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_metric_isbase = false;
             return QAbstractSlider::metric(param1);
         } else if (qabstractslider_metric_callback != nullptr) {
-            return qabstractslider_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qabstractslider_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractSlider::metric(param1);
         }
@@ -867,7 +957,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_initpainter_isbase = false;
             QAbstractSlider::initPainter(painter);
         } else if (qabstractslider_initpainter_callback != nullptr) {
-            qabstractslider_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qabstractslider_initpainter_callback(this, cbval1);
         } else {
             QAbstractSlider::initPainter(painter);
         }
@@ -879,7 +971,10 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_redirected_isbase = false;
             return QAbstractSlider::redirected(offset);
         } else if (qabstractslider_redirected_callback != nullptr) {
-            return qabstractslider_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qabstractslider_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractSlider::redirected(offset);
         }
@@ -891,7 +986,8 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_sharedpainter_isbase = false;
             return QAbstractSlider::sharedPainter();
         } else if (qabstractslider_sharedpainter_callback != nullptr) {
-            return qabstractslider_sharedpainter_callback();
+            QPainter* callback_ret = qabstractslider_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QAbstractSlider::sharedPainter();
         }
@@ -903,7 +999,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_inputmethodevent_isbase = false;
             QAbstractSlider::inputMethodEvent(param1);
         } else if (qabstractslider_inputmethodevent_callback != nullptr) {
-            qabstractslider_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qabstractslider_inputmethodevent_callback(this, cbval1);
         } else {
             QAbstractSlider::inputMethodEvent(param1);
         }
@@ -915,7 +1013,10 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_inputmethodquery_isbase = false;
             return QAbstractSlider::inputMethodQuery(param1);
         } else if (qabstractslider_inputmethodquery_callback != nullptr) {
-            return qabstractslider_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qabstractslider_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QAbstractSlider::inputMethodQuery(param1);
         }
@@ -927,7 +1028,10 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_focusnextprevchild_isbase = false;
             return QAbstractSlider::focusNextPrevChild(next);
         } else if (qabstractslider_focusnextprevchild_callback != nullptr) {
-            return qabstractslider_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qabstractslider_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractSlider::focusNextPrevChild(next);
         }
@@ -939,7 +1043,11 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_eventfilter_isbase = false;
             return QAbstractSlider::eventFilter(watched, event);
         } else if (qabstractslider_eventfilter_callback != nullptr) {
-            return qabstractslider_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qabstractslider_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QAbstractSlider::eventFilter(watched, event);
         }
@@ -951,7 +1059,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_childevent_isbase = false;
             QAbstractSlider::childEvent(event);
         } else if (qabstractslider_childevent_callback != nullptr) {
-            qabstractslider_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qabstractslider_childevent_callback(this, cbval1);
         } else {
             QAbstractSlider::childEvent(event);
         }
@@ -963,7 +1073,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_customevent_isbase = false;
             QAbstractSlider::customEvent(event);
         } else if (qabstractslider_customevent_callback != nullptr) {
-            qabstractslider_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qabstractslider_customevent_callback(this, cbval1);
         } else {
             QAbstractSlider::customEvent(event);
         }
@@ -975,7 +1087,11 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_connectnotify_isbase = false;
             QAbstractSlider::connectNotify(signal);
         } else if (qabstractslider_connectnotify_callback != nullptr) {
-            qabstractslider_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qabstractslider_connectnotify_callback(this, cbval1);
         } else {
             QAbstractSlider::connectNotify(signal);
         }
@@ -987,7 +1103,11 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_disconnectnotify_isbase = false;
             QAbstractSlider::disconnectNotify(signal);
         } else if (qabstractslider_disconnectnotify_callback != nullptr) {
-            qabstractslider_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qabstractslider_disconnectnotify_callback(this, cbval1);
         } else {
             QAbstractSlider::disconnectNotify(signal);
         }
@@ -999,7 +1119,9 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_setrepeataction_isbase = false;
             QAbstractSlider::setRepeatAction(action);
         } else if (qabstractslider_setrepeataction_callback != nullptr) {
-            qabstractslider_setrepeataction_callback(this, action);
+            int cbval1 = static_cast<int>(action);
+
+            qabstractslider_setrepeataction_callback(this, cbval1);
         } else {
             QAbstractSlider::setRepeatAction(action);
         }
@@ -1011,7 +1133,8 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_repeataction_isbase = false;
             return QAbstractSlider::repeatAction();
         } else if (qabstractslider_repeataction_callback != nullptr) {
-            return qabstractslider_repeataction_callback();
+            int callback_ret = qabstractslider_repeataction_callback();
+            return static_cast<QAbstractSlider::SliderAction>(callback_ret);
         } else {
             return QAbstractSlider::repeatAction();
         }
@@ -1023,7 +1146,10 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_setrepeataction2_isbase = false;
             QAbstractSlider::setRepeatAction(action, thresholdTime);
         } else if (qabstractslider_setrepeataction2_callback != nullptr) {
-            qabstractslider_setrepeataction2_callback(this, action, thresholdTime);
+            int cbval1 = static_cast<int>(action);
+            int cbval2 = thresholdTime;
+
+            qabstractslider_setrepeataction2_callback(this, cbval1, cbval2);
         } else {
             QAbstractSlider::setRepeatAction(action, thresholdTime);
         }
@@ -1035,7 +1161,11 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_setrepeataction3_isbase = false;
             QAbstractSlider::setRepeatAction(action, thresholdTime, repeatTime);
         } else if (qabstractslider_setrepeataction3_callback != nullptr) {
-            qabstractslider_setrepeataction3_callback(this, action, thresholdTime, repeatTime);
+            int cbval1 = static_cast<int>(action);
+            int cbval2 = thresholdTime;
+            int cbval3 = repeatTime;
+
+            qabstractslider_setrepeataction3_callback(this, cbval1, cbval2, cbval3);
         } else {
             QAbstractSlider::setRepeatAction(action, thresholdTime, repeatTime);
         }
@@ -1083,7 +1213,8 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_focusnextchild_isbase = false;
             return QAbstractSlider::focusNextChild();
         } else if (qabstractslider_focusnextchild_callback != nullptr) {
-            return qabstractslider_focusnextchild_callback();
+            bool callback_ret = qabstractslider_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QAbstractSlider::focusNextChild();
         }
@@ -1095,7 +1226,8 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_focuspreviouschild_isbase = false;
             return QAbstractSlider::focusPreviousChild();
         } else if (qabstractslider_focuspreviouschild_callback != nullptr) {
-            return qabstractslider_focuspreviouschild_callback();
+            bool callback_ret = qabstractslider_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QAbstractSlider::focusPreviousChild();
         }
@@ -1107,7 +1239,8 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_sender_isbase = false;
             return QAbstractSlider::sender();
         } else if (qabstractslider_sender_callback != nullptr) {
-            return qabstractslider_sender_callback();
+            QObject* callback_ret = qabstractslider_sender_callback();
+            return callback_ret;
         } else {
             return QAbstractSlider::sender();
         }
@@ -1119,7 +1252,8 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_sendersignalindex_isbase = false;
             return QAbstractSlider::senderSignalIndex();
         } else if (qabstractslider_sendersignalindex_callback != nullptr) {
-            return qabstractslider_sendersignalindex_callback();
+            int callback_ret = qabstractslider_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractSlider::senderSignalIndex();
         }
@@ -1131,7 +1265,10 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_receivers_isbase = false;
             return QAbstractSlider::receivers(signal);
         } else if (qabstractslider_receivers_callback != nullptr) {
-            return qabstractslider_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qabstractslider_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractSlider::receivers(signal);
         }
@@ -1143,11 +1280,122 @@ class VirtualQAbstractSlider : public QAbstractSlider {
             qabstractslider_issignalconnected_isbase = false;
             return QAbstractSlider::isSignalConnected(signal);
         } else if (qabstractslider_issignalconnected_callback != nullptr) {
-            return qabstractslider_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qabstractslider_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractSlider::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QAbstractSlider_Event(QAbstractSlider* self, QEvent* e);
+    friend bool QAbstractSlider_QBaseEvent(QAbstractSlider* self, QEvent* e);
+    friend void QAbstractSlider_SliderChange(QAbstractSlider* self, int change);
+    friend void QAbstractSlider_QBaseSliderChange(QAbstractSlider* self, int change);
+    friend void QAbstractSlider_KeyPressEvent(QAbstractSlider* self, QKeyEvent* ev);
+    friend void QAbstractSlider_QBaseKeyPressEvent(QAbstractSlider* self, QKeyEvent* ev);
+    friend void QAbstractSlider_TimerEvent(QAbstractSlider* self, QTimerEvent* param1);
+    friend void QAbstractSlider_QBaseTimerEvent(QAbstractSlider* self, QTimerEvent* param1);
+    friend void QAbstractSlider_WheelEvent(QAbstractSlider* self, QWheelEvent* e);
+    friend void QAbstractSlider_QBaseWheelEvent(QAbstractSlider* self, QWheelEvent* e);
+    friend void QAbstractSlider_ChangeEvent(QAbstractSlider* self, QEvent* e);
+    friend void QAbstractSlider_QBaseChangeEvent(QAbstractSlider* self, QEvent* e);
+    friend void QAbstractSlider_MousePressEvent(QAbstractSlider* self, QMouseEvent* event);
+    friend void QAbstractSlider_QBaseMousePressEvent(QAbstractSlider* self, QMouseEvent* event);
+    friend void QAbstractSlider_MouseReleaseEvent(QAbstractSlider* self, QMouseEvent* event);
+    friend void QAbstractSlider_QBaseMouseReleaseEvent(QAbstractSlider* self, QMouseEvent* event);
+    friend void QAbstractSlider_MouseDoubleClickEvent(QAbstractSlider* self, QMouseEvent* event);
+    friend void QAbstractSlider_QBaseMouseDoubleClickEvent(QAbstractSlider* self, QMouseEvent* event);
+    friend void QAbstractSlider_MouseMoveEvent(QAbstractSlider* self, QMouseEvent* event);
+    friend void QAbstractSlider_QBaseMouseMoveEvent(QAbstractSlider* self, QMouseEvent* event);
+    friend void QAbstractSlider_KeyReleaseEvent(QAbstractSlider* self, QKeyEvent* event);
+    friend void QAbstractSlider_QBaseKeyReleaseEvent(QAbstractSlider* self, QKeyEvent* event);
+    friend void QAbstractSlider_FocusInEvent(QAbstractSlider* self, QFocusEvent* event);
+    friend void QAbstractSlider_QBaseFocusInEvent(QAbstractSlider* self, QFocusEvent* event);
+    friend void QAbstractSlider_FocusOutEvent(QAbstractSlider* self, QFocusEvent* event);
+    friend void QAbstractSlider_QBaseFocusOutEvent(QAbstractSlider* self, QFocusEvent* event);
+    friend void QAbstractSlider_EnterEvent(QAbstractSlider* self, QEnterEvent* event);
+    friend void QAbstractSlider_QBaseEnterEvent(QAbstractSlider* self, QEnterEvent* event);
+    friend void QAbstractSlider_LeaveEvent(QAbstractSlider* self, QEvent* event);
+    friend void QAbstractSlider_QBaseLeaveEvent(QAbstractSlider* self, QEvent* event);
+    friend void QAbstractSlider_PaintEvent(QAbstractSlider* self, QPaintEvent* event);
+    friend void QAbstractSlider_QBasePaintEvent(QAbstractSlider* self, QPaintEvent* event);
+    friend void QAbstractSlider_MoveEvent(QAbstractSlider* self, QMoveEvent* event);
+    friend void QAbstractSlider_QBaseMoveEvent(QAbstractSlider* self, QMoveEvent* event);
+    friend void QAbstractSlider_ResizeEvent(QAbstractSlider* self, QResizeEvent* event);
+    friend void QAbstractSlider_QBaseResizeEvent(QAbstractSlider* self, QResizeEvent* event);
+    friend void QAbstractSlider_CloseEvent(QAbstractSlider* self, QCloseEvent* event);
+    friend void QAbstractSlider_QBaseCloseEvent(QAbstractSlider* self, QCloseEvent* event);
+    friend void QAbstractSlider_ContextMenuEvent(QAbstractSlider* self, QContextMenuEvent* event);
+    friend void QAbstractSlider_QBaseContextMenuEvent(QAbstractSlider* self, QContextMenuEvent* event);
+    friend void QAbstractSlider_TabletEvent(QAbstractSlider* self, QTabletEvent* event);
+    friend void QAbstractSlider_QBaseTabletEvent(QAbstractSlider* self, QTabletEvent* event);
+    friend void QAbstractSlider_ActionEvent(QAbstractSlider* self, QActionEvent* event);
+    friend void QAbstractSlider_QBaseActionEvent(QAbstractSlider* self, QActionEvent* event);
+    friend void QAbstractSlider_DragEnterEvent(QAbstractSlider* self, QDragEnterEvent* event);
+    friend void QAbstractSlider_QBaseDragEnterEvent(QAbstractSlider* self, QDragEnterEvent* event);
+    friend void QAbstractSlider_DragMoveEvent(QAbstractSlider* self, QDragMoveEvent* event);
+    friend void QAbstractSlider_QBaseDragMoveEvent(QAbstractSlider* self, QDragMoveEvent* event);
+    friend void QAbstractSlider_DragLeaveEvent(QAbstractSlider* self, QDragLeaveEvent* event);
+    friend void QAbstractSlider_QBaseDragLeaveEvent(QAbstractSlider* self, QDragLeaveEvent* event);
+    friend void QAbstractSlider_DropEvent(QAbstractSlider* self, QDropEvent* event);
+    friend void QAbstractSlider_QBaseDropEvent(QAbstractSlider* self, QDropEvent* event);
+    friend void QAbstractSlider_ShowEvent(QAbstractSlider* self, QShowEvent* event);
+    friend void QAbstractSlider_QBaseShowEvent(QAbstractSlider* self, QShowEvent* event);
+    friend void QAbstractSlider_HideEvent(QAbstractSlider* self, QHideEvent* event);
+    friend void QAbstractSlider_QBaseHideEvent(QAbstractSlider* self, QHideEvent* event);
+    friend bool QAbstractSlider_NativeEvent(QAbstractSlider* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QAbstractSlider_QBaseNativeEvent(QAbstractSlider* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QAbstractSlider_Metric(const QAbstractSlider* self, int param1);
+    friend int QAbstractSlider_QBaseMetric(const QAbstractSlider* self, int param1);
+    friend void QAbstractSlider_InitPainter(const QAbstractSlider* self, QPainter* painter);
+    friend void QAbstractSlider_QBaseInitPainter(const QAbstractSlider* self, QPainter* painter);
+    friend QPaintDevice* QAbstractSlider_Redirected(const QAbstractSlider* self, QPoint* offset);
+    friend QPaintDevice* QAbstractSlider_QBaseRedirected(const QAbstractSlider* self, QPoint* offset);
+    friend QPainter* QAbstractSlider_SharedPainter(const QAbstractSlider* self);
+    friend QPainter* QAbstractSlider_QBaseSharedPainter(const QAbstractSlider* self);
+    friend void QAbstractSlider_InputMethodEvent(QAbstractSlider* self, QInputMethodEvent* param1);
+    friend void QAbstractSlider_QBaseInputMethodEvent(QAbstractSlider* self, QInputMethodEvent* param1);
+    friend bool QAbstractSlider_FocusNextPrevChild(QAbstractSlider* self, bool next);
+    friend bool QAbstractSlider_QBaseFocusNextPrevChild(QAbstractSlider* self, bool next);
+    friend void QAbstractSlider_ChildEvent(QAbstractSlider* self, QChildEvent* event);
+    friend void QAbstractSlider_QBaseChildEvent(QAbstractSlider* self, QChildEvent* event);
+    friend void QAbstractSlider_CustomEvent(QAbstractSlider* self, QEvent* event);
+    friend void QAbstractSlider_QBaseCustomEvent(QAbstractSlider* self, QEvent* event);
+    friend void QAbstractSlider_ConnectNotify(QAbstractSlider* self, const QMetaMethod* signal);
+    friend void QAbstractSlider_QBaseConnectNotify(QAbstractSlider* self, const QMetaMethod* signal);
+    friend void QAbstractSlider_DisconnectNotify(QAbstractSlider* self, const QMetaMethod* signal);
+    friend void QAbstractSlider_QBaseDisconnectNotify(QAbstractSlider* self, const QMetaMethod* signal);
+    friend void QAbstractSlider_SetRepeatAction(QAbstractSlider* self, int action);
+    friend void QAbstractSlider_QBaseSetRepeatAction(QAbstractSlider* self, int action);
+    friend int QAbstractSlider_RepeatAction(const QAbstractSlider* self);
+    friend int QAbstractSlider_QBaseRepeatAction(const QAbstractSlider* self);
+    friend void QAbstractSlider_SetRepeatAction2(QAbstractSlider* self, int action, int thresholdTime);
+    friend void QAbstractSlider_QBaseSetRepeatAction2(QAbstractSlider* self, int action, int thresholdTime);
+    friend void QAbstractSlider_SetRepeatAction3(QAbstractSlider* self, int action, int thresholdTime, int repeatTime);
+    friend void QAbstractSlider_QBaseSetRepeatAction3(QAbstractSlider* self, int action, int thresholdTime, int repeatTime);
+    friend void QAbstractSlider_UpdateMicroFocus(QAbstractSlider* self);
+    friend void QAbstractSlider_QBaseUpdateMicroFocus(QAbstractSlider* self);
+    friend void QAbstractSlider_Create(QAbstractSlider* self);
+    friend void QAbstractSlider_QBaseCreate(QAbstractSlider* self);
+    friend void QAbstractSlider_Destroy(QAbstractSlider* self);
+    friend void QAbstractSlider_QBaseDestroy(QAbstractSlider* self);
+    friend bool QAbstractSlider_FocusNextChild(QAbstractSlider* self);
+    friend bool QAbstractSlider_QBaseFocusNextChild(QAbstractSlider* self);
+    friend bool QAbstractSlider_FocusPreviousChild(QAbstractSlider* self);
+    friend bool QAbstractSlider_QBaseFocusPreviousChild(QAbstractSlider* self);
+    friend QObject* QAbstractSlider_Sender(const QAbstractSlider* self);
+    friend QObject* QAbstractSlider_QBaseSender(const QAbstractSlider* self);
+    friend int QAbstractSlider_SenderSignalIndex(const QAbstractSlider* self);
+    friend int QAbstractSlider_QBaseSenderSignalIndex(const QAbstractSlider* self);
+    friend int QAbstractSlider_Receivers(const QAbstractSlider* self, const char* signal);
+    friend int QAbstractSlider_QBaseReceivers(const QAbstractSlider* self, const char* signal);
+    friend bool QAbstractSlider_IsSignalConnected(const QAbstractSlider* self, const QMetaMethod* signal);
+    friend bool QAbstractSlider_QBaseIsSignalConnected(const QAbstractSlider* self, const QMetaMethod* signal);
 };
 
 #endif

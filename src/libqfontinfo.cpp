@@ -7,15 +7,15 @@
 #include "libqfontinfo.h"
 #include "libqfontinfo.hxx"
 
-QFontInfo* QFontInfo_new(QFont* param1) {
+QFontInfo* QFontInfo_new(const QFont* param1) {
     return new QFontInfo(*param1);
 }
 
-QFontInfo* QFontInfo_new2(QFontInfo* param1) {
+QFontInfo* QFontInfo_new2(const QFontInfo* param1) {
     return new QFontInfo(*param1);
 }
 
-void QFontInfo_OperatorAssign(QFontInfo* self, QFontInfo* param1) {
+void QFontInfo_OperatorAssign(QFontInfo* self, const QFontInfo* param1) {
     self->operator=(*param1);
 }
 

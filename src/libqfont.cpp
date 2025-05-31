@@ -13,12 +13,12 @@ QFont* QFont_new() {
     return new QFont();
 }
 
-QFont* QFont_new2(libqt_string family) {
+QFont* QFont_new2(const libqt_string family) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     return new QFont(family_QString);
 }
 
-QFont* QFont_new3(libqt_list /* of libqt_string */ families) {
+QFont* QFont_new3(const libqt_list /* of libqt_string */ families) {
     QStringList families_QList;
     families_QList.reserve(families.len);
     libqt_string* families_arr = static_cast<libqt_string*>(families.data);
@@ -29,30 +29,30 @@ QFont* QFont_new3(libqt_list /* of libqt_string */ families) {
     return new QFont(families_QList);
 }
 
-QFont* QFont_new4(QFont* font, QPaintDevice* pd) {
+QFont* QFont_new4(const QFont* font, const QPaintDevice* pd) {
     return new QFont(*font, pd);
 }
 
-QFont* QFont_new5(QFont* font) {
+QFont* QFont_new5(const QFont* font) {
     return new QFont(*font);
 }
 
-QFont* QFont_new6(libqt_string family, int pointSize) {
+QFont* QFont_new6(const libqt_string family, int pointSize) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     return new QFont(family_QString, static_cast<int>(pointSize));
 }
 
-QFont* QFont_new7(libqt_string family, int pointSize, int weight) {
+QFont* QFont_new7(const libqt_string family, int pointSize, int weight) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     return new QFont(family_QString, static_cast<int>(pointSize), static_cast<int>(weight));
 }
 
-QFont* QFont_new8(libqt_string family, int pointSize, int weight, bool italic) {
+QFont* QFont_new8(const libqt_string family, int pointSize, int weight, bool italic) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     return new QFont(family_QString, static_cast<int>(pointSize), static_cast<int>(weight), italic);
 }
 
-QFont* QFont_new9(libqt_list /* of libqt_string */ families, int pointSize) {
+QFont* QFont_new9(const libqt_list /* of libqt_string */ families, int pointSize) {
     QStringList families_QList;
     families_QList.reserve(families.len);
     libqt_string* families_arr = static_cast<libqt_string*>(families.data);
@@ -63,7 +63,7 @@ QFont* QFont_new9(libqt_list /* of libqt_string */ families, int pointSize) {
     return new QFont(families_QList, static_cast<int>(pointSize));
 }
 
-QFont* QFont_new10(libqt_list /* of libqt_string */ families, int pointSize, int weight) {
+QFont* QFont_new10(const libqt_list /* of libqt_string */ families, int pointSize, int weight) {
     QStringList families_QList;
     families_QList.reserve(families.len);
     libqt_string* families_arr = static_cast<libqt_string*>(families.data);
@@ -74,7 +74,7 @@ QFont* QFont_new10(libqt_list /* of libqt_string */ families, int pointSize, int
     return new QFont(families_QList, static_cast<int>(pointSize), static_cast<int>(weight));
 }
 
-QFont* QFont_new11(libqt_list /* of libqt_string */ families, int pointSize, int weight, bool italic) {
+QFont* QFont_new11(const libqt_list /* of libqt_string */ families, int pointSize, int weight, bool italic) {
     QStringList families_QList;
     families_QList.reserve(families.len);
     libqt_string* families_arr = static_cast<libqt_string*>(families.data);
@@ -101,7 +101,7 @@ libqt_string QFont_Family(const QFont* self) {
     return _str;
 }
 
-void QFont_SetFamily(QFont* self, libqt_string family) {
+void QFont_SetFamily(QFont* self, const libqt_string family) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     self->setFamily(family_QString);
 }
@@ -127,7 +127,7 @@ libqt_list /* of libqt_string */ QFont_Families(const QFont* self) {
     return _out;
 }
 
-void QFont_SetFamilies(QFont* self, libqt_list /* of libqt_string */ families) {
+void QFont_SetFamilies(QFont* self, const libqt_list /* of libqt_string */ families) {
     QStringList families_QList;
     families_QList.reserve(families.len);
     libqt_string* families_arr = static_cast<libqt_string*>(families.data);
@@ -150,7 +150,7 @@ libqt_string QFont_StyleName(const QFont* self) {
     return _str;
 }
 
-void QFont_SetStyleName(QFont* self, libqt_string styleName) {
+void QFont_SetStyleName(QFont* self, const libqt_string styleName) {
     QString styleName_QString = QString::fromUtf8(styleName.data, styleName.len);
     self->setStyleName(styleName_QString);
 }
@@ -315,19 +315,19 @@ bool QFont_ExactMatch(const QFont* self) {
     return self->exactMatch();
 }
 
-void QFont_OperatorAssign(QFont* self, QFont* param1) {
+void QFont_OperatorAssign(QFont* self, const QFont* param1) {
     self->operator=(*param1);
 }
 
-bool QFont_OperatorEqual(const QFont* self, QFont* param1) {
+bool QFont_OperatorEqual(const QFont* self, const QFont* param1) {
     return (*self == *param1);
 }
 
-bool QFont_OperatorNotEqual(const QFont* self, QFont* param1) {
+bool QFont_OperatorNotEqual(const QFont* self, const QFont* param1) {
     return (*self != *param1);
 }
 
-bool QFont_OperatorLesser(const QFont* self, QFont* param1) {
+bool QFont_OperatorLesser(const QFont* self, const QFont* param1) {
     return (*self < *param1);
 }
 
@@ -335,7 +335,7 @@ QVariant* QFont_ToQVariant(const QFont* self) {
     return new QVariant(self->operator QVariant());
 }
 
-bool QFont_IsCopyOf(const QFont* self, QFont* param1) {
+bool QFont_IsCopyOf(const QFont* self, const QFont* param1) {
     return self->isCopyOf(*param1);
 }
 
@@ -363,12 +363,12 @@ libqt_string QFont_ToString(const QFont* self) {
     return _str;
 }
 
-bool QFont_FromString(QFont* self, libqt_string param1) {
+bool QFont_FromString(QFont* self, const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     return self->fromString(param1_QString);
 }
 
-libqt_string QFont_Substitute(libqt_string param1) {
+libqt_string QFont_Substitute(const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QString _ret = QFont::substitute(param1_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -381,7 +381,7 @@ libqt_string QFont_Substitute(libqt_string param1) {
     return _str;
 }
 
-libqt_list /* of libqt_string */ QFont_Substitutes(libqt_string param1) {
+libqt_list /* of libqt_string */ QFont_Substitutes(const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QStringList _ret = QFont::substitutes(param1_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -424,13 +424,13 @@ libqt_list /* of libqt_string */ QFont_Substitutions() {
     return _out;
 }
 
-void QFont_InsertSubstitution(libqt_string param1, libqt_string param2) {
+void QFont_InsertSubstitution(const libqt_string param1, const libqt_string param2) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QString param2_QString = QString::fromUtf8(param2.data, param2.len);
     QFont::insertSubstitution(param1_QString, param2_QString);
 }
 
-void QFont_InsertSubstitutions(libqt_string param1, libqt_list /* of libqt_string */ param2) {
+void QFont_InsertSubstitutions(const libqt_string param1, const libqt_list /* of libqt_string */ param2) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QStringList param2_QList;
     param2_QList.reserve(param2.len);
@@ -442,7 +442,7 @@ void QFont_InsertSubstitutions(libqt_string param1, libqt_list /* of libqt_strin
     QFont::insertSubstitutions(param1_QString, param2_QList);
 }
 
-void QFont_RemoveSubstitutions(libqt_string param1) {
+void QFont_RemoveSubstitutions(const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QFont::removeSubstitutions(param1_QString);
 }
@@ -471,7 +471,7 @@ libqt_string QFont_DefaultFamily(const QFont* self) {
     return _str;
 }
 
-QFont* QFont_Resolve(const QFont* self, QFont* param1) {
+QFont* QFont_Resolve(const QFont* self, const QFont* param1) {
     return new QFont(self->resolve(*param1));
 }
 

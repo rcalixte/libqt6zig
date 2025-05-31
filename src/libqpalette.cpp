@@ -10,7 +10,7 @@ QPalette* QPalette_new() {
     return new QPalette();
 }
 
-QPalette* QPalette_new2(QColor* button) {
+QPalette* QPalette_new2(const QColor* button) {
     return new QPalette(*button);
 }
 
@@ -18,23 +18,23 @@ QPalette* QPalette_new3(int button) {
     return new QPalette(static_cast<Qt::GlobalColor>(button));
 }
 
-QPalette* QPalette_new4(QColor* button, QColor* window) {
+QPalette* QPalette_new4(const QColor* button, const QColor* window) {
     return new QPalette(*button, *window);
 }
 
-QPalette* QPalette_new5(QBrush* windowText, QBrush* button, QBrush* light, QBrush* dark, QBrush* mid, QBrush* text, QBrush* bright_text, QBrush* base, QBrush* window) {
+QPalette* QPalette_new5(const QBrush* windowText, const QBrush* button, const QBrush* light, const QBrush* dark, const QBrush* mid, const QBrush* text, const QBrush* bright_text, const QBrush* base, const QBrush* window) {
     return new QPalette(*windowText, *button, *light, *dark, *mid, *text, *bright_text, *base, *window);
 }
 
-QPalette* QPalette_new6(QColor* windowText, QColor* window, QColor* light, QColor* dark, QColor* mid, QColor* text, QColor* base) {
+QPalette* QPalette_new6(const QColor* windowText, const QColor* window, const QColor* light, const QColor* dark, const QColor* mid, const QColor* text, const QColor* base) {
     return new QPalette(*windowText, *window, *light, *dark, *mid, *text, *base);
 }
 
-QPalette* QPalette_new7(QPalette* palette) {
+QPalette* QPalette_new7(const QPalette* palette) {
     return new QPalette(*palette);
 }
 
-void QPalette_OperatorAssign(QPalette* self, QPalette* palette) {
+void QPalette_OperatorAssign(QPalette* self, const QPalette* palette) {
     self->operator=(*palette);
 }
 
@@ -66,15 +66,15 @@ QBrush* QPalette_Brush(const QPalette* self, int cg, int cr) {
     return const_cast<QBrush*>(&_ret);
 }
 
-void QPalette_SetColor(QPalette* self, int cg, int cr, QColor* color) {
+void QPalette_SetColor(QPalette* self, int cg, int cr, const QColor* color) {
     self->setColor(static_cast<QPalette::ColorGroup>(cg), static_cast<QPalette::ColorRole>(cr), *color);
 }
 
-void QPalette_SetColor2(QPalette* self, int cr, QColor* color) {
+void QPalette_SetColor2(QPalette* self, int cr, const QColor* color) {
     self->setColor(static_cast<QPalette::ColorRole>(cr), *color);
 }
 
-void QPalette_SetBrush(QPalette* self, int cr, QBrush* brush) {
+void QPalette_SetBrush(QPalette* self, int cr, const QBrush* brush) {
     self->setBrush(static_cast<QPalette::ColorRole>(cr), *brush);
 }
 
@@ -82,11 +82,11 @@ bool QPalette_IsBrushSet(const QPalette* self, int cg, int cr) {
     return self->isBrushSet(static_cast<QPalette::ColorGroup>(cg), static_cast<QPalette::ColorRole>(cr));
 }
 
-void QPalette_SetBrush2(QPalette* self, int cg, int cr, QBrush* brush) {
+void QPalette_SetBrush2(QPalette* self, int cg, int cr, const QBrush* brush) {
     self->setBrush(static_cast<QPalette::ColorGroup>(cg), static_cast<QPalette::ColorRole>(cr), *brush);
 }
 
-void QPalette_SetColorGroup(QPalette* self, int cr, QBrush* windowText, QBrush* button, QBrush* light, QBrush* dark, QBrush* mid, QBrush* text, QBrush* bright_text, QBrush* base, QBrush* window) {
+void QPalette_SetColorGroup(QPalette* self, int cr, const QBrush* windowText, const QBrush* button, const QBrush* light, const QBrush* dark, const QBrush* mid, const QBrush* text, const QBrush* bright_text, const QBrush* base, const QBrush* window) {
     self->setColorGroup(static_cast<QPalette::ColorGroup>(cr), *windowText, *button, *light, *dark, *mid, *text, *bright_text, *base, *window);
 }
 
@@ -226,15 +226,15 @@ QBrush* QPalette_PlaceholderText(const QPalette* self) {
     return const_cast<QBrush*>(&_ret);
 }
 
-bool QPalette_OperatorEqual(const QPalette* self, QPalette* p) {
+bool QPalette_OperatorEqual(const QPalette* self, const QPalette* p) {
     return (*self == *p);
 }
 
-bool QPalette_OperatorNotEqual(const QPalette* self, QPalette* p) {
+bool QPalette_OperatorNotEqual(const QPalette* self, const QPalette* p) {
     return (*self != *p);
 }
 
-bool QPalette_IsCopyOf(const QPalette* self, QPalette* p) {
+bool QPalette_IsCopyOf(const QPalette* self, const QPalette* p) {
     return self->isCopyOf(*p);
 }
 
@@ -242,7 +242,7 @@ long long QPalette_CacheKey(const QPalette* self) {
     return static_cast<long long>(self->cacheKey());
 }
 
-QPalette* QPalette_Resolve(const QPalette* self, QPalette* other) {
+QPalette* QPalette_Resolve(const QPalette* self, const QPalette* other) {
     return new QPalette(self->resolve(*other));
 }
 

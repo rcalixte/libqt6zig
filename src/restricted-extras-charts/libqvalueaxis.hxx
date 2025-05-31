@@ -11,23 +11,26 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QValueAxis so that we can call protected methods
-class VirtualQValueAxis : public QValueAxis {
+class VirtualQValueAxis final : public QValueAxis {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQValueAxis = true;
+
     // Virtual class public types (including callbacks)
-    using QValueAxis_Metacall_Callback = int (*)(QValueAxis*, QMetaObject::Call, int, void**);
-    using QValueAxis_Type_Callback = QAbstractAxis::AxisType (*)();
+    using QValueAxis_Metacall_Callback = int (*)(QValueAxis*, int, int, void**);
+    using QValueAxis_Type_Callback = int (*)();
     using QValueAxis_Event_Callback = bool (*)(QValueAxis*, QEvent*);
     using QValueAxis_EventFilter_Callback = bool (*)(QValueAxis*, QObject*, QEvent*);
     using QValueAxis_TimerEvent_Callback = void (*)(QValueAxis*, QTimerEvent*);
     using QValueAxis_ChildEvent_Callback = void (*)(QValueAxis*, QChildEvent*);
     using QValueAxis_CustomEvent_Callback = void (*)(QValueAxis*, QEvent*);
-    using QValueAxis_ConnectNotify_Callback = void (*)(QValueAxis*, const QMetaMethod&);
-    using QValueAxis_DisconnectNotify_Callback = void (*)(QValueAxis*, const QMetaMethod&);
+    using QValueAxis_ConnectNotify_Callback = void (*)(QValueAxis*, QMetaMethod*);
+    using QValueAxis_DisconnectNotify_Callback = void (*)(QValueAxis*, QMetaMethod*);
     using QValueAxis_Sender_Callback = QObject* (*)();
     using QValueAxis_SenderSignalIndex_Callback = int (*)();
     using QValueAxis_Receivers_Callback = int (*)(const QValueAxis*, const char*);
-    using QValueAxis_IsSignalConnected_Callback = bool (*)(const QValueAxis*, const QMetaMethod&);
+    using QValueAxis_IsSignalConnected_Callback = bool (*)(const QValueAxis*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -81,34 +84,34 @@ class VirtualQValueAxis : public QValueAxis {
     }
 
     // Callback setters
-    void setQValueAxis_Metacall_Callback(QValueAxis_Metacall_Callback cb) { qvalueaxis_metacall_callback = cb; }
-    void setQValueAxis_Type_Callback(QValueAxis_Type_Callback cb) { qvalueaxis_type_callback = cb; }
-    void setQValueAxis_Event_Callback(QValueAxis_Event_Callback cb) { qvalueaxis_event_callback = cb; }
-    void setQValueAxis_EventFilter_Callback(QValueAxis_EventFilter_Callback cb) { qvalueaxis_eventfilter_callback = cb; }
-    void setQValueAxis_TimerEvent_Callback(QValueAxis_TimerEvent_Callback cb) { qvalueaxis_timerevent_callback = cb; }
-    void setQValueAxis_ChildEvent_Callback(QValueAxis_ChildEvent_Callback cb) { qvalueaxis_childevent_callback = cb; }
-    void setQValueAxis_CustomEvent_Callback(QValueAxis_CustomEvent_Callback cb) { qvalueaxis_customevent_callback = cb; }
-    void setQValueAxis_ConnectNotify_Callback(QValueAxis_ConnectNotify_Callback cb) { qvalueaxis_connectnotify_callback = cb; }
-    void setQValueAxis_DisconnectNotify_Callback(QValueAxis_DisconnectNotify_Callback cb) { qvalueaxis_disconnectnotify_callback = cb; }
-    void setQValueAxis_Sender_Callback(QValueAxis_Sender_Callback cb) { qvalueaxis_sender_callback = cb; }
-    void setQValueAxis_SenderSignalIndex_Callback(QValueAxis_SenderSignalIndex_Callback cb) { qvalueaxis_sendersignalindex_callback = cb; }
-    void setQValueAxis_Receivers_Callback(QValueAxis_Receivers_Callback cb) { qvalueaxis_receivers_callback = cb; }
-    void setQValueAxis_IsSignalConnected_Callback(QValueAxis_IsSignalConnected_Callback cb) { qvalueaxis_issignalconnected_callback = cb; }
+    inline void setQValueAxis_Metacall_Callback(QValueAxis_Metacall_Callback cb) { qvalueaxis_metacall_callback = cb; }
+    inline void setQValueAxis_Type_Callback(QValueAxis_Type_Callback cb) { qvalueaxis_type_callback = cb; }
+    inline void setQValueAxis_Event_Callback(QValueAxis_Event_Callback cb) { qvalueaxis_event_callback = cb; }
+    inline void setQValueAxis_EventFilter_Callback(QValueAxis_EventFilter_Callback cb) { qvalueaxis_eventfilter_callback = cb; }
+    inline void setQValueAxis_TimerEvent_Callback(QValueAxis_TimerEvent_Callback cb) { qvalueaxis_timerevent_callback = cb; }
+    inline void setQValueAxis_ChildEvent_Callback(QValueAxis_ChildEvent_Callback cb) { qvalueaxis_childevent_callback = cb; }
+    inline void setQValueAxis_CustomEvent_Callback(QValueAxis_CustomEvent_Callback cb) { qvalueaxis_customevent_callback = cb; }
+    inline void setQValueAxis_ConnectNotify_Callback(QValueAxis_ConnectNotify_Callback cb) { qvalueaxis_connectnotify_callback = cb; }
+    inline void setQValueAxis_DisconnectNotify_Callback(QValueAxis_DisconnectNotify_Callback cb) { qvalueaxis_disconnectnotify_callback = cb; }
+    inline void setQValueAxis_Sender_Callback(QValueAxis_Sender_Callback cb) { qvalueaxis_sender_callback = cb; }
+    inline void setQValueAxis_SenderSignalIndex_Callback(QValueAxis_SenderSignalIndex_Callback cb) { qvalueaxis_sendersignalindex_callback = cb; }
+    inline void setQValueAxis_Receivers_Callback(QValueAxis_Receivers_Callback cb) { qvalueaxis_receivers_callback = cb; }
+    inline void setQValueAxis_IsSignalConnected_Callback(QValueAxis_IsSignalConnected_Callback cb) { qvalueaxis_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQValueAxis_Metacall_IsBase(bool value) const { qvalueaxis_metacall_isbase = value; }
-    void setQValueAxis_Type_IsBase(bool value) const { qvalueaxis_type_isbase = value; }
-    void setQValueAxis_Event_IsBase(bool value) const { qvalueaxis_event_isbase = value; }
-    void setQValueAxis_EventFilter_IsBase(bool value) const { qvalueaxis_eventfilter_isbase = value; }
-    void setQValueAxis_TimerEvent_IsBase(bool value) const { qvalueaxis_timerevent_isbase = value; }
-    void setQValueAxis_ChildEvent_IsBase(bool value) const { qvalueaxis_childevent_isbase = value; }
-    void setQValueAxis_CustomEvent_IsBase(bool value) const { qvalueaxis_customevent_isbase = value; }
-    void setQValueAxis_ConnectNotify_IsBase(bool value) const { qvalueaxis_connectnotify_isbase = value; }
-    void setQValueAxis_DisconnectNotify_IsBase(bool value) const { qvalueaxis_disconnectnotify_isbase = value; }
-    void setQValueAxis_Sender_IsBase(bool value) const { qvalueaxis_sender_isbase = value; }
-    void setQValueAxis_SenderSignalIndex_IsBase(bool value) const { qvalueaxis_sendersignalindex_isbase = value; }
-    void setQValueAxis_Receivers_IsBase(bool value) const { qvalueaxis_receivers_isbase = value; }
-    void setQValueAxis_IsSignalConnected_IsBase(bool value) const { qvalueaxis_issignalconnected_isbase = value; }
+    inline void setQValueAxis_Metacall_IsBase(bool value) const { qvalueaxis_metacall_isbase = value; }
+    inline void setQValueAxis_Type_IsBase(bool value) const { qvalueaxis_type_isbase = value; }
+    inline void setQValueAxis_Event_IsBase(bool value) const { qvalueaxis_event_isbase = value; }
+    inline void setQValueAxis_EventFilter_IsBase(bool value) const { qvalueaxis_eventfilter_isbase = value; }
+    inline void setQValueAxis_TimerEvent_IsBase(bool value) const { qvalueaxis_timerevent_isbase = value; }
+    inline void setQValueAxis_ChildEvent_IsBase(bool value) const { qvalueaxis_childevent_isbase = value; }
+    inline void setQValueAxis_CustomEvent_IsBase(bool value) const { qvalueaxis_customevent_isbase = value; }
+    inline void setQValueAxis_ConnectNotify_IsBase(bool value) const { qvalueaxis_connectnotify_isbase = value; }
+    inline void setQValueAxis_DisconnectNotify_IsBase(bool value) const { qvalueaxis_disconnectnotify_isbase = value; }
+    inline void setQValueAxis_Sender_IsBase(bool value) const { qvalueaxis_sender_isbase = value; }
+    inline void setQValueAxis_SenderSignalIndex_IsBase(bool value) const { qvalueaxis_sendersignalindex_isbase = value; }
+    inline void setQValueAxis_Receivers_IsBase(bool value) const { qvalueaxis_receivers_isbase = value; }
+    inline void setQValueAxis_IsSignalConnected_IsBase(bool value) const { qvalueaxis_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -116,7 +119,12 @@ class VirtualQValueAxis : public QValueAxis {
             qvalueaxis_metacall_isbase = false;
             return QValueAxis::qt_metacall(param1, param2, param3);
         } else if (qvalueaxis_metacall_callback != nullptr) {
-            return qvalueaxis_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qvalueaxis_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QValueAxis::qt_metacall(param1, param2, param3);
         }
@@ -128,7 +136,8 @@ class VirtualQValueAxis : public QValueAxis {
             qvalueaxis_type_isbase = false;
             return QValueAxis::type();
         } else if (qvalueaxis_type_callback != nullptr) {
-            return qvalueaxis_type_callback();
+            int callback_ret = qvalueaxis_type_callback();
+            return static_cast<QAbstractAxis::AxisType>(callback_ret);
         } else {
             return QValueAxis::type();
         }
@@ -140,7 +149,10 @@ class VirtualQValueAxis : public QValueAxis {
             qvalueaxis_event_isbase = false;
             return QValueAxis::event(event);
         } else if (qvalueaxis_event_callback != nullptr) {
-            return qvalueaxis_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qvalueaxis_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QValueAxis::event(event);
         }
@@ -152,7 +164,11 @@ class VirtualQValueAxis : public QValueAxis {
             qvalueaxis_eventfilter_isbase = false;
             return QValueAxis::eventFilter(watched, event);
         } else if (qvalueaxis_eventfilter_callback != nullptr) {
-            return qvalueaxis_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qvalueaxis_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QValueAxis::eventFilter(watched, event);
         }
@@ -164,7 +180,9 @@ class VirtualQValueAxis : public QValueAxis {
             qvalueaxis_timerevent_isbase = false;
             QValueAxis::timerEvent(event);
         } else if (qvalueaxis_timerevent_callback != nullptr) {
-            qvalueaxis_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qvalueaxis_timerevent_callback(this, cbval1);
         } else {
             QValueAxis::timerEvent(event);
         }
@@ -176,7 +194,9 @@ class VirtualQValueAxis : public QValueAxis {
             qvalueaxis_childevent_isbase = false;
             QValueAxis::childEvent(event);
         } else if (qvalueaxis_childevent_callback != nullptr) {
-            qvalueaxis_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qvalueaxis_childevent_callback(this, cbval1);
         } else {
             QValueAxis::childEvent(event);
         }
@@ -188,7 +208,9 @@ class VirtualQValueAxis : public QValueAxis {
             qvalueaxis_customevent_isbase = false;
             QValueAxis::customEvent(event);
         } else if (qvalueaxis_customevent_callback != nullptr) {
-            qvalueaxis_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qvalueaxis_customevent_callback(this, cbval1);
         } else {
             QValueAxis::customEvent(event);
         }
@@ -200,7 +222,11 @@ class VirtualQValueAxis : public QValueAxis {
             qvalueaxis_connectnotify_isbase = false;
             QValueAxis::connectNotify(signal);
         } else if (qvalueaxis_connectnotify_callback != nullptr) {
-            qvalueaxis_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qvalueaxis_connectnotify_callback(this, cbval1);
         } else {
             QValueAxis::connectNotify(signal);
         }
@@ -212,7 +238,11 @@ class VirtualQValueAxis : public QValueAxis {
             qvalueaxis_disconnectnotify_isbase = false;
             QValueAxis::disconnectNotify(signal);
         } else if (qvalueaxis_disconnectnotify_callback != nullptr) {
-            qvalueaxis_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qvalueaxis_disconnectnotify_callback(this, cbval1);
         } else {
             QValueAxis::disconnectNotify(signal);
         }
@@ -224,7 +254,8 @@ class VirtualQValueAxis : public QValueAxis {
             qvalueaxis_sender_isbase = false;
             return QValueAxis::sender();
         } else if (qvalueaxis_sender_callback != nullptr) {
-            return qvalueaxis_sender_callback();
+            QObject* callback_ret = qvalueaxis_sender_callback();
+            return callback_ret;
         } else {
             return QValueAxis::sender();
         }
@@ -236,7 +267,8 @@ class VirtualQValueAxis : public QValueAxis {
             qvalueaxis_sendersignalindex_isbase = false;
             return QValueAxis::senderSignalIndex();
         } else if (qvalueaxis_sendersignalindex_callback != nullptr) {
-            return qvalueaxis_sendersignalindex_callback();
+            int callback_ret = qvalueaxis_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QValueAxis::senderSignalIndex();
         }
@@ -248,7 +280,10 @@ class VirtualQValueAxis : public QValueAxis {
             qvalueaxis_receivers_isbase = false;
             return QValueAxis::receivers(signal);
         } else if (qvalueaxis_receivers_callback != nullptr) {
-            return qvalueaxis_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qvalueaxis_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QValueAxis::receivers(signal);
         }
@@ -260,11 +295,36 @@ class VirtualQValueAxis : public QValueAxis {
             qvalueaxis_issignalconnected_isbase = false;
             return QValueAxis::isSignalConnected(signal);
         } else if (qvalueaxis_issignalconnected_callback != nullptr) {
-            return qvalueaxis_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qvalueaxis_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QValueAxis::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QValueAxis_TimerEvent(QValueAxis* self, QTimerEvent* event);
+    friend void QValueAxis_QBaseTimerEvent(QValueAxis* self, QTimerEvent* event);
+    friend void QValueAxis_ChildEvent(QValueAxis* self, QChildEvent* event);
+    friend void QValueAxis_QBaseChildEvent(QValueAxis* self, QChildEvent* event);
+    friend void QValueAxis_CustomEvent(QValueAxis* self, QEvent* event);
+    friend void QValueAxis_QBaseCustomEvent(QValueAxis* self, QEvent* event);
+    friend void QValueAxis_ConnectNotify(QValueAxis* self, const QMetaMethod* signal);
+    friend void QValueAxis_QBaseConnectNotify(QValueAxis* self, const QMetaMethod* signal);
+    friend void QValueAxis_DisconnectNotify(QValueAxis* self, const QMetaMethod* signal);
+    friend void QValueAxis_QBaseDisconnectNotify(QValueAxis* self, const QMetaMethod* signal);
+    friend QObject* QValueAxis_Sender(const QValueAxis* self);
+    friend QObject* QValueAxis_QBaseSender(const QValueAxis* self);
+    friend int QValueAxis_SenderSignalIndex(const QValueAxis* self);
+    friend int QValueAxis_QBaseSenderSignalIndex(const QValueAxis* self);
+    friend int QValueAxis_Receivers(const QValueAxis* self, const char* signal);
+    friend int QValueAxis_QBaseReceivers(const QValueAxis* self, const char* signal);
+    friend bool QValueAxis_IsSignalConnected(const QValueAxis* self, const QMetaMethod* signal);
+    friend bool QValueAxis_QBaseIsSignalConnected(const QValueAxis* self, const QMetaMethod* signal);
 };
 
 #endif

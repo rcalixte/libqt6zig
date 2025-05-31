@@ -43,11 +43,11 @@ void QWebEngineUrlRequestInfo_Block(QWebEngineUrlRequestInfo* self, bool shouldB
     self->block(shouldBlock);
 }
 
-void QWebEngineUrlRequestInfo_Redirect(QWebEngineUrlRequestInfo* self, QUrl* url) {
+void QWebEngineUrlRequestInfo_Redirect(QWebEngineUrlRequestInfo* self, const QUrl* url) {
     self->redirect(*url);
 }
 
-void QWebEngineUrlRequestInfo_SetHttpHeader(QWebEngineUrlRequestInfo* self, libqt_string name, libqt_string value) {
+void QWebEngineUrlRequestInfo_SetHttpHeader(QWebEngineUrlRequestInfo* self, const libqt_string name, const libqt_string value) {
     QByteArray name_QByteArray(name.data, name.len);
     QByteArray value_QByteArray(value.data, value.len);
     self->setHttpHeader(name_QByteArray, value_QByteArray);

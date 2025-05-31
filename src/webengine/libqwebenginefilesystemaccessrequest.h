@@ -32,8 +32,8 @@ typedef int HandleType;      // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
-QWebEngineFileSystemAccessRequest* QWebEngineFileSystemAccessRequest_new(QWebEngineFileSystemAccessRequest* other);
-void QWebEngineFileSystemAccessRequest_OperatorAssign(QWebEngineFileSystemAccessRequest* self, QWebEngineFileSystemAccessRequest* other);
+QWebEngineFileSystemAccessRequest* QWebEngineFileSystemAccessRequest_new(const QWebEngineFileSystemAccessRequest* other);
+void QWebEngineFileSystemAccessRequest_OperatorAssign(QWebEngineFileSystemAccessRequest* self, const QWebEngineFileSystemAccessRequest* other);
 void QWebEngineFileSystemAccessRequest_Swap(QWebEngineFileSystemAccessRequest* self, QWebEngineFileSystemAccessRequest* other);
 void QWebEngineFileSystemAccessRequest_Accept(QWebEngineFileSystemAccessRequest* self);
 void QWebEngineFileSystemAccessRequest_Reject(QWebEngineFileSystemAccessRequest* self);

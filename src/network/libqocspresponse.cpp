@@ -8,11 +8,11 @@ QOcspResponse* QOcspResponse_new() {
     return new QOcspResponse();
 }
 
-QOcspResponse* QOcspResponse_new2(QOcspResponse* other) {
+QOcspResponse* QOcspResponse_new2(const QOcspResponse* other) {
     return new QOcspResponse(*other);
 }
 
-void QOcspResponse_OperatorAssign(QOcspResponse* self, QOcspResponse* other) {
+void QOcspResponse_OperatorAssign(QOcspResponse* self, const QOcspResponse* other) {
     self->operator=(*other);
 }
 

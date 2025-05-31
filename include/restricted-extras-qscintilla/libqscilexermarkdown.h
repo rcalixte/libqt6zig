@@ -15,25 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSettings QSettings;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
-typedef struct QsciAbstractAPIs QsciAbstractAPIs;
 typedef struct QsciLexer QsciLexer;
 typedef struct QsciLexerMarkdown QsciLexerMarkdown;
 typedef struct QsciScintilla QsciScintilla;
@@ -130,21 +121,24 @@ const char* QsciLexerMarkdown_QBaseWordCharacters(const QsciLexerMarkdown* self)
 void QsciLexerMarkdown_SetAutoIndentStyle(QsciLexerMarkdown* self, int autoindentstyle);
 void QsciLexerMarkdown_OnSetAutoIndentStyle(QsciLexerMarkdown* self, intptr_t slot);
 void QsciLexerMarkdown_QBaseSetAutoIndentStyle(QsciLexerMarkdown* self, int autoindentstyle);
-void QsciLexerMarkdown_SetColor(QsciLexerMarkdown* self, QColor* c, int style);
+void QsciLexerMarkdown_SetColor(QsciLexerMarkdown* self, const QColor* c, int style);
 void QsciLexerMarkdown_OnSetColor(QsciLexerMarkdown* self, intptr_t slot);
-void QsciLexerMarkdown_QBaseSetColor(QsciLexerMarkdown* self, QColor* c, int style);
+void QsciLexerMarkdown_QBaseSetColor(QsciLexerMarkdown* self, const QColor* c, int style);
 void QsciLexerMarkdown_SetEolFill(QsciLexerMarkdown* self, bool eoffill, int style);
 void QsciLexerMarkdown_OnSetEolFill(QsciLexerMarkdown* self, intptr_t slot);
 void QsciLexerMarkdown_QBaseSetEolFill(QsciLexerMarkdown* self, bool eoffill, int style);
-void QsciLexerMarkdown_SetFont(QsciLexerMarkdown* self, QFont* f, int style);
+void QsciLexerMarkdown_SetFont(QsciLexerMarkdown* self, const QFont* f, int style);
 void QsciLexerMarkdown_OnSetFont(QsciLexerMarkdown* self, intptr_t slot);
-void QsciLexerMarkdown_QBaseSetFont(QsciLexerMarkdown* self, QFont* f, int style);
-void QsciLexerMarkdown_SetPaper(QsciLexerMarkdown* self, QColor* c, int style);
+void QsciLexerMarkdown_QBaseSetFont(QsciLexerMarkdown* self, const QFont* f, int style);
+void QsciLexerMarkdown_SetPaper(QsciLexerMarkdown* self, const QColor* c, int style);
 void QsciLexerMarkdown_OnSetPaper(QsciLexerMarkdown* self, intptr_t slot);
-void QsciLexerMarkdown_QBaseSetPaper(QsciLexerMarkdown* self, QColor* c, int style);
-bool QsciLexerMarkdown_ReadProperties(QsciLexerMarkdown* self, QSettings* qs, libqt_string prefix);
+void QsciLexerMarkdown_QBaseSetPaper(QsciLexerMarkdown* self, const QColor* c, int style);
+bool QsciLexerMarkdown_ReadProperties(QsciLexerMarkdown* self, QSettings* qs, const libqt_string prefix);
 void QsciLexerMarkdown_OnReadProperties(QsciLexerMarkdown* self, intptr_t slot);
-bool QsciLexerMarkdown_QBaseReadProperties(QsciLexerMarkdown* self, QSettings* qs, libqt_string prefix);
+bool QsciLexerMarkdown_QBaseReadProperties(QsciLexerMarkdown* self, QSettings* qs, const libqt_string prefix);
+bool QsciLexerMarkdown_WriteProperties(const QsciLexerMarkdown* self, QSettings* qs, const libqt_string prefix);
+void QsciLexerMarkdown_OnWriteProperties(const QsciLexerMarkdown* self, intptr_t slot);
+bool QsciLexerMarkdown_QBaseWriteProperties(const QsciLexerMarkdown* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexerMarkdown_Event(QsciLexerMarkdown* self, QEvent* event);
 void QsciLexerMarkdown_OnEvent(QsciLexerMarkdown* self, intptr_t slot);
 bool QsciLexerMarkdown_QBaseEvent(QsciLexerMarkdown* self, QEvent* event);
@@ -160,15 +154,12 @@ void QsciLexerMarkdown_QBaseChildEvent(QsciLexerMarkdown* self, QChildEvent* eve
 void QsciLexerMarkdown_CustomEvent(QsciLexerMarkdown* self, QEvent* event);
 void QsciLexerMarkdown_OnCustomEvent(QsciLexerMarkdown* self, intptr_t slot);
 void QsciLexerMarkdown_QBaseCustomEvent(QsciLexerMarkdown* self, QEvent* event);
-void QsciLexerMarkdown_ConnectNotify(QsciLexerMarkdown* self, QMetaMethod* signal);
+void QsciLexerMarkdown_ConnectNotify(QsciLexerMarkdown* self, const QMetaMethod* signal);
 void QsciLexerMarkdown_OnConnectNotify(QsciLexerMarkdown* self, intptr_t slot);
-void QsciLexerMarkdown_QBaseConnectNotify(QsciLexerMarkdown* self, QMetaMethod* signal);
-void QsciLexerMarkdown_DisconnectNotify(QsciLexerMarkdown* self, QMetaMethod* signal);
+void QsciLexerMarkdown_QBaseConnectNotify(QsciLexerMarkdown* self, const QMetaMethod* signal);
+void QsciLexerMarkdown_DisconnectNotify(QsciLexerMarkdown* self, const QMetaMethod* signal);
 void QsciLexerMarkdown_OnDisconnectNotify(QsciLexerMarkdown* self, intptr_t slot);
-void QsciLexerMarkdown_QBaseDisconnectNotify(QsciLexerMarkdown* self, QMetaMethod* signal);
-bool QsciLexerMarkdown_WriteProperties(const QsciLexerMarkdown* self, QSettings* qs, libqt_string prefix);
-void QsciLexerMarkdown_OnWriteProperties(const QsciLexerMarkdown* self, intptr_t slot);
-bool QsciLexerMarkdown_QBaseWriteProperties(const QsciLexerMarkdown* self, QSettings* qs, libqt_string prefix);
+void QsciLexerMarkdown_QBaseDisconnectNotify(QsciLexerMarkdown* self, const QMetaMethod* signal);
 QObject* QsciLexerMarkdown_Sender(const QsciLexerMarkdown* self);
 void QsciLexerMarkdown_OnSender(const QsciLexerMarkdown* self, intptr_t slot);
 QObject* QsciLexerMarkdown_QBaseSender(const QsciLexerMarkdown* self);
@@ -178,9 +169,9 @@ int QsciLexerMarkdown_QBaseSenderSignalIndex(const QsciLexerMarkdown* self);
 int QsciLexerMarkdown_Receivers(const QsciLexerMarkdown* self, const char* signal);
 void QsciLexerMarkdown_OnReceivers(const QsciLexerMarkdown* self, intptr_t slot);
 int QsciLexerMarkdown_QBaseReceivers(const QsciLexerMarkdown* self, const char* signal);
-bool QsciLexerMarkdown_IsSignalConnected(const QsciLexerMarkdown* self, QMetaMethod* signal);
+bool QsciLexerMarkdown_IsSignalConnected(const QsciLexerMarkdown* self, const QMetaMethod* signal);
 void QsciLexerMarkdown_OnIsSignalConnected(const QsciLexerMarkdown* self, intptr_t slot);
-bool QsciLexerMarkdown_QBaseIsSignalConnected(const QsciLexerMarkdown* self, QMetaMethod* signal);
+bool QsciLexerMarkdown_QBaseIsSignalConnected(const QsciLexerMarkdown* self, const QMetaMethod* signal);
 void QsciLexerMarkdown_Delete(QsciLexerMarkdown* self);
 
 #ifdef __cplusplus

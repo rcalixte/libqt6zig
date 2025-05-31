@@ -20,11 +20,11 @@ QPaintDevice* QBackingStore_PaintDevice(QBackingStore* self) {
     return self->paintDevice();
 }
 
-void QBackingStore_Flush(QBackingStore* self, QRegion* region) {
+void QBackingStore_Flush(QBackingStore* self, const QRegion* region) {
     self->flush(*region);
 }
 
-void QBackingStore_Resize(QBackingStore* self, QSize* size) {
+void QBackingStore_Resize(QBackingStore* self, const QSize* size) {
     self->resize(*size);
 }
 
@@ -32,11 +32,11 @@ QSize* QBackingStore_Size(const QBackingStore* self) {
     return new QSize(self->size());
 }
 
-bool QBackingStore_Scroll(QBackingStore* self, QRegion* area, int dx, int dy) {
+bool QBackingStore_Scroll(QBackingStore* self, const QRegion* area, int dx, int dy) {
     return self->scroll(*area, static_cast<int>(dx), static_cast<int>(dy));
 }
 
-void QBackingStore_BeginPaint(QBackingStore* self, QRegion* param1) {
+void QBackingStore_BeginPaint(QBackingStore* self, const QRegion* param1) {
     self->beginPaint(*param1);
 }
 
@@ -44,7 +44,7 @@ void QBackingStore_EndPaint(QBackingStore* self) {
     self->endPaint();
 }
 
-void QBackingStore_SetStaticContents(QBackingStore* self, QRegion* region) {
+void QBackingStore_SetStaticContents(QBackingStore* self, const QRegion* region) {
     self->setStaticContents(*region);
 }
 
@@ -56,11 +56,11 @@ bool QBackingStore_HasStaticContents(const QBackingStore* self) {
     return self->hasStaticContents();
 }
 
-void QBackingStore_Flush2(QBackingStore* self, QRegion* region, QWindow* window) {
+void QBackingStore_Flush2(QBackingStore* self, const QRegion* region, QWindow* window) {
     self->flush(*region, window);
 }
 
-void QBackingStore_Flush3(QBackingStore* self, QRegion* region, QWindow* window, QPoint* offset) {
+void QBackingStore_Flush3(QBackingStore* self, const QRegion* region, QWindow* window, const QPoint* offset) {
     self->flush(*region, window, *offset);
 }
 

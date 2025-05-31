@@ -15,25 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSettings QSettings;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
-typedef struct QsciAbstractAPIs QsciAbstractAPIs;
 typedef struct QsciLexer QsciLexer;
 typedef struct QsciLexerMatlab QsciLexerMatlab;
 typedef struct QsciScintilla QsciScintilla;
@@ -127,21 +118,24 @@ const char* QsciLexerMatlab_QBaseWordCharacters(const QsciLexerMatlab* self);
 void QsciLexerMatlab_SetAutoIndentStyle(QsciLexerMatlab* self, int autoindentstyle);
 void QsciLexerMatlab_OnSetAutoIndentStyle(QsciLexerMatlab* self, intptr_t slot);
 void QsciLexerMatlab_QBaseSetAutoIndentStyle(QsciLexerMatlab* self, int autoindentstyle);
-void QsciLexerMatlab_SetColor(QsciLexerMatlab* self, QColor* c, int style);
+void QsciLexerMatlab_SetColor(QsciLexerMatlab* self, const QColor* c, int style);
 void QsciLexerMatlab_OnSetColor(QsciLexerMatlab* self, intptr_t slot);
-void QsciLexerMatlab_QBaseSetColor(QsciLexerMatlab* self, QColor* c, int style);
+void QsciLexerMatlab_QBaseSetColor(QsciLexerMatlab* self, const QColor* c, int style);
 void QsciLexerMatlab_SetEolFill(QsciLexerMatlab* self, bool eoffill, int style);
 void QsciLexerMatlab_OnSetEolFill(QsciLexerMatlab* self, intptr_t slot);
 void QsciLexerMatlab_QBaseSetEolFill(QsciLexerMatlab* self, bool eoffill, int style);
-void QsciLexerMatlab_SetFont(QsciLexerMatlab* self, QFont* f, int style);
+void QsciLexerMatlab_SetFont(QsciLexerMatlab* self, const QFont* f, int style);
 void QsciLexerMatlab_OnSetFont(QsciLexerMatlab* self, intptr_t slot);
-void QsciLexerMatlab_QBaseSetFont(QsciLexerMatlab* self, QFont* f, int style);
-void QsciLexerMatlab_SetPaper(QsciLexerMatlab* self, QColor* c, int style);
+void QsciLexerMatlab_QBaseSetFont(QsciLexerMatlab* self, const QFont* f, int style);
+void QsciLexerMatlab_SetPaper(QsciLexerMatlab* self, const QColor* c, int style);
 void QsciLexerMatlab_OnSetPaper(QsciLexerMatlab* self, intptr_t slot);
-void QsciLexerMatlab_QBaseSetPaper(QsciLexerMatlab* self, QColor* c, int style);
-bool QsciLexerMatlab_ReadProperties(QsciLexerMatlab* self, QSettings* qs, libqt_string prefix);
+void QsciLexerMatlab_QBaseSetPaper(QsciLexerMatlab* self, const QColor* c, int style);
+bool QsciLexerMatlab_ReadProperties(QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix);
 void QsciLexerMatlab_OnReadProperties(QsciLexerMatlab* self, intptr_t slot);
-bool QsciLexerMatlab_QBaseReadProperties(QsciLexerMatlab* self, QSettings* qs, libqt_string prefix);
+bool QsciLexerMatlab_QBaseReadProperties(QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix);
+bool QsciLexerMatlab_WriteProperties(const QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix);
+void QsciLexerMatlab_OnWriteProperties(const QsciLexerMatlab* self, intptr_t slot);
+bool QsciLexerMatlab_QBaseWriteProperties(const QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexerMatlab_Event(QsciLexerMatlab* self, QEvent* event);
 void QsciLexerMatlab_OnEvent(QsciLexerMatlab* self, intptr_t slot);
 bool QsciLexerMatlab_QBaseEvent(QsciLexerMatlab* self, QEvent* event);
@@ -157,15 +151,12 @@ void QsciLexerMatlab_QBaseChildEvent(QsciLexerMatlab* self, QChildEvent* event);
 void QsciLexerMatlab_CustomEvent(QsciLexerMatlab* self, QEvent* event);
 void QsciLexerMatlab_OnCustomEvent(QsciLexerMatlab* self, intptr_t slot);
 void QsciLexerMatlab_QBaseCustomEvent(QsciLexerMatlab* self, QEvent* event);
-void QsciLexerMatlab_ConnectNotify(QsciLexerMatlab* self, QMetaMethod* signal);
+void QsciLexerMatlab_ConnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
 void QsciLexerMatlab_OnConnectNotify(QsciLexerMatlab* self, intptr_t slot);
-void QsciLexerMatlab_QBaseConnectNotify(QsciLexerMatlab* self, QMetaMethod* signal);
-void QsciLexerMatlab_DisconnectNotify(QsciLexerMatlab* self, QMetaMethod* signal);
+void QsciLexerMatlab_QBaseConnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
+void QsciLexerMatlab_DisconnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
 void QsciLexerMatlab_OnDisconnectNotify(QsciLexerMatlab* self, intptr_t slot);
-void QsciLexerMatlab_QBaseDisconnectNotify(QsciLexerMatlab* self, QMetaMethod* signal);
-bool QsciLexerMatlab_WriteProperties(const QsciLexerMatlab* self, QSettings* qs, libqt_string prefix);
-void QsciLexerMatlab_OnWriteProperties(const QsciLexerMatlab* self, intptr_t slot);
-bool QsciLexerMatlab_QBaseWriteProperties(const QsciLexerMatlab* self, QSettings* qs, libqt_string prefix);
+void QsciLexerMatlab_QBaseDisconnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
 QObject* QsciLexerMatlab_Sender(const QsciLexerMatlab* self);
 void QsciLexerMatlab_OnSender(const QsciLexerMatlab* self, intptr_t slot);
 QObject* QsciLexerMatlab_QBaseSender(const QsciLexerMatlab* self);
@@ -175,9 +166,9 @@ int QsciLexerMatlab_QBaseSenderSignalIndex(const QsciLexerMatlab* self);
 int QsciLexerMatlab_Receivers(const QsciLexerMatlab* self, const char* signal);
 void QsciLexerMatlab_OnReceivers(const QsciLexerMatlab* self, intptr_t slot);
 int QsciLexerMatlab_QBaseReceivers(const QsciLexerMatlab* self, const char* signal);
-bool QsciLexerMatlab_IsSignalConnected(const QsciLexerMatlab* self, QMetaMethod* signal);
+bool QsciLexerMatlab_IsSignalConnected(const QsciLexerMatlab* self, const QMetaMethod* signal);
 void QsciLexerMatlab_OnIsSignalConnected(const QsciLexerMatlab* self, intptr_t slot);
-bool QsciLexerMatlab_QBaseIsSignalConnected(const QsciLexerMatlab* self, QMetaMethod* signal);
+bool QsciLexerMatlab_QBaseIsSignalConnected(const QsciLexerMatlab* self, const QMetaMethod* signal);
 void QsciLexerMatlab_Delete(QsciLexerMatlab* self);
 
 #ifdef __cplusplus

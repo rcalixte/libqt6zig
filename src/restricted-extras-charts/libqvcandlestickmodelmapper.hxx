@@ -11,19 +11,22 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QVCandlestickModelMapper so that we can call protected methods
-class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
+class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQVCandlestickModelMapper = true;
+
     // Virtual class public types (including callbacks)
-    using QVCandlestickModelMapper_Metacall_Callback = int (*)(QVCandlestickModelMapper*, QMetaObject::Call, int, void**);
-    using QVCandlestickModelMapper_Orientation_Callback = Qt::Orientation (*)();
+    using QVCandlestickModelMapper_Metacall_Callback = int (*)(QVCandlestickModelMapper*, int, int, void**);
+    using QVCandlestickModelMapper_Orientation_Callback = int (*)();
     using QVCandlestickModelMapper_Event_Callback = bool (*)(QVCandlestickModelMapper*, QEvent*);
     using QVCandlestickModelMapper_EventFilter_Callback = bool (*)(QVCandlestickModelMapper*, QObject*, QEvent*);
     using QVCandlestickModelMapper_TimerEvent_Callback = void (*)(QVCandlestickModelMapper*, QTimerEvent*);
     using QVCandlestickModelMapper_ChildEvent_Callback = void (*)(QVCandlestickModelMapper*, QChildEvent*);
     using QVCandlestickModelMapper_CustomEvent_Callback = void (*)(QVCandlestickModelMapper*, QEvent*);
-    using QVCandlestickModelMapper_ConnectNotify_Callback = void (*)(QVCandlestickModelMapper*, const QMetaMethod&);
-    using QVCandlestickModelMapper_DisconnectNotify_Callback = void (*)(QVCandlestickModelMapper*, const QMetaMethod&);
+    using QVCandlestickModelMapper_ConnectNotify_Callback = void (*)(QVCandlestickModelMapper*, QMetaMethod*);
+    using QVCandlestickModelMapper_DisconnectNotify_Callback = void (*)(QVCandlestickModelMapper*, QMetaMethod*);
     using QVCandlestickModelMapper_SetTimestamp_Callback = void (*)(QVCandlestickModelMapper*, int);
     using QVCandlestickModelMapper_Timestamp_Callback = int (*)();
     using QVCandlestickModelMapper_SetOpen_Callback = void (*)(QVCandlestickModelMapper*, int);
@@ -41,7 +44,7 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
     using QVCandlestickModelMapper_Sender_Callback = QObject* (*)();
     using QVCandlestickModelMapper_SenderSignalIndex_Callback = int (*)();
     using QVCandlestickModelMapper_Receivers_Callback = int (*)(const QVCandlestickModelMapper*, const char*);
-    using QVCandlestickModelMapper_IsSignalConnected_Callback = bool (*)(const QVCandlestickModelMapper*, const QMetaMethod&);
+    using QVCandlestickModelMapper_IsSignalConnected_Callback = bool (*)(const QVCandlestickModelMapper*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -137,62 +140,62 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
     }
 
     // Callback setters
-    void setQVCandlestickModelMapper_Metacall_Callback(QVCandlestickModelMapper_Metacall_Callback cb) { qvcandlestickmodelmapper_metacall_callback = cb; }
-    void setQVCandlestickModelMapper_Orientation_Callback(QVCandlestickModelMapper_Orientation_Callback cb) { qvcandlestickmodelmapper_orientation_callback = cb; }
-    void setQVCandlestickModelMapper_Event_Callback(QVCandlestickModelMapper_Event_Callback cb) { qvcandlestickmodelmapper_event_callback = cb; }
-    void setQVCandlestickModelMapper_EventFilter_Callback(QVCandlestickModelMapper_EventFilter_Callback cb) { qvcandlestickmodelmapper_eventfilter_callback = cb; }
-    void setQVCandlestickModelMapper_TimerEvent_Callback(QVCandlestickModelMapper_TimerEvent_Callback cb) { qvcandlestickmodelmapper_timerevent_callback = cb; }
-    void setQVCandlestickModelMapper_ChildEvent_Callback(QVCandlestickModelMapper_ChildEvent_Callback cb) { qvcandlestickmodelmapper_childevent_callback = cb; }
-    void setQVCandlestickModelMapper_CustomEvent_Callback(QVCandlestickModelMapper_CustomEvent_Callback cb) { qvcandlestickmodelmapper_customevent_callback = cb; }
-    void setQVCandlestickModelMapper_ConnectNotify_Callback(QVCandlestickModelMapper_ConnectNotify_Callback cb) { qvcandlestickmodelmapper_connectnotify_callback = cb; }
-    void setQVCandlestickModelMapper_DisconnectNotify_Callback(QVCandlestickModelMapper_DisconnectNotify_Callback cb) { qvcandlestickmodelmapper_disconnectnotify_callback = cb; }
-    void setQVCandlestickModelMapper_SetTimestamp_Callback(QVCandlestickModelMapper_SetTimestamp_Callback cb) { qvcandlestickmodelmapper_settimestamp_callback = cb; }
-    void setQVCandlestickModelMapper_Timestamp_Callback(QVCandlestickModelMapper_Timestamp_Callback cb) { qvcandlestickmodelmapper_timestamp_callback = cb; }
-    void setQVCandlestickModelMapper_SetOpen_Callback(QVCandlestickModelMapper_SetOpen_Callback cb) { qvcandlestickmodelmapper_setopen_callback = cb; }
-    void setQVCandlestickModelMapper_Open_Callback(QVCandlestickModelMapper_Open_Callback cb) { qvcandlestickmodelmapper_open_callback = cb; }
-    void setQVCandlestickModelMapper_SetHigh_Callback(QVCandlestickModelMapper_SetHigh_Callback cb) { qvcandlestickmodelmapper_sethigh_callback = cb; }
-    void setQVCandlestickModelMapper_High_Callback(QVCandlestickModelMapper_High_Callback cb) { qvcandlestickmodelmapper_high_callback = cb; }
-    void setQVCandlestickModelMapper_SetLow_Callback(QVCandlestickModelMapper_SetLow_Callback cb) { qvcandlestickmodelmapper_setlow_callback = cb; }
-    void setQVCandlestickModelMapper_Low_Callback(QVCandlestickModelMapper_Low_Callback cb) { qvcandlestickmodelmapper_low_callback = cb; }
-    void setQVCandlestickModelMapper_SetClose_Callback(QVCandlestickModelMapper_SetClose_Callback cb) { qvcandlestickmodelmapper_setclose_callback = cb; }
-    void setQVCandlestickModelMapper_Close_Callback(QVCandlestickModelMapper_Close_Callback cb) { qvcandlestickmodelmapper_close_callback = cb; }
-    void setQVCandlestickModelMapper_SetFirstSetSection_Callback(QVCandlestickModelMapper_SetFirstSetSection_Callback cb) { qvcandlestickmodelmapper_setfirstsetsection_callback = cb; }
-    void setQVCandlestickModelMapper_FirstSetSection_Callback(QVCandlestickModelMapper_FirstSetSection_Callback cb) { qvcandlestickmodelmapper_firstsetsection_callback = cb; }
-    void setQVCandlestickModelMapper_SetLastSetSection_Callback(QVCandlestickModelMapper_SetLastSetSection_Callback cb) { qvcandlestickmodelmapper_setlastsetsection_callback = cb; }
-    void setQVCandlestickModelMapper_LastSetSection_Callback(QVCandlestickModelMapper_LastSetSection_Callback cb) { qvcandlestickmodelmapper_lastsetsection_callback = cb; }
-    void setQVCandlestickModelMapper_Sender_Callback(QVCandlestickModelMapper_Sender_Callback cb) { qvcandlestickmodelmapper_sender_callback = cb; }
-    void setQVCandlestickModelMapper_SenderSignalIndex_Callback(QVCandlestickModelMapper_SenderSignalIndex_Callback cb) { qvcandlestickmodelmapper_sendersignalindex_callback = cb; }
-    void setQVCandlestickModelMapper_Receivers_Callback(QVCandlestickModelMapper_Receivers_Callback cb) { qvcandlestickmodelmapper_receivers_callback = cb; }
-    void setQVCandlestickModelMapper_IsSignalConnected_Callback(QVCandlestickModelMapper_IsSignalConnected_Callback cb) { qvcandlestickmodelmapper_issignalconnected_callback = cb; }
+    inline void setQVCandlestickModelMapper_Metacall_Callback(QVCandlestickModelMapper_Metacall_Callback cb) { qvcandlestickmodelmapper_metacall_callback = cb; }
+    inline void setQVCandlestickModelMapper_Orientation_Callback(QVCandlestickModelMapper_Orientation_Callback cb) { qvcandlestickmodelmapper_orientation_callback = cb; }
+    inline void setQVCandlestickModelMapper_Event_Callback(QVCandlestickModelMapper_Event_Callback cb) { qvcandlestickmodelmapper_event_callback = cb; }
+    inline void setQVCandlestickModelMapper_EventFilter_Callback(QVCandlestickModelMapper_EventFilter_Callback cb) { qvcandlestickmodelmapper_eventfilter_callback = cb; }
+    inline void setQVCandlestickModelMapper_TimerEvent_Callback(QVCandlestickModelMapper_TimerEvent_Callback cb) { qvcandlestickmodelmapper_timerevent_callback = cb; }
+    inline void setQVCandlestickModelMapper_ChildEvent_Callback(QVCandlestickModelMapper_ChildEvent_Callback cb) { qvcandlestickmodelmapper_childevent_callback = cb; }
+    inline void setQVCandlestickModelMapper_CustomEvent_Callback(QVCandlestickModelMapper_CustomEvent_Callback cb) { qvcandlestickmodelmapper_customevent_callback = cb; }
+    inline void setQVCandlestickModelMapper_ConnectNotify_Callback(QVCandlestickModelMapper_ConnectNotify_Callback cb) { qvcandlestickmodelmapper_connectnotify_callback = cb; }
+    inline void setQVCandlestickModelMapper_DisconnectNotify_Callback(QVCandlestickModelMapper_DisconnectNotify_Callback cb) { qvcandlestickmodelmapper_disconnectnotify_callback = cb; }
+    inline void setQVCandlestickModelMapper_SetTimestamp_Callback(QVCandlestickModelMapper_SetTimestamp_Callback cb) { qvcandlestickmodelmapper_settimestamp_callback = cb; }
+    inline void setQVCandlestickModelMapper_Timestamp_Callback(QVCandlestickModelMapper_Timestamp_Callback cb) { qvcandlestickmodelmapper_timestamp_callback = cb; }
+    inline void setQVCandlestickModelMapper_SetOpen_Callback(QVCandlestickModelMapper_SetOpen_Callback cb) { qvcandlestickmodelmapper_setopen_callback = cb; }
+    inline void setQVCandlestickModelMapper_Open_Callback(QVCandlestickModelMapper_Open_Callback cb) { qvcandlestickmodelmapper_open_callback = cb; }
+    inline void setQVCandlestickModelMapper_SetHigh_Callback(QVCandlestickModelMapper_SetHigh_Callback cb) { qvcandlestickmodelmapper_sethigh_callback = cb; }
+    inline void setQVCandlestickModelMapper_High_Callback(QVCandlestickModelMapper_High_Callback cb) { qvcandlestickmodelmapper_high_callback = cb; }
+    inline void setQVCandlestickModelMapper_SetLow_Callback(QVCandlestickModelMapper_SetLow_Callback cb) { qvcandlestickmodelmapper_setlow_callback = cb; }
+    inline void setQVCandlestickModelMapper_Low_Callback(QVCandlestickModelMapper_Low_Callback cb) { qvcandlestickmodelmapper_low_callback = cb; }
+    inline void setQVCandlestickModelMapper_SetClose_Callback(QVCandlestickModelMapper_SetClose_Callback cb) { qvcandlestickmodelmapper_setclose_callback = cb; }
+    inline void setQVCandlestickModelMapper_Close_Callback(QVCandlestickModelMapper_Close_Callback cb) { qvcandlestickmodelmapper_close_callback = cb; }
+    inline void setQVCandlestickModelMapper_SetFirstSetSection_Callback(QVCandlestickModelMapper_SetFirstSetSection_Callback cb) { qvcandlestickmodelmapper_setfirstsetsection_callback = cb; }
+    inline void setQVCandlestickModelMapper_FirstSetSection_Callback(QVCandlestickModelMapper_FirstSetSection_Callback cb) { qvcandlestickmodelmapper_firstsetsection_callback = cb; }
+    inline void setQVCandlestickModelMapper_SetLastSetSection_Callback(QVCandlestickModelMapper_SetLastSetSection_Callback cb) { qvcandlestickmodelmapper_setlastsetsection_callback = cb; }
+    inline void setQVCandlestickModelMapper_LastSetSection_Callback(QVCandlestickModelMapper_LastSetSection_Callback cb) { qvcandlestickmodelmapper_lastsetsection_callback = cb; }
+    inline void setQVCandlestickModelMapper_Sender_Callback(QVCandlestickModelMapper_Sender_Callback cb) { qvcandlestickmodelmapper_sender_callback = cb; }
+    inline void setQVCandlestickModelMapper_SenderSignalIndex_Callback(QVCandlestickModelMapper_SenderSignalIndex_Callback cb) { qvcandlestickmodelmapper_sendersignalindex_callback = cb; }
+    inline void setQVCandlestickModelMapper_Receivers_Callback(QVCandlestickModelMapper_Receivers_Callback cb) { qvcandlestickmodelmapper_receivers_callback = cb; }
+    inline void setQVCandlestickModelMapper_IsSignalConnected_Callback(QVCandlestickModelMapper_IsSignalConnected_Callback cb) { qvcandlestickmodelmapper_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQVCandlestickModelMapper_Metacall_IsBase(bool value) const { qvcandlestickmodelmapper_metacall_isbase = value; }
-    void setQVCandlestickModelMapper_Orientation_IsBase(bool value) const { qvcandlestickmodelmapper_orientation_isbase = value; }
-    void setQVCandlestickModelMapper_Event_IsBase(bool value) const { qvcandlestickmodelmapper_event_isbase = value; }
-    void setQVCandlestickModelMapper_EventFilter_IsBase(bool value) const { qvcandlestickmodelmapper_eventfilter_isbase = value; }
-    void setQVCandlestickModelMapper_TimerEvent_IsBase(bool value) const { qvcandlestickmodelmapper_timerevent_isbase = value; }
-    void setQVCandlestickModelMapper_ChildEvent_IsBase(bool value) const { qvcandlestickmodelmapper_childevent_isbase = value; }
-    void setQVCandlestickModelMapper_CustomEvent_IsBase(bool value) const { qvcandlestickmodelmapper_customevent_isbase = value; }
-    void setQVCandlestickModelMapper_ConnectNotify_IsBase(bool value) const { qvcandlestickmodelmapper_connectnotify_isbase = value; }
-    void setQVCandlestickModelMapper_DisconnectNotify_IsBase(bool value) const { qvcandlestickmodelmapper_disconnectnotify_isbase = value; }
-    void setQVCandlestickModelMapper_SetTimestamp_IsBase(bool value) const { qvcandlestickmodelmapper_settimestamp_isbase = value; }
-    void setQVCandlestickModelMapper_Timestamp_IsBase(bool value) const { qvcandlestickmodelmapper_timestamp_isbase = value; }
-    void setQVCandlestickModelMapper_SetOpen_IsBase(bool value) const { qvcandlestickmodelmapper_setopen_isbase = value; }
-    void setQVCandlestickModelMapper_Open_IsBase(bool value) const { qvcandlestickmodelmapper_open_isbase = value; }
-    void setQVCandlestickModelMapper_SetHigh_IsBase(bool value) const { qvcandlestickmodelmapper_sethigh_isbase = value; }
-    void setQVCandlestickModelMapper_High_IsBase(bool value) const { qvcandlestickmodelmapper_high_isbase = value; }
-    void setQVCandlestickModelMapper_SetLow_IsBase(bool value) const { qvcandlestickmodelmapper_setlow_isbase = value; }
-    void setQVCandlestickModelMapper_Low_IsBase(bool value) const { qvcandlestickmodelmapper_low_isbase = value; }
-    void setQVCandlestickModelMapper_SetClose_IsBase(bool value) const { qvcandlestickmodelmapper_setclose_isbase = value; }
-    void setQVCandlestickModelMapper_Close_IsBase(bool value) const { qvcandlestickmodelmapper_close_isbase = value; }
-    void setQVCandlestickModelMapper_SetFirstSetSection_IsBase(bool value) const { qvcandlestickmodelmapper_setfirstsetsection_isbase = value; }
-    void setQVCandlestickModelMapper_FirstSetSection_IsBase(bool value) const { qvcandlestickmodelmapper_firstsetsection_isbase = value; }
-    void setQVCandlestickModelMapper_SetLastSetSection_IsBase(bool value) const { qvcandlestickmodelmapper_setlastsetsection_isbase = value; }
-    void setQVCandlestickModelMapper_LastSetSection_IsBase(bool value) const { qvcandlestickmodelmapper_lastsetsection_isbase = value; }
-    void setQVCandlestickModelMapper_Sender_IsBase(bool value) const { qvcandlestickmodelmapper_sender_isbase = value; }
-    void setQVCandlestickModelMapper_SenderSignalIndex_IsBase(bool value) const { qvcandlestickmodelmapper_sendersignalindex_isbase = value; }
-    void setQVCandlestickModelMapper_Receivers_IsBase(bool value) const { qvcandlestickmodelmapper_receivers_isbase = value; }
-    void setQVCandlestickModelMapper_IsSignalConnected_IsBase(bool value) const { qvcandlestickmodelmapper_issignalconnected_isbase = value; }
+    inline void setQVCandlestickModelMapper_Metacall_IsBase(bool value) const { qvcandlestickmodelmapper_metacall_isbase = value; }
+    inline void setQVCandlestickModelMapper_Orientation_IsBase(bool value) const { qvcandlestickmodelmapper_orientation_isbase = value; }
+    inline void setQVCandlestickModelMapper_Event_IsBase(bool value) const { qvcandlestickmodelmapper_event_isbase = value; }
+    inline void setQVCandlestickModelMapper_EventFilter_IsBase(bool value) const { qvcandlestickmodelmapper_eventfilter_isbase = value; }
+    inline void setQVCandlestickModelMapper_TimerEvent_IsBase(bool value) const { qvcandlestickmodelmapper_timerevent_isbase = value; }
+    inline void setQVCandlestickModelMapper_ChildEvent_IsBase(bool value) const { qvcandlestickmodelmapper_childevent_isbase = value; }
+    inline void setQVCandlestickModelMapper_CustomEvent_IsBase(bool value) const { qvcandlestickmodelmapper_customevent_isbase = value; }
+    inline void setQVCandlestickModelMapper_ConnectNotify_IsBase(bool value) const { qvcandlestickmodelmapper_connectnotify_isbase = value; }
+    inline void setQVCandlestickModelMapper_DisconnectNotify_IsBase(bool value) const { qvcandlestickmodelmapper_disconnectnotify_isbase = value; }
+    inline void setQVCandlestickModelMapper_SetTimestamp_IsBase(bool value) const { qvcandlestickmodelmapper_settimestamp_isbase = value; }
+    inline void setQVCandlestickModelMapper_Timestamp_IsBase(bool value) const { qvcandlestickmodelmapper_timestamp_isbase = value; }
+    inline void setQVCandlestickModelMapper_SetOpen_IsBase(bool value) const { qvcandlestickmodelmapper_setopen_isbase = value; }
+    inline void setQVCandlestickModelMapper_Open_IsBase(bool value) const { qvcandlestickmodelmapper_open_isbase = value; }
+    inline void setQVCandlestickModelMapper_SetHigh_IsBase(bool value) const { qvcandlestickmodelmapper_sethigh_isbase = value; }
+    inline void setQVCandlestickModelMapper_High_IsBase(bool value) const { qvcandlestickmodelmapper_high_isbase = value; }
+    inline void setQVCandlestickModelMapper_SetLow_IsBase(bool value) const { qvcandlestickmodelmapper_setlow_isbase = value; }
+    inline void setQVCandlestickModelMapper_Low_IsBase(bool value) const { qvcandlestickmodelmapper_low_isbase = value; }
+    inline void setQVCandlestickModelMapper_SetClose_IsBase(bool value) const { qvcandlestickmodelmapper_setclose_isbase = value; }
+    inline void setQVCandlestickModelMapper_Close_IsBase(bool value) const { qvcandlestickmodelmapper_close_isbase = value; }
+    inline void setQVCandlestickModelMapper_SetFirstSetSection_IsBase(bool value) const { qvcandlestickmodelmapper_setfirstsetsection_isbase = value; }
+    inline void setQVCandlestickModelMapper_FirstSetSection_IsBase(bool value) const { qvcandlestickmodelmapper_firstsetsection_isbase = value; }
+    inline void setQVCandlestickModelMapper_SetLastSetSection_IsBase(bool value) const { qvcandlestickmodelmapper_setlastsetsection_isbase = value; }
+    inline void setQVCandlestickModelMapper_LastSetSection_IsBase(bool value) const { qvcandlestickmodelmapper_lastsetsection_isbase = value; }
+    inline void setQVCandlestickModelMapper_Sender_IsBase(bool value) const { qvcandlestickmodelmapper_sender_isbase = value; }
+    inline void setQVCandlestickModelMapper_SenderSignalIndex_IsBase(bool value) const { qvcandlestickmodelmapper_sendersignalindex_isbase = value; }
+    inline void setQVCandlestickModelMapper_Receivers_IsBase(bool value) const { qvcandlestickmodelmapper_receivers_isbase = value; }
+    inline void setQVCandlestickModelMapper_IsSignalConnected_IsBase(bool value) const { qvcandlestickmodelmapper_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -200,7 +203,12 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_metacall_isbase = false;
             return QVCandlestickModelMapper::qt_metacall(param1, param2, param3);
         } else if (qvcandlestickmodelmapper_metacall_callback != nullptr) {
-            return qvcandlestickmodelmapper_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qvcandlestickmodelmapper_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QVCandlestickModelMapper::qt_metacall(param1, param2, param3);
         }
@@ -212,7 +220,8 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_orientation_isbase = false;
             return QVCandlestickModelMapper::orientation();
         } else if (qvcandlestickmodelmapper_orientation_callback != nullptr) {
-            return qvcandlestickmodelmapper_orientation_callback();
+            int callback_ret = qvcandlestickmodelmapper_orientation_callback();
+            return static_cast<Qt::Orientation>(callback_ret);
         } else {
             return QVCandlestickModelMapper::orientation();
         }
@@ -224,7 +233,10 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_event_isbase = false;
             return QVCandlestickModelMapper::event(event);
         } else if (qvcandlestickmodelmapper_event_callback != nullptr) {
-            return qvcandlestickmodelmapper_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qvcandlestickmodelmapper_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QVCandlestickModelMapper::event(event);
         }
@@ -236,7 +248,11 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_eventfilter_isbase = false;
             return QVCandlestickModelMapper::eventFilter(watched, event);
         } else if (qvcandlestickmodelmapper_eventfilter_callback != nullptr) {
-            return qvcandlestickmodelmapper_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qvcandlestickmodelmapper_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QVCandlestickModelMapper::eventFilter(watched, event);
         }
@@ -248,7 +264,9 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_timerevent_isbase = false;
             QVCandlestickModelMapper::timerEvent(event);
         } else if (qvcandlestickmodelmapper_timerevent_callback != nullptr) {
-            qvcandlestickmodelmapper_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qvcandlestickmodelmapper_timerevent_callback(this, cbval1);
         } else {
             QVCandlestickModelMapper::timerEvent(event);
         }
@@ -260,7 +278,9 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_childevent_isbase = false;
             QVCandlestickModelMapper::childEvent(event);
         } else if (qvcandlestickmodelmapper_childevent_callback != nullptr) {
-            qvcandlestickmodelmapper_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qvcandlestickmodelmapper_childevent_callback(this, cbval1);
         } else {
             QVCandlestickModelMapper::childEvent(event);
         }
@@ -272,7 +292,9 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_customevent_isbase = false;
             QVCandlestickModelMapper::customEvent(event);
         } else if (qvcandlestickmodelmapper_customevent_callback != nullptr) {
-            qvcandlestickmodelmapper_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qvcandlestickmodelmapper_customevent_callback(this, cbval1);
         } else {
             QVCandlestickModelMapper::customEvent(event);
         }
@@ -284,7 +306,11 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_connectnotify_isbase = false;
             QVCandlestickModelMapper::connectNotify(signal);
         } else if (qvcandlestickmodelmapper_connectnotify_callback != nullptr) {
-            qvcandlestickmodelmapper_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qvcandlestickmodelmapper_connectnotify_callback(this, cbval1);
         } else {
             QVCandlestickModelMapper::connectNotify(signal);
         }
@@ -296,7 +322,11 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_disconnectnotify_isbase = false;
             QVCandlestickModelMapper::disconnectNotify(signal);
         } else if (qvcandlestickmodelmapper_disconnectnotify_callback != nullptr) {
-            qvcandlestickmodelmapper_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qvcandlestickmodelmapper_disconnectnotify_callback(this, cbval1);
         } else {
             QVCandlestickModelMapper::disconnectNotify(signal);
         }
@@ -308,7 +338,9 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_settimestamp_isbase = false;
             QVCandlestickModelMapper::setTimestamp(timestamp);
         } else if (qvcandlestickmodelmapper_settimestamp_callback != nullptr) {
-            qvcandlestickmodelmapper_settimestamp_callback(this, timestamp);
+            int cbval1 = timestamp;
+
+            qvcandlestickmodelmapper_settimestamp_callback(this, cbval1);
         } else {
             QVCandlestickModelMapper::setTimestamp(timestamp);
         }
@@ -320,7 +352,8 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_timestamp_isbase = false;
             return QVCandlestickModelMapper::timestamp();
         } else if (qvcandlestickmodelmapper_timestamp_callback != nullptr) {
-            return qvcandlestickmodelmapper_timestamp_callback();
+            int callback_ret = qvcandlestickmodelmapper_timestamp_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QVCandlestickModelMapper::timestamp();
         }
@@ -332,7 +365,9 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_setopen_isbase = false;
             QVCandlestickModelMapper::setOpen(open);
         } else if (qvcandlestickmodelmapper_setopen_callback != nullptr) {
-            qvcandlestickmodelmapper_setopen_callback(this, open);
+            int cbval1 = open;
+
+            qvcandlestickmodelmapper_setopen_callback(this, cbval1);
         } else {
             QVCandlestickModelMapper::setOpen(open);
         }
@@ -344,7 +379,8 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_open_isbase = false;
             return QVCandlestickModelMapper::open();
         } else if (qvcandlestickmodelmapper_open_callback != nullptr) {
-            return qvcandlestickmodelmapper_open_callback();
+            int callback_ret = qvcandlestickmodelmapper_open_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QVCandlestickModelMapper::open();
         }
@@ -356,7 +392,9 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_sethigh_isbase = false;
             QVCandlestickModelMapper::setHigh(high);
         } else if (qvcandlestickmodelmapper_sethigh_callback != nullptr) {
-            qvcandlestickmodelmapper_sethigh_callback(this, high);
+            int cbval1 = high;
+
+            qvcandlestickmodelmapper_sethigh_callback(this, cbval1);
         } else {
             QVCandlestickModelMapper::setHigh(high);
         }
@@ -368,7 +406,8 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_high_isbase = false;
             return QVCandlestickModelMapper::high();
         } else if (qvcandlestickmodelmapper_high_callback != nullptr) {
-            return qvcandlestickmodelmapper_high_callback();
+            int callback_ret = qvcandlestickmodelmapper_high_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QVCandlestickModelMapper::high();
         }
@@ -380,7 +419,9 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_setlow_isbase = false;
             QVCandlestickModelMapper::setLow(low);
         } else if (qvcandlestickmodelmapper_setlow_callback != nullptr) {
-            qvcandlestickmodelmapper_setlow_callback(this, low);
+            int cbval1 = low;
+
+            qvcandlestickmodelmapper_setlow_callback(this, cbval1);
         } else {
             QVCandlestickModelMapper::setLow(low);
         }
@@ -392,7 +433,8 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_low_isbase = false;
             return QVCandlestickModelMapper::low();
         } else if (qvcandlestickmodelmapper_low_callback != nullptr) {
-            return qvcandlestickmodelmapper_low_callback();
+            int callback_ret = qvcandlestickmodelmapper_low_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QVCandlestickModelMapper::low();
         }
@@ -404,7 +446,9 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_setclose_isbase = false;
             QVCandlestickModelMapper::setClose(close);
         } else if (qvcandlestickmodelmapper_setclose_callback != nullptr) {
-            qvcandlestickmodelmapper_setclose_callback(this, close);
+            int cbval1 = close;
+
+            qvcandlestickmodelmapper_setclose_callback(this, cbval1);
         } else {
             QVCandlestickModelMapper::setClose(close);
         }
@@ -416,7 +460,8 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_close_isbase = false;
             return QVCandlestickModelMapper::close();
         } else if (qvcandlestickmodelmapper_close_callback != nullptr) {
-            return qvcandlestickmodelmapper_close_callback();
+            int callback_ret = qvcandlestickmodelmapper_close_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QVCandlestickModelMapper::close();
         }
@@ -428,7 +473,9 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_setfirstsetsection_isbase = false;
             QVCandlestickModelMapper::setFirstSetSection(firstSetSection);
         } else if (qvcandlestickmodelmapper_setfirstsetsection_callback != nullptr) {
-            qvcandlestickmodelmapper_setfirstsetsection_callback(this, firstSetSection);
+            int cbval1 = firstSetSection;
+
+            qvcandlestickmodelmapper_setfirstsetsection_callback(this, cbval1);
         } else {
             QVCandlestickModelMapper::setFirstSetSection(firstSetSection);
         }
@@ -440,7 +487,8 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_firstsetsection_isbase = false;
             return QVCandlestickModelMapper::firstSetSection();
         } else if (qvcandlestickmodelmapper_firstsetsection_callback != nullptr) {
-            return qvcandlestickmodelmapper_firstsetsection_callback();
+            int callback_ret = qvcandlestickmodelmapper_firstsetsection_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QVCandlestickModelMapper::firstSetSection();
         }
@@ -452,7 +500,9 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_setlastsetsection_isbase = false;
             QVCandlestickModelMapper::setLastSetSection(lastSetSection);
         } else if (qvcandlestickmodelmapper_setlastsetsection_callback != nullptr) {
-            qvcandlestickmodelmapper_setlastsetsection_callback(this, lastSetSection);
+            int cbval1 = lastSetSection;
+
+            qvcandlestickmodelmapper_setlastsetsection_callback(this, cbval1);
         } else {
             QVCandlestickModelMapper::setLastSetSection(lastSetSection);
         }
@@ -464,7 +514,8 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_lastsetsection_isbase = false;
             return QVCandlestickModelMapper::lastSetSection();
         } else if (qvcandlestickmodelmapper_lastsetsection_callback != nullptr) {
-            return qvcandlestickmodelmapper_lastsetsection_callback();
+            int callback_ret = qvcandlestickmodelmapper_lastsetsection_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QVCandlestickModelMapper::lastSetSection();
         }
@@ -476,7 +527,8 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_sender_isbase = false;
             return QVCandlestickModelMapper::sender();
         } else if (qvcandlestickmodelmapper_sender_callback != nullptr) {
-            return qvcandlestickmodelmapper_sender_callback();
+            QObject* callback_ret = qvcandlestickmodelmapper_sender_callback();
+            return callback_ret;
         } else {
             return QVCandlestickModelMapper::sender();
         }
@@ -488,7 +540,8 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_sendersignalindex_isbase = false;
             return QVCandlestickModelMapper::senderSignalIndex();
         } else if (qvcandlestickmodelmapper_sendersignalindex_callback != nullptr) {
-            return qvcandlestickmodelmapper_sendersignalindex_callback();
+            int callback_ret = qvcandlestickmodelmapper_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QVCandlestickModelMapper::senderSignalIndex();
         }
@@ -500,7 +553,10 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_receivers_isbase = false;
             return QVCandlestickModelMapper::receivers(signal);
         } else if (qvcandlestickmodelmapper_receivers_callback != nullptr) {
-            return qvcandlestickmodelmapper_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qvcandlestickmodelmapper_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QVCandlestickModelMapper::receivers(signal);
         }
@@ -512,11 +568,64 @@ class VirtualQVCandlestickModelMapper : public QVCandlestickModelMapper {
             qvcandlestickmodelmapper_issignalconnected_isbase = false;
             return QVCandlestickModelMapper::isSignalConnected(signal);
         } else if (qvcandlestickmodelmapper_issignalconnected_callback != nullptr) {
-            return qvcandlestickmodelmapper_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qvcandlestickmodelmapper_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QVCandlestickModelMapper::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QVCandlestickModelMapper_TimerEvent(QVCandlestickModelMapper* self, QTimerEvent* event);
+    friend void QVCandlestickModelMapper_QBaseTimerEvent(QVCandlestickModelMapper* self, QTimerEvent* event);
+    friend void QVCandlestickModelMapper_ChildEvent(QVCandlestickModelMapper* self, QChildEvent* event);
+    friend void QVCandlestickModelMapper_QBaseChildEvent(QVCandlestickModelMapper* self, QChildEvent* event);
+    friend void QVCandlestickModelMapper_CustomEvent(QVCandlestickModelMapper* self, QEvent* event);
+    friend void QVCandlestickModelMapper_QBaseCustomEvent(QVCandlestickModelMapper* self, QEvent* event);
+    friend void QVCandlestickModelMapper_ConnectNotify(QVCandlestickModelMapper* self, const QMetaMethod* signal);
+    friend void QVCandlestickModelMapper_QBaseConnectNotify(QVCandlestickModelMapper* self, const QMetaMethod* signal);
+    friend void QVCandlestickModelMapper_DisconnectNotify(QVCandlestickModelMapper* self, const QMetaMethod* signal);
+    friend void QVCandlestickModelMapper_QBaseDisconnectNotify(QVCandlestickModelMapper* self, const QMetaMethod* signal);
+    friend void QVCandlestickModelMapper_SetTimestamp(QVCandlestickModelMapper* self, int timestamp);
+    friend void QVCandlestickModelMapper_QBaseSetTimestamp(QVCandlestickModelMapper* self, int timestamp);
+    friend int QVCandlestickModelMapper_Timestamp(const QVCandlestickModelMapper* self);
+    friend int QVCandlestickModelMapper_QBaseTimestamp(const QVCandlestickModelMapper* self);
+    friend void QVCandlestickModelMapper_SetOpen(QVCandlestickModelMapper* self, int open);
+    friend void QVCandlestickModelMapper_QBaseSetOpen(QVCandlestickModelMapper* self, int open);
+    friend int QVCandlestickModelMapper_Open(const QVCandlestickModelMapper* self);
+    friend int QVCandlestickModelMapper_QBaseOpen(const QVCandlestickModelMapper* self);
+    friend void QVCandlestickModelMapper_SetHigh(QVCandlestickModelMapper* self, int high);
+    friend void QVCandlestickModelMapper_QBaseSetHigh(QVCandlestickModelMapper* self, int high);
+    friend int QVCandlestickModelMapper_High(const QVCandlestickModelMapper* self);
+    friend int QVCandlestickModelMapper_QBaseHigh(const QVCandlestickModelMapper* self);
+    friend void QVCandlestickModelMapper_SetLow(QVCandlestickModelMapper* self, int low);
+    friend void QVCandlestickModelMapper_QBaseSetLow(QVCandlestickModelMapper* self, int low);
+    friend int QVCandlestickModelMapper_Low(const QVCandlestickModelMapper* self);
+    friend int QVCandlestickModelMapper_QBaseLow(const QVCandlestickModelMapper* self);
+    friend void QVCandlestickModelMapper_SetClose(QVCandlestickModelMapper* self, int close);
+    friend void QVCandlestickModelMapper_QBaseSetClose(QVCandlestickModelMapper* self, int close);
+    friend int QVCandlestickModelMapper_Close(const QVCandlestickModelMapper* self);
+    friend int QVCandlestickModelMapper_QBaseClose(const QVCandlestickModelMapper* self);
+    friend void QVCandlestickModelMapper_SetFirstSetSection(QVCandlestickModelMapper* self, int firstSetSection);
+    friend void QVCandlestickModelMapper_QBaseSetFirstSetSection(QVCandlestickModelMapper* self, int firstSetSection);
+    friend int QVCandlestickModelMapper_FirstSetSection(const QVCandlestickModelMapper* self);
+    friend int QVCandlestickModelMapper_QBaseFirstSetSection(const QVCandlestickModelMapper* self);
+    friend void QVCandlestickModelMapper_SetLastSetSection(QVCandlestickModelMapper* self, int lastSetSection);
+    friend void QVCandlestickModelMapper_QBaseSetLastSetSection(QVCandlestickModelMapper* self, int lastSetSection);
+    friend int QVCandlestickModelMapper_LastSetSection(const QVCandlestickModelMapper* self);
+    friend int QVCandlestickModelMapper_QBaseLastSetSection(const QVCandlestickModelMapper* self);
+    friend QObject* QVCandlestickModelMapper_Sender(const QVCandlestickModelMapper* self);
+    friend QObject* QVCandlestickModelMapper_QBaseSender(const QVCandlestickModelMapper* self);
+    friend int QVCandlestickModelMapper_SenderSignalIndex(const QVCandlestickModelMapper* self);
+    friend int QVCandlestickModelMapper_QBaseSenderSignalIndex(const QVCandlestickModelMapper* self);
+    friend int QVCandlestickModelMapper_Receivers(const QVCandlestickModelMapper* self, const char* signal);
+    friend int QVCandlestickModelMapper_QBaseReceivers(const QVCandlestickModelMapper* self, const char* signal);
+    friend bool QVCandlestickModelMapper_IsSignalConnected(const QVCandlestickModelMapper* self, const QMetaMethod* signal);
+    friend bool QVCandlestickModelMapper_QBaseIsSignalConnected(const QVCandlestickModelMapper* self, const QMetaMethod* signal);
 };
 
 #endif

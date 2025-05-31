@@ -15,22 +15,14 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSharedMemory QSharedMemory;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
@@ -42,18 +34,18 @@ typedef int SharedMemoryError; // C ABI enum
 #endif
 
 QSharedMemory* QSharedMemory_new();
-QSharedMemory* QSharedMemory_new2(libqt_string key);
+QSharedMemory* QSharedMemory_new2(const libqt_string key);
 QSharedMemory* QSharedMemory_new3(QObject* parent);
-QSharedMemory* QSharedMemory_new4(libqt_string key, QObject* parent);
+QSharedMemory* QSharedMemory_new4(const libqt_string key, QObject* parent);
 QMetaObject* QSharedMemory_MetaObject(const QSharedMemory* self);
 void* QSharedMemory_Metacast(QSharedMemory* self, const char* param1);
 int QSharedMemory_Metacall(QSharedMemory* self, int param1, int param2, void** param3);
 void QSharedMemory_OnMetacall(QSharedMemory* self, intptr_t slot);
 int QSharedMemory_QBaseMetacall(QSharedMemory* self, int param1, int param2, void** param3);
 libqt_string QSharedMemory_Tr(const char* s);
-void QSharedMemory_SetKey(QSharedMemory* self, libqt_string key);
+void QSharedMemory_SetKey(QSharedMemory* self, const libqt_string key);
 libqt_string QSharedMemory_Key(const QSharedMemory* self);
-void QSharedMemory_SetNativeKey(QSharedMemory* self, libqt_string key);
+void QSharedMemory_SetNativeKey(QSharedMemory* self, const libqt_string key);
 libqt_string QSharedMemory_NativeKey(const QSharedMemory* self);
 bool QSharedMemory_Create(QSharedMemory* self, ptrdiff_t size);
 ptrdiff_t QSharedMemory_Size(const QSharedMemory* self);
@@ -86,12 +78,12 @@ void QSharedMemory_QBaseChildEvent(QSharedMemory* self, QChildEvent* event);
 void QSharedMemory_CustomEvent(QSharedMemory* self, QEvent* event);
 void QSharedMemory_OnCustomEvent(QSharedMemory* self, intptr_t slot);
 void QSharedMemory_QBaseCustomEvent(QSharedMemory* self, QEvent* event);
-void QSharedMemory_ConnectNotify(QSharedMemory* self, QMetaMethod* signal);
+void QSharedMemory_ConnectNotify(QSharedMemory* self, const QMetaMethod* signal);
 void QSharedMemory_OnConnectNotify(QSharedMemory* self, intptr_t slot);
-void QSharedMemory_QBaseConnectNotify(QSharedMemory* self, QMetaMethod* signal);
-void QSharedMemory_DisconnectNotify(QSharedMemory* self, QMetaMethod* signal);
+void QSharedMemory_QBaseConnectNotify(QSharedMemory* self, const QMetaMethod* signal);
+void QSharedMemory_DisconnectNotify(QSharedMemory* self, const QMetaMethod* signal);
 void QSharedMemory_OnDisconnectNotify(QSharedMemory* self, intptr_t slot);
-void QSharedMemory_QBaseDisconnectNotify(QSharedMemory* self, QMetaMethod* signal);
+void QSharedMemory_QBaseDisconnectNotify(QSharedMemory* self, const QMetaMethod* signal);
 QObject* QSharedMemory_Sender(const QSharedMemory* self);
 void QSharedMemory_OnSender(const QSharedMemory* self, intptr_t slot);
 QObject* QSharedMemory_QBaseSender(const QSharedMemory* self);
@@ -101,9 +93,9 @@ int QSharedMemory_QBaseSenderSignalIndex(const QSharedMemory* self);
 int QSharedMemory_Receivers(const QSharedMemory* self, const char* signal);
 void QSharedMemory_OnReceivers(const QSharedMemory* self, intptr_t slot);
 int QSharedMemory_QBaseReceivers(const QSharedMemory* self, const char* signal);
-bool QSharedMemory_IsSignalConnected(const QSharedMemory* self, QMetaMethod* signal);
+bool QSharedMemory_IsSignalConnected(const QSharedMemory* self, const QMetaMethod* signal);
 void QSharedMemory_OnIsSignalConnected(const QSharedMemory* self, intptr_t slot);
-bool QSharedMemory_QBaseIsSignalConnected(const QSharedMemory* self, QMetaMethod* signal);
+bool QSharedMemory_QBaseIsSignalConnected(const QSharedMemory* self, const QMetaMethod* signal);
 void QSharedMemory_Delete(QSharedMemory* self);
 
 #ifdef __cplusplus

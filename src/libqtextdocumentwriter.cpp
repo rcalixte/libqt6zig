@@ -15,23 +15,23 @@ QTextDocumentWriter* QTextDocumentWriter_new() {
     return new QTextDocumentWriter();
 }
 
-QTextDocumentWriter* QTextDocumentWriter_new2(QIODevice* device, libqt_string format) {
+QTextDocumentWriter* QTextDocumentWriter_new2(QIODevice* device, const libqt_string format) {
     QByteArray format_QByteArray(format.data, format.len);
     return new QTextDocumentWriter(device, format_QByteArray);
 }
 
-QTextDocumentWriter* QTextDocumentWriter_new3(libqt_string fileName) {
+QTextDocumentWriter* QTextDocumentWriter_new3(const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return new QTextDocumentWriter(fileName_QString);
 }
 
-QTextDocumentWriter* QTextDocumentWriter_new4(libqt_string fileName, libqt_string format) {
+QTextDocumentWriter* QTextDocumentWriter_new4(const libqt_string fileName, const libqt_string format) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     QByteArray format_QByteArray(format.data, format.len);
     return new QTextDocumentWriter(fileName_QString, format_QByteArray);
 }
 
-void QTextDocumentWriter_SetFormat(QTextDocumentWriter* self, libqt_string format) {
+void QTextDocumentWriter_SetFormat(QTextDocumentWriter* self, const libqt_string format) {
     QByteArray format_QByteArray(format.data, format.len);
     self->setFormat(format_QByteArray);
 }
@@ -54,7 +54,7 @@ QIODevice* QTextDocumentWriter_Device(const QTextDocumentWriter* self) {
     return self->device();
 }
 
-void QTextDocumentWriter_SetFileName(QTextDocumentWriter* self, libqt_string fileName) {
+void QTextDocumentWriter_SetFileName(QTextDocumentWriter* self, const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     self->setFileName(fileName_QString);
 }
@@ -71,11 +71,11 @@ libqt_string QTextDocumentWriter_FileName(const QTextDocumentWriter* self) {
     return _str;
 }
 
-bool QTextDocumentWriter_Write(QTextDocumentWriter* self, QTextDocument* document) {
+bool QTextDocumentWriter_Write(QTextDocumentWriter* self, const QTextDocument* document) {
     return self->write(document);
 }
 
-bool QTextDocumentWriter_WriteWithFragment(QTextDocumentWriter* self, QTextDocumentFragment* fragment) {
+bool QTextDocumentWriter_WriteWithFragment(QTextDocumentWriter* self, const QTextDocumentFragment* fragment) {
     return self->write(*fragment);
 }
 

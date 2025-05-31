@@ -11,85 +11,88 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QTransposeProxyModel so that we can call protected methods
-class VirtualQTransposeProxyModel : public QTransposeProxyModel {
+class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQTransposeProxyModel = true;
+
     // Virtual class public types (including callbacks)
-    using QTransposeProxyModel_Metacall_Callback = int (*)(QTransposeProxyModel*, QMetaObject::Call, int, void**);
+    using QTransposeProxyModel_Metacall_Callback = int (*)(QTransposeProxyModel*, int, int, void**);
     using QTransposeProxyModel_SetSourceModel_Callback = void (*)(QTransposeProxyModel*, QAbstractItemModel*);
-    using QTransposeProxyModel_RowCount_Callback = int (*)(const QTransposeProxyModel*, const QModelIndex&);
-    using QTransposeProxyModel_ColumnCount_Callback = int (*)(const QTransposeProxyModel*, const QModelIndex&);
-    using QTransposeProxyModel_HeaderData_Callback = QVariant (*)(const QTransposeProxyModel*, int, Qt::Orientation, int);
-    using QTransposeProxyModel_SetHeaderData_Callback = bool (*)(QTransposeProxyModel*, int, Qt::Orientation, const QVariant&, int);
-    using QTransposeProxyModel_SetItemData_Callback = bool (*)(QTransposeProxyModel*, const QModelIndex&, const QMap<int, QVariant>&);
-    using QTransposeProxyModel_Span_Callback = QSize (*)(const QTransposeProxyModel*, const QModelIndex&);
-    using QTransposeProxyModel_ItemData_Callback = QMap<int, QVariant> (*)(const QTransposeProxyModel*, const QModelIndex&);
-    using QTransposeProxyModel_MapFromSource_Callback = QModelIndex (*)(const QTransposeProxyModel*, const QModelIndex&);
-    using QTransposeProxyModel_MapToSource_Callback = QModelIndex (*)(const QTransposeProxyModel*, const QModelIndex&);
-    using QTransposeProxyModel_Parent_Callback = QModelIndex (*)(const QTransposeProxyModel*, const QModelIndex&);
-    using QTransposeProxyModel_Index_Callback = QModelIndex (*)(const QTransposeProxyModel*, int, int, const QModelIndex&);
-    using QTransposeProxyModel_InsertRows_Callback = bool (*)(QTransposeProxyModel*, int, int, const QModelIndex&);
-    using QTransposeProxyModel_RemoveRows_Callback = bool (*)(QTransposeProxyModel*, int, int, const QModelIndex&);
-    using QTransposeProxyModel_MoveRows_Callback = bool (*)(QTransposeProxyModel*, const QModelIndex&, int, int, const QModelIndex&, int);
-    using QTransposeProxyModel_InsertColumns_Callback = bool (*)(QTransposeProxyModel*, int, int, const QModelIndex&);
-    using QTransposeProxyModel_RemoveColumns_Callback = bool (*)(QTransposeProxyModel*, int, int, const QModelIndex&);
-    using QTransposeProxyModel_MoveColumns_Callback = bool (*)(QTransposeProxyModel*, const QModelIndex&, int, int, const QModelIndex&, int);
-    using QTransposeProxyModel_Sort_Callback = void (*)(QTransposeProxyModel*, int, Qt::SortOrder);
-    using QTransposeProxyModel_MapSelectionToSource_Callback = QItemSelection (*)(const QTransposeProxyModel*, const QItemSelection&);
-    using QTransposeProxyModel_MapSelectionFromSource_Callback = QItemSelection (*)(const QTransposeProxyModel*, const QItemSelection&);
+    using QTransposeProxyModel_RowCount_Callback = int (*)(const QTransposeProxyModel*, QModelIndex*);
+    using QTransposeProxyModel_ColumnCount_Callback = int (*)(const QTransposeProxyModel*, QModelIndex*);
+    using QTransposeProxyModel_HeaderData_Callback = QVariant* (*)(const QTransposeProxyModel*, int, int, int);
+    using QTransposeProxyModel_SetHeaderData_Callback = bool (*)(QTransposeProxyModel*, int, int, QVariant*, int);
+    using QTransposeProxyModel_SetItemData_Callback = bool (*)(QTransposeProxyModel*, QModelIndex*, libqt_map /* of int to QVariant* */);
+    using QTransposeProxyModel_Span_Callback = QSize* (*)(const QTransposeProxyModel*, QModelIndex*);
+    using QTransposeProxyModel_ItemData_Callback = libqt_map /* of int to QVariant* */ (*)(const QTransposeProxyModel*, QModelIndex*);
+    using QTransposeProxyModel_MapFromSource_Callback = QModelIndex* (*)(const QTransposeProxyModel*, QModelIndex*);
+    using QTransposeProxyModel_MapToSource_Callback = QModelIndex* (*)(const QTransposeProxyModel*, QModelIndex*);
+    using QTransposeProxyModel_Parent_Callback = QModelIndex* (*)(const QTransposeProxyModel*, QModelIndex*);
+    using QTransposeProxyModel_Index_Callback = QModelIndex* (*)(const QTransposeProxyModel*, int, int, QModelIndex*);
+    using QTransposeProxyModel_InsertRows_Callback = bool (*)(QTransposeProxyModel*, int, int, QModelIndex*);
+    using QTransposeProxyModel_RemoveRows_Callback = bool (*)(QTransposeProxyModel*, int, int, QModelIndex*);
+    using QTransposeProxyModel_MoveRows_Callback = bool (*)(QTransposeProxyModel*, QModelIndex*, int, int, QModelIndex*, int);
+    using QTransposeProxyModel_InsertColumns_Callback = bool (*)(QTransposeProxyModel*, int, int, QModelIndex*);
+    using QTransposeProxyModel_RemoveColumns_Callback = bool (*)(QTransposeProxyModel*, int, int, QModelIndex*);
+    using QTransposeProxyModel_MoveColumns_Callback = bool (*)(QTransposeProxyModel*, QModelIndex*, int, int, QModelIndex*, int);
+    using QTransposeProxyModel_Sort_Callback = void (*)(QTransposeProxyModel*, int, int);
+    using QTransposeProxyModel_MapSelectionToSource_Callback = QItemSelection* (*)(const QTransposeProxyModel*, QItemSelection*);
+    using QTransposeProxyModel_MapSelectionFromSource_Callback = QItemSelection* (*)(const QTransposeProxyModel*, QItemSelection*);
     using QTransposeProxyModel_Submit_Callback = bool (*)();
     using QTransposeProxyModel_Revert_Callback = void (*)();
-    using QTransposeProxyModel_Data_Callback = QVariant (*)(const QTransposeProxyModel*, const QModelIndex&, int);
-    using QTransposeProxyModel_Flags_Callback = Qt::ItemFlags (*)(const QTransposeProxyModel*, const QModelIndex&);
-    using QTransposeProxyModel_SetData_Callback = bool (*)(QTransposeProxyModel*, const QModelIndex&, const QVariant&, int);
-    using QTransposeProxyModel_ClearItemData_Callback = bool (*)(QTransposeProxyModel*, const QModelIndex&);
-    using QTransposeProxyModel_Buddy_Callback = QModelIndex (*)(const QTransposeProxyModel*, const QModelIndex&);
-    using QTransposeProxyModel_CanFetchMore_Callback = bool (*)(const QTransposeProxyModel*, const QModelIndex&);
-    using QTransposeProxyModel_FetchMore_Callback = void (*)(QTransposeProxyModel*, const QModelIndex&);
-    using QTransposeProxyModel_HasChildren_Callback = bool (*)(const QTransposeProxyModel*, const QModelIndex&);
-    using QTransposeProxyModel_Sibling_Callback = QModelIndex (*)(const QTransposeProxyModel*, int, int, const QModelIndex&);
-    using QTransposeProxyModel_MimeData_Callback = QMimeData* (*)(const QTransposeProxyModel*, const QModelIndexList&);
-    using QTransposeProxyModel_CanDropMimeData_Callback = bool (*)(const QTransposeProxyModel*, const QMimeData*, Qt::DropAction, int, int, const QModelIndex&);
-    using QTransposeProxyModel_DropMimeData_Callback = bool (*)(QTransposeProxyModel*, const QMimeData*, Qt::DropAction, int, int, const QModelIndex&);
-    using QTransposeProxyModel_MimeTypes_Callback = QStringList (*)();
-    using QTransposeProxyModel_SupportedDragActions_Callback = Qt::DropActions (*)();
-    using QTransposeProxyModel_SupportedDropActions_Callback = Qt::DropActions (*)();
-    using QTransposeProxyModel_RoleNames_Callback = QHash<int, QByteArray> (*)();
-    using QTransposeProxyModel_Match_Callback = QModelIndexList (*)(const QTransposeProxyModel*, const QModelIndex&, int, const QVariant&, int, Qt::MatchFlags);
-    using QTransposeProxyModel_MultiData_Callback = void (*)(const QTransposeProxyModel*, const QModelIndex&, QModelRoleDataSpan);
+    using QTransposeProxyModel_Data_Callback = QVariant* (*)(const QTransposeProxyModel*, QModelIndex*, int);
+    using QTransposeProxyModel_Flags_Callback = int (*)(const QTransposeProxyModel*, QModelIndex*);
+    using QTransposeProxyModel_SetData_Callback = bool (*)(QTransposeProxyModel*, QModelIndex*, QVariant*, int);
+    using QTransposeProxyModel_ClearItemData_Callback = bool (*)(QTransposeProxyModel*, QModelIndex*);
+    using QTransposeProxyModel_Buddy_Callback = QModelIndex* (*)(const QTransposeProxyModel*, QModelIndex*);
+    using QTransposeProxyModel_CanFetchMore_Callback = bool (*)(const QTransposeProxyModel*, QModelIndex*);
+    using QTransposeProxyModel_FetchMore_Callback = void (*)(QTransposeProxyModel*, QModelIndex*);
+    using QTransposeProxyModel_HasChildren_Callback = bool (*)(const QTransposeProxyModel*, QModelIndex*);
+    using QTransposeProxyModel_Sibling_Callback = QModelIndex* (*)(const QTransposeProxyModel*, int, int, QModelIndex*);
+    using QTransposeProxyModel_MimeData_Callback = QMimeData* (*)(const QTransposeProxyModel*, libqt_list /* of QModelIndex* */);
+    using QTransposeProxyModel_CanDropMimeData_Callback = bool (*)(const QTransposeProxyModel*, QMimeData*, int, int, int, QModelIndex*);
+    using QTransposeProxyModel_DropMimeData_Callback = bool (*)(QTransposeProxyModel*, QMimeData*, int, int, int, QModelIndex*);
+    using QTransposeProxyModel_MimeTypes_Callback = libqt_list /* of libqt_string */ (*)();
+    using QTransposeProxyModel_SupportedDragActions_Callback = int (*)();
+    using QTransposeProxyModel_SupportedDropActions_Callback = int (*)();
+    using QTransposeProxyModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)();
+    using QTransposeProxyModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const QTransposeProxyModel*, QModelIndex*, int, QVariant*, int, int);
+    using QTransposeProxyModel_MultiData_Callback = void (*)(const QTransposeProxyModel*, QModelIndex*, QModelRoleDataSpan*);
     using QTransposeProxyModel_ResetInternalData_Callback = void (*)();
     using QTransposeProxyModel_Event_Callback = bool (*)(QTransposeProxyModel*, QEvent*);
     using QTransposeProxyModel_EventFilter_Callback = bool (*)(QTransposeProxyModel*, QObject*, QEvent*);
     using QTransposeProxyModel_TimerEvent_Callback = void (*)(QTransposeProxyModel*, QTimerEvent*);
     using QTransposeProxyModel_ChildEvent_Callback = void (*)(QTransposeProxyModel*, QChildEvent*);
     using QTransposeProxyModel_CustomEvent_Callback = void (*)(QTransposeProxyModel*, QEvent*);
-    using QTransposeProxyModel_ConnectNotify_Callback = void (*)(QTransposeProxyModel*, const QMetaMethod&);
-    using QTransposeProxyModel_DisconnectNotify_Callback = void (*)(QTransposeProxyModel*, const QMetaMethod&);
-    using QTransposeProxyModel_CreateSourceIndex_Callback = QModelIndex (*)(const QTransposeProxyModel*, int, int, void*);
-    using QTransposeProxyModel_CreateIndex_Callback = QModelIndex (*)(const QTransposeProxyModel*, int, int);
-    using QTransposeProxyModel_EncodeData_Callback = void (*)(const QTransposeProxyModel*, const QModelIndexList&, QDataStream&);
-    using QTransposeProxyModel_DecodeData_Callback = bool (*)(QTransposeProxyModel*, int, int, const QModelIndex&, QDataStream&);
-    using QTransposeProxyModel_BeginInsertRows_Callback = void (*)(QTransposeProxyModel*, const QModelIndex&, int, int);
+    using QTransposeProxyModel_ConnectNotify_Callback = void (*)(QTransposeProxyModel*, QMetaMethod*);
+    using QTransposeProxyModel_DisconnectNotify_Callback = void (*)(QTransposeProxyModel*, QMetaMethod*);
+    using QTransposeProxyModel_CreateSourceIndex_Callback = QModelIndex* (*)(const QTransposeProxyModel*, int, int, void*);
+    using QTransposeProxyModel_CreateIndex_Callback = QModelIndex* (*)(const QTransposeProxyModel*, int, int);
+    using QTransposeProxyModel_EncodeData_Callback = void (*)(const QTransposeProxyModel*, libqt_list /* of QModelIndex* */, QDataStream*);
+    using QTransposeProxyModel_DecodeData_Callback = bool (*)(QTransposeProxyModel*, int, int, QModelIndex*, QDataStream*);
+    using QTransposeProxyModel_BeginInsertRows_Callback = void (*)(QTransposeProxyModel*, QModelIndex*, int, int);
     using QTransposeProxyModel_EndInsertRows_Callback = void (*)();
-    using QTransposeProxyModel_BeginRemoveRows_Callback = void (*)(QTransposeProxyModel*, const QModelIndex&, int, int);
+    using QTransposeProxyModel_BeginRemoveRows_Callback = void (*)(QTransposeProxyModel*, QModelIndex*, int, int);
     using QTransposeProxyModel_EndRemoveRows_Callback = void (*)();
-    using QTransposeProxyModel_BeginMoveRows_Callback = bool (*)(QTransposeProxyModel*, const QModelIndex&, int, int, const QModelIndex&, int);
+    using QTransposeProxyModel_BeginMoveRows_Callback = bool (*)(QTransposeProxyModel*, QModelIndex*, int, int, QModelIndex*, int);
     using QTransposeProxyModel_EndMoveRows_Callback = void (*)();
-    using QTransposeProxyModel_BeginInsertColumns_Callback = void (*)(QTransposeProxyModel*, const QModelIndex&, int, int);
+    using QTransposeProxyModel_BeginInsertColumns_Callback = void (*)(QTransposeProxyModel*, QModelIndex*, int, int);
     using QTransposeProxyModel_EndInsertColumns_Callback = void (*)();
-    using QTransposeProxyModel_BeginRemoveColumns_Callback = void (*)(QTransposeProxyModel*, const QModelIndex&, int, int);
+    using QTransposeProxyModel_BeginRemoveColumns_Callback = void (*)(QTransposeProxyModel*, QModelIndex*, int, int);
     using QTransposeProxyModel_EndRemoveColumns_Callback = void (*)();
-    using QTransposeProxyModel_BeginMoveColumns_Callback = bool (*)(QTransposeProxyModel*, const QModelIndex&, int, int, const QModelIndex&, int);
+    using QTransposeProxyModel_BeginMoveColumns_Callback = bool (*)(QTransposeProxyModel*, QModelIndex*, int, int, QModelIndex*, int);
     using QTransposeProxyModel_EndMoveColumns_Callback = void (*)();
     using QTransposeProxyModel_BeginResetModel_Callback = void (*)();
     using QTransposeProxyModel_EndResetModel_Callback = void (*)();
-    using QTransposeProxyModel_ChangePersistentIndex_Callback = void (*)(QTransposeProxyModel*, const QModelIndex&, const QModelIndex&);
-    using QTransposeProxyModel_ChangePersistentIndexList_Callback = void (*)(QTransposeProxyModel*, const QModelIndexList&, const QModelIndexList&);
-    using QTransposeProxyModel_PersistentIndexList_Callback = QModelIndexList (*)();
+    using QTransposeProxyModel_ChangePersistentIndex_Callback = void (*)(QTransposeProxyModel*, QModelIndex*, QModelIndex*);
+    using QTransposeProxyModel_ChangePersistentIndexList_Callback = void (*)(QTransposeProxyModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
+    using QTransposeProxyModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QTransposeProxyModel_Sender_Callback = QObject* (*)();
     using QTransposeProxyModel_SenderSignalIndex_Callback = int (*)();
     using QTransposeProxyModel_Receivers_Callback = int (*)(const QTransposeProxyModel*, const char*);
-    using QTransposeProxyModel_IsSignalConnected_Callback = bool (*)(const QTransposeProxyModel*, const QMetaMethod&);
+    using QTransposeProxyModel_IsSignalConnected_Callback = bool (*)(const QTransposeProxyModel*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -329,158 +332,158 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
     }
 
     // Callback setters
-    void setQTransposeProxyModel_Metacall_Callback(QTransposeProxyModel_Metacall_Callback cb) { qtransposeproxymodel_metacall_callback = cb; }
-    void setQTransposeProxyModel_SetSourceModel_Callback(QTransposeProxyModel_SetSourceModel_Callback cb) { qtransposeproxymodel_setsourcemodel_callback = cb; }
-    void setQTransposeProxyModel_RowCount_Callback(QTransposeProxyModel_RowCount_Callback cb) { qtransposeproxymodel_rowcount_callback = cb; }
-    void setQTransposeProxyModel_ColumnCount_Callback(QTransposeProxyModel_ColumnCount_Callback cb) { qtransposeproxymodel_columncount_callback = cb; }
-    void setQTransposeProxyModel_HeaderData_Callback(QTransposeProxyModel_HeaderData_Callback cb) { qtransposeproxymodel_headerdata_callback = cb; }
-    void setQTransposeProxyModel_SetHeaderData_Callback(QTransposeProxyModel_SetHeaderData_Callback cb) { qtransposeproxymodel_setheaderdata_callback = cb; }
-    void setQTransposeProxyModel_SetItemData_Callback(QTransposeProxyModel_SetItemData_Callback cb) { qtransposeproxymodel_setitemdata_callback = cb; }
-    void setQTransposeProxyModel_Span_Callback(QTransposeProxyModel_Span_Callback cb) { qtransposeproxymodel_span_callback = cb; }
-    void setQTransposeProxyModel_ItemData_Callback(QTransposeProxyModel_ItemData_Callback cb) { qtransposeproxymodel_itemdata_callback = cb; }
-    void setQTransposeProxyModel_MapFromSource_Callback(QTransposeProxyModel_MapFromSource_Callback cb) { qtransposeproxymodel_mapfromsource_callback = cb; }
-    void setQTransposeProxyModel_MapToSource_Callback(QTransposeProxyModel_MapToSource_Callback cb) { qtransposeproxymodel_maptosource_callback = cb; }
-    void setQTransposeProxyModel_Parent_Callback(QTransposeProxyModel_Parent_Callback cb) { qtransposeproxymodel_parent_callback = cb; }
-    void setQTransposeProxyModel_Index_Callback(QTransposeProxyModel_Index_Callback cb) { qtransposeproxymodel_index_callback = cb; }
-    void setQTransposeProxyModel_InsertRows_Callback(QTransposeProxyModel_InsertRows_Callback cb) { qtransposeproxymodel_insertrows_callback = cb; }
-    void setQTransposeProxyModel_RemoveRows_Callback(QTransposeProxyModel_RemoveRows_Callback cb) { qtransposeproxymodel_removerows_callback = cb; }
-    void setQTransposeProxyModel_MoveRows_Callback(QTransposeProxyModel_MoveRows_Callback cb) { qtransposeproxymodel_moverows_callback = cb; }
-    void setQTransposeProxyModel_InsertColumns_Callback(QTransposeProxyModel_InsertColumns_Callback cb) { qtransposeproxymodel_insertcolumns_callback = cb; }
-    void setQTransposeProxyModel_RemoveColumns_Callback(QTransposeProxyModel_RemoveColumns_Callback cb) { qtransposeproxymodel_removecolumns_callback = cb; }
-    void setQTransposeProxyModel_MoveColumns_Callback(QTransposeProxyModel_MoveColumns_Callback cb) { qtransposeproxymodel_movecolumns_callback = cb; }
-    void setQTransposeProxyModel_Sort_Callback(QTransposeProxyModel_Sort_Callback cb) { qtransposeproxymodel_sort_callback = cb; }
-    void setQTransposeProxyModel_MapSelectionToSource_Callback(QTransposeProxyModel_MapSelectionToSource_Callback cb) { qtransposeproxymodel_mapselectiontosource_callback = cb; }
-    void setQTransposeProxyModel_MapSelectionFromSource_Callback(QTransposeProxyModel_MapSelectionFromSource_Callback cb) { qtransposeproxymodel_mapselectionfromsource_callback = cb; }
-    void setQTransposeProxyModel_Submit_Callback(QTransposeProxyModel_Submit_Callback cb) { qtransposeproxymodel_submit_callback = cb; }
-    void setQTransposeProxyModel_Revert_Callback(QTransposeProxyModel_Revert_Callback cb) { qtransposeproxymodel_revert_callback = cb; }
-    void setQTransposeProxyModel_Data_Callback(QTransposeProxyModel_Data_Callback cb) { qtransposeproxymodel_data_callback = cb; }
-    void setQTransposeProxyModel_Flags_Callback(QTransposeProxyModel_Flags_Callback cb) { qtransposeproxymodel_flags_callback = cb; }
-    void setQTransposeProxyModel_SetData_Callback(QTransposeProxyModel_SetData_Callback cb) { qtransposeproxymodel_setdata_callback = cb; }
-    void setQTransposeProxyModel_ClearItemData_Callback(QTransposeProxyModel_ClearItemData_Callback cb) { qtransposeproxymodel_clearitemdata_callback = cb; }
-    void setQTransposeProxyModel_Buddy_Callback(QTransposeProxyModel_Buddy_Callback cb) { qtransposeproxymodel_buddy_callback = cb; }
-    void setQTransposeProxyModel_CanFetchMore_Callback(QTransposeProxyModel_CanFetchMore_Callback cb) { qtransposeproxymodel_canfetchmore_callback = cb; }
-    void setQTransposeProxyModel_FetchMore_Callback(QTransposeProxyModel_FetchMore_Callback cb) { qtransposeproxymodel_fetchmore_callback = cb; }
-    void setQTransposeProxyModel_HasChildren_Callback(QTransposeProxyModel_HasChildren_Callback cb) { qtransposeproxymodel_haschildren_callback = cb; }
-    void setQTransposeProxyModel_Sibling_Callback(QTransposeProxyModel_Sibling_Callback cb) { qtransposeproxymodel_sibling_callback = cb; }
-    void setQTransposeProxyModel_MimeData_Callback(QTransposeProxyModel_MimeData_Callback cb) { qtransposeproxymodel_mimedata_callback = cb; }
-    void setQTransposeProxyModel_CanDropMimeData_Callback(QTransposeProxyModel_CanDropMimeData_Callback cb) { qtransposeproxymodel_candropmimedata_callback = cb; }
-    void setQTransposeProxyModel_DropMimeData_Callback(QTransposeProxyModel_DropMimeData_Callback cb) { qtransposeproxymodel_dropmimedata_callback = cb; }
-    void setQTransposeProxyModel_MimeTypes_Callback(QTransposeProxyModel_MimeTypes_Callback cb) { qtransposeproxymodel_mimetypes_callback = cb; }
-    void setQTransposeProxyModel_SupportedDragActions_Callback(QTransposeProxyModel_SupportedDragActions_Callback cb) { qtransposeproxymodel_supporteddragactions_callback = cb; }
-    void setQTransposeProxyModel_SupportedDropActions_Callback(QTransposeProxyModel_SupportedDropActions_Callback cb) { qtransposeproxymodel_supporteddropactions_callback = cb; }
-    void setQTransposeProxyModel_RoleNames_Callback(QTransposeProxyModel_RoleNames_Callback cb) { qtransposeproxymodel_rolenames_callback = cb; }
-    void setQTransposeProxyModel_Match_Callback(QTransposeProxyModel_Match_Callback cb) { qtransposeproxymodel_match_callback = cb; }
-    void setQTransposeProxyModel_MultiData_Callback(QTransposeProxyModel_MultiData_Callback cb) { qtransposeproxymodel_multidata_callback = cb; }
-    void setQTransposeProxyModel_ResetInternalData_Callback(QTransposeProxyModel_ResetInternalData_Callback cb) { qtransposeproxymodel_resetinternaldata_callback = cb; }
-    void setQTransposeProxyModel_Event_Callback(QTransposeProxyModel_Event_Callback cb) { qtransposeproxymodel_event_callback = cb; }
-    void setQTransposeProxyModel_EventFilter_Callback(QTransposeProxyModel_EventFilter_Callback cb) { qtransposeproxymodel_eventfilter_callback = cb; }
-    void setQTransposeProxyModel_TimerEvent_Callback(QTransposeProxyModel_TimerEvent_Callback cb) { qtransposeproxymodel_timerevent_callback = cb; }
-    void setQTransposeProxyModel_ChildEvent_Callback(QTransposeProxyModel_ChildEvent_Callback cb) { qtransposeproxymodel_childevent_callback = cb; }
-    void setQTransposeProxyModel_CustomEvent_Callback(QTransposeProxyModel_CustomEvent_Callback cb) { qtransposeproxymodel_customevent_callback = cb; }
-    void setQTransposeProxyModel_ConnectNotify_Callback(QTransposeProxyModel_ConnectNotify_Callback cb) { qtransposeproxymodel_connectnotify_callback = cb; }
-    void setQTransposeProxyModel_DisconnectNotify_Callback(QTransposeProxyModel_DisconnectNotify_Callback cb) { qtransposeproxymodel_disconnectnotify_callback = cb; }
-    void setQTransposeProxyModel_CreateSourceIndex_Callback(QTransposeProxyModel_CreateSourceIndex_Callback cb) { qtransposeproxymodel_createsourceindex_callback = cb; }
-    void setQTransposeProxyModel_CreateIndex_Callback(QTransposeProxyModel_CreateIndex_Callback cb) { qtransposeproxymodel_createindex_callback = cb; }
-    void setQTransposeProxyModel_EncodeData_Callback(QTransposeProxyModel_EncodeData_Callback cb) { qtransposeproxymodel_encodedata_callback = cb; }
-    void setQTransposeProxyModel_DecodeData_Callback(QTransposeProxyModel_DecodeData_Callback cb) { qtransposeproxymodel_decodedata_callback = cb; }
-    void setQTransposeProxyModel_BeginInsertRows_Callback(QTransposeProxyModel_BeginInsertRows_Callback cb) { qtransposeproxymodel_begininsertrows_callback = cb; }
-    void setQTransposeProxyModel_EndInsertRows_Callback(QTransposeProxyModel_EndInsertRows_Callback cb) { qtransposeproxymodel_endinsertrows_callback = cb; }
-    void setQTransposeProxyModel_BeginRemoveRows_Callback(QTransposeProxyModel_BeginRemoveRows_Callback cb) { qtransposeproxymodel_beginremoverows_callback = cb; }
-    void setQTransposeProxyModel_EndRemoveRows_Callback(QTransposeProxyModel_EndRemoveRows_Callback cb) { qtransposeproxymodel_endremoverows_callback = cb; }
-    void setQTransposeProxyModel_BeginMoveRows_Callback(QTransposeProxyModel_BeginMoveRows_Callback cb) { qtransposeproxymodel_beginmoverows_callback = cb; }
-    void setQTransposeProxyModel_EndMoveRows_Callback(QTransposeProxyModel_EndMoveRows_Callback cb) { qtransposeproxymodel_endmoverows_callback = cb; }
-    void setQTransposeProxyModel_BeginInsertColumns_Callback(QTransposeProxyModel_BeginInsertColumns_Callback cb) { qtransposeproxymodel_begininsertcolumns_callback = cb; }
-    void setQTransposeProxyModel_EndInsertColumns_Callback(QTransposeProxyModel_EndInsertColumns_Callback cb) { qtransposeproxymodel_endinsertcolumns_callback = cb; }
-    void setQTransposeProxyModel_BeginRemoveColumns_Callback(QTransposeProxyModel_BeginRemoveColumns_Callback cb) { qtransposeproxymodel_beginremovecolumns_callback = cb; }
-    void setQTransposeProxyModel_EndRemoveColumns_Callback(QTransposeProxyModel_EndRemoveColumns_Callback cb) { qtransposeproxymodel_endremovecolumns_callback = cb; }
-    void setQTransposeProxyModel_BeginMoveColumns_Callback(QTransposeProxyModel_BeginMoveColumns_Callback cb) { qtransposeproxymodel_beginmovecolumns_callback = cb; }
-    void setQTransposeProxyModel_EndMoveColumns_Callback(QTransposeProxyModel_EndMoveColumns_Callback cb) { qtransposeproxymodel_endmovecolumns_callback = cb; }
-    void setQTransposeProxyModel_BeginResetModel_Callback(QTransposeProxyModel_BeginResetModel_Callback cb) { qtransposeproxymodel_beginresetmodel_callback = cb; }
-    void setQTransposeProxyModel_EndResetModel_Callback(QTransposeProxyModel_EndResetModel_Callback cb) { qtransposeproxymodel_endresetmodel_callback = cb; }
-    void setQTransposeProxyModel_ChangePersistentIndex_Callback(QTransposeProxyModel_ChangePersistentIndex_Callback cb) { qtransposeproxymodel_changepersistentindex_callback = cb; }
-    void setQTransposeProxyModel_ChangePersistentIndexList_Callback(QTransposeProxyModel_ChangePersistentIndexList_Callback cb) { qtransposeproxymodel_changepersistentindexlist_callback = cb; }
-    void setQTransposeProxyModel_PersistentIndexList_Callback(QTransposeProxyModel_PersistentIndexList_Callback cb) { qtransposeproxymodel_persistentindexlist_callback = cb; }
-    void setQTransposeProxyModel_Sender_Callback(QTransposeProxyModel_Sender_Callback cb) { qtransposeproxymodel_sender_callback = cb; }
-    void setQTransposeProxyModel_SenderSignalIndex_Callback(QTransposeProxyModel_SenderSignalIndex_Callback cb) { qtransposeproxymodel_sendersignalindex_callback = cb; }
-    void setQTransposeProxyModel_Receivers_Callback(QTransposeProxyModel_Receivers_Callback cb) { qtransposeproxymodel_receivers_callback = cb; }
-    void setQTransposeProxyModel_IsSignalConnected_Callback(QTransposeProxyModel_IsSignalConnected_Callback cb) { qtransposeproxymodel_issignalconnected_callback = cb; }
+    inline void setQTransposeProxyModel_Metacall_Callback(QTransposeProxyModel_Metacall_Callback cb) { qtransposeproxymodel_metacall_callback = cb; }
+    inline void setQTransposeProxyModel_SetSourceModel_Callback(QTransposeProxyModel_SetSourceModel_Callback cb) { qtransposeproxymodel_setsourcemodel_callback = cb; }
+    inline void setQTransposeProxyModel_RowCount_Callback(QTransposeProxyModel_RowCount_Callback cb) { qtransposeproxymodel_rowcount_callback = cb; }
+    inline void setQTransposeProxyModel_ColumnCount_Callback(QTransposeProxyModel_ColumnCount_Callback cb) { qtransposeproxymodel_columncount_callback = cb; }
+    inline void setQTransposeProxyModel_HeaderData_Callback(QTransposeProxyModel_HeaderData_Callback cb) { qtransposeproxymodel_headerdata_callback = cb; }
+    inline void setQTransposeProxyModel_SetHeaderData_Callback(QTransposeProxyModel_SetHeaderData_Callback cb) { qtransposeproxymodel_setheaderdata_callback = cb; }
+    inline void setQTransposeProxyModel_SetItemData_Callback(QTransposeProxyModel_SetItemData_Callback cb) { qtransposeproxymodel_setitemdata_callback = cb; }
+    inline void setQTransposeProxyModel_Span_Callback(QTransposeProxyModel_Span_Callback cb) { qtransposeproxymodel_span_callback = cb; }
+    inline void setQTransposeProxyModel_ItemData_Callback(QTransposeProxyModel_ItemData_Callback cb) { qtransposeproxymodel_itemdata_callback = cb; }
+    inline void setQTransposeProxyModel_MapFromSource_Callback(QTransposeProxyModel_MapFromSource_Callback cb) { qtransposeproxymodel_mapfromsource_callback = cb; }
+    inline void setQTransposeProxyModel_MapToSource_Callback(QTransposeProxyModel_MapToSource_Callback cb) { qtransposeproxymodel_maptosource_callback = cb; }
+    inline void setQTransposeProxyModel_Parent_Callback(QTransposeProxyModel_Parent_Callback cb) { qtransposeproxymodel_parent_callback = cb; }
+    inline void setQTransposeProxyModel_Index_Callback(QTransposeProxyModel_Index_Callback cb) { qtransposeproxymodel_index_callback = cb; }
+    inline void setQTransposeProxyModel_InsertRows_Callback(QTransposeProxyModel_InsertRows_Callback cb) { qtransposeproxymodel_insertrows_callback = cb; }
+    inline void setQTransposeProxyModel_RemoveRows_Callback(QTransposeProxyModel_RemoveRows_Callback cb) { qtransposeproxymodel_removerows_callback = cb; }
+    inline void setQTransposeProxyModel_MoveRows_Callback(QTransposeProxyModel_MoveRows_Callback cb) { qtransposeproxymodel_moverows_callback = cb; }
+    inline void setQTransposeProxyModel_InsertColumns_Callback(QTransposeProxyModel_InsertColumns_Callback cb) { qtransposeproxymodel_insertcolumns_callback = cb; }
+    inline void setQTransposeProxyModel_RemoveColumns_Callback(QTransposeProxyModel_RemoveColumns_Callback cb) { qtransposeproxymodel_removecolumns_callback = cb; }
+    inline void setQTransposeProxyModel_MoveColumns_Callback(QTransposeProxyModel_MoveColumns_Callback cb) { qtransposeproxymodel_movecolumns_callback = cb; }
+    inline void setQTransposeProxyModel_Sort_Callback(QTransposeProxyModel_Sort_Callback cb) { qtransposeproxymodel_sort_callback = cb; }
+    inline void setQTransposeProxyModel_MapSelectionToSource_Callback(QTransposeProxyModel_MapSelectionToSource_Callback cb) { qtransposeproxymodel_mapselectiontosource_callback = cb; }
+    inline void setQTransposeProxyModel_MapSelectionFromSource_Callback(QTransposeProxyModel_MapSelectionFromSource_Callback cb) { qtransposeproxymodel_mapselectionfromsource_callback = cb; }
+    inline void setQTransposeProxyModel_Submit_Callback(QTransposeProxyModel_Submit_Callback cb) { qtransposeproxymodel_submit_callback = cb; }
+    inline void setQTransposeProxyModel_Revert_Callback(QTransposeProxyModel_Revert_Callback cb) { qtransposeproxymodel_revert_callback = cb; }
+    inline void setQTransposeProxyModel_Data_Callback(QTransposeProxyModel_Data_Callback cb) { qtransposeproxymodel_data_callback = cb; }
+    inline void setQTransposeProxyModel_Flags_Callback(QTransposeProxyModel_Flags_Callback cb) { qtransposeproxymodel_flags_callback = cb; }
+    inline void setQTransposeProxyModel_SetData_Callback(QTransposeProxyModel_SetData_Callback cb) { qtransposeproxymodel_setdata_callback = cb; }
+    inline void setQTransposeProxyModel_ClearItemData_Callback(QTransposeProxyModel_ClearItemData_Callback cb) { qtransposeproxymodel_clearitemdata_callback = cb; }
+    inline void setQTransposeProxyModel_Buddy_Callback(QTransposeProxyModel_Buddy_Callback cb) { qtransposeproxymodel_buddy_callback = cb; }
+    inline void setQTransposeProxyModel_CanFetchMore_Callback(QTransposeProxyModel_CanFetchMore_Callback cb) { qtransposeproxymodel_canfetchmore_callback = cb; }
+    inline void setQTransposeProxyModel_FetchMore_Callback(QTransposeProxyModel_FetchMore_Callback cb) { qtransposeproxymodel_fetchmore_callback = cb; }
+    inline void setQTransposeProxyModel_HasChildren_Callback(QTransposeProxyModel_HasChildren_Callback cb) { qtransposeproxymodel_haschildren_callback = cb; }
+    inline void setQTransposeProxyModel_Sibling_Callback(QTransposeProxyModel_Sibling_Callback cb) { qtransposeproxymodel_sibling_callback = cb; }
+    inline void setQTransposeProxyModel_MimeData_Callback(QTransposeProxyModel_MimeData_Callback cb) { qtransposeproxymodel_mimedata_callback = cb; }
+    inline void setQTransposeProxyModel_CanDropMimeData_Callback(QTransposeProxyModel_CanDropMimeData_Callback cb) { qtransposeproxymodel_candropmimedata_callback = cb; }
+    inline void setQTransposeProxyModel_DropMimeData_Callback(QTransposeProxyModel_DropMimeData_Callback cb) { qtransposeproxymodel_dropmimedata_callback = cb; }
+    inline void setQTransposeProxyModel_MimeTypes_Callback(QTransposeProxyModel_MimeTypes_Callback cb) { qtransposeproxymodel_mimetypes_callback = cb; }
+    inline void setQTransposeProxyModel_SupportedDragActions_Callback(QTransposeProxyModel_SupportedDragActions_Callback cb) { qtransposeproxymodel_supporteddragactions_callback = cb; }
+    inline void setQTransposeProxyModel_SupportedDropActions_Callback(QTransposeProxyModel_SupportedDropActions_Callback cb) { qtransposeproxymodel_supporteddropactions_callback = cb; }
+    inline void setQTransposeProxyModel_RoleNames_Callback(QTransposeProxyModel_RoleNames_Callback cb) { qtransposeproxymodel_rolenames_callback = cb; }
+    inline void setQTransposeProxyModel_Match_Callback(QTransposeProxyModel_Match_Callback cb) { qtransposeproxymodel_match_callback = cb; }
+    inline void setQTransposeProxyModel_MultiData_Callback(QTransposeProxyModel_MultiData_Callback cb) { qtransposeproxymodel_multidata_callback = cb; }
+    inline void setQTransposeProxyModel_ResetInternalData_Callback(QTransposeProxyModel_ResetInternalData_Callback cb) { qtransposeproxymodel_resetinternaldata_callback = cb; }
+    inline void setQTransposeProxyModel_Event_Callback(QTransposeProxyModel_Event_Callback cb) { qtransposeproxymodel_event_callback = cb; }
+    inline void setQTransposeProxyModel_EventFilter_Callback(QTransposeProxyModel_EventFilter_Callback cb) { qtransposeproxymodel_eventfilter_callback = cb; }
+    inline void setQTransposeProxyModel_TimerEvent_Callback(QTransposeProxyModel_TimerEvent_Callback cb) { qtransposeproxymodel_timerevent_callback = cb; }
+    inline void setQTransposeProxyModel_ChildEvent_Callback(QTransposeProxyModel_ChildEvent_Callback cb) { qtransposeproxymodel_childevent_callback = cb; }
+    inline void setQTransposeProxyModel_CustomEvent_Callback(QTransposeProxyModel_CustomEvent_Callback cb) { qtransposeproxymodel_customevent_callback = cb; }
+    inline void setQTransposeProxyModel_ConnectNotify_Callback(QTransposeProxyModel_ConnectNotify_Callback cb) { qtransposeproxymodel_connectnotify_callback = cb; }
+    inline void setQTransposeProxyModel_DisconnectNotify_Callback(QTransposeProxyModel_DisconnectNotify_Callback cb) { qtransposeproxymodel_disconnectnotify_callback = cb; }
+    inline void setQTransposeProxyModel_CreateSourceIndex_Callback(QTransposeProxyModel_CreateSourceIndex_Callback cb) { qtransposeproxymodel_createsourceindex_callback = cb; }
+    inline void setQTransposeProxyModel_CreateIndex_Callback(QTransposeProxyModel_CreateIndex_Callback cb) { qtransposeproxymodel_createindex_callback = cb; }
+    inline void setQTransposeProxyModel_EncodeData_Callback(QTransposeProxyModel_EncodeData_Callback cb) { qtransposeproxymodel_encodedata_callback = cb; }
+    inline void setQTransposeProxyModel_DecodeData_Callback(QTransposeProxyModel_DecodeData_Callback cb) { qtransposeproxymodel_decodedata_callback = cb; }
+    inline void setQTransposeProxyModel_BeginInsertRows_Callback(QTransposeProxyModel_BeginInsertRows_Callback cb) { qtransposeproxymodel_begininsertrows_callback = cb; }
+    inline void setQTransposeProxyModel_EndInsertRows_Callback(QTransposeProxyModel_EndInsertRows_Callback cb) { qtransposeproxymodel_endinsertrows_callback = cb; }
+    inline void setQTransposeProxyModel_BeginRemoveRows_Callback(QTransposeProxyModel_BeginRemoveRows_Callback cb) { qtransposeproxymodel_beginremoverows_callback = cb; }
+    inline void setQTransposeProxyModel_EndRemoveRows_Callback(QTransposeProxyModel_EndRemoveRows_Callback cb) { qtransposeproxymodel_endremoverows_callback = cb; }
+    inline void setQTransposeProxyModel_BeginMoveRows_Callback(QTransposeProxyModel_BeginMoveRows_Callback cb) { qtransposeproxymodel_beginmoverows_callback = cb; }
+    inline void setQTransposeProxyModel_EndMoveRows_Callback(QTransposeProxyModel_EndMoveRows_Callback cb) { qtransposeproxymodel_endmoverows_callback = cb; }
+    inline void setQTransposeProxyModel_BeginInsertColumns_Callback(QTransposeProxyModel_BeginInsertColumns_Callback cb) { qtransposeproxymodel_begininsertcolumns_callback = cb; }
+    inline void setQTransposeProxyModel_EndInsertColumns_Callback(QTransposeProxyModel_EndInsertColumns_Callback cb) { qtransposeproxymodel_endinsertcolumns_callback = cb; }
+    inline void setQTransposeProxyModel_BeginRemoveColumns_Callback(QTransposeProxyModel_BeginRemoveColumns_Callback cb) { qtransposeproxymodel_beginremovecolumns_callback = cb; }
+    inline void setQTransposeProxyModel_EndRemoveColumns_Callback(QTransposeProxyModel_EndRemoveColumns_Callback cb) { qtransposeproxymodel_endremovecolumns_callback = cb; }
+    inline void setQTransposeProxyModel_BeginMoveColumns_Callback(QTransposeProxyModel_BeginMoveColumns_Callback cb) { qtransposeproxymodel_beginmovecolumns_callback = cb; }
+    inline void setQTransposeProxyModel_EndMoveColumns_Callback(QTransposeProxyModel_EndMoveColumns_Callback cb) { qtransposeproxymodel_endmovecolumns_callback = cb; }
+    inline void setQTransposeProxyModel_BeginResetModel_Callback(QTransposeProxyModel_BeginResetModel_Callback cb) { qtransposeproxymodel_beginresetmodel_callback = cb; }
+    inline void setQTransposeProxyModel_EndResetModel_Callback(QTransposeProxyModel_EndResetModel_Callback cb) { qtransposeproxymodel_endresetmodel_callback = cb; }
+    inline void setQTransposeProxyModel_ChangePersistentIndex_Callback(QTransposeProxyModel_ChangePersistentIndex_Callback cb) { qtransposeproxymodel_changepersistentindex_callback = cb; }
+    inline void setQTransposeProxyModel_ChangePersistentIndexList_Callback(QTransposeProxyModel_ChangePersistentIndexList_Callback cb) { qtransposeproxymodel_changepersistentindexlist_callback = cb; }
+    inline void setQTransposeProxyModel_PersistentIndexList_Callback(QTransposeProxyModel_PersistentIndexList_Callback cb) { qtransposeproxymodel_persistentindexlist_callback = cb; }
+    inline void setQTransposeProxyModel_Sender_Callback(QTransposeProxyModel_Sender_Callback cb) { qtransposeproxymodel_sender_callback = cb; }
+    inline void setQTransposeProxyModel_SenderSignalIndex_Callback(QTransposeProxyModel_SenderSignalIndex_Callback cb) { qtransposeproxymodel_sendersignalindex_callback = cb; }
+    inline void setQTransposeProxyModel_Receivers_Callback(QTransposeProxyModel_Receivers_Callback cb) { qtransposeproxymodel_receivers_callback = cb; }
+    inline void setQTransposeProxyModel_IsSignalConnected_Callback(QTransposeProxyModel_IsSignalConnected_Callback cb) { qtransposeproxymodel_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQTransposeProxyModel_Metacall_IsBase(bool value) const { qtransposeproxymodel_metacall_isbase = value; }
-    void setQTransposeProxyModel_SetSourceModel_IsBase(bool value) const { qtransposeproxymodel_setsourcemodel_isbase = value; }
-    void setQTransposeProxyModel_RowCount_IsBase(bool value) const { qtransposeproxymodel_rowcount_isbase = value; }
-    void setQTransposeProxyModel_ColumnCount_IsBase(bool value) const { qtransposeproxymodel_columncount_isbase = value; }
-    void setQTransposeProxyModel_HeaderData_IsBase(bool value) const { qtransposeproxymodel_headerdata_isbase = value; }
-    void setQTransposeProxyModel_SetHeaderData_IsBase(bool value) const { qtransposeproxymodel_setheaderdata_isbase = value; }
-    void setQTransposeProxyModel_SetItemData_IsBase(bool value) const { qtransposeproxymodel_setitemdata_isbase = value; }
-    void setQTransposeProxyModel_Span_IsBase(bool value) const { qtransposeproxymodel_span_isbase = value; }
-    void setQTransposeProxyModel_ItemData_IsBase(bool value) const { qtransposeproxymodel_itemdata_isbase = value; }
-    void setQTransposeProxyModel_MapFromSource_IsBase(bool value) const { qtransposeproxymodel_mapfromsource_isbase = value; }
-    void setQTransposeProxyModel_MapToSource_IsBase(bool value) const { qtransposeproxymodel_maptosource_isbase = value; }
-    void setQTransposeProxyModel_Parent_IsBase(bool value) const { qtransposeproxymodel_parent_isbase = value; }
-    void setQTransposeProxyModel_Index_IsBase(bool value) const { qtransposeproxymodel_index_isbase = value; }
-    void setQTransposeProxyModel_InsertRows_IsBase(bool value) const { qtransposeproxymodel_insertrows_isbase = value; }
-    void setQTransposeProxyModel_RemoveRows_IsBase(bool value) const { qtransposeproxymodel_removerows_isbase = value; }
-    void setQTransposeProxyModel_MoveRows_IsBase(bool value) const { qtransposeproxymodel_moverows_isbase = value; }
-    void setQTransposeProxyModel_InsertColumns_IsBase(bool value) const { qtransposeproxymodel_insertcolumns_isbase = value; }
-    void setQTransposeProxyModel_RemoveColumns_IsBase(bool value) const { qtransposeproxymodel_removecolumns_isbase = value; }
-    void setQTransposeProxyModel_MoveColumns_IsBase(bool value) const { qtransposeproxymodel_movecolumns_isbase = value; }
-    void setQTransposeProxyModel_Sort_IsBase(bool value) const { qtransposeproxymodel_sort_isbase = value; }
-    void setQTransposeProxyModel_MapSelectionToSource_IsBase(bool value) const { qtransposeproxymodel_mapselectiontosource_isbase = value; }
-    void setQTransposeProxyModel_MapSelectionFromSource_IsBase(bool value) const { qtransposeproxymodel_mapselectionfromsource_isbase = value; }
-    void setQTransposeProxyModel_Submit_IsBase(bool value) const { qtransposeproxymodel_submit_isbase = value; }
-    void setQTransposeProxyModel_Revert_IsBase(bool value) const { qtransposeproxymodel_revert_isbase = value; }
-    void setQTransposeProxyModel_Data_IsBase(bool value) const { qtransposeproxymodel_data_isbase = value; }
-    void setQTransposeProxyModel_Flags_IsBase(bool value) const { qtransposeproxymodel_flags_isbase = value; }
-    void setQTransposeProxyModel_SetData_IsBase(bool value) const { qtransposeproxymodel_setdata_isbase = value; }
-    void setQTransposeProxyModel_ClearItemData_IsBase(bool value) const { qtransposeproxymodel_clearitemdata_isbase = value; }
-    void setQTransposeProxyModel_Buddy_IsBase(bool value) const { qtransposeproxymodel_buddy_isbase = value; }
-    void setQTransposeProxyModel_CanFetchMore_IsBase(bool value) const { qtransposeproxymodel_canfetchmore_isbase = value; }
-    void setQTransposeProxyModel_FetchMore_IsBase(bool value) const { qtransposeproxymodel_fetchmore_isbase = value; }
-    void setQTransposeProxyModel_HasChildren_IsBase(bool value) const { qtransposeproxymodel_haschildren_isbase = value; }
-    void setQTransposeProxyModel_Sibling_IsBase(bool value) const { qtransposeproxymodel_sibling_isbase = value; }
-    void setQTransposeProxyModel_MimeData_IsBase(bool value) const { qtransposeproxymodel_mimedata_isbase = value; }
-    void setQTransposeProxyModel_CanDropMimeData_IsBase(bool value) const { qtransposeproxymodel_candropmimedata_isbase = value; }
-    void setQTransposeProxyModel_DropMimeData_IsBase(bool value) const { qtransposeproxymodel_dropmimedata_isbase = value; }
-    void setQTransposeProxyModel_MimeTypes_IsBase(bool value) const { qtransposeproxymodel_mimetypes_isbase = value; }
-    void setQTransposeProxyModel_SupportedDragActions_IsBase(bool value) const { qtransposeproxymodel_supporteddragactions_isbase = value; }
-    void setQTransposeProxyModel_SupportedDropActions_IsBase(bool value) const { qtransposeproxymodel_supporteddropactions_isbase = value; }
-    void setQTransposeProxyModel_RoleNames_IsBase(bool value) const { qtransposeproxymodel_rolenames_isbase = value; }
-    void setQTransposeProxyModel_Match_IsBase(bool value) const { qtransposeproxymodel_match_isbase = value; }
-    void setQTransposeProxyModel_MultiData_IsBase(bool value) const { qtransposeproxymodel_multidata_isbase = value; }
-    void setQTransposeProxyModel_ResetInternalData_IsBase(bool value) const { qtransposeproxymodel_resetinternaldata_isbase = value; }
-    void setQTransposeProxyModel_Event_IsBase(bool value) const { qtransposeproxymodel_event_isbase = value; }
-    void setQTransposeProxyModel_EventFilter_IsBase(bool value) const { qtransposeproxymodel_eventfilter_isbase = value; }
-    void setQTransposeProxyModel_TimerEvent_IsBase(bool value) const { qtransposeproxymodel_timerevent_isbase = value; }
-    void setQTransposeProxyModel_ChildEvent_IsBase(bool value) const { qtransposeproxymodel_childevent_isbase = value; }
-    void setQTransposeProxyModel_CustomEvent_IsBase(bool value) const { qtransposeproxymodel_customevent_isbase = value; }
-    void setQTransposeProxyModel_ConnectNotify_IsBase(bool value) const { qtransposeproxymodel_connectnotify_isbase = value; }
-    void setQTransposeProxyModel_DisconnectNotify_IsBase(bool value) const { qtransposeproxymodel_disconnectnotify_isbase = value; }
-    void setQTransposeProxyModel_CreateSourceIndex_IsBase(bool value) const { qtransposeproxymodel_createsourceindex_isbase = value; }
-    void setQTransposeProxyModel_CreateIndex_IsBase(bool value) const { qtransposeproxymodel_createindex_isbase = value; }
-    void setQTransposeProxyModel_EncodeData_IsBase(bool value) const { qtransposeproxymodel_encodedata_isbase = value; }
-    void setQTransposeProxyModel_DecodeData_IsBase(bool value) const { qtransposeproxymodel_decodedata_isbase = value; }
-    void setQTransposeProxyModel_BeginInsertRows_IsBase(bool value) const { qtransposeproxymodel_begininsertrows_isbase = value; }
-    void setQTransposeProxyModel_EndInsertRows_IsBase(bool value) const { qtransposeproxymodel_endinsertrows_isbase = value; }
-    void setQTransposeProxyModel_BeginRemoveRows_IsBase(bool value) const { qtransposeproxymodel_beginremoverows_isbase = value; }
-    void setQTransposeProxyModel_EndRemoveRows_IsBase(bool value) const { qtransposeproxymodel_endremoverows_isbase = value; }
-    void setQTransposeProxyModel_BeginMoveRows_IsBase(bool value) const { qtransposeproxymodel_beginmoverows_isbase = value; }
-    void setQTransposeProxyModel_EndMoveRows_IsBase(bool value) const { qtransposeproxymodel_endmoverows_isbase = value; }
-    void setQTransposeProxyModel_BeginInsertColumns_IsBase(bool value) const { qtransposeproxymodel_begininsertcolumns_isbase = value; }
-    void setQTransposeProxyModel_EndInsertColumns_IsBase(bool value) const { qtransposeproxymodel_endinsertcolumns_isbase = value; }
-    void setQTransposeProxyModel_BeginRemoveColumns_IsBase(bool value) const { qtransposeproxymodel_beginremovecolumns_isbase = value; }
-    void setQTransposeProxyModel_EndRemoveColumns_IsBase(bool value) const { qtransposeproxymodel_endremovecolumns_isbase = value; }
-    void setQTransposeProxyModel_BeginMoveColumns_IsBase(bool value) const { qtransposeproxymodel_beginmovecolumns_isbase = value; }
-    void setQTransposeProxyModel_EndMoveColumns_IsBase(bool value) const { qtransposeproxymodel_endmovecolumns_isbase = value; }
-    void setQTransposeProxyModel_BeginResetModel_IsBase(bool value) const { qtransposeproxymodel_beginresetmodel_isbase = value; }
-    void setQTransposeProxyModel_EndResetModel_IsBase(bool value) const { qtransposeproxymodel_endresetmodel_isbase = value; }
-    void setQTransposeProxyModel_ChangePersistentIndex_IsBase(bool value) const { qtransposeproxymodel_changepersistentindex_isbase = value; }
-    void setQTransposeProxyModel_ChangePersistentIndexList_IsBase(bool value) const { qtransposeproxymodel_changepersistentindexlist_isbase = value; }
-    void setQTransposeProxyModel_PersistentIndexList_IsBase(bool value) const { qtransposeproxymodel_persistentindexlist_isbase = value; }
-    void setQTransposeProxyModel_Sender_IsBase(bool value) const { qtransposeproxymodel_sender_isbase = value; }
-    void setQTransposeProxyModel_SenderSignalIndex_IsBase(bool value) const { qtransposeproxymodel_sendersignalindex_isbase = value; }
-    void setQTransposeProxyModel_Receivers_IsBase(bool value) const { qtransposeproxymodel_receivers_isbase = value; }
-    void setQTransposeProxyModel_IsSignalConnected_IsBase(bool value) const { qtransposeproxymodel_issignalconnected_isbase = value; }
+    inline void setQTransposeProxyModel_Metacall_IsBase(bool value) const { qtransposeproxymodel_metacall_isbase = value; }
+    inline void setQTransposeProxyModel_SetSourceModel_IsBase(bool value) const { qtransposeproxymodel_setsourcemodel_isbase = value; }
+    inline void setQTransposeProxyModel_RowCount_IsBase(bool value) const { qtransposeproxymodel_rowcount_isbase = value; }
+    inline void setQTransposeProxyModel_ColumnCount_IsBase(bool value) const { qtransposeproxymodel_columncount_isbase = value; }
+    inline void setQTransposeProxyModel_HeaderData_IsBase(bool value) const { qtransposeproxymodel_headerdata_isbase = value; }
+    inline void setQTransposeProxyModel_SetHeaderData_IsBase(bool value) const { qtransposeproxymodel_setheaderdata_isbase = value; }
+    inline void setQTransposeProxyModel_SetItemData_IsBase(bool value) const { qtransposeproxymodel_setitemdata_isbase = value; }
+    inline void setQTransposeProxyModel_Span_IsBase(bool value) const { qtransposeproxymodel_span_isbase = value; }
+    inline void setQTransposeProxyModel_ItemData_IsBase(bool value) const { qtransposeproxymodel_itemdata_isbase = value; }
+    inline void setQTransposeProxyModel_MapFromSource_IsBase(bool value) const { qtransposeproxymodel_mapfromsource_isbase = value; }
+    inline void setQTransposeProxyModel_MapToSource_IsBase(bool value) const { qtransposeproxymodel_maptosource_isbase = value; }
+    inline void setQTransposeProxyModel_Parent_IsBase(bool value) const { qtransposeproxymodel_parent_isbase = value; }
+    inline void setQTransposeProxyModel_Index_IsBase(bool value) const { qtransposeproxymodel_index_isbase = value; }
+    inline void setQTransposeProxyModel_InsertRows_IsBase(bool value) const { qtransposeproxymodel_insertrows_isbase = value; }
+    inline void setQTransposeProxyModel_RemoveRows_IsBase(bool value) const { qtransposeproxymodel_removerows_isbase = value; }
+    inline void setQTransposeProxyModel_MoveRows_IsBase(bool value) const { qtransposeproxymodel_moverows_isbase = value; }
+    inline void setQTransposeProxyModel_InsertColumns_IsBase(bool value) const { qtransposeproxymodel_insertcolumns_isbase = value; }
+    inline void setQTransposeProxyModel_RemoveColumns_IsBase(bool value) const { qtransposeproxymodel_removecolumns_isbase = value; }
+    inline void setQTransposeProxyModel_MoveColumns_IsBase(bool value) const { qtransposeproxymodel_movecolumns_isbase = value; }
+    inline void setQTransposeProxyModel_Sort_IsBase(bool value) const { qtransposeproxymodel_sort_isbase = value; }
+    inline void setQTransposeProxyModel_MapSelectionToSource_IsBase(bool value) const { qtransposeproxymodel_mapselectiontosource_isbase = value; }
+    inline void setQTransposeProxyModel_MapSelectionFromSource_IsBase(bool value) const { qtransposeproxymodel_mapselectionfromsource_isbase = value; }
+    inline void setQTransposeProxyModel_Submit_IsBase(bool value) const { qtransposeproxymodel_submit_isbase = value; }
+    inline void setQTransposeProxyModel_Revert_IsBase(bool value) const { qtransposeproxymodel_revert_isbase = value; }
+    inline void setQTransposeProxyModel_Data_IsBase(bool value) const { qtransposeproxymodel_data_isbase = value; }
+    inline void setQTransposeProxyModel_Flags_IsBase(bool value) const { qtransposeproxymodel_flags_isbase = value; }
+    inline void setQTransposeProxyModel_SetData_IsBase(bool value) const { qtransposeproxymodel_setdata_isbase = value; }
+    inline void setQTransposeProxyModel_ClearItemData_IsBase(bool value) const { qtransposeproxymodel_clearitemdata_isbase = value; }
+    inline void setQTransposeProxyModel_Buddy_IsBase(bool value) const { qtransposeproxymodel_buddy_isbase = value; }
+    inline void setQTransposeProxyModel_CanFetchMore_IsBase(bool value) const { qtransposeproxymodel_canfetchmore_isbase = value; }
+    inline void setQTransposeProxyModel_FetchMore_IsBase(bool value) const { qtransposeproxymodel_fetchmore_isbase = value; }
+    inline void setQTransposeProxyModel_HasChildren_IsBase(bool value) const { qtransposeproxymodel_haschildren_isbase = value; }
+    inline void setQTransposeProxyModel_Sibling_IsBase(bool value) const { qtransposeproxymodel_sibling_isbase = value; }
+    inline void setQTransposeProxyModel_MimeData_IsBase(bool value) const { qtransposeproxymodel_mimedata_isbase = value; }
+    inline void setQTransposeProxyModel_CanDropMimeData_IsBase(bool value) const { qtransposeproxymodel_candropmimedata_isbase = value; }
+    inline void setQTransposeProxyModel_DropMimeData_IsBase(bool value) const { qtransposeproxymodel_dropmimedata_isbase = value; }
+    inline void setQTransposeProxyModel_MimeTypes_IsBase(bool value) const { qtransposeproxymodel_mimetypes_isbase = value; }
+    inline void setQTransposeProxyModel_SupportedDragActions_IsBase(bool value) const { qtransposeproxymodel_supporteddragactions_isbase = value; }
+    inline void setQTransposeProxyModel_SupportedDropActions_IsBase(bool value) const { qtransposeproxymodel_supporteddropactions_isbase = value; }
+    inline void setQTransposeProxyModel_RoleNames_IsBase(bool value) const { qtransposeproxymodel_rolenames_isbase = value; }
+    inline void setQTransposeProxyModel_Match_IsBase(bool value) const { qtransposeproxymodel_match_isbase = value; }
+    inline void setQTransposeProxyModel_MultiData_IsBase(bool value) const { qtransposeproxymodel_multidata_isbase = value; }
+    inline void setQTransposeProxyModel_ResetInternalData_IsBase(bool value) const { qtransposeproxymodel_resetinternaldata_isbase = value; }
+    inline void setQTransposeProxyModel_Event_IsBase(bool value) const { qtransposeproxymodel_event_isbase = value; }
+    inline void setQTransposeProxyModel_EventFilter_IsBase(bool value) const { qtransposeproxymodel_eventfilter_isbase = value; }
+    inline void setQTransposeProxyModel_TimerEvent_IsBase(bool value) const { qtransposeproxymodel_timerevent_isbase = value; }
+    inline void setQTransposeProxyModel_ChildEvent_IsBase(bool value) const { qtransposeproxymodel_childevent_isbase = value; }
+    inline void setQTransposeProxyModel_CustomEvent_IsBase(bool value) const { qtransposeproxymodel_customevent_isbase = value; }
+    inline void setQTransposeProxyModel_ConnectNotify_IsBase(bool value) const { qtransposeproxymodel_connectnotify_isbase = value; }
+    inline void setQTransposeProxyModel_DisconnectNotify_IsBase(bool value) const { qtransposeproxymodel_disconnectnotify_isbase = value; }
+    inline void setQTransposeProxyModel_CreateSourceIndex_IsBase(bool value) const { qtransposeproxymodel_createsourceindex_isbase = value; }
+    inline void setQTransposeProxyModel_CreateIndex_IsBase(bool value) const { qtransposeproxymodel_createindex_isbase = value; }
+    inline void setQTransposeProxyModel_EncodeData_IsBase(bool value) const { qtransposeproxymodel_encodedata_isbase = value; }
+    inline void setQTransposeProxyModel_DecodeData_IsBase(bool value) const { qtransposeproxymodel_decodedata_isbase = value; }
+    inline void setQTransposeProxyModel_BeginInsertRows_IsBase(bool value) const { qtransposeproxymodel_begininsertrows_isbase = value; }
+    inline void setQTransposeProxyModel_EndInsertRows_IsBase(bool value) const { qtransposeproxymodel_endinsertrows_isbase = value; }
+    inline void setQTransposeProxyModel_BeginRemoveRows_IsBase(bool value) const { qtransposeproxymodel_beginremoverows_isbase = value; }
+    inline void setQTransposeProxyModel_EndRemoveRows_IsBase(bool value) const { qtransposeproxymodel_endremoverows_isbase = value; }
+    inline void setQTransposeProxyModel_BeginMoveRows_IsBase(bool value) const { qtransposeproxymodel_beginmoverows_isbase = value; }
+    inline void setQTransposeProxyModel_EndMoveRows_IsBase(bool value) const { qtransposeproxymodel_endmoverows_isbase = value; }
+    inline void setQTransposeProxyModel_BeginInsertColumns_IsBase(bool value) const { qtransposeproxymodel_begininsertcolumns_isbase = value; }
+    inline void setQTransposeProxyModel_EndInsertColumns_IsBase(bool value) const { qtransposeproxymodel_endinsertcolumns_isbase = value; }
+    inline void setQTransposeProxyModel_BeginRemoveColumns_IsBase(bool value) const { qtransposeproxymodel_beginremovecolumns_isbase = value; }
+    inline void setQTransposeProxyModel_EndRemoveColumns_IsBase(bool value) const { qtransposeproxymodel_endremovecolumns_isbase = value; }
+    inline void setQTransposeProxyModel_BeginMoveColumns_IsBase(bool value) const { qtransposeproxymodel_beginmovecolumns_isbase = value; }
+    inline void setQTransposeProxyModel_EndMoveColumns_IsBase(bool value) const { qtransposeproxymodel_endmovecolumns_isbase = value; }
+    inline void setQTransposeProxyModel_BeginResetModel_IsBase(bool value) const { qtransposeproxymodel_beginresetmodel_isbase = value; }
+    inline void setQTransposeProxyModel_EndResetModel_IsBase(bool value) const { qtransposeproxymodel_endresetmodel_isbase = value; }
+    inline void setQTransposeProxyModel_ChangePersistentIndex_IsBase(bool value) const { qtransposeproxymodel_changepersistentindex_isbase = value; }
+    inline void setQTransposeProxyModel_ChangePersistentIndexList_IsBase(bool value) const { qtransposeproxymodel_changepersistentindexlist_isbase = value; }
+    inline void setQTransposeProxyModel_PersistentIndexList_IsBase(bool value) const { qtransposeproxymodel_persistentindexlist_isbase = value; }
+    inline void setQTransposeProxyModel_Sender_IsBase(bool value) const { qtransposeproxymodel_sender_isbase = value; }
+    inline void setQTransposeProxyModel_SenderSignalIndex_IsBase(bool value) const { qtransposeproxymodel_sendersignalindex_isbase = value; }
+    inline void setQTransposeProxyModel_Receivers_IsBase(bool value) const { qtransposeproxymodel_receivers_isbase = value; }
+    inline void setQTransposeProxyModel_IsSignalConnected_IsBase(bool value) const { qtransposeproxymodel_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -488,7 +491,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_metacall_isbase = false;
             return QTransposeProxyModel::qt_metacall(param1, param2, param3);
         } else if (qtransposeproxymodel_metacall_callback != nullptr) {
-            return qtransposeproxymodel_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qtransposeproxymodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QTransposeProxyModel::qt_metacall(param1, param2, param3);
         }
@@ -500,7 +508,9 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_setsourcemodel_isbase = false;
             QTransposeProxyModel::setSourceModel(newSourceModel);
         } else if (qtransposeproxymodel_setsourcemodel_callback != nullptr) {
-            qtransposeproxymodel_setsourcemodel_callback(this, newSourceModel);
+            QAbstractItemModel* cbval1 = newSourceModel;
+
+            qtransposeproxymodel_setsourcemodel_callback(this, cbval1);
         } else {
             QTransposeProxyModel::setSourceModel(newSourceModel);
         }
@@ -512,7 +522,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_rowcount_isbase = false;
             return QTransposeProxyModel::rowCount(parent);
         } else if (qtransposeproxymodel_rowcount_callback != nullptr) {
-            return qtransposeproxymodel_rowcount_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            int callback_ret = qtransposeproxymodel_rowcount_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTransposeProxyModel::rowCount(parent);
         }
@@ -524,7 +539,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_columncount_isbase = false;
             return QTransposeProxyModel::columnCount(parent);
         } else if (qtransposeproxymodel_columncount_callback != nullptr) {
-            return qtransposeproxymodel_columncount_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            int callback_ret = qtransposeproxymodel_columncount_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTransposeProxyModel::columnCount(parent);
         }
@@ -536,7 +556,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_headerdata_isbase = false;
             return QTransposeProxyModel::headerData(section, orientation, role);
         } else if (qtransposeproxymodel_headerdata_callback != nullptr) {
-            return qtransposeproxymodel_headerdata_callback(this, section, orientation, role);
+            int cbval1 = section;
+            int cbval2 = static_cast<int>(orientation);
+            int cbval3 = role;
+
+            QVariant* callback_ret = qtransposeproxymodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QTransposeProxyModel::headerData(section, orientation, role);
         }
@@ -548,7 +573,15 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_setheaderdata_isbase = false;
             return QTransposeProxyModel::setHeaderData(section, orientation, value, role);
         } else if (qtransposeproxymodel_setheaderdata_callback != nullptr) {
-            return qtransposeproxymodel_setheaderdata_callback(this, section, orientation, value, role);
+            int cbval1 = section;
+            int cbval2 = static_cast<int>(orientation);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
+            int cbval4 = role;
+
+            bool callback_ret = qtransposeproxymodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::setHeaderData(section, orientation, value, role);
         }
@@ -560,7 +593,27 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_setitemdata_isbase = false;
             return QTransposeProxyModel::setItemData(index, roles);
         } else if (qtransposeproxymodel_setitemdata_callback != nullptr) {
-            return qtransposeproxymodel_setitemdata_callback(this, index, roles);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            const QMap<int, QVariant>& roles_ret = roles;
+            // Convert QMap<> from C++ memory to manually-managed C memory
+            int* roles_karr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
+            QVariant** roles_varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * roles_ret.size()));
+            int roles_ctr = 0;
+            for (auto roles_itr = roles_ret.keyValueBegin(); roles_itr != roles_ret.keyValueEnd(); ++roles_itr) {
+                roles_karr[roles_ctr] = roles_itr->first;
+                roles_varr[roles_ctr] = new QVariant(roles_itr->second);
+                roles_ctr++;
+            }
+            libqt_map roles_out;
+            roles_out.len = roles_ret.size();
+            roles_out.keys = static_cast<void*>(roles_karr);
+            roles_out.values = static_cast<void*>(roles_varr);
+            libqt_map /* of int to QVariant* */ cbval2 = roles_out;
+
+            bool callback_ret = qtransposeproxymodel_setitemdata_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::setItemData(index, roles);
         }
@@ -572,7 +625,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_span_isbase = false;
             return QTransposeProxyModel::span(index);
         } else if (qtransposeproxymodel_span_callback != nullptr) {
-            return qtransposeproxymodel_span_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QSize* callback_ret = qtransposeproxymodel_span_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTransposeProxyModel::span(index);
         }
@@ -584,7 +642,18 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_itemdata_isbase = false;
             return QTransposeProxyModel::itemData(index);
         } else if (qtransposeproxymodel_itemdata_callback != nullptr) {
-            return qtransposeproxymodel_itemdata_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            libqt_map /* of int to QVariant* */ callback_ret = qtransposeproxymodel_itemdata_callback(this, cbval1);
+            QMap<int, QVariant> callback_ret_QMap;
+            int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
+            QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
+            }
+            return callback_ret_QMap;
         } else {
             return QTransposeProxyModel::itemData(index);
         }
@@ -596,7 +665,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_mapfromsource_isbase = false;
             return QTransposeProxyModel::mapFromSource(sourceIndex);
         } else if (qtransposeproxymodel_mapfromsource_callback != nullptr) {
-            return qtransposeproxymodel_mapfromsource_callback(this, sourceIndex);
+            const QModelIndex& sourceIndex_ret = sourceIndex;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceIndex_ret);
+
+            QModelIndex* callback_ret = qtransposeproxymodel_mapfromsource_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTransposeProxyModel::mapFromSource(sourceIndex);
         }
@@ -608,7 +682,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_maptosource_isbase = false;
             return QTransposeProxyModel::mapToSource(proxyIndex);
         } else if (qtransposeproxymodel_maptosource_callback != nullptr) {
-            return qtransposeproxymodel_maptosource_callback(this, proxyIndex);
+            const QModelIndex& proxyIndex_ret = proxyIndex;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&proxyIndex_ret);
+
+            QModelIndex* callback_ret = qtransposeproxymodel_maptosource_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTransposeProxyModel::mapToSource(proxyIndex);
         }
@@ -620,7 +699,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_parent_isbase = false;
             return QTransposeProxyModel::parent(index);
         } else if (qtransposeproxymodel_parent_callback != nullptr) {
-            return qtransposeproxymodel_parent_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QModelIndex* callback_ret = qtransposeproxymodel_parent_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTransposeProxyModel::parent(index);
         }
@@ -632,7 +716,14 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_index_isbase = false;
             return QTransposeProxyModel::index(row, column, parent);
         } else if (qtransposeproxymodel_index_callback != nullptr) {
-            return qtransposeproxymodel_index_callback(this, row, column, parent);
+            int cbval1 = row;
+            int cbval2 = column;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            QModelIndex* callback_ret = qtransposeproxymodel_index_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QTransposeProxyModel::index(row, column, parent);
         }
@@ -644,7 +735,14 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_insertrows_isbase = false;
             return QTransposeProxyModel::insertRows(row, count, parent);
         } else if (qtransposeproxymodel_insertrows_callback != nullptr) {
-            return qtransposeproxymodel_insertrows_callback(this, row, count, parent);
+            int cbval1 = row;
+            int cbval2 = count;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qtransposeproxymodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::insertRows(row, count, parent);
         }
@@ -656,7 +754,14 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_removerows_isbase = false;
             return QTransposeProxyModel::removeRows(row, count, parent);
         } else if (qtransposeproxymodel_removerows_callback != nullptr) {
-            return qtransposeproxymodel_removerows_callback(this, row, count, parent);
+            int cbval1 = row;
+            int cbval2 = count;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qtransposeproxymodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::removeRows(row, count, parent);
         }
@@ -668,7 +773,18 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_moverows_isbase = false;
             return QTransposeProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         } else if (qtransposeproxymodel_moverows_callback != nullptr) {
-            return qtransposeproxymodel_moverows_callback(this, sourceParent, sourceRow, count, destinationParent, destinationChild);
+            const QModelIndex& sourceParent_ret = sourceParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
+            int cbval2 = sourceRow;
+            int cbval3 = count;
+            const QModelIndex& destinationParent_ret = destinationParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
+            int cbval5 = destinationChild;
+
+            bool callback_ret = qtransposeproxymodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
@@ -680,7 +796,14 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_insertcolumns_isbase = false;
             return QTransposeProxyModel::insertColumns(column, count, parent);
         } else if (qtransposeproxymodel_insertcolumns_callback != nullptr) {
-            return qtransposeproxymodel_insertcolumns_callback(this, column, count, parent);
+            int cbval1 = column;
+            int cbval2 = count;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qtransposeproxymodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::insertColumns(column, count, parent);
         }
@@ -692,7 +815,14 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_removecolumns_isbase = false;
             return QTransposeProxyModel::removeColumns(column, count, parent);
         } else if (qtransposeproxymodel_removecolumns_callback != nullptr) {
-            return qtransposeproxymodel_removecolumns_callback(this, column, count, parent);
+            int cbval1 = column;
+            int cbval2 = count;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qtransposeproxymodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::removeColumns(column, count, parent);
         }
@@ -704,7 +834,18 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_movecolumns_isbase = false;
             return QTransposeProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         } else if (qtransposeproxymodel_movecolumns_callback != nullptr) {
-            return qtransposeproxymodel_movecolumns_callback(this, sourceParent, sourceColumn, count, destinationParent, destinationChild);
+            const QModelIndex& sourceParent_ret = sourceParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
+            int cbval2 = sourceColumn;
+            int cbval3 = count;
+            const QModelIndex& destinationParent_ret = destinationParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
+            int cbval5 = destinationChild;
+
+            bool callback_ret = qtransposeproxymodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
@@ -716,7 +857,10 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_sort_isbase = false;
             QTransposeProxyModel::sort(column, order);
         } else if (qtransposeproxymodel_sort_callback != nullptr) {
-            qtransposeproxymodel_sort_callback(this, column, order);
+            int cbval1 = column;
+            int cbval2 = static_cast<int>(order);
+
+            qtransposeproxymodel_sort_callback(this, cbval1, cbval2);
         } else {
             QTransposeProxyModel::sort(column, order);
         }
@@ -728,7 +872,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_mapselectiontosource_isbase = false;
             return QTransposeProxyModel::mapSelectionToSource(selection);
         } else if (qtransposeproxymodel_mapselectiontosource_callback != nullptr) {
-            return qtransposeproxymodel_mapselectiontosource_callback(this, selection);
+            const QItemSelection& selection_ret = selection;
+            // Cast returned reference into pointer
+            QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
+
+            QItemSelection* callback_ret = qtransposeproxymodel_mapselectiontosource_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTransposeProxyModel::mapSelectionToSource(selection);
         }
@@ -740,7 +889,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_mapselectionfromsource_isbase = false;
             return QTransposeProxyModel::mapSelectionFromSource(selection);
         } else if (qtransposeproxymodel_mapselectionfromsource_callback != nullptr) {
-            return qtransposeproxymodel_mapselectionfromsource_callback(this, selection);
+            const QItemSelection& selection_ret = selection;
+            // Cast returned reference into pointer
+            QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
+
+            QItemSelection* callback_ret = qtransposeproxymodel_mapselectionfromsource_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTransposeProxyModel::mapSelectionFromSource(selection);
         }
@@ -752,7 +906,8 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_submit_isbase = false;
             return QTransposeProxyModel::submit();
         } else if (qtransposeproxymodel_submit_callback != nullptr) {
-            return qtransposeproxymodel_submit_callback();
+            bool callback_ret = qtransposeproxymodel_submit_callback();
+            return callback_ret;
         } else {
             return QTransposeProxyModel::submit();
         }
@@ -776,7 +931,13 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_data_isbase = false;
             return QTransposeProxyModel::data(proxyIndex, role);
         } else if (qtransposeproxymodel_data_callback != nullptr) {
-            return qtransposeproxymodel_data_callback(this, proxyIndex, role);
+            const QModelIndex& proxyIndex_ret = proxyIndex;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&proxyIndex_ret);
+            int cbval2 = role;
+
+            QVariant* callback_ret = qtransposeproxymodel_data_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QTransposeProxyModel::data(proxyIndex, role);
         }
@@ -788,7 +949,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_flags_isbase = false;
             return QTransposeProxyModel::flags(index);
         } else if (qtransposeproxymodel_flags_callback != nullptr) {
-            return qtransposeproxymodel_flags_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            int callback_ret = qtransposeproxymodel_flags_callback(this, cbval1);
+            return static_cast<Qt::ItemFlags>(callback_ret);
         } else {
             return QTransposeProxyModel::flags(index);
         }
@@ -800,7 +966,16 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_setdata_isbase = false;
             return QTransposeProxyModel::setData(index, value, role);
         } else if (qtransposeproxymodel_setdata_callback != nullptr) {
-            return qtransposeproxymodel_setdata_callback(this, index, value, role);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+            int cbval3 = role;
+
+            bool callback_ret = qtransposeproxymodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::setData(index, value, role);
         }
@@ -812,7 +987,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_clearitemdata_isbase = false;
             return QTransposeProxyModel::clearItemData(index);
         } else if (qtransposeproxymodel_clearitemdata_callback != nullptr) {
-            return qtransposeproxymodel_clearitemdata_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            bool callback_ret = qtransposeproxymodel_clearitemdata_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::clearItemData(index);
         }
@@ -824,7 +1004,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_buddy_isbase = false;
             return QTransposeProxyModel::buddy(index);
         } else if (qtransposeproxymodel_buddy_callback != nullptr) {
-            return qtransposeproxymodel_buddy_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QModelIndex* callback_ret = qtransposeproxymodel_buddy_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTransposeProxyModel::buddy(index);
         }
@@ -836,7 +1021,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_canfetchmore_isbase = false;
             return QTransposeProxyModel::canFetchMore(parent);
         } else if (qtransposeproxymodel_canfetchmore_callback != nullptr) {
-            return qtransposeproxymodel_canfetchmore_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qtransposeproxymodel_canfetchmore_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::canFetchMore(parent);
         }
@@ -848,7 +1038,11 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_fetchmore_isbase = false;
             QTransposeProxyModel::fetchMore(parent);
         } else if (qtransposeproxymodel_fetchmore_callback != nullptr) {
-            qtransposeproxymodel_fetchmore_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            qtransposeproxymodel_fetchmore_callback(this, cbval1);
         } else {
             QTransposeProxyModel::fetchMore(parent);
         }
@@ -860,7 +1054,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_haschildren_isbase = false;
             return QTransposeProxyModel::hasChildren(parent);
         } else if (qtransposeproxymodel_haschildren_callback != nullptr) {
-            return qtransposeproxymodel_haschildren_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qtransposeproxymodel_haschildren_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::hasChildren(parent);
         }
@@ -872,7 +1071,14 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_sibling_isbase = false;
             return QTransposeProxyModel::sibling(row, column, idx);
         } else if (qtransposeproxymodel_sibling_callback != nullptr) {
-            return qtransposeproxymodel_sibling_callback(this, row, column, idx);
+            int cbval1 = row;
+            int cbval2 = column;
+            const QModelIndex& idx_ret = idx;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
+
+            QModelIndex* callback_ret = qtransposeproxymodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QTransposeProxyModel::sibling(row, column, idx);
         }
@@ -884,7 +1090,19 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_mimedata_isbase = false;
             return QTransposeProxyModel::mimeData(indexes);
         } else if (qtransposeproxymodel_mimedata_callback != nullptr) {
-            return qtransposeproxymodel_mimedata_callback(this, indexes);
+            const QModelIndexList& indexes_ret = indexes;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.length()));
+            for (size_t i = 0; i < indexes_ret.length(); ++i) {
+                indexes_arr[i] = new QModelIndex(indexes_ret[i]);
+            }
+            libqt_list indexes_out;
+            indexes_out.len = indexes_ret.length();
+            indexes_out.data = static_cast<void*>(indexes_arr);
+            libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
+
+            QMimeData* callback_ret = qtransposeproxymodel_mimedata_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::mimeData(indexes);
         }
@@ -896,7 +1114,16 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_candropmimedata_isbase = false;
             return QTransposeProxyModel::canDropMimeData(data, action, row, column, parent);
         } else if (qtransposeproxymodel_candropmimedata_callback != nullptr) {
-            return qtransposeproxymodel_candropmimedata_callback(this, data, action, row, column, parent);
+            QMimeData* cbval1 = (QMimeData*)data;
+            int cbval2 = static_cast<int>(action);
+            int cbval3 = row;
+            int cbval4 = column;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qtransposeproxymodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::canDropMimeData(data, action, row, column, parent);
         }
@@ -908,7 +1135,16 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_dropmimedata_isbase = false;
             return QTransposeProxyModel::dropMimeData(data, action, row, column, parent);
         } else if (qtransposeproxymodel_dropmimedata_callback != nullptr) {
-            return qtransposeproxymodel_dropmimedata_callback(this, data, action, row, column, parent);
+            QMimeData* cbval1 = (QMimeData*)data;
+            int cbval2 = static_cast<int>(action);
+            int cbval3 = row;
+            int cbval4 = column;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qtransposeproxymodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::dropMimeData(data, action, row, column, parent);
         }
@@ -920,7 +1156,15 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_mimetypes_isbase = false;
             return QTransposeProxyModel::mimeTypes();
         } else if (qtransposeproxymodel_mimetypes_callback != nullptr) {
-            return qtransposeproxymodel_mimetypes_callback();
+            libqt_list /* of libqt_string */ callback_ret = qtransposeproxymodel_mimetypes_callback();
+            QStringList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+                callback_ret_QList.push_back(callback_ret_arr_i_QString);
+            }
+            return callback_ret_QList;
         } else {
             return QTransposeProxyModel::mimeTypes();
         }
@@ -932,7 +1176,8 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_supporteddragactions_isbase = false;
             return QTransposeProxyModel::supportedDragActions();
         } else if (qtransposeproxymodel_supporteddragactions_callback != nullptr) {
-            return qtransposeproxymodel_supporteddragactions_callback();
+            int callback_ret = qtransposeproxymodel_supporteddragactions_callback();
+            return static_cast<Qt::DropActions>(callback_ret);
         } else {
             return QTransposeProxyModel::supportedDragActions();
         }
@@ -944,7 +1189,8 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_supporteddropactions_isbase = false;
             return QTransposeProxyModel::supportedDropActions();
         } else if (qtransposeproxymodel_supporteddropactions_callback != nullptr) {
-            return qtransposeproxymodel_supporteddropactions_callback();
+            int callback_ret = qtransposeproxymodel_supporteddropactions_callback();
+            return static_cast<Qt::DropActions>(callback_ret);
         } else {
             return QTransposeProxyModel::supportedDropActions();
         }
@@ -956,7 +1202,16 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_rolenames_isbase = false;
             return QTransposeProxyModel::roleNames();
         } else if (qtransposeproxymodel_rolenames_callback != nullptr) {
-            return qtransposeproxymodel_rolenames_callback();
+            libqt_map /* of int to libqt_string */ callback_ret = qtransposeproxymodel_rolenames_callback();
+            QHash<int, QByteArray> callback_ret_QMap;
+            callback_ret_QMap.reserve(callback_ret.len);
+            int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
+            libqt_string* callback_ret_varr = static_cast<libqt_string*>(callback_ret.values);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                QByteArray callback_ret_varr_i_QByteArray(callback_ret_varr[i].data, callback_ret_varr[i].len);
+                callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
+            }
+            return callback_ret_QMap;
         } else {
             return QTransposeProxyModel::roleNames();
         }
@@ -968,7 +1223,24 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_match_isbase = false;
             return QTransposeProxyModel::match(start, role, value, hits, flags);
         } else if (qtransposeproxymodel_match_callback != nullptr) {
-            return qtransposeproxymodel_match_callback(this, start, role, value, hits, flags);
+            const QModelIndex& start_ret = start;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
+            int cbval2 = role;
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
+            int cbval4 = hits;
+            int cbval5 = static_cast<int>(flags);
+
+            libqt_list /* of QModelIndex* */ callback_ret = qtransposeproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            QModelIndexList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            }
+            return callback_ret_QList;
         } else {
             return QTransposeProxyModel::match(start, role, value, hits, flags);
         }
@@ -980,7 +1252,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_multidata_isbase = false;
             QTransposeProxyModel::multiData(index, roleDataSpan);
         } else if (qtransposeproxymodel_multidata_callback != nullptr) {
-            qtransposeproxymodel_multidata_callback(this, index, roleDataSpan);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
+
+            qtransposeproxymodel_multidata_callback(this, cbval1, cbval2);
         } else {
             QTransposeProxyModel::multiData(index, roleDataSpan);
         }
@@ -1004,7 +1281,10 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_event_isbase = false;
             return QTransposeProxyModel::event(event);
         } else if (qtransposeproxymodel_event_callback != nullptr) {
-            return qtransposeproxymodel_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qtransposeproxymodel_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::event(event);
         }
@@ -1016,7 +1296,11 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_eventfilter_isbase = false;
             return QTransposeProxyModel::eventFilter(watched, event);
         } else if (qtransposeproxymodel_eventfilter_callback != nullptr) {
-            return qtransposeproxymodel_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qtransposeproxymodel_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::eventFilter(watched, event);
         }
@@ -1028,7 +1312,9 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_timerevent_isbase = false;
             QTransposeProxyModel::timerEvent(event);
         } else if (qtransposeproxymodel_timerevent_callback != nullptr) {
-            qtransposeproxymodel_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qtransposeproxymodel_timerevent_callback(this, cbval1);
         } else {
             QTransposeProxyModel::timerEvent(event);
         }
@@ -1040,7 +1326,9 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_childevent_isbase = false;
             QTransposeProxyModel::childEvent(event);
         } else if (qtransposeproxymodel_childevent_callback != nullptr) {
-            qtransposeproxymodel_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qtransposeproxymodel_childevent_callback(this, cbval1);
         } else {
             QTransposeProxyModel::childEvent(event);
         }
@@ -1052,7 +1340,9 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_customevent_isbase = false;
             QTransposeProxyModel::customEvent(event);
         } else if (qtransposeproxymodel_customevent_callback != nullptr) {
-            qtransposeproxymodel_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qtransposeproxymodel_customevent_callback(this, cbval1);
         } else {
             QTransposeProxyModel::customEvent(event);
         }
@@ -1064,7 +1354,11 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_connectnotify_isbase = false;
             QTransposeProxyModel::connectNotify(signal);
         } else if (qtransposeproxymodel_connectnotify_callback != nullptr) {
-            qtransposeproxymodel_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtransposeproxymodel_connectnotify_callback(this, cbval1);
         } else {
             QTransposeProxyModel::connectNotify(signal);
         }
@@ -1076,7 +1370,11 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_disconnectnotify_isbase = false;
             QTransposeProxyModel::disconnectNotify(signal);
         } else if (qtransposeproxymodel_disconnectnotify_callback != nullptr) {
-            qtransposeproxymodel_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtransposeproxymodel_disconnectnotify_callback(this, cbval1);
         } else {
             QTransposeProxyModel::disconnectNotify(signal);
         }
@@ -1088,7 +1386,12 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_createsourceindex_isbase = false;
             return QTransposeProxyModel::createSourceIndex(row, col, internalPtr);
         } else if (qtransposeproxymodel_createsourceindex_callback != nullptr) {
-            return qtransposeproxymodel_createsourceindex_callback(this, row, col, internalPtr);
+            int cbval1 = row;
+            int cbval2 = col;
+            void* cbval3 = internalPtr;
+
+            QModelIndex* callback_ret = qtransposeproxymodel_createsourceindex_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QTransposeProxyModel::createSourceIndex(row, col, internalPtr);
         }
@@ -1100,7 +1403,11 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_createindex_isbase = false;
             return QTransposeProxyModel::createIndex(row, column);
         } else if (qtransposeproxymodel_createindex_callback != nullptr) {
-            return qtransposeproxymodel_createindex_callback(this, row, column);
+            int cbval1 = row;
+            int cbval2 = column;
+
+            QModelIndex* callback_ret = qtransposeproxymodel_createindex_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QTransposeProxyModel::createIndex(row, column);
         }
@@ -1112,7 +1419,21 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_encodedata_isbase = false;
             QTransposeProxyModel::encodeData(indexes, stream);
         } else if (qtransposeproxymodel_encodedata_callback != nullptr) {
-            qtransposeproxymodel_encodedata_callback(this, indexes, stream);
+            const QModelIndexList& indexes_ret = indexes;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.length()));
+            for (size_t i = 0; i < indexes_ret.length(); ++i) {
+                indexes_arr[i] = new QModelIndex(indexes_ret[i]);
+            }
+            libqt_list indexes_out;
+            indexes_out.len = indexes_ret.length();
+            indexes_out.data = static_cast<void*>(indexes_arr);
+            libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
+            QDataStream& stream_ret = stream;
+            // Cast returned reference into pointer
+            QDataStream* cbval2 = &stream_ret;
+
+            qtransposeproxymodel_encodedata_callback(this, cbval1, cbval2);
         } else {
             QTransposeProxyModel::encodeData(indexes, stream);
         }
@@ -1124,7 +1445,17 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_decodedata_isbase = false;
             return QTransposeProxyModel::decodeData(row, column, parent, stream);
         } else if (qtransposeproxymodel_decodedata_callback != nullptr) {
-            return qtransposeproxymodel_decodedata_callback(this, row, column, parent, stream);
+            int cbval1 = row;
+            int cbval2 = column;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+            QDataStream& stream_ret = stream;
+            // Cast returned reference into pointer
+            QDataStream* cbval4 = &stream_ret;
+
+            bool callback_ret = qtransposeproxymodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::decodeData(row, column, parent, stream);
         }
@@ -1136,7 +1467,13 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_begininsertrows_isbase = false;
             QTransposeProxyModel::beginInsertRows(parent, first, last);
         } else if (qtransposeproxymodel_begininsertrows_callback != nullptr) {
-            qtransposeproxymodel_begininsertrows_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qtransposeproxymodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTransposeProxyModel::beginInsertRows(parent, first, last);
         }
@@ -1160,7 +1497,13 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_beginremoverows_isbase = false;
             QTransposeProxyModel::beginRemoveRows(parent, first, last);
         } else if (qtransposeproxymodel_beginremoverows_callback != nullptr) {
-            qtransposeproxymodel_beginremoverows_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qtransposeproxymodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTransposeProxyModel::beginRemoveRows(parent, first, last);
         }
@@ -1184,7 +1527,18 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_beginmoverows_isbase = false;
             return QTransposeProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         } else if (qtransposeproxymodel_beginmoverows_callback != nullptr) {
-            return qtransposeproxymodel_beginmoverows_callback(this, sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
+            const QModelIndex& sourceParent_ret = sourceParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
+            int cbval2 = sourceFirst;
+            int cbval3 = sourceLast;
+            const QModelIndex& destinationParent_ret = destinationParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
+            int cbval5 = destinationRow;
+
+            bool callback_ret = qtransposeproxymodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
@@ -1208,7 +1562,13 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_begininsertcolumns_isbase = false;
             QTransposeProxyModel::beginInsertColumns(parent, first, last);
         } else if (qtransposeproxymodel_begininsertcolumns_callback != nullptr) {
-            qtransposeproxymodel_begininsertcolumns_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qtransposeproxymodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTransposeProxyModel::beginInsertColumns(parent, first, last);
         }
@@ -1232,7 +1592,13 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_beginremovecolumns_isbase = false;
             QTransposeProxyModel::beginRemoveColumns(parent, first, last);
         } else if (qtransposeproxymodel_beginremovecolumns_callback != nullptr) {
-            qtransposeproxymodel_beginremovecolumns_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qtransposeproxymodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTransposeProxyModel::beginRemoveColumns(parent, first, last);
         }
@@ -1256,7 +1622,18 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_beginmovecolumns_isbase = false;
             return QTransposeProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         } else if (qtransposeproxymodel_beginmovecolumns_callback != nullptr) {
-            return qtransposeproxymodel_beginmovecolumns_callback(this, sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
+            const QModelIndex& sourceParent_ret = sourceParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
+            int cbval2 = sourceFirst;
+            int cbval3 = sourceLast;
+            const QModelIndex& destinationParent_ret = destinationParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
+            int cbval5 = destinationColumn;
+
+            bool callback_ret = qtransposeproxymodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
@@ -1304,7 +1681,14 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_changepersistentindex_isbase = false;
             QTransposeProxyModel::changePersistentIndex(from, to);
         } else if (qtransposeproxymodel_changepersistentindex_callback != nullptr) {
-            qtransposeproxymodel_changepersistentindex_callback(this, from, to);
+            const QModelIndex& from_ret = from;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
+            const QModelIndex& to_ret = to;
+            // Cast returned reference into pointer
+            QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
+
+            qtransposeproxymodel_changepersistentindex_callback(this, cbval1, cbval2);
         } else {
             QTransposeProxyModel::changePersistentIndex(from, to);
         }
@@ -1316,7 +1700,28 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_changepersistentindexlist_isbase = false;
             QTransposeProxyModel::changePersistentIndexList(from, to);
         } else if (qtransposeproxymodel_changepersistentindexlist_callback != nullptr) {
-            qtransposeproxymodel_changepersistentindexlist_callback(this, from, to);
+            const QModelIndexList& from_ret = from;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * from_ret.length()));
+            for (size_t i = 0; i < from_ret.length(); ++i) {
+                from_arr[i] = new QModelIndex(from_ret[i]);
+            }
+            libqt_list from_out;
+            from_out.len = from_ret.length();
+            from_out.data = static_cast<void*>(from_arr);
+            libqt_list /* of QModelIndex* */ cbval1 = from_out;
+            const QModelIndexList& to_ret = to;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * to_ret.length()));
+            for (size_t i = 0; i < to_ret.length(); ++i) {
+                to_arr[i] = new QModelIndex(to_ret[i]);
+            }
+            libqt_list to_out;
+            to_out.len = to_ret.length();
+            to_out.data = static_cast<void*>(to_arr);
+            libqt_list /* of QModelIndex* */ cbval2 = to_out;
+
+            qtransposeproxymodel_changepersistentindexlist_callback(this, cbval1, cbval2);
         } else {
             QTransposeProxyModel::changePersistentIndexList(from, to);
         }
@@ -1328,7 +1733,14 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_persistentindexlist_isbase = false;
             return QTransposeProxyModel::persistentIndexList();
         } else if (qtransposeproxymodel_persistentindexlist_callback != nullptr) {
-            return qtransposeproxymodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qtransposeproxymodel_persistentindexlist_callback();
+            QModelIndexList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            }
+            return callback_ret_QList;
         } else {
             return QTransposeProxyModel::persistentIndexList();
         }
@@ -1340,7 +1752,8 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_sender_isbase = false;
             return QTransposeProxyModel::sender();
         } else if (qtransposeproxymodel_sender_callback != nullptr) {
-            return qtransposeproxymodel_sender_callback();
+            QObject* callback_ret = qtransposeproxymodel_sender_callback();
+            return callback_ret;
         } else {
             return QTransposeProxyModel::sender();
         }
@@ -1352,7 +1765,8 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_sendersignalindex_isbase = false;
             return QTransposeProxyModel::senderSignalIndex();
         } else if (qtransposeproxymodel_sendersignalindex_callback != nullptr) {
-            return qtransposeproxymodel_sendersignalindex_callback();
+            int callback_ret = qtransposeproxymodel_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QTransposeProxyModel::senderSignalIndex();
         }
@@ -1364,7 +1778,10 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_receivers_isbase = false;
             return QTransposeProxyModel::receivers(signal);
         } else if (qtransposeproxymodel_receivers_callback != nullptr) {
-            return qtransposeproxymodel_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qtransposeproxymodel_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTransposeProxyModel::receivers(signal);
         }
@@ -1376,11 +1793,80 @@ class VirtualQTransposeProxyModel : public QTransposeProxyModel {
             qtransposeproxymodel_issignalconnected_isbase = false;
             return QTransposeProxyModel::isSignalConnected(signal);
         } else if (qtransposeproxymodel_issignalconnected_callback != nullptr) {
-            return qtransposeproxymodel_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qtransposeproxymodel_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTransposeProxyModel::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QTransposeProxyModel_ResetInternalData(QTransposeProxyModel* self);
+    friend void QTransposeProxyModel_QBaseResetInternalData(QTransposeProxyModel* self);
+    friend void QTransposeProxyModel_TimerEvent(QTransposeProxyModel* self, QTimerEvent* event);
+    friend void QTransposeProxyModel_QBaseTimerEvent(QTransposeProxyModel* self, QTimerEvent* event);
+    friend void QTransposeProxyModel_ChildEvent(QTransposeProxyModel* self, QChildEvent* event);
+    friend void QTransposeProxyModel_QBaseChildEvent(QTransposeProxyModel* self, QChildEvent* event);
+    friend void QTransposeProxyModel_CustomEvent(QTransposeProxyModel* self, QEvent* event);
+    friend void QTransposeProxyModel_QBaseCustomEvent(QTransposeProxyModel* self, QEvent* event);
+    friend void QTransposeProxyModel_ConnectNotify(QTransposeProxyModel* self, const QMetaMethod* signal);
+    friend void QTransposeProxyModel_QBaseConnectNotify(QTransposeProxyModel* self, const QMetaMethod* signal);
+    friend void QTransposeProxyModel_DisconnectNotify(QTransposeProxyModel* self, const QMetaMethod* signal);
+    friend void QTransposeProxyModel_QBaseDisconnectNotify(QTransposeProxyModel* self, const QMetaMethod* signal);
+    friend QModelIndex* QTransposeProxyModel_CreateSourceIndex(const QTransposeProxyModel* self, int row, int col, void* internalPtr);
+    friend QModelIndex* QTransposeProxyModel_QBaseCreateSourceIndex(const QTransposeProxyModel* self, int row, int col, void* internalPtr);
+    friend QModelIndex* QTransposeProxyModel_CreateIndex(const QTransposeProxyModel* self, int row, int column);
+    friend QModelIndex* QTransposeProxyModel_QBaseCreateIndex(const QTransposeProxyModel* self, int row, int column);
+    friend void QTransposeProxyModel_EncodeData(const QTransposeProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
+    friend void QTransposeProxyModel_QBaseEncodeData(const QTransposeProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
+    friend bool QTransposeProxyModel_DecodeData(QTransposeProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
+    friend bool QTransposeProxyModel_QBaseDecodeData(QTransposeProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
+    friend void QTransposeProxyModel_BeginInsertRows(QTransposeProxyModel* self, const QModelIndex* parent, int first, int last);
+    friend void QTransposeProxyModel_QBaseBeginInsertRows(QTransposeProxyModel* self, const QModelIndex* parent, int first, int last);
+    friend void QTransposeProxyModel_EndInsertRows(QTransposeProxyModel* self);
+    friend void QTransposeProxyModel_QBaseEndInsertRows(QTransposeProxyModel* self);
+    friend void QTransposeProxyModel_BeginRemoveRows(QTransposeProxyModel* self, const QModelIndex* parent, int first, int last);
+    friend void QTransposeProxyModel_QBaseBeginRemoveRows(QTransposeProxyModel* self, const QModelIndex* parent, int first, int last);
+    friend void QTransposeProxyModel_EndRemoveRows(QTransposeProxyModel* self);
+    friend void QTransposeProxyModel_QBaseEndRemoveRows(QTransposeProxyModel* self);
+    friend bool QTransposeProxyModel_BeginMoveRows(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
+    friend bool QTransposeProxyModel_QBaseBeginMoveRows(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
+    friend void QTransposeProxyModel_EndMoveRows(QTransposeProxyModel* self);
+    friend void QTransposeProxyModel_QBaseEndMoveRows(QTransposeProxyModel* self);
+    friend void QTransposeProxyModel_BeginInsertColumns(QTransposeProxyModel* self, const QModelIndex* parent, int first, int last);
+    friend void QTransposeProxyModel_QBaseBeginInsertColumns(QTransposeProxyModel* self, const QModelIndex* parent, int first, int last);
+    friend void QTransposeProxyModel_EndInsertColumns(QTransposeProxyModel* self);
+    friend void QTransposeProxyModel_QBaseEndInsertColumns(QTransposeProxyModel* self);
+    friend void QTransposeProxyModel_BeginRemoveColumns(QTransposeProxyModel* self, const QModelIndex* parent, int first, int last);
+    friend void QTransposeProxyModel_QBaseBeginRemoveColumns(QTransposeProxyModel* self, const QModelIndex* parent, int first, int last);
+    friend void QTransposeProxyModel_EndRemoveColumns(QTransposeProxyModel* self);
+    friend void QTransposeProxyModel_QBaseEndRemoveColumns(QTransposeProxyModel* self);
+    friend bool QTransposeProxyModel_BeginMoveColumns(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
+    friend bool QTransposeProxyModel_QBaseBeginMoveColumns(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
+    friend void QTransposeProxyModel_EndMoveColumns(QTransposeProxyModel* self);
+    friend void QTransposeProxyModel_QBaseEndMoveColumns(QTransposeProxyModel* self);
+    friend void QTransposeProxyModel_BeginResetModel(QTransposeProxyModel* self);
+    friend void QTransposeProxyModel_QBaseBeginResetModel(QTransposeProxyModel* self);
+    friend void QTransposeProxyModel_EndResetModel(QTransposeProxyModel* self);
+    friend void QTransposeProxyModel_QBaseEndResetModel(QTransposeProxyModel* self);
+    friend void QTransposeProxyModel_ChangePersistentIndex(QTransposeProxyModel* self, const QModelIndex* from, const QModelIndex* to);
+    friend void QTransposeProxyModel_QBaseChangePersistentIndex(QTransposeProxyModel* self, const QModelIndex* from, const QModelIndex* to);
+    friend void QTransposeProxyModel_ChangePersistentIndexList(QTransposeProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
+    friend void QTransposeProxyModel_QBaseChangePersistentIndexList(QTransposeProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
+    friend libqt_list /* of QModelIndex* */ QTransposeProxyModel_PersistentIndexList(const QTransposeProxyModel* self);
+    friend libqt_list /* of QModelIndex* */ QTransposeProxyModel_QBasePersistentIndexList(const QTransposeProxyModel* self);
+    friend QObject* QTransposeProxyModel_Sender(const QTransposeProxyModel* self);
+    friend QObject* QTransposeProxyModel_QBaseSender(const QTransposeProxyModel* self);
+    friend int QTransposeProxyModel_SenderSignalIndex(const QTransposeProxyModel* self);
+    friend int QTransposeProxyModel_QBaseSenderSignalIndex(const QTransposeProxyModel* self);
+    friend int QTransposeProxyModel_Receivers(const QTransposeProxyModel* self, const char* signal);
+    friend int QTransposeProxyModel_QBaseReceivers(const QTransposeProxyModel* self, const char* signal);
+    friend bool QTransposeProxyModel_IsSignalConnected(const QTransposeProxyModel* self, const QMetaMethod* signal);
+    friend bool QTransposeProxyModel_QBaseIsSignalConnected(const QTransposeProxyModel* self, const QMetaMethod* signal);
 };
 
 #endif

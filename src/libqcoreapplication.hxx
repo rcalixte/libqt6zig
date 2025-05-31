@@ -11,24 +11,27 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QCoreApplication so that we can call protected methods
-class VirtualQCoreApplication : public QCoreApplication {
+class VirtualQCoreApplication final : public QCoreApplication {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQCoreApplication = true;
+
     // Virtual class public types (including callbacks)
-    using QCoreApplication_Metacall_Callback = int (*)(QCoreApplication*, QMetaObject::Call, int, void**);
+    using QCoreApplication_Metacall_Callback = int (*)(QCoreApplication*, int, int, void**);
     using QCoreApplication_Notify_Callback = bool (*)(QCoreApplication*, QObject*, QEvent*);
     using QCoreApplication_Event_Callback = bool (*)(QCoreApplication*, QEvent*);
     using QCoreApplication_EventFilter_Callback = bool (*)(QCoreApplication*, QObject*, QEvent*);
     using QCoreApplication_TimerEvent_Callback = void (*)(QCoreApplication*, QTimerEvent*);
     using QCoreApplication_ChildEvent_Callback = void (*)(QCoreApplication*, QChildEvent*);
     using QCoreApplication_CustomEvent_Callback = void (*)(QCoreApplication*, QEvent*);
-    using QCoreApplication_ConnectNotify_Callback = void (*)(QCoreApplication*, const QMetaMethod&);
-    using QCoreApplication_DisconnectNotify_Callback = void (*)(QCoreApplication*, const QMetaMethod&);
+    using QCoreApplication_ConnectNotify_Callback = void (*)(QCoreApplication*, QMetaMethod*);
+    using QCoreApplication_DisconnectNotify_Callback = void (*)(QCoreApplication*, QMetaMethod*);
     using QCoreApplication_ResolveInterface_Callback = void* (*)(const QCoreApplication*, const char*, int);
     using QCoreApplication_Sender_Callback = QObject* (*)();
     using QCoreApplication_SenderSignalIndex_Callback = int (*)();
     using QCoreApplication_Receivers_Callback = int (*)(const QCoreApplication*, const char*);
-    using QCoreApplication_IsSignalConnected_Callback = bool (*)(const QCoreApplication*, const QMetaMethod&);
+    using QCoreApplication_IsSignalConnected_Callback = bool (*)(const QCoreApplication*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -85,36 +88,36 @@ class VirtualQCoreApplication : public QCoreApplication {
     }
 
     // Callback setters
-    void setQCoreApplication_Metacall_Callback(QCoreApplication_Metacall_Callback cb) { qcoreapplication_metacall_callback = cb; }
-    void setQCoreApplication_Notify_Callback(QCoreApplication_Notify_Callback cb) { qcoreapplication_notify_callback = cb; }
-    void setQCoreApplication_Event_Callback(QCoreApplication_Event_Callback cb) { qcoreapplication_event_callback = cb; }
-    void setQCoreApplication_EventFilter_Callback(QCoreApplication_EventFilter_Callback cb) { qcoreapplication_eventfilter_callback = cb; }
-    void setQCoreApplication_TimerEvent_Callback(QCoreApplication_TimerEvent_Callback cb) { qcoreapplication_timerevent_callback = cb; }
-    void setQCoreApplication_ChildEvent_Callback(QCoreApplication_ChildEvent_Callback cb) { qcoreapplication_childevent_callback = cb; }
-    void setQCoreApplication_CustomEvent_Callback(QCoreApplication_CustomEvent_Callback cb) { qcoreapplication_customevent_callback = cb; }
-    void setQCoreApplication_ConnectNotify_Callback(QCoreApplication_ConnectNotify_Callback cb) { qcoreapplication_connectnotify_callback = cb; }
-    void setQCoreApplication_DisconnectNotify_Callback(QCoreApplication_DisconnectNotify_Callback cb) { qcoreapplication_disconnectnotify_callback = cb; }
-    void setQCoreApplication_ResolveInterface_Callback(QCoreApplication_ResolveInterface_Callback cb) { qcoreapplication_resolveinterface_callback = cb; }
-    void setQCoreApplication_Sender_Callback(QCoreApplication_Sender_Callback cb) { qcoreapplication_sender_callback = cb; }
-    void setQCoreApplication_SenderSignalIndex_Callback(QCoreApplication_SenderSignalIndex_Callback cb) { qcoreapplication_sendersignalindex_callback = cb; }
-    void setQCoreApplication_Receivers_Callback(QCoreApplication_Receivers_Callback cb) { qcoreapplication_receivers_callback = cb; }
-    void setQCoreApplication_IsSignalConnected_Callback(QCoreApplication_IsSignalConnected_Callback cb) { qcoreapplication_issignalconnected_callback = cb; }
+    inline void setQCoreApplication_Metacall_Callback(QCoreApplication_Metacall_Callback cb) { qcoreapplication_metacall_callback = cb; }
+    inline void setQCoreApplication_Notify_Callback(QCoreApplication_Notify_Callback cb) { qcoreapplication_notify_callback = cb; }
+    inline void setQCoreApplication_Event_Callback(QCoreApplication_Event_Callback cb) { qcoreapplication_event_callback = cb; }
+    inline void setQCoreApplication_EventFilter_Callback(QCoreApplication_EventFilter_Callback cb) { qcoreapplication_eventfilter_callback = cb; }
+    inline void setQCoreApplication_TimerEvent_Callback(QCoreApplication_TimerEvent_Callback cb) { qcoreapplication_timerevent_callback = cb; }
+    inline void setQCoreApplication_ChildEvent_Callback(QCoreApplication_ChildEvent_Callback cb) { qcoreapplication_childevent_callback = cb; }
+    inline void setQCoreApplication_CustomEvent_Callback(QCoreApplication_CustomEvent_Callback cb) { qcoreapplication_customevent_callback = cb; }
+    inline void setQCoreApplication_ConnectNotify_Callback(QCoreApplication_ConnectNotify_Callback cb) { qcoreapplication_connectnotify_callback = cb; }
+    inline void setQCoreApplication_DisconnectNotify_Callback(QCoreApplication_DisconnectNotify_Callback cb) { qcoreapplication_disconnectnotify_callback = cb; }
+    inline void setQCoreApplication_ResolveInterface_Callback(QCoreApplication_ResolveInterface_Callback cb) { qcoreapplication_resolveinterface_callback = cb; }
+    inline void setQCoreApplication_Sender_Callback(QCoreApplication_Sender_Callback cb) { qcoreapplication_sender_callback = cb; }
+    inline void setQCoreApplication_SenderSignalIndex_Callback(QCoreApplication_SenderSignalIndex_Callback cb) { qcoreapplication_sendersignalindex_callback = cb; }
+    inline void setQCoreApplication_Receivers_Callback(QCoreApplication_Receivers_Callback cb) { qcoreapplication_receivers_callback = cb; }
+    inline void setQCoreApplication_IsSignalConnected_Callback(QCoreApplication_IsSignalConnected_Callback cb) { qcoreapplication_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQCoreApplication_Metacall_IsBase(bool value) const { qcoreapplication_metacall_isbase = value; }
-    void setQCoreApplication_Notify_IsBase(bool value) const { qcoreapplication_notify_isbase = value; }
-    void setQCoreApplication_Event_IsBase(bool value) const { qcoreapplication_event_isbase = value; }
-    void setQCoreApplication_EventFilter_IsBase(bool value) const { qcoreapplication_eventfilter_isbase = value; }
-    void setQCoreApplication_TimerEvent_IsBase(bool value) const { qcoreapplication_timerevent_isbase = value; }
-    void setQCoreApplication_ChildEvent_IsBase(bool value) const { qcoreapplication_childevent_isbase = value; }
-    void setQCoreApplication_CustomEvent_IsBase(bool value) const { qcoreapplication_customevent_isbase = value; }
-    void setQCoreApplication_ConnectNotify_IsBase(bool value) const { qcoreapplication_connectnotify_isbase = value; }
-    void setQCoreApplication_DisconnectNotify_IsBase(bool value) const { qcoreapplication_disconnectnotify_isbase = value; }
-    void setQCoreApplication_ResolveInterface_IsBase(bool value) const { qcoreapplication_resolveinterface_isbase = value; }
-    void setQCoreApplication_Sender_IsBase(bool value) const { qcoreapplication_sender_isbase = value; }
-    void setQCoreApplication_SenderSignalIndex_IsBase(bool value) const { qcoreapplication_sendersignalindex_isbase = value; }
-    void setQCoreApplication_Receivers_IsBase(bool value) const { qcoreapplication_receivers_isbase = value; }
-    void setQCoreApplication_IsSignalConnected_IsBase(bool value) const { qcoreapplication_issignalconnected_isbase = value; }
+    inline void setQCoreApplication_Metacall_IsBase(bool value) const { qcoreapplication_metacall_isbase = value; }
+    inline void setQCoreApplication_Notify_IsBase(bool value) const { qcoreapplication_notify_isbase = value; }
+    inline void setQCoreApplication_Event_IsBase(bool value) const { qcoreapplication_event_isbase = value; }
+    inline void setQCoreApplication_EventFilter_IsBase(bool value) const { qcoreapplication_eventfilter_isbase = value; }
+    inline void setQCoreApplication_TimerEvent_IsBase(bool value) const { qcoreapplication_timerevent_isbase = value; }
+    inline void setQCoreApplication_ChildEvent_IsBase(bool value) const { qcoreapplication_childevent_isbase = value; }
+    inline void setQCoreApplication_CustomEvent_IsBase(bool value) const { qcoreapplication_customevent_isbase = value; }
+    inline void setQCoreApplication_ConnectNotify_IsBase(bool value) const { qcoreapplication_connectnotify_isbase = value; }
+    inline void setQCoreApplication_DisconnectNotify_IsBase(bool value) const { qcoreapplication_disconnectnotify_isbase = value; }
+    inline void setQCoreApplication_ResolveInterface_IsBase(bool value) const { qcoreapplication_resolveinterface_isbase = value; }
+    inline void setQCoreApplication_Sender_IsBase(bool value) const { qcoreapplication_sender_isbase = value; }
+    inline void setQCoreApplication_SenderSignalIndex_IsBase(bool value) const { qcoreapplication_sendersignalindex_isbase = value; }
+    inline void setQCoreApplication_Receivers_IsBase(bool value) const { qcoreapplication_receivers_isbase = value; }
+    inline void setQCoreApplication_IsSignalConnected_IsBase(bool value) const { qcoreapplication_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -122,7 +125,12 @@ class VirtualQCoreApplication : public QCoreApplication {
             qcoreapplication_metacall_isbase = false;
             return QCoreApplication::qt_metacall(param1, param2, param3);
         } else if (qcoreapplication_metacall_callback != nullptr) {
-            return qcoreapplication_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qcoreapplication_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QCoreApplication::qt_metacall(param1, param2, param3);
         }
@@ -134,7 +142,11 @@ class VirtualQCoreApplication : public QCoreApplication {
             qcoreapplication_notify_isbase = false;
             return QCoreApplication::notify(param1, param2);
         } else if (qcoreapplication_notify_callback != nullptr) {
-            return qcoreapplication_notify_callback(this, param1, param2);
+            QObject* cbval1 = param1;
+            QEvent* cbval2 = param2;
+
+            bool callback_ret = qcoreapplication_notify_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QCoreApplication::notify(param1, param2);
         }
@@ -146,7 +158,10 @@ class VirtualQCoreApplication : public QCoreApplication {
             qcoreapplication_event_isbase = false;
             return QCoreApplication::event(param1);
         } else if (qcoreapplication_event_callback != nullptr) {
-            return qcoreapplication_event_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            bool callback_ret = qcoreapplication_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QCoreApplication::event(param1);
         }
@@ -158,7 +173,11 @@ class VirtualQCoreApplication : public QCoreApplication {
             qcoreapplication_eventfilter_isbase = false;
             return QCoreApplication::eventFilter(watched, event);
         } else if (qcoreapplication_eventfilter_callback != nullptr) {
-            return qcoreapplication_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qcoreapplication_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QCoreApplication::eventFilter(watched, event);
         }
@@ -170,7 +189,9 @@ class VirtualQCoreApplication : public QCoreApplication {
             qcoreapplication_timerevent_isbase = false;
             QCoreApplication::timerEvent(event);
         } else if (qcoreapplication_timerevent_callback != nullptr) {
-            qcoreapplication_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qcoreapplication_timerevent_callback(this, cbval1);
         } else {
             QCoreApplication::timerEvent(event);
         }
@@ -182,7 +203,9 @@ class VirtualQCoreApplication : public QCoreApplication {
             qcoreapplication_childevent_isbase = false;
             QCoreApplication::childEvent(event);
         } else if (qcoreapplication_childevent_callback != nullptr) {
-            qcoreapplication_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qcoreapplication_childevent_callback(this, cbval1);
         } else {
             QCoreApplication::childEvent(event);
         }
@@ -194,7 +217,9 @@ class VirtualQCoreApplication : public QCoreApplication {
             qcoreapplication_customevent_isbase = false;
             QCoreApplication::customEvent(event);
         } else if (qcoreapplication_customevent_callback != nullptr) {
-            qcoreapplication_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qcoreapplication_customevent_callback(this, cbval1);
         } else {
             QCoreApplication::customEvent(event);
         }
@@ -206,7 +231,11 @@ class VirtualQCoreApplication : public QCoreApplication {
             qcoreapplication_connectnotify_isbase = false;
             QCoreApplication::connectNotify(signal);
         } else if (qcoreapplication_connectnotify_callback != nullptr) {
-            qcoreapplication_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qcoreapplication_connectnotify_callback(this, cbval1);
         } else {
             QCoreApplication::connectNotify(signal);
         }
@@ -218,7 +247,11 @@ class VirtualQCoreApplication : public QCoreApplication {
             qcoreapplication_disconnectnotify_isbase = false;
             QCoreApplication::disconnectNotify(signal);
         } else if (qcoreapplication_disconnectnotify_callback != nullptr) {
-            qcoreapplication_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qcoreapplication_disconnectnotify_callback(this, cbval1);
         } else {
             QCoreApplication::disconnectNotify(signal);
         }
@@ -230,7 +263,11 @@ class VirtualQCoreApplication : public QCoreApplication {
             qcoreapplication_resolveinterface_isbase = false;
             return QCoreApplication::resolveInterface(name, revision);
         } else if (qcoreapplication_resolveinterface_callback != nullptr) {
-            return qcoreapplication_resolveinterface_callback(this, name, revision);
+            const char* cbval1 = (const char*)name;
+            int cbval2 = revision;
+
+            void* callback_ret = qcoreapplication_resolveinterface_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QCoreApplication::resolveInterface(name, revision);
         }
@@ -242,7 +279,8 @@ class VirtualQCoreApplication : public QCoreApplication {
             qcoreapplication_sender_isbase = false;
             return QCoreApplication::sender();
         } else if (qcoreapplication_sender_callback != nullptr) {
-            return qcoreapplication_sender_callback();
+            QObject* callback_ret = qcoreapplication_sender_callback();
+            return callback_ret;
         } else {
             return QCoreApplication::sender();
         }
@@ -254,7 +292,8 @@ class VirtualQCoreApplication : public QCoreApplication {
             qcoreapplication_sendersignalindex_isbase = false;
             return QCoreApplication::senderSignalIndex();
         } else if (qcoreapplication_sendersignalindex_callback != nullptr) {
-            return qcoreapplication_sendersignalindex_callback();
+            int callback_ret = qcoreapplication_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QCoreApplication::senderSignalIndex();
         }
@@ -266,7 +305,10 @@ class VirtualQCoreApplication : public QCoreApplication {
             qcoreapplication_receivers_isbase = false;
             return QCoreApplication::receivers(signal);
         } else if (qcoreapplication_receivers_callback != nullptr) {
-            return qcoreapplication_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qcoreapplication_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QCoreApplication::receivers(signal);
         }
@@ -278,11 +320,40 @@ class VirtualQCoreApplication : public QCoreApplication {
             qcoreapplication_issignalconnected_isbase = false;
             return QCoreApplication::isSignalConnected(signal);
         } else if (qcoreapplication_issignalconnected_callback != nullptr) {
-            return qcoreapplication_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qcoreapplication_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QCoreApplication::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QCoreApplication_Event(QCoreApplication* self, QEvent* param1);
+    friend bool QCoreApplication_QBaseEvent(QCoreApplication* self, QEvent* param1);
+    friend void QCoreApplication_TimerEvent(QCoreApplication* self, QTimerEvent* event);
+    friend void QCoreApplication_QBaseTimerEvent(QCoreApplication* self, QTimerEvent* event);
+    friend void QCoreApplication_ChildEvent(QCoreApplication* self, QChildEvent* event);
+    friend void QCoreApplication_QBaseChildEvent(QCoreApplication* self, QChildEvent* event);
+    friend void QCoreApplication_CustomEvent(QCoreApplication* self, QEvent* event);
+    friend void QCoreApplication_QBaseCustomEvent(QCoreApplication* self, QEvent* event);
+    friend void QCoreApplication_ConnectNotify(QCoreApplication* self, const QMetaMethod* signal);
+    friend void QCoreApplication_QBaseConnectNotify(QCoreApplication* self, const QMetaMethod* signal);
+    friend void QCoreApplication_DisconnectNotify(QCoreApplication* self, const QMetaMethod* signal);
+    friend void QCoreApplication_QBaseDisconnectNotify(QCoreApplication* self, const QMetaMethod* signal);
+    friend void* QCoreApplication_ResolveInterface(const QCoreApplication* self, const char* name, int revision);
+    friend void* QCoreApplication_QBaseResolveInterface(const QCoreApplication* self, const char* name, int revision);
+    friend QObject* QCoreApplication_Sender(const QCoreApplication* self);
+    friend QObject* QCoreApplication_QBaseSender(const QCoreApplication* self);
+    friend int QCoreApplication_SenderSignalIndex(const QCoreApplication* self);
+    friend int QCoreApplication_QBaseSenderSignalIndex(const QCoreApplication* self);
+    friend int QCoreApplication_Receivers(const QCoreApplication* self, const char* signal);
+    friend int QCoreApplication_QBaseReceivers(const QCoreApplication* self, const char* signal);
+    friend bool QCoreApplication_IsSignalConnected(const QCoreApplication* self, const QMetaMethod* signal);
+    friend bool QCoreApplication_QBaseIsSignalConnected(const QCoreApplication* self, const QMetaMethod* signal);
 };
 
 #endif

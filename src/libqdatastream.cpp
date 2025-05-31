@@ -14,7 +14,7 @@ QDataStream* QDataStream_new2(QIODevice* param1) {
     return new QDataStream(param1);
 }
 
-QDataStream* QDataStream_new3(libqt_string param1) {
+QDataStream* QDataStream_new3(const libqt_string param1) {
     QByteArray param1_QByteArray(param1.data, param1.len);
     return new QDataStream(param1_QByteArray);
 }

@@ -11,11 +11,14 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QsciLexerJava so that we can call protected methods
-class VirtualQsciLexerJava : public QsciLexerJava {
+class VirtualQsciLexerJava final : public QsciLexerJava {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQsciLexerJava = true;
+
     // Virtual class public types (including callbacks)
-    using QsciLexerJava_Metacall_Callback = int (*)(QsciLexerJava*, QMetaObject::Call, int, void**);
+    using QsciLexerJava_Metacall_Callback = int (*)(QsciLexerJava*, int, int, void**);
     using QsciLexerJava_SetFoldAtElse_Callback = void (*)(QsciLexerJava*, bool);
     using QsciLexerJava_SetFoldComments_Callback = void (*)(QsciLexerJava*, bool);
     using QsciLexerJava_SetFoldCompact_Callback = void (*)(QsciLexerJava*, bool);
@@ -25,47 +28,47 @@ class VirtualQsciLexerJava : public QsciLexerJava {
     using QsciLexerJava_Lexer_Callback = const char* (*)();
     using QsciLexerJava_LexerId_Callback = int (*)();
     using QsciLexerJava_AutoCompletionFillups_Callback = const char* (*)();
-    using QsciLexerJava_AutoCompletionWordSeparators_Callback = QStringList (*)();
+    using QsciLexerJava_AutoCompletionWordSeparators_Callback = libqt_list /* of libqt_string */ (*)();
     using QsciLexerJava_BlockEnd_Callback = const char* (*)(const QsciLexerJava*, int*);
     using QsciLexerJava_BlockLookback_Callback = int (*)();
     using QsciLexerJava_BlockStart_Callback = const char* (*)(const QsciLexerJava*, int*);
     using QsciLexerJava_BlockStartKeyword_Callback = const char* (*)(const QsciLexerJava*, int*);
     using QsciLexerJava_BraceStyle_Callback = int (*)();
     using QsciLexerJava_CaseSensitive_Callback = bool (*)();
-    using QsciLexerJava_Color_Callback = QColor (*)(const QsciLexerJava*, int);
+    using QsciLexerJava_Color_Callback = QColor* (*)(const QsciLexerJava*, int);
     using QsciLexerJava_EolFill_Callback = bool (*)(const QsciLexerJava*, int);
-    using QsciLexerJava_Font_Callback = QFont (*)(const QsciLexerJava*, int);
+    using QsciLexerJava_Font_Callback = QFont* (*)(const QsciLexerJava*, int);
     using QsciLexerJava_IndentationGuideView_Callback = int (*)();
     using QsciLexerJava_Keywords_Callback = const char* (*)(const QsciLexerJava*, int);
     using QsciLexerJava_DefaultStyle_Callback = int (*)();
-    using QsciLexerJava_Description_Callback = QString (*)(const QsciLexerJava*, int);
-    using QsciLexerJava_Paper_Callback = QColor (*)(const QsciLexerJava*, int);
-    using QsciLexerJava_DefaultColorWithStyle_Callback = QColor (*)(const QsciLexerJava*, int);
+    using QsciLexerJava_Description_Callback = libqt_string (*)(const QsciLexerJava*, int);
+    using QsciLexerJava_Paper_Callback = QColor* (*)(const QsciLexerJava*, int);
+    using QsciLexerJava_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerJava*, int);
     using QsciLexerJava_DefaultEolFill_Callback = bool (*)(const QsciLexerJava*, int);
-    using QsciLexerJava_DefaultFontWithStyle_Callback = QFont (*)(const QsciLexerJava*, int);
-    using QsciLexerJava_DefaultPaperWithStyle_Callback = QColor (*)(const QsciLexerJava*, int);
+    using QsciLexerJava_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerJava*, int);
+    using QsciLexerJava_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerJava*, int);
     using QsciLexerJava_SetEditor_Callback = void (*)(QsciLexerJava*, QsciScintilla*);
     using QsciLexerJava_RefreshProperties_Callback = void (*)();
     using QsciLexerJava_StyleBitsNeeded_Callback = int (*)();
     using QsciLexerJava_WordCharacters_Callback = const char* (*)();
     using QsciLexerJava_SetAutoIndentStyle_Callback = void (*)(QsciLexerJava*, int);
-    using QsciLexerJava_SetColor_Callback = void (*)(QsciLexerJava*, const QColor&, int);
+    using QsciLexerJava_SetColor_Callback = void (*)(QsciLexerJava*, QColor*, int);
     using QsciLexerJava_SetEolFill_Callback = void (*)(QsciLexerJava*, bool, int);
-    using QsciLexerJava_SetFont_Callback = void (*)(QsciLexerJava*, const QFont&, int);
-    using QsciLexerJava_SetPaper_Callback = void (*)(QsciLexerJava*, const QColor&, int);
-    using QsciLexerJava_ReadProperties_Callback = bool (*)(QsciLexerJava*, QSettings&, const QString&);
-    using QsciLexerJava_WriteProperties_Callback = bool (*)(const QsciLexerJava*, QSettings&, const QString&);
+    using QsciLexerJava_SetFont_Callback = void (*)(QsciLexerJava*, QFont*, int);
+    using QsciLexerJava_SetPaper_Callback = void (*)(QsciLexerJava*, QColor*, int);
+    using QsciLexerJava_ReadProperties_Callback = bool (*)(QsciLexerJava*, QSettings*, libqt_string);
+    using QsciLexerJava_WriteProperties_Callback = bool (*)(const QsciLexerJava*, QSettings*, libqt_string);
     using QsciLexerJava_Event_Callback = bool (*)(QsciLexerJava*, QEvent*);
     using QsciLexerJava_EventFilter_Callback = bool (*)(QsciLexerJava*, QObject*, QEvent*);
     using QsciLexerJava_TimerEvent_Callback = void (*)(QsciLexerJava*, QTimerEvent*);
     using QsciLexerJava_ChildEvent_Callback = void (*)(QsciLexerJava*, QChildEvent*);
     using QsciLexerJava_CustomEvent_Callback = void (*)(QsciLexerJava*, QEvent*);
-    using QsciLexerJava_ConnectNotify_Callback = void (*)(QsciLexerJava*, const QMetaMethod&);
-    using QsciLexerJava_DisconnectNotify_Callback = void (*)(QsciLexerJava*, const QMetaMethod&);
+    using QsciLexerJava_ConnectNotify_Callback = void (*)(QsciLexerJava*, QMetaMethod*);
+    using QsciLexerJava_DisconnectNotify_Callback = void (*)(QsciLexerJava*, QMetaMethod*);
     using QsciLexerJava_Sender_Callback = QObject* (*)();
     using QsciLexerJava_SenderSignalIndex_Callback = int (*)();
     using QsciLexerJava_Receivers_Callback = int (*)(const QsciLexerJava*, const char*);
-    using QsciLexerJava_IsSignalConnected_Callback = bool (*)(const QsciLexerJava*, const QMetaMethod&);
+    using QsciLexerJava_IsSignalConnected_Callback = bool (*)(const QsciLexerJava*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -233,110 +236,110 @@ class VirtualQsciLexerJava : public QsciLexerJava {
     }
 
     // Callback setters
-    void setQsciLexerJava_Metacall_Callback(QsciLexerJava_Metacall_Callback cb) { qscilexerjava_metacall_callback = cb; }
-    void setQsciLexerJava_SetFoldAtElse_Callback(QsciLexerJava_SetFoldAtElse_Callback cb) { qscilexerjava_setfoldatelse_callback = cb; }
-    void setQsciLexerJava_SetFoldComments_Callback(QsciLexerJava_SetFoldComments_Callback cb) { qscilexerjava_setfoldcomments_callback = cb; }
-    void setQsciLexerJava_SetFoldCompact_Callback(QsciLexerJava_SetFoldCompact_Callback cb) { qscilexerjava_setfoldcompact_callback = cb; }
-    void setQsciLexerJava_SetFoldPreprocessor_Callback(QsciLexerJava_SetFoldPreprocessor_Callback cb) { qscilexerjava_setfoldpreprocessor_callback = cb; }
-    void setQsciLexerJava_SetStylePreprocessor_Callback(QsciLexerJava_SetStylePreprocessor_Callback cb) { qscilexerjava_setstylepreprocessor_callback = cb; }
-    void setQsciLexerJava_Language_Callback(QsciLexerJava_Language_Callback cb) { qscilexerjava_language_callback = cb; }
-    void setQsciLexerJava_Lexer_Callback(QsciLexerJava_Lexer_Callback cb) { qscilexerjava_lexer_callback = cb; }
-    void setQsciLexerJava_LexerId_Callback(QsciLexerJava_LexerId_Callback cb) { qscilexerjava_lexerid_callback = cb; }
-    void setQsciLexerJava_AutoCompletionFillups_Callback(QsciLexerJava_AutoCompletionFillups_Callback cb) { qscilexerjava_autocompletionfillups_callback = cb; }
-    void setQsciLexerJava_AutoCompletionWordSeparators_Callback(QsciLexerJava_AutoCompletionWordSeparators_Callback cb) { qscilexerjava_autocompletionwordseparators_callback = cb; }
-    void setQsciLexerJava_BlockEnd_Callback(QsciLexerJava_BlockEnd_Callback cb) { qscilexerjava_blockend_callback = cb; }
-    void setQsciLexerJava_BlockLookback_Callback(QsciLexerJava_BlockLookback_Callback cb) { qscilexerjava_blocklookback_callback = cb; }
-    void setQsciLexerJava_BlockStart_Callback(QsciLexerJava_BlockStart_Callback cb) { qscilexerjava_blockstart_callback = cb; }
-    void setQsciLexerJava_BlockStartKeyword_Callback(QsciLexerJava_BlockStartKeyword_Callback cb) { qscilexerjava_blockstartkeyword_callback = cb; }
-    void setQsciLexerJava_BraceStyle_Callback(QsciLexerJava_BraceStyle_Callback cb) { qscilexerjava_bracestyle_callback = cb; }
-    void setQsciLexerJava_CaseSensitive_Callback(QsciLexerJava_CaseSensitive_Callback cb) { qscilexerjava_casesensitive_callback = cb; }
-    void setQsciLexerJava_Color_Callback(QsciLexerJava_Color_Callback cb) { qscilexerjava_color_callback = cb; }
-    void setQsciLexerJava_EolFill_Callback(QsciLexerJava_EolFill_Callback cb) { qscilexerjava_eolfill_callback = cb; }
-    void setQsciLexerJava_Font_Callback(QsciLexerJava_Font_Callback cb) { qscilexerjava_font_callback = cb; }
-    void setQsciLexerJava_IndentationGuideView_Callback(QsciLexerJava_IndentationGuideView_Callback cb) { qscilexerjava_indentationguideview_callback = cb; }
-    void setQsciLexerJava_Keywords_Callback(QsciLexerJava_Keywords_Callback cb) { qscilexerjava_keywords_callback = cb; }
-    void setQsciLexerJava_DefaultStyle_Callback(QsciLexerJava_DefaultStyle_Callback cb) { qscilexerjava_defaultstyle_callback = cb; }
-    void setQsciLexerJava_Description_Callback(QsciLexerJava_Description_Callback cb) { qscilexerjava_description_callback = cb; }
-    void setQsciLexerJava_Paper_Callback(QsciLexerJava_Paper_Callback cb) { qscilexerjava_paper_callback = cb; }
-    void setQsciLexerJava_DefaultColorWithStyle_Callback(QsciLexerJava_DefaultColorWithStyle_Callback cb) { qscilexerjava_defaultcolorwithstyle_callback = cb; }
-    void setQsciLexerJava_DefaultEolFill_Callback(QsciLexerJava_DefaultEolFill_Callback cb) { qscilexerjava_defaulteolfill_callback = cb; }
-    void setQsciLexerJava_DefaultFontWithStyle_Callback(QsciLexerJava_DefaultFontWithStyle_Callback cb) { qscilexerjava_defaultfontwithstyle_callback = cb; }
-    void setQsciLexerJava_DefaultPaperWithStyle_Callback(QsciLexerJava_DefaultPaperWithStyle_Callback cb) { qscilexerjava_defaultpaperwithstyle_callback = cb; }
-    void setQsciLexerJava_SetEditor_Callback(QsciLexerJava_SetEditor_Callback cb) { qscilexerjava_seteditor_callback = cb; }
-    void setQsciLexerJava_RefreshProperties_Callback(QsciLexerJava_RefreshProperties_Callback cb) { qscilexerjava_refreshproperties_callback = cb; }
-    void setQsciLexerJava_StyleBitsNeeded_Callback(QsciLexerJava_StyleBitsNeeded_Callback cb) { qscilexerjava_stylebitsneeded_callback = cb; }
-    void setQsciLexerJava_WordCharacters_Callback(QsciLexerJava_WordCharacters_Callback cb) { qscilexerjava_wordcharacters_callback = cb; }
-    void setQsciLexerJava_SetAutoIndentStyle_Callback(QsciLexerJava_SetAutoIndentStyle_Callback cb) { qscilexerjava_setautoindentstyle_callback = cb; }
-    void setQsciLexerJava_SetColor_Callback(QsciLexerJava_SetColor_Callback cb) { qscilexerjava_setcolor_callback = cb; }
-    void setQsciLexerJava_SetEolFill_Callback(QsciLexerJava_SetEolFill_Callback cb) { qscilexerjava_seteolfill_callback = cb; }
-    void setQsciLexerJava_SetFont_Callback(QsciLexerJava_SetFont_Callback cb) { qscilexerjava_setfont_callback = cb; }
-    void setQsciLexerJava_SetPaper_Callback(QsciLexerJava_SetPaper_Callback cb) { qscilexerjava_setpaper_callback = cb; }
-    void setQsciLexerJava_ReadProperties_Callback(QsciLexerJava_ReadProperties_Callback cb) { qscilexerjava_readproperties_callback = cb; }
-    void setQsciLexerJava_WriteProperties_Callback(QsciLexerJava_WriteProperties_Callback cb) { qscilexerjava_writeproperties_callback = cb; }
-    void setQsciLexerJava_Event_Callback(QsciLexerJava_Event_Callback cb) { qscilexerjava_event_callback = cb; }
-    void setQsciLexerJava_EventFilter_Callback(QsciLexerJava_EventFilter_Callback cb) { qscilexerjava_eventfilter_callback = cb; }
-    void setQsciLexerJava_TimerEvent_Callback(QsciLexerJava_TimerEvent_Callback cb) { qscilexerjava_timerevent_callback = cb; }
-    void setQsciLexerJava_ChildEvent_Callback(QsciLexerJava_ChildEvent_Callback cb) { qscilexerjava_childevent_callback = cb; }
-    void setQsciLexerJava_CustomEvent_Callback(QsciLexerJava_CustomEvent_Callback cb) { qscilexerjava_customevent_callback = cb; }
-    void setQsciLexerJava_ConnectNotify_Callback(QsciLexerJava_ConnectNotify_Callback cb) { qscilexerjava_connectnotify_callback = cb; }
-    void setQsciLexerJava_DisconnectNotify_Callback(QsciLexerJava_DisconnectNotify_Callback cb) { qscilexerjava_disconnectnotify_callback = cb; }
-    void setQsciLexerJava_Sender_Callback(QsciLexerJava_Sender_Callback cb) { qscilexerjava_sender_callback = cb; }
-    void setQsciLexerJava_SenderSignalIndex_Callback(QsciLexerJava_SenderSignalIndex_Callback cb) { qscilexerjava_sendersignalindex_callback = cb; }
-    void setQsciLexerJava_Receivers_Callback(QsciLexerJava_Receivers_Callback cb) { qscilexerjava_receivers_callback = cb; }
-    void setQsciLexerJava_IsSignalConnected_Callback(QsciLexerJava_IsSignalConnected_Callback cb) { qscilexerjava_issignalconnected_callback = cb; }
+    inline void setQsciLexerJava_Metacall_Callback(QsciLexerJava_Metacall_Callback cb) { qscilexerjava_metacall_callback = cb; }
+    inline void setQsciLexerJava_SetFoldAtElse_Callback(QsciLexerJava_SetFoldAtElse_Callback cb) { qscilexerjava_setfoldatelse_callback = cb; }
+    inline void setQsciLexerJava_SetFoldComments_Callback(QsciLexerJava_SetFoldComments_Callback cb) { qscilexerjava_setfoldcomments_callback = cb; }
+    inline void setQsciLexerJava_SetFoldCompact_Callback(QsciLexerJava_SetFoldCompact_Callback cb) { qscilexerjava_setfoldcompact_callback = cb; }
+    inline void setQsciLexerJava_SetFoldPreprocessor_Callback(QsciLexerJava_SetFoldPreprocessor_Callback cb) { qscilexerjava_setfoldpreprocessor_callback = cb; }
+    inline void setQsciLexerJava_SetStylePreprocessor_Callback(QsciLexerJava_SetStylePreprocessor_Callback cb) { qscilexerjava_setstylepreprocessor_callback = cb; }
+    inline void setQsciLexerJava_Language_Callback(QsciLexerJava_Language_Callback cb) { qscilexerjava_language_callback = cb; }
+    inline void setQsciLexerJava_Lexer_Callback(QsciLexerJava_Lexer_Callback cb) { qscilexerjava_lexer_callback = cb; }
+    inline void setQsciLexerJava_LexerId_Callback(QsciLexerJava_LexerId_Callback cb) { qscilexerjava_lexerid_callback = cb; }
+    inline void setQsciLexerJava_AutoCompletionFillups_Callback(QsciLexerJava_AutoCompletionFillups_Callback cb) { qscilexerjava_autocompletionfillups_callback = cb; }
+    inline void setQsciLexerJava_AutoCompletionWordSeparators_Callback(QsciLexerJava_AutoCompletionWordSeparators_Callback cb) { qscilexerjava_autocompletionwordseparators_callback = cb; }
+    inline void setQsciLexerJava_BlockEnd_Callback(QsciLexerJava_BlockEnd_Callback cb) { qscilexerjava_blockend_callback = cb; }
+    inline void setQsciLexerJava_BlockLookback_Callback(QsciLexerJava_BlockLookback_Callback cb) { qscilexerjava_blocklookback_callback = cb; }
+    inline void setQsciLexerJava_BlockStart_Callback(QsciLexerJava_BlockStart_Callback cb) { qscilexerjava_blockstart_callback = cb; }
+    inline void setQsciLexerJava_BlockStartKeyword_Callback(QsciLexerJava_BlockStartKeyword_Callback cb) { qscilexerjava_blockstartkeyword_callback = cb; }
+    inline void setQsciLexerJava_BraceStyle_Callback(QsciLexerJava_BraceStyle_Callback cb) { qscilexerjava_bracestyle_callback = cb; }
+    inline void setQsciLexerJava_CaseSensitive_Callback(QsciLexerJava_CaseSensitive_Callback cb) { qscilexerjava_casesensitive_callback = cb; }
+    inline void setQsciLexerJava_Color_Callback(QsciLexerJava_Color_Callback cb) { qscilexerjava_color_callback = cb; }
+    inline void setQsciLexerJava_EolFill_Callback(QsciLexerJava_EolFill_Callback cb) { qscilexerjava_eolfill_callback = cb; }
+    inline void setQsciLexerJava_Font_Callback(QsciLexerJava_Font_Callback cb) { qscilexerjava_font_callback = cb; }
+    inline void setQsciLexerJava_IndentationGuideView_Callback(QsciLexerJava_IndentationGuideView_Callback cb) { qscilexerjava_indentationguideview_callback = cb; }
+    inline void setQsciLexerJava_Keywords_Callback(QsciLexerJava_Keywords_Callback cb) { qscilexerjava_keywords_callback = cb; }
+    inline void setQsciLexerJava_DefaultStyle_Callback(QsciLexerJava_DefaultStyle_Callback cb) { qscilexerjava_defaultstyle_callback = cb; }
+    inline void setQsciLexerJava_Description_Callback(QsciLexerJava_Description_Callback cb) { qscilexerjava_description_callback = cb; }
+    inline void setQsciLexerJava_Paper_Callback(QsciLexerJava_Paper_Callback cb) { qscilexerjava_paper_callback = cb; }
+    inline void setQsciLexerJava_DefaultColorWithStyle_Callback(QsciLexerJava_DefaultColorWithStyle_Callback cb) { qscilexerjava_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerJava_DefaultEolFill_Callback(QsciLexerJava_DefaultEolFill_Callback cb) { qscilexerjava_defaulteolfill_callback = cb; }
+    inline void setQsciLexerJava_DefaultFontWithStyle_Callback(QsciLexerJava_DefaultFontWithStyle_Callback cb) { qscilexerjava_defaultfontwithstyle_callback = cb; }
+    inline void setQsciLexerJava_DefaultPaperWithStyle_Callback(QsciLexerJava_DefaultPaperWithStyle_Callback cb) { qscilexerjava_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerJava_SetEditor_Callback(QsciLexerJava_SetEditor_Callback cb) { qscilexerjava_seteditor_callback = cb; }
+    inline void setQsciLexerJava_RefreshProperties_Callback(QsciLexerJava_RefreshProperties_Callback cb) { qscilexerjava_refreshproperties_callback = cb; }
+    inline void setQsciLexerJava_StyleBitsNeeded_Callback(QsciLexerJava_StyleBitsNeeded_Callback cb) { qscilexerjava_stylebitsneeded_callback = cb; }
+    inline void setQsciLexerJava_WordCharacters_Callback(QsciLexerJava_WordCharacters_Callback cb) { qscilexerjava_wordcharacters_callback = cb; }
+    inline void setQsciLexerJava_SetAutoIndentStyle_Callback(QsciLexerJava_SetAutoIndentStyle_Callback cb) { qscilexerjava_setautoindentstyle_callback = cb; }
+    inline void setQsciLexerJava_SetColor_Callback(QsciLexerJava_SetColor_Callback cb) { qscilexerjava_setcolor_callback = cb; }
+    inline void setQsciLexerJava_SetEolFill_Callback(QsciLexerJava_SetEolFill_Callback cb) { qscilexerjava_seteolfill_callback = cb; }
+    inline void setQsciLexerJava_SetFont_Callback(QsciLexerJava_SetFont_Callback cb) { qscilexerjava_setfont_callback = cb; }
+    inline void setQsciLexerJava_SetPaper_Callback(QsciLexerJava_SetPaper_Callback cb) { qscilexerjava_setpaper_callback = cb; }
+    inline void setQsciLexerJava_ReadProperties_Callback(QsciLexerJava_ReadProperties_Callback cb) { qscilexerjava_readproperties_callback = cb; }
+    inline void setQsciLexerJava_WriteProperties_Callback(QsciLexerJava_WriteProperties_Callback cb) { qscilexerjava_writeproperties_callback = cb; }
+    inline void setQsciLexerJava_Event_Callback(QsciLexerJava_Event_Callback cb) { qscilexerjava_event_callback = cb; }
+    inline void setQsciLexerJava_EventFilter_Callback(QsciLexerJava_EventFilter_Callback cb) { qscilexerjava_eventfilter_callback = cb; }
+    inline void setQsciLexerJava_TimerEvent_Callback(QsciLexerJava_TimerEvent_Callback cb) { qscilexerjava_timerevent_callback = cb; }
+    inline void setQsciLexerJava_ChildEvent_Callback(QsciLexerJava_ChildEvent_Callback cb) { qscilexerjava_childevent_callback = cb; }
+    inline void setQsciLexerJava_CustomEvent_Callback(QsciLexerJava_CustomEvent_Callback cb) { qscilexerjava_customevent_callback = cb; }
+    inline void setQsciLexerJava_ConnectNotify_Callback(QsciLexerJava_ConnectNotify_Callback cb) { qscilexerjava_connectnotify_callback = cb; }
+    inline void setQsciLexerJava_DisconnectNotify_Callback(QsciLexerJava_DisconnectNotify_Callback cb) { qscilexerjava_disconnectnotify_callback = cb; }
+    inline void setQsciLexerJava_Sender_Callback(QsciLexerJava_Sender_Callback cb) { qscilexerjava_sender_callback = cb; }
+    inline void setQsciLexerJava_SenderSignalIndex_Callback(QsciLexerJava_SenderSignalIndex_Callback cb) { qscilexerjava_sendersignalindex_callback = cb; }
+    inline void setQsciLexerJava_Receivers_Callback(QsciLexerJava_Receivers_Callback cb) { qscilexerjava_receivers_callback = cb; }
+    inline void setQsciLexerJava_IsSignalConnected_Callback(QsciLexerJava_IsSignalConnected_Callback cb) { qscilexerjava_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQsciLexerJava_Metacall_IsBase(bool value) const { qscilexerjava_metacall_isbase = value; }
-    void setQsciLexerJava_SetFoldAtElse_IsBase(bool value) const { qscilexerjava_setfoldatelse_isbase = value; }
-    void setQsciLexerJava_SetFoldComments_IsBase(bool value) const { qscilexerjava_setfoldcomments_isbase = value; }
-    void setQsciLexerJava_SetFoldCompact_IsBase(bool value) const { qscilexerjava_setfoldcompact_isbase = value; }
-    void setQsciLexerJava_SetFoldPreprocessor_IsBase(bool value) const { qscilexerjava_setfoldpreprocessor_isbase = value; }
-    void setQsciLexerJava_SetStylePreprocessor_IsBase(bool value) const { qscilexerjava_setstylepreprocessor_isbase = value; }
-    void setQsciLexerJava_Language_IsBase(bool value) const { qscilexerjava_language_isbase = value; }
-    void setQsciLexerJava_Lexer_IsBase(bool value) const { qscilexerjava_lexer_isbase = value; }
-    void setQsciLexerJava_LexerId_IsBase(bool value) const { qscilexerjava_lexerid_isbase = value; }
-    void setQsciLexerJava_AutoCompletionFillups_IsBase(bool value) const { qscilexerjava_autocompletionfillups_isbase = value; }
-    void setQsciLexerJava_AutoCompletionWordSeparators_IsBase(bool value) const { qscilexerjava_autocompletionwordseparators_isbase = value; }
-    void setQsciLexerJava_BlockEnd_IsBase(bool value) const { qscilexerjava_blockend_isbase = value; }
-    void setQsciLexerJava_BlockLookback_IsBase(bool value) const { qscilexerjava_blocklookback_isbase = value; }
-    void setQsciLexerJava_BlockStart_IsBase(bool value) const { qscilexerjava_blockstart_isbase = value; }
-    void setQsciLexerJava_BlockStartKeyword_IsBase(bool value) const { qscilexerjava_blockstartkeyword_isbase = value; }
-    void setQsciLexerJava_BraceStyle_IsBase(bool value) const { qscilexerjava_bracestyle_isbase = value; }
-    void setQsciLexerJava_CaseSensitive_IsBase(bool value) const { qscilexerjava_casesensitive_isbase = value; }
-    void setQsciLexerJava_Color_IsBase(bool value) const { qscilexerjava_color_isbase = value; }
-    void setQsciLexerJava_EolFill_IsBase(bool value) const { qscilexerjava_eolfill_isbase = value; }
-    void setQsciLexerJava_Font_IsBase(bool value) const { qscilexerjava_font_isbase = value; }
-    void setQsciLexerJava_IndentationGuideView_IsBase(bool value) const { qscilexerjava_indentationguideview_isbase = value; }
-    void setQsciLexerJava_Keywords_IsBase(bool value) const { qscilexerjava_keywords_isbase = value; }
-    void setQsciLexerJava_DefaultStyle_IsBase(bool value) const { qscilexerjava_defaultstyle_isbase = value; }
-    void setQsciLexerJava_Description_IsBase(bool value) const { qscilexerjava_description_isbase = value; }
-    void setQsciLexerJava_Paper_IsBase(bool value) const { qscilexerjava_paper_isbase = value; }
-    void setQsciLexerJava_DefaultColorWithStyle_IsBase(bool value) const { qscilexerjava_defaultcolorwithstyle_isbase = value; }
-    void setQsciLexerJava_DefaultEolFill_IsBase(bool value) const { qscilexerjava_defaulteolfill_isbase = value; }
-    void setQsciLexerJava_DefaultFontWithStyle_IsBase(bool value) const { qscilexerjava_defaultfontwithstyle_isbase = value; }
-    void setQsciLexerJava_DefaultPaperWithStyle_IsBase(bool value) const { qscilexerjava_defaultpaperwithstyle_isbase = value; }
-    void setQsciLexerJava_SetEditor_IsBase(bool value) const { qscilexerjava_seteditor_isbase = value; }
-    void setQsciLexerJava_RefreshProperties_IsBase(bool value) const { qscilexerjava_refreshproperties_isbase = value; }
-    void setQsciLexerJava_StyleBitsNeeded_IsBase(bool value) const { qscilexerjava_stylebitsneeded_isbase = value; }
-    void setQsciLexerJava_WordCharacters_IsBase(bool value) const { qscilexerjava_wordcharacters_isbase = value; }
-    void setQsciLexerJava_SetAutoIndentStyle_IsBase(bool value) const { qscilexerjava_setautoindentstyle_isbase = value; }
-    void setQsciLexerJava_SetColor_IsBase(bool value) const { qscilexerjava_setcolor_isbase = value; }
-    void setQsciLexerJava_SetEolFill_IsBase(bool value) const { qscilexerjava_seteolfill_isbase = value; }
-    void setQsciLexerJava_SetFont_IsBase(bool value) const { qscilexerjava_setfont_isbase = value; }
-    void setQsciLexerJava_SetPaper_IsBase(bool value) const { qscilexerjava_setpaper_isbase = value; }
-    void setQsciLexerJava_ReadProperties_IsBase(bool value) const { qscilexerjava_readproperties_isbase = value; }
-    void setQsciLexerJava_WriteProperties_IsBase(bool value) const { qscilexerjava_writeproperties_isbase = value; }
-    void setQsciLexerJava_Event_IsBase(bool value) const { qscilexerjava_event_isbase = value; }
-    void setQsciLexerJava_EventFilter_IsBase(bool value) const { qscilexerjava_eventfilter_isbase = value; }
-    void setQsciLexerJava_TimerEvent_IsBase(bool value) const { qscilexerjava_timerevent_isbase = value; }
-    void setQsciLexerJava_ChildEvent_IsBase(bool value) const { qscilexerjava_childevent_isbase = value; }
-    void setQsciLexerJava_CustomEvent_IsBase(bool value) const { qscilexerjava_customevent_isbase = value; }
-    void setQsciLexerJava_ConnectNotify_IsBase(bool value) const { qscilexerjava_connectnotify_isbase = value; }
-    void setQsciLexerJava_DisconnectNotify_IsBase(bool value) const { qscilexerjava_disconnectnotify_isbase = value; }
-    void setQsciLexerJava_Sender_IsBase(bool value) const { qscilexerjava_sender_isbase = value; }
-    void setQsciLexerJava_SenderSignalIndex_IsBase(bool value) const { qscilexerjava_sendersignalindex_isbase = value; }
-    void setQsciLexerJava_Receivers_IsBase(bool value) const { qscilexerjava_receivers_isbase = value; }
-    void setQsciLexerJava_IsSignalConnected_IsBase(bool value) const { qscilexerjava_issignalconnected_isbase = value; }
+    inline void setQsciLexerJava_Metacall_IsBase(bool value) const { qscilexerjava_metacall_isbase = value; }
+    inline void setQsciLexerJava_SetFoldAtElse_IsBase(bool value) const { qscilexerjava_setfoldatelse_isbase = value; }
+    inline void setQsciLexerJava_SetFoldComments_IsBase(bool value) const { qscilexerjava_setfoldcomments_isbase = value; }
+    inline void setQsciLexerJava_SetFoldCompact_IsBase(bool value) const { qscilexerjava_setfoldcompact_isbase = value; }
+    inline void setQsciLexerJava_SetFoldPreprocessor_IsBase(bool value) const { qscilexerjava_setfoldpreprocessor_isbase = value; }
+    inline void setQsciLexerJava_SetStylePreprocessor_IsBase(bool value) const { qscilexerjava_setstylepreprocessor_isbase = value; }
+    inline void setQsciLexerJava_Language_IsBase(bool value) const { qscilexerjava_language_isbase = value; }
+    inline void setQsciLexerJava_Lexer_IsBase(bool value) const { qscilexerjava_lexer_isbase = value; }
+    inline void setQsciLexerJava_LexerId_IsBase(bool value) const { qscilexerjava_lexerid_isbase = value; }
+    inline void setQsciLexerJava_AutoCompletionFillups_IsBase(bool value) const { qscilexerjava_autocompletionfillups_isbase = value; }
+    inline void setQsciLexerJava_AutoCompletionWordSeparators_IsBase(bool value) const { qscilexerjava_autocompletionwordseparators_isbase = value; }
+    inline void setQsciLexerJava_BlockEnd_IsBase(bool value) const { qscilexerjava_blockend_isbase = value; }
+    inline void setQsciLexerJava_BlockLookback_IsBase(bool value) const { qscilexerjava_blocklookback_isbase = value; }
+    inline void setQsciLexerJava_BlockStart_IsBase(bool value) const { qscilexerjava_blockstart_isbase = value; }
+    inline void setQsciLexerJava_BlockStartKeyword_IsBase(bool value) const { qscilexerjava_blockstartkeyword_isbase = value; }
+    inline void setQsciLexerJava_BraceStyle_IsBase(bool value) const { qscilexerjava_bracestyle_isbase = value; }
+    inline void setQsciLexerJava_CaseSensitive_IsBase(bool value) const { qscilexerjava_casesensitive_isbase = value; }
+    inline void setQsciLexerJava_Color_IsBase(bool value) const { qscilexerjava_color_isbase = value; }
+    inline void setQsciLexerJava_EolFill_IsBase(bool value) const { qscilexerjava_eolfill_isbase = value; }
+    inline void setQsciLexerJava_Font_IsBase(bool value) const { qscilexerjava_font_isbase = value; }
+    inline void setQsciLexerJava_IndentationGuideView_IsBase(bool value) const { qscilexerjava_indentationguideview_isbase = value; }
+    inline void setQsciLexerJava_Keywords_IsBase(bool value) const { qscilexerjava_keywords_isbase = value; }
+    inline void setQsciLexerJava_DefaultStyle_IsBase(bool value) const { qscilexerjava_defaultstyle_isbase = value; }
+    inline void setQsciLexerJava_Description_IsBase(bool value) const { qscilexerjava_description_isbase = value; }
+    inline void setQsciLexerJava_Paper_IsBase(bool value) const { qscilexerjava_paper_isbase = value; }
+    inline void setQsciLexerJava_DefaultColorWithStyle_IsBase(bool value) const { qscilexerjava_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerJava_DefaultEolFill_IsBase(bool value) const { qscilexerjava_defaulteolfill_isbase = value; }
+    inline void setQsciLexerJava_DefaultFontWithStyle_IsBase(bool value) const { qscilexerjava_defaultfontwithstyle_isbase = value; }
+    inline void setQsciLexerJava_DefaultPaperWithStyle_IsBase(bool value) const { qscilexerjava_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerJava_SetEditor_IsBase(bool value) const { qscilexerjava_seteditor_isbase = value; }
+    inline void setQsciLexerJava_RefreshProperties_IsBase(bool value) const { qscilexerjava_refreshproperties_isbase = value; }
+    inline void setQsciLexerJava_StyleBitsNeeded_IsBase(bool value) const { qscilexerjava_stylebitsneeded_isbase = value; }
+    inline void setQsciLexerJava_WordCharacters_IsBase(bool value) const { qscilexerjava_wordcharacters_isbase = value; }
+    inline void setQsciLexerJava_SetAutoIndentStyle_IsBase(bool value) const { qscilexerjava_setautoindentstyle_isbase = value; }
+    inline void setQsciLexerJava_SetColor_IsBase(bool value) const { qscilexerjava_setcolor_isbase = value; }
+    inline void setQsciLexerJava_SetEolFill_IsBase(bool value) const { qscilexerjava_seteolfill_isbase = value; }
+    inline void setQsciLexerJava_SetFont_IsBase(bool value) const { qscilexerjava_setfont_isbase = value; }
+    inline void setQsciLexerJava_SetPaper_IsBase(bool value) const { qscilexerjava_setpaper_isbase = value; }
+    inline void setQsciLexerJava_ReadProperties_IsBase(bool value) const { qscilexerjava_readproperties_isbase = value; }
+    inline void setQsciLexerJava_WriteProperties_IsBase(bool value) const { qscilexerjava_writeproperties_isbase = value; }
+    inline void setQsciLexerJava_Event_IsBase(bool value) const { qscilexerjava_event_isbase = value; }
+    inline void setQsciLexerJava_EventFilter_IsBase(bool value) const { qscilexerjava_eventfilter_isbase = value; }
+    inline void setQsciLexerJava_TimerEvent_IsBase(bool value) const { qscilexerjava_timerevent_isbase = value; }
+    inline void setQsciLexerJava_ChildEvent_IsBase(bool value) const { qscilexerjava_childevent_isbase = value; }
+    inline void setQsciLexerJava_CustomEvent_IsBase(bool value) const { qscilexerjava_customevent_isbase = value; }
+    inline void setQsciLexerJava_ConnectNotify_IsBase(bool value) const { qscilexerjava_connectnotify_isbase = value; }
+    inline void setQsciLexerJava_DisconnectNotify_IsBase(bool value) const { qscilexerjava_disconnectnotify_isbase = value; }
+    inline void setQsciLexerJava_Sender_IsBase(bool value) const { qscilexerjava_sender_isbase = value; }
+    inline void setQsciLexerJava_SenderSignalIndex_IsBase(bool value) const { qscilexerjava_sendersignalindex_isbase = value; }
+    inline void setQsciLexerJava_Receivers_IsBase(bool value) const { qscilexerjava_receivers_isbase = value; }
+    inline void setQsciLexerJava_IsSignalConnected_IsBase(bool value) const { qscilexerjava_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -344,7 +347,12 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_metacall_isbase = false;
             return QsciLexerJava::qt_metacall(param1, param2, param3);
         } else if (qscilexerjava_metacall_callback != nullptr) {
-            return qscilexerjava_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qscilexerjava_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerJava::qt_metacall(param1, param2, param3);
         }
@@ -356,7 +364,9 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_setfoldatelse_isbase = false;
             QsciLexerJava::setFoldAtElse(fold);
         } else if (qscilexerjava_setfoldatelse_callback != nullptr) {
-            qscilexerjava_setfoldatelse_callback(this, fold);
+            bool cbval1 = fold;
+
+            qscilexerjava_setfoldatelse_callback(this, cbval1);
         } else {
             QsciLexerJava::setFoldAtElse(fold);
         }
@@ -368,7 +378,9 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_setfoldcomments_isbase = false;
             QsciLexerJava::setFoldComments(fold);
         } else if (qscilexerjava_setfoldcomments_callback != nullptr) {
-            qscilexerjava_setfoldcomments_callback(this, fold);
+            bool cbval1 = fold;
+
+            qscilexerjava_setfoldcomments_callback(this, cbval1);
         } else {
             QsciLexerJava::setFoldComments(fold);
         }
@@ -380,7 +392,9 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_setfoldcompact_isbase = false;
             QsciLexerJava::setFoldCompact(fold);
         } else if (qscilexerjava_setfoldcompact_callback != nullptr) {
-            qscilexerjava_setfoldcompact_callback(this, fold);
+            bool cbval1 = fold;
+
+            qscilexerjava_setfoldcompact_callback(this, cbval1);
         } else {
             QsciLexerJava::setFoldCompact(fold);
         }
@@ -392,7 +406,9 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_setfoldpreprocessor_isbase = false;
             QsciLexerJava::setFoldPreprocessor(fold);
         } else if (qscilexerjava_setfoldpreprocessor_callback != nullptr) {
-            qscilexerjava_setfoldpreprocessor_callback(this, fold);
+            bool cbval1 = fold;
+
+            qscilexerjava_setfoldpreprocessor_callback(this, cbval1);
         } else {
             QsciLexerJava::setFoldPreprocessor(fold);
         }
@@ -404,7 +420,9 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_setstylepreprocessor_isbase = false;
             QsciLexerJava::setStylePreprocessor(style);
         } else if (qscilexerjava_setstylepreprocessor_callback != nullptr) {
-            qscilexerjava_setstylepreprocessor_callback(this, style);
+            bool cbval1 = style;
+
+            qscilexerjava_setstylepreprocessor_callback(this, cbval1);
         } else {
             QsciLexerJava::setStylePreprocessor(style);
         }
@@ -412,7 +430,12 @@ class VirtualQsciLexerJava : public QsciLexerJava {
 
     // Virtual method for C ABI access and custom callback
     virtual const char* language() const override {
-        return qscilexerjava_language_callback();
+        if (qscilexerjava_language_callback != nullptr) {
+            const char* callback_ret = qscilexerjava_language_callback();
+            return callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -421,7 +444,8 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_lexer_isbase = false;
             return QsciLexerJava::lexer();
         } else if (qscilexerjava_lexer_callback != nullptr) {
-            return qscilexerjava_lexer_callback();
+            const char* callback_ret = qscilexerjava_lexer_callback();
+            return callback_ret;
         } else {
             return QsciLexerJava::lexer();
         }
@@ -433,7 +457,8 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_lexerid_isbase = false;
             return QsciLexerJava::lexerId();
         } else if (qscilexerjava_lexerid_callback != nullptr) {
-            return qscilexerjava_lexerid_callback();
+            int callback_ret = qscilexerjava_lexerid_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerJava::lexerId();
         }
@@ -445,7 +470,8 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_autocompletionfillups_isbase = false;
             return QsciLexerJava::autoCompletionFillups();
         } else if (qscilexerjava_autocompletionfillups_callback != nullptr) {
-            return qscilexerjava_autocompletionfillups_callback();
+            const char* callback_ret = qscilexerjava_autocompletionfillups_callback();
+            return callback_ret;
         } else {
             return QsciLexerJava::autoCompletionFillups();
         }
@@ -457,7 +483,15 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_autocompletionwordseparators_isbase = false;
             return QsciLexerJava::autoCompletionWordSeparators();
         } else if (qscilexerjava_autocompletionwordseparators_callback != nullptr) {
-            return qscilexerjava_autocompletionwordseparators_callback();
+            libqt_list /* of libqt_string */ callback_ret = qscilexerjava_autocompletionwordseparators_callback();
+            QStringList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+                callback_ret_QList.push_back(callback_ret_arr_i_QString);
+            }
+            return callback_ret_QList;
         } else {
             return QsciLexerJava::autoCompletionWordSeparators();
         }
@@ -469,7 +503,10 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_blockend_isbase = false;
             return QsciLexerJava::blockEnd(style);
         } else if (qscilexerjava_blockend_callback != nullptr) {
-            return qscilexerjava_blockend_callback(this, style);
+            int* cbval1 = style;
+
+            const char* callback_ret = qscilexerjava_blockend_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerJava::blockEnd(style);
         }
@@ -481,7 +518,8 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_blocklookback_isbase = false;
             return QsciLexerJava::blockLookback();
         } else if (qscilexerjava_blocklookback_callback != nullptr) {
-            return qscilexerjava_blocklookback_callback();
+            int callback_ret = qscilexerjava_blocklookback_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerJava::blockLookback();
         }
@@ -493,7 +531,10 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_blockstart_isbase = false;
             return QsciLexerJava::blockStart(style);
         } else if (qscilexerjava_blockstart_callback != nullptr) {
-            return qscilexerjava_blockstart_callback(this, style);
+            int* cbval1 = style;
+
+            const char* callback_ret = qscilexerjava_blockstart_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerJava::blockStart(style);
         }
@@ -505,7 +546,10 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_blockstartkeyword_isbase = false;
             return QsciLexerJava::blockStartKeyword(style);
         } else if (qscilexerjava_blockstartkeyword_callback != nullptr) {
-            return qscilexerjava_blockstartkeyword_callback(this, style);
+            int* cbval1 = style;
+
+            const char* callback_ret = qscilexerjava_blockstartkeyword_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerJava::blockStartKeyword(style);
         }
@@ -517,7 +561,8 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_bracestyle_isbase = false;
             return QsciLexerJava::braceStyle();
         } else if (qscilexerjava_bracestyle_callback != nullptr) {
-            return qscilexerjava_bracestyle_callback();
+            int callback_ret = qscilexerjava_bracestyle_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerJava::braceStyle();
         }
@@ -529,7 +574,8 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_casesensitive_isbase = false;
             return QsciLexerJava::caseSensitive();
         } else if (qscilexerjava_casesensitive_callback != nullptr) {
-            return qscilexerjava_casesensitive_callback();
+            bool callback_ret = qscilexerjava_casesensitive_callback();
+            return callback_ret;
         } else {
             return QsciLexerJava::caseSensitive();
         }
@@ -541,7 +587,10 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_color_isbase = false;
             return QsciLexerJava::color(style);
         } else if (qscilexerjava_color_callback != nullptr) {
-            return qscilexerjava_color_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexerjava_color_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerJava::color(style);
         }
@@ -553,7 +602,10 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_eolfill_isbase = false;
             return QsciLexerJava::eolFill(style);
         } else if (qscilexerjava_eolfill_callback != nullptr) {
-            return qscilexerjava_eolfill_callback(this, style);
+            int cbval1 = style;
+
+            bool callback_ret = qscilexerjava_eolfill_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerJava::eolFill(style);
         }
@@ -565,7 +617,10 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_font_isbase = false;
             return QsciLexerJava::font(style);
         } else if (qscilexerjava_font_callback != nullptr) {
-            return qscilexerjava_font_callback(this, style);
+            int cbval1 = style;
+
+            QFont* callback_ret = qscilexerjava_font_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerJava::font(style);
         }
@@ -577,7 +632,8 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_indentationguideview_isbase = false;
             return QsciLexerJava::indentationGuideView();
         } else if (qscilexerjava_indentationguideview_callback != nullptr) {
-            return qscilexerjava_indentationguideview_callback();
+            int callback_ret = qscilexerjava_indentationguideview_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerJava::indentationGuideView();
         }
@@ -589,7 +645,10 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_keywords_isbase = false;
             return QsciLexerJava::keywords(set);
         } else if (qscilexerjava_keywords_callback != nullptr) {
-            return qscilexerjava_keywords_callback(this, set);
+            int cbval1 = set;
+
+            const char* callback_ret = qscilexerjava_keywords_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerJava::keywords(set);
         }
@@ -601,7 +660,8 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_defaultstyle_isbase = false;
             return QsciLexerJava::defaultStyle();
         } else if (qscilexerjava_defaultstyle_callback != nullptr) {
-            return qscilexerjava_defaultstyle_callback();
+            int callback_ret = qscilexerjava_defaultstyle_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerJava::defaultStyle();
         }
@@ -609,7 +669,15 @@ class VirtualQsciLexerJava : public QsciLexerJava {
 
     // Virtual method for C ABI access and custom callback
     virtual QString description(int style) const override {
-        return qscilexerjava_description_callback(this, style);
+        if (qscilexerjava_description_callback != nullptr) {
+            int cbval1 = style;
+
+            libqt_string callback_ret = qscilexerjava_description_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -618,7 +686,10 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_paper_isbase = false;
             return QsciLexerJava::paper(style);
         } else if (qscilexerjava_paper_callback != nullptr) {
-            return qscilexerjava_paper_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexerjava_paper_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerJava::paper(style);
         }
@@ -630,7 +701,10 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_defaultcolorwithstyle_isbase = false;
             return QsciLexerJava::defaultColor(style);
         } else if (qscilexerjava_defaultcolorwithstyle_callback != nullptr) {
-            return qscilexerjava_defaultcolorwithstyle_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexerjava_defaultcolorwithstyle_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerJava::defaultColor(style);
         }
@@ -642,7 +716,10 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_defaulteolfill_isbase = false;
             return QsciLexerJava::defaultEolFill(style);
         } else if (qscilexerjava_defaulteolfill_callback != nullptr) {
-            return qscilexerjava_defaulteolfill_callback(this, style);
+            int cbval1 = style;
+
+            bool callback_ret = qscilexerjava_defaulteolfill_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerJava::defaultEolFill(style);
         }
@@ -654,7 +731,10 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_defaultfontwithstyle_isbase = false;
             return QsciLexerJava::defaultFont(style);
         } else if (qscilexerjava_defaultfontwithstyle_callback != nullptr) {
-            return qscilexerjava_defaultfontwithstyle_callback(this, style);
+            int cbval1 = style;
+
+            QFont* callback_ret = qscilexerjava_defaultfontwithstyle_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerJava::defaultFont(style);
         }
@@ -666,7 +746,10 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_defaultpaperwithstyle_isbase = false;
             return QsciLexerJava::defaultPaper(style);
         } else if (qscilexerjava_defaultpaperwithstyle_callback != nullptr) {
-            return qscilexerjava_defaultpaperwithstyle_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexerjava_defaultpaperwithstyle_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerJava::defaultPaper(style);
         }
@@ -678,7 +761,9 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_seteditor_isbase = false;
             QsciLexerJava::setEditor(editor);
         } else if (qscilexerjava_seteditor_callback != nullptr) {
-            qscilexerjava_seteditor_callback(this, editor);
+            QsciScintilla* cbval1 = editor;
+
+            qscilexerjava_seteditor_callback(this, cbval1);
         } else {
             QsciLexerJava::setEditor(editor);
         }
@@ -702,7 +787,8 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_stylebitsneeded_isbase = false;
             return QsciLexerJava::styleBitsNeeded();
         } else if (qscilexerjava_stylebitsneeded_callback != nullptr) {
-            return qscilexerjava_stylebitsneeded_callback();
+            int callback_ret = qscilexerjava_stylebitsneeded_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerJava::styleBitsNeeded();
         }
@@ -714,7 +800,8 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_wordcharacters_isbase = false;
             return QsciLexerJava::wordCharacters();
         } else if (qscilexerjava_wordcharacters_callback != nullptr) {
-            return qscilexerjava_wordcharacters_callback();
+            const char* callback_ret = qscilexerjava_wordcharacters_callback();
+            return callback_ret;
         } else {
             return QsciLexerJava::wordCharacters();
         }
@@ -726,7 +813,9 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_setautoindentstyle_isbase = false;
             QsciLexerJava::setAutoIndentStyle(autoindentstyle);
         } else if (qscilexerjava_setautoindentstyle_callback != nullptr) {
-            qscilexerjava_setautoindentstyle_callback(this, autoindentstyle);
+            int cbval1 = autoindentstyle;
+
+            qscilexerjava_setautoindentstyle_callback(this, cbval1);
         } else {
             QsciLexerJava::setAutoIndentStyle(autoindentstyle);
         }
@@ -738,7 +827,12 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_setcolor_isbase = false;
             QsciLexerJava::setColor(c, style);
         } else if (qscilexerjava_setcolor_callback != nullptr) {
-            qscilexerjava_setcolor_callback(this, c, style);
+            const QColor& c_ret = c;
+            // Cast returned reference into pointer
+            QColor* cbval1 = const_cast<QColor*>(&c_ret);
+            int cbval2 = style;
+
+            qscilexerjava_setcolor_callback(this, cbval1, cbval2);
         } else {
             QsciLexerJava::setColor(c, style);
         }
@@ -750,7 +844,10 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_seteolfill_isbase = false;
             QsciLexerJava::setEolFill(eoffill, style);
         } else if (qscilexerjava_seteolfill_callback != nullptr) {
-            qscilexerjava_seteolfill_callback(this, eoffill, style);
+            bool cbval1 = eoffill;
+            int cbval2 = style;
+
+            qscilexerjava_seteolfill_callback(this, cbval1, cbval2);
         } else {
             QsciLexerJava::setEolFill(eoffill, style);
         }
@@ -762,7 +859,12 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_setfont_isbase = false;
             QsciLexerJava::setFont(f, style);
         } else if (qscilexerjava_setfont_callback != nullptr) {
-            qscilexerjava_setfont_callback(this, f, style);
+            const QFont& f_ret = f;
+            // Cast returned reference into pointer
+            QFont* cbval1 = const_cast<QFont*>(&f_ret);
+            int cbval2 = style;
+
+            qscilexerjava_setfont_callback(this, cbval1, cbval2);
         } else {
             QsciLexerJava::setFont(f, style);
         }
@@ -774,7 +876,12 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_setpaper_isbase = false;
             QsciLexerJava::setPaper(c, style);
         } else if (qscilexerjava_setpaper_callback != nullptr) {
-            qscilexerjava_setpaper_callback(this, c, style);
+            const QColor& c_ret = c;
+            // Cast returned reference into pointer
+            QColor* cbval1 = const_cast<QColor*>(&c_ret);
+            int cbval2 = style;
+
+            qscilexerjava_setpaper_callback(this, cbval1, cbval2);
         } else {
             QsciLexerJava::setPaper(c, style);
         }
@@ -786,7 +893,21 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_readproperties_isbase = false;
             return QsciLexerJava::readProperties(qs, prefix);
         } else if (qscilexerjava_readproperties_callback != nullptr) {
-            return qscilexerjava_readproperties_callback(this, qs, prefix);
+            QSettings& qs_ret = qs;
+            // Cast returned reference into pointer
+            QSettings* cbval1 = &qs_ret;
+            const QString prefix_ret = prefix;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray prefix_b = prefix_ret.toUtf8();
+            libqt_string prefix_str;
+            prefix_str.len = prefix_b.length();
+            prefix_str.data = static_cast<char*>(malloc((prefix_str.len + 1) * sizeof(char)));
+            memcpy(prefix_str.data, prefix_b.data(), prefix_str.len);
+            prefix_str.data[prefix_str.len] = '\0';
+            libqt_string cbval2 = prefix_str;
+
+            bool callback_ret = qscilexerjava_readproperties_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QsciLexerJava::readProperties(qs, prefix);
         }
@@ -798,7 +919,21 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_writeproperties_isbase = false;
             return QsciLexerJava::writeProperties(qs, prefix);
         } else if (qscilexerjava_writeproperties_callback != nullptr) {
-            return qscilexerjava_writeproperties_callback(this, qs, prefix);
+            QSettings& qs_ret = qs;
+            // Cast returned reference into pointer
+            QSettings* cbval1 = &qs_ret;
+            const QString prefix_ret = prefix;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray prefix_b = prefix_ret.toUtf8();
+            libqt_string prefix_str;
+            prefix_str.len = prefix_b.length();
+            prefix_str.data = static_cast<char*>(malloc((prefix_str.len + 1) * sizeof(char)));
+            memcpy(prefix_str.data, prefix_b.data(), prefix_str.len);
+            prefix_str.data[prefix_str.len] = '\0';
+            libqt_string cbval2 = prefix_str;
+
+            bool callback_ret = qscilexerjava_writeproperties_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QsciLexerJava::writeProperties(qs, prefix);
         }
@@ -810,7 +945,10 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_event_isbase = false;
             return QsciLexerJava::event(event);
         } else if (qscilexerjava_event_callback != nullptr) {
-            return qscilexerjava_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qscilexerjava_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerJava::event(event);
         }
@@ -822,7 +960,11 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_eventfilter_isbase = false;
             return QsciLexerJava::eventFilter(watched, event);
         } else if (qscilexerjava_eventfilter_callback != nullptr) {
-            return qscilexerjava_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qscilexerjava_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QsciLexerJava::eventFilter(watched, event);
         }
@@ -834,7 +976,9 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_timerevent_isbase = false;
             QsciLexerJava::timerEvent(event);
         } else if (qscilexerjava_timerevent_callback != nullptr) {
-            qscilexerjava_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qscilexerjava_timerevent_callback(this, cbval1);
         } else {
             QsciLexerJava::timerEvent(event);
         }
@@ -846,7 +990,9 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_childevent_isbase = false;
             QsciLexerJava::childEvent(event);
         } else if (qscilexerjava_childevent_callback != nullptr) {
-            qscilexerjava_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qscilexerjava_childevent_callback(this, cbval1);
         } else {
             QsciLexerJava::childEvent(event);
         }
@@ -858,7 +1004,9 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_customevent_isbase = false;
             QsciLexerJava::customEvent(event);
         } else if (qscilexerjava_customevent_callback != nullptr) {
-            qscilexerjava_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qscilexerjava_customevent_callback(this, cbval1);
         } else {
             QsciLexerJava::customEvent(event);
         }
@@ -870,7 +1018,11 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_connectnotify_isbase = false;
             QsciLexerJava::connectNotify(signal);
         } else if (qscilexerjava_connectnotify_callback != nullptr) {
-            qscilexerjava_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qscilexerjava_connectnotify_callback(this, cbval1);
         } else {
             QsciLexerJava::connectNotify(signal);
         }
@@ -882,7 +1034,11 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_disconnectnotify_isbase = false;
             QsciLexerJava::disconnectNotify(signal);
         } else if (qscilexerjava_disconnectnotify_callback != nullptr) {
-            qscilexerjava_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qscilexerjava_disconnectnotify_callback(this, cbval1);
         } else {
             QsciLexerJava::disconnectNotify(signal);
         }
@@ -894,7 +1050,8 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_sender_isbase = false;
             return QsciLexerJava::sender();
         } else if (qscilexerjava_sender_callback != nullptr) {
-            return qscilexerjava_sender_callback();
+            QObject* callback_ret = qscilexerjava_sender_callback();
+            return callback_ret;
         } else {
             return QsciLexerJava::sender();
         }
@@ -906,7 +1063,8 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_sendersignalindex_isbase = false;
             return QsciLexerJava::senderSignalIndex();
         } else if (qscilexerjava_sendersignalindex_callback != nullptr) {
-            return qscilexerjava_sendersignalindex_callback();
+            int callback_ret = qscilexerjava_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerJava::senderSignalIndex();
         }
@@ -918,7 +1076,10 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_receivers_isbase = false;
             return QsciLexerJava::receivers(signal);
         } else if (qscilexerjava_receivers_callback != nullptr) {
-            return qscilexerjava_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qscilexerjava_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerJava::receivers(signal);
         }
@@ -930,11 +1091,40 @@ class VirtualQsciLexerJava : public QsciLexerJava {
             qscilexerjava_issignalconnected_isbase = false;
             return QsciLexerJava::isSignalConnected(signal);
         } else if (qscilexerjava_issignalconnected_callback != nullptr) {
-            return qscilexerjava_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qscilexerjava_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerJava::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QsciLexerJava_ReadProperties(QsciLexerJava* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerJava_QBaseReadProperties(QsciLexerJava* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerJava_WriteProperties(const QsciLexerJava* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerJava_QBaseWriteProperties(const QsciLexerJava* self, QSettings* qs, const libqt_string prefix);
+    friend void QsciLexerJava_TimerEvent(QsciLexerJava* self, QTimerEvent* event);
+    friend void QsciLexerJava_QBaseTimerEvent(QsciLexerJava* self, QTimerEvent* event);
+    friend void QsciLexerJava_ChildEvent(QsciLexerJava* self, QChildEvent* event);
+    friend void QsciLexerJava_QBaseChildEvent(QsciLexerJava* self, QChildEvent* event);
+    friend void QsciLexerJava_CustomEvent(QsciLexerJava* self, QEvent* event);
+    friend void QsciLexerJava_QBaseCustomEvent(QsciLexerJava* self, QEvent* event);
+    friend void QsciLexerJava_ConnectNotify(QsciLexerJava* self, const QMetaMethod* signal);
+    friend void QsciLexerJava_QBaseConnectNotify(QsciLexerJava* self, const QMetaMethod* signal);
+    friend void QsciLexerJava_DisconnectNotify(QsciLexerJava* self, const QMetaMethod* signal);
+    friend void QsciLexerJava_QBaseDisconnectNotify(QsciLexerJava* self, const QMetaMethod* signal);
+    friend QObject* QsciLexerJava_Sender(const QsciLexerJava* self);
+    friend QObject* QsciLexerJava_QBaseSender(const QsciLexerJava* self);
+    friend int QsciLexerJava_SenderSignalIndex(const QsciLexerJava* self);
+    friend int QsciLexerJava_QBaseSenderSignalIndex(const QsciLexerJava* self);
+    friend int QsciLexerJava_Receivers(const QsciLexerJava* self, const char* signal);
+    friend int QsciLexerJava_QBaseReceivers(const QsciLexerJava* self, const char* signal);
+    friend bool QsciLexerJava_IsSignalConnected(const QsciLexerJava* self, const QMetaMethod* signal);
+    friend bool QsciLexerJava_QBaseIsSignalConnected(const QsciLexerJava* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -28,13 +28,13 @@ typedef long long difference_type; // C ABI QFlags
 typedef ptrdiff_t size_type;       // C ABI QFlags
 #endif
 
-QAnyStringView* QAnyStringView_new(char* other);
+QAnyStringView* QAnyStringView_new(const char* other);
 QAnyStringView* QAnyStringView_new2(char* other);
 QAnyStringView* QAnyStringView_new3();
-QAnyStringView* QAnyStringView_new4(libqt_string str);
-QAnyStringView* QAnyStringView_new5(libqt_string str);
-QAnyStringView* QAnyStringView_new6(QChar* c);
-QAnyStringView* QAnyStringView_new7(char* param1);
+QAnyStringView* QAnyStringView_new4(const libqt_string str);
+QAnyStringView* QAnyStringView_new5(const libqt_string str);
+QAnyStringView* QAnyStringView_new6(const QChar* c);
+QAnyStringView* QAnyStringView_new7(const char* param1);
 void QAnyStringView_CopyAssign(QAnyStringView* self, QAnyStringView* other);
 void QAnyStringView_MoveAssign(QAnyStringView* self, QAnyStringView* other);
 libqt_string QAnyStringView_ToString(const QAnyStringView* self);

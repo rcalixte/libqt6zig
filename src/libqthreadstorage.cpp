@@ -3,7 +3,7 @@
 #include "libqthreadstorage.h"
 #include "libqthreadstorage.hxx"
 
-QThreadStorageData* QThreadStorageData_new(QThreadStorageData* param1) {
+QThreadStorageData* QThreadStorageData_new(const QThreadStorageData* param1) {
     return new QThreadStorageData(*param1);
 }
 

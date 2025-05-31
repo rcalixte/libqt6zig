@@ -1,23 +1,16 @@
 #include <QAbstractAnimation>
 #include <QAnimationGroup>
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QPauseAnimation>
 #include <QSequentialAnimationGroup>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <qsequentialanimationgroup.h>
 #include "libqsequentialanimationgroup.h"
 #include "libqsequentialanimationgroup.hxx"
@@ -39,27 +32,30 @@ void* QSequentialAnimationGroup_Metacast(QSequentialAnimationGroup* self, const 
 }
 
 int QSequentialAnimationGroup_Metacall(QSequentialAnimationGroup* self, int param1, int param2, void** param3) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQSequentialAnimationGroup*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QSequentialAnimationGroup_OnMetacall(QSequentialAnimationGroup* self, intptr_t slot) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_Metacall_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QSequentialAnimationGroup_QBaseMetacall(QSequentialAnimationGroup* self, int param1, int param2, void** param3) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_Metacall_IsBase(true);
         return vqsequentialanimationgroup->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQSequentialAnimationGroup*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -125,390 +121,435 @@ libqt_string QSequentialAnimationGroup_Tr3(const char* s, const char* c, int n) 
 
 // Derived class handler implementation
 int QSequentialAnimationGroup_Duration(const QSequentialAnimationGroup* self) {
-    if (auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self))) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         return vqsequentialanimationgroup->duration();
     } else {
-        return vqsequentialanimationgroup->duration();
+        return self->QSequentialAnimationGroup::duration();
     }
 }
 
 // Base class handler implementation
 int QSequentialAnimationGroup_QBaseDuration(const QSequentialAnimationGroup* self) {
-    if (auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self))) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_Duration_IsBase(true);
         return vqsequentialanimationgroup->duration();
     } else {
-        return vqsequentialanimationgroup->duration();
+        return self->QSequentialAnimationGroup::duration();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSequentialAnimationGroup_OnDuration(const QSequentialAnimationGroup* self, intptr_t slot) {
-    if (auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self))) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_Duration_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_Duration_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QSequentialAnimationGroup_Event(QSequentialAnimationGroup* self, QEvent* event) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         return vqsequentialanimationgroup->event(event);
     } else {
-        return vqsequentialanimationgroup->event(event);
+        return ((VirtualQSequentialAnimationGroup*)self)->event(event);
     }
 }
 
 // Base class handler implementation
 bool QSequentialAnimationGroup_QBaseEvent(QSequentialAnimationGroup* self, QEvent* event) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_Event_IsBase(true);
         return vqsequentialanimationgroup->event(event);
     } else {
-        return vqsequentialanimationgroup->event(event);
+        return ((VirtualQSequentialAnimationGroup*)self)->event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSequentialAnimationGroup_OnEvent(QSequentialAnimationGroup* self, intptr_t slot) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_Event_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QSequentialAnimationGroup_UpdateCurrentTime(QSequentialAnimationGroup* self, int param1) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->updateCurrentTime(static_cast<int>(param1));
     } else {
-        vqsequentialanimationgroup->updateCurrentTime(static_cast<int>(param1));
+        ((VirtualQSequentialAnimationGroup*)self)->updateCurrentTime(static_cast<int>(param1));
     }
 }
 
 // Base class handler implementation
 void QSequentialAnimationGroup_QBaseUpdateCurrentTime(QSequentialAnimationGroup* self, int param1) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_UpdateCurrentTime_IsBase(true);
         vqsequentialanimationgroup->updateCurrentTime(static_cast<int>(param1));
     } else {
-        vqsequentialanimationgroup->updateCurrentTime(static_cast<int>(param1));
+        ((VirtualQSequentialAnimationGroup*)self)->updateCurrentTime(static_cast<int>(param1));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSequentialAnimationGroup_OnUpdateCurrentTime(QSequentialAnimationGroup* self, intptr_t slot) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_UpdateCurrentTime_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_UpdateCurrentTime_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QSequentialAnimationGroup_UpdateState(QSequentialAnimationGroup* self, int newState, int oldState) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
     } else {
-        vqsequentialanimationgroup->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
+        ((VirtualQSequentialAnimationGroup*)self)->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
     }
 }
 
 // Base class handler implementation
 void QSequentialAnimationGroup_QBaseUpdateState(QSequentialAnimationGroup* self, int newState, int oldState) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_UpdateState_IsBase(true);
         vqsequentialanimationgroup->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
     } else {
-        vqsequentialanimationgroup->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
+        ((VirtualQSequentialAnimationGroup*)self)->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSequentialAnimationGroup_OnUpdateState(QSequentialAnimationGroup* self, intptr_t slot) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_UpdateState_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_UpdateState_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QSequentialAnimationGroup_UpdateDirection(QSequentialAnimationGroup* self, int direction) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
     } else {
-        vqsequentialanimationgroup->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
+        ((VirtualQSequentialAnimationGroup*)self)->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
     }
 }
 
 // Base class handler implementation
 void QSequentialAnimationGroup_QBaseUpdateDirection(QSequentialAnimationGroup* self, int direction) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_UpdateDirection_IsBase(true);
         vqsequentialanimationgroup->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
     } else {
-        vqsequentialanimationgroup->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
+        ((VirtualQSequentialAnimationGroup*)self)->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSequentialAnimationGroup_OnUpdateDirection(QSequentialAnimationGroup* self, intptr_t slot) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_UpdateDirection_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_UpdateDirection_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QSequentialAnimationGroup_EventFilter(QSequentialAnimationGroup* self, QObject* watched, QEvent* event) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         return vqsequentialanimationgroup->eventFilter(watched, event);
     } else {
-        return vqsequentialanimationgroup->eventFilter(watched, event);
+        return self->QSequentialAnimationGroup::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QSequentialAnimationGroup_QBaseEventFilter(QSequentialAnimationGroup* self, QObject* watched, QEvent* event) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_EventFilter_IsBase(true);
         return vqsequentialanimationgroup->eventFilter(watched, event);
     } else {
-        return vqsequentialanimationgroup->eventFilter(watched, event);
+        return self->QSequentialAnimationGroup::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSequentialAnimationGroup_OnEventFilter(QSequentialAnimationGroup* self, intptr_t slot) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_EventFilter_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QSequentialAnimationGroup_TimerEvent(QSequentialAnimationGroup* self, QTimerEvent* event) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->timerEvent(event);
     } else {
-        vqsequentialanimationgroup->timerEvent(event);
+        ((VirtualQSequentialAnimationGroup*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QSequentialAnimationGroup_QBaseTimerEvent(QSequentialAnimationGroup* self, QTimerEvent* event) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_TimerEvent_IsBase(true);
         vqsequentialanimationgroup->timerEvent(event);
     } else {
-        vqsequentialanimationgroup->timerEvent(event);
+        ((VirtualQSequentialAnimationGroup*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSequentialAnimationGroup_OnTimerEvent(QSequentialAnimationGroup* self, intptr_t slot) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_TimerEvent_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QSequentialAnimationGroup_ChildEvent(QSequentialAnimationGroup* self, QChildEvent* event) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->childEvent(event);
     } else {
-        vqsequentialanimationgroup->childEvent(event);
+        ((VirtualQSequentialAnimationGroup*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QSequentialAnimationGroup_QBaseChildEvent(QSequentialAnimationGroup* self, QChildEvent* event) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_ChildEvent_IsBase(true);
         vqsequentialanimationgroup->childEvent(event);
     } else {
-        vqsequentialanimationgroup->childEvent(event);
+        ((VirtualQSequentialAnimationGroup*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSequentialAnimationGroup_OnChildEvent(QSequentialAnimationGroup* self, intptr_t slot) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_ChildEvent_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QSequentialAnimationGroup_CustomEvent(QSequentialAnimationGroup* self, QEvent* event) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->customEvent(event);
     } else {
-        vqsequentialanimationgroup->customEvent(event);
+        ((VirtualQSequentialAnimationGroup*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QSequentialAnimationGroup_QBaseCustomEvent(QSequentialAnimationGroup* self, QEvent* event) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_CustomEvent_IsBase(true);
         vqsequentialanimationgroup->customEvent(event);
     } else {
-        vqsequentialanimationgroup->customEvent(event);
+        ((VirtualQSequentialAnimationGroup*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSequentialAnimationGroup_OnCustomEvent(QSequentialAnimationGroup* self, intptr_t slot) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_CustomEvent_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QSequentialAnimationGroup_ConnectNotify(QSequentialAnimationGroup* self, QMetaMethod* signal) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+void QSequentialAnimationGroup_ConnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->connectNotify(*signal);
     } else {
-        vqsequentialanimationgroup->connectNotify(*signal);
+        ((VirtualQSequentialAnimationGroup*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QSequentialAnimationGroup_QBaseConnectNotify(QSequentialAnimationGroup* self, QMetaMethod* signal) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+void QSequentialAnimationGroup_QBaseConnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_ConnectNotify_IsBase(true);
         vqsequentialanimationgroup->connectNotify(*signal);
     } else {
-        vqsequentialanimationgroup->connectNotify(*signal);
+        ((VirtualQSequentialAnimationGroup*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSequentialAnimationGroup_OnConnectNotify(QSequentialAnimationGroup* self, intptr_t slot) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_ConnectNotify_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QSequentialAnimationGroup_DisconnectNotify(QSequentialAnimationGroup* self, QMetaMethod* signal) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+void QSequentialAnimationGroup_DisconnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->disconnectNotify(*signal);
     } else {
-        vqsequentialanimationgroup->disconnectNotify(*signal);
+        ((VirtualQSequentialAnimationGroup*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QSequentialAnimationGroup_QBaseDisconnectNotify(QSequentialAnimationGroup* self, QMetaMethod* signal) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+void QSequentialAnimationGroup_QBaseDisconnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_DisconnectNotify_IsBase(true);
         vqsequentialanimationgroup->disconnectNotify(*signal);
     } else {
-        vqsequentialanimationgroup->disconnectNotify(*signal);
+        ((VirtualQSequentialAnimationGroup*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSequentialAnimationGroup_OnDisconnectNotify(QSequentialAnimationGroup* self, intptr_t slot) {
-    if (auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self)) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_DisconnectNotify_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QSequentialAnimationGroup_Sender(const QSequentialAnimationGroup* self) {
-    if (auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self))) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         return vqsequentialanimationgroup->sender();
     } else {
-        return vqsequentialanimationgroup->sender();
+        return ((VirtualQSequentialAnimationGroup*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QSequentialAnimationGroup_QBaseSender(const QSequentialAnimationGroup* self) {
-    if (auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self))) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_Sender_IsBase(true);
         return vqsequentialanimationgroup->sender();
     } else {
-        return vqsequentialanimationgroup->sender();
+        return ((VirtualQSequentialAnimationGroup*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSequentialAnimationGroup_OnSender(const QSequentialAnimationGroup* self, intptr_t slot) {
-    if (auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self))) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_Sender_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QSequentialAnimationGroup_SenderSignalIndex(const QSequentialAnimationGroup* self) {
-    if (auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self))) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         return vqsequentialanimationgroup->senderSignalIndex();
     } else {
-        return vqsequentialanimationgroup->senderSignalIndex();
+        return ((VirtualQSequentialAnimationGroup*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QSequentialAnimationGroup_QBaseSenderSignalIndex(const QSequentialAnimationGroup* self) {
-    if (auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self))) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_SenderSignalIndex_IsBase(true);
         return vqsequentialanimationgroup->senderSignalIndex();
     } else {
-        return vqsequentialanimationgroup->senderSignalIndex();
+        return ((VirtualQSequentialAnimationGroup*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSequentialAnimationGroup_OnSenderSignalIndex(const QSequentialAnimationGroup* self, intptr_t slot) {
-    if (auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self))) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QSequentialAnimationGroup_Receivers(const QSequentialAnimationGroup* self, const char* signal) {
-    if (auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self))) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         return vqsequentialanimationgroup->receivers(signal);
     } else {
-        return vqsequentialanimationgroup->receivers(signal);
+        return ((VirtualQSequentialAnimationGroup*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QSequentialAnimationGroup_QBaseReceivers(const QSequentialAnimationGroup* self, const char* signal) {
-    if (auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self))) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_Receivers_IsBase(true);
         return vqsequentialanimationgroup->receivers(signal);
     } else {
-        return vqsequentialanimationgroup->receivers(signal);
+        return ((VirtualQSequentialAnimationGroup*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSequentialAnimationGroup_OnReceivers(const QSequentialAnimationGroup* self, intptr_t slot) {
-    if (auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self))) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_Receivers_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QSequentialAnimationGroup_IsSignalConnected(const QSequentialAnimationGroup* self, QMetaMethod* signal) {
-    if (auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self))) {
+bool QSequentialAnimationGroup_IsSignalConnected(const QSequentialAnimationGroup* self, const QMetaMethod* signal) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         return vqsequentialanimationgroup->isSignalConnected(*signal);
     } else {
-        return vqsequentialanimationgroup->isSignalConnected(*signal);
+        return ((VirtualQSequentialAnimationGroup*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QSequentialAnimationGroup_QBaseIsSignalConnected(const QSequentialAnimationGroup* self, QMetaMethod* signal) {
-    if (auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self))) {
+bool QSequentialAnimationGroup_QBaseIsSignalConnected(const QSequentialAnimationGroup* self, const QMetaMethod* signal) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_IsSignalConnected_IsBase(true);
         return vqsequentialanimationgroup->isSignalConnected(*signal);
     } else {
-        return vqsequentialanimationgroup->isSignalConnected(*signal);
+        return ((VirtualQSequentialAnimationGroup*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSequentialAnimationGroup_OnIsSignalConnected(const QSequentialAnimationGroup* self, intptr_t slot) {
-    if (auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self))) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->setQSequentialAnimationGroup_IsSignalConnected_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_IsSignalConnected_Callback>(slot));
     }
 }

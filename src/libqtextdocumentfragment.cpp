@@ -12,19 +12,19 @@ QTextDocumentFragment* QTextDocumentFragment_new() {
     return new QTextDocumentFragment();
 }
 
-QTextDocumentFragment* QTextDocumentFragment_new2(QTextDocument* document) {
+QTextDocumentFragment* QTextDocumentFragment_new2(const QTextDocument* document) {
     return new QTextDocumentFragment(document);
 }
 
-QTextDocumentFragment* QTextDocumentFragment_new3(QTextCursor* range) {
+QTextDocumentFragment* QTextDocumentFragment_new3(const QTextCursor* range) {
     return new QTextDocumentFragment(*range);
 }
 
-QTextDocumentFragment* QTextDocumentFragment_new4(QTextDocumentFragment* rhs) {
+QTextDocumentFragment* QTextDocumentFragment_new4(const QTextDocumentFragment* rhs) {
     return new QTextDocumentFragment(*rhs);
 }
 
-void QTextDocumentFragment_OperatorAssign(QTextDocumentFragment* self, QTextDocumentFragment* rhs) {
+void QTextDocumentFragment_OperatorAssign(QTextDocumentFragment* self, const QTextDocumentFragment* rhs) {
     self->operator=(*rhs);
 }
 
@@ -80,17 +80,17 @@ libqt_string QTextDocumentFragment_ToMarkdown(const QTextDocumentFragment* self)
     return _str;
 }
 
-QTextDocumentFragment* QTextDocumentFragment_FromPlainText(libqt_string plainText) {
+QTextDocumentFragment* QTextDocumentFragment_FromPlainText(const libqt_string plainText) {
     QString plainText_QString = QString::fromUtf8(plainText.data, plainText.len);
     return new QTextDocumentFragment(QTextDocumentFragment::fromPlainText(plainText_QString));
 }
 
-QTextDocumentFragment* QTextDocumentFragment_FromHtml(libqt_string html) {
+QTextDocumentFragment* QTextDocumentFragment_FromHtml(const libqt_string html) {
     QString html_QString = QString::fromUtf8(html.data, html.len);
     return new QTextDocumentFragment(QTextDocumentFragment::fromHtml(html_QString));
 }
 
-QTextDocumentFragment* QTextDocumentFragment_FromMarkdown(libqt_string markdown) {
+QTextDocumentFragment* QTextDocumentFragment_FromMarkdown(const libqt_string markdown) {
     QString markdown_QString = QString::fromUtf8(markdown.data, markdown.len);
     return new QTextDocumentFragment(QTextDocumentFragment::fromMarkdown(markdown_QString));
 }
@@ -107,12 +107,12 @@ libqt_string QTextDocumentFragment_ToMarkdown1(const QTextDocumentFragment* self
     return _str;
 }
 
-QTextDocumentFragment* QTextDocumentFragment_FromHtml2(libqt_string html, QTextDocument* resourceProvider) {
+QTextDocumentFragment* QTextDocumentFragment_FromHtml2(const libqt_string html, const QTextDocument* resourceProvider) {
     QString html_QString = QString::fromUtf8(html.data, html.len);
     return new QTextDocumentFragment(QTextDocumentFragment::fromHtml(html_QString, resourceProvider));
 }
 
-QTextDocumentFragment* QTextDocumentFragment_FromMarkdown2(libqt_string markdown, int features) {
+QTextDocumentFragment* QTextDocumentFragment_FromMarkdown2(const libqt_string markdown, int features) {
     QString markdown_QString = QString::fromUtf8(markdown.data, markdown.len);
     return new QTextDocumentFragment(QTextDocumentFragment::fromMarkdown(markdown_QString, static_cast<QTextDocument::MarkdownFeatures>(features)));
 }

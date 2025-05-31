@@ -11,7 +11,7 @@ QWebEngineRegisterProtocolHandlerRequest* QWebEngineRegisterProtocolHandlerReque
     return new QWebEngineRegisterProtocolHandlerRequest();
 }
 
-QWebEngineRegisterProtocolHandlerRequest* QWebEngineRegisterProtocolHandlerRequest_new2(QWebEngineRegisterProtocolHandlerRequest* param1) {
+QWebEngineRegisterProtocolHandlerRequest* QWebEngineRegisterProtocolHandlerRequest_new2(const QWebEngineRegisterProtocolHandlerRequest* param1) {
     return new QWebEngineRegisterProtocolHandlerRequest(*param1);
 }
 
@@ -39,11 +39,11 @@ libqt_string QWebEngineRegisterProtocolHandlerRequest_Scheme(const QWebEngineReg
     return _str;
 }
 
-bool QWebEngineRegisterProtocolHandlerRequest_OperatorEqual(const QWebEngineRegisterProtocolHandlerRequest* self, QWebEngineRegisterProtocolHandlerRequest* that) {
+bool QWebEngineRegisterProtocolHandlerRequest_OperatorEqual(const QWebEngineRegisterProtocolHandlerRequest* self, const QWebEngineRegisterProtocolHandlerRequest* that) {
     return (*self == *that);
 }
 
-bool QWebEngineRegisterProtocolHandlerRequest_OperatorNotEqual(const QWebEngineRegisterProtocolHandlerRequest* self, QWebEngineRegisterProtocolHandlerRequest* that) {
+bool QWebEngineRegisterProtocolHandlerRequest_OperatorNotEqual(const QWebEngineRegisterProtocolHandlerRequest* self, const QWebEngineRegisterProtocolHandlerRequest* that) {
     return (*self != *that);
 }
 

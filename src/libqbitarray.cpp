@@ -12,7 +12,7 @@ QBitArray* QBitArray_new2(ptrdiff_t size) {
     return new QBitArray((qsizetype)(size));
 }
 
-QBitArray* QBitArray_new3(QBitArray* other) {
+QBitArray* QBitArray_new3(const QBitArray* other) {
     return new QBitArray(*other);
 }
 
@@ -20,7 +20,7 @@ QBitArray* QBitArray_new4(ptrdiff_t size, bool val) {
     return new QBitArray((qsizetype)(size), val);
 }
 
-void QBitArray_OperatorAssign(QBitArray* self, QBitArray* other) {
+void QBitArray_OperatorAssign(QBitArray* self, const QBitArray* other) {
     self->operator=(*other);
 }
 
@@ -96,23 +96,23 @@ bool QBitArray_OperatorSubscriptWithQsizetype(const QBitArray* self, ptrdiff_t i
     return self->operator[]((qsizetype)(i));
 }
 
-void QBitArray_OperatorBitwiseAndAssign(QBitArray* self, QBitArray* param1) {
+void QBitArray_OperatorBitwiseAndAssign(QBitArray* self, const QBitArray* param1) {
     self->operator&=(*param1);
 }
 
-void QBitArray_OperatorBitwiseOrAssign(QBitArray* self, QBitArray* param1) {
+void QBitArray_OperatorBitwiseOrAssign(QBitArray* self, const QBitArray* param1) {
     self->operator|=(*param1);
 }
 
-void QBitArray_OperatorBitwiseNotAssign(QBitArray* self, QBitArray* param1) {
+void QBitArray_OperatorBitwiseNotAssign(QBitArray* self, const QBitArray* param1) {
     self->operator^=(*param1);
 }
 
-bool QBitArray_OperatorEqual(const QBitArray* self, QBitArray* other) {
+bool QBitArray_OperatorEqual(const QBitArray* self, const QBitArray* other) {
     return (*self == *other);
 }
 
-bool QBitArray_OperatorNotEqual(const QBitArray* self, QBitArray* other) {
+bool QBitArray_OperatorNotEqual(const QBitArray* self, const QBitArray* other) {
     return (*self != *other);
 }
 
@@ -152,11 +152,11 @@ void QBitArray_Delete(QBitArray* self) {
     delete self;
 }
 
-QBitRef* QBitRef_new(QBitRef* other) {
+QBitRef* QBitRef_new(const QBitRef* other) {
     return new QBitRef(*other);
 }
 
-QBitRef* QBitRef_new2(QBitRef* param1) {
+QBitRef* QBitRef_new2(const QBitRef* param1) {
     return new QBitRef(*param1);
 }
 
@@ -168,7 +168,7 @@ bool QBitRef_OperatorNot(const QBitRef* self) {
     return self->operator!();
 }
 
-void QBitRef_OperatorAssign(QBitRef* self, QBitRef* val) {
+void QBitRef_OperatorAssign(QBitRef* self, const QBitRef* val) {
     self->operator=(*val);
 }
 

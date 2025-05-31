@@ -15,12 +15,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QBrush QBrush;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
@@ -32,16 +27,13 @@ typedef struct QGraphicsEffect QGraphicsEffect;
 typedef struct QGraphicsOpacityEffect QGraphicsOpacityEffect;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QPainter QPainter;
 typedef struct QPixmap QPixmap;
 typedef struct QPoint QPoint;
 typedef struct QPointF QPointF;
 typedef struct QRectF QRectF;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
@@ -66,9 +58,9 @@ int QGraphicsEffect_Metacall(QGraphicsEffect* self, int param1, int param2, void
 void QGraphicsEffect_OnMetacall(QGraphicsEffect* self, intptr_t slot);
 int QGraphicsEffect_QBaseMetacall(QGraphicsEffect* self, int param1, int param2, void** param3);
 libqt_string QGraphicsEffect_Tr(const char* s);
-QRectF* QGraphicsEffect_BoundingRectFor(const QGraphicsEffect* self, QRectF* sourceRect);
+QRectF* QGraphicsEffect_BoundingRectFor(const QGraphicsEffect* self, const QRectF* sourceRect);
 void QGraphicsEffect_OnBoundingRectFor(const QGraphicsEffect* self, intptr_t slot);
-QRectF* QGraphicsEffect_QBaseBoundingRectFor(const QGraphicsEffect* self, QRectF* sourceRect);
+QRectF* QGraphicsEffect_QBaseBoundingRectFor(const QGraphicsEffect* self, const QRectF* sourceRect);
 QRectF* QGraphicsEffect_BoundingRect(const QGraphicsEffect* self);
 bool QGraphicsEffect_IsEnabled(const QGraphicsEffect* self);
 void QGraphicsEffect_SetEnabled(QGraphicsEffect* self, bool enable);
@@ -98,12 +90,12 @@ void QGraphicsEffect_QBaseChildEvent(QGraphicsEffect* self, QChildEvent* event);
 void QGraphicsEffect_CustomEvent(QGraphicsEffect* self, QEvent* event);
 void QGraphicsEffect_OnCustomEvent(QGraphicsEffect* self, intptr_t slot);
 void QGraphicsEffect_QBaseCustomEvent(QGraphicsEffect* self, QEvent* event);
-void QGraphicsEffect_ConnectNotify(QGraphicsEffect* self, QMetaMethod* signal);
+void QGraphicsEffect_ConnectNotify(QGraphicsEffect* self, const QMetaMethod* signal);
 void QGraphicsEffect_OnConnectNotify(QGraphicsEffect* self, intptr_t slot);
-void QGraphicsEffect_QBaseConnectNotify(QGraphicsEffect* self, QMetaMethod* signal);
-void QGraphicsEffect_DisconnectNotify(QGraphicsEffect* self, QMetaMethod* signal);
+void QGraphicsEffect_QBaseConnectNotify(QGraphicsEffect* self, const QMetaMethod* signal);
+void QGraphicsEffect_DisconnectNotify(QGraphicsEffect* self, const QMetaMethod* signal);
 void QGraphicsEffect_OnDisconnectNotify(QGraphicsEffect* self, intptr_t slot);
-void QGraphicsEffect_QBaseDisconnectNotify(QGraphicsEffect* self, QMetaMethod* signal);
+void QGraphicsEffect_QBaseDisconnectNotify(QGraphicsEffect* self, const QMetaMethod* signal);
 void QGraphicsEffect_UpdateBoundingRect(QGraphicsEffect* self);
 void QGraphicsEffect_OnUpdateBoundingRect(QGraphicsEffect* self, intptr_t slot);
 void QGraphicsEffect_QBaseUpdateBoundingRect(QGraphicsEffect* self);
@@ -140,9 +132,9 @@ int QGraphicsEffect_QBaseSenderSignalIndex(const QGraphicsEffect* self);
 int QGraphicsEffect_Receivers(const QGraphicsEffect* self, const char* signal);
 void QGraphicsEffect_OnReceivers(const QGraphicsEffect* self, intptr_t slot);
 int QGraphicsEffect_QBaseReceivers(const QGraphicsEffect* self, const char* signal);
-bool QGraphicsEffect_IsSignalConnected(const QGraphicsEffect* self, QMetaMethod* signal);
+bool QGraphicsEffect_IsSignalConnected(const QGraphicsEffect* self, const QMetaMethod* signal);
 void QGraphicsEffect_OnIsSignalConnected(const QGraphicsEffect* self, intptr_t slot);
-bool QGraphicsEffect_QBaseIsSignalConnected(const QGraphicsEffect* self, QMetaMethod* signal);
+bool QGraphicsEffect_QBaseIsSignalConnected(const QGraphicsEffect* self, const QMetaMethod* signal);
 void QGraphicsEffect_Delete(QGraphicsEffect* self);
 
 QGraphicsColorizeEffect* QGraphicsColorizeEffect_new();
@@ -155,9 +147,9 @@ int QGraphicsColorizeEffect_QBaseMetacall(QGraphicsColorizeEffect* self, int par
 libqt_string QGraphicsColorizeEffect_Tr(const char* s);
 QColor* QGraphicsColorizeEffect_Color(const QGraphicsColorizeEffect* self);
 double QGraphicsColorizeEffect_Strength(const QGraphicsColorizeEffect* self);
-void QGraphicsColorizeEffect_SetColor(QGraphicsColorizeEffect* self, QColor* c);
+void QGraphicsColorizeEffect_SetColor(QGraphicsColorizeEffect* self, const QColor* c);
 void QGraphicsColorizeEffect_SetStrength(QGraphicsColorizeEffect* self, double strength);
-void QGraphicsColorizeEffect_ColorChanged(QGraphicsColorizeEffect* self, QColor* color);
+void QGraphicsColorizeEffect_ColorChanged(QGraphicsColorizeEffect* self, const QColor* color);
 void QGraphicsColorizeEffect_Connect_ColorChanged(QGraphicsColorizeEffect* self, intptr_t slot);
 void QGraphicsColorizeEffect_StrengthChanged(QGraphicsColorizeEffect* self, double strength);
 void QGraphicsColorizeEffect_Connect_StrengthChanged(QGraphicsColorizeEffect* self, intptr_t slot);
@@ -166,9 +158,9 @@ void QGraphicsColorizeEffect_OnDraw(QGraphicsColorizeEffect* self, intptr_t slot
 void QGraphicsColorizeEffect_QBaseDraw(QGraphicsColorizeEffect* self, QPainter* painter);
 libqt_string QGraphicsColorizeEffect_Tr2(const char* s, const char* c);
 libqt_string QGraphicsColorizeEffect_Tr3(const char* s, const char* c, int n);
-QRectF* QGraphicsColorizeEffect_BoundingRectFor(const QGraphicsColorizeEffect* self, QRectF* sourceRect);
+QRectF* QGraphicsColorizeEffect_BoundingRectFor(const QGraphicsColorizeEffect* self, const QRectF* sourceRect);
 void QGraphicsColorizeEffect_OnBoundingRectFor(const QGraphicsColorizeEffect* self, intptr_t slot);
-QRectF* QGraphicsColorizeEffect_QBaseBoundingRectFor(const QGraphicsColorizeEffect* self, QRectF* sourceRect);
+QRectF* QGraphicsColorizeEffect_QBaseBoundingRectFor(const QGraphicsColorizeEffect* self, const QRectF* sourceRect);
 void QGraphicsColorizeEffect_SourceChanged(QGraphicsColorizeEffect* self, int flags);
 void QGraphicsColorizeEffect_OnSourceChanged(QGraphicsColorizeEffect* self, intptr_t slot);
 void QGraphicsColorizeEffect_QBaseSourceChanged(QGraphicsColorizeEffect* self, int flags);
@@ -187,12 +179,12 @@ void QGraphicsColorizeEffect_QBaseChildEvent(QGraphicsColorizeEffect* self, QChi
 void QGraphicsColorizeEffect_CustomEvent(QGraphicsColorizeEffect* self, QEvent* event);
 void QGraphicsColorizeEffect_OnCustomEvent(QGraphicsColorizeEffect* self, intptr_t slot);
 void QGraphicsColorizeEffect_QBaseCustomEvent(QGraphicsColorizeEffect* self, QEvent* event);
-void QGraphicsColorizeEffect_ConnectNotify(QGraphicsColorizeEffect* self, QMetaMethod* signal);
+void QGraphicsColorizeEffect_ConnectNotify(QGraphicsColorizeEffect* self, const QMetaMethod* signal);
 void QGraphicsColorizeEffect_OnConnectNotify(QGraphicsColorizeEffect* self, intptr_t slot);
-void QGraphicsColorizeEffect_QBaseConnectNotify(QGraphicsColorizeEffect* self, QMetaMethod* signal);
-void QGraphicsColorizeEffect_DisconnectNotify(QGraphicsColorizeEffect* self, QMetaMethod* signal);
+void QGraphicsColorizeEffect_QBaseConnectNotify(QGraphicsColorizeEffect* self, const QMetaMethod* signal);
+void QGraphicsColorizeEffect_DisconnectNotify(QGraphicsColorizeEffect* self, const QMetaMethod* signal);
 void QGraphicsColorizeEffect_OnDisconnectNotify(QGraphicsColorizeEffect* self, intptr_t slot);
-void QGraphicsColorizeEffect_QBaseDisconnectNotify(QGraphicsColorizeEffect* self, QMetaMethod* signal);
+void QGraphicsColorizeEffect_QBaseDisconnectNotify(QGraphicsColorizeEffect* self, const QMetaMethod* signal);
 void QGraphicsColorizeEffect_UpdateBoundingRect(QGraphicsColorizeEffect* self);
 void QGraphicsColorizeEffect_OnUpdateBoundingRect(QGraphicsColorizeEffect* self, intptr_t slot);
 void QGraphicsColorizeEffect_QBaseUpdateBoundingRect(QGraphicsColorizeEffect* self);
@@ -217,9 +209,9 @@ int QGraphicsColorizeEffect_QBaseSenderSignalIndex(const QGraphicsColorizeEffect
 int QGraphicsColorizeEffect_Receivers(const QGraphicsColorizeEffect* self, const char* signal);
 void QGraphicsColorizeEffect_OnReceivers(const QGraphicsColorizeEffect* self, intptr_t slot);
 int QGraphicsColorizeEffect_QBaseReceivers(const QGraphicsColorizeEffect* self, const char* signal);
-bool QGraphicsColorizeEffect_IsSignalConnected(const QGraphicsColorizeEffect* self, QMetaMethod* signal);
+bool QGraphicsColorizeEffect_IsSignalConnected(const QGraphicsColorizeEffect* self, const QMetaMethod* signal);
 void QGraphicsColorizeEffect_OnIsSignalConnected(const QGraphicsColorizeEffect* self, intptr_t slot);
-bool QGraphicsColorizeEffect_QBaseIsSignalConnected(const QGraphicsColorizeEffect* self, QMetaMethod* signal);
+bool QGraphicsColorizeEffect_QBaseIsSignalConnected(const QGraphicsColorizeEffect* self, const QMetaMethod* signal);
 void QGraphicsColorizeEffect_Delete(QGraphicsColorizeEffect* self);
 
 QGraphicsBlurEffect* QGraphicsBlurEffect_new();
@@ -230,9 +222,9 @@ int QGraphicsBlurEffect_Metacall(QGraphicsBlurEffect* self, int param1, int para
 void QGraphicsBlurEffect_OnMetacall(QGraphicsBlurEffect* self, intptr_t slot);
 int QGraphicsBlurEffect_QBaseMetacall(QGraphicsBlurEffect* self, int param1, int param2, void** param3);
 libqt_string QGraphicsBlurEffect_Tr(const char* s);
-QRectF* QGraphicsBlurEffect_BoundingRectFor(const QGraphicsBlurEffect* self, QRectF* rect);
+QRectF* QGraphicsBlurEffect_BoundingRectFor(const QGraphicsBlurEffect* self, const QRectF* rect);
 void QGraphicsBlurEffect_OnBoundingRectFor(const QGraphicsBlurEffect* self, intptr_t slot);
-QRectF* QGraphicsBlurEffect_QBaseBoundingRectFor(const QGraphicsBlurEffect* self, QRectF* rect);
+QRectF* QGraphicsBlurEffect_QBaseBoundingRectFor(const QGraphicsBlurEffect* self, const QRectF* rect);
 double QGraphicsBlurEffect_BlurRadius(const QGraphicsBlurEffect* self);
 int QGraphicsBlurEffect_BlurHints(const QGraphicsBlurEffect* self);
 void QGraphicsBlurEffect_SetBlurRadius(QGraphicsBlurEffect* self, double blurRadius);
@@ -264,12 +256,12 @@ void QGraphicsBlurEffect_QBaseChildEvent(QGraphicsBlurEffect* self, QChildEvent*
 void QGraphicsBlurEffect_CustomEvent(QGraphicsBlurEffect* self, QEvent* event);
 void QGraphicsBlurEffect_OnCustomEvent(QGraphicsBlurEffect* self, intptr_t slot);
 void QGraphicsBlurEffect_QBaseCustomEvent(QGraphicsBlurEffect* self, QEvent* event);
-void QGraphicsBlurEffect_ConnectNotify(QGraphicsBlurEffect* self, QMetaMethod* signal);
+void QGraphicsBlurEffect_ConnectNotify(QGraphicsBlurEffect* self, const QMetaMethod* signal);
 void QGraphicsBlurEffect_OnConnectNotify(QGraphicsBlurEffect* self, intptr_t slot);
-void QGraphicsBlurEffect_QBaseConnectNotify(QGraphicsBlurEffect* self, QMetaMethod* signal);
-void QGraphicsBlurEffect_DisconnectNotify(QGraphicsBlurEffect* self, QMetaMethod* signal);
+void QGraphicsBlurEffect_QBaseConnectNotify(QGraphicsBlurEffect* self, const QMetaMethod* signal);
+void QGraphicsBlurEffect_DisconnectNotify(QGraphicsBlurEffect* self, const QMetaMethod* signal);
 void QGraphicsBlurEffect_OnDisconnectNotify(QGraphicsBlurEffect* self, intptr_t slot);
-void QGraphicsBlurEffect_QBaseDisconnectNotify(QGraphicsBlurEffect* self, QMetaMethod* signal);
+void QGraphicsBlurEffect_QBaseDisconnectNotify(QGraphicsBlurEffect* self, const QMetaMethod* signal);
 void QGraphicsBlurEffect_UpdateBoundingRect(QGraphicsBlurEffect* self);
 void QGraphicsBlurEffect_OnUpdateBoundingRect(QGraphicsBlurEffect* self, intptr_t slot);
 void QGraphicsBlurEffect_QBaseUpdateBoundingRect(QGraphicsBlurEffect* self);
@@ -294,9 +286,9 @@ int QGraphicsBlurEffect_QBaseSenderSignalIndex(const QGraphicsBlurEffect* self);
 int QGraphicsBlurEffect_Receivers(const QGraphicsBlurEffect* self, const char* signal);
 void QGraphicsBlurEffect_OnReceivers(const QGraphicsBlurEffect* self, intptr_t slot);
 int QGraphicsBlurEffect_QBaseReceivers(const QGraphicsBlurEffect* self, const char* signal);
-bool QGraphicsBlurEffect_IsSignalConnected(const QGraphicsBlurEffect* self, QMetaMethod* signal);
+bool QGraphicsBlurEffect_IsSignalConnected(const QGraphicsBlurEffect* self, const QMetaMethod* signal);
 void QGraphicsBlurEffect_OnIsSignalConnected(const QGraphicsBlurEffect* self, intptr_t slot);
-bool QGraphicsBlurEffect_QBaseIsSignalConnected(const QGraphicsBlurEffect* self, QMetaMethod* signal);
+bool QGraphicsBlurEffect_QBaseIsSignalConnected(const QGraphicsBlurEffect* self, const QMetaMethod* signal);
 void QGraphicsBlurEffect_Delete(QGraphicsBlurEffect* self);
 
 QGraphicsDropShadowEffect* QGraphicsDropShadowEffect_new();
@@ -307,26 +299,26 @@ int QGraphicsDropShadowEffect_Metacall(QGraphicsDropShadowEffect* self, int para
 void QGraphicsDropShadowEffect_OnMetacall(QGraphicsDropShadowEffect* self, intptr_t slot);
 int QGraphicsDropShadowEffect_QBaseMetacall(QGraphicsDropShadowEffect* self, int param1, int param2, void** param3);
 libqt_string QGraphicsDropShadowEffect_Tr(const char* s);
-QRectF* QGraphicsDropShadowEffect_BoundingRectFor(const QGraphicsDropShadowEffect* self, QRectF* rect);
+QRectF* QGraphicsDropShadowEffect_BoundingRectFor(const QGraphicsDropShadowEffect* self, const QRectF* rect);
 void QGraphicsDropShadowEffect_OnBoundingRectFor(const QGraphicsDropShadowEffect* self, intptr_t slot);
-QRectF* QGraphicsDropShadowEffect_QBaseBoundingRectFor(const QGraphicsDropShadowEffect* self, QRectF* rect);
+QRectF* QGraphicsDropShadowEffect_QBaseBoundingRectFor(const QGraphicsDropShadowEffect* self, const QRectF* rect);
 QPointF* QGraphicsDropShadowEffect_Offset(const QGraphicsDropShadowEffect* self);
 double QGraphicsDropShadowEffect_XOffset(const QGraphicsDropShadowEffect* self);
 double QGraphicsDropShadowEffect_YOffset(const QGraphicsDropShadowEffect* self);
 double QGraphicsDropShadowEffect_BlurRadius(const QGraphicsDropShadowEffect* self);
 QColor* QGraphicsDropShadowEffect_Color(const QGraphicsDropShadowEffect* self);
-void QGraphicsDropShadowEffect_SetOffset(QGraphicsDropShadowEffect* self, QPointF* ofs);
+void QGraphicsDropShadowEffect_SetOffset(QGraphicsDropShadowEffect* self, const QPointF* ofs);
 void QGraphicsDropShadowEffect_SetOffset2(QGraphicsDropShadowEffect* self, double dx, double dy);
 void QGraphicsDropShadowEffect_SetOffsetWithQreal(QGraphicsDropShadowEffect* self, double d);
 void QGraphicsDropShadowEffect_SetXOffset(QGraphicsDropShadowEffect* self, double dx);
 void QGraphicsDropShadowEffect_SetYOffset(QGraphicsDropShadowEffect* self, double dy);
 void QGraphicsDropShadowEffect_SetBlurRadius(QGraphicsDropShadowEffect* self, double blurRadius);
-void QGraphicsDropShadowEffect_SetColor(QGraphicsDropShadowEffect* self, QColor* color);
-void QGraphicsDropShadowEffect_OffsetChanged(QGraphicsDropShadowEffect* self, QPointF* offset);
+void QGraphicsDropShadowEffect_SetColor(QGraphicsDropShadowEffect* self, const QColor* color);
+void QGraphicsDropShadowEffect_OffsetChanged(QGraphicsDropShadowEffect* self, const QPointF* offset);
 void QGraphicsDropShadowEffect_Connect_OffsetChanged(QGraphicsDropShadowEffect* self, intptr_t slot);
 void QGraphicsDropShadowEffect_BlurRadiusChanged(QGraphicsDropShadowEffect* self, double blurRadius);
 void QGraphicsDropShadowEffect_Connect_BlurRadiusChanged(QGraphicsDropShadowEffect* self, intptr_t slot);
-void QGraphicsDropShadowEffect_ColorChanged(QGraphicsDropShadowEffect* self, QColor* color);
+void QGraphicsDropShadowEffect_ColorChanged(QGraphicsDropShadowEffect* self, const QColor* color);
 void QGraphicsDropShadowEffect_Connect_ColorChanged(QGraphicsDropShadowEffect* self, intptr_t slot);
 void QGraphicsDropShadowEffect_Draw(QGraphicsDropShadowEffect* self, QPainter* painter);
 void QGraphicsDropShadowEffect_OnDraw(QGraphicsDropShadowEffect* self, intptr_t slot);
@@ -351,12 +343,12 @@ void QGraphicsDropShadowEffect_QBaseChildEvent(QGraphicsDropShadowEffect* self, 
 void QGraphicsDropShadowEffect_CustomEvent(QGraphicsDropShadowEffect* self, QEvent* event);
 void QGraphicsDropShadowEffect_OnCustomEvent(QGraphicsDropShadowEffect* self, intptr_t slot);
 void QGraphicsDropShadowEffect_QBaseCustomEvent(QGraphicsDropShadowEffect* self, QEvent* event);
-void QGraphicsDropShadowEffect_ConnectNotify(QGraphicsDropShadowEffect* self, QMetaMethod* signal);
+void QGraphicsDropShadowEffect_ConnectNotify(QGraphicsDropShadowEffect* self, const QMetaMethod* signal);
 void QGraphicsDropShadowEffect_OnConnectNotify(QGraphicsDropShadowEffect* self, intptr_t slot);
-void QGraphicsDropShadowEffect_QBaseConnectNotify(QGraphicsDropShadowEffect* self, QMetaMethod* signal);
-void QGraphicsDropShadowEffect_DisconnectNotify(QGraphicsDropShadowEffect* self, QMetaMethod* signal);
+void QGraphicsDropShadowEffect_QBaseConnectNotify(QGraphicsDropShadowEffect* self, const QMetaMethod* signal);
+void QGraphicsDropShadowEffect_DisconnectNotify(QGraphicsDropShadowEffect* self, const QMetaMethod* signal);
 void QGraphicsDropShadowEffect_OnDisconnectNotify(QGraphicsDropShadowEffect* self, intptr_t slot);
-void QGraphicsDropShadowEffect_QBaseDisconnectNotify(QGraphicsDropShadowEffect* self, QMetaMethod* signal);
+void QGraphicsDropShadowEffect_QBaseDisconnectNotify(QGraphicsDropShadowEffect* self, const QMetaMethod* signal);
 void QGraphicsDropShadowEffect_UpdateBoundingRect(QGraphicsDropShadowEffect* self);
 void QGraphicsDropShadowEffect_OnUpdateBoundingRect(QGraphicsDropShadowEffect* self, intptr_t slot);
 void QGraphicsDropShadowEffect_QBaseUpdateBoundingRect(QGraphicsDropShadowEffect* self);
@@ -381,9 +373,9 @@ int QGraphicsDropShadowEffect_QBaseSenderSignalIndex(const QGraphicsDropShadowEf
 int QGraphicsDropShadowEffect_Receivers(const QGraphicsDropShadowEffect* self, const char* signal);
 void QGraphicsDropShadowEffect_OnReceivers(const QGraphicsDropShadowEffect* self, intptr_t slot);
 int QGraphicsDropShadowEffect_QBaseReceivers(const QGraphicsDropShadowEffect* self, const char* signal);
-bool QGraphicsDropShadowEffect_IsSignalConnected(const QGraphicsDropShadowEffect* self, QMetaMethod* signal);
+bool QGraphicsDropShadowEffect_IsSignalConnected(const QGraphicsDropShadowEffect* self, const QMetaMethod* signal);
 void QGraphicsDropShadowEffect_OnIsSignalConnected(const QGraphicsDropShadowEffect* self, intptr_t slot);
-bool QGraphicsDropShadowEffect_QBaseIsSignalConnected(const QGraphicsDropShadowEffect* self, QMetaMethod* signal);
+bool QGraphicsDropShadowEffect_QBaseIsSignalConnected(const QGraphicsDropShadowEffect* self, const QMetaMethod* signal);
 void QGraphicsDropShadowEffect_Delete(QGraphicsDropShadowEffect* self);
 
 QGraphicsOpacityEffect* QGraphicsOpacityEffect_new();
@@ -397,19 +389,19 @@ libqt_string QGraphicsOpacityEffect_Tr(const char* s);
 double QGraphicsOpacityEffect_Opacity(const QGraphicsOpacityEffect* self);
 QBrush* QGraphicsOpacityEffect_OpacityMask(const QGraphicsOpacityEffect* self);
 void QGraphicsOpacityEffect_SetOpacity(QGraphicsOpacityEffect* self, double opacity);
-void QGraphicsOpacityEffect_SetOpacityMask(QGraphicsOpacityEffect* self, QBrush* mask);
+void QGraphicsOpacityEffect_SetOpacityMask(QGraphicsOpacityEffect* self, const QBrush* mask);
 void QGraphicsOpacityEffect_OpacityChanged(QGraphicsOpacityEffect* self, double opacity);
 void QGraphicsOpacityEffect_Connect_OpacityChanged(QGraphicsOpacityEffect* self, intptr_t slot);
-void QGraphicsOpacityEffect_OpacityMaskChanged(QGraphicsOpacityEffect* self, QBrush* mask);
+void QGraphicsOpacityEffect_OpacityMaskChanged(QGraphicsOpacityEffect* self, const QBrush* mask);
 void QGraphicsOpacityEffect_Connect_OpacityMaskChanged(QGraphicsOpacityEffect* self, intptr_t slot);
 void QGraphicsOpacityEffect_Draw(QGraphicsOpacityEffect* self, QPainter* painter);
 void QGraphicsOpacityEffect_OnDraw(QGraphicsOpacityEffect* self, intptr_t slot);
 void QGraphicsOpacityEffect_QBaseDraw(QGraphicsOpacityEffect* self, QPainter* painter);
 libqt_string QGraphicsOpacityEffect_Tr2(const char* s, const char* c);
 libqt_string QGraphicsOpacityEffect_Tr3(const char* s, const char* c, int n);
-QRectF* QGraphicsOpacityEffect_BoundingRectFor(const QGraphicsOpacityEffect* self, QRectF* sourceRect);
+QRectF* QGraphicsOpacityEffect_BoundingRectFor(const QGraphicsOpacityEffect* self, const QRectF* sourceRect);
 void QGraphicsOpacityEffect_OnBoundingRectFor(const QGraphicsOpacityEffect* self, intptr_t slot);
-QRectF* QGraphicsOpacityEffect_QBaseBoundingRectFor(const QGraphicsOpacityEffect* self, QRectF* sourceRect);
+QRectF* QGraphicsOpacityEffect_QBaseBoundingRectFor(const QGraphicsOpacityEffect* self, const QRectF* sourceRect);
 void QGraphicsOpacityEffect_SourceChanged(QGraphicsOpacityEffect* self, int flags);
 void QGraphicsOpacityEffect_OnSourceChanged(QGraphicsOpacityEffect* self, intptr_t slot);
 void QGraphicsOpacityEffect_QBaseSourceChanged(QGraphicsOpacityEffect* self, int flags);
@@ -428,12 +420,12 @@ void QGraphicsOpacityEffect_QBaseChildEvent(QGraphicsOpacityEffect* self, QChild
 void QGraphicsOpacityEffect_CustomEvent(QGraphicsOpacityEffect* self, QEvent* event);
 void QGraphicsOpacityEffect_OnCustomEvent(QGraphicsOpacityEffect* self, intptr_t slot);
 void QGraphicsOpacityEffect_QBaseCustomEvent(QGraphicsOpacityEffect* self, QEvent* event);
-void QGraphicsOpacityEffect_ConnectNotify(QGraphicsOpacityEffect* self, QMetaMethod* signal);
+void QGraphicsOpacityEffect_ConnectNotify(QGraphicsOpacityEffect* self, const QMetaMethod* signal);
 void QGraphicsOpacityEffect_OnConnectNotify(QGraphicsOpacityEffect* self, intptr_t slot);
-void QGraphicsOpacityEffect_QBaseConnectNotify(QGraphicsOpacityEffect* self, QMetaMethod* signal);
-void QGraphicsOpacityEffect_DisconnectNotify(QGraphicsOpacityEffect* self, QMetaMethod* signal);
+void QGraphicsOpacityEffect_QBaseConnectNotify(QGraphicsOpacityEffect* self, const QMetaMethod* signal);
+void QGraphicsOpacityEffect_DisconnectNotify(QGraphicsOpacityEffect* self, const QMetaMethod* signal);
 void QGraphicsOpacityEffect_OnDisconnectNotify(QGraphicsOpacityEffect* self, intptr_t slot);
-void QGraphicsOpacityEffect_QBaseDisconnectNotify(QGraphicsOpacityEffect* self, QMetaMethod* signal);
+void QGraphicsOpacityEffect_QBaseDisconnectNotify(QGraphicsOpacityEffect* self, const QMetaMethod* signal);
 void QGraphicsOpacityEffect_UpdateBoundingRect(QGraphicsOpacityEffect* self);
 void QGraphicsOpacityEffect_OnUpdateBoundingRect(QGraphicsOpacityEffect* self, intptr_t slot);
 void QGraphicsOpacityEffect_QBaseUpdateBoundingRect(QGraphicsOpacityEffect* self);
@@ -458,9 +450,9 @@ int QGraphicsOpacityEffect_QBaseSenderSignalIndex(const QGraphicsOpacityEffect* 
 int QGraphicsOpacityEffect_Receivers(const QGraphicsOpacityEffect* self, const char* signal);
 void QGraphicsOpacityEffect_OnReceivers(const QGraphicsOpacityEffect* self, intptr_t slot);
 int QGraphicsOpacityEffect_QBaseReceivers(const QGraphicsOpacityEffect* self, const char* signal);
-bool QGraphicsOpacityEffect_IsSignalConnected(const QGraphicsOpacityEffect* self, QMetaMethod* signal);
+bool QGraphicsOpacityEffect_IsSignalConnected(const QGraphicsOpacityEffect* self, const QMetaMethod* signal);
 void QGraphicsOpacityEffect_OnIsSignalConnected(const QGraphicsOpacityEffect* self, intptr_t slot);
-bool QGraphicsOpacityEffect_QBaseIsSignalConnected(const QGraphicsOpacityEffect* self, QMetaMethod* signal);
+bool QGraphicsOpacityEffect_QBaseIsSignalConnected(const QGraphicsOpacityEffect* self, const QMetaMethod* signal);
 void QGraphicsOpacityEffect_Delete(QGraphicsOpacityEffect* self);
 
 #ifdef __cplusplus

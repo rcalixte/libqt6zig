@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qimagereader_enums = @import("libqimagereader.zig").enums;
 const qmovie_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
@@ -10,122 +11,122 @@ pub const qmovie = struct {
     /// New constructs a new QMovie object.
     ///
     ///
-    pub fn New() ?*C.QMovie {
-        return C.QMovie_new();
+    pub fn New() QtC.QMovie {
+        return qtc.QMovie_new();
     }
 
     /// New2 constructs a new QMovie object.
     ///
-    /// ``` device: ?*C.QIODevice ```
-    pub fn New2(device: ?*anyopaque) ?*C.QMovie {
-        return C.QMovie_new2(@ptrCast(device));
+    /// ``` device: QtC.QIODevice ```
+    pub fn New2(device: ?*anyopaque) QtC.QMovie {
+        return qtc.QMovie_new2(@ptrCast(device));
     }
 
     /// New3 constructs a new QMovie object.
     ///
     /// ``` fileName: []const u8 ```
-    pub fn New3(fileName: []const u8) ?*C.QMovie {
-        const fileName_str = C.struct_libqt_string{
+    pub fn New3(fileName: []const u8) QtC.QMovie {
+        const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
             .data = @constCast(fileName.ptr),
         };
 
-        return C.QMovie_new3(fileName_str);
+        return qtc.QMovie_new3(fileName_str);
     }
 
     /// New4 constructs a new QMovie object.
     ///
-    /// ``` parent: ?*C.QObject ```
-    pub fn New4(parent: ?*anyopaque) ?*C.QMovie {
-        return C.QMovie_new4(@ptrCast(parent));
+    /// ``` parent: QtC.QObject ```
+    pub fn New4(parent: ?*anyopaque) QtC.QMovie {
+        return qtc.QMovie_new4(@ptrCast(parent));
     }
 
     /// New5 constructs a new QMovie object.
     ///
-    /// ``` device: ?*C.QIODevice, format: []u8 ```
-    pub fn New5(device: ?*anyopaque, format: []u8) ?*C.QMovie {
-        const format_str = C.struct_libqt_string{
+    /// ``` device: QtC.QIODevice, format: []u8 ```
+    pub fn New5(device: ?*anyopaque, format: []u8) QtC.QMovie {
+        const format_str = qtc.struct_libqt_string{
             .len = format.len,
             .data = @constCast(format.ptr),
         };
 
-        return C.QMovie_new5(@ptrCast(device), format_str);
+        return qtc.QMovie_new5(@ptrCast(device), format_str);
     }
 
     /// New6 constructs a new QMovie object.
     ///
-    /// ``` device: ?*C.QIODevice, format: []u8, parent: ?*C.QObject ```
-    pub fn New6(device: ?*anyopaque, format: []u8, parent: ?*anyopaque) ?*C.QMovie {
-        const format_str = C.struct_libqt_string{
+    /// ``` device: QtC.QIODevice, format: []u8, parent: QtC.QObject ```
+    pub fn New6(device: ?*anyopaque, format: []u8, parent: ?*anyopaque) QtC.QMovie {
+        const format_str = qtc.struct_libqt_string{
             .len = format.len,
             .data = @constCast(format.ptr),
         };
 
-        return C.QMovie_new6(@ptrCast(device), format_str, @ptrCast(parent));
+        return qtc.QMovie_new6(@ptrCast(device), format_str, @ptrCast(parent));
     }
 
     /// New7 constructs a new QMovie object.
     ///
     /// ``` fileName: []const u8, format: []u8 ```
-    pub fn New7(fileName: []const u8, format: []u8) ?*C.QMovie {
-        const fileName_str = C.struct_libqt_string{
+    pub fn New7(fileName: []const u8, format: []u8) QtC.QMovie {
+        const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
             .data = @constCast(fileName.ptr),
         };
-        const format_str = C.struct_libqt_string{
+        const format_str = qtc.struct_libqt_string{
             .len = format.len,
             .data = @constCast(format.ptr),
         };
 
-        return C.QMovie_new7(fileName_str, format_str);
+        return qtc.QMovie_new7(fileName_str, format_str);
     }
 
     /// New8 constructs a new QMovie object.
     ///
-    /// ``` fileName: []const u8, format: []u8, parent: ?*C.QObject ```
-    pub fn New8(fileName: []const u8, format: []u8, parent: ?*anyopaque) ?*C.QMovie {
-        const fileName_str = C.struct_libqt_string{
+    /// ``` fileName: []const u8, format: []u8, parent: QtC.QObject ```
+    pub fn New8(fileName: []const u8, format: []u8, parent: ?*anyopaque) QtC.QMovie {
+        const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
             .data = @constCast(fileName.ptr),
         };
-        const format_str = C.struct_libqt_string{
+        const format_str = qtc.struct_libqt_string{
             .len = format.len,
             .data = @constCast(format.ptr),
         };
 
-        return C.QMovie_new8(fileName_str, format_str, @ptrCast(parent));
+        return qtc.QMovie_new8(fileName_str, format_str, @ptrCast(parent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: ?*C.QMovie ```
-    pub fn MetaObject(self: ?*anyopaque) ?*C.QMetaObject {
-        return C.QMovie_MetaObject(@ptrCast(self));
+    /// ``` self: QtC.QMovie ```
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QMovie_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QMovie, param1: []const u8 ```
+    /// ``` self: QtC.QMovie, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = @constCast(param1.ptr);
-        return C.QMovie_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QMovie_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: ?*C.QMovie, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QMovie, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QMovie_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QMovie_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie, qobjectdefs_enums.Call, i32, ?*anyopaque) callconv(.c) i32 ```
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
     pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
-        C.QMovie_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QMovie, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QMovie, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QMovie_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QMovie_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -133,9 +134,9 @@ pub const qmovie = struct {
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
-        const _str = C.QMovie_Tr(s_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QMovie_Tr(s_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmovie.Tr: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -146,18 +147,18 @@ pub const qmovie = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SupportedFormats(allocator: std.mem.Allocator) [][]u8 {
-        const _arr: C.struct_libqt_list = C.QMovie_SupportedFormats();
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QMovie_SupportedFormats();
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qmovie.SupportedFormats: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qmovie.SupportedFormats: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -166,36 +167,36 @@ pub const qmovie = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#setDevice)
     ///
-    /// ``` self: ?*C.QMovie, device: ?*C.QIODevice ```
+    /// ``` self: QtC.QMovie, device: QtC.QIODevice ```
     pub fn SetDevice(self: ?*anyopaque, device: ?*anyopaque) void {
-        C.QMovie_SetDevice(@ptrCast(self), @ptrCast(device));
+        qtc.QMovie_SetDevice(@ptrCast(self), @ptrCast(device));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#device)
     ///
-    /// ``` self: ?*C.QMovie ```
-    pub fn Device(self: ?*anyopaque) ?*C.QIODevice {
-        return C.QMovie_Device(@ptrCast(self));
+    /// ``` self: QtC.QMovie ```
+    pub fn Device(self: ?*anyopaque) QtC.QIODevice {
+        return qtc.QMovie_Device(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#setFileName)
     ///
-    /// ``` self: ?*C.QMovie, fileName: []const u8 ```
+    /// ``` self: QtC.QMovie, fileName: []const u8 ```
     pub fn SetFileName(self: ?*anyopaque, fileName: []const u8) void {
-        const fileName_str = C.struct_libqt_string{
+        const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
             .data = @constCast(fileName.ptr),
         };
-        C.QMovie_SetFileName(@ptrCast(self), fileName_str);
+        qtc.QMovie_SetFileName(@ptrCast(self), fileName_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#fileName)
     ///
-    /// ``` self: ?*C.QMovie, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QMovie, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QMovie_FileName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QMovie_FileName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmovie.FileName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -204,22 +205,22 @@ pub const qmovie = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#setFormat)
     ///
-    /// ``` self: ?*C.QMovie, format: []u8 ```
+    /// ``` self: QtC.QMovie, format: []u8 ```
     pub fn SetFormat(self: ?*anyopaque, format: []u8) void {
-        const format_str = C.struct_libqt_string{
+        const format_str = qtc.struct_libqt_string{
             .len = format.len,
             .data = @constCast(format.ptr),
         };
-        C.QMovie_SetFormat(@ptrCast(self), format_str);
+        qtc.QMovie_SetFormat(@ptrCast(self), format_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#format)
     ///
-    /// ``` self: ?*C.QMovie, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QMovie, allocator: std.mem.Allocator ```
     pub fn Format(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: C.struct_libqt_string = C.QMovie_Format(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_bytearray));
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Memory allocation failed");
+        const _bytearray: qtc.struct_libqt_string = qtc.QMovie_Format(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmovie.Format: Memory allocation failed");
         for (0.._bytearray.len) |_i| {
             _ret[_i] = _bytearray.data[_i];
         }
@@ -228,67 +229,67 @@ pub const qmovie = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#setBackgroundColor)
     ///
-    /// ``` self: ?*C.QMovie, color: ?*C.QColor ```
+    /// ``` self: QtC.QMovie, color: QtC.QColor ```
     pub fn SetBackgroundColor(self: ?*anyopaque, color: ?*anyopaque) void {
-        C.QMovie_SetBackgroundColor(@ptrCast(self), @ptrCast(color));
+        qtc.QMovie_SetBackgroundColor(@ptrCast(self), @ptrCast(color));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#backgroundColor)
     ///
-    /// ``` self: ?*C.QMovie ```
-    pub fn BackgroundColor(self: ?*anyopaque) ?*C.QColor {
-        return C.QMovie_BackgroundColor(@ptrCast(self));
+    /// ``` self: QtC.QMovie ```
+    pub fn BackgroundColor(self: ?*anyopaque) QtC.QColor {
+        return qtc.QMovie_BackgroundColor(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#state)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn State(self: ?*anyopaque) i64 {
-        return C.QMovie_State(@ptrCast(self));
+        return qtc.QMovie_State(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#frameRect)
     ///
-    /// ``` self: ?*C.QMovie ```
-    pub fn FrameRect(self: ?*anyopaque) ?*C.QRect {
-        return C.QMovie_FrameRect(@ptrCast(self));
+    /// ``` self: QtC.QMovie ```
+    pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QMovie_FrameRect(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#currentImage)
     ///
-    /// ``` self: ?*C.QMovie ```
-    pub fn CurrentImage(self: ?*anyopaque) ?*C.QImage {
-        return C.QMovie_CurrentImage(@ptrCast(self));
+    /// ``` self: QtC.QMovie ```
+    pub fn CurrentImage(self: ?*anyopaque) QtC.QImage {
+        return qtc.QMovie_CurrentImage(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#currentPixmap)
     ///
-    /// ``` self: ?*C.QMovie ```
-    pub fn CurrentPixmap(self: ?*anyopaque) ?*C.QPixmap {
-        return C.QMovie_CurrentPixmap(@ptrCast(self));
+    /// ``` self: QtC.QMovie ```
+    pub fn CurrentPixmap(self: ?*anyopaque) QtC.QPixmap {
+        return qtc.QMovie_CurrentPixmap(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#isValid)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QMovie_IsValid(@ptrCast(self));
+        return qtc.QMovie_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#lastError)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn LastError(self: ?*anyopaque) i64 {
-        return C.QMovie_LastError(@ptrCast(self));
+        return qtc.QMovie_LastError(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#lastErrorString)
     ///
-    /// ``` self: ?*C.QMovie, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QMovie, allocator: std.mem.Allocator ```
     pub fn LastErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QMovie_LastErrorString(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QMovie_LastErrorString(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmovie.LastErrorString: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -297,191 +298,205 @@ pub const qmovie = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#jumpToFrame)
     ///
-    /// ``` self: ?*C.QMovie, frameNumber: i32 ```
+    /// ``` self: QtC.QMovie, frameNumber: i32 ```
     pub fn JumpToFrame(self: ?*anyopaque, frameNumber: i32) bool {
-        return C.QMovie_JumpToFrame(@ptrCast(self), @intCast(frameNumber));
+        return qtc.QMovie_JumpToFrame(@ptrCast(self), @intCast(frameNumber));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#loopCount)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn LoopCount(self: ?*anyopaque) i32 {
-        return C.QMovie_LoopCount(@ptrCast(self));
+        return qtc.QMovie_LoopCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#frameCount)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn FrameCount(self: ?*anyopaque) i32 {
-        return C.QMovie_FrameCount(@ptrCast(self));
+        return qtc.QMovie_FrameCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#nextFrameDelay)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn NextFrameDelay(self: ?*anyopaque) i32 {
-        return C.QMovie_NextFrameDelay(@ptrCast(self));
+        return qtc.QMovie_NextFrameDelay(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#currentFrameNumber)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn CurrentFrameNumber(self: ?*anyopaque) i32 {
-        return C.QMovie_CurrentFrameNumber(@ptrCast(self));
+        return qtc.QMovie_CurrentFrameNumber(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#speed)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn Speed(self: ?*anyopaque) i32 {
-        return C.QMovie_Speed(@ptrCast(self));
+        return qtc.QMovie_Speed(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#scaledSize)
     ///
-    /// ``` self: ?*C.QMovie ```
-    pub fn ScaledSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QMovie_ScaledSize(@ptrCast(self));
+    /// ``` self: QtC.QMovie ```
+    pub fn ScaledSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QMovie_ScaledSize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#setScaledSize)
     ///
-    /// ``` self: ?*C.QMovie, size: ?*C.QSize ```
+    /// ``` self: QtC.QMovie, size: QtC.QSize ```
     pub fn SetScaledSize(self: ?*anyopaque, size: ?*anyopaque) void {
-        C.QMovie_SetScaledSize(@ptrCast(self), @ptrCast(size));
+        qtc.QMovie_SetScaledSize(@ptrCast(self), @ptrCast(size));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#cacheMode)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn CacheMode(self: ?*anyopaque) i64 {
-        return C.QMovie_CacheMode(@ptrCast(self));
+        return qtc.QMovie_CacheMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#setCacheMode)
     ///
-    /// ``` self: ?*C.QMovie, mode: qmovie_enums.CacheMode ```
+    /// ``` self: QtC.QMovie, mode: qmovie_enums.CacheMode ```
     pub fn SetCacheMode(self: ?*anyopaque, mode: i64) void {
-        C.QMovie_SetCacheMode(@ptrCast(self), @intCast(mode));
+        qtc.QMovie_SetCacheMode(@ptrCast(self), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#started)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn Started(self: ?*anyopaque) void {
-        C.QMovie_Started(@ptrCast(self));
+        qtc.QMovie_Started(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#started)
+    ///
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie) callconv(.c) void ```
     pub fn OnStarted(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QMovie_Connect_Started(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_Connect_Started(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#resized)
     ///
-    /// ``` self: ?*C.QMovie, size: ?*C.QSize ```
+    /// ``` self: QtC.QMovie, size: QtC.QSize ```
     pub fn Resized(self: ?*anyopaque, size: ?*anyopaque) void {
-        C.QMovie_Resized(@ptrCast(self), @ptrCast(size));
+        qtc.QMovie_Resized(@ptrCast(self), @ptrCast(size));
     }
 
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie, ?*C.QSize) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#resized)
+    ///
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, size: QtC.QSize) callconv(.c) void ```
     pub fn OnResized(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QMovie_Connect_Resized(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_Connect_Resized(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#updated)
     ///
-    /// ``` self: ?*C.QMovie, rect: ?*C.QRect ```
+    /// ``` self: QtC.QMovie, rect: QtC.QRect ```
     pub fn Updated(self: ?*anyopaque, rect: ?*anyopaque) void {
-        C.QMovie_Updated(@ptrCast(self), @ptrCast(rect));
+        qtc.QMovie_Updated(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie, ?*C.QRect) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#updated)
+    ///
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, rect: QtC.QRect) callconv(.c) void ```
     pub fn OnUpdated(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QMovie_Connect_Updated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_Connect_Updated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#stateChanged)
     ///
-    /// ``` self: ?*C.QMovie, state: qmovie_enums.MovieState ```
+    /// ``` self: QtC.QMovie, state: qmovie_enums.MovieState ```
     pub fn StateChanged(self: ?*anyopaque, state: i64) void {
-        C.QMovie_StateChanged(@ptrCast(self), @intCast(state));
+        qtc.QMovie_StateChanged(@ptrCast(self), @intCast(state));
     }
 
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie, qmovie_enums.MovieState) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#stateChanged)
+    ///
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, state: qmovie_enums.MovieState) callconv(.c) void ```
     pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
-        C.QMovie_Connect_StateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_Connect_StateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#error)
     ///
-    /// ``` self: ?*C.QMovie, errorVal: qimagereader_enums.ImageReaderError ```
+    /// ``` self: QtC.QMovie, errorVal: qimagereader_enums.ImageReaderError ```
     pub fn Error(self: ?*anyopaque, errorVal: i64) void {
-        C.QMovie_Error(@ptrCast(self), @intCast(errorVal));
+        qtc.QMovie_Error(@ptrCast(self), @intCast(errorVal));
     }
 
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie, qimagereader_enums.ImageReaderError) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#error)
+    ///
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, errorVal: qimagereader_enums.ImageReaderError) callconv(.c) void ```
     pub fn OnError(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
-        C.QMovie_Connect_Error(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_Connect_Error(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#finished)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn Finished(self: ?*anyopaque) void {
-        C.QMovie_Finished(@ptrCast(self));
+        qtc.QMovie_Finished(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#finished)
+    ///
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QMovie_Connect_Finished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_Connect_Finished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#frameChanged)
     ///
-    /// ``` self: ?*C.QMovie, frameNumber: i32 ```
+    /// ``` self: QtC.QMovie, frameNumber: i32 ```
     pub fn FrameChanged(self: ?*anyopaque, frameNumber: i32) void {
-        C.QMovie_FrameChanged(@ptrCast(self), @intCast(frameNumber));
+        qtc.QMovie_FrameChanged(@ptrCast(self), @intCast(frameNumber));
     }
 
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#frameChanged)
+    ///
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, frameNumber: i32) callconv(.c) void ```
     pub fn OnFrameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QMovie_Connect_FrameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_Connect_FrameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#start)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn Start(self: ?*anyopaque) void {
-        C.QMovie_Start(@ptrCast(self));
+        qtc.QMovie_Start(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#jumpToNextFrame)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn JumpToNextFrame(self: ?*anyopaque) bool {
-        return C.QMovie_JumpToNextFrame(@ptrCast(self));
+        return qtc.QMovie_JumpToNextFrame(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#setPaused)
     ///
-    /// ``` self: ?*C.QMovie, paused: bool ```
+    /// ``` self: QtC.QMovie, paused: bool ```
     pub fn SetPaused(self: ?*anyopaque, paused: bool) void {
-        C.QMovie_SetPaused(@ptrCast(self), paused);
+        qtc.QMovie_SetPaused(@ptrCast(self), paused);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#stop)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn Stop(self: ?*anyopaque) void {
-        C.QMovie_Stop(@ptrCast(self));
+        qtc.QMovie_Stop(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#setSpeed)
     ///
-    /// ``` self: ?*C.QMovie, percentSpeed: i32 ```
+    /// ``` self: QtC.QMovie, percentSpeed: i32 ```
     pub fn SetSpeed(self: ?*anyopaque, percentSpeed: i32) void {
-        C.QMovie_SetSpeed(@ptrCast(self), @intCast(percentSpeed));
+        qtc.QMovie_SetSpeed(@ptrCast(self), @intCast(percentSpeed));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -490,9 +505,9 @@ pub const qmovie = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QMovie_Tr2(s_Cstring, c_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QMovie_Tr2(s_Cstring, c_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmovie.Tr2: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -505,9 +520,9 @@ pub const qmovie = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QMovie_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QMovie_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmovie.Tr3: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -518,11 +533,11 @@ pub const qmovie = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: ?*C.QMovie, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QMovie, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QObject_ObjectName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmovie.ObjectName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -533,102 +548,102 @@ pub const qmovie = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: ?*C.QMovie, name: []const u8 ```
+    /// ``` self: QtC.QMovie, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return C.QObject_IsWidgetType(@ptrCast(self));
+        return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
-        return C.QObject_IsWindowType(@ptrCast(self));
+        return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return C.QObject_IsQuickItemType(@ptrCast(self));
+        return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return C.QObject_SignalsBlocked(@ptrCast(self));
+        return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: ?*C.QMovie, b: bool ```
+    /// ``` self: QtC.QMovie, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return C.QObject_BlockSignals(@ptrCast(self), b);
+        return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: ?*C.QMovie ```
-    pub fn Thread(self: ?*anyopaque) ?*C.QThread {
-        return C.QObject_Thread(@ptrCast(self));
+    /// ``` self: QtC.QMovie ```
+    pub fn Thread(self: ?*anyopaque) QtC.QThread {
+        return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: ?*C.QMovie, thread: ?*C.QThread ```
+    /// ``` self: QtC.QMovie, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        C.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QMovie, interval: i32 ```
+    /// ``` self: QtC.QMovie, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return C.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: ?*C.QMovie, id: i32 ```
+    /// ``` self: QtC.QMovie, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        C.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: ?*C.QMovie, allocator: std.mem.Allocator ```
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QObject {
-        const _arr: C.struct_libqt_list = C.QObject_Children(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QObject, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QObject = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QMovie, allocator: std.mem.Allocator ```
+    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
+        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qmovie.Children: Memory allocation failed");
+        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -639,123 +654,123 @@ pub const qmovie = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: ?*C.QMovie, parent: ?*C.QObject ```
+    /// ``` self: QtC.QMovie, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        C.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: ?*C.QMovie, filterObj: ?*C.QObject ```
+    /// ``` self: QtC.QMovie, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        C.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: ?*C.QMovie, obj: ?*C.QObject ```
+    /// ``` self: QtC.QMovie, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        C.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod ```
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QMovie, sender: ?*C.QObject, signal: []const u8, member: []const u8 ```
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QMovie, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, member: ?*C.QMetaMethod ```
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return C.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: ?*C.QMetaObject__Connection ```
+    /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return C.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
-        C.QObject_DumpObjectTree(@ptrCast(self));
+        qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        C.QObject_DumpObjectInfo(@ptrCast(self));
+        qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: ?*C.QMovie, name: []const u8, value: ?*C.QVariant ```
+    /// ``` self: QtC.QMovie, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: ?*C.QMovie, name: []const u8 ```
-    pub fn Property(self: ?*anyopaque, name: []const u8) ?*C.QVariant {
+    /// ``` self: QtC.QMovie, name: []const u8 ```
+    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_Property(@ptrCast(self), name_Cstring);
+        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: ?*C.QMovie, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QMovie, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: C.struct_libqt_list = C.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qmovie.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qmovie.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -766,107 +781,111 @@ pub const qmovie = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QMovie ```
-    pub fn BindingStorage(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage(@ptrCast(self));
+    /// ``` self: QtC.QMovie ```
+    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QMovie ```
-    pub fn BindingStorage2(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage2(@ptrCast(self));
+    /// ``` self: QtC.QMovie ```
+    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn Destroyed(self: ?*anyopaque) void {
-        C.QObject_Destroyed(@ptrCast(self));
+        qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: ?*C.QMovie ```
-    pub fn Parent(self: ?*anyopaque) ?*C.QObject {
-        return C.QObject_Parent(@ptrCast(self));
+    /// ``` self: QtC.QMovie ```
+    pub fn Parent(self: ?*anyopaque) QtC.QObject {
+        return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: ?*C.QMovie, classname: []const u8 ```
+    /// ``` self: QtC.QMovie, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = @constCast(classname.ptr);
-        return C.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn DeleteLater(self: ?*anyopaque) void {
-        C.QObject_DeleteLater(@ptrCast(self));
+        qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QMovie, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ``` self: QtC.QMovie, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return C.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QMovie, sender: ?*C.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QMovie, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QMovie, param1: ?*C.QObject ```
+    /// ``` self: QtC.QMovie, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject, ?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -875,27 +894,31 @@ pub const qmovie = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, event: ?*C.QEvent ```
+    /// ``` self: QtC.QMovie, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QMovie_Event(@ptrCast(self), @ptrCast(event));
+        return qtc.QMovie_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, event: ?*C.QEvent ```
+    /// ``` self: QtC.QMovie, event: QtC.QEvent ```
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QMovie_QBaseEvent(@ptrCast(self), @ptrCast(event));
+        return qtc.QMovie_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QMovie_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -904,27 +927,31 @@ pub const qmovie = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QMovie, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QMovie_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QMovie_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QMovie, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QMovie_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QMovie_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie, ?*C.QObject, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QMovie_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -933,27 +960,31 @@ pub const qmovie = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QMovie, event: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QMovie_TimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QMovie_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QMovie, event: QtC.QTimerEvent ```
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QMovie_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QMovie_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie, ?*C.QTimerEvent) callconv(.c) void ```
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, event: QtC.QTimerEvent) callconv(.c) void ```
     pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QMovie_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -962,27 +993,31 @@ pub const qmovie = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QMovie, event: QtC.QChildEvent ```
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QMovie_ChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QMovie_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QMovie, event: QtC.QChildEvent ```
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QMovie_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QMovie_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie, ?*C.QChildEvent) callconv(.c) void ```
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, event: QtC.QChildEvent) callconv(.c) void ```
     pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QMovie_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -991,27 +1026,31 @@ pub const qmovie = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, event: ?*C.QEvent ```
+    /// ``` self: QtC.QMovie, event: QtC.QEvent ```
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QMovie_CustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QMovie_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, event: ?*C.QEvent ```
+    /// ``` self: QtC.QMovie, event: QtC.QEvent ```
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QMovie_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QMovie_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, event: QtC.QEvent) callconv(.c) void ```
     pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QMovie_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1020,27 +1059,31 @@ pub const qmovie = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QMovie, signal: QtC.QMetaMethod ```
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QMovie_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QMovie_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QMovie, signal: QtC.QMetaMethod ```
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QMovie_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QMovie_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QMovie_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1049,27 +1092,31 @@ pub const qmovie = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QMovie, signal: QtC.QMetaMethod ```
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QMovie_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QMovie_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QMovie, signal: QtC.QMetaMethod ```
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QMovie_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QMovie_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QMovie_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1078,27 +1125,31 @@ pub const qmovie = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie ```
-    pub fn Sender(self: ?*anyopaque) ?*C.QObject {
-        return C.QMovie_Sender(@ptrCast(self));
+    /// ``` self: QtC.QMovie ```
+    pub fn Sender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QMovie_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie ```
-    pub fn QBaseSender(self: ?*anyopaque) ?*C.QObject {
-        return C.QMovie_QBaseSender(@ptrCast(self));
+    /// ``` self: QtC.QMovie ```
+    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QMovie_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, slot: fn () callconv(.c) ?*C.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QObject) void {
-        C.QMovie_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMovie, slot: fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
+        qtc.QMovie_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1107,27 +1158,31 @@ pub const qmovie = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QMovie_SenderSignalIndex(@ptrCast(self));
+        return qtc.QMovie_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QMovie_QBaseSenderSignalIndex(@ptrCast(self));
+        return qtc.QMovie_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QMovie, slot: fn () callconv(.c) i32 ```
     pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QMovie_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1136,29 +1191,33 @@ pub const qmovie = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, signal: []const u8 ```
+    /// ``` self: QtC.QMovie, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QMovie_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QMovie_Receivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, signal: []const u8 ```
+    /// ``` self: QtC.QMovie, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QMovie_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QMovie_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie, []const u8) callconv(.c) i32 ```
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, signal: []const u8) callconv(.c) i32 ```
     pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
-        C.QMovie_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1167,34 +1226,51 @@ pub const qmovie = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QMovie, signal: QtC.QMetaMethod ```
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QMovie_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QMovie_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QMovie, signal: QtC.QMetaMethod ```
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QMovie_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QMovie_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QMovie, slot: fn (?*C.QMovie, ?*C.QMetaMethod) callconv(.c) bool ```
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QMovie_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QMovie_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    ///
+    /// Wrapper to allow calling private signal
+    ///
+    /// ``` self: QtC.QMovie, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#dtor.QMovie)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QMovie ```
+    /// ``` self: QtC.QMovie ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QMovie_Delete(@ptrCast(self));
+        qtc.QMovie_Delete(@ptrCast(self));
     }
 };
 

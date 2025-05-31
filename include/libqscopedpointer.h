@@ -19,7 +19,7 @@ extern "C" {
 typedef struct QScopedPointerPodDeleter QScopedPointerPodDeleter;
 #endif
 
-QScopedPointerPodDeleter* QScopedPointerPodDeleter_new(QScopedPointerPodDeleter* other);
+QScopedPointerPodDeleter* QScopedPointerPodDeleter_new(const QScopedPointerPodDeleter* other);
 QScopedPointerPodDeleter* QScopedPointerPodDeleter_new2(QScopedPointerPodDeleter* other);
 void QScopedPointerPodDeleter_CopyAssign(QScopedPointerPodDeleter* self, QScopedPointerPodDeleter* other);
 void QScopedPointerPodDeleter_MoveAssign(QScopedPointerPodDeleter* self, QScopedPointerPodDeleter* other);

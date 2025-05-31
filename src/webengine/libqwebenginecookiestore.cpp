@@ -1,21 +1,11 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
-#include <QChildEvent>
-#include <QEvent>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QNetworkCookie>
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
 #include <QUrl>
-#include <QVariant>
 #include <QWebEngineCookieStore>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QWebEngineCookieStore__FilterRequest
 #include <qwebenginecookiestore.h>
@@ -46,11 +36,11 @@ libqt_string QWebEngineCookieStore_Tr(const char* s) {
     return _str;
 }
 
-void QWebEngineCookieStore_SetCookie(QWebEngineCookieStore* self, QNetworkCookie* cookie) {
+void QWebEngineCookieStore_SetCookie(QWebEngineCookieStore* self, const QNetworkCookie* cookie) {
     self->setCookie(*cookie);
 }
 
-void QWebEngineCookieStore_DeleteCookie(QWebEngineCookieStore* self, QNetworkCookie* cookie) {
+void QWebEngineCookieStore_DeleteCookie(QWebEngineCookieStore* self, const QNetworkCookie* cookie) {
     self->deleteCookie(*cookie);
 }
 
@@ -66,7 +56,7 @@ void QWebEngineCookieStore_LoadAllCookies(QWebEngineCookieStore* self) {
     self->loadAllCookies();
 }
 
-void QWebEngineCookieStore_CookieAdded(QWebEngineCookieStore* self, QNetworkCookie* cookie) {
+void QWebEngineCookieStore_CookieAdded(QWebEngineCookieStore* self, const QNetworkCookie* cookie) {
     self->cookieAdded(*cookie);
 }
 
@@ -80,7 +70,7 @@ void QWebEngineCookieStore_Connect_CookieAdded(QWebEngineCookieStore* self, intp
     });
 }
 
-void QWebEngineCookieStore_CookieRemoved(QWebEngineCookieStore* self, QNetworkCookie* cookie) {
+void QWebEngineCookieStore_CookieRemoved(QWebEngineCookieStore* self, const QNetworkCookie* cookie) {
     self->cookieRemoved(*cookie);
 }
 
@@ -118,20 +108,12 @@ libqt_string QWebEngineCookieStore_Tr3(const char* s, const char* c, int n) {
     return _str;
 }
 
-void QWebEngineCookieStore_SetCookie2(QWebEngineCookieStore* self, QNetworkCookie* cookie, QUrl* origin) {
+void QWebEngineCookieStore_SetCookie2(QWebEngineCookieStore* self, const QNetworkCookie* cookie, const QUrl* origin) {
     self->setCookie(*cookie, *origin);
 }
 
-void QWebEngineCookieStore_DeleteCookie2(QWebEngineCookieStore* self, QNetworkCookie* cookie, QUrl* origin) {
+void QWebEngineCookieStore_DeleteCookie2(QWebEngineCookieStore* self, const QNetworkCookie* cookie, const QUrl* origin) {
     self->deleteCookie(*cookie, *origin);
-}
-
-bool QWebEngineCookieStore_Event(QWebEngineCookieStore* self, QEvent* event) {
-    return self->event(event);
-}
-
-bool QWebEngineCookieStore_EventFilter(QWebEngineCookieStore* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
 }
 
 void QWebEngineCookieStore_Delete(QWebEngineCookieStore* self) {

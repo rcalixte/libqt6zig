@@ -21,9 +21,9 @@ typedef struct QSslKey QSslKey;
 typedef struct QWebEngineClientCertificateStore QWebEngineClientCertificateStore;
 #endif
 
-void QWebEngineClientCertificateStore_Add(QWebEngineClientCertificateStore* self, QSslCertificate* certificate, QSslKey* privateKey);
+void QWebEngineClientCertificateStore_Add(QWebEngineClientCertificateStore* self, const QSslCertificate* certificate, const QSslKey* privateKey);
 libqt_list /* of QSslCertificate* */ QWebEngineClientCertificateStore_Certificates(const QWebEngineClientCertificateStore* self);
-void QWebEngineClientCertificateStore_Remove(QWebEngineClientCertificateStore* self, QSslCertificate* certificate);
+void QWebEngineClientCertificateStore_Remove(QWebEngineClientCertificateStore* self, const QSslCertificate* certificate);
 void QWebEngineClientCertificateStore_Clear(QWebEngineClientCertificateStore* self);
 
 #ifdef __cplusplus

@@ -1,54 +1,57 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 
 /// https://doc.qt.io/qt-6/qstyleoption.html
 pub const qstyleoption = struct {
     /// New constructs a new QStyleOption object.
     ///
     ///
-    pub fn New() ?*C.QStyleOption {
-        return C.QStyleOption_new();
+    pub fn New() QtC.QStyleOption {
+        return qtc.QStyleOption_new();
     }
 
     /// New2 constructs a new QStyleOption object.
     ///
-    /// ``` other: ?*C.QStyleOption ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOption {
-        return C.QStyleOption_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOption ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOption {
+        return qtc.QStyleOption_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QStyleOption object.
     ///
     /// ``` version: i32 ```
-    pub fn New3(version: i32) ?*C.QStyleOption {
-        return C.QStyleOption_new3(@intCast(version));
+    pub fn New3(version: i32) QtC.QStyleOption {
+        return qtc.QStyleOption_new3(@intCast(version));
     }
 
     /// New4 constructs a new QStyleOption object.
     ///
     /// ``` version: i32, typeVal: i32 ```
-    pub fn New4(version: i32, typeVal: i32) ?*C.QStyleOption {
-        return C.QStyleOption_new4(@intCast(version), @intCast(typeVal));
+    pub fn New4(version: i32, typeVal: i32) QtC.QStyleOption {
+        return qtc.QStyleOption_new4(@intCast(version), @intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOption, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOption, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOption, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOption, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#dtor.QStyleOption)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOption ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOption_Delete(@ptrCast(self));
+        qtc.QStyleOption_Delete(@ptrCast(self));
     }
 };
 
@@ -57,40 +60,42 @@ pub const qstyleoptionfocusrect = struct {
     /// New constructs a new QStyleOptionFocusRect object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionFocusRect {
-        return C.QStyleOptionFocusRect_new();
+    pub fn New() QtC.QStyleOptionFocusRect {
+        return qtc.QStyleOptionFocusRect_new();
     }
 
     /// New2 constructs a new QStyleOptionFocusRect object.
     ///
-    /// ``` other: ?*C.QStyleOptionFocusRect ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionFocusRect {
-        return C.QStyleOptionFocusRect_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionFocusRect ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionFocusRect {
+        return qtc.QStyleOptionFocusRect_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionFocusRect, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionFocusRect, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionFocusRect, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionFocusRect, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionfocusrect.html#dtor.QStyleOptionFocusRect)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionFocusRect ```
+    /// ``` self: QtC.QStyleOptionFocusRect ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionFocusRect_Delete(@ptrCast(self));
+        qtc.QStyleOptionFocusRect_Delete(@ptrCast(self));
     }
 };
 
@@ -99,40 +104,42 @@ pub const qstyleoptionframe = struct {
     /// New constructs a new QStyleOptionFrame object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionFrame {
-        return C.QStyleOptionFrame_new();
+    pub fn New() QtC.QStyleOptionFrame {
+        return qtc.QStyleOptionFrame_new();
     }
 
     /// New2 constructs a new QStyleOptionFrame object.
     ///
-    /// ``` other: ?*C.QStyleOptionFrame ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionFrame {
-        return C.QStyleOptionFrame_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionFrame ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionFrame {
+        return qtc.QStyleOptionFrame_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionFrame, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionFrame, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionFrame, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionFrame, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionframe.html#dtor.QStyleOptionFrame)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionFrame ```
+    /// ``` self: QtC.QStyleOptionFrame ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionFrame_Delete(@ptrCast(self));
+        qtc.QStyleOptionFrame_Delete(@ptrCast(self));
     }
 };
 
@@ -141,40 +148,42 @@ pub const qstyleoptiontabwidgetframe = struct {
     /// New constructs a new QStyleOptionTabWidgetFrame object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionTabWidgetFrame {
-        return C.QStyleOptionTabWidgetFrame_new();
+    pub fn New() QtC.QStyleOptionTabWidgetFrame {
+        return qtc.QStyleOptionTabWidgetFrame_new();
     }
 
     /// New2 constructs a new QStyleOptionTabWidgetFrame object.
     ///
-    /// ``` other: ?*C.QStyleOptionTabWidgetFrame ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionTabWidgetFrame {
-        return C.QStyleOptionTabWidgetFrame_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionTabWidgetFrame ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionTabWidgetFrame {
+        return qtc.QStyleOptionTabWidgetFrame_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionTabWidgetFrame, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionTabWidgetFrame, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionTabWidgetFrame, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionTabWidgetFrame, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#dtor.QStyleOptionTabWidgetFrame)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionTabWidgetFrame ```
+    /// ``` self: QtC.QStyleOptionTabWidgetFrame ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionTabWidgetFrame_Delete(@ptrCast(self));
+        qtc.QStyleOptionTabWidgetFrame_Delete(@ptrCast(self));
     }
 };
 
@@ -183,40 +192,42 @@ pub const qstyleoptiontabbarbase = struct {
     /// New constructs a new QStyleOptionTabBarBase object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionTabBarBase {
-        return C.QStyleOptionTabBarBase_new();
+    pub fn New() QtC.QStyleOptionTabBarBase {
+        return qtc.QStyleOptionTabBarBase_new();
     }
 
     /// New2 constructs a new QStyleOptionTabBarBase object.
     ///
-    /// ``` other: ?*C.QStyleOptionTabBarBase ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionTabBarBase {
-        return C.QStyleOptionTabBarBase_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionTabBarBase ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionTabBarBase {
+        return qtc.QStyleOptionTabBarBase_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionTabBarBase, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionTabBarBase, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionTabBarBase, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionTabBarBase, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiontabbarbase.html#dtor.QStyleOptionTabBarBase)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionTabBarBase ```
+    /// ``` self: QtC.QStyleOptionTabBarBase ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionTabBarBase_Delete(@ptrCast(self));
+        qtc.QStyleOptionTabBarBase_Delete(@ptrCast(self));
     }
 };
 
@@ -225,40 +236,42 @@ pub const qstyleoptionheader = struct {
     /// New constructs a new QStyleOptionHeader object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionHeader {
-        return C.QStyleOptionHeader_new();
+    pub fn New() QtC.QStyleOptionHeader {
+        return qtc.QStyleOptionHeader_new();
     }
 
     /// New2 constructs a new QStyleOptionHeader object.
     ///
-    /// ``` other: ?*C.QStyleOptionHeader ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionHeader {
-        return C.QStyleOptionHeader_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionHeader ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionHeader {
+        return qtc.QStyleOptionHeader_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionHeader, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionHeader, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionHeader, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionHeader, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionheader.html#dtor.QStyleOptionHeader)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionHeader ```
+    /// ``` self: QtC.QStyleOptionHeader ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionHeader_Delete(@ptrCast(self));
+        qtc.QStyleOptionHeader_Delete(@ptrCast(self));
     }
 };
 
@@ -267,40 +280,42 @@ pub const qstyleoptionheaderv2 = struct {
     /// New constructs a new QStyleOptionHeaderV2 object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionHeaderV2 {
-        return C.QStyleOptionHeaderV2_new();
+    pub fn New() QtC.QStyleOptionHeaderV2 {
+        return qtc.QStyleOptionHeaderV2_new();
     }
 
     /// New2 constructs a new QStyleOptionHeaderV2 object.
     ///
-    /// ``` other: ?*C.QStyleOptionHeaderV2 ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionHeaderV2 {
-        return C.QStyleOptionHeaderV2_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionHeaderV2 ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionHeaderV2 {
+        return qtc.QStyleOptionHeaderV2_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionHeaderV2, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionHeaderV2, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionHeaderV2, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionHeaderV2, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionheaderv2.html#dtor.QStyleOptionHeaderV2)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionHeaderV2 ```
+    /// ``` self: QtC.QStyleOptionHeaderV2 ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionHeaderV2_Delete(@ptrCast(self));
+        qtc.QStyleOptionHeaderV2_Delete(@ptrCast(self));
     }
 };
 
@@ -309,40 +324,42 @@ pub const qstyleoptionbutton = struct {
     /// New constructs a new QStyleOptionButton object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionButton {
-        return C.QStyleOptionButton_new();
+    pub fn New() QtC.QStyleOptionButton {
+        return qtc.QStyleOptionButton_new();
     }
 
     /// New2 constructs a new QStyleOptionButton object.
     ///
-    /// ``` other: ?*C.QStyleOptionButton ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionButton {
-        return C.QStyleOptionButton_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionButton ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionButton {
+        return qtc.QStyleOptionButton_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionButton, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionButton, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionButton, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionButton, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionbutton.html#dtor.QStyleOptionButton)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionButton ```
+    /// ``` self: QtC.QStyleOptionButton ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionButton_Delete(@ptrCast(self));
+        qtc.QStyleOptionButton_Delete(@ptrCast(self));
     }
 };
 
@@ -351,40 +368,42 @@ pub const qstyleoptiontab = struct {
     /// New constructs a new QStyleOptionTab object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionTab {
-        return C.QStyleOptionTab_new();
+    pub fn New() QtC.QStyleOptionTab {
+        return qtc.QStyleOptionTab_new();
     }
 
     /// New2 constructs a new QStyleOptionTab object.
     ///
-    /// ``` other: ?*C.QStyleOptionTab ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionTab {
-        return C.QStyleOptionTab_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionTab ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionTab {
+        return qtc.QStyleOptionTab_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionTab, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionTab, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionTab, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionTab, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiontab.html#dtor.QStyleOptionTab)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionTab ```
+    /// ``` self: QtC.QStyleOptionTab ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionTab_Delete(@ptrCast(self));
+        qtc.QStyleOptionTab_Delete(@ptrCast(self));
     }
 };
 
@@ -393,40 +412,42 @@ pub const qstyleoptiontoolbar = struct {
     /// New constructs a new QStyleOptionToolBar object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionToolBar {
-        return C.QStyleOptionToolBar_new();
+    pub fn New() QtC.QStyleOptionToolBar {
+        return qtc.QStyleOptionToolBar_new();
     }
 
     /// New2 constructs a new QStyleOptionToolBar object.
     ///
-    /// ``` other: ?*C.QStyleOptionToolBar ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionToolBar {
-        return C.QStyleOptionToolBar_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionToolBar ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionToolBar {
+        return qtc.QStyleOptionToolBar_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionToolBar, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionToolBar, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionToolBar, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionToolBar, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#dtor.QStyleOptionToolBar)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionToolBar ```
+    /// ``` self: QtC.QStyleOptionToolBar ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionToolBar_Delete(@ptrCast(self));
+        qtc.QStyleOptionToolBar_Delete(@ptrCast(self));
     }
 };
 
@@ -435,40 +456,42 @@ pub const qstyleoptionprogressbar = struct {
     /// New constructs a new QStyleOptionProgressBar object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionProgressBar {
-        return C.QStyleOptionProgressBar_new();
+    pub fn New() QtC.QStyleOptionProgressBar {
+        return qtc.QStyleOptionProgressBar_new();
     }
 
     /// New2 constructs a new QStyleOptionProgressBar object.
     ///
-    /// ``` other: ?*C.QStyleOptionProgressBar ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionProgressBar {
-        return C.QStyleOptionProgressBar_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionProgressBar ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionProgressBar {
+        return qtc.QStyleOptionProgressBar_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionProgressBar, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionProgressBar, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionProgressBar, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionProgressBar, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#dtor.QStyleOptionProgressBar)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionProgressBar ```
+    /// ``` self: QtC.QStyleOptionProgressBar ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionProgressBar_Delete(@ptrCast(self));
+        qtc.QStyleOptionProgressBar_Delete(@ptrCast(self));
     }
 };
 
@@ -477,40 +500,42 @@ pub const qstyleoptionmenuitem = struct {
     /// New constructs a new QStyleOptionMenuItem object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionMenuItem {
-        return C.QStyleOptionMenuItem_new();
+    pub fn New() QtC.QStyleOptionMenuItem {
+        return qtc.QStyleOptionMenuItem_new();
     }
 
     /// New2 constructs a new QStyleOptionMenuItem object.
     ///
-    /// ``` other: ?*C.QStyleOptionMenuItem ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionMenuItem {
-        return C.QStyleOptionMenuItem_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionMenuItem ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionMenuItem {
+        return qtc.QStyleOptionMenuItem_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionMenuItem, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionMenuItem, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionMenuItem, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionMenuItem, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#dtor.QStyleOptionMenuItem)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionMenuItem ```
+    /// ``` self: QtC.QStyleOptionMenuItem ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionMenuItem_Delete(@ptrCast(self));
+        qtc.QStyleOptionMenuItem_Delete(@ptrCast(self));
     }
 };
 
@@ -519,40 +544,42 @@ pub const qstyleoptiondockwidget = struct {
     /// New constructs a new QStyleOptionDockWidget object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionDockWidget {
-        return C.QStyleOptionDockWidget_new();
+    pub fn New() QtC.QStyleOptionDockWidget {
+        return qtc.QStyleOptionDockWidget_new();
     }
 
     /// New2 constructs a new QStyleOptionDockWidget object.
     ///
-    /// ``` other: ?*C.QStyleOptionDockWidget ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionDockWidget {
-        return C.QStyleOptionDockWidget_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionDockWidget ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionDockWidget {
+        return qtc.QStyleOptionDockWidget_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionDockWidget, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionDockWidget, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionDockWidget, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionDockWidget, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiondockwidget.html#dtor.QStyleOptionDockWidget)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionDockWidget ```
+    /// ``` self: QtC.QStyleOptionDockWidget ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionDockWidget_Delete(@ptrCast(self));
+        qtc.QStyleOptionDockWidget_Delete(@ptrCast(self));
     }
 };
 
@@ -561,40 +588,42 @@ pub const qstyleoptionviewitem = struct {
     /// New constructs a new QStyleOptionViewItem object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionViewItem {
-        return C.QStyleOptionViewItem_new();
+    pub fn New() QtC.QStyleOptionViewItem {
+        return qtc.QStyleOptionViewItem_new();
     }
 
     /// New2 constructs a new QStyleOptionViewItem object.
     ///
-    /// ``` other: ?*C.QStyleOptionViewItem ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionViewItem {
-        return C.QStyleOptionViewItem_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionViewItem ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionViewItem {
+        return qtc.QStyleOptionViewItem_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionViewItem, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionViewItem, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionViewItem, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionViewItem, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#dtor.QStyleOptionViewItem)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionViewItem ```
+    /// ``` self: QtC.QStyleOptionViewItem ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionViewItem_Delete(@ptrCast(self));
+        qtc.QStyleOptionViewItem_Delete(@ptrCast(self));
     }
 };
 
@@ -603,40 +632,42 @@ pub const qstyleoptiontoolbox = struct {
     /// New constructs a new QStyleOptionToolBox object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionToolBox {
-        return C.QStyleOptionToolBox_new();
+    pub fn New() QtC.QStyleOptionToolBox {
+        return qtc.QStyleOptionToolBox_new();
     }
 
     /// New2 constructs a new QStyleOptionToolBox object.
     ///
-    /// ``` other: ?*C.QStyleOptionToolBox ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionToolBox {
-        return C.QStyleOptionToolBox_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionToolBox ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionToolBox {
+        return qtc.QStyleOptionToolBox_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionToolBox, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionToolBox, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionToolBox, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionToolBox, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#dtor.QStyleOptionToolBox)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionToolBox ```
+    /// ``` self: QtC.QStyleOptionToolBox ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionToolBox_Delete(@ptrCast(self));
+        qtc.QStyleOptionToolBox_Delete(@ptrCast(self));
     }
 };
 
@@ -645,40 +676,42 @@ pub const qstyleoptionrubberband = struct {
     /// New constructs a new QStyleOptionRubberBand object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionRubberBand {
-        return C.QStyleOptionRubberBand_new();
+    pub fn New() QtC.QStyleOptionRubberBand {
+        return qtc.QStyleOptionRubberBand_new();
     }
 
     /// New2 constructs a new QStyleOptionRubberBand object.
     ///
-    /// ``` other: ?*C.QStyleOptionRubberBand ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionRubberBand {
-        return C.QStyleOptionRubberBand_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionRubberBand ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionRubberBand {
+        return qtc.QStyleOptionRubberBand_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionRubberBand, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionRubberBand, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionRubberBand, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionRubberBand, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionrubberband.html#dtor.QStyleOptionRubberBand)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionRubberBand ```
+    /// ``` self: QtC.QStyleOptionRubberBand ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionRubberBand_Delete(@ptrCast(self));
+        qtc.QStyleOptionRubberBand_Delete(@ptrCast(self));
     }
 };
 
@@ -687,54 +720,56 @@ pub const qstyleoptioncomplex = struct {
     /// New constructs a new QStyleOptionComplex object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionComplex {
-        return C.QStyleOptionComplex_new();
+    pub fn New() QtC.QStyleOptionComplex {
+        return qtc.QStyleOptionComplex_new();
     }
 
     /// New2 constructs a new QStyleOptionComplex object.
     ///
-    /// ``` other: ?*C.QStyleOptionComplex ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionComplex {
-        return C.QStyleOptionComplex_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionComplex ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionComplex {
+        return qtc.QStyleOptionComplex_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QStyleOptionComplex object.
     ///
     /// ``` version: i32 ```
-    pub fn New3(version: i32) ?*C.QStyleOptionComplex {
-        return C.QStyleOptionComplex_new3(@intCast(version));
+    pub fn New3(version: i32) QtC.QStyleOptionComplex {
+        return qtc.QStyleOptionComplex_new3(@intCast(version));
     }
 
     /// New4 constructs a new QStyleOptionComplex object.
     ///
     /// ``` version: i32, typeVal: i32 ```
-    pub fn New4(version: i32, typeVal: i32) ?*C.QStyleOptionComplex {
-        return C.QStyleOptionComplex_new4(@intCast(version), @intCast(typeVal));
+    pub fn New4(version: i32, typeVal: i32) QtC.QStyleOptionComplex {
+        return qtc.QStyleOptionComplex_new4(@intCast(version), @intCast(typeVal));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionComplex, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionComplex, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionComplex, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionComplex, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#dtor.QStyleOptionComplex)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionComplex ```
+    /// ``` self: QtC.QStyleOptionComplex ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionComplex_Delete(@ptrCast(self));
+        qtc.QStyleOptionComplex_Delete(@ptrCast(self));
     }
 };
 
@@ -743,40 +778,42 @@ pub const qstyleoptionslider = struct {
     /// New constructs a new QStyleOptionSlider object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionSlider {
-        return C.QStyleOptionSlider_new();
+    pub fn New() QtC.QStyleOptionSlider {
+        return qtc.QStyleOptionSlider_new();
     }
 
     /// New2 constructs a new QStyleOptionSlider object.
     ///
-    /// ``` other: ?*C.QStyleOptionSlider ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionSlider {
-        return C.QStyleOptionSlider_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionSlider ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionSlider {
+        return qtc.QStyleOptionSlider_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionSlider, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionSlider, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionSlider, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionSlider, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionslider.html#dtor.QStyleOptionSlider)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionSlider ```
+    /// ``` self: QtC.QStyleOptionSlider ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionSlider_Delete(@ptrCast(self));
+        qtc.QStyleOptionSlider_Delete(@ptrCast(self));
     }
 };
 
@@ -785,40 +822,42 @@ pub const qstyleoptionspinbox = struct {
     /// New constructs a new QStyleOptionSpinBox object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionSpinBox {
-        return C.QStyleOptionSpinBox_new();
+    pub fn New() QtC.QStyleOptionSpinBox {
+        return qtc.QStyleOptionSpinBox_new();
     }
 
     /// New2 constructs a new QStyleOptionSpinBox object.
     ///
-    /// ``` other: ?*C.QStyleOptionSpinBox ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionSpinBox {
-        return C.QStyleOptionSpinBox_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionSpinBox ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionSpinBox {
+        return qtc.QStyleOptionSpinBox_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionSpinBox, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionSpinBox, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionSpinBox, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionSpinBox, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionspinbox.html#dtor.QStyleOptionSpinBox)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionSpinBox ```
+    /// ``` self: QtC.QStyleOptionSpinBox ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionSpinBox_Delete(@ptrCast(self));
+        qtc.QStyleOptionSpinBox_Delete(@ptrCast(self));
     }
 };
 
@@ -827,40 +866,42 @@ pub const qstyleoptiontoolbutton = struct {
     /// New constructs a new QStyleOptionToolButton object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionToolButton {
-        return C.QStyleOptionToolButton_new();
+    pub fn New() QtC.QStyleOptionToolButton {
+        return qtc.QStyleOptionToolButton_new();
     }
 
     /// New2 constructs a new QStyleOptionToolButton object.
     ///
-    /// ``` other: ?*C.QStyleOptionToolButton ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionToolButton {
-        return C.QStyleOptionToolButton_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionToolButton ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionToolButton {
+        return qtc.QStyleOptionToolButton_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionToolButton, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionToolButton, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionToolButton, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionToolButton, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#dtor.QStyleOptionToolButton)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionToolButton ```
+    /// ``` self: QtC.QStyleOptionToolButton ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionToolButton_Delete(@ptrCast(self));
+        qtc.QStyleOptionToolButton_Delete(@ptrCast(self));
     }
 };
 
@@ -869,40 +910,42 @@ pub const qstyleoptioncombobox = struct {
     /// New constructs a new QStyleOptionComboBox object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionComboBox {
-        return C.QStyleOptionComboBox_new();
+    pub fn New() QtC.QStyleOptionComboBox {
+        return qtc.QStyleOptionComboBox_new();
     }
 
     /// New2 constructs a new QStyleOptionComboBox object.
     ///
-    /// ``` other: ?*C.QStyleOptionComboBox ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionComboBox {
-        return C.QStyleOptionComboBox_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionComboBox ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionComboBox {
+        return qtc.QStyleOptionComboBox_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionComboBox, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionComboBox, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionComboBox, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionComboBox, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#dtor.QStyleOptionComboBox)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionComboBox ```
+    /// ``` self: QtC.QStyleOptionComboBox ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionComboBox_Delete(@ptrCast(self));
+        qtc.QStyleOptionComboBox_Delete(@ptrCast(self));
     }
 };
 
@@ -911,40 +954,42 @@ pub const qstyleoptiontitlebar = struct {
     /// New constructs a new QStyleOptionTitleBar object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionTitleBar {
-        return C.QStyleOptionTitleBar_new();
+    pub fn New() QtC.QStyleOptionTitleBar {
+        return qtc.QStyleOptionTitleBar_new();
     }
 
     /// New2 constructs a new QStyleOptionTitleBar object.
     ///
-    /// ``` other: ?*C.QStyleOptionTitleBar ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionTitleBar {
-        return C.QStyleOptionTitleBar_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionTitleBar ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionTitleBar {
+        return qtc.QStyleOptionTitleBar_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionTitleBar, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionTitleBar, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionTitleBar, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionTitleBar, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#dtor.QStyleOptionTitleBar)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionTitleBar ```
+    /// ``` self: QtC.QStyleOptionTitleBar ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionTitleBar_Delete(@ptrCast(self));
+        qtc.QStyleOptionTitleBar_Delete(@ptrCast(self));
     }
 };
 
@@ -953,40 +998,42 @@ pub const qstyleoptiongroupbox = struct {
     /// New constructs a new QStyleOptionGroupBox object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionGroupBox {
-        return C.QStyleOptionGroupBox_new();
+    pub fn New() QtC.QStyleOptionGroupBox {
+        return qtc.QStyleOptionGroupBox_new();
     }
 
     /// New2 constructs a new QStyleOptionGroupBox object.
     ///
-    /// ``` other: ?*C.QStyleOptionGroupBox ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionGroupBox {
-        return C.QStyleOptionGroupBox_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionGroupBox ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionGroupBox {
+        return qtc.QStyleOptionGroupBox_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionGroupBox, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionGroupBox, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionGroupBox, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionGroupBox, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#dtor.QStyleOptionGroupBox)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionGroupBox ```
+    /// ``` self: QtC.QStyleOptionGroupBox ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionGroupBox_Delete(@ptrCast(self));
+        qtc.QStyleOptionGroupBox_Delete(@ptrCast(self));
     }
 };
 
@@ -995,40 +1042,42 @@ pub const qstyleoptionsizegrip = struct {
     /// New constructs a new QStyleOptionSizeGrip object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionSizeGrip {
-        return C.QStyleOptionSizeGrip_new();
+    pub fn New() QtC.QStyleOptionSizeGrip {
+        return qtc.QStyleOptionSizeGrip_new();
     }
 
     /// New2 constructs a new QStyleOptionSizeGrip object.
     ///
-    /// ``` other: ?*C.QStyleOptionSizeGrip ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionSizeGrip {
-        return C.QStyleOptionSizeGrip_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionSizeGrip ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionSizeGrip {
+        return qtc.QStyleOptionSizeGrip_new2(@ptrCast(other));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionSizeGrip, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionSizeGrip, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionSizeGrip, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionSizeGrip, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionsizegrip.html#dtor.QStyleOptionSizeGrip)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionSizeGrip ```
+    /// ``` self: QtC.QStyleOptionSizeGrip ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionSizeGrip_Delete(@ptrCast(self));
+        qtc.QStyleOptionSizeGrip_Delete(@ptrCast(self));
     }
 };
 
@@ -1037,47 +1086,49 @@ pub const qstyleoptiongraphicsitem = struct {
     /// New constructs a new QStyleOptionGraphicsItem object.
     ///
     ///
-    pub fn New() ?*C.QStyleOptionGraphicsItem {
-        return C.QStyleOptionGraphicsItem_new();
+    pub fn New() QtC.QStyleOptionGraphicsItem {
+        return qtc.QStyleOptionGraphicsItem_new();
     }
 
     /// New2 constructs a new QStyleOptionGraphicsItem object.
     ///
-    /// ``` other: ?*C.QStyleOptionGraphicsItem ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStyleOptionGraphicsItem {
-        return C.QStyleOptionGraphicsItem_new2(@ptrCast(other));
+    /// ``` other: QtC.QStyleOptionGraphicsItem ```
+    pub fn New2(other: ?*anyopaque) QtC.QStyleOptionGraphicsItem {
+        return qtc.QStyleOptionGraphicsItem_new2(@ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiongraphicsitem.html#levelOfDetailFromTransform)
     ///
-    /// ``` worldTransform: ?*C.QTransform ```
+    /// ``` worldTransform: QtC.QTransform ```
     pub fn LevelOfDetailFromTransform(worldTransform: ?*anyopaque) f64 {
-        return C.QStyleOptionGraphicsItem_LevelOfDetailFromTransform(@ptrCast(worldTransform));
+        return qtc.QStyleOptionGraphicsItem_LevelOfDetailFromTransform(@ptrCast(worldTransform));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
-    /// ``` self: ?*C.QStyleOptionGraphicsItem, w: ?*C.QWidget ```
+    /// ``` self: QtC.QStyleOptionGraphicsItem, w: QtC.QWidget ```
     pub fn InitFrom(self: ?*anyopaque, w: ?*anyopaque) void {
-        C.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
+        qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QStyleOption
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleOptionGraphicsItem, other: ?*C.QStyleOption ```
+    /// ``` self: QtC.QStyleOptionGraphicsItem, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiongraphicsitem.html#dtor.QStyleOptionGraphicsItem)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleOptionGraphicsItem ```
+    /// ``` self: QtC.QStyleOptionGraphicsItem ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleOptionGraphicsItem_Delete(@ptrCast(self));
+        qtc.QStyleOptionGraphicsItem_Delete(@ptrCast(self));
     }
 };
 
@@ -1086,43 +1137,45 @@ pub const qstylehintreturn = struct {
     /// New constructs a new QStyleHintReturn object.
     ///
     ///
-    pub fn New() ?*C.QStyleHintReturn {
-        return C.QStyleHintReturn_new();
+    pub fn New() QtC.QStyleHintReturn {
+        return qtc.QStyleHintReturn_new();
     }
 
     /// New2 constructs a new QStyleHintReturn object.
     ///
-    /// ``` param1: ?*C.QStyleHintReturn ```
-    pub fn New2(param1: ?*anyopaque) ?*C.QStyleHintReturn {
-        return C.QStyleHintReturn_new2(@ptrCast(param1));
+    /// ``` param1: QtC.QStyleHintReturn ```
+    pub fn New2(param1: ?*anyopaque) QtC.QStyleHintReturn {
+        return qtc.QStyleHintReturn_new2(@ptrCast(param1));
     }
 
     /// New3 constructs a new QStyleHintReturn object.
     ///
     /// ``` version: i32 ```
-    pub fn New3(version: i32) ?*C.QStyleHintReturn {
-        return C.QStyleHintReturn_new3(@intCast(version));
+    pub fn New3(version: i32) QtC.QStyleHintReturn {
+        return qtc.QStyleHintReturn_new3(@intCast(version));
     }
 
     /// New4 constructs a new QStyleHintReturn object.
     ///
     /// ``` version: i32, typeVal: i32 ```
-    pub fn New4(version: i32, typeVal: i32) ?*C.QStyleHintReturn {
-        return C.QStyleHintReturn_new4(@intCast(version), @intCast(typeVal));
+    pub fn New4(version: i32, typeVal: i32) QtC.QStyleHintReturn {
+        return qtc.QStyleHintReturn_new4(@intCast(version), @intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylehintreturn.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleHintReturn, param1: ?*C.QStyleHintReturn ```
+    /// ``` self: QtC.QStyleHintReturn, param1: QtC.QStyleHintReturn ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QStyleHintReturn_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+        qtc.QStyleHintReturn_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehintreturn.html#dtor.QStyleHintReturn)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleHintReturn ```
+    /// ``` self: QtC.QStyleHintReturn ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleHintReturn_Delete(@ptrCast(self));
+        qtc.QStyleHintReturn_Delete(@ptrCast(self));
     }
 };
 
@@ -1131,29 +1184,31 @@ pub const qstylehintreturnmask = struct {
     /// New constructs a new QStyleHintReturnMask object.
     ///
     ///
-    pub fn New() ?*C.QStyleHintReturnMask {
-        return C.QStyleHintReturnMask_new();
+    pub fn New() QtC.QStyleHintReturnMask {
+        return qtc.QStyleHintReturnMask_new();
     }
 
     /// New2 constructs a new QStyleHintReturnMask object.
     ///
-    /// ``` param1: ?*C.QStyleHintReturnMask ```
-    pub fn New2(param1: ?*anyopaque) ?*C.QStyleHintReturnMask {
-        return C.QStyleHintReturnMask_new2(@ptrCast(param1));
+    /// ``` param1: QtC.QStyleHintReturnMask ```
+    pub fn New2(param1: ?*anyopaque) QtC.QStyleHintReturnMask {
+        return qtc.QStyleHintReturnMask_new2(@ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylehintreturnmask.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleHintReturnMask, param1: ?*C.QStyleHintReturnMask ```
+    /// ``` self: QtC.QStyleHintReturnMask, param1: QtC.QStyleHintReturnMask ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QStyleHintReturnMask_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+        qtc.QStyleHintReturnMask_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehintreturnmask.html#dtor.QStyleHintReturnMask)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleHintReturnMask ```
+    /// ``` self: QtC.QStyleHintReturnMask ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleHintReturnMask_Delete(@ptrCast(self));
+        qtc.QStyleHintReturnMask_Delete(@ptrCast(self));
     }
 };
 
@@ -1162,29 +1217,31 @@ pub const qstylehintreturnvariant = struct {
     /// New constructs a new QStyleHintReturnVariant object.
     ///
     ///
-    pub fn New() ?*C.QStyleHintReturnVariant {
-        return C.QStyleHintReturnVariant_new();
+    pub fn New() QtC.QStyleHintReturnVariant {
+        return qtc.QStyleHintReturnVariant_new();
     }
 
     /// New2 constructs a new QStyleHintReturnVariant object.
     ///
-    /// ``` param1: ?*C.QStyleHintReturnVariant ```
-    pub fn New2(param1: ?*anyopaque) ?*C.QStyleHintReturnVariant {
-        return C.QStyleHintReturnVariant_new2(@ptrCast(param1));
+    /// ``` param1: QtC.QStyleHintReturnVariant ```
+    pub fn New2(param1: ?*anyopaque) QtC.QStyleHintReturnVariant {
+        return qtc.QStyleHintReturnVariant_new2(@ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylehintreturnvariant.html#operator=)
     ///
-    /// ``` self: ?*C.QStyleHintReturnVariant, param1: ?*C.QStyleHintReturnVariant ```
+    /// ``` self: QtC.QStyleHintReturnVariant, param1: QtC.QStyleHintReturnVariant ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QStyleHintReturnVariant_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+        qtc.QStyleHintReturnVariant_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehintreturnvariant.html#dtor.QStyleHintReturnVariant)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStyleHintReturnVariant ```
+    /// ``` self: QtC.QStyleHintReturnVariant ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStyleHintReturnVariant_Delete(@ptrCast(self));
+        qtc.QStyleHintReturnVariant_Delete(@ptrCast(self));
     }
 };
 

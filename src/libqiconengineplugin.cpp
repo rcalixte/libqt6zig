@@ -1,21 +1,14 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
 #include <QIconEngine>
 #include <QIconEnginePlugin>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <qiconengineplugin.h>
 #include "libqiconengineplugin.h"
 #include "libqiconengineplugin.hxx"
@@ -37,27 +30,30 @@ void* QIconEnginePlugin_Metacast(QIconEnginePlugin* self, const char* param1) {
 }
 
 int QIconEnginePlugin_Metacall(QIconEnginePlugin* self, int param1, int param2, void** param3) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQIconEnginePlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QIconEnginePlugin_OnMetacall(QIconEnginePlugin* self, intptr_t slot) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_Metacall_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QIconEnginePlugin_QBaseMetacall(QIconEnginePlugin* self, int param1, int param2, void** param3) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_Metacall_IsBase(true);
         return vqiconengineplugin->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQIconEnginePlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -98,315 +94,351 @@ libqt_string QIconEnginePlugin_Tr3(const char* s, const char* c, int n) {
 }
 
 // Derived class handler implementation
-QIconEngine* QIconEnginePlugin_Create(QIconEnginePlugin* self, libqt_string filename) {
+QIconEngine* QIconEnginePlugin_Create(QIconEnginePlugin* self, const libqt_string filename) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         return vqiconengineplugin->create(filename_QString);
     } else {
-        return vqiconengineplugin->create(filename_QString);
+        return ((VirtualQIconEnginePlugin*)self)->create(filename_QString);
     }
 }
 
 // Base class handler implementation
-QIconEngine* QIconEnginePlugin_QBaseCreate(QIconEnginePlugin* self, libqt_string filename) {
+QIconEngine* QIconEnginePlugin_QBaseCreate(QIconEnginePlugin* self, const libqt_string filename) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_Create_IsBase(true);
         return vqiconengineplugin->create(filename_QString);
     } else {
-        return vqiconengineplugin->create(filename_QString);
+        return ((VirtualQIconEnginePlugin*)self)->create(filename_QString);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnCreate(QIconEnginePlugin* self, intptr_t slot) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_Create_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_Create_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QIconEnginePlugin_Event(QIconEnginePlugin* self, QEvent* event) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         return vqiconengineplugin->event(event);
     } else {
-        return vqiconengineplugin->event(event);
+        return self->QIconEnginePlugin::event(event);
     }
 }
 
 // Base class handler implementation
 bool QIconEnginePlugin_QBaseEvent(QIconEnginePlugin* self, QEvent* event) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_Event_IsBase(true);
         return vqiconengineplugin->event(event);
     } else {
-        return vqiconengineplugin->event(event);
+        return self->QIconEnginePlugin::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnEvent(QIconEnginePlugin* self, intptr_t slot) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_Event_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QIconEnginePlugin_EventFilter(QIconEnginePlugin* self, QObject* watched, QEvent* event) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         return vqiconengineplugin->eventFilter(watched, event);
     } else {
-        return vqiconengineplugin->eventFilter(watched, event);
+        return self->QIconEnginePlugin::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QIconEnginePlugin_QBaseEventFilter(QIconEnginePlugin* self, QObject* watched, QEvent* event) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_EventFilter_IsBase(true);
         return vqiconengineplugin->eventFilter(watched, event);
     } else {
-        return vqiconengineplugin->eventFilter(watched, event);
+        return self->QIconEnginePlugin::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnEventFilter(QIconEnginePlugin* self, intptr_t slot) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_EventFilter_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QIconEnginePlugin_TimerEvent(QIconEnginePlugin* self, QTimerEvent* event) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->timerEvent(event);
     } else {
-        vqiconengineplugin->timerEvent(event);
+        ((VirtualQIconEnginePlugin*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QIconEnginePlugin_QBaseTimerEvent(QIconEnginePlugin* self, QTimerEvent* event) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_TimerEvent_IsBase(true);
         vqiconengineplugin->timerEvent(event);
     } else {
-        vqiconengineplugin->timerEvent(event);
+        ((VirtualQIconEnginePlugin*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnTimerEvent(QIconEnginePlugin* self, intptr_t slot) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_TimerEvent_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QIconEnginePlugin_ChildEvent(QIconEnginePlugin* self, QChildEvent* event) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->childEvent(event);
     } else {
-        vqiconengineplugin->childEvent(event);
+        ((VirtualQIconEnginePlugin*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QIconEnginePlugin_QBaseChildEvent(QIconEnginePlugin* self, QChildEvent* event) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_ChildEvent_IsBase(true);
         vqiconengineplugin->childEvent(event);
     } else {
-        vqiconengineplugin->childEvent(event);
+        ((VirtualQIconEnginePlugin*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnChildEvent(QIconEnginePlugin* self, intptr_t slot) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_ChildEvent_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QIconEnginePlugin_CustomEvent(QIconEnginePlugin* self, QEvent* event) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->customEvent(event);
     } else {
-        vqiconengineplugin->customEvent(event);
+        ((VirtualQIconEnginePlugin*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QIconEnginePlugin_QBaseCustomEvent(QIconEnginePlugin* self, QEvent* event) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_CustomEvent_IsBase(true);
         vqiconengineplugin->customEvent(event);
     } else {
-        vqiconengineplugin->customEvent(event);
+        ((VirtualQIconEnginePlugin*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnCustomEvent(QIconEnginePlugin* self, intptr_t slot) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_CustomEvent_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QIconEnginePlugin_ConnectNotify(QIconEnginePlugin* self, QMetaMethod* signal) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+void QIconEnginePlugin_ConnectNotify(QIconEnginePlugin* self, const QMetaMethod* signal) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->connectNotify(*signal);
     } else {
-        vqiconengineplugin->connectNotify(*signal);
+        ((VirtualQIconEnginePlugin*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QIconEnginePlugin_QBaseConnectNotify(QIconEnginePlugin* self, QMetaMethod* signal) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+void QIconEnginePlugin_QBaseConnectNotify(QIconEnginePlugin* self, const QMetaMethod* signal) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_ConnectNotify_IsBase(true);
         vqiconengineplugin->connectNotify(*signal);
     } else {
-        vqiconengineplugin->connectNotify(*signal);
+        ((VirtualQIconEnginePlugin*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnConnectNotify(QIconEnginePlugin* self, intptr_t slot) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_ConnectNotify_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QIconEnginePlugin_DisconnectNotify(QIconEnginePlugin* self, QMetaMethod* signal) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+void QIconEnginePlugin_DisconnectNotify(QIconEnginePlugin* self, const QMetaMethod* signal) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->disconnectNotify(*signal);
     } else {
-        vqiconengineplugin->disconnectNotify(*signal);
+        ((VirtualQIconEnginePlugin*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QIconEnginePlugin_QBaseDisconnectNotify(QIconEnginePlugin* self, QMetaMethod* signal) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+void QIconEnginePlugin_QBaseDisconnectNotify(QIconEnginePlugin* self, const QMetaMethod* signal) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_DisconnectNotify_IsBase(true);
         vqiconengineplugin->disconnectNotify(*signal);
     } else {
-        vqiconengineplugin->disconnectNotify(*signal);
+        ((VirtualQIconEnginePlugin*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnDisconnectNotify(QIconEnginePlugin* self, intptr_t slot) {
-    if (auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self)) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_DisconnectNotify_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QIconEnginePlugin_Sender(const QIconEnginePlugin* self) {
-    if (auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self))) {
+    auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         return vqiconengineplugin->sender();
     } else {
-        return vqiconengineplugin->sender();
+        return ((VirtualQIconEnginePlugin*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QIconEnginePlugin_QBaseSender(const QIconEnginePlugin* self) {
-    if (auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self))) {
+    auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_Sender_IsBase(true);
         return vqiconengineplugin->sender();
     } else {
-        return vqiconengineplugin->sender();
+        return ((VirtualQIconEnginePlugin*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnSender(const QIconEnginePlugin* self, intptr_t slot) {
-    if (auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self))) {
+    auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_Sender_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QIconEnginePlugin_SenderSignalIndex(const QIconEnginePlugin* self) {
-    if (auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self))) {
+    auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         return vqiconengineplugin->senderSignalIndex();
     } else {
-        return vqiconengineplugin->senderSignalIndex();
+        return ((VirtualQIconEnginePlugin*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QIconEnginePlugin_QBaseSenderSignalIndex(const QIconEnginePlugin* self) {
-    if (auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self))) {
+    auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_SenderSignalIndex_IsBase(true);
         return vqiconengineplugin->senderSignalIndex();
     } else {
-        return vqiconengineplugin->senderSignalIndex();
+        return ((VirtualQIconEnginePlugin*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnSenderSignalIndex(const QIconEnginePlugin* self, intptr_t slot) {
-    if (auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self))) {
+    auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_SenderSignalIndex_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QIconEnginePlugin_Receivers(const QIconEnginePlugin* self, const char* signal) {
-    if (auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self))) {
+    auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         return vqiconengineplugin->receivers(signal);
     } else {
-        return vqiconengineplugin->receivers(signal);
+        return ((VirtualQIconEnginePlugin*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QIconEnginePlugin_QBaseReceivers(const QIconEnginePlugin* self, const char* signal) {
-    if (auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self))) {
+    auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_Receivers_IsBase(true);
         return vqiconengineplugin->receivers(signal);
     } else {
-        return vqiconengineplugin->receivers(signal);
+        return ((VirtualQIconEnginePlugin*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnReceivers(const QIconEnginePlugin* self, intptr_t slot) {
-    if (auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self))) {
+    auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_Receivers_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QIconEnginePlugin_IsSignalConnected(const QIconEnginePlugin* self, QMetaMethod* signal) {
-    if (auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self))) {
+bool QIconEnginePlugin_IsSignalConnected(const QIconEnginePlugin* self, const QMetaMethod* signal) {
+    auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         return vqiconengineplugin->isSignalConnected(*signal);
     } else {
-        return vqiconengineplugin->isSignalConnected(*signal);
+        return ((VirtualQIconEnginePlugin*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QIconEnginePlugin_QBaseIsSignalConnected(const QIconEnginePlugin* self, QMetaMethod* signal) {
-    if (auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self))) {
+bool QIconEnginePlugin_QBaseIsSignalConnected(const QIconEnginePlugin* self, const QMetaMethod* signal) {
+    auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_IsSignalConnected_IsBase(true);
         return vqiconengineplugin->isSignalConnected(*signal);
     } else {
-        return vqiconengineplugin->isSignalConnected(*signal);
+        return ((VirtualQIconEnginePlugin*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnIsSignalConnected(const QIconEnginePlugin* self, intptr_t slot) {
-    if (auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self))) {
+    auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_IsSignalConnected_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_IsSignalConnected_Callback>(slot));
     }
 }

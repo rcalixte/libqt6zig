@@ -1,21 +1,15 @@
 #include <QAbstractEventDispatcher>
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QDeadlineTimer>
 #include <QEvent>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
 #include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <qthread.h>
 #include "libqthread.h"
 #include "libqthread.hxx"
@@ -37,27 +31,30 @@ void* QThread_Metacast(QThread* self, const char* param1) {
 }
 
 int QThread_Metacall(QThread* self, int param1, int param2, void** param3) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQThread*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QThread_OnMetacall(QThread* self, intptr_t slot) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Metacall_Callback(reinterpret_cast<VirtualQThread::QThread_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QThread_QBaseMetacall(QThread* self, int param1, int param2, void** param3) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Metacall_IsBase(true);
         return vqthread->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQThread*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -207,340 +204,393 @@ bool QThread_Wait1(QThread* self, QDeadlineTimer* deadline) {
 
 // Derived class handler implementation
 bool QThread_Event(QThread* self, QEvent* event) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         return vqthread->event(event);
     } else {
-        return vqthread->event(event);
+        return self->QThread::event(event);
     }
 }
 
 // Base class handler implementation
 bool QThread_QBaseEvent(QThread* self, QEvent* event) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Event_IsBase(true);
         return vqthread->event(event);
     } else {
-        return vqthread->event(event);
+        return self->QThread::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnEvent(QThread* self, intptr_t slot) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Event_Callback(reinterpret_cast<VirtualQThread::QThread_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QThread_Run(QThread* self) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->run();
     } else {
-        vqthread->run();
+        ((VirtualQThread*)self)->run();
     }
 }
 
 // Base class handler implementation
 void QThread_QBaseRun(QThread* self) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Run_IsBase(true);
         vqthread->run();
     } else {
-        vqthread->run();
+        ((VirtualQThread*)self)->run();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnRun(QThread* self, intptr_t slot) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Run_Callback(reinterpret_cast<VirtualQThread::QThread_Run_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QThread_EventFilter(QThread* self, QObject* watched, QEvent* event) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         return vqthread->eventFilter(watched, event);
     } else {
-        return vqthread->eventFilter(watched, event);
+        return self->QThread::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QThread_QBaseEventFilter(QThread* self, QObject* watched, QEvent* event) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_EventFilter_IsBase(true);
         return vqthread->eventFilter(watched, event);
     } else {
-        return vqthread->eventFilter(watched, event);
+        return self->QThread::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnEventFilter(QThread* self, intptr_t slot) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_EventFilter_Callback(reinterpret_cast<VirtualQThread::QThread_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QThread_TimerEvent(QThread* self, QTimerEvent* event) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->timerEvent(event);
     } else {
-        vqthread->timerEvent(event);
+        ((VirtualQThread*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QThread_QBaseTimerEvent(QThread* self, QTimerEvent* event) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_TimerEvent_IsBase(true);
         vqthread->timerEvent(event);
     } else {
-        vqthread->timerEvent(event);
+        ((VirtualQThread*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnTimerEvent(QThread* self, intptr_t slot) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_TimerEvent_Callback(reinterpret_cast<VirtualQThread::QThread_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QThread_ChildEvent(QThread* self, QChildEvent* event) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->childEvent(event);
     } else {
-        vqthread->childEvent(event);
+        ((VirtualQThread*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QThread_QBaseChildEvent(QThread* self, QChildEvent* event) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_ChildEvent_IsBase(true);
         vqthread->childEvent(event);
     } else {
-        vqthread->childEvent(event);
+        ((VirtualQThread*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnChildEvent(QThread* self, intptr_t slot) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_ChildEvent_Callback(reinterpret_cast<VirtualQThread::QThread_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QThread_CustomEvent(QThread* self, QEvent* event) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->customEvent(event);
     } else {
-        vqthread->customEvent(event);
+        ((VirtualQThread*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QThread_QBaseCustomEvent(QThread* self, QEvent* event) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_CustomEvent_IsBase(true);
         vqthread->customEvent(event);
     } else {
-        vqthread->customEvent(event);
+        ((VirtualQThread*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnCustomEvent(QThread* self, intptr_t slot) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_CustomEvent_Callback(reinterpret_cast<VirtualQThread::QThread_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QThread_ConnectNotify(QThread* self, QMetaMethod* signal) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+void QThread_ConnectNotify(QThread* self, const QMetaMethod* signal) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->connectNotify(*signal);
     } else {
-        vqthread->connectNotify(*signal);
+        ((VirtualQThread*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QThread_QBaseConnectNotify(QThread* self, QMetaMethod* signal) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+void QThread_QBaseConnectNotify(QThread* self, const QMetaMethod* signal) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_ConnectNotify_IsBase(true);
         vqthread->connectNotify(*signal);
     } else {
-        vqthread->connectNotify(*signal);
+        ((VirtualQThread*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnConnectNotify(QThread* self, intptr_t slot) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_ConnectNotify_Callback(reinterpret_cast<VirtualQThread::QThread_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QThread_DisconnectNotify(QThread* self, QMetaMethod* signal) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+void QThread_DisconnectNotify(QThread* self, const QMetaMethod* signal) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->disconnectNotify(*signal);
     } else {
-        vqthread->disconnectNotify(*signal);
+        ((VirtualQThread*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QThread_QBaseDisconnectNotify(QThread* self, QMetaMethod* signal) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+void QThread_QBaseDisconnectNotify(QThread* self, const QMetaMethod* signal) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_DisconnectNotify_IsBase(true);
         vqthread->disconnectNotify(*signal);
     } else {
-        vqthread->disconnectNotify(*signal);
+        ((VirtualQThread*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnDisconnectNotify(QThread* self, intptr_t slot) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_DisconnectNotify_Callback(reinterpret_cast<VirtualQThread::QThread_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QThread_Exec(QThread* self) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         return vqthread->exec();
     } else {
-        return vqthread->exec();
+        return ((VirtualQThread*)self)->exec();
     }
 }
 
 // Base class handler implementation
 int QThread_QBaseExec(QThread* self) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Exec_IsBase(true);
         return vqthread->exec();
     } else {
-        return vqthread->exec();
+        return ((VirtualQThread*)self)->exec();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnExec(QThread* self, intptr_t slot) {
-    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Exec_Callback(reinterpret_cast<VirtualQThread::QThread_Exec_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QThread_Sender(const QThread* self) {
-    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self))) {
+    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
+    if (vqthread && vqthread->isVirtualQThread) {
         return vqthread->sender();
     } else {
-        return vqthread->sender();
+        return ((VirtualQThread*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QThread_QBaseSender(const QThread* self) {
-    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self))) {
+    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Sender_IsBase(true);
         return vqthread->sender();
     } else {
-        return vqthread->sender();
+        return ((VirtualQThread*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnSender(const QThread* self, intptr_t slot) {
-    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self))) {
+    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Sender_Callback(reinterpret_cast<VirtualQThread::QThread_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QThread_SenderSignalIndex(const QThread* self) {
-    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self))) {
+    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
+    if (vqthread && vqthread->isVirtualQThread) {
         return vqthread->senderSignalIndex();
     } else {
-        return vqthread->senderSignalIndex();
+        return ((VirtualQThread*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QThread_QBaseSenderSignalIndex(const QThread* self) {
-    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self))) {
+    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_SenderSignalIndex_IsBase(true);
         return vqthread->senderSignalIndex();
     } else {
-        return vqthread->senderSignalIndex();
+        return ((VirtualQThread*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnSenderSignalIndex(const QThread* self, intptr_t slot) {
-    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self))) {
+    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_SenderSignalIndex_Callback(reinterpret_cast<VirtualQThread::QThread_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QThread_Receivers(const QThread* self, const char* signal) {
-    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self))) {
+    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
+    if (vqthread && vqthread->isVirtualQThread) {
         return vqthread->receivers(signal);
     } else {
-        return vqthread->receivers(signal);
+        return ((VirtualQThread*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QThread_QBaseReceivers(const QThread* self, const char* signal) {
-    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self))) {
+    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Receivers_IsBase(true);
         return vqthread->receivers(signal);
     } else {
-        return vqthread->receivers(signal);
+        return ((VirtualQThread*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnReceivers(const QThread* self, intptr_t slot) {
-    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self))) {
+    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Receivers_Callback(reinterpret_cast<VirtualQThread::QThread_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QThread_IsSignalConnected(const QThread* self, QMetaMethod* signal) {
-    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self))) {
+bool QThread_IsSignalConnected(const QThread* self, const QMetaMethod* signal) {
+    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
+    if (vqthread && vqthread->isVirtualQThread) {
         return vqthread->isSignalConnected(*signal);
     } else {
-        return vqthread->isSignalConnected(*signal);
+        return ((VirtualQThread*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QThread_QBaseIsSignalConnected(const QThread* self, QMetaMethod* signal) {
-    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self))) {
+bool QThread_QBaseIsSignalConnected(const QThread* self, const QMetaMethod* signal) {
+    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_IsSignalConnected_IsBase(true);
         return vqthread->isSignalConnected(*signal);
     } else {
-        return vqthread->isSignalConnected(*signal);
+        return ((VirtualQThread*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnIsSignalConnected(const QThread* self, intptr_t slot) {
-    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self))) {
+    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
+    if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_IsSignalConnected_Callback(reinterpret_cast<VirtualQThread::QThread_IsSignalConnected_Callback>(slot));
     }
+}
+
+void QThread_Connect_Started(QThread* self, intptr_t slot) {
+    void (*slotFunc)(QThread*) = reinterpret_cast<void (*)(QThread*)>(slot);
+    QThread::connect(self, &QThread::started, [self, slotFunc]() {
+        slotFunc(self);
+    });
+}
+
+void QThread_Connect_Finished(QThread* self, intptr_t slot) {
+    void (*slotFunc)(QThread*) = reinterpret_cast<void (*)(QThread*)>(slot);
+    QThread::connect(self, &QThread::finished, [self, slotFunc]() {
+        slotFunc(self);
+    });
 }
 
 void QThread_Delete(QThread* self) {

@@ -1,24 +1,13 @@
-#include <QAbstractAxis>
 #include <QAbstractBarSeries>
 #include <QAbstractSeries>
-#include <QAnyStringView>
 #include <QBarSet>
-#include <QBindingStorage>
-#include <QByteArray>
-#include <QChart>
-#include <QChildEvent>
-#include <QEvent>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
-#include <QVariant>
 #include <qabstractbarseries.h>
 #include "libqabstractbarseries.h"
 #include "libqabstractbarseries.hxx"
@@ -67,7 +56,7 @@ bool QAbstractBarSeries_Take(QAbstractBarSeries* self, QBarSet* set) {
     return self->take(set);
 }
 
-bool QAbstractBarSeries_AppendWithSets(QAbstractBarSeries* self, libqt_list /* of QBarSet* */ sets) {
+bool QAbstractBarSeries_AppendWithSets(QAbstractBarSeries* self, const libqt_list /* of QBarSet* */ sets) {
     QList<QBarSet*> sets_QList;
     sets_QList.reserve(sets.len);
     QBarSet** sets_arr = static_cast<QBarSet**>(sets.data);
@@ -110,7 +99,7 @@ bool QAbstractBarSeries_IsLabelsVisible(const QAbstractBarSeries* self) {
     return self->isLabelsVisible();
 }
 
-void QAbstractBarSeries_SetLabelsFormat(QAbstractBarSeries* self, libqt_string format) {
+void QAbstractBarSeries_SetLabelsFormat(QAbstractBarSeries* self, const libqt_string format) {
     QString format_QString = QString::fromUtf8(format.data, format.len);
     self->setLabelsFormat(format_QString);
 }
@@ -239,7 +228,7 @@ void QAbstractBarSeries_Connect_LabelsVisibleChanged(QAbstractBarSeries* self, i
     });
 }
 
-void QAbstractBarSeries_LabelsFormatChanged(QAbstractBarSeries* self, libqt_string format) {
+void QAbstractBarSeries_LabelsFormatChanged(QAbstractBarSeries* self, const libqt_string format) {
     QString format_QString = QString::fromUtf8(format.data, format.len);
     self->labelsFormatChanged(format_QString);
 }
@@ -296,7 +285,7 @@ void QAbstractBarSeries_Connect_LabelsPrecisionChanged(QAbstractBarSeries* self,
     });
 }
 
-void QAbstractBarSeries_BarsetsAdded(QAbstractBarSeries* self, libqt_list /* of QBarSet* */ sets) {
+void QAbstractBarSeries_BarsetsAdded(QAbstractBarSeries* self, const libqt_list /* of QBarSet* */ sets) {
     QList<QBarSet*> sets_QList;
     sets_QList.reserve(sets.len);
     QBarSet** sets_arr = static_cast<QBarSet**>(sets.data);
@@ -323,7 +312,7 @@ void QAbstractBarSeries_Connect_BarsetsAdded(QAbstractBarSeries* self, intptr_t 
     });
 }
 
-void QAbstractBarSeries_BarsetsRemoved(QAbstractBarSeries* self, libqt_list /* of QBarSet* */ sets) {
+void QAbstractBarSeries_BarsetsRemoved(QAbstractBarSeries* self, const libqt_list /* of QBarSet* */ sets) {
     QList<QBarSet*> sets_QList;
     sets_QList.reserve(sets.len);
     QBarSet** sets_arr = static_cast<QBarSet**>(sets.data);
@@ -376,18 +365,6 @@ libqt_string QAbstractBarSeries_Tr3(const char* s, const char* c, int n) {
 
 void QAbstractBarSeries_SetLabelsVisible1(QAbstractBarSeries* self, bool visible) {
     self->setLabelsVisible(visible);
-}
-
-int QAbstractBarSeries_Type(const QAbstractBarSeries* self) {
-    return static_cast<int>(self->type());
-}
-
-bool QAbstractBarSeries_Event(QAbstractBarSeries* self, QEvent* event) {
-    return self->event(event);
-}
-
-bool QAbstractBarSeries_EventFilter(QAbstractBarSeries* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
 }
 
 void QAbstractBarSeries_Delete(QAbstractBarSeries* self) {

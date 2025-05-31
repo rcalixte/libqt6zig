@@ -5,7 +5,7 @@
 #include "libqcolormap.h"
 #include "libqcolormap.hxx"
 
-QColormap* QColormap_new(QColormap* colormap) {
+QColormap* QColormap_new(const QColormap* colormap) {
     return new QColormap(*colormap);
 }
 
@@ -21,7 +21,7 @@ QColormap* QColormap_Instance() {
     return new QColormap(QColormap::instance());
 }
 
-void QColormap_OperatorAssign(QColormap* self, QColormap* colormap) {
+void QColormap_OperatorAssign(QColormap* self, const QColormap* colormap) {
     self->operator=(*colormap);
 }
 
@@ -37,7 +37,7 @@ int QColormap_Size(const QColormap* self) {
     return self->size();
 }
 
-unsigned int QColormap_Pixel(const QColormap* self, QColor* color) {
+unsigned int QColormap_Pixel(const QColormap* self, const QColor* color) {
     return static_cast<unsigned int>(self->pixel(*color));
 }
 

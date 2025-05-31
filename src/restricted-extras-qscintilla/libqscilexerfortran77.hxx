@@ -11,57 +11,60 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QsciLexerFortran77 so that we can call protected methods
-class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
+class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQsciLexerFortran77 = true;
+
     // Virtual class public types (including callbacks)
-    using QsciLexerFortran77_Metacall_Callback = int (*)(QsciLexerFortran77*, QMetaObject::Call, int, void**);
+    using QsciLexerFortran77_Metacall_Callback = int (*)(QsciLexerFortran77*, int, int, void**);
     using QsciLexerFortran77_SetFoldCompact_Callback = void (*)(QsciLexerFortran77*, bool);
     using QsciLexerFortran77_Language_Callback = const char* (*)();
     using QsciLexerFortran77_Lexer_Callback = const char* (*)();
     using QsciLexerFortran77_LexerId_Callback = int (*)();
     using QsciLexerFortran77_AutoCompletionFillups_Callback = const char* (*)();
-    using QsciLexerFortran77_AutoCompletionWordSeparators_Callback = QStringList (*)();
+    using QsciLexerFortran77_AutoCompletionWordSeparators_Callback = libqt_list /* of libqt_string */ (*)();
     using QsciLexerFortran77_BlockEnd_Callback = const char* (*)(const QsciLexerFortran77*, int*);
     using QsciLexerFortran77_BlockLookback_Callback = int (*)();
     using QsciLexerFortran77_BlockStart_Callback = const char* (*)(const QsciLexerFortran77*, int*);
     using QsciLexerFortran77_BlockStartKeyword_Callback = const char* (*)(const QsciLexerFortran77*, int*);
     using QsciLexerFortran77_BraceStyle_Callback = int (*)();
     using QsciLexerFortran77_CaseSensitive_Callback = bool (*)();
-    using QsciLexerFortran77_Color_Callback = QColor (*)(const QsciLexerFortran77*, int);
+    using QsciLexerFortran77_Color_Callback = QColor* (*)(const QsciLexerFortran77*, int);
     using QsciLexerFortran77_EolFill_Callback = bool (*)(const QsciLexerFortran77*, int);
-    using QsciLexerFortran77_Font_Callback = QFont (*)(const QsciLexerFortran77*, int);
+    using QsciLexerFortran77_Font_Callback = QFont* (*)(const QsciLexerFortran77*, int);
     using QsciLexerFortran77_IndentationGuideView_Callback = int (*)();
     using QsciLexerFortran77_Keywords_Callback = const char* (*)(const QsciLexerFortran77*, int);
     using QsciLexerFortran77_DefaultStyle_Callback = int (*)();
-    using QsciLexerFortran77_Description_Callback = QString (*)(const QsciLexerFortran77*, int);
-    using QsciLexerFortran77_Paper_Callback = QColor (*)(const QsciLexerFortran77*, int);
-    using QsciLexerFortran77_DefaultColorWithStyle_Callback = QColor (*)(const QsciLexerFortran77*, int);
+    using QsciLexerFortran77_Description_Callback = libqt_string (*)(const QsciLexerFortran77*, int);
+    using QsciLexerFortran77_Paper_Callback = QColor* (*)(const QsciLexerFortran77*, int);
+    using QsciLexerFortran77_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerFortran77*, int);
     using QsciLexerFortran77_DefaultEolFill_Callback = bool (*)(const QsciLexerFortran77*, int);
-    using QsciLexerFortran77_DefaultFontWithStyle_Callback = QFont (*)(const QsciLexerFortran77*, int);
-    using QsciLexerFortran77_DefaultPaperWithStyle_Callback = QColor (*)(const QsciLexerFortran77*, int);
+    using QsciLexerFortran77_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerFortran77*, int);
+    using QsciLexerFortran77_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerFortran77*, int);
     using QsciLexerFortran77_SetEditor_Callback = void (*)(QsciLexerFortran77*, QsciScintilla*);
     using QsciLexerFortran77_RefreshProperties_Callback = void (*)();
     using QsciLexerFortran77_StyleBitsNeeded_Callback = int (*)();
     using QsciLexerFortran77_WordCharacters_Callback = const char* (*)();
     using QsciLexerFortran77_SetAutoIndentStyle_Callback = void (*)(QsciLexerFortran77*, int);
-    using QsciLexerFortran77_SetColor_Callback = void (*)(QsciLexerFortran77*, const QColor&, int);
+    using QsciLexerFortran77_SetColor_Callback = void (*)(QsciLexerFortran77*, QColor*, int);
     using QsciLexerFortran77_SetEolFill_Callback = void (*)(QsciLexerFortran77*, bool, int);
-    using QsciLexerFortran77_SetFont_Callback = void (*)(QsciLexerFortran77*, const QFont&, int);
-    using QsciLexerFortran77_SetPaper_Callback = void (*)(QsciLexerFortran77*, const QColor&, int);
-    using QsciLexerFortran77_ReadProperties_Callback = bool (*)(QsciLexerFortran77*, QSettings&, const QString&);
-    using QsciLexerFortran77_WriteProperties_Callback = bool (*)(const QsciLexerFortran77*, QSettings&, const QString&);
+    using QsciLexerFortran77_SetFont_Callback = void (*)(QsciLexerFortran77*, QFont*, int);
+    using QsciLexerFortran77_SetPaper_Callback = void (*)(QsciLexerFortran77*, QColor*, int);
+    using QsciLexerFortran77_ReadProperties_Callback = bool (*)(QsciLexerFortran77*, QSettings*, libqt_string);
+    using QsciLexerFortran77_WriteProperties_Callback = bool (*)(const QsciLexerFortran77*, QSettings*, libqt_string);
     using QsciLexerFortran77_Event_Callback = bool (*)(QsciLexerFortran77*, QEvent*);
     using QsciLexerFortran77_EventFilter_Callback = bool (*)(QsciLexerFortran77*, QObject*, QEvent*);
     using QsciLexerFortran77_TimerEvent_Callback = void (*)(QsciLexerFortran77*, QTimerEvent*);
     using QsciLexerFortran77_ChildEvent_Callback = void (*)(QsciLexerFortran77*, QChildEvent*);
     using QsciLexerFortran77_CustomEvent_Callback = void (*)(QsciLexerFortran77*, QEvent*);
-    using QsciLexerFortran77_ConnectNotify_Callback = void (*)(QsciLexerFortran77*, const QMetaMethod&);
-    using QsciLexerFortran77_DisconnectNotify_Callback = void (*)(QsciLexerFortran77*, const QMetaMethod&);
+    using QsciLexerFortran77_ConnectNotify_Callback = void (*)(QsciLexerFortran77*, QMetaMethod*);
+    using QsciLexerFortran77_DisconnectNotify_Callback = void (*)(QsciLexerFortran77*, QMetaMethod*);
     using QsciLexerFortran77_Sender_Callback = QObject* (*)();
     using QsciLexerFortran77_SenderSignalIndex_Callback = int (*)();
     using QsciLexerFortran77_Receivers_Callback = int (*)(const QsciLexerFortran77*, const char*);
-    using QsciLexerFortran77_IsSignalConnected_Callback = bool (*)(const QsciLexerFortran77*, const QMetaMethod&);
+    using QsciLexerFortran77_IsSignalConnected_Callback = bool (*)(const QsciLexerFortran77*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -217,102 +220,102 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
     }
 
     // Callback setters
-    void setQsciLexerFortran77_Metacall_Callback(QsciLexerFortran77_Metacall_Callback cb) { qscilexerfortran77_metacall_callback = cb; }
-    void setQsciLexerFortran77_SetFoldCompact_Callback(QsciLexerFortran77_SetFoldCompact_Callback cb) { qscilexerfortran77_setfoldcompact_callback = cb; }
-    void setQsciLexerFortran77_Language_Callback(QsciLexerFortran77_Language_Callback cb) { qscilexerfortran77_language_callback = cb; }
-    void setQsciLexerFortran77_Lexer_Callback(QsciLexerFortran77_Lexer_Callback cb) { qscilexerfortran77_lexer_callback = cb; }
-    void setQsciLexerFortran77_LexerId_Callback(QsciLexerFortran77_LexerId_Callback cb) { qscilexerfortran77_lexerid_callback = cb; }
-    void setQsciLexerFortran77_AutoCompletionFillups_Callback(QsciLexerFortran77_AutoCompletionFillups_Callback cb) { qscilexerfortran77_autocompletionfillups_callback = cb; }
-    void setQsciLexerFortran77_AutoCompletionWordSeparators_Callback(QsciLexerFortran77_AutoCompletionWordSeparators_Callback cb) { qscilexerfortran77_autocompletionwordseparators_callback = cb; }
-    void setQsciLexerFortran77_BlockEnd_Callback(QsciLexerFortran77_BlockEnd_Callback cb) { qscilexerfortran77_blockend_callback = cb; }
-    void setQsciLexerFortran77_BlockLookback_Callback(QsciLexerFortran77_BlockLookback_Callback cb) { qscilexerfortran77_blocklookback_callback = cb; }
-    void setQsciLexerFortran77_BlockStart_Callback(QsciLexerFortran77_BlockStart_Callback cb) { qscilexerfortran77_blockstart_callback = cb; }
-    void setQsciLexerFortran77_BlockStartKeyword_Callback(QsciLexerFortran77_BlockStartKeyword_Callback cb) { qscilexerfortran77_blockstartkeyword_callback = cb; }
-    void setQsciLexerFortran77_BraceStyle_Callback(QsciLexerFortran77_BraceStyle_Callback cb) { qscilexerfortran77_bracestyle_callback = cb; }
-    void setQsciLexerFortran77_CaseSensitive_Callback(QsciLexerFortran77_CaseSensitive_Callback cb) { qscilexerfortran77_casesensitive_callback = cb; }
-    void setQsciLexerFortran77_Color_Callback(QsciLexerFortran77_Color_Callback cb) { qscilexerfortran77_color_callback = cb; }
-    void setQsciLexerFortran77_EolFill_Callback(QsciLexerFortran77_EolFill_Callback cb) { qscilexerfortran77_eolfill_callback = cb; }
-    void setQsciLexerFortran77_Font_Callback(QsciLexerFortran77_Font_Callback cb) { qscilexerfortran77_font_callback = cb; }
-    void setQsciLexerFortran77_IndentationGuideView_Callback(QsciLexerFortran77_IndentationGuideView_Callback cb) { qscilexerfortran77_indentationguideview_callback = cb; }
-    void setQsciLexerFortran77_Keywords_Callback(QsciLexerFortran77_Keywords_Callback cb) { qscilexerfortran77_keywords_callback = cb; }
-    void setQsciLexerFortran77_DefaultStyle_Callback(QsciLexerFortran77_DefaultStyle_Callback cb) { qscilexerfortran77_defaultstyle_callback = cb; }
-    void setQsciLexerFortran77_Description_Callback(QsciLexerFortran77_Description_Callback cb) { qscilexerfortran77_description_callback = cb; }
-    void setQsciLexerFortran77_Paper_Callback(QsciLexerFortran77_Paper_Callback cb) { qscilexerfortran77_paper_callback = cb; }
-    void setQsciLexerFortran77_DefaultColorWithStyle_Callback(QsciLexerFortran77_DefaultColorWithStyle_Callback cb) { qscilexerfortran77_defaultcolorwithstyle_callback = cb; }
-    void setQsciLexerFortran77_DefaultEolFill_Callback(QsciLexerFortran77_DefaultEolFill_Callback cb) { qscilexerfortran77_defaulteolfill_callback = cb; }
-    void setQsciLexerFortran77_DefaultFontWithStyle_Callback(QsciLexerFortran77_DefaultFontWithStyle_Callback cb) { qscilexerfortran77_defaultfontwithstyle_callback = cb; }
-    void setQsciLexerFortran77_DefaultPaperWithStyle_Callback(QsciLexerFortran77_DefaultPaperWithStyle_Callback cb) { qscilexerfortran77_defaultpaperwithstyle_callback = cb; }
-    void setQsciLexerFortran77_SetEditor_Callback(QsciLexerFortran77_SetEditor_Callback cb) { qscilexerfortran77_seteditor_callback = cb; }
-    void setQsciLexerFortran77_RefreshProperties_Callback(QsciLexerFortran77_RefreshProperties_Callback cb) { qscilexerfortran77_refreshproperties_callback = cb; }
-    void setQsciLexerFortran77_StyleBitsNeeded_Callback(QsciLexerFortran77_StyleBitsNeeded_Callback cb) { qscilexerfortran77_stylebitsneeded_callback = cb; }
-    void setQsciLexerFortran77_WordCharacters_Callback(QsciLexerFortran77_WordCharacters_Callback cb) { qscilexerfortran77_wordcharacters_callback = cb; }
-    void setQsciLexerFortran77_SetAutoIndentStyle_Callback(QsciLexerFortran77_SetAutoIndentStyle_Callback cb) { qscilexerfortran77_setautoindentstyle_callback = cb; }
-    void setQsciLexerFortran77_SetColor_Callback(QsciLexerFortran77_SetColor_Callback cb) { qscilexerfortran77_setcolor_callback = cb; }
-    void setQsciLexerFortran77_SetEolFill_Callback(QsciLexerFortran77_SetEolFill_Callback cb) { qscilexerfortran77_seteolfill_callback = cb; }
-    void setQsciLexerFortran77_SetFont_Callback(QsciLexerFortran77_SetFont_Callback cb) { qscilexerfortran77_setfont_callback = cb; }
-    void setQsciLexerFortran77_SetPaper_Callback(QsciLexerFortran77_SetPaper_Callback cb) { qscilexerfortran77_setpaper_callback = cb; }
-    void setQsciLexerFortran77_ReadProperties_Callback(QsciLexerFortran77_ReadProperties_Callback cb) { qscilexerfortran77_readproperties_callback = cb; }
-    void setQsciLexerFortran77_WriteProperties_Callback(QsciLexerFortran77_WriteProperties_Callback cb) { qscilexerfortran77_writeproperties_callback = cb; }
-    void setQsciLexerFortran77_Event_Callback(QsciLexerFortran77_Event_Callback cb) { qscilexerfortran77_event_callback = cb; }
-    void setQsciLexerFortran77_EventFilter_Callback(QsciLexerFortran77_EventFilter_Callback cb) { qscilexerfortran77_eventfilter_callback = cb; }
-    void setQsciLexerFortran77_TimerEvent_Callback(QsciLexerFortran77_TimerEvent_Callback cb) { qscilexerfortran77_timerevent_callback = cb; }
-    void setQsciLexerFortran77_ChildEvent_Callback(QsciLexerFortran77_ChildEvent_Callback cb) { qscilexerfortran77_childevent_callback = cb; }
-    void setQsciLexerFortran77_CustomEvent_Callback(QsciLexerFortran77_CustomEvent_Callback cb) { qscilexerfortran77_customevent_callback = cb; }
-    void setQsciLexerFortran77_ConnectNotify_Callback(QsciLexerFortran77_ConnectNotify_Callback cb) { qscilexerfortran77_connectnotify_callback = cb; }
-    void setQsciLexerFortran77_DisconnectNotify_Callback(QsciLexerFortran77_DisconnectNotify_Callback cb) { qscilexerfortran77_disconnectnotify_callback = cb; }
-    void setQsciLexerFortran77_Sender_Callback(QsciLexerFortran77_Sender_Callback cb) { qscilexerfortran77_sender_callback = cb; }
-    void setQsciLexerFortran77_SenderSignalIndex_Callback(QsciLexerFortran77_SenderSignalIndex_Callback cb) { qscilexerfortran77_sendersignalindex_callback = cb; }
-    void setQsciLexerFortran77_Receivers_Callback(QsciLexerFortran77_Receivers_Callback cb) { qscilexerfortran77_receivers_callback = cb; }
-    void setQsciLexerFortran77_IsSignalConnected_Callback(QsciLexerFortran77_IsSignalConnected_Callback cb) { qscilexerfortran77_issignalconnected_callback = cb; }
+    inline void setQsciLexerFortran77_Metacall_Callback(QsciLexerFortran77_Metacall_Callback cb) { qscilexerfortran77_metacall_callback = cb; }
+    inline void setQsciLexerFortran77_SetFoldCompact_Callback(QsciLexerFortran77_SetFoldCompact_Callback cb) { qscilexerfortran77_setfoldcompact_callback = cb; }
+    inline void setQsciLexerFortran77_Language_Callback(QsciLexerFortran77_Language_Callback cb) { qscilexerfortran77_language_callback = cb; }
+    inline void setQsciLexerFortran77_Lexer_Callback(QsciLexerFortran77_Lexer_Callback cb) { qscilexerfortran77_lexer_callback = cb; }
+    inline void setQsciLexerFortran77_LexerId_Callback(QsciLexerFortran77_LexerId_Callback cb) { qscilexerfortran77_lexerid_callback = cb; }
+    inline void setQsciLexerFortran77_AutoCompletionFillups_Callback(QsciLexerFortran77_AutoCompletionFillups_Callback cb) { qscilexerfortran77_autocompletionfillups_callback = cb; }
+    inline void setQsciLexerFortran77_AutoCompletionWordSeparators_Callback(QsciLexerFortran77_AutoCompletionWordSeparators_Callback cb) { qscilexerfortran77_autocompletionwordseparators_callback = cb; }
+    inline void setQsciLexerFortran77_BlockEnd_Callback(QsciLexerFortran77_BlockEnd_Callback cb) { qscilexerfortran77_blockend_callback = cb; }
+    inline void setQsciLexerFortran77_BlockLookback_Callback(QsciLexerFortran77_BlockLookback_Callback cb) { qscilexerfortran77_blocklookback_callback = cb; }
+    inline void setQsciLexerFortran77_BlockStart_Callback(QsciLexerFortran77_BlockStart_Callback cb) { qscilexerfortran77_blockstart_callback = cb; }
+    inline void setQsciLexerFortran77_BlockStartKeyword_Callback(QsciLexerFortran77_BlockStartKeyword_Callback cb) { qscilexerfortran77_blockstartkeyword_callback = cb; }
+    inline void setQsciLexerFortran77_BraceStyle_Callback(QsciLexerFortran77_BraceStyle_Callback cb) { qscilexerfortran77_bracestyle_callback = cb; }
+    inline void setQsciLexerFortran77_CaseSensitive_Callback(QsciLexerFortran77_CaseSensitive_Callback cb) { qscilexerfortran77_casesensitive_callback = cb; }
+    inline void setQsciLexerFortran77_Color_Callback(QsciLexerFortran77_Color_Callback cb) { qscilexerfortran77_color_callback = cb; }
+    inline void setQsciLexerFortran77_EolFill_Callback(QsciLexerFortran77_EolFill_Callback cb) { qscilexerfortran77_eolfill_callback = cb; }
+    inline void setQsciLexerFortran77_Font_Callback(QsciLexerFortran77_Font_Callback cb) { qscilexerfortran77_font_callback = cb; }
+    inline void setQsciLexerFortran77_IndentationGuideView_Callback(QsciLexerFortran77_IndentationGuideView_Callback cb) { qscilexerfortran77_indentationguideview_callback = cb; }
+    inline void setQsciLexerFortran77_Keywords_Callback(QsciLexerFortran77_Keywords_Callback cb) { qscilexerfortran77_keywords_callback = cb; }
+    inline void setQsciLexerFortran77_DefaultStyle_Callback(QsciLexerFortran77_DefaultStyle_Callback cb) { qscilexerfortran77_defaultstyle_callback = cb; }
+    inline void setQsciLexerFortran77_Description_Callback(QsciLexerFortran77_Description_Callback cb) { qscilexerfortran77_description_callback = cb; }
+    inline void setQsciLexerFortran77_Paper_Callback(QsciLexerFortran77_Paper_Callback cb) { qscilexerfortran77_paper_callback = cb; }
+    inline void setQsciLexerFortran77_DefaultColorWithStyle_Callback(QsciLexerFortran77_DefaultColorWithStyle_Callback cb) { qscilexerfortran77_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerFortran77_DefaultEolFill_Callback(QsciLexerFortran77_DefaultEolFill_Callback cb) { qscilexerfortran77_defaulteolfill_callback = cb; }
+    inline void setQsciLexerFortran77_DefaultFontWithStyle_Callback(QsciLexerFortran77_DefaultFontWithStyle_Callback cb) { qscilexerfortran77_defaultfontwithstyle_callback = cb; }
+    inline void setQsciLexerFortran77_DefaultPaperWithStyle_Callback(QsciLexerFortran77_DefaultPaperWithStyle_Callback cb) { qscilexerfortran77_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerFortran77_SetEditor_Callback(QsciLexerFortran77_SetEditor_Callback cb) { qscilexerfortran77_seteditor_callback = cb; }
+    inline void setQsciLexerFortran77_RefreshProperties_Callback(QsciLexerFortran77_RefreshProperties_Callback cb) { qscilexerfortran77_refreshproperties_callback = cb; }
+    inline void setQsciLexerFortran77_StyleBitsNeeded_Callback(QsciLexerFortran77_StyleBitsNeeded_Callback cb) { qscilexerfortran77_stylebitsneeded_callback = cb; }
+    inline void setQsciLexerFortran77_WordCharacters_Callback(QsciLexerFortran77_WordCharacters_Callback cb) { qscilexerfortran77_wordcharacters_callback = cb; }
+    inline void setQsciLexerFortran77_SetAutoIndentStyle_Callback(QsciLexerFortran77_SetAutoIndentStyle_Callback cb) { qscilexerfortran77_setautoindentstyle_callback = cb; }
+    inline void setQsciLexerFortran77_SetColor_Callback(QsciLexerFortran77_SetColor_Callback cb) { qscilexerfortran77_setcolor_callback = cb; }
+    inline void setQsciLexerFortran77_SetEolFill_Callback(QsciLexerFortran77_SetEolFill_Callback cb) { qscilexerfortran77_seteolfill_callback = cb; }
+    inline void setQsciLexerFortran77_SetFont_Callback(QsciLexerFortran77_SetFont_Callback cb) { qscilexerfortran77_setfont_callback = cb; }
+    inline void setQsciLexerFortran77_SetPaper_Callback(QsciLexerFortran77_SetPaper_Callback cb) { qscilexerfortran77_setpaper_callback = cb; }
+    inline void setQsciLexerFortran77_ReadProperties_Callback(QsciLexerFortran77_ReadProperties_Callback cb) { qscilexerfortran77_readproperties_callback = cb; }
+    inline void setQsciLexerFortran77_WriteProperties_Callback(QsciLexerFortran77_WriteProperties_Callback cb) { qscilexerfortran77_writeproperties_callback = cb; }
+    inline void setQsciLexerFortran77_Event_Callback(QsciLexerFortran77_Event_Callback cb) { qscilexerfortran77_event_callback = cb; }
+    inline void setQsciLexerFortran77_EventFilter_Callback(QsciLexerFortran77_EventFilter_Callback cb) { qscilexerfortran77_eventfilter_callback = cb; }
+    inline void setQsciLexerFortran77_TimerEvent_Callback(QsciLexerFortran77_TimerEvent_Callback cb) { qscilexerfortran77_timerevent_callback = cb; }
+    inline void setQsciLexerFortran77_ChildEvent_Callback(QsciLexerFortran77_ChildEvent_Callback cb) { qscilexerfortran77_childevent_callback = cb; }
+    inline void setQsciLexerFortran77_CustomEvent_Callback(QsciLexerFortran77_CustomEvent_Callback cb) { qscilexerfortran77_customevent_callback = cb; }
+    inline void setQsciLexerFortran77_ConnectNotify_Callback(QsciLexerFortran77_ConnectNotify_Callback cb) { qscilexerfortran77_connectnotify_callback = cb; }
+    inline void setQsciLexerFortran77_DisconnectNotify_Callback(QsciLexerFortran77_DisconnectNotify_Callback cb) { qscilexerfortran77_disconnectnotify_callback = cb; }
+    inline void setQsciLexerFortran77_Sender_Callback(QsciLexerFortran77_Sender_Callback cb) { qscilexerfortran77_sender_callback = cb; }
+    inline void setQsciLexerFortran77_SenderSignalIndex_Callback(QsciLexerFortran77_SenderSignalIndex_Callback cb) { qscilexerfortran77_sendersignalindex_callback = cb; }
+    inline void setQsciLexerFortran77_Receivers_Callback(QsciLexerFortran77_Receivers_Callback cb) { qscilexerfortran77_receivers_callback = cb; }
+    inline void setQsciLexerFortran77_IsSignalConnected_Callback(QsciLexerFortran77_IsSignalConnected_Callback cb) { qscilexerfortran77_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQsciLexerFortran77_Metacall_IsBase(bool value) const { qscilexerfortran77_metacall_isbase = value; }
-    void setQsciLexerFortran77_SetFoldCompact_IsBase(bool value) const { qscilexerfortran77_setfoldcompact_isbase = value; }
-    void setQsciLexerFortran77_Language_IsBase(bool value) const { qscilexerfortran77_language_isbase = value; }
-    void setQsciLexerFortran77_Lexer_IsBase(bool value) const { qscilexerfortran77_lexer_isbase = value; }
-    void setQsciLexerFortran77_LexerId_IsBase(bool value) const { qscilexerfortran77_lexerid_isbase = value; }
-    void setQsciLexerFortran77_AutoCompletionFillups_IsBase(bool value) const { qscilexerfortran77_autocompletionfillups_isbase = value; }
-    void setQsciLexerFortran77_AutoCompletionWordSeparators_IsBase(bool value) const { qscilexerfortran77_autocompletionwordseparators_isbase = value; }
-    void setQsciLexerFortran77_BlockEnd_IsBase(bool value) const { qscilexerfortran77_blockend_isbase = value; }
-    void setQsciLexerFortran77_BlockLookback_IsBase(bool value) const { qscilexerfortran77_blocklookback_isbase = value; }
-    void setQsciLexerFortran77_BlockStart_IsBase(bool value) const { qscilexerfortran77_blockstart_isbase = value; }
-    void setQsciLexerFortran77_BlockStartKeyword_IsBase(bool value) const { qscilexerfortran77_blockstartkeyword_isbase = value; }
-    void setQsciLexerFortran77_BraceStyle_IsBase(bool value) const { qscilexerfortran77_bracestyle_isbase = value; }
-    void setQsciLexerFortran77_CaseSensitive_IsBase(bool value) const { qscilexerfortran77_casesensitive_isbase = value; }
-    void setQsciLexerFortran77_Color_IsBase(bool value) const { qscilexerfortran77_color_isbase = value; }
-    void setQsciLexerFortran77_EolFill_IsBase(bool value) const { qscilexerfortran77_eolfill_isbase = value; }
-    void setQsciLexerFortran77_Font_IsBase(bool value) const { qscilexerfortran77_font_isbase = value; }
-    void setQsciLexerFortran77_IndentationGuideView_IsBase(bool value) const { qscilexerfortran77_indentationguideview_isbase = value; }
-    void setQsciLexerFortran77_Keywords_IsBase(bool value) const { qscilexerfortran77_keywords_isbase = value; }
-    void setQsciLexerFortran77_DefaultStyle_IsBase(bool value) const { qscilexerfortran77_defaultstyle_isbase = value; }
-    void setQsciLexerFortran77_Description_IsBase(bool value) const { qscilexerfortran77_description_isbase = value; }
-    void setQsciLexerFortran77_Paper_IsBase(bool value) const { qscilexerfortran77_paper_isbase = value; }
-    void setQsciLexerFortran77_DefaultColorWithStyle_IsBase(bool value) const { qscilexerfortran77_defaultcolorwithstyle_isbase = value; }
-    void setQsciLexerFortran77_DefaultEolFill_IsBase(bool value) const { qscilexerfortran77_defaulteolfill_isbase = value; }
-    void setQsciLexerFortran77_DefaultFontWithStyle_IsBase(bool value) const { qscilexerfortran77_defaultfontwithstyle_isbase = value; }
-    void setQsciLexerFortran77_DefaultPaperWithStyle_IsBase(bool value) const { qscilexerfortran77_defaultpaperwithstyle_isbase = value; }
-    void setQsciLexerFortran77_SetEditor_IsBase(bool value) const { qscilexerfortran77_seteditor_isbase = value; }
-    void setQsciLexerFortran77_RefreshProperties_IsBase(bool value) const { qscilexerfortran77_refreshproperties_isbase = value; }
-    void setQsciLexerFortran77_StyleBitsNeeded_IsBase(bool value) const { qscilexerfortran77_stylebitsneeded_isbase = value; }
-    void setQsciLexerFortran77_WordCharacters_IsBase(bool value) const { qscilexerfortran77_wordcharacters_isbase = value; }
-    void setQsciLexerFortran77_SetAutoIndentStyle_IsBase(bool value) const { qscilexerfortran77_setautoindentstyle_isbase = value; }
-    void setQsciLexerFortran77_SetColor_IsBase(bool value) const { qscilexerfortran77_setcolor_isbase = value; }
-    void setQsciLexerFortran77_SetEolFill_IsBase(bool value) const { qscilexerfortran77_seteolfill_isbase = value; }
-    void setQsciLexerFortran77_SetFont_IsBase(bool value) const { qscilexerfortran77_setfont_isbase = value; }
-    void setQsciLexerFortran77_SetPaper_IsBase(bool value) const { qscilexerfortran77_setpaper_isbase = value; }
-    void setQsciLexerFortran77_ReadProperties_IsBase(bool value) const { qscilexerfortran77_readproperties_isbase = value; }
-    void setQsciLexerFortran77_WriteProperties_IsBase(bool value) const { qscilexerfortran77_writeproperties_isbase = value; }
-    void setQsciLexerFortran77_Event_IsBase(bool value) const { qscilexerfortran77_event_isbase = value; }
-    void setQsciLexerFortran77_EventFilter_IsBase(bool value) const { qscilexerfortran77_eventfilter_isbase = value; }
-    void setQsciLexerFortran77_TimerEvent_IsBase(bool value) const { qscilexerfortran77_timerevent_isbase = value; }
-    void setQsciLexerFortran77_ChildEvent_IsBase(bool value) const { qscilexerfortran77_childevent_isbase = value; }
-    void setQsciLexerFortran77_CustomEvent_IsBase(bool value) const { qscilexerfortran77_customevent_isbase = value; }
-    void setQsciLexerFortran77_ConnectNotify_IsBase(bool value) const { qscilexerfortran77_connectnotify_isbase = value; }
-    void setQsciLexerFortran77_DisconnectNotify_IsBase(bool value) const { qscilexerfortran77_disconnectnotify_isbase = value; }
-    void setQsciLexerFortran77_Sender_IsBase(bool value) const { qscilexerfortran77_sender_isbase = value; }
-    void setQsciLexerFortran77_SenderSignalIndex_IsBase(bool value) const { qscilexerfortran77_sendersignalindex_isbase = value; }
-    void setQsciLexerFortran77_Receivers_IsBase(bool value) const { qscilexerfortran77_receivers_isbase = value; }
-    void setQsciLexerFortran77_IsSignalConnected_IsBase(bool value) const { qscilexerfortran77_issignalconnected_isbase = value; }
+    inline void setQsciLexerFortran77_Metacall_IsBase(bool value) const { qscilexerfortran77_metacall_isbase = value; }
+    inline void setQsciLexerFortran77_SetFoldCompact_IsBase(bool value) const { qscilexerfortran77_setfoldcompact_isbase = value; }
+    inline void setQsciLexerFortran77_Language_IsBase(bool value) const { qscilexerfortran77_language_isbase = value; }
+    inline void setQsciLexerFortran77_Lexer_IsBase(bool value) const { qscilexerfortran77_lexer_isbase = value; }
+    inline void setQsciLexerFortran77_LexerId_IsBase(bool value) const { qscilexerfortran77_lexerid_isbase = value; }
+    inline void setQsciLexerFortran77_AutoCompletionFillups_IsBase(bool value) const { qscilexerfortran77_autocompletionfillups_isbase = value; }
+    inline void setQsciLexerFortran77_AutoCompletionWordSeparators_IsBase(bool value) const { qscilexerfortran77_autocompletionwordseparators_isbase = value; }
+    inline void setQsciLexerFortran77_BlockEnd_IsBase(bool value) const { qscilexerfortran77_blockend_isbase = value; }
+    inline void setQsciLexerFortran77_BlockLookback_IsBase(bool value) const { qscilexerfortran77_blocklookback_isbase = value; }
+    inline void setQsciLexerFortran77_BlockStart_IsBase(bool value) const { qscilexerfortran77_blockstart_isbase = value; }
+    inline void setQsciLexerFortran77_BlockStartKeyword_IsBase(bool value) const { qscilexerfortran77_blockstartkeyword_isbase = value; }
+    inline void setQsciLexerFortran77_BraceStyle_IsBase(bool value) const { qscilexerfortran77_bracestyle_isbase = value; }
+    inline void setQsciLexerFortran77_CaseSensitive_IsBase(bool value) const { qscilexerfortran77_casesensitive_isbase = value; }
+    inline void setQsciLexerFortran77_Color_IsBase(bool value) const { qscilexerfortran77_color_isbase = value; }
+    inline void setQsciLexerFortran77_EolFill_IsBase(bool value) const { qscilexerfortran77_eolfill_isbase = value; }
+    inline void setQsciLexerFortran77_Font_IsBase(bool value) const { qscilexerfortran77_font_isbase = value; }
+    inline void setQsciLexerFortran77_IndentationGuideView_IsBase(bool value) const { qscilexerfortran77_indentationguideview_isbase = value; }
+    inline void setQsciLexerFortran77_Keywords_IsBase(bool value) const { qscilexerfortran77_keywords_isbase = value; }
+    inline void setQsciLexerFortran77_DefaultStyle_IsBase(bool value) const { qscilexerfortran77_defaultstyle_isbase = value; }
+    inline void setQsciLexerFortran77_Description_IsBase(bool value) const { qscilexerfortran77_description_isbase = value; }
+    inline void setQsciLexerFortran77_Paper_IsBase(bool value) const { qscilexerfortran77_paper_isbase = value; }
+    inline void setQsciLexerFortran77_DefaultColorWithStyle_IsBase(bool value) const { qscilexerfortran77_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerFortran77_DefaultEolFill_IsBase(bool value) const { qscilexerfortran77_defaulteolfill_isbase = value; }
+    inline void setQsciLexerFortran77_DefaultFontWithStyle_IsBase(bool value) const { qscilexerfortran77_defaultfontwithstyle_isbase = value; }
+    inline void setQsciLexerFortran77_DefaultPaperWithStyle_IsBase(bool value) const { qscilexerfortran77_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerFortran77_SetEditor_IsBase(bool value) const { qscilexerfortran77_seteditor_isbase = value; }
+    inline void setQsciLexerFortran77_RefreshProperties_IsBase(bool value) const { qscilexerfortran77_refreshproperties_isbase = value; }
+    inline void setQsciLexerFortran77_StyleBitsNeeded_IsBase(bool value) const { qscilexerfortran77_stylebitsneeded_isbase = value; }
+    inline void setQsciLexerFortran77_WordCharacters_IsBase(bool value) const { qscilexerfortran77_wordcharacters_isbase = value; }
+    inline void setQsciLexerFortran77_SetAutoIndentStyle_IsBase(bool value) const { qscilexerfortran77_setautoindentstyle_isbase = value; }
+    inline void setQsciLexerFortran77_SetColor_IsBase(bool value) const { qscilexerfortran77_setcolor_isbase = value; }
+    inline void setQsciLexerFortran77_SetEolFill_IsBase(bool value) const { qscilexerfortran77_seteolfill_isbase = value; }
+    inline void setQsciLexerFortran77_SetFont_IsBase(bool value) const { qscilexerfortran77_setfont_isbase = value; }
+    inline void setQsciLexerFortran77_SetPaper_IsBase(bool value) const { qscilexerfortran77_setpaper_isbase = value; }
+    inline void setQsciLexerFortran77_ReadProperties_IsBase(bool value) const { qscilexerfortran77_readproperties_isbase = value; }
+    inline void setQsciLexerFortran77_WriteProperties_IsBase(bool value) const { qscilexerfortran77_writeproperties_isbase = value; }
+    inline void setQsciLexerFortran77_Event_IsBase(bool value) const { qscilexerfortran77_event_isbase = value; }
+    inline void setQsciLexerFortran77_EventFilter_IsBase(bool value) const { qscilexerfortran77_eventfilter_isbase = value; }
+    inline void setQsciLexerFortran77_TimerEvent_IsBase(bool value) const { qscilexerfortran77_timerevent_isbase = value; }
+    inline void setQsciLexerFortran77_ChildEvent_IsBase(bool value) const { qscilexerfortran77_childevent_isbase = value; }
+    inline void setQsciLexerFortran77_CustomEvent_IsBase(bool value) const { qscilexerfortran77_customevent_isbase = value; }
+    inline void setQsciLexerFortran77_ConnectNotify_IsBase(bool value) const { qscilexerfortran77_connectnotify_isbase = value; }
+    inline void setQsciLexerFortran77_DisconnectNotify_IsBase(bool value) const { qscilexerfortran77_disconnectnotify_isbase = value; }
+    inline void setQsciLexerFortran77_Sender_IsBase(bool value) const { qscilexerfortran77_sender_isbase = value; }
+    inline void setQsciLexerFortran77_SenderSignalIndex_IsBase(bool value) const { qscilexerfortran77_sendersignalindex_isbase = value; }
+    inline void setQsciLexerFortran77_Receivers_IsBase(bool value) const { qscilexerfortran77_receivers_isbase = value; }
+    inline void setQsciLexerFortran77_IsSignalConnected_IsBase(bool value) const { qscilexerfortran77_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -320,7 +323,12 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_metacall_isbase = false;
             return QsciLexerFortran77::qt_metacall(param1, param2, param3);
         } else if (qscilexerfortran77_metacall_callback != nullptr) {
-            return qscilexerfortran77_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qscilexerfortran77_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerFortran77::qt_metacall(param1, param2, param3);
         }
@@ -332,7 +340,9 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_setfoldcompact_isbase = false;
             QsciLexerFortran77::setFoldCompact(fold);
         } else if (qscilexerfortran77_setfoldcompact_callback != nullptr) {
-            qscilexerfortran77_setfoldcompact_callback(this, fold);
+            bool cbval1 = fold;
+
+            qscilexerfortran77_setfoldcompact_callback(this, cbval1);
         } else {
             QsciLexerFortran77::setFoldCompact(fold);
         }
@@ -340,7 +350,12 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
 
     // Virtual method for C ABI access and custom callback
     virtual const char* language() const override {
-        return qscilexerfortran77_language_callback();
+        if (qscilexerfortran77_language_callback != nullptr) {
+            const char* callback_ret = qscilexerfortran77_language_callback();
+            return callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -349,7 +364,8 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_lexer_isbase = false;
             return QsciLexerFortran77::lexer();
         } else if (qscilexerfortran77_lexer_callback != nullptr) {
-            return qscilexerfortran77_lexer_callback();
+            const char* callback_ret = qscilexerfortran77_lexer_callback();
+            return callback_ret;
         } else {
             return QsciLexerFortran77::lexer();
         }
@@ -361,7 +377,8 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_lexerid_isbase = false;
             return QsciLexerFortran77::lexerId();
         } else if (qscilexerfortran77_lexerid_callback != nullptr) {
-            return qscilexerfortran77_lexerid_callback();
+            int callback_ret = qscilexerfortran77_lexerid_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerFortran77::lexerId();
         }
@@ -373,7 +390,8 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_autocompletionfillups_isbase = false;
             return QsciLexerFortran77::autoCompletionFillups();
         } else if (qscilexerfortran77_autocompletionfillups_callback != nullptr) {
-            return qscilexerfortran77_autocompletionfillups_callback();
+            const char* callback_ret = qscilexerfortran77_autocompletionfillups_callback();
+            return callback_ret;
         } else {
             return QsciLexerFortran77::autoCompletionFillups();
         }
@@ -385,7 +403,15 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_autocompletionwordseparators_isbase = false;
             return QsciLexerFortran77::autoCompletionWordSeparators();
         } else if (qscilexerfortran77_autocompletionwordseparators_callback != nullptr) {
-            return qscilexerfortran77_autocompletionwordseparators_callback();
+            libqt_list /* of libqt_string */ callback_ret = qscilexerfortran77_autocompletionwordseparators_callback();
+            QStringList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+                callback_ret_QList.push_back(callback_ret_arr_i_QString);
+            }
+            return callback_ret_QList;
         } else {
             return QsciLexerFortran77::autoCompletionWordSeparators();
         }
@@ -397,7 +423,10 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_blockend_isbase = false;
             return QsciLexerFortran77::blockEnd(style);
         } else if (qscilexerfortran77_blockend_callback != nullptr) {
-            return qscilexerfortran77_blockend_callback(this, style);
+            int* cbval1 = style;
+
+            const char* callback_ret = qscilexerfortran77_blockend_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerFortran77::blockEnd(style);
         }
@@ -409,7 +438,8 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_blocklookback_isbase = false;
             return QsciLexerFortran77::blockLookback();
         } else if (qscilexerfortran77_blocklookback_callback != nullptr) {
-            return qscilexerfortran77_blocklookback_callback();
+            int callback_ret = qscilexerfortran77_blocklookback_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerFortran77::blockLookback();
         }
@@ -421,7 +451,10 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_blockstart_isbase = false;
             return QsciLexerFortran77::blockStart(style);
         } else if (qscilexerfortran77_blockstart_callback != nullptr) {
-            return qscilexerfortran77_blockstart_callback(this, style);
+            int* cbval1 = style;
+
+            const char* callback_ret = qscilexerfortran77_blockstart_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerFortran77::blockStart(style);
         }
@@ -433,7 +466,10 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_blockstartkeyword_isbase = false;
             return QsciLexerFortran77::blockStartKeyword(style);
         } else if (qscilexerfortran77_blockstartkeyword_callback != nullptr) {
-            return qscilexerfortran77_blockstartkeyword_callback(this, style);
+            int* cbval1 = style;
+
+            const char* callback_ret = qscilexerfortran77_blockstartkeyword_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerFortran77::blockStartKeyword(style);
         }
@@ -445,7 +481,8 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_bracestyle_isbase = false;
             return QsciLexerFortran77::braceStyle();
         } else if (qscilexerfortran77_bracestyle_callback != nullptr) {
-            return qscilexerfortran77_bracestyle_callback();
+            int callback_ret = qscilexerfortran77_bracestyle_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerFortran77::braceStyle();
         }
@@ -457,7 +494,8 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_casesensitive_isbase = false;
             return QsciLexerFortran77::caseSensitive();
         } else if (qscilexerfortran77_casesensitive_callback != nullptr) {
-            return qscilexerfortran77_casesensitive_callback();
+            bool callback_ret = qscilexerfortran77_casesensitive_callback();
+            return callback_ret;
         } else {
             return QsciLexerFortran77::caseSensitive();
         }
@@ -469,7 +507,10 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_color_isbase = false;
             return QsciLexerFortran77::color(style);
         } else if (qscilexerfortran77_color_callback != nullptr) {
-            return qscilexerfortran77_color_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexerfortran77_color_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerFortran77::color(style);
         }
@@ -481,7 +522,10 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_eolfill_isbase = false;
             return QsciLexerFortran77::eolFill(style);
         } else if (qscilexerfortran77_eolfill_callback != nullptr) {
-            return qscilexerfortran77_eolfill_callback(this, style);
+            int cbval1 = style;
+
+            bool callback_ret = qscilexerfortran77_eolfill_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerFortran77::eolFill(style);
         }
@@ -493,7 +537,10 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_font_isbase = false;
             return QsciLexerFortran77::font(style);
         } else if (qscilexerfortran77_font_callback != nullptr) {
-            return qscilexerfortran77_font_callback(this, style);
+            int cbval1 = style;
+
+            QFont* callback_ret = qscilexerfortran77_font_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerFortran77::font(style);
         }
@@ -505,7 +552,8 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_indentationguideview_isbase = false;
             return QsciLexerFortran77::indentationGuideView();
         } else if (qscilexerfortran77_indentationguideview_callback != nullptr) {
-            return qscilexerfortran77_indentationguideview_callback();
+            int callback_ret = qscilexerfortran77_indentationguideview_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerFortran77::indentationGuideView();
         }
@@ -517,7 +565,10 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_keywords_isbase = false;
             return QsciLexerFortran77::keywords(set);
         } else if (qscilexerfortran77_keywords_callback != nullptr) {
-            return qscilexerfortran77_keywords_callback(this, set);
+            int cbval1 = set;
+
+            const char* callback_ret = qscilexerfortran77_keywords_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerFortran77::keywords(set);
         }
@@ -529,7 +580,8 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_defaultstyle_isbase = false;
             return QsciLexerFortran77::defaultStyle();
         } else if (qscilexerfortran77_defaultstyle_callback != nullptr) {
-            return qscilexerfortran77_defaultstyle_callback();
+            int callback_ret = qscilexerfortran77_defaultstyle_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerFortran77::defaultStyle();
         }
@@ -537,7 +589,15 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
 
     // Virtual method for C ABI access and custom callback
     virtual QString description(int style) const override {
-        return qscilexerfortran77_description_callback(this, style);
+        if (qscilexerfortran77_description_callback != nullptr) {
+            int cbval1 = style;
+
+            libqt_string callback_ret = qscilexerfortran77_description_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,7 +606,10 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_paper_isbase = false;
             return QsciLexerFortran77::paper(style);
         } else if (qscilexerfortran77_paper_callback != nullptr) {
-            return qscilexerfortran77_paper_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexerfortran77_paper_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerFortran77::paper(style);
         }
@@ -558,7 +621,10 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_defaultcolorwithstyle_isbase = false;
             return QsciLexerFortran77::defaultColor(style);
         } else if (qscilexerfortran77_defaultcolorwithstyle_callback != nullptr) {
-            return qscilexerfortran77_defaultcolorwithstyle_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexerfortran77_defaultcolorwithstyle_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerFortran77::defaultColor(style);
         }
@@ -570,7 +636,10 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_defaulteolfill_isbase = false;
             return QsciLexerFortran77::defaultEolFill(style);
         } else if (qscilexerfortran77_defaulteolfill_callback != nullptr) {
-            return qscilexerfortran77_defaulteolfill_callback(this, style);
+            int cbval1 = style;
+
+            bool callback_ret = qscilexerfortran77_defaulteolfill_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerFortran77::defaultEolFill(style);
         }
@@ -582,7 +651,10 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_defaultfontwithstyle_isbase = false;
             return QsciLexerFortran77::defaultFont(style);
         } else if (qscilexerfortran77_defaultfontwithstyle_callback != nullptr) {
-            return qscilexerfortran77_defaultfontwithstyle_callback(this, style);
+            int cbval1 = style;
+
+            QFont* callback_ret = qscilexerfortran77_defaultfontwithstyle_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerFortran77::defaultFont(style);
         }
@@ -594,7 +666,10 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_defaultpaperwithstyle_isbase = false;
             return QsciLexerFortran77::defaultPaper(style);
         } else if (qscilexerfortran77_defaultpaperwithstyle_callback != nullptr) {
-            return qscilexerfortran77_defaultpaperwithstyle_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexerfortran77_defaultpaperwithstyle_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerFortran77::defaultPaper(style);
         }
@@ -606,7 +681,9 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_seteditor_isbase = false;
             QsciLexerFortran77::setEditor(editor);
         } else if (qscilexerfortran77_seteditor_callback != nullptr) {
-            qscilexerfortran77_seteditor_callback(this, editor);
+            QsciScintilla* cbval1 = editor;
+
+            qscilexerfortran77_seteditor_callback(this, cbval1);
         } else {
             QsciLexerFortran77::setEditor(editor);
         }
@@ -630,7 +707,8 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_stylebitsneeded_isbase = false;
             return QsciLexerFortran77::styleBitsNeeded();
         } else if (qscilexerfortran77_stylebitsneeded_callback != nullptr) {
-            return qscilexerfortran77_stylebitsneeded_callback();
+            int callback_ret = qscilexerfortran77_stylebitsneeded_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerFortran77::styleBitsNeeded();
         }
@@ -642,7 +720,8 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_wordcharacters_isbase = false;
             return QsciLexerFortran77::wordCharacters();
         } else if (qscilexerfortran77_wordcharacters_callback != nullptr) {
-            return qscilexerfortran77_wordcharacters_callback();
+            const char* callback_ret = qscilexerfortran77_wordcharacters_callback();
+            return callback_ret;
         } else {
             return QsciLexerFortran77::wordCharacters();
         }
@@ -654,7 +733,9 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_setautoindentstyle_isbase = false;
             QsciLexerFortran77::setAutoIndentStyle(autoindentstyle);
         } else if (qscilexerfortran77_setautoindentstyle_callback != nullptr) {
-            qscilexerfortran77_setautoindentstyle_callback(this, autoindentstyle);
+            int cbval1 = autoindentstyle;
+
+            qscilexerfortran77_setautoindentstyle_callback(this, cbval1);
         } else {
             QsciLexerFortran77::setAutoIndentStyle(autoindentstyle);
         }
@@ -666,7 +747,12 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_setcolor_isbase = false;
             QsciLexerFortran77::setColor(c, style);
         } else if (qscilexerfortran77_setcolor_callback != nullptr) {
-            qscilexerfortran77_setcolor_callback(this, c, style);
+            const QColor& c_ret = c;
+            // Cast returned reference into pointer
+            QColor* cbval1 = const_cast<QColor*>(&c_ret);
+            int cbval2 = style;
+
+            qscilexerfortran77_setcolor_callback(this, cbval1, cbval2);
         } else {
             QsciLexerFortran77::setColor(c, style);
         }
@@ -678,7 +764,10 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_seteolfill_isbase = false;
             QsciLexerFortran77::setEolFill(eoffill, style);
         } else if (qscilexerfortran77_seteolfill_callback != nullptr) {
-            qscilexerfortran77_seteolfill_callback(this, eoffill, style);
+            bool cbval1 = eoffill;
+            int cbval2 = style;
+
+            qscilexerfortran77_seteolfill_callback(this, cbval1, cbval2);
         } else {
             QsciLexerFortran77::setEolFill(eoffill, style);
         }
@@ -690,7 +779,12 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_setfont_isbase = false;
             QsciLexerFortran77::setFont(f, style);
         } else if (qscilexerfortran77_setfont_callback != nullptr) {
-            qscilexerfortran77_setfont_callback(this, f, style);
+            const QFont& f_ret = f;
+            // Cast returned reference into pointer
+            QFont* cbval1 = const_cast<QFont*>(&f_ret);
+            int cbval2 = style;
+
+            qscilexerfortran77_setfont_callback(this, cbval1, cbval2);
         } else {
             QsciLexerFortran77::setFont(f, style);
         }
@@ -702,7 +796,12 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_setpaper_isbase = false;
             QsciLexerFortran77::setPaper(c, style);
         } else if (qscilexerfortran77_setpaper_callback != nullptr) {
-            qscilexerfortran77_setpaper_callback(this, c, style);
+            const QColor& c_ret = c;
+            // Cast returned reference into pointer
+            QColor* cbval1 = const_cast<QColor*>(&c_ret);
+            int cbval2 = style;
+
+            qscilexerfortran77_setpaper_callback(this, cbval1, cbval2);
         } else {
             QsciLexerFortran77::setPaper(c, style);
         }
@@ -714,7 +813,21 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_readproperties_isbase = false;
             return QsciLexerFortran77::readProperties(qs, prefix);
         } else if (qscilexerfortran77_readproperties_callback != nullptr) {
-            return qscilexerfortran77_readproperties_callback(this, qs, prefix);
+            QSettings& qs_ret = qs;
+            // Cast returned reference into pointer
+            QSettings* cbval1 = &qs_ret;
+            const QString prefix_ret = prefix;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray prefix_b = prefix_ret.toUtf8();
+            libqt_string prefix_str;
+            prefix_str.len = prefix_b.length();
+            prefix_str.data = static_cast<char*>(malloc((prefix_str.len + 1) * sizeof(char)));
+            memcpy(prefix_str.data, prefix_b.data(), prefix_str.len);
+            prefix_str.data[prefix_str.len] = '\0';
+            libqt_string cbval2 = prefix_str;
+
+            bool callback_ret = qscilexerfortran77_readproperties_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QsciLexerFortran77::readProperties(qs, prefix);
         }
@@ -726,7 +839,21 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_writeproperties_isbase = false;
             return QsciLexerFortran77::writeProperties(qs, prefix);
         } else if (qscilexerfortran77_writeproperties_callback != nullptr) {
-            return qscilexerfortran77_writeproperties_callback(this, qs, prefix);
+            QSettings& qs_ret = qs;
+            // Cast returned reference into pointer
+            QSettings* cbval1 = &qs_ret;
+            const QString prefix_ret = prefix;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray prefix_b = prefix_ret.toUtf8();
+            libqt_string prefix_str;
+            prefix_str.len = prefix_b.length();
+            prefix_str.data = static_cast<char*>(malloc((prefix_str.len + 1) * sizeof(char)));
+            memcpy(prefix_str.data, prefix_b.data(), prefix_str.len);
+            prefix_str.data[prefix_str.len] = '\0';
+            libqt_string cbval2 = prefix_str;
+
+            bool callback_ret = qscilexerfortran77_writeproperties_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QsciLexerFortran77::writeProperties(qs, prefix);
         }
@@ -738,7 +865,10 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_event_isbase = false;
             return QsciLexerFortran77::event(event);
         } else if (qscilexerfortran77_event_callback != nullptr) {
-            return qscilexerfortran77_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qscilexerfortran77_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerFortran77::event(event);
         }
@@ -750,7 +880,11 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_eventfilter_isbase = false;
             return QsciLexerFortran77::eventFilter(watched, event);
         } else if (qscilexerfortran77_eventfilter_callback != nullptr) {
-            return qscilexerfortran77_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qscilexerfortran77_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QsciLexerFortran77::eventFilter(watched, event);
         }
@@ -762,7 +896,9 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_timerevent_isbase = false;
             QsciLexerFortran77::timerEvent(event);
         } else if (qscilexerfortran77_timerevent_callback != nullptr) {
-            qscilexerfortran77_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qscilexerfortran77_timerevent_callback(this, cbval1);
         } else {
             QsciLexerFortran77::timerEvent(event);
         }
@@ -774,7 +910,9 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_childevent_isbase = false;
             QsciLexerFortran77::childEvent(event);
         } else if (qscilexerfortran77_childevent_callback != nullptr) {
-            qscilexerfortran77_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qscilexerfortran77_childevent_callback(this, cbval1);
         } else {
             QsciLexerFortran77::childEvent(event);
         }
@@ -786,7 +924,9 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_customevent_isbase = false;
             QsciLexerFortran77::customEvent(event);
         } else if (qscilexerfortran77_customevent_callback != nullptr) {
-            qscilexerfortran77_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qscilexerfortran77_customevent_callback(this, cbval1);
         } else {
             QsciLexerFortran77::customEvent(event);
         }
@@ -798,7 +938,11 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_connectnotify_isbase = false;
             QsciLexerFortran77::connectNotify(signal);
         } else if (qscilexerfortran77_connectnotify_callback != nullptr) {
-            qscilexerfortran77_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qscilexerfortran77_connectnotify_callback(this, cbval1);
         } else {
             QsciLexerFortran77::connectNotify(signal);
         }
@@ -810,7 +954,11 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_disconnectnotify_isbase = false;
             QsciLexerFortran77::disconnectNotify(signal);
         } else if (qscilexerfortran77_disconnectnotify_callback != nullptr) {
-            qscilexerfortran77_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qscilexerfortran77_disconnectnotify_callback(this, cbval1);
         } else {
             QsciLexerFortran77::disconnectNotify(signal);
         }
@@ -822,7 +970,8 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_sender_isbase = false;
             return QsciLexerFortran77::sender();
         } else if (qscilexerfortran77_sender_callback != nullptr) {
-            return qscilexerfortran77_sender_callback();
+            QObject* callback_ret = qscilexerfortran77_sender_callback();
+            return callback_ret;
         } else {
             return QsciLexerFortran77::sender();
         }
@@ -834,7 +983,8 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_sendersignalindex_isbase = false;
             return QsciLexerFortran77::senderSignalIndex();
         } else if (qscilexerfortran77_sendersignalindex_callback != nullptr) {
-            return qscilexerfortran77_sendersignalindex_callback();
+            int callback_ret = qscilexerfortran77_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerFortran77::senderSignalIndex();
         }
@@ -846,7 +996,10 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_receivers_isbase = false;
             return QsciLexerFortran77::receivers(signal);
         } else if (qscilexerfortran77_receivers_callback != nullptr) {
-            return qscilexerfortran77_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qscilexerfortran77_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerFortran77::receivers(signal);
         }
@@ -858,11 +1011,40 @@ class VirtualQsciLexerFortran77 : public QsciLexerFortran77 {
             qscilexerfortran77_issignalconnected_isbase = false;
             return QsciLexerFortran77::isSignalConnected(signal);
         } else if (qscilexerfortran77_issignalconnected_callback != nullptr) {
-            return qscilexerfortran77_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qscilexerfortran77_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerFortran77::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QsciLexerFortran77_ReadProperties(QsciLexerFortran77* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerFortran77_QBaseReadProperties(QsciLexerFortran77* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerFortran77_WriteProperties(const QsciLexerFortran77* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerFortran77_QBaseWriteProperties(const QsciLexerFortran77* self, QSettings* qs, const libqt_string prefix);
+    friend void QsciLexerFortran77_TimerEvent(QsciLexerFortran77* self, QTimerEvent* event);
+    friend void QsciLexerFortran77_QBaseTimerEvent(QsciLexerFortran77* self, QTimerEvent* event);
+    friend void QsciLexerFortran77_ChildEvent(QsciLexerFortran77* self, QChildEvent* event);
+    friend void QsciLexerFortran77_QBaseChildEvent(QsciLexerFortran77* self, QChildEvent* event);
+    friend void QsciLexerFortran77_CustomEvent(QsciLexerFortran77* self, QEvent* event);
+    friend void QsciLexerFortran77_QBaseCustomEvent(QsciLexerFortran77* self, QEvent* event);
+    friend void QsciLexerFortran77_ConnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal);
+    friend void QsciLexerFortran77_QBaseConnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal);
+    friend void QsciLexerFortran77_DisconnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal);
+    friend void QsciLexerFortran77_QBaseDisconnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal);
+    friend QObject* QsciLexerFortran77_Sender(const QsciLexerFortran77* self);
+    friend QObject* QsciLexerFortran77_QBaseSender(const QsciLexerFortran77* self);
+    friend int QsciLexerFortran77_SenderSignalIndex(const QsciLexerFortran77* self);
+    friend int QsciLexerFortran77_QBaseSenderSignalIndex(const QsciLexerFortran77* self);
+    friend int QsciLexerFortran77_Receivers(const QsciLexerFortran77* self, const char* signal);
+    friend int QsciLexerFortran77_QBaseReceivers(const QsciLexerFortran77* self, const char* signal);
+    friend bool QsciLexerFortran77_IsSignalConnected(const QsciLexerFortran77* self, const QMetaMethod* signal);
+    friend bool QsciLexerFortran77_QBaseIsSignalConnected(const QsciLexerFortran77* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -11,40 +11,43 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QTreeView so that we can call protected methods
-class VirtualQTreeView : public QTreeView {
+class VirtualQTreeView final : public QTreeView {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQTreeView = true;
+
     // Virtual class public types (including callbacks)
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
-    using QTreeView_Metacall_Callback = int (*)(QTreeView*, QMetaObject::Call, int, void**);
+    using QTreeView_Metacall_Callback = int (*)(QTreeView*, int, int, void**);
     using QTreeView_SetModel_Callback = void (*)(QTreeView*, QAbstractItemModel*);
-    using QTreeView_SetRootIndex_Callback = void (*)(QTreeView*, const QModelIndex&);
+    using QTreeView_SetRootIndex_Callback = void (*)(QTreeView*, QModelIndex*);
     using QTreeView_SetSelectionModel_Callback = void (*)(QTreeView*, QItemSelectionModel*);
-    using QTreeView_KeyboardSearch_Callback = void (*)(QTreeView*, const QString&);
-    using QTreeView_VisualRect_Callback = QRect (*)(const QTreeView*, const QModelIndex&);
-    using QTreeView_ScrollTo_Callback = void (*)(QTreeView*, const QModelIndex&, QAbstractItemView::ScrollHint);
-    using QTreeView_IndexAt_Callback = QModelIndex (*)(const QTreeView*, const QPoint&);
+    using QTreeView_KeyboardSearch_Callback = void (*)(QTreeView*, libqt_string);
+    using QTreeView_VisualRect_Callback = QRect* (*)(const QTreeView*, QModelIndex*);
+    using QTreeView_ScrollTo_Callback = void (*)(QTreeView*, QModelIndex*, int);
+    using QTreeView_IndexAt_Callback = QModelIndex* (*)(const QTreeView*, QPoint*);
     using QTreeView_DoItemsLayout_Callback = void (*)();
     using QTreeView_Reset_Callback = void (*)();
-    using QTreeView_DataChanged_Callback = void (*)(QTreeView*, const QModelIndex&, const QModelIndex&, const QList<int>&);
+    using QTreeView_DataChanged_Callback = void (*)(QTreeView*, QModelIndex*, QModelIndex*, libqt_list /* of int */);
     using QTreeView_SelectAll_Callback = void (*)();
     using QTreeView_VerticalScrollbarValueChanged_Callback = void (*)(QTreeView*, int);
     using QTreeView_ScrollContentsBy_Callback = void (*)(QTreeView*, int, int);
-    using QTreeView_RowsInserted_Callback = void (*)(QTreeView*, const QModelIndex&, int, int);
-    using QTreeView_RowsAboutToBeRemoved_Callback = void (*)(QTreeView*, const QModelIndex&, int, int);
-    using QTreeView_MoveCursor_Callback = QModelIndex (*)(QTreeView*, int, Qt::KeyboardModifiers);
+    using QTreeView_RowsInserted_Callback = void (*)(QTreeView*, QModelIndex*, int, int);
+    using QTreeView_RowsAboutToBeRemoved_Callback = void (*)(QTreeView*, QModelIndex*, int, int);
+    using QTreeView_MoveCursor_Callback = QModelIndex* (*)(QTreeView*, int, int);
     using QTreeView_HorizontalOffset_Callback = int (*)();
     using QTreeView_VerticalOffset_Callback = int (*)();
-    using QTreeView_SetSelection_Callback = void (*)(QTreeView*, const QRect&, QItemSelectionModel::SelectionFlags);
-    using QTreeView_VisualRegionForSelection_Callback = QRegion (*)(const QTreeView*, const QItemSelection&);
-    using QTreeView_SelectedIndexes_Callback = QModelIndexList (*)();
+    using QTreeView_SetSelection_Callback = void (*)(QTreeView*, QRect*, int);
+    using QTreeView_VisualRegionForSelection_Callback = QRegion* (*)(const QTreeView*, QItemSelection*);
+    using QTreeView_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QTreeView_ChangeEvent_Callback = void (*)(QTreeView*, QEvent*);
     using QTreeView_TimerEvent_Callback = void (*)(QTreeView*, QTimerEvent*);
     using QTreeView_PaintEvent_Callback = void (*)(QTreeView*, QPaintEvent*);
-    using QTreeView_DrawRow_Callback = void (*)(const QTreeView*, QPainter*, const QStyleOptionViewItem&, const QModelIndex&);
-    using QTreeView_DrawBranches_Callback = void (*)(const QTreeView*, QPainter*, const QRect&, const QModelIndex&);
+    using QTreeView_DrawRow_Callback = void (*)(const QTreeView*, QPainter*, QStyleOptionViewItem*, QModelIndex*);
+    using QTreeView_DrawBranches_Callback = void (*)(const QTreeView*, QPainter*, QRect*, QModelIndex*);
     using QTreeView_MousePressEvent_Callback = void (*)(QTreeView*, QMouseEvent*);
     using QTreeView_MouseReleaseEvent_Callback = void (*)(QTreeView*, QMouseEvent*);
     using QTreeView_MouseDoubleClickEvent_Callback = void (*)(QTreeView*, QMouseEvent*);
@@ -53,25 +56,25 @@ class VirtualQTreeView : public QTreeView {
     using QTreeView_DragMoveEvent_Callback = void (*)(QTreeView*, QDragMoveEvent*);
     using QTreeView_ViewportEvent_Callback = bool (*)(QTreeView*, QEvent*);
     using QTreeView_UpdateGeometries_Callback = void (*)();
-    using QTreeView_ViewportSizeHint_Callback = QSize (*)();
+    using QTreeView_ViewportSizeHint_Callback = QSize* (*)();
     using QTreeView_SizeHintForColumn_Callback = int (*)(const QTreeView*, int);
     using QTreeView_HorizontalScrollbarAction_Callback = void (*)(QTreeView*, int);
-    using QTreeView_IsIndexHidden_Callback = bool (*)(const QTreeView*, const QModelIndex&);
-    using QTreeView_SelectionChanged_Callback = void (*)(QTreeView*, const QItemSelection&, const QItemSelection&);
-    using QTreeView_CurrentChanged_Callback = void (*)(QTreeView*, const QModelIndex&, const QModelIndex&);
+    using QTreeView_IsIndexHidden_Callback = bool (*)(const QTreeView*, QModelIndex*);
+    using QTreeView_SelectionChanged_Callback = void (*)(QTreeView*, QItemSelection*, QItemSelection*);
+    using QTreeView_CurrentChanged_Callback = void (*)(QTreeView*, QModelIndex*, QModelIndex*);
     using QTreeView_SizeHintForRow_Callback = int (*)(const QTreeView*, int);
-    using QTreeView_ItemDelegateForIndex_Callback = QAbstractItemDelegate* (*)(const QTreeView*, const QModelIndex&);
-    using QTreeView_InputMethodQuery_Callback = QVariant (*)(const QTreeView*, Qt::InputMethodQuery);
+    using QTreeView_ItemDelegateForIndex_Callback = QAbstractItemDelegate* (*)(const QTreeView*, QModelIndex*);
+    using QTreeView_InputMethodQuery_Callback = QVariant* (*)(const QTreeView*, int);
     using QTreeView_UpdateEditorData_Callback = void (*)();
     using QTreeView_UpdateEditorGeometries_Callback = void (*)();
     using QTreeView_VerticalScrollbarAction_Callback = void (*)(QTreeView*, int);
     using QTreeView_HorizontalScrollbarValueChanged_Callback = void (*)(QTreeView*, int);
-    using QTreeView_CloseEditor_Callback = void (*)(QTreeView*, QWidget*, QAbstractItemDelegate::EndEditHint);
+    using QTreeView_CloseEditor_Callback = void (*)(QTreeView*, QWidget*, int);
     using QTreeView_CommitData_Callback = void (*)(QTreeView*, QWidget*);
     using QTreeView_EditorDestroyed_Callback = void (*)(QTreeView*, QObject*);
-    using QTreeView_Edit2_Callback = bool (*)(QTreeView*, const QModelIndex&, QAbstractItemView::EditTrigger, QEvent*);
-    using QTreeView_SelectionCommand_Callback = QItemSelectionModel::SelectionFlags (*)(const QTreeView*, const QModelIndex&, const QEvent*);
-    using QTreeView_StartDrag_Callback = void (*)(QTreeView*, Qt::DropActions);
+    using QTreeView_Edit2_Callback = bool (*)(QTreeView*, QModelIndex*, int, QEvent*);
+    using QTreeView_SelectionCommand_Callback = int (*)(const QTreeView*, QModelIndex*, QEvent*);
+    using QTreeView_StartDrag_Callback = void (*)(QTreeView*, int);
     using QTreeView_InitViewItemOption_Callback = void (*)(const QTreeView*, QStyleOptionViewItem*);
     using QTreeView_FocusNextPrevChild_Callback = bool (*)(QTreeView*, bool);
     using QTreeView_Event_Callback = bool (*)(QTreeView*, QEvent*);
@@ -83,8 +86,8 @@ class VirtualQTreeView : public QTreeView {
     using QTreeView_ResizeEvent_Callback = void (*)(QTreeView*, QResizeEvent*);
     using QTreeView_InputMethodEvent_Callback = void (*)(QTreeView*, QInputMethodEvent*);
     using QTreeView_EventFilter_Callback = bool (*)(QTreeView*, QObject*, QEvent*);
-    using QTreeView_MinimumSizeHint_Callback = QSize (*)();
-    using QTreeView_SizeHint_Callback = QSize (*)();
+    using QTreeView_MinimumSizeHint_Callback = QSize* (*)();
+    using QTreeView_SizeHint_Callback = QSize* (*)();
     using QTreeView_SetupViewport_Callback = void (*)(QTreeView*, QWidget*);
     using QTreeView_WheelEvent_Callback = void (*)(QTreeView*, QWheelEvent*);
     using QTreeView_ContextMenuEvent_Callback = void (*)(QTreeView*, QContextMenuEvent*);
@@ -103,36 +106,36 @@ class VirtualQTreeView : public QTreeView {
     using QTreeView_ActionEvent_Callback = void (*)(QTreeView*, QActionEvent*);
     using QTreeView_ShowEvent_Callback = void (*)(QTreeView*, QShowEvent*);
     using QTreeView_HideEvent_Callback = void (*)(QTreeView*, QHideEvent*);
-    using QTreeView_NativeEvent_Callback = bool (*)(QTreeView*, const QByteArray&, void*, qintptr*);
-    using QTreeView_Metric_Callback = int (*)(const QTreeView*, QPaintDevice::PaintDeviceMetric);
+    using QTreeView_NativeEvent_Callback = bool (*)(QTreeView*, libqt_string, void*, intptr_t*);
+    using QTreeView_Metric_Callback = int (*)(const QTreeView*, int);
     using QTreeView_InitPainter_Callback = void (*)(const QTreeView*, QPainter*);
     using QTreeView_Redirected_Callback = QPaintDevice* (*)(const QTreeView*, QPoint*);
     using QTreeView_SharedPainter_Callback = QPainter* (*)();
     using QTreeView_ChildEvent_Callback = void (*)(QTreeView*, QChildEvent*);
     using QTreeView_CustomEvent_Callback = void (*)(QTreeView*, QEvent*);
-    using QTreeView_ConnectNotify_Callback = void (*)(QTreeView*, const QMetaMethod&);
-    using QTreeView_DisconnectNotify_Callback = void (*)(QTreeView*, const QMetaMethod&);
+    using QTreeView_ConnectNotify_Callback = void (*)(QTreeView*, QMetaMethod*);
+    using QTreeView_DisconnectNotify_Callback = void (*)(QTreeView*, QMetaMethod*);
     using QTreeView_ColumnResized_Callback = void (*)(QTreeView*, int, int, int);
     using QTreeView_ColumnCountChanged_Callback = void (*)(QTreeView*, int, int);
     using QTreeView_ColumnMoved_Callback = void (*)();
     using QTreeView_Reexpand_Callback = void (*)();
-    using QTreeView_RowsRemoved_Callback = void (*)(QTreeView*, const QModelIndex&, int, int);
-    using QTreeView_DrawTree_Callback = void (*)(const QTreeView*, QPainter*, const QRegion&);
-    using QTreeView_IndexRowSizeHint_Callback = int (*)(const QTreeView*, const QModelIndex&);
-    using QTreeView_RowHeight_Callback = int (*)(const QTreeView*, const QModelIndex&);
-    using QTreeView_State_Callback = QAbstractItemView::State (*)();
+    using QTreeView_RowsRemoved_Callback = void (*)(QTreeView*, QModelIndex*, int, int);
+    using QTreeView_DrawTree_Callback = void (*)(const QTreeView*, QPainter*, QRegion*);
+    using QTreeView_IndexRowSizeHint_Callback = int (*)(const QTreeView*, QModelIndex*);
+    using QTreeView_RowHeight_Callback = int (*)(const QTreeView*, QModelIndex*);
+    using QTreeView_State_Callback = int (*)();
     using QTreeView_SetState_Callback = void (*)(QTreeView*, int);
     using QTreeView_ScheduleDelayedItemsLayout_Callback = void (*)();
     using QTreeView_ExecuteDelayedItemsLayout_Callback = void (*)();
-    using QTreeView_SetDirtyRegion_Callback = void (*)(QTreeView*, const QRegion&);
+    using QTreeView_SetDirtyRegion_Callback = void (*)(QTreeView*, QRegion*);
     using QTreeView_ScrollDirtyRegion_Callback = void (*)(QTreeView*, int, int);
-    using QTreeView_DirtyRegionOffset_Callback = QPoint (*)();
+    using QTreeView_DirtyRegionOffset_Callback = QPoint* (*)();
     using QTreeView_StartAutoScroll_Callback = void (*)();
     using QTreeView_StopAutoScroll_Callback = void (*)();
     using QTreeView_DoAutoScroll_Callback = void (*)();
-    using QTreeView_DropIndicatorPosition_Callback = QAbstractItemView::DropIndicatorPosition (*)();
+    using QTreeView_DropIndicatorPosition_Callback = int (*)();
     using QTreeView_SetViewportMargins_Callback = void (*)(QTreeView*, int, int, int, int);
-    using QTreeView_ViewportMargins_Callback = QMargins (*)();
+    using QTreeView_ViewportMargins_Callback = QMargins* (*)();
     using QTreeView_DrawFrame_Callback = void (*)(QTreeView*, QPainter*);
     using QTreeView_UpdateMicroFocus_Callback = void (*)();
     using QTreeView_Create_Callback = void (*)();
@@ -142,7 +145,7 @@ class VirtualQTreeView : public QTreeView {
     using QTreeView_Sender_Callback = QObject* (*)();
     using QTreeView_SenderSignalIndex_Callback = int (*)();
     using QTreeView_Receivers_Callback = int (*)(const QTreeView*, const char*);
-    using QTreeView_IsSignalConnected_Callback = bool (*)(const QTreeView*, const QMetaMethod&);
+    using QTreeView_IsSignalConnected_Callback = bool (*)(const QTreeView*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -532,258 +535,258 @@ class VirtualQTreeView : public QTreeView {
     }
 
     // Callback setters
-    void setQTreeView_Metacall_Callback(QTreeView_Metacall_Callback cb) { qtreeview_metacall_callback = cb; }
-    void setQTreeView_SetModel_Callback(QTreeView_SetModel_Callback cb) { qtreeview_setmodel_callback = cb; }
-    void setQTreeView_SetRootIndex_Callback(QTreeView_SetRootIndex_Callback cb) { qtreeview_setrootindex_callback = cb; }
-    void setQTreeView_SetSelectionModel_Callback(QTreeView_SetSelectionModel_Callback cb) { qtreeview_setselectionmodel_callback = cb; }
-    void setQTreeView_KeyboardSearch_Callback(QTreeView_KeyboardSearch_Callback cb) { qtreeview_keyboardsearch_callback = cb; }
-    void setQTreeView_VisualRect_Callback(QTreeView_VisualRect_Callback cb) { qtreeview_visualrect_callback = cb; }
-    void setQTreeView_ScrollTo_Callback(QTreeView_ScrollTo_Callback cb) { qtreeview_scrollto_callback = cb; }
-    void setQTreeView_IndexAt_Callback(QTreeView_IndexAt_Callback cb) { qtreeview_indexat_callback = cb; }
-    void setQTreeView_DoItemsLayout_Callback(QTreeView_DoItemsLayout_Callback cb) { qtreeview_doitemslayout_callback = cb; }
-    void setQTreeView_Reset_Callback(QTreeView_Reset_Callback cb) { qtreeview_reset_callback = cb; }
-    void setQTreeView_DataChanged_Callback(QTreeView_DataChanged_Callback cb) { qtreeview_datachanged_callback = cb; }
-    void setQTreeView_SelectAll_Callback(QTreeView_SelectAll_Callback cb) { qtreeview_selectall_callback = cb; }
-    void setQTreeView_VerticalScrollbarValueChanged_Callback(QTreeView_VerticalScrollbarValueChanged_Callback cb) { qtreeview_verticalscrollbarvaluechanged_callback = cb; }
-    void setQTreeView_ScrollContentsBy_Callback(QTreeView_ScrollContentsBy_Callback cb) { qtreeview_scrollcontentsby_callback = cb; }
-    void setQTreeView_RowsInserted_Callback(QTreeView_RowsInserted_Callback cb) { qtreeview_rowsinserted_callback = cb; }
-    void setQTreeView_RowsAboutToBeRemoved_Callback(QTreeView_RowsAboutToBeRemoved_Callback cb) { qtreeview_rowsabouttoberemoved_callback = cb; }
-    void setQTreeView_MoveCursor_Callback(QTreeView_MoveCursor_Callback cb) { qtreeview_movecursor_callback = cb; }
-    void setQTreeView_HorizontalOffset_Callback(QTreeView_HorizontalOffset_Callback cb) { qtreeview_horizontaloffset_callback = cb; }
-    void setQTreeView_VerticalOffset_Callback(QTreeView_VerticalOffset_Callback cb) { qtreeview_verticaloffset_callback = cb; }
-    void setQTreeView_SetSelection_Callback(QTreeView_SetSelection_Callback cb) { qtreeview_setselection_callback = cb; }
-    void setQTreeView_VisualRegionForSelection_Callback(QTreeView_VisualRegionForSelection_Callback cb) { qtreeview_visualregionforselection_callback = cb; }
-    void setQTreeView_SelectedIndexes_Callback(QTreeView_SelectedIndexes_Callback cb) { qtreeview_selectedindexes_callback = cb; }
-    void setQTreeView_ChangeEvent_Callback(QTreeView_ChangeEvent_Callback cb) { qtreeview_changeevent_callback = cb; }
-    void setQTreeView_TimerEvent_Callback(QTreeView_TimerEvent_Callback cb) { qtreeview_timerevent_callback = cb; }
-    void setQTreeView_PaintEvent_Callback(QTreeView_PaintEvent_Callback cb) { qtreeview_paintevent_callback = cb; }
-    void setQTreeView_DrawRow_Callback(QTreeView_DrawRow_Callback cb) { qtreeview_drawrow_callback = cb; }
-    void setQTreeView_DrawBranches_Callback(QTreeView_DrawBranches_Callback cb) { qtreeview_drawbranches_callback = cb; }
-    void setQTreeView_MousePressEvent_Callback(QTreeView_MousePressEvent_Callback cb) { qtreeview_mousepressevent_callback = cb; }
-    void setQTreeView_MouseReleaseEvent_Callback(QTreeView_MouseReleaseEvent_Callback cb) { qtreeview_mousereleaseevent_callback = cb; }
-    void setQTreeView_MouseDoubleClickEvent_Callback(QTreeView_MouseDoubleClickEvent_Callback cb) { qtreeview_mousedoubleclickevent_callback = cb; }
-    void setQTreeView_MouseMoveEvent_Callback(QTreeView_MouseMoveEvent_Callback cb) { qtreeview_mousemoveevent_callback = cb; }
-    void setQTreeView_KeyPressEvent_Callback(QTreeView_KeyPressEvent_Callback cb) { qtreeview_keypressevent_callback = cb; }
-    void setQTreeView_DragMoveEvent_Callback(QTreeView_DragMoveEvent_Callback cb) { qtreeview_dragmoveevent_callback = cb; }
-    void setQTreeView_ViewportEvent_Callback(QTreeView_ViewportEvent_Callback cb) { qtreeview_viewportevent_callback = cb; }
-    void setQTreeView_UpdateGeometries_Callback(QTreeView_UpdateGeometries_Callback cb) { qtreeview_updategeometries_callback = cb; }
-    void setQTreeView_ViewportSizeHint_Callback(QTreeView_ViewportSizeHint_Callback cb) { qtreeview_viewportsizehint_callback = cb; }
-    void setQTreeView_SizeHintForColumn_Callback(QTreeView_SizeHintForColumn_Callback cb) { qtreeview_sizehintforcolumn_callback = cb; }
-    void setQTreeView_HorizontalScrollbarAction_Callback(QTreeView_HorizontalScrollbarAction_Callback cb) { qtreeview_horizontalscrollbaraction_callback = cb; }
-    void setQTreeView_IsIndexHidden_Callback(QTreeView_IsIndexHidden_Callback cb) { qtreeview_isindexhidden_callback = cb; }
-    void setQTreeView_SelectionChanged_Callback(QTreeView_SelectionChanged_Callback cb) { qtreeview_selectionchanged_callback = cb; }
-    void setQTreeView_CurrentChanged_Callback(QTreeView_CurrentChanged_Callback cb) { qtreeview_currentchanged_callback = cb; }
-    void setQTreeView_SizeHintForRow_Callback(QTreeView_SizeHintForRow_Callback cb) { qtreeview_sizehintforrow_callback = cb; }
-    void setQTreeView_ItemDelegateForIndex_Callback(QTreeView_ItemDelegateForIndex_Callback cb) { qtreeview_itemdelegateforindex_callback = cb; }
-    void setQTreeView_InputMethodQuery_Callback(QTreeView_InputMethodQuery_Callback cb) { qtreeview_inputmethodquery_callback = cb; }
-    void setQTreeView_UpdateEditorData_Callback(QTreeView_UpdateEditorData_Callback cb) { qtreeview_updateeditordata_callback = cb; }
-    void setQTreeView_UpdateEditorGeometries_Callback(QTreeView_UpdateEditorGeometries_Callback cb) { qtreeview_updateeditorgeometries_callback = cb; }
-    void setQTreeView_VerticalScrollbarAction_Callback(QTreeView_VerticalScrollbarAction_Callback cb) { qtreeview_verticalscrollbaraction_callback = cb; }
-    void setQTreeView_HorizontalScrollbarValueChanged_Callback(QTreeView_HorizontalScrollbarValueChanged_Callback cb) { qtreeview_horizontalscrollbarvaluechanged_callback = cb; }
-    void setQTreeView_CloseEditor_Callback(QTreeView_CloseEditor_Callback cb) { qtreeview_closeeditor_callback = cb; }
-    void setQTreeView_CommitData_Callback(QTreeView_CommitData_Callback cb) { qtreeview_commitdata_callback = cb; }
-    void setQTreeView_EditorDestroyed_Callback(QTreeView_EditorDestroyed_Callback cb) { qtreeview_editordestroyed_callback = cb; }
-    void setQTreeView_Edit2_Callback(QTreeView_Edit2_Callback cb) { qtreeview_edit2_callback = cb; }
-    void setQTreeView_SelectionCommand_Callback(QTreeView_SelectionCommand_Callback cb) { qtreeview_selectioncommand_callback = cb; }
-    void setQTreeView_StartDrag_Callback(QTreeView_StartDrag_Callback cb) { qtreeview_startdrag_callback = cb; }
-    void setQTreeView_InitViewItemOption_Callback(QTreeView_InitViewItemOption_Callback cb) { qtreeview_initviewitemoption_callback = cb; }
-    void setQTreeView_FocusNextPrevChild_Callback(QTreeView_FocusNextPrevChild_Callback cb) { qtreeview_focusnextprevchild_callback = cb; }
-    void setQTreeView_Event_Callback(QTreeView_Event_Callback cb) { qtreeview_event_callback = cb; }
-    void setQTreeView_DragEnterEvent_Callback(QTreeView_DragEnterEvent_Callback cb) { qtreeview_dragenterevent_callback = cb; }
-    void setQTreeView_DragLeaveEvent_Callback(QTreeView_DragLeaveEvent_Callback cb) { qtreeview_dragleaveevent_callback = cb; }
-    void setQTreeView_DropEvent_Callback(QTreeView_DropEvent_Callback cb) { qtreeview_dropevent_callback = cb; }
-    void setQTreeView_FocusInEvent_Callback(QTreeView_FocusInEvent_Callback cb) { qtreeview_focusinevent_callback = cb; }
-    void setQTreeView_FocusOutEvent_Callback(QTreeView_FocusOutEvent_Callback cb) { qtreeview_focusoutevent_callback = cb; }
-    void setQTreeView_ResizeEvent_Callback(QTreeView_ResizeEvent_Callback cb) { qtreeview_resizeevent_callback = cb; }
-    void setQTreeView_InputMethodEvent_Callback(QTreeView_InputMethodEvent_Callback cb) { qtreeview_inputmethodevent_callback = cb; }
-    void setQTreeView_EventFilter_Callback(QTreeView_EventFilter_Callback cb) { qtreeview_eventfilter_callback = cb; }
-    void setQTreeView_MinimumSizeHint_Callback(QTreeView_MinimumSizeHint_Callback cb) { qtreeview_minimumsizehint_callback = cb; }
-    void setQTreeView_SizeHint_Callback(QTreeView_SizeHint_Callback cb) { qtreeview_sizehint_callback = cb; }
-    void setQTreeView_SetupViewport_Callback(QTreeView_SetupViewport_Callback cb) { qtreeview_setupviewport_callback = cb; }
-    void setQTreeView_WheelEvent_Callback(QTreeView_WheelEvent_Callback cb) { qtreeview_wheelevent_callback = cb; }
-    void setQTreeView_ContextMenuEvent_Callback(QTreeView_ContextMenuEvent_Callback cb) { qtreeview_contextmenuevent_callback = cb; }
-    void setQTreeView_InitStyleOption_Callback(QTreeView_InitStyleOption_Callback cb) { qtreeview_initstyleoption_callback = cb; }
-    void setQTreeView_DevType_Callback(QTreeView_DevType_Callback cb) { qtreeview_devtype_callback = cb; }
-    void setQTreeView_SetVisible_Callback(QTreeView_SetVisible_Callback cb) { qtreeview_setvisible_callback = cb; }
-    void setQTreeView_HeightForWidth_Callback(QTreeView_HeightForWidth_Callback cb) { qtreeview_heightforwidth_callback = cb; }
-    void setQTreeView_HasHeightForWidth_Callback(QTreeView_HasHeightForWidth_Callback cb) { qtreeview_hasheightforwidth_callback = cb; }
-    void setQTreeView_PaintEngine_Callback(QTreeView_PaintEngine_Callback cb) { qtreeview_paintengine_callback = cb; }
-    void setQTreeView_KeyReleaseEvent_Callback(QTreeView_KeyReleaseEvent_Callback cb) { qtreeview_keyreleaseevent_callback = cb; }
-    void setQTreeView_EnterEvent_Callback(QTreeView_EnterEvent_Callback cb) { qtreeview_enterevent_callback = cb; }
-    void setQTreeView_LeaveEvent_Callback(QTreeView_LeaveEvent_Callback cb) { qtreeview_leaveevent_callback = cb; }
-    void setQTreeView_MoveEvent_Callback(QTreeView_MoveEvent_Callback cb) { qtreeview_moveevent_callback = cb; }
-    void setQTreeView_CloseEvent_Callback(QTreeView_CloseEvent_Callback cb) { qtreeview_closeevent_callback = cb; }
-    void setQTreeView_TabletEvent_Callback(QTreeView_TabletEvent_Callback cb) { qtreeview_tabletevent_callback = cb; }
-    void setQTreeView_ActionEvent_Callback(QTreeView_ActionEvent_Callback cb) { qtreeview_actionevent_callback = cb; }
-    void setQTreeView_ShowEvent_Callback(QTreeView_ShowEvent_Callback cb) { qtreeview_showevent_callback = cb; }
-    void setQTreeView_HideEvent_Callback(QTreeView_HideEvent_Callback cb) { qtreeview_hideevent_callback = cb; }
-    void setQTreeView_NativeEvent_Callback(QTreeView_NativeEvent_Callback cb) { qtreeview_nativeevent_callback = cb; }
-    void setQTreeView_Metric_Callback(QTreeView_Metric_Callback cb) { qtreeview_metric_callback = cb; }
-    void setQTreeView_InitPainter_Callback(QTreeView_InitPainter_Callback cb) { qtreeview_initpainter_callback = cb; }
-    void setQTreeView_Redirected_Callback(QTreeView_Redirected_Callback cb) { qtreeview_redirected_callback = cb; }
-    void setQTreeView_SharedPainter_Callback(QTreeView_SharedPainter_Callback cb) { qtreeview_sharedpainter_callback = cb; }
-    void setQTreeView_ChildEvent_Callback(QTreeView_ChildEvent_Callback cb) { qtreeview_childevent_callback = cb; }
-    void setQTreeView_CustomEvent_Callback(QTreeView_CustomEvent_Callback cb) { qtreeview_customevent_callback = cb; }
-    void setQTreeView_ConnectNotify_Callback(QTreeView_ConnectNotify_Callback cb) { qtreeview_connectnotify_callback = cb; }
-    void setQTreeView_DisconnectNotify_Callback(QTreeView_DisconnectNotify_Callback cb) { qtreeview_disconnectnotify_callback = cb; }
-    void setQTreeView_ColumnResized_Callback(QTreeView_ColumnResized_Callback cb) { qtreeview_columnresized_callback = cb; }
-    void setQTreeView_ColumnCountChanged_Callback(QTreeView_ColumnCountChanged_Callback cb) { qtreeview_columncountchanged_callback = cb; }
-    void setQTreeView_ColumnMoved_Callback(QTreeView_ColumnMoved_Callback cb) { qtreeview_columnmoved_callback = cb; }
-    void setQTreeView_Reexpand_Callback(QTreeView_Reexpand_Callback cb) { qtreeview_reexpand_callback = cb; }
-    void setQTreeView_RowsRemoved_Callback(QTreeView_RowsRemoved_Callback cb) { qtreeview_rowsremoved_callback = cb; }
-    void setQTreeView_DrawTree_Callback(QTreeView_DrawTree_Callback cb) { qtreeview_drawtree_callback = cb; }
-    void setQTreeView_IndexRowSizeHint_Callback(QTreeView_IndexRowSizeHint_Callback cb) { qtreeview_indexrowsizehint_callback = cb; }
-    void setQTreeView_RowHeight_Callback(QTreeView_RowHeight_Callback cb) { qtreeview_rowheight_callback = cb; }
-    void setQTreeView_State_Callback(QTreeView_State_Callback cb) { qtreeview_state_callback = cb; }
-    void setQTreeView_SetState_Callback(QTreeView_SetState_Callback cb) { qtreeview_setstate_callback = cb; }
-    void setQTreeView_ScheduleDelayedItemsLayout_Callback(QTreeView_ScheduleDelayedItemsLayout_Callback cb) { qtreeview_scheduledelayeditemslayout_callback = cb; }
-    void setQTreeView_ExecuteDelayedItemsLayout_Callback(QTreeView_ExecuteDelayedItemsLayout_Callback cb) { qtreeview_executedelayeditemslayout_callback = cb; }
-    void setQTreeView_SetDirtyRegion_Callback(QTreeView_SetDirtyRegion_Callback cb) { qtreeview_setdirtyregion_callback = cb; }
-    void setQTreeView_ScrollDirtyRegion_Callback(QTreeView_ScrollDirtyRegion_Callback cb) { qtreeview_scrolldirtyregion_callback = cb; }
-    void setQTreeView_DirtyRegionOffset_Callback(QTreeView_DirtyRegionOffset_Callback cb) { qtreeview_dirtyregionoffset_callback = cb; }
-    void setQTreeView_StartAutoScroll_Callback(QTreeView_StartAutoScroll_Callback cb) { qtreeview_startautoscroll_callback = cb; }
-    void setQTreeView_StopAutoScroll_Callback(QTreeView_StopAutoScroll_Callback cb) { qtreeview_stopautoscroll_callback = cb; }
-    void setQTreeView_DoAutoScroll_Callback(QTreeView_DoAutoScroll_Callback cb) { qtreeview_doautoscroll_callback = cb; }
-    void setQTreeView_DropIndicatorPosition_Callback(QTreeView_DropIndicatorPosition_Callback cb) { qtreeview_dropindicatorposition_callback = cb; }
-    void setQTreeView_SetViewportMargins_Callback(QTreeView_SetViewportMargins_Callback cb) { qtreeview_setviewportmargins_callback = cb; }
-    void setQTreeView_ViewportMargins_Callback(QTreeView_ViewportMargins_Callback cb) { qtreeview_viewportmargins_callback = cb; }
-    void setQTreeView_DrawFrame_Callback(QTreeView_DrawFrame_Callback cb) { qtreeview_drawframe_callback = cb; }
-    void setQTreeView_UpdateMicroFocus_Callback(QTreeView_UpdateMicroFocus_Callback cb) { qtreeview_updatemicrofocus_callback = cb; }
-    void setQTreeView_Create_Callback(QTreeView_Create_Callback cb) { qtreeview_create_callback = cb; }
-    void setQTreeView_Destroy_Callback(QTreeView_Destroy_Callback cb) { qtreeview_destroy_callback = cb; }
-    void setQTreeView_FocusNextChild_Callback(QTreeView_FocusNextChild_Callback cb) { qtreeview_focusnextchild_callback = cb; }
-    void setQTreeView_FocusPreviousChild_Callback(QTreeView_FocusPreviousChild_Callback cb) { qtreeview_focuspreviouschild_callback = cb; }
-    void setQTreeView_Sender_Callback(QTreeView_Sender_Callback cb) { qtreeview_sender_callback = cb; }
-    void setQTreeView_SenderSignalIndex_Callback(QTreeView_SenderSignalIndex_Callback cb) { qtreeview_sendersignalindex_callback = cb; }
-    void setQTreeView_Receivers_Callback(QTreeView_Receivers_Callback cb) { qtreeview_receivers_callback = cb; }
-    void setQTreeView_IsSignalConnected_Callback(QTreeView_IsSignalConnected_Callback cb) { qtreeview_issignalconnected_callback = cb; }
+    inline void setQTreeView_Metacall_Callback(QTreeView_Metacall_Callback cb) { qtreeview_metacall_callback = cb; }
+    inline void setQTreeView_SetModel_Callback(QTreeView_SetModel_Callback cb) { qtreeview_setmodel_callback = cb; }
+    inline void setQTreeView_SetRootIndex_Callback(QTreeView_SetRootIndex_Callback cb) { qtreeview_setrootindex_callback = cb; }
+    inline void setQTreeView_SetSelectionModel_Callback(QTreeView_SetSelectionModel_Callback cb) { qtreeview_setselectionmodel_callback = cb; }
+    inline void setQTreeView_KeyboardSearch_Callback(QTreeView_KeyboardSearch_Callback cb) { qtreeview_keyboardsearch_callback = cb; }
+    inline void setQTreeView_VisualRect_Callback(QTreeView_VisualRect_Callback cb) { qtreeview_visualrect_callback = cb; }
+    inline void setQTreeView_ScrollTo_Callback(QTreeView_ScrollTo_Callback cb) { qtreeview_scrollto_callback = cb; }
+    inline void setQTreeView_IndexAt_Callback(QTreeView_IndexAt_Callback cb) { qtreeview_indexat_callback = cb; }
+    inline void setQTreeView_DoItemsLayout_Callback(QTreeView_DoItemsLayout_Callback cb) { qtreeview_doitemslayout_callback = cb; }
+    inline void setQTreeView_Reset_Callback(QTreeView_Reset_Callback cb) { qtreeview_reset_callback = cb; }
+    inline void setQTreeView_DataChanged_Callback(QTreeView_DataChanged_Callback cb) { qtreeview_datachanged_callback = cb; }
+    inline void setQTreeView_SelectAll_Callback(QTreeView_SelectAll_Callback cb) { qtreeview_selectall_callback = cb; }
+    inline void setQTreeView_VerticalScrollbarValueChanged_Callback(QTreeView_VerticalScrollbarValueChanged_Callback cb) { qtreeview_verticalscrollbarvaluechanged_callback = cb; }
+    inline void setQTreeView_ScrollContentsBy_Callback(QTreeView_ScrollContentsBy_Callback cb) { qtreeview_scrollcontentsby_callback = cb; }
+    inline void setQTreeView_RowsInserted_Callback(QTreeView_RowsInserted_Callback cb) { qtreeview_rowsinserted_callback = cb; }
+    inline void setQTreeView_RowsAboutToBeRemoved_Callback(QTreeView_RowsAboutToBeRemoved_Callback cb) { qtreeview_rowsabouttoberemoved_callback = cb; }
+    inline void setQTreeView_MoveCursor_Callback(QTreeView_MoveCursor_Callback cb) { qtreeview_movecursor_callback = cb; }
+    inline void setQTreeView_HorizontalOffset_Callback(QTreeView_HorizontalOffset_Callback cb) { qtreeview_horizontaloffset_callback = cb; }
+    inline void setQTreeView_VerticalOffset_Callback(QTreeView_VerticalOffset_Callback cb) { qtreeview_verticaloffset_callback = cb; }
+    inline void setQTreeView_SetSelection_Callback(QTreeView_SetSelection_Callback cb) { qtreeview_setselection_callback = cb; }
+    inline void setQTreeView_VisualRegionForSelection_Callback(QTreeView_VisualRegionForSelection_Callback cb) { qtreeview_visualregionforselection_callback = cb; }
+    inline void setQTreeView_SelectedIndexes_Callback(QTreeView_SelectedIndexes_Callback cb) { qtreeview_selectedindexes_callback = cb; }
+    inline void setQTreeView_ChangeEvent_Callback(QTreeView_ChangeEvent_Callback cb) { qtreeview_changeevent_callback = cb; }
+    inline void setQTreeView_TimerEvent_Callback(QTreeView_TimerEvent_Callback cb) { qtreeview_timerevent_callback = cb; }
+    inline void setQTreeView_PaintEvent_Callback(QTreeView_PaintEvent_Callback cb) { qtreeview_paintevent_callback = cb; }
+    inline void setQTreeView_DrawRow_Callback(QTreeView_DrawRow_Callback cb) { qtreeview_drawrow_callback = cb; }
+    inline void setQTreeView_DrawBranches_Callback(QTreeView_DrawBranches_Callback cb) { qtreeview_drawbranches_callback = cb; }
+    inline void setQTreeView_MousePressEvent_Callback(QTreeView_MousePressEvent_Callback cb) { qtreeview_mousepressevent_callback = cb; }
+    inline void setQTreeView_MouseReleaseEvent_Callback(QTreeView_MouseReleaseEvent_Callback cb) { qtreeview_mousereleaseevent_callback = cb; }
+    inline void setQTreeView_MouseDoubleClickEvent_Callback(QTreeView_MouseDoubleClickEvent_Callback cb) { qtreeview_mousedoubleclickevent_callback = cb; }
+    inline void setQTreeView_MouseMoveEvent_Callback(QTreeView_MouseMoveEvent_Callback cb) { qtreeview_mousemoveevent_callback = cb; }
+    inline void setQTreeView_KeyPressEvent_Callback(QTreeView_KeyPressEvent_Callback cb) { qtreeview_keypressevent_callback = cb; }
+    inline void setQTreeView_DragMoveEvent_Callback(QTreeView_DragMoveEvent_Callback cb) { qtreeview_dragmoveevent_callback = cb; }
+    inline void setQTreeView_ViewportEvent_Callback(QTreeView_ViewportEvent_Callback cb) { qtreeview_viewportevent_callback = cb; }
+    inline void setQTreeView_UpdateGeometries_Callback(QTreeView_UpdateGeometries_Callback cb) { qtreeview_updategeometries_callback = cb; }
+    inline void setQTreeView_ViewportSizeHint_Callback(QTreeView_ViewportSizeHint_Callback cb) { qtreeview_viewportsizehint_callback = cb; }
+    inline void setQTreeView_SizeHintForColumn_Callback(QTreeView_SizeHintForColumn_Callback cb) { qtreeview_sizehintforcolumn_callback = cb; }
+    inline void setQTreeView_HorizontalScrollbarAction_Callback(QTreeView_HorizontalScrollbarAction_Callback cb) { qtreeview_horizontalscrollbaraction_callback = cb; }
+    inline void setQTreeView_IsIndexHidden_Callback(QTreeView_IsIndexHidden_Callback cb) { qtreeview_isindexhidden_callback = cb; }
+    inline void setQTreeView_SelectionChanged_Callback(QTreeView_SelectionChanged_Callback cb) { qtreeview_selectionchanged_callback = cb; }
+    inline void setQTreeView_CurrentChanged_Callback(QTreeView_CurrentChanged_Callback cb) { qtreeview_currentchanged_callback = cb; }
+    inline void setQTreeView_SizeHintForRow_Callback(QTreeView_SizeHintForRow_Callback cb) { qtreeview_sizehintforrow_callback = cb; }
+    inline void setQTreeView_ItemDelegateForIndex_Callback(QTreeView_ItemDelegateForIndex_Callback cb) { qtreeview_itemdelegateforindex_callback = cb; }
+    inline void setQTreeView_InputMethodQuery_Callback(QTreeView_InputMethodQuery_Callback cb) { qtreeview_inputmethodquery_callback = cb; }
+    inline void setQTreeView_UpdateEditorData_Callback(QTreeView_UpdateEditorData_Callback cb) { qtreeview_updateeditordata_callback = cb; }
+    inline void setQTreeView_UpdateEditorGeometries_Callback(QTreeView_UpdateEditorGeometries_Callback cb) { qtreeview_updateeditorgeometries_callback = cb; }
+    inline void setQTreeView_VerticalScrollbarAction_Callback(QTreeView_VerticalScrollbarAction_Callback cb) { qtreeview_verticalscrollbaraction_callback = cb; }
+    inline void setQTreeView_HorizontalScrollbarValueChanged_Callback(QTreeView_HorizontalScrollbarValueChanged_Callback cb) { qtreeview_horizontalscrollbarvaluechanged_callback = cb; }
+    inline void setQTreeView_CloseEditor_Callback(QTreeView_CloseEditor_Callback cb) { qtreeview_closeeditor_callback = cb; }
+    inline void setQTreeView_CommitData_Callback(QTreeView_CommitData_Callback cb) { qtreeview_commitdata_callback = cb; }
+    inline void setQTreeView_EditorDestroyed_Callback(QTreeView_EditorDestroyed_Callback cb) { qtreeview_editordestroyed_callback = cb; }
+    inline void setQTreeView_Edit2_Callback(QTreeView_Edit2_Callback cb) { qtreeview_edit2_callback = cb; }
+    inline void setQTreeView_SelectionCommand_Callback(QTreeView_SelectionCommand_Callback cb) { qtreeview_selectioncommand_callback = cb; }
+    inline void setQTreeView_StartDrag_Callback(QTreeView_StartDrag_Callback cb) { qtreeview_startdrag_callback = cb; }
+    inline void setQTreeView_InitViewItemOption_Callback(QTreeView_InitViewItemOption_Callback cb) { qtreeview_initviewitemoption_callback = cb; }
+    inline void setQTreeView_FocusNextPrevChild_Callback(QTreeView_FocusNextPrevChild_Callback cb) { qtreeview_focusnextprevchild_callback = cb; }
+    inline void setQTreeView_Event_Callback(QTreeView_Event_Callback cb) { qtreeview_event_callback = cb; }
+    inline void setQTreeView_DragEnterEvent_Callback(QTreeView_DragEnterEvent_Callback cb) { qtreeview_dragenterevent_callback = cb; }
+    inline void setQTreeView_DragLeaveEvent_Callback(QTreeView_DragLeaveEvent_Callback cb) { qtreeview_dragleaveevent_callback = cb; }
+    inline void setQTreeView_DropEvent_Callback(QTreeView_DropEvent_Callback cb) { qtreeview_dropevent_callback = cb; }
+    inline void setQTreeView_FocusInEvent_Callback(QTreeView_FocusInEvent_Callback cb) { qtreeview_focusinevent_callback = cb; }
+    inline void setQTreeView_FocusOutEvent_Callback(QTreeView_FocusOutEvent_Callback cb) { qtreeview_focusoutevent_callback = cb; }
+    inline void setQTreeView_ResizeEvent_Callback(QTreeView_ResizeEvent_Callback cb) { qtreeview_resizeevent_callback = cb; }
+    inline void setQTreeView_InputMethodEvent_Callback(QTreeView_InputMethodEvent_Callback cb) { qtreeview_inputmethodevent_callback = cb; }
+    inline void setQTreeView_EventFilter_Callback(QTreeView_EventFilter_Callback cb) { qtreeview_eventfilter_callback = cb; }
+    inline void setQTreeView_MinimumSizeHint_Callback(QTreeView_MinimumSizeHint_Callback cb) { qtreeview_minimumsizehint_callback = cb; }
+    inline void setQTreeView_SizeHint_Callback(QTreeView_SizeHint_Callback cb) { qtreeview_sizehint_callback = cb; }
+    inline void setQTreeView_SetupViewport_Callback(QTreeView_SetupViewport_Callback cb) { qtreeview_setupviewport_callback = cb; }
+    inline void setQTreeView_WheelEvent_Callback(QTreeView_WheelEvent_Callback cb) { qtreeview_wheelevent_callback = cb; }
+    inline void setQTreeView_ContextMenuEvent_Callback(QTreeView_ContextMenuEvent_Callback cb) { qtreeview_contextmenuevent_callback = cb; }
+    inline void setQTreeView_InitStyleOption_Callback(QTreeView_InitStyleOption_Callback cb) { qtreeview_initstyleoption_callback = cb; }
+    inline void setQTreeView_DevType_Callback(QTreeView_DevType_Callback cb) { qtreeview_devtype_callback = cb; }
+    inline void setQTreeView_SetVisible_Callback(QTreeView_SetVisible_Callback cb) { qtreeview_setvisible_callback = cb; }
+    inline void setQTreeView_HeightForWidth_Callback(QTreeView_HeightForWidth_Callback cb) { qtreeview_heightforwidth_callback = cb; }
+    inline void setQTreeView_HasHeightForWidth_Callback(QTreeView_HasHeightForWidth_Callback cb) { qtreeview_hasheightforwidth_callback = cb; }
+    inline void setQTreeView_PaintEngine_Callback(QTreeView_PaintEngine_Callback cb) { qtreeview_paintengine_callback = cb; }
+    inline void setQTreeView_KeyReleaseEvent_Callback(QTreeView_KeyReleaseEvent_Callback cb) { qtreeview_keyreleaseevent_callback = cb; }
+    inline void setQTreeView_EnterEvent_Callback(QTreeView_EnterEvent_Callback cb) { qtreeview_enterevent_callback = cb; }
+    inline void setQTreeView_LeaveEvent_Callback(QTreeView_LeaveEvent_Callback cb) { qtreeview_leaveevent_callback = cb; }
+    inline void setQTreeView_MoveEvent_Callback(QTreeView_MoveEvent_Callback cb) { qtreeview_moveevent_callback = cb; }
+    inline void setQTreeView_CloseEvent_Callback(QTreeView_CloseEvent_Callback cb) { qtreeview_closeevent_callback = cb; }
+    inline void setQTreeView_TabletEvent_Callback(QTreeView_TabletEvent_Callback cb) { qtreeview_tabletevent_callback = cb; }
+    inline void setQTreeView_ActionEvent_Callback(QTreeView_ActionEvent_Callback cb) { qtreeview_actionevent_callback = cb; }
+    inline void setQTreeView_ShowEvent_Callback(QTreeView_ShowEvent_Callback cb) { qtreeview_showevent_callback = cb; }
+    inline void setQTreeView_HideEvent_Callback(QTreeView_HideEvent_Callback cb) { qtreeview_hideevent_callback = cb; }
+    inline void setQTreeView_NativeEvent_Callback(QTreeView_NativeEvent_Callback cb) { qtreeview_nativeevent_callback = cb; }
+    inline void setQTreeView_Metric_Callback(QTreeView_Metric_Callback cb) { qtreeview_metric_callback = cb; }
+    inline void setQTreeView_InitPainter_Callback(QTreeView_InitPainter_Callback cb) { qtreeview_initpainter_callback = cb; }
+    inline void setQTreeView_Redirected_Callback(QTreeView_Redirected_Callback cb) { qtreeview_redirected_callback = cb; }
+    inline void setQTreeView_SharedPainter_Callback(QTreeView_SharedPainter_Callback cb) { qtreeview_sharedpainter_callback = cb; }
+    inline void setQTreeView_ChildEvent_Callback(QTreeView_ChildEvent_Callback cb) { qtreeview_childevent_callback = cb; }
+    inline void setQTreeView_CustomEvent_Callback(QTreeView_CustomEvent_Callback cb) { qtreeview_customevent_callback = cb; }
+    inline void setQTreeView_ConnectNotify_Callback(QTreeView_ConnectNotify_Callback cb) { qtreeview_connectnotify_callback = cb; }
+    inline void setQTreeView_DisconnectNotify_Callback(QTreeView_DisconnectNotify_Callback cb) { qtreeview_disconnectnotify_callback = cb; }
+    inline void setQTreeView_ColumnResized_Callback(QTreeView_ColumnResized_Callback cb) { qtreeview_columnresized_callback = cb; }
+    inline void setQTreeView_ColumnCountChanged_Callback(QTreeView_ColumnCountChanged_Callback cb) { qtreeview_columncountchanged_callback = cb; }
+    inline void setQTreeView_ColumnMoved_Callback(QTreeView_ColumnMoved_Callback cb) { qtreeview_columnmoved_callback = cb; }
+    inline void setQTreeView_Reexpand_Callback(QTreeView_Reexpand_Callback cb) { qtreeview_reexpand_callback = cb; }
+    inline void setQTreeView_RowsRemoved_Callback(QTreeView_RowsRemoved_Callback cb) { qtreeview_rowsremoved_callback = cb; }
+    inline void setQTreeView_DrawTree_Callback(QTreeView_DrawTree_Callback cb) { qtreeview_drawtree_callback = cb; }
+    inline void setQTreeView_IndexRowSizeHint_Callback(QTreeView_IndexRowSizeHint_Callback cb) { qtreeview_indexrowsizehint_callback = cb; }
+    inline void setQTreeView_RowHeight_Callback(QTreeView_RowHeight_Callback cb) { qtreeview_rowheight_callback = cb; }
+    inline void setQTreeView_State_Callback(QTreeView_State_Callback cb) { qtreeview_state_callback = cb; }
+    inline void setQTreeView_SetState_Callback(QTreeView_SetState_Callback cb) { qtreeview_setstate_callback = cb; }
+    inline void setQTreeView_ScheduleDelayedItemsLayout_Callback(QTreeView_ScheduleDelayedItemsLayout_Callback cb) { qtreeview_scheduledelayeditemslayout_callback = cb; }
+    inline void setQTreeView_ExecuteDelayedItemsLayout_Callback(QTreeView_ExecuteDelayedItemsLayout_Callback cb) { qtreeview_executedelayeditemslayout_callback = cb; }
+    inline void setQTreeView_SetDirtyRegion_Callback(QTreeView_SetDirtyRegion_Callback cb) { qtreeview_setdirtyregion_callback = cb; }
+    inline void setQTreeView_ScrollDirtyRegion_Callback(QTreeView_ScrollDirtyRegion_Callback cb) { qtreeview_scrolldirtyregion_callback = cb; }
+    inline void setQTreeView_DirtyRegionOffset_Callback(QTreeView_DirtyRegionOffset_Callback cb) { qtreeview_dirtyregionoffset_callback = cb; }
+    inline void setQTreeView_StartAutoScroll_Callback(QTreeView_StartAutoScroll_Callback cb) { qtreeview_startautoscroll_callback = cb; }
+    inline void setQTreeView_StopAutoScroll_Callback(QTreeView_StopAutoScroll_Callback cb) { qtreeview_stopautoscroll_callback = cb; }
+    inline void setQTreeView_DoAutoScroll_Callback(QTreeView_DoAutoScroll_Callback cb) { qtreeview_doautoscroll_callback = cb; }
+    inline void setQTreeView_DropIndicatorPosition_Callback(QTreeView_DropIndicatorPosition_Callback cb) { qtreeview_dropindicatorposition_callback = cb; }
+    inline void setQTreeView_SetViewportMargins_Callback(QTreeView_SetViewportMargins_Callback cb) { qtreeview_setviewportmargins_callback = cb; }
+    inline void setQTreeView_ViewportMargins_Callback(QTreeView_ViewportMargins_Callback cb) { qtreeview_viewportmargins_callback = cb; }
+    inline void setQTreeView_DrawFrame_Callback(QTreeView_DrawFrame_Callback cb) { qtreeview_drawframe_callback = cb; }
+    inline void setQTreeView_UpdateMicroFocus_Callback(QTreeView_UpdateMicroFocus_Callback cb) { qtreeview_updatemicrofocus_callback = cb; }
+    inline void setQTreeView_Create_Callback(QTreeView_Create_Callback cb) { qtreeview_create_callback = cb; }
+    inline void setQTreeView_Destroy_Callback(QTreeView_Destroy_Callback cb) { qtreeview_destroy_callback = cb; }
+    inline void setQTreeView_FocusNextChild_Callback(QTreeView_FocusNextChild_Callback cb) { qtreeview_focusnextchild_callback = cb; }
+    inline void setQTreeView_FocusPreviousChild_Callback(QTreeView_FocusPreviousChild_Callback cb) { qtreeview_focuspreviouschild_callback = cb; }
+    inline void setQTreeView_Sender_Callback(QTreeView_Sender_Callback cb) { qtreeview_sender_callback = cb; }
+    inline void setQTreeView_SenderSignalIndex_Callback(QTreeView_SenderSignalIndex_Callback cb) { qtreeview_sendersignalindex_callback = cb; }
+    inline void setQTreeView_Receivers_Callback(QTreeView_Receivers_Callback cb) { qtreeview_receivers_callback = cb; }
+    inline void setQTreeView_IsSignalConnected_Callback(QTreeView_IsSignalConnected_Callback cb) { qtreeview_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQTreeView_Metacall_IsBase(bool value) const { qtreeview_metacall_isbase = value; }
-    void setQTreeView_SetModel_IsBase(bool value) const { qtreeview_setmodel_isbase = value; }
-    void setQTreeView_SetRootIndex_IsBase(bool value) const { qtreeview_setrootindex_isbase = value; }
-    void setQTreeView_SetSelectionModel_IsBase(bool value) const { qtreeview_setselectionmodel_isbase = value; }
-    void setQTreeView_KeyboardSearch_IsBase(bool value) const { qtreeview_keyboardsearch_isbase = value; }
-    void setQTreeView_VisualRect_IsBase(bool value) const { qtreeview_visualrect_isbase = value; }
-    void setQTreeView_ScrollTo_IsBase(bool value) const { qtreeview_scrollto_isbase = value; }
-    void setQTreeView_IndexAt_IsBase(bool value) const { qtreeview_indexat_isbase = value; }
-    void setQTreeView_DoItemsLayout_IsBase(bool value) const { qtreeview_doitemslayout_isbase = value; }
-    void setQTreeView_Reset_IsBase(bool value) const { qtreeview_reset_isbase = value; }
-    void setQTreeView_DataChanged_IsBase(bool value) const { qtreeview_datachanged_isbase = value; }
-    void setQTreeView_SelectAll_IsBase(bool value) const { qtreeview_selectall_isbase = value; }
-    void setQTreeView_VerticalScrollbarValueChanged_IsBase(bool value) const { qtreeview_verticalscrollbarvaluechanged_isbase = value; }
-    void setQTreeView_ScrollContentsBy_IsBase(bool value) const { qtreeview_scrollcontentsby_isbase = value; }
-    void setQTreeView_RowsInserted_IsBase(bool value) const { qtreeview_rowsinserted_isbase = value; }
-    void setQTreeView_RowsAboutToBeRemoved_IsBase(bool value) const { qtreeview_rowsabouttoberemoved_isbase = value; }
-    void setQTreeView_MoveCursor_IsBase(bool value) const { qtreeview_movecursor_isbase = value; }
-    void setQTreeView_HorizontalOffset_IsBase(bool value) const { qtreeview_horizontaloffset_isbase = value; }
-    void setQTreeView_VerticalOffset_IsBase(bool value) const { qtreeview_verticaloffset_isbase = value; }
-    void setQTreeView_SetSelection_IsBase(bool value) const { qtreeview_setselection_isbase = value; }
-    void setQTreeView_VisualRegionForSelection_IsBase(bool value) const { qtreeview_visualregionforselection_isbase = value; }
-    void setQTreeView_SelectedIndexes_IsBase(bool value) const { qtreeview_selectedindexes_isbase = value; }
-    void setQTreeView_ChangeEvent_IsBase(bool value) const { qtreeview_changeevent_isbase = value; }
-    void setQTreeView_TimerEvent_IsBase(bool value) const { qtreeview_timerevent_isbase = value; }
-    void setQTreeView_PaintEvent_IsBase(bool value) const { qtreeview_paintevent_isbase = value; }
-    void setQTreeView_DrawRow_IsBase(bool value) const { qtreeview_drawrow_isbase = value; }
-    void setQTreeView_DrawBranches_IsBase(bool value) const { qtreeview_drawbranches_isbase = value; }
-    void setQTreeView_MousePressEvent_IsBase(bool value) const { qtreeview_mousepressevent_isbase = value; }
-    void setQTreeView_MouseReleaseEvent_IsBase(bool value) const { qtreeview_mousereleaseevent_isbase = value; }
-    void setQTreeView_MouseDoubleClickEvent_IsBase(bool value) const { qtreeview_mousedoubleclickevent_isbase = value; }
-    void setQTreeView_MouseMoveEvent_IsBase(bool value) const { qtreeview_mousemoveevent_isbase = value; }
-    void setQTreeView_KeyPressEvent_IsBase(bool value) const { qtreeview_keypressevent_isbase = value; }
-    void setQTreeView_DragMoveEvent_IsBase(bool value) const { qtreeview_dragmoveevent_isbase = value; }
-    void setQTreeView_ViewportEvent_IsBase(bool value) const { qtreeview_viewportevent_isbase = value; }
-    void setQTreeView_UpdateGeometries_IsBase(bool value) const { qtreeview_updategeometries_isbase = value; }
-    void setQTreeView_ViewportSizeHint_IsBase(bool value) const { qtreeview_viewportsizehint_isbase = value; }
-    void setQTreeView_SizeHintForColumn_IsBase(bool value) const { qtreeview_sizehintforcolumn_isbase = value; }
-    void setQTreeView_HorizontalScrollbarAction_IsBase(bool value) const { qtreeview_horizontalscrollbaraction_isbase = value; }
-    void setQTreeView_IsIndexHidden_IsBase(bool value) const { qtreeview_isindexhidden_isbase = value; }
-    void setQTreeView_SelectionChanged_IsBase(bool value) const { qtreeview_selectionchanged_isbase = value; }
-    void setQTreeView_CurrentChanged_IsBase(bool value) const { qtreeview_currentchanged_isbase = value; }
-    void setQTreeView_SizeHintForRow_IsBase(bool value) const { qtreeview_sizehintforrow_isbase = value; }
-    void setQTreeView_ItemDelegateForIndex_IsBase(bool value) const { qtreeview_itemdelegateforindex_isbase = value; }
-    void setQTreeView_InputMethodQuery_IsBase(bool value) const { qtreeview_inputmethodquery_isbase = value; }
-    void setQTreeView_UpdateEditorData_IsBase(bool value) const { qtreeview_updateeditordata_isbase = value; }
-    void setQTreeView_UpdateEditorGeometries_IsBase(bool value) const { qtreeview_updateeditorgeometries_isbase = value; }
-    void setQTreeView_VerticalScrollbarAction_IsBase(bool value) const { qtreeview_verticalscrollbaraction_isbase = value; }
-    void setQTreeView_HorizontalScrollbarValueChanged_IsBase(bool value) const { qtreeview_horizontalscrollbarvaluechanged_isbase = value; }
-    void setQTreeView_CloseEditor_IsBase(bool value) const { qtreeview_closeeditor_isbase = value; }
-    void setQTreeView_CommitData_IsBase(bool value) const { qtreeview_commitdata_isbase = value; }
-    void setQTreeView_EditorDestroyed_IsBase(bool value) const { qtreeview_editordestroyed_isbase = value; }
-    void setQTreeView_Edit2_IsBase(bool value) const { qtreeview_edit2_isbase = value; }
-    void setQTreeView_SelectionCommand_IsBase(bool value) const { qtreeview_selectioncommand_isbase = value; }
-    void setQTreeView_StartDrag_IsBase(bool value) const { qtreeview_startdrag_isbase = value; }
-    void setQTreeView_InitViewItemOption_IsBase(bool value) const { qtreeview_initviewitemoption_isbase = value; }
-    void setQTreeView_FocusNextPrevChild_IsBase(bool value) const { qtreeview_focusnextprevchild_isbase = value; }
-    void setQTreeView_Event_IsBase(bool value) const { qtreeview_event_isbase = value; }
-    void setQTreeView_DragEnterEvent_IsBase(bool value) const { qtreeview_dragenterevent_isbase = value; }
-    void setQTreeView_DragLeaveEvent_IsBase(bool value) const { qtreeview_dragleaveevent_isbase = value; }
-    void setQTreeView_DropEvent_IsBase(bool value) const { qtreeview_dropevent_isbase = value; }
-    void setQTreeView_FocusInEvent_IsBase(bool value) const { qtreeview_focusinevent_isbase = value; }
-    void setQTreeView_FocusOutEvent_IsBase(bool value) const { qtreeview_focusoutevent_isbase = value; }
-    void setQTreeView_ResizeEvent_IsBase(bool value) const { qtreeview_resizeevent_isbase = value; }
-    void setQTreeView_InputMethodEvent_IsBase(bool value) const { qtreeview_inputmethodevent_isbase = value; }
-    void setQTreeView_EventFilter_IsBase(bool value) const { qtreeview_eventfilter_isbase = value; }
-    void setQTreeView_MinimumSizeHint_IsBase(bool value) const { qtreeview_minimumsizehint_isbase = value; }
-    void setQTreeView_SizeHint_IsBase(bool value) const { qtreeview_sizehint_isbase = value; }
-    void setQTreeView_SetupViewport_IsBase(bool value) const { qtreeview_setupviewport_isbase = value; }
-    void setQTreeView_WheelEvent_IsBase(bool value) const { qtreeview_wheelevent_isbase = value; }
-    void setQTreeView_ContextMenuEvent_IsBase(bool value) const { qtreeview_contextmenuevent_isbase = value; }
-    void setQTreeView_InitStyleOption_IsBase(bool value) const { qtreeview_initstyleoption_isbase = value; }
-    void setQTreeView_DevType_IsBase(bool value) const { qtreeview_devtype_isbase = value; }
-    void setQTreeView_SetVisible_IsBase(bool value) const { qtreeview_setvisible_isbase = value; }
-    void setQTreeView_HeightForWidth_IsBase(bool value) const { qtreeview_heightforwidth_isbase = value; }
-    void setQTreeView_HasHeightForWidth_IsBase(bool value) const { qtreeview_hasheightforwidth_isbase = value; }
-    void setQTreeView_PaintEngine_IsBase(bool value) const { qtreeview_paintengine_isbase = value; }
-    void setQTreeView_KeyReleaseEvent_IsBase(bool value) const { qtreeview_keyreleaseevent_isbase = value; }
-    void setQTreeView_EnterEvent_IsBase(bool value) const { qtreeview_enterevent_isbase = value; }
-    void setQTreeView_LeaveEvent_IsBase(bool value) const { qtreeview_leaveevent_isbase = value; }
-    void setQTreeView_MoveEvent_IsBase(bool value) const { qtreeview_moveevent_isbase = value; }
-    void setQTreeView_CloseEvent_IsBase(bool value) const { qtreeview_closeevent_isbase = value; }
-    void setQTreeView_TabletEvent_IsBase(bool value) const { qtreeview_tabletevent_isbase = value; }
-    void setQTreeView_ActionEvent_IsBase(bool value) const { qtreeview_actionevent_isbase = value; }
-    void setQTreeView_ShowEvent_IsBase(bool value) const { qtreeview_showevent_isbase = value; }
-    void setQTreeView_HideEvent_IsBase(bool value) const { qtreeview_hideevent_isbase = value; }
-    void setQTreeView_NativeEvent_IsBase(bool value) const { qtreeview_nativeevent_isbase = value; }
-    void setQTreeView_Metric_IsBase(bool value) const { qtreeview_metric_isbase = value; }
-    void setQTreeView_InitPainter_IsBase(bool value) const { qtreeview_initpainter_isbase = value; }
-    void setQTreeView_Redirected_IsBase(bool value) const { qtreeview_redirected_isbase = value; }
-    void setQTreeView_SharedPainter_IsBase(bool value) const { qtreeview_sharedpainter_isbase = value; }
-    void setQTreeView_ChildEvent_IsBase(bool value) const { qtreeview_childevent_isbase = value; }
-    void setQTreeView_CustomEvent_IsBase(bool value) const { qtreeview_customevent_isbase = value; }
-    void setQTreeView_ConnectNotify_IsBase(bool value) const { qtreeview_connectnotify_isbase = value; }
-    void setQTreeView_DisconnectNotify_IsBase(bool value) const { qtreeview_disconnectnotify_isbase = value; }
-    void setQTreeView_ColumnResized_IsBase(bool value) const { qtreeview_columnresized_isbase = value; }
-    void setQTreeView_ColumnCountChanged_IsBase(bool value) const { qtreeview_columncountchanged_isbase = value; }
-    void setQTreeView_ColumnMoved_IsBase(bool value) const { qtreeview_columnmoved_isbase = value; }
-    void setQTreeView_Reexpand_IsBase(bool value) const { qtreeview_reexpand_isbase = value; }
-    void setQTreeView_RowsRemoved_IsBase(bool value) const { qtreeview_rowsremoved_isbase = value; }
-    void setQTreeView_DrawTree_IsBase(bool value) const { qtreeview_drawtree_isbase = value; }
-    void setQTreeView_IndexRowSizeHint_IsBase(bool value) const { qtreeview_indexrowsizehint_isbase = value; }
-    void setQTreeView_RowHeight_IsBase(bool value) const { qtreeview_rowheight_isbase = value; }
-    void setQTreeView_State_IsBase(bool value) const { qtreeview_state_isbase = value; }
-    void setQTreeView_SetState_IsBase(bool value) const { qtreeview_setstate_isbase = value; }
-    void setQTreeView_ScheduleDelayedItemsLayout_IsBase(bool value) const { qtreeview_scheduledelayeditemslayout_isbase = value; }
-    void setQTreeView_ExecuteDelayedItemsLayout_IsBase(bool value) const { qtreeview_executedelayeditemslayout_isbase = value; }
-    void setQTreeView_SetDirtyRegion_IsBase(bool value) const { qtreeview_setdirtyregion_isbase = value; }
-    void setQTreeView_ScrollDirtyRegion_IsBase(bool value) const { qtreeview_scrolldirtyregion_isbase = value; }
-    void setQTreeView_DirtyRegionOffset_IsBase(bool value) const { qtreeview_dirtyregionoffset_isbase = value; }
-    void setQTreeView_StartAutoScroll_IsBase(bool value) const { qtreeview_startautoscroll_isbase = value; }
-    void setQTreeView_StopAutoScroll_IsBase(bool value) const { qtreeview_stopautoscroll_isbase = value; }
-    void setQTreeView_DoAutoScroll_IsBase(bool value) const { qtreeview_doautoscroll_isbase = value; }
-    void setQTreeView_DropIndicatorPosition_IsBase(bool value) const { qtreeview_dropindicatorposition_isbase = value; }
-    void setQTreeView_SetViewportMargins_IsBase(bool value) const { qtreeview_setviewportmargins_isbase = value; }
-    void setQTreeView_ViewportMargins_IsBase(bool value) const { qtreeview_viewportmargins_isbase = value; }
-    void setQTreeView_DrawFrame_IsBase(bool value) const { qtreeview_drawframe_isbase = value; }
-    void setQTreeView_UpdateMicroFocus_IsBase(bool value) const { qtreeview_updatemicrofocus_isbase = value; }
-    void setQTreeView_Create_IsBase(bool value) const { qtreeview_create_isbase = value; }
-    void setQTreeView_Destroy_IsBase(bool value) const { qtreeview_destroy_isbase = value; }
-    void setQTreeView_FocusNextChild_IsBase(bool value) const { qtreeview_focusnextchild_isbase = value; }
-    void setQTreeView_FocusPreviousChild_IsBase(bool value) const { qtreeview_focuspreviouschild_isbase = value; }
-    void setQTreeView_Sender_IsBase(bool value) const { qtreeview_sender_isbase = value; }
-    void setQTreeView_SenderSignalIndex_IsBase(bool value) const { qtreeview_sendersignalindex_isbase = value; }
-    void setQTreeView_Receivers_IsBase(bool value) const { qtreeview_receivers_isbase = value; }
-    void setQTreeView_IsSignalConnected_IsBase(bool value) const { qtreeview_issignalconnected_isbase = value; }
+    inline void setQTreeView_Metacall_IsBase(bool value) const { qtreeview_metacall_isbase = value; }
+    inline void setQTreeView_SetModel_IsBase(bool value) const { qtreeview_setmodel_isbase = value; }
+    inline void setQTreeView_SetRootIndex_IsBase(bool value) const { qtreeview_setrootindex_isbase = value; }
+    inline void setQTreeView_SetSelectionModel_IsBase(bool value) const { qtreeview_setselectionmodel_isbase = value; }
+    inline void setQTreeView_KeyboardSearch_IsBase(bool value) const { qtreeview_keyboardsearch_isbase = value; }
+    inline void setQTreeView_VisualRect_IsBase(bool value) const { qtreeview_visualrect_isbase = value; }
+    inline void setQTreeView_ScrollTo_IsBase(bool value) const { qtreeview_scrollto_isbase = value; }
+    inline void setQTreeView_IndexAt_IsBase(bool value) const { qtreeview_indexat_isbase = value; }
+    inline void setQTreeView_DoItemsLayout_IsBase(bool value) const { qtreeview_doitemslayout_isbase = value; }
+    inline void setQTreeView_Reset_IsBase(bool value) const { qtreeview_reset_isbase = value; }
+    inline void setQTreeView_DataChanged_IsBase(bool value) const { qtreeview_datachanged_isbase = value; }
+    inline void setQTreeView_SelectAll_IsBase(bool value) const { qtreeview_selectall_isbase = value; }
+    inline void setQTreeView_VerticalScrollbarValueChanged_IsBase(bool value) const { qtreeview_verticalscrollbarvaluechanged_isbase = value; }
+    inline void setQTreeView_ScrollContentsBy_IsBase(bool value) const { qtreeview_scrollcontentsby_isbase = value; }
+    inline void setQTreeView_RowsInserted_IsBase(bool value) const { qtreeview_rowsinserted_isbase = value; }
+    inline void setQTreeView_RowsAboutToBeRemoved_IsBase(bool value) const { qtreeview_rowsabouttoberemoved_isbase = value; }
+    inline void setQTreeView_MoveCursor_IsBase(bool value) const { qtreeview_movecursor_isbase = value; }
+    inline void setQTreeView_HorizontalOffset_IsBase(bool value) const { qtreeview_horizontaloffset_isbase = value; }
+    inline void setQTreeView_VerticalOffset_IsBase(bool value) const { qtreeview_verticaloffset_isbase = value; }
+    inline void setQTreeView_SetSelection_IsBase(bool value) const { qtreeview_setselection_isbase = value; }
+    inline void setQTreeView_VisualRegionForSelection_IsBase(bool value) const { qtreeview_visualregionforselection_isbase = value; }
+    inline void setQTreeView_SelectedIndexes_IsBase(bool value) const { qtreeview_selectedindexes_isbase = value; }
+    inline void setQTreeView_ChangeEvent_IsBase(bool value) const { qtreeview_changeevent_isbase = value; }
+    inline void setQTreeView_TimerEvent_IsBase(bool value) const { qtreeview_timerevent_isbase = value; }
+    inline void setQTreeView_PaintEvent_IsBase(bool value) const { qtreeview_paintevent_isbase = value; }
+    inline void setQTreeView_DrawRow_IsBase(bool value) const { qtreeview_drawrow_isbase = value; }
+    inline void setQTreeView_DrawBranches_IsBase(bool value) const { qtreeview_drawbranches_isbase = value; }
+    inline void setQTreeView_MousePressEvent_IsBase(bool value) const { qtreeview_mousepressevent_isbase = value; }
+    inline void setQTreeView_MouseReleaseEvent_IsBase(bool value) const { qtreeview_mousereleaseevent_isbase = value; }
+    inline void setQTreeView_MouseDoubleClickEvent_IsBase(bool value) const { qtreeview_mousedoubleclickevent_isbase = value; }
+    inline void setQTreeView_MouseMoveEvent_IsBase(bool value) const { qtreeview_mousemoveevent_isbase = value; }
+    inline void setQTreeView_KeyPressEvent_IsBase(bool value) const { qtreeview_keypressevent_isbase = value; }
+    inline void setQTreeView_DragMoveEvent_IsBase(bool value) const { qtreeview_dragmoveevent_isbase = value; }
+    inline void setQTreeView_ViewportEvent_IsBase(bool value) const { qtreeview_viewportevent_isbase = value; }
+    inline void setQTreeView_UpdateGeometries_IsBase(bool value) const { qtreeview_updategeometries_isbase = value; }
+    inline void setQTreeView_ViewportSizeHint_IsBase(bool value) const { qtreeview_viewportsizehint_isbase = value; }
+    inline void setQTreeView_SizeHintForColumn_IsBase(bool value) const { qtreeview_sizehintforcolumn_isbase = value; }
+    inline void setQTreeView_HorizontalScrollbarAction_IsBase(bool value) const { qtreeview_horizontalscrollbaraction_isbase = value; }
+    inline void setQTreeView_IsIndexHidden_IsBase(bool value) const { qtreeview_isindexhidden_isbase = value; }
+    inline void setQTreeView_SelectionChanged_IsBase(bool value) const { qtreeview_selectionchanged_isbase = value; }
+    inline void setQTreeView_CurrentChanged_IsBase(bool value) const { qtreeview_currentchanged_isbase = value; }
+    inline void setQTreeView_SizeHintForRow_IsBase(bool value) const { qtreeview_sizehintforrow_isbase = value; }
+    inline void setQTreeView_ItemDelegateForIndex_IsBase(bool value) const { qtreeview_itemdelegateforindex_isbase = value; }
+    inline void setQTreeView_InputMethodQuery_IsBase(bool value) const { qtreeview_inputmethodquery_isbase = value; }
+    inline void setQTreeView_UpdateEditorData_IsBase(bool value) const { qtreeview_updateeditordata_isbase = value; }
+    inline void setQTreeView_UpdateEditorGeometries_IsBase(bool value) const { qtreeview_updateeditorgeometries_isbase = value; }
+    inline void setQTreeView_VerticalScrollbarAction_IsBase(bool value) const { qtreeview_verticalscrollbaraction_isbase = value; }
+    inline void setQTreeView_HorizontalScrollbarValueChanged_IsBase(bool value) const { qtreeview_horizontalscrollbarvaluechanged_isbase = value; }
+    inline void setQTreeView_CloseEditor_IsBase(bool value) const { qtreeview_closeeditor_isbase = value; }
+    inline void setQTreeView_CommitData_IsBase(bool value) const { qtreeview_commitdata_isbase = value; }
+    inline void setQTreeView_EditorDestroyed_IsBase(bool value) const { qtreeview_editordestroyed_isbase = value; }
+    inline void setQTreeView_Edit2_IsBase(bool value) const { qtreeview_edit2_isbase = value; }
+    inline void setQTreeView_SelectionCommand_IsBase(bool value) const { qtreeview_selectioncommand_isbase = value; }
+    inline void setQTreeView_StartDrag_IsBase(bool value) const { qtreeview_startdrag_isbase = value; }
+    inline void setQTreeView_InitViewItemOption_IsBase(bool value) const { qtreeview_initviewitemoption_isbase = value; }
+    inline void setQTreeView_FocusNextPrevChild_IsBase(bool value) const { qtreeview_focusnextprevchild_isbase = value; }
+    inline void setQTreeView_Event_IsBase(bool value) const { qtreeview_event_isbase = value; }
+    inline void setQTreeView_DragEnterEvent_IsBase(bool value) const { qtreeview_dragenterevent_isbase = value; }
+    inline void setQTreeView_DragLeaveEvent_IsBase(bool value) const { qtreeview_dragleaveevent_isbase = value; }
+    inline void setQTreeView_DropEvent_IsBase(bool value) const { qtreeview_dropevent_isbase = value; }
+    inline void setQTreeView_FocusInEvent_IsBase(bool value) const { qtreeview_focusinevent_isbase = value; }
+    inline void setQTreeView_FocusOutEvent_IsBase(bool value) const { qtreeview_focusoutevent_isbase = value; }
+    inline void setQTreeView_ResizeEvent_IsBase(bool value) const { qtreeview_resizeevent_isbase = value; }
+    inline void setQTreeView_InputMethodEvent_IsBase(bool value) const { qtreeview_inputmethodevent_isbase = value; }
+    inline void setQTreeView_EventFilter_IsBase(bool value) const { qtreeview_eventfilter_isbase = value; }
+    inline void setQTreeView_MinimumSizeHint_IsBase(bool value) const { qtreeview_minimumsizehint_isbase = value; }
+    inline void setQTreeView_SizeHint_IsBase(bool value) const { qtreeview_sizehint_isbase = value; }
+    inline void setQTreeView_SetupViewport_IsBase(bool value) const { qtreeview_setupviewport_isbase = value; }
+    inline void setQTreeView_WheelEvent_IsBase(bool value) const { qtreeview_wheelevent_isbase = value; }
+    inline void setQTreeView_ContextMenuEvent_IsBase(bool value) const { qtreeview_contextmenuevent_isbase = value; }
+    inline void setQTreeView_InitStyleOption_IsBase(bool value) const { qtreeview_initstyleoption_isbase = value; }
+    inline void setQTreeView_DevType_IsBase(bool value) const { qtreeview_devtype_isbase = value; }
+    inline void setQTreeView_SetVisible_IsBase(bool value) const { qtreeview_setvisible_isbase = value; }
+    inline void setQTreeView_HeightForWidth_IsBase(bool value) const { qtreeview_heightforwidth_isbase = value; }
+    inline void setQTreeView_HasHeightForWidth_IsBase(bool value) const { qtreeview_hasheightforwidth_isbase = value; }
+    inline void setQTreeView_PaintEngine_IsBase(bool value) const { qtreeview_paintengine_isbase = value; }
+    inline void setQTreeView_KeyReleaseEvent_IsBase(bool value) const { qtreeview_keyreleaseevent_isbase = value; }
+    inline void setQTreeView_EnterEvent_IsBase(bool value) const { qtreeview_enterevent_isbase = value; }
+    inline void setQTreeView_LeaveEvent_IsBase(bool value) const { qtreeview_leaveevent_isbase = value; }
+    inline void setQTreeView_MoveEvent_IsBase(bool value) const { qtreeview_moveevent_isbase = value; }
+    inline void setQTreeView_CloseEvent_IsBase(bool value) const { qtreeview_closeevent_isbase = value; }
+    inline void setQTreeView_TabletEvent_IsBase(bool value) const { qtreeview_tabletevent_isbase = value; }
+    inline void setQTreeView_ActionEvent_IsBase(bool value) const { qtreeview_actionevent_isbase = value; }
+    inline void setQTreeView_ShowEvent_IsBase(bool value) const { qtreeview_showevent_isbase = value; }
+    inline void setQTreeView_HideEvent_IsBase(bool value) const { qtreeview_hideevent_isbase = value; }
+    inline void setQTreeView_NativeEvent_IsBase(bool value) const { qtreeview_nativeevent_isbase = value; }
+    inline void setQTreeView_Metric_IsBase(bool value) const { qtreeview_metric_isbase = value; }
+    inline void setQTreeView_InitPainter_IsBase(bool value) const { qtreeview_initpainter_isbase = value; }
+    inline void setQTreeView_Redirected_IsBase(bool value) const { qtreeview_redirected_isbase = value; }
+    inline void setQTreeView_SharedPainter_IsBase(bool value) const { qtreeview_sharedpainter_isbase = value; }
+    inline void setQTreeView_ChildEvent_IsBase(bool value) const { qtreeview_childevent_isbase = value; }
+    inline void setQTreeView_CustomEvent_IsBase(bool value) const { qtreeview_customevent_isbase = value; }
+    inline void setQTreeView_ConnectNotify_IsBase(bool value) const { qtreeview_connectnotify_isbase = value; }
+    inline void setQTreeView_DisconnectNotify_IsBase(bool value) const { qtreeview_disconnectnotify_isbase = value; }
+    inline void setQTreeView_ColumnResized_IsBase(bool value) const { qtreeview_columnresized_isbase = value; }
+    inline void setQTreeView_ColumnCountChanged_IsBase(bool value) const { qtreeview_columncountchanged_isbase = value; }
+    inline void setQTreeView_ColumnMoved_IsBase(bool value) const { qtreeview_columnmoved_isbase = value; }
+    inline void setQTreeView_Reexpand_IsBase(bool value) const { qtreeview_reexpand_isbase = value; }
+    inline void setQTreeView_RowsRemoved_IsBase(bool value) const { qtreeview_rowsremoved_isbase = value; }
+    inline void setQTreeView_DrawTree_IsBase(bool value) const { qtreeview_drawtree_isbase = value; }
+    inline void setQTreeView_IndexRowSizeHint_IsBase(bool value) const { qtreeview_indexrowsizehint_isbase = value; }
+    inline void setQTreeView_RowHeight_IsBase(bool value) const { qtreeview_rowheight_isbase = value; }
+    inline void setQTreeView_State_IsBase(bool value) const { qtreeview_state_isbase = value; }
+    inline void setQTreeView_SetState_IsBase(bool value) const { qtreeview_setstate_isbase = value; }
+    inline void setQTreeView_ScheduleDelayedItemsLayout_IsBase(bool value) const { qtreeview_scheduledelayeditemslayout_isbase = value; }
+    inline void setQTreeView_ExecuteDelayedItemsLayout_IsBase(bool value) const { qtreeview_executedelayeditemslayout_isbase = value; }
+    inline void setQTreeView_SetDirtyRegion_IsBase(bool value) const { qtreeview_setdirtyregion_isbase = value; }
+    inline void setQTreeView_ScrollDirtyRegion_IsBase(bool value) const { qtreeview_scrolldirtyregion_isbase = value; }
+    inline void setQTreeView_DirtyRegionOffset_IsBase(bool value) const { qtreeview_dirtyregionoffset_isbase = value; }
+    inline void setQTreeView_StartAutoScroll_IsBase(bool value) const { qtreeview_startautoscroll_isbase = value; }
+    inline void setQTreeView_StopAutoScroll_IsBase(bool value) const { qtreeview_stopautoscroll_isbase = value; }
+    inline void setQTreeView_DoAutoScroll_IsBase(bool value) const { qtreeview_doautoscroll_isbase = value; }
+    inline void setQTreeView_DropIndicatorPosition_IsBase(bool value) const { qtreeview_dropindicatorposition_isbase = value; }
+    inline void setQTreeView_SetViewportMargins_IsBase(bool value) const { qtreeview_setviewportmargins_isbase = value; }
+    inline void setQTreeView_ViewportMargins_IsBase(bool value) const { qtreeview_viewportmargins_isbase = value; }
+    inline void setQTreeView_DrawFrame_IsBase(bool value) const { qtreeview_drawframe_isbase = value; }
+    inline void setQTreeView_UpdateMicroFocus_IsBase(bool value) const { qtreeview_updatemicrofocus_isbase = value; }
+    inline void setQTreeView_Create_IsBase(bool value) const { qtreeview_create_isbase = value; }
+    inline void setQTreeView_Destroy_IsBase(bool value) const { qtreeview_destroy_isbase = value; }
+    inline void setQTreeView_FocusNextChild_IsBase(bool value) const { qtreeview_focusnextchild_isbase = value; }
+    inline void setQTreeView_FocusPreviousChild_IsBase(bool value) const { qtreeview_focuspreviouschild_isbase = value; }
+    inline void setQTreeView_Sender_IsBase(bool value) const { qtreeview_sender_isbase = value; }
+    inline void setQTreeView_SenderSignalIndex_IsBase(bool value) const { qtreeview_sendersignalindex_isbase = value; }
+    inline void setQTreeView_Receivers_IsBase(bool value) const { qtreeview_receivers_isbase = value; }
+    inline void setQTreeView_IsSignalConnected_IsBase(bool value) const { qtreeview_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -791,7 +794,12 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_metacall_isbase = false;
             return QTreeView::qt_metacall(param1, param2, param3);
         } else if (qtreeview_metacall_callback != nullptr) {
-            return qtreeview_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qtreeview_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QTreeView::qt_metacall(param1, param2, param3);
         }
@@ -803,7 +811,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_setmodel_isbase = false;
             QTreeView::setModel(model);
         } else if (qtreeview_setmodel_callback != nullptr) {
-            qtreeview_setmodel_callback(this, model);
+            QAbstractItemModel* cbval1 = model;
+
+            qtreeview_setmodel_callback(this, cbval1);
         } else {
             QTreeView::setModel(model);
         }
@@ -815,7 +825,11 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_setrootindex_isbase = false;
             QTreeView::setRootIndex(index);
         } else if (qtreeview_setrootindex_callback != nullptr) {
-            qtreeview_setrootindex_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            qtreeview_setrootindex_callback(this, cbval1);
         } else {
             QTreeView::setRootIndex(index);
         }
@@ -827,7 +841,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_setselectionmodel_isbase = false;
             QTreeView::setSelectionModel(selectionModel);
         } else if (qtreeview_setselectionmodel_callback != nullptr) {
-            qtreeview_setselectionmodel_callback(this, selectionModel);
+            QItemSelectionModel* cbval1 = selectionModel;
+
+            qtreeview_setselectionmodel_callback(this, cbval1);
         } else {
             QTreeView::setSelectionModel(selectionModel);
         }
@@ -839,7 +855,17 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_keyboardsearch_isbase = false;
             QTreeView::keyboardSearch(search);
         } else if (qtreeview_keyboardsearch_callback != nullptr) {
-            qtreeview_keyboardsearch_callback(this, search);
+            const QString search_ret = search;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray search_b = search_ret.toUtf8();
+            libqt_string search_str;
+            search_str.len = search_b.length();
+            search_str.data = static_cast<char*>(malloc((search_str.len + 1) * sizeof(char)));
+            memcpy(search_str.data, search_b.data(), search_str.len);
+            search_str.data[search_str.len] = '\0';
+            libqt_string cbval1 = search_str;
+
+            qtreeview_keyboardsearch_callback(this, cbval1);
         } else {
             QTreeView::keyboardSearch(search);
         }
@@ -851,7 +877,12 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_visualrect_isbase = false;
             return QTreeView::visualRect(index);
         } else if (qtreeview_visualrect_callback != nullptr) {
-            return qtreeview_visualrect_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QRect* callback_ret = qtreeview_visualrect_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTreeView::visualRect(index);
         }
@@ -863,7 +894,12 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_scrollto_isbase = false;
             QTreeView::scrollTo(index, hint);
         } else if (qtreeview_scrollto_callback != nullptr) {
-            qtreeview_scrollto_callback(this, index, hint);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            int cbval2 = static_cast<int>(hint);
+
+            qtreeview_scrollto_callback(this, cbval1, cbval2);
         } else {
             QTreeView::scrollTo(index, hint);
         }
@@ -875,7 +911,12 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_indexat_isbase = false;
             return QTreeView::indexAt(p);
         } else if (qtreeview_indexat_callback != nullptr) {
-            return qtreeview_indexat_callback(this, p);
+            const QPoint& p_ret = p;
+            // Cast returned reference into pointer
+            QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
+
+            QModelIndex* callback_ret = qtreeview_indexat_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTreeView::indexAt(p);
         }
@@ -911,7 +952,24 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_datachanged_isbase = false;
             QTreeView::dataChanged(topLeft, bottomRight, roles);
         } else if (qtreeview_datachanged_callback != nullptr) {
-            qtreeview_datachanged_callback(this, topLeft, bottomRight, roles);
+            const QModelIndex& topLeft_ret = topLeft;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&topLeft_ret);
+            const QModelIndex& bottomRight_ret = bottomRight;
+            // Cast returned reference into pointer
+            QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
+            const QList<int>& roles_ret = roles;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.length()));
+            for (size_t i = 0; i < roles_ret.length(); ++i) {
+                roles_arr[i] = roles_ret[i];
+            }
+            libqt_list roles_out;
+            roles_out.len = roles_ret.length();
+            roles_out.data = static_cast<void*>(roles_arr);
+            libqt_list /* of int */ cbval3 = roles_out;
+
+            qtreeview_datachanged_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTreeView::dataChanged(topLeft, bottomRight, roles);
         }
@@ -935,7 +993,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_verticalscrollbarvaluechanged_isbase = false;
             QTreeView::verticalScrollbarValueChanged(value);
         } else if (qtreeview_verticalscrollbarvaluechanged_callback != nullptr) {
-            qtreeview_verticalscrollbarvaluechanged_callback(this, value);
+            int cbval1 = value;
+
+            qtreeview_verticalscrollbarvaluechanged_callback(this, cbval1);
         } else {
             QTreeView::verticalScrollbarValueChanged(value);
         }
@@ -947,7 +1007,10 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_scrollcontentsby_isbase = false;
             QTreeView::scrollContentsBy(dx, dy);
         } else if (qtreeview_scrollcontentsby_callback != nullptr) {
-            qtreeview_scrollcontentsby_callback(this, dx, dy);
+            int cbval1 = dx;
+            int cbval2 = dy;
+
+            qtreeview_scrollcontentsby_callback(this, cbval1, cbval2);
         } else {
             QTreeView::scrollContentsBy(dx, dy);
         }
@@ -959,7 +1022,13 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_rowsinserted_isbase = false;
             QTreeView::rowsInserted(parent, start, end);
         } else if (qtreeview_rowsinserted_callback != nullptr) {
-            qtreeview_rowsinserted_callback(this, parent, start, end);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = start;
+            int cbval3 = end;
+
+            qtreeview_rowsinserted_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTreeView::rowsInserted(parent, start, end);
         }
@@ -971,7 +1040,13 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_rowsabouttoberemoved_isbase = false;
             QTreeView::rowsAboutToBeRemoved(parent, start, end);
         } else if (qtreeview_rowsabouttoberemoved_callback != nullptr) {
-            qtreeview_rowsabouttoberemoved_callback(this, parent, start, end);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = start;
+            int cbval3 = end;
+
+            qtreeview_rowsabouttoberemoved_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTreeView::rowsAboutToBeRemoved(parent, start, end);
         }
@@ -983,7 +1058,11 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_movecursor_isbase = false;
             return QTreeView::moveCursor(cursorAction, modifiers);
         } else if (qtreeview_movecursor_callback != nullptr) {
-            return qtreeview_movecursor_callback(this, cursorAction, modifiers);
+            int cbval1 = static_cast<int>(cursorAction);
+            int cbval2 = static_cast<int>(modifiers);
+
+            QModelIndex* callback_ret = qtreeview_movecursor_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QTreeView::moveCursor(cursorAction, modifiers);
         }
@@ -995,7 +1074,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_horizontaloffset_isbase = false;
             return QTreeView::horizontalOffset();
         } else if (qtreeview_horizontaloffset_callback != nullptr) {
-            return qtreeview_horizontaloffset_callback();
+            int callback_ret = qtreeview_horizontaloffset_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QTreeView::horizontalOffset();
         }
@@ -1007,7 +1087,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_verticaloffset_isbase = false;
             return QTreeView::verticalOffset();
         } else if (qtreeview_verticaloffset_callback != nullptr) {
-            return qtreeview_verticaloffset_callback();
+            int callback_ret = qtreeview_verticaloffset_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QTreeView::verticalOffset();
         }
@@ -1019,7 +1100,12 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_setselection_isbase = false;
             QTreeView::setSelection(rect, command);
         } else if (qtreeview_setselection_callback != nullptr) {
-            qtreeview_setselection_callback(this, rect, command);
+            const QRect& rect_ret = rect;
+            // Cast returned reference into pointer
+            QRect* cbval1 = const_cast<QRect*>(&rect_ret);
+            int cbval2 = static_cast<int>(command);
+
+            qtreeview_setselection_callback(this, cbval1, cbval2);
         } else {
             QTreeView::setSelection(rect, command);
         }
@@ -1031,7 +1117,12 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_visualregionforselection_isbase = false;
             return QTreeView::visualRegionForSelection(selection);
         } else if (qtreeview_visualregionforselection_callback != nullptr) {
-            return qtreeview_visualregionforselection_callback(this, selection);
+            const QItemSelection& selection_ret = selection;
+            // Cast returned reference into pointer
+            QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
+
+            QRegion* callback_ret = qtreeview_visualregionforselection_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTreeView::visualRegionForSelection(selection);
         }
@@ -1043,7 +1134,14 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_selectedindexes_isbase = false;
             return QTreeView::selectedIndexes();
         } else if (qtreeview_selectedindexes_callback != nullptr) {
-            return qtreeview_selectedindexes_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qtreeview_selectedindexes_callback();
+            QModelIndexList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            }
+            return callback_ret_QList;
         } else {
             return QTreeView::selectedIndexes();
         }
@@ -1055,7 +1153,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_changeevent_isbase = false;
             QTreeView::changeEvent(event);
         } else if (qtreeview_changeevent_callback != nullptr) {
-            qtreeview_changeevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qtreeview_changeevent_callback(this, cbval1);
         } else {
             QTreeView::changeEvent(event);
         }
@@ -1067,7 +1167,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_timerevent_isbase = false;
             QTreeView::timerEvent(event);
         } else if (qtreeview_timerevent_callback != nullptr) {
-            qtreeview_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qtreeview_timerevent_callback(this, cbval1);
         } else {
             QTreeView::timerEvent(event);
         }
@@ -1079,7 +1181,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_paintevent_isbase = false;
             QTreeView::paintEvent(event);
         } else if (qtreeview_paintevent_callback != nullptr) {
-            qtreeview_paintevent_callback(this, event);
+            QPaintEvent* cbval1 = event;
+
+            qtreeview_paintevent_callback(this, cbval1);
         } else {
             QTreeView::paintEvent(event);
         }
@@ -1091,7 +1195,15 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_drawrow_isbase = false;
             QTreeView::drawRow(painter, options, index);
         } else if (qtreeview_drawrow_callback != nullptr) {
-            qtreeview_drawrow_callback(this, painter, options, index);
+            QPainter* cbval1 = painter;
+            const QStyleOptionViewItem& options_ret = options;
+            // Cast returned reference into pointer
+            QStyleOptionViewItem* cbval2 = const_cast<QStyleOptionViewItem*>(&options_ret);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
+
+            qtreeview_drawrow_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTreeView::drawRow(painter, options, index);
         }
@@ -1103,7 +1215,15 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_drawbranches_isbase = false;
             QTreeView::drawBranches(painter, rect, index);
         } else if (qtreeview_drawbranches_callback != nullptr) {
-            qtreeview_drawbranches_callback(this, painter, rect, index);
+            QPainter* cbval1 = painter;
+            const QRect& rect_ret = rect;
+            // Cast returned reference into pointer
+            QRect* cbval2 = const_cast<QRect*>(&rect_ret);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
+
+            qtreeview_drawbranches_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTreeView::drawBranches(painter, rect, index);
         }
@@ -1115,7 +1235,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_mousepressevent_isbase = false;
             QTreeView::mousePressEvent(event);
         } else if (qtreeview_mousepressevent_callback != nullptr) {
-            qtreeview_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qtreeview_mousepressevent_callback(this, cbval1);
         } else {
             QTreeView::mousePressEvent(event);
         }
@@ -1127,7 +1249,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_mousereleaseevent_isbase = false;
             QTreeView::mouseReleaseEvent(event);
         } else if (qtreeview_mousereleaseevent_callback != nullptr) {
-            qtreeview_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qtreeview_mousereleaseevent_callback(this, cbval1);
         } else {
             QTreeView::mouseReleaseEvent(event);
         }
@@ -1139,7 +1263,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_mousedoubleclickevent_isbase = false;
             QTreeView::mouseDoubleClickEvent(event);
         } else if (qtreeview_mousedoubleclickevent_callback != nullptr) {
-            qtreeview_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qtreeview_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QTreeView::mouseDoubleClickEvent(event);
         }
@@ -1151,7 +1277,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_mousemoveevent_isbase = false;
             QTreeView::mouseMoveEvent(event);
         } else if (qtreeview_mousemoveevent_callback != nullptr) {
-            qtreeview_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qtreeview_mousemoveevent_callback(this, cbval1);
         } else {
             QTreeView::mouseMoveEvent(event);
         }
@@ -1163,7 +1291,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_keypressevent_isbase = false;
             QTreeView::keyPressEvent(event);
         } else if (qtreeview_keypressevent_callback != nullptr) {
-            qtreeview_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qtreeview_keypressevent_callback(this, cbval1);
         } else {
             QTreeView::keyPressEvent(event);
         }
@@ -1175,7 +1305,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_dragmoveevent_isbase = false;
             QTreeView::dragMoveEvent(event);
         } else if (qtreeview_dragmoveevent_callback != nullptr) {
-            qtreeview_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qtreeview_dragmoveevent_callback(this, cbval1);
         } else {
             QTreeView::dragMoveEvent(event);
         }
@@ -1187,7 +1319,10 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_viewportevent_isbase = false;
             return QTreeView::viewportEvent(event);
         } else if (qtreeview_viewportevent_callback != nullptr) {
-            return qtreeview_viewportevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qtreeview_viewportevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTreeView::viewportEvent(event);
         }
@@ -1211,7 +1346,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_viewportsizehint_isbase = false;
             return QTreeView::viewportSizeHint();
         } else if (qtreeview_viewportsizehint_callback != nullptr) {
-            return qtreeview_viewportsizehint_callback();
+            QSize* callback_ret = qtreeview_viewportsizehint_callback();
+            return *callback_ret;
         } else {
             return QTreeView::viewportSizeHint();
         }
@@ -1223,7 +1359,10 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_sizehintforcolumn_isbase = false;
             return QTreeView::sizeHintForColumn(column);
         } else if (qtreeview_sizehintforcolumn_callback != nullptr) {
-            return qtreeview_sizehintforcolumn_callback(this, column);
+            int cbval1 = column;
+
+            int callback_ret = qtreeview_sizehintforcolumn_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTreeView::sizeHintForColumn(column);
         }
@@ -1235,7 +1374,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_horizontalscrollbaraction_isbase = false;
             QTreeView::horizontalScrollbarAction(action);
         } else if (qtreeview_horizontalscrollbaraction_callback != nullptr) {
-            qtreeview_horizontalscrollbaraction_callback(this, action);
+            int cbval1 = action;
+
+            qtreeview_horizontalscrollbaraction_callback(this, cbval1);
         } else {
             QTreeView::horizontalScrollbarAction(action);
         }
@@ -1247,7 +1388,12 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_isindexhidden_isbase = false;
             return QTreeView::isIndexHidden(index);
         } else if (qtreeview_isindexhidden_callback != nullptr) {
-            return qtreeview_isindexhidden_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            bool callback_ret = qtreeview_isindexhidden_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTreeView::isIndexHidden(index);
         }
@@ -1259,7 +1405,14 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_selectionchanged_isbase = false;
             QTreeView::selectionChanged(selected, deselected);
         } else if (qtreeview_selectionchanged_callback != nullptr) {
-            qtreeview_selectionchanged_callback(this, selected, deselected);
+            const QItemSelection& selected_ret = selected;
+            // Cast returned reference into pointer
+            QItemSelection* cbval1 = const_cast<QItemSelection*>(&selected_ret);
+            const QItemSelection& deselected_ret = deselected;
+            // Cast returned reference into pointer
+            QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
+
+            qtreeview_selectionchanged_callback(this, cbval1, cbval2);
         } else {
             QTreeView::selectionChanged(selected, deselected);
         }
@@ -1271,7 +1424,14 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_currentchanged_isbase = false;
             QTreeView::currentChanged(current, previous);
         } else if (qtreeview_currentchanged_callback != nullptr) {
-            qtreeview_currentchanged_callback(this, current, previous);
+            const QModelIndex& current_ret = current;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&current_ret);
+            const QModelIndex& previous_ret = previous;
+            // Cast returned reference into pointer
+            QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
+
+            qtreeview_currentchanged_callback(this, cbval1, cbval2);
         } else {
             QTreeView::currentChanged(current, previous);
         }
@@ -1283,7 +1443,10 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_sizehintforrow_isbase = false;
             return QTreeView::sizeHintForRow(row);
         } else if (qtreeview_sizehintforrow_callback != nullptr) {
-            return qtreeview_sizehintforrow_callback(this, row);
+            int cbval1 = row;
+
+            int callback_ret = qtreeview_sizehintforrow_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTreeView::sizeHintForRow(row);
         }
@@ -1295,7 +1458,12 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_itemdelegateforindex_isbase = false;
             return QTreeView::itemDelegateForIndex(index);
         } else if (qtreeview_itemdelegateforindex_callback != nullptr) {
-            return qtreeview_itemdelegateforindex_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QAbstractItemDelegate* callback_ret = qtreeview_itemdelegateforindex_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTreeView::itemDelegateForIndex(index);
         }
@@ -1307,7 +1475,10 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_inputmethodquery_isbase = false;
             return QTreeView::inputMethodQuery(query);
         } else if (qtreeview_inputmethodquery_callback != nullptr) {
-            return qtreeview_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qtreeview_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTreeView::inputMethodQuery(query);
         }
@@ -1343,7 +1514,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_verticalscrollbaraction_isbase = false;
             QTreeView::verticalScrollbarAction(action);
         } else if (qtreeview_verticalscrollbaraction_callback != nullptr) {
-            qtreeview_verticalscrollbaraction_callback(this, action);
+            int cbval1 = action;
+
+            qtreeview_verticalscrollbaraction_callback(this, cbval1);
         } else {
             QTreeView::verticalScrollbarAction(action);
         }
@@ -1355,7 +1528,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_horizontalscrollbarvaluechanged_isbase = false;
             QTreeView::horizontalScrollbarValueChanged(value);
         } else if (qtreeview_horizontalscrollbarvaluechanged_callback != nullptr) {
-            qtreeview_horizontalscrollbarvaluechanged_callback(this, value);
+            int cbval1 = value;
+
+            qtreeview_horizontalscrollbarvaluechanged_callback(this, cbval1);
         } else {
             QTreeView::horizontalScrollbarValueChanged(value);
         }
@@ -1367,7 +1542,10 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_closeeditor_isbase = false;
             QTreeView::closeEditor(editor, hint);
         } else if (qtreeview_closeeditor_callback != nullptr) {
-            qtreeview_closeeditor_callback(this, editor, hint);
+            QWidget* cbval1 = editor;
+            int cbval2 = static_cast<int>(hint);
+
+            qtreeview_closeeditor_callback(this, cbval1, cbval2);
         } else {
             QTreeView::closeEditor(editor, hint);
         }
@@ -1379,7 +1557,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_commitdata_isbase = false;
             QTreeView::commitData(editor);
         } else if (qtreeview_commitdata_callback != nullptr) {
-            qtreeview_commitdata_callback(this, editor);
+            QWidget* cbval1 = editor;
+
+            qtreeview_commitdata_callback(this, cbval1);
         } else {
             QTreeView::commitData(editor);
         }
@@ -1391,7 +1571,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_editordestroyed_isbase = false;
             QTreeView::editorDestroyed(editor);
         } else if (qtreeview_editordestroyed_callback != nullptr) {
-            qtreeview_editordestroyed_callback(this, editor);
+            QObject* cbval1 = editor;
+
+            qtreeview_editordestroyed_callback(this, cbval1);
         } else {
             QTreeView::editorDestroyed(editor);
         }
@@ -1403,7 +1585,14 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_edit2_isbase = false;
             return QTreeView::edit(index, trigger, event);
         } else if (qtreeview_edit2_callback != nullptr) {
-            return qtreeview_edit2_callback(this, index, trigger, event);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            int cbval2 = static_cast<int>(trigger);
+            QEvent* cbval3 = event;
+
+            bool callback_ret = qtreeview_edit2_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QTreeView::edit(index, trigger, event);
         }
@@ -1415,7 +1604,13 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_selectioncommand_isbase = false;
             return QTreeView::selectionCommand(index, event);
         } else if (qtreeview_selectioncommand_callback != nullptr) {
-            return qtreeview_selectioncommand_callback(this, index, event);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            QEvent* cbval2 = (QEvent*)event;
+
+            int callback_ret = qtreeview_selectioncommand_callback(this, cbval1, cbval2);
+            return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
         } else {
             return QTreeView::selectionCommand(index, event);
         }
@@ -1427,7 +1622,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_startdrag_isbase = false;
             QTreeView::startDrag(supportedActions);
         } else if (qtreeview_startdrag_callback != nullptr) {
-            qtreeview_startdrag_callback(this, supportedActions);
+            int cbval1 = static_cast<int>(supportedActions);
+
+            qtreeview_startdrag_callback(this, cbval1);
         } else {
             QTreeView::startDrag(supportedActions);
         }
@@ -1439,7 +1636,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_initviewitemoption_isbase = false;
             QTreeView::initViewItemOption(option);
         } else if (qtreeview_initviewitemoption_callback != nullptr) {
-            qtreeview_initviewitemoption_callback(this, option);
+            QStyleOptionViewItem* cbval1 = option;
+
+            qtreeview_initviewitemoption_callback(this, cbval1);
         } else {
             QTreeView::initViewItemOption(option);
         }
@@ -1451,7 +1650,10 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_focusnextprevchild_isbase = false;
             return QTreeView::focusNextPrevChild(next);
         } else if (qtreeview_focusnextprevchild_callback != nullptr) {
-            return qtreeview_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qtreeview_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTreeView::focusNextPrevChild(next);
         }
@@ -1463,7 +1665,10 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_event_isbase = false;
             return QTreeView::event(event);
         } else if (qtreeview_event_callback != nullptr) {
-            return qtreeview_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qtreeview_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTreeView::event(event);
         }
@@ -1475,7 +1680,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_dragenterevent_isbase = false;
             QTreeView::dragEnterEvent(event);
         } else if (qtreeview_dragenterevent_callback != nullptr) {
-            qtreeview_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qtreeview_dragenterevent_callback(this, cbval1);
         } else {
             QTreeView::dragEnterEvent(event);
         }
@@ -1487,7 +1694,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_dragleaveevent_isbase = false;
             QTreeView::dragLeaveEvent(event);
         } else if (qtreeview_dragleaveevent_callback != nullptr) {
-            qtreeview_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qtreeview_dragleaveevent_callback(this, cbval1);
         } else {
             QTreeView::dragLeaveEvent(event);
         }
@@ -1499,7 +1708,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_dropevent_isbase = false;
             QTreeView::dropEvent(event);
         } else if (qtreeview_dropevent_callback != nullptr) {
-            qtreeview_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qtreeview_dropevent_callback(this, cbval1);
         } else {
             QTreeView::dropEvent(event);
         }
@@ -1511,7 +1722,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_focusinevent_isbase = false;
             QTreeView::focusInEvent(event);
         } else if (qtreeview_focusinevent_callback != nullptr) {
-            qtreeview_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qtreeview_focusinevent_callback(this, cbval1);
         } else {
             QTreeView::focusInEvent(event);
         }
@@ -1523,7 +1736,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_focusoutevent_isbase = false;
             QTreeView::focusOutEvent(event);
         } else if (qtreeview_focusoutevent_callback != nullptr) {
-            qtreeview_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qtreeview_focusoutevent_callback(this, cbval1);
         } else {
             QTreeView::focusOutEvent(event);
         }
@@ -1535,7 +1750,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_resizeevent_isbase = false;
             QTreeView::resizeEvent(event);
         } else if (qtreeview_resizeevent_callback != nullptr) {
-            qtreeview_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qtreeview_resizeevent_callback(this, cbval1);
         } else {
             QTreeView::resizeEvent(event);
         }
@@ -1547,7 +1764,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_inputmethodevent_isbase = false;
             QTreeView::inputMethodEvent(event);
         } else if (qtreeview_inputmethodevent_callback != nullptr) {
-            qtreeview_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qtreeview_inputmethodevent_callback(this, cbval1);
         } else {
             QTreeView::inputMethodEvent(event);
         }
@@ -1559,7 +1778,11 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_eventfilter_isbase = false;
             return QTreeView::eventFilter(object, event);
         } else if (qtreeview_eventfilter_callback != nullptr) {
-            return qtreeview_eventfilter_callback(this, object, event);
+            QObject* cbval1 = object;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qtreeview_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QTreeView::eventFilter(object, event);
         }
@@ -1571,7 +1794,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_minimumsizehint_isbase = false;
             return QTreeView::minimumSizeHint();
         } else if (qtreeview_minimumsizehint_callback != nullptr) {
-            return qtreeview_minimumsizehint_callback();
+            QSize* callback_ret = qtreeview_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QTreeView::minimumSizeHint();
         }
@@ -1583,7 +1807,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_sizehint_isbase = false;
             return QTreeView::sizeHint();
         } else if (qtreeview_sizehint_callback != nullptr) {
-            return qtreeview_sizehint_callback();
+            QSize* callback_ret = qtreeview_sizehint_callback();
+            return *callback_ret;
         } else {
             return QTreeView::sizeHint();
         }
@@ -1595,7 +1820,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_setupviewport_isbase = false;
             QTreeView::setupViewport(viewport);
         } else if (qtreeview_setupviewport_callback != nullptr) {
-            qtreeview_setupviewport_callback(this, viewport);
+            QWidget* cbval1 = viewport;
+
+            qtreeview_setupviewport_callback(this, cbval1);
         } else {
             QTreeView::setupViewport(viewport);
         }
@@ -1607,7 +1834,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_wheelevent_isbase = false;
             QTreeView::wheelEvent(param1);
         } else if (qtreeview_wheelevent_callback != nullptr) {
-            qtreeview_wheelevent_callback(this, param1);
+            QWheelEvent* cbval1 = param1;
+
+            qtreeview_wheelevent_callback(this, cbval1);
         } else {
             QTreeView::wheelEvent(param1);
         }
@@ -1619,7 +1848,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_contextmenuevent_isbase = false;
             QTreeView::contextMenuEvent(param1);
         } else if (qtreeview_contextmenuevent_callback != nullptr) {
-            qtreeview_contextmenuevent_callback(this, param1);
+            QContextMenuEvent* cbval1 = param1;
+
+            qtreeview_contextmenuevent_callback(this, cbval1);
         } else {
             QTreeView::contextMenuEvent(param1);
         }
@@ -1631,7 +1862,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_initstyleoption_isbase = false;
             QTreeView::initStyleOption(option);
         } else if (qtreeview_initstyleoption_callback != nullptr) {
-            qtreeview_initstyleoption_callback(this, option);
+            QStyleOptionFrame* cbval1 = option;
+
+            qtreeview_initstyleoption_callback(this, cbval1);
         } else {
             QTreeView::initStyleOption(option);
         }
@@ -1643,7 +1876,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_devtype_isbase = false;
             return QTreeView::devType();
         } else if (qtreeview_devtype_callback != nullptr) {
-            return qtreeview_devtype_callback();
+            int callback_ret = qtreeview_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QTreeView::devType();
         }
@@ -1655,7 +1889,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_setvisible_isbase = false;
             QTreeView::setVisible(visible);
         } else if (qtreeview_setvisible_callback != nullptr) {
-            qtreeview_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qtreeview_setvisible_callback(this, cbval1);
         } else {
             QTreeView::setVisible(visible);
         }
@@ -1667,7 +1903,10 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_heightforwidth_isbase = false;
             return QTreeView::heightForWidth(param1);
         } else if (qtreeview_heightforwidth_callback != nullptr) {
-            return qtreeview_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qtreeview_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTreeView::heightForWidth(param1);
         }
@@ -1679,7 +1918,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_hasheightforwidth_isbase = false;
             return QTreeView::hasHeightForWidth();
         } else if (qtreeview_hasheightforwidth_callback != nullptr) {
-            return qtreeview_hasheightforwidth_callback();
+            bool callback_ret = qtreeview_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QTreeView::hasHeightForWidth();
         }
@@ -1691,7 +1931,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_paintengine_isbase = false;
             return QTreeView::paintEngine();
         } else if (qtreeview_paintengine_callback != nullptr) {
-            return qtreeview_paintengine_callback();
+            QPaintEngine* callback_ret = qtreeview_paintengine_callback();
+            return callback_ret;
         } else {
             return QTreeView::paintEngine();
         }
@@ -1703,7 +1944,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_keyreleaseevent_isbase = false;
             QTreeView::keyReleaseEvent(event);
         } else if (qtreeview_keyreleaseevent_callback != nullptr) {
-            qtreeview_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qtreeview_keyreleaseevent_callback(this, cbval1);
         } else {
             QTreeView::keyReleaseEvent(event);
         }
@@ -1715,7 +1958,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_enterevent_isbase = false;
             QTreeView::enterEvent(event);
         } else if (qtreeview_enterevent_callback != nullptr) {
-            qtreeview_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qtreeview_enterevent_callback(this, cbval1);
         } else {
             QTreeView::enterEvent(event);
         }
@@ -1727,7 +1972,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_leaveevent_isbase = false;
             QTreeView::leaveEvent(event);
         } else if (qtreeview_leaveevent_callback != nullptr) {
-            qtreeview_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qtreeview_leaveevent_callback(this, cbval1);
         } else {
             QTreeView::leaveEvent(event);
         }
@@ -1739,7 +1986,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_moveevent_isbase = false;
             QTreeView::moveEvent(event);
         } else if (qtreeview_moveevent_callback != nullptr) {
-            qtreeview_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qtreeview_moveevent_callback(this, cbval1);
         } else {
             QTreeView::moveEvent(event);
         }
@@ -1751,7 +2000,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_closeevent_isbase = false;
             QTreeView::closeEvent(event);
         } else if (qtreeview_closeevent_callback != nullptr) {
-            qtreeview_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qtreeview_closeevent_callback(this, cbval1);
         } else {
             QTreeView::closeEvent(event);
         }
@@ -1763,7 +2014,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_tabletevent_isbase = false;
             QTreeView::tabletEvent(event);
         } else if (qtreeview_tabletevent_callback != nullptr) {
-            qtreeview_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qtreeview_tabletevent_callback(this, cbval1);
         } else {
             QTreeView::tabletEvent(event);
         }
@@ -1775,7 +2028,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_actionevent_isbase = false;
             QTreeView::actionEvent(event);
         } else if (qtreeview_actionevent_callback != nullptr) {
-            qtreeview_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qtreeview_actionevent_callback(this, cbval1);
         } else {
             QTreeView::actionEvent(event);
         }
@@ -1787,7 +2042,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_showevent_isbase = false;
             QTreeView::showEvent(event);
         } else if (qtreeview_showevent_callback != nullptr) {
-            qtreeview_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qtreeview_showevent_callback(this, cbval1);
         } else {
             QTreeView::showEvent(event);
         }
@@ -1799,7 +2056,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_hideevent_isbase = false;
             QTreeView::hideEvent(event);
         } else if (qtreeview_hideevent_callback != nullptr) {
-            qtreeview_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qtreeview_hideevent_callback(this, cbval1);
         } else {
             QTreeView::hideEvent(event);
         }
@@ -1811,7 +2070,19 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_nativeevent_isbase = false;
             return QTreeView::nativeEvent(eventType, message, result);
         } else if (qtreeview_nativeevent_callback != nullptr) {
-            return qtreeview_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qtreeview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QTreeView::nativeEvent(eventType, message, result);
         }
@@ -1823,7 +2094,10 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_metric_isbase = false;
             return QTreeView::metric(param1);
         } else if (qtreeview_metric_callback != nullptr) {
-            return qtreeview_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qtreeview_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTreeView::metric(param1);
         }
@@ -1835,7 +2109,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_initpainter_isbase = false;
             QTreeView::initPainter(painter);
         } else if (qtreeview_initpainter_callback != nullptr) {
-            qtreeview_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qtreeview_initpainter_callback(this, cbval1);
         } else {
             QTreeView::initPainter(painter);
         }
@@ -1847,7 +2123,10 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_redirected_isbase = false;
             return QTreeView::redirected(offset);
         } else if (qtreeview_redirected_callback != nullptr) {
-            return qtreeview_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qtreeview_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTreeView::redirected(offset);
         }
@@ -1859,7 +2138,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_sharedpainter_isbase = false;
             return QTreeView::sharedPainter();
         } else if (qtreeview_sharedpainter_callback != nullptr) {
-            return qtreeview_sharedpainter_callback();
+            QPainter* callback_ret = qtreeview_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QTreeView::sharedPainter();
         }
@@ -1871,7 +2151,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_childevent_isbase = false;
             QTreeView::childEvent(event);
         } else if (qtreeview_childevent_callback != nullptr) {
-            qtreeview_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qtreeview_childevent_callback(this, cbval1);
         } else {
             QTreeView::childEvent(event);
         }
@@ -1883,7 +2165,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_customevent_isbase = false;
             QTreeView::customEvent(event);
         } else if (qtreeview_customevent_callback != nullptr) {
-            qtreeview_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qtreeview_customevent_callback(this, cbval1);
         } else {
             QTreeView::customEvent(event);
         }
@@ -1895,7 +2179,11 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_connectnotify_isbase = false;
             QTreeView::connectNotify(signal);
         } else if (qtreeview_connectnotify_callback != nullptr) {
-            qtreeview_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtreeview_connectnotify_callback(this, cbval1);
         } else {
             QTreeView::connectNotify(signal);
         }
@@ -1907,7 +2195,11 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_disconnectnotify_isbase = false;
             QTreeView::disconnectNotify(signal);
         } else if (qtreeview_disconnectnotify_callback != nullptr) {
-            qtreeview_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtreeview_disconnectnotify_callback(this, cbval1);
         } else {
             QTreeView::disconnectNotify(signal);
         }
@@ -1919,7 +2211,11 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_columnresized_isbase = false;
             QTreeView::columnResized(column, oldSize, newSize);
         } else if (qtreeview_columnresized_callback != nullptr) {
-            qtreeview_columnresized_callback(this, column, oldSize, newSize);
+            int cbval1 = column;
+            int cbval2 = oldSize;
+            int cbval3 = newSize;
+
+            qtreeview_columnresized_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTreeView::columnResized(column, oldSize, newSize);
         }
@@ -1931,7 +2227,10 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_columncountchanged_isbase = false;
             QTreeView::columnCountChanged(oldCount, newCount);
         } else if (qtreeview_columncountchanged_callback != nullptr) {
-            qtreeview_columncountchanged_callback(this, oldCount, newCount);
+            int cbval1 = oldCount;
+            int cbval2 = newCount;
+
+            qtreeview_columncountchanged_callback(this, cbval1, cbval2);
         } else {
             QTreeView::columnCountChanged(oldCount, newCount);
         }
@@ -1967,7 +2266,13 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_rowsremoved_isbase = false;
             QTreeView::rowsRemoved(parent, first, last);
         } else if (qtreeview_rowsremoved_callback != nullptr) {
-            qtreeview_rowsremoved_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qtreeview_rowsremoved_callback(this, cbval1, cbval2, cbval3);
         } else {
             QTreeView::rowsRemoved(parent, first, last);
         }
@@ -1979,7 +2284,12 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_drawtree_isbase = false;
             QTreeView::drawTree(painter, region);
         } else if (qtreeview_drawtree_callback != nullptr) {
-            qtreeview_drawtree_callback(this, painter, region);
+            QPainter* cbval1 = painter;
+            const QRegion& region_ret = region;
+            // Cast returned reference into pointer
+            QRegion* cbval2 = const_cast<QRegion*>(&region_ret);
+
+            qtreeview_drawtree_callback(this, cbval1, cbval2);
         } else {
             QTreeView::drawTree(painter, region);
         }
@@ -1991,7 +2301,12 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_indexrowsizehint_isbase = false;
             return QTreeView::indexRowSizeHint(index);
         } else if (qtreeview_indexrowsizehint_callback != nullptr) {
-            return qtreeview_indexrowsizehint_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            int callback_ret = qtreeview_indexrowsizehint_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTreeView::indexRowSizeHint(index);
         }
@@ -2003,7 +2318,12 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_rowheight_isbase = false;
             return QTreeView::rowHeight(index);
         } else if (qtreeview_rowheight_callback != nullptr) {
-            return qtreeview_rowheight_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            int callback_ret = qtreeview_rowheight_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTreeView::rowHeight(index);
         }
@@ -2015,7 +2335,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_state_isbase = false;
             return QTreeView::state();
         } else if (qtreeview_state_callback != nullptr) {
-            return qtreeview_state_callback();
+            int callback_ret = qtreeview_state_callback();
+            return static_cast<VirtualQTreeView::State>(callback_ret);
         } else {
             return QTreeView::state();
         }
@@ -2027,7 +2348,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_setstate_isbase = false;
             QTreeView::setState(state);
         } else if (qtreeview_setstate_callback != nullptr) {
-            qtreeview_setstate_callback(this, state);
+            int cbval1 = static_cast<int>(state);
+
+            qtreeview_setstate_callback(this, cbval1);
         } else {
             QTreeView::setState(state);
         }
@@ -2063,7 +2386,11 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_setdirtyregion_isbase = false;
             QTreeView::setDirtyRegion(region);
         } else if (qtreeview_setdirtyregion_callback != nullptr) {
-            qtreeview_setdirtyregion_callback(this, region);
+            const QRegion& region_ret = region;
+            // Cast returned reference into pointer
+            QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
+
+            qtreeview_setdirtyregion_callback(this, cbval1);
         } else {
             QTreeView::setDirtyRegion(region);
         }
@@ -2075,7 +2402,10 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_scrolldirtyregion_isbase = false;
             QTreeView::scrollDirtyRegion(dx, dy);
         } else if (qtreeview_scrolldirtyregion_callback != nullptr) {
-            qtreeview_scrolldirtyregion_callback(this, dx, dy);
+            int cbval1 = dx;
+            int cbval2 = dy;
+
+            qtreeview_scrolldirtyregion_callback(this, cbval1, cbval2);
         } else {
             QTreeView::scrollDirtyRegion(dx, dy);
         }
@@ -2087,7 +2417,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_dirtyregionoffset_isbase = false;
             return QTreeView::dirtyRegionOffset();
         } else if (qtreeview_dirtyregionoffset_callback != nullptr) {
-            return qtreeview_dirtyregionoffset_callback();
+            QPoint* callback_ret = qtreeview_dirtyregionoffset_callback();
+            return *callback_ret;
         } else {
             return QTreeView::dirtyRegionOffset();
         }
@@ -2135,7 +2466,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_dropindicatorposition_isbase = false;
             return QTreeView::dropIndicatorPosition();
         } else if (qtreeview_dropindicatorposition_callback != nullptr) {
-            return qtreeview_dropindicatorposition_callback();
+            int callback_ret = qtreeview_dropindicatorposition_callback();
+            return static_cast<VirtualQTreeView::DropIndicatorPosition>(callback_ret);
         } else {
             return QTreeView::dropIndicatorPosition();
         }
@@ -2147,7 +2479,12 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_setviewportmargins_isbase = false;
             QTreeView::setViewportMargins(left, top, right, bottom);
         } else if (qtreeview_setviewportmargins_callback != nullptr) {
-            qtreeview_setviewportmargins_callback(this, left, top, right, bottom);
+            int cbval1 = left;
+            int cbval2 = top;
+            int cbval3 = right;
+            int cbval4 = bottom;
+
+            qtreeview_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QTreeView::setViewportMargins(left, top, right, bottom);
         }
@@ -2159,7 +2496,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_viewportmargins_isbase = false;
             return QTreeView::viewportMargins();
         } else if (qtreeview_viewportmargins_callback != nullptr) {
-            return qtreeview_viewportmargins_callback();
+            QMargins* callback_ret = qtreeview_viewportmargins_callback();
+            return *callback_ret;
         } else {
             return QTreeView::viewportMargins();
         }
@@ -2171,7 +2509,9 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_drawframe_isbase = false;
             QTreeView::drawFrame(param1);
         } else if (qtreeview_drawframe_callback != nullptr) {
-            qtreeview_drawframe_callback(this, param1);
+            QPainter* cbval1 = param1;
+
+            qtreeview_drawframe_callback(this, cbval1);
         } else {
             QTreeView::drawFrame(param1);
         }
@@ -2219,7 +2559,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_focusnextchild_isbase = false;
             return QTreeView::focusNextChild();
         } else if (qtreeview_focusnextchild_callback != nullptr) {
-            return qtreeview_focusnextchild_callback();
+            bool callback_ret = qtreeview_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QTreeView::focusNextChild();
         }
@@ -2231,7 +2572,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_focuspreviouschild_isbase = false;
             return QTreeView::focusPreviousChild();
         } else if (qtreeview_focuspreviouschild_callback != nullptr) {
-            return qtreeview_focuspreviouschild_callback();
+            bool callback_ret = qtreeview_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QTreeView::focusPreviousChild();
         }
@@ -2243,7 +2585,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_sender_isbase = false;
             return QTreeView::sender();
         } else if (qtreeview_sender_callback != nullptr) {
-            return qtreeview_sender_callback();
+            QObject* callback_ret = qtreeview_sender_callback();
+            return callback_ret;
         } else {
             return QTreeView::sender();
         }
@@ -2255,7 +2598,8 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_sendersignalindex_isbase = false;
             return QTreeView::senderSignalIndex();
         } else if (qtreeview_sendersignalindex_callback != nullptr) {
-            return qtreeview_sendersignalindex_callback();
+            int callback_ret = qtreeview_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QTreeView::senderSignalIndex();
         }
@@ -2267,7 +2611,10 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_receivers_isbase = false;
             return QTreeView::receivers(signal);
         } else if (qtreeview_receivers_callback != nullptr) {
-            return qtreeview_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qtreeview_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTreeView::receivers(signal);
         }
@@ -2279,11 +2626,222 @@ class VirtualQTreeView : public QTreeView {
             qtreeview_issignalconnected_isbase = false;
             return QTreeView::isSignalConnected(signal);
         } else if (qtreeview_issignalconnected_callback != nullptr) {
-            return qtreeview_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qtreeview_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTreeView::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QTreeView_VerticalScrollbarValueChanged(QTreeView* self, int value);
+    friend void QTreeView_QBaseVerticalScrollbarValueChanged(QTreeView* self, int value);
+    friend void QTreeView_ScrollContentsBy(QTreeView* self, int dx, int dy);
+    friend void QTreeView_QBaseScrollContentsBy(QTreeView* self, int dx, int dy);
+    friend void QTreeView_RowsInserted(QTreeView* self, const QModelIndex* parent, int start, int end);
+    friend void QTreeView_QBaseRowsInserted(QTreeView* self, const QModelIndex* parent, int start, int end);
+    friend void QTreeView_RowsAboutToBeRemoved(QTreeView* self, const QModelIndex* parent, int start, int end);
+    friend void QTreeView_QBaseRowsAboutToBeRemoved(QTreeView* self, const QModelIndex* parent, int start, int end);
+    friend QModelIndex* QTreeView_MoveCursor(QTreeView* self, int cursorAction, int modifiers);
+    friend QModelIndex* QTreeView_QBaseMoveCursor(QTreeView* self, int cursorAction, int modifiers);
+    friend int QTreeView_HorizontalOffset(const QTreeView* self);
+    friend int QTreeView_QBaseHorizontalOffset(const QTreeView* self);
+    friend int QTreeView_VerticalOffset(const QTreeView* self);
+    friend int QTreeView_QBaseVerticalOffset(const QTreeView* self);
+    friend void QTreeView_SetSelection(QTreeView* self, const QRect* rect, int command);
+    friend void QTreeView_QBaseSetSelection(QTreeView* self, const QRect* rect, int command);
+    friend QRegion* QTreeView_VisualRegionForSelection(const QTreeView* self, const QItemSelection* selection);
+    friend QRegion* QTreeView_QBaseVisualRegionForSelection(const QTreeView* self, const QItemSelection* selection);
+    friend libqt_list /* of QModelIndex* */ QTreeView_SelectedIndexes(const QTreeView* self);
+    friend libqt_list /* of QModelIndex* */ QTreeView_QBaseSelectedIndexes(const QTreeView* self);
+    friend void QTreeView_ChangeEvent(QTreeView* self, QEvent* event);
+    friend void QTreeView_QBaseChangeEvent(QTreeView* self, QEvent* event);
+    friend void QTreeView_TimerEvent(QTreeView* self, QTimerEvent* event);
+    friend void QTreeView_QBaseTimerEvent(QTreeView* self, QTimerEvent* event);
+    friend void QTreeView_PaintEvent(QTreeView* self, QPaintEvent* event);
+    friend void QTreeView_QBasePaintEvent(QTreeView* self, QPaintEvent* event);
+    friend void QTreeView_DrawRow(const QTreeView* self, QPainter* painter, const QStyleOptionViewItem* options, const QModelIndex* index);
+    friend void QTreeView_QBaseDrawRow(const QTreeView* self, QPainter* painter, const QStyleOptionViewItem* options, const QModelIndex* index);
+    friend void QTreeView_DrawBranches(const QTreeView* self, QPainter* painter, const QRect* rect, const QModelIndex* index);
+    friend void QTreeView_QBaseDrawBranches(const QTreeView* self, QPainter* painter, const QRect* rect, const QModelIndex* index);
+    friend void QTreeView_MousePressEvent(QTreeView* self, QMouseEvent* event);
+    friend void QTreeView_QBaseMousePressEvent(QTreeView* self, QMouseEvent* event);
+    friend void QTreeView_MouseReleaseEvent(QTreeView* self, QMouseEvent* event);
+    friend void QTreeView_QBaseMouseReleaseEvent(QTreeView* self, QMouseEvent* event);
+    friend void QTreeView_MouseDoubleClickEvent(QTreeView* self, QMouseEvent* event);
+    friend void QTreeView_QBaseMouseDoubleClickEvent(QTreeView* self, QMouseEvent* event);
+    friend void QTreeView_MouseMoveEvent(QTreeView* self, QMouseEvent* event);
+    friend void QTreeView_QBaseMouseMoveEvent(QTreeView* self, QMouseEvent* event);
+    friend void QTreeView_KeyPressEvent(QTreeView* self, QKeyEvent* event);
+    friend void QTreeView_QBaseKeyPressEvent(QTreeView* self, QKeyEvent* event);
+    friend void QTreeView_DragMoveEvent(QTreeView* self, QDragMoveEvent* event);
+    friend void QTreeView_QBaseDragMoveEvent(QTreeView* self, QDragMoveEvent* event);
+    friend bool QTreeView_ViewportEvent(QTreeView* self, QEvent* event);
+    friend bool QTreeView_QBaseViewportEvent(QTreeView* self, QEvent* event);
+    friend void QTreeView_UpdateGeometries(QTreeView* self);
+    friend void QTreeView_QBaseUpdateGeometries(QTreeView* self);
+    friend QSize* QTreeView_ViewportSizeHint(const QTreeView* self);
+    friend QSize* QTreeView_QBaseViewportSizeHint(const QTreeView* self);
+    friend int QTreeView_SizeHintForColumn(const QTreeView* self, int column);
+    friend int QTreeView_QBaseSizeHintForColumn(const QTreeView* self, int column);
+    friend void QTreeView_HorizontalScrollbarAction(QTreeView* self, int action);
+    friend void QTreeView_QBaseHorizontalScrollbarAction(QTreeView* self, int action);
+    friend bool QTreeView_IsIndexHidden(const QTreeView* self, const QModelIndex* index);
+    friend bool QTreeView_QBaseIsIndexHidden(const QTreeView* self, const QModelIndex* index);
+    friend void QTreeView_SelectionChanged(QTreeView* self, const QItemSelection* selected, const QItemSelection* deselected);
+    friend void QTreeView_QBaseSelectionChanged(QTreeView* self, const QItemSelection* selected, const QItemSelection* deselected);
+    friend void QTreeView_CurrentChanged(QTreeView* self, const QModelIndex* current, const QModelIndex* previous);
+    friend void QTreeView_QBaseCurrentChanged(QTreeView* self, const QModelIndex* current, const QModelIndex* previous);
+    friend void QTreeView_UpdateEditorData(QTreeView* self);
+    friend void QTreeView_QBaseUpdateEditorData(QTreeView* self);
+    friend void QTreeView_UpdateEditorGeometries(QTreeView* self);
+    friend void QTreeView_QBaseUpdateEditorGeometries(QTreeView* self);
+    friend void QTreeView_VerticalScrollbarAction(QTreeView* self, int action);
+    friend void QTreeView_QBaseVerticalScrollbarAction(QTreeView* self, int action);
+    friend void QTreeView_HorizontalScrollbarValueChanged(QTreeView* self, int value);
+    friend void QTreeView_QBaseHorizontalScrollbarValueChanged(QTreeView* self, int value);
+    friend void QTreeView_CloseEditor(QTreeView* self, QWidget* editor, int hint);
+    friend void QTreeView_QBaseCloseEditor(QTreeView* self, QWidget* editor, int hint);
+    friend void QTreeView_CommitData(QTreeView* self, QWidget* editor);
+    friend void QTreeView_QBaseCommitData(QTreeView* self, QWidget* editor);
+    friend void QTreeView_EditorDestroyed(QTreeView* self, QObject* editor);
+    friend void QTreeView_QBaseEditorDestroyed(QTreeView* self, QObject* editor);
+    friend bool QTreeView_Edit2(QTreeView* self, const QModelIndex* index, int trigger, QEvent* event);
+    friend bool QTreeView_QBaseEdit2(QTreeView* self, const QModelIndex* index, int trigger, QEvent* event);
+    friend int QTreeView_SelectionCommand(const QTreeView* self, const QModelIndex* index, const QEvent* event);
+    friend int QTreeView_QBaseSelectionCommand(const QTreeView* self, const QModelIndex* index, const QEvent* event);
+    friend void QTreeView_StartDrag(QTreeView* self, int supportedActions);
+    friend void QTreeView_QBaseStartDrag(QTreeView* self, int supportedActions);
+    friend void QTreeView_InitViewItemOption(const QTreeView* self, QStyleOptionViewItem* option);
+    friend void QTreeView_QBaseInitViewItemOption(const QTreeView* self, QStyleOptionViewItem* option);
+    friend bool QTreeView_FocusNextPrevChild(QTreeView* self, bool next);
+    friend bool QTreeView_QBaseFocusNextPrevChild(QTreeView* self, bool next);
+    friend bool QTreeView_Event(QTreeView* self, QEvent* event);
+    friend bool QTreeView_QBaseEvent(QTreeView* self, QEvent* event);
+    friend void QTreeView_DragEnterEvent(QTreeView* self, QDragEnterEvent* event);
+    friend void QTreeView_QBaseDragEnterEvent(QTreeView* self, QDragEnterEvent* event);
+    friend void QTreeView_DragLeaveEvent(QTreeView* self, QDragLeaveEvent* event);
+    friend void QTreeView_QBaseDragLeaveEvent(QTreeView* self, QDragLeaveEvent* event);
+    friend void QTreeView_DropEvent(QTreeView* self, QDropEvent* event);
+    friend void QTreeView_QBaseDropEvent(QTreeView* self, QDropEvent* event);
+    friend void QTreeView_FocusInEvent(QTreeView* self, QFocusEvent* event);
+    friend void QTreeView_QBaseFocusInEvent(QTreeView* self, QFocusEvent* event);
+    friend void QTreeView_FocusOutEvent(QTreeView* self, QFocusEvent* event);
+    friend void QTreeView_QBaseFocusOutEvent(QTreeView* self, QFocusEvent* event);
+    friend void QTreeView_ResizeEvent(QTreeView* self, QResizeEvent* event);
+    friend void QTreeView_QBaseResizeEvent(QTreeView* self, QResizeEvent* event);
+    friend void QTreeView_InputMethodEvent(QTreeView* self, QInputMethodEvent* event);
+    friend void QTreeView_QBaseInputMethodEvent(QTreeView* self, QInputMethodEvent* event);
+    friend bool QTreeView_EventFilter(QTreeView* self, QObject* object, QEvent* event);
+    friend bool QTreeView_QBaseEventFilter(QTreeView* self, QObject* object, QEvent* event);
+    friend void QTreeView_WheelEvent(QTreeView* self, QWheelEvent* param1);
+    friend void QTreeView_QBaseWheelEvent(QTreeView* self, QWheelEvent* param1);
+    friend void QTreeView_ContextMenuEvent(QTreeView* self, QContextMenuEvent* param1);
+    friend void QTreeView_QBaseContextMenuEvent(QTreeView* self, QContextMenuEvent* param1);
+    friend void QTreeView_InitStyleOption(const QTreeView* self, QStyleOptionFrame* option);
+    friend void QTreeView_QBaseInitStyleOption(const QTreeView* self, QStyleOptionFrame* option);
+    friend void QTreeView_KeyReleaseEvent(QTreeView* self, QKeyEvent* event);
+    friend void QTreeView_QBaseKeyReleaseEvent(QTreeView* self, QKeyEvent* event);
+    friend void QTreeView_EnterEvent(QTreeView* self, QEnterEvent* event);
+    friend void QTreeView_QBaseEnterEvent(QTreeView* self, QEnterEvent* event);
+    friend void QTreeView_LeaveEvent(QTreeView* self, QEvent* event);
+    friend void QTreeView_QBaseLeaveEvent(QTreeView* self, QEvent* event);
+    friend void QTreeView_MoveEvent(QTreeView* self, QMoveEvent* event);
+    friend void QTreeView_QBaseMoveEvent(QTreeView* self, QMoveEvent* event);
+    friend void QTreeView_CloseEvent(QTreeView* self, QCloseEvent* event);
+    friend void QTreeView_QBaseCloseEvent(QTreeView* self, QCloseEvent* event);
+    friend void QTreeView_TabletEvent(QTreeView* self, QTabletEvent* event);
+    friend void QTreeView_QBaseTabletEvent(QTreeView* self, QTabletEvent* event);
+    friend void QTreeView_ActionEvent(QTreeView* self, QActionEvent* event);
+    friend void QTreeView_QBaseActionEvent(QTreeView* self, QActionEvent* event);
+    friend void QTreeView_ShowEvent(QTreeView* self, QShowEvent* event);
+    friend void QTreeView_QBaseShowEvent(QTreeView* self, QShowEvent* event);
+    friend void QTreeView_HideEvent(QTreeView* self, QHideEvent* event);
+    friend void QTreeView_QBaseHideEvent(QTreeView* self, QHideEvent* event);
+    friend bool QTreeView_NativeEvent(QTreeView* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QTreeView_QBaseNativeEvent(QTreeView* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QTreeView_Metric(const QTreeView* self, int param1);
+    friend int QTreeView_QBaseMetric(const QTreeView* self, int param1);
+    friend void QTreeView_InitPainter(const QTreeView* self, QPainter* painter);
+    friend void QTreeView_QBaseInitPainter(const QTreeView* self, QPainter* painter);
+    friend QPaintDevice* QTreeView_Redirected(const QTreeView* self, QPoint* offset);
+    friend QPaintDevice* QTreeView_QBaseRedirected(const QTreeView* self, QPoint* offset);
+    friend QPainter* QTreeView_SharedPainter(const QTreeView* self);
+    friend QPainter* QTreeView_QBaseSharedPainter(const QTreeView* self);
+    friend void QTreeView_ChildEvent(QTreeView* self, QChildEvent* event);
+    friend void QTreeView_QBaseChildEvent(QTreeView* self, QChildEvent* event);
+    friend void QTreeView_CustomEvent(QTreeView* self, QEvent* event);
+    friend void QTreeView_QBaseCustomEvent(QTreeView* self, QEvent* event);
+    friend void QTreeView_ConnectNotify(QTreeView* self, const QMetaMethod* signal);
+    friend void QTreeView_QBaseConnectNotify(QTreeView* self, const QMetaMethod* signal);
+    friend void QTreeView_DisconnectNotify(QTreeView* self, const QMetaMethod* signal);
+    friend void QTreeView_QBaseDisconnectNotify(QTreeView* self, const QMetaMethod* signal);
+    friend void QTreeView_ColumnResized(QTreeView* self, int column, int oldSize, int newSize);
+    friend void QTreeView_QBaseColumnResized(QTreeView* self, int column, int oldSize, int newSize);
+    friend void QTreeView_ColumnCountChanged(QTreeView* self, int oldCount, int newCount);
+    friend void QTreeView_QBaseColumnCountChanged(QTreeView* self, int oldCount, int newCount);
+    friend void QTreeView_ColumnMoved(QTreeView* self);
+    friend void QTreeView_QBaseColumnMoved(QTreeView* self);
+    friend void QTreeView_Reexpand(QTreeView* self);
+    friend void QTreeView_QBaseReexpand(QTreeView* self);
+    friend void QTreeView_RowsRemoved(QTreeView* self, const QModelIndex* parent, int first, int last);
+    friend void QTreeView_QBaseRowsRemoved(QTreeView* self, const QModelIndex* parent, int first, int last);
+    friend void QTreeView_DrawTree(const QTreeView* self, QPainter* painter, const QRegion* region);
+    friend void QTreeView_QBaseDrawTree(const QTreeView* self, QPainter* painter, const QRegion* region);
+    friend int QTreeView_IndexRowSizeHint(const QTreeView* self, const QModelIndex* index);
+    friend int QTreeView_QBaseIndexRowSizeHint(const QTreeView* self, const QModelIndex* index);
+    friend int QTreeView_RowHeight(const QTreeView* self, const QModelIndex* index);
+    friend int QTreeView_QBaseRowHeight(const QTreeView* self, const QModelIndex* index);
+    friend int QTreeView_State(const QTreeView* self);
+    friend int QTreeView_QBaseState(const QTreeView* self);
+    friend void QTreeView_SetState(QTreeView* self, int state);
+    friend void QTreeView_QBaseSetState(QTreeView* self, int state);
+    friend void QTreeView_ScheduleDelayedItemsLayout(QTreeView* self);
+    friend void QTreeView_QBaseScheduleDelayedItemsLayout(QTreeView* self);
+    friend void QTreeView_ExecuteDelayedItemsLayout(QTreeView* self);
+    friend void QTreeView_QBaseExecuteDelayedItemsLayout(QTreeView* self);
+    friend void QTreeView_SetDirtyRegion(QTreeView* self, const QRegion* region);
+    friend void QTreeView_QBaseSetDirtyRegion(QTreeView* self, const QRegion* region);
+    friend void QTreeView_ScrollDirtyRegion(QTreeView* self, int dx, int dy);
+    friend void QTreeView_QBaseScrollDirtyRegion(QTreeView* self, int dx, int dy);
+    friend QPoint* QTreeView_DirtyRegionOffset(const QTreeView* self);
+    friend QPoint* QTreeView_QBaseDirtyRegionOffset(const QTreeView* self);
+    friend void QTreeView_StartAutoScroll(QTreeView* self);
+    friend void QTreeView_QBaseStartAutoScroll(QTreeView* self);
+    friend void QTreeView_StopAutoScroll(QTreeView* self);
+    friend void QTreeView_QBaseStopAutoScroll(QTreeView* self);
+    friend void QTreeView_DoAutoScroll(QTreeView* self);
+    friend void QTreeView_QBaseDoAutoScroll(QTreeView* self);
+    friend int QTreeView_DropIndicatorPosition(const QTreeView* self);
+    friend int QTreeView_QBaseDropIndicatorPosition(const QTreeView* self);
+    friend void QTreeView_SetViewportMargins(QTreeView* self, int left, int top, int right, int bottom);
+    friend void QTreeView_QBaseSetViewportMargins(QTreeView* self, int left, int top, int right, int bottom);
+    friend QMargins* QTreeView_ViewportMargins(const QTreeView* self);
+    friend QMargins* QTreeView_QBaseViewportMargins(const QTreeView* self);
+    friend void QTreeView_DrawFrame(QTreeView* self, QPainter* param1);
+    friend void QTreeView_QBaseDrawFrame(QTreeView* self, QPainter* param1);
+    friend void QTreeView_UpdateMicroFocus(QTreeView* self);
+    friend void QTreeView_QBaseUpdateMicroFocus(QTreeView* self);
+    friend void QTreeView_Create(QTreeView* self);
+    friend void QTreeView_QBaseCreate(QTreeView* self);
+    friend void QTreeView_Destroy(QTreeView* self);
+    friend void QTreeView_QBaseDestroy(QTreeView* self);
+    friend bool QTreeView_FocusNextChild(QTreeView* self);
+    friend bool QTreeView_QBaseFocusNextChild(QTreeView* self);
+    friend bool QTreeView_FocusPreviousChild(QTreeView* self);
+    friend bool QTreeView_QBaseFocusPreviousChild(QTreeView* self);
+    friend QObject* QTreeView_Sender(const QTreeView* self);
+    friend QObject* QTreeView_QBaseSender(const QTreeView* self);
+    friend int QTreeView_SenderSignalIndex(const QTreeView* self);
+    friend int QTreeView_QBaseSenderSignalIndex(const QTreeView* self);
+    friend int QTreeView_Receivers(const QTreeView* self, const char* signal);
+    friend int QTreeView_QBaseReceivers(const QTreeView* self, const char* signal);
+    friend bool QTreeView_IsSignalConnected(const QTreeView* self, const QMetaMethod* signal);
+    friend bool QTreeView_QBaseIsSignalConnected(const QTreeView* self, const QMetaMethod* signal);
 };
 
 #endif

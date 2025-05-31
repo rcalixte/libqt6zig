@@ -13,15 +13,15 @@ QPrinterInfo* QPrinterInfo_new() {
     return new QPrinterInfo();
 }
 
-QPrinterInfo* QPrinterInfo_new2(QPrinterInfo* other) {
+QPrinterInfo* QPrinterInfo_new2(const QPrinterInfo* other) {
     return new QPrinterInfo(*other);
 }
 
-QPrinterInfo* QPrinterInfo_new3(QPrinter* printer) {
+QPrinterInfo* QPrinterInfo_new3(const QPrinter* printer) {
     return new QPrinterInfo(*printer);
 }
 
-void QPrinterInfo_OperatorAssign(QPrinterInfo* self, QPrinterInfo* other) {
+void QPrinterInfo_OperatorAssign(QPrinterInfo* self, const QPrinterInfo* other) {
     self->operator=(*other);
 }
 
@@ -215,7 +215,7 @@ QPrinterInfo* QPrinterInfo_DefaultPrinter() {
     return new QPrinterInfo(QPrinterInfo::defaultPrinter());
 }
 
-QPrinterInfo* QPrinterInfo_PrinterInfo(libqt_string printerName) {
+QPrinterInfo* QPrinterInfo_PrinterInfo(const libqt_string printerName) {
     QString printerName_QString = QString::fromUtf8(printerName.data, printerName.len);
     return new QPrinterInfo(QPrinterInfo::printerInfo(printerName_QString));
 }

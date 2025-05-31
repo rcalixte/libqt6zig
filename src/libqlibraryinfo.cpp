@@ -8,7 +8,7 @@
 #include "libqlibraryinfo.h"
 #include "libqlibraryinfo.hxx"
 
-QLibraryInfo* QLibraryInfo_new(QLibraryInfo* other) {
+QLibraryInfo* QLibraryInfo_new(const QLibraryInfo* other) {
     return new QLibraryInfo(*other);
 }
 
@@ -60,7 +60,7 @@ libqt_string QLibraryInfo_Location(int location) {
     return _str;
 }
 
-libqt_list /* of libqt_string */ QLibraryInfo_PlatformPluginArguments(libqt_string platformName) {
+libqt_list /* of libqt_string */ QLibraryInfo_PlatformPluginArguments(const libqt_string platformName) {
     QString platformName_QString = QString::fromUtf8(platformName.data, platformName.len);
     QStringList _ret = QLibraryInfo::platformPluginArguments(platformName_QString);
     // Convert QList<> from C++ memory to manually-managed C memory

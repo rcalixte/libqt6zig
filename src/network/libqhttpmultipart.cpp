@@ -1,20 +1,15 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
 #include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
 #include <QHttpMultiPart>
 #include <QHttpPart>
 #include <QIODevice>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
 #include <QVariant>
 #include <qhttpmultipart.h>
@@ -25,11 +20,11 @@ QHttpPart* QHttpPart_new() {
     return new QHttpPart();
 }
 
-QHttpPart* QHttpPart_new2(QHttpPart* other) {
+QHttpPart* QHttpPart_new2(const QHttpPart* other) {
     return new QHttpPart(*other);
 }
 
-void QHttpPart_OperatorAssign(QHttpPart* self, QHttpPart* other) {
+void QHttpPart_OperatorAssign(QHttpPart* self, const QHttpPart* other) {
     self->operator=(*other);
 }
 
@@ -37,25 +32,25 @@ void QHttpPart_Swap(QHttpPart* self, QHttpPart* other) {
     self->swap(*other);
 }
 
-bool QHttpPart_OperatorEqual(const QHttpPart* self, QHttpPart* other) {
+bool QHttpPart_OperatorEqual(const QHttpPart* self, const QHttpPart* other) {
     return (*self == *other);
 }
 
-bool QHttpPart_OperatorNotEqual(const QHttpPart* self, QHttpPart* other) {
+bool QHttpPart_OperatorNotEqual(const QHttpPart* self, const QHttpPart* other) {
     return (*self != *other);
 }
 
-void QHttpPart_SetHeader(QHttpPart* self, int header, QVariant* value) {
+void QHttpPart_SetHeader(QHttpPart* self, int header, const QVariant* value) {
     self->setHeader(static_cast<QNetworkRequest::KnownHeaders>(header), *value);
 }
 
-void QHttpPart_SetRawHeader(QHttpPart* self, libqt_string headerName, libqt_string headerValue) {
+void QHttpPart_SetRawHeader(QHttpPart* self, const libqt_string headerName, const libqt_string headerValue) {
     QByteArray headerName_QByteArray(headerName.data, headerName.len);
     QByteArray headerValue_QByteArray(headerValue.data, headerValue.len);
     self->setRawHeader(headerName_QByteArray, headerValue_QByteArray);
 }
 
-void QHttpPart_SetBody(QHttpPart* self, libqt_string body) {
+void QHttpPart_SetBody(QHttpPart* self, const libqt_string body) {
     QByteArray body_QByteArray(body.data, body.len);
     self->setBody(body_QByteArray);
 }
@@ -93,27 +88,30 @@ void* QHttpMultiPart_Metacast(QHttpMultiPart* self, const char* param1) {
 }
 
 int QHttpMultiPart_Metacall(QHttpMultiPart* self, int param1, int param2, void** param3) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQHttpMultiPart*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QHttpMultiPart_OnMetacall(QHttpMultiPart* self, intptr_t slot) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_Metacall_Callback(reinterpret_cast<VirtualQHttpMultiPart::QHttpMultiPart_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QHttpMultiPart_QBaseMetacall(QHttpMultiPart* self, int param1, int param2, void** param3) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_Metacall_IsBase(true);
         return vqhttpmultipart->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQHttpMultiPart*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -129,7 +127,7 @@ libqt_string QHttpMultiPart_Tr(const char* s) {
     return _str;
 }
 
-void QHttpMultiPart_Append(QHttpMultiPart* self, QHttpPart* httpPart) {
+void QHttpMultiPart_Append(QHttpMultiPart* self, const QHttpPart* httpPart) {
     self->append(*httpPart);
 }
 
@@ -147,7 +145,7 @@ libqt_string QHttpMultiPart_Boundary(const QHttpMultiPart* self) {
     return _str;
 }
 
-void QHttpMultiPart_SetBoundary(QHttpMultiPart* self, libqt_string boundary) {
+void QHttpMultiPart_SetBoundary(QHttpMultiPart* self, const libqt_string boundary) {
     QByteArray boundary_QByteArray(boundary.data, boundary.len);
     self->setBoundary(boundary_QByteArray);
 }
@@ -178,286 +176,319 @@ libqt_string QHttpMultiPart_Tr3(const char* s, const char* c, int n) {
 
 // Derived class handler implementation
 bool QHttpMultiPart_Event(QHttpMultiPart* self, QEvent* event) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         return vqhttpmultipart->event(event);
     } else {
-        return vqhttpmultipart->event(event);
+        return self->QHttpMultiPart::event(event);
     }
 }
 
 // Base class handler implementation
 bool QHttpMultiPart_QBaseEvent(QHttpMultiPart* self, QEvent* event) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_Event_IsBase(true);
         return vqhttpmultipart->event(event);
     } else {
-        return vqhttpmultipart->event(event);
+        return self->QHttpMultiPart::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHttpMultiPart_OnEvent(QHttpMultiPart* self, intptr_t slot) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_Event_Callback(reinterpret_cast<VirtualQHttpMultiPart::QHttpMultiPart_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QHttpMultiPart_EventFilter(QHttpMultiPart* self, QObject* watched, QEvent* event) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         return vqhttpmultipart->eventFilter(watched, event);
     } else {
-        return vqhttpmultipart->eventFilter(watched, event);
+        return self->QHttpMultiPart::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QHttpMultiPart_QBaseEventFilter(QHttpMultiPart* self, QObject* watched, QEvent* event) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_EventFilter_IsBase(true);
         return vqhttpmultipart->eventFilter(watched, event);
     } else {
-        return vqhttpmultipart->eventFilter(watched, event);
+        return self->QHttpMultiPart::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHttpMultiPart_OnEventFilter(QHttpMultiPart* self, intptr_t slot) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_EventFilter_Callback(reinterpret_cast<VirtualQHttpMultiPart::QHttpMultiPart_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QHttpMultiPart_TimerEvent(QHttpMultiPart* self, QTimerEvent* event) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->timerEvent(event);
     } else {
-        vqhttpmultipart->timerEvent(event);
+        ((VirtualQHttpMultiPart*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QHttpMultiPart_QBaseTimerEvent(QHttpMultiPart* self, QTimerEvent* event) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_TimerEvent_IsBase(true);
         vqhttpmultipart->timerEvent(event);
     } else {
-        vqhttpmultipart->timerEvent(event);
+        ((VirtualQHttpMultiPart*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHttpMultiPart_OnTimerEvent(QHttpMultiPart* self, intptr_t slot) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_TimerEvent_Callback(reinterpret_cast<VirtualQHttpMultiPart::QHttpMultiPart_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QHttpMultiPart_ChildEvent(QHttpMultiPart* self, QChildEvent* event) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->childEvent(event);
     } else {
-        vqhttpmultipart->childEvent(event);
+        ((VirtualQHttpMultiPart*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QHttpMultiPart_QBaseChildEvent(QHttpMultiPart* self, QChildEvent* event) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_ChildEvent_IsBase(true);
         vqhttpmultipart->childEvent(event);
     } else {
-        vqhttpmultipart->childEvent(event);
+        ((VirtualQHttpMultiPart*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHttpMultiPart_OnChildEvent(QHttpMultiPart* self, intptr_t slot) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_ChildEvent_Callback(reinterpret_cast<VirtualQHttpMultiPart::QHttpMultiPart_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QHttpMultiPart_CustomEvent(QHttpMultiPart* self, QEvent* event) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->customEvent(event);
     } else {
-        vqhttpmultipart->customEvent(event);
+        ((VirtualQHttpMultiPart*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QHttpMultiPart_QBaseCustomEvent(QHttpMultiPart* self, QEvent* event) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_CustomEvent_IsBase(true);
         vqhttpmultipart->customEvent(event);
     } else {
-        vqhttpmultipart->customEvent(event);
+        ((VirtualQHttpMultiPart*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHttpMultiPart_OnCustomEvent(QHttpMultiPart* self, intptr_t slot) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_CustomEvent_Callback(reinterpret_cast<VirtualQHttpMultiPart::QHttpMultiPart_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QHttpMultiPart_ConnectNotify(QHttpMultiPart* self, QMetaMethod* signal) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+void QHttpMultiPart_ConnectNotify(QHttpMultiPart* self, const QMetaMethod* signal) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->connectNotify(*signal);
     } else {
-        vqhttpmultipart->connectNotify(*signal);
+        ((VirtualQHttpMultiPart*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QHttpMultiPart_QBaseConnectNotify(QHttpMultiPart* self, QMetaMethod* signal) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+void QHttpMultiPart_QBaseConnectNotify(QHttpMultiPart* self, const QMetaMethod* signal) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_ConnectNotify_IsBase(true);
         vqhttpmultipart->connectNotify(*signal);
     } else {
-        vqhttpmultipart->connectNotify(*signal);
+        ((VirtualQHttpMultiPart*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHttpMultiPart_OnConnectNotify(QHttpMultiPart* self, intptr_t slot) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_ConnectNotify_Callback(reinterpret_cast<VirtualQHttpMultiPart::QHttpMultiPart_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QHttpMultiPart_DisconnectNotify(QHttpMultiPart* self, QMetaMethod* signal) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+void QHttpMultiPart_DisconnectNotify(QHttpMultiPart* self, const QMetaMethod* signal) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->disconnectNotify(*signal);
     } else {
-        vqhttpmultipart->disconnectNotify(*signal);
+        ((VirtualQHttpMultiPart*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QHttpMultiPart_QBaseDisconnectNotify(QHttpMultiPart* self, QMetaMethod* signal) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+void QHttpMultiPart_QBaseDisconnectNotify(QHttpMultiPart* self, const QMetaMethod* signal) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_DisconnectNotify_IsBase(true);
         vqhttpmultipart->disconnectNotify(*signal);
     } else {
-        vqhttpmultipart->disconnectNotify(*signal);
+        ((VirtualQHttpMultiPart*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHttpMultiPart_OnDisconnectNotify(QHttpMultiPart* self, intptr_t slot) {
-    if (auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self)) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_DisconnectNotify_Callback(reinterpret_cast<VirtualQHttpMultiPart::QHttpMultiPart_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QHttpMultiPart_Sender(const QHttpMultiPart* self) {
-    if (auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self))) {
+    auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self));
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         return vqhttpmultipart->sender();
     } else {
-        return vqhttpmultipart->sender();
+        return ((VirtualQHttpMultiPart*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QHttpMultiPart_QBaseSender(const QHttpMultiPart* self) {
-    if (auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self))) {
+    auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self));
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_Sender_IsBase(true);
         return vqhttpmultipart->sender();
     } else {
-        return vqhttpmultipart->sender();
+        return ((VirtualQHttpMultiPart*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHttpMultiPart_OnSender(const QHttpMultiPart* self, intptr_t slot) {
-    if (auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self))) {
+    auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self));
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_Sender_Callback(reinterpret_cast<VirtualQHttpMultiPart::QHttpMultiPart_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QHttpMultiPart_SenderSignalIndex(const QHttpMultiPart* self) {
-    if (auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self))) {
+    auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self));
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         return vqhttpmultipart->senderSignalIndex();
     } else {
-        return vqhttpmultipart->senderSignalIndex();
+        return ((VirtualQHttpMultiPart*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QHttpMultiPart_QBaseSenderSignalIndex(const QHttpMultiPart* self) {
-    if (auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self))) {
+    auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self));
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_SenderSignalIndex_IsBase(true);
         return vqhttpmultipart->senderSignalIndex();
     } else {
-        return vqhttpmultipart->senderSignalIndex();
+        return ((VirtualQHttpMultiPart*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHttpMultiPart_OnSenderSignalIndex(const QHttpMultiPart* self, intptr_t slot) {
-    if (auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self))) {
+    auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self));
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_SenderSignalIndex_Callback(reinterpret_cast<VirtualQHttpMultiPart::QHttpMultiPart_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QHttpMultiPart_Receivers(const QHttpMultiPart* self, const char* signal) {
-    if (auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self))) {
+    auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self));
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         return vqhttpmultipart->receivers(signal);
     } else {
-        return vqhttpmultipart->receivers(signal);
+        return ((VirtualQHttpMultiPart*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QHttpMultiPart_QBaseReceivers(const QHttpMultiPart* self, const char* signal) {
-    if (auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self))) {
+    auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self));
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_Receivers_IsBase(true);
         return vqhttpmultipart->receivers(signal);
     } else {
-        return vqhttpmultipart->receivers(signal);
+        return ((VirtualQHttpMultiPart*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHttpMultiPart_OnReceivers(const QHttpMultiPart* self, intptr_t slot) {
-    if (auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self))) {
+    auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self));
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_Receivers_Callback(reinterpret_cast<VirtualQHttpMultiPart::QHttpMultiPart_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QHttpMultiPart_IsSignalConnected(const QHttpMultiPart* self, QMetaMethod* signal) {
-    if (auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self))) {
+bool QHttpMultiPart_IsSignalConnected(const QHttpMultiPart* self, const QMetaMethod* signal) {
+    auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self));
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         return vqhttpmultipart->isSignalConnected(*signal);
     } else {
-        return vqhttpmultipart->isSignalConnected(*signal);
+        return ((VirtualQHttpMultiPart*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QHttpMultiPart_QBaseIsSignalConnected(const QHttpMultiPart* self, QMetaMethod* signal) {
-    if (auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self))) {
+bool QHttpMultiPart_QBaseIsSignalConnected(const QHttpMultiPart* self, const QMetaMethod* signal) {
+    auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self));
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_IsSignalConnected_IsBase(true);
         return vqhttpmultipart->isSignalConnected(*signal);
     } else {
-        return vqhttpmultipart->isSignalConnected(*signal);
+        return ((VirtualQHttpMultiPart*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHttpMultiPart_OnIsSignalConnected(const QHttpMultiPart* self, intptr_t slot) {
-    if (auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self))) {
+    auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self));
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
         vqhttpmultipart->setQHttpMultiPart_IsSignalConnected_Callback(reinterpret_cast<VirtualQHttpMultiPart::QHttpMultiPart_IsSignalConnected_Callback>(slot));
     }
 }

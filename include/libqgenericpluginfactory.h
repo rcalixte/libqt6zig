@@ -20,12 +20,12 @@ typedef struct QGenericPluginFactory QGenericPluginFactory;
 typedef struct QObject QObject;
 #endif
 
-QGenericPluginFactory* QGenericPluginFactory_new(QGenericPluginFactory* other);
+QGenericPluginFactory* QGenericPluginFactory_new(const QGenericPluginFactory* other);
 QGenericPluginFactory* QGenericPluginFactory_new2(QGenericPluginFactory* other);
 void QGenericPluginFactory_CopyAssign(QGenericPluginFactory* self, QGenericPluginFactory* other);
 void QGenericPluginFactory_MoveAssign(QGenericPluginFactory* self, QGenericPluginFactory* other);
 libqt_list /* of libqt_string */ QGenericPluginFactory_Keys();
-QObject* QGenericPluginFactory_Create(libqt_string param1, libqt_string param2);
+QObject* QGenericPluginFactory_Create(const libqt_string param1, const libqt_string param2);
 void QGenericPluginFactory_Delete(QGenericPluginFactory* self);
 
 #ifdef __cplusplus

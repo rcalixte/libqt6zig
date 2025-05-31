@@ -11,12 +11,15 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QGroupBox so that we can call protected methods
-class VirtualQGroupBox : public QGroupBox {
+class VirtualQGroupBox final : public QGroupBox {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGroupBox = true;
+
     // Virtual class public types (including callbacks)
-    using QGroupBox_Metacall_Callback = int (*)(QGroupBox*, QMetaObject::Call, int, void**);
-    using QGroupBox_MinimumSizeHint_Callback = QSize (*)();
+    using QGroupBox_Metacall_Callback = int (*)(QGroupBox*, int, int, void**);
+    using QGroupBox_MinimumSizeHint_Callback = QSize* (*)();
     using QGroupBox_Event_Callback = bool (*)(QGroupBox*, QEvent*);
     using QGroupBox_ChildEvent_Callback = void (*)(QGroupBox*, QChildEvent*);
     using QGroupBox_ResizeEvent_Callback = void (*)(QGroupBox*, QResizeEvent*);
@@ -29,7 +32,7 @@ class VirtualQGroupBox : public QGroupBox {
     using QGroupBox_InitStyleOption_Callback = void (*)(const QGroupBox*, QStyleOptionGroupBox*);
     using QGroupBox_DevType_Callback = int (*)();
     using QGroupBox_SetVisible_Callback = void (*)(QGroupBox*, bool);
-    using QGroupBox_SizeHint_Callback = QSize (*)();
+    using QGroupBox_SizeHint_Callback = QSize* (*)();
     using QGroupBox_HeightForWidth_Callback = int (*)(const QGroupBox*, int);
     using QGroupBox_HasHeightForWidth_Callback = bool (*)();
     using QGroupBox_PaintEngine_Callback = QPaintEngine* (*)();
@@ -51,19 +54,19 @@ class VirtualQGroupBox : public QGroupBox {
     using QGroupBox_DropEvent_Callback = void (*)(QGroupBox*, QDropEvent*);
     using QGroupBox_ShowEvent_Callback = void (*)(QGroupBox*, QShowEvent*);
     using QGroupBox_HideEvent_Callback = void (*)(QGroupBox*, QHideEvent*);
-    using QGroupBox_NativeEvent_Callback = bool (*)(QGroupBox*, const QByteArray&, void*, qintptr*);
-    using QGroupBox_Metric_Callback = int (*)(const QGroupBox*, QPaintDevice::PaintDeviceMetric);
+    using QGroupBox_NativeEvent_Callback = bool (*)(QGroupBox*, libqt_string, void*, intptr_t*);
+    using QGroupBox_Metric_Callback = int (*)(const QGroupBox*, int);
     using QGroupBox_InitPainter_Callback = void (*)(const QGroupBox*, QPainter*);
     using QGroupBox_Redirected_Callback = QPaintDevice* (*)(const QGroupBox*, QPoint*);
     using QGroupBox_SharedPainter_Callback = QPainter* (*)();
     using QGroupBox_InputMethodEvent_Callback = void (*)(QGroupBox*, QInputMethodEvent*);
-    using QGroupBox_InputMethodQuery_Callback = QVariant (*)(const QGroupBox*, Qt::InputMethodQuery);
+    using QGroupBox_InputMethodQuery_Callback = QVariant* (*)(const QGroupBox*, int);
     using QGroupBox_FocusNextPrevChild_Callback = bool (*)(QGroupBox*, bool);
     using QGroupBox_EventFilter_Callback = bool (*)(QGroupBox*, QObject*, QEvent*);
     using QGroupBox_TimerEvent_Callback = void (*)(QGroupBox*, QTimerEvent*);
     using QGroupBox_CustomEvent_Callback = void (*)(QGroupBox*, QEvent*);
-    using QGroupBox_ConnectNotify_Callback = void (*)(QGroupBox*, const QMetaMethod&);
-    using QGroupBox_DisconnectNotify_Callback = void (*)(QGroupBox*, const QMetaMethod&);
+    using QGroupBox_ConnectNotify_Callback = void (*)(QGroupBox*, QMetaMethod*);
+    using QGroupBox_DisconnectNotify_Callback = void (*)(QGroupBox*, QMetaMethod*);
     using QGroupBox_UpdateMicroFocus_Callback = void (*)();
     using QGroupBox_Create_Callback = void (*)();
     using QGroupBox_Destroy_Callback = void (*)();
@@ -72,7 +75,7 @@ class VirtualQGroupBox : public QGroupBox {
     using QGroupBox_Sender_Callback = QObject* (*)();
     using QGroupBox_SenderSignalIndex_Callback = int (*)();
     using QGroupBox_Receivers_Callback = int (*)(const QGroupBox*, const char*);
-    using QGroupBox_IsSignalConnected_Callback = bool (*)(const QGroupBox*, const QMetaMethod&);
+    using QGroupBox_IsSignalConnected_Callback = bool (*)(const QGroupBox*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -263,124 +266,124 @@ class VirtualQGroupBox : public QGroupBox {
     }
 
     // Callback setters
-    void setQGroupBox_Metacall_Callback(QGroupBox_Metacall_Callback cb) { qgroupbox_metacall_callback = cb; }
-    void setQGroupBox_MinimumSizeHint_Callback(QGroupBox_MinimumSizeHint_Callback cb) { qgroupbox_minimumsizehint_callback = cb; }
-    void setQGroupBox_Event_Callback(QGroupBox_Event_Callback cb) { qgroupbox_event_callback = cb; }
-    void setQGroupBox_ChildEvent_Callback(QGroupBox_ChildEvent_Callback cb) { qgroupbox_childevent_callback = cb; }
-    void setQGroupBox_ResizeEvent_Callback(QGroupBox_ResizeEvent_Callback cb) { qgroupbox_resizeevent_callback = cb; }
-    void setQGroupBox_PaintEvent_Callback(QGroupBox_PaintEvent_Callback cb) { qgroupbox_paintevent_callback = cb; }
-    void setQGroupBox_FocusInEvent_Callback(QGroupBox_FocusInEvent_Callback cb) { qgroupbox_focusinevent_callback = cb; }
-    void setQGroupBox_ChangeEvent_Callback(QGroupBox_ChangeEvent_Callback cb) { qgroupbox_changeevent_callback = cb; }
-    void setQGroupBox_MousePressEvent_Callback(QGroupBox_MousePressEvent_Callback cb) { qgroupbox_mousepressevent_callback = cb; }
-    void setQGroupBox_MouseMoveEvent_Callback(QGroupBox_MouseMoveEvent_Callback cb) { qgroupbox_mousemoveevent_callback = cb; }
-    void setQGroupBox_MouseReleaseEvent_Callback(QGroupBox_MouseReleaseEvent_Callback cb) { qgroupbox_mousereleaseevent_callback = cb; }
-    void setQGroupBox_InitStyleOption_Callback(QGroupBox_InitStyleOption_Callback cb) { qgroupbox_initstyleoption_callback = cb; }
-    void setQGroupBox_DevType_Callback(QGroupBox_DevType_Callback cb) { qgroupbox_devtype_callback = cb; }
-    void setQGroupBox_SetVisible_Callback(QGroupBox_SetVisible_Callback cb) { qgroupbox_setvisible_callback = cb; }
-    void setQGroupBox_SizeHint_Callback(QGroupBox_SizeHint_Callback cb) { qgroupbox_sizehint_callback = cb; }
-    void setQGroupBox_HeightForWidth_Callback(QGroupBox_HeightForWidth_Callback cb) { qgroupbox_heightforwidth_callback = cb; }
-    void setQGroupBox_HasHeightForWidth_Callback(QGroupBox_HasHeightForWidth_Callback cb) { qgroupbox_hasheightforwidth_callback = cb; }
-    void setQGroupBox_PaintEngine_Callback(QGroupBox_PaintEngine_Callback cb) { qgroupbox_paintengine_callback = cb; }
-    void setQGroupBox_MouseDoubleClickEvent_Callback(QGroupBox_MouseDoubleClickEvent_Callback cb) { qgroupbox_mousedoubleclickevent_callback = cb; }
-    void setQGroupBox_WheelEvent_Callback(QGroupBox_WheelEvent_Callback cb) { qgroupbox_wheelevent_callback = cb; }
-    void setQGroupBox_KeyPressEvent_Callback(QGroupBox_KeyPressEvent_Callback cb) { qgroupbox_keypressevent_callback = cb; }
-    void setQGroupBox_KeyReleaseEvent_Callback(QGroupBox_KeyReleaseEvent_Callback cb) { qgroupbox_keyreleaseevent_callback = cb; }
-    void setQGroupBox_FocusOutEvent_Callback(QGroupBox_FocusOutEvent_Callback cb) { qgroupbox_focusoutevent_callback = cb; }
-    void setQGroupBox_EnterEvent_Callback(QGroupBox_EnterEvent_Callback cb) { qgroupbox_enterevent_callback = cb; }
-    void setQGroupBox_LeaveEvent_Callback(QGroupBox_LeaveEvent_Callback cb) { qgroupbox_leaveevent_callback = cb; }
-    void setQGroupBox_MoveEvent_Callback(QGroupBox_MoveEvent_Callback cb) { qgroupbox_moveevent_callback = cb; }
-    void setQGroupBox_CloseEvent_Callback(QGroupBox_CloseEvent_Callback cb) { qgroupbox_closeevent_callback = cb; }
-    void setQGroupBox_ContextMenuEvent_Callback(QGroupBox_ContextMenuEvent_Callback cb) { qgroupbox_contextmenuevent_callback = cb; }
-    void setQGroupBox_TabletEvent_Callback(QGroupBox_TabletEvent_Callback cb) { qgroupbox_tabletevent_callback = cb; }
-    void setQGroupBox_ActionEvent_Callback(QGroupBox_ActionEvent_Callback cb) { qgroupbox_actionevent_callback = cb; }
-    void setQGroupBox_DragEnterEvent_Callback(QGroupBox_DragEnterEvent_Callback cb) { qgroupbox_dragenterevent_callback = cb; }
-    void setQGroupBox_DragMoveEvent_Callback(QGroupBox_DragMoveEvent_Callback cb) { qgroupbox_dragmoveevent_callback = cb; }
-    void setQGroupBox_DragLeaveEvent_Callback(QGroupBox_DragLeaveEvent_Callback cb) { qgroupbox_dragleaveevent_callback = cb; }
-    void setQGroupBox_DropEvent_Callback(QGroupBox_DropEvent_Callback cb) { qgroupbox_dropevent_callback = cb; }
-    void setQGroupBox_ShowEvent_Callback(QGroupBox_ShowEvent_Callback cb) { qgroupbox_showevent_callback = cb; }
-    void setQGroupBox_HideEvent_Callback(QGroupBox_HideEvent_Callback cb) { qgroupbox_hideevent_callback = cb; }
-    void setQGroupBox_NativeEvent_Callback(QGroupBox_NativeEvent_Callback cb) { qgroupbox_nativeevent_callback = cb; }
-    void setQGroupBox_Metric_Callback(QGroupBox_Metric_Callback cb) { qgroupbox_metric_callback = cb; }
-    void setQGroupBox_InitPainter_Callback(QGroupBox_InitPainter_Callback cb) { qgroupbox_initpainter_callback = cb; }
-    void setQGroupBox_Redirected_Callback(QGroupBox_Redirected_Callback cb) { qgroupbox_redirected_callback = cb; }
-    void setQGroupBox_SharedPainter_Callback(QGroupBox_SharedPainter_Callback cb) { qgroupbox_sharedpainter_callback = cb; }
-    void setQGroupBox_InputMethodEvent_Callback(QGroupBox_InputMethodEvent_Callback cb) { qgroupbox_inputmethodevent_callback = cb; }
-    void setQGroupBox_InputMethodQuery_Callback(QGroupBox_InputMethodQuery_Callback cb) { qgroupbox_inputmethodquery_callback = cb; }
-    void setQGroupBox_FocusNextPrevChild_Callback(QGroupBox_FocusNextPrevChild_Callback cb) { qgroupbox_focusnextprevchild_callback = cb; }
-    void setQGroupBox_EventFilter_Callback(QGroupBox_EventFilter_Callback cb) { qgroupbox_eventfilter_callback = cb; }
-    void setQGroupBox_TimerEvent_Callback(QGroupBox_TimerEvent_Callback cb) { qgroupbox_timerevent_callback = cb; }
-    void setQGroupBox_CustomEvent_Callback(QGroupBox_CustomEvent_Callback cb) { qgroupbox_customevent_callback = cb; }
-    void setQGroupBox_ConnectNotify_Callback(QGroupBox_ConnectNotify_Callback cb) { qgroupbox_connectnotify_callback = cb; }
-    void setQGroupBox_DisconnectNotify_Callback(QGroupBox_DisconnectNotify_Callback cb) { qgroupbox_disconnectnotify_callback = cb; }
-    void setQGroupBox_UpdateMicroFocus_Callback(QGroupBox_UpdateMicroFocus_Callback cb) { qgroupbox_updatemicrofocus_callback = cb; }
-    void setQGroupBox_Create_Callback(QGroupBox_Create_Callback cb) { qgroupbox_create_callback = cb; }
-    void setQGroupBox_Destroy_Callback(QGroupBox_Destroy_Callback cb) { qgroupbox_destroy_callback = cb; }
-    void setQGroupBox_FocusNextChild_Callback(QGroupBox_FocusNextChild_Callback cb) { qgroupbox_focusnextchild_callback = cb; }
-    void setQGroupBox_FocusPreviousChild_Callback(QGroupBox_FocusPreviousChild_Callback cb) { qgroupbox_focuspreviouschild_callback = cb; }
-    void setQGroupBox_Sender_Callback(QGroupBox_Sender_Callback cb) { qgroupbox_sender_callback = cb; }
-    void setQGroupBox_SenderSignalIndex_Callback(QGroupBox_SenderSignalIndex_Callback cb) { qgroupbox_sendersignalindex_callback = cb; }
-    void setQGroupBox_Receivers_Callback(QGroupBox_Receivers_Callback cb) { qgroupbox_receivers_callback = cb; }
-    void setQGroupBox_IsSignalConnected_Callback(QGroupBox_IsSignalConnected_Callback cb) { qgroupbox_issignalconnected_callback = cb; }
+    inline void setQGroupBox_Metacall_Callback(QGroupBox_Metacall_Callback cb) { qgroupbox_metacall_callback = cb; }
+    inline void setQGroupBox_MinimumSizeHint_Callback(QGroupBox_MinimumSizeHint_Callback cb) { qgroupbox_minimumsizehint_callback = cb; }
+    inline void setQGroupBox_Event_Callback(QGroupBox_Event_Callback cb) { qgroupbox_event_callback = cb; }
+    inline void setQGroupBox_ChildEvent_Callback(QGroupBox_ChildEvent_Callback cb) { qgroupbox_childevent_callback = cb; }
+    inline void setQGroupBox_ResizeEvent_Callback(QGroupBox_ResizeEvent_Callback cb) { qgroupbox_resizeevent_callback = cb; }
+    inline void setQGroupBox_PaintEvent_Callback(QGroupBox_PaintEvent_Callback cb) { qgroupbox_paintevent_callback = cb; }
+    inline void setQGroupBox_FocusInEvent_Callback(QGroupBox_FocusInEvent_Callback cb) { qgroupbox_focusinevent_callback = cb; }
+    inline void setQGroupBox_ChangeEvent_Callback(QGroupBox_ChangeEvent_Callback cb) { qgroupbox_changeevent_callback = cb; }
+    inline void setQGroupBox_MousePressEvent_Callback(QGroupBox_MousePressEvent_Callback cb) { qgroupbox_mousepressevent_callback = cb; }
+    inline void setQGroupBox_MouseMoveEvent_Callback(QGroupBox_MouseMoveEvent_Callback cb) { qgroupbox_mousemoveevent_callback = cb; }
+    inline void setQGroupBox_MouseReleaseEvent_Callback(QGroupBox_MouseReleaseEvent_Callback cb) { qgroupbox_mousereleaseevent_callback = cb; }
+    inline void setQGroupBox_InitStyleOption_Callback(QGroupBox_InitStyleOption_Callback cb) { qgroupbox_initstyleoption_callback = cb; }
+    inline void setQGroupBox_DevType_Callback(QGroupBox_DevType_Callback cb) { qgroupbox_devtype_callback = cb; }
+    inline void setQGroupBox_SetVisible_Callback(QGroupBox_SetVisible_Callback cb) { qgroupbox_setvisible_callback = cb; }
+    inline void setQGroupBox_SizeHint_Callback(QGroupBox_SizeHint_Callback cb) { qgroupbox_sizehint_callback = cb; }
+    inline void setQGroupBox_HeightForWidth_Callback(QGroupBox_HeightForWidth_Callback cb) { qgroupbox_heightforwidth_callback = cb; }
+    inline void setQGroupBox_HasHeightForWidth_Callback(QGroupBox_HasHeightForWidth_Callback cb) { qgroupbox_hasheightforwidth_callback = cb; }
+    inline void setQGroupBox_PaintEngine_Callback(QGroupBox_PaintEngine_Callback cb) { qgroupbox_paintengine_callback = cb; }
+    inline void setQGroupBox_MouseDoubleClickEvent_Callback(QGroupBox_MouseDoubleClickEvent_Callback cb) { qgroupbox_mousedoubleclickevent_callback = cb; }
+    inline void setQGroupBox_WheelEvent_Callback(QGroupBox_WheelEvent_Callback cb) { qgroupbox_wheelevent_callback = cb; }
+    inline void setQGroupBox_KeyPressEvent_Callback(QGroupBox_KeyPressEvent_Callback cb) { qgroupbox_keypressevent_callback = cb; }
+    inline void setQGroupBox_KeyReleaseEvent_Callback(QGroupBox_KeyReleaseEvent_Callback cb) { qgroupbox_keyreleaseevent_callback = cb; }
+    inline void setQGroupBox_FocusOutEvent_Callback(QGroupBox_FocusOutEvent_Callback cb) { qgroupbox_focusoutevent_callback = cb; }
+    inline void setQGroupBox_EnterEvent_Callback(QGroupBox_EnterEvent_Callback cb) { qgroupbox_enterevent_callback = cb; }
+    inline void setQGroupBox_LeaveEvent_Callback(QGroupBox_LeaveEvent_Callback cb) { qgroupbox_leaveevent_callback = cb; }
+    inline void setQGroupBox_MoveEvent_Callback(QGroupBox_MoveEvent_Callback cb) { qgroupbox_moveevent_callback = cb; }
+    inline void setQGroupBox_CloseEvent_Callback(QGroupBox_CloseEvent_Callback cb) { qgroupbox_closeevent_callback = cb; }
+    inline void setQGroupBox_ContextMenuEvent_Callback(QGroupBox_ContextMenuEvent_Callback cb) { qgroupbox_contextmenuevent_callback = cb; }
+    inline void setQGroupBox_TabletEvent_Callback(QGroupBox_TabletEvent_Callback cb) { qgroupbox_tabletevent_callback = cb; }
+    inline void setQGroupBox_ActionEvent_Callback(QGroupBox_ActionEvent_Callback cb) { qgroupbox_actionevent_callback = cb; }
+    inline void setQGroupBox_DragEnterEvent_Callback(QGroupBox_DragEnterEvent_Callback cb) { qgroupbox_dragenterevent_callback = cb; }
+    inline void setQGroupBox_DragMoveEvent_Callback(QGroupBox_DragMoveEvent_Callback cb) { qgroupbox_dragmoveevent_callback = cb; }
+    inline void setQGroupBox_DragLeaveEvent_Callback(QGroupBox_DragLeaveEvent_Callback cb) { qgroupbox_dragleaveevent_callback = cb; }
+    inline void setQGroupBox_DropEvent_Callback(QGroupBox_DropEvent_Callback cb) { qgroupbox_dropevent_callback = cb; }
+    inline void setQGroupBox_ShowEvent_Callback(QGroupBox_ShowEvent_Callback cb) { qgroupbox_showevent_callback = cb; }
+    inline void setQGroupBox_HideEvent_Callback(QGroupBox_HideEvent_Callback cb) { qgroupbox_hideevent_callback = cb; }
+    inline void setQGroupBox_NativeEvent_Callback(QGroupBox_NativeEvent_Callback cb) { qgroupbox_nativeevent_callback = cb; }
+    inline void setQGroupBox_Metric_Callback(QGroupBox_Metric_Callback cb) { qgroupbox_metric_callback = cb; }
+    inline void setQGroupBox_InitPainter_Callback(QGroupBox_InitPainter_Callback cb) { qgroupbox_initpainter_callback = cb; }
+    inline void setQGroupBox_Redirected_Callback(QGroupBox_Redirected_Callback cb) { qgroupbox_redirected_callback = cb; }
+    inline void setQGroupBox_SharedPainter_Callback(QGroupBox_SharedPainter_Callback cb) { qgroupbox_sharedpainter_callback = cb; }
+    inline void setQGroupBox_InputMethodEvent_Callback(QGroupBox_InputMethodEvent_Callback cb) { qgroupbox_inputmethodevent_callback = cb; }
+    inline void setQGroupBox_InputMethodQuery_Callback(QGroupBox_InputMethodQuery_Callback cb) { qgroupbox_inputmethodquery_callback = cb; }
+    inline void setQGroupBox_FocusNextPrevChild_Callback(QGroupBox_FocusNextPrevChild_Callback cb) { qgroupbox_focusnextprevchild_callback = cb; }
+    inline void setQGroupBox_EventFilter_Callback(QGroupBox_EventFilter_Callback cb) { qgroupbox_eventfilter_callback = cb; }
+    inline void setQGroupBox_TimerEvent_Callback(QGroupBox_TimerEvent_Callback cb) { qgroupbox_timerevent_callback = cb; }
+    inline void setQGroupBox_CustomEvent_Callback(QGroupBox_CustomEvent_Callback cb) { qgroupbox_customevent_callback = cb; }
+    inline void setQGroupBox_ConnectNotify_Callback(QGroupBox_ConnectNotify_Callback cb) { qgroupbox_connectnotify_callback = cb; }
+    inline void setQGroupBox_DisconnectNotify_Callback(QGroupBox_DisconnectNotify_Callback cb) { qgroupbox_disconnectnotify_callback = cb; }
+    inline void setQGroupBox_UpdateMicroFocus_Callback(QGroupBox_UpdateMicroFocus_Callback cb) { qgroupbox_updatemicrofocus_callback = cb; }
+    inline void setQGroupBox_Create_Callback(QGroupBox_Create_Callback cb) { qgroupbox_create_callback = cb; }
+    inline void setQGroupBox_Destroy_Callback(QGroupBox_Destroy_Callback cb) { qgroupbox_destroy_callback = cb; }
+    inline void setQGroupBox_FocusNextChild_Callback(QGroupBox_FocusNextChild_Callback cb) { qgroupbox_focusnextchild_callback = cb; }
+    inline void setQGroupBox_FocusPreviousChild_Callback(QGroupBox_FocusPreviousChild_Callback cb) { qgroupbox_focuspreviouschild_callback = cb; }
+    inline void setQGroupBox_Sender_Callback(QGroupBox_Sender_Callback cb) { qgroupbox_sender_callback = cb; }
+    inline void setQGroupBox_SenderSignalIndex_Callback(QGroupBox_SenderSignalIndex_Callback cb) { qgroupbox_sendersignalindex_callback = cb; }
+    inline void setQGroupBox_Receivers_Callback(QGroupBox_Receivers_Callback cb) { qgroupbox_receivers_callback = cb; }
+    inline void setQGroupBox_IsSignalConnected_Callback(QGroupBox_IsSignalConnected_Callback cb) { qgroupbox_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQGroupBox_Metacall_IsBase(bool value) const { qgroupbox_metacall_isbase = value; }
-    void setQGroupBox_MinimumSizeHint_IsBase(bool value) const { qgroupbox_minimumsizehint_isbase = value; }
-    void setQGroupBox_Event_IsBase(bool value) const { qgroupbox_event_isbase = value; }
-    void setQGroupBox_ChildEvent_IsBase(bool value) const { qgroupbox_childevent_isbase = value; }
-    void setQGroupBox_ResizeEvent_IsBase(bool value) const { qgroupbox_resizeevent_isbase = value; }
-    void setQGroupBox_PaintEvent_IsBase(bool value) const { qgroupbox_paintevent_isbase = value; }
-    void setQGroupBox_FocusInEvent_IsBase(bool value) const { qgroupbox_focusinevent_isbase = value; }
-    void setQGroupBox_ChangeEvent_IsBase(bool value) const { qgroupbox_changeevent_isbase = value; }
-    void setQGroupBox_MousePressEvent_IsBase(bool value) const { qgroupbox_mousepressevent_isbase = value; }
-    void setQGroupBox_MouseMoveEvent_IsBase(bool value) const { qgroupbox_mousemoveevent_isbase = value; }
-    void setQGroupBox_MouseReleaseEvent_IsBase(bool value) const { qgroupbox_mousereleaseevent_isbase = value; }
-    void setQGroupBox_InitStyleOption_IsBase(bool value) const { qgroupbox_initstyleoption_isbase = value; }
-    void setQGroupBox_DevType_IsBase(bool value) const { qgroupbox_devtype_isbase = value; }
-    void setQGroupBox_SetVisible_IsBase(bool value) const { qgroupbox_setvisible_isbase = value; }
-    void setQGroupBox_SizeHint_IsBase(bool value) const { qgroupbox_sizehint_isbase = value; }
-    void setQGroupBox_HeightForWidth_IsBase(bool value) const { qgroupbox_heightforwidth_isbase = value; }
-    void setQGroupBox_HasHeightForWidth_IsBase(bool value) const { qgroupbox_hasheightforwidth_isbase = value; }
-    void setQGroupBox_PaintEngine_IsBase(bool value) const { qgroupbox_paintengine_isbase = value; }
-    void setQGroupBox_MouseDoubleClickEvent_IsBase(bool value) const { qgroupbox_mousedoubleclickevent_isbase = value; }
-    void setQGroupBox_WheelEvent_IsBase(bool value) const { qgroupbox_wheelevent_isbase = value; }
-    void setQGroupBox_KeyPressEvent_IsBase(bool value) const { qgroupbox_keypressevent_isbase = value; }
-    void setQGroupBox_KeyReleaseEvent_IsBase(bool value) const { qgroupbox_keyreleaseevent_isbase = value; }
-    void setQGroupBox_FocusOutEvent_IsBase(bool value) const { qgroupbox_focusoutevent_isbase = value; }
-    void setQGroupBox_EnterEvent_IsBase(bool value) const { qgroupbox_enterevent_isbase = value; }
-    void setQGroupBox_LeaveEvent_IsBase(bool value) const { qgroupbox_leaveevent_isbase = value; }
-    void setQGroupBox_MoveEvent_IsBase(bool value) const { qgroupbox_moveevent_isbase = value; }
-    void setQGroupBox_CloseEvent_IsBase(bool value) const { qgroupbox_closeevent_isbase = value; }
-    void setQGroupBox_ContextMenuEvent_IsBase(bool value) const { qgroupbox_contextmenuevent_isbase = value; }
-    void setQGroupBox_TabletEvent_IsBase(bool value) const { qgroupbox_tabletevent_isbase = value; }
-    void setQGroupBox_ActionEvent_IsBase(bool value) const { qgroupbox_actionevent_isbase = value; }
-    void setQGroupBox_DragEnterEvent_IsBase(bool value) const { qgroupbox_dragenterevent_isbase = value; }
-    void setQGroupBox_DragMoveEvent_IsBase(bool value) const { qgroupbox_dragmoveevent_isbase = value; }
-    void setQGroupBox_DragLeaveEvent_IsBase(bool value) const { qgroupbox_dragleaveevent_isbase = value; }
-    void setQGroupBox_DropEvent_IsBase(bool value) const { qgroupbox_dropevent_isbase = value; }
-    void setQGroupBox_ShowEvent_IsBase(bool value) const { qgroupbox_showevent_isbase = value; }
-    void setQGroupBox_HideEvent_IsBase(bool value) const { qgroupbox_hideevent_isbase = value; }
-    void setQGroupBox_NativeEvent_IsBase(bool value) const { qgroupbox_nativeevent_isbase = value; }
-    void setQGroupBox_Metric_IsBase(bool value) const { qgroupbox_metric_isbase = value; }
-    void setQGroupBox_InitPainter_IsBase(bool value) const { qgroupbox_initpainter_isbase = value; }
-    void setQGroupBox_Redirected_IsBase(bool value) const { qgroupbox_redirected_isbase = value; }
-    void setQGroupBox_SharedPainter_IsBase(bool value) const { qgroupbox_sharedpainter_isbase = value; }
-    void setQGroupBox_InputMethodEvent_IsBase(bool value) const { qgroupbox_inputmethodevent_isbase = value; }
-    void setQGroupBox_InputMethodQuery_IsBase(bool value) const { qgroupbox_inputmethodquery_isbase = value; }
-    void setQGroupBox_FocusNextPrevChild_IsBase(bool value) const { qgroupbox_focusnextprevchild_isbase = value; }
-    void setQGroupBox_EventFilter_IsBase(bool value) const { qgroupbox_eventfilter_isbase = value; }
-    void setQGroupBox_TimerEvent_IsBase(bool value) const { qgroupbox_timerevent_isbase = value; }
-    void setQGroupBox_CustomEvent_IsBase(bool value) const { qgroupbox_customevent_isbase = value; }
-    void setQGroupBox_ConnectNotify_IsBase(bool value) const { qgroupbox_connectnotify_isbase = value; }
-    void setQGroupBox_DisconnectNotify_IsBase(bool value) const { qgroupbox_disconnectnotify_isbase = value; }
-    void setQGroupBox_UpdateMicroFocus_IsBase(bool value) const { qgroupbox_updatemicrofocus_isbase = value; }
-    void setQGroupBox_Create_IsBase(bool value) const { qgroupbox_create_isbase = value; }
-    void setQGroupBox_Destroy_IsBase(bool value) const { qgroupbox_destroy_isbase = value; }
-    void setQGroupBox_FocusNextChild_IsBase(bool value) const { qgroupbox_focusnextchild_isbase = value; }
-    void setQGroupBox_FocusPreviousChild_IsBase(bool value) const { qgroupbox_focuspreviouschild_isbase = value; }
-    void setQGroupBox_Sender_IsBase(bool value) const { qgroupbox_sender_isbase = value; }
-    void setQGroupBox_SenderSignalIndex_IsBase(bool value) const { qgroupbox_sendersignalindex_isbase = value; }
-    void setQGroupBox_Receivers_IsBase(bool value) const { qgroupbox_receivers_isbase = value; }
-    void setQGroupBox_IsSignalConnected_IsBase(bool value) const { qgroupbox_issignalconnected_isbase = value; }
+    inline void setQGroupBox_Metacall_IsBase(bool value) const { qgroupbox_metacall_isbase = value; }
+    inline void setQGroupBox_MinimumSizeHint_IsBase(bool value) const { qgroupbox_minimumsizehint_isbase = value; }
+    inline void setQGroupBox_Event_IsBase(bool value) const { qgroupbox_event_isbase = value; }
+    inline void setQGroupBox_ChildEvent_IsBase(bool value) const { qgroupbox_childevent_isbase = value; }
+    inline void setQGroupBox_ResizeEvent_IsBase(bool value) const { qgroupbox_resizeevent_isbase = value; }
+    inline void setQGroupBox_PaintEvent_IsBase(bool value) const { qgroupbox_paintevent_isbase = value; }
+    inline void setQGroupBox_FocusInEvent_IsBase(bool value) const { qgroupbox_focusinevent_isbase = value; }
+    inline void setQGroupBox_ChangeEvent_IsBase(bool value) const { qgroupbox_changeevent_isbase = value; }
+    inline void setQGroupBox_MousePressEvent_IsBase(bool value) const { qgroupbox_mousepressevent_isbase = value; }
+    inline void setQGroupBox_MouseMoveEvent_IsBase(bool value) const { qgroupbox_mousemoveevent_isbase = value; }
+    inline void setQGroupBox_MouseReleaseEvent_IsBase(bool value) const { qgroupbox_mousereleaseevent_isbase = value; }
+    inline void setQGroupBox_InitStyleOption_IsBase(bool value) const { qgroupbox_initstyleoption_isbase = value; }
+    inline void setQGroupBox_DevType_IsBase(bool value) const { qgroupbox_devtype_isbase = value; }
+    inline void setQGroupBox_SetVisible_IsBase(bool value) const { qgroupbox_setvisible_isbase = value; }
+    inline void setQGroupBox_SizeHint_IsBase(bool value) const { qgroupbox_sizehint_isbase = value; }
+    inline void setQGroupBox_HeightForWidth_IsBase(bool value) const { qgroupbox_heightforwidth_isbase = value; }
+    inline void setQGroupBox_HasHeightForWidth_IsBase(bool value) const { qgroupbox_hasheightforwidth_isbase = value; }
+    inline void setQGroupBox_PaintEngine_IsBase(bool value) const { qgroupbox_paintengine_isbase = value; }
+    inline void setQGroupBox_MouseDoubleClickEvent_IsBase(bool value) const { qgroupbox_mousedoubleclickevent_isbase = value; }
+    inline void setQGroupBox_WheelEvent_IsBase(bool value) const { qgroupbox_wheelevent_isbase = value; }
+    inline void setQGroupBox_KeyPressEvent_IsBase(bool value) const { qgroupbox_keypressevent_isbase = value; }
+    inline void setQGroupBox_KeyReleaseEvent_IsBase(bool value) const { qgroupbox_keyreleaseevent_isbase = value; }
+    inline void setQGroupBox_FocusOutEvent_IsBase(bool value) const { qgroupbox_focusoutevent_isbase = value; }
+    inline void setQGroupBox_EnterEvent_IsBase(bool value) const { qgroupbox_enterevent_isbase = value; }
+    inline void setQGroupBox_LeaveEvent_IsBase(bool value) const { qgroupbox_leaveevent_isbase = value; }
+    inline void setQGroupBox_MoveEvent_IsBase(bool value) const { qgroupbox_moveevent_isbase = value; }
+    inline void setQGroupBox_CloseEvent_IsBase(bool value) const { qgroupbox_closeevent_isbase = value; }
+    inline void setQGroupBox_ContextMenuEvent_IsBase(bool value) const { qgroupbox_contextmenuevent_isbase = value; }
+    inline void setQGroupBox_TabletEvent_IsBase(bool value) const { qgroupbox_tabletevent_isbase = value; }
+    inline void setQGroupBox_ActionEvent_IsBase(bool value) const { qgroupbox_actionevent_isbase = value; }
+    inline void setQGroupBox_DragEnterEvent_IsBase(bool value) const { qgroupbox_dragenterevent_isbase = value; }
+    inline void setQGroupBox_DragMoveEvent_IsBase(bool value) const { qgroupbox_dragmoveevent_isbase = value; }
+    inline void setQGroupBox_DragLeaveEvent_IsBase(bool value) const { qgroupbox_dragleaveevent_isbase = value; }
+    inline void setQGroupBox_DropEvent_IsBase(bool value) const { qgroupbox_dropevent_isbase = value; }
+    inline void setQGroupBox_ShowEvent_IsBase(bool value) const { qgroupbox_showevent_isbase = value; }
+    inline void setQGroupBox_HideEvent_IsBase(bool value) const { qgroupbox_hideevent_isbase = value; }
+    inline void setQGroupBox_NativeEvent_IsBase(bool value) const { qgroupbox_nativeevent_isbase = value; }
+    inline void setQGroupBox_Metric_IsBase(bool value) const { qgroupbox_metric_isbase = value; }
+    inline void setQGroupBox_InitPainter_IsBase(bool value) const { qgroupbox_initpainter_isbase = value; }
+    inline void setQGroupBox_Redirected_IsBase(bool value) const { qgroupbox_redirected_isbase = value; }
+    inline void setQGroupBox_SharedPainter_IsBase(bool value) const { qgroupbox_sharedpainter_isbase = value; }
+    inline void setQGroupBox_InputMethodEvent_IsBase(bool value) const { qgroupbox_inputmethodevent_isbase = value; }
+    inline void setQGroupBox_InputMethodQuery_IsBase(bool value) const { qgroupbox_inputmethodquery_isbase = value; }
+    inline void setQGroupBox_FocusNextPrevChild_IsBase(bool value) const { qgroupbox_focusnextprevchild_isbase = value; }
+    inline void setQGroupBox_EventFilter_IsBase(bool value) const { qgroupbox_eventfilter_isbase = value; }
+    inline void setQGroupBox_TimerEvent_IsBase(bool value) const { qgroupbox_timerevent_isbase = value; }
+    inline void setQGroupBox_CustomEvent_IsBase(bool value) const { qgroupbox_customevent_isbase = value; }
+    inline void setQGroupBox_ConnectNotify_IsBase(bool value) const { qgroupbox_connectnotify_isbase = value; }
+    inline void setQGroupBox_DisconnectNotify_IsBase(bool value) const { qgroupbox_disconnectnotify_isbase = value; }
+    inline void setQGroupBox_UpdateMicroFocus_IsBase(bool value) const { qgroupbox_updatemicrofocus_isbase = value; }
+    inline void setQGroupBox_Create_IsBase(bool value) const { qgroupbox_create_isbase = value; }
+    inline void setQGroupBox_Destroy_IsBase(bool value) const { qgroupbox_destroy_isbase = value; }
+    inline void setQGroupBox_FocusNextChild_IsBase(bool value) const { qgroupbox_focusnextchild_isbase = value; }
+    inline void setQGroupBox_FocusPreviousChild_IsBase(bool value) const { qgroupbox_focuspreviouschild_isbase = value; }
+    inline void setQGroupBox_Sender_IsBase(bool value) const { qgroupbox_sender_isbase = value; }
+    inline void setQGroupBox_SenderSignalIndex_IsBase(bool value) const { qgroupbox_sendersignalindex_isbase = value; }
+    inline void setQGroupBox_Receivers_IsBase(bool value) const { qgroupbox_receivers_isbase = value; }
+    inline void setQGroupBox_IsSignalConnected_IsBase(bool value) const { qgroupbox_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -388,7 +391,12 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_metacall_isbase = false;
             return QGroupBox::qt_metacall(param1, param2, param3);
         } else if (qgroupbox_metacall_callback != nullptr) {
-            return qgroupbox_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qgroupbox_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QGroupBox::qt_metacall(param1, param2, param3);
         }
@@ -400,7 +408,8 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_minimumsizehint_isbase = false;
             return QGroupBox::minimumSizeHint();
         } else if (qgroupbox_minimumsizehint_callback != nullptr) {
-            return qgroupbox_minimumsizehint_callback();
+            QSize* callback_ret = qgroupbox_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QGroupBox::minimumSizeHint();
         }
@@ -412,7 +421,10 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_event_isbase = false;
             return QGroupBox::event(event);
         } else if (qgroupbox_event_callback != nullptr) {
-            return qgroupbox_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgroupbox_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGroupBox::event(event);
         }
@@ -424,7 +436,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_childevent_isbase = false;
             QGroupBox::childEvent(event);
         } else if (qgroupbox_childevent_callback != nullptr) {
-            qgroupbox_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qgroupbox_childevent_callback(this, cbval1);
         } else {
             QGroupBox::childEvent(event);
         }
@@ -436,7 +450,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_resizeevent_isbase = false;
             QGroupBox::resizeEvent(event);
         } else if (qgroupbox_resizeevent_callback != nullptr) {
-            qgroupbox_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qgroupbox_resizeevent_callback(this, cbval1);
         } else {
             QGroupBox::resizeEvent(event);
         }
@@ -448,7 +464,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_paintevent_isbase = false;
             QGroupBox::paintEvent(event);
         } else if (qgroupbox_paintevent_callback != nullptr) {
-            qgroupbox_paintevent_callback(this, event);
+            QPaintEvent* cbval1 = event;
+
+            qgroupbox_paintevent_callback(this, cbval1);
         } else {
             QGroupBox::paintEvent(event);
         }
@@ -460,7 +478,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_focusinevent_isbase = false;
             QGroupBox::focusInEvent(event);
         } else if (qgroupbox_focusinevent_callback != nullptr) {
-            qgroupbox_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgroupbox_focusinevent_callback(this, cbval1);
         } else {
             QGroupBox::focusInEvent(event);
         }
@@ -472,7 +492,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_changeevent_isbase = false;
             QGroupBox::changeEvent(event);
         } else if (qgroupbox_changeevent_callback != nullptr) {
-            qgroupbox_changeevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qgroupbox_changeevent_callback(this, cbval1);
         } else {
             QGroupBox::changeEvent(event);
         }
@@ -484,7 +506,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_mousepressevent_isbase = false;
             QGroupBox::mousePressEvent(event);
         } else if (qgroupbox_mousepressevent_callback != nullptr) {
-            qgroupbox_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qgroupbox_mousepressevent_callback(this, cbval1);
         } else {
             QGroupBox::mousePressEvent(event);
         }
@@ -496,7 +520,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_mousemoveevent_isbase = false;
             QGroupBox::mouseMoveEvent(event);
         } else if (qgroupbox_mousemoveevent_callback != nullptr) {
-            qgroupbox_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qgroupbox_mousemoveevent_callback(this, cbval1);
         } else {
             QGroupBox::mouseMoveEvent(event);
         }
@@ -508,7 +534,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_mousereleaseevent_isbase = false;
             QGroupBox::mouseReleaseEvent(event);
         } else if (qgroupbox_mousereleaseevent_callback != nullptr) {
-            qgroupbox_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qgroupbox_mousereleaseevent_callback(this, cbval1);
         } else {
             QGroupBox::mouseReleaseEvent(event);
         }
@@ -520,7 +548,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_initstyleoption_isbase = false;
             QGroupBox::initStyleOption(option);
         } else if (qgroupbox_initstyleoption_callback != nullptr) {
-            qgroupbox_initstyleoption_callback(this, option);
+            QStyleOptionGroupBox* cbval1 = option;
+
+            qgroupbox_initstyleoption_callback(this, cbval1);
         } else {
             QGroupBox::initStyleOption(option);
         }
@@ -532,7 +562,8 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_devtype_isbase = false;
             return QGroupBox::devType();
         } else if (qgroupbox_devtype_callback != nullptr) {
-            return qgroupbox_devtype_callback();
+            int callback_ret = qgroupbox_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGroupBox::devType();
         }
@@ -544,7 +575,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_setvisible_isbase = false;
             QGroupBox::setVisible(visible);
         } else if (qgroupbox_setvisible_callback != nullptr) {
-            qgroupbox_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qgroupbox_setvisible_callback(this, cbval1);
         } else {
             QGroupBox::setVisible(visible);
         }
@@ -556,7 +589,8 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_sizehint_isbase = false;
             return QGroupBox::sizeHint();
         } else if (qgroupbox_sizehint_callback != nullptr) {
-            return qgroupbox_sizehint_callback();
+            QSize* callback_ret = qgroupbox_sizehint_callback();
+            return *callback_ret;
         } else {
             return QGroupBox::sizeHint();
         }
@@ -568,7 +602,10 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_heightforwidth_isbase = false;
             return QGroupBox::heightForWidth(param1);
         } else if (qgroupbox_heightforwidth_callback != nullptr) {
-            return qgroupbox_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qgroupbox_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QGroupBox::heightForWidth(param1);
         }
@@ -580,7 +617,8 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_hasheightforwidth_isbase = false;
             return QGroupBox::hasHeightForWidth();
         } else if (qgroupbox_hasheightforwidth_callback != nullptr) {
-            return qgroupbox_hasheightforwidth_callback();
+            bool callback_ret = qgroupbox_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QGroupBox::hasHeightForWidth();
         }
@@ -592,7 +630,8 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_paintengine_isbase = false;
             return QGroupBox::paintEngine();
         } else if (qgroupbox_paintengine_callback != nullptr) {
-            return qgroupbox_paintengine_callback();
+            QPaintEngine* callback_ret = qgroupbox_paintengine_callback();
+            return callback_ret;
         } else {
             return QGroupBox::paintEngine();
         }
@@ -604,7 +643,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_mousedoubleclickevent_isbase = false;
             QGroupBox::mouseDoubleClickEvent(event);
         } else if (qgroupbox_mousedoubleclickevent_callback != nullptr) {
-            qgroupbox_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qgroupbox_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QGroupBox::mouseDoubleClickEvent(event);
         }
@@ -616,7 +657,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_wheelevent_isbase = false;
             QGroupBox::wheelEvent(event);
         } else if (qgroupbox_wheelevent_callback != nullptr) {
-            qgroupbox_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qgroupbox_wheelevent_callback(this, cbval1);
         } else {
             QGroupBox::wheelEvent(event);
         }
@@ -628,7 +671,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_keypressevent_isbase = false;
             QGroupBox::keyPressEvent(event);
         } else if (qgroupbox_keypressevent_callback != nullptr) {
-            qgroupbox_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgroupbox_keypressevent_callback(this, cbval1);
         } else {
             QGroupBox::keyPressEvent(event);
         }
@@ -640,7 +685,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_keyreleaseevent_isbase = false;
             QGroupBox::keyReleaseEvent(event);
         } else if (qgroupbox_keyreleaseevent_callback != nullptr) {
-            qgroupbox_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgroupbox_keyreleaseevent_callback(this, cbval1);
         } else {
             QGroupBox::keyReleaseEvent(event);
         }
@@ -652,7 +699,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_focusoutevent_isbase = false;
             QGroupBox::focusOutEvent(event);
         } else if (qgroupbox_focusoutevent_callback != nullptr) {
-            qgroupbox_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgroupbox_focusoutevent_callback(this, cbval1);
         } else {
             QGroupBox::focusOutEvent(event);
         }
@@ -664,7 +713,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_enterevent_isbase = false;
             QGroupBox::enterEvent(event);
         } else if (qgroupbox_enterevent_callback != nullptr) {
-            qgroupbox_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qgroupbox_enterevent_callback(this, cbval1);
         } else {
             QGroupBox::enterEvent(event);
         }
@@ -676,7 +727,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_leaveevent_isbase = false;
             QGroupBox::leaveEvent(event);
         } else if (qgroupbox_leaveevent_callback != nullptr) {
-            qgroupbox_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qgroupbox_leaveevent_callback(this, cbval1);
         } else {
             QGroupBox::leaveEvent(event);
         }
@@ -688,7 +741,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_moveevent_isbase = false;
             QGroupBox::moveEvent(event);
         } else if (qgroupbox_moveevent_callback != nullptr) {
-            qgroupbox_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qgroupbox_moveevent_callback(this, cbval1);
         } else {
             QGroupBox::moveEvent(event);
         }
@@ -700,7 +755,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_closeevent_isbase = false;
             QGroupBox::closeEvent(event);
         } else if (qgroupbox_closeevent_callback != nullptr) {
-            qgroupbox_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qgroupbox_closeevent_callback(this, cbval1);
         } else {
             QGroupBox::closeEvent(event);
         }
@@ -712,7 +769,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_contextmenuevent_isbase = false;
             QGroupBox::contextMenuEvent(event);
         } else if (qgroupbox_contextmenuevent_callback != nullptr) {
-            qgroupbox_contextmenuevent_callback(this, event);
+            QContextMenuEvent* cbval1 = event;
+
+            qgroupbox_contextmenuevent_callback(this, cbval1);
         } else {
             QGroupBox::contextMenuEvent(event);
         }
@@ -724,7 +783,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_tabletevent_isbase = false;
             QGroupBox::tabletEvent(event);
         } else if (qgroupbox_tabletevent_callback != nullptr) {
-            qgroupbox_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qgroupbox_tabletevent_callback(this, cbval1);
         } else {
             QGroupBox::tabletEvent(event);
         }
@@ -736,7 +797,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_actionevent_isbase = false;
             QGroupBox::actionEvent(event);
         } else if (qgroupbox_actionevent_callback != nullptr) {
-            qgroupbox_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qgroupbox_actionevent_callback(this, cbval1);
         } else {
             QGroupBox::actionEvent(event);
         }
@@ -748,7 +811,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_dragenterevent_isbase = false;
             QGroupBox::dragEnterEvent(event);
         } else if (qgroupbox_dragenterevent_callback != nullptr) {
-            qgroupbox_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qgroupbox_dragenterevent_callback(this, cbval1);
         } else {
             QGroupBox::dragEnterEvent(event);
         }
@@ -760,7 +825,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_dragmoveevent_isbase = false;
             QGroupBox::dragMoveEvent(event);
         } else if (qgroupbox_dragmoveevent_callback != nullptr) {
-            qgroupbox_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qgroupbox_dragmoveevent_callback(this, cbval1);
         } else {
             QGroupBox::dragMoveEvent(event);
         }
@@ -772,7 +839,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_dragleaveevent_isbase = false;
             QGroupBox::dragLeaveEvent(event);
         } else if (qgroupbox_dragleaveevent_callback != nullptr) {
-            qgroupbox_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qgroupbox_dragleaveevent_callback(this, cbval1);
         } else {
             QGroupBox::dragLeaveEvent(event);
         }
@@ -784,7 +853,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_dropevent_isbase = false;
             QGroupBox::dropEvent(event);
         } else if (qgroupbox_dropevent_callback != nullptr) {
-            qgroupbox_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qgroupbox_dropevent_callback(this, cbval1);
         } else {
             QGroupBox::dropEvent(event);
         }
@@ -796,7 +867,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_showevent_isbase = false;
             QGroupBox::showEvent(event);
         } else if (qgroupbox_showevent_callback != nullptr) {
-            qgroupbox_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qgroupbox_showevent_callback(this, cbval1);
         } else {
             QGroupBox::showEvent(event);
         }
@@ -808,7 +881,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_hideevent_isbase = false;
             QGroupBox::hideEvent(event);
         } else if (qgroupbox_hideevent_callback != nullptr) {
-            qgroupbox_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qgroupbox_hideevent_callback(this, cbval1);
         } else {
             QGroupBox::hideEvent(event);
         }
@@ -820,7 +895,19 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_nativeevent_isbase = false;
             return QGroupBox::nativeEvent(eventType, message, result);
         } else if (qgroupbox_nativeevent_callback != nullptr) {
-            return qgroupbox_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qgroupbox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QGroupBox::nativeEvent(eventType, message, result);
         }
@@ -832,7 +919,10 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_metric_isbase = false;
             return QGroupBox::metric(param1);
         } else if (qgroupbox_metric_callback != nullptr) {
-            return qgroupbox_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qgroupbox_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QGroupBox::metric(param1);
         }
@@ -844,7 +934,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_initpainter_isbase = false;
             QGroupBox::initPainter(painter);
         } else if (qgroupbox_initpainter_callback != nullptr) {
-            qgroupbox_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qgroupbox_initpainter_callback(this, cbval1);
         } else {
             QGroupBox::initPainter(painter);
         }
@@ -856,7 +948,10 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_redirected_isbase = false;
             return QGroupBox::redirected(offset);
         } else if (qgroupbox_redirected_callback != nullptr) {
-            return qgroupbox_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qgroupbox_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGroupBox::redirected(offset);
         }
@@ -868,7 +963,8 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_sharedpainter_isbase = false;
             return QGroupBox::sharedPainter();
         } else if (qgroupbox_sharedpainter_callback != nullptr) {
-            return qgroupbox_sharedpainter_callback();
+            QPainter* callback_ret = qgroupbox_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QGroupBox::sharedPainter();
         }
@@ -880,7 +976,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_inputmethodevent_isbase = false;
             QGroupBox::inputMethodEvent(param1);
         } else if (qgroupbox_inputmethodevent_callback != nullptr) {
-            qgroupbox_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qgroupbox_inputmethodevent_callback(this, cbval1);
         } else {
             QGroupBox::inputMethodEvent(param1);
         }
@@ -892,7 +990,10 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_inputmethodquery_isbase = false;
             return QGroupBox::inputMethodQuery(param1);
         } else if (qgroupbox_inputmethodquery_callback != nullptr) {
-            return qgroupbox_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qgroupbox_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGroupBox::inputMethodQuery(param1);
         }
@@ -904,7 +1005,10 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_focusnextprevchild_isbase = false;
             return QGroupBox::focusNextPrevChild(next);
         } else if (qgroupbox_focusnextprevchild_callback != nullptr) {
-            return qgroupbox_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qgroupbox_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGroupBox::focusNextPrevChild(next);
         }
@@ -916,7 +1020,11 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_eventfilter_isbase = false;
             return QGroupBox::eventFilter(watched, event);
         } else if (qgroupbox_eventfilter_callback != nullptr) {
-            return qgroupbox_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgroupbox_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGroupBox::eventFilter(watched, event);
         }
@@ -928,7 +1036,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_timerevent_isbase = false;
             QGroupBox::timerEvent(event);
         } else if (qgroupbox_timerevent_callback != nullptr) {
-            qgroupbox_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qgroupbox_timerevent_callback(this, cbval1);
         } else {
             QGroupBox::timerEvent(event);
         }
@@ -940,7 +1050,9 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_customevent_isbase = false;
             QGroupBox::customEvent(event);
         } else if (qgroupbox_customevent_callback != nullptr) {
-            qgroupbox_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qgroupbox_customevent_callback(this, cbval1);
         } else {
             QGroupBox::customEvent(event);
         }
@@ -952,7 +1064,11 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_connectnotify_isbase = false;
             QGroupBox::connectNotify(signal);
         } else if (qgroupbox_connectnotify_callback != nullptr) {
-            qgroupbox_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qgroupbox_connectnotify_callback(this, cbval1);
         } else {
             QGroupBox::connectNotify(signal);
         }
@@ -964,7 +1080,11 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_disconnectnotify_isbase = false;
             QGroupBox::disconnectNotify(signal);
         } else if (qgroupbox_disconnectnotify_callback != nullptr) {
-            qgroupbox_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qgroupbox_disconnectnotify_callback(this, cbval1);
         } else {
             QGroupBox::disconnectNotify(signal);
         }
@@ -1012,7 +1132,8 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_focusnextchild_isbase = false;
             return QGroupBox::focusNextChild();
         } else if (qgroupbox_focusnextchild_callback != nullptr) {
-            return qgroupbox_focusnextchild_callback();
+            bool callback_ret = qgroupbox_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QGroupBox::focusNextChild();
         }
@@ -1024,7 +1145,8 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_focuspreviouschild_isbase = false;
             return QGroupBox::focusPreviousChild();
         } else if (qgroupbox_focuspreviouschild_callback != nullptr) {
-            return qgroupbox_focuspreviouschild_callback();
+            bool callback_ret = qgroupbox_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QGroupBox::focusPreviousChild();
         }
@@ -1036,7 +1158,8 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_sender_isbase = false;
             return QGroupBox::sender();
         } else if (qgroupbox_sender_callback != nullptr) {
-            return qgroupbox_sender_callback();
+            QObject* callback_ret = qgroupbox_sender_callback();
+            return callback_ret;
         } else {
             return QGroupBox::sender();
         }
@@ -1048,7 +1171,8 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_sendersignalindex_isbase = false;
             return QGroupBox::senderSignalIndex();
         } else if (qgroupbox_sendersignalindex_callback != nullptr) {
-            return qgroupbox_sendersignalindex_callback();
+            int callback_ret = qgroupbox_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGroupBox::senderSignalIndex();
         }
@@ -1060,7 +1184,10 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_receivers_isbase = false;
             return QGroupBox::receivers(signal);
         } else if (qgroupbox_receivers_callback != nullptr) {
-            return qgroupbox_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qgroupbox_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QGroupBox::receivers(signal);
         }
@@ -1072,11 +1199,114 @@ class VirtualQGroupBox : public QGroupBox {
             qgroupbox_issignalconnected_isbase = false;
             return QGroupBox::isSignalConnected(signal);
         } else if (qgroupbox_issignalconnected_callback != nullptr) {
-            return qgroupbox_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qgroupbox_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGroupBox::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QGroupBox_Event(QGroupBox* self, QEvent* event);
+    friend bool QGroupBox_QBaseEvent(QGroupBox* self, QEvent* event);
+    friend void QGroupBox_ChildEvent(QGroupBox* self, QChildEvent* event);
+    friend void QGroupBox_QBaseChildEvent(QGroupBox* self, QChildEvent* event);
+    friend void QGroupBox_ResizeEvent(QGroupBox* self, QResizeEvent* event);
+    friend void QGroupBox_QBaseResizeEvent(QGroupBox* self, QResizeEvent* event);
+    friend void QGroupBox_PaintEvent(QGroupBox* self, QPaintEvent* event);
+    friend void QGroupBox_QBasePaintEvent(QGroupBox* self, QPaintEvent* event);
+    friend void QGroupBox_FocusInEvent(QGroupBox* self, QFocusEvent* event);
+    friend void QGroupBox_QBaseFocusInEvent(QGroupBox* self, QFocusEvent* event);
+    friend void QGroupBox_ChangeEvent(QGroupBox* self, QEvent* event);
+    friend void QGroupBox_QBaseChangeEvent(QGroupBox* self, QEvent* event);
+    friend void QGroupBox_MousePressEvent(QGroupBox* self, QMouseEvent* event);
+    friend void QGroupBox_QBaseMousePressEvent(QGroupBox* self, QMouseEvent* event);
+    friend void QGroupBox_MouseMoveEvent(QGroupBox* self, QMouseEvent* event);
+    friend void QGroupBox_QBaseMouseMoveEvent(QGroupBox* self, QMouseEvent* event);
+    friend void QGroupBox_MouseReleaseEvent(QGroupBox* self, QMouseEvent* event);
+    friend void QGroupBox_QBaseMouseReleaseEvent(QGroupBox* self, QMouseEvent* event);
+    friend void QGroupBox_InitStyleOption(const QGroupBox* self, QStyleOptionGroupBox* option);
+    friend void QGroupBox_QBaseInitStyleOption(const QGroupBox* self, QStyleOptionGroupBox* option);
+    friend void QGroupBox_MouseDoubleClickEvent(QGroupBox* self, QMouseEvent* event);
+    friend void QGroupBox_QBaseMouseDoubleClickEvent(QGroupBox* self, QMouseEvent* event);
+    friend void QGroupBox_WheelEvent(QGroupBox* self, QWheelEvent* event);
+    friend void QGroupBox_QBaseWheelEvent(QGroupBox* self, QWheelEvent* event);
+    friend void QGroupBox_KeyPressEvent(QGroupBox* self, QKeyEvent* event);
+    friend void QGroupBox_QBaseKeyPressEvent(QGroupBox* self, QKeyEvent* event);
+    friend void QGroupBox_KeyReleaseEvent(QGroupBox* self, QKeyEvent* event);
+    friend void QGroupBox_QBaseKeyReleaseEvent(QGroupBox* self, QKeyEvent* event);
+    friend void QGroupBox_FocusOutEvent(QGroupBox* self, QFocusEvent* event);
+    friend void QGroupBox_QBaseFocusOutEvent(QGroupBox* self, QFocusEvent* event);
+    friend void QGroupBox_EnterEvent(QGroupBox* self, QEnterEvent* event);
+    friend void QGroupBox_QBaseEnterEvent(QGroupBox* self, QEnterEvent* event);
+    friend void QGroupBox_LeaveEvent(QGroupBox* self, QEvent* event);
+    friend void QGroupBox_QBaseLeaveEvent(QGroupBox* self, QEvent* event);
+    friend void QGroupBox_MoveEvent(QGroupBox* self, QMoveEvent* event);
+    friend void QGroupBox_QBaseMoveEvent(QGroupBox* self, QMoveEvent* event);
+    friend void QGroupBox_CloseEvent(QGroupBox* self, QCloseEvent* event);
+    friend void QGroupBox_QBaseCloseEvent(QGroupBox* self, QCloseEvent* event);
+    friend void QGroupBox_ContextMenuEvent(QGroupBox* self, QContextMenuEvent* event);
+    friend void QGroupBox_QBaseContextMenuEvent(QGroupBox* self, QContextMenuEvent* event);
+    friend void QGroupBox_TabletEvent(QGroupBox* self, QTabletEvent* event);
+    friend void QGroupBox_QBaseTabletEvent(QGroupBox* self, QTabletEvent* event);
+    friend void QGroupBox_ActionEvent(QGroupBox* self, QActionEvent* event);
+    friend void QGroupBox_QBaseActionEvent(QGroupBox* self, QActionEvent* event);
+    friend void QGroupBox_DragEnterEvent(QGroupBox* self, QDragEnterEvent* event);
+    friend void QGroupBox_QBaseDragEnterEvent(QGroupBox* self, QDragEnterEvent* event);
+    friend void QGroupBox_DragMoveEvent(QGroupBox* self, QDragMoveEvent* event);
+    friend void QGroupBox_QBaseDragMoveEvent(QGroupBox* self, QDragMoveEvent* event);
+    friend void QGroupBox_DragLeaveEvent(QGroupBox* self, QDragLeaveEvent* event);
+    friend void QGroupBox_QBaseDragLeaveEvent(QGroupBox* self, QDragLeaveEvent* event);
+    friend void QGroupBox_DropEvent(QGroupBox* self, QDropEvent* event);
+    friend void QGroupBox_QBaseDropEvent(QGroupBox* self, QDropEvent* event);
+    friend void QGroupBox_ShowEvent(QGroupBox* self, QShowEvent* event);
+    friend void QGroupBox_QBaseShowEvent(QGroupBox* self, QShowEvent* event);
+    friend void QGroupBox_HideEvent(QGroupBox* self, QHideEvent* event);
+    friend void QGroupBox_QBaseHideEvent(QGroupBox* self, QHideEvent* event);
+    friend bool QGroupBox_NativeEvent(QGroupBox* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QGroupBox_QBaseNativeEvent(QGroupBox* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QGroupBox_Metric(const QGroupBox* self, int param1);
+    friend int QGroupBox_QBaseMetric(const QGroupBox* self, int param1);
+    friend void QGroupBox_InitPainter(const QGroupBox* self, QPainter* painter);
+    friend void QGroupBox_QBaseInitPainter(const QGroupBox* self, QPainter* painter);
+    friend QPaintDevice* QGroupBox_Redirected(const QGroupBox* self, QPoint* offset);
+    friend QPaintDevice* QGroupBox_QBaseRedirected(const QGroupBox* self, QPoint* offset);
+    friend QPainter* QGroupBox_SharedPainter(const QGroupBox* self);
+    friend QPainter* QGroupBox_QBaseSharedPainter(const QGroupBox* self);
+    friend void QGroupBox_InputMethodEvent(QGroupBox* self, QInputMethodEvent* param1);
+    friend void QGroupBox_QBaseInputMethodEvent(QGroupBox* self, QInputMethodEvent* param1);
+    friend bool QGroupBox_FocusNextPrevChild(QGroupBox* self, bool next);
+    friend bool QGroupBox_QBaseFocusNextPrevChild(QGroupBox* self, bool next);
+    friend void QGroupBox_TimerEvent(QGroupBox* self, QTimerEvent* event);
+    friend void QGroupBox_QBaseTimerEvent(QGroupBox* self, QTimerEvent* event);
+    friend void QGroupBox_CustomEvent(QGroupBox* self, QEvent* event);
+    friend void QGroupBox_QBaseCustomEvent(QGroupBox* self, QEvent* event);
+    friend void QGroupBox_ConnectNotify(QGroupBox* self, const QMetaMethod* signal);
+    friend void QGroupBox_QBaseConnectNotify(QGroupBox* self, const QMetaMethod* signal);
+    friend void QGroupBox_DisconnectNotify(QGroupBox* self, const QMetaMethod* signal);
+    friend void QGroupBox_QBaseDisconnectNotify(QGroupBox* self, const QMetaMethod* signal);
+    friend void QGroupBox_UpdateMicroFocus(QGroupBox* self);
+    friend void QGroupBox_QBaseUpdateMicroFocus(QGroupBox* self);
+    friend void QGroupBox_Create(QGroupBox* self);
+    friend void QGroupBox_QBaseCreate(QGroupBox* self);
+    friend void QGroupBox_Destroy(QGroupBox* self);
+    friend void QGroupBox_QBaseDestroy(QGroupBox* self);
+    friend bool QGroupBox_FocusNextChild(QGroupBox* self);
+    friend bool QGroupBox_QBaseFocusNextChild(QGroupBox* self);
+    friend bool QGroupBox_FocusPreviousChild(QGroupBox* self);
+    friend bool QGroupBox_QBaseFocusPreviousChild(QGroupBox* self);
+    friend QObject* QGroupBox_Sender(const QGroupBox* self);
+    friend QObject* QGroupBox_QBaseSender(const QGroupBox* self);
+    friend int QGroupBox_SenderSignalIndex(const QGroupBox* self);
+    friend int QGroupBox_QBaseSenderSignalIndex(const QGroupBox* self);
+    friend int QGroupBox_Receivers(const QGroupBox* self, const char* signal);
+    friend int QGroupBox_QBaseReceivers(const QGroupBox* self, const char* signal);
+    friend bool QGroupBox_IsSignalConnected(const QGroupBox* self, const QMetaMethod* signal);
+    friend bool QGroupBox_QBaseIsSignalConnected(const QGroupBox* self, const QMetaMethod* signal);
 };
 
 #endif

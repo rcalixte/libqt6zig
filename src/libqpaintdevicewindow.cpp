@@ -1,47 +1,17 @@
-#include <QAccessibleInterface>
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
-#include <QChildEvent>
-#include <QCloseEvent>
-#include <QCursor>
 #include <QEvent>
 #include <QExposeEvent>
-#include <QFocusEvent>
-#include <QHideEvent>
-#include <QIcon>
-#include <QKeyEvent>
-#include <QList>
-#include <QMargins>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
-#include <QMouseEvent>
-#include <QMoveEvent>
 #include <QObject>
 #include <QPaintDevice>
 #include <QPaintDeviceWindow>
-#include <QPaintEngine>
 #include <QPaintEvent>
-#include <QPoint>
-#include <QPointF>
 #include <QRect>
 #include <QRegion>
-#include <QResizeEvent>
-#include <QScreen>
-#include <QShowEvent>
-#include <QSize>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
 #include <QSurface>
-#include <QSurfaceFormat>
-#include <QTabletEvent>
-#include <QThread>
-#include <QTimerEvent>
-#include <QTouchEvent>
-#include <QVariant>
-#include <QWheelEvent>
 #include <QWindow>
 #include <qpaintdevicewindow.h>
 #include "libqpaintdevicewindow.h"
@@ -71,11 +41,11 @@ libqt_string QPaintDeviceWindow_Tr(const char* s) {
     return _str;
 }
 
-void QPaintDeviceWindow_Update(QPaintDeviceWindow* self, QRect* rect) {
+void QPaintDeviceWindow_Update(QPaintDeviceWindow* self, const QRect* rect) {
     self->update(*rect);
 }
 
-void QPaintDeviceWindow_UpdateWithRegion(QPaintDeviceWindow* self, QRegion* region) {
+void QPaintDeviceWindow_UpdateWithRegion(QPaintDeviceWindow* self, const QRegion* region) {
     self->update(*region);
 }
 
@@ -105,34 +75,6 @@ libqt_string QPaintDeviceWindow_Tr3(const char* s, const char* c, int n) {
     memcpy(_str.data, _b.data(), _str.len);
     _str.data[_str.len] = '\0';
     return _str;
-}
-
-int QPaintDeviceWindow_SurfaceType(const QPaintDeviceWindow* self) {
-    return static_cast<int>(self->surfaceType());
-}
-
-QSurfaceFormat* QPaintDeviceWindow_Format(const QPaintDeviceWindow* self) {
-    return new QSurfaceFormat(self->format());
-}
-
-QSize* QPaintDeviceWindow_Size(const QPaintDeviceWindow* self) {
-    return new QSize(self->size());
-}
-
-QAccessibleInterface* QPaintDeviceWindow_AccessibleRoot(const QPaintDeviceWindow* self) {
-    return self->accessibleRoot();
-}
-
-QObject* QPaintDeviceWindow_FocusObject(const QPaintDeviceWindow* self) {
-    return self->focusObject();
-}
-
-bool QPaintDeviceWindow_EventFilter(QPaintDeviceWindow* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
-}
-
-int QPaintDeviceWindow_DevType(const QPaintDeviceWindow* self) {
-    return self->devType();
 }
 
 void QPaintDeviceWindow_Delete(QPaintDeviceWindow* self) {

@@ -35,7 +35,7 @@ typedef int Version;                // C ABI enum
 
 QDataStream* QDataStream_new();
 QDataStream* QDataStream_new2(QIODevice* param1);
-QDataStream* QDataStream_new3(libqt_string param1);
+QDataStream* QDataStream_new3(const libqt_string param1);
 QIODevice* QDataStream_Device(const QDataStream* self);
 void QDataStream_SetDevice(QDataStream* self, QIODevice* device);
 bool QDataStream_AtEnd(const QDataStream* self);

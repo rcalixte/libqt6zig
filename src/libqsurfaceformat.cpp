@@ -13,11 +13,11 @@ QSurfaceFormat* QSurfaceFormat_new2(int options) {
     return new QSurfaceFormat(static_cast<QSurfaceFormat::FormatOptions>(options));
 }
 
-QSurfaceFormat* QSurfaceFormat_new3(QSurfaceFormat* other) {
+QSurfaceFormat* QSurfaceFormat_new3(const QSurfaceFormat* other) {
     return new QSurfaceFormat(*other);
 }
 
-void QSurfaceFormat_OperatorAssign(QSurfaceFormat* self, QSurfaceFormat* other) {
+void QSurfaceFormat_OperatorAssign(QSurfaceFormat* self, const QSurfaceFormat* other) {
     self->operator=(*other);
 }
 
@@ -176,7 +176,7 @@ QColorSpace* QSurfaceFormat_ColorSpace(const QSurfaceFormat* self) {
     return const_cast<QColorSpace*>(&_ret);
 }
 
-void QSurfaceFormat_SetColorSpace(QSurfaceFormat* self, QColorSpace* colorSpace) {
+void QSurfaceFormat_SetColorSpace(QSurfaceFormat* self, const QColorSpace* colorSpace) {
     self->setColorSpace(*colorSpace);
 }
 
@@ -184,7 +184,7 @@ void QSurfaceFormat_SetColorSpaceWithColorSpace(QSurfaceFormat* self, int colorS
     self->setColorSpace(static_cast<QSurfaceFormat::ColorSpace>(colorSpace));
 }
 
-void QSurfaceFormat_SetDefaultFormat(QSurfaceFormat* format) {
+void QSurfaceFormat_SetDefaultFormat(const QSurfaceFormat* format) {
     QSurfaceFormat::setDefaultFormat(*format);
 }
 

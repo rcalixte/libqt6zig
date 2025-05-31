@@ -11,20 +11,23 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QHeaderView so that we can call protected methods
-class VirtualQHeaderView : public QHeaderView {
+class VirtualQHeaderView final : public QHeaderView {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQHeaderView = true;
+
     // Virtual class public types (including callbacks)
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
-    using QHeaderView_Metacall_Callback = int (*)(QHeaderView*, QMetaObject::Call, int, void**);
+    using QHeaderView_Metacall_Callback = int (*)(QHeaderView*, int, int, void**);
     using QHeaderView_SetModel_Callback = void (*)(QHeaderView*, QAbstractItemModel*);
-    using QHeaderView_SizeHint_Callback = QSize (*)();
+    using QHeaderView_SizeHint_Callback = QSize* (*)();
     using QHeaderView_SetVisible_Callback = void (*)(QHeaderView*, bool);
     using QHeaderView_DoItemsLayout_Callback = void (*)();
     using QHeaderView_Reset_Callback = void (*)();
-    using QHeaderView_CurrentChanged_Callback = void (*)(QHeaderView*, const QModelIndex&, const QModelIndex&);
+    using QHeaderView_CurrentChanged_Callback = void (*)(QHeaderView*, QModelIndex*, QModelIndex*);
     using QHeaderView_Event_Callback = bool (*)(QHeaderView*, QEvent*);
     using QHeaderView_PaintEvent_Callback = void (*)(QHeaderView*, QPaintEvent*);
     using QHeaderView_MousePressEvent_Callback = void (*)(QHeaderView*, QMouseEvent*);
@@ -32,46 +35,46 @@ class VirtualQHeaderView : public QHeaderView {
     using QHeaderView_MouseReleaseEvent_Callback = void (*)(QHeaderView*, QMouseEvent*);
     using QHeaderView_MouseDoubleClickEvent_Callback = void (*)(QHeaderView*, QMouseEvent*);
     using QHeaderView_ViewportEvent_Callback = bool (*)(QHeaderView*, QEvent*);
-    using QHeaderView_PaintSection_Callback = void (*)(const QHeaderView*, QPainter*, const QRect&, int);
-    using QHeaderView_SectionSizeFromContents_Callback = QSize (*)(const QHeaderView*, int);
+    using QHeaderView_PaintSection_Callback = void (*)(const QHeaderView*, QPainter*, QRect*, int);
+    using QHeaderView_SectionSizeFromContents_Callback = QSize* (*)(const QHeaderView*, int);
     using QHeaderView_HorizontalOffset_Callback = int (*)();
     using QHeaderView_VerticalOffset_Callback = int (*)();
     using QHeaderView_UpdateGeometries_Callback = void (*)();
     using QHeaderView_ScrollContentsBy_Callback = void (*)(QHeaderView*, int, int);
-    using QHeaderView_DataChanged_Callback = void (*)(QHeaderView*, const QModelIndex&, const QModelIndex&, const QList<int>&);
-    using QHeaderView_RowsInserted_Callback = void (*)(QHeaderView*, const QModelIndex&, int, int);
-    using QHeaderView_VisualRect_Callback = QRect (*)(const QHeaderView*, const QModelIndex&);
-    using QHeaderView_ScrollTo_Callback = void (*)(QHeaderView*, const QModelIndex&, QAbstractItemView::ScrollHint);
-    using QHeaderView_IndexAt_Callback = QModelIndex (*)(const QHeaderView*, const QPoint&);
-    using QHeaderView_IsIndexHidden_Callback = bool (*)(const QHeaderView*, const QModelIndex&);
-    using QHeaderView_MoveCursor_Callback = QModelIndex (*)(QHeaderView*, int, QFlags<Qt::KeyboardModifier>);
-    using QHeaderView_SetSelection_Callback = void (*)(QHeaderView*, const QRect&, QItemSelectionModel::SelectionFlags);
-    using QHeaderView_VisualRegionForSelection_Callback = QRegion (*)(const QHeaderView*, const QItemSelection&);
+    using QHeaderView_DataChanged_Callback = void (*)(QHeaderView*, QModelIndex*, QModelIndex*, libqt_list /* of int */);
+    using QHeaderView_RowsInserted_Callback = void (*)(QHeaderView*, QModelIndex*, int, int);
+    using QHeaderView_VisualRect_Callback = QRect* (*)(const QHeaderView*, QModelIndex*);
+    using QHeaderView_ScrollTo_Callback = void (*)(QHeaderView*, QModelIndex*, int);
+    using QHeaderView_IndexAt_Callback = QModelIndex* (*)(const QHeaderView*, QPoint*);
+    using QHeaderView_IsIndexHidden_Callback = bool (*)(const QHeaderView*, QModelIndex*);
+    using QHeaderView_MoveCursor_Callback = QModelIndex* (*)(QHeaderView*, int, int);
+    using QHeaderView_SetSelection_Callback = void (*)(QHeaderView*, QRect*, int);
+    using QHeaderView_VisualRegionForSelection_Callback = QRegion* (*)(const QHeaderView*, QItemSelection*);
     using QHeaderView_InitStyleOptionForIndex_Callback = void (*)(const QHeaderView*, QStyleOptionHeader*, int);
     using QHeaderView_InitStyleOption_Callback = void (*)(const QHeaderView*, QStyleOptionHeader*);
     using QHeaderView_SetSelectionModel_Callback = void (*)(QHeaderView*, QItemSelectionModel*);
-    using QHeaderView_KeyboardSearch_Callback = void (*)(QHeaderView*, const QString&);
+    using QHeaderView_KeyboardSearch_Callback = void (*)(QHeaderView*, libqt_string);
     using QHeaderView_SizeHintForRow_Callback = int (*)(const QHeaderView*, int);
     using QHeaderView_SizeHintForColumn_Callback = int (*)(const QHeaderView*, int);
-    using QHeaderView_ItemDelegateForIndex_Callback = QAbstractItemDelegate* (*)(const QHeaderView*, const QModelIndex&);
-    using QHeaderView_InputMethodQuery_Callback = QVariant (*)(const QHeaderView*, Qt::InputMethodQuery);
-    using QHeaderView_SetRootIndex_Callback = void (*)(QHeaderView*, const QModelIndex&);
+    using QHeaderView_ItemDelegateForIndex_Callback = QAbstractItemDelegate* (*)(const QHeaderView*, QModelIndex*);
+    using QHeaderView_InputMethodQuery_Callback = QVariant* (*)(const QHeaderView*, int);
+    using QHeaderView_SetRootIndex_Callback = void (*)(QHeaderView*, QModelIndex*);
     using QHeaderView_SelectAll_Callback = void (*)();
-    using QHeaderView_RowsAboutToBeRemoved_Callback = void (*)(QHeaderView*, const QModelIndex&, int, int);
-    using QHeaderView_SelectionChanged_Callback = void (*)(QHeaderView*, const QItemSelection&, const QItemSelection&);
+    using QHeaderView_RowsAboutToBeRemoved_Callback = void (*)(QHeaderView*, QModelIndex*, int, int);
+    using QHeaderView_SelectionChanged_Callback = void (*)(QHeaderView*, QItemSelection*, QItemSelection*);
     using QHeaderView_UpdateEditorData_Callback = void (*)();
     using QHeaderView_UpdateEditorGeometries_Callback = void (*)();
     using QHeaderView_VerticalScrollbarAction_Callback = void (*)(QHeaderView*, int);
     using QHeaderView_HorizontalScrollbarAction_Callback = void (*)(QHeaderView*, int);
     using QHeaderView_VerticalScrollbarValueChanged_Callback = void (*)(QHeaderView*, int);
     using QHeaderView_HorizontalScrollbarValueChanged_Callback = void (*)(QHeaderView*, int);
-    using QHeaderView_CloseEditor_Callback = void (*)(QHeaderView*, QWidget*, QAbstractItemDelegate::EndEditHint);
+    using QHeaderView_CloseEditor_Callback = void (*)(QHeaderView*, QWidget*, int);
     using QHeaderView_CommitData_Callback = void (*)(QHeaderView*, QWidget*);
     using QHeaderView_EditorDestroyed_Callback = void (*)(QHeaderView*, QObject*);
-    using QHeaderView_SelectedIndexes_Callback = QModelIndexList (*)();
-    using QHeaderView_Edit2_Callback = bool (*)(QHeaderView*, const QModelIndex&, QAbstractItemView::EditTrigger, QEvent*);
-    using QHeaderView_SelectionCommand_Callback = QItemSelectionModel::SelectionFlags (*)(const QHeaderView*, const QModelIndex&, const QEvent*);
-    using QHeaderView_StartDrag_Callback = void (*)(QHeaderView*, Qt::DropActions);
+    using QHeaderView_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
+    using QHeaderView_Edit2_Callback = bool (*)(QHeaderView*, QModelIndex*, int, QEvent*);
+    using QHeaderView_SelectionCommand_Callback = int (*)(const QHeaderView*, QModelIndex*, QEvent*);
+    using QHeaderView_StartDrag_Callback = void (*)(QHeaderView*, int);
     using QHeaderView_InitViewItemOption_Callback = void (*)(const QHeaderView*, QStyleOptionViewItem*);
     using QHeaderView_FocusNextPrevChild_Callback = bool (*)(QHeaderView*, bool);
     using QHeaderView_DragEnterEvent_Callback = void (*)(QHeaderView*, QDragEnterEvent*);
@@ -85,8 +88,8 @@ class VirtualQHeaderView : public QHeaderView {
     using QHeaderView_TimerEvent_Callback = void (*)(QHeaderView*, QTimerEvent*);
     using QHeaderView_InputMethodEvent_Callback = void (*)(QHeaderView*, QInputMethodEvent*);
     using QHeaderView_EventFilter_Callback = bool (*)(QHeaderView*, QObject*, QEvent*);
-    using QHeaderView_ViewportSizeHint_Callback = QSize (*)();
-    using QHeaderView_MinimumSizeHint_Callback = QSize (*)();
+    using QHeaderView_ViewportSizeHint_Callback = QSize* (*)();
+    using QHeaderView_MinimumSizeHint_Callback = QSize* (*)();
     using QHeaderView_SetupViewport_Callback = void (*)(QHeaderView*, QWidget*);
     using QHeaderView_WheelEvent_Callback = void (*)(QHeaderView*, QWheelEvent*);
     using QHeaderView_ContextMenuEvent_Callback = void (*)(QHeaderView*, QContextMenuEvent*);
@@ -104,35 +107,35 @@ class VirtualQHeaderView : public QHeaderView {
     using QHeaderView_ActionEvent_Callback = void (*)(QHeaderView*, QActionEvent*);
     using QHeaderView_ShowEvent_Callback = void (*)(QHeaderView*, QShowEvent*);
     using QHeaderView_HideEvent_Callback = void (*)(QHeaderView*, QHideEvent*);
-    using QHeaderView_NativeEvent_Callback = bool (*)(QHeaderView*, const QByteArray&, void*, qintptr*);
-    using QHeaderView_Metric_Callback = int (*)(const QHeaderView*, QPaintDevice::PaintDeviceMetric);
+    using QHeaderView_NativeEvent_Callback = bool (*)(QHeaderView*, libqt_string, void*, intptr_t*);
+    using QHeaderView_Metric_Callback = int (*)(const QHeaderView*, int);
     using QHeaderView_InitPainter_Callback = void (*)(const QHeaderView*, QPainter*);
     using QHeaderView_Redirected_Callback = QPaintDevice* (*)(const QHeaderView*, QPoint*);
     using QHeaderView_SharedPainter_Callback = QPainter* (*)();
     using QHeaderView_ChildEvent_Callback = void (*)(QHeaderView*, QChildEvent*);
     using QHeaderView_CustomEvent_Callback = void (*)(QHeaderView*, QEvent*);
-    using QHeaderView_ConnectNotify_Callback = void (*)(QHeaderView*, const QMetaMethod&);
-    using QHeaderView_DisconnectNotify_Callback = void (*)(QHeaderView*, const QMetaMethod&);
+    using QHeaderView_ConnectNotify_Callback = void (*)(QHeaderView*, QMetaMethod*);
+    using QHeaderView_DisconnectNotify_Callback = void (*)(QHeaderView*, QMetaMethod*);
     using QHeaderView_UpdateSection_Callback = void (*)(QHeaderView*, int);
     using QHeaderView_ResizeSections2_Callback = void (*)();
-    using QHeaderView_SectionsInserted_Callback = void (*)(QHeaderView*, const QModelIndex&, int, int);
-    using QHeaderView_SectionsAboutToBeRemoved_Callback = void (*)(QHeaderView*, const QModelIndex&, int, int);
+    using QHeaderView_SectionsInserted_Callback = void (*)(QHeaderView*, QModelIndex*, int, int);
+    using QHeaderView_SectionsAboutToBeRemoved_Callback = void (*)(QHeaderView*, QModelIndex*, int, int);
     using QHeaderView_Initialize_Callback = void (*)();
     using QHeaderView_InitializeSections_Callback = void (*)();
     using QHeaderView_InitializeSections2_Callback = void (*)(QHeaderView*, int, int);
-    using QHeaderView_State_Callback = QAbstractItemView::State (*)();
+    using QHeaderView_State_Callback = int (*)();
     using QHeaderView_SetState_Callback = void (*)(QHeaderView*, int);
     using QHeaderView_ScheduleDelayedItemsLayout_Callback = void (*)();
     using QHeaderView_ExecuteDelayedItemsLayout_Callback = void (*)();
-    using QHeaderView_SetDirtyRegion_Callback = void (*)(QHeaderView*, const QRegion&);
+    using QHeaderView_SetDirtyRegion_Callback = void (*)(QHeaderView*, QRegion*);
     using QHeaderView_ScrollDirtyRegion_Callback = void (*)(QHeaderView*, int, int);
-    using QHeaderView_DirtyRegionOffset_Callback = QPoint (*)();
+    using QHeaderView_DirtyRegionOffset_Callback = QPoint* (*)();
     using QHeaderView_StartAutoScroll_Callback = void (*)();
     using QHeaderView_StopAutoScroll_Callback = void (*)();
     using QHeaderView_DoAutoScroll_Callback = void (*)();
-    using QHeaderView_DropIndicatorPosition_Callback = QAbstractItemView::DropIndicatorPosition (*)();
+    using QHeaderView_DropIndicatorPosition_Callback = int (*)();
     using QHeaderView_SetViewportMargins_Callback = void (*)(QHeaderView*, int, int, int, int);
-    using QHeaderView_ViewportMargins_Callback = QMargins (*)();
+    using QHeaderView_ViewportMargins_Callback = QMargins* (*)();
     using QHeaderView_DrawFrame_Callback = void (*)(QHeaderView*, QPainter*);
     using QHeaderView_UpdateMicroFocus_Callback = void (*)();
     using QHeaderView_Create_Callback = void (*)();
@@ -142,7 +145,7 @@ class VirtualQHeaderView : public QHeaderView {
     using QHeaderView_Sender_Callback = QObject* (*)();
     using QHeaderView_SenderSignalIndex_Callback = int (*)();
     using QHeaderView_Receivers_Callback = int (*)(const QHeaderView*, const char*);
-    using QHeaderView_IsSignalConnected_Callback = bool (*)(const QHeaderView*, const QMetaMethod&);
+    using QHeaderView_IsSignalConnected_Callback = bool (*)(const QHeaderView*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -532,258 +535,258 @@ class VirtualQHeaderView : public QHeaderView {
     }
 
     // Callback setters
-    void setQHeaderView_Metacall_Callback(QHeaderView_Metacall_Callback cb) { qheaderview_metacall_callback = cb; }
-    void setQHeaderView_SetModel_Callback(QHeaderView_SetModel_Callback cb) { qheaderview_setmodel_callback = cb; }
-    void setQHeaderView_SizeHint_Callback(QHeaderView_SizeHint_Callback cb) { qheaderview_sizehint_callback = cb; }
-    void setQHeaderView_SetVisible_Callback(QHeaderView_SetVisible_Callback cb) { qheaderview_setvisible_callback = cb; }
-    void setQHeaderView_DoItemsLayout_Callback(QHeaderView_DoItemsLayout_Callback cb) { qheaderview_doitemslayout_callback = cb; }
-    void setQHeaderView_Reset_Callback(QHeaderView_Reset_Callback cb) { qheaderview_reset_callback = cb; }
-    void setQHeaderView_CurrentChanged_Callback(QHeaderView_CurrentChanged_Callback cb) { qheaderview_currentchanged_callback = cb; }
-    void setQHeaderView_Event_Callback(QHeaderView_Event_Callback cb) { qheaderview_event_callback = cb; }
-    void setQHeaderView_PaintEvent_Callback(QHeaderView_PaintEvent_Callback cb) { qheaderview_paintevent_callback = cb; }
-    void setQHeaderView_MousePressEvent_Callback(QHeaderView_MousePressEvent_Callback cb) { qheaderview_mousepressevent_callback = cb; }
-    void setQHeaderView_MouseMoveEvent_Callback(QHeaderView_MouseMoveEvent_Callback cb) { qheaderview_mousemoveevent_callback = cb; }
-    void setQHeaderView_MouseReleaseEvent_Callback(QHeaderView_MouseReleaseEvent_Callback cb) { qheaderview_mousereleaseevent_callback = cb; }
-    void setQHeaderView_MouseDoubleClickEvent_Callback(QHeaderView_MouseDoubleClickEvent_Callback cb) { qheaderview_mousedoubleclickevent_callback = cb; }
-    void setQHeaderView_ViewportEvent_Callback(QHeaderView_ViewportEvent_Callback cb) { qheaderview_viewportevent_callback = cb; }
-    void setQHeaderView_PaintSection_Callback(QHeaderView_PaintSection_Callback cb) { qheaderview_paintsection_callback = cb; }
-    void setQHeaderView_SectionSizeFromContents_Callback(QHeaderView_SectionSizeFromContents_Callback cb) { qheaderview_sectionsizefromcontents_callback = cb; }
-    void setQHeaderView_HorizontalOffset_Callback(QHeaderView_HorizontalOffset_Callback cb) { qheaderview_horizontaloffset_callback = cb; }
-    void setQHeaderView_VerticalOffset_Callback(QHeaderView_VerticalOffset_Callback cb) { qheaderview_verticaloffset_callback = cb; }
-    void setQHeaderView_UpdateGeometries_Callback(QHeaderView_UpdateGeometries_Callback cb) { qheaderview_updategeometries_callback = cb; }
-    void setQHeaderView_ScrollContentsBy_Callback(QHeaderView_ScrollContentsBy_Callback cb) { qheaderview_scrollcontentsby_callback = cb; }
-    void setQHeaderView_DataChanged_Callback(QHeaderView_DataChanged_Callback cb) { qheaderview_datachanged_callback = cb; }
-    void setQHeaderView_RowsInserted_Callback(QHeaderView_RowsInserted_Callback cb) { qheaderview_rowsinserted_callback = cb; }
-    void setQHeaderView_VisualRect_Callback(QHeaderView_VisualRect_Callback cb) { qheaderview_visualrect_callback = cb; }
-    void setQHeaderView_ScrollTo_Callback(QHeaderView_ScrollTo_Callback cb) { qheaderview_scrollto_callback = cb; }
-    void setQHeaderView_IndexAt_Callback(QHeaderView_IndexAt_Callback cb) { qheaderview_indexat_callback = cb; }
-    void setQHeaderView_IsIndexHidden_Callback(QHeaderView_IsIndexHidden_Callback cb) { qheaderview_isindexhidden_callback = cb; }
-    void setQHeaderView_MoveCursor_Callback(QHeaderView_MoveCursor_Callback cb) { qheaderview_movecursor_callback = cb; }
-    void setQHeaderView_SetSelection_Callback(QHeaderView_SetSelection_Callback cb) { qheaderview_setselection_callback = cb; }
-    void setQHeaderView_VisualRegionForSelection_Callback(QHeaderView_VisualRegionForSelection_Callback cb) { qheaderview_visualregionforselection_callback = cb; }
-    void setQHeaderView_InitStyleOptionForIndex_Callback(QHeaderView_InitStyleOptionForIndex_Callback cb) { qheaderview_initstyleoptionforindex_callback = cb; }
-    void setQHeaderView_InitStyleOption_Callback(QHeaderView_InitStyleOption_Callback cb) { qheaderview_initstyleoption_callback = cb; }
-    void setQHeaderView_SetSelectionModel_Callback(QHeaderView_SetSelectionModel_Callback cb) { qheaderview_setselectionmodel_callback = cb; }
-    void setQHeaderView_KeyboardSearch_Callback(QHeaderView_KeyboardSearch_Callback cb) { qheaderview_keyboardsearch_callback = cb; }
-    void setQHeaderView_SizeHintForRow_Callback(QHeaderView_SizeHintForRow_Callback cb) { qheaderview_sizehintforrow_callback = cb; }
-    void setQHeaderView_SizeHintForColumn_Callback(QHeaderView_SizeHintForColumn_Callback cb) { qheaderview_sizehintforcolumn_callback = cb; }
-    void setQHeaderView_ItemDelegateForIndex_Callback(QHeaderView_ItemDelegateForIndex_Callback cb) { qheaderview_itemdelegateforindex_callback = cb; }
-    void setQHeaderView_InputMethodQuery_Callback(QHeaderView_InputMethodQuery_Callback cb) { qheaderview_inputmethodquery_callback = cb; }
-    void setQHeaderView_SetRootIndex_Callback(QHeaderView_SetRootIndex_Callback cb) { qheaderview_setrootindex_callback = cb; }
-    void setQHeaderView_SelectAll_Callback(QHeaderView_SelectAll_Callback cb) { qheaderview_selectall_callback = cb; }
-    void setQHeaderView_RowsAboutToBeRemoved_Callback(QHeaderView_RowsAboutToBeRemoved_Callback cb) { qheaderview_rowsabouttoberemoved_callback = cb; }
-    void setQHeaderView_SelectionChanged_Callback(QHeaderView_SelectionChanged_Callback cb) { qheaderview_selectionchanged_callback = cb; }
-    void setQHeaderView_UpdateEditorData_Callback(QHeaderView_UpdateEditorData_Callback cb) { qheaderview_updateeditordata_callback = cb; }
-    void setQHeaderView_UpdateEditorGeometries_Callback(QHeaderView_UpdateEditorGeometries_Callback cb) { qheaderview_updateeditorgeometries_callback = cb; }
-    void setQHeaderView_VerticalScrollbarAction_Callback(QHeaderView_VerticalScrollbarAction_Callback cb) { qheaderview_verticalscrollbaraction_callback = cb; }
-    void setQHeaderView_HorizontalScrollbarAction_Callback(QHeaderView_HorizontalScrollbarAction_Callback cb) { qheaderview_horizontalscrollbaraction_callback = cb; }
-    void setQHeaderView_VerticalScrollbarValueChanged_Callback(QHeaderView_VerticalScrollbarValueChanged_Callback cb) { qheaderview_verticalscrollbarvaluechanged_callback = cb; }
-    void setQHeaderView_HorizontalScrollbarValueChanged_Callback(QHeaderView_HorizontalScrollbarValueChanged_Callback cb) { qheaderview_horizontalscrollbarvaluechanged_callback = cb; }
-    void setQHeaderView_CloseEditor_Callback(QHeaderView_CloseEditor_Callback cb) { qheaderview_closeeditor_callback = cb; }
-    void setQHeaderView_CommitData_Callback(QHeaderView_CommitData_Callback cb) { qheaderview_commitdata_callback = cb; }
-    void setQHeaderView_EditorDestroyed_Callback(QHeaderView_EditorDestroyed_Callback cb) { qheaderview_editordestroyed_callback = cb; }
-    void setQHeaderView_SelectedIndexes_Callback(QHeaderView_SelectedIndexes_Callback cb) { qheaderview_selectedindexes_callback = cb; }
-    void setQHeaderView_Edit2_Callback(QHeaderView_Edit2_Callback cb) { qheaderview_edit2_callback = cb; }
-    void setQHeaderView_SelectionCommand_Callback(QHeaderView_SelectionCommand_Callback cb) { qheaderview_selectioncommand_callback = cb; }
-    void setQHeaderView_StartDrag_Callback(QHeaderView_StartDrag_Callback cb) { qheaderview_startdrag_callback = cb; }
-    void setQHeaderView_InitViewItemOption_Callback(QHeaderView_InitViewItemOption_Callback cb) { qheaderview_initviewitemoption_callback = cb; }
-    void setQHeaderView_FocusNextPrevChild_Callback(QHeaderView_FocusNextPrevChild_Callback cb) { qheaderview_focusnextprevchild_callback = cb; }
-    void setQHeaderView_DragEnterEvent_Callback(QHeaderView_DragEnterEvent_Callback cb) { qheaderview_dragenterevent_callback = cb; }
-    void setQHeaderView_DragMoveEvent_Callback(QHeaderView_DragMoveEvent_Callback cb) { qheaderview_dragmoveevent_callback = cb; }
-    void setQHeaderView_DragLeaveEvent_Callback(QHeaderView_DragLeaveEvent_Callback cb) { qheaderview_dragleaveevent_callback = cb; }
-    void setQHeaderView_DropEvent_Callback(QHeaderView_DropEvent_Callback cb) { qheaderview_dropevent_callback = cb; }
-    void setQHeaderView_FocusInEvent_Callback(QHeaderView_FocusInEvent_Callback cb) { qheaderview_focusinevent_callback = cb; }
-    void setQHeaderView_FocusOutEvent_Callback(QHeaderView_FocusOutEvent_Callback cb) { qheaderview_focusoutevent_callback = cb; }
-    void setQHeaderView_KeyPressEvent_Callback(QHeaderView_KeyPressEvent_Callback cb) { qheaderview_keypressevent_callback = cb; }
-    void setQHeaderView_ResizeEvent_Callback(QHeaderView_ResizeEvent_Callback cb) { qheaderview_resizeevent_callback = cb; }
-    void setQHeaderView_TimerEvent_Callback(QHeaderView_TimerEvent_Callback cb) { qheaderview_timerevent_callback = cb; }
-    void setQHeaderView_InputMethodEvent_Callback(QHeaderView_InputMethodEvent_Callback cb) { qheaderview_inputmethodevent_callback = cb; }
-    void setQHeaderView_EventFilter_Callback(QHeaderView_EventFilter_Callback cb) { qheaderview_eventfilter_callback = cb; }
-    void setQHeaderView_ViewportSizeHint_Callback(QHeaderView_ViewportSizeHint_Callback cb) { qheaderview_viewportsizehint_callback = cb; }
-    void setQHeaderView_MinimumSizeHint_Callback(QHeaderView_MinimumSizeHint_Callback cb) { qheaderview_minimumsizehint_callback = cb; }
-    void setQHeaderView_SetupViewport_Callback(QHeaderView_SetupViewport_Callback cb) { qheaderview_setupviewport_callback = cb; }
-    void setQHeaderView_WheelEvent_Callback(QHeaderView_WheelEvent_Callback cb) { qheaderview_wheelevent_callback = cb; }
-    void setQHeaderView_ContextMenuEvent_Callback(QHeaderView_ContextMenuEvent_Callback cb) { qheaderview_contextmenuevent_callback = cb; }
-    void setQHeaderView_ChangeEvent_Callback(QHeaderView_ChangeEvent_Callback cb) { qheaderview_changeevent_callback = cb; }
-    void setQHeaderView_DevType_Callback(QHeaderView_DevType_Callback cb) { qheaderview_devtype_callback = cb; }
-    void setQHeaderView_HeightForWidth_Callback(QHeaderView_HeightForWidth_Callback cb) { qheaderview_heightforwidth_callback = cb; }
-    void setQHeaderView_HasHeightForWidth_Callback(QHeaderView_HasHeightForWidth_Callback cb) { qheaderview_hasheightforwidth_callback = cb; }
-    void setQHeaderView_PaintEngine_Callback(QHeaderView_PaintEngine_Callback cb) { qheaderview_paintengine_callback = cb; }
-    void setQHeaderView_KeyReleaseEvent_Callback(QHeaderView_KeyReleaseEvent_Callback cb) { qheaderview_keyreleaseevent_callback = cb; }
-    void setQHeaderView_EnterEvent_Callback(QHeaderView_EnterEvent_Callback cb) { qheaderview_enterevent_callback = cb; }
-    void setQHeaderView_LeaveEvent_Callback(QHeaderView_LeaveEvent_Callback cb) { qheaderview_leaveevent_callback = cb; }
-    void setQHeaderView_MoveEvent_Callback(QHeaderView_MoveEvent_Callback cb) { qheaderview_moveevent_callback = cb; }
-    void setQHeaderView_CloseEvent_Callback(QHeaderView_CloseEvent_Callback cb) { qheaderview_closeevent_callback = cb; }
-    void setQHeaderView_TabletEvent_Callback(QHeaderView_TabletEvent_Callback cb) { qheaderview_tabletevent_callback = cb; }
-    void setQHeaderView_ActionEvent_Callback(QHeaderView_ActionEvent_Callback cb) { qheaderview_actionevent_callback = cb; }
-    void setQHeaderView_ShowEvent_Callback(QHeaderView_ShowEvent_Callback cb) { qheaderview_showevent_callback = cb; }
-    void setQHeaderView_HideEvent_Callback(QHeaderView_HideEvent_Callback cb) { qheaderview_hideevent_callback = cb; }
-    void setQHeaderView_NativeEvent_Callback(QHeaderView_NativeEvent_Callback cb) { qheaderview_nativeevent_callback = cb; }
-    void setQHeaderView_Metric_Callback(QHeaderView_Metric_Callback cb) { qheaderview_metric_callback = cb; }
-    void setQHeaderView_InitPainter_Callback(QHeaderView_InitPainter_Callback cb) { qheaderview_initpainter_callback = cb; }
-    void setQHeaderView_Redirected_Callback(QHeaderView_Redirected_Callback cb) { qheaderview_redirected_callback = cb; }
-    void setQHeaderView_SharedPainter_Callback(QHeaderView_SharedPainter_Callback cb) { qheaderview_sharedpainter_callback = cb; }
-    void setQHeaderView_ChildEvent_Callback(QHeaderView_ChildEvent_Callback cb) { qheaderview_childevent_callback = cb; }
-    void setQHeaderView_CustomEvent_Callback(QHeaderView_CustomEvent_Callback cb) { qheaderview_customevent_callback = cb; }
-    void setQHeaderView_ConnectNotify_Callback(QHeaderView_ConnectNotify_Callback cb) { qheaderview_connectnotify_callback = cb; }
-    void setQHeaderView_DisconnectNotify_Callback(QHeaderView_DisconnectNotify_Callback cb) { qheaderview_disconnectnotify_callback = cb; }
-    void setQHeaderView_UpdateSection_Callback(QHeaderView_UpdateSection_Callback cb) { qheaderview_updatesection_callback = cb; }
-    void setQHeaderView_ResizeSections2_Callback(QHeaderView_ResizeSections2_Callback cb) { qheaderview_resizesections2_callback = cb; }
-    void setQHeaderView_SectionsInserted_Callback(QHeaderView_SectionsInserted_Callback cb) { qheaderview_sectionsinserted_callback = cb; }
-    void setQHeaderView_SectionsAboutToBeRemoved_Callback(QHeaderView_SectionsAboutToBeRemoved_Callback cb) { qheaderview_sectionsabouttoberemoved_callback = cb; }
-    void setQHeaderView_Initialize_Callback(QHeaderView_Initialize_Callback cb) { qheaderview_initialize_callback = cb; }
-    void setQHeaderView_InitializeSections_Callback(QHeaderView_InitializeSections_Callback cb) { qheaderview_initializesections_callback = cb; }
-    void setQHeaderView_InitializeSections2_Callback(QHeaderView_InitializeSections2_Callback cb) { qheaderview_initializesections2_callback = cb; }
-    void setQHeaderView_State_Callback(QHeaderView_State_Callback cb) { qheaderview_state_callback = cb; }
-    void setQHeaderView_SetState_Callback(QHeaderView_SetState_Callback cb) { qheaderview_setstate_callback = cb; }
-    void setQHeaderView_ScheduleDelayedItemsLayout_Callback(QHeaderView_ScheduleDelayedItemsLayout_Callback cb) { qheaderview_scheduledelayeditemslayout_callback = cb; }
-    void setQHeaderView_ExecuteDelayedItemsLayout_Callback(QHeaderView_ExecuteDelayedItemsLayout_Callback cb) { qheaderview_executedelayeditemslayout_callback = cb; }
-    void setQHeaderView_SetDirtyRegion_Callback(QHeaderView_SetDirtyRegion_Callback cb) { qheaderview_setdirtyregion_callback = cb; }
-    void setQHeaderView_ScrollDirtyRegion_Callback(QHeaderView_ScrollDirtyRegion_Callback cb) { qheaderview_scrolldirtyregion_callback = cb; }
-    void setQHeaderView_DirtyRegionOffset_Callback(QHeaderView_DirtyRegionOffset_Callback cb) { qheaderview_dirtyregionoffset_callback = cb; }
-    void setQHeaderView_StartAutoScroll_Callback(QHeaderView_StartAutoScroll_Callback cb) { qheaderview_startautoscroll_callback = cb; }
-    void setQHeaderView_StopAutoScroll_Callback(QHeaderView_StopAutoScroll_Callback cb) { qheaderview_stopautoscroll_callback = cb; }
-    void setQHeaderView_DoAutoScroll_Callback(QHeaderView_DoAutoScroll_Callback cb) { qheaderview_doautoscroll_callback = cb; }
-    void setQHeaderView_DropIndicatorPosition_Callback(QHeaderView_DropIndicatorPosition_Callback cb) { qheaderview_dropindicatorposition_callback = cb; }
-    void setQHeaderView_SetViewportMargins_Callback(QHeaderView_SetViewportMargins_Callback cb) { qheaderview_setviewportmargins_callback = cb; }
-    void setQHeaderView_ViewportMargins_Callback(QHeaderView_ViewportMargins_Callback cb) { qheaderview_viewportmargins_callback = cb; }
-    void setQHeaderView_DrawFrame_Callback(QHeaderView_DrawFrame_Callback cb) { qheaderview_drawframe_callback = cb; }
-    void setQHeaderView_UpdateMicroFocus_Callback(QHeaderView_UpdateMicroFocus_Callback cb) { qheaderview_updatemicrofocus_callback = cb; }
-    void setQHeaderView_Create_Callback(QHeaderView_Create_Callback cb) { qheaderview_create_callback = cb; }
-    void setQHeaderView_Destroy_Callback(QHeaderView_Destroy_Callback cb) { qheaderview_destroy_callback = cb; }
-    void setQHeaderView_FocusNextChild_Callback(QHeaderView_FocusNextChild_Callback cb) { qheaderview_focusnextchild_callback = cb; }
-    void setQHeaderView_FocusPreviousChild_Callback(QHeaderView_FocusPreviousChild_Callback cb) { qheaderview_focuspreviouschild_callback = cb; }
-    void setQHeaderView_Sender_Callback(QHeaderView_Sender_Callback cb) { qheaderview_sender_callback = cb; }
-    void setQHeaderView_SenderSignalIndex_Callback(QHeaderView_SenderSignalIndex_Callback cb) { qheaderview_sendersignalindex_callback = cb; }
-    void setQHeaderView_Receivers_Callback(QHeaderView_Receivers_Callback cb) { qheaderview_receivers_callback = cb; }
-    void setQHeaderView_IsSignalConnected_Callback(QHeaderView_IsSignalConnected_Callback cb) { qheaderview_issignalconnected_callback = cb; }
+    inline void setQHeaderView_Metacall_Callback(QHeaderView_Metacall_Callback cb) { qheaderview_metacall_callback = cb; }
+    inline void setQHeaderView_SetModel_Callback(QHeaderView_SetModel_Callback cb) { qheaderview_setmodel_callback = cb; }
+    inline void setQHeaderView_SizeHint_Callback(QHeaderView_SizeHint_Callback cb) { qheaderview_sizehint_callback = cb; }
+    inline void setQHeaderView_SetVisible_Callback(QHeaderView_SetVisible_Callback cb) { qheaderview_setvisible_callback = cb; }
+    inline void setQHeaderView_DoItemsLayout_Callback(QHeaderView_DoItemsLayout_Callback cb) { qheaderview_doitemslayout_callback = cb; }
+    inline void setQHeaderView_Reset_Callback(QHeaderView_Reset_Callback cb) { qheaderview_reset_callback = cb; }
+    inline void setQHeaderView_CurrentChanged_Callback(QHeaderView_CurrentChanged_Callback cb) { qheaderview_currentchanged_callback = cb; }
+    inline void setQHeaderView_Event_Callback(QHeaderView_Event_Callback cb) { qheaderview_event_callback = cb; }
+    inline void setQHeaderView_PaintEvent_Callback(QHeaderView_PaintEvent_Callback cb) { qheaderview_paintevent_callback = cb; }
+    inline void setQHeaderView_MousePressEvent_Callback(QHeaderView_MousePressEvent_Callback cb) { qheaderview_mousepressevent_callback = cb; }
+    inline void setQHeaderView_MouseMoveEvent_Callback(QHeaderView_MouseMoveEvent_Callback cb) { qheaderview_mousemoveevent_callback = cb; }
+    inline void setQHeaderView_MouseReleaseEvent_Callback(QHeaderView_MouseReleaseEvent_Callback cb) { qheaderview_mousereleaseevent_callback = cb; }
+    inline void setQHeaderView_MouseDoubleClickEvent_Callback(QHeaderView_MouseDoubleClickEvent_Callback cb) { qheaderview_mousedoubleclickevent_callback = cb; }
+    inline void setQHeaderView_ViewportEvent_Callback(QHeaderView_ViewportEvent_Callback cb) { qheaderview_viewportevent_callback = cb; }
+    inline void setQHeaderView_PaintSection_Callback(QHeaderView_PaintSection_Callback cb) { qheaderview_paintsection_callback = cb; }
+    inline void setQHeaderView_SectionSizeFromContents_Callback(QHeaderView_SectionSizeFromContents_Callback cb) { qheaderview_sectionsizefromcontents_callback = cb; }
+    inline void setQHeaderView_HorizontalOffset_Callback(QHeaderView_HorizontalOffset_Callback cb) { qheaderview_horizontaloffset_callback = cb; }
+    inline void setQHeaderView_VerticalOffset_Callback(QHeaderView_VerticalOffset_Callback cb) { qheaderview_verticaloffset_callback = cb; }
+    inline void setQHeaderView_UpdateGeometries_Callback(QHeaderView_UpdateGeometries_Callback cb) { qheaderview_updategeometries_callback = cb; }
+    inline void setQHeaderView_ScrollContentsBy_Callback(QHeaderView_ScrollContentsBy_Callback cb) { qheaderview_scrollcontentsby_callback = cb; }
+    inline void setQHeaderView_DataChanged_Callback(QHeaderView_DataChanged_Callback cb) { qheaderview_datachanged_callback = cb; }
+    inline void setQHeaderView_RowsInserted_Callback(QHeaderView_RowsInserted_Callback cb) { qheaderview_rowsinserted_callback = cb; }
+    inline void setQHeaderView_VisualRect_Callback(QHeaderView_VisualRect_Callback cb) { qheaderview_visualrect_callback = cb; }
+    inline void setQHeaderView_ScrollTo_Callback(QHeaderView_ScrollTo_Callback cb) { qheaderview_scrollto_callback = cb; }
+    inline void setQHeaderView_IndexAt_Callback(QHeaderView_IndexAt_Callback cb) { qheaderview_indexat_callback = cb; }
+    inline void setQHeaderView_IsIndexHidden_Callback(QHeaderView_IsIndexHidden_Callback cb) { qheaderview_isindexhidden_callback = cb; }
+    inline void setQHeaderView_MoveCursor_Callback(QHeaderView_MoveCursor_Callback cb) { qheaderview_movecursor_callback = cb; }
+    inline void setQHeaderView_SetSelection_Callback(QHeaderView_SetSelection_Callback cb) { qheaderview_setselection_callback = cb; }
+    inline void setQHeaderView_VisualRegionForSelection_Callback(QHeaderView_VisualRegionForSelection_Callback cb) { qheaderview_visualregionforselection_callback = cb; }
+    inline void setQHeaderView_InitStyleOptionForIndex_Callback(QHeaderView_InitStyleOptionForIndex_Callback cb) { qheaderview_initstyleoptionforindex_callback = cb; }
+    inline void setQHeaderView_InitStyleOption_Callback(QHeaderView_InitStyleOption_Callback cb) { qheaderview_initstyleoption_callback = cb; }
+    inline void setQHeaderView_SetSelectionModel_Callback(QHeaderView_SetSelectionModel_Callback cb) { qheaderview_setselectionmodel_callback = cb; }
+    inline void setQHeaderView_KeyboardSearch_Callback(QHeaderView_KeyboardSearch_Callback cb) { qheaderview_keyboardsearch_callback = cb; }
+    inline void setQHeaderView_SizeHintForRow_Callback(QHeaderView_SizeHintForRow_Callback cb) { qheaderview_sizehintforrow_callback = cb; }
+    inline void setQHeaderView_SizeHintForColumn_Callback(QHeaderView_SizeHintForColumn_Callback cb) { qheaderview_sizehintforcolumn_callback = cb; }
+    inline void setQHeaderView_ItemDelegateForIndex_Callback(QHeaderView_ItemDelegateForIndex_Callback cb) { qheaderview_itemdelegateforindex_callback = cb; }
+    inline void setQHeaderView_InputMethodQuery_Callback(QHeaderView_InputMethodQuery_Callback cb) { qheaderview_inputmethodquery_callback = cb; }
+    inline void setQHeaderView_SetRootIndex_Callback(QHeaderView_SetRootIndex_Callback cb) { qheaderview_setrootindex_callback = cb; }
+    inline void setQHeaderView_SelectAll_Callback(QHeaderView_SelectAll_Callback cb) { qheaderview_selectall_callback = cb; }
+    inline void setQHeaderView_RowsAboutToBeRemoved_Callback(QHeaderView_RowsAboutToBeRemoved_Callback cb) { qheaderview_rowsabouttoberemoved_callback = cb; }
+    inline void setQHeaderView_SelectionChanged_Callback(QHeaderView_SelectionChanged_Callback cb) { qheaderview_selectionchanged_callback = cb; }
+    inline void setQHeaderView_UpdateEditorData_Callback(QHeaderView_UpdateEditorData_Callback cb) { qheaderview_updateeditordata_callback = cb; }
+    inline void setQHeaderView_UpdateEditorGeometries_Callback(QHeaderView_UpdateEditorGeometries_Callback cb) { qheaderview_updateeditorgeometries_callback = cb; }
+    inline void setQHeaderView_VerticalScrollbarAction_Callback(QHeaderView_VerticalScrollbarAction_Callback cb) { qheaderview_verticalscrollbaraction_callback = cb; }
+    inline void setQHeaderView_HorizontalScrollbarAction_Callback(QHeaderView_HorizontalScrollbarAction_Callback cb) { qheaderview_horizontalscrollbaraction_callback = cb; }
+    inline void setQHeaderView_VerticalScrollbarValueChanged_Callback(QHeaderView_VerticalScrollbarValueChanged_Callback cb) { qheaderview_verticalscrollbarvaluechanged_callback = cb; }
+    inline void setQHeaderView_HorizontalScrollbarValueChanged_Callback(QHeaderView_HorizontalScrollbarValueChanged_Callback cb) { qheaderview_horizontalscrollbarvaluechanged_callback = cb; }
+    inline void setQHeaderView_CloseEditor_Callback(QHeaderView_CloseEditor_Callback cb) { qheaderview_closeeditor_callback = cb; }
+    inline void setQHeaderView_CommitData_Callback(QHeaderView_CommitData_Callback cb) { qheaderview_commitdata_callback = cb; }
+    inline void setQHeaderView_EditorDestroyed_Callback(QHeaderView_EditorDestroyed_Callback cb) { qheaderview_editordestroyed_callback = cb; }
+    inline void setQHeaderView_SelectedIndexes_Callback(QHeaderView_SelectedIndexes_Callback cb) { qheaderview_selectedindexes_callback = cb; }
+    inline void setQHeaderView_Edit2_Callback(QHeaderView_Edit2_Callback cb) { qheaderview_edit2_callback = cb; }
+    inline void setQHeaderView_SelectionCommand_Callback(QHeaderView_SelectionCommand_Callback cb) { qheaderview_selectioncommand_callback = cb; }
+    inline void setQHeaderView_StartDrag_Callback(QHeaderView_StartDrag_Callback cb) { qheaderview_startdrag_callback = cb; }
+    inline void setQHeaderView_InitViewItemOption_Callback(QHeaderView_InitViewItemOption_Callback cb) { qheaderview_initviewitemoption_callback = cb; }
+    inline void setQHeaderView_FocusNextPrevChild_Callback(QHeaderView_FocusNextPrevChild_Callback cb) { qheaderview_focusnextprevchild_callback = cb; }
+    inline void setQHeaderView_DragEnterEvent_Callback(QHeaderView_DragEnterEvent_Callback cb) { qheaderview_dragenterevent_callback = cb; }
+    inline void setQHeaderView_DragMoveEvent_Callback(QHeaderView_DragMoveEvent_Callback cb) { qheaderview_dragmoveevent_callback = cb; }
+    inline void setQHeaderView_DragLeaveEvent_Callback(QHeaderView_DragLeaveEvent_Callback cb) { qheaderview_dragleaveevent_callback = cb; }
+    inline void setQHeaderView_DropEvent_Callback(QHeaderView_DropEvent_Callback cb) { qheaderview_dropevent_callback = cb; }
+    inline void setQHeaderView_FocusInEvent_Callback(QHeaderView_FocusInEvent_Callback cb) { qheaderview_focusinevent_callback = cb; }
+    inline void setQHeaderView_FocusOutEvent_Callback(QHeaderView_FocusOutEvent_Callback cb) { qheaderview_focusoutevent_callback = cb; }
+    inline void setQHeaderView_KeyPressEvent_Callback(QHeaderView_KeyPressEvent_Callback cb) { qheaderview_keypressevent_callback = cb; }
+    inline void setQHeaderView_ResizeEvent_Callback(QHeaderView_ResizeEvent_Callback cb) { qheaderview_resizeevent_callback = cb; }
+    inline void setQHeaderView_TimerEvent_Callback(QHeaderView_TimerEvent_Callback cb) { qheaderview_timerevent_callback = cb; }
+    inline void setQHeaderView_InputMethodEvent_Callback(QHeaderView_InputMethodEvent_Callback cb) { qheaderview_inputmethodevent_callback = cb; }
+    inline void setQHeaderView_EventFilter_Callback(QHeaderView_EventFilter_Callback cb) { qheaderview_eventfilter_callback = cb; }
+    inline void setQHeaderView_ViewportSizeHint_Callback(QHeaderView_ViewportSizeHint_Callback cb) { qheaderview_viewportsizehint_callback = cb; }
+    inline void setQHeaderView_MinimumSizeHint_Callback(QHeaderView_MinimumSizeHint_Callback cb) { qheaderview_minimumsizehint_callback = cb; }
+    inline void setQHeaderView_SetupViewport_Callback(QHeaderView_SetupViewport_Callback cb) { qheaderview_setupviewport_callback = cb; }
+    inline void setQHeaderView_WheelEvent_Callback(QHeaderView_WheelEvent_Callback cb) { qheaderview_wheelevent_callback = cb; }
+    inline void setQHeaderView_ContextMenuEvent_Callback(QHeaderView_ContextMenuEvent_Callback cb) { qheaderview_contextmenuevent_callback = cb; }
+    inline void setQHeaderView_ChangeEvent_Callback(QHeaderView_ChangeEvent_Callback cb) { qheaderview_changeevent_callback = cb; }
+    inline void setQHeaderView_DevType_Callback(QHeaderView_DevType_Callback cb) { qheaderview_devtype_callback = cb; }
+    inline void setQHeaderView_HeightForWidth_Callback(QHeaderView_HeightForWidth_Callback cb) { qheaderview_heightforwidth_callback = cb; }
+    inline void setQHeaderView_HasHeightForWidth_Callback(QHeaderView_HasHeightForWidth_Callback cb) { qheaderview_hasheightforwidth_callback = cb; }
+    inline void setQHeaderView_PaintEngine_Callback(QHeaderView_PaintEngine_Callback cb) { qheaderview_paintengine_callback = cb; }
+    inline void setQHeaderView_KeyReleaseEvent_Callback(QHeaderView_KeyReleaseEvent_Callback cb) { qheaderview_keyreleaseevent_callback = cb; }
+    inline void setQHeaderView_EnterEvent_Callback(QHeaderView_EnterEvent_Callback cb) { qheaderview_enterevent_callback = cb; }
+    inline void setQHeaderView_LeaveEvent_Callback(QHeaderView_LeaveEvent_Callback cb) { qheaderview_leaveevent_callback = cb; }
+    inline void setQHeaderView_MoveEvent_Callback(QHeaderView_MoveEvent_Callback cb) { qheaderview_moveevent_callback = cb; }
+    inline void setQHeaderView_CloseEvent_Callback(QHeaderView_CloseEvent_Callback cb) { qheaderview_closeevent_callback = cb; }
+    inline void setQHeaderView_TabletEvent_Callback(QHeaderView_TabletEvent_Callback cb) { qheaderview_tabletevent_callback = cb; }
+    inline void setQHeaderView_ActionEvent_Callback(QHeaderView_ActionEvent_Callback cb) { qheaderview_actionevent_callback = cb; }
+    inline void setQHeaderView_ShowEvent_Callback(QHeaderView_ShowEvent_Callback cb) { qheaderview_showevent_callback = cb; }
+    inline void setQHeaderView_HideEvent_Callback(QHeaderView_HideEvent_Callback cb) { qheaderview_hideevent_callback = cb; }
+    inline void setQHeaderView_NativeEvent_Callback(QHeaderView_NativeEvent_Callback cb) { qheaderview_nativeevent_callback = cb; }
+    inline void setQHeaderView_Metric_Callback(QHeaderView_Metric_Callback cb) { qheaderview_metric_callback = cb; }
+    inline void setQHeaderView_InitPainter_Callback(QHeaderView_InitPainter_Callback cb) { qheaderview_initpainter_callback = cb; }
+    inline void setQHeaderView_Redirected_Callback(QHeaderView_Redirected_Callback cb) { qheaderview_redirected_callback = cb; }
+    inline void setQHeaderView_SharedPainter_Callback(QHeaderView_SharedPainter_Callback cb) { qheaderview_sharedpainter_callback = cb; }
+    inline void setQHeaderView_ChildEvent_Callback(QHeaderView_ChildEvent_Callback cb) { qheaderview_childevent_callback = cb; }
+    inline void setQHeaderView_CustomEvent_Callback(QHeaderView_CustomEvent_Callback cb) { qheaderview_customevent_callback = cb; }
+    inline void setQHeaderView_ConnectNotify_Callback(QHeaderView_ConnectNotify_Callback cb) { qheaderview_connectnotify_callback = cb; }
+    inline void setQHeaderView_DisconnectNotify_Callback(QHeaderView_DisconnectNotify_Callback cb) { qheaderview_disconnectnotify_callback = cb; }
+    inline void setQHeaderView_UpdateSection_Callback(QHeaderView_UpdateSection_Callback cb) { qheaderview_updatesection_callback = cb; }
+    inline void setQHeaderView_ResizeSections2_Callback(QHeaderView_ResizeSections2_Callback cb) { qheaderview_resizesections2_callback = cb; }
+    inline void setQHeaderView_SectionsInserted_Callback(QHeaderView_SectionsInserted_Callback cb) { qheaderview_sectionsinserted_callback = cb; }
+    inline void setQHeaderView_SectionsAboutToBeRemoved_Callback(QHeaderView_SectionsAboutToBeRemoved_Callback cb) { qheaderview_sectionsabouttoberemoved_callback = cb; }
+    inline void setQHeaderView_Initialize_Callback(QHeaderView_Initialize_Callback cb) { qheaderview_initialize_callback = cb; }
+    inline void setQHeaderView_InitializeSections_Callback(QHeaderView_InitializeSections_Callback cb) { qheaderview_initializesections_callback = cb; }
+    inline void setQHeaderView_InitializeSections2_Callback(QHeaderView_InitializeSections2_Callback cb) { qheaderview_initializesections2_callback = cb; }
+    inline void setQHeaderView_State_Callback(QHeaderView_State_Callback cb) { qheaderview_state_callback = cb; }
+    inline void setQHeaderView_SetState_Callback(QHeaderView_SetState_Callback cb) { qheaderview_setstate_callback = cb; }
+    inline void setQHeaderView_ScheduleDelayedItemsLayout_Callback(QHeaderView_ScheduleDelayedItemsLayout_Callback cb) { qheaderview_scheduledelayeditemslayout_callback = cb; }
+    inline void setQHeaderView_ExecuteDelayedItemsLayout_Callback(QHeaderView_ExecuteDelayedItemsLayout_Callback cb) { qheaderview_executedelayeditemslayout_callback = cb; }
+    inline void setQHeaderView_SetDirtyRegion_Callback(QHeaderView_SetDirtyRegion_Callback cb) { qheaderview_setdirtyregion_callback = cb; }
+    inline void setQHeaderView_ScrollDirtyRegion_Callback(QHeaderView_ScrollDirtyRegion_Callback cb) { qheaderview_scrolldirtyregion_callback = cb; }
+    inline void setQHeaderView_DirtyRegionOffset_Callback(QHeaderView_DirtyRegionOffset_Callback cb) { qheaderview_dirtyregionoffset_callback = cb; }
+    inline void setQHeaderView_StartAutoScroll_Callback(QHeaderView_StartAutoScroll_Callback cb) { qheaderview_startautoscroll_callback = cb; }
+    inline void setQHeaderView_StopAutoScroll_Callback(QHeaderView_StopAutoScroll_Callback cb) { qheaderview_stopautoscroll_callback = cb; }
+    inline void setQHeaderView_DoAutoScroll_Callback(QHeaderView_DoAutoScroll_Callback cb) { qheaderview_doautoscroll_callback = cb; }
+    inline void setQHeaderView_DropIndicatorPosition_Callback(QHeaderView_DropIndicatorPosition_Callback cb) { qheaderview_dropindicatorposition_callback = cb; }
+    inline void setQHeaderView_SetViewportMargins_Callback(QHeaderView_SetViewportMargins_Callback cb) { qheaderview_setviewportmargins_callback = cb; }
+    inline void setQHeaderView_ViewportMargins_Callback(QHeaderView_ViewportMargins_Callback cb) { qheaderview_viewportmargins_callback = cb; }
+    inline void setQHeaderView_DrawFrame_Callback(QHeaderView_DrawFrame_Callback cb) { qheaderview_drawframe_callback = cb; }
+    inline void setQHeaderView_UpdateMicroFocus_Callback(QHeaderView_UpdateMicroFocus_Callback cb) { qheaderview_updatemicrofocus_callback = cb; }
+    inline void setQHeaderView_Create_Callback(QHeaderView_Create_Callback cb) { qheaderview_create_callback = cb; }
+    inline void setQHeaderView_Destroy_Callback(QHeaderView_Destroy_Callback cb) { qheaderview_destroy_callback = cb; }
+    inline void setQHeaderView_FocusNextChild_Callback(QHeaderView_FocusNextChild_Callback cb) { qheaderview_focusnextchild_callback = cb; }
+    inline void setQHeaderView_FocusPreviousChild_Callback(QHeaderView_FocusPreviousChild_Callback cb) { qheaderview_focuspreviouschild_callback = cb; }
+    inline void setQHeaderView_Sender_Callback(QHeaderView_Sender_Callback cb) { qheaderview_sender_callback = cb; }
+    inline void setQHeaderView_SenderSignalIndex_Callback(QHeaderView_SenderSignalIndex_Callback cb) { qheaderview_sendersignalindex_callback = cb; }
+    inline void setQHeaderView_Receivers_Callback(QHeaderView_Receivers_Callback cb) { qheaderview_receivers_callback = cb; }
+    inline void setQHeaderView_IsSignalConnected_Callback(QHeaderView_IsSignalConnected_Callback cb) { qheaderview_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQHeaderView_Metacall_IsBase(bool value) const { qheaderview_metacall_isbase = value; }
-    void setQHeaderView_SetModel_IsBase(bool value) const { qheaderview_setmodel_isbase = value; }
-    void setQHeaderView_SizeHint_IsBase(bool value) const { qheaderview_sizehint_isbase = value; }
-    void setQHeaderView_SetVisible_IsBase(bool value) const { qheaderview_setvisible_isbase = value; }
-    void setQHeaderView_DoItemsLayout_IsBase(bool value) const { qheaderview_doitemslayout_isbase = value; }
-    void setQHeaderView_Reset_IsBase(bool value) const { qheaderview_reset_isbase = value; }
-    void setQHeaderView_CurrentChanged_IsBase(bool value) const { qheaderview_currentchanged_isbase = value; }
-    void setQHeaderView_Event_IsBase(bool value) const { qheaderview_event_isbase = value; }
-    void setQHeaderView_PaintEvent_IsBase(bool value) const { qheaderview_paintevent_isbase = value; }
-    void setQHeaderView_MousePressEvent_IsBase(bool value) const { qheaderview_mousepressevent_isbase = value; }
-    void setQHeaderView_MouseMoveEvent_IsBase(bool value) const { qheaderview_mousemoveevent_isbase = value; }
-    void setQHeaderView_MouseReleaseEvent_IsBase(bool value) const { qheaderview_mousereleaseevent_isbase = value; }
-    void setQHeaderView_MouseDoubleClickEvent_IsBase(bool value) const { qheaderview_mousedoubleclickevent_isbase = value; }
-    void setQHeaderView_ViewportEvent_IsBase(bool value) const { qheaderview_viewportevent_isbase = value; }
-    void setQHeaderView_PaintSection_IsBase(bool value) const { qheaderview_paintsection_isbase = value; }
-    void setQHeaderView_SectionSizeFromContents_IsBase(bool value) const { qheaderview_sectionsizefromcontents_isbase = value; }
-    void setQHeaderView_HorizontalOffset_IsBase(bool value) const { qheaderview_horizontaloffset_isbase = value; }
-    void setQHeaderView_VerticalOffset_IsBase(bool value) const { qheaderview_verticaloffset_isbase = value; }
-    void setQHeaderView_UpdateGeometries_IsBase(bool value) const { qheaderview_updategeometries_isbase = value; }
-    void setQHeaderView_ScrollContentsBy_IsBase(bool value) const { qheaderview_scrollcontentsby_isbase = value; }
-    void setQHeaderView_DataChanged_IsBase(bool value) const { qheaderview_datachanged_isbase = value; }
-    void setQHeaderView_RowsInserted_IsBase(bool value) const { qheaderview_rowsinserted_isbase = value; }
-    void setQHeaderView_VisualRect_IsBase(bool value) const { qheaderview_visualrect_isbase = value; }
-    void setQHeaderView_ScrollTo_IsBase(bool value) const { qheaderview_scrollto_isbase = value; }
-    void setQHeaderView_IndexAt_IsBase(bool value) const { qheaderview_indexat_isbase = value; }
-    void setQHeaderView_IsIndexHidden_IsBase(bool value) const { qheaderview_isindexhidden_isbase = value; }
-    void setQHeaderView_MoveCursor_IsBase(bool value) const { qheaderview_movecursor_isbase = value; }
-    void setQHeaderView_SetSelection_IsBase(bool value) const { qheaderview_setselection_isbase = value; }
-    void setQHeaderView_VisualRegionForSelection_IsBase(bool value) const { qheaderview_visualregionforselection_isbase = value; }
-    void setQHeaderView_InitStyleOptionForIndex_IsBase(bool value) const { qheaderview_initstyleoptionforindex_isbase = value; }
-    void setQHeaderView_InitStyleOption_IsBase(bool value) const { qheaderview_initstyleoption_isbase = value; }
-    void setQHeaderView_SetSelectionModel_IsBase(bool value) const { qheaderview_setselectionmodel_isbase = value; }
-    void setQHeaderView_KeyboardSearch_IsBase(bool value) const { qheaderview_keyboardsearch_isbase = value; }
-    void setQHeaderView_SizeHintForRow_IsBase(bool value) const { qheaderview_sizehintforrow_isbase = value; }
-    void setQHeaderView_SizeHintForColumn_IsBase(bool value) const { qheaderview_sizehintforcolumn_isbase = value; }
-    void setQHeaderView_ItemDelegateForIndex_IsBase(bool value) const { qheaderview_itemdelegateforindex_isbase = value; }
-    void setQHeaderView_InputMethodQuery_IsBase(bool value) const { qheaderview_inputmethodquery_isbase = value; }
-    void setQHeaderView_SetRootIndex_IsBase(bool value) const { qheaderview_setrootindex_isbase = value; }
-    void setQHeaderView_SelectAll_IsBase(bool value) const { qheaderview_selectall_isbase = value; }
-    void setQHeaderView_RowsAboutToBeRemoved_IsBase(bool value) const { qheaderview_rowsabouttoberemoved_isbase = value; }
-    void setQHeaderView_SelectionChanged_IsBase(bool value) const { qheaderview_selectionchanged_isbase = value; }
-    void setQHeaderView_UpdateEditorData_IsBase(bool value) const { qheaderview_updateeditordata_isbase = value; }
-    void setQHeaderView_UpdateEditorGeometries_IsBase(bool value) const { qheaderview_updateeditorgeometries_isbase = value; }
-    void setQHeaderView_VerticalScrollbarAction_IsBase(bool value) const { qheaderview_verticalscrollbaraction_isbase = value; }
-    void setQHeaderView_HorizontalScrollbarAction_IsBase(bool value) const { qheaderview_horizontalscrollbaraction_isbase = value; }
-    void setQHeaderView_VerticalScrollbarValueChanged_IsBase(bool value) const { qheaderview_verticalscrollbarvaluechanged_isbase = value; }
-    void setQHeaderView_HorizontalScrollbarValueChanged_IsBase(bool value) const { qheaderview_horizontalscrollbarvaluechanged_isbase = value; }
-    void setQHeaderView_CloseEditor_IsBase(bool value) const { qheaderview_closeeditor_isbase = value; }
-    void setQHeaderView_CommitData_IsBase(bool value) const { qheaderview_commitdata_isbase = value; }
-    void setQHeaderView_EditorDestroyed_IsBase(bool value) const { qheaderview_editordestroyed_isbase = value; }
-    void setQHeaderView_SelectedIndexes_IsBase(bool value) const { qheaderview_selectedindexes_isbase = value; }
-    void setQHeaderView_Edit2_IsBase(bool value) const { qheaderview_edit2_isbase = value; }
-    void setQHeaderView_SelectionCommand_IsBase(bool value) const { qheaderview_selectioncommand_isbase = value; }
-    void setQHeaderView_StartDrag_IsBase(bool value) const { qheaderview_startdrag_isbase = value; }
-    void setQHeaderView_InitViewItemOption_IsBase(bool value) const { qheaderview_initviewitemoption_isbase = value; }
-    void setQHeaderView_FocusNextPrevChild_IsBase(bool value) const { qheaderview_focusnextprevchild_isbase = value; }
-    void setQHeaderView_DragEnterEvent_IsBase(bool value) const { qheaderview_dragenterevent_isbase = value; }
-    void setQHeaderView_DragMoveEvent_IsBase(bool value) const { qheaderview_dragmoveevent_isbase = value; }
-    void setQHeaderView_DragLeaveEvent_IsBase(bool value) const { qheaderview_dragleaveevent_isbase = value; }
-    void setQHeaderView_DropEvent_IsBase(bool value) const { qheaderview_dropevent_isbase = value; }
-    void setQHeaderView_FocusInEvent_IsBase(bool value) const { qheaderview_focusinevent_isbase = value; }
-    void setQHeaderView_FocusOutEvent_IsBase(bool value) const { qheaderview_focusoutevent_isbase = value; }
-    void setQHeaderView_KeyPressEvent_IsBase(bool value) const { qheaderview_keypressevent_isbase = value; }
-    void setQHeaderView_ResizeEvent_IsBase(bool value) const { qheaderview_resizeevent_isbase = value; }
-    void setQHeaderView_TimerEvent_IsBase(bool value) const { qheaderview_timerevent_isbase = value; }
-    void setQHeaderView_InputMethodEvent_IsBase(bool value) const { qheaderview_inputmethodevent_isbase = value; }
-    void setQHeaderView_EventFilter_IsBase(bool value) const { qheaderview_eventfilter_isbase = value; }
-    void setQHeaderView_ViewportSizeHint_IsBase(bool value) const { qheaderview_viewportsizehint_isbase = value; }
-    void setQHeaderView_MinimumSizeHint_IsBase(bool value) const { qheaderview_minimumsizehint_isbase = value; }
-    void setQHeaderView_SetupViewport_IsBase(bool value) const { qheaderview_setupviewport_isbase = value; }
-    void setQHeaderView_WheelEvent_IsBase(bool value) const { qheaderview_wheelevent_isbase = value; }
-    void setQHeaderView_ContextMenuEvent_IsBase(bool value) const { qheaderview_contextmenuevent_isbase = value; }
-    void setQHeaderView_ChangeEvent_IsBase(bool value) const { qheaderview_changeevent_isbase = value; }
-    void setQHeaderView_DevType_IsBase(bool value) const { qheaderview_devtype_isbase = value; }
-    void setQHeaderView_HeightForWidth_IsBase(bool value) const { qheaderview_heightforwidth_isbase = value; }
-    void setQHeaderView_HasHeightForWidth_IsBase(bool value) const { qheaderview_hasheightforwidth_isbase = value; }
-    void setQHeaderView_PaintEngine_IsBase(bool value) const { qheaderview_paintengine_isbase = value; }
-    void setQHeaderView_KeyReleaseEvent_IsBase(bool value) const { qheaderview_keyreleaseevent_isbase = value; }
-    void setQHeaderView_EnterEvent_IsBase(bool value) const { qheaderview_enterevent_isbase = value; }
-    void setQHeaderView_LeaveEvent_IsBase(bool value) const { qheaderview_leaveevent_isbase = value; }
-    void setQHeaderView_MoveEvent_IsBase(bool value) const { qheaderview_moveevent_isbase = value; }
-    void setQHeaderView_CloseEvent_IsBase(bool value) const { qheaderview_closeevent_isbase = value; }
-    void setQHeaderView_TabletEvent_IsBase(bool value) const { qheaderview_tabletevent_isbase = value; }
-    void setQHeaderView_ActionEvent_IsBase(bool value) const { qheaderview_actionevent_isbase = value; }
-    void setQHeaderView_ShowEvent_IsBase(bool value) const { qheaderview_showevent_isbase = value; }
-    void setQHeaderView_HideEvent_IsBase(bool value) const { qheaderview_hideevent_isbase = value; }
-    void setQHeaderView_NativeEvent_IsBase(bool value) const { qheaderview_nativeevent_isbase = value; }
-    void setQHeaderView_Metric_IsBase(bool value) const { qheaderview_metric_isbase = value; }
-    void setQHeaderView_InitPainter_IsBase(bool value) const { qheaderview_initpainter_isbase = value; }
-    void setQHeaderView_Redirected_IsBase(bool value) const { qheaderview_redirected_isbase = value; }
-    void setQHeaderView_SharedPainter_IsBase(bool value) const { qheaderview_sharedpainter_isbase = value; }
-    void setQHeaderView_ChildEvent_IsBase(bool value) const { qheaderview_childevent_isbase = value; }
-    void setQHeaderView_CustomEvent_IsBase(bool value) const { qheaderview_customevent_isbase = value; }
-    void setQHeaderView_ConnectNotify_IsBase(bool value) const { qheaderview_connectnotify_isbase = value; }
-    void setQHeaderView_DisconnectNotify_IsBase(bool value) const { qheaderview_disconnectnotify_isbase = value; }
-    void setQHeaderView_UpdateSection_IsBase(bool value) const { qheaderview_updatesection_isbase = value; }
-    void setQHeaderView_ResizeSections2_IsBase(bool value) const { qheaderview_resizesections2_isbase = value; }
-    void setQHeaderView_SectionsInserted_IsBase(bool value) const { qheaderview_sectionsinserted_isbase = value; }
-    void setQHeaderView_SectionsAboutToBeRemoved_IsBase(bool value) const { qheaderview_sectionsabouttoberemoved_isbase = value; }
-    void setQHeaderView_Initialize_IsBase(bool value) const { qheaderview_initialize_isbase = value; }
-    void setQHeaderView_InitializeSections_IsBase(bool value) const { qheaderview_initializesections_isbase = value; }
-    void setQHeaderView_InitializeSections2_IsBase(bool value) const { qheaderview_initializesections2_isbase = value; }
-    void setQHeaderView_State_IsBase(bool value) const { qheaderview_state_isbase = value; }
-    void setQHeaderView_SetState_IsBase(bool value) const { qheaderview_setstate_isbase = value; }
-    void setQHeaderView_ScheduleDelayedItemsLayout_IsBase(bool value) const { qheaderview_scheduledelayeditemslayout_isbase = value; }
-    void setQHeaderView_ExecuteDelayedItemsLayout_IsBase(bool value) const { qheaderview_executedelayeditemslayout_isbase = value; }
-    void setQHeaderView_SetDirtyRegion_IsBase(bool value) const { qheaderview_setdirtyregion_isbase = value; }
-    void setQHeaderView_ScrollDirtyRegion_IsBase(bool value) const { qheaderview_scrolldirtyregion_isbase = value; }
-    void setQHeaderView_DirtyRegionOffset_IsBase(bool value) const { qheaderview_dirtyregionoffset_isbase = value; }
-    void setQHeaderView_StartAutoScroll_IsBase(bool value) const { qheaderview_startautoscroll_isbase = value; }
-    void setQHeaderView_StopAutoScroll_IsBase(bool value) const { qheaderview_stopautoscroll_isbase = value; }
-    void setQHeaderView_DoAutoScroll_IsBase(bool value) const { qheaderview_doautoscroll_isbase = value; }
-    void setQHeaderView_DropIndicatorPosition_IsBase(bool value) const { qheaderview_dropindicatorposition_isbase = value; }
-    void setQHeaderView_SetViewportMargins_IsBase(bool value) const { qheaderview_setviewportmargins_isbase = value; }
-    void setQHeaderView_ViewportMargins_IsBase(bool value) const { qheaderview_viewportmargins_isbase = value; }
-    void setQHeaderView_DrawFrame_IsBase(bool value) const { qheaderview_drawframe_isbase = value; }
-    void setQHeaderView_UpdateMicroFocus_IsBase(bool value) const { qheaderview_updatemicrofocus_isbase = value; }
-    void setQHeaderView_Create_IsBase(bool value) const { qheaderview_create_isbase = value; }
-    void setQHeaderView_Destroy_IsBase(bool value) const { qheaderview_destroy_isbase = value; }
-    void setQHeaderView_FocusNextChild_IsBase(bool value) const { qheaderview_focusnextchild_isbase = value; }
-    void setQHeaderView_FocusPreviousChild_IsBase(bool value) const { qheaderview_focuspreviouschild_isbase = value; }
-    void setQHeaderView_Sender_IsBase(bool value) const { qheaderview_sender_isbase = value; }
-    void setQHeaderView_SenderSignalIndex_IsBase(bool value) const { qheaderview_sendersignalindex_isbase = value; }
-    void setQHeaderView_Receivers_IsBase(bool value) const { qheaderview_receivers_isbase = value; }
-    void setQHeaderView_IsSignalConnected_IsBase(bool value) const { qheaderview_issignalconnected_isbase = value; }
+    inline void setQHeaderView_Metacall_IsBase(bool value) const { qheaderview_metacall_isbase = value; }
+    inline void setQHeaderView_SetModel_IsBase(bool value) const { qheaderview_setmodel_isbase = value; }
+    inline void setQHeaderView_SizeHint_IsBase(bool value) const { qheaderview_sizehint_isbase = value; }
+    inline void setQHeaderView_SetVisible_IsBase(bool value) const { qheaderview_setvisible_isbase = value; }
+    inline void setQHeaderView_DoItemsLayout_IsBase(bool value) const { qheaderview_doitemslayout_isbase = value; }
+    inline void setQHeaderView_Reset_IsBase(bool value) const { qheaderview_reset_isbase = value; }
+    inline void setQHeaderView_CurrentChanged_IsBase(bool value) const { qheaderview_currentchanged_isbase = value; }
+    inline void setQHeaderView_Event_IsBase(bool value) const { qheaderview_event_isbase = value; }
+    inline void setQHeaderView_PaintEvent_IsBase(bool value) const { qheaderview_paintevent_isbase = value; }
+    inline void setQHeaderView_MousePressEvent_IsBase(bool value) const { qheaderview_mousepressevent_isbase = value; }
+    inline void setQHeaderView_MouseMoveEvent_IsBase(bool value) const { qheaderview_mousemoveevent_isbase = value; }
+    inline void setQHeaderView_MouseReleaseEvent_IsBase(bool value) const { qheaderview_mousereleaseevent_isbase = value; }
+    inline void setQHeaderView_MouseDoubleClickEvent_IsBase(bool value) const { qheaderview_mousedoubleclickevent_isbase = value; }
+    inline void setQHeaderView_ViewportEvent_IsBase(bool value) const { qheaderview_viewportevent_isbase = value; }
+    inline void setQHeaderView_PaintSection_IsBase(bool value) const { qheaderview_paintsection_isbase = value; }
+    inline void setQHeaderView_SectionSizeFromContents_IsBase(bool value) const { qheaderview_sectionsizefromcontents_isbase = value; }
+    inline void setQHeaderView_HorizontalOffset_IsBase(bool value) const { qheaderview_horizontaloffset_isbase = value; }
+    inline void setQHeaderView_VerticalOffset_IsBase(bool value) const { qheaderview_verticaloffset_isbase = value; }
+    inline void setQHeaderView_UpdateGeometries_IsBase(bool value) const { qheaderview_updategeometries_isbase = value; }
+    inline void setQHeaderView_ScrollContentsBy_IsBase(bool value) const { qheaderview_scrollcontentsby_isbase = value; }
+    inline void setQHeaderView_DataChanged_IsBase(bool value) const { qheaderview_datachanged_isbase = value; }
+    inline void setQHeaderView_RowsInserted_IsBase(bool value) const { qheaderview_rowsinserted_isbase = value; }
+    inline void setQHeaderView_VisualRect_IsBase(bool value) const { qheaderview_visualrect_isbase = value; }
+    inline void setQHeaderView_ScrollTo_IsBase(bool value) const { qheaderview_scrollto_isbase = value; }
+    inline void setQHeaderView_IndexAt_IsBase(bool value) const { qheaderview_indexat_isbase = value; }
+    inline void setQHeaderView_IsIndexHidden_IsBase(bool value) const { qheaderview_isindexhidden_isbase = value; }
+    inline void setQHeaderView_MoveCursor_IsBase(bool value) const { qheaderview_movecursor_isbase = value; }
+    inline void setQHeaderView_SetSelection_IsBase(bool value) const { qheaderview_setselection_isbase = value; }
+    inline void setQHeaderView_VisualRegionForSelection_IsBase(bool value) const { qheaderview_visualregionforselection_isbase = value; }
+    inline void setQHeaderView_InitStyleOptionForIndex_IsBase(bool value) const { qheaderview_initstyleoptionforindex_isbase = value; }
+    inline void setQHeaderView_InitStyleOption_IsBase(bool value) const { qheaderview_initstyleoption_isbase = value; }
+    inline void setQHeaderView_SetSelectionModel_IsBase(bool value) const { qheaderview_setselectionmodel_isbase = value; }
+    inline void setQHeaderView_KeyboardSearch_IsBase(bool value) const { qheaderview_keyboardsearch_isbase = value; }
+    inline void setQHeaderView_SizeHintForRow_IsBase(bool value) const { qheaderview_sizehintforrow_isbase = value; }
+    inline void setQHeaderView_SizeHintForColumn_IsBase(bool value) const { qheaderview_sizehintforcolumn_isbase = value; }
+    inline void setQHeaderView_ItemDelegateForIndex_IsBase(bool value) const { qheaderview_itemdelegateforindex_isbase = value; }
+    inline void setQHeaderView_InputMethodQuery_IsBase(bool value) const { qheaderview_inputmethodquery_isbase = value; }
+    inline void setQHeaderView_SetRootIndex_IsBase(bool value) const { qheaderview_setrootindex_isbase = value; }
+    inline void setQHeaderView_SelectAll_IsBase(bool value) const { qheaderview_selectall_isbase = value; }
+    inline void setQHeaderView_RowsAboutToBeRemoved_IsBase(bool value) const { qheaderview_rowsabouttoberemoved_isbase = value; }
+    inline void setQHeaderView_SelectionChanged_IsBase(bool value) const { qheaderview_selectionchanged_isbase = value; }
+    inline void setQHeaderView_UpdateEditorData_IsBase(bool value) const { qheaderview_updateeditordata_isbase = value; }
+    inline void setQHeaderView_UpdateEditorGeometries_IsBase(bool value) const { qheaderview_updateeditorgeometries_isbase = value; }
+    inline void setQHeaderView_VerticalScrollbarAction_IsBase(bool value) const { qheaderview_verticalscrollbaraction_isbase = value; }
+    inline void setQHeaderView_HorizontalScrollbarAction_IsBase(bool value) const { qheaderview_horizontalscrollbaraction_isbase = value; }
+    inline void setQHeaderView_VerticalScrollbarValueChanged_IsBase(bool value) const { qheaderview_verticalscrollbarvaluechanged_isbase = value; }
+    inline void setQHeaderView_HorizontalScrollbarValueChanged_IsBase(bool value) const { qheaderview_horizontalscrollbarvaluechanged_isbase = value; }
+    inline void setQHeaderView_CloseEditor_IsBase(bool value) const { qheaderview_closeeditor_isbase = value; }
+    inline void setQHeaderView_CommitData_IsBase(bool value) const { qheaderview_commitdata_isbase = value; }
+    inline void setQHeaderView_EditorDestroyed_IsBase(bool value) const { qheaderview_editordestroyed_isbase = value; }
+    inline void setQHeaderView_SelectedIndexes_IsBase(bool value) const { qheaderview_selectedindexes_isbase = value; }
+    inline void setQHeaderView_Edit2_IsBase(bool value) const { qheaderview_edit2_isbase = value; }
+    inline void setQHeaderView_SelectionCommand_IsBase(bool value) const { qheaderview_selectioncommand_isbase = value; }
+    inline void setQHeaderView_StartDrag_IsBase(bool value) const { qheaderview_startdrag_isbase = value; }
+    inline void setQHeaderView_InitViewItemOption_IsBase(bool value) const { qheaderview_initviewitemoption_isbase = value; }
+    inline void setQHeaderView_FocusNextPrevChild_IsBase(bool value) const { qheaderview_focusnextprevchild_isbase = value; }
+    inline void setQHeaderView_DragEnterEvent_IsBase(bool value) const { qheaderview_dragenterevent_isbase = value; }
+    inline void setQHeaderView_DragMoveEvent_IsBase(bool value) const { qheaderview_dragmoveevent_isbase = value; }
+    inline void setQHeaderView_DragLeaveEvent_IsBase(bool value) const { qheaderview_dragleaveevent_isbase = value; }
+    inline void setQHeaderView_DropEvent_IsBase(bool value) const { qheaderview_dropevent_isbase = value; }
+    inline void setQHeaderView_FocusInEvent_IsBase(bool value) const { qheaderview_focusinevent_isbase = value; }
+    inline void setQHeaderView_FocusOutEvent_IsBase(bool value) const { qheaderview_focusoutevent_isbase = value; }
+    inline void setQHeaderView_KeyPressEvent_IsBase(bool value) const { qheaderview_keypressevent_isbase = value; }
+    inline void setQHeaderView_ResizeEvent_IsBase(bool value) const { qheaderview_resizeevent_isbase = value; }
+    inline void setQHeaderView_TimerEvent_IsBase(bool value) const { qheaderview_timerevent_isbase = value; }
+    inline void setQHeaderView_InputMethodEvent_IsBase(bool value) const { qheaderview_inputmethodevent_isbase = value; }
+    inline void setQHeaderView_EventFilter_IsBase(bool value) const { qheaderview_eventfilter_isbase = value; }
+    inline void setQHeaderView_ViewportSizeHint_IsBase(bool value) const { qheaderview_viewportsizehint_isbase = value; }
+    inline void setQHeaderView_MinimumSizeHint_IsBase(bool value) const { qheaderview_minimumsizehint_isbase = value; }
+    inline void setQHeaderView_SetupViewport_IsBase(bool value) const { qheaderview_setupviewport_isbase = value; }
+    inline void setQHeaderView_WheelEvent_IsBase(bool value) const { qheaderview_wheelevent_isbase = value; }
+    inline void setQHeaderView_ContextMenuEvent_IsBase(bool value) const { qheaderview_contextmenuevent_isbase = value; }
+    inline void setQHeaderView_ChangeEvent_IsBase(bool value) const { qheaderview_changeevent_isbase = value; }
+    inline void setQHeaderView_DevType_IsBase(bool value) const { qheaderview_devtype_isbase = value; }
+    inline void setQHeaderView_HeightForWidth_IsBase(bool value) const { qheaderview_heightforwidth_isbase = value; }
+    inline void setQHeaderView_HasHeightForWidth_IsBase(bool value) const { qheaderview_hasheightforwidth_isbase = value; }
+    inline void setQHeaderView_PaintEngine_IsBase(bool value) const { qheaderview_paintengine_isbase = value; }
+    inline void setQHeaderView_KeyReleaseEvent_IsBase(bool value) const { qheaderview_keyreleaseevent_isbase = value; }
+    inline void setQHeaderView_EnterEvent_IsBase(bool value) const { qheaderview_enterevent_isbase = value; }
+    inline void setQHeaderView_LeaveEvent_IsBase(bool value) const { qheaderview_leaveevent_isbase = value; }
+    inline void setQHeaderView_MoveEvent_IsBase(bool value) const { qheaderview_moveevent_isbase = value; }
+    inline void setQHeaderView_CloseEvent_IsBase(bool value) const { qheaderview_closeevent_isbase = value; }
+    inline void setQHeaderView_TabletEvent_IsBase(bool value) const { qheaderview_tabletevent_isbase = value; }
+    inline void setQHeaderView_ActionEvent_IsBase(bool value) const { qheaderview_actionevent_isbase = value; }
+    inline void setQHeaderView_ShowEvent_IsBase(bool value) const { qheaderview_showevent_isbase = value; }
+    inline void setQHeaderView_HideEvent_IsBase(bool value) const { qheaderview_hideevent_isbase = value; }
+    inline void setQHeaderView_NativeEvent_IsBase(bool value) const { qheaderview_nativeevent_isbase = value; }
+    inline void setQHeaderView_Metric_IsBase(bool value) const { qheaderview_metric_isbase = value; }
+    inline void setQHeaderView_InitPainter_IsBase(bool value) const { qheaderview_initpainter_isbase = value; }
+    inline void setQHeaderView_Redirected_IsBase(bool value) const { qheaderview_redirected_isbase = value; }
+    inline void setQHeaderView_SharedPainter_IsBase(bool value) const { qheaderview_sharedpainter_isbase = value; }
+    inline void setQHeaderView_ChildEvent_IsBase(bool value) const { qheaderview_childevent_isbase = value; }
+    inline void setQHeaderView_CustomEvent_IsBase(bool value) const { qheaderview_customevent_isbase = value; }
+    inline void setQHeaderView_ConnectNotify_IsBase(bool value) const { qheaderview_connectnotify_isbase = value; }
+    inline void setQHeaderView_DisconnectNotify_IsBase(bool value) const { qheaderview_disconnectnotify_isbase = value; }
+    inline void setQHeaderView_UpdateSection_IsBase(bool value) const { qheaderview_updatesection_isbase = value; }
+    inline void setQHeaderView_ResizeSections2_IsBase(bool value) const { qheaderview_resizesections2_isbase = value; }
+    inline void setQHeaderView_SectionsInserted_IsBase(bool value) const { qheaderview_sectionsinserted_isbase = value; }
+    inline void setQHeaderView_SectionsAboutToBeRemoved_IsBase(bool value) const { qheaderview_sectionsabouttoberemoved_isbase = value; }
+    inline void setQHeaderView_Initialize_IsBase(bool value) const { qheaderview_initialize_isbase = value; }
+    inline void setQHeaderView_InitializeSections_IsBase(bool value) const { qheaderview_initializesections_isbase = value; }
+    inline void setQHeaderView_InitializeSections2_IsBase(bool value) const { qheaderview_initializesections2_isbase = value; }
+    inline void setQHeaderView_State_IsBase(bool value) const { qheaderview_state_isbase = value; }
+    inline void setQHeaderView_SetState_IsBase(bool value) const { qheaderview_setstate_isbase = value; }
+    inline void setQHeaderView_ScheduleDelayedItemsLayout_IsBase(bool value) const { qheaderview_scheduledelayeditemslayout_isbase = value; }
+    inline void setQHeaderView_ExecuteDelayedItemsLayout_IsBase(bool value) const { qheaderview_executedelayeditemslayout_isbase = value; }
+    inline void setQHeaderView_SetDirtyRegion_IsBase(bool value) const { qheaderview_setdirtyregion_isbase = value; }
+    inline void setQHeaderView_ScrollDirtyRegion_IsBase(bool value) const { qheaderview_scrolldirtyregion_isbase = value; }
+    inline void setQHeaderView_DirtyRegionOffset_IsBase(bool value) const { qheaderview_dirtyregionoffset_isbase = value; }
+    inline void setQHeaderView_StartAutoScroll_IsBase(bool value) const { qheaderview_startautoscroll_isbase = value; }
+    inline void setQHeaderView_StopAutoScroll_IsBase(bool value) const { qheaderview_stopautoscroll_isbase = value; }
+    inline void setQHeaderView_DoAutoScroll_IsBase(bool value) const { qheaderview_doautoscroll_isbase = value; }
+    inline void setQHeaderView_DropIndicatorPosition_IsBase(bool value) const { qheaderview_dropindicatorposition_isbase = value; }
+    inline void setQHeaderView_SetViewportMargins_IsBase(bool value) const { qheaderview_setviewportmargins_isbase = value; }
+    inline void setQHeaderView_ViewportMargins_IsBase(bool value) const { qheaderview_viewportmargins_isbase = value; }
+    inline void setQHeaderView_DrawFrame_IsBase(bool value) const { qheaderview_drawframe_isbase = value; }
+    inline void setQHeaderView_UpdateMicroFocus_IsBase(bool value) const { qheaderview_updatemicrofocus_isbase = value; }
+    inline void setQHeaderView_Create_IsBase(bool value) const { qheaderview_create_isbase = value; }
+    inline void setQHeaderView_Destroy_IsBase(bool value) const { qheaderview_destroy_isbase = value; }
+    inline void setQHeaderView_FocusNextChild_IsBase(bool value) const { qheaderview_focusnextchild_isbase = value; }
+    inline void setQHeaderView_FocusPreviousChild_IsBase(bool value) const { qheaderview_focuspreviouschild_isbase = value; }
+    inline void setQHeaderView_Sender_IsBase(bool value) const { qheaderview_sender_isbase = value; }
+    inline void setQHeaderView_SenderSignalIndex_IsBase(bool value) const { qheaderview_sendersignalindex_isbase = value; }
+    inline void setQHeaderView_Receivers_IsBase(bool value) const { qheaderview_receivers_isbase = value; }
+    inline void setQHeaderView_IsSignalConnected_IsBase(bool value) const { qheaderview_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -791,7 +794,12 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_metacall_isbase = false;
             return QHeaderView::qt_metacall(param1, param2, param3);
         } else if (qheaderview_metacall_callback != nullptr) {
-            return qheaderview_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qheaderview_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QHeaderView::qt_metacall(param1, param2, param3);
         }
@@ -803,7 +811,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_setmodel_isbase = false;
             QHeaderView::setModel(model);
         } else if (qheaderview_setmodel_callback != nullptr) {
-            qheaderview_setmodel_callback(this, model);
+            QAbstractItemModel* cbval1 = model;
+
+            qheaderview_setmodel_callback(this, cbval1);
         } else {
             QHeaderView::setModel(model);
         }
@@ -815,7 +825,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_sizehint_isbase = false;
             return QHeaderView::sizeHint();
         } else if (qheaderview_sizehint_callback != nullptr) {
-            return qheaderview_sizehint_callback();
+            QSize* callback_ret = qheaderview_sizehint_callback();
+            return *callback_ret;
         } else {
             return QHeaderView::sizeHint();
         }
@@ -827,7 +838,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_setvisible_isbase = false;
             QHeaderView::setVisible(v);
         } else if (qheaderview_setvisible_callback != nullptr) {
-            qheaderview_setvisible_callback(this, v);
+            bool cbval1 = v;
+
+            qheaderview_setvisible_callback(this, cbval1);
         } else {
             QHeaderView::setVisible(v);
         }
@@ -863,7 +876,14 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_currentchanged_isbase = false;
             QHeaderView::currentChanged(current, old);
         } else if (qheaderview_currentchanged_callback != nullptr) {
-            qheaderview_currentchanged_callback(this, current, old);
+            const QModelIndex& current_ret = current;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&current_ret);
+            const QModelIndex& old_ret = old;
+            // Cast returned reference into pointer
+            QModelIndex* cbval2 = const_cast<QModelIndex*>(&old_ret);
+
+            qheaderview_currentchanged_callback(this, cbval1, cbval2);
         } else {
             QHeaderView::currentChanged(current, old);
         }
@@ -875,7 +895,10 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_event_isbase = false;
             return QHeaderView::event(e);
         } else if (qheaderview_event_callback != nullptr) {
-            return qheaderview_event_callback(this, e);
+            QEvent* cbval1 = e;
+
+            bool callback_ret = qheaderview_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QHeaderView::event(e);
         }
@@ -887,7 +910,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_paintevent_isbase = false;
             QHeaderView::paintEvent(e);
         } else if (qheaderview_paintevent_callback != nullptr) {
-            qheaderview_paintevent_callback(this, e);
+            QPaintEvent* cbval1 = e;
+
+            qheaderview_paintevent_callback(this, cbval1);
         } else {
             QHeaderView::paintEvent(e);
         }
@@ -899,7 +924,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_mousepressevent_isbase = false;
             QHeaderView::mousePressEvent(e);
         } else if (qheaderview_mousepressevent_callback != nullptr) {
-            qheaderview_mousepressevent_callback(this, e);
+            QMouseEvent* cbval1 = e;
+
+            qheaderview_mousepressevent_callback(this, cbval1);
         } else {
             QHeaderView::mousePressEvent(e);
         }
@@ -911,7 +938,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_mousemoveevent_isbase = false;
             QHeaderView::mouseMoveEvent(e);
         } else if (qheaderview_mousemoveevent_callback != nullptr) {
-            qheaderview_mousemoveevent_callback(this, e);
+            QMouseEvent* cbval1 = e;
+
+            qheaderview_mousemoveevent_callback(this, cbval1);
         } else {
             QHeaderView::mouseMoveEvent(e);
         }
@@ -923,7 +952,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_mousereleaseevent_isbase = false;
             QHeaderView::mouseReleaseEvent(e);
         } else if (qheaderview_mousereleaseevent_callback != nullptr) {
-            qheaderview_mousereleaseevent_callback(this, e);
+            QMouseEvent* cbval1 = e;
+
+            qheaderview_mousereleaseevent_callback(this, cbval1);
         } else {
             QHeaderView::mouseReleaseEvent(e);
         }
@@ -935,7 +966,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_mousedoubleclickevent_isbase = false;
             QHeaderView::mouseDoubleClickEvent(e);
         } else if (qheaderview_mousedoubleclickevent_callback != nullptr) {
-            qheaderview_mousedoubleclickevent_callback(this, e);
+            QMouseEvent* cbval1 = e;
+
+            qheaderview_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QHeaderView::mouseDoubleClickEvent(e);
         }
@@ -947,7 +980,10 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_viewportevent_isbase = false;
             return QHeaderView::viewportEvent(e);
         } else if (qheaderview_viewportevent_callback != nullptr) {
-            return qheaderview_viewportevent_callback(this, e);
+            QEvent* cbval1 = e;
+
+            bool callback_ret = qheaderview_viewportevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QHeaderView::viewportEvent(e);
         }
@@ -959,7 +995,13 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_paintsection_isbase = false;
             QHeaderView::paintSection(painter, rect, logicalIndex);
         } else if (qheaderview_paintsection_callback != nullptr) {
-            qheaderview_paintsection_callback(this, painter, rect, logicalIndex);
+            QPainter* cbval1 = painter;
+            const QRect& rect_ret = rect;
+            // Cast returned reference into pointer
+            QRect* cbval2 = const_cast<QRect*>(&rect_ret);
+            int cbval3 = logicalIndex;
+
+            qheaderview_paintsection_callback(this, cbval1, cbval2, cbval3);
         } else {
             QHeaderView::paintSection(painter, rect, logicalIndex);
         }
@@ -971,7 +1013,10 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_sectionsizefromcontents_isbase = false;
             return QHeaderView::sectionSizeFromContents(logicalIndex);
         } else if (qheaderview_sectionsizefromcontents_callback != nullptr) {
-            return qheaderview_sectionsizefromcontents_callback(this, logicalIndex);
+            int cbval1 = logicalIndex;
+
+            QSize* callback_ret = qheaderview_sectionsizefromcontents_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QHeaderView::sectionSizeFromContents(logicalIndex);
         }
@@ -983,7 +1028,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_horizontaloffset_isbase = false;
             return QHeaderView::horizontalOffset();
         } else if (qheaderview_horizontaloffset_callback != nullptr) {
-            return qheaderview_horizontaloffset_callback();
+            int callback_ret = qheaderview_horizontaloffset_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QHeaderView::horizontalOffset();
         }
@@ -995,7 +1041,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_verticaloffset_isbase = false;
             return QHeaderView::verticalOffset();
         } else if (qheaderview_verticaloffset_callback != nullptr) {
-            return qheaderview_verticaloffset_callback();
+            int callback_ret = qheaderview_verticaloffset_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QHeaderView::verticalOffset();
         }
@@ -1019,7 +1066,10 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_scrollcontentsby_isbase = false;
             QHeaderView::scrollContentsBy(dx, dy);
         } else if (qheaderview_scrollcontentsby_callback != nullptr) {
-            qheaderview_scrollcontentsby_callback(this, dx, dy);
+            int cbval1 = dx;
+            int cbval2 = dy;
+
+            qheaderview_scrollcontentsby_callback(this, cbval1, cbval2);
         } else {
             QHeaderView::scrollContentsBy(dx, dy);
         }
@@ -1031,7 +1081,24 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_datachanged_isbase = false;
             QHeaderView::dataChanged(topLeft, bottomRight, roles);
         } else if (qheaderview_datachanged_callback != nullptr) {
-            qheaderview_datachanged_callback(this, topLeft, bottomRight, roles);
+            const QModelIndex& topLeft_ret = topLeft;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&topLeft_ret);
+            const QModelIndex& bottomRight_ret = bottomRight;
+            // Cast returned reference into pointer
+            QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
+            const QList<int>& roles_ret = roles;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.length()));
+            for (size_t i = 0; i < roles_ret.length(); ++i) {
+                roles_arr[i] = roles_ret[i];
+            }
+            libqt_list roles_out;
+            roles_out.len = roles_ret.length();
+            roles_out.data = static_cast<void*>(roles_arr);
+            libqt_list /* of int */ cbval3 = roles_out;
+
+            qheaderview_datachanged_callback(this, cbval1, cbval2, cbval3);
         } else {
             QHeaderView::dataChanged(topLeft, bottomRight, roles);
         }
@@ -1043,7 +1110,13 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_rowsinserted_isbase = false;
             QHeaderView::rowsInserted(parent, start, end);
         } else if (qheaderview_rowsinserted_callback != nullptr) {
-            qheaderview_rowsinserted_callback(this, parent, start, end);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = start;
+            int cbval3 = end;
+
+            qheaderview_rowsinserted_callback(this, cbval1, cbval2, cbval3);
         } else {
             QHeaderView::rowsInserted(parent, start, end);
         }
@@ -1055,7 +1128,12 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_visualrect_isbase = false;
             return QHeaderView::visualRect(index);
         } else if (qheaderview_visualrect_callback != nullptr) {
-            return qheaderview_visualrect_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QRect* callback_ret = qheaderview_visualrect_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QHeaderView::visualRect(index);
         }
@@ -1067,7 +1145,12 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_scrollto_isbase = false;
             QHeaderView::scrollTo(index, hint);
         } else if (qheaderview_scrollto_callback != nullptr) {
-            qheaderview_scrollto_callback(this, index, hint);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            int cbval2 = static_cast<int>(hint);
+
+            qheaderview_scrollto_callback(this, cbval1, cbval2);
         } else {
             QHeaderView::scrollTo(index, hint);
         }
@@ -1079,7 +1162,12 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_indexat_isbase = false;
             return QHeaderView::indexAt(p);
         } else if (qheaderview_indexat_callback != nullptr) {
-            return qheaderview_indexat_callback(this, p);
+            const QPoint& p_ret = p;
+            // Cast returned reference into pointer
+            QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
+
+            QModelIndex* callback_ret = qheaderview_indexat_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QHeaderView::indexAt(p);
         }
@@ -1091,7 +1179,12 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_isindexhidden_isbase = false;
             return QHeaderView::isIndexHidden(index);
         } else if (qheaderview_isindexhidden_callback != nullptr) {
-            return qheaderview_isindexhidden_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            bool callback_ret = qheaderview_isindexhidden_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QHeaderView::isIndexHidden(index);
         }
@@ -1103,7 +1196,11 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_movecursor_isbase = false;
             return QHeaderView::moveCursor(param1, param2);
         } else if (qheaderview_movecursor_callback != nullptr) {
-            return qheaderview_movecursor_callback(this, param1, param2);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = static_cast<int>(param2);
+
+            QModelIndex* callback_ret = qheaderview_movecursor_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QHeaderView::moveCursor(param1, param2);
         }
@@ -1115,7 +1212,12 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_setselection_isbase = false;
             QHeaderView::setSelection(rect, flags);
         } else if (qheaderview_setselection_callback != nullptr) {
-            qheaderview_setselection_callback(this, rect, flags);
+            const QRect& rect_ret = rect;
+            // Cast returned reference into pointer
+            QRect* cbval1 = const_cast<QRect*>(&rect_ret);
+            int cbval2 = static_cast<int>(flags);
+
+            qheaderview_setselection_callback(this, cbval1, cbval2);
         } else {
             QHeaderView::setSelection(rect, flags);
         }
@@ -1127,7 +1229,12 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_visualregionforselection_isbase = false;
             return QHeaderView::visualRegionForSelection(selection);
         } else if (qheaderview_visualregionforselection_callback != nullptr) {
-            return qheaderview_visualregionforselection_callback(this, selection);
+            const QItemSelection& selection_ret = selection;
+            // Cast returned reference into pointer
+            QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
+
+            QRegion* callback_ret = qheaderview_visualregionforselection_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QHeaderView::visualRegionForSelection(selection);
         }
@@ -1139,7 +1246,10 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_initstyleoptionforindex_isbase = false;
             QHeaderView::initStyleOptionForIndex(option, logicalIndex);
         } else if (qheaderview_initstyleoptionforindex_callback != nullptr) {
-            qheaderview_initstyleoptionforindex_callback(this, option, logicalIndex);
+            QStyleOptionHeader* cbval1 = option;
+            int cbval2 = logicalIndex;
+
+            qheaderview_initstyleoptionforindex_callback(this, cbval1, cbval2);
         } else {
             QHeaderView::initStyleOptionForIndex(option, logicalIndex);
         }
@@ -1151,7 +1261,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_initstyleoption_isbase = false;
             QHeaderView::initStyleOption(option);
         } else if (qheaderview_initstyleoption_callback != nullptr) {
-            qheaderview_initstyleoption_callback(this, option);
+            QStyleOptionHeader* cbval1 = option;
+
+            qheaderview_initstyleoption_callback(this, cbval1);
         } else {
             QHeaderView::initStyleOption(option);
         }
@@ -1163,7 +1275,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_setselectionmodel_isbase = false;
             QHeaderView::setSelectionModel(selectionModel);
         } else if (qheaderview_setselectionmodel_callback != nullptr) {
-            qheaderview_setselectionmodel_callback(this, selectionModel);
+            QItemSelectionModel* cbval1 = selectionModel;
+
+            qheaderview_setselectionmodel_callback(this, cbval1);
         } else {
             QHeaderView::setSelectionModel(selectionModel);
         }
@@ -1175,7 +1289,17 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_keyboardsearch_isbase = false;
             QHeaderView::keyboardSearch(search);
         } else if (qheaderview_keyboardsearch_callback != nullptr) {
-            qheaderview_keyboardsearch_callback(this, search);
+            const QString search_ret = search;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray search_b = search_ret.toUtf8();
+            libqt_string search_str;
+            search_str.len = search_b.length();
+            search_str.data = static_cast<char*>(malloc((search_str.len + 1) * sizeof(char)));
+            memcpy(search_str.data, search_b.data(), search_str.len);
+            search_str.data[search_str.len] = '\0';
+            libqt_string cbval1 = search_str;
+
+            qheaderview_keyboardsearch_callback(this, cbval1);
         } else {
             QHeaderView::keyboardSearch(search);
         }
@@ -1187,7 +1311,10 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_sizehintforrow_isbase = false;
             return QHeaderView::sizeHintForRow(row);
         } else if (qheaderview_sizehintforrow_callback != nullptr) {
-            return qheaderview_sizehintforrow_callback(this, row);
+            int cbval1 = row;
+
+            int callback_ret = qheaderview_sizehintforrow_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QHeaderView::sizeHintForRow(row);
         }
@@ -1199,7 +1326,10 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_sizehintforcolumn_isbase = false;
             return QHeaderView::sizeHintForColumn(column);
         } else if (qheaderview_sizehintforcolumn_callback != nullptr) {
-            return qheaderview_sizehintforcolumn_callback(this, column);
+            int cbval1 = column;
+
+            int callback_ret = qheaderview_sizehintforcolumn_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QHeaderView::sizeHintForColumn(column);
         }
@@ -1211,7 +1341,12 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_itemdelegateforindex_isbase = false;
             return QHeaderView::itemDelegateForIndex(index);
         } else if (qheaderview_itemdelegateforindex_callback != nullptr) {
-            return qheaderview_itemdelegateforindex_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QAbstractItemDelegate* callback_ret = qheaderview_itemdelegateforindex_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QHeaderView::itemDelegateForIndex(index);
         }
@@ -1223,7 +1358,10 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_inputmethodquery_isbase = false;
             return QHeaderView::inputMethodQuery(query);
         } else if (qheaderview_inputmethodquery_callback != nullptr) {
-            return qheaderview_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qheaderview_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QHeaderView::inputMethodQuery(query);
         }
@@ -1235,7 +1373,11 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_setrootindex_isbase = false;
             QHeaderView::setRootIndex(index);
         } else if (qheaderview_setrootindex_callback != nullptr) {
-            qheaderview_setrootindex_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            qheaderview_setrootindex_callback(this, cbval1);
         } else {
             QHeaderView::setRootIndex(index);
         }
@@ -1259,7 +1401,13 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_rowsabouttoberemoved_isbase = false;
             QHeaderView::rowsAboutToBeRemoved(parent, start, end);
         } else if (qheaderview_rowsabouttoberemoved_callback != nullptr) {
-            qheaderview_rowsabouttoberemoved_callback(this, parent, start, end);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = start;
+            int cbval3 = end;
+
+            qheaderview_rowsabouttoberemoved_callback(this, cbval1, cbval2, cbval3);
         } else {
             QHeaderView::rowsAboutToBeRemoved(parent, start, end);
         }
@@ -1271,7 +1419,14 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_selectionchanged_isbase = false;
             QHeaderView::selectionChanged(selected, deselected);
         } else if (qheaderview_selectionchanged_callback != nullptr) {
-            qheaderview_selectionchanged_callback(this, selected, deselected);
+            const QItemSelection& selected_ret = selected;
+            // Cast returned reference into pointer
+            QItemSelection* cbval1 = const_cast<QItemSelection*>(&selected_ret);
+            const QItemSelection& deselected_ret = deselected;
+            // Cast returned reference into pointer
+            QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
+
+            qheaderview_selectionchanged_callback(this, cbval1, cbval2);
         } else {
             QHeaderView::selectionChanged(selected, deselected);
         }
@@ -1307,7 +1462,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_verticalscrollbaraction_isbase = false;
             QHeaderView::verticalScrollbarAction(action);
         } else if (qheaderview_verticalscrollbaraction_callback != nullptr) {
-            qheaderview_verticalscrollbaraction_callback(this, action);
+            int cbval1 = action;
+
+            qheaderview_verticalscrollbaraction_callback(this, cbval1);
         } else {
             QHeaderView::verticalScrollbarAction(action);
         }
@@ -1319,7 +1476,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_horizontalscrollbaraction_isbase = false;
             QHeaderView::horizontalScrollbarAction(action);
         } else if (qheaderview_horizontalscrollbaraction_callback != nullptr) {
-            qheaderview_horizontalscrollbaraction_callback(this, action);
+            int cbval1 = action;
+
+            qheaderview_horizontalscrollbaraction_callback(this, cbval1);
         } else {
             QHeaderView::horizontalScrollbarAction(action);
         }
@@ -1331,7 +1490,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_verticalscrollbarvaluechanged_isbase = false;
             QHeaderView::verticalScrollbarValueChanged(value);
         } else if (qheaderview_verticalscrollbarvaluechanged_callback != nullptr) {
-            qheaderview_verticalscrollbarvaluechanged_callback(this, value);
+            int cbval1 = value;
+
+            qheaderview_verticalscrollbarvaluechanged_callback(this, cbval1);
         } else {
             QHeaderView::verticalScrollbarValueChanged(value);
         }
@@ -1343,7 +1504,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_horizontalscrollbarvaluechanged_isbase = false;
             QHeaderView::horizontalScrollbarValueChanged(value);
         } else if (qheaderview_horizontalscrollbarvaluechanged_callback != nullptr) {
-            qheaderview_horizontalscrollbarvaluechanged_callback(this, value);
+            int cbval1 = value;
+
+            qheaderview_horizontalscrollbarvaluechanged_callback(this, cbval1);
         } else {
             QHeaderView::horizontalScrollbarValueChanged(value);
         }
@@ -1355,7 +1518,10 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_closeeditor_isbase = false;
             QHeaderView::closeEditor(editor, hint);
         } else if (qheaderview_closeeditor_callback != nullptr) {
-            qheaderview_closeeditor_callback(this, editor, hint);
+            QWidget* cbval1 = editor;
+            int cbval2 = static_cast<int>(hint);
+
+            qheaderview_closeeditor_callback(this, cbval1, cbval2);
         } else {
             QHeaderView::closeEditor(editor, hint);
         }
@@ -1367,7 +1533,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_commitdata_isbase = false;
             QHeaderView::commitData(editor);
         } else if (qheaderview_commitdata_callback != nullptr) {
-            qheaderview_commitdata_callback(this, editor);
+            QWidget* cbval1 = editor;
+
+            qheaderview_commitdata_callback(this, cbval1);
         } else {
             QHeaderView::commitData(editor);
         }
@@ -1379,7 +1547,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_editordestroyed_isbase = false;
             QHeaderView::editorDestroyed(editor);
         } else if (qheaderview_editordestroyed_callback != nullptr) {
-            qheaderview_editordestroyed_callback(this, editor);
+            QObject* cbval1 = editor;
+
+            qheaderview_editordestroyed_callback(this, cbval1);
         } else {
             QHeaderView::editorDestroyed(editor);
         }
@@ -1391,7 +1561,14 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_selectedindexes_isbase = false;
             return QHeaderView::selectedIndexes();
         } else if (qheaderview_selectedindexes_callback != nullptr) {
-            return qheaderview_selectedindexes_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qheaderview_selectedindexes_callback();
+            QModelIndexList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            }
+            return callback_ret_QList;
         } else {
             return QHeaderView::selectedIndexes();
         }
@@ -1403,7 +1580,14 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_edit2_isbase = false;
             return QHeaderView::edit(index, trigger, event);
         } else if (qheaderview_edit2_callback != nullptr) {
-            return qheaderview_edit2_callback(this, index, trigger, event);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            int cbval2 = static_cast<int>(trigger);
+            QEvent* cbval3 = event;
+
+            bool callback_ret = qheaderview_edit2_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QHeaderView::edit(index, trigger, event);
         }
@@ -1415,7 +1599,13 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_selectioncommand_isbase = false;
             return QHeaderView::selectionCommand(index, event);
         } else if (qheaderview_selectioncommand_callback != nullptr) {
-            return qheaderview_selectioncommand_callback(this, index, event);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            QEvent* cbval2 = (QEvent*)event;
+
+            int callback_ret = qheaderview_selectioncommand_callback(this, cbval1, cbval2);
+            return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
         } else {
             return QHeaderView::selectionCommand(index, event);
         }
@@ -1427,7 +1617,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_startdrag_isbase = false;
             QHeaderView::startDrag(supportedActions);
         } else if (qheaderview_startdrag_callback != nullptr) {
-            qheaderview_startdrag_callback(this, supportedActions);
+            int cbval1 = static_cast<int>(supportedActions);
+
+            qheaderview_startdrag_callback(this, cbval1);
         } else {
             QHeaderView::startDrag(supportedActions);
         }
@@ -1439,7 +1631,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_initviewitemoption_isbase = false;
             QHeaderView::initViewItemOption(option);
         } else if (qheaderview_initviewitemoption_callback != nullptr) {
-            qheaderview_initviewitemoption_callback(this, option);
+            QStyleOptionViewItem* cbval1 = option;
+
+            qheaderview_initviewitemoption_callback(this, cbval1);
         } else {
             QHeaderView::initViewItemOption(option);
         }
@@ -1451,7 +1645,10 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_focusnextprevchild_isbase = false;
             return QHeaderView::focusNextPrevChild(next);
         } else if (qheaderview_focusnextprevchild_callback != nullptr) {
-            return qheaderview_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qheaderview_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QHeaderView::focusNextPrevChild(next);
         }
@@ -1463,7 +1660,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_dragenterevent_isbase = false;
             QHeaderView::dragEnterEvent(event);
         } else if (qheaderview_dragenterevent_callback != nullptr) {
-            qheaderview_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qheaderview_dragenterevent_callback(this, cbval1);
         } else {
             QHeaderView::dragEnterEvent(event);
         }
@@ -1475,7 +1674,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_dragmoveevent_isbase = false;
             QHeaderView::dragMoveEvent(event);
         } else if (qheaderview_dragmoveevent_callback != nullptr) {
-            qheaderview_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qheaderview_dragmoveevent_callback(this, cbval1);
         } else {
             QHeaderView::dragMoveEvent(event);
         }
@@ -1487,7 +1688,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_dragleaveevent_isbase = false;
             QHeaderView::dragLeaveEvent(event);
         } else if (qheaderview_dragleaveevent_callback != nullptr) {
-            qheaderview_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qheaderview_dragleaveevent_callback(this, cbval1);
         } else {
             QHeaderView::dragLeaveEvent(event);
         }
@@ -1499,7 +1702,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_dropevent_isbase = false;
             QHeaderView::dropEvent(event);
         } else if (qheaderview_dropevent_callback != nullptr) {
-            qheaderview_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qheaderview_dropevent_callback(this, cbval1);
         } else {
             QHeaderView::dropEvent(event);
         }
@@ -1511,7 +1716,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_focusinevent_isbase = false;
             QHeaderView::focusInEvent(event);
         } else if (qheaderview_focusinevent_callback != nullptr) {
-            qheaderview_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qheaderview_focusinevent_callback(this, cbval1);
         } else {
             QHeaderView::focusInEvent(event);
         }
@@ -1523,7 +1730,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_focusoutevent_isbase = false;
             QHeaderView::focusOutEvent(event);
         } else if (qheaderview_focusoutevent_callback != nullptr) {
-            qheaderview_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qheaderview_focusoutevent_callback(this, cbval1);
         } else {
             QHeaderView::focusOutEvent(event);
         }
@@ -1535,7 +1744,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_keypressevent_isbase = false;
             QHeaderView::keyPressEvent(event);
         } else if (qheaderview_keypressevent_callback != nullptr) {
-            qheaderview_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qheaderview_keypressevent_callback(this, cbval1);
         } else {
             QHeaderView::keyPressEvent(event);
         }
@@ -1547,7 +1758,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_resizeevent_isbase = false;
             QHeaderView::resizeEvent(event);
         } else if (qheaderview_resizeevent_callback != nullptr) {
-            qheaderview_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qheaderview_resizeevent_callback(this, cbval1);
         } else {
             QHeaderView::resizeEvent(event);
         }
@@ -1559,7 +1772,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_timerevent_isbase = false;
             QHeaderView::timerEvent(event);
         } else if (qheaderview_timerevent_callback != nullptr) {
-            qheaderview_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qheaderview_timerevent_callback(this, cbval1);
         } else {
             QHeaderView::timerEvent(event);
         }
@@ -1571,7 +1786,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_inputmethodevent_isbase = false;
             QHeaderView::inputMethodEvent(event);
         } else if (qheaderview_inputmethodevent_callback != nullptr) {
-            qheaderview_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qheaderview_inputmethodevent_callback(this, cbval1);
         } else {
             QHeaderView::inputMethodEvent(event);
         }
@@ -1583,7 +1800,11 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_eventfilter_isbase = false;
             return QHeaderView::eventFilter(object, event);
         } else if (qheaderview_eventfilter_callback != nullptr) {
-            return qheaderview_eventfilter_callback(this, object, event);
+            QObject* cbval1 = object;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qheaderview_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QHeaderView::eventFilter(object, event);
         }
@@ -1595,7 +1816,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_viewportsizehint_isbase = false;
             return QHeaderView::viewportSizeHint();
         } else if (qheaderview_viewportsizehint_callback != nullptr) {
-            return qheaderview_viewportsizehint_callback();
+            QSize* callback_ret = qheaderview_viewportsizehint_callback();
+            return *callback_ret;
         } else {
             return QHeaderView::viewportSizeHint();
         }
@@ -1607,7 +1829,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_minimumsizehint_isbase = false;
             return QHeaderView::minimumSizeHint();
         } else if (qheaderview_minimumsizehint_callback != nullptr) {
-            return qheaderview_minimumsizehint_callback();
+            QSize* callback_ret = qheaderview_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QHeaderView::minimumSizeHint();
         }
@@ -1619,7 +1842,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_setupviewport_isbase = false;
             QHeaderView::setupViewport(viewport);
         } else if (qheaderview_setupviewport_callback != nullptr) {
-            qheaderview_setupviewport_callback(this, viewport);
+            QWidget* cbval1 = viewport;
+
+            qheaderview_setupviewport_callback(this, cbval1);
         } else {
             QHeaderView::setupViewport(viewport);
         }
@@ -1631,7 +1856,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_wheelevent_isbase = false;
             QHeaderView::wheelEvent(param1);
         } else if (qheaderview_wheelevent_callback != nullptr) {
-            qheaderview_wheelevent_callback(this, param1);
+            QWheelEvent* cbval1 = param1;
+
+            qheaderview_wheelevent_callback(this, cbval1);
         } else {
             QHeaderView::wheelEvent(param1);
         }
@@ -1643,7 +1870,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_contextmenuevent_isbase = false;
             QHeaderView::contextMenuEvent(param1);
         } else if (qheaderview_contextmenuevent_callback != nullptr) {
-            qheaderview_contextmenuevent_callback(this, param1);
+            QContextMenuEvent* cbval1 = param1;
+
+            qheaderview_contextmenuevent_callback(this, cbval1);
         } else {
             QHeaderView::contextMenuEvent(param1);
         }
@@ -1655,7 +1884,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_changeevent_isbase = false;
             QHeaderView::changeEvent(param1);
         } else if (qheaderview_changeevent_callback != nullptr) {
-            qheaderview_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qheaderview_changeevent_callback(this, cbval1);
         } else {
             QHeaderView::changeEvent(param1);
         }
@@ -1667,7 +1898,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_devtype_isbase = false;
             return QHeaderView::devType();
         } else if (qheaderview_devtype_callback != nullptr) {
-            return qheaderview_devtype_callback();
+            int callback_ret = qheaderview_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QHeaderView::devType();
         }
@@ -1679,7 +1911,10 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_heightforwidth_isbase = false;
             return QHeaderView::heightForWidth(param1);
         } else if (qheaderview_heightforwidth_callback != nullptr) {
-            return qheaderview_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qheaderview_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QHeaderView::heightForWidth(param1);
         }
@@ -1691,7 +1926,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_hasheightforwidth_isbase = false;
             return QHeaderView::hasHeightForWidth();
         } else if (qheaderview_hasheightforwidth_callback != nullptr) {
-            return qheaderview_hasheightforwidth_callback();
+            bool callback_ret = qheaderview_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QHeaderView::hasHeightForWidth();
         }
@@ -1703,7 +1939,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_paintengine_isbase = false;
             return QHeaderView::paintEngine();
         } else if (qheaderview_paintengine_callback != nullptr) {
-            return qheaderview_paintengine_callback();
+            QPaintEngine* callback_ret = qheaderview_paintengine_callback();
+            return callback_ret;
         } else {
             return QHeaderView::paintEngine();
         }
@@ -1715,7 +1952,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_keyreleaseevent_isbase = false;
             QHeaderView::keyReleaseEvent(event);
         } else if (qheaderview_keyreleaseevent_callback != nullptr) {
-            qheaderview_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qheaderview_keyreleaseevent_callback(this, cbval1);
         } else {
             QHeaderView::keyReleaseEvent(event);
         }
@@ -1727,7 +1966,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_enterevent_isbase = false;
             QHeaderView::enterEvent(event);
         } else if (qheaderview_enterevent_callback != nullptr) {
-            qheaderview_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qheaderview_enterevent_callback(this, cbval1);
         } else {
             QHeaderView::enterEvent(event);
         }
@@ -1739,7 +1980,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_leaveevent_isbase = false;
             QHeaderView::leaveEvent(event);
         } else if (qheaderview_leaveevent_callback != nullptr) {
-            qheaderview_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qheaderview_leaveevent_callback(this, cbval1);
         } else {
             QHeaderView::leaveEvent(event);
         }
@@ -1751,7 +1994,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_moveevent_isbase = false;
             QHeaderView::moveEvent(event);
         } else if (qheaderview_moveevent_callback != nullptr) {
-            qheaderview_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qheaderview_moveevent_callback(this, cbval1);
         } else {
             QHeaderView::moveEvent(event);
         }
@@ -1763,7 +2008,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_closeevent_isbase = false;
             QHeaderView::closeEvent(event);
         } else if (qheaderview_closeevent_callback != nullptr) {
-            qheaderview_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qheaderview_closeevent_callback(this, cbval1);
         } else {
             QHeaderView::closeEvent(event);
         }
@@ -1775,7 +2022,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_tabletevent_isbase = false;
             QHeaderView::tabletEvent(event);
         } else if (qheaderview_tabletevent_callback != nullptr) {
-            qheaderview_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qheaderview_tabletevent_callback(this, cbval1);
         } else {
             QHeaderView::tabletEvent(event);
         }
@@ -1787,7 +2036,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_actionevent_isbase = false;
             QHeaderView::actionEvent(event);
         } else if (qheaderview_actionevent_callback != nullptr) {
-            qheaderview_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qheaderview_actionevent_callback(this, cbval1);
         } else {
             QHeaderView::actionEvent(event);
         }
@@ -1799,7 +2050,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_showevent_isbase = false;
             QHeaderView::showEvent(event);
         } else if (qheaderview_showevent_callback != nullptr) {
-            qheaderview_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qheaderview_showevent_callback(this, cbval1);
         } else {
             QHeaderView::showEvent(event);
         }
@@ -1811,7 +2064,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_hideevent_isbase = false;
             QHeaderView::hideEvent(event);
         } else if (qheaderview_hideevent_callback != nullptr) {
-            qheaderview_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qheaderview_hideevent_callback(this, cbval1);
         } else {
             QHeaderView::hideEvent(event);
         }
@@ -1823,7 +2078,19 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_nativeevent_isbase = false;
             return QHeaderView::nativeEvent(eventType, message, result);
         } else if (qheaderview_nativeevent_callback != nullptr) {
-            return qheaderview_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qheaderview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QHeaderView::nativeEvent(eventType, message, result);
         }
@@ -1835,7 +2102,10 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_metric_isbase = false;
             return QHeaderView::metric(param1);
         } else if (qheaderview_metric_callback != nullptr) {
-            return qheaderview_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qheaderview_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QHeaderView::metric(param1);
         }
@@ -1847,7 +2117,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_initpainter_isbase = false;
             QHeaderView::initPainter(painter);
         } else if (qheaderview_initpainter_callback != nullptr) {
-            qheaderview_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qheaderview_initpainter_callback(this, cbval1);
         } else {
             QHeaderView::initPainter(painter);
         }
@@ -1859,7 +2131,10 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_redirected_isbase = false;
             return QHeaderView::redirected(offset);
         } else if (qheaderview_redirected_callback != nullptr) {
-            return qheaderview_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qheaderview_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QHeaderView::redirected(offset);
         }
@@ -1871,7 +2146,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_sharedpainter_isbase = false;
             return QHeaderView::sharedPainter();
         } else if (qheaderview_sharedpainter_callback != nullptr) {
-            return qheaderview_sharedpainter_callback();
+            QPainter* callback_ret = qheaderview_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QHeaderView::sharedPainter();
         }
@@ -1883,7 +2159,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_childevent_isbase = false;
             QHeaderView::childEvent(event);
         } else if (qheaderview_childevent_callback != nullptr) {
-            qheaderview_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qheaderview_childevent_callback(this, cbval1);
         } else {
             QHeaderView::childEvent(event);
         }
@@ -1895,7 +2173,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_customevent_isbase = false;
             QHeaderView::customEvent(event);
         } else if (qheaderview_customevent_callback != nullptr) {
-            qheaderview_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qheaderview_customevent_callback(this, cbval1);
         } else {
             QHeaderView::customEvent(event);
         }
@@ -1907,7 +2187,11 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_connectnotify_isbase = false;
             QHeaderView::connectNotify(signal);
         } else if (qheaderview_connectnotify_callback != nullptr) {
-            qheaderview_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qheaderview_connectnotify_callback(this, cbval1);
         } else {
             QHeaderView::connectNotify(signal);
         }
@@ -1919,7 +2203,11 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_disconnectnotify_isbase = false;
             QHeaderView::disconnectNotify(signal);
         } else if (qheaderview_disconnectnotify_callback != nullptr) {
-            qheaderview_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qheaderview_disconnectnotify_callback(this, cbval1);
         } else {
             QHeaderView::disconnectNotify(signal);
         }
@@ -1931,7 +2219,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_updatesection_isbase = false;
             QHeaderView::updateSection(logicalIndex);
         } else if (qheaderview_updatesection_callback != nullptr) {
-            qheaderview_updatesection_callback(this, logicalIndex);
+            int cbval1 = logicalIndex;
+
+            qheaderview_updatesection_callback(this, cbval1);
         } else {
             QHeaderView::updateSection(logicalIndex);
         }
@@ -1955,7 +2245,13 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_sectionsinserted_isbase = false;
             QHeaderView::sectionsInserted(parent, logicalFirst, logicalLast);
         } else if (qheaderview_sectionsinserted_callback != nullptr) {
-            qheaderview_sectionsinserted_callback(this, parent, logicalFirst, logicalLast);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = logicalFirst;
+            int cbval3 = logicalLast;
+
+            qheaderview_sectionsinserted_callback(this, cbval1, cbval2, cbval3);
         } else {
             QHeaderView::sectionsInserted(parent, logicalFirst, logicalLast);
         }
@@ -1967,7 +2263,13 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_sectionsabouttoberemoved_isbase = false;
             QHeaderView::sectionsAboutToBeRemoved(parent, logicalFirst, logicalLast);
         } else if (qheaderview_sectionsabouttoberemoved_callback != nullptr) {
-            qheaderview_sectionsabouttoberemoved_callback(this, parent, logicalFirst, logicalLast);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = logicalFirst;
+            int cbval3 = logicalLast;
+
+            qheaderview_sectionsabouttoberemoved_callback(this, cbval1, cbval2, cbval3);
         } else {
             QHeaderView::sectionsAboutToBeRemoved(parent, logicalFirst, logicalLast);
         }
@@ -2003,7 +2305,10 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_initializesections2_isbase = false;
             QHeaderView::initializeSections(start, end);
         } else if (qheaderview_initializesections2_callback != nullptr) {
-            qheaderview_initializesections2_callback(this, start, end);
+            int cbval1 = start;
+            int cbval2 = end;
+
+            qheaderview_initializesections2_callback(this, cbval1, cbval2);
         } else {
             QHeaderView::initializeSections(start, end);
         }
@@ -2015,7 +2320,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_state_isbase = false;
             return QHeaderView::state();
         } else if (qheaderview_state_callback != nullptr) {
-            return qheaderview_state_callback();
+            int callback_ret = qheaderview_state_callback();
+            return static_cast<VirtualQHeaderView::State>(callback_ret);
         } else {
             return QHeaderView::state();
         }
@@ -2027,7 +2333,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_setstate_isbase = false;
             QHeaderView::setState(state);
         } else if (qheaderview_setstate_callback != nullptr) {
-            qheaderview_setstate_callback(this, state);
+            int cbval1 = static_cast<int>(state);
+
+            qheaderview_setstate_callback(this, cbval1);
         } else {
             QHeaderView::setState(state);
         }
@@ -2063,7 +2371,11 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_setdirtyregion_isbase = false;
             QHeaderView::setDirtyRegion(region);
         } else if (qheaderview_setdirtyregion_callback != nullptr) {
-            qheaderview_setdirtyregion_callback(this, region);
+            const QRegion& region_ret = region;
+            // Cast returned reference into pointer
+            QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
+
+            qheaderview_setdirtyregion_callback(this, cbval1);
         } else {
             QHeaderView::setDirtyRegion(region);
         }
@@ -2075,7 +2387,10 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_scrolldirtyregion_isbase = false;
             QHeaderView::scrollDirtyRegion(dx, dy);
         } else if (qheaderview_scrolldirtyregion_callback != nullptr) {
-            qheaderview_scrolldirtyregion_callback(this, dx, dy);
+            int cbval1 = dx;
+            int cbval2 = dy;
+
+            qheaderview_scrolldirtyregion_callback(this, cbval1, cbval2);
         } else {
             QHeaderView::scrollDirtyRegion(dx, dy);
         }
@@ -2087,7 +2402,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_dirtyregionoffset_isbase = false;
             return QHeaderView::dirtyRegionOffset();
         } else if (qheaderview_dirtyregionoffset_callback != nullptr) {
-            return qheaderview_dirtyregionoffset_callback();
+            QPoint* callback_ret = qheaderview_dirtyregionoffset_callback();
+            return *callback_ret;
         } else {
             return QHeaderView::dirtyRegionOffset();
         }
@@ -2135,7 +2451,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_dropindicatorposition_isbase = false;
             return QHeaderView::dropIndicatorPosition();
         } else if (qheaderview_dropindicatorposition_callback != nullptr) {
-            return qheaderview_dropindicatorposition_callback();
+            int callback_ret = qheaderview_dropindicatorposition_callback();
+            return static_cast<VirtualQHeaderView::DropIndicatorPosition>(callback_ret);
         } else {
             return QHeaderView::dropIndicatorPosition();
         }
@@ -2147,7 +2464,12 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_setviewportmargins_isbase = false;
             QHeaderView::setViewportMargins(left, top, right, bottom);
         } else if (qheaderview_setviewportmargins_callback != nullptr) {
-            qheaderview_setviewportmargins_callback(this, left, top, right, bottom);
+            int cbval1 = left;
+            int cbval2 = top;
+            int cbval3 = right;
+            int cbval4 = bottom;
+
+            qheaderview_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QHeaderView::setViewportMargins(left, top, right, bottom);
         }
@@ -2159,7 +2481,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_viewportmargins_isbase = false;
             return QHeaderView::viewportMargins();
         } else if (qheaderview_viewportmargins_callback != nullptr) {
-            return qheaderview_viewportmargins_callback();
+            QMargins* callback_ret = qheaderview_viewportmargins_callback();
+            return *callback_ret;
         } else {
             return QHeaderView::viewportMargins();
         }
@@ -2171,7 +2494,9 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_drawframe_isbase = false;
             QHeaderView::drawFrame(param1);
         } else if (qheaderview_drawframe_callback != nullptr) {
-            qheaderview_drawframe_callback(this, param1);
+            QPainter* cbval1 = param1;
+
+            qheaderview_drawframe_callback(this, cbval1);
         } else {
             QHeaderView::drawFrame(param1);
         }
@@ -2219,7 +2544,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_focusnextchild_isbase = false;
             return QHeaderView::focusNextChild();
         } else if (qheaderview_focusnextchild_callback != nullptr) {
-            return qheaderview_focusnextchild_callback();
+            bool callback_ret = qheaderview_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QHeaderView::focusNextChild();
         }
@@ -2231,7 +2557,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_focuspreviouschild_isbase = false;
             return QHeaderView::focusPreviousChild();
         } else if (qheaderview_focuspreviouschild_callback != nullptr) {
-            return qheaderview_focuspreviouschild_callback();
+            bool callback_ret = qheaderview_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QHeaderView::focusPreviousChild();
         }
@@ -2243,7 +2570,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_sender_isbase = false;
             return QHeaderView::sender();
         } else if (qheaderview_sender_callback != nullptr) {
-            return qheaderview_sender_callback();
+            QObject* callback_ret = qheaderview_sender_callback();
+            return callback_ret;
         } else {
             return QHeaderView::sender();
         }
@@ -2255,7 +2583,8 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_sendersignalindex_isbase = false;
             return QHeaderView::senderSignalIndex();
         } else if (qheaderview_sendersignalindex_callback != nullptr) {
-            return qheaderview_sendersignalindex_callback();
+            int callback_ret = qheaderview_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QHeaderView::senderSignalIndex();
         }
@@ -2267,7 +2596,10 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_receivers_isbase = false;
             return QHeaderView::receivers(signal);
         } else if (qheaderview_receivers_callback != nullptr) {
-            return qheaderview_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qheaderview_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QHeaderView::receivers(signal);
         }
@@ -2279,11 +2611,228 @@ class VirtualQHeaderView : public QHeaderView {
             qheaderview_issignalconnected_isbase = false;
             return QHeaderView::isSignalConnected(signal);
         } else if (qheaderview_issignalconnected_callback != nullptr) {
-            return qheaderview_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qheaderview_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QHeaderView::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QHeaderView_CurrentChanged(QHeaderView* self, const QModelIndex* current, const QModelIndex* old);
+    friend void QHeaderView_QBaseCurrentChanged(QHeaderView* self, const QModelIndex* current, const QModelIndex* old);
+    friend bool QHeaderView_Event(QHeaderView* self, QEvent* e);
+    friend bool QHeaderView_QBaseEvent(QHeaderView* self, QEvent* e);
+    friend void QHeaderView_PaintEvent(QHeaderView* self, QPaintEvent* e);
+    friend void QHeaderView_QBasePaintEvent(QHeaderView* self, QPaintEvent* e);
+    friend void QHeaderView_MousePressEvent(QHeaderView* self, QMouseEvent* e);
+    friend void QHeaderView_QBaseMousePressEvent(QHeaderView* self, QMouseEvent* e);
+    friend void QHeaderView_MouseMoveEvent(QHeaderView* self, QMouseEvent* e);
+    friend void QHeaderView_QBaseMouseMoveEvent(QHeaderView* self, QMouseEvent* e);
+    friend void QHeaderView_MouseReleaseEvent(QHeaderView* self, QMouseEvent* e);
+    friend void QHeaderView_QBaseMouseReleaseEvent(QHeaderView* self, QMouseEvent* e);
+    friend void QHeaderView_MouseDoubleClickEvent(QHeaderView* self, QMouseEvent* e);
+    friend void QHeaderView_QBaseMouseDoubleClickEvent(QHeaderView* self, QMouseEvent* e);
+    friend bool QHeaderView_ViewportEvent(QHeaderView* self, QEvent* e);
+    friend bool QHeaderView_QBaseViewportEvent(QHeaderView* self, QEvent* e);
+    friend void QHeaderView_PaintSection(const QHeaderView* self, QPainter* painter, const QRect* rect, int logicalIndex);
+    friend void QHeaderView_QBasePaintSection(const QHeaderView* self, QPainter* painter, const QRect* rect, int logicalIndex);
+    friend QSize* QHeaderView_SectionSizeFromContents(const QHeaderView* self, int logicalIndex);
+    friend QSize* QHeaderView_QBaseSectionSizeFromContents(const QHeaderView* self, int logicalIndex);
+    friend int QHeaderView_HorizontalOffset(const QHeaderView* self);
+    friend int QHeaderView_QBaseHorizontalOffset(const QHeaderView* self);
+    friend int QHeaderView_VerticalOffset(const QHeaderView* self);
+    friend int QHeaderView_QBaseVerticalOffset(const QHeaderView* self);
+    friend void QHeaderView_UpdateGeometries(QHeaderView* self);
+    friend void QHeaderView_QBaseUpdateGeometries(QHeaderView* self);
+    friend void QHeaderView_ScrollContentsBy(QHeaderView* self, int dx, int dy);
+    friend void QHeaderView_QBaseScrollContentsBy(QHeaderView* self, int dx, int dy);
+    friend void QHeaderView_DataChanged(QHeaderView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles);
+    friend void QHeaderView_QBaseDataChanged(QHeaderView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles);
+    friend void QHeaderView_RowsInserted(QHeaderView* self, const QModelIndex* parent, int start, int end);
+    friend void QHeaderView_QBaseRowsInserted(QHeaderView* self, const QModelIndex* parent, int start, int end);
+    friend QRect* QHeaderView_VisualRect(const QHeaderView* self, const QModelIndex* index);
+    friend QRect* QHeaderView_QBaseVisualRect(const QHeaderView* self, const QModelIndex* index);
+    friend void QHeaderView_ScrollTo(QHeaderView* self, const QModelIndex* index, int hint);
+    friend void QHeaderView_QBaseScrollTo(QHeaderView* self, const QModelIndex* index, int hint);
+    friend QModelIndex* QHeaderView_IndexAt(const QHeaderView* self, const QPoint* p);
+    friend QModelIndex* QHeaderView_QBaseIndexAt(const QHeaderView* self, const QPoint* p);
+    friend bool QHeaderView_IsIndexHidden(const QHeaderView* self, const QModelIndex* index);
+    friend bool QHeaderView_QBaseIsIndexHidden(const QHeaderView* self, const QModelIndex* index);
+    friend QModelIndex* QHeaderView_MoveCursor(QHeaderView* self, int param1, int param2);
+    friend QModelIndex* QHeaderView_QBaseMoveCursor(QHeaderView* self, int param1, int param2);
+    friend void QHeaderView_SetSelection(QHeaderView* self, const QRect* rect, int flags);
+    friend void QHeaderView_QBaseSetSelection(QHeaderView* self, const QRect* rect, int flags);
+    friend QRegion* QHeaderView_VisualRegionForSelection(const QHeaderView* self, const QItemSelection* selection);
+    friend QRegion* QHeaderView_QBaseVisualRegionForSelection(const QHeaderView* self, const QItemSelection* selection);
+    friend void QHeaderView_InitStyleOptionForIndex(const QHeaderView* self, QStyleOptionHeader* option, int logicalIndex);
+    friend void QHeaderView_QBaseInitStyleOptionForIndex(const QHeaderView* self, QStyleOptionHeader* option, int logicalIndex);
+    friend void QHeaderView_InitStyleOption(const QHeaderView* self, QStyleOptionHeader* option);
+    friend void QHeaderView_QBaseInitStyleOption(const QHeaderView* self, QStyleOptionHeader* option);
+    friend void QHeaderView_RowsAboutToBeRemoved(QHeaderView* self, const QModelIndex* parent, int start, int end);
+    friend void QHeaderView_QBaseRowsAboutToBeRemoved(QHeaderView* self, const QModelIndex* parent, int start, int end);
+    friend void QHeaderView_SelectionChanged(QHeaderView* self, const QItemSelection* selected, const QItemSelection* deselected);
+    friend void QHeaderView_QBaseSelectionChanged(QHeaderView* self, const QItemSelection* selected, const QItemSelection* deselected);
+    friend void QHeaderView_UpdateEditorData(QHeaderView* self);
+    friend void QHeaderView_QBaseUpdateEditorData(QHeaderView* self);
+    friend void QHeaderView_UpdateEditorGeometries(QHeaderView* self);
+    friend void QHeaderView_QBaseUpdateEditorGeometries(QHeaderView* self);
+    friend void QHeaderView_VerticalScrollbarAction(QHeaderView* self, int action);
+    friend void QHeaderView_QBaseVerticalScrollbarAction(QHeaderView* self, int action);
+    friend void QHeaderView_HorizontalScrollbarAction(QHeaderView* self, int action);
+    friend void QHeaderView_QBaseHorizontalScrollbarAction(QHeaderView* self, int action);
+    friend void QHeaderView_VerticalScrollbarValueChanged(QHeaderView* self, int value);
+    friend void QHeaderView_QBaseVerticalScrollbarValueChanged(QHeaderView* self, int value);
+    friend void QHeaderView_HorizontalScrollbarValueChanged(QHeaderView* self, int value);
+    friend void QHeaderView_QBaseHorizontalScrollbarValueChanged(QHeaderView* self, int value);
+    friend void QHeaderView_CloseEditor(QHeaderView* self, QWidget* editor, int hint);
+    friend void QHeaderView_QBaseCloseEditor(QHeaderView* self, QWidget* editor, int hint);
+    friend void QHeaderView_CommitData(QHeaderView* self, QWidget* editor);
+    friend void QHeaderView_QBaseCommitData(QHeaderView* self, QWidget* editor);
+    friend void QHeaderView_EditorDestroyed(QHeaderView* self, QObject* editor);
+    friend void QHeaderView_QBaseEditorDestroyed(QHeaderView* self, QObject* editor);
+    friend libqt_list /* of QModelIndex* */ QHeaderView_SelectedIndexes(const QHeaderView* self);
+    friend libqt_list /* of QModelIndex* */ QHeaderView_QBaseSelectedIndexes(const QHeaderView* self);
+    friend bool QHeaderView_Edit2(QHeaderView* self, const QModelIndex* index, int trigger, QEvent* event);
+    friend bool QHeaderView_QBaseEdit2(QHeaderView* self, const QModelIndex* index, int trigger, QEvent* event);
+    friend int QHeaderView_SelectionCommand(const QHeaderView* self, const QModelIndex* index, const QEvent* event);
+    friend int QHeaderView_QBaseSelectionCommand(const QHeaderView* self, const QModelIndex* index, const QEvent* event);
+    friend void QHeaderView_StartDrag(QHeaderView* self, int supportedActions);
+    friend void QHeaderView_QBaseStartDrag(QHeaderView* self, int supportedActions);
+    friend void QHeaderView_InitViewItemOption(const QHeaderView* self, QStyleOptionViewItem* option);
+    friend void QHeaderView_QBaseInitViewItemOption(const QHeaderView* self, QStyleOptionViewItem* option);
+    friend bool QHeaderView_FocusNextPrevChild(QHeaderView* self, bool next);
+    friend bool QHeaderView_QBaseFocusNextPrevChild(QHeaderView* self, bool next);
+    friend void QHeaderView_DragEnterEvent(QHeaderView* self, QDragEnterEvent* event);
+    friend void QHeaderView_QBaseDragEnterEvent(QHeaderView* self, QDragEnterEvent* event);
+    friend void QHeaderView_DragMoveEvent(QHeaderView* self, QDragMoveEvent* event);
+    friend void QHeaderView_QBaseDragMoveEvent(QHeaderView* self, QDragMoveEvent* event);
+    friend void QHeaderView_DragLeaveEvent(QHeaderView* self, QDragLeaveEvent* event);
+    friend void QHeaderView_QBaseDragLeaveEvent(QHeaderView* self, QDragLeaveEvent* event);
+    friend void QHeaderView_DropEvent(QHeaderView* self, QDropEvent* event);
+    friend void QHeaderView_QBaseDropEvent(QHeaderView* self, QDropEvent* event);
+    friend void QHeaderView_FocusInEvent(QHeaderView* self, QFocusEvent* event);
+    friend void QHeaderView_QBaseFocusInEvent(QHeaderView* self, QFocusEvent* event);
+    friend void QHeaderView_FocusOutEvent(QHeaderView* self, QFocusEvent* event);
+    friend void QHeaderView_QBaseFocusOutEvent(QHeaderView* self, QFocusEvent* event);
+    friend void QHeaderView_KeyPressEvent(QHeaderView* self, QKeyEvent* event);
+    friend void QHeaderView_QBaseKeyPressEvent(QHeaderView* self, QKeyEvent* event);
+    friend void QHeaderView_ResizeEvent(QHeaderView* self, QResizeEvent* event);
+    friend void QHeaderView_QBaseResizeEvent(QHeaderView* self, QResizeEvent* event);
+    friend void QHeaderView_TimerEvent(QHeaderView* self, QTimerEvent* event);
+    friend void QHeaderView_QBaseTimerEvent(QHeaderView* self, QTimerEvent* event);
+    friend void QHeaderView_InputMethodEvent(QHeaderView* self, QInputMethodEvent* event);
+    friend void QHeaderView_QBaseInputMethodEvent(QHeaderView* self, QInputMethodEvent* event);
+    friend bool QHeaderView_EventFilter(QHeaderView* self, QObject* object, QEvent* event);
+    friend bool QHeaderView_QBaseEventFilter(QHeaderView* self, QObject* object, QEvent* event);
+    friend QSize* QHeaderView_ViewportSizeHint(const QHeaderView* self);
+    friend QSize* QHeaderView_QBaseViewportSizeHint(const QHeaderView* self);
+    friend void QHeaderView_WheelEvent(QHeaderView* self, QWheelEvent* param1);
+    friend void QHeaderView_QBaseWheelEvent(QHeaderView* self, QWheelEvent* param1);
+    friend void QHeaderView_ContextMenuEvent(QHeaderView* self, QContextMenuEvent* param1);
+    friend void QHeaderView_QBaseContextMenuEvent(QHeaderView* self, QContextMenuEvent* param1);
+    friend void QHeaderView_ChangeEvent(QHeaderView* self, QEvent* param1);
+    friend void QHeaderView_QBaseChangeEvent(QHeaderView* self, QEvent* param1);
+    friend void QHeaderView_KeyReleaseEvent(QHeaderView* self, QKeyEvent* event);
+    friend void QHeaderView_QBaseKeyReleaseEvent(QHeaderView* self, QKeyEvent* event);
+    friend void QHeaderView_EnterEvent(QHeaderView* self, QEnterEvent* event);
+    friend void QHeaderView_QBaseEnterEvent(QHeaderView* self, QEnterEvent* event);
+    friend void QHeaderView_LeaveEvent(QHeaderView* self, QEvent* event);
+    friend void QHeaderView_QBaseLeaveEvent(QHeaderView* self, QEvent* event);
+    friend void QHeaderView_MoveEvent(QHeaderView* self, QMoveEvent* event);
+    friend void QHeaderView_QBaseMoveEvent(QHeaderView* self, QMoveEvent* event);
+    friend void QHeaderView_CloseEvent(QHeaderView* self, QCloseEvent* event);
+    friend void QHeaderView_QBaseCloseEvent(QHeaderView* self, QCloseEvent* event);
+    friend void QHeaderView_TabletEvent(QHeaderView* self, QTabletEvent* event);
+    friend void QHeaderView_QBaseTabletEvent(QHeaderView* self, QTabletEvent* event);
+    friend void QHeaderView_ActionEvent(QHeaderView* self, QActionEvent* event);
+    friend void QHeaderView_QBaseActionEvent(QHeaderView* self, QActionEvent* event);
+    friend void QHeaderView_ShowEvent(QHeaderView* self, QShowEvent* event);
+    friend void QHeaderView_QBaseShowEvent(QHeaderView* self, QShowEvent* event);
+    friend void QHeaderView_HideEvent(QHeaderView* self, QHideEvent* event);
+    friend void QHeaderView_QBaseHideEvent(QHeaderView* self, QHideEvent* event);
+    friend bool QHeaderView_NativeEvent(QHeaderView* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QHeaderView_QBaseNativeEvent(QHeaderView* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QHeaderView_Metric(const QHeaderView* self, int param1);
+    friend int QHeaderView_QBaseMetric(const QHeaderView* self, int param1);
+    friend void QHeaderView_InitPainter(const QHeaderView* self, QPainter* painter);
+    friend void QHeaderView_QBaseInitPainter(const QHeaderView* self, QPainter* painter);
+    friend QPaintDevice* QHeaderView_Redirected(const QHeaderView* self, QPoint* offset);
+    friend QPaintDevice* QHeaderView_QBaseRedirected(const QHeaderView* self, QPoint* offset);
+    friend QPainter* QHeaderView_SharedPainter(const QHeaderView* self);
+    friend QPainter* QHeaderView_QBaseSharedPainter(const QHeaderView* self);
+    friend void QHeaderView_ChildEvent(QHeaderView* self, QChildEvent* event);
+    friend void QHeaderView_QBaseChildEvent(QHeaderView* self, QChildEvent* event);
+    friend void QHeaderView_CustomEvent(QHeaderView* self, QEvent* event);
+    friend void QHeaderView_QBaseCustomEvent(QHeaderView* self, QEvent* event);
+    friend void QHeaderView_ConnectNotify(QHeaderView* self, const QMetaMethod* signal);
+    friend void QHeaderView_QBaseConnectNotify(QHeaderView* self, const QMetaMethod* signal);
+    friend void QHeaderView_DisconnectNotify(QHeaderView* self, const QMetaMethod* signal);
+    friend void QHeaderView_QBaseDisconnectNotify(QHeaderView* self, const QMetaMethod* signal);
+    friend void QHeaderView_UpdateSection(QHeaderView* self, int logicalIndex);
+    friend void QHeaderView_QBaseUpdateSection(QHeaderView* self, int logicalIndex);
+    friend void QHeaderView_ResizeSections2(QHeaderView* self);
+    friend void QHeaderView_QBaseResizeSections2(QHeaderView* self);
+    friend void QHeaderView_SectionsInserted(QHeaderView* self, const QModelIndex* parent, int logicalFirst, int logicalLast);
+    friend void QHeaderView_QBaseSectionsInserted(QHeaderView* self, const QModelIndex* parent, int logicalFirst, int logicalLast);
+    friend void QHeaderView_SectionsAboutToBeRemoved(QHeaderView* self, const QModelIndex* parent, int logicalFirst, int logicalLast);
+    friend void QHeaderView_QBaseSectionsAboutToBeRemoved(QHeaderView* self, const QModelIndex* parent, int logicalFirst, int logicalLast);
+    friend void QHeaderView_Initialize(QHeaderView* self);
+    friend void QHeaderView_QBaseInitialize(QHeaderView* self);
+    friend void QHeaderView_InitializeSections(QHeaderView* self);
+    friend void QHeaderView_QBaseInitializeSections(QHeaderView* self);
+    friend void QHeaderView_InitializeSections2(QHeaderView* self, int start, int end);
+    friend void QHeaderView_QBaseInitializeSections2(QHeaderView* self, int start, int end);
+    friend int QHeaderView_State(const QHeaderView* self);
+    friend int QHeaderView_QBaseState(const QHeaderView* self);
+    friend void QHeaderView_SetState(QHeaderView* self, int state);
+    friend void QHeaderView_QBaseSetState(QHeaderView* self, int state);
+    friend void QHeaderView_ScheduleDelayedItemsLayout(QHeaderView* self);
+    friend void QHeaderView_QBaseScheduleDelayedItemsLayout(QHeaderView* self);
+    friend void QHeaderView_ExecuteDelayedItemsLayout(QHeaderView* self);
+    friend void QHeaderView_QBaseExecuteDelayedItemsLayout(QHeaderView* self);
+    friend void QHeaderView_SetDirtyRegion(QHeaderView* self, const QRegion* region);
+    friend void QHeaderView_QBaseSetDirtyRegion(QHeaderView* self, const QRegion* region);
+    friend void QHeaderView_ScrollDirtyRegion(QHeaderView* self, int dx, int dy);
+    friend void QHeaderView_QBaseScrollDirtyRegion(QHeaderView* self, int dx, int dy);
+    friend QPoint* QHeaderView_DirtyRegionOffset(const QHeaderView* self);
+    friend QPoint* QHeaderView_QBaseDirtyRegionOffset(const QHeaderView* self);
+    friend void QHeaderView_StartAutoScroll(QHeaderView* self);
+    friend void QHeaderView_QBaseStartAutoScroll(QHeaderView* self);
+    friend void QHeaderView_StopAutoScroll(QHeaderView* self);
+    friend void QHeaderView_QBaseStopAutoScroll(QHeaderView* self);
+    friend void QHeaderView_DoAutoScroll(QHeaderView* self);
+    friend void QHeaderView_QBaseDoAutoScroll(QHeaderView* self);
+    friend int QHeaderView_DropIndicatorPosition(const QHeaderView* self);
+    friend int QHeaderView_QBaseDropIndicatorPosition(const QHeaderView* self);
+    friend void QHeaderView_SetViewportMargins(QHeaderView* self, int left, int top, int right, int bottom);
+    friend void QHeaderView_QBaseSetViewportMargins(QHeaderView* self, int left, int top, int right, int bottom);
+    friend QMargins* QHeaderView_ViewportMargins(const QHeaderView* self);
+    friend QMargins* QHeaderView_QBaseViewportMargins(const QHeaderView* self);
+    friend void QHeaderView_DrawFrame(QHeaderView* self, QPainter* param1);
+    friend void QHeaderView_QBaseDrawFrame(QHeaderView* self, QPainter* param1);
+    friend void QHeaderView_UpdateMicroFocus(QHeaderView* self);
+    friend void QHeaderView_QBaseUpdateMicroFocus(QHeaderView* self);
+    friend void QHeaderView_Create(QHeaderView* self);
+    friend void QHeaderView_QBaseCreate(QHeaderView* self);
+    friend void QHeaderView_Destroy(QHeaderView* self);
+    friend void QHeaderView_QBaseDestroy(QHeaderView* self);
+    friend bool QHeaderView_FocusNextChild(QHeaderView* self);
+    friend bool QHeaderView_QBaseFocusNextChild(QHeaderView* self);
+    friend bool QHeaderView_FocusPreviousChild(QHeaderView* self);
+    friend bool QHeaderView_QBaseFocusPreviousChild(QHeaderView* self);
+    friend QObject* QHeaderView_Sender(const QHeaderView* self);
+    friend QObject* QHeaderView_QBaseSender(const QHeaderView* self);
+    friend int QHeaderView_SenderSignalIndex(const QHeaderView* self);
+    friend int QHeaderView_QBaseSenderSignalIndex(const QHeaderView* self);
+    friend int QHeaderView_Receivers(const QHeaderView* self, const char* signal);
+    friend int QHeaderView_QBaseReceivers(const QHeaderView* self, const char* signal);
+    friend bool QHeaderView_IsSignalConnected(const QHeaderView* self, const QMetaMethod* signal);
+    friend bool QHeaderView_QBaseIsSignalConnected(const QHeaderView* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -15,20 +15,14 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSettings QSettings;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 #endif
@@ -47,19 +41,19 @@ typedef int Status;                                               // C ABI enum
 typedef libqt_map /* of libqt_string to QVariant* */ SettingsMap; // C ABI QFlags
 #endif
 
-QSettings* QSettings_new(libqt_string organization);
-QSettings* QSettings_new2(int scope, libqt_string organization);
-QSettings* QSettings_new3(int format, int scope, libqt_string organization);
-QSettings* QSettings_new4(libqt_string fileName, int format);
+QSettings* QSettings_new(const libqt_string organization);
+QSettings* QSettings_new2(int scope, const libqt_string organization);
+QSettings* QSettings_new3(int format, int scope, const libqt_string organization);
+QSettings* QSettings_new4(const libqt_string fileName, int format);
 QSettings* QSettings_new5();
 QSettings* QSettings_new6(int scope);
-QSettings* QSettings_new7(libqt_string organization, libqt_string application);
-QSettings* QSettings_new8(libqt_string organization, libqt_string application, QObject* parent);
-QSettings* QSettings_new9(int scope, libqt_string organization, libqt_string application);
-QSettings* QSettings_new10(int scope, libqt_string organization, libqt_string application, QObject* parent);
-QSettings* QSettings_new11(int format, int scope, libqt_string organization, libqt_string application);
-QSettings* QSettings_new12(int format, int scope, libqt_string organization, libqt_string application, QObject* parent);
-QSettings* QSettings_new13(libqt_string fileName, int format, QObject* parent);
+QSettings* QSettings_new7(const libqt_string organization, const libqt_string application);
+QSettings* QSettings_new8(const libqt_string organization, const libqt_string application, QObject* parent);
+QSettings* QSettings_new9(int scope, const libqt_string organization, const libqt_string application);
+QSettings* QSettings_new10(int scope, const libqt_string organization, const libqt_string application, QObject* parent);
+QSettings* QSettings_new11(int format, int scope, const libqt_string organization, const libqt_string application);
+QSettings* QSettings_new12(int format, int scope, const libqt_string organization, const libqt_string application, QObject* parent);
+QSettings* QSettings_new13(const libqt_string fileName, int format, QObject* parent);
 QSettings* QSettings_new14(QObject* parent);
 QSettings* QSettings_new15(int scope, QObject* parent);
 QMetaObject* QSettings_MetaObject(const QSettings* self);
@@ -84,8 +78,8 @@ libqt_list /* of libqt_string */ QSettings_AllKeys(const QSettings* self);
 libqt_list /* of libqt_string */ QSettings_ChildKeys(const QSettings* self);
 libqt_list /* of libqt_string */ QSettings_ChildGroups(const QSettings* self);
 bool QSettings_IsWritable(const QSettings* self);
-void QSettings_SetValue(QSettings* self, char* key, QVariant* value);
-QVariant* QSettings_Value(const QSettings* self, char* key, QVariant* defaultValue);
+void QSettings_SetValue(QSettings* self, char* key, const QVariant* value);
+QVariant* QSettings_Value(const QSettings* self, char* key, const QVariant* defaultValue);
 QVariant* QSettings_ValueWithKey(const QSettings* self, char* key);
 void QSettings_Remove(QSettings* self, char* key);
 bool QSettings_Contains(const QSettings* self, char* key);
@@ -98,7 +92,7 @@ libqt_string QSettings_OrganizationName(const QSettings* self);
 libqt_string QSettings_ApplicationName(const QSettings* self);
 void QSettings_SetDefaultFormat(int format);
 int QSettings_DefaultFormat();
-void QSettings_SetPath(int format, int scope, libqt_string path);
+void QSettings_SetPath(int format, int scope, const libqt_string path);
 bool QSettings_Event(QSettings* self, QEvent* event);
 void QSettings_OnEvent(QSettings* self, intptr_t slot);
 bool QSettings_QBaseEvent(QSettings* self, QEvent* event);
@@ -117,12 +111,12 @@ void QSettings_QBaseChildEvent(QSettings* self, QChildEvent* event);
 void QSettings_CustomEvent(QSettings* self, QEvent* event);
 void QSettings_OnCustomEvent(QSettings* self, intptr_t slot);
 void QSettings_QBaseCustomEvent(QSettings* self, QEvent* event);
-void QSettings_ConnectNotify(QSettings* self, QMetaMethod* signal);
+void QSettings_ConnectNotify(QSettings* self, const QMetaMethod* signal);
 void QSettings_OnConnectNotify(QSettings* self, intptr_t slot);
-void QSettings_QBaseConnectNotify(QSettings* self, QMetaMethod* signal);
-void QSettings_DisconnectNotify(QSettings* self, QMetaMethod* signal);
+void QSettings_QBaseConnectNotify(QSettings* self, const QMetaMethod* signal);
+void QSettings_DisconnectNotify(QSettings* self, const QMetaMethod* signal);
 void QSettings_OnDisconnectNotify(QSettings* self, intptr_t slot);
-void QSettings_QBaseDisconnectNotify(QSettings* self, QMetaMethod* signal);
+void QSettings_QBaseDisconnectNotify(QSettings* self, const QMetaMethod* signal);
 QObject* QSettings_Sender(const QSettings* self);
 void QSettings_OnSender(const QSettings* self, intptr_t slot);
 QObject* QSettings_QBaseSender(const QSettings* self);
@@ -132,9 +126,9 @@ int QSettings_QBaseSenderSignalIndex(const QSettings* self);
 int QSettings_Receivers(const QSettings* self, const char* signal);
 void QSettings_OnReceivers(const QSettings* self, intptr_t slot);
 int QSettings_QBaseReceivers(const QSettings* self, const char* signal);
-bool QSettings_IsSignalConnected(const QSettings* self, QMetaMethod* signal);
+bool QSettings_IsSignalConnected(const QSettings* self, const QMetaMethod* signal);
 void QSettings_OnIsSignalConnected(const QSettings* self, intptr_t slot);
-bool QSettings_QBaseIsSignalConnected(const QSettings* self, QMetaMethod* signal);
+bool QSettings_QBaseIsSignalConnected(const QSettings* self, const QMetaMethod* signal);
 void QSettings_Delete(QSettings* self);
 
 #ifdef __cplusplus

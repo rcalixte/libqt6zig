@@ -8,7 +8,7 @@
 #include "libqstylefactory.h"
 #include "libqstylefactory.hxx"
 
-QStyleFactory* QStyleFactory_new(QStyleFactory* other) {
+QStyleFactory* QStyleFactory_new(const QStyleFactory* other) {
     return new QStyleFactory(*other);
 }
 
@@ -45,7 +45,7 @@ libqt_list /* of libqt_string */ QStyleFactory_Keys() {
     return _out;
 }
 
-QStyle* QStyleFactory_Create(libqt_string param1) {
+QStyle* QStyleFactory_Create(const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     return QStyleFactory::create(param1_QString);
 }

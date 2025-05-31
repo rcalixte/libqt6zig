@@ -15,25 +15,17 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QHostAddress QHostAddress;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QNetworkProxy QNetworkProxy;
 typedef struct QObject QObject;
 typedef struct QTcpServer QTcpServer;
 typedef struct QTcpSocket QTcpSocket;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QTcpServer* QTcpServer_new();
@@ -66,7 +58,7 @@ int QTcpServer_ServerError(const QTcpServer* self);
 libqt_string QTcpServer_ErrorString(const QTcpServer* self);
 void QTcpServer_PauseAccepting(QTcpServer* self);
 void QTcpServer_ResumeAccepting(QTcpServer* self);
-void QTcpServer_SetProxy(QTcpServer* self, QNetworkProxy* networkProxy);
+void QTcpServer_SetProxy(QTcpServer* self, const QNetworkProxy* networkProxy);
 QNetworkProxy* QTcpServer_Proxy(const QTcpServer* self);
 void QTcpServer_IncomingConnection(QTcpServer* self, intptr_t handle);
 void QTcpServer_OnIncomingConnection(QTcpServer* self, intptr_t slot);
@@ -77,8 +69,8 @@ void QTcpServer_AcceptError(QTcpServer* self, int socketError);
 void QTcpServer_Connect_AcceptError(QTcpServer* self, intptr_t slot);
 libqt_string QTcpServer_Tr2(const char* s, const char* c);
 libqt_string QTcpServer_Tr3(const char* s, const char* c, int n);
-bool QTcpServer_Listen1(QTcpServer* self, QHostAddress* address);
-bool QTcpServer_Listen2(QTcpServer* self, QHostAddress* address, uint16_t port);
+bool QTcpServer_Listen1(QTcpServer* self, const QHostAddress* address);
+bool QTcpServer_Listen2(QTcpServer* self, const QHostAddress* address, uint16_t port);
 bool QTcpServer_WaitForNewConnection1(QTcpServer* self, int msec);
 bool QTcpServer_WaitForNewConnection2(QTcpServer* self, int msec, bool* timedOut);
 bool QTcpServer_Event(QTcpServer* self, QEvent* event);
@@ -96,12 +88,12 @@ void QTcpServer_QBaseChildEvent(QTcpServer* self, QChildEvent* event);
 void QTcpServer_CustomEvent(QTcpServer* self, QEvent* event);
 void QTcpServer_OnCustomEvent(QTcpServer* self, intptr_t slot);
 void QTcpServer_QBaseCustomEvent(QTcpServer* self, QEvent* event);
-void QTcpServer_ConnectNotify(QTcpServer* self, QMetaMethod* signal);
+void QTcpServer_ConnectNotify(QTcpServer* self, const QMetaMethod* signal);
 void QTcpServer_OnConnectNotify(QTcpServer* self, intptr_t slot);
-void QTcpServer_QBaseConnectNotify(QTcpServer* self, QMetaMethod* signal);
-void QTcpServer_DisconnectNotify(QTcpServer* self, QMetaMethod* signal);
+void QTcpServer_QBaseConnectNotify(QTcpServer* self, const QMetaMethod* signal);
+void QTcpServer_DisconnectNotify(QTcpServer* self, const QMetaMethod* signal);
 void QTcpServer_OnDisconnectNotify(QTcpServer* self, intptr_t slot);
-void QTcpServer_QBaseDisconnectNotify(QTcpServer* self, QMetaMethod* signal);
+void QTcpServer_QBaseDisconnectNotify(QTcpServer* self, const QMetaMethod* signal);
 void QTcpServer_AddPendingConnection(QTcpServer* self, QTcpSocket* socket);
 void QTcpServer_OnAddPendingConnection(QTcpServer* self, intptr_t slot);
 void QTcpServer_QBaseAddPendingConnection(QTcpServer* self, QTcpSocket* socket);
@@ -114,9 +106,10 @@ int QTcpServer_QBaseSenderSignalIndex(const QTcpServer* self);
 int QTcpServer_Receivers(const QTcpServer* self, const char* signal);
 void QTcpServer_OnReceivers(const QTcpServer* self, intptr_t slot);
 int QTcpServer_QBaseReceivers(const QTcpServer* self, const char* signal);
-bool QTcpServer_IsSignalConnected(const QTcpServer* self, QMetaMethod* signal);
+bool QTcpServer_IsSignalConnected(const QTcpServer* self, const QMetaMethod* signal);
 void QTcpServer_OnIsSignalConnected(const QTcpServer* self, intptr_t slot);
-bool QTcpServer_QBaseIsSignalConnected(const QTcpServer* self, QMetaMethod* signal);
+bool QTcpServer_QBaseIsSignalConnected(const QTcpServer* self, const QMetaMethod* signal);
+void QTcpServer_Connect_PendingConnectionAvailable(QTcpServer* self, intptr_t slot);
 void QTcpServer_Delete(QTcpServer* self);
 
 #ifdef __cplusplus

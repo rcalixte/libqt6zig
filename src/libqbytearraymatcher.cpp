@@ -10,7 +10,7 @@ QByteArrayMatcher* QByteArrayMatcher_new() {
     return new QByteArrayMatcher();
 }
 
-QByteArrayMatcher* QByteArrayMatcher_new2(libqt_string pattern) {
+QByteArrayMatcher* QByteArrayMatcher_new2(const libqt_string pattern) {
     QByteArray pattern_QByteArray(pattern.data, pattern.len);
     return new QByteArrayMatcher(pattern_QByteArray);
 }
@@ -23,7 +23,7 @@ QByteArrayMatcher* QByteArrayMatcher_new4(const char* pattern) {
     return new QByteArrayMatcher(pattern);
 }
 
-QByteArrayMatcher* QByteArrayMatcher_new5(QByteArrayMatcher* other) {
+QByteArrayMatcher* QByteArrayMatcher_new5(const QByteArrayMatcher* other) {
     return new QByteArrayMatcher(*other);
 }
 
@@ -31,11 +31,11 @@ QByteArrayMatcher* QByteArrayMatcher_new6(const char* pattern, ptrdiff_t length)
     return new QByteArrayMatcher(pattern, (qsizetype)(length));
 }
 
-void QByteArrayMatcher_OperatorAssign(QByteArrayMatcher* self, QByteArrayMatcher* other) {
+void QByteArrayMatcher_OperatorAssign(QByteArrayMatcher* self, const QByteArrayMatcher* other) {
     self->operator=(*other);
 }
 
-void QByteArrayMatcher_SetPattern(QByteArrayMatcher* self, libqt_string pattern) {
+void QByteArrayMatcher_SetPattern(QByteArrayMatcher* self, const libqt_string pattern) {
     QByteArray pattern_QByteArray(pattern.data, pattern.len);
     self->setPattern(pattern_QByteArray);
 }
@@ -70,7 +70,7 @@ void QByteArrayMatcher_Delete(QByteArrayMatcher* self) {
     delete self;
 }
 
-QStaticByteArrayMatcherBase* QStaticByteArrayMatcherBase_new(QStaticByteArrayMatcherBase* other) {
+QStaticByteArrayMatcherBase* QStaticByteArrayMatcherBase_new(const QStaticByteArrayMatcherBase* other) {
     return new QStaticByteArrayMatcherBase(*other);
 }
 

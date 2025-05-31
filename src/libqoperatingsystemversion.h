@@ -28,7 +28,7 @@ typedef int OSType; // C ABI enum
 #endif
 
 QOperatingSystemVersionBase* QOperatingSystemVersionBase_new(int osType, int vmajor);
-QOperatingSystemVersionBase* QOperatingSystemVersionBase_new2(QOperatingSystemVersionBase* param1);
+QOperatingSystemVersionBase* QOperatingSystemVersionBase_new2(const QOperatingSystemVersionBase* param1);
 QOperatingSystemVersionBase* QOperatingSystemVersionBase_new3(int osType, int vmajor, int vminor);
 QOperatingSystemVersionBase* QOperatingSystemVersionBase_new4(int osType, int vmajor, int vminor, int vmicro);
 QOperatingSystemVersionBase* QOperatingSystemVersionBase_Current();
@@ -43,9 +43,9 @@ int QOperatingSystemVersionBase_Type(const QOperatingSystemVersionBase* self);
 libqt_string QOperatingSystemVersionBase_Name2(const QOperatingSystemVersionBase* self);
 void QOperatingSystemVersionBase_Delete(QOperatingSystemVersionBase* self);
 
-QOperatingSystemVersion* QOperatingSystemVersion_new(QOperatingSystemVersionBase* osversion);
+QOperatingSystemVersion* QOperatingSystemVersion_new(const QOperatingSystemVersionBase* osversion);
 QOperatingSystemVersion* QOperatingSystemVersion_new2(int osType, int vmajor);
-QOperatingSystemVersion* QOperatingSystemVersion_new3(QOperatingSystemVersion* param1);
+QOperatingSystemVersion* QOperatingSystemVersion_new3(const QOperatingSystemVersion* param1);
 QOperatingSystemVersion* QOperatingSystemVersion_new4(int osType, int vmajor, int vminor);
 QOperatingSystemVersion* QOperatingSystemVersion_new5(int osType, int vmajor, int vminor, int vmicro);
 QOperatingSystemVersion* QOperatingSystemVersion_Current();

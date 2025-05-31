@@ -11,11 +11,14 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QsciLexerIDL so that we can call protected methods
-class VirtualQsciLexerIDL : public QsciLexerIDL {
+class VirtualQsciLexerIDL final : public QsciLexerIDL {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQsciLexerIDL = true;
+
     // Virtual class public types (including callbacks)
-    using QsciLexerIDL_Metacall_Callback = int (*)(QsciLexerIDL*, QMetaObject::Call, int, void**);
+    using QsciLexerIDL_Metacall_Callback = int (*)(QsciLexerIDL*, int, int, void**);
     using QsciLexerIDL_SetFoldAtElse_Callback = void (*)(QsciLexerIDL*, bool);
     using QsciLexerIDL_SetFoldComments_Callback = void (*)(QsciLexerIDL*, bool);
     using QsciLexerIDL_SetFoldCompact_Callback = void (*)(QsciLexerIDL*, bool);
@@ -25,47 +28,47 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
     using QsciLexerIDL_Lexer_Callback = const char* (*)();
     using QsciLexerIDL_LexerId_Callback = int (*)();
     using QsciLexerIDL_AutoCompletionFillups_Callback = const char* (*)();
-    using QsciLexerIDL_AutoCompletionWordSeparators_Callback = QStringList (*)();
+    using QsciLexerIDL_AutoCompletionWordSeparators_Callback = libqt_list /* of libqt_string */ (*)();
     using QsciLexerIDL_BlockEnd_Callback = const char* (*)(const QsciLexerIDL*, int*);
     using QsciLexerIDL_BlockLookback_Callback = int (*)();
     using QsciLexerIDL_BlockStart_Callback = const char* (*)(const QsciLexerIDL*, int*);
     using QsciLexerIDL_BlockStartKeyword_Callback = const char* (*)(const QsciLexerIDL*, int*);
     using QsciLexerIDL_BraceStyle_Callback = int (*)();
     using QsciLexerIDL_CaseSensitive_Callback = bool (*)();
-    using QsciLexerIDL_Color_Callback = QColor (*)(const QsciLexerIDL*, int);
+    using QsciLexerIDL_Color_Callback = QColor* (*)(const QsciLexerIDL*, int);
     using QsciLexerIDL_EolFill_Callback = bool (*)(const QsciLexerIDL*, int);
-    using QsciLexerIDL_Font_Callback = QFont (*)(const QsciLexerIDL*, int);
+    using QsciLexerIDL_Font_Callback = QFont* (*)(const QsciLexerIDL*, int);
     using QsciLexerIDL_IndentationGuideView_Callback = int (*)();
     using QsciLexerIDL_Keywords_Callback = const char* (*)(const QsciLexerIDL*, int);
     using QsciLexerIDL_DefaultStyle_Callback = int (*)();
-    using QsciLexerIDL_Description_Callback = QString (*)(const QsciLexerIDL*, int);
-    using QsciLexerIDL_Paper_Callback = QColor (*)(const QsciLexerIDL*, int);
-    using QsciLexerIDL_DefaultColorWithStyle_Callback = QColor (*)(const QsciLexerIDL*, int);
+    using QsciLexerIDL_Description_Callback = libqt_string (*)(const QsciLexerIDL*, int);
+    using QsciLexerIDL_Paper_Callback = QColor* (*)(const QsciLexerIDL*, int);
+    using QsciLexerIDL_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerIDL*, int);
     using QsciLexerIDL_DefaultEolFill_Callback = bool (*)(const QsciLexerIDL*, int);
-    using QsciLexerIDL_DefaultFontWithStyle_Callback = QFont (*)(const QsciLexerIDL*, int);
-    using QsciLexerIDL_DefaultPaperWithStyle_Callback = QColor (*)(const QsciLexerIDL*, int);
+    using QsciLexerIDL_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerIDL*, int);
+    using QsciLexerIDL_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerIDL*, int);
     using QsciLexerIDL_SetEditor_Callback = void (*)(QsciLexerIDL*, QsciScintilla*);
     using QsciLexerIDL_RefreshProperties_Callback = void (*)();
     using QsciLexerIDL_StyleBitsNeeded_Callback = int (*)();
     using QsciLexerIDL_WordCharacters_Callback = const char* (*)();
     using QsciLexerIDL_SetAutoIndentStyle_Callback = void (*)(QsciLexerIDL*, int);
-    using QsciLexerIDL_SetColor_Callback = void (*)(QsciLexerIDL*, const QColor&, int);
+    using QsciLexerIDL_SetColor_Callback = void (*)(QsciLexerIDL*, QColor*, int);
     using QsciLexerIDL_SetEolFill_Callback = void (*)(QsciLexerIDL*, bool, int);
-    using QsciLexerIDL_SetFont_Callback = void (*)(QsciLexerIDL*, const QFont&, int);
-    using QsciLexerIDL_SetPaper_Callback = void (*)(QsciLexerIDL*, const QColor&, int);
-    using QsciLexerIDL_ReadProperties_Callback = bool (*)(QsciLexerIDL*, QSettings&, const QString&);
-    using QsciLexerIDL_WriteProperties_Callback = bool (*)(const QsciLexerIDL*, QSettings&, const QString&);
+    using QsciLexerIDL_SetFont_Callback = void (*)(QsciLexerIDL*, QFont*, int);
+    using QsciLexerIDL_SetPaper_Callback = void (*)(QsciLexerIDL*, QColor*, int);
+    using QsciLexerIDL_ReadProperties_Callback = bool (*)(QsciLexerIDL*, QSettings*, libqt_string);
+    using QsciLexerIDL_WriteProperties_Callback = bool (*)(const QsciLexerIDL*, QSettings*, libqt_string);
     using QsciLexerIDL_Event_Callback = bool (*)(QsciLexerIDL*, QEvent*);
     using QsciLexerIDL_EventFilter_Callback = bool (*)(QsciLexerIDL*, QObject*, QEvent*);
     using QsciLexerIDL_TimerEvent_Callback = void (*)(QsciLexerIDL*, QTimerEvent*);
     using QsciLexerIDL_ChildEvent_Callback = void (*)(QsciLexerIDL*, QChildEvent*);
     using QsciLexerIDL_CustomEvent_Callback = void (*)(QsciLexerIDL*, QEvent*);
-    using QsciLexerIDL_ConnectNotify_Callback = void (*)(QsciLexerIDL*, const QMetaMethod&);
-    using QsciLexerIDL_DisconnectNotify_Callback = void (*)(QsciLexerIDL*, const QMetaMethod&);
+    using QsciLexerIDL_ConnectNotify_Callback = void (*)(QsciLexerIDL*, QMetaMethod*);
+    using QsciLexerIDL_DisconnectNotify_Callback = void (*)(QsciLexerIDL*, QMetaMethod*);
     using QsciLexerIDL_Sender_Callback = QObject* (*)();
     using QsciLexerIDL_SenderSignalIndex_Callback = int (*)();
     using QsciLexerIDL_Receivers_Callback = int (*)(const QsciLexerIDL*, const char*);
-    using QsciLexerIDL_IsSignalConnected_Callback = bool (*)(const QsciLexerIDL*, const QMetaMethod&);
+    using QsciLexerIDL_IsSignalConnected_Callback = bool (*)(const QsciLexerIDL*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -233,110 +236,110 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
     }
 
     // Callback setters
-    void setQsciLexerIDL_Metacall_Callback(QsciLexerIDL_Metacall_Callback cb) { qscilexeridl_metacall_callback = cb; }
-    void setQsciLexerIDL_SetFoldAtElse_Callback(QsciLexerIDL_SetFoldAtElse_Callback cb) { qscilexeridl_setfoldatelse_callback = cb; }
-    void setQsciLexerIDL_SetFoldComments_Callback(QsciLexerIDL_SetFoldComments_Callback cb) { qscilexeridl_setfoldcomments_callback = cb; }
-    void setQsciLexerIDL_SetFoldCompact_Callback(QsciLexerIDL_SetFoldCompact_Callback cb) { qscilexeridl_setfoldcompact_callback = cb; }
-    void setQsciLexerIDL_SetFoldPreprocessor_Callback(QsciLexerIDL_SetFoldPreprocessor_Callback cb) { qscilexeridl_setfoldpreprocessor_callback = cb; }
-    void setQsciLexerIDL_SetStylePreprocessor_Callback(QsciLexerIDL_SetStylePreprocessor_Callback cb) { qscilexeridl_setstylepreprocessor_callback = cb; }
-    void setQsciLexerIDL_Language_Callback(QsciLexerIDL_Language_Callback cb) { qscilexeridl_language_callback = cb; }
-    void setQsciLexerIDL_Lexer_Callback(QsciLexerIDL_Lexer_Callback cb) { qscilexeridl_lexer_callback = cb; }
-    void setQsciLexerIDL_LexerId_Callback(QsciLexerIDL_LexerId_Callback cb) { qscilexeridl_lexerid_callback = cb; }
-    void setQsciLexerIDL_AutoCompletionFillups_Callback(QsciLexerIDL_AutoCompletionFillups_Callback cb) { qscilexeridl_autocompletionfillups_callback = cb; }
-    void setQsciLexerIDL_AutoCompletionWordSeparators_Callback(QsciLexerIDL_AutoCompletionWordSeparators_Callback cb) { qscilexeridl_autocompletionwordseparators_callback = cb; }
-    void setQsciLexerIDL_BlockEnd_Callback(QsciLexerIDL_BlockEnd_Callback cb) { qscilexeridl_blockend_callback = cb; }
-    void setQsciLexerIDL_BlockLookback_Callback(QsciLexerIDL_BlockLookback_Callback cb) { qscilexeridl_blocklookback_callback = cb; }
-    void setQsciLexerIDL_BlockStart_Callback(QsciLexerIDL_BlockStart_Callback cb) { qscilexeridl_blockstart_callback = cb; }
-    void setQsciLexerIDL_BlockStartKeyword_Callback(QsciLexerIDL_BlockStartKeyword_Callback cb) { qscilexeridl_blockstartkeyword_callback = cb; }
-    void setQsciLexerIDL_BraceStyle_Callback(QsciLexerIDL_BraceStyle_Callback cb) { qscilexeridl_bracestyle_callback = cb; }
-    void setQsciLexerIDL_CaseSensitive_Callback(QsciLexerIDL_CaseSensitive_Callback cb) { qscilexeridl_casesensitive_callback = cb; }
-    void setQsciLexerIDL_Color_Callback(QsciLexerIDL_Color_Callback cb) { qscilexeridl_color_callback = cb; }
-    void setQsciLexerIDL_EolFill_Callback(QsciLexerIDL_EolFill_Callback cb) { qscilexeridl_eolfill_callback = cb; }
-    void setQsciLexerIDL_Font_Callback(QsciLexerIDL_Font_Callback cb) { qscilexeridl_font_callback = cb; }
-    void setQsciLexerIDL_IndentationGuideView_Callback(QsciLexerIDL_IndentationGuideView_Callback cb) { qscilexeridl_indentationguideview_callback = cb; }
-    void setQsciLexerIDL_Keywords_Callback(QsciLexerIDL_Keywords_Callback cb) { qscilexeridl_keywords_callback = cb; }
-    void setQsciLexerIDL_DefaultStyle_Callback(QsciLexerIDL_DefaultStyle_Callback cb) { qscilexeridl_defaultstyle_callback = cb; }
-    void setQsciLexerIDL_Description_Callback(QsciLexerIDL_Description_Callback cb) { qscilexeridl_description_callback = cb; }
-    void setQsciLexerIDL_Paper_Callback(QsciLexerIDL_Paper_Callback cb) { qscilexeridl_paper_callback = cb; }
-    void setQsciLexerIDL_DefaultColorWithStyle_Callback(QsciLexerIDL_DefaultColorWithStyle_Callback cb) { qscilexeridl_defaultcolorwithstyle_callback = cb; }
-    void setQsciLexerIDL_DefaultEolFill_Callback(QsciLexerIDL_DefaultEolFill_Callback cb) { qscilexeridl_defaulteolfill_callback = cb; }
-    void setQsciLexerIDL_DefaultFontWithStyle_Callback(QsciLexerIDL_DefaultFontWithStyle_Callback cb) { qscilexeridl_defaultfontwithstyle_callback = cb; }
-    void setQsciLexerIDL_DefaultPaperWithStyle_Callback(QsciLexerIDL_DefaultPaperWithStyle_Callback cb) { qscilexeridl_defaultpaperwithstyle_callback = cb; }
-    void setQsciLexerIDL_SetEditor_Callback(QsciLexerIDL_SetEditor_Callback cb) { qscilexeridl_seteditor_callback = cb; }
-    void setQsciLexerIDL_RefreshProperties_Callback(QsciLexerIDL_RefreshProperties_Callback cb) { qscilexeridl_refreshproperties_callback = cb; }
-    void setQsciLexerIDL_StyleBitsNeeded_Callback(QsciLexerIDL_StyleBitsNeeded_Callback cb) { qscilexeridl_stylebitsneeded_callback = cb; }
-    void setQsciLexerIDL_WordCharacters_Callback(QsciLexerIDL_WordCharacters_Callback cb) { qscilexeridl_wordcharacters_callback = cb; }
-    void setQsciLexerIDL_SetAutoIndentStyle_Callback(QsciLexerIDL_SetAutoIndentStyle_Callback cb) { qscilexeridl_setautoindentstyle_callback = cb; }
-    void setQsciLexerIDL_SetColor_Callback(QsciLexerIDL_SetColor_Callback cb) { qscilexeridl_setcolor_callback = cb; }
-    void setQsciLexerIDL_SetEolFill_Callback(QsciLexerIDL_SetEolFill_Callback cb) { qscilexeridl_seteolfill_callback = cb; }
-    void setQsciLexerIDL_SetFont_Callback(QsciLexerIDL_SetFont_Callback cb) { qscilexeridl_setfont_callback = cb; }
-    void setQsciLexerIDL_SetPaper_Callback(QsciLexerIDL_SetPaper_Callback cb) { qscilexeridl_setpaper_callback = cb; }
-    void setQsciLexerIDL_ReadProperties_Callback(QsciLexerIDL_ReadProperties_Callback cb) { qscilexeridl_readproperties_callback = cb; }
-    void setQsciLexerIDL_WriteProperties_Callback(QsciLexerIDL_WriteProperties_Callback cb) { qscilexeridl_writeproperties_callback = cb; }
-    void setQsciLexerIDL_Event_Callback(QsciLexerIDL_Event_Callback cb) { qscilexeridl_event_callback = cb; }
-    void setQsciLexerIDL_EventFilter_Callback(QsciLexerIDL_EventFilter_Callback cb) { qscilexeridl_eventfilter_callback = cb; }
-    void setQsciLexerIDL_TimerEvent_Callback(QsciLexerIDL_TimerEvent_Callback cb) { qscilexeridl_timerevent_callback = cb; }
-    void setQsciLexerIDL_ChildEvent_Callback(QsciLexerIDL_ChildEvent_Callback cb) { qscilexeridl_childevent_callback = cb; }
-    void setQsciLexerIDL_CustomEvent_Callback(QsciLexerIDL_CustomEvent_Callback cb) { qscilexeridl_customevent_callback = cb; }
-    void setQsciLexerIDL_ConnectNotify_Callback(QsciLexerIDL_ConnectNotify_Callback cb) { qscilexeridl_connectnotify_callback = cb; }
-    void setQsciLexerIDL_DisconnectNotify_Callback(QsciLexerIDL_DisconnectNotify_Callback cb) { qscilexeridl_disconnectnotify_callback = cb; }
-    void setQsciLexerIDL_Sender_Callback(QsciLexerIDL_Sender_Callback cb) { qscilexeridl_sender_callback = cb; }
-    void setQsciLexerIDL_SenderSignalIndex_Callback(QsciLexerIDL_SenderSignalIndex_Callback cb) { qscilexeridl_sendersignalindex_callback = cb; }
-    void setQsciLexerIDL_Receivers_Callback(QsciLexerIDL_Receivers_Callback cb) { qscilexeridl_receivers_callback = cb; }
-    void setQsciLexerIDL_IsSignalConnected_Callback(QsciLexerIDL_IsSignalConnected_Callback cb) { qscilexeridl_issignalconnected_callback = cb; }
+    inline void setQsciLexerIDL_Metacall_Callback(QsciLexerIDL_Metacall_Callback cb) { qscilexeridl_metacall_callback = cb; }
+    inline void setQsciLexerIDL_SetFoldAtElse_Callback(QsciLexerIDL_SetFoldAtElse_Callback cb) { qscilexeridl_setfoldatelse_callback = cb; }
+    inline void setQsciLexerIDL_SetFoldComments_Callback(QsciLexerIDL_SetFoldComments_Callback cb) { qscilexeridl_setfoldcomments_callback = cb; }
+    inline void setQsciLexerIDL_SetFoldCompact_Callback(QsciLexerIDL_SetFoldCompact_Callback cb) { qscilexeridl_setfoldcompact_callback = cb; }
+    inline void setQsciLexerIDL_SetFoldPreprocessor_Callback(QsciLexerIDL_SetFoldPreprocessor_Callback cb) { qscilexeridl_setfoldpreprocessor_callback = cb; }
+    inline void setQsciLexerIDL_SetStylePreprocessor_Callback(QsciLexerIDL_SetStylePreprocessor_Callback cb) { qscilexeridl_setstylepreprocessor_callback = cb; }
+    inline void setQsciLexerIDL_Language_Callback(QsciLexerIDL_Language_Callback cb) { qscilexeridl_language_callback = cb; }
+    inline void setQsciLexerIDL_Lexer_Callback(QsciLexerIDL_Lexer_Callback cb) { qscilexeridl_lexer_callback = cb; }
+    inline void setQsciLexerIDL_LexerId_Callback(QsciLexerIDL_LexerId_Callback cb) { qscilexeridl_lexerid_callback = cb; }
+    inline void setQsciLexerIDL_AutoCompletionFillups_Callback(QsciLexerIDL_AutoCompletionFillups_Callback cb) { qscilexeridl_autocompletionfillups_callback = cb; }
+    inline void setQsciLexerIDL_AutoCompletionWordSeparators_Callback(QsciLexerIDL_AutoCompletionWordSeparators_Callback cb) { qscilexeridl_autocompletionwordseparators_callback = cb; }
+    inline void setQsciLexerIDL_BlockEnd_Callback(QsciLexerIDL_BlockEnd_Callback cb) { qscilexeridl_blockend_callback = cb; }
+    inline void setQsciLexerIDL_BlockLookback_Callback(QsciLexerIDL_BlockLookback_Callback cb) { qscilexeridl_blocklookback_callback = cb; }
+    inline void setQsciLexerIDL_BlockStart_Callback(QsciLexerIDL_BlockStart_Callback cb) { qscilexeridl_blockstart_callback = cb; }
+    inline void setQsciLexerIDL_BlockStartKeyword_Callback(QsciLexerIDL_BlockStartKeyword_Callback cb) { qscilexeridl_blockstartkeyword_callback = cb; }
+    inline void setQsciLexerIDL_BraceStyle_Callback(QsciLexerIDL_BraceStyle_Callback cb) { qscilexeridl_bracestyle_callback = cb; }
+    inline void setQsciLexerIDL_CaseSensitive_Callback(QsciLexerIDL_CaseSensitive_Callback cb) { qscilexeridl_casesensitive_callback = cb; }
+    inline void setQsciLexerIDL_Color_Callback(QsciLexerIDL_Color_Callback cb) { qscilexeridl_color_callback = cb; }
+    inline void setQsciLexerIDL_EolFill_Callback(QsciLexerIDL_EolFill_Callback cb) { qscilexeridl_eolfill_callback = cb; }
+    inline void setQsciLexerIDL_Font_Callback(QsciLexerIDL_Font_Callback cb) { qscilexeridl_font_callback = cb; }
+    inline void setQsciLexerIDL_IndentationGuideView_Callback(QsciLexerIDL_IndentationGuideView_Callback cb) { qscilexeridl_indentationguideview_callback = cb; }
+    inline void setQsciLexerIDL_Keywords_Callback(QsciLexerIDL_Keywords_Callback cb) { qscilexeridl_keywords_callback = cb; }
+    inline void setQsciLexerIDL_DefaultStyle_Callback(QsciLexerIDL_DefaultStyle_Callback cb) { qscilexeridl_defaultstyle_callback = cb; }
+    inline void setQsciLexerIDL_Description_Callback(QsciLexerIDL_Description_Callback cb) { qscilexeridl_description_callback = cb; }
+    inline void setQsciLexerIDL_Paper_Callback(QsciLexerIDL_Paper_Callback cb) { qscilexeridl_paper_callback = cb; }
+    inline void setQsciLexerIDL_DefaultColorWithStyle_Callback(QsciLexerIDL_DefaultColorWithStyle_Callback cb) { qscilexeridl_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerIDL_DefaultEolFill_Callback(QsciLexerIDL_DefaultEolFill_Callback cb) { qscilexeridl_defaulteolfill_callback = cb; }
+    inline void setQsciLexerIDL_DefaultFontWithStyle_Callback(QsciLexerIDL_DefaultFontWithStyle_Callback cb) { qscilexeridl_defaultfontwithstyle_callback = cb; }
+    inline void setQsciLexerIDL_DefaultPaperWithStyle_Callback(QsciLexerIDL_DefaultPaperWithStyle_Callback cb) { qscilexeridl_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerIDL_SetEditor_Callback(QsciLexerIDL_SetEditor_Callback cb) { qscilexeridl_seteditor_callback = cb; }
+    inline void setQsciLexerIDL_RefreshProperties_Callback(QsciLexerIDL_RefreshProperties_Callback cb) { qscilexeridl_refreshproperties_callback = cb; }
+    inline void setQsciLexerIDL_StyleBitsNeeded_Callback(QsciLexerIDL_StyleBitsNeeded_Callback cb) { qscilexeridl_stylebitsneeded_callback = cb; }
+    inline void setQsciLexerIDL_WordCharacters_Callback(QsciLexerIDL_WordCharacters_Callback cb) { qscilexeridl_wordcharacters_callback = cb; }
+    inline void setQsciLexerIDL_SetAutoIndentStyle_Callback(QsciLexerIDL_SetAutoIndentStyle_Callback cb) { qscilexeridl_setautoindentstyle_callback = cb; }
+    inline void setQsciLexerIDL_SetColor_Callback(QsciLexerIDL_SetColor_Callback cb) { qscilexeridl_setcolor_callback = cb; }
+    inline void setQsciLexerIDL_SetEolFill_Callback(QsciLexerIDL_SetEolFill_Callback cb) { qscilexeridl_seteolfill_callback = cb; }
+    inline void setQsciLexerIDL_SetFont_Callback(QsciLexerIDL_SetFont_Callback cb) { qscilexeridl_setfont_callback = cb; }
+    inline void setQsciLexerIDL_SetPaper_Callback(QsciLexerIDL_SetPaper_Callback cb) { qscilexeridl_setpaper_callback = cb; }
+    inline void setQsciLexerIDL_ReadProperties_Callback(QsciLexerIDL_ReadProperties_Callback cb) { qscilexeridl_readproperties_callback = cb; }
+    inline void setQsciLexerIDL_WriteProperties_Callback(QsciLexerIDL_WriteProperties_Callback cb) { qscilexeridl_writeproperties_callback = cb; }
+    inline void setQsciLexerIDL_Event_Callback(QsciLexerIDL_Event_Callback cb) { qscilexeridl_event_callback = cb; }
+    inline void setQsciLexerIDL_EventFilter_Callback(QsciLexerIDL_EventFilter_Callback cb) { qscilexeridl_eventfilter_callback = cb; }
+    inline void setQsciLexerIDL_TimerEvent_Callback(QsciLexerIDL_TimerEvent_Callback cb) { qscilexeridl_timerevent_callback = cb; }
+    inline void setQsciLexerIDL_ChildEvent_Callback(QsciLexerIDL_ChildEvent_Callback cb) { qscilexeridl_childevent_callback = cb; }
+    inline void setQsciLexerIDL_CustomEvent_Callback(QsciLexerIDL_CustomEvent_Callback cb) { qscilexeridl_customevent_callback = cb; }
+    inline void setQsciLexerIDL_ConnectNotify_Callback(QsciLexerIDL_ConnectNotify_Callback cb) { qscilexeridl_connectnotify_callback = cb; }
+    inline void setQsciLexerIDL_DisconnectNotify_Callback(QsciLexerIDL_DisconnectNotify_Callback cb) { qscilexeridl_disconnectnotify_callback = cb; }
+    inline void setQsciLexerIDL_Sender_Callback(QsciLexerIDL_Sender_Callback cb) { qscilexeridl_sender_callback = cb; }
+    inline void setQsciLexerIDL_SenderSignalIndex_Callback(QsciLexerIDL_SenderSignalIndex_Callback cb) { qscilexeridl_sendersignalindex_callback = cb; }
+    inline void setQsciLexerIDL_Receivers_Callback(QsciLexerIDL_Receivers_Callback cb) { qscilexeridl_receivers_callback = cb; }
+    inline void setQsciLexerIDL_IsSignalConnected_Callback(QsciLexerIDL_IsSignalConnected_Callback cb) { qscilexeridl_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQsciLexerIDL_Metacall_IsBase(bool value) const { qscilexeridl_metacall_isbase = value; }
-    void setQsciLexerIDL_SetFoldAtElse_IsBase(bool value) const { qscilexeridl_setfoldatelse_isbase = value; }
-    void setQsciLexerIDL_SetFoldComments_IsBase(bool value) const { qscilexeridl_setfoldcomments_isbase = value; }
-    void setQsciLexerIDL_SetFoldCompact_IsBase(bool value) const { qscilexeridl_setfoldcompact_isbase = value; }
-    void setQsciLexerIDL_SetFoldPreprocessor_IsBase(bool value) const { qscilexeridl_setfoldpreprocessor_isbase = value; }
-    void setQsciLexerIDL_SetStylePreprocessor_IsBase(bool value) const { qscilexeridl_setstylepreprocessor_isbase = value; }
-    void setQsciLexerIDL_Language_IsBase(bool value) const { qscilexeridl_language_isbase = value; }
-    void setQsciLexerIDL_Lexer_IsBase(bool value) const { qscilexeridl_lexer_isbase = value; }
-    void setQsciLexerIDL_LexerId_IsBase(bool value) const { qscilexeridl_lexerid_isbase = value; }
-    void setQsciLexerIDL_AutoCompletionFillups_IsBase(bool value) const { qscilexeridl_autocompletionfillups_isbase = value; }
-    void setQsciLexerIDL_AutoCompletionWordSeparators_IsBase(bool value) const { qscilexeridl_autocompletionwordseparators_isbase = value; }
-    void setQsciLexerIDL_BlockEnd_IsBase(bool value) const { qscilexeridl_blockend_isbase = value; }
-    void setQsciLexerIDL_BlockLookback_IsBase(bool value) const { qscilexeridl_blocklookback_isbase = value; }
-    void setQsciLexerIDL_BlockStart_IsBase(bool value) const { qscilexeridl_blockstart_isbase = value; }
-    void setQsciLexerIDL_BlockStartKeyword_IsBase(bool value) const { qscilexeridl_blockstartkeyword_isbase = value; }
-    void setQsciLexerIDL_BraceStyle_IsBase(bool value) const { qscilexeridl_bracestyle_isbase = value; }
-    void setQsciLexerIDL_CaseSensitive_IsBase(bool value) const { qscilexeridl_casesensitive_isbase = value; }
-    void setQsciLexerIDL_Color_IsBase(bool value) const { qscilexeridl_color_isbase = value; }
-    void setQsciLexerIDL_EolFill_IsBase(bool value) const { qscilexeridl_eolfill_isbase = value; }
-    void setQsciLexerIDL_Font_IsBase(bool value) const { qscilexeridl_font_isbase = value; }
-    void setQsciLexerIDL_IndentationGuideView_IsBase(bool value) const { qscilexeridl_indentationguideview_isbase = value; }
-    void setQsciLexerIDL_Keywords_IsBase(bool value) const { qscilexeridl_keywords_isbase = value; }
-    void setQsciLexerIDL_DefaultStyle_IsBase(bool value) const { qscilexeridl_defaultstyle_isbase = value; }
-    void setQsciLexerIDL_Description_IsBase(bool value) const { qscilexeridl_description_isbase = value; }
-    void setQsciLexerIDL_Paper_IsBase(bool value) const { qscilexeridl_paper_isbase = value; }
-    void setQsciLexerIDL_DefaultColorWithStyle_IsBase(bool value) const { qscilexeridl_defaultcolorwithstyle_isbase = value; }
-    void setQsciLexerIDL_DefaultEolFill_IsBase(bool value) const { qscilexeridl_defaulteolfill_isbase = value; }
-    void setQsciLexerIDL_DefaultFontWithStyle_IsBase(bool value) const { qscilexeridl_defaultfontwithstyle_isbase = value; }
-    void setQsciLexerIDL_DefaultPaperWithStyle_IsBase(bool value) const { qscilexeridl_defaultpaperwithstyle_isbase = value; }
-    void setQsciLexerIDL_SetEditor_IsBase(bool value) const { qscilexeridl_seteditor_isbase = value; }
-    void setQsciLexerIDL_RefreshProperties_IsBase(bool value) const { qscilexeridl_refreshproperties_isbase = value; }
-    void setQsciLexerIDL_StyleBitsNeeded_IsBase(bool value) const { qscilexeridl_stylebitsneeded_isbase = value; }
-    void setQsciLexerIDL_WordCharacters_IsBase(bool value) const { qscilexeridl_wordcharacters_isbase = value; }
-    void setQsciLexerIDL_SetAutoIndentStyle_IsBase(bool value) const { qscilexeridl_setautoindentstyle_isbase = value; }
-    void setQsciLexerIDL_SetColor_IsBase(bool value) const { qscilexeridl_setcolor_isbase = value; }
-    void setQsciLexerIDL_SetEolFill_IsBase(bool value) const { qscilexeridl_seteolfill_isbase = value; }
-    void setQsciLexerIDL_SetFont_IsBase(bool value) const { qscilexeridl_setfont_isbase = value; }
-    void setQsciLexerIDL_SetPaper_IsBase(bool value) const { qscilexeridl_setpaper_isbase = value; }
-    void setQsciLexerIDL_ReadProperties_IsBase(bool value) const { qscilexeridl_readproperties_isbase = value; }
-    void setQsciLexerIDL_WriteProperties_IsBase(bool value) const { qscilexeridl_writeproperties_isbase = value; }
-    void setQsciLexerIDL_Event_IsBase(bool value) const { qscilexeridl_event_isbase = value; }
-    void setQsciLexerIDL_EventFilter_IsBase(bool value) const { qscilexeridl_eventfilter_isbase = value; }
-    void setQsciLexerIDL_TimerEvent_IsBase(bool value) const { qscilexeridl_timerevent_isbase = value; }
-    void setQsciLexerIDL_ChildEvent_IsBase(bool value) const { qscilexeridl_childevent_isbase = value; }
-    void setQsciLexerIDL_CustomEvent_IsBase(bool value) const { qscilexeridl_customevent_isbase = value; }
-    void setQsciLexerIDL_ConnectNotify_IsBase(bool value) const { qscilexeridl_connectnotify_isbase = value; }
-    void setQsciLexerIDL_DisconnectNotify_IsBase(bool value) const { qscilexeridl_disconnectnotify_isbase = value; }
-    void setQsciLexerIDL_Sender_IsBase(bool value) const { qscilexeridl_sender_isbase = value; }
-    void setQsciLexerIDL_SenderSignalIndex_IsBase(bool value) const { qscilexeridl_sendersignalindex_isbase = value; }
-    void setQsciLexerIDL_Receivers_IsBase(bool value) const { qscilexeridl_receivers_isbase = value; }
-    void setQsciLexerIDL_IsSignalConnected_IsBase(bool value) const { qscilexeridl_issignalconnected_isbase = value; }
+    inline void setQsciLexerIDL_Metacall_IsBase(bool value) const { qscilexeridl_metacall_isbase = value; }
+    inline void setQsciLexerIDL_SetFoldAtElse_IsBase(bool value) const { qscilexeridl_setfoldatelse_isbase = value; }
+    inline void setQsciLexerIDL_SetFoldComments_IsBase(bool value) const { qscilexeridl_setfoldcomments_isbase = value; }
+    inline void setQsciLexerIDL_SetFoldCompact_IsBase(bool value) const { qscilexeridl_setfoldcompact_isbase = value; }
+    inline void setQsciLexerIDL_SetFoldPreprocessor_IsBase(bool value) const { qscilexeridl_setfoldpreprocessor_isbase = value; }
+    inline void setQsciLexerIDL_SetStylePreprocessor_IsBase(bool value) const { qscilexeridl_setstylepreprocessor_isbase = value; }
+    inline void setQsciLexerIDL_Language_IsBase(bool value) const { qscilexeridl_language_isbase = value; }
+    inline void setQsciLexerIDL_Lexer_IsBase(bool value) const { qscilexeridl_lexer_isbase = value; }
+    inline void setQsciLexerIDL_LexerId_IsBase(bool value) const { qscilexeridl_lexerid_isbase = value; }
+    inline void setQsciLexerIDL_AutoCompletionFillups_IsBase(bool value) const { qscilexeridl_autocompletionfillups_isbase = value; }
+    inline void setQsciLexerIDL_AutoCompletionWordSeparators_IsBase(bool value) const { qscilexeridl_autocompletionwordseparators_isbase = value; }
+    inline void setQsciLexerIDL_BlockEnd_IsBase(bool value) const { qscilexeridl_blockend_isbase = value; }
+    inline void setQsciLexerIDL_BlockLookback_IsBase(bool value) const { qscilexeridl_blocklookback_isbase = value; }
+    inline void setQsciLexerIDL_BlockStart_IsBase(bool value) const { qscilexeridl_blockstart_isbase = value; }
+    inline void setQsciLexerIDL_BlockStartKeyword_IsBase(bool value) const { qscilexeridl_blockstartkeyword_isbase = value; }
+    inline void setQsciLexerIDL_BraceStyle_IsBase(bool value) const { qscilexeridl_bracestyle_isbase = value; }
+    inline void setQsciLexerIDL_CaseSensitive_IsBase(bool value) const { qscilexeridl_casesensitive_isbase = value; }
+    inline void setQsciLexerIDL_Color_IsBase(bool value) const { qscilexeridl_color_isbase = value; }
+    inline void setQsciLexerIDL_EolFill_IsBase(bool value) const { qscilexeridl_eolfill_isbase = value; }
+    inline void setQsciLexerIDL_Font_IsBase(bool value) const { qscilexeridl_font_isbase = value; }
+    inline void setQsciLexerIDL_IndentationGuideView_IsBase(bool value) const { qscilexeridl_indentationguideview_isbase = value; }
+    inline void setQsciLexerIDL_Keywords_IsBase(bool value) const { qscilexeridl_keywords_isbase = value; }
+    inline void setQsciLexerIDL_DefaultStyle_IsBase(bool value) const { qscilexeridl_defaultstyle_isbase = value; }
+    inline void setQsciLexerIDL_Description_IsBase(bool value) const { qscilexeridl_description_isbase = value; }
+    inline void setQsciLexerIDL_Paper_IsBase(bool value) const { qscilexeridl_paper_isbase = value; }
+    inline void setQsciLexerIDL_DefaultColorWithStyle_IsBase(bool value) const { qscilexeridl_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerIDL_DefaultEolFill_IsBase(bool value) const { qscilexeridl_defaulteolfill_isbase = value; }
+    inline void setQsciLexerIDL_DefaultFontWithStyle_IsBase(bool value) const { qscilexeridl_defaultfontwithstyle_isbase = value; }
+    inline void setQsciLexerIDL_DefaultPaperWithStyle_IsBase(bool value) const { qscilexeridl_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerIDL_SetEditor_IsBase(bool value) const { qscilexeridl_seteditor_isbase = value; }
+    inline void setQsciLexerIDL_RefreshProperties_IsBase(bool value) const { qscilexeridl_refreshproperties_isbase = value; }
+    inline void setQsciLexerIDL_StyleBitsNeeded_IsBase(bool value) const { qscilexeridl_stylebitsneeded_isbase = value; }
+    inline void setQsciLexerIDL_WordCharacters_IsBase(bool value) const { qscilexeridl_wordcharacters_isbase = value; }
+    inline void setQsciLexerIDL_SetAutoIndentStyle_IsBase(bool value) const { qscilexeridl_setautoindentstyle_isbase = value; }
+    inline void setQsciLexerIDL_SetColor_IsBase(bool value) const { qscilexeridl_setcolor_isbase = value; }
+    inline void setQsciLexerIDL_SetEolFill_IsBase(bool value) const { qscilexeridl_seteolfill_isbase = value; }
+    inline void setQsciLexerIDL_SetFont_IsBase(bool value) const { qscilexeridl_setfont_isbase = value; }
+    inline void setQsciLexerIDL_SetPaper_IsBase(bool value) const { qscilexeridl_setpaper_isbase = value; }
+    inline void setQsciLexerIDL_ReadProperties_IsBase(bool value) const { qscilexeridl_readproperties_isbase = value; }
+    inline void setQsciLexerIDL_WriteProperties_IsBase(bool value) const { qscilexeridl_writeproperties_isbase = value; }
+    inline void setQsciLexerIDL_Event_IsBase(bool value) const { qscilexeridl_event_isbase = value; }
+    inline void setQsciLexerIDL_EventFilter_IsBase(bool value) const { qscilexeridl_eventfilter_isbase = value; }
+    inline void setQsciLexerIDL_TimerEvent_IsBase(bool value) const { qscilexeridl_timerevent_isbase = value; }
+    inline void setQsciLexerIDL_ChildEvent_IsBase(bool value) const { qscilexeridl_childevent_isbase = value; }
+    inline void setQsciLexerIDL_CustomEvent_IsBase(bool value) const { qscilexeridl_customevent_isbase = value; }
+    inline void setQsciLexerIDL_ConnectNotify_IsBase(bool value) const { qscilexeridl_connectnotify_isbase = value; }
+    inline void setQsciLexerIDL_DisconnectNotify_IsBase(bool value) const { qscilexeridl_disconnectnotify_isbase = value; }
+    inline void setQsciLexerIDL_Sender_IsBase(bool value) const { qscilexeridl_sender_isbase = value; }
+    inline void setQsciLexerIDL_SenderSignalIndex_IsBase(bool value) const { qscilexeridl_sendersignalindex_isbase = value; }
+    inline void setQsciLexerIDL_Receivers_IsBase(bool value) const { qscilexeridl_receivers_isbase = value; }
+    inline void setQsciLexerIDL_IsSignalConnected_IsBase(bool value) const { qscilexeridl_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -344,7 +347,12 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_metacall_isbase = false;
             return QsciLexerIDL::qt_metacall(param1, param2, param3);
         } else if (qscilexeridl_metacall_callback != nullptr) {
-            return qscilexeridl_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qscilexeridl_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerIDL::qt_metacall(param1, param2, param3);
         }
@@ -356,7 +364,9 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_setfoldatelse_isbase = false;
             QsciLexerIDL::setFoldAtElse(fold);
         } else if (qscilexeridl_setfoldatelse_callback != nullptr) {
-            qscilexeridl_setfoldatelse_callback(this, fold);
+            bool cbval1 = fold;
+
+            qscilexeridl_setfoldatelse_callback(this, cbval1);
         } else {
             QsciLexerIDL::setFoldAtElse(fold);
         }
@@ -368,7 +378,9 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_setfoldcomments_isbase = false;
             QsciLexerIDL::setFoldComments(fold);
         } else if (qscilexeridl_setfoldcomments_callback != nullptr) {
-            qscilexeridl_setfoldcomments_callback(this, fold);
+            bool cbval1 = fold;
+
+            qscilexeridl_setfoldcomments_callback(this, cbval1);
         } else {
             QsciLexerIDL::setFoldComments(fold);
         }
@@ -380,7 +392,9 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_setfoldcompact_isbase = false;
             QsciLexerIDL::setFoldCompact(fold);
         } else if (qscilexeridl_setfoldcompact_callback != nullptr) {
-            qscilexeridl_setfoldcompact_callback(this, fold);
+            bool cbval1 = fold;
+
+            qscilexeridl_setfoldcompact_callback(this, cbval1);
         } else {
             QsciLexerIDL::setFoldCompact(fold);
         }
@@ -392,7 +406,9 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_setfoldpreprocessor_isbase = false;
             QsciLexerIDL::setFoldPreprocessor(fold);
         } else if (qscilexeridl_setfoldpreprocessor_callback != nullptr) {
-            qscilexeridl_setfoldpreprocessor_callback(this, fold);
+            bool cbval1 = fold;
+
+            qscilexeridl_setfoldpreprocessor_callback(this, cbval1);
         } else {
             QsciLexerIDL::setFoldPreprocessor(fold);
         }
@@ -404,7 +420,9 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_setstylepreprocessor_isbase = false;
             QsciLexerIDL::setStylePreprocessor(style);
         } else if (qscilexeridl_setstylepreprocessor_callback != nullptr) {
-            qscilexeridl_setstylepreprocessor_callback(this, style);
+            bool cbval1 = style;
+
+            qscilexeridl_setstylepreprocessor_callback(this, cbval1);
         } else {
             QsciLexerIDL::setStylePreprocessor(style);
         }
@@ -412,7 +430,12 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
 
     // Virtual method for C ABI access and custom callback
     virtual const char* language() const override {
-        return qscilexeridl_language_callback();
+        if (qscilexeridl_language_callback != nullptr) {
+            const char* callback_ret = qscilexeridl_language_callback();
+            return callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -421,7 +444,8 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_lexer_isbase = false;
             return QsciLexerIDL::lexer();
         } else if (qscilexeridl_lexer_callback != nullptr) {
-            return qscilexeridl_lexer_callback();
+            const char* callback_ret = qscilexeridl_lexer_callback();
+            return callback_ret;
         } else {
             return QsciLexerIDL::lexer();
         }
@@ -433,7 +457,8 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_lexerid_isbase = false;
             return QsciLexerIDL::lexerId();
         } else if (qscilexeridl_lexerid_callback != nullptr) {
-            return qscilexeridl_lexerid_callback();
+            int callback_ret = qscilexeridl_lexerid_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerIDL::lexerId();
         }
@@ -445,7 +470,8 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_autocompletionfillups_isbase = false;
             return QsciLexerIDL::autoCompletionFillups();
         } else if (qscilexeridl_autocompletionfillups_callback != nullptr) {
-            return qscilexeridl_autocompletionfillups_callback();
+            const char* callback_ret = qscilexeridl_autocompletionfillups_callback();
+            return callback_ret;
         } else {
             return QsciLexerIDL::autoCompletionFillups();
         }
@@ -457,7 +483,15 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_autocompletionwordseparators_isbase = false;
             return QsciLexerIDL::autoCompletionWordSeparators();
         } else if (qscilexeridl_autocompletionwordseparators_callback != nullptr) {
-            return qscilexeridl_autocompletionwordseparators_callback();
+            libqt_list /* of libqt_string */ callback_ret = qscilexeridl_autocompletionwordseparators_callback();
+            QStringList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+                callback_ret_QList.push_back(callback_ret_arr_i_QString);
+            }
+            return callback_ret_QList;
         } else {
             return QsciLexerIDL::autoCompletionWordSeparators();
         }
@@ -469,7 +503,10 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_blockend_isbase = false;
             return QsciLexerIDL::blockEnd(style);
         } else if (qscilexeridl_blockend_callback != nullptr) {
-            return qscilexeridl_blockend_callback(this, style);
+            int* cbval1 = style;
+
+            const char* callback_ret = qscilexeridl_blockend_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerIDL::blockEnd(style);
         }
@@ -481,7 +518,8 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_blocklookback_isbase = false;
             return QsciLexerIDL::blockLookback();
         } else if (qscilexeridl_blocklookback_callback != nullptr) {
-            return qscilexeridl_blocklookback_callback();
+            int callback_ret = qscilexeridl_blocklookback_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerIDL::blockLookback();
         }
@@ -493,7 +531,10 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_blockstart_isbase = false;
             return QsciLexerIDL::blockStart(style);
         } else if (qscilexeridl_blockstart_callback != nullptr) {
-            return qscilexeridl_blockstart_callback(this, style);
+            int* cbval1 = style;
+
+            const char* callback_ret = qscilexeridl_blockstart_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerIDL::blockStart(style);
         }
@@ -505,7 +546,10 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_blockstartkeyword_isbase = false;
             return QsciLexerIDL::blockStartKeyword(style);
         } else if (qscilexeridl_blockstartkeyword_callback != nullptr) {
-            return qscilexeridl_blockstartkeyword_callback(this, style);
+            int* cbval1 = style;
+
+            const char* callback_ret = qscilexeridl_blockstartkeyword_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerIDL::blockStartKeyword(style);
         }
@@ -517,7 +561,8 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_bracestyle_isbase = false;
             return QsciLexerIDL::braceStyle();
         } else if (qscilexeridl_bracestyle_callback != nullptr) {
-            return qscilexeridl_bracestyle_callback();
+            int callback_ret = qscilexeridl_bracestyle_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerIDL::braceStyle();
         }
@@ -529,7 +574,8 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_casesensitive_isbase = false;
             return QsciLexerIDL::caseSensitive();
         } else if (qscilexeridl_casesensitive_callback != nullptr) {
-            return qscilexeridl_casesensitive_callback();
+            bool callback_ret = qscilexeridl_casesensitive_callback();
+            return callback_ret;
         } else {
             return QsciLexerIDL::caseSensitive();
         }
@@ -541,7 +587,10 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_color_isbase = false;
             return QsciLexerIDL::color(style);
         } else if (qscilexeridl_color_callback != nullptr) {
-            return qscilexeridl_color_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexeridl_color_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerIDL::color(style);
         }
@@ -553,7 +602,10 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_eolfill_isbase = false;
             return QsciLexerIDL::eolFill(style);
         } else if (qscilexeridl_eolfill_callback != nullptr) {
-            return qscilexeridl_eolfill_callback(this, style);
+            int cbval1 = style;
+
+            bool callback_ret = qscilexeridl_eolfill_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerIDL::eolFill(style);
         }
@@ -565,7 +617,10 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_font_isbase = false;
             return QsciLexerIDL::font(style);
         } else if (qscilexeridl_font_callback != nullptr) {
-            return qscilexeridl_font_callback(this, style);
+            int cbval1 = style;
+
+            QFont* callback_ret = qscilexeridl_font_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerIDL::font(style);
         }
@@ -577,7 +632,8 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_indentationguideview_isbase = false;
             return QsciLexerIDL::indentationGuideView();
         } else if (qscilexeridl_indentationguideview_callback != nullptr) {
-            return qscilexeridl_indentationguideview_callback();
+            int callback_ret = qscilexeridl_indentationguideview_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerIDL::indentationGuideView();
         }
@@ -589,7 +645,10 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_keywords_isbase = false;
             return QsciLexerIDL::keywords(set);
         } else if (qscilexeridl_keywords_callback != nullptr) {
-            return qscilexeridl_keywords_callback(this, set);
+            int cbval1 = set;
+
+            const char* callback_ret = qscilexeridl_keywords_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerIDL::keywords(set);
         }
@@ -601,7 +660,8 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_defaultstyle_isbase = false;
             return QsciLexerIDL::defaultStyle();
         } else if (qscilexeridl_defaultstyle_callback != nullptr) {
-            return qscilexeridl_defaultstyle_callback();
+            int callback_ret = qscilexeridl_defaultstyle_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerIDL::defaultStyle();
         }
@@ -609,7 +669,15 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
 
     // Virtual method for C ABI access and custom callback
     virtual QString description(int style) const override {
-        return qscilexeridl_description_callback(this, style);
+        if (qscilexeridl_description_callback != nullptr) {
+            int cbval1 = style;
+
+            libqt_string callback_ret = qscilexeridl_description_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -618,7 +686,10 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_paper_isbase = false;
             return QsciLexerIDL::paper(style);
         } else if (qscilexeridl_paper_callback != nullptr) {
-            return qscilexeridl_paper_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexeridl_paper_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerIDL::paper(style);
         }
@@ -630,7 +701,10 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_defaultcolorwithstyle_isbase = false;
             return QsciLexerIDL::defaultColor(style);
         } else if (qscilexeridl_defaultcolorwithstyle_callback != nullptr) {
-            return qscilexeridl_defaultcolorwithstyle_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexeridl_defaultcolorwithstyle_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerIDL::defaultColor(style);
         }
@@ -642,7 +716,10 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_defaulteolfill_isbase = false;
             return QsciLexerIDL::defaultEolFill(style);
         } else if (qscilexeridl_defaulteolfill_callback != nullptr) {
-            return qscilexeridl_defaulteolfill_callback(this, style);
+            int cbval1 = style;
+
+            bool callback_ret = qscilexeridl_defaulteolfill_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerIDL::defaultEolFill(style);
         }
@@ -654,7 +731,10 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_defaultfontwithstyle_isbase = false;
             return QsciLexerIDL::defaultFont(style);
         } else if (qscilexeridl_defaultfontwithstyle_callback != nullptr) {
-            return qscilexeridl_defaultfontwithstyle_callback(this, style);
+            int cbval1 = style;
+
+            QFont* callback_ret = qscilexeridl_defaultfontwithstyle_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerIDL::defaultFont(style);
         }
@@ -666,7 +746,10 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_defaultpaperwithstyle_isbase = false;
             return QsciLexerIDL::defaultPaper(style);
         } else if (qscilexeridl_defaultpaperwithstyle_callback != nullptr) {
-            return qscilexeridl_defaultpaperwithstyle_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexeridl_defaultpaperwithstyle_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerIDL::defaultPaper(style);
         }
@@ -678,7 +761,9 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_seteditor_isbase = false;
             QsciLexerIDL::setEditor(editor);
         } else if (qscilexeridl_seteditor_callback != nullptr) {
-            qscilexeridl_seteditor_callback(this, editor);
+            QsciScintilla* cbval1 = editor;
+
+            qscilexeridl_seteditor_callback(this, cbval1);
         } else {
             QsciLexerIDL::setEditor(editor);
         }
@@ -702,7 +787,8 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_stylebitsneeded_isbase = false;
             return QsciLexerIDL::styleBitsNeeded();
         } else if (qscilexeridl_stylebitsneeded_callback != nullptr) {
-            return qscilexeridl_stylebitsneeded_callback();
+            int callback_ret = qscilexeridl_stylebitsneeded_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerIDL::styleBitsNeeded();
         }
@@ -714,7 +800,8 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_wordcharacters_isbase = false;
             return QsciLexerIDL::wordCharacters();
         } else if (qscilexeridl_wordcharacters_callback != nullptr) {
-            return qscilexeridl_wordcharacters_callback();
+            const char* callback_ret = qscilexeridl_wordcharacters_callback();
+            return callback_ret;
         } else {
             return QsciLexerIDL::wordCharacters();
         }
@@ -726,7 +813,9 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_setautoindentstyle_isbase = false;
             QsciLexerIDL::setAutoIndentStyle(autoindentstyle);
         } else if (qscilexeridl_setautoindentstyle_callback != nullptr) {
-            qscilexeridl_setautoindentstyle_callback(this, autoindentstyle);
+            int cbval1 = autoindentstyle;
+
+            qscilexeridl_setautoindentstyle_callback(this, cbval1);
         } else {
             QsciLexerIDL::setAutoIndentStyle(autoindentstyle);
         }
@@ -738,7 +827,12 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_setcolor_isbase = false;
             QsciLexerIDL::setColor(c, style);
         } else if (qscilexeridl_setcolor_callback != nullptr) {
-            qscilexeridl_setcolor_callback(this, c, style);
+            const QColor& c_ret = c;
+            // Cast returned reference into pointer
+            QColor* cbval1 = const_cast<QColor*>(&c_ret);
+            int cbval2 = style;
+
+            qscilexeridl_setcolor_callback(this, cbval1, cbval2);
         } else {
             QsciLexerIDL::setColor(c, style);
         }
@@ -750,7 +844,10 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_seteolfill_isbase = false;
             QsciLexerIDL::setEolFill(eoffill, style);
         } else if (qscilexeridl_seteolfill_callback != nullptr) {
-            qscilexeridl_seteolfill_callback(this, eoffill, style);
+            bool cbval1 = eoffill;
+            int cbval2 = style;
+
+            qscilexeridl_seteolfill_callback(this, cbval1, cbval2);
         } else {
             QsciLexerIDL::setEolFill(eoffill, style);
         }
@@ -762,7 +859,12 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_setfont_isbase = false;
             QsciLexerIDL::setFont(f, style);
         } else if (qscilexeridl_setfont_callback != nullptr) {
-            qscilexeridl_setfont_callback(this, f, style);
+            const QFont& f_ret = f;
+            // Cast returned reference into pointer
+            QFont* cbval1 = const_cast<QFont*>(&f_ret);
+            int cbval2 = style;
+
+            qscilexeridl_setfont_callback(this, cbval1, cbval2);
         } else {
             QsciLexerIDL::setFont(f, style);
         }
@@ -774,7 +876,12 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_setpaper_isbase = false;
             QsciLexerIDL::setPaper(c, style);
         } else if (qscilexeridl_setpaper_callback != nullptr) {
-            qscilexeridl_setpaper_callback(this, c, style);
+            const QColor& c_ret = c;
+            // Cast returned reference into pointer
+            QColor* cbval1 = const_cast<QColor*>(&c_ret);
+            int cbval2 = style;
+
+            qscilexeridl_setpaper_callback(this, cbval1, cbval2);
         } else {
             QsciLexerIDL::setPaper(c, style);
         }
@@ -786,7 +893,21 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_readproperties_isbase = false;
             return QsciLexerIDL::readProperties(qs, prefix);
         } else if (qscilexeridl_readproperties_callback != nullptr) {
-            return qscilexeridl_readproperties_callback(this, qs, prefix);
+            QSettings& qs_ret = qs;
+            // Cast returned reference into pointer
+            QSettings* cbval1 = &qs_ret;
+            const QString prefix_ret = prefix;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray prefix_b = prefix_ret.toUtf8();
+            libqt_string prefix_str;
+            prefix_str.len = prefix_b.length();
+            prefix_str.data = static_cast<char*>(malloc((prefix_str.len + 1) * sizeof(char)));
+            memcpy(prefix_str.data, prefix_b.data(), prefix_str.len);
+            prefix_str.data[prefix_str.len] = '\0';
+            libqt_string cbval2 = prefix_str;
+
+            bool callback_ret = qscilexeridl_readproperties_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QsciLexerIDL::readProperties(qs, prefix);
         }
@@ -798,7 +919,21 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_writeproperties_isbase = false;
             return QsciLexerIDL::writeProperties(qs, prefix);
         } else if (qscilexeridl_writeproperties_callback != nullptr) {
-            return qscilexeridl_writeproperties_callback(this, qs, prefix);
+            QSettings& qs_ret = qs;
+            // Cast returned reference into pointer
+            QSettings* cbval1 = &qs_ret;
+            const QString prefix_ret = prefix;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray prefix_b = prefix_ret.toUtf8();
+            libqt_string prefix_str;
+            prefix_str.len = prefix_b.length();
+            prefix_str.data = static_cast<char*>(malloc((prefix_str.len + 1) * sizeof(char)));
+            memcpy(prefix_str.data, prefix_b.data(), prefix_str.len);
+            prefix_str.data[prefix_str.len] = '\0';
+            libqt_string cbval2 = prefix_str;
+
+            bool callback_ret = qscilexeridl_writeproperties_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QsciLexerIDL::writeProperties(qs, prefix);
         }
@@ -810,7 +945,10 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_event_isbase = false;
             return QsciLexerIDL::event(event);
         } else if (qscilexeridl_event_callback != nullptr) {
-            return qscilexeridl_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qscilexeridl_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerIDL::event(event);
         }
@@ -822,7 +960,11 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_eventfilter_isbase = false;
             return QsciLexerIDL::eventFilter(watched, event);
         } else if (qscilexeridl_eventfilter_callback != nullptr) {
-            return qscilexeridl_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qscilexeridl_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QsciLexerIDL::eventFilter(watched, event);
         }
@@ -834,7 +976,9 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_timerevent_isbase = false;
             QsciLexerIDL::timerEvent(event);
         } else if (qscilexeridl_timerevent_callback != nullptr) {
-            qscilexeridl_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qscilexeridl_timerevent_callback(this, cbval1);
         } else {
             QsciLexerIDL::timerEvent(event);
         }
@@ -846,7 +990,9 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_childevent_isbase = false;
             QsciLexerIDL::childEvent(event);
         } else if (qscilexeridl_childevent_callback != nullptr) {
-            qscilexeridl_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qscilexeridl_childevent_callback(this, cbval1);
         } else {
             QsciLexerIDL::childEvent(event);
         }
@@ -858,7 +1004,9 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_customevent_isbase = false;
             QsciLexerIDL::customEvent(event);
         } else if (qscilexeridl_customevent_callback != nullptr) {
-            qscilexeridl_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qscilexeridl_customevent_callback(this, cbval1);
         } else {
             QsciLexerIDL::customEvent(event);
         }
@@ -870,7 +1018,11 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_connectnotify_isbase = false;
             QsciLexerIDL::connectNotify(signal);
         } else if (qscilexeridl_connectnotify_callback != nullptr) {
-            qscilexeridl_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qscilexeridl_connectnotify_callback(this, cbval1);
         } else {
             QsciLexerIDL::connectNotify(signal);
         }
@@ -882,7 +1034,11 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_disconnectnotify_isbase = false;
             QsciLexerIDL::disconnectNotify(signal);
         } else if (qscilexeridl_disconnectnotify_callback != nullptr) {
-            qscilexeridl_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qscilexeridl_disconnectnotify_callback(this, cbval1);
         } else {
             QsciLexerIDL::disconnectNotify(signal);
         }
@@ -894,7 +1050,8 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_sender_isbase = false;
             return QsciLexerIDL::sender();
         } else if (qscilexeridl_sender_callback != nullptr) {
-            return qscilexeridl_sender_callback();
+            QObject* callback_ret = qscilexeridl_sender_callback();
+            return callback_ret;
         } else {
             return QsciLexerIDL::sender();
         }
@@ -906,7 +1063,8 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_sendersignalindex_isbase = false;
             return QsciLexerIDL::senderSignalIndex();
         } else if (qscilexeridl_sendersignalindex_callback != nullptr) {
-            return qscilexeridl_sendersignalindex_callback();
+            int callback_ret = qscilexeridl_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerIDL::senderSignalIndex();
         }
@@ -918,7 +1076,10 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_receivers_isbase = false;
             return QsciLexerIDL::receivers(signal);
         } else if (qscilexeridl_receivers_callback != nullptr) {
-            return qscilexeridl_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qscilexeridl_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerIDL::receivers(signal);
         }
@@ -930,11 +1091,40 @@ class VirtualQsciLexerIDL : public QsciLexerIDL {
             qscilexeridl_issignalconnected_isbase = false;
             return QsciLexerIDL::isSignalConnected(signal);
         } else if (qscilexeridl_issignalconnected_callback != nullptr) {
-            return qscilexeridl_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qscilexeridl_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerIDL::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QsciLexerIDL_ReadProperties(QsciLexerIDL* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerIDL_QBaseReadProperties(QsciLexerIDL* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerIDL_WriteProperties(const QsciLexerIDL* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerIDL_QBaseWriteProperties(const QsciLexerIDL* self, QSettings* qs, const libqt_string prefix);
+    friend void QsciLexerIDL_TimerEvent(QsciLexerIDL* self, QTimerEvent* event);
+    friend void QsciLexerIDL_QBaseTimerEvent(QsciLexerIDL* self, QTimerEvent* event);
+    friend void QsciLexerIDL_ChildEvent(QsciLexerIDL* self, QChildEvent* event);
+    friend void QsciLexerIDL_QBaseChildEvent(QsciLexerIDL* self, QChildEvent* event);
+    friend void QsciLexerIDL_CustomEvent(QsciLexerIDL* self, QEvent* event);
+    friend void QsciLexerIDL_QBaseCustomEvent(QsciLexerIDL* self, QEvent* event);
+    friend void QsciLexerIDL_ConnectNotify(QsciLexerIDL* self, const QMetaMethod* signal);
+    friend void QsciLexerIDL_QBaseConnectNotify(QsciLexerIDL* self, const QMetaMethod* signal);
+    friend void QsciLexerIDL_DisconnectNotify(QsciLexerIDL* self, const QMetaMethod* signal);
+    friend void QsciLexerIDL_QBaseDisconnectNotify(QsciLexerIDL* self, const QMetaMethod* signal);
+    friend QObject* QsciLexerIDL_Sender(const QsciLexerIDL* self);
+    friend QObject* QsciLexerIDL_QBaseSender(const QsciLexerIDL* self);
+    friend int QsciLexerIDL_SenderSignalIndex(const QsciLexerIDL* self);
+    friend int QsciLexerIDL_QBaseSenderSignalIndex(const QsciLexerIDL* self);
+    friend int QsciLexerIDL_Receivers(const QsciLexerIDL* self, const char* signal);
+    friend int QsciLexerIDL_QBaseReceivers(const QsciLexerIDL* self, const char* signal);
+    friend bool QsciLexerIDL_IsSignalConnected(const QsciLexerIDL* self, const QMetaMethod* signal);
+    friend bool QsciLexerIDL_QBaseIsSignalConnected(const QsciLexerIDL* self, const QMetaMethod* signal);
 };
 
 #endif

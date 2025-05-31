@@ -38,7 +38,7 @@ typedef int System;          // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
-QCalendar* QCalendar_new(QCalendar* other);
+QCalendar* QCalendar_new(const QCalendar* other);
 QCalendar* QCalendar_new2(QCalendar* other);
 QCalendar* QCalendar_new3();
 QCalendar* QCalendar_new4(int system);
@@ -63,24 +63,24 @@ int QCalendar_MinimumDaysInMonth(const QCalendar* self);
 int QCalendar_MaximumMonthsInYear(const QCalendar* self);
 libqt_string QCalendar_Name(const QCalendar* self);
 QDate* QCalendar_DateFromParts(const QCalendar* self, int year, int month, int day);
-QDate* QCalendar_DateFromPartsWithParts(const QCalendar* self, QCalendar__YearMonthDay* parts);
+QDate* QCalendar_DateFromPartsWithParts(const QCalendar* self, const QCalendar__YearMonthDay* parts);
 QCalendar__YearMonthDay* QCalendar_PartsFromDate(const QCalendar* self, QDate* date);
 int QCalendar_DayOfWeek(const QCalendar* self, QDate* date);
-libqt_string QCalendar_MonthName(const QCalendar* self, QLocale* locale, int month);
-libqt_string QCalendar_StandaloneMonthName(const QCalendar* self, QLocale* locale, int month);
-libqt_string QCalendar_WeekDayName(const QCalendar* self, QLocale* locale, int day);
-libqt_string QCalendar_StandaloneWeekDayName(const QCalendar* self, QLocale* locale, int day);
+libqt_string QCalendar_MonthName(const QCalendar* self, const QLocale* locale, int month);
+libqt_string QCalendar_StandaloneMonthName(const QCalendar* self, const QLocale* locale, int month);
+libqt_string QCalendar_WeekDayName(const QCalendar* self, const QLocale* locale, int day);
+libqt_string QCalendar_StandaloneWeekDayName(const QCalendar* self, const QLocale* locale, int day);
 libqt_list /* of libqt_string */ QCalendar_AvailableCalendars();
 int QCalendar_DaysInMonth2(const QCalendar* self, int month, int year);
-libqt_string QCalendar_MonthName3(const QCalendar* self, QLocale* locale, int month, int year);
-libqt_string QCalendar_MonthName4(const QCalendar* self, QLocale* locale, int month, int year, int format);
-libqt_string QCalendar_StandaloneMonthName3(const QCalendar* self, QLocale* locale, int month, int year);
-libqt_string QCalendar_StandaloneMonthName4(const QCalendar* self, QLocale* locale, int month, int year, int format);
-libqt_string QCalendar_WeekDayName3(const QCalendar* self, QLocale* locale, int day, int format);
-libqt_string QCalendar_StandaloneWeekDayName3(const QCalendar* self, QLocale* locale, int day, int format);
+libqt_string QCalendar_MonthName3(const QCalendar* self, const QLocale* locale, int month, int year);
+libqt_string QCalendar_MonthName4(const QCalendar* self, const QLocale* locale, int month, int year, int format);
+libqt_string QCalendar_StandaloneMonthName3(const QCalendar* self, const QLocale* locale, int month, int year);
+libqt_string QCalendar_StandaloneMonthName4(const QCalendar* self, const QLocale* locale, int month, int year, int format);
+libqt_string QCalendar_WeekDayName3(const QCalendar* self, const QLocale* locale, int day, int format);
+libqt_string QCalendar_StandaloneWeekDayName3(const QCalendar* self, const QLocale* locale, int day, int format);
 void QCalendar_Delete(QCalendar* self);
 
-QCalendar__YearMonthDay* QCalendar__YearMonthDay_new(QCalendar__YearMonthDay* other);
+QCalendar__YearMonthDay* QCalendar__YearMonthDay_new(const QCalendar__YearMonthDay* other);
 QCalendar__YearMonthDay* QCalendar__YearMonthDay_new2(QCalendar__YearMonthDay* other);
 QCalendar__YearMonthDay* QCalendar__YearMonthDay_new3();
 QCalendar__YearMonthDay* QCalendar__YearMonthDay_new4(int y);
@@ -91,7 +91,7 @@ void QCalendar__YearMonthDay_MoveAssign(QCalendar__YearMonthDay* self, QCalendar
 bool QCalendar__YearMonthDay_IsValid(const QCalendar__YearMonthDay* self);
 void QCalendar__YearMonthDay_Delete(QCalendar__YearMonthDay* self);
 
-QCalendar__SystemId* QCalendar__SystemId_new(QCalendar__SystemId* other);
+QCalendar__SystemId* QCalendar__SystemId_new(const QCalendar__SystemId* other);
 QCalendar__SystemId* QCalendar__SystemId_new2(QCalendar__SystemId* other);
 QCalendar__SystemId* QCalendar__SystemId_new3();
 void QCalendar__SystemId_CopyAssign(QCalendar__SystemId* self, QCalendar__SystemId* other);

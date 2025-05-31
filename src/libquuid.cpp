@@ -9,7 +9,7 @@
 #include "libquuid.h"
 #include "libquuid.hxx"
 
-QUuid* QUuid_new(QUuid* other) {
+QUuid* QUuid_new(const QUuid* other) {
     return new QUuid(*other);
 }
 
@@ -29,7 +29,7 @@ QUuid* QUuid_new5(char* stringVal) {
     return new QUuid(QAnyStringView(stringVal));
 }
 
-QUuid* QUuid_new6(QUuid* param1) {
+QUuid* QUuid_new6(const QUuid* param1) {
     return new QUuid(*param1);
 }
 
@@ -85,19 +85,19 @@ bool QUuid_IsNull(const QUuid* self) {
     return self->isNull();
 }
 
-bool QUuid_OperatorEqual(const QUuid* self, QUuid* orig) {
+bool QUuid_OperatorEqual(const QUuid* self, const QUuid* orig) {
     return (*self == *orig);
 }
 
-bool QUuid_OperatorNotEqual(const QUuid* self, QUuid* orig) {
+bool QUuid_OperatorNotEqual(const QUuid* self, const QUuid* orig) {
     return (*self != *orig);
 }
 
-bool QUuid_OperatorLesser(const QUuid* self, QUuid* other) {
+bool QUuid_OperatorLesser(const QUuid* self, const QUuid* other) {
     return (*self < *other);
 }
 
-bool QUuid_OperatorGreater(const QUuid* self, QUuid* other) {
+bool QUuid_OperatorGreater(const QUuid* self, const QUuid* other) {
     return (*self > *other);
 }
 
@@ -105,22 +105,22 @@ QUuid* QUuid_CreateUuid() {
     return new QUuid(QUuid::createUuid());
 }
 
-QUuid* QUuid_CreateUuidV3(QUuid* ns, libqt_string baseData) {
+QUuid* QUuid_CreateUuidV3(const QUuid* ns, const libqt_string baseData) {
     QByteArray baseData_QByteArray(baseData.data, baseData.len);
     return new QUuid(QUuid::createUuidV3(*ns, baseData_QByteArray));
 }
 
-QUuid* QUuid_CreateUuidV5(QUuid* ns, libqt_string baseData) {
+QUuid* QUuid_CreateUuidV5(const QUuid* ns, const libqt_string baseData) {
     QByteArray baseData_QByteArray(baseData.data, baseData.len);
     return new QUuid(QUuid::createUuidV5(*ns, baseData_QByteArray));
 }
 
-QUuid* QUuid_CreateUuidV32(QUuid* ns, libqt_string baseData) {
+QUuid* QUuid_CreateUuidV32(const QUuid* ns, const libqt_string baseData) {
     QString baseData_QString = QString::fromUtf8(baseData.data, baseData.len);
     return new QUuid(QUuid::createUuidV3(*ns, baseData_QString));
 }
 
-QUuid* QUuid_CreateUuidV52(QUuid* ns, libqt_string baseData) {
+QUuid* QUuid_CreateUuidV52(const QUuid* ns, const libqt_string baseData) {
     QString baseData_QString = QString::fromUtf8(baseData.data, baseData.len);
     return new QUuid(QUuid::createUuidV5(*ns, baseData_QString));
 }

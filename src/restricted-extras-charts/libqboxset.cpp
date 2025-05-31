@@ -1,22 +1,16 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
 #include <QBoxSet>
 #include <QBrush>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QPen>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <qboxset.h>
 #include "libqboxset.h"
 #include "libqboxset.hxx"
@@ -29,22 +23,22 @@ QBoxSet* QBoxSet_new2(const double le, const double lq, const double m, const do
     return new VirtualQBoxSet(static_cast<const qreal>(le), static_cast<const qreal>(lq), static_cast<const qreal>(m), static_cast<const qreal>(uq), static_cast<const qreal>(ue));
 }
 
-QBoxSet* QBoxSet_new3(libqt_string label) {
+QBoxSet* QBoxSet_new3(const libqt_string label) {
     QString label_QString = QString::fromUtf8(label.data, label.len);
     return new VirtualQBoxSet(label_QString);
 }
 
-QBoxSet* QBoxSet_new4(libqt_string label, QObject* parent) {
+QBoxSet* QBoxSet_new4(const libqt_string label, QObject* parent) {
     QString label_QString = QString::fromUtf8(label.data, label.len);
     return new VirtualQBoxSet(label_QString, parent);
 }
 
-QBoxSet* QBoxSet_new5(const double le, const double lq, const double m, const double uq, const double ue, libqt_string label) {
+QBoxSet* QBoxSet_new5(const double le, const double lq, const double m, const double uq, const double ue, const libqt_string label) {
     QString label_QString = QString::fromUtf8(label.data, label.len);
     return new VirtualQBoxSet(static_cast<const qreal>(le), static_cast<const qreal>(lq), static_cast<const qreal>(m), static_cast<const qreal>(uq), static_cast<const qreal>(ue), label_QString);
 }
 
-QBoxSet* QBoxSet_new6(const double le, const double lq, const double m, const double uq, const double ue, libqt_string label, QObject* parent) {
+QBoxSet* QBoxSet_new6(const double le, const double lq, const double m, const double uq, const double ue, const libqt_string label, QObject* parent) {
     QString label_QString = QString::fromUtf8(label.data, label.len);
     return new VirtualQBoxSet(static_cast<const qreal>(le), static_cast<const qreal>(lq), static_cast<const qreal>(m), static_cast<const qreal>(uq), static_cast<const qreal>(ue), label_QString, parent);
 }
@@ -58,27 +52,30 @@ void* QBoxSet_Metacast(QBoxSet* self, const char* param1) {
 }
 
 int QBoxSet_Metacall(QBoxSet* self, int param1, int param2, void** param3) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQBoxSet*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QBoxSet_OnMetacall(QBoxSet* self, intptr_t slot) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_Metacall_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QBoxSet_QBaseMetacall(QBoxSet* self, int param1, int param2, void** param3) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_Metacall_IsBase(true);
         return vqboxset->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQBoxSet*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -98,7 +95,7 @@ void QBoxSet_Append(QBoxSet* self, const double value) {
     self->append(static_cast<const qreal>(value));
 }
 
-void QBoxSet_AppendWithValues(QBoxSet* self, libqt_list /* of double */ values) {
+void QBoxSet_AppendWithValues(QBoxSet* self, const libqt_list /* of double */ values) {
     QList<qreal> values_QList;
     values_QList.reserve(values.len);
     double* values_arr = static_cast<double*>(values.data);
@@ -112,7 +109,7 @@ void QBoxSet_Clear(QBoxSet* self) {
     self->clear();
 }
 
-void QBoxSet_SetLabel(QBoxSet* self, libqt_string label) {
+void QBoxSet_SetLabel(QBoxSet* self, const libqt_string label) {
     QString label_QString = QString::fromUtf8(label.data, label.len);
     self->setLabel(label_QString);
 }
@@ -151,7 +148,7 @@ int QBoxSet_Count(const QBoxSet* self) {
     return self->count();
 }
 
-void QBoxSet_SetPen(QBoxSet* self, QPen* pen) {
+void QBoxSet_SetPen(QBoxSet* self, const QPen* pen) {
     self->setPen(*pen);
 }
 
@@ -159,7 +156,7 @@ QPen* QBoxSet_Pen(const QBoxSet* self) {
     return new QPen(self->pen());
 }
 
-void QBoxSet_SetBrush(QBoxSet* self, QBrush* brush) {
+void QBoxSet_SetBrush(QBoxSet* self, const QBrush* brush) {
     self->setBrush(*brush);
 }
 
@@ -305,286 +302,319 @@ libqt_string QBoxSet_Tr3(const char* s, const char* c, int n) {
 
 // Derived class handler implementation
 bool QBoxSet_Event(QBoxSet* self, QEvent* event) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         return vqboxset->event(event);
     } else {
-        return vqboxset->event(event);
+        return self->QBoxSet::event(event);
     }
 }
 
 // Base class handler implementation
 bool QBoxSet_QBaseEvent(QBoxSet* self, QEvent* event) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_Event_IsBase(true);
         return vqboxset->event(event);
     } else {
-        return vqboxset->event(event);
+        return self->QBoxSet::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnEvent(QBoxSet* self, intptr_t slot) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_Event_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QBoxSet_EventFilter(QBoxSet* self, QObject* watched, QEvent* event) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         return vqboxset->eventFilter(watched, event);
     } else {
-        return vqboxset->eventFilter(watched, event);
+        return self->QBoxSet::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QBoxSet_QBaseEventFilter(QBoxSet* self, QObject* watched, QEvent* event) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_EventFilter_IsBase(true);
         return vqboxset->eventFilter(watched, event);
     } else {
-        return vqboxset->eventFilter(watched, event);
+        return self->QBoxSet::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnEventFilter(QBoxSet* self, intptr_t slot) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_EventFilter_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QBoxSet_TimerEvent(QBoxSet* self, QTimerEvent* event) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->timerEvent(event);
     } else {
-        vqboxset->timerEvent(event);
+        ((VirtualQBoxSet*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QBoxSet_QBaseTimerEvent(QBoxSet* self, QTimerEvent* event) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_TimerEvent_IsBase(true);
         vqboxset->timerEvent(event);
     } else {
-        vqboxset->timerEvent(event);
+        ((VirtualQBoxSet*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnTimerEvent(QBoxSet* self, intptr_t slot) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_TimerEvent_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QBoxSet_ChildEvent(QBoxSet* self, QChildEvent* event) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->childEvent(event);
     } else {
-        vqboxset->childEvent(event);
+        ((VirtualQBoxSet*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QBoxSet_QBaseChildEvent(QBoxSet* self, QChildEvent* event) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_ChildEvent_IsBase(true);
         vqboxset->childEvent(event);
     } else {
-        vqboxset->childEvent(event);
+        ((VirtualQBoxSet*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnChildEvent(QBoxSet* self, intptr_t slot) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_ChildEvent_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QBoxSet_CustomEvent(QBoxSet* self, QEvent* event) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->customEvent(event);
     } else {
-        vqboxset->customEvent(event);
+        ((VirtualQBoxSet*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QBoxSet_QBaseCustomEvent(QBoxSet* self, QEvent* event) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_CustomEvent_IsBase(true);
         vqboxset->customEvent(event);
     } else {
-        vqboxset->customEvent(event);
+        ((VirtualQBoxSet*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnCustomEvent(QBoxSet* self, intptr_t slot) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_CustomEvent_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QBoxSet_ConnectNotify(QBoxSet* self, QMetaMethod* signal) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+void QBoxSet_ConnectNotify(QBoxSet* self, const QMetaMethod* signal) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->connectNotify(*signal);
     } else {
-        vqboxset->connectNotify(*signal);
+        ((VirtualQBoxSet*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QBoxSet_QBaseConnectNotify(QBoxSet* self, QMetaMethod* signal) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+void QBoxSet_QBaseConnectNotify(QBoxSet* self, const QMetaMethod* signal) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_ConnectNotify_IsBase(true);
         vqboxset->connectNotify(*signal);
     } else {
-        vqboxset->connectNotify(*signal);
+        ((VirtualQBoxSet*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnConnectNotify(QBoxSet* self, intptr_t slot) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_ConnectNotify_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QBoxSet_DisconnectNotify(QBoxSet* self, QMetaMethod* signal) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+void QBoxSet_DisconnectNotify(QBoxSet* self, const QMetaMethod* signal) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->disconnectNotify(*signal);
     } else {
-        vqboxset->disconnectNotify(*signal);
+        ((VirtualQBoxSet*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QBoxSet_QBaseDisconnectNotify(QBoxSet* self, QMetaMethod* signal) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+void QBoxSet_QBaseDisconnectNotify(QBoxSet* self, const QMetaMethod* signal) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_DisconnectNotify_IsBase(true);
         vqboxset->disconnectNotify(*signal);
     } else {
-        vqboxset->disconnectNotify(*signal);
+        ((VirtualQBoxSet*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnDisconnectNotify(QBoxSet* self, intptr_t slot) {
-    if (auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self)) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_DisconnectNotify_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QBoxSet_Sender(const QBoxSet* self) {
-    if (auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self))) {
+    auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         return vqboxset->sender();
     } else {
-        return vqboxset->sender();
+        return ((VirtualQBoxSet*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QBoxSet_QBaseSender(const QBoxSet* self) {
-    if (auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self))) {
+    auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_Sender_IsBase(true);
         return vqboxset->sender();
     } else {
-        return vqboxset->sender();
+        return ((VirtualQBoxSet*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnSender(const QBoxSet* self, intptr_t slot) {
-    if (auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self))) {
+    auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_Sender_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QBoxSet_SenderSignalIndex(const QBoxSet* self) {
-    if (auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self))) {
+    auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         return vqboxset->senderSignalIndex();
     } else {
-        return vqboxset->senderSignalIndex();
+        return ((VirtualQBoxSet*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QBoxSet_QBaseSenderSignalIndex(const QBoxSet* self) {
-    if (auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self))) {
+    auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_SenderSignalIndex_IsBase(true);
         return vqboxset->senderSignalIndex();
     } else {
-        return vqboxset->senderSignalIndex();
+        return ((VirtualQBoxSet*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnSenderSignalIndex(const QBoxSet* self, intptr_t slot) {
-    if (auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self))) {
+    auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_SenderSignalIndex_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QBoxSet_Receivers(const QBoxSet* self, const char* signal) {
-    if (auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self))) {
+    auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         return vqboxset->receivers(signal);
     } else {
-        return vqboxset->receivers(signal);
+        return ((VirtualQBoxSet*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QBoxSet_QBaseReceivers(const QBoxSet* self, const char* signal) {
-    if (auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self))) {
+    auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_Receivers_IsBase(true);
         return vqboxset->receivers(signal);
     } else {
-        return vqboxset->receivers(signal);
+        return ((VirtualQBoxSet*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnReceivers(const QBoxSet* self, intptr_t slot) {
-    if (auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self))) {
+    auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_Receivers_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QBoxSet_IsSignalConnected(const QBoxSet* self, QMetaMethod* signal) {
-    if (auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self))) {
+bool QBoxSet_IsSignalConnected(const QBoxSet* self, const QMetaMethod* signal) {
+    auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         return vqboxset->isSignalConnected(*signal);
     } else {
-        return vqboxset->isSignalConnected(*signal);
+        return ((VirtualQBoxSet*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QBoxSet_QBaseIsSignalConnected(const QBoxSet* self, QMetaMethod* signal) {
-    if (auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self))) {
+bool QBoxSet_QBaseIsSignalConnected(const QBoxSet* self, const QMetaMethod* signal) {
+    auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_IsSignalConnected_IsBase(true);
         return vqboxset->isSignalConnected(*signal);
     } else {
-        return vqboxset->isSignalConnected(*signal);
+        return ((VirtualQBoxSet*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnIsSignalConnected(const QBoxSet* self, intptr_t slot) {
-    if (auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self))) {
+    auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_IsSignalConnected_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_IsSignalConnected_Callback>(slot));
     }
 }

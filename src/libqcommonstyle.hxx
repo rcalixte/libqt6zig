@@ -11,45 +11,48 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QCommonStyle so that we can call protected methods
-class VirtualQCommonStyle : public QCommonStyle {
+class VirtualQCommonStyle final : public QCommonStyle {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQCommonStyle = true;
+
     // Virtual class public types (including callbacks)
-    using QCommonStyle_Metacall_Callback = int (*)(QCommonStyle*, QMetaObject::Call, int, void**);
-    using QCommonStyle_DrawPrimitive_Callback = void (*)(const QCommonStyle*, QStyle::PrimitiveElement, const QStyleOption*, QPainter*, const QWidget*);
-    using QCommonStyle_DrawControl_Callback = void (*)(const QCommonStyle*, QStyle::ControlElement, const QStyleOption*, QPainter*, const QWidget*);
-    using QCommonStyle_SubElementRect_Callback = QRect (*)(const QCommonStyle*, QStyle::SubElement, const QStyleOption*, const QWidget*);
-    using QCommonStyle_DrawComplexControl_Callback = void (*)(const QCommonStyle*, QStyle::ComplexControl, const QStyleOptionComplex*, QPainter*, const QWidget*);
-    using QCommonStyle_HitTestComplexControl_Callback = QStyle::SubControl (*)(const QCommonStyle*, QStyle::ComplexControl, const QStyleOptionComplex*, const QPoint&, const QWidget*);
-    using QCommonStyle_SubControlRect_Callback = QRect (*)(const QCommonStyle*, QStyle::ComplexControl, const QStyleOptionComplex*, QStyle::SubControl, const QWidget*);
-    using QCommonStyle_SizeFromContents_Callback = QSize (*)(const QCommonStyle*, QStyle::ContentsType, const QStyleOption*, const QSize&, const QWidget*);
-    using QCommonStyle_PixelMetric_Callback = int (*)(const QCommonStyle*, QStyle::PixelMetric, const QStyleOption*, const QWidget*);
-    using QCommonStyle_StyleHint_Callback = int (*)(const QCommonStyle*, QStyle::StyleHint, const QStyleOption*, const QWidget*, QStyleHintReturn*);
-    using QCommonStyle_StandardIcon_Callback = QIcon (*)(const QCommonStyle*, QStyle::StandardPixmap, const QStyleOption*, const QWidget*);
-    using QCommonStyle_StandardPixmap_Callback = QPixmap (*)(const QCommonStyle*, QStyle::StandardPixmap, const QStyleOption*, const QWidget*);
-    using QCommonStyle_GeneratedIconPixmap_Callback = QPixmap (*)(const QCommonStyle*, QIcon::Mode, const QPixmap&, const QStyleOption*);
-    using QCommonStyle_LayoutSpacing_Callback = int (*)(const QCommonStyle*, QSizePolicy::ControlType, QSizePolicy::ControlType, Qt::Orientation, const QStyleOption*, const QWidget*);
-    using QCommonStyle_Polish_Callback = void (*)(QCommonStyle*, QPalette&);
+    using QCommonStyle_Metacall_Callback = int (*)(QCommonStyle*, int, int, void**);
+    using QCommonStyle_DrawPrimitive_Callback = void (*)(const QCommonStyle*, int, QStyleOption*, QPainter*, QWidget*);
+    using QCommonStyle_DrawControl_Callback = void (*)(const QCommonStyle*, int, QStyleOption*, QPainter*, QWidget*);
+    using QCommonStyle_SubElementRect_Callback = QRect* (*)(const QCommonStyle*, int, QStyleOption*, QWidget*);
+    using QCommonStyle_DrawComplexControl_Callback = void (*)(const QCommonStyle*, int, QStyleOptionComplex*, QPainter*, QWidget*);
+    using QCommonStyle_HitTestComplexControl_Callback = int (*)(const QCommonStyle*, int, QStyleOptionComplex*, QPoint*, QWidget*);
+    using QCommonStyle_SubControlRect_Callback = QRect* (*)(const QCommonStyle*, int, QStyleOptionComplex*, int, QWidget*);
+    using QCommonStyle_SizeFromContents_Callback = QSize* (*)(const QCommonStyle*, int, QStyleOption*, QSize*, QWidget*);
+    using QCommonStyle_PixelMetric_Callback = int (*)(const QCommonStyle*, int, QStyleOption*, QWidget*);
+    using QCommonStyle_StyleHint_Callback = int (*)(const QCommonStyle*, int, QStyleOption*, QWidget*, QStyleHintReturn*);
+    using QCommonStyle_StandardIcon_Callback = QIcon* (*)(const QCommonStyle*, int, QStyleOption*, QWidget*);
+    using QCommonStyle_StandardPixmap_Callback = QPixmap* (*)(const QCommonStyle*, int, QStyleOption*, QWidget*);
+    using QCommonStyle_GeneratedIconPixmap_Callback = QPixmap* (*)(const QCommonStyle*, int, QPixmap*, QStyleOption*);
+    using QCommonStyle_LayoutSpacing_Callback = int (*)(const QCommonStyle*, int, int, int, QStyleOption*, QWidget*);
+    using QCommonStyle_Polish_Callback = void (*)(QCommonStyle*, QPalette*);
     using QCommonStyle_PolishWithApp_Callback = void (*)(QCommonStyle*, QApplication*);
     using QCommonStyle_PolishWithWidget_Callback = void (*)(QCommonStyle*, QWidget*);
     using QCommonStyle_Unpolish_Callback = void (*)(QCommonStyle*, QWidget*);
     using QCommonStyle_UnpolishWithApplication_Callback = void (*)(QCommonStyle*, QApplication*);
-    using QCommonStyle_ItemTextRect_Callback = QRect (*)(const QCommonStyle*, const QFontMetrics&, const QRect&, int, bool, const QString&);
-    using QCommonStyle_ItemPixmapRect_Callback = QRect (*)(const QCommonStyle*, const QRect&, int, const QPixmap&);
-    using QCommonStyle_DrawItemText_Callback = void (*)(const QCommonStyle*, QPainter*, const QRect&, int, const QPalette&, bool, const QString&, QPalette::ColorRole);
-    using QCommonStyle_DrawItemPixmap_Callback = void (*)(const QCommonStyle*, QPainter*, const QRect&, int, const QPixmap&);
-    using QCommonStyle_StandardPalette_Callback = QPalette (*)();
+    using QCommonStyle_ItemTextRect_Callback = QRect* (*)(const QCommonStyle*, QFontMetrics*, QRect*, int, bool, libqt_string);
+    using QCommonStyle_ItemPixmapRect_Callback = QRect* (*)(const QCommonStyle*, QRect*, int, QPixmap*);
+    using QCommonStyle_DrawItemText_Callback = void (*)(const QCommonStyle*, QPainter*, QRect*, int, QPalette*, bool, libqt_string, int);
+    using QCommonStyle_DrawItemPixmap_Callback = void (*)(const QCommonStyle*, QPainter*, QRect*, int, QPixmap*);
+    using QCommonStyle_StandardPalette_Callback = QPalette* (*)();
     using QCommonStyle_Event_Callback = bool (*)(QCommonStyle*, QEvent*);
     using QCommonStyle_EventFilter_Callback = bool (*)(QCommonStyle*, QObject*, QEvent*);
     using QCommonStyle_TimerEvent_Callback = void (*)(QCommonStyle*, QTimerEvent*);
     using QCommonStyle_ChildEvent_Callback = void (*)(QCommonStyle*, QChildEvent*);
     using QCommonStyle_CustomEvent_Callback = void (*)(QCommonStyle*, QEvent*);
-    using QCommonStyle_ConnectNotify_Callback = void (*)(QCommonStyle*, const QMetaMethod&);
-    using QCommonStyle_DisconnectNotify_Callback = void (*)(QCommonStyle*, const QMetaMethod&);
+    using QCommonStyle_ConnectNotify_Callback = void (*)(QCommonStyle*, QMetaMethod*);
+    using QCommonStyle_DisconnectNotify_Callback = void (*)(QCommonStyle*, QMetaMethod*);
     using QCommonStyle_Sender_Callback = QObject* (*)();
     using QCommonStyle_SenderSignalIndex_Callback = int (*)();
     using QCommonStyle_Receivers_Callback = int (*)(const QCommonStyle*, const char*);
-    using QCommonStyle_IsSignalConnected_Callback = bool (*)(const QCommonStyle*, const QMetaMethod&);
+    using QCommonStyle_IsSignalConnected_Callback = bool (*)(const QCommonStyle*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -168,78 +171,78 @@ class VirtualQCommonStyle : public QCommonStyle {
     }
 
     // Callback setters
-    void setQCommonStyle_Metacall_Callback(QCommonStyle_Metacall_Callback cb) { qcommonstyle_metacall_callback = cb; }
-    void setQCommonStyle_DrawPrimitive_Callback(QCommonStyle_DrawPrimitive_Callback cb) { qcommonstyle_drawprimitive_callback = cb; }
-    void setQCommonStyle_DrawControl_Callback(QCommonStyle_DrawControl_Callback cb) { qcommonstyle_drawcontrol_callback = cb; }
-    void setQCommonStyle_SubElementRect_Callback(QCommonStyle_SubElementRect_Callback cb) { qcommonstyle_subelementrect_callback = cb; }
-    void setQCommonStyle_DrawComplexControl_Callback(QCommonStyle_DrawComplexControl_Callback cb) { qcommonstyle_drawcomplexcontrol_callback = cb; }
-    void setQCommonStyle_HitTestComplexControl_Callback(QCommonStyle_HitTestComplexControl_Callback cb) { qcommonstyle_hittestcomplexcontrol_callback = cb; }
-    void setQCommonStyle_SubControlRect_Callback(QCommonStyle_SubControlRect_Callback cb) { qcommonstyle_subcontrolrect_callback = cb; }
-    void setQCommonStyle_SizeFromContents_Callback(QCommonStyle_SizeFromContents_Callback cb) { qcommonstyle_sizefromcontents_callback = cb; }
-    void setQCommonStyle_PixelMetric_Callback(QCommonStyle_PixelMetric_Callback cb) { qcommonstyle_pixelmetric_callback = cb; }
-    void setQCommonStyle_StyleHint_Callback(QCommonStyle_StyleHint_Callback cb) { qcommonstyle_stylehint_callback = cb; }
-    void setQCommonStyle_StandardIcon_Callback(QCommonStyle_StandardIcon_Callback cb) { qcommonstyle_standardicon_callback = cb; }
-    void setQCommonStyle_StandardPixmap_Callback(QCommonStyle_StandardPixmap_Callback cb) { qcommonstyle_standardpixmap_callback = cb; }
-    void setQCommonStyle_GeneratedIconPixmap_Callback(QCommonStyle_GeneratedIconPixmap_Callback cb) { qcommonstyle_generatediconpixmap_callback = cb; }
-    void setQCommonStyle_LayoutSpacing_Callback(QCommonStyle_LayoutSpacing_Callback cb) { qcommonstyle_layoutspacing_callback = cb; }
-    void setQCommonStyle_Polish_Callback(QCommonStyle_Polish_Callback cb) { qcommonstyle_polish_callback = cb; }
-    void setQCommonStyle_PolishWithApp_Callback(QCommonStyle_PolishWithApp_Callback cb) { qcommonstyle_polishwithapp_callback = cb; }
-    void setQCommonStyle_PolishWithWidget_Callback(QCommonStyle_PolishWithWidget_Callback cb) { qcommonstyle_polishwithwidget_callback = cb; }
-    void setQCommonStyle_Unpolish_Callback(QCommonStyle_Unpolish_Callback cb) { qcommonstyle_unpolish_callback = cb; }
-    void setQCommonStyle_UnpolishWithApplication_Callback(QCommonStyle_UnpolishWithApplication_Callback cb) { qcommonstyle_unpolishwithapplication_callback = cb; }
-    void setQCommonStyle_ItemTextRect_Callback(QCommonStyle_ItemTextRect_Callback cb) { qcommonstyle_itemtextrect_callback = cb; }
-    void setQCommonStyle_ItemPixmapRect_Callback(QCommonStyle_ItemPixmapRect_Callback cb) { qcommonstyle_itempixmaprect_callback = cb; }
-    void setQCommonStyle_DrawItemText_Callback(QCommonStyle_DrawItemText_Callback cb) { qcommonstyle_drawitemtext_callback = cb; }
-    void setQCommonStyle_DrawItemPixmap_Callback(QCommonStyle_DrawItemPixmap_Callback cb) { qcommonstyle_drawitempixmap_callback = cb; }
-    void setQCommonStyle_StandardPalette_Callback(QCommonStyle_StandardPalette_Callback cb) { qcommonstyle_standardpalette_callback = cb; }
-    void setQCommonStyle_Event_Callback(QCommonStyle_Event_Callback cb) { qcommonstyle_event_callback = cb; }
-    void setQCommonStyle_EventFilter_Callback(QCommonStyle_EventFilter_Callback cb) { qcommonstyle_eventfilter_callback = cb; }
-    void setQCommonStyle_TimerEvent_Callback(QCommonStyle_TimerEvent_Callback cb) { qcommonstyle_timerevent_callback = cb; }
-    void setQCommonStyle_ChildEvent_Callback(QCommonStyle_ChildEvent_Callback cb) { qcommonstyle_childevent_callback = cb; }
-    void setQCommonStyle_CustomEvent_Callback(QCommonStyle_CustomEvent_Callback cb) { qcommonstyle_customevent_callback = cb; }
-    void setQCommonStyle_ConnectNotify_Callback(QCommonStyle_ConnectNotify_Callback cb) { qcommonstyle_connectnotify_callback = cb; }
-    void setQCommonStyle_DisconnectNotify_Callback(QCommonStyle_DisconnectNotify_Callback cb) { qcommonstyle_disconnectnotify_callback = cb; }
-    void setQCommonStyle_Sender_Callback(QCommonStyle_Sender_Callback cb) { qcommonstyle_sender_callback = cb; }
-    void setQCommonStyle_SenderSignalIndex_Callback(QCommonStyle_SenderSignalIndex_Callback cb) { qcommonstyle_sendersignalindex_callback = cb; }
-    void setQCommonStyle_Receivers_Callback(QCommonStyle_Receivers_Callback cb) { qcommonstyle_receivers_callback = cb; }
-    void setQCommonStyle_IsSignalConnected_Callback(QCommonStyle_IsSignalConnected_Callback cb) { qcommonstyle_issignalconnected_callback = cb; }
+    inline void setQCommonStyle_Metacall_Callback(QCommonStyle_Metacall_Callback cb) { qcommonstyle_metacall_callback = cb; }
+    inline void setQCommonStyle_DrawPrimitive_Callback(QCommonStyle_DrawPrimitive_Callback cb) { qcommonstyle_drawprimitive_callback = cb; }
+    inline void setQCommonStyle_DrawControl_Callback(QCommonStyle_DrawControl_Callback cb) { qcommonstyle_drawcontrol_callback = cb; }
+    inline void setQCommonStyle_SubElementRect_Callback(QCommonStyle_SubElementRect_Callback cb) { qcommonstyle_subelementrect_callback = cb; }
+    inline void setQCommonStyle_DrawComplexControl_Callback(QCommonStyle_DrawComplexControl_Callback cb) { qcommonstyle_drawcomplexcontrol_callback = cb; }
+    inline void setQCommonStyle_HitTestComplexControl_Callback(QCommonStyle_HitTestComplexControl_Callback cb) { qcommonstyle_hittestcomplexcontrol_callback = cb; }
+    inline void setQCommonStyle_SubControlRect_Callback(QCommonStyle_SubControlRect_Callback cb) { qcommonstyle_subcontrolrect_callback = cb; }
+    inline void setQCommonStyle_SizeFromContents_Callback(QCommonStyle_SizeFromContents_Callback cb) { qcommonstyle_sizefromcontents_callback = cb; }
+    inline void setQCommonStyle_PixelMetric_Callback(QCommonStyle_PixelMetric_Callback cb) { qcommonstyle_pixelmetric_callback = cb; }
+    inline void setQCommonStyle_StyleHint_Callback(QCommonStyle_StyleHint_Callback cb) { qcommonstyle_stylehint_callback = cb; }
+    inline void setQCommonStyle_StandardIcon_Callback(QCommonStyle_StandardIcon_Callback cb) { qcommonstyle_standardicon_callback = cb; }
+    inline void setQCommonStyle_StandardPixmap_Callback(QCommonStyle_StandardPixmap_Callback cb) { qcommonstyle_standardpixmap_callback = cb; }
+    inline void setQCommonStyle_GeneratedIconPixmap_Callback(QCommonStyle_GeneratedIconPixmap_Callback cb) { qcommonstyle_generatediconpixmap_callback = cb; }
+    inline void setQCommonStyle_LayoutSpacing_Callback(QCommonStyle_LayoutSpacing_Callback cb) { qcommonstyle_layoutspacing_callback = cb; }
+    inline void setQCommonStyle_Polish_Callback(QCommonStyle_Polish_Callback cb) { qcommonstyle_polish_callback = cb; }
+    inline void setQCommonStyle_PolishWithApp_Callback(QCommonStyle_PolishWithApp_Callback cb) { qcommonstyle_polishwithapp_callback = cb; }
+    inline void setQCommonStyle_PolishWithWidget_Callback(QCommonStyle_PolishWithWidget_Callback cb) { qcommonstyle_polishwithwidget_callback = cb; }
+    inline void setQCommonStyle_Unpolish_Callback(QCommonStyle_Unpolish_Callback cb) { qcommonstyle_unpolish_callback = cb; }
+    inline void setQCommonStyle_UnpolishWithApplication_Callback(QCommonStyle_UnpolishWithApplication_Callback cb) { qcommonstyle_unpolishwithapplication_callback = cb; }
+    inline void setQCommonStyle_ItemTextRect_Callback(QCommonStyle_ItemTextRect_Callback cb) { qcommonstyle_itemtextrect_callback = cb; }
+    inline void setQCommonStyle_ItemPixmapRect_Callback(QCommonStyle_ItemPixmapRect_Callback cb) { qcommonstyle_itempixmaprect_callback = cb; }
+    inline void setQCommonStyle_DrawItemText_Callback(QCommonStyle_DrawItemText_Callback cb) { qcommonstyle_drawitemtext_callback = cb; }
+    inline void setQCommonStyle_DrawItemPixmap_Callback(QCommonStyle_DrawItemPixmap_Callback cb) { qcommonstyle_drawitempixmap_callback = cb; }
+    inline void setQCommonStyle_StandardPalette_Callback(QCommonStyle_StandardPalette_Callback cb) { qcommonstyle_standardpalette_callback = cb; }
+    inline void setQCommonStyle_Event_Callback(QCommonStyle_Event_Callback cb) { qcommonstyle_event_callback = cb; }
+    inline void setQCommonStyle_EventFilter_Callback(QCommonStyle_EventFilter_Callback cb) { qcommonstyle_eventfilter_callback = cb; }
+    inline void setQCommonStyle_TimerEvent_Callback(QCommonStyle_TimerEvent_Callback cb) { qcommonstyle_timerevent_callback = cb; }
+    inline void setQCommonStyle_ChildEvent_Callback(QCommonStyle_ChildEvent_Callback cb) { qcommonstyle_childevent_callback = cb; }
+    inline void setQCommonStyle_CustomEvent_Callback(QCommonStyle_CustomEvent_Callback cb) { qcommonstyle_customevent_callback = cb; }
+    inline void setQCommonStyle_ConnectNotify_Callback(QCommonStyle_ConnectNotify_Callback cb) { qcommonstyle_connectnotify_callback = cb; }
+    inline void setQCommonStyle_DisconnectNotify_Callback(QCommonStyle_DisconnectNotify_Callback cb) { qcommonstyle_disconnectnotify_callback = cb; }
+    inline void setQCommonStyle_Sender_Callback(QCommonStyle_Sender_Callback cb) { qcommonstyle_sender_callback = cb; }
+    inline void setQCommonStyle_SenderSignalIndex_Callback(QCommonStyle_SenderSignalIndex_Callback cb) { qcommonstyle_sendersignalindex_callback = cb; }
+    inline void setQCommonStyle_Receivers_Callback(QCommonStyle_Receivers_Callback cb) { qcommonstyle_receivers_callback = cb; }
+    inline void setQCommonStyle_IsSignalConnected_Callback(QCommonStyle_IsSignalConnected_Callback cb) { qcommonstyle_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQCommonStyle_Metacall_IsBase(bool value) const { qcommonstyle_metacall_isbase = value; }
-    void setQCommonStyle_DrawPrimitive_IsBase(bool value) const { qcommonstyle_drawprimitive_isbase = value; }
-    void setQCommonStyle_DrawControl_IsBase(bool value) const { qcommonstyle_drawcontrol_isbase = value; }
-    void setQCommonStyle_SubElementRect_IsBase(bool value) const { qcommonstyle_subelementrect_isbase = value; }
-    void setQCommonStyle_DrawComplexControl_IsBase(bool value) const { qcommonstyle_drawcomplexcontrol_isbase = value; }
-    void setQCommonStyle_HitTestComplexControl_IsBase(bool value) const { qcommonstyle_hittestcomplexcontrol_isbase = value; }
-    void setQCommonStyle_SubControlRect_IsBase(bool value) const { qcommonstyle_subcontrolrect_isbase = value; }
-    void setQCommonStyle_SizeFromContents_IsBase(bool value) const { qcommonstyle_sizefromcontents_isbase = value; }
-    void setQCommonStyle_PixelMetric_IsBase(bool value) const { qcommonstyle_pixelmetric_isbase = value; }
-    void setQCommonStyle_StyleHint_IsBase(bool value) const { qcommonstyle_stylehint_isbase = value; }
-    void setQCommonStyle_StandardIcon_IsBase(bool value) const { qcommonstyle_standardicon_isbase = value; }
-    void setQCommonStyle_StandardPixmap_IsBase(bool value) const { qcommonstyle_standardpixmap_isbase = value; }
-    void setQCommonStyle_GeneratedIconPixmap_IsBase(bool value) const { qcommonstyle_generatediconpixmap_isbase = value; }
-    void setQCommonStyle_LayoutSpacing_IsBase(bool value) const { qcommonstyle_layoutspacing_isbase = value; }
-    void setQCommonStyle_Polish_IsBase(bool value) const { qcommonstyle_polish_isbase = value; }
-    void setQCommonStyle_PolishWithApp_IsBase(bool value) const { qcommonstyle_polishwithapp_isbase = value; }
-    void setQCommonStyle_PolishWithWidget_IsBase(bool value) const { qcommonstyle_polishwithwidget_isbase = value; }
-    void setQCommonStyle_Unpolish_IsBase(bool value) const { qcommonstyle_unpolish_isbase = value; }
-    void setQCommonStyle_UnpolishWithApplication_IsBase(bool value) const { qcommonstyle_unpolishwithapplication_isbase = value; }
-    void setQCommonStyle_ItemTextRect_IsBase(bool value) const { qcommonstyle_itemtextrect_isbase = value; }
-    void setQCommonStyle_ItemPixmapRect_IsBase(bool value) const { qcommonstyle_itempixmaprect_isbase = value; }
-    void setQCommonStyle_DrawItemText_IsBase(bool value) const { qcommonstyle_drawitemtext_isbase = value; }
-    void setQCommonStyle_DrawItemPixmap_IsBase(bool value) const { qcommonstyle_drawitempixmap_isbase = value; }
-    void setQCommonStyle_StandardPalette_IsBase(bool value) const { qcommonstyle_standardpalette_isbase = value; }
-    void setQCommonStyle_Event_IsBase(bool value) const { qcommonstyle_event_isbase = value; }
-    void setQCommonStyle_EventFilter_IsBase(bool value) const { qcommonstyle_eventfilter_isbase = value; }
-    void setQCommonStyle_TimerEvent_IsBase(bool value) const { qcommonstyle_timerevent_isbase = value; }
-    void setQCommonStyle_ChildEvent_IsBase(bool value) const { qcommonstyle_childevent_isbase = value; }
-    void setQCommonStyle_CustomEvent_IsBase(bool value) const { qcommonstyle_customevent_isbase = value; }
-    void setQCommonStyle_ConnectNotify_IsBase(bool value) const { qcommonstyle_connectnotify_isbase = value; }
-    void setQCommonStyle_DisconnectNotify_IsBase(bool value) const { qcommonstyle_disconnectnotify_isbase = value; }
-    void setQCommonStyle_Sender_IsBase(bool value) const { qcommonstyle_sender_isbase = value; }
-    void setQCommonStyle_SenderSignalIndex_IsBase(bool value) const { qcommonstyle_sendersignalindex_isbase = value; }
-    void setQCommonStyle_Receivers_IsBase(bool value) const { qcommonstyle_receivers_isbase = value; }
-    void setQCommonStyle_IsSignalConnected_IsBase(bool value) const { qcommonstyle_issignalconnected_isbase = value; }
+    inline void setQCommonStyle_Metacall_IsBase(bool value) const { qcommonstyle_metacall_isbase = value; }
+    inline void setQCommonStyle_DrawPrimitive_IsBase(bool value) const { qcommonstyle_drawprimitive_isbase = value; }
+    inline void setQCommonStyle_DrawControl_IsBase(bool value) const { qcommonstyle_drawcontrol_isbase = value; }
+    inline void setQCommonStyle_SubElementRect_IsBase(bool value) const { qcommonstyle_subelementrect_isbase = value; }
+    inline void setQCommonStyle_DrawComplexControl_IsBase(bool value) const { qcommonstyle_drawcomplexcontrol_isbase = value; }
+    inline void setQCommonStyle_HitTestComplexControl_IsBase(bool value) const { qcommonstyle_hittestcomplexcontrol_isbase = value; }
+    inline void setQCommonStyle_SubControlRect_IsBase(bool value) const { qcommonstyle_subcontrolrect_isbase = value; }
+    inline void setQCommonStyle_SizeFromContents_IsBase(bool value) const { qcommonstyle_sizefromcontents_isbase = value; }
+    inline void setQCommonStyle_PixelMetric_IsBase(bool value) const { qcommonstyle_pixelmetric_isbase = value; }
+    inline void setQCommonStyle_StyleHint_IsBase(bool value) const { qcommonstyle_stylehint_isbase = value; }
+    inline void setQCommonStyle_StandardIcon_IsBase(bool value) const { qcommonstyle_standardicon_isbase = value; }
+    inline void setQCommonStyle_StandardPixmap_IsBase(bool value) const { qcommonstyle_standardpixmap_isbase = value; }
+    inline void setQCommonStyle_GeneratedIconPixmap_IsBase(bool value) const { qcommonstyle_generatediconpixmap_isbase = value; }
+    inline void setQCommonStyle_LayoutSpacing_IsBase(bool value) const { qcommonstyle_layoutspacing_isbase = value; }
+    inline void setQCommonStyle_Polish_IsBase(bool value) const { qcommonstyle_polish_isbase = value; }
+    inline void setQCommonStyle_PolishWithApp_IsBase(bool value) const { qcommonstyle_polishwithapp_isbase = value; }
+    inline void setQCommonStyle_PolishWithWidget_IsBase(bool value) const { qcommonstyle_polishwithwidget_isbase = value; }
+    inline void setQCommonStyle_Unpolish_IsBase(bool value) const { qcommonstyle_unpolish_isbase = value; }
+    inline void setQCommonStyle_UnpolishWithApplication_IsBase(bool value) const { qcommonstyle_unpolishwithapplication_isbase = value; }
+    inline void setQCommonStyle_ItemTextRect_IsBase(bool value) const { qcommonstyle_itemtextrect_isbase = value; }
+    inline void setQCommonStyle_ItemPixmapRect_IsBase(bool value) const { qcommonstyle_itempixmaprect_isbase = value; }
+    inline void setQCommonStyle_DrawItemText_IsBase(bool value) const { qcommonstyle_drawitemtext_isbase = value; }
+    inline void setQCommonStyle_DrawItemPixmap_IsBase(bool value) const { qcommonstyle_drawitempixmap_isbase = value; }
+    inline void setQCommonStyle_StandardPalette_IsBase(bool value) const { qcommonstyle_standardpalette_isbase = value; }
+    inline void setQCommonStyle_Event_IsBase(bool value) const { qcommonstyle_event_isbase = value; }
+    inline void setQCommonStyle_EventFilter_IsBase(bool value) const { qcommonstyle_eventfilter_isbase = value; }
+    inline void setQCommonStyle_TimerEvent_IsBase(bool value) const { qcommonstyle_timerevent_isbase = value; }
+    inline void setQCommonStyle_ChildEvent_IsBase(bool value) const { qcommonstyle_childevent_isbase = value; }
+    inline void setQCommonStyle_CustomEvent_IsBase(bool value) const { qcommonstyle_customevent_isbase = value; }
+    inline void setQCommonStyle_ConnectNotify_IsBase(bool value) const { qcommonstyle_connectnotify_isbase = value; }
+    inline void setQCommonStyle_DisconnectNotify_IsBase(bool value) const { qcommonstyle_disconnectnotify_isbase = value; }
+    inline void setQCommonStyle_Sender_IsBase(bool value) const { qcommonstyle_sender_isbase = value; }
+    inline void setQCommonStyle_SenderSignalIndex_IsBase(bool value) const { qcommonstyle_sendersignalindex_isbase = value; }
+    inline void setQCommonStyle_Receivers_IsBase(bool value) const { qcommonstyle_receivers_isbase = value; }
+    inline void setQCommonStyle_IsSignalConnected_IsBase(bool value) const { qcommonstyle_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -247,7 +250,12 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_metacall_isbase = false;
             return QCommonStyle::qt_metacall(param1, param2, param3);
         } else if (qcommonstyle_metacall_callback != nullptr) {
-            return qcommonstyle_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qcommonstyle_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QCommonStyle::qt_metacall(param1, param2, param3);
         }
@@ -259,7 +267,12 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_drawprimitive_isbase = false;
             QCommonStyle::drawPrimitive(pe, opt, p, w);
         } else if (qcommonstyle_drawprimitive_callback != nullptr) {
-            qcommonstyle_drawprimitive_callback(this, pe, opt, p, w);
+            int cbval1 = static_cast<int>(pe);
+            QStyleOption* cbval2 = (QStyleOption*)opt;
+            QPainter* cbval3 = p;
+            QWidget* cbval4 = (QWidget*)w;
+
+            qcommonstyle_drawprimitive_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QCommonStyle::drawPrimitive(pe, opt, p, w);
         }
@@ -271,7 +284,12 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_drawcontrol_isbase = false;
             QCommonStyle::drawControl(element, opt, p, w);
         } else if (qcommonstyle_drawcontrol_callback != nullptr) {
-            qcommonstyle_drawcontrol_callback(this, element, opt, p, w);
+            int cbval1 = static_cast<int>(element);
+            QStyleOption* cbval2 = (QStyleOption*)opt;
+            QPainter* cbval3 = p;
+            QWidget* cbval4 = (QWidget*)w;
+
+            qcommonstyle_drawcontrol_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QCommonStyle::drawControl(element, opt, p, w);
         }
@@ -283,7 +301,12 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_subelementrect_isbase = false;
             return QCommonStyle::subElementRect(r, opt, widget);
         } else if (qcommonstyle_subelementrect_callback != nullptr) {
-            return qcommonstyle_subelementrect_callback(this, r, opt, widget);
+            int cbval1 = static_cast<int>(r);
+            QStyleOption* cbval2 = (QStyleOption*)opt;
+            QWidget* cbval3 = (QWidget*)widget;
+
+            QRect* callback_ret = qcommonstyle_subelementrect_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QCommonStyle::subElementRect(r, opt, widget);
         }
@@ -295,7 +318,12 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_drawcomplexcontrol_isbase = false;
             QCommonStyle::drawComplexControl(cc, opt, p, w);
         } else if (qcommonstyle_drawcomplexcontrol_callback != nullptr) {
-            qcommonstyle_drawcomplexcontrol_callback(this, cc, opt, p, w);
+            int cbval1 = static_cast<int>(cc);
+            QStyleOptionComplex* cbval2 = (QStyleOptionComplex*)opt;
+            QPainter* cbval3 = p;
+            QWidget* cbval4 = (QWidget*)w;
+
+            qcommonstyle_drawcomplexcontrol_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QCommonStyle::drawComplexControl(cc, opt, p, w);
         }
@@ -307,7 +335,15 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_hittestcomplexcontrol_isbase = false;
             return QCommonStyle::hitTestComplexControl(cc, opt, pt, w);
         } else if (qcommonstyle_hittestcomplexcontrol_callback != nullptr) {
-            return qcommonstyle_hittestcomplexcontrol_callback(this, cc, opt, pt, w);
+            int cbval1 = static_cast<int>(cc);
+            QStyleOptionComplex* cbval2 = (QStyleOptionComplex*)opt;
+            const QPoint& pt_ret = pt;
+            // Cast returned reference into pointer
+            QPoint* cbval3 = const_cast<QPoint*>(&pt_ret);
+            QWidget* cbval4 = (QWidget*)w;
+
+            int callback_ret = qcommonstyle_hittestcomplexcontrol_callback(this, cbval1, cbval2, cbval3, cbval4);
+            return static_cast<QStyle::SubControl>(callback_ret);
         } else {
             return QCommonStyle::hitTestComplexControl(cc, opt, pt, w);
         }
@@ -319,7 +355,13 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_subcontrolrect_isbase = false;
             return QCommonStyle::subControlRect(cc, opt, sc, w);
         } else if (qcommonstyle_subcontrolrect_callback != nullptr) {
-            return qcommonstyle_subcontrolrect_callback(this, cc, opt, sc, w);
+            int cbval1 = static_cast<int>(cc);
+            QStyleOptionComplex* cbval2 = (QStyleOptionComplex*)opt;
+            int cbval3 = static_cast<int>(sc);
+            QWidget* cbval4 = (QWidget*)w;
+
+            QRect* callback_ret = qcommonstyle_subcontrolrect_callback(this, cbval1, cbval2, cbval3, cbval4);
+            return *callback_ret;
         } else {
             return QCommonStyle::subControlRect(cc, opt, sc, w);
         }
@@ -331,7 +373,15 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_sizefromcontents_isbase = false;
             return QCommonStyle::sizeFromContents(ct, opt, contentsSize, widget);
         } else if (qcommonstyle_sizefromcontents_callback != nullptr) {
-            return qcommonstyle_sizefromcontents_callback(this, ct, opt, contentsSize, widget);
+            int cbval1 = static_cast<int>(ct);
+            QStyleOption* cbval2 = (QStyleOption*)opt;
+            const QSize& contentsSize_ret = contentsSize;
+            // Cast returned reference into pointer
+            QSize* cbval3 = const_cast<QSize*>(&contentsSize_ret);
+            QWidget* cbval4 = (QWidget*)widget;
+
+            QSize* callback_ret = qcommonstyle_sizefromcontents_callback(this, cbval1, cbval2, cbval3, cbval4);
+            return *callback_ret;
         } else {
             return QCommonStyle::sizeFromContents(ct, opt, contentsSize, widget);
         }
@@ -343,7 +393,12 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_pixelmetric_isbase = false;
             return QCommonStyle::pixelMetric(m, opt, widget);
         } else if (qcommonstyle_pixelmetric_callback != nullptr) {
-            return qcommonstyle_pixelmetric_callback(this, m, opt, widget);
+            int cbval1 = static_cast<int>(m);
+            QStyleOption* cbval2 = (QStyleOption*)opt;
+            QWidget* cbval3 = (QWidget*)widget;
+
+            int callback_ret = qcommonstyle_pixelmetric_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QCommonStyle::pixelMetric(m, opt, widget);
         }
@@ -355,7 +410,13 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_stylehint_isbase = false;
             return QCommonStyle::styleHint(sh, opt, w, shret);
         } else if (qcommonstyle_stylehint_callback != nullptr) {
-            return qcommonstyle_stylehint_callback(this, sh, opt, w, shret);
+            int cbval1 = static_cast<int>(sh);
+            QStyleOption* cbval2 = (QStyleOption*)opt;
+            QWidget* cbval3 = (QWidget*)w;
+            QStyleHintReturn* cbval4 = shret;
+
+            int callback_ret = qcommonstyle_stylehint_callback(this, cbval1, cbval2, cbval3, cbval4);
+            return static_cast<int>(callback_ret);
         } else {
             return QCommonStyle::styleHint(sh, opt, w, shret);
         }
@@ -367,7 +428,12 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_standardicon_isbase = false;
             return QCommonStyle::standardIcon(standardIcon, opt, widget);
         } else if (qcommonstyle_standardicon_callback != nullptr) {
-            return qcommonstyle_standardicon_callback(this, standardIcon, opt, widget);
+            int cbval1 = static_cast<int>(standardIcon);
+            QStyleOption* cbval2 = (QStyleOption*)opt;
+            QWidget* cbval3 = (QWidget*)widget;
+
+            QIcon* callback_ret = qcommonstyle_standardicon_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QCommonStyle::standardIcon(standardIcon, opt, widget);
         }
@@ -379,7 +445,12 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_standardpixmap_isbase = false;
             return QCommonStyle::standardPixmap(sp, opt, widget);
         } else if (qcommonstyle_standardpixmap_callback != nullptr) {
-            return qcommonstyle_standardpixmap_callback(this, sp, opt, widget);
+            int cbval1 = static_cast<int>(sp);
+            QStyleOption* cbval2 = (QStyleOption*)opt;
+            QWidget* cbval3 = (QWidget*)widget;
+
+            QPixmap* callback_ret = qcommonstyle_standardpixmap_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QCommonStyle::standardPixmap(sp, opt, widget);
         }
@@ -391,7 +462,14 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_generatediconpixmap_isbase = false;
             return QCommonStyle::generatedIconPixmap(iconMode, pixmap, opt);
         } else if (qcommonstyle_generatediconpixmap_callback != nullptr) {
-            return qcommonstyle_generatediconpixmap_callback(this, iconMode, pixmap, opt);
+            int cbval1 = static_cast<int>(iconMode);
+            const QPixmap& pixmap_ret = pixmap;
+            // Cast returned reference into pointer
+            QPixmap* cbval2 = const_cast<QPixmap*>(&pixmap_ret);
+            QStyleOption* cbval3 = (QStyleOption*)opt;
+
+            QPixmap* callback_ret = qcommonstyle_generatediconpixmap_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QCommonStyle::generatedIconPixmap(iconMode, pixmap, opt);
         }
@@ -403,7 +481,14 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_layoutspacing_isbase = false;
             return QCommonStyle::layoutSpacing(control1, control2, orientation, option, widget);
         } else if (qcommonstyle_layoutspacing_callback != nullptr) {
-            return qcommonstyle_layoutspacing_callback(this, control1, control2, orientation, option, widget);
+            int cbval1 = static_cast<int>(control1);
+            int cbval2 = static_cast<int>(control2);
+            int cbval3 = static_cast<int>(orientation);
+            QStyleOption* cbval4 = (QStyleOption*)option;
+            QWidget* cbval5 = (QWidget*)widget;
+
+            int callback_ret = qcommonstyle_layoutspacing_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return static_cast<int>(callback_ret);
         } else {
             return QCommonStyle::layoutSpacing(control1, control2, orientation, option, widget);
         }
@@ -415,7 +500,11 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_polish_isbase = false;
             QCommonStyle::polish(param1);
         } else if (qcommonstyle_polish_callback != nullptr) {
-            qcommonstyle_polish_callback(this, param1);
+            QPalette& param1_ret = param1;
+            // Cast returned reference into pointer
+            QPalette* cbval1 = &param1_ret;
+
+            qcommonstyle_polish_callback(this, cbval1);
         } else {
             QCommonStyle::polish(param1);
         }
@@ -427,7 +516,9 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_polishwithapp_isbase = false;
             QCommonStyle::polish(app);
         } else if (qcommonstyle_polishwithapp_callback != nullptr) {
-            qcommonstyle_polishwithapp_callback(this, app);
+            QApplication* cbval1 = app;
+
+            qcommonstyle_polishwithapp_callback(this, cbval1);
         } else {
             QCommonStyle::polish(app);
         }
@@ -439,7 +530,9 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_polishwithwidget_isbase = false;
             QCommonStyle::polish(widget);
         } else if (qcommonstyle_polishwithwidget_callback != nullptr) {
-            qcommonstyle_polishwithwidget_callback(this, widget);
+            QWidget* cbval1 = widget;
+
+            qcommonstyle_polishwithwidget_callback(this, cbval1);
         } else {
             QCommonStyle::polish(widget);
         }
@@ -451,7 +544,9 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_unpolish_isbase = false;
             QCommonStyle::unpolish(widget);
         } else if (qcommonstyle_unpolish_callback != nullptr) {
-            qcommonstyle_unpolish_callback(this, widget);
+            QWidget* cbval1 = widget;
+
+            qcommonstyle_unpolish_callback(this, cbval1);
         } else {
             QCommonStyle::unpolish(widget);
         }
@@ -463,7 +558,9 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_unpolishwithapplication_isbase = false;
             QCommonStyle::unpolish(application);
         } else if (qcommonstyle_unpolishwithapplication_callback != nullptr) {
-            qcommonstyle_unpolishwithapplication_callback(this, application);
+            QApplication* cbval1 = application;
+
+            qcommonstyle_unpolishwithapplication_callback(this, cbval1);
         } else {
             QCommonStyle::unpolish(application);
         }
@@ -475,7 +572,26 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_itemtextrect_isbase = false;
             return QCommonStyle::itemTextRect(fm, r, flags, enabled, text);
         } else if (qcommonstyle_itemtextrect_callback != nullptr) {
-            return qcommonstyle_itemtextrect_callback(this, fm, r, flags, enabled, text);
+            const QFontMetrics& fm_ret = fm;
+            // Cast returned reference into pointer
+            QFontMetrics* cbval1 = const_cast<QFontMetrics*>(&fm_ret);
+            const QRect& r_ret = r;
+            // Cast returned reference into pointer
+            QRect* cbval2 = const_cast<QRect*>(&r_ret);
+            int cbval3 = flags;
+            bool cbval4 = enabled;
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy(text_str.data, text_b.data(), text_str.len);
+            text_str.data[text_str.len] = '\0';
+            libqt_string cbval5 = text_str;
+
+            QRect* callback_ret = qcommonstyle_itemtextrect_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return *callback_ret;
         } else {
             return QCommonStyle::itemTextRect(fm, r, flags, enabled, text);
         }
@@ -487,7 +603,16 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_itempixmaprect_isbase = false;
             return QCommonStyle::itemPixmapRect(r, flags, pixmap);
         } else if (qcommonstyle_itempixmaprect_callback != nullptr) {
-            return qcommonstyle_itempixmaprect_callback(this, r, flags, pixmap);
+            const QRect& r_ret = r;
+            // Cast returned reference into pointer
+            QRect* cbval1 = const_cast<QRect*>(&r_ret);
+            int cbval2 = flags;
+            const QPixmap& pixmap_ret = pixmap;
+            // Cast returned reference into pointer
+            QPixmap* cbval3 = const_cast<QPixmap*>(&pixmap_ret);
+
+            QRect* callback_ret = qcommonstyle_itempixmaprect_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QCommonStyle::itemPixmapRect(r, flags, pixmap);
         }
@@ -499,7 +624,27 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_drawitemtext_isbase = false;
             QCommonStyle::drawItemText(painter, rect, flags, pal, enabled, text, textRole);
         } else if (qcommonstyle_drawitemtext_callback != nullptr) {
-            qcommonstyle_drawitemtext_callback(this, painter, rect, flags, pal, enabled, text, textRole);
+            QPainter* cbval1 = painter;
+            const QRect& rect_ret = rect;
+            // Cast returned reference into pointer
+            QRect* cbval2 = const_cast<QRect*>(&rect_ret);
+            int cbval3 = flags;
+            const QPalette& pal_ret = pal;
+            // Cast returned reference into pointer
+            QPalette* cbval4 = const_cast<QPalette*>(&pal_ret);
+            bool cbval5 = enabled;
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy(text_str.data, text_b.data(), text_str.len);
+            text_str.data[text_str.len] = '\0';
+            libqt_string cbval6 = text_str;
+            int cbval7 = static_cast<int>(textRole);
+
+            qcommonstyle_drawitemtext_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
         } else {
             QCommonStyle::drawItemText(painter, rect, flags, pal, enabled, text, textRole);
         }
@@ -511,7 +656,16 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_drawitempixmap_isbase = false;
             QCommonStyle::drawItemPixmap(painter, rect, alignment, pixmap);
         } else if (qcommonstyle_drawitempixmap_callback != nullptr) {
-            qcommonstyle_drawitempixmap_callback(this, painter, rect, alignment, pixmap);
+            QPainter* cbval1 = painter;
+            const QRect& rect_ret = rect;
+            // Cast returned reference into pointer
+            QRect* cbval2 = const_cast<QRect*>(&rect_ret);
+            int cbval3 = alignment;
+            const QPixmap& pixmap_ret = pixmap;
+            // Cast returned reference into pointer
+            QPixmap* cbval4 = const_cast<QPixmap*>(&pixmap_ret);
+
+            qcommonstyle_drawitempixmap_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QCommonStyle::drawItemPixmap(painter, rect, alignment, pixmap);
         }
@@ -523,7 +677,8 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_standardpalette_isbase = false;
             return QCommonStyle::standardPalette();
         } else if (qcommonstyle_standardpalette_callback != nullptr) {
-            return qcommonstyle_standardpalette_callback();
+            QPalette* callback_ret = qcommonstyle_standardpalette_callback();
+            return *callback_ret;
         } else {
             return QCommonStyle::standardPalette();
         }
@@ -535,7 +690,10 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_event_isbase = false;
             return QCommonStyle::event(event);
         } else if (qcommonstyle_event_callback != nullptr) {
-            return qcommonstyle_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qcommonstyle_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QCommonStyle::event(event);
         }
@@ -547,7 +705,11 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_eventfilter_isbase = false;
             return QCommonStyle::eventFilter(watched, event);
         } else if (qcommonstyle_eventfilter_callback != nullptr) {
-            return qcommonstyle_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qcommonstyle_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QCommonStyle::eventFilter(watched, event);
         }
@@ -559,7 +721,9 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_timerevent_isbase = false;
             QCommonStyle::timerEvent(event);
         } else if (qcommonstyle_timerevent_callback != nullptr) {
-            qcommonstyle_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qcommonstyle_timerevent_callback(this, cbval1);
         } else {
             QCommonStyle::timerEvent(event);
         }
@@ -571,7 +735,9 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_childevent_isbase = false;
             QCommonStyle::childEvent(event);
         } else if (qcommonstyle_childevent_callback != nullptr) {
-            qcommonstyle_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qcommonstyle_childevent_callback(this, cbval1);
         } else {
             QCommonStyle::childEvent(event);
         }
@@ -583,7 +749,9 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_customevent_isbase = false;
             QCommonStyle::customEvent(event);
         } else if (qcommonstyle_customevent_callback != nullptr) {
-            qcommonstyle_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qcommonstyle_customevent_callback(this, cbval1);
         } else {
             QCommonStyle::customEvent(event);
         }
@@ -595,7 +763,11 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_connectnotify_isbase = false;
             QCommonStyle::connectNotify(signal);
         } else if (qcommonstyle_connectnotify_callback != nullptr) {
-            qcommonstyle_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qcommonstyle_connectnotify_callback(this, cbval1);
         } else {
             QCommonStyle::connectNotify(signal);
         }
@@ -607,7 +779,11 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_disconnectnotify_isbase = false;
             QCommonStyle::disconnectNotify(signal);
         } else if (qcommonstyle_disconnectnotify_callback != nullptr) {
-            qcommonstyle_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qcommonstyle_disconnectnotify_callback(this, cbval1);
         } else {
             QCommonStyle::disconnectNotify(signal);
         }
@@ -619,7 +795,8 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_sender_isbase = false;
             return QCommonStyle::sender();
         } else if (qcommonstyle_sender_callback != nullptr) {
-            return qcommonstyle_sender_callback();
+            QObject* callback_ret = qcommonstyle_sender_callback();
+            return callback_ret;
         } else {
             return QCommonStyle::sender();
         }
@@ -631,7 +808,8 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_sendersignalindex_isbase = false;
             return QCommonStyle::senderSignalIndex();
         } else if (qcommonstyle_sendersignalindex_callback != nullptr) {
-            return qcommonstyle_sendersignalindex_callback();
+            int callback_ret = qcommonstyle_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QCommonStyle::senderSignalIndex();
         }
@@ -643,7 +821,10 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_receivers_isbase = false;
             return QCommonStyle::receivers(signal);
         } else if (qcommonstyle_receivers_callback != nullptr) {
-            return qcommonstyle_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qcommonstyle_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QCommonStyle::receivers(signal);
         }
@@ -655,11 +836,36 @@ class VirtualQCommonStyle : public QCommonStyle {
             qcommonstyle_issignalconnected_isbase = false;
             return QCommonStyle::isSignalConnected(signal);
         } else if (qcommonstyle_issignalconnected_callback != nullptr) {
-            return qcommonstyle_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qcommonstyle_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QCommonStyle::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QCommonStyle_TimerEvent(QCommonStyle* self, QTimerEvent* event);
+    friend void QCommonStyle_QBaseTimerEvent(QCommonStyle* self, QTimerEvent* event);
+    friend void QCommonStyle_ChildEvent(QCommonStyle* self, QChildEvent* event);
+    friend void QCommonStyle_QBaseChildEvent(QCommonStyle* self, QChildEvent* event);
+    friend void QCommonStyle_CustomEvent(QCommonStyle* self, QEvent* event);
+    friend void QCommonStyle_QBaseCustomEvent(QCommonStyle* self, QEvent* event);
+    friend void QCommonStyle_ConnectNotify(QCommonStyle* self, const QMetaMethod* signal);
+    friend void QCommonStyle_QBaseConnectNotify(QCommonStyle* self, const QMetaMethod* signal);
+    friend void QCommonStyle_DisconnectNotify(QCommonStyle* self, const QMetaMethod* signal);
+    friend void QCommonStyle_QBaseDisconnectNotify(QCommonStyle* self, const QMetaMethod* signal);
+    friend QObject* QCommonStyle_Sender(const QCommonStyle* self);
+    friend QObject* QCommonStyle_QBaseSender(const QCommonStyle* self);
+    friend int QCommonStyle_SenderSignalIndex(const QCommonStyle* self);
+    friend int QCommonStyle_QBaseSenderSignalIndex(const QCommonStyle* self);
+    friend int QCommonStyle_Receivers(const QCommonStyle* self, const char* signal);
+    friend int QCommonStyle_QBaseReceivers(const QCommonStyle* self, const char* signal);
+    friend bool QCommonStyle_IsSignalConnected(const QCommonStyle* self, const QMetaMethod* signal);
+    friend bool QCommonStyle_QBaseIsSignalConnected(const QCommonStyle* self, const QMetaMethod* signal);
 };
 
 #endif

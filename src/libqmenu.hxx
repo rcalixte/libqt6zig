@@ -11,12 +11,15 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QMenu so that we can call protected methods
-class VirtualQMenu : public QMenu {
+class VirtualQMenu final : public QMenu {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQMenu = true;
+
     // Virtual class public types (including callbacks)
-    using QMenu_Metacall_Callback = int (*)(QMenu*, QMetaObject::Call, int, void**);
-    using QMenu_SizeHint_Callback = QSize (*)();
+    using QMenu_Metacall_Callback = int (*)(QMenu*, int, int, void**);
+    using QMenu_SizeHint_Callback = QSize* (*)();
     using QMenu_ChangeEvent_Callback = void (*)(QMenu*, QEvent*);
     using QMenu_KeyPressEvent_Callback = void (*)(QMenu*, QKeyEvent*);
     using QMenu_MouseReleaseEvent_Callback = void (*)(QMenu*, QMouseEvent*);
@@ -31,10 +34,10 @@ class VirtualQMenu : public QMenu {
     using QMenu_TimerEvent_Callback = void (*)(QMenu*, QTimerEvent*);
     using QMenu_Event_Callback = bool (*)(QMenu*, QEvent*);
     using QMenu_FocusNextPrevChild_Callback = bool (*)(QMenu*, bool);
-    using QMenu_InitStyleOption_Callback = void (*)(const QMenu*, QStyleOptionMenuItem*, const QAction*);
+    using QMenu_InitStyleOption_Callback = void (*)(const QMenu*, QStyleOptionMenuItem*, QAction*);
     using QMenu_DevType_Callback = int (*)();
     using QMenu_SetVisible_Callback = void (*)(QMenu*, bool);
-    using QMenu_MinimumSizeHint_Callback = QSize (*)();
+    using QMenu_MinimumSizeHint_Callback = QSize* (*)();
     using QMenu_HeightForWidth_Callback = int (*)(const QMenu*, int);
     using QMenu_HasHeightForWidth_Callback = bool (*)();
     using QMenu_PaintEngine_Callback = QPaintEngine* (*)();
@@ -52,18 +55,18 @@ class VirtualQMenu : public QMenu {
     using QMenu_DragLeaveEvent_Callback = void (*)(QMenu*, QDragLeaveEvent*);
     using QMenu_DropEvent_Callback = void (*)(QMenu*, QDropEvent*);
     using QMenu_ShowEvent_Callback = void (*)(QMenu*, QShowEvent*);
-    using QMenu_NativeEvent_Callback = bool (*)(QMenu*, const QByteArray&, void*, qintptr*);
-    using QMenu_Metric_Callback = int (*)(const QMenu*, QPaintDevice::PaintDeviceMetric);
+    using QMenu_NativeEvent_Callback = bool (*)(QMenu*, libqt_string, void*, intptr_t*);
+    using QMenu_Metric_Callback = int (*)(const QMenu*, int);
     using QMenu_InitPainter_Callback = void (*)(const QMenu*, QPainter*);
     using QMenu_Redirected_Callback = QPaintDevice* (*)(const QMenu*, QPoint*);
     using QMenu_SharedPainter_Callback = QPainter* (*)();
     using QMenu_InputMethodEvent_Callback = void (*)(QMenu*, QInputMethodEvent*);
-    using QMenu_InputMethodQuery_Callback = QVariant (*)(const QMenu*, Qt::InputMethodQuery);
+    using QMenu_InputMethodQuery_Callback = QVariant* (*)(const QMenu*, int);
     using QMenu_EventFilter_Callback = bool (*)(QMenu*, QObject*, QEvent*);
     using QMenu_ChildEvent_Callback = void (*)(QMenu*, QChildEvent*);
     using QMenu_CustomEvent_Callback = void (*)(QMenu*, QEvent*);
-    using QMenu_ConnectNotify_Callback = void (*)(QMenu*, const QMetaMethod&);
-    using QMenu_DisconnectNotify_Callback = void (*)(QMenu*, const QMetaMethod&);
+    using QMenu_ConnectNotify_Callback = void (*)(QMenu*, QMetaMethod*);
+    using QMenu_DisconnectNotify_Callback = void (*)(QMenu*, QMetaMethod*);
     using QMenu_ColumnCount_Callback = int (*)();
     using QMenu_UpdateMicroFocus_Callback = void (*)();
     using QMenu_Create_Callback = void (*)();
@@ -73,7 +76,7 @@ class VirtualQMenu : public QMenu {
     using QMenu_Sender_Callback = QObject* (*)();
     using QMenu_SenderSignalIndex_Callback = int (*)();
     using QMenu_Receivers_Callback = int (*)(const QMenu*, const char*);
-    using QMenu_IsSignalConnected_Callback = bool (*)(const QMenu*, const QMetaMethod&);
+    using QMenu_IsSignalConnected_Callback = bool (*)(const QMenu*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -267,126 +270,126 @@ class VirtualQMenu : public QMenu {
     }
 
     // Callback setters
-    void setQMenu_Metacall_Callback(QMenu_Metacall_Callback cb) { qmenu_metacall_callback = cb; }
-    void setQMenu_SizeHint_Callback(QMenu_SizeHint_Callback cb) { qmenu_sizehint_callback = cb; }
-    void setQMenu_ChangeEvent_Callback(QMenu_ChangeEvent_Callback cb) { qmenu_changeevent_callback = cb; }
-    void setQMenu_KeyPressEvent_Callback(QMenu_KeyPressEvent_Callback cb) { qmenu_keypressevent_callback = cb; }
-    void setQMenu_MouseReleaseEvent_Callback(QMenu_MouseReleaseEvent_Callback cb) { qmenu_mousereleaseevent_callback = cb; }
-    void setQMenu_MousePressEvent_Callback(QMenu_MousePressEvent_Callback cb) { qmenu_mousepressevent_callback = cb; }
-    void setQMenu_MouseMoveEvent_Callback(QMenu_MouseMoveEvent_Callback cb) { qmenu_mousemoveevent_callback = cb; }
-    void setQMenu_WheelEvent_Callback(QMenu_WheelEvent_Callback cb) { qmenu_wheelevent_callback = cb; }
-    void setQMenu_EnterEvent_Callback(QMenu_EnterEvent_Callback cb) { qmenu_enterevent_callback = cb; }
-    void setQMenu_LeaveEvent_Callback(QMenu_LeaveEvent_Callback cb) { qmenu_leaveevent_callback = cb; }
-    void setQMenu_HideEvent_Callback(QMenu_HideEvent_Callback cb) { qmenu_hideevent_callback = cb; }
-    void setQMenu_PaintEvent_Callback(QMenu_PaintEvent_Callback cb) { qmenu_paintevent_callback = cb; }
-    void setQMenu_ActionEvent_Callback(QMenu_ActionEvent_Callback cb) { qmenu_actionevent_callback = cb; }
-    void setQMenu_TimerEvent_Callback(QMenu_TimerEvent_Callback cb) { qmenu_timerevent_callback = cb; }
-    void setQMenu_Event_Callback(QMenu_Event_Callback cb) { qmenu_event_callback = cb; }
-    void setQMenu_FocusNextPrevChild_Callback(QMenu_FocusNextPrevChild_Callback cb) { qmenu_focusnextprevchild_callback = cb; }
-    void setQMenu_InitStyleOption_Callback(QMenu_InitStyleOption_Callback cb) { qmenu_initstyleoption_callback = cb; }
-    void setQMenu_DevType_Callback(QMenu_DevType_Callback cb) { qmenu_devtype_callback = cb; }
-    void setQMenu_SetVisible_Callback(QMenu_SetVisible_Callback cb) { qmenu_setvisible_callback = cb; }
-    void setQMenu_MinimumSizeHint_Callback(QMenu_MinimumSizeHint_Callback cb) { qmenu_minimumsizehint_callback = cb; }
-    void setQMenu_HeightForWidth_Callback(QMenu_HeightForWidth_Callback cb) { qmenu_heightforwidth_callback = cb; }
-    void setQMenu_HasHeightForWidth_Callback(QMenu_HasHeightForWidth_Callback cb) { qmenu_hasheightforwidth_callback = cb; }
-    void setQMenu_PaintEngine_Callback(QMenu_PaintEngine_Callback cb) { qmenu_paintengine_callback = cb; }
-    void setQMenu_MouseDoubleClickEvent_Callback(QMenu_MouseDoubleClickEvent_Callback cb) { qmenu_mousedoubleclickevent_callback = cb; }
-    void setQMenu_KeyReleaseEvent_Callback(QMenu_KeyReleaseEvent_Callback cb) { qmenu_keyreleaseevent_callback = cb; }
-    void setQMenu_FocusInEvent_Callback(QMenu_FocusInEvent_Callback cb) { qmenu_focusinevent_callback = cb; }
-    void setQMenu_FocusOutEvent_Callback(QMenu_FocusOutEvent_Callback cb) { qmenu_focusoutevent_callback = cb; }
-    void setQMenu_MoveEvent_Callback(QMenu_MoveEvent_Callback cb) { qmenu_moveevent_callback = cb; }
-    void setQMenu_ResizeEvent_Callback(QMenu_ResizeEvent_Callback cb) { qmenu_resizeevent_callback = cb; }
-    void setQMenu_CloseEvent_Callback(QMenu_CloseEvent_Callback cb) { qmenu_closeevent_callback = cb; }
-    void setQMenu_ContextMenuEvent_Callback(QMenu_ContextMenuEvent_Callback cb) { qmenu_contextmenuevent_callback = cb; }
-    void setQMenu_TabletEvent_Callback(QMenu_TabletEvent_Callback cb) { qmenu_tabletevent_callback = cb; }
-    void setQMenu_DragEnterEvent_Callback(QMenu_DragEnterEvent_Callback cb) { qmenu_dragenterevent_callback = cb; }
-    void setQMenu_DragMoveEvent_Callback(QMenu_DragMoveEvent_Callback cb) { qmenu_dragmoveevent_callback = cb; }
-    void setQMenu_DragLeaveEvent_Callback(QMenu_DragLeaveEvent_Callback cb) { qmenu_dragleaveevent_callback = cb; }
-    void setQMenu_DropEvent_Callback(QMenu_DropEvent_Callback cb) { qmenu_dropevent_callback = cb; }
-    void setQMenu_ShowEvent_Callback(QMenu_ShowEvent_Callback cb) { qmenu_showevent_callback = cb; }
-    void setQMenu_NativeEvent_Callback(QMenu_NativeEvent_Callback cb) { qmenu_nativeevent_callback = cb; }
-    void setQMenu_Metric_Callback(QMenu_Metric_Callback cb) { qmenu_metric_callback = cb; }
-    void setQMenu_InitPainter_Callback(QMenu_InitPainter_Callback cb) { qmenu_initpainter_callback = cb; }
-    void setQMenu_Redirected_Callback(QMenu_Redirected_Callback cb) { qmenu_redirected_callback = cb; }
-    void setQMenu_SharedPainter_Callback(QMenu_SharedPainter_Callback cb) { qmenu_sharedpainter_callback = cb; }
-    void setQMenu_InputMethodEvent_Callback(QMenu_InputMethodEvent_Callback cb) { qmenu_inputmethodevent_callback = cb; }
-    void setQMenu_InputMethodQuery_Callback(QMenu_InputMethodQuery_Callback cb) { qmenu_inputmethodquery_callback = cb; }
-    void setQMenu_EventFilter_Callback(QMenu_EventFilter_Callback cb) { qmenu_eventfilter_callback = cb; }
-    void setQMenu_ChildEvent_Callback(QMenu_ChildEvent_Callback cb) { qmenu_childevent_callback = cb; }
-    void setQMenu_CustomEvent_Callback(QMenu_CustomEvent_Callback cb) { qmenu_customevent_callback = cb; }
-    void setQMenu_ConnectNotify_Callback(QMenu_ConnectNotify_Callback cb) { qmenu_connectnotify_callback = cb; }
-    void setQMenu_DisconnectNotify_Callback(QMenu_DisconnectNotify_Callback cb) { qmenu_disconnectnotify_callback = cb; }
-    void setQMenu_ColumnCount_Callback(QMenu_ColumnCount_Callback cb) { qmenu_columncount_callback = cb; }
-    void setQMenu_UpdateMicroFocus_Callback(QMenu_UpdateMicroFocus_Callback cb) { qmenu_updatemicrofocus_callback = cb; }
-    void setQMenu_Create_Callback(QMenu_Create_Callback cb) { qmenu_create_callback = cb; }
-    void setQMenu_Destroy_Callback(QMenu_Destroy_Callback cb) { qmenu_destroy_callback = cb; }
-    void setQMenu_FocusNextChild_Callback(QMenu_FocusNextChild_Callback cb) { qmenu_focusnextchild_callback = cb; }
-    void setQMenu_FocusPreviousChild_Callback(QMenu_FocusPreviousChild_Callback cb) { qmenu_focuspreviouschild_callback = cb; }
-    void setQMenu_Sender_Callback(QMenu_Sender_Callback cb) { qmenu_sender_callback = cb; }
-    void setQMenu_SenderSignalIndex_Callback(QMenu_SenderSignalIndex_Callback cb) { qmenu_sendersignalindex_callback = cb; }
-    void setQMenu_Receivers_Callback(QMenu_Receivers_Callback cb) { qmenu_receivers_callback = cb; }
-    void setQMenu_IsSignalConnected_Callback(QMenu_IsSignalConnected_Callback cb) { qmenu_issignalconnected_callback = cb; }
+    inline void setQMenu_Metacall_Callback(QMenu_Metacall_Callback cb) { qmenu_metacall_callback = cb; }
+    inline void setQMenu_SizeHint_Callback(QMenu_SizeHint_Callback cb) { qmenu_sizehint_callback = cb; }
+    inline void setQMenu_ChangeEvent_Callback(QMenu_ChangeEvent_Callback cb) { qmenu_changeevent_callback = cb; }
+    inline void setQMenu_KeyPressEvent_Callback(QMenu_KeyPressEvent_Callback cb) { qmenu_keypressevent_callback = cb; }
+    inline void setQMenu_MouseReleaseEvent_Callback(QMenu_MouseReleaseEvent_Callback cb) { qmenu_mousereleaseevent_callback = cb; }
+    inline void setQMenu_MousePressEvent_Callback(QMenu_MousePressEvent_Callback cb) { qmenu_mousepressevent_callback = cb; }
+    inline void setQMenu_MouseMoveEvent_Callback(QMenu_MouseMoveEvent_Callback cb) { qmenu_mousemoveevent_callback = cb; }
+    inline void setQMenu_WheelEvent_Callback(QMenu_WheelEvent_Callback cb) { qmenu_wheelevent_callback = cb; }
+    inline void setQMenu_EnterEvent_Callback(QMenu_EnterEvent_Callback cb) { qmenu_enterevent_callback = cb; }
+    inline void setQMenu_LeaveEvent_Callback(QMenu_LeaveEvent_Callback cb) { qmenu_leaveevent_callback = cb; }
+    inline void setQMenu_HideEvent_Callback(QMenu_HideEvent_Callback cb) { qmenu_hideevent_callback = cb; }
+    inline void setQMenu_PaintEvent_Callback(QMenu_PaintEvent_Callback cb) { qmenu_paintevent_callback = cb; }
+    inline void setQMenu_ActionEvent_Callback(QMenu_ActionEvent_Callback cb) { qmenu_actionevent_callback = cb; }
+    inline void setQMenu_TimerEvent_Callback(QMenu_TimerEvent_Callback cb) { qmenu_timerevent_callback = cb; }
+    inline void setQMenu_Event_Callback(QMenu_Event_Callback cb) { qmenu_event_callback = cb; }
+    inline void setQMenu_FocusNextPrevChild_Callback(QMenu_FocusNextPrevChild_Callback cb) { qmenu_focusnextprevchild_callback = cb; }
+    inline void setQMenu_InitStyleOption_Callback(QMenu_InitStyleOption_Callback cb) { qmenu_initstyleoption_callback = cb; }
+    inline void setQMenu_DevType_Callback(QMenu_DevType_Callback cb) { qmenu_devtype_callback = cb; }
+    inline void setQMenu_SetVisible_Callback(QMenu_SetVisible_Callback cb) { qmenu_setvisible_callback = cb; }
+    inline void setQMenu_MinimumSizeHint_Callback(QMenu_MinimumSizeHint_Callback cb) { qmenu_minimumsizehint_callback = cb; }
+    inline void setQMenu_HeightForWidth_Callback(QMenu_HeightForWidth_Callback cb) { qmenu_heightforwidth_callback = cb; }
+    inline void setQMenu_HasHeightForWidth_Callback(QMenu_HasHeightForWidth_Callback cb) { qmenu_hasheightforwidth_callback = cb; }
+    inline void setQMenu_PaintEngine_Callback(QMenu_PaintEngine_Callback cb) { qmenu_paintengine_callback = cb; }
+    inline void setQMenu_MouseDoubleClickEvent_Callback(QMenu_MouseDoubleClickEvent_Callback cb) { qmenu_mousedoubleclickevent_callback = cb; }
+    inline void setQMenu_KeyReleaseEvent_Callback(QMenu_KeyReleaseEvent_Callback cb) { qmenu_keyreleaseevent_callback = cb; }
+    inline void setQMenu_FocusInEvent_Callback(QMenu_FocusInEvent_Callback cb) { qmenu_focusinevent_callback = cb; }
+    inline void setQMenu_FocusOutEvent_Callback(QMenu_FocusOutEvent_Callback cb) { qmenu_focusoutevent_callback = cb; }
+    inline void setQMenu_MoveEvent_Callback(QMenu_MoveEvent_Callback cb) { qmenu_moveevent_callback = cb; }
+    inline void setQMenu_ResizeEvent_Callback(QMenu_ResizeEvent_Callback cb) { qmenu_resizeevent_callback = cb; }
+    inline void setQMenu_CloseEvent_Callback(QMenu_CloseEvent_Callback cb) { qmenu_closeevent_callback = cb; }
+    inline void setQMenu_ContextMenuEvent_Callback(QMenu_ContextMenuEvent_Callback cb) { qmenu_contextmenuevent_callback = cb; }
+    inline void setQMenu_TabletEvent_Callback(QMenu_TabletEvent_Callback cb) { qmenu_tabletevent_callback = cb; }
+    inline void setQMenu_DragEnterEvent_Callback(QMenu_DragEnterEvent_Callback cb) { qmenu_dragenterevent_callback = cb; }
+    inline void setQMenu_DragMoveEvent_Callback(QMenu_DragMoveEvent_Callback cb) { qmenu_dragmoveevent_callback = cb; }
+    inline void setQMenu_DragLeaveEvent_Callback(QMenu_DragLeaveEvent_Callback cb) { qmenu_dragleaveevent_callback = cb; }
+    inline void setQMenu_DropEvent_Callback(QMenu_DropEvent_Callback cb) { qmenu_dropevent_callback = cb; }
+    inline void setQMenu_ShowEvent_Callback(QMenu_ShowEvent_Callback cb) { qmenu_showevent_callback = cb; }
+    inline void setQMenu_NativeEvent_Callback(QMenu_NativeEvent_Callback cb) { qmenu_nativeevent_callback = cb; }
+    inline void setQMenu_Metric_Callback(QMenu_Metric_Callback cb) { qmenu_metric_callback = cb; }
+    inline void setQMenu_InitPainter_Callback(QMenu_InitPainter_Callback cb) { qmenu_initpainter_callback = cb; }
+    inline void setQMenu_Redirected_Callback(QMenu_Redirected_Callback cb) { qmenu_redirected_callback = cb; }
+    inline void setQMenu_SharedPainter_Callback(QMenu_SharedPainter_Callback cb) { qmenu_sharedpainter_callback = cb; }
+    inline void setQMenu_InputMethodEvent_Callback(QMenu_InputMethodEvent_Callback cb) { qmenu_inputmethodevent_callback = cb; }
+    inline void setQMenu_InputMethodQuery_Callback(QMenu_InputMethodQuery_Callback cb) { qmenu_inputmethodquery_callback = cb; }
+    inline void setQMenu_EventFilter_Callback(QMenu_EventFilter_Callback cb) { qmenu_eventfilter_callback = cb; }
+    inline void setQMenu_ChildEvent_Callback(QMenu_ChildEvent_Callback cb) { qmenu_childevent_callback = cb; }
+    inline void setQMenu_CustomEvent_Callback(QMenu_CustomEvent_Callback cb) { qmenu_customevent_callback = cb; }
+    inline void setQMenu_ConnectNotify_Callback(QMenu_ConnectNotify_Callback cb) { qmenu_connectnotify_callback = cb; }
+    inline void setQMenu_DisconnectNotify_Callback(QMenu_DisconnectNotify_Callback cb) { qmenu_disconnectnotify_callback = cb; }
+    inline void setQMenu_ColumnCount_Callback(QMenu_ColumnCount_Callback cb) { qmenu_columncount_callback = cb; }
+    inline void setQMenu_UpdateMicroFocus_Callback(QMenu_UpdateMicroFocus_Callback cb) { qmenu_updatemicrofocus_callback = cb; }
+    inline void setQMenu_Create_Callback(QMenu_Create_Callback cb) { qmenu_create_callback = cb; }
+    inline void setQMenu_Destroy_Callback(QMenu_Destroy_Callback cb) { qmenu_destroy_callback = cb; }
+    inline void setQMenu_FocusNextChild_Callback(QMenu_FocusNextChild_Callback cb) { qmenu_focusnextchild_callback = cb; }
+    inline void setQMenu_FocusPreviousChild_Callback(QMenu_FocusPreviousChild_Callback cb) { qmenu_focuspreviouschild_callback = cb; }
+    inline void setQMenu_Sender_Callback(QMenu_Sender_Callback cb) { qmenu_sender_callback = cb; }
+    inline void setQMenu_SenderSignalIndex_Callback(QMenu_SenderSignalIndex_Callback cb) { qmenu_sendersignalindex_callback = cb; }
+    inline void setQMenu_Receivers_Callback(QMenu_Receivers_Callback cb) { qmenu_receivers_callback = cb; }
+    inline void setQMenu_IsSignalConnected_Callback(QMenu_IsSignalConnected_Callback cb) { qmenu_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQMenu_Metacall_IsBase(bool value) const { qmenu_metacall_isbase = value; }
-    void setQMenu_SizeHint_IsBase(bool value) const { qmenu_sizehint_isbase = value; }
-    void setQMenu_ChangeEvent_IsBase(bool value) const { qmenu_changeevent_isbase = value; }
-    void setQMenu_KeyPressEvent_IsBase(bool value) const { qmenu_keypressevent_isbase = value; }
-    void setQMenu_MouseReleaseEvent_IsBase(bool value) const { qmenu_mousereleaseevent_isbase = value; }
-    void setQMenu_MousePressEvent_IsBase(bool value) const { qmenu_mousepressevent_isbase = value; }
-    void setQMenu_MouseMoveEvent_IsBase(bool value) const { qmenu_mousemoveevent_isbase = value; }
-    void setQMenu_WheelEvent_IsBase(bool value) const { qmenu_wheelevent_isbase = value; }
-    void setQMenu_EnterEvent_IsBase(bool value) const { qmenu_enterevent_isbase = value; }
-    void setQMenu_LeaveEvent_IsBase(bool value) const { qmenu_leaveevent_isbase = value; }
-    void setQMenu_HideEvent_IsBase(bool value) const { qmenu_hideevent_isbase = value; }
-    void setQMenu_PaintEvent_IsBase(bool value) const { qmenu_paintevent_isbase = value; }
-    void setQMenu_ActionEvent_IsBase(bool value) const { qmenu_actionevent_isbase = value; }
-    void setQMenu_TimerEvent_IsBase(bool value) const { qmenu_timerevent_isbase = value; }
-    void setQMenu_Event_IsBase(bool value) const { qmenu_event_isbase = value; }
-    void setQMenu_FocusNextPrevChild_IsBase(bool value) const { qmenu_focusnextprevchild_isbase = value; }
-    void setQMenu_InitStyleOption_IsBase(bool value) const { qmenu_initstyleoption_isbase = value; }
-    void setQMenu_DevType_IsBase(bool value) const { qmenu_devtype_isbase = value; }
-    void setQMenu_SetVisible_IsBase(bool value) const { qmenu_setvisible_isbase = value; }
-    void setQMenu_MinimumSizeHint_IsBase(bool value) const { qmenu_minimumsizehint_isbase = value; }
-    void setQMenu_HeightForWidth_IsBase(bool value) const { qmenu_heightforwidth_isbase = value; }
-    void setQMenu_HasHeightForWidth_IsBase(bool value) const { qmenu_hasheightforwidth_isbase = value; }
-    void setQMenu_PaintEngine_IsBase(bool value) const { qmenu_paintengine_isbase = value; }
-    void setQMenu_MouseDoubleClickEvent_IsBase(bool value) const { qmenu_mousedoubleclickevent_isbase = value; }
-    void setQMenu_KeyReleaseEvent_IsBase(bool value) const { qmenu_keyreleaseevent_isbase = value; }
-    void setQMenu_FocusInEvent_IsBase(bool value) const { qmenu_focusinevent_isbase = value; }
-    void setQMenu_FocusOutEvent_IsBase(bool value) const { qmenu_focusoutevent_isbase = value; }
-    void setQMenu_MoveEvent_IsBase(bool value) const { qmenu_moveevent_isbase = value; }
-    void setQMenu_ResizeEvent_IsBase(bool value) const { qmenu_resizeevent_isbase = value; }
-    void setQMenu_CloseEvent_IsBase(bool value) const { qmenu_closeevent_isbase = value; }
-    void setQMenu_ContextMenuEvent_IsBase(bool value) const { qmenu_contextmenuevent_isbase = value; }
-    void setQMenu_TabletEvent_IsBase(bool value) const { qmenu_tabletevent_isbase = value; }
-    void setQMenu_DragEnterEvent_IsBase(bool value) const { qmenu_dragenterevent_isbase = value; }
-    void setQMenu_DragMoveEvent_IsBase(bool value) const { qmenu_dragmoveevent_isbase = value; }
-    void setQMenu_DragLeaveEvent_IsBase(bool value) const { qmenu_dragleaveevent_isbase = value; }
-    void setQMenu_DropEvent_IsBase(bool value) const { qmenu_dropevent_isbase = value; }
-    void setQMenu_ShowEvent_IsBase(bool value) const { qmenu_showevent_isbase = value; }
-    void setQMenu_NativeEvent_IsBase(bool value) const { qmenu_nativeevent_isbase = value; }
-    void setQMenu_Metric_IsBase(bool value) const { qmenu_metric_isbase = value; }
-    void setQMenu_InitPainter_IsBase(bool value) const { qmenu_initpainter_isbase = value; }
-    void setQMenu_Redirected_IsBase(bool value) const { qmenu_redirected_isbase = value; }
-    void setQMenu_SharedPainter_IsBase(bool value) const { qmenu_sharedpainter_isbase = value; }
-    void setQMenu_InputMethodEvent_IsBase(bool value) const { qmenu_inputmethodevent_isbase = value; }
-    void setQMenu_InputMethodQuery_IsBase(bool value) const { qmenu_inputmethodquery_isbase = value; }
-    void setQMenu_EventFilter_IsBase(bool value) const { qmenu_eventfilter_isbase = value; }
-    void setQMenu_ChildEvent_IsBase(bool value) const { qmenu_childevent_isbase = value; }
-    void setQMenu_CustomEvent_IsBase(bool value) const { qmenu_customevent_isbase = value; }
-    void setQMenu_ConnectNotify_IsBase(bool value) const { qmenu_connectnotify_isbase = value; }
-    void setQMenu_DisconnectNotify_IsBase(bool value) const { qmenu_disconnectnotify_isbase = value; }
-    void setQMenu_ColumnCount_IsBase(bool value) const { qmenu_columncount_isbase = value; }
-    void setQMenu_UpdateMicroFocus_IsBase(bool value) const { qmenu_updatemicrofocus_isbase = value; }
-    void setQMenu_Create_IsBase(bool value) const { qmenu_create_isbase = value; }
-    void setQMenu_Destroy_IsBase(bool value) const { qmenu_destroy_isbase = value; }
-    void setQMenu_FocusNextChild_IsBase(bool value) const { qmenu_focusnextchild_isbase = value; }
-    void setQMenu_FocusPreviousChild_IsBase(bool value) const { qmenu_focuspreviouschild_isbase = value; }
-    void setQMenu_Sender_IsBase(bool value) const { qmenu_sender_isbase = value; }
-    void setQMenu_SenderSignalIndex_IsBase(bool value) const { qmenu_sendersignalindex_isbase = value; }
-    void setQMenu_Receivers_IsBase(bool value) const { qmenu_receivers_isbase = value; }
-    void setQMenu_IsSignalConnected_IsBase(bool value) const { qmenu_issignalconnected_isbase = value; }
+    inline void setQMenu_Metacall_IsBase(bool value) const { qmenu_metacall_isbase = value; }
+    inline void setQMenu_SizeHint_IsBase(bool value) const { qmenu_sizehint_isbase = value; }
+    inline void setQMenu_ChangeEvent_IsBase(bool value) const { qmenu_changeevent_isbase = value; }
+    inline void setQMenu_KeyPressEvent_IsBase(bool value) const { qmenu_keypressevent_isbase = value; }
+    inline void setQMenu_MouseReleaseEvent_IsBase(bool value) const { qmenu_mousereleaseevent_isbase = value; }
+    inline void setQMenu_MousePressEvent_IsBase(bool value) const { qmenu_mousepressevent_isbase = value; }
+    inline void setQMenu_MouseMoveEvent_IsBase(bool value) const { qmenu_mousemoveevent_isbase = value; }
+    inline void setQMenu_WheelEvent_IsBase(bool value) const { qmenu_wheelevent_isbase = value; }
+    inline void setQMenu_EnterEvent_IsBase(bool value) const { qmenu_enterevent_isbase = value; }
+    inline void setQMenu_LeaveEvent_IsBase(bool value) const { qmenu_leaveevent_isbase = value; }
+    inline void setQMenu_HideEvent_IsBase(bool value) const { qmenu_hideevent_isbase = value; }
+    inline void setQMenu_PaintEvent_IsBase(bool value) const { qmenu_paintevent_isbase = value; }
+    inline void setQMenu_ActionEvent_IsBase(bool value) const { qmenu_actionevent_isbase = value; }
+    inline void setQMenu_TimerEvent_IsBase(bool value) const { qmenu_timerevent_isbase = value; }
+    inline void setQMenu_Event_IsBase(bool value) const { qmenu_event_isbase = value; }
+    inline void setQMenu_FocusNextPrevChild_IsBase(bool value) const { qmenu_focusnextprevchild_isbase = value; }
+    inline void setQMenu_InitStyleOption_IsBase(bool value) const { qmenu_initstyleoption_isbase = value; }
+    inline void setQMenu_DevType_IsBase(bool value) const { qmenu_devtype_isbase = value; }
+    inline void setQMenu_SetVisible_IsBase(bool value) const { qmenu_setvisible_isbase = value; }
+    inline void setQMenu_MinimumSizeHint_IsBase(bool value) const { qmenu_minimumsizehint_isbase = value; }
+    inline void setQMenu_HeightForWidth_IsBase(bool value) const { qmenu_heightforwidth_isbase = value; }
+    inline void setQMenu_HasHeightForWidth_IsBase(bool value) const { qmenu_hasheightforwidth_isbase = value; }
+    inline void setQMenu_PaintEngine_IsBase(bool value) const { qmenu_paintengine_isbase = value; }
+    inline void setQMenu_MouseDoubleClickEvent_IsBase(bool value) const { qmenu_mousedoubleclickevent_isbase = value; }
+    inline void setQMenu_KeyReleaseEvent_IsBase(bool value) const { qmenu_keyreleaseevent_isbase = value; }
+    inline void setQMenu_FocusInEvent_IsBase(bool value) const { qmenu_focusinevent_isbase = value; }
+    inline void setQMenu_FocusOutEvent_IsBase(bool value) const { qmenu_focusoutevent_isbase = value; }
+    inline void setQMenu_MoveEvent_IsBase(bool value) const { qmenu_moveevent_isbase = value; }
+    inline void setQMenu_ResizeEvent_IsBase(bool value) const { qmenu_resizeevent_isbase = value; }
+    inline void setQMenu_CloseEvent_IsBase(bool value) const { qmenu_closeevent_isbase = value; }
+    inline void setQMenu_ContextMenuEvent_IsBase(bool value) const { qmenu_contextmenuevent_isbase = value; }
+    inline void setQMenu_TabletEvent_IsBase(bool value) const { qmenu_tabletevent_isbase = value; }
+    inline void setQMenu_DragEnterEvent_IsBase(bool value) const { qmenu_dragenterevent_isbase = value; }
+    inline void setQMenu_DragMoveEvent_IsBase(bool value) const { qmenu_dragmoveevent_isbase = value; }
+    inline void setQMenu_DragLeaveEvent_IsBase(bool value) const { qmenu_dragleaveevent_isbase = value; }
+    inline void setQMenu_DropEvent_IsBase(bool value) const { qmenu_dropevent_isbase = value; }
+    inline void setQMenu_ShowEvent_IsBase(bool value) const { qmenu_showevent_isbase = value; }
+    inline void setQMenu_NativeEvent_IsBase(bool value) const { qmenu_nativeevent_isbase = value; }
+    inline void setQMenu_Metric_IsBase(bool value) const { qmenu_metric_isbase = value; }
+    inline void setQMenu_InitPainter_IsBase(bool value) const { qmenu_initpainter_isbase = value; }
+    inline void setQMenu_Redirected_IsBase(bool value) const { qmenu_redirected_isbase = value; }
+    inline void setQMenu_SharedPainter_IsBase(bool value) const { qmenu_sharedpainter_isbase = value; }
+    inline void setQMenu_InputMethodEvent_IsBase(bool value) const { qmenu_inputmethodevent_isbase = value; }
+    inline void setQMenu_InputMethodQuery_IsBase(bool value) const { qmenu_inputmethodquery_isbase = value; }
+    inline void setQMenu_EventFilter_IsBase(bool value) const { qmenu_eventfilter_isbase = value; }
+    inline void setQMenu_ChildEvent_IsBase(bool value) const { qmenu_childevent_isbase = value; }
+    inline void setQMenu_CustomEvent_IsBase(bool value) const { qmenu_customevent_isbase = value; }
+    inline void setQMenu_ConnectNotify_IsBase(bool value) const { qmenu_connectnotify_isbase = value; }
+    inline void setQMenu_DisconnectNotify_IsBase(bool value) const { qmenu_disconnectnotify_isbase = value; }
+    inline void setQMenu_ColumnCount_IsBase(bool value) const { qmenu_columncount_isbase = value; }
+    inline void setQMenu_UpdateMicroFocus_IsBase(bool value) const { qmenu_updatemicrofocus_isbase = value; }
+    inline void setQMenu_Create_IsBase(bool value) const { qmenu_create_isbase = value; }
+    inline void setQMenu_Destroy_IsBase(bool value) const { qmenu_destroy_isbase = value; }
+    inline void setQMenu_FocusNextChild_IsBase(bool value) const { qmenu_focusnextchild_isbase = value; }
+    inline void setQMenu_FocusPreviousChild_IsBase(bool value) const { qmenu_focuspreviouschild_isbase = value; }
+    inline void setQMenu_Sender_IsBase(bool value) const { qmenu_sender_isbase = value; }
+    inline void setQMenu_SenderSignalIndex_IsBase(bool value) const { qmenu_sendersignalindex_isbase = value; }
+    inline void setQMenu_Receivers_IsBase(bool value) const { qmenu_receivers_isbase = value; }
+    inline void setQMenu_IsSignalConnected_IsBase(bool value) const { qmenu_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -394,7 +397,12 @@ class VirtualQMenu : public QMenu {
             qmenu_metacall_isbase = false;
             return QMenu::qt_metacall(param1, param2, param3);
         } else if (qmenu_metacall_callback != nullptr) {
-            return qmenu_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qmenu_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QMenu::qt_metacall(param1, param2, param3);
         }
@@ -406,7 +414,8 @@ class VirtualQMenu : public QMenu {
             qmenu_sizehint_isbase = false;
             return QMenu::sizeHint();
         } else if (qmenu_sizehint_callback != nullptr) {
-            return qmenu_sizehint_callback();
+            QSize* callback_ret = qmenu_sizehint_callback();
+            return *callback_ret;
         } else {
             return QMenu::sizeHint();
         }
@@ -418,7 +427,9 @@ class VirtualQMenu : public QMenu {
             qmenu_changeevent_isbase = false;
             QMenu::changeEvent(param1);
         } else if (qmenu_changeevent_callback != nullptr) {
-            qmenu_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qmenu_changeevent_callback(this, cbval1);
         } else {
             QMenu::changeEvent(param1);
         }
@@ -430,7 +441,9 @@ class VirtualQMenu : public QMenu {
             qmenu_keypressevent_isbase = false;
             QMenu::keyPressEvent(param1);
         } else if (qmenu_keypressevent_callback != nullptr) {
-            qmenu_keypressevent_callback(this, param1);
+            QKeyEvent* cbval1 = param1;
+
+            qmenu_keypressevent_callback(this, cbval1);
         } else {
             QMenu::keyPressEvent(param1);
         }
@@ -442,7 +455,9 @@ class VirtualQMenu : public QMenu {
             qmenu_mousereleaseevent_isbase = false;
             QMenu::mouseReleaseEvent(param1);
         } else if (qmenu_mousereleaseevent_callback != nullptr) {
-            qmenu_mousereleaseevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qmenu_mousereleaseevent_callback(this, cbval1);
         } else {
             QMenu::mouseReleaseEvent(param1);
         }
@@ -454,7 +469,9 @@ class VirtualQMenu : public QMenu {
             qmenu_mousepressevent_isbase = false;
             QMenu::mousePressEvent(param1);
         } else if (qmenu_mousepressevent_callback != nullptr) {
-            qmenu_mousepressevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qmenu_mousepressevent_callback(this, cbval1);
         } else {
             QMenu::mousePressEvent(param1);
         }
@@ -466,7 +483,9 @@ class VirtualQMenu : public QMenu {
             qmenu_mousemoveevent_isbase = false;
             QMenu::mouseMoveEvent(param1);
         } else if (qmenu_mousemoveevent_callback != nullptr) {
-            qmenu_mousemoveevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qmenu_mousemoveevent_callback(this, cbval1);
         } else {
             QMenu::mouseMoveEvent(param1);
         }
@@ -478,7 +497,9 @@ class VirtualQMenu : public QMenu {
             qmenu_wheelevent_isbase = false;
             QMenu::wheelEvent(param1);
         } else if (qmenu_wheelevent_callback != nullptr) {
-            qmenu_wheelevent_callback(this, param1);
+            QWheelEvent* cbval1 = param1;
+
+            qmenu_wheelevent_callback(this, cbval1);
         } else {
             QMenu::wheelEvent(param1);
         }
@@ -490,7 +511,9 @@ class VirtualQMenu : public QMenu {
             qmenu_enterevent_isbase = false;
             QMenu::enterEvent(param1);
         } else if (qmenu_enterevent_callback != nullptr) {
-            qmenu_enterevent_callback(this, param1);
+            QEnterEvent* cbval1 = param1;
+
+            qmenu_enterevent_callback(this, cbval1);
         } else {
             QMenu::enterEvent(param1);
         }
@@ -502,7 +525,9 @@ class VirtualQMenu : public QMenu {
             qmenu_leaveevent_isbase = false;
             QMenu::leaveEvent(param1);
         } else if (qmenu_leaveevent_callback != nullptr) {
-            qmenu_leaveevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qmenu_leaveevent_callback(this, cbval1);
         } else {
             QMenu::leaveEvent(param1);
         }
@@ -514,7 +539,9 @@ class VirtualQMenu : public QMenu {
             qmenu_hideevent_isbase = false;
             QMenu::hideEvent(param1);
         } else if (qmenu_hideevent_callback != nullptr) {
-            qmenu_hideevent_callback(this, param1);
+            QHideEvent* cbval1 = param1;
+
+            qmenu_hideevent_callback(this, cbval1);
         } else {
             QMenu::hideEvent(param1);
         }
@@ -526,7 +553,9 @@ class VirtualQMenu : public QMenu {
             qmenu_paintevent_isbase = false;
             QMenu::paintEvent(param1);
         } else if (qmenu_paintevent_callback != nullptr) {
-            qmenu_paintevent_callback(this, param1);
+            QPaintEvent* cbval1 = param1;
+
+            qmenu_paintevent_callback(this, cbval1);
         } else {
             QMenu::paintEvent(param1);
         }
@@ -538,7 +567,9 @@ class VirtualQMenu : public QMenu {
             qmenu_actionevent_isbase = false;
             QMenu::actionEvent(param1);
         } else if (qmenu_actionevent_callback != nullptr) {
-            qmenu_actionevent_callback(this, param1);
+            QActionEvent* cbval1 = param1;
+
+            qmenu_actionevent_callback(this, cbval1);
         } else {
             QMenu::actionEvent(param1);
         }
@@ -550,7 +581,9 @@ class VirtualQMenu : public QMenu {
             qmenu_timerevent_isbase = false;
             QMenu::timerEvent(param1);
         } else if (qmenu_timerevent_callback != nullptr) {
-            qmenu_timerevent_callback(this, param1);
+            QTimerEvent* cbval1 = param1;
+
+            qmenu_timerevent_callback(this, cbval1);
         } else {
             QMenu::timerEvent(param1);
         }
@@ -562,7 +595,10 @@ class VirtualQMenu : public QMenu {
             qmenu_event_isbase = false;
             return QMenu::event(param1);
         } else if (qmenu_event_callback != nullptr) {
-            return qmenu_event_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            bool callback_ret = qmenu_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QMenu::event(param1);
         }
@@ -574,7 +610,10 @@ class VirtualQMenu : public QMenu {
             qmenu_focusnextprevchild_isbase = false;
             return QMenu::focusNextPrevChild(next);
         } else if (qmenu_focusnextprevchild_callback != nullptr) {
-            return qmenu_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qmenu_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QMenu::focusNextPrevChild(next);
         }
@@ -586,7 +625,10 @@ class VirtualQMenu : public QMenu {
             qmenu_initstyleoption_isbase = false;
             QMenu::initStyleOption(option, action);
         } else if (qmenu_initstyleoption_callback != nullptr) {
-            qmenu_initstyleoption_callback(this, option, action);
+            QStyleOptionMenuItem* cbval1 = option;
+            QAction* cbval2 = (QAction*)action;
+
+            qmenu_initstyleoption_callback(this, cbval1, cbval2);
         } else {
             QMenu::initStyleOption(option, action);
         }
@@ -598,7 +640,8 @@ class VirtualQMenu : public QMenu {
             qmenu_devtype_isbase = false;
             return QMenu::devType();
         } else if (qmenu_devtype_callback != nullptr) {
-            return qmenu_devtype_callback();
+            int callback_ret = qmenu_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QMenu::devType();
         }
@@ -610,7 +653,9 @@ class VirtualQMenu : public QMenu {
             qmenu_setvisible_isbase = false;
             QMenu::setVisible(visible);
         } else if (qmenu_setvisible_callback != nullptr) {
-            qmenu_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qmenu_setvisible_callback(this, cbval1);
         } else {
             QMenu::setVisible(visible);
         }
@@ -622,7 +667,8 @@ class VirtualQMenu : public QMenu {
             qmenu_minimumsizehint_isbase = false;
             return QMenu::minimumSizeHint();
         } else if (qmenu_minimumsizehint_callback != nullptr) {
-            return qmenu_minimumsizehint_callback();
+            QSize* callback_ret = qmenu_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QMenu::minimumSizeHint();
         }
@@ -634,7 +680,10 @@ class VirtualQMenu : public QMenu {
             qmenu_heightforwidth_isbase = false;
             return QMenu::heightForWidth(param1);
         } else if (qmenu_heightforwidth_callback != nullptr) {
-            return qmenu_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qmenu_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QMenu::heightForWidth(param1);
         }
@@ -646,7 +695,8 @@ class VirtualQMenu : public QMenu {
             qmenu_hasheightforwidth_isbase = false;
             return QMenu::hasHeightForWidth();
         } else if (qmenu_hasheightforwidth_callback != nullptr) {
-            return qmenu_hasheightforwidth_callback();
+            bool callback_ret = qmenu_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QMenu::hasHeightForWidth();
         }
@@ -658,7 +708,8 @@ class VirtualQMenu : public QMenu {
             qmenu_paintengine_isbase = false;
             return QMenu::paintEngine();
         } else if (qmenu_paintengine_callback != nullptr) {
-            return qmenu_paintengine_callback();
+            QPaintEngine* callback_ret = qmenu_paintengine_callback();
+            return callback_ret;
         } else {
             return QMenu::paintEngine();
         }
@@ -670,7 +721,9 @@ class VirtualQMenu : public QMenu {
             qmenu_mousedoubleclickevent_isbase = false;
             QMenu::mouseDoubleClickEvent(event);
         } else if (qmenu_mousedoubleclickevent_callback != nullptr) {
-            qmenu_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qmenu_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QMenu::mouseDoubleClickEvent(event);
         }
@@ -682,7 +735,9 @@ class VirtualQMenu : public QMenu {
             qmenu_keyreleaseevent_isbase = false;
             QMenu::keyReleaseEvent(event);
         } else if (qmenu_keyreleaseevent_callback != nullptr) {
-            qmenu_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qmenu_keyreleaseevent_callback(this, cbval1);
         } else {
             QMenu::keyReleaseEvent(event);
         }
@@ -694,7 +749,9 @@ class VirtualQMenu : public QMenu {
             qmenu_focusinevent_isbase = false;
             QMenu::focusInEvent(event);
         } else if (qmenu_focusinevent_callback != nullptr) {
-            qmenu_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qmenu_focusinevent_callback(this, cbval1);
         } else {
             QMenu::focusInEvent(event);
         }
@@ -706,7 +763,9 @@ class VirtualQMenu : public QMenu {
             qmenu_focusoutevent_isbase = false;
             QMenu::focusOutEvent(event);
         } else if (qmenu_focusoutevent_callback != nullptr) {
-            qmenu_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qmenu_focusoutevent_callback(this, cbval1);
         } else {
             QMenu::focusOutEvent(event);
         }
@@ -718,7 +777,9 @@ class VirtualQMenu : public QMenu {
             qmenu_moveevent_isbase = false;
             QMenu::moveEvent(event);
         } else if (qmenu_moveevent_callback != nullptr) {
-            qmenu_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qmenu_moveevent_callback(this, cbval1);
         } else {
             QMenu::moveEvent(event);
         }
@@ -730,7 +791,9 @@ class VirtualQMenu : public QMenu {
             qmenu_resizeevent_isbase = false;
             QMenu::resizeEvent(event);
         } else if (qmenu_resizeevent_callback != nullptr) {
-            qmenu_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qmenu_resizeevent_callback(this, cbval1);
         } else {
             QMenu::resizeEvent(event);
         }
@@ -742,7 +805,9 @@ class VirtualQMenu : public QMenu {
             qmenu_closeevent_isbase = false;
             QMenu::closeEvent(event);
         } else if (qmenu_closeevent_callback != nullptr) {
-            qmenu_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qmenu_closeevent_callback(this, cbval1);
         } else {
             QMenu::closeEvent(event);
         }
@@ -754,7 +819,9 @@ class VirtualQMenu : public QMenu {
             qmenu_contextmenuevent_isbase = false;
             QMenu::contextMenuEvent(event);
         } else if (qmenu_contextmenuevent_callback != nullptr) {
-            qmenu_contextmenuevent_callback(this, event);
+            QContextMenuEvent* cbval1 = event;
+
+            qmenu_contextmenuevent_callback(this, cbval1);
         } else {
             QMenu::contextMenuEvent(event);
         }
@@ -766,7 +833,9 @@ class VirtualQMenu : public QMenu {
             qmenu_tabletevent_isbase = false;
             QMenu::tabletEvent(event);
         } else if (qmenu_tabletevent_callback != nullptr) {
-            qmenu_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qmenu_tabletevent_callback(this, cbval1);
         } else {
             QMenu::tabletEvent(event);
         }
@@ -778,7 +847,9 @@ class VirtualQMenu : public QMenu {
             qmenu_dragenterevent_isbase = false;
             QMenu::dragEnterEvent(event);
         } else if (qmenu_dragenterevent_callback != nullptr) {
-            qmenu_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qmenu_dragenterevent_callback(this, cbval1);
         } else {
             QMenu::dragEnterEvent(event);
         }
@@ -790,7 +861,9 @@ class VirtualQMenu : public QMenu {
             qmenu_dragmoveevent_isbase = false;
             QMenu::dragMoveEvent(event);
         } else if (qmenu_dragmoveevent_callback != nullptr) {
-            qmenu_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qmenu_dragmoveevent_callback(this, cbval1);
         } else {
             QMenu::dragMoveEvent(event);
         }
@@ -802,7 +875,9 @@ class VirtualQMenu : public QMenu {
             qmenu_dragleaveevent_isbase = false;
             QMenu::dragLeaveEvent(event);
         } else if (qmenu_dragleaveevent_callback != nullptr) {
-            qmenu_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qmenu_dragleaveevent_callback(this, cbval1);
         } else {
             QMenu::dragLeaveEvent(event);
         }
@@ -814,7 +889,9 @@ class VirtualQMenu : public QMenu {
             qmenu_dropevent_isbase = false;
             QMenu::dropEvent(event);
         } else if (qmenu_dropevent_callback != nullptr) {
-            qmenu_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qmenu_dropevent_callback(this, cbval1);
         } else {
             QMenu::dropEvent(event);
         }
@@ -826,7 +903,9 @@ class VirtualQMenu : public QMenu {
             qmenu_showevent_isbase = false;
             QMenu::showEvent(event);
         } else if (qmenu_showevent_callback != nullptr) {
-            qmenu_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qmenu_showevent_callback(this, cbval1);
         } else {
             QMenu::showEvent(event);
         }
@@ -838,7 +917,19 @@ class VirtualQMenu : public QMenu {
             qmenu_nativeevent_isbase = false;
             return QMenu::nativeEvent(eventType, message, result);
         } else if (qmenu_nativeevent_callback != nullptr) {
-            return qmenu_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qmenu_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QMenu::nativeEvent(eventType, message, result);
         }
@@ -850,7 +941,10 @@ class VirtualQMenu : public QMenu {
             qmenu_metric_isbase = false;
             return QMenu::metric(param1);
         } else if (qmenu_metric_callback != nullptr) {
-            return qmenu_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qmenu_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QMenu::metric(param1);
         }
@@ -862,7 +956,9 @@ class VirtualQMenu : public QMenu {
             qmenu_initpainter_isbase = false;
             QMenu::initPainter(painter);
         } else if (qmenu_initpainter_callback != nullptr) {
-            qmenu_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qmenu_initpainter_callback(this, cbval1);
         } else {
             QMenu::initPainter(painter);
         }
@@ -874,7 +970,10 @@ class VirtualQMenu : public QMenu {
             qmenu_redirected_isbase = false;
             return QMenu::redirected(offset);
         } else if (qmenu_redirected_callback != nullptr) {
-            return qmenu_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qmenu_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QMenu::redirected(offset);
         }
@@ -886,7 +985,8 @@ class VirtualQMenu : public QMenu {
             qmenu_sharedpainter_isbase = false;
             return QMenu::sharedPainter();
         } else if (qmenu_sharedpainter_callback != nullptr) {
-            return qmenu_sharedpainter_callback();
+            QPainter* callback_ret = qmenu_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QMenu::sharedPainter();
         }
@@ -898,7 +998,9 @@ class VirtualQMenu : public QMenu {
             qmenu_inputmethodevent_isbase = false;
             QMenu::inputMethodEvent(param1);
         } else if (qmenu_inputmethodevent_callback != nullptr) {
-            qmenu_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qmenu_inputmethodevent_callback(this, cbval1);
         } else {
             QMenu::inputMethodEvent(param1);
         }
@@ -910,7 +1012,10 @@ class VirtualQMenu : public QMenu {
             qmenu_inputmethodquery_isbase = false;
             return QMenu::inputMethodQuery(param1);
         } else if (qmenu_inputmethodquery_callback != nullptr) {
-            return qmenu_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qmenu_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QMenu::inputMethodQuery(param1);
         }
@@ -922,7 +1027,11 @@ class VirtualQMenu : public QMenu {
             qmenu_eventfilter_isbase = false;
             return QMenu::eventFilter(watched, event);
         } else if (qmenu_eventfilter_callback != nullptr) {
-            return qmenu_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qmenu_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QMenu::eventFilter(watched, event);
         }
@@ -934,7 +1043,9 @@ class VirtualQMenu : public QMenu {
             qmenu_childevent_isbase = false;
             QMenu::childEvent(event);
         } else if (qmenu_childevent_callback != nullptr) {
-            qmenu_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qmenu_childevent_callback(this, cbval1);
         } else {
             QMenu::childEvent(event);
         }
@@ -946,7 +1057,9 @@ class VirtualQMenu : public QMenu {
             qmenu_customevent_isbase = false;
             QMenu::customEvent(event);
         } else if (qmenu_customevent_callback != nullptr) {
-            qmenu_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qmenu_customevent_callback(this, cbval1);
         } else {
             QMenu::customEvent(event);
         }
@@ -958,7 +1071,11 @@ class VirtualQMenu : public QMenu {
             qmenu_connectnotify_isbase = false;
             QMenu::connectNotify(signal);
         } else if (qmenu_connectnotify_callback != nullptr) {
-            qmenu_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qmenu_connectnotify_callback(this, cbval1);
         } else {
             QMenu::connectNotify(signal);
         }
@@ -970,7 +1087,11 @@ class VirtualQMenu : public QMenu {
             qmenu_disconnectnotify_isbase = false;
             QMenu::disconnectNotify(signal);
         } else if (qmenu_disconnectnotify_callback != nullptr) {
-            qmenu_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qmenu_disconnectnotify_callback(this, cbval1);
         } else {
             QMenu::disconnectNotify(signal);
         }
@@ -982,7 +1103,8 @@ class VirtualQMenu : public QMenu {
             qmenu_columncount_isbase = false;
             return QMenu::columnCount();
         } else if (qmenu_columncount_callback != nullptr) {
-            return qmenu_columncount_callback();
+            int callback_ret = qmenu_columncount_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QMenu::columnCount();
         }
@@ -1030,7 +1152,8 @@ class VirtualQMenu : public QMenu {
             qmenu_focusnextchild_isbase = false;
             return QMenu::focusNextChild();
         } else if (qmenu_focusnextchild_callback != nullptr) {
-            return qmenu_focusnextchild_callback();
+            bool callback_ret = qmenu_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QMenu::focusNextChild();
         }
@@ -1042,7 +1165,8 @@ class VirtualQMenu : public QMenu {
             qmenu_focuspreviouschild_isbase = false;
             return QMenu::focusPreviousChild();
         } else if (qmenu_focuspreviouschild_callback != nullptr) {
-            return qmenu_focuspreviouschild_callback();
+            bool callback_ret = qmenu_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QMenu::focusPreviousChild();
         }
@@ -1054,7 +1178,8 @@ class VirtualQMenu : public QMenu {
             qmenu_sender_isbase = false;
             return QMenu::sender();
         } else if (qmenu_sender_callback != nullptr) {
-            return qmenu_sender_callback();
+            QObject* callback_ret = qmenu_sender_callback();
+            return callback_ret;
         } else {
             return QMenu::sender();
         }
@@ -1066,7 +1191,8 @@ class VirtualQMenu : public QMenu {
             qmenu_sendersignalindex_isbase = false;
             return QMenu::senderSignalIndex();
         } else if (qmenu_sendersignalindex_callback != nullptr) {
-            return qmenu_sendersignalindex_callback();
+            int callback_ret = qmenu_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QMenu::senderSignalIndex();
         }
@@ -1078,7 +1204,10 @@ class VirtualQMenu : public QMenu {
             qmenu_receivers_isbase = false;
             return QMenu::receivers(signal);
         } else if (qmenu_receivers_callback != nullptr) {
-            return qmenu_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qmenu_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QMenu::receivers(signal);
         }
@@ -1090,11 +1219,116 @@ class VirtualQMenu : public QMenu {
             qmenu_issignalconnected_isbase = false;
             return QMenu::isSignalConnected(signal);
         } else if (qmenu_issignalconnected_callback != nullptr) {
-            return qmenu_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qmenu_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QMenu::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QMenu_ChangeEvent(QMenu* self, QEvent* param1);
+    friend void QMenu_QBaseChangeEvent(QMenu* self, QEvent* param1);
+    friend void QMenu_KeyPressEvent(QMenu* self, QKeyEvent* param1);
+    friend void QMenu_QBaseKeyPressEvent(QMenu* self, QKeyEvent* param1);
+    friend void QMenu_MouseReleaseEvent(QMenu* self, QMouseEvent* param1);
+    friend void QMenu_QBaseMouseReleaseEvent(QMenu* self, QMouseEvent* param1);
+    friend void QMenu_MousePressEvent(QMenu* self, QMouseEvent* param1);
+    friend void QMenu_QBaseMousePressEvent(QMenu* self, QMouseEvent* param1);
+    friend void QMenu_MouseMoveEvent(QMenu* self, QMouseEvent* param1);
+    friend void QMenu_QBaseMouseMoveEvent(QMenu* self, QMouseEvent* param1);
+    friend void QMenu_WheelEvent(QMenu* self, QWheelEvent* param1);
+    friend void QMenu_QBaseWheelEvent(QMenu* self, QWheelEvent* param1);
+    friend void QMenu_EnterEvent(QMenu* self, QEnterEvent* param1);
+    friend void QMenu_QBaseEnterEvent(QMenu* self, QEnterEvent* param1);
+    friend void QMenu_LeaveEvent(QMenu* self, QEvent* param1);
+    friend void QMenu_QBaseLeaveEvent(QMenu* self, QEvent* param1);
+    friend void QMenu_HideEvent(QMenu* self, QHideEvent* param1);
+    friend void QMenu_QBaseHideEvent(QMenu* self, QHideEvent* param1);
+    friend void QMenu_PaintEvent(QMenu* self, QPaintEvent* param1);
+    friend void QMenu_QBasePaintEvent(QMenu* self, QPaintEvent* param1);
+    friend void QMenu_ActionEvent(QMenu* self, QActionEvent* param1);
+    friend void QMenu_QBaseActionEvent(QMenu* self, QActionEvent* param1);
+    friend void QMenu_TimerEvent(QMenu* self, QTimerEvent* param1);
+    friend void QMenu_QBaseTimerEvent(QMenu* self, QTimerEvent* param1);
+    friend bool QMenu_Event(QMenu* self, QEvent* param1);
+    friend bool QMenu_QBaseEvent(QMenu* self, QEvent* param1);
+    friend bool QMenu_FocusNextPrevChild(QMenu* self, bool next);
+    friend bool QMenu_QBaseFocusNextPrevChild(QMenu* self, bool next);
+    friend void QMenu_InitStyleOption(const QMenu* self, QStyleOptionMenuItem* option, const QAction* action);
+    friend void QMenu_QBaseInitStyleOption(const QMenu* self, QStyleOptionMenuItem* option, const QAction* action);
+    friend void QMenu_MouseDoubleClickEvent(QMenu* self, QMouseEvent* event);
+    friend void QMenu_QBaseMouseDoubleClickEvent(QMenu* self, QMouseEvent* event);
+    friend void QMenu_KeyReleaseEvent(QMenu* self, QKeyEvent* event);
+    friend void QMenu_QBaseKeyReleaseEvent(QMenu* self, QKeyEvent* event);
+    friend void QMenu_FocusInEvent(QMenu* self, QFocusEvent* event);
+    friend void QMenu_QBaseFocusInEvent(QMenu* self, QFocusEvent* event);
+    friend void QMenu_FocusOutEvent(QMenu* self, QFocusEvent* event);
+    friend void QMenu_QBaseFocusOutEvent(QMenu* self, QFocusEvent* event);
+    friend void QMenu_MoveEvent(QMenu* self, QMoveEvent* event);
+    friend void QMenu_QBaseMoveEvent(QMenu* self, QMoveEvent* event);
+    friend void QMenu_ResizeEvent(QMenu* self, QResizeEvent* event);
+    friend void QMenu_QBaseResizeEvent(QMenu* self, QResizeEvent* event);
+    friend void QMenu_CloseEvent(QMenu* self, QCloseEvent* event);
+    friend void QMenu_QBaseCloseEvent(QMenu* self, QCloseEvent* event);
+    friend void QMenu_ContextMenuEvent(QMenu* self, QContextMenuEvent* event);
+    friend void QMenu_QBaseContextMenuEvent(QMenu* self, QContextMenuEvent* event);
+    friend void QMenu_TabletEvent(QMenu* self, QTabletEvent* event);
+    friend void QMenu_QBaseTabletEvent(QMenu* self, QTabletEvent* event);
+    friend void QMenu_DragEnterEvent(QMenu* self, QDragEnterEvent* event);
+    friend void QMenu_QBaseDragEnterEvent(QMenu* self, QDragEnterEvent* event);
+    friend void QMenu_DragMoveEvent(QMenu* self, QDragMoveEvent* event);
+    friend void QMenu_QBaseDragMoveEvent(QMenu* self, QDragMoveEvent* event);
+    friend void QMenu_DragLeaveEvent(QMenu* self, QDragLeaveEvent* event);
+    friend void QMenu_QBaseDragLeaveEvent(QMenu* self, QDragLeaveEvent* event);
+    friend void QMenu_DropEvent(QMenu* self, QDropEvent* event);
+    friend void QMenu_QBaseDropEvent(QMenu* self, QDropEvent* event);
+    friend void QMenu_ShowEvent(QMenu* self, QShowEvent* event);
+    friend void QMenu_QBaseShowEvent(QMenu* self, QShowEvent* event);
+    friend bool QMenu_NativeEvent(QMenu* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QMenu_QBaseNativeEvent(QMenu* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QMenu_Metric(const QMenu* self, int param1);
+    friend int QMenu_QBaseMetric(const QMenu* self, int param1);
+    friend void QMenu_InitPainter(const QMenu* self, QPainter* painter);
+    friend void QMenu_QBaseInitPainter(const QMenu* self, QPainter* painter);
+    friend QPaintDevice* QMenu_Redirected(const QMenu* self, QPoint* offset);
+    friend QPaintDevice* QMenu_QBaseRedirected(const QMenu* self, QPoint* offset);
+    friend QPainter* QMenu_SharedPainter(const QMenu* self);
+    friend QPainter* QMenu_QBaseSharedPainter(const QMenu* self);
+    friend void QMenu_InputMethodEvent(QMenu* self, QInputMethodEvent* param1);
+    friend void QMenu_QBaseInputMethodEvent(QMenu* self, QInputMethodEvent* param1);
+    friend void QMenu_ChildEvent(QMenu* self, QChildEvent* event);
+    friend void QMenu_QBaseChildEvent(QMenu* self, QChildEvent* event);
+    friend void QMenu_CustomEvent(QMenu* self, QEvent* event);
+    friend void QMenu_QBaseCustomEvent(QMenu* self, QEvent* event);
+    friend void QMenu_ConnectNotify(QMenu* self, const QMetaMethod* signal);
+    friend void QMenu_QBaseConnectNotify(QMenu* self, const QMetaMethod* signal);
+    friend void QMenu_DisconnectNotify(QMenu* self, const QMetaMethod* signal);
+    friend void QMenu_QBaseDisconnectNotify(QMenu* self, const QMetaMethod* signal);
+    friend int QMenu_ColumnCount(const QMenu* self);
+    friend int QMenu_QBaseColumnCount(const QMenu* self);
+    friend void QMenu_UpdateMicroFocus(QMenu* self);
+    friend void QMenu_QBaseUpdateMicroFocus(QMenu* self);
+    friend void QMenu_Create(QMenu* self);
+    friend void QMenu_QBaseCreate(QMenu* self);
+    friend void QMenu_Destroy(QMenu* self);
+    friend void QMenu_QBaseDestroy(QMenu* self);
+    friend bool QMenu_FocusNextChild(QMenu* self);
+    friend bool QMenu_QBaseFocusNextChild(QMenu* self);
+    friend bool QMenu_FocusPreviousChild(QMenu* self);
+    friend bool QMenu_QBaseFocusPreviousChild(QMenu* self);
+    friend QObject* QMenu_Sender(const QMenu* self);
+    friend QObject* QMenu_QBaseSender(const QMenu* self);
+    friend int QMenu_SenderSignalIndex(const QMenu* self);
+    friend int QMenu_QBaseSenderSignalIndex(const QMenu* self);
+    friend int QMenu_Receivers(const QMenu* self, const char* signal);
+    friend int QMenu_QBaseReceivers(const QMenu* self, const char* signal);
+    friend bool QMenu_IsSignalConnected(const QMenu* self, const QMetaMethod* signal);
+    friend bool QMenu_QBaseIsSignalConnected(const QMenu* self, const QMetaMethod* signal);
 };
 
 #endif

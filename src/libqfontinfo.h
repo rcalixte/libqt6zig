@@ -20,9 +20,9 @@ typedef struct QFont QFont;
 typedef struct QFontInfo QFontInfo;
 #endif
 
-QFontInfo* QFontInfo_new(QFont* param1);
-QFontInfo* QFontInfo_new2(QFontInfo* param1);
-void QFontInfo_OperatorAssign(QFontInfo* self, QFontInfo* param1);
+QFontInfo* QFontInfo_new(const QFont* param1);
+QFontInfo* QFontInfo_new2(const QFontInfo* param1);
+void QFontInfo_OperatorAssign(QFontInfo* self, const QFontInfo* param1);
 void QFontInfo_Swap(QFontInfo* self, QFontInfo* other);
 libqt_string QFontInfo_Family(const QFontInfo* self);
 libqt_string QFontInfo_StyleName(const QFontInfo* self);

@@ -13,15 +13,15 @@ QMediaTimeRange* QMediaTimeRange_new2(long long start, long long end) {
     return new QMediaTimeRange(static_cast<qint64>(start), static_cast<qint64>(end));
 }
 
-QMediaTimeRange* QMediaTimeRange_new3(QMediaTimeRange__Interval* param1) {
+QMediaTimeRange* QMediaTimeRange_new3(const QMediaTimeRange__Interval* param1) {
     return new QMediaTimeRange(*param1);
 }
 
-QMediaTimeRange* QMediaTimeRange_new4(QMediaTimeRange* range) {
+QMediaTimeRange* QMediaTimeRange_new4(const QMediaTimeRange* range) {
     return new QMediaTimeRange(*range);
 }
 
-void QMediaTimeRange_OperatorAssign(QMediaTimeRange* self, QMediaTimeRange* param1) {
+void QMediaTimeRange_OperatorAssign(QMediaTimeRange* self, const QMediaTimeRange* param1) {
     self->operator=(*param1);
 }
 
@@ -33,7 +33,7 @@ void QMediaTimeRange_Detach(QMediaTimeRange* self) {
     self->detach();
 }
 
-void QMediaTimeRange_OperatorAssignWithQMediaTimeRangeInterval(QMediaTimeRange* self, QMediaTimeRange__Interval* param1) {
+void QMediaTimeRange_OperatorAssignWithQMediaTimeRangeInterval(QMediaTimeRange* self, const QMediaTimeRange__Interval* param1) {
     self->operator=(*param1);
 }
 
@@ -74,11 +74,11 @@ void QMediaTimeRange_AddInterval(QMediaTimeRange* self, long long start, long lo
     self->addInterval(static_cast<qint64>(start), static_cast<qint64>(end));
 }
 
-void QMediaTimeRange_AddIntervalWithInterval(QMediaTimeRange* self, QMediaTimeRange__Interval* interval) {
+void QMediaTimeRange_AddIntervalWithInterval(QMediaTimeRange* self, const QMediaTimeRange__Interval* interval) {
     self->addInterval(*interval);
 }
 
-void QMediaTimeRange_AddTimeRange(QMediaTimeRange* self, QMediaTimeRange* param1) {
+void QMediaTimeRange_AddTimeRange(QMediaTimeRange* self, const QMediaTimeRange* param1) {
     self->addTimeRange(*param1);
 }
 
@@ -86,33 +86,33 @@ void QMediaTimeRange_RemoveInterval(QMediaTimeRange* self, long long start, long
     self->removeInterval(static_cast<qint64>(start), static_cast<qint64>(end));
 }
 
-void QMediaTimeRange_RemoveIntervalWithInterval(QMediaTimeRange* self, QMediaTimeRange__Interval* interval) {
+void QMediaTimeRange_RemoveIntervalWithInterval(QMediaTimeRange* self, const QMediaTimeRange__Interval* interval) {
     self->removeInterval(*interval);
 }
 
-void QMediaTimeRange_RemoveTimeRange(QMediaTimeRange* self, QMediaTimeRange* param1) {
+void QMediaTimeRange_RemoveTimeRange(QMediaTimeRange* self, const QMediaTimeRange* param1) {
     self->removeTimeRange(*param1);
 }
 
-QMediaTimeRange* QMediaTimeRange_OperatorPlusAssign(QMediaTimeRange* self, QMediaTimeRange* param1) {
+QMediaTimeRange* QMediaTimeRange_OperatorPlusAssign(QMediaTimeRange* self, const QMediaTimeRange* param1) {
     QMediaTimeRange& _ret = self->operator+=(*param1);
     // Cast returned reference into pointer
     return &_ret;
 }
 
-QMediaTimeRange* QMediaTimeRange_OperatorPlusAssignWithQMediaTimeRangeInterval(QMediaTimeRange* self, QMediaTimeRange__Interval* param1) {
+QMediaTimeRange* QMediaTimeRange_OperatorPlusAssignWithQMediaTimeRangeInterval(QMediaTimeRange* self, const QMediaTimeRange__Interval* param1) {
     QMediaTimeRange& _ret = self->operator+=(*param1);
     // Cast returned reference into pointer
     return &_ret;
 }
 
-QMediaTimeRange* QMediaTimeRange_OperatorMinusAssign(QMediaTimeRange* self, QMediaTimeRange* param1) {
+QMediaTimeRange* QMediaTimeRange_OperatorMinusAssign(QMediaTimeRange* self, const QMediaTimeRange* param1) {
     QMediaTimeRange& _ret = self->operator-=(*param1);
     // Cast returned reference into pointer
     return &_ret;
 }
 
-QMediaTimeRange* QMediaTimeRange_OperatorMinusAssignWithQMediaTimeRangeInterval(QMediaTimeRange* self, QMediaTimeRange__Interval* param1) {
+QMediaTimeRange* QMediaTimeRange_OperatorMinusAssignWithQMediaTimeRangeInterval(QMediaTimeRange* self, const QMediaTimeRange__Interval* param1) {
     QMediaTimeRange& _ret = self->operator-=(*param1);
     // Cast returned reference into pointer
     return &_ret;
@@ -126,7 +126,7 @@ void QMediaTimeRange_Delete(QMediaTimeRange* self) {
     delete self;
 }
 
-QMediaTimeRange__Interval* QMediaTimeRange__Interval_new(QMediaTimeRange__Interval* other) {
+QMediaTimeRange__Interval* QMediaTimeRange__Interval_new(const QMediaTimeRange__Interval* other) {
     return new QMediaTimeRange::Interval(*other);
 }
 
@@ -142,7 +142,7 @@ QMediaTimeRange__Interval* QMediaTimeRange__Interval_new4(long long start, long 
     return new QMediaTimeRange::Interval(static_cast<qint64>(start), static_cast<qint64>(end));
 }
 
-QMediaTimeRange__Interval* QMediaTimeRange__Interval_new5(QMediaTimeRange__Interval* param1) {
+QMediaTimeRange__Interval* QMediaTimeRange__Interval_new5(const QMediaTimeRange__Interval* param1) {
     return new QMediaTimeRange::Interval(*param1);
 }
 

@@ -4,7 +4,7 @@
 #include "libqmargins.h"
 #include "libqmargins.hxx"
 
-QMargins* QMargins_new(QMargins* other) {
+QMargins* QMargins_new(const QMargins* other) {
     return new QMargins(*other);
 }
 
@@ -20,7 +20,7 @@ QMargins* QMargins_new4(int left, int top, int right, int bottom) {
     return new QMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
 }
 
-QMargins* QMargins_new5(QMargins* param1) {
+QMargins* QMargins_new5(const QMargins* param1) {
     return new QMargins(*param1);
 }
 
@@ -68,13 +68,13 @@ void QMargins_SetBottom(QMargins* self, int bottom) {
     self->setBottom(static_cast<int>(bottom));
 }
 
-QMargins* QMargins_OperatorPlusAssign(QMargins* self, QMargins* margins) {
+QMargins* QMargins_OperatorPlusAssign(QMargins* self, const QMargins* margins) {
     QMargins& _ret = self->operator+=(*margins);
     // Cast returned reference into pointer
     return &_ret;
 }
 
-QMargins* QMargins_OperatorMinusAssign(QMargins* self, QMargins* margins) {
+QMargins* QMargins_OperatorMinusAssign(QMargins* self, const QMargins* margins) {
     QMargins& _ret = self->operator-=(*margins);
     // Cast returned reference into pointer
     return &_ret;
@@ -124,7 +124,7 @@ void QMargins_Delete(QMargins* self) {
     delete self;
 }
 
-QMarginsF* QMarginsF_new(QMarginsF* other) {
+QMarginsF* QMarginsF_new(const QMarginsF* other) {
     return new QMarginsF(*other);
 }
 
@@ -140,11 +140,11 @@ QMarginsF* QMarginsF_new4(double left, double top, double right, double bottom) 
     return new QMarginsF(static_cast<qreal>(left), static_cast<qreal>(top), static_cast<qreal>(right), static_cast<qreal>(bottom));
 }
 
-QMarginsF* QMarginsF_new5(QMargins* margins) {
+QMarginsF* QMarginsF_new5(const QMargins* margins) {
     return new QMarginsF(*margins);
 }
 
-QMarginsF* QMarginsF_new6(QMarginsF* param1) {
+QMarginsF* QMarginsF_new6(const QMarginsF* param1) {
     return new QMarginsF(*param1);
 }
 
@@ -192,13 +192,13 @@ void QMarginsF_SetBottom(QMarginsF* self, double abottom) {
     self->setBottom(static_cast<qreal>(abottom));
 }
 
-QMarginsF* QMarginsF_OperatorPlusAssign(QMarginsF* self, QMarginsF* margins) {
+QMarginsF* QMarginsF_OperatorPlusAssign(QMarginsF* self, const QMarginsF* margins) {
     QMarginsF& _ret = self->operator+=(*margins);
     // Cast returned reference into pointer
     return &_ret;
 }
 
-QMarginsF* QMarginsF_OperatorMinusAssign(QMarginsF* self, QMarginsF* margins) {
+QMarginsF* QMarginsF_OperatorMinusAssign(QMarginsF* self, const QMarginsF* margins) {
     QMarginsF& _ret = self->operator-=(*margins);
     // Cast returned reference into pointer
     return &_ret;

@@ -21,13 +21,13 @@ typedef struct QObject QObject;
 typedef struct QUrl QUrl;
 #endif
 
-QDesktopServices* QDesktopServices_new(QDesktopServices* other);
+QDesktopServices* QDesktopServices_new(const QDesktopServices* other);
 QDesktopServices* QDesktopServices_new2(QDesktopServices* other);
 void QDesktopServices_CopyAssign(QDesktopServices* self, QDesktopServices* other);
 void QDesktopServices_MoveAssign(QDesktopServices* self, QDesktopServices* other);
-bool QDesktopServices_OpenUrl(QUrl* url);
-void QDesktopServices_SetUrlHandler(libqt_string scheme, QObject* receiver, const char* method);
-void QDesktopServices_UnsetUrlHandler(libqt_string scheme);
+bool QDesktopServices_OpenUrl(const QUrl* url);
+void QDesktopServices_SetUrlHandler(const libqt_string scheme, QObject* receiver, const char* method);
+void QDesktopServices_UnsetUrlHandler(const libqt_string scheme);
 void QDesktopServices_Delete(QDesktopServices* self);
 
 #ifdef __cplusplus

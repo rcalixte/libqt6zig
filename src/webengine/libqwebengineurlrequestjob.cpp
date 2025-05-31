@@ -1,21 +1,12 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
 #include <QByteArray>
-#include <QChildEvent>
-#include <QEvent>
 #include <QIODevice>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
 #include <QUrl>
-#include <QVariant>
 #include <QWebEngineUrlRequestJob>
 #include <qwebengineurlrequestjob.h>
 #include "libqwebengineurlrequestjob.h"
@@ -63,7 +54,7 @@ QUrl* QWebEngineUrlRequestJob_Initiator(const QWebEngineUrlRequestJob* self) {
     return new QUrl(self->initiator());
 }
 
-void QWebEngineUrlRequestJob_Reply(QWebEngineUrlRequestJob* self, libqt_string contentType, QIODevice* device) {
+void QWebEngineUrlRequestJob_Reply(QWebEngineUrlRequestJob* self, const libqt_string contentType, QIODevice* device) {
     QByteArray contentType_QByteArray(contentType.data, contentType.len);
     self->reply(contentType_QByteArray, device);
 }
@@ -72,7 +63,7 @@ void QWebEngineUrlRequestJob_Fail(QWebEngineUrlRequestJob* self, int errorVal) {
     self->fail(static_cast<QWebEngineUrlRequestJob::Error>(errorVal));
 }
 
-void QWebEngineUrlRequestJob_Redirect(QWebEngineUrlRequestJob* self, QUrl* url) {
+void QWebEngineUrlRequestJob_Redirect(QWebEngineUrlRequestJob* self, const QUrl* url) {
     self->redirect(*url);
 }
 
@@ -98,14 +89,6 @@ libqt_string QWebEngineUrlRequestJob_Tr3(const char* s, const char* c, int n) {
     memcpy(_str.data, _b.data(), _str.len);
     _str.data[_str.len] = '\0';
     return _str;
-}
-
-bool QWebEngineUrlRequestJob_Event(QWebEngineUrlRequestJob* self, QEvent* event) {
-    return self->event(event);
-}
-
-bool QWebEngineUrlRequestJob_EventFilter(QWebEngineUrlRequestJob* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
 }
 
 void QWebEngineUrlRequestJob_Delete(QWebEngineUrlRequestJob* self) {

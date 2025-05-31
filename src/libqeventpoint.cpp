@@ -12,11 +12,11 @@ QEventPoint* QEventPoint_new() {
     return new QEventPoint();
 }
 
-QEventPoint* QEventPoint_new2(int pointId, uint8_t state, QPointF* scenePosition, QPointF* globalPosition) {
+QEventPoint* QEventPoint_new2(int pointId, uint8_t state, const QPointF* scenePosition, const QPointF* globalPosition) {
     return new QEventPoint(static_cast<int>(pointId), static_cast<QEventPoint::State>(state), *scenePosition, *globalPosition);
 }
 
-QEventPoint* QEventPoint_new3(QEventPoint* other) {
+QEventPoint* QEventPoint_new3(const QEventPoint* other) {
     return new QEventPoint(*other);
 }
 
@@ -24,19 +24,19 @@ QEventPoint* QEventPoint_new4(int id) {
     return new QEventPoint(static_cast<int>(id));
 }
 
-QEventPoint* QEventPoint_new5(int id, QPointingDevice* device) {
+QEventPoint* QEventPoint_new5(int id, const QPointingDevice* device) {
     return new QEventPoint(static_cast<int>(id), device);
 }
 
-void QEventPoint_OperatorAssign(QEventPoint* self, QEventPoint* other) {
+void QEventPoint_OperatorAssign(QEventPoint* self, const QEventPoint* other) {
     self->operator=(*other);
 }
 
-bool QEventPoint_OperatorEqual(const QEventPoint* self, QEventPoint* other) {
+bool QEventPoint_OperatorEqual(const QEventPoint* self, const QEventPoint* other) {
     return (*self == *other);
 }
 
-bool QEventPoint_OperatorNotEqual(const QEventPoint* self, QEventPoint* other) {
+bool QEventPoint_OperatorNotEqual(const QEventPoint* self, const QEventPoint* other) {
     return (*self != *other);
 }
 

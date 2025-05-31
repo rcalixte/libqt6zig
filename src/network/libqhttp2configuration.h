@@ -20,8 +20,8 @@ typedef struct QHttp2Configuration QHttp2Configuration;
 #endif
 
 QHttp2Configuration* QHttp2Configuration_new();
-QHttp2Configuration* QHttp2Configuration_new2(QHttp2Configuration* other);
-void QHttp2Configuration_OperatorAssign(QHttp2Configuration* self, QHttp2Configuration* other);
+QHttp2Configuration* QHttp2Configuration_new2(const QHttp2Configuration* other);
+void QHttp2Configuration_OperatorAssign(QHttp2Configuration* self, const QHttp2Configuration* other);
 void QHttp2Configuration_SetServerPushEnabled(QHttp2Configuration* self, bool enable);
 bool QHttp2Configuration_ServerPushEnabled(const QHttp2Configuration* self);
 void QHttp2Configuration_SetHuffmanCompressionEnabled(QHttp2Configuration* self, bool enable);

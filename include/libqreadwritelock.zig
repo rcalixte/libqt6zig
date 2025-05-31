@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qreadwritelock_enums = enums;
 
 /// https://doc.qt.io/qt-6/qreadwritelock.html
@@ -6,71 +7,73 @@ pub const qreadwritelock = struct {
     /// New constructs a new QReadWriteLock object.
     ///
     ///
-    pub fn New() ?*C.QReadWriteLock {
-        return C.QReadWriteLock_new();
+    pub fn New() QtC.QReadWriteLock {
+        return qtc.QReadWriteLock_new();
     }
 
     /// New2 constructs a new QReadWriteLock object.
     ///
     /// ``` recursionMode: qreadwritelock_enums.RecursionMode ```
-    pub fn New2(recursionMode: i64) ?*C.QReadWriteLock {
-        return C.QReadWriteLock_new2(@intCast(recursionMode));
+    pub fn New2(recursionMode: i64) QtC.QReadWriteLock {
+        return qtc.QReadWriteLock_new2(@intCast(recursionMode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#lockForRead)
     ///
-    /// ``` self: ?*C.QReadWriteLock ```
+    /// ``` self: QtC.QReadWriteLock ```
     pub fn LockForRead(self: ?*anyopaque) void {
-        C.QReadWriteLock_LockForRead(@ptrCast(self));
+        qtc.QReadWriteLock_LockForRead(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForRead)
     ///
-    /// ``` self: ?*C.QReadWriteLock ```
+    /// ``` self: QtC.QReadWriteLock ```
     pub fn TryLockForRead(self: ?*anyopaque) bool {
-        return C.QReadWriteLock_TryLockForRead(@ptrCast(self));
+        return qtc.QReadWriteLock_TryLockForRead(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForRead)
     ///
-    /// ``` self: ?*C.QReadWriteLock, timeout: i32 ```
+    /// ``` self: QtC.QReadWriteLock, timeout: i32 ```
     pub fn TryLockForReadWithTimeout(self: ?*anyopaque, timeout: i32) bool {
-        return C.QReadWriteLock_TryLockForReadWithTimeout(@ptrCast(self), @intCast(timeout));
+        return qtc.QReadWriteLock_TryLockForReadWithTimeout(@ptrCast(self), @intCast(timeout));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#lockForWrite)
     ///
-    /// ``` self: ?*C.QReadWriteLock ```
+    /// ``` self: QtC.QReadWriteLock ```
     pub fn LockForWrite(self: ?*anyopaque) void {
-        C.QReadWriteLock_LockForWrite(@ptrCast(self));
+        qtc.QReadWriteLock_LockForWrite(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForWrite)
     ///
-    /// ``` self: ?*C.QReadWriteLock ```
+    /// ``` self: QtC.QReadWriteLock ```
     pub fn TryLockForWrite(self: ?*anyopaque) bool {
-        return C.QReadWriteLock_TryLockForWrite(@ptrCast(self));
+        return qtc.QReadWriteLock_TryLockForWrite(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForWrite)
     ///
-    /// ``` self: ?*C.QReadWriteLock, timeout: i32 ```
+    /// ``` self: QtC.QReadWriteLock, timeout: i32 ```
     pub fn TryLockForWriteWithTimeout(self: ?*anyopaque, timeout: i32) bool {
-        return C.QReadWriteLock_TryLockForWriteWithTimeout(@ptrCast(self), @intCast(timeout));
+        return qtc.QReadWriteLock_TryLockForWriteWithTimeout(@ptrCast(self), @intCast(timeout));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#unlock)
     ///
-    /// ``` self: ?*C.QReadWriteLock ```
+    /// ``` self: QtC.QReadWriteLock ```
     pub fn Unlock(self: ?*anyopaque) void {
-        C.QReadWriteLock_Unlock(@ptrCast(self));
+        qtc.QReadWriteLock_Unlock(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#dtor.QReadWriteLock)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QReadWriteLock ```
+    /// ``` self: QtC.QReadWriteLock ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QReadWriteLock_Delete(@ptrCast(self));
+        qtc.QReadWriteLock_Delete(@ptrCast(self));
     }
 };
 
@@ -78,37 +81,39 @@ pub const qreadwritelock = struct {
 pub const qreadlocker = struct {
     /// New constructs a new QReadLocker object.
     ///
-    /// ``` readWriteLock: ?*C.QReadWriteLock ```
-    pub fn New(readWriteLock: ?*anyopaque) ?*C.QReadLocker {
-        return C.QReadLocker_new(@ptrCast(readWriteLock));
+    /// ``` readWriteLock: QtC.QReadWriteLock ```
+    pub fn New(readWriteLock: ?*anyopaque) QtC.QReadLocker {
+        return qtc.QReadLocker_new(@ptrCast(readWriteLock));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadlocker.html#unlock)
     ///
-    /// ``` self: ?*C.QReadLocker ```
+    /// ``` self: QtC.QReadLocker ```
     pub fn Unlock(self: ?*anyopaque) void {
-        C.QReadLocker_Unlock(@ptrCast(self));
+        qtc.QReadLocker_Unlock(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadlocker.html#relock)
     ///
-    /// ``` self: ?*C.QReadLocker ```
+    /// ``` self: QtC.QReadLocker ```
     pub fn Relock(self: ?*anyopaque) void {
-        C.QReadLocker_Relock(@ptrCast(self));
+        qtc.QReadLocker_Relock(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadlocker.html#readWriteLock)
     ///
-    /// ``` self: ?*C.QReadLocker ```
-    pub fn ReadWriteLock(self: ?*anyopaque) ?*C.QReadWriteLock {
-        return C.QReadLocker_ReadWriteLock(@ptrCast(self));
+    /// ``` self: QtC.QReadLocker ```
+    pub fn ReadWriteLock(self: ?*anyopaque) QtC.QReadWriteLock {
+        return qtc.QReadLocker_ReadWriteLock(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qreadlocker.html#dtor.QReadLocker)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QReadLocker ```
+    /// ``` self: QtC.QReadLocker ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QReadLocker_Delete(@ptrCast(self));
+        qtc.QReadLocker_Delete(@ptrCast(self));
     }
 };
 
@@ -116,37 +121,39 @@ pub const qreadlocker = struct {
 pub const qwritelocker = struct {
     /// New constructs a new QWriteLocker object.
     ///
-    /// ``` readWriteLock: ?*C.QReadWriteLock ```
-    pub fn New(readWriteLock: ?*anyopaque) ?*C.QWriteLocker {
-        return C.QWriteLocker_new(@ptrCast(readWriteLock));
+    /// ``` readWriteLock: QtC.QReadWriteLock ```
+    pub fn New(readWriteLock: ?*anyopaque) QtC.QWriteLocker {
+        return qtc.QWriteLocker_new(@ptrCast(readWriteLock));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwritelocker.html#unlock)
     ///
-    /// ``` self: ?*C.QWriteLocker ```
+    /// ``` self: QtC.QWriteLocker ```
     pub fn Unlock(self: ?*anyopaque) void {
-        C.QWriteLocker_Unlock(@ptrCast(self));
+        qtc.QWriteLocker_Unlock(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwritelocker.html#relock)
     ///
-    /// ``` self: ?*C.QWriteLocker ```
+    /// ``` self: QtC.QWriteLocker ```
     pub fn Relock(self: ?*anyopaque) void {
-        C.QWriteLocker_Relock(@ptrCast(self));
+        qtc.QWriteLocker_Relock(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwritelocker.html#readWriteLock)
     ///
-    /// ``` self: ?*C.QWriteLocker ```
-    pub fn ReadWriteLock(self: ?*anyopaque) ?*C.QReadWriteLock {
-        return C.QWriteLocker_ReadWriteLock(@ptrCast(self));
+    /// ``` self: QtC.QWriteLocker ```
+    pub fn ReadWriteLock(self: ?*anyopaque) QtC.QReadWriteLock {
+        return qtc.QWriteLocker_ReadWriteLock(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwritelocker.html#dtor.QWriteLocker)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QWriteLocker ```
+    /// ``` self: QtC.QWriteLocker ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QWriteLocker_Delete(@ptrCast(self));
+        qtc.QWriteLocker_Delete(@ptrCast(self));
     }
 };
 

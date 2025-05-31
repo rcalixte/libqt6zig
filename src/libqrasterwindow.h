@@ -15,50 +15,34 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAccessibleInterface QAccessibleInterface;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QCloseEvent QCloseEvent;
-typedef struct QCursor QCursor;
 typedef struct QEvent QEvent;
 typedef struct QExposeEvent QExposeEvent;
 typedef struct QFocusEvent QFocusEvent;
 typedef struct QHideEvent QHideEvent;
-typedef struct QIcon QIcon;
 typedef struct QKeyEvent QKeyEvent;
-typedef struct QMargins QMargins;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QMouseEvent QMouseEvent;
 typedef struct QMoveEvent QMoveEvent;
 typedef struct QObject QObject;
 typedef struct QPaintDevice QPaintDevice;
 typedef struct QPaintDeviceWindow QPaintDeviceWindow;
-typedef struct QPaintEngine QPaintEngine;
 typedef struct QPaintEvent QPaintEvent;
 typedef struct QPainter QPainter;
 typedef struct QPoint QPoint;
-typedef struct QPointF QPointF;
 typedef struct QRasterWindow QRasterWindow;
-typedef struct QRect QRect;
-typedef struct QRegion QRegion;
 typedef struct QResizeEvent QResizeEvent;
-typedef struct QScreen QScreen;
 typedef struct QShowEvent QShowEvent;
 typedef struct QSize QSize;
 typedef struct QSurface QSurface;
 typedef struct QSurfaceFormat QSurfaceFormat;
 typedef struct QTabletEvent QTabletEvent;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QTouchEvent QTouchEvent;
-typedef struct QVariant QVariant;
 typedef struct QWheelEvent QWheelEvent;
 typedef struct QWindow QWindow;
 #endif
@@ -151,9 +135,9 @@ void QRasterWindow_QBaseTouchEvent(QRasterWindow* self, QTouchEvent* param1);
 void QRasterWindow_TabletEvent(QRasterWindow* self, QTabletEvent* param1);
 void QRasterWindow_OnTabletEvent(QRasterWindow* self, intptr_t slot);
 void QRasterWindow_QBaseTabletEvent(QRasterWindow* self, QTabletEvent* param1);
-bool QRasterWindow_NativeEvent(QRasterWindow* self, libqt_string eventType, void* message, intptr_t* result);
+bool QRasterWindow_NativeEvent(QRasterWindow* self, const libqt_string eventType, void* message, intptr_t* result);
 void QRasterWindow_OnNativeEvent(QRasterWindow* self, intptr_t slot);
-bool QRasterWindow_QBaseNativeEvent(QRasterWindow* self, libqt_string eventType, void* message, intptr_t* result);
+bool QRasterWindow_QBaseNativeEvent(QRasterWindow* self, const libqt_string eventType, void* message, intptr_t* result);
 bool QRasterWindow_EventFilter(QRasterWindow* self, QObject* watched, QEvent* event);
 void QRasterWindow_OnEventFilter(QRasterWindow* self, intptr_t slot);
 bool QRasterWindow_QBaseEventFilter(QRasterWindow* self, QObject* watched, QEvent* event);
@@ -166,12 +150,12 @@ void QRasterWindow_QBaseChildEvent(QRasterWindow* self, QChildEvent* event);
 void QRasterWindow_CustomEvent(QRasterWindow* self, QEvent* event);
 void QRasterWindow_OnCustomEvent(QRasterWindow* self, intptr_t slot);
 void QRasterWindow_QBaseCustomEvent(QRasterWindow* self, QEvent* event);
-void QRasterWindow_ConnectNotify(QRasterWindow* self, QMetaMethod* signal);
+void QRasterWindow_ConnectNotify(QRasterWindow* self, const QMetaMethod* signal);
 void QRasterWindow_OnConnectNotify(QRasterWindow* self, intptr_t slot);
-void QRasterWindow_QBaseConnectNotify(QRasterWindow* self, QMetaMethod* signal);
-void QRasterWindow_DisconnectNotify(QRasterWindow* self, QMetaMethod* signal);
+void QRasterWindow_QBaseConnectNotify(QRasterWindow* self, const QMetaMethod* signal);
+void QRasterWindow_DisconnectNotify(QRasterWindow* self, const QMetaMethod* signal);
 void QRasterWindow_OnDisconnectNotify(QRasterWindow* self, intptr_t slot);
-void QRasterWindow_QBaseDisconnectNotify(QRasterWindow* self, QMetaMethod* signal);
+void QRasterWindow_QBaseDisconnectNotify(QRasterWindow* self, const QMetaMethod* signal);
 int QRasterWindow_DevType(const QRasterWindow* self);
 void QRasterWindow_OnDevType(const QRasterWindow* self, intptr_t slot);
 int QRasterWindow_QBaseDevType(const QRasterWindow* self);
@@ -193,9 +177,9 @@ int QRasterWindow_QBaseSenderSignalIndex(const QRasterWindow* self);
 int QRasterWindow_Receivers(const QRasterWindow* self, const char* signal);
 void QRasterWindow_OnReceivers(const QRasterWindow* self, intptr_t slot);
 int QRasterWindow_QBaseReceivers(const QRasterWindow* self, const char* signal);
-bool QRasterWindow_IsSignalConnected(const QRasterWindow* self, QMetaMethod* signal);
+bool QRasterWindow_IsSignalConnected(const QRasterWindow* self, const QMetaMethod* signal);
 void QRasterWindow_OnIsSignalConnected(const QRasterWindow* self, intptr_t slot);
-bool QRasterWindow_QBaseIsSignalConnected(const QRasterWindow* self, QMetaMethod* signal);
+bool QRasterWindow_QBaseIsSignalConnected(const QRasterWindow* self, const QMetaMethod* signal);
 void QRasterWindow_Delete(QRasterWindow* self);
 
 #ifdef __cplusplus

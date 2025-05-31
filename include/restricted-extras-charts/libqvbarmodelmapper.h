@@ -15,25 +15,17 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractBarSeries QAbstractBarSeries;
 typedef struct QAbstractItemModel QAbstractItemModel;
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QBarModelMapper QBarModelMapper;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QVBarModelMapper QVBarModelMapper;
-typedef struct QVariant QVariant;
 #endif
 
 QVBarModelMapper* QVBarModelMapper_new();
@@ -85,12 +77,12 @@ void QVBarModelMapper_QBaseChildEvent(QVBarModelMapper* self, QChildEvent* event
 void QVBarModelMapper_CustomEvent(QVBarModelMapper* self, QEvent* event);
 void QVBarModelMapper_OnCustomEvent(QVBarModelMapper* self, intptr_t slot);
 void QVBarModelMapper_QBaseCustomEvent(QVBarModelMapper* self, QEvent* event);
-void QVBarModelMapper_ConnectNotify(QVBarModelMapper* self, QMetaMethod* signal);
+void QVBarModelMapper_ConnectNotify(QVBarModelMapper* self, const QMetaMethod* signal);
 void QVBarModelMapper_OnConnectNotify(QVBarModelMapper* self, intptr_t slot);
-void QVBarModelMapper_QBaseConnectNotify(QVBarModelMapper* self, QMetaMethod* signal);
-void QVBarModelMapper_DisconnectNotify(QVBarModelMapper* self, QMetaMethod* signal);
+void QVBarModelMapper_QBaseConnectNotify(QVBarModelMapper* self, const QMetaMethod* signal);
+void QVBarModelMapper_DisconnectNotify(QVBarModelMapper* self, const QMetaMethod* signal);
 void QVBarModelMapper_OnDisconnectNotify(QVBarModelMapper* self, intptr_t slot);
-void QVBarModelMapper_QBaseDisconnectNotify(QVBarModelMapper* self, QMetaMethod* signal);
+void QVBarModelMapper_QBaseDisconnectNotify(QVBarModelMapper* self, const QMetaMethod* signal);
 int QVBarModelMapper_First(const QVBarModelMapper* self);
 void QVBarModelMapper_OnFirst(const QVBarModelMapper* self, intptr_t slot);
 int QVBarModelMapper_QBaseFirst(const QVBarModelMapper* self);
@@ -130,9 +122,9 @@ int QVBarModelMapper_QBaseSenderSignalIndex(const QVBarModelMapper* self);
 int QVBarModelMapper_Receivers(const QVBarModelMapper* self, const char* signal);
 void QVBarModelMapper_OnReceivers(const QVBarModelMapper* self, intptr_t slot);
 int QVBarModelMapper_QBaseReceivers(const QVBarModelMapper* self, const char* signal);
-bool QVBarModelMapper_IsSignalConnected(const QVBarModelMapper* self, QMetaMethod* signal);
+bool QVBarModelMapper_IsSignalConnected(const QVBarModelMapper* self, const QMetaMethod* signal);
 void QVBarModelMapper_OnIsSignalConnected(const QVBarModelMapper* self, intptr_t slot);
-bool QVBarModelMapper_QBaseIsSignalConnected(const QVBarModelMapper* self, QMetaMethod* signal);
+bool QVBarModelMapper_QBaseIsSignalConnected(const QVBarModelMapper* self, const QMetaMethod* signal);
 void QVBarModelMapper_Delete(QVBarModelMapper* self);
 
 #ifdef __cplusplus

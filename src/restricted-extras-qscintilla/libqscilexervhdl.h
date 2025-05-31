@@ -15,25 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSettings QSettings;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
-typedef struct QsciAbstractAPIs QsciAbstractAPIs;
 typedef struct QsciLexer QsciLexer;
 typedef struct QsciLexerVHDL QsciLexerVHDL;
 typedef struct QsciScintilla QsciScintilla;
@@ -142,21 +133,24 @@ const char* QsciLexerVHDL_QBaseWordCharacters(const QsciLexerVHDL* self);
 void QsciLexerVHDL_SetAutoIndentStyle(QsciLexerVHDL* self, int autoindentstyle);
 void QsciLexerVHDL_OnSetAutoIndentStyle(QsciLexerVHDL* self, intptr_t slot);
 void QsciLexerVHDL_QBaseSetAutoIndentStyle(QsciLexerVHDL* self, int autoindentstyle);
-void QsciLexerVHDL_SetColor(QsciLexerVHDL* self, QColor* c, int style);
+void QsciLexerVHDL_SetColor(QsciLexerVHDL* self, const QColor* c, int style);
 void QsciLexerVHDL_OnSetColor(QsciLexerVHDL* self, intptr_t slot);
-void QsciLexerVHDL_QBaseSetColor(QsciLexerVHDL* self, QColor* c, int style);
+void QsciLexerVHDL_QBaseSetColor(QsciLexerVHDL* self, const QColor* c, int style);
 void QsciLexerVHDL_SetEolFill(QsciLexerVHDL* self, bool eoffill, int style);
 void QsciLexerVHDL_OnSetEolFill(QsciLexerVHDL* self, intptr_t slot);
 void QsciLexerVHDL_QBaseSetEolFill(QsciLexerVHDL* self, bool eoffill, int style);
-void QsciLexerVHDL_SetFont(QsciLexerVHDL* self, QFont* f, int style);
+void QsciLexerVHDL_SetFont(QsciLexerVHDL* self, const QFont* f, int style);
 void QsciLexerVHDL_OnSetFont(QsciLexerVHDL* self, intptr_t slot);
-void QsciLexerVHDL_QBaseSetFont(QsciLexerVHDL* self, QFont* f, int style);
-void QsciLexerVHDL_SetPaper(QsciLexerVHDL* self, QColor* c, int style);
+void QsciLexerVHDL_QBaseSetFont(QsciLexerVHDL* self, const QFont* f, int style);
+void QsciLexerVHDL_SetPaper(QsciLexerVHDL* self, const QColor* c, int style);
 void QsciLexerVHDL_OnSetPaper(QsciLexerVHDL* self, intptr_t slot);
-void QsciLexerVHDL_QBaseSetPaper(QsciLexerVHDL* self, QColor* c, int style);
-bool QsciLexerVHDL_ReadProperties(QsciLexerVHDL* self, QSettings* qs, libqt_string prefix);
+void QsciLexerVHDL_QBaseSetPaper(QsciLexerVHDL* self, const QColor* c, int style);
+bool QsciLexerVHDL_ReadProperties(QsciLexerVHDL* self, QSettings* qs, const libqt_string prefix);
 void QsciLexerVHDL_OnReadProperties(QsciLexerVHDL* self, intptr_t slot);
-bool QsciLexerVHDL_QBaseReadProperties(QsciLexerVHDL* self, QSettings* qs, libqt_string prefix);
+bool QsciLexerVHDL_QBaseReadProperties(QsciLexerVHDL* self, QSettings* qs, const libqt_string prefix);
+bool QsciLexerVHDL_WriteProperties(const QsciLexerVHDL* self, QSettings* qs, const libqt_string prefix);
+void QsciLexerVHDL_OnWriteProperties(const QsciLexerVHDL* self, intptr_t slot);
+bool QsciLexerVHDL_QBaseWriteProperties(const QsciLexerVHDL* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexerVHDL_Event(QsciLexerVHDL* self, QEvent* event);
 void QsciLexerVHDL_OnEvent(QsciLexerVHDL* self, intptr_t slot);
 bool QsciLexerVHDL_QBaseEvent(QsciLexerVHDL* self, QEvent* event);
@@ -172,15 +166,12 @@ void QsciLexerVHDL_QBaseChildEvent(QsciLexerVHDL* self, QChildEvent* event);
 void QsciLexerVHDL_CustomEvent(QsciLexerVHDL* self, QEvent* event);
 void QsciLexerVHDL_OnCustomEvent(QsciLexerVHDL* self, intptr_t slot);
 void QsciLexerVHDL_QBaseCustomEvent(QsciLexerVHDL* self, QEvent* event);
-void QsciLexerVHDL_ConnectNotify(QsciLexerVHDL* self, QMetaMethod* signal);
+void QsciLexerVHDL_ConnectNotify(QsciLexerVHDL* self, const QMetaMethod* signal);
 void QsciLexerVHDL_OnConnectNotify(QsciLexerVHDL* self, intptr_t slot);
-void QsciLexerVHDL_QBaseConnectNotify(QsciLexerVHDL* self, QMetaMethod* signal);
-void QsciLexerVHDL_DisconnectNotify(QsciLexerVHDL* self, QMetaMethod* signal);
+void QsciLexerVHDL_QBaseConnectNotify(QsciLexerVHDL* self, const QMetaMethod* signal);
+void QsciLexerVHDL_DisconnectNotify(QsciLexerVHDL* self, const QMetaMethod* signal);
 void QsciLexerVHDL_OnDisconnectNotify(QsciLexerVHDL* self, intptr_t slot);
-void QsciLexerVHDL_QBaseDisconnectNotify(QsciLexerVHDL* self, QMetaMethod* signal);
-bool QsciLexerVHDL_WriteProperties(const QsciLexerVHDL* self, QSettings* qs, libqt_string prefix);
-void QsciLexerVHDL_OnWriteProperties(const QsciLexerVHDL* self, intptr_t slot);
-bool QsciLexerVHDL_QBaseWriteProperties(const QsciLexerVHDL* self, QSettings* qs, libqt_string prefix);
+void QsciLexerVHDL_QBaseDisconnectNotify(QsciLexerVHDL* self, const QMetaMethod* signal);
 QObject* QsciLexerVHDL_Sender(const QsciLexerVHDL* self);
 void QsciLexerVHDL_OnSender(const QsciLexerVHDL* self, intptr_t slot);
 QObject* QsciLexerVHDL_QBaseSender(const QsciLexerVHDL* self);
@@ -190,9 +181,9 @@ int QsciLexerVHDL_QBaseSenderSignalIndex(const QsciLexerVHDL* self);
 int QsciLexerVHDL_Receivers(const QsciLexerVHDL* self, const char* signal);
 void QsciLexerVHDL_OnReceivers(const QsciLexerVHDL* self, intptr_t slot);
 int QsciLexerVHDL_QBaseReceivers(const QsciLexerVHDL* self, const char* signal);
-bool QsciLexerVHDL_IsSignalConnected(const QsciLexerVHDL* self, QMetaMethod* signal);
+bool QsciLexerVHDL_IsSignalConnected(const QsciLexerVHDL* self, const QMetaMethod* signal);
 void QsciLexerVHDL_OnIsSignalConnected(const QsciLexerVHDL* self, intptr_t slot);
-bool QsciLexerVHDL_QBaseIsSignalConnected(const QsciLexerVHDL* self, QMetaMethod* signal);
+bool QsciLexerVHDL_QBaseIsSignalConnected(const QsciLexerVHDL* self, const QMetaMethod* signal);
 void QsciLexerVHDL_Delete(QsciLexerVHDL* self);
 
 #ifdef __cplusplus

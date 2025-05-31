@@ -15,21 +15,12 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractPrintDialog QAbstractPrintDialog;
-typedef struct QAction QAction;
 typedef struct QActionEvent QActionEvent;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBackingStore QBackingStore;
-typedef struct QBindingStorage QBindingStorage;
-typedef struct QBitmap QBitmap;
 typedef struct QChildEvent QChildEvent;
 typedef struct QCloseEvent QCloseEvent;
 typedef struct QContextMenuEvent QContextMenuEvent;
-typedef struct QCursor QCursor;
 typedef struct QDialog QDialog;
 typedef struct QDragEnterEvent QDragEnterEvent;
 typedef struct QDragLeaveEvent QDragLeaveEvent;
@@ -38,22 +29,11 @@ typedef struct QDropEvent QDropEvent;
 typedef struct QEnterEvent QEnterEvent;
 typedef struct QEvent QEvent;
 typedef struct QFocusEvent QFocusEvent;
-typedef struct QFont QFont;
-typedef struct QFontInfo QFontInfo;
-typedef struct QFontMetrics QFontMetrics;
-typedef struct QGraphicsEffect QGraphicsEffect;
-typedef struct QGraphicsProxyWidget QGraphicsProxyWidget;
 typedef struct QHideEvent QHideEvent;
-typedef struct QIcon QIcon;
 typedef struct QInputMethodEvent QInputMethodEvent;
 typedef struct QKeyEvent QKeyEvent;
-typedef struct QKeySequence QKeySequence;
-typedef struct QLayout QLayout;
-typedef struct QLocale QLocale;
-typedef struct QMargins QMargins;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QMouseEvent QMouseEvent;
 typedef struct QMoveEvent QMoveEvent;
 typedef struct QObject QObject;
@@ -61,26 +41,16 @@ typedef struct QPaintDevice QPaintDevice;
 typedef struct QPaintEngine QPaintEngine;
 typedef struct QPaintEvent QPaintEvent;
 typedef struct QPainter QPainter;
-typedef struct QPalette QPalette;
-typedef struct QPixmap QPixmap;
 typedef struct QPoint QPoint;
-typedef struct QPointF QPointF;
 typedef struct QPrinter QPrinter;
-typedef struct QRect QRect;
-typedef struct QRegion QRegion;
 typedef struct QResizeEvent QResizeEvent;
-typedef struct QScreen QScreen;
 typedef struct QShowEvent QShowEvent;
 typedef struct QSize QSize;
-typedef struct QSizePolicy QSizePolicy;
-typedef struct QStyle QStyle;
 typedef struct QTabletEvent QTabletEvent;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
-typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
@@ -101,7 +71,7 @@ int QAbstractPrintDialog_Metacall(QAbstractPrintDialog* self, int param1, int pa
 void QAbstractPrintDialog_OnMetacall(QAbstractPrintDialog* self, intptr_t slot);
 int QAbstractPrintDialog_QBaseMetacall(QAbstractPrintDialog* self, int param1, int param2, void** param3);
 libqt_string QAbstractPrintDialog_Tr(const char* s);
-void QAbstractPrintDialog_SetOptionTabs(QAbstractPrintDialog* self, libqt_list /* of QWidget* */ tabs);
+void QAbstractPrintDialog_SetOptionTabs(QAbstractPrintDialog* self, const libqt_list /* of QWidget* */ tabs);
 void QAbstractPrintDialog_SetPrintRange(QAbstractPrintDialog* self, int range);
 int QAbstractPrintDialog_PrintRange(const QAbstractPrintDialog* self);
 void QAbstractPrintDialog_SetMinMax(QAbstractPrintDialog* self, int min, int max);
@@ -227,12 +197,24 @@ void QAbstractPrintDialog_QBaseDropEvent(QAbstractPrintDialog* self, QDropEvent*
 void QAbstractPrintDialog_HideEvent(QAbstractPrintDialog* self, QHideEvent* event);
 void QAbstractPrintDialog_OnHideEvent(QAbstractPrintDialog* self, intptr_t slot);
 void QAbstractPrintDialog_QBaseHideEvent(QAbstractPrintDialog* self, QHideEvent* event);
-bool QAbstractPrintDialog_NativeEvent(QAbstractPrintDialog* self, libqt_string eventType, void* message, intptr_t* result);
+bool QAbstractPrintDialog_NativeEvent(QAbstractPrintDialog* self, const libqt_string eventType, void* message, intptr_t* result);
 void QAbstractPrintDialog_OnNativeEvent(QAbstractPrintDialog* self, intptr_t slot);
-bool QAbstractPrintDialog_QBaseNativeEvent(QAbstractPrintDialog* self, libqt_string eventType, void* message, intptr_t* result);
+bool QAbstractPrintDialog_QBaseNativeEvent(QAbstractPrintDialog* self, const libqt_string eventType, void* message, intptr_t* result);
 void QAbstractPrintDialog_ChangeEvent(QAbstractPrintDialog* self, QEvent* param1);
 void QAbstractPrintDialog_OnChangeEvent(QAbstractPrintDialog* self, intptr_t slot);
 void QAbstractPrintDialog_QBaseChangeEvent(QAbstractPrintDialog* self, QEvent* param1);
+int QAbstractPrintDialog_Metric(const QAbstractPrintDialog* self, int param1);
+void QAbstractPrintDialog_OnMetric(const QAbstractPrintDialog* self, intptr_t slot);
+int QAbstractPrintDialog_QBaseMetric(const QAbstractPrintDialog* self, int param1);
+void QAbstractPrintDialog_InitPainter(const QAbstractPrintDialog* self, QPainter* painter);
+void QAbstractPrintDialog_OnInitPainter(const QAbstractPrintDialog* self, intptr_t slot);
+void QAbstractPrintDialog_QBaseInitPainter(const QAbstractPrintDialog* self, QPainter* painter);
+QPaintDevice* QAbstractPrintDialog_Redirected(const QAbstractPrintDialog* self, QPoint* offset);
+void QAbstractPrintDialog_OnRedirected(const QAbstractPrintDialog* self, intptr_t slot);
+QPaintDevice* QAbstractPrintDialog_QBaseRedirected(const QAbstractPrintDialog* self, QPoint* offset);
+QPainter* QAbstractPrintDialog_SharedPainter(const QAbstractPrintDialog* self);
+void QAbstractPrintDialog_OnSharedPainter(const QAbstractPrintDialog* self, intptr_t slot);
+QPainter* QAbstractPrintDialog_QBaseSharedPainter(const QAbstractPrintDialog* self);
 void QAbstractPrintDialog_InputMethodEvent(QAbstractPrintDialog* self, QInputMethodEvent* param1);
 void QAbstractPrintDialog_OnInputMethodEvent(QAbstractPrintDialog* self, intptr_t slot);
 void QAbstractPrintDialog_QBaseInputMethodEvent(QAbstractPrintDialog* self, QInputMethodEvent* param1);
@@ -251,24 +233,12 @@ void QAbstractPrintDialog_QBaseChildEvent(QAbstractPrintDialog* self, QChildEven
 void QAbstractPrintDialog_CustomEvent(QAbstractPrintDialog* self, QEvent* event);
 void QAbstractPrintDialog_OnCustomEvent(QAbstractPrintDialog* self, intptr_t slot);
 void QAbstractPrintDialog_QBaseCustomEvent(QAbstractPrintDialog* self, QEvent* event);
-void QAbstractPrintDialog_ConnectNotify(QAbstractPrintDialog* self, QMetaMethod* signal);
+void QAbstractPrintDialog_ConnectNotify(QAbstractPrintDialog* self, const QMetaMethod* signal);
 void QAbstractPrintDialog_OnConnectNotify(QAbstractPrintDialog* self, intptr_t slot);
-void QAbstractPrintDialog_QBaseConnectNotify(QAbstractPrintDialog* self, QMetaMethod* signal);
-void QAbstractPrintDialog_DisconnectNotify(QAbstractPrintDialog* self, QMetaMethod* signal);
+void QAbstractPrintDialog_QBaseConnectNotify(QAbstractPrintDialog* self, const QMetaMethod* signal);
+void QAbstractPrintDialog_DisconnectNotify(QAbstractPrintDialog* self, const QMetaMethod* signal);
 void QAbstractPrintDialog_OnDisconnectNotify(QAbstractPrintDialog* self, intptr_t slot);
-void QAbstractPrintDialog_QBaseDisconnectNotify(QAbstractPrintDialog* self, QMetaMethod* signal);
-int QAbstractPrintDialog_Metric(const QAbstractPrintDialog* self, int param1);
-void QAbstractPrintDialog_OnMetric(const QAbstractPrintDialog* self, intptr_t slot);
-int QAbstractPrintDialog_QBaseMetric(const QAbstractPrintDialog* self, int param1);
-void QAbstractPrintDialog_InitPainter(const QAbstractPrintDialog* self, QPainter* painter);
-void QAbstractPrintDialog_OnInitPainter(const QAbstractPrintDialog* self, intptr_t slot);
-void QAbstractPrintDialog_QBaseInitPainter(const QAbstractPrintDialog* self, QPainter* painter);
-QPaintDevice* QAbstractPrintDialog_Redirected(const QAbstractPrintDialog* self, QPoint* offset);
-void QAbstractPrintDialog_OnRedirected(const QAbstractPrintDialog* self, intptr_t slot);
-QPaintDevice* QAbstractPrintDialog_QBaseRedirected(const QAbstractPrintDialog* self, QPoint* offset);
-QPainter* QAbstractPrintDialog_SharedPainter(const QAbstractPrintDialog* self);
-void QAbstractPrintDialog_OnSharedPainter(const QAbstractPrintDialog* self, intptr_t slot);
-QPainter* QAbstractPrintDialog_QBaseSharedPainter(const QAbstractPrintDialog* self);
+void QAbstractPrintDialog_QBaseDisconnectNotify(QAbstractPrintDialog* self, const QMetaMethod* signal);
 void QAbstractPrintDialog_AdjustPosition(QAbstractPrintDialog* self, QWidget* param1);
 void QAbstractPrintDialog_OnAdjustPosition(QAbstractPrintDialog* self, intptr_t slot);
 void QAbstractPrintDialog_QBaseAdjustPosition(QAbstractPrintDialog* self, QWidget* param1);
@@ -296,9 +266,9 @@ int QAbstractPrintDialog_QBaseSenderSignalIndex(const QAbstractPrintDialog* self
 int QAbstractPrintDialog_Receivers(const QAbstractPrintDialog* self, const char* signal);
 void QAbstractPrintDialog_OnReceivers(const QAbstractPrintDialog* self, intptr_t slot);
 int QAbstractPrintDialog_QBaseReceivers(const QAbstractPrintDialog* self, const char* signal);
-bool QAbstractPrintDialog_IsSignalConnected(const QAbstractPrintDialog* self, QMetaMethod* signal);
+bool QAbstractPrintDialog_IsSignalConnected(const QAbstractPrintDialog* self, const QMetaMethod* signal);
 void QAbstractPrintDialog_OnIsSignalConnected(const QAbstractPrintDialog* self, intptr_t slot);
-bool QAbstractPrintDialog_QBaseIsSignalConnected(const QAbstractPrintDialog* self, QMetaMethod* signal);
+bool QAbstractPrintDialog_QBaseIsSignalConnected(const QAbstractPrintDialog* self, const QMetaMethod* signal);
 void QAbstractPrintDialog_Delete(QAbstractPrintDialog* self);
 
 #ifdef __cplusplus

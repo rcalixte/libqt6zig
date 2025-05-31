@@ -1,23 +1,13 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
-#include <QChildEvent>
 #include <QDateTime>
-#include <QEvent>
 #include <QFileDevice>
 #include <QIODevice>
 #include <QIODeviceBase>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
-#include <QVariant>
 #include <qfiledevice.h>
 #include "libqfiledevice.h"
 #include "libqfiledevice.hxx"
@@ -122,7 +112,7 @@ QDateTime* QFileDevice_FileTime(const QFileDevice* self, int time) {
     return new QDateTime(self->fileTime(static_cast<QFileDevice::FileTime>(time)));
 }
 
-bool QFileDevice_SetFileTime(QFileDevice* self, QDateTime* newDate, int fileTime) {
+bool QFileDevice_SetFileTime(QFileDevice* self, const QDateTime* newDate, int fileTime) {
     return self->setFileTime(*newDate, static_cast<QFileDevice::FileTime>(fileTime));
 }
 
@@ -152,42 +142,6 @@ libqt_string QFileDevice_Tr3(const char* s, const char* c, int n) {
 
 unsigned char* QFileDevice_Map3(QFileDevice* self, long long offset, long long size, int flags) {
     return static_cast<unsigned char*>(self->map(static_cast<qint64>(offset), static_cast<qint64>(size), static_cast<QFileDevice::MemoryMapFlags>(flags)));
-}
-
-bool QFileDevice_Open(QFileDevice* self, int mode) {
-    return self->open(static_cast<QIODeviceBase::OpenMode>(mode));
-}
-
-bool QFileDevice_Reset(QFileDevice* self) {
-    return self->reset();
-}
-
-long long QFileDevice_BytesAvailable(const QFileDevice* self) {
-    return static_cast<long long>(self->bytesAvailable());
-}
-
-long long QFileDevice_BytesToWrite(const QFileDevice* self) {
-    return static_cast<long long>(self->bytesToWrite());
-}
-
-bool QFileDevice_CanReadLine(const QFileDevice* self) {
-    return self->canReadLine();
-}
-
-bool QFileDevice_WaitForReadyRead(QFileDevice* self, int msecs) {
-    return self->waitForReadyRead(static_cast<int>(msecs));
-}
-
-bool QFileDevice_WaitForBytesWritten(QFileDevice* self, int msecs) {
-    return self->waitForBytesWritten(static_cast<int>(msecs));
-}
-
-bool QFileDevice_Event(QFileDevice* self, QEvent* event) {
-    return self->event(event);
-}
-
-bool QFileDevice_EventFilter(QFileDevice* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
 }
 
 void QFileDevice_Delete(QFileDevice* self) {

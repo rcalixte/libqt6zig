@@ -11,19 +11,22 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QScrollArea so that we can call protected methods
-class VirtualQScrollArea : public QScrollArea {
+class VirtualQScrollArea final : public QScrollArea {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQScrollArea = true;
+
     // Virtual class public types (including callbacks)
-    using QScrollArea_Metacall_Callback = int (*)(QScrollArea*, QMetaObject::Call, int, void**);
-    using QScrollArea_SizeHint_Callback = QSize (*)();
+    using QScrollArea_Metacall_Callback = int (*)(QScrollArea*, int, int, void**);
+    using QScrollArea_SizeHint_Callback = QSize* (*)();
     using QScrollArea_FocusNextPrevChild_Callback = bool (*)(QScrollArea*, bool);
     using QScrollArea_Event_Callback = bool (*)(QScrollArea*, QEvent*);
     using QScrollArea_EventFilter_Callback = bool (*)(QScrollArea*, QObject*, QEvent*);
     using QScrollArea_ResizeEvent_Callback = void (*)(QScrollArea*, QResizeEvent*);
     using QScrollArea_ScrollContentsBy_Callback = void (*)(QScrollArea*, int, int);
-    using QScrollArea_ViewportSizeHint_Callback = QSize (*)();
-    using QScrollArea_MinimumSizeHint_Callback = QSize (*)();
+    using QScrollArea_ViewportSizeHint_Callback = QSize* (*)();
+    using QScrollArea_MinimumSizeHint_Callback = QSize* (*)();
     using QScrollArea_SetupViewport_Callback = void (*)(QScrollArea*, QWidget*);
     using QScrollArea_ViewportEvent_Callback = bool (*)(QScrollArea*, QEvent*);
     using QScrollArea_PaintEvent_Callback = void (*)(QScrollArea*, QPaintEvent*);
@@ -56,20 +59,20 @@ class VirtualQScrollArea : public QScrollArea {
     using QScrollArea_ActionEvent_Callback = void (*)(QScrollArea*, QActionEvent*);
     using QScrollArea_ShowEvent_Callback = void (*)(QScrollArea*, QShowEvent*);
     using QScrollArea_HideEvent_Callback = void (*)(QScrollArea*, QHideEvent*);
-    using QScrollArea_NativeEvent_Callback = bool (*)(QScrollArea*, const QByteArray&, void*, qintptr*);
-    using QScrollArea_Metric_Callback = int (*)(const QScrollArea*, QPaintDevice::PaintDeviceMetric);
+    using QScrollArea_NativeEvent_Callback = bool (*)(QScrollArea*, libqt_string, void*, intptr_t*);
+    using QScrollArea_Metric_Callback = int (*)(const QScrollArea*, int);
     using QScrollArea_InitPainter_Callback = void (*)(const QScrollArea*, QPainter*);
     using QScrollArea_Redirected_Callback = QPaintDevice* (*)(const QScrollArea*, QPoint*);
     using QScrollArea_SharedPainter_Callback = QPainter* (*)();
     using QScrollArea_InputMethodEvent_Callback = void (*)(QScrollArea*, QInputMethodEvent*);
-    using QScrollArea_InputMethodQuery_Callback = QVariant (*)(const QScrollArea*, Qt::InputMethodQuery);
+    using QScrollArea_InputMethodQuery_Callback = QVariant* (*)(const QScrollArea*, int);
     using QScrollArea_TimerEvent_Callback = void (*)(QScrollArea*, QTimerEvent*);
     using QScrollArea_ChildEvent_Callback = void (*)(QScrollArea*, QChildEvent*);
     using QScrollArea_CustomEvent_Callback = void (*)(QScrollArea*, QEvent*);
-    using QScrollArea_ConnectNotify_Callback = void (*)(QScrollArea*, const QMetaMethod&);
-    using QScrollArea_DisconnectNotify_Callback = void (*)(QScrollArea*, const QMetaMethod&);
+    using QScrollArea_ConnectNotify_Callback = void (*)(QScrollArea*, QMetaMethod*);
+    using QScrollArea_DisconnectNotify_Callback = void (*)(QScrollArea*, QMetaMethod*);
     using QScrollArea_SetViewportMargins_Callback = void (*)(QScrollArea*, int, int, int, int);
-    using QScrollArea_ViewportMargins_Callback = QMargins (*)();
+    using QScrollArea_ViewportMargins_Callback = QMargins* (*)();
     using QScrollArea_DrawFrame_Callback = void (*)(QScrollArea*, QPainter*);
     using QScrollArea_UpdateMicroFocus_Callback = void (*)();
     using QScrollArea_Create_Callback = void (*)();
@@ -79,7 +82,7 @@ class VirtualQScrollArea : public QScrollArea {
     using QScrollArea_Sender_Callback = QObject* (*)();
     using QScrollArea_SenderSignalIndex_Callback = int (*)();
     using QScrollArea_Receivers_Callback = int (*)(const QScrollArea*, const char*);
-    using QScrollArea_IsSignalConnected_Callback = bool (*)(const QScrollArea*, const QMetaMethod&);
+    using QScrollArea_IsSignalConnected_Callback = bool (*)(const QScrollArea*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -289,138 +292,138 @@ class VirtualQScrollArea : public QScrollArea {
     }
 
     // Callback setters
-    void setQScrollArea_Metacall_Callback(QScrollArea_Metacall_Callback cb) { qscrollarea_metacall_callback = cb; }
-    void setQScrollArea_SizeHint_Callback(QScrollArea_SizeHint_Callback cb) { qscrollarea_sizehint_callback = cb; }
-    void setQScrollArea_FocusNextPrevChild_Callback(QScrollArea_FocusNextPrevChild_Callback cb) { qscrollarea_focusnextprevchild_callback = cb; }
-    void setQScrollArea_Event_Callback(QScrollArea_Event_Callback cb) { qscrollarea_event_callback = cb; }
-    void setQScrollArea_EventFilter_Callback(QScrollArea_EventFilter_Callback cb) { qscrollarea_eventfilter_callback = cb; }
-    void setQScrollArea_ResizeEvent_Callback(QScrollArea_ResizeEvent_Callback cb) { qscrollarea_resizeevent_callback = cb; }
-    void setQScrollArea_ScrollContentsBy_Callback(QScrollArea_ScrollContentsBy_Callback cb) { qscrollarea_scrollcontentsby_callback = cb; }
-    void setQScrollArea_ViewportSizeHint_Callback(QScrollArea_ViewportSizeHint_Callback cb) { qscrollarea_viewportsizehint_callback = cb; }
-    void setQScrollArea_MinimumSizeHint_Callback(QScrollArea_MinimumSizeHint_Callback cb) { qscrollarea_minimumsizehint_callback = cb; }
-    void setQScrollArea_SetupViewport_Callback(QScrollArea_SetupViewport_Callback cb) { qscrollarea_setupviewport_callback = cb; }
-    void setQScrollArea_ViewportEvent_Callback(QScrollArea_ViewportEvent_Callback cb) { qscrollarea_viewportevent_callback = cb; }
-    void setQScrollArea_PaintEvent_Callback(QScrollArea_PaintEvent_Callback cb) { qscrollarea_paintevent_callback = cb; }
-    void setQScrollArea_MousePressEvent_Callback(QScrollArea_MousePressEvent_Callback cb) { qscrollarea_mousepressevent_callback = cb; }
-    void setQScrollArea_MouseReleaseEvent_Callback(QScrollArea_MouseReleaseEvent_Callback cb) { qscrollarea_mousereleaseevent_callback = cb; }
-    void setQScrollArea_MouseDoubleClickEvent_Callback(QScrollArea_MouseDoubleClickEvent_Callback cb) { qscrollarea_mousedoubleclickevent_callback = cb; }
-    void setQScrollArea_MouseMoveEvent_Callback(QScrollArea_MouseMoveEvent_Callback cb) { qscrollarea_mousemoveevent_callback = cb; }
-    void setQScrollArea_WheelEvent_Callback(QScrollArea_WheelEvent_Callback cb) { qscrollarea_wheelevent_callback = cb; }
-    void setQScrollArea_ContextMenuEvent_Callback(QScrollArea_ContextMenuEvent_Callback cb) { qscrollarea_contextmenuevent_callback = cb; }
-    void setQScrollArea_DragEnterEvent_Callback(QScrollArea_DragEnterEvent_Callback cb) { qscrollarea_dragenterevent_callback = cb; }
-    void setQScrollArea_DragMoveEvent_Callback(QScrollArea_DragMoveEvent_Callback cb) { qscrollarea_dragmoveevent_callback = cb; }
-    void setQScrollArea_DragLeaveEvent_Callback(QScrollArea_DragLeaveEvent_Callback cb) { qscrollarea_dragleaveevent_callback = cb; }
-    void setQScrollArea_DropEvent_Callback(QScrollArea_DropEvent_Callback cb) { qscrollarea_dropevent_callback = cb; }
-    void setQScrollArea_KeyPressEvent_Callback(QScrollArea_KeyPressEvent_Callback cb) { qscrollarea_keypressevent_callback = cb; }
-    void setQScrollArea_ChangeEvent_Callback(QScrollArea_ChangeEvent_Callback cb) { qscrollarea_changeevent_callback = cb; }
-    void setQScrollArea_InitStyleOption_Callback(QScrollArea_InitStyleOption_Callback cb) { qscrollarea_initstyleoption_callback = cb; }
-    void setQScrollArea_DevType_Callback(QScrollArea_DevType_Callback cb) { qscrollarea_devtype_callback = cb; }
-    void setQScrollArea_SetVisible_Callback(QScrollArea_SetVisible_Callback cb) { qscrollarea_setvisible_callback = cb; }
-    void setQScrollArea_HeightForWidth_Callback(QScrollArea_HeightForWidth_Callback cb) { qscrollarea_heightforwidth_callback = cb; }
-    void setQScrollArea_HasHeightForWidth_Callback(QScrollArea_HasHeightForWidth_Callback cb) { qscrollarea_hasheightforwidth_callback = cb; }
-    void setQScrollArea_PaintEngine_Callback(QScrollArea_PaintEngine_Callback cb) { qscrollarea_paintengine_callback = cb; }
-    void setQScrollArea_KeyReleaseEvent_Callback(QScrollArea_KeyReleaseEvent_Callback cb) { qscrollarea_keyreleaseevent_callback = cb; }
-    void setQScrollArea_FocusInEvent_Callback(QScrollArea_FocusInEvent_Callback cb) { qscrollarea_focusinevent_callback = cb; }
-    void setQScrollArea_FocusOutEvent_Callback(QScrollArea_FocusOutEvent_Callback cb) { qscrollarea_focusoutevent_callback = cb; }
-    void setQScrollArea_EnterEvent_Callback(QScrollArea_EnterEvent_Callback cb) { qscrollarea_enterevent_callback = cb; }
-    void setQScrollArea_LeaveEvent_Callback(QScrollArea_LeaveEvent_Callback cb) { qscrollarea_leaveevent_callback = cb; }
-    void setQScrollArea_MoveEvent_Callback(QScrollArea_MoveEvent_Callback cb) { qscrollarea_moveevent_callback = cb; }
-    void setQScrollArea_CloseEvent_Callback(QScrollArea_CloseEvent_Callback cb) { qscrollarea_closeevent_callback = cb; }
-    void setQScrollArea_TabletEvent_Callback(QScrollArea_TabletEvent_Callback cb) { qscrollarea_tabletevent_callback = cb; }
-    void setQScrollArea_ActionEvent_Callback(QScrollArea_ActionEvent_Callback cb) { qscrollarea_actionevent_callback = cb; }
-    void setQScrollArea_ShowEvent_Callback(QScrollArea_ShowEvent_Callback cb) { qscrollarea_showevent_callback = cb; }
-    void setQScrollArea_HideEvent_Callback(QScrollArea_HideEvent_Callback cb) { qscrollarea_hideevent_callback = cb; }
-    void setQScrollArea_NativeEvent_Callback(QScrollArea_NativeEvent_Callback cb) { qscrollarea_nativeevent_callback = cb; }
-    void setQScrollArea_Metric_Callback(QScrollArea_Metric_Callback cb) { qscrollarea_metric_callback = cb; }
-    void setQScrollArea_InitPainter_Callback(QScrollArea_InitPainter_Callback cb) { qscrollarea_initpainter_callback = cb; }
-    void setQScrollArea_Redirected_Callback(QScrollArea_Redirected_Callback cb) { qscrollarea_redirected_callback = cb; }
-    void setQScrollArea_SharedPainter_Callback(QScrollArea_SharedPainter_Callback cb) { qscrollarea_sharedpainter_callback = cb; }
-    void setQScrollArea_InputMethodEvent_Callback(QScrollArea_InputMethodEvent_Callback cb) { qscrollarea_inputmethodevent_callback = cb; }
-    void setQScrollArea_InputMethodQuery_Callback(QScrollArea_InputMethodQuery_Callback cb) { qscrollarea_inputmethodquery_callback = cb; }
-    void setQScrollArea_TimerEvent_Callback(QScrollArea_TimerEvent_Callback cb) { qscrollarea_timerevent_callback = cb; }
-    void setQScrollArea_ChildEvent_Callback(QScrollArea_ChildEvent_Callback cb) { qscrollarea_childevent_callback = cb; }
-    void setQScrollArea_CustomEvent_Callback(QScrollArea_CustomEvent_Callback cb) { qscrollarea_customevent_callback = cb; }
-    void setQScrollArea_ConnectNotify_Callback(QScrollArea_ConnectNotify_Callback cb) { qscrollarea_connectnotify_callback = cb; }
-    void setQScrollArea_DisconnectNotify_Callback(QScrollArea_DisconnectNotify_Callback cb) { qscrollarea_disconnectnotify_callback = cb; }
-    void setQScrollArea_SetViewportMargins_Callback(QScrollArea_SetViewportMargins_Callback cb) { qscrollarea_setviewportmargins_callback = cb; }
-    void setQScrollArea_ViewportMargins_Callback(QScrollArea_ViewportMargins_Callback cb) { qscrollarea_viewportmargins_callback = cb; }
-    void setQScrollArea_DrawFrame_Callback(QScrollArea_DrawFrame_Callback cb) { qscrollarea_drawframe_callback = cb; }
-    void setQScrollArea_UpdateMicroFocus_Callback(QScrollArea_UpdateMicroFocus_Callback cb) { qscrollarea_updatemicrofocus_callback = cb; }
-    void setQScrollArea_Create_Callback(QScrollArea_Create_Callback cb) { qscrollarea_create_callback = cb; }
-    void setQScrollArea_Destroy_Callback(QScrollArea_Destroy_Callback cb) { qscrollarea_destroy_callback = cb; }
-    void setQScrollArea_FocusNextChild_Callback(QScrollArea_FocusNextChild_Callback cb) { qscrollarea_focusnextchild_callback = cb; }
-    void setQScrollArea_FocusPreviousChild_Callback(QScrollArea_FocusPreviousChild_Callback cb) { qscrollarea_focuspreviouschild_callback = cb; }
-    void setQScrollArea_Sender_Callback(QScrollArea_Sender_Callback cb) { qscrollarea_sender_callback = cb; }
-    void setQScrollArea_SenderSignalIndex_Callback(QScrollArea_SenderSignalIndex_Callback cb) { qscrollarea_sendersignalindex_callback = cb; }
-    void setQScrollArea_Receivers_Callback(QScrollArea_Receivers_Callback cb) { qscrollarea_receivers_callback = cb; }
-    void setQScrollArea_IsSignalConnected_Callback(QScrollArea_IsSignalConnected_Callback cb) { qscrollarea_issignalconnected_callback = cb; }
+    inline void setQScrollArea_Metacall_Callback(QScrollArea_Metacall_Callback cb) { qscrollarea_metacall_callback = cb; }
+    inline void setQScrollArea_SizeHint_Callback(QScrollArea_SizeHint_Callback cb) { qscrollarea_sizehint_callback = cb; }
+    inline void setQScrollArea_FocusNextPrevChild_Callback(QScrollArea_FocusNextPrevChild_Callback cb) { qscrollarea_focusnextprevchild_callback = cb; }
+    inline void setQScrollArea_Event_Callback(QScrollArea_Event_Callback cb) { qscrollarea_event_callback = cb; }
+    inline void setQScrollArea_EventFilter_Callback(QScrollArea_EventFilter_Callback cb) { qscrollarea_eventfilter_callback = cb; }
+    inline void setQScrollArea_ResizeEvent_Callback(QScrollArea_ResizeEvent_Callback cb) { qscrollarea_resizeevent_callback = cb; }
+    inline void setQScrollArea_ScrollContentsBy_Callback(QScrollArea_ScrollContentsBy_Callback cb) { qscrollarea_scrollcontentsby_callback = cb; }
+    inline void setQScrollArea_ViewportSizeHint_Callback(QScrollArea_ViewportSizeHint_Callback cb) { qscrollarea_viewportsizehint_callback = cb; }
+    inline void setQScrollArea_MinimumSizeHint_Callback(QScrollArea_MinimumSizeHint_Callback cb) { qscrollarea_minimumsizehint_callback = cb; }
+    inline void setQScrollArea_SetupViewport_Callback(QScrollArea_SetupViewport_Callback cb) { qscrollarea_setupviewport_callback = cb; }
+    inline void setQScrollArea_ViewportEvent_Callback(QScrollArea_ViewportEvent_Callback cb) { qscrollarea_viewportevent_callback = cb; }
+    inline void setQScrollArea_PaintEvent_Callback(QScrollArea_PaintEvent_Callback cb) { qscrollarea_paintevent_callback = cb; }
+    inline void setQScrollArea_MousePressEvent_Callback(QScrollArea_MousePressEvent_Callback cb) { qscrollarea_mousepressevent_callback = cb; }
+    inline void setQScrollArea_MouseReleaseEvent_Callback(QScrollArea_MouseReleaseEvent_Callback cb) { qscrollarea_mousereleaseevent_callback = cb; }
+    inline void setQScrollArea_MouseDoubleClickEvent_Callback(QScrollArea_MouseDoubleClickEvent_Callback cb) { qscrollarea_mousedoubleclickevent_callback = cb; }
+    inline void setQScrollArea_MouseMoveEvent_Callback(QScrollArea_MouseMoveEvent_Callback cb) { qscrollarea_mousemoveevent_callback = cb; }
+    inline void setQScrollArea_WheelEvent_Callback(QScrollArea_WheelEvent_Callback cb) { qscrollarea_wheelevent_callback = cb; }
+    inline void setQScrollArea_ContextMenuEvent_Callback(QScrollArea_ContextMenuEvent_Callback cb) { qscrollarea_contextmenuevent_callback = cb; }
+    inline void setQScrollArea_DragEnterEvent_Callback(QScrollArea_DragEnterEvent_Callback cb) { qscrollarea_dragenterevent_callback = cb; }
+    inline void setQScrollArea_DragMoveEvent_Callback(QScrollArea_DragMoveEvent_Callback cb) { qscrollarea_dragmoveevent_callback = cb; }
+    inline void setQScrollArea_DragLeaveEvent_Callback(QScrollArea_DragLeaveEvent_Callback cb) { qscrollarea_dragleaveevent_callback = cb; }
+    inline void setQScrollArea_DropEvent_Callback(QScrollArea_DropEvent_Callback cb) { qscrollarea_dropevent_callback = cb; }
+    inline void setQScrollArea_KeyPressEvent_Callback(QScrollArea_KeyPressEvent_Callback cb) { qscrollarea_keypressevent_callback = cb; }
+    inline void setQScrollArea_ChangeEvent_Callback(QScrollArea_ChangeEvent_Callback cb) { qscrollarea_changeevent_callback = cb; }
+    inline void setQScrollArea_InitStyleOption_Callback(QScrollArea_InitStyleOption_Callback cb) { qscrollarea_initstyleoption_callback = cb; }
+    inline void setQScrollArea_DevType_Callback(QScrollArea_DevType_Callback cb) { qscrollarea_devtype_callback = cb; }
+    inline void setQScrollArea_SetVisible_Callback(QScrollArea_SetVisible_Callback cb) { qscrollarea_setvisible_callback = cb; }
+    inline void setQScrollArea_HeightForWidth_Callback(QScrollArea_HeightForWidth_Callback cb) { qscrollarea_heightforwidth_callback = cb; }
+    inline void setQScrollArea_HasHeightForWidth_Callback(QScrollArea_HasHeightForWidth_Callback cb) { qscrollarea_hasheightforwidth_callback = cb; }
+    inline void setQScrollArea_PaintEngine_Callback(QScrollArea_PaintEngine_Callback cb) { qscrollarea_paintengine_callback = cb; }
+    inline void setQScrollArea_KeyReleaseEvent_Callback(QScrollArea_KeyReleaseEvent_Callback cb) { qscrollarea_keyreleaseevent_callback = cb; }
+    inline void setQScrollArea_FocusInEvent_Callback(QScrollArea_FocusInEvent_Callback cb) { qscrollarea_focusinevent_callback = cb; }
+    inline void setQScrollArea_FocusOutEvent_Callback(QScrollArea_FocusOutEvent_Callback cb) { qscrollarea_focusoutevent_callback = cb; }
+    inline void setQScrollArea_EnterEvent_Callback(QScrollArea_EnterEvent_Callback cb) { qscrollarea_enterevent_callback = cb; }
+    inline void setQScrollArea_LeaveEvent_Callback(QScrollArea_LeaveEvent_Callback cb) { qscrollarea_leaveevent_callback = cb; }
+    inline void setQScrollArea_MoveEvent_Callback(QScrollArea_MoveEvent_Callback cb) { qscrollarea_moveevent_callback = cb; }
+    inline void setQScrollArea_CloseEvent_Callback(QScrollArea_CloseEvent_Callback cb) { qscrollarea_closeevent_callback = cb; }
+    inline void setQScrollArea_TabletEvent_Callback(QScrollArea_TabletEvent_Callback cb) { qscrollarea_tabletevent_callback = cb; }
+    inline void setQScrollArea_ActionEvent_Callback(QScrollArea_ActionEvent_Callback cb) { qscrollarea_actionevent_callback = cb; }
+    inline void setQScrollArea_ShowEvent_Callback(QScrollArea_ShowEvent_Callback cb) { qscrollarea_showevent_callback = cb; }
+    inline void setQScrollArea_HideEvent_Callback(QScrollArea_HideEvent_Callback cb) { qscrollarea_hideevent_callback = cb; }
+    inline void setQScrollArea_NativeEvent_Callback(QScrollArea_NativeEvent_Callback cb) { qscrollarea_nativeevent_callback = cb; }
+    inline void setQScrollArea_Metric_Callback(QScrollArea_Metric_Callback cb) { qscrollarea_metric_callback = cb; }
+    inline void setQScrollArea_InitPainter_Callback(QScrollArea_InitPainter_Callback cb) { qscrollarea_initpainter_callback = cb; }
+    inline void setQScrollArea_Redirected_Callback(QScrollArea_Redirected_Callback cb) { qscrollarea_redirected_callback = cb; }
+    inline void setQScrollArea_SharedPainter_Callback(QScrollArea_SharedPainter_Callback cb) { qscrollarea_sharedpainter_callback = cb; }
+    inline void setQScrollArea_InputMethodEvent_Callback(QScrollArea_InputMethodEvent_Callback cb) { qscrollarea_inputmethodevent_callback = cb; }
+    inline void setQScrollArea_InputMethodQuery_Callback(QScrollArea_InputMethodQuery_Callback cb) { qscrollarea_inputmethodquery_callback = cb; }
+    inline void setQScrollArea_TimerEvent_Callback(QScrollArea_TimerEvent_Callback cb) { qscrollarea_timerevent_callback = cb; }
+    inline void setQScrollArea_ChildEvent_Callback(QScrollArea_ChildEvent_Callback cb) { qscrollarea_childevent_callback = cb; }
+    inline void setQScrollArea_CustomEvent_Callback(QScrollArea_CustomEvent_Callback cb) { qscrollarea_customevent_callback = cb; }
+    inline void setQScrollArea_ConnectNotify_Callback(QScrollArea_ConnectNotify_Callback cb) { qscrollarea_connectnotify_callback = cb; }
+    inline void setQScrollArea_DisconnectNotify_Callback(QScrollArea_DisconnectNotify_Callback cb) { qscrollarea_disconnectnotify_callback = cb; }
+    inline void setQScrollArea_SetViewportMargins_Callback(QScrollArea_SetViewportMargins_Callback cb) { qscrollarea_setviewportmargins_callback = cb; }
+    inline void setQScrollArea_ViewportMargins_Callback(QScrollArea_ViewportMargins_Callback cb) { qscrollarea_viewportmargins_callback = cb; }
+    inline void setQScrollArea_DrawFrame_Callback(QScrollArea_DrawFrame_Callback cb) { qscrollarea_drawframe_callback = cb; }
+    inline void setQScrollArea_UpdateMicroFocus_Callback(QScrollArea_UpdateMicroFocus_Callback cb) { qscrollarea_updatemicrofocus_callback = cb; }
+    inline void setQScrollArea_Create_Callback(QScrollArea_Create_Callback cb) { qscrollarea_create_callback = cb; }
+    inline void setQScrollArea_Destroy_Callback(QScrollArea_Destroy_Callback cb) { qscrollarea_destroy_callback = cb; }
+    inline void setQScrollArea_FocusNextChild_Callback(QScrollArea_FocusNextChild_Callback cb) { qscrollarea_focusnextchild_callback = cb; }
+    inline void setQScrollArea_FocusPreviousChild_Callback(QScrollArea_FocusPreviousChild_Callback cb) { qscrollarea_focuspreviouschild_callback = cb; }
+    inline void setQScrollArea_Sender_Callback(QScrollArea_Sender_Callback cb) { qscrollarea_sender_callback = cb; }
+    inline void setQScrollArea_SenderSignalIndex_Callback(QScrollArea_SenderSignalIndex_Callback cb) { qscrollarea_sendersignalindex_callback = cb; }
+    inline void setQScrollArea_Receivers_Callback(QScrollArea_Receivers_Callback cb) { qscrollarea_receivers_callback = cb; }
+    inline void setQScrollArea_IsSignalConnected_Callback(QScrollArea_IsSignalConnected_Callback cb) { qscrollarea_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQScrollArea_Metacall_IsBase(bool value) const { qscrollarea_metacall_isbase = value; }
-    void setQScrollArea_SizeHint_IsBase(bool value) const { qscrollarea_sizehint_isbase = value; }
-    void setQScrollArea_FocusNextPrevChild_IsBase(bool value) const { qscrollarea_focusnextprevchild_isbase = value; }
-    void setQScrollArea_Event_IsBase(bool value) const { qscrollarea_event_isbase = value; }
-    void setQScrollArea_EventFilter_IsBase(bool value) const { qscrollarea_eventfilter_isbase = value; }
-    void setQScrollArea_ResizeEvent_IsBase(bool value) const { qscrollarea_resizeevent_isbase = value; }
-    void setQScrollArea_ScrollContentsBy_IsBase(bool value) const { qscrollarea_scrollcontentsby_isbase = value; }
-    void setQScrollArea_ViewportSizeHint_IsBase(bool value) const { qscrollarea_viewportsizehint_isbase = value; }
-    void setQScrollArea_MinimumSizeHint_IsBase(bool value) const { qscrollarea_minimumsizehint_isbase = value; }
-    void setQScrollArea_SetupViewport_IsBase(bool value) const { qscrollarea_setupviewport_isbase = value; }
-    void setQScrollArea_ViewportEvent_IsBase(bool value) const { qscrollarea_viewportevent_isbase = value; }
-    void setQScrollArea_PaintEvent_IsBase(bool value) const { qscrollarea_paintevent_isbase = value; }
-    void setQScrollArea_MousePressEvent_IsBase(bool value) const { qscrollarea_mousepressevent_isbase = value; }
-    void setQScrollArea_MouseReleaseEvent_IsBase(bool value) const { qscrollarea_mousereleaseevent_isbase = value; }
-    void setQScrollArea_MouseDoubleClickEvent_IsBase(bool value) const { qscrollarea_mousedoubleclickevent_isbase = value; }
-    void setQScrollArea_MouseMoveEvent_IsBase(bool value) const { qscrollarea_mousemoveevent_isbase = value; }
-    void setQScrollArea_WheelEvent_IsBase(bool value) const { qscrollarea_wheelevent_isbase = value; }
-    void setQScrollArea_ContextMenuEvent_IsBase(bool value) const { qscrollarea_contextmenuevent_isbase = value; }
-    void setQScrollArea_DragEnterEvent_IsBase(bool value) const { qscrollarea_dragenterevent_isbase = value; }
-    void setQScrollArea_DragMoveEvent_IsBase(bool value) const { qscrollarea_dragmoveevent_isbase = value; }
-    void setQScrollArea_DragLeaveEvent_IsBase(bool value) const { qscrollarea_dragleaveevent_isbase = value; }
-    void setQScrollArea_DropEvent_IsBase(bool value) const { qscrollarea_dropevent_isbase = value; }
-    void setQScrollArea_KeyPressEvent_IsBase(bool value) const { qscrollarea_keypressevent_isbase = value; }
-    void setQScrollArea_ChangeEvent_IsBase(bool value) const { qscrollarea_changeevent_isbase = value; }
-    void setQScrollArea_InitStyleOption_IsBase(bool value) const { qscrollarea_initstyleoption_isbase = value; }
-    void setQScrollArea_DevType_IsBase(bool value) const { qscrollarea_devtype_isbase = value; }
-    void setQScrollArea_SetVisible_IsBase(bool value) const { qscrollarea_setvisible_isbase = value; }
-    void setQScrollArea_HeightForWidth_IsBase(bool value) const { qscrollarea_heightforwidth_isbase = value; }
-    void setQScrollArea_HasHeightForWidth_IsBase(bool value) const { qscrollarea_hasheightforwidth_isbase = value; }
-    void setQScrollArea_PaintEngine_IsBase(bool value) const { qscrollarea_paintengine_isbase = value; }
-    void setQScrollArea_KeyReleaseEvent_IsBase(bool value) const { qscrollarea_keyreleaseevent_isbase = value; }
-    void setQScrollArea_FocusInEvent_IsBase(bool value) const { qscrollarea_focusinevent_isbase = value; }
-    void setQScrollArea_FocusOutEvent_IsBase(bool value) const { qscrollarea_focusoutevent_isbase = value; }
-    void setQScrollArea_EnterEvent_IsBase(bool value) const { qscrollarea_enterevent_isbase = value; }
-    void setQScrollArea_LeaveEvent_IsBase(bool value) const { qscrollarea_leaveevent_isbase = value; }
-    void setQScrollArea_MoveEvent_IsBase(bool value) const { qscrollarea_moveevent_isbase = value; }
-    void setQScrollArea_CloseEvent_IsBase(bool value) const { qscrollarea_closeevent_isbase = value; }
-    void setQScrollArea_TabletEvent_IsBase(bool value) const { qscrollarea_tabletevent_isbase = value; }
-    void setQScrollArea_ActionEvent_IsBase(bool value) const { qscrollarea_actionevent_isbase = value; }
-    void setQScrollArea_ShowEvent_IsBase(bool value) const { qscrollarea_showevent_isbase = value; }
-    void setQScrollArea_HideEvent_IsBase(bool value) const { qscrollarea_hideevent_isbase = value; }
-    void setQScrollArea_NativeEvent_IsBase(bool value) const { qscrollarea_nativeevent_isbase = value; }
-    void setQScrollArea_Metric_IsBase(bool value) const { qscrollarea_metric_isbase = value; }
-    void setQScrollArea_InitPainter_IsBase(bool value) const { qscrollarea_initpainter_isbase = value; }
-    void setQScrollArea_Redirected_IsBase(bool value) const { qscrollarea_redirected_isbase = value; }
-    void setQScrollArea_SharedPainter_IsBase(bool value) const { qscrollarea_sharedpainter_isbase = value; }
-    void setQScrollArea_InputMethodEvent_IsBase(bool value) const { qscrollarea_inputmethodevent_isbase = value; }
-    void setQScrollArea_InputMethodQuery_IsBase(bool value) const { qscrollarea_inputmethodquery_isbase = value; }
-    void setQScrollArea_TimerEvent_IsBase(bool value) const { qscrollarea_timerevent_isbase = value; }
-    void setQScrollArea_ChildEvent_IsBase(bool value) const { qscrollarea_childevent_isbase = value; }
-    void setQScrollArea_CustomEvent_IsBase(bool value) const { qscrollarea_customevent_isbase = value; }
-    void setQScrollArea_ConnectNotify_IsBase(bool value) const { qscrollarea_connectnotify_isbase = value; }
-    void setQScrollArea_DisconnectNotify_IsBase(bool value) const { qscrollarea_disconnectnotify_isbase = value; }
-    void setQScrollArea_SetViewportMargins_IsBase(bool value) const { qscrollarea_setviewportmargins_isbase = value; }
-    void setQScrollArea_ViewportMargins_IsBase(bool value) const { qscrollarea_viewportmargins_isbase = value; }
-    void setQScrollArea_DrawFrame_IsBase(bool value) const { qscrollarea_drawframe_isbase = value; }
-    void setQScrollArea_UpdateMicroFocus_IsBase(bool value) const { qscrollarea_updatemicrofocus_isbase = value; }
-    void setQScrollArea_Create_IsBase(bool value) const { qscrollarea_create_isbase = value; }
-    void setQScrollArea_Destroy_IsBase(bool value) const { qscrollarea_destroy_isbase = value; }
-    void setQScrollArea_FocusNextChild_IsBase(bool value) const { qscrollarea_focusnextchild_isbase = value; }
-    void setQScrollArea_FocusPreviousChild_IsBase(bool value) const { qscrollarea_focuspreviouschild_isbase = value; }
-    void setQScrollArea_Sender_IsBase(bool value) const { qscrollarea_sender_isbase = value; }
-    void setQScrollArea_SenderSignalIndex_IsBase(bool value) const { qscrollarea_sendersignalindex_isbase = value; }
-    void setQScrollArea_Receivers_IsBase(bool value) const { qscrollarea_receivers_isbase = value; }
-    void setQScrollArea_IsSignalConnected_IsBase(bool value) const { qscrollarea_issignalconnected_isbase = value; }
+    inline void setQScrollArea_Metacall_IsBase(bool value) const { qscrollarea_metacall_isbase = value; }
+    inline void setQScrollArea_SizeHint_IsBase(bool value) const { qscrollarea_sizehint_isbase = value; }
+    inline void setQScrollArea_FocusNextPrevChild_IsBase(bool value) const { qscrollarea_focusnextprevchild_isbase = value; }
+    inline void setQScrollArea_Event_IsBase(bool value) const { qscrollarea_event_isbase = value; }
+    inline void setQScrollArea_EventFilter_IsBase(bool value) const { qscrollarea_eventfilter_isbase = value; }
+    inline void setQScrollArea_ResizeEvent_IsBase(bool value) const { qscrollarea_resizeevent_isbase = value; }
+    inline void setQScrollArea_ScrollContentsBy_IsBase(bool value) const { qscrollarea_scrollcontentsby_isbase = value; }
+    inline void setQScrollArea_ViewportSizeHint_IsBase(bool value) const { qscrollarea_viewportsizehint_isbase = value; }
+    inline void setQScrollArea_MinimumSizeHint_IsBase(bool value) const { qscrollarea_minimumsizehint_isbase = value; }
+    inline void setQScrollArea_SetupViewport_IsBase(bool value) const { qscrollarea_setupviewport_isbase = value; }
+    inline void setQScrollArea_ViewportEvent_IsBase(bool value) const { qscrollarea_viewportevent_isbase = value; }
+    inline void setQScrollArea_PaintEvent_IsBase(bool value) const { qscrollarea_paintevent_isbase = value; }
+    inline void setQScrollArea_MousePressEvent_IsBase(bool value) const { qscrollarea_mousepressevent_isbase = value; }
+    inline void setQScrollArea_MouseReleaseEvent_IsBase(bool value) const { qscrollarea_mousereleaseevent_isbase = value; }
+    inline void setQScrollArea_MouseDoubleClickEvent_IsBase(bool value) const { qscrollarea_mousedoubleclickevent_isbase = value; }
+    inline void setQScrollArea_MouseMoveEvent_IsBase(bool value) const { qscrollarea_mousemoveevent_isbase = value; }
+    inline void setQScrollArea_WheelEvent_IsBase(bool value) const { qscrollarea_wheelevent_isbase = value; }
+    inline void setQScrollArea_ContextMenuEvent_IsBase(bool value) const { qscrollarea_contextmenuevent_isbase = value; }
+    inline void setQScrollArea_DragEnterEvent_IsBase(bool value) const { qscrollarea_dragenterevent_isbase = value; }
+    inline void setQScrollArea_DragMoveEvent_IsBase(bool value) const { qscrollarea_dragmoveevent_isbase = value; }
+    inline void setQScrollArea_DragLeaveEvent_IsBase(bool value) const { qscrollarea_dragleaveevent_isbase = value; }
+    inline void setQScrollArea_DropEvent_IsBase(bool value) const { qscrollarea_dropevent_isbase = value; }
+    inline void setQScrollArea_KeyPressEvent_IsBase(bool value) const { qscrollarea_keypressevent_isbase = value; }
+    inline void setQScrollArea_ChangeEvent_IsBase(bool value) const { qscrollarea_changeevent_isbase = value; }
+    inline void setQScrollArea_InitStyleOption_IsBase(bool value) const { qscrollarea_initstyleoption_isbase = value; }
+    inline void setQScrollArea_DevType_IsBase(bool value) const { qscrollarea_devtype_isbase = value; }
+    inline void setQScrollArea_SetVisible_IsBase(bool value) const { qscrollarea_setvisible_isbase = value; }
+    inline void setQScrollArea_HeightForWidth_IsBase(bool value) const { qscrollarea_heightforwidth_isbase = value; }
+    inline void setQScrollArea_HasHeightForWidth_IsBase(bool value) const { qscrollarea_hasheightforwidth_isbase = value; }
+    inline void setQScrollArea_PaintEngine_IsBase(bool value) const { qscrollarea_paintengine_isbase = value; }
+    inline void setQScrollArea_KeyReleaseEvent_IsBase(bool value) const { qscrollarea_keyreleaseevent_isbase = value; }
+    inline void setQScrollArea_FocusInEvent_IsBase(bool value) const { qscrollarea_focusinevent_isbase = value; }
+    inline void setQScrollArea_FocusOutEvent_IsBase(bool value) const { qscrollarea_focusoutevent_isbase = value; }
+    inline void setQScrollArea_EnterEvent_IsBase(bool value) const { qscrollarea_enterevent_isbase = value; }
+    inline void setQScrollArea_LeaveEvent_IsBase(bool value) const { qscrollarea_leaveevent_isbase = value; }
+    inline void setQScrollArea_MoveEvent_IsBase(bool value) const { qscrollarea_moveevent_isbase = value; }
+    inline void setQScrollArea_CloseEvent_IsBase(bool value) const { qscrollarea_closeevent_isbase = value; }
+    inline void setQScrollArea_TabletEvent_IsBase(bool value) const { qscrollarea_tabletevent_isbase = value; }
+    inline void setQScrollArea_ActionEvent_IsBase(bool value) const { qscrollarea_actionevent_isbase = value; }
+    inline void setQScrollArea_ShowEvent_IsBase(bool value) const { qscrollarea_showevent_isbase = value; }
+    inline void setQScrollArea_HideEvent_IsBase(bool value) const { qscrollarea_hideevent_isbase = value; }
+    inline void setQScrollArea_NativeEvent_IsBase(bool value) const { qscrollarea_nativeevent_isbase = value; }
+    inline void setQScrollArea_Metric_IsBase(bool value) const { qscrollarea_metric_isbase = value; }
+    inline void setQScrollArea_InitPainter_IsBase(bool value) const { qscrollarea_initpainter_isbase = value; }
+    inline void setQScrollArea_Redirected_IsBase(bool value) const { qscrollarea_redirected_isbase = value; }
+    inline void setQScrollArea_SharedPainter_IsBase(bool value) const { qscrollarea_sharedpainter_isbase = value; }
+    inline void setQScrollArea_InputMethodEvent_IsBase(bool value) const { qscrollarea_inputmethodevent_isbase = value; }
+    inline void setQScrollArea_InputMethodQuery_IsBase(bool value) const { qscrollarea_inputmethodquery_isbase = value; }
+    inline void setQScrollArea_TimerEvent_IsBase(bool value) const { qscrollarea_timerevent_isbase = value; }
+    inline void setQScrollArea_ChildEvent_IsBase(bool value) const { qscrollarea_childevent_isbase = value; }
+    inline void setQScrollArea_CustomEvent_IsBase(bool value) const { qscrollarea_customevent_isbase = value; }
+    inline void setQScrollArea_ConnectNotify_IsBase(bool value) const { qscrollarea_connectnotify_isbase = value; }
+    inline void setQScrollArea_DisconnectNotify_IsBase(bool value) const { qscrollarea_disconnectnotify_isbase = value; }
+    inline void setQScrollArea_SetViewportMargins_IsBase(bool value) const { qscrollarea_setviewportmargins_isbase = value; }
+    inline void setQScrollArea_ViewportMargins_IsBase(bool value) const { qscrollarea_viewportmargins_isbase = value; }
+    inline void setQScrollArea_DrawFrame_IsBase(bool value) const { qscrollarea_drawframe_isbase = value; }
+    inline void setQScrollArea_UpdateMicroFocus_IsBase(bool value) const { qscrollarea_updatemicrofocus_isbase = value; }
+    inline void setQScrollArea_Create_IsBase(bool value) const { qscrollarea_create_isbase = value; }
+    inline void setQScrollArea_Destroy_IsBase(bool value) const { qscrollarea_destroy_isbase = value; }
+    inline void setQScrollArea_FocusNextChild_IsBase(bool value) const { qscrollarea_focusnextchild_isbase = value; }
+    inline void setQScrollArea_FocusPreviousChild_IsBase(bool value) const { qscrollarea_focuspreviouschild_isbase = value; }
+    inline void setQScrollArea_Sender_IsBase(bool value) const { qscrollarea_sender_isbase = value; }
+    inline void setQScrollArea_SenderSignalIndex_IsBase(bool value) const { qscrollarea_sendersignalindex_isbase = value; }
+    inline void setQScrollArea_Receivers_IsBase(bool value) const { qscrollarea_receivers_isbase = value; }
+    inline void setQScrollArea_IsSignalConnected_IsBase(bool value) const { qscrollarea_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -428,7 +431,12 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_metacall_isbase = false;
             return QScrollArea::qt_metacall(param1, param2, param3);
         } else if (qscrollarea_metacall_callback != nullptr) {
-            return qscrollarea_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qscrollarea_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QScrollArea::qt_metacall(param1, param2, param3);
         }
@@ -440,7 +448,8 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_sizehint_isbase = false;
             return QScrollArea::sizeHint();
         } else if (qscrollarea_sizehint_callback != nullptr) {
-            return qscrollarea_sizehint_callback();
+            QSize* callback_ret = qscrollarea_sizehint_callback();
+            return *callback_ret;
         } else {
             return QScrollArea::sizeHint();
         }
@@ -452,7 +461,10 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_focusnextprevchild_isbase = false;
             return QScrollArea::focusNextPrevChild(next);
         } else if (qscrollarea_focusnextprevchild_callback != nullptr) {
-            return qscrollarea_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qscrollarea_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QScrollArea::focusNextPrevChild(next);
         }
@@ -464,7 +476,10 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_event_isbase = false;
             return QScrollArea::event(param1);
         } else if (qscrollarea_event_callback != nullptr) {
-            return qscrollarea_event_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            bool callback_ret = qscrollarea_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QScrollArea::event(param1);
         }
@@ -476,7 +491,11 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_eventfilter_isbase = false;
             return QScrollArea::eventFilter(param1, param2);
         } else if (qscrollarea_eventfilter_callback != nullptr) {
-            return qscrollarea_eventfilter_callback(this, param1, param2);
+            QObject* cbval1 = param1;
+            QEvent* cbval2 = param2;
+
+            bool callback_ret = qscrollarea_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QScrollArea::eventFilter(param1, param2);
         }
@@ -488,7 +507,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_resizeevent_isbase = false;
             QScrollArea::resizeEvent(param1);
         } else if (qscrollarea_resizeevent_callback != nullptr) {
-            qscrollarea_resizeevent_callback(this, param1);
+            QResizeEvent* cbval1 = param1;
+
+            qscrollarea_resizeevent_callback(this, cbval1);
         } else {
             QScrollArea::resizeEvent(param1);
         }
@@ -500,7 +521,10 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_scrollcontentsby_isbase = false;
             QScrollArea::scrollContentsBy(dx, dy);
         } else if (qscrollarea_scrollcontentsby_callback != nullptr) {
-            qscrollarea_scrollcontentsby_callback(this, dx, dy);
+            int cbval1 = dx;
+            int cbval2 = dy;
+
+            qscrollarea_scrollcontentsby_callback(this, cbval1, cbval2);
         } else {
             QScrollArea::scrollContentsBy(dx, dy);
         }
@@ -512,7 +536,8 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_viewportsizehint_isbase = false;
             return QScrollArea::viewportSizeHint();
         } else if (qscrollarea_viewportsizehint_callback != nullptr) {
-            return qscrollarea_viewportsizehint_callback();
+            QSize* callback_ret = qscrollarea_viewportsizehint_callback();
+            return *callback_ret;
         } else {
             return QScrollArea::viewportSizeHint();
         }
@@ -524,7 +549,8 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_minimumsizehint_isbase = false;
             return QScrollArea::minimumSizeHint();
         } else if (qscrollarea_minimumsizehint_callback != nullptr) {
-            return qscrollarea_minimumsizehint_callback();
+            QSize* callback_ret = qscrollarea_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QScrollArea::minimumSizeHint();
         }
@@ -536,7 +562,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_setupviewport_isbase = false;
             QScrollArea::setupViewport(viewport);
         } else if (qscrollarea_setupviewport_callback != nullptr) {
-            qscrollarea_setupviewport_callback(this, viewport);
+            QWidget* cbval1 = viewport;
+
+            qscrollarea_setupviewport_callback(this, cbval1);
         } else {
             QScrollArea::setupViewport(viewport);
         }
@@ -548,7 +576,10 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_viewportevent_isbase = false;
             return QScrollArea::viewportEvent(param1);
         } else if (qscrollarea_viewportevent_callback != nullptr) {
-            return qscrollarea_viewportevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            bool callback_ret = qscrollarea_viewportevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QScrollArea::viewportEvent(param1);
         }
@@ -560,7 +591,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_paintevent_isbase = false;
             QScrollArea::paintEvent(param1);
         } else if (qscrollarea_paintevent_callback != nullptr) {
-            qscrollarea_paintevent_callback(this, param1);
+            QPaintEvent* cbval1 = param1;
+
+            qscrollarea_paintevent_callback(this, cbval1);
         } else {
             QScrollArea::paintEvent(param1);
         }
@@ -572,7 +605,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_mousepressevent_isbase = false;
             QScrollArea::mousePressEvent(param1);
         } else if (qscrollarea_mousepressevent_callback != nullptr) {
-            qscrollarea_mousepressevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qscrollarea_mousepressevent_callback(this, cbval1);
         } else {
             QScrollArea::mousePressEvent(param1);
         }
@@ -584,7 +619,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_mousereleaseevent_isbase = false;
             QScrollArea::mouseReleaseEvent(param1);
         } else if (qscrollarea_mousereleaseevent_callback != nullptr) {
-            qscrollarea_mousereleaseevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qscrollarea_mousereleaseevent_callback(this, cbval1);
         } else {
             QScrollArea::mouseReleaseEvent(param1);
         }
@@ -596,7 +633,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_mousedoubleclickevent_isbase = false;
             QScrollArea::mouseDoubleClickEvent(param1);
         } else if (qscrollarea_mousedoubleclickevent_callback != nullptr) {
-            qscrollarea_mousedoubleclickevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qscrollarea_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QScrollArea::mouseDoubleClickEvent(param1);
         }
@@ -608,7 +647,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_mousemoveevent_isbase = false;
             QScrollArea::mouseMoveEvent(param1);
         } else if (qscrollarea_mousemoveevent_callback != nullptr) {
-            qscrollarea_mousemoveevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qscrollarea_mousemoveevent_callback(this, cbval1);
         } else {
             QScrollArea::mouseMoveEvent(param1);
         }
@@ -620,7 +661,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_wheelevent_isbase = false;
             QScrollArea::wheelEvent(param1);
         } else if (qscrollarea_wheelevent_callback != nullptr) {
-            qscrollarea_wheelevent_callback(this, param1);
+            QWheelEvent* cbval1 = param1;
+
+            qscrollarea_wheelevent_callback(this, cbval1);
         } else {
             QScrollArea::wheelEvent(param1);
         }
@@ -632,7 +675,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_contextmenuevent_isbase = false;
             QScrollArea::contextMenuEvent(param1);
         } else if (qscrollarea_contextmenuevent_callback != nullptr) {
-            qscrollarea_contextmenuevent_callback(this, param1);
+            QContextMenuEvent* cbval1 = param1;
+
+            qscrollarea_contextmenuevent_callback(this, cbval1);
         } else {
             QScrollArea::contextMenuEvent(param1);
         }
@@ -644,7 +689,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_dragenterevent_isbase = false;
             QScrollArea::dragEnterEvent(param1);
         } else if (qscrollarea_dragenterevent_callback != nullptr) {
-            qscrollarea_dragenterevent_callback(this, param1);
+            QDragEnterEvent* cbval1 = param1;
+
+            qscrollarea_dragenterevent_callback(this, cbval1);
         } else {
             QScrollArea::dragEnterEvent(param1);
         }
@@ -656,7 +703,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_dragmoveevent_isbase = false;
             QScrollArea::dragMoveEvent(param1);
         } else if (qscrollarea_dragmoveevent_callback != nullptr) {
-            qscrollarea_dragmoveevent_callback(this, param1);
+            QDragMoveEvent* cbval1 = param1;
+
+            qscrollarea_dragmoveevent_callback(this, cbval1);
         } else {
             QScrollArea::dragMoveEvent(param1);
         }
@@ -668,7 +717,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_dragleaveevent_isbase = false;
             QScrollArea::dragLeaveEvent(param1);
         } else if (qscrollarea_dragleaveevent_callback != nullptr) {
-            qscrollarea_dragleaveevent_callback(this, param1);
+            QDragLeaveEvent* cbval1 = param1;
+
+            qscrollarea_dragleaveevent_callback(this, cbval1);
         } else {
             QScrollArea::dragLeaveEvent(param1);
         }
@@ -680,7 +731,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_dropevent_isbase = false;
             QScrollArea::dropEvent(param1);
         } else if (qscrollarea_dropevent_callback != nullptr) {
-            qscrollarea_dropevent_callback(this, param1);
+            QDropEvent* cbval1 = param1;
+
+            qscrollarea_dropevent_callback(this, cbval1);
         } else {
             QScrollArea::dropEvent(param1);
         }
@@ -692,7 +745,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_keypressevent_isbase = false;
             QScrollArea::keyPressEvent(param1);
         } else if (qscrollarea_keypressevent_callback != nullptr) {
-            qscrollarea_keypressevent_callback(this, param1);
+            QKeyEvent* cbval1 = param1;
+
+            qscrollarea_keypressevent_callback(this, cbval1);
         } else {
             QScrollArea::keyPressEvent(param1);
         }
@@ -704,7 +759,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_changeevent_isbase = false;
             QScrollArea::changeEvent(param1);
         } else if (qscrollarea_changeevent_callback != nullptr) {
-            qscrollarea_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qscrollarea_changeevent_callback(this, cbval1);
         } else {
             QScrollArea::changeEvent(param1);
         }
@@ -716,7 +773,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_initstyleoption_isbase = false;
             QScrollArea::initStyleOption(option);
         } else if (qscrollarea_initstyleoption_callback != nullptr) {
-            qscrollarea_initstyleoption_callback(this, option);
+            QStyleOptionFrame* cbval1 = option;
+
+            qscrollarea_initstyleoption_callback(this, cbval1);
         } else {
             QScrollArea::initStyleOption(option);
         }
@@ -728,7 +787,8 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_devtype_isbase = false;
             return QScrollArea::devType();
         } else if (qscrollarea_devtype_callback != nullptr) {
-            return qscrollarea_devtype_callback();
+            int callback_ret = qscrollarea_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QScrollArea::devType();
         }
@@ -740,7 +800,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_setvisible_isbase = false;
             QScrollArea::setVisible(visible);
         } else if (qscrollarea_setvisible_callback != nullptr) {
-            qscrollarea_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qscrollarea_setvisible_callback(this, cbval1);
         } else {
             QScrollArea::setVisible(visible);
         }
@@ -752,7 +814,10 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_heightforwidth_isbase = false;
             return QScrollArea::heightForWidth(param1);
         } else if (qscrollarea_heightforwidth_callback != nullptr) {
-            return qscrollarea_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qscrollarea_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QScrollArea::heightForWidth(param1);
         }
@@ -764,7 +829,8 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_hasheightforwidth_isbase = false;
             return QScrollArea::hasHeightForWidth();
         } else if (qscrollarea_hasheightforwidth_callback != nullptr) {
-            return qscrollarea_hasheightforwidth_callback();
+            bool callback_ret = qscrollarea_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QScrollArea::hasHeightForWidth();
         }
@@ -776,7 +842,8 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_paintengine_isbase = false;
             return QScrollArea::paintEngine();
         } else if (qscrollarea_paintengine_callback != nullptr) {
-            return qscrollarea_paintengine_callback();
+            QPaintEngine* callback_ret = qscrollarea_paintengine_callback();
+            return callback_ret;
         } else {
             return QScrollArea::paintEngine();
         }
@@ -788,7 +855,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_keyreleaseevent_isbase = false;
             QScrollArea::keyReleaseEvent(event);
         } else if (qscrollarea_keyreleaseevent_callback != nullptr) {
-            qscrollarea_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qscrollarea_keyreleaseevent_callback(this, cbval1);
         } else {
             QScrollArea::keyReleaseEvent(event);
         }
@@ -800,7 +869,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_focusinevent_isbase = false;
             QScrollArea::focusInEvent(event);
         } else if (qscrollarea_focusinevent_callback != nullptr) {
-            qscrollarea_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qscrollarea_focusinevent_callback(this, cbval1);
         } else {
             QScrollArea::focusInEvent(event);
         }
@@ -812,7 +883,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_focusoutevent_isbase = false;
             QScrollArea::focusOutEvent(event);
         } else if (qscrollarea_focusoutevent_callback != nullptr) {
-            qscrollarea_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qscrollarea_focusoutevent_callback(this, cbval1);
         } else {
             QScrollArea::focusOutEvent(event);
         }
@@ -824,7 +897,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_enterevent_isbase = false;
             QScrollArea::enterEvent(event);
         } else if (qscrollarea_enterevent_callback != nullptr) {
-            qscrollarea_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qscrollarea_enterevent_callback(this, cbval1);
         } else {
             QScrollArea::enterEvent(event);
         }
@@ -836,7 +911,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_leaveevent_isbase = false;
             QScrollArea::leaveEvent(event);
         } else if (qscrollarea_leaveevent_callback != nullptr) {
-            qscrollarea_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qscrollarea_leaveevent_callback(this, cbval1);
         } else {
             QScrollArea::leaveEvent(event);
         }
@@ -848,7 +925,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_moveevent_isbase = false;
             QScrollArea::moveEvent(event);
         } else if (qscrollarea_moveevent_callback != nullptr) {
-            qscrollarea_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qscrollarea_moveevent_callback(this, cbval1);
         } else {
             QScrollArea::moveEvent(event);
         }
@@ -860,7 +939,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_closeevent_isbase = false;
             QScrollArea::closeEvent(event);
         } else if (qscrollarea_closeevent_callback != nullptr) {
-            qscrollarea_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qscrollarea_closeevent_callback(this, cbval1);
         } else {
             QScrollArea::closeEvent(event);
         }
@@ -872,7 +953,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_tabletevent_isbase = false;
             QScrollArea::tabletEvent(event);
         } else if (qscrollarea_tabletevent_callback != nullptr) {
-            qscrollarea_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qscrollarea_tabletevent_callback(this, cbval1);
         } else {
             QScrollArea::tabletEvent(event);
         }
@@ -884,7 +967,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_actionevent_isbase = false;
             QScrollArea::actionEvent(event);
         } else if (qscrollarea_actionevent_callback != nullptr) {
-            qscrollarea_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qscrollarea_actionevent_callback(this, cbval1);
         } else {
             QScrollArea::actionEvent(event);
         }
@@ -896,7 +981,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_showevent_isbase = false;
             QScrollArea::showEvent(event);
         } else if (qscrollarea_showevent_callback != nullptr) {
-            qscrollarea_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qscrollarea_showevent_callback(this, cbval1);
         } else {
             QScrollArea::showEvent(event);
         }
@@ -908,7 +995,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_hideevent_isbase = false;
             QScrollArea::hideEvent(event);
         } else if (qscrollarea_hideevent_callback != nullptr) {
-            qscrollarea_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qscrollarea_hideevent_callback(this, cbval1);
         } else {
             QScrollArea::hideEvent(event);
         }
@@ -920,7 +1009,19 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_nativeevent_isbase = false;
             return QScrollArea::nativeEvent(eventType, message, result);
         } else if (qscrollarea_nativeevent_callback != nullptr) {
-            return qscrollarea_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qscrollarea_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QScrollArea::nativeEvent(eventType, message, result);
         }
@@ -932,7 +1033,10 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_metric_isbase = false;
             return QScrollArea::metric(param1);
         } else if (qscrollarea_metric_callback != nullptr) {
-            return qscrollarea_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qscrollarea_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QScrollArea::metric(param1);
         }
@@ -944,7 +1048,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_initpainter_isbase = false;
             QScrollArea::initPainter(painter);
         } else if (qscrollarea_initpainter_callback != nullptr) {
-            qscrollarea_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qscrollarea_initpainter_callback(this, cbval1);
         } else {
             QScrollArea::initPainter(painter);
         }
@@ -956,7 +1062,10 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_redirected_isbase = false;
             return QScrollArea::redirected(offset);
         } else if (qscrollarea_redirected_callback != nullptr) {
-            return qscrollarea_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qscrollarea_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QScrollArea::redirected(offset);
         }
@@ -968,7 +1077,8 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_sharedpainter_isbase = false;
             return QScrollArea::sharedPainter();
         } else if (qscrollarea_sharedpainter_callback != nullptr) {
-            return qscrollarea_sharedpainter_callback();
+            QPainter* callback_ret = qscrollarea_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QScrollArea::sharedPainter();
         }
@@ -980,7 +1090,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_inputmethodevent_isbase = false;
             QScrollArea::inputMethodEvent(param1);
         } else if (qscrollarea_inputmethodevent_callback != nullptr) {
-            qscrollarea_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qscrollarea_inputmethodevent_callback(this, cbval1);
         } else {
             QScrollArea::inputMethodEvent(param1);
         }
@@ -992,7 +1104,10 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_inputmethodquery_isbase = false;
             return QScrollArea::inputMethodQuery(param1);
         } else if (qscrollarea_inputmethodquery_callback != nullptr) {
-            return qscrollarea_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qscrollarea_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QScrollArea::inputMethodQuery(param1);
         }
@@ -1004,7 +1119,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_timerevent_isbase = false;
             QScrollArea::timerEvent(event);
         } else if (qscrollarea_timerevent_callback != nullptr) {
-            qscrollarea_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qscrollarea_timerevent_callback(this, cbval1);
         } else {
             QScrollArea::timerEvent(event);
         }
@@ -1016,7 +1133,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_childevent_isbase = false;
             QScrollArea::childEvent(event);
         } else if (qscrollarea_childevent_callback != nullptr) {
-            qscrollarea_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qscrollarea_childevent_callback(this, cbval1);
         } else {
             QScrollArea::childEvent(event);
         }
@@ -1028,7 +1147,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_customevent_isbase = false;
             QScrollArea::customEvent(event);
         } else if (qscrollarea_customevent_callback != nullptr) {
-            qscrollarea_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qscrollarea_customevent_callback(this, cbval1);
         } else {
             QScrollArea::customEvent(event);
         }
@@ -1040,7 +1161,11 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_connectnotify_isbase = false;
             QScrollArea::connectNotify(signal);
         } else if (qscrollarea_connectnotify_callback != nullptr) {
-            qscrollarea_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qscrollarea_connectnotify_callback(this, cbval1);
         } else {
             QScrollArea::connectNotify(signal);
         }
@@ -1052,7 +1177,11 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_disconnectnotify_isbase = false;
             QScrollArea::disconnectNotify(signal);
         } else if (qscrollarea_disconnectnotify_callback != nullptr) {
-            qscrollarea_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qscrollarea_disconnectnotify_callback(this, cbval1);
         } else {
             QScrollArea::disconnectNotify(signal);
         }
@@ -1064,7 +1193,12 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_setviewportmargins_isbase = false;
             QScrollArea::setViewportMargins(left, top, right, bottom);
         } else if (qscrollarea_setviewportmargins_callback != nullptr) {
-            qscrollarea_setviewportmargins_callback(this, left, top, right, bottom);
+            int cbval1 = left;
+            int cbval2 = top;
+            int cbval3 = right;
+            int cbval4 = bottom;
+
+            qscrollarea_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QScrollArea::setViewportMargins(left, top, right, bottom);
         }
@@ -1076,7 +1210,8 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_viewportmargins_isbase = false;
             return QScrollArea::viewportMargins();
         } else if (qscrollarea_viewportmargins_callback != nullptr) {
-            return qscrollarea_viewportmargins_callback();
+            QMargins* callback_ret = qscrollarea_viewportmargins_callback();
+            return *callback_ret;
         } else {
             return QScrollArea::viewportMargins();
         }
@@ -1088,7 +1223,9 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_drawframe_isbase = false;
             QScrollArea::drawFrame(param1);
         } else if (qscrollarea_drawframe_callback != nullptr) {
-            qscrollarea_drawframe_callback(this, param1);
+            QPainter* cbval1 = param1;
+
+            qscrollarea_drawframe_callback(this, cbval1);
         } else {
             QScrollArea::drawFrame(param1);
         }
@@ -1136,7 +1273,8 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_focusnextchild_isbase = false;
             return QScrollArea::focusNextChild();
         } else if (qscrollarea_focusnextchild_callback != nullptr) {
-            return qscrollarea_focusnextchild_callback();
+            bool callback_ret = qscrollarea_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QScrollArea::focusNextChild();
         }
@@ -1148,7 +1286,8 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_focuspreviouschild_isbase = false;
             return QScrollArea::focusPreviousChild();
         } else if (qscrollarea_focuspreviouschild_callback != nullptr) {
-            return qscrollarea_focuspreviouschild_callback();
+            bool callback_ret = qscrollarea_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QScrollArea::focusPreviousChild();
         }
@@ -1160,7 +1299,8 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_sender_isbase = false;
             return QScrollArea::sender();
         } else if (qscrollarea_sender_callback != nullptr) {
-            return qscrollarea_sender_callback();
+            QObject* callback_ret = qscrollarea_sender_callback();
+            return callback_ret;
         } else {
             return QScrollArea::sender();
         }
@@ -1172,7 +1312,8 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_sendersignalindex_isbase = false;
             return QScrollArea::senderSignalIndex();
         } else if (qscrollarea_sendersignalindex_callback != nullptr) {
-            return qscrollarea_sendersignalindex_callback();
+            int callback_ret = qscrollarea_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QScrollArea::senderSignalIndex();
         }
@@ -1184,7 +1325,10 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_receivers_isbase = false;
             return QScrollArea::receivers(signal);
         } else if (qscrollarea_receivers_callback != nullptr) {
-            return qscrollarea_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qscrollarea_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QScrollArea::receivers(signal);
         }
@@ -1196,11 +1340,126 @@ class VirtualQScrollArea : public QScrollArea {
             qscrollarea_issignalconnected_isbase = false;
             return QScrollArea::isSignalConnected(signal);
         } else if (qscrollarea_issignalconnected_callback != nullptr) {
-            return qscrollarea_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qscrollarea_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QScrollArea::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QScrollArea_Event(QScrollArea* self, QEvent* param1);
+    friend bool QScrollArea_QBaseEvent(QScrollArea* self, QEvent* param1);
+    friend bool QScrollArea_EventFilter(QScrollArea* self, QObject* param1, QEvent* param2);
+    friend bool QScrollArea_QBaseEventFilter(QScrollArea* self, QObject* param1, QEvent* param2);
+    friend void QScrollArea_ResizeEvent(QScrollArea* self, QResizeEvent* param1);
+    friend void QScrollArea_QBaseResizeEvent(QScrollArea* self, QResizeEvent* param1);
+    friend void QScrollArea_ScrollContentsBy(QScrollArea* self, int dx, int dy);
+    friend void QScrollArea_QBaseScrollContentsBy(QScrollArea* self, int dx, int dy);
+    friend QSize* QScrollArea_ViewportSizeHint(const QScrollArea* self);
+    friend QSize* QScrollArea_QBaseViewportSizeHint(const QScrollArea* self);
+    friend bool QScrollArea_ViewportEvent(QScrollArea* self, QEvent* param1);
+    friend bool QScrollArea_QBaseViewportEvent(QScrollArea* self, QEvent* param1);
+    friend void QScrollArea_PaintEvent(QScrollArea* self, QPaintEvent* param1);
+    friend void QScrollArea_QBasePaintEvent(QScrollArea* self, QPaintEvent* param1);
+    friend void QScrollArea_MousePressEvent(QScrollArea* self, QMouseEvent* param1);
+    friend void QScrollArea_QBaseMousePressEvent(QScrollArea* self, QMouseEvent* param1);
+    friend void QScrollArea_MouseReleaseEvent(QScrollArea* self, QMouseEvent* param1);
+    friend void QScrollArea_QBaseMouseReleaseEvent(QScrollArea* self, QMouseEvent* param1);
+    friend void QScrollArea_MouseDoubleClickEvent(QScrollArea* self, QMouseEvent* param1);
+    friend void QScrollArea_QBaseMouseDoubleClickEvent(QScrollArea* self, QMouseEvent* param1);
+    friend void QScrollArea_MouseMoveEvent(QScrollArea* self, QMouseEvent* param1);
+    friend void QScrollArea_QBaseMouseMoveEvent(QScrollArea* self, QMouseEvent* param1);
+    friend void QScrollArea_WheelEvent(QScrollArea* self, QWheelEvent* param1);
+    friend void QScrollArea_QBaseWheelEvent(QScrollArea* self, QWheelEvent* param1);
+    friend void QScrollArea_ContextMenuEvent(QScrollArea* self, QContextMenuEvent* param1);
+    friend void QScrollArea_QBaseContextMenuEvent(QScrollArea* self, QContextMenuEvent* param1);
+    friend void QScrollArea_DragEnterEvent(QScrollArea* self, QDragEnterEvent* param1);
+    friend void QScrollArea_QBaseDragEnterEvent(QScrollArea* self, QDragEnterEvent* param1);
+    friend void QScrollArea_DragMoveEvent(QScrollArea* self, QDragMoveEvent* param1);
+    friend void QScrollArea_QBaseDragMoveEvent(QScrollArea* self, QDragMoveEvent* param1);
+    friend void QScrollArea_DragLeaveEvent(QScrollArea* self, QDragLeaveEvent* param1);
+    friend void QScrollArea_QBaseDragLeaveEvent(QScrollArea* self, QDragLeaveEvent* param1);
+    friend void QScrollArea_DropEvent(QScrollArea* self, QDropEvent* param1);
+    friend void QScrollArea_QBaseDropEvent(QScrollArea* self, QDropEvent* param1);
+    friend void QScrollArea_KeyPressEvent(QScrollArea* self, QKeyEvent* param1);
+    friend void QScrollArea_QBaseKeyPressEvent(QScrollArea* self, QKeyEvent* param1);
+    friend void QScrollArea_ChangeEvent(QScrollArea* self, QEvent* param1);
+    friend void QScrollArea_QBaseChangeEvent(QScrollArea* self, QEvent* param1);
+    friend void QScrollArea_InitStyleOption(const QScrollArea* self, QStyleOptionFrame* option);
+    friend void QScrollArea_QBaseInitStyleOption(const QScrollArea* self, QStyleOptionFrame* option);
+    friend void QScrollArea_KeyReleaseEvent(QScrollArea* self, QKeyEvent* event);
+    friend void QScrollArea_QBaseKeyReleaseEvent(QScrollArea* self, QKeyEvent* event);
+    friend void QScrollArea_FocusInEvent(QScrollArea* self, QFocusEvent* event);
+    friend void QScrollArea_QBaseFocusInEvent(QScrollArea* self, QFocusEvent* event);
+    friend void QScrollArea_FocusOutEvent(QScrollArea* self, QFocusEvent* event);
+    friend void QScrollArea_QBaseFocusOutEvent(QScrollArea* self, QFocusEvent* event);
+    friend void QScrollArea_EnterEvent(QScrollArea* self, QEnterEvent* event);
+    friend void QScrollArea_QBaseEnterEvent(QScrollArea* self, QEnterEvent* event);
+    friend void QScrollArea_LeaveEvent(QScrollArea* self, QEvent* event);
+    friend void QScrollArea_QBaseLeaveEvent(QScrollArea* self, QEvent* event);
+    friend void QScrollArea_MoveEvent(QScrollArea* self, QMoveEvent* event);
+    friend void QScrollArea_QBaseMoveEvent(QScrollArea* self, QMoveEvent* event);
+    friend void QScrollArea_CloseEvent(QScrollArea* self, QCloseEvent* event);
+    friend void QScrollArea_QBaseCloseEvent(QScrollArea* self, QCloseEvent* event);
+    friend void QScrollArea_TabletEvent(QScrollArea* self, QTabletEvent* event);
+    friend void QScrollArea_QBaseTabletEvent(QScrollArea* self, QTabletEvent* event);
+    friend void QScrollArea_ActionEvent(QScrollArea* self, QActionEvent* event);
+    friend void QScrollArea_QBaseActionEvent(QScrollArea* self, QActionEvent* event);
+    friend void QScrollArea_ShowEvent(QScrollArea* self, QShowEvent* event);
+    friend void QScrollArea_QBaseShowEvent(QScrollArea* self, QShowEvent* event);
+    friend void QScrollArea_HideEvent(QScrollArea* self, QHideEvent* event);
+    friend void QScrollArea_QBaseHideEvent(QScrollArea* self, QHideEvent* event);
+    friend bool QScrollArea_NativeEvent(QScrollArea* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QScrollArea_QBaseNativeEvent(QScrollArea* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QScrollArea_Metric(const QScrollArea* self, int param1);
+    friend int QScrollArea_QBaseMetric(const QScrollArea* self, int param1);
+    friend void QScrollArea_InitPainter(const QScrollArea* self, QPainter* painter);
+    friend void QScrollArea_QBaseInitPainter(const QScrollArea* self, QPainter* painter);
+    friend QPaintDevice* QScrollArea_Redirected(const QScrollArea* self, QPoint* offset);
+    friend QPaintDevice* QScrollArea_QBaseRedirected(const QScrollArea* self, QPoint* offset);
+    friend QPainter* QScrollArea_SharedPainter(const QScrollArea* self);
+    friend QPainter* QScrollArea_QBaseSharedPainter(const QScrollArea* self);
+    friend void QScrollArea_InputMethodEvent(QScrollArea* self, QInputMethodEvent* param1);
+    friend void QScrollArea_QBaseInputMethodEvent(QScrollArea* self, QInputMethodEvent* param1);
+    friend void QScrollArea_TimerEvent(QScrollArea* self, QTimerEvent* event);
+    friend void QScrollArea_QBaseTimerEvent(QScrollArea* self, QTimerEvent* event);
+    friend void QScrollArea_ChildEvent(QScrollArea* self, QChildEvent* event);
+    friend void QScrollArea_QBaseChildEvent(QScrollArea* self, QChildEvent* event);
+    friend void QScrollArea_CustomEvent(QScrollArea* self, QEvent* event);
+    friend void QScrollArea_QBaseCustomEvent(QScrollArea* self, QEvent* event);
+    friend void QScrollArea_ConnectNotify(QScrollArea* self, const QMetaMethod* signal);
+    friend void QScrollArea_QBaseConnectNotify(QScrollArea* self, const QMetaMethod* signal);
+    friend void QScrollArea_DisconnectNotify(QScrollArea* self, const QMetaMethod* signal);
+    friend void QScrollArea_QBaseDisconnectNotify(QScrollArea* self, const QMetaMethod* signal);
+    friend void QScrollArea_SetViewportMargins(QScrollArea* self, int left, int top, int right, int bottom);
+    friend void QScrollArea_QBaseSetViewportMargins(QScrollArea* self, int left, int top, int right, int bottom);
+    friend QMargins* QScrollArea_ViewportMargins(const QScrollArea* self);
+    friend QMargins* QScrollArea_QBaseViewportMargins(const QScrollArea* self);
+    friend void QScrollArea_DrawFrame(QScrollArea* self, QPainter* param1);
+    friend void QScrollArea_QBaseDrawFrame(QScrollArea* self, QPainter* param1);
+    friend void QScrollArea_UpdateMicroFocus(QScrollArea* self);
+    friend void QScrollArea_QBaseUpdateMicroFocus(QScrollArea* self);
+    friend void QScrollArea_Create(QScrollArea* self);
+    friend void QScrollArea_QBaseCreate(QScrollArea* self);
+    friend void QScrollArea_Destroy(QScrollArea* self);
+    friend void QScrollArea_QBaseDestroy(QScrollArea* self);
+    friend bool QScrollArea_FocusNextChild(QScrollArea* self);
+    friend bool QScrollArea_QBaseFocusNextChild(QScrollArea* self);
+    friend bool QScrollArea_FocusPreviousChild(QScrollArea* self);
+    friend bool QScrollArea_QBaseFocusPreviousChild(QScrollArea* self);
+    friend QObject* QScrollArea_Sender(const QScrollArea* self);
+    friend QObject* QScrollArea_QBaseSender(const QScrollArea* self);
+    friend int QScrollArea_SenderSignalIndex(const QScrollArea* self);
+    friend int QScrollArea_QBaseSenderSignalIndex(const QScrollArea* self);
+    friend int QScrollArea_Receivers(const QScrollArea* self, const char* signal);
+    friend int QScrollArea_QBaseReceivers(const QScrollArea* self, const char* signal);
+    friend bool QScrollArea_IsSignalConnected(const QScrollArea* self, const QMetaMethod* signal);
+    friend bool QScrollArea_QBaseIsSignalConnected(const QScrollArea* self, const QMetaMethod* signal);
 };
 
 #endif

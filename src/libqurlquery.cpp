@@ -14,28 +14,28 @@ QUrlQuery* QUrlQuery_new() {
     return new QUrlQuery();
 }
 
-QUrlQuery* QUrlQuery_new2(QUrl* url) {
+QUrlQuery* QUrlQuery_new2(const QUrl* url) {
     return new QUrlQuery(*url);
 }
 
-QUrlQuery* QUrlQuery_new3(libqt_string queryString) {
+QUrlQuery* QUrlQuery_new3(const libqt_string queryString) {
     QString queryString_QString = QString::fromUtf8(queryString.data, queryString.len);
     return new QUrlQuery(queryString_QString);
 }
 
-QUrlQuery* QUrlQuery_new4(QUrlQuery* other) {
+QUrlQuery* QUrlQuery_new4(const QUrlQuery* other) {
     return new QUrlQuery(*other);
 }
 
-void QUrlQuery_OperatorAssign(QUrlQuery* self, QUrlQuery* other) {
+void QUrlQuery_OperatorAssign(QUrlQuery* self, const QUrlQuery* other) {
     self->operator=(*other);
 }
 
-bool QUrlQuery_OperatorEqual(const QUrlQuery* self, QUrlQuery* other) {
+bool QUrlQuery_OperatorEqual(const QUrlQuery* self, const QUrlQuery* other) {
     return (*self == *other);
 }
 
-bool QUrlQuery_OperatorNotEqual(const QUrlQuery* self, QUrlQuery* other) {
+bool QUrlQuery_OperatorNotEqual(const QUrlQuery* self, const QUrlQuery* other) {
     return (*self != *other);
 }
 
@@ -67,7 +67,7 @@ libqt_string QUrlQuery_Query(const QUrlQuery* self) {
     return _str;
 }
 
-void QUrlQuery_SetQuery(QUrlQuery* self, libqt_string queryString) {
+void QUrlQuery_SetQuery(QUrlQuery* self, const libqt_string queryString) {
     QString queryString_QString = QString::fromUtf8(queryString.data, queryString.len);
     self->setQuery(queryString_QString);
 }
@@ -96,7 +96,7 @@ QChar* QUrlQuery_QueryPairDelimiter(const QUrlQuery* self) {
     return new QChar(self->queryPairDelimiter());
 }
 
-void QUrlQuery_SetQueryItems(QUrlQuery* self, libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ query) {
+void QUrlQuery_SetQueryItems(QUrlQuery* self, const libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ query) {
     QList<QPair<QString, QString>> query_QList;
     query_QList.reserve(query.len);
     libqt_pair /* tuple of libqt_string and libqt_string */* query_arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(query.data);
@@ -104,8 +104,10 @@ void QUrlQuery_SetQueryItems(QUrlQuery* self, libqt_list /* of libqt_pair  tuple
         QPair<QString, QString> query_arr_i_QPair;
         libqt_string* query_arr_i_first = static_cast<libqt_string*>(query_arr[i].first);
         libqt_string* query_arr_i_second = static_cast<libqt_string*>(query_arr[i].second);
-        query_arr_i_QPair.first = QString::fromUtf8(query_arr_i_first->data, query_arr_i_first->len);
-        query_arr_i_QPair.second = QString::fromUtf8(query_arr_i_second->data, query_arr_i_second->len);
+        QString query_arr_i_first_0_QString = QString::fromUtf8(query_arr_i_first[0].data, query_arr_i_first[0].len);
+        QString query_arr_i_second_0_QString = QString::fromUtf8(query_arr_i_second[0].data, query_arr_i_second[0].len);
+        query_arr_i_QPair.first = query_arr_i_first_0_QString;
+        query_arr_i_QPair.second = query_arr_i_second_0_QString;
         query_QList.push_back(query_arr_i_QPair);
     }
     self->setQueryItems(query_QList);
@@ -149,23 +151,23 @@ libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QUrlQuer
     return _out;
 }
 
-bool QUrlQuery_HasQueryItem(const QUrlQuery* self, libqt_string key) {
+bool QUrlQuery_HasQueryItem(const QUrlQuery* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return self->hasQueryItem(key_QString);
 }
 
-void QUrlQuery_AddQueryItem(QUrlQuery* self, libqt_string key, libqt_string value) {
+void QUrlQuery_AddQueryItem(QUrlQuery* self, const libqt_string key, const libqt_string value) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     QString value_QString = QString::fromUtf8(value.data, value.len);
     self->addQueryItem(key_QString, value_QString);
 }
 
-void QUrlQuery_RemoveQueryItem(QUrlQuery* self, libqt_string key) {
+void QUrlQuery_RemoveQueryItem(QUrlQuery* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     self->removeQueryItem(key_QString);
 }
 
-libqt_string QUrlQuery_QueryItemValue(const QUrlQuery* self, libqt_string key) {
+libqt_string QUrlQuery_QueryItemValue(const QUrlQuery* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     QString _ret = self->queryItemValue(key_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -178,7 +180,7 @@ libqt_string QUrlQuery_QueryItemValue(const QUrlQuery* self, libqt_string key) {
     return _str;
 }
 
-libqt_list /* of libqt_string */ QUrlQuery_AllQueryItemValues(const QUrlQuery* self, libqt_string key) {
+libqt_list /* of libqt_string */ QUrlQuery_AllQueryItemValues(const QUrlQuery* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     QStringList _ret = self->allQueryItemValues(key_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -200,7 +202,7 @@ libqt_list /* of libqt_string */ QUrlQuery_AllQueryItemValues(const QUrlQuery* s
     return _out;
 }
 
-void QUrlQuery_RemoveAllQueryItems(QUrlQuery* self, libqt_string key) {
+void QUrlQuery_RemoveAllQueryItems(QUrlQuery* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     self->removeAllQueryItems(key_QString);
 }
@@ -267,7 +269,7 @@ libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QUrlQuer
     return _out;
 }
 
-libqt_string QUrlQuery_QueryItemValue2(const QUrlQuery* self, libqt_string key, int encoding) {
+libqt_string QUrlQuery_QueryItemValue2(const QUrlQuery* self, const libqt_string key, int encoding) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     QString _ret = self->queryItemValue(key_QString, static_cast<QUrl::ComponentFormattingOptions>(encoding));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -280,7 +282,7 @@ libqt_string QUrlQuery_QueryItemValue2(const QUrlQuery* self, libqt_string key, 
     return _str;
 }
 
-libqt_list /* of libqt_string */ QUrlQuery_AllQueryItemValues2(const QUrlQuery* self, libqt_string key, int encoding) {
+libqt_list /* of libqt_string */ QUrlQuery_AllQueryItemValues2(const QUrlQuery* self, const libqt_string key, int encoding) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     QStringList _ret = self->allQueryItemValues(key_QString, static_cast<QUrl::ComponentFormattingOptions>(encoding));
     // Convert QList<> from C++ memory to manually-managed C memory

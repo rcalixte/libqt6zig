@@ -11,19 +11,22 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QStackedWidget so that we can call protected methods
-class VirtualQStackedWidget : public QStackedWidget {
+class VirtualQStackedWidget final : public QStackedWidget {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQStackedWidget = true;
+
     // Virtual class public types (including callbacks)
-    using QStackedWidget_Metacall_Callback = int (*)(QStackedWidget*, QMetaObject::Call, int, void**);
+    using QStackedWidget_Metacall_Callback = int (*)(QStackedWidget*, int, int, void**);
     using QStackedWidget_Event_Callback = bool (*)(QStackedWidget*, QEvent*);
-    using QStackedWidget_SizeHint_Callback = QSize (*)();
+    using QStackedWidget_SizeHint_Callback = QSize* (*)();
     using QStackedWidget_PaintEvent_Callback = void (*)(QStackedWidget*, QPaintEvent*);
     using QStackedWidget_ChangeEvent_Callback = void (*)(QStackedWidget*, QEvent*);
     using QStackedWidget_InitStyleOption_Callback = void (*)(const QStackedWidget*, QStyleOptionFrame*);
     using QStackedWidget_DevType_Callback = int (*)();
     using QStackedWidget_SetVisible_Callback = void (*)(QStackedWidget*, bool);
-    using QStackedWidget_MinimumSizeHint_Callback = QSize (*)();
+    using QStackedWidget_MinimumSizeHint_Callback = QSize* (*)();
     using QStackedWidget_HeightForWidth_Callback = int (*)(const QStackedWidget*, int);
     using QStackedWidget_HasHeightForWidth_Callback = bool (*)();
     using QStackedWidget_PaintEngine_Callback = QPaintEngine* (*)();
@@ -50,20 +53,20 @@ class VirtualQStackedWidget : public QStackedWidget {
     using QStackedWidget_DropEvent_Callback = void (*)(QStackedWidget*, QDropEvent*);
     using QStackedWidget_ShowEvent_Callback = void (*)(QStackedWidget*, QShowEvent*);
     using QStackedWidget_HideEvent_Callback = void (*)(QStackedWidget*, QHideEvent*);
-    using QStackedWidget_NativeEvent_Callback = bool (*)(QStackedWidget*, const QByteArray&, void*, qintptr*);
-    using QStackedWidget_Metric_Callback = int (*)(const QStackedWidget*, QPaintDevice::PaintDeviceMetric);
+    using QStackedWidget_NativeEvent_Callback = bool (*)(QStackedWidget*, libqt_string, void*, intptr_t*);
+    using QStackedWidget_Metric_Callback = int (*)(const QStackedWidget*, int);
     using QStackedWidget_InitPainter_Callback = void (*)(const QStackedWidget*, QPainter*);
     using QStackedWidget_Redirected_Callback = QPaintDevice* (*)(const QStackedWidget*, QPoint*);
     using QStackedWidget_SharedPainter_Callback = QPainter* (*)();
     using QStackedWidget_InputMethodEvent_Callback = void (*)(QStackedWidget*, QInputMethodEvent*);
-    using QStackedWidget_InputMethodQuery_Callback = QVariant (*)(const QStackedWidget*, Qt::InputMethodQuery);
+    using QStackedWidget_InputMethodQuery_Callback = QVariant* (*)(const QStackedWidget*, int);
     using QStackedWidget_FocusNextPrevChild_Callback = bool (*)(QStackedWidget*, bool);
     using QStackedWidget_EventFilter_Callback = bool (*)(QStackedWidget*, QObject*, QEvent*);
     using QStackedWidget_TimerEvent_Callback = void (*)(QStackedWidget*, QTimerEvent*);
     using QStackedWidget_ChildEvent_Callback = void (*)(QStackedWidget*, QChildEvent*);
     using QStackedWidget_CustomEvent_Callback = void (*)(QStackedWidget*, QEvent*);
-    using QStackedWidget_ConnectNotify_Callback = void (*)(QStackedWidget*, const QMetaMethod&);
-    using QStackedWidget_DisconnectNotify_Callback = void (*)(QStackedWidget*, const QMetaMethod&);
+    using QStackedWidget_ConnectNotify_Callback = void (*)(QStackedWidget*, QMetaMethod*);
+    using QStackedWidget_DisconnectNotify_Callback = void (*)(QStackedWidget*, QMetaMethod*);
     using QStackedWidget_DrawFrame_Callback = void (*)(QStackedWidget*, QPainter*);
     using QStackedWidget_UpdateMicroFocus_Callback = void (*)();
     using QStackedWidget_Create_Callback = void (*)();
@@ -73,7 +76,7 @@ class VirtualQStackedWidget : public QStackedWidget {
     using QStackedWidget_Sender_Callback = QObject* (*)();
     using QStackedWidget_SenderSignalIndex_Callback = int (*)();
     using QStackedWidget_Receivers_Callback = int (*)(const QStackedWidget*, const char*);
-    using QStackedWidget_IsSignalConnected_Callback = bool (*)(const QStackedWidget*, const QMetaMethod&);
+    using QStackedWidget_IsSignalConnected_Callback = bool (*)(const QStackedWidget*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -265,126 +268,126 @@ class VirtualQStackedWidget : public QStackedWidget {
     }
 
     // Callback setters
-    void setQStackedWidget_Metacall_Callback(QStackedWidget_Metacall_Callback cb) { qstackedwidget_metacall_callback = cb; }
-    void setQStackedWidget_Event_Callback(QStackedWidget_Event_Callback cb) { qstackedwidget_event_callback = cb; }
-    void setQStackedWidget_SizeHint_Callback(QStackedWidget_SizeHint_Callback cb) { qstackedwidget_sizehint_callback = cb; }
-    void setQStackedWidget_PaintEvent_Callback(QStackedWidget_PaintEvent_Callback cb) { qstackedwidget_paintevent_callback = cb; }
-    void setQStackedWidget_ChangeEvent_Callback(QStackedWidget_ChangeEvent_Callback cb) { qstackedwidget_changeevent_callback = cb; }
-    void setQStackedWidget_InitStyleOption_Callback(QStackedWidget_InitStyleOption_Callback cb) { qstackedwidget_initstyleoption_callback = cb; }
-    void setQStackedWidget_DevType_Callback(QStackedWidget_DevType_Callback cb) { qstackedwidget_devtype_callback = cb; }
-    void setQStackedWidget_SetVisible_Callback(QStackedWidget_SetVisible_Callback cb) { qstackedwidget_setvisible_callback = cb; }
-    void setQStackedWidget_MinimumSizeHint_Callback(QStackedWidget_MinimumSizeHint_Callback cb) { qstackedwidget_minimumsizehint_callback = cb; }
-    void setQStackedWidget_HeightForWidth_Callback(QStackedWidget_HeightForWidth_Callback cb) { qstackedwidget_heightforwidth_callback = cb; }
-    void setQStackedWidget_HasHeightForWidth_Callback(QStackedWidget_HasHeightForWidth_Callback cb) { qstackedwidget_hasheightforwidth_callback = cb; }
-    void setQStackedWidget_PaintEngine_Callback(QStackedWidget_PaintEngine_Callback cb) { qstackedwidget_paintengine_callback = cb; }
-    void setQStackedWidget_MousePressEvent_Callback(QStackedWidget_MousePressEvent_Callback cb) { qstackedwidget_mousepressevent_callback = cb; }
-    void setQStackedWidget_MouseReleaseEvent_Callback(QStackedWidget_MouseReleaseEvent_Callback cb) { qstackedwidget_mousereleaseevent_callback = cb; }
-    void setQStackedWidget_MouseDoubleClickEvent_Callback(QStackedWidget_MouseDoubleClickEvent_Callback cb) { qstackedwidget_mousedoubleclickevent_callback = cb; }
-    void setQStackedWidget_MouseMoveEvent_Callback(QStackedWidget_MouseMoveEvent_Callback cb) { qstackedwidget_mousemoveevent_callback = cb; }
-    void setQStackedWidget_WheelEvent_Callback(QStackedWidget_WheelEvent_Callback cb) { qstackedwidget_wheelevent_callback = cb; }
-    void setQStackedWidget_KeyPressEvent_Callback(QStackedWidget_KeyPressEvent_Callback cb) { qstackedwidget_keypressevent_callback = cb; }
-    void setQStackedWidget_KeyReleaseEvent_Callback(QStackedWidget_KeyReleaseEvent_Callback cb) { qstackedwidget_keyreleaseevent_callback = cb; }
-    void setQStackedWidget_FocusInEvent_Callback(QStackedWidget_FocusInEvent_Callback cb) { qstackedwidget_focusinevent_callback = cb; }
-    void setQStackedWidget_FocusOutEvent_Callback(QStackedWidget_FocusOutEvent_Callback cb) { qstackedwidget_focusoutevent_callback = cb; }
-    void setQStackedWidget_EnterEvent_Callback(QStackedWidget_EnterEvent_Callback cb) { qstackedwidget_enterevent_callback = cb; }
-    void setQStackedWidget_LeaveEvent_Callback(QStackedWidget_LeaveEvent_Callback cb) { qstackedwidget_leaveevent_callback = cb; }
-    void setQStackedWidget_MoveEvent_Callback(QStackedWidget_MoveEvent_Callback cb) { qstackedwidget_moveevent_callback = cb; }
-    void setQStackedWidget_ResizeEvent_Callback(QStackedWidget_ResizeEvent_Callback cb) { qstackedwidget_resizeevent_callback = cb; }
-    void setQStackedWidget_CloseEvent_Callback(QStackedWidget_CloseEvent_Callback cb) { qstackedwidget_closeevent_callback = cb; }
-    void setQStackedWidget_ContextMenuEvent_Callback(QStackedWidget_ContextMenuEvent_Callback cb) { qstackedwidget_contextmenuevent_callback = cb; }
-    void setQStackedWidget_TabletEvent_Callback(QStackedWidget_TabletEvent_Callback cb) { qstackedwidget_tabletevent_callback = cb; }
-    void setQStackedWidget_ActionEvent_Callback(QStackedWidget_ActionEvent_Callback cb) { qstackedwidget_actionevent_callback = cb; }
-    void setQStackedWidget_DragEnterEvent_Callback(QStackedWidget_DragEnterEvent_Callback cb) { qstackedwidget_dragenterevent_callback = cb; }
-    void setQStackedWidget_DragMoveEvent_Callback(QStackedWidget_DragMoveEvent_Callback cb) { qstackedwidget_dragmoveevent_callback = cb; }
-    void setQStackedWidget_DragLeaveEvent_Callback(QStackedWidget_DragLeaveEvent_Callback cb) { qstackedwidget_dragleaveevent_callback = cb; }
-    void setQStackedWidget_DropEvent_Callback(QStackedWidget_DropEvent_Callback cb) { qstackedwidget_dropevent_callback = cb; }
-    void setQStackedWidget_ShowEvent_Callback(QStackedWidget_ShowEvent_Callback cb) { qstackedwidget_showevent_callback = cb; }
-    void setQStackedWidget_HideEvent_Callback(QStackedWidget_HideEvent_Callback cb) { qstackedwidget_hideevent_callback = cb; }
-    void setQStackedWidget_NativeEvent_Callback(QStackedWidget_NativeEvent_Callback cb) { qstackedwidget_nativeevent_callback = cb; }
-    void setQStackedWidget_Metric_Callback(QStackedWidget_Metric_Callback cb) { qstackedwidget_metric_callback = cb; }
-    void setQStackedWidget_InitPainter_Callback(QStackedWidget_InitPainter_Callback cb) { qstackedwidget_initpainter_callback = cb; }
-    void setQStackedWidget_Redirected_Callback(QStackedWidget_Redirected_Callback cb) { qstackedwidget_redirected_callback = cb; }
-    void setQStackedWidget_SharedPainter_Callback(QStackedWidget_SharedPainter_Callback cb) { qstackedwidget_sharedpainter_callback = cb; }
-    void setQStackedWidget_InputMethodEvent_Callback(QStackedWidget_InputMethodEvent_Callback cb) { qstackedwidget_inputmethodevent_callback = cb; }
-    void setQStackedWidget_InputMethodQuery_Callback(QStackedWidget_InputMethodQuery_Callback cb) { qstackedwidget_inputmethodquery_callback = cb; }
-    void setQStackedWidget_FocusNextPrevChild_Callback(QStackedWidget_FocusNextPrevChild_Callback cb) { qstackedwidget_focusnextprevchild_callback = cb; }
-    void setQStackedWidget_EventFilter_Callback(QStackedWidget_EventFilter_Callback cb) { qstackedwidget_eventfilter_callback = cb; }
-    void setQStackedWidget_TimerEvent_Callback(QStackedWidget_TimerEvent_Callback cb) { qstackedwidget_timerevent_callback = cb; }
-    void setQStackedWidget_ChildEvent_Callback(QStackedWidget_ChildEvent_Callback cb) { qstackedwidget_childevent_callback = cb; }
-    void setQStackedWidget_CustomEvent_Callback(QStackedWidget_CustomEvent_Callback cb) { qstackedwidget_customevent_callback = cb; }
-    void setQStackedWidget_ConnectNotify_Callback(QStackedWidget_ConnectNotify_Callback cb) { qstackedwidget_connectnotify_callback = cb; }
-    void setQStackedWidget_DisconnectNotify_Callback(QStackedWidget_DisconnectNotify_Callback cb) { qstackedwidget_disconnectnotify_callback = cb; }
-    void setQStackedWidget_DrawFrame_Callback(QStackedWidget_DrawFrame_Callback cb) { qstackedwidget_drawframe_callback = cb; }
-    void setQStackedWidget_UpdateMicroFocus_Callback(QStackedWidget_UpdateMicroFocus_Callback cb) { qstackedwidget_updatemicrofocus_callback = cb; }
-    void setQStackedWidget_Create_Callback(QStackedWidget_Create_Callback cb) { qstackedwidget_create_callback = cb; }
-    void setQStackedWidget_Destroy_Callback(QStackedWidget_Destroy_Callback cb) { qstackedwidget_destroy_callback = cb; }
-    void setQStackedWidget_FocusNextChild_Callback(QStackedWidget_FocusNextChild_Callback cb) { qstackedwidget_focusnextchild_callback = cb; }
-    void setQStackedWidget_FocusPreviousChild_Callback(QStackedWidget_FocusPreviousChild_Callback cb) { qstackedwidget_focuspreviouschild_callback = cb; }
-    void setQStackedWidget_Sender_Callback(QStackedWidget_Sender_Callback cb) { qstackedwidget_sender_callback = cb; }
-    void setQStackedWidget_SenderSignalIndex_Callback(QStackedWidget_SenderSignalIndex_Callback cb) { qstackedwidget_sendersignalindex_callback = cb; }
-    void setQStackedWidget_Receivers_Callback(QStackedWidget_Receivers_Callback cb) { qstackedwidget_receivers_callback = cb; }
-    void setQStackedWidget_IsSignalConnected_Callback(QStackedWidget_IsSignalConnected_Callback cb) { qstackedwidget_issignalconnected_callback = cb; }
+    inline void setQStackedWidget_Metacall_Callback(QStackedWidget_Metacall_Callback cb) { qstackedwidget_metacall_callback = cb; }
+    inline void setQStackedWidget_Event_Callback(QStackedWidget_Event_Callback cb) { qstackedwidget_event_callback = cb; }
+    inline void setQStackedWidget_SizeHint_Callback(QStackedWidget_SizeHint_Callback cb) { qstackedwidget_sizehint_callback = cb; }
+    inline void setQStackedWidget_PaintEvent_Callback(QStackedWidget_PaintEvent_Callback cb) { qstackedwidget_paintevent_callback = cb; }
+    inline void setQStackedWidget_ChangeEvent_Callback(QStackedWidget_ChangeEvent_Callback cb) { qstackedwidget_changeevent_callback = cb; }
+    inline void setQStackedWidget_InitStyleOption_Callback(QStackedWidget_InitStyleOption_Callback cb) { qstackedwidget_initstyleoption_callback = cb; }
+    inline void setQStackedWidget_DevType_Callback(QStackedWidget_DevType_Callback cb) { qstackedwidget_devtype_callback = cb; }
+    inline void setQStackedWidget_SetVisible_Callback(QStackedWidget_SetVisible_Callback cb) { qstackedwidget_setvisible_callback = cb; }
+    inline void setQStackedWidget_MinimumSizeHint_Callback(QStackedWidget_MinimumSizeHint_Callback cb) { qstackedwidget_minimumsizehint_callback = cb; }
+    inline void setQStackedWidget_HeightForWidth_Callback(QStackedWidget_HeightForWidth_Callback cb) { qstackedwidget_heightforwidth_callback = cb; }
+    inline void setQStackedWidget_HasHeightForWidth_Callback(QStackedWidget_HasHeightForWidth_Callback cb) { qstackedwidget_hasheightforwidth_callback = cb; }
+    inline void setQStackedWidget_PaintEngine_Callback(QStackedWidget_PaintEngine_Callback cb) { qstackedwidget_paintengine_callback = cb; }
+    inline void setQStackedWidget_MousePressEvent_Callback(QStackedWidget_MousePressEvent_Callback cb) { qstackedwidget_mousepressevent_callback = cb; }
+    inline void setQStackedWidget_MouseReleaseEvent_Callback(QStackedWidget_MouseReleaseEvent_Callback cb) { qstackedwidget_mousereleaseevent_callback = cb; }
+    inline void setQStackedWidget_MouseDoubleClickEvent_Callback(QStackedWidget_MouseDoubleClickEvent_Callback cb) { qstackedwidget_mousedoubleclickevent_callback = cb; }
+    inline void setQStackedWidget_MouseMoveEvent_Callback(QStackedWidget_MouseMoveEvent_Callback cb) { qstackedwidget_mousemoveevent_callback = cb; }
+    inline void setQStackedWidget_WheelEvent_Callback(QStackedWidget_WheelEvent_Callback cb) { qstackedwidget_wheelevent_callback = cb; }
+    inline void setQStackedWidget_KeyPressEvent_Callback(QStackedWidget_KeyPressEvent_Callback cb) { qstackedwidget_keypressevent_callback = cb; }
+    inline void setQStackedWidget_KeyReleaseEvent_Callback(QStackedWidget_KeyReleaseEvent_Callback cb) { qstackedwidget_keyreleaseevent_callback = cb; }
+    inline void setQStackedWidget_FocusInEvent_Callback(QStackedWidget_FocusInEvent_Callback cb) { qstackedwidget_focusinevent_callback = cb; }
+    inline void setQStackedWidget_FocusOutEvent_Callback(QStackedWidget_FocusOutEvent_Callback cb) { qstackedwidget_focusoutevent_callback = cb; }
+    inline void setQStackedWidget_EnterEvent_Callback(QStackedWidget_EnterEvent_Callback cb) { qstackedwidget_enterevent_callback = cb; }
+    inline void setQStackedWidget_LeaveEvent_Callback(QStackedWidget_LeaveEvent_Callback cb) { qstackedwidget_leaveevent_callback = cb; }
+    inline void setQStackedWidget_MoveEvent_Callback(QStackedWidget_MoveEvent_Callback cb) { qstackedwidget_moveevent_callback = cb; }
+    inline void setQStackedWidget_ResizeEvent_Callback(QStackedWidget_ResizeEvent_Callback cb) { qstackedwidget_resizeevent_callback = cb; }
+    inline void setQStackedWidget_CloseEvent_Callback(QStackedWidget_CloseEvent_Callback cb) { qstackedwidget_closeevent_callback = cb; }
+    inline void setQStackedWidget_ContextMenuEvent_Callback(QStackedWidget_ContextMenuEvent_Callback cb) { qstackedwidget_contextmenuevent_callback = cb; }
+    inline void setQStackedWidget_TabletEvent_Callback(QStackedWidget_TabletEvent_Callback cb) { qstackedwidget_tabletevent_callback = cb; }
+    inline void setQStackedWidget_ActionEvent_Callback(QStackedWidget_ActionEvent_Callback cb) { qstackedwidget_actionevent_callback = cb; }
+    inline void setQStackedWidget_DragEnterEvent_Callback(QStackedWidget_DragEnterEvent_Callback cb) { qstackedwidget_dragenterevent_callback = cb; }
+    inline void setQStackedWidget_DragMoveEvent_Callback(QStackedWidget_DragMoveEvent_Callback cb) { qstackedwidget_dragmoveevent_callback = cb; }
+    inline void setQStackedWidget_DragLeaveEvent_Callback(QStackedWidget_DragLeaveEvent_Callback cb) { qstackedwidget_dragleaveevent_callback = cb; }
+    inline void setQStackedWidget_DropEvent_Callback(QStackedWidget_DropEvent_Callback cb) { qstackedwidget_dropevent_callback = cb; }
+    inline void setQStackedWidget_ShowEvent_Callback(QStackedWidget_ShowEvent_Callback cb) { qstackedwidget_showevent_callback = cb; }
+    inline void setQStackedWidget_HideEvent_Callback(QStackedWidget_HideEvent_Callback cb) { qstackedwidget_hideevent_callback = cb; }
+    inline void setQStackedWidget_NativeEvent_Callback(QStackedWidget_NativeEvent_Callback cb) { qstackedwidget_nativeevent_callback = cb; }
+    inline void setQStackedWidget_Metric_Callback(QStackedWidget_Metric_Callback cb) { qstackedwidget_metric_callback = cb; }
+    inline void setQStackedWidget_InitPainter_Callback(QStackedWidget_InitPainter_Callback cb) { qstackedwidget_initpainter_callback = cb; }
+    inline void setQStackedWidget_Redirected_Callback(QStackedWidget_Redirected_Callback cb) { qstackedwidget_redirected_callback = cb; }
+    inline void setQStackedWidget_SharedPainter_Callback(QStackedWidget_SharedPainter_Callback cb) { qstackedwidget_sharedpainter_callback = cb; }
+    inline void setQStackedWidget_InputMethodEvent_Callback(QStackedWidget_InputMethodEvent_Callback cb) { qstackedwidget_inputmethodevent_callback = cb; }
+    inline void setQStackedWidget_InputMethodQuery_Callback(QStackedWidget_InputMethodQuery_Callback cb) { qstackedwidget_inputmethodquery_callback = cb; }
+    inline void setQStackedWidget_FocusNextPrevChild_Callback(QStackedWidget_FocusNextPrevChild_Callback cb) { qstackedwidget_focusnextprevchild_callback = cb; }
+    inline void setQStackedWidget_EventFilter_Callback(QStackedWidget_EventFilter_Callback cb) { qstackedwidget_eventfilter_callback = cb; }
+    inline void setQStackedWidget_TimerEvent_Callback(QStackedWidget_TimerEvent_Callback cb) { qstackedwidget_timerevent_callback = cb; }
+    inline void setQStackedWidget_ChildEvent_Callback(QStackedWidget_ChildEvent_Callback cb) { qstackedwidget_childevent_callback = cb; }
+    inline void setQStackedWidget_CustomEvent_Callback(QStackedWidget_CustomEvent_Callback cb) { qstackedwidget_customevent_callback = cb; }
+    inline void setQStackedWidget_ConnectNotify_Callback(QStackedWidget_ConnectNotify_Callback cb) { qstackedwidget_connectnotify_callback = cb; }
+    inline void setQStackedWidget_DisconnectNotify_Callback(QStackedWidget_DisconnectNotify_Callback cb) { qstackedwidget_disconnectnotify_callback = cb; }
+    inline void setQStackedWidget_DrawFrame_Callback(QStackedWidget_DrawFrame_Callback cb) { qstackedwidget_drawframe_callback = cb; }
+    inline void setQStackedWidget_UpdateMicroFocus_Callback(QStackedWidget_UpdateMicroFocus_Callback cb) { qstackedwidget_updatemicrofocus_callback = cb; }
+    inline void setQStackedWidget_Create_Callback(QStackedWidget_Create_Callback cb) { qstackedwidget_create_callback = cb; }
+    inline void setQStackedWidget_Destroy_Callback(QStackedWidget_Destroy_Callback cb) { qstackedwidget_destroy_callback = cb; }
+    inline void setQStackedWidget_FocusNextChild_Callback(QStackedWidget_FocusNextChild_Callback cb) { qstackedwidget_focusnextchild_callback = cb; }
+    inline void setQStackedWidget_FocusPreviousChild_Callback(QStackedWidget_FocusPreviousChild_Callback cb) { qstackedwidget_focuspreviouschild_callback = cb; }
+    inline void setQStackedWidget_Sender_Callback(QStackedWidget_Sender_Callback cb) { qstackedwidget_sender_callback = cb; }
+    inline void setQStackedWidget_SenderSignalIndex_Callback(QStackedWidget_SenderSignalIndex_Callback cb) { qstackedwidget_sendersignalindex_callback = cb; }
+    inline void setQStackedWidget_Receivers_Callback(QStackedWidget_Receivers_Callback cb) { qstackedwidget_receivers_callback = cb; }
+    inline void setQStackedWidget_IsSignalConnected_Callback(QStackedWidget_IsSignalConnected_Callback cb) { qstackedwidget_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQStackedWidget_Metacall_IsBase(bool value) const { qstackedwidget_metacall_isbase = value; }
-    void setQStackedWidget_Event_IsBase(bool value) const { qstackedwidget_event_isbase = value; }
-    void setQStackedWidget_SizeHint_IsBase(bool value) const { qstackedwidget_sizehint_isbase = value; }
-    void setQStackedWidget_PaintEvent_IsBase(bool value) const { qstackedwidget_paintevent_isbase = value; }
-    void setQStackedWidget_ChangeEvent_IsBase(bool value) const { qstackedwidget_changeevent_isbase = value; }
-    void setQStackedWidget_InitStyleOption_IsBase(bool value) const { qstackedwidget_initstyleoption_isbase = value; }
-    void setQStackedWidget_DevType_IsBase(bool value) const { qstackedwidget_devtype_isbase = value; }
-    void setQStackedWidget_SetVisible_IsBase(bool value) const { qstackedwidget_setvisible_isbase = value; }
-    void setQStackedWidget_MinimumSizeHint_IsBase(bool value) const { qstackedwidget_minimumsizehint_isbase = value; }
-    void setQStackedWidget_HeightForWidth_IsBase(bool value) const { qstackedwidget_heightforwidth_isbase = value; }
-    void setQStackedWidget_HasHeightForWidth_IsBase(bool value) const { qstackedwidget_hasheightforwidth_isbase = value; }
-    void setQStackedWidget_PaintEngine_IsBase(bool value) const { qstackedwidget_paintengine_isbase = value; }
-    void setQStackedWidget_MousePressEvent_IsBase(bool value) const { qstackedwidget_mousepressevent_isbase = value; }
-    void setQStackedWidget_MouseReleaseEvent_IsBase(bool value) const { qstackedwidget_mousereleaseevent_isbase = value; }
-    void setQStackedWidget_MouseDoubleClickEvent_IsBase(bool value) const { qstackedwidget_mousedoubleclickevent_isbase = value; }
-    void setQStackedWidget_MouseMoveEvent_IsBase(bool value) const { qstackedwidget_mousemoveevent_isbase = value; }
-    void setQStackedWidget_WheelEvent_IsBase(bool value) const { qstackedwidget_wheelevent_isbase = value; }
-    void setQStackedWidget_KeyPressEvent_IsBase(bool value) const { qstackedwidget_keypressevent_isbase = value; }
-    void setQStackedWidget_KeyReleaseEvent_IsBase(bool value) const { qstackedwidget_keyreleaseevent_isbase = value; }
-    void setQStackedWidget_FocusInEvent_IsBase(bool value) const { qstackedwidget_focusinevent_isbase = value; }
-    void setQStackedWidget_FocusOutEvent_IsBase(bool value) const { qstackedwidget_focusoutevent_isbase = value; }
-    void setQStackedWidget_EnterEvent_IsBase(bool value) const { qstackedwidget_enterevent_isbase = value; }
-    void setQStackedWidget_LeaveEvent_IsBase(bool value) const { qstackedwidget_leaveevent_isbase = value; }
-    void setQStackedWidget_MoveEvent_IsBase(bool value) const { qstackedwidget_moveevent_isbase = value; }
-    void setQStackedWidget_ResizeEvent_IsBase(bool value) const { qstackedwidget_resizeevent_isbase = value; }
-    void setQStackedWidget_CloseEvent_IsBase(bool value) const { qstackedwidget_closeevent_isbase = value; }
-    void setQStackedWidget_ContextMenuEvent_IsBase(bool value) const { qstackedwidget_contextmenuevent_isbase = value; }
-    void setQStackedWidget_TabletEvent_IsBase(bool value) const { qstackedwidget_tabletevent_isbase = value; }
-    void setQStackedWidget_ActionEvent_IsBase(bool value) const { qstackedwidget_actionevent_isbase = value; }
-    void setQStackedWidget_DragEnterEvent_IsBase(bool value) const { qstackedwidget_dragenterevent_isbase = value; }
-    void setQStackedWidget_DragMoveEvent_IsBase(bool value) const { qstackedwidget_dragmoveevent_isbase = value; }
-    void setQStackedWidget_DragLeaveEvent_IsBase(bool value) const { qstackedwidget_dragleaveevent_isbase = value; }
-    void setQStackedWidget_DropEvent_IsBase(bool value) const { qstackedwidget_dropevent_isbase = value; }
-    void setQStackedWidget_ShowEvent_IsBase(bool value) const { qstackedwidget_showevent_isbase = value; }
-    void setQStackedWidget_HideEvent_IsBase(bool value) const { qstackedwidget_hideevent_isbase = value; }
-    void setQStackedWidget_NativeEvent_IsBase(bool value) const { qstackedwidget_nativeevent_isbase = value; }
-    void setQStackedWidget_Metric_IsBase(bool value) const { qstackedwidget_metric_isbase = value; }
-    void setQStackedWidget_InitPainter_IsBase(bool value) const { qstackedwidget_initpainter_isbase = value; }
-    void setQStackedWidget_Redirected_IsBase(bool value) const { qstackedwidget_redirected_isbase = value; }
-    void setQStackedWidget_SharedPainter_IsBase(bool value) const { qstackedwidget_sharedpainter_isbase = value; }
-    void setQStackedWidget_InputMethodEvent_IsBase(bool value) const { qstackedwidget_inputmethodevent_isbase = value; }
-    void setQStackedWidget_InputMethodQuery_IsBase(bool value) const { qstackedwidget_inputmethodquery_isbase = value; }
-    void setQStackedWidget_FocusNextPrevChild_IsBase(bool value) const { qstackedwidget_focusnextprevchild_isbase = value; }
-    void setQStackedWidget_EventFilter_IsBase(bool value) const { qstackedwidget_eventfilter_isbase = value; }
-    void setQStackedWidget_TimerEvent_IsBase(bool value) const { qstackedwidget_timerevent_isbase = value; }
-    void setQStackedWidget_ChildEvent_IsBase(bool value) const { qstackedwidget_childevent_isbase = value; }
-    void setQStackedWidget_CustomEvent_IsBase(bool value) const { qstackedwidget_customevent_isbase = value; }
-    void setQStackedWidget_ConnectNotify_IsBase(bool value) const { qstackedwidget_connectnotify_isbase = value; }
-    void setQStackedWidget_DisconnectNotify_IsBase(bool value) const { qstackedwidget_disconnectnotify_isbase = value; }
-    void setQStackedWidget_DrawFrame_IsBase(bool value) const { qstackedwidget_drawframe_isbase = value; }
-    void setQStackedWidget_UpdateMicroFocus_IsBase(bool value) const { qstackedwidget_updatemicrofocus_isbase = value; }
-    void setQStackedWidget_Create_IsBase(bool value) const { qstackedwidget_create_isbase = value; }
-    void setQStackedWidget_Destroy_IsBase(bool value) const { qstackedwidget_destroy_isbase = value; }
-    void setQStackedWidget_FocusNextChild_IsBase(bool value) const { qstackedwidget_focusnextchild_isbase = value; }
-    void setQStackedWidget_FocusPreviousChild_IsBase(bool value) const { qstackedwidget_focuspreviouschild_isbase = value; }
-    void setQStackedWidget_Sender_IsBase(bool value) const { qstackedwidget_sender_isbase = value; }
-    void setQStackedWidget_SenderSignalIndex_IsBase(bool value) const { qstackedwidget_sendersignalindex_isbase = value; }
-    void setQStackedWidget_Receivers_IsBase(bool value) const { qstackedwidget_receivers_isbase = value; }
-    void setQStackedWidget_IsSignalConnected_IsBase(bool value) const { qstackedwidget_issignalconnected_isbase = value; }
+    inline void setQStackedWidget_Metacall_IsBase(bool value) const { qstackedwidget_metacall_isbase = value; }
+    inline void setQStackedWidget_Event_IsBase(bool value) const { qstackedwidget_event_isbase = value; }
+    inline void setQStackedWidget_SizeHint_IsBase(bool value) const { qstackedwidget_sizehint_isbase = value; }
+    inline void setQStackedWidget_PaintEvent_IsBase(bool value) const { qstackedwidget_paintevent_isbase = value; }
+    inline void setQStackedWidget_ChangeEvent_IsBase(bool value) const { qstackedwidget_changeevent_isbase = value; }
+    inline void setQStackedWidget_InitStyleOption_IsBase(bool value) const { qstackedwidget_initstyleoption_isbase = value; }
+    inline void setQStackedWidget_DevType_IsBase(bool value) const { qstackedwidget_devtype_isbase = value; }
+    inline void setQStackedWidget_SetVisible_IsBase(bool value) const { qstackedwidget_setvisible_isbase = value; }
+    inline void setQStackedWidget_MinimumSizeHint_IsBase(bool value) const { qstackedwidget_minimumsizehint_isbase = value; }
+    inline void setQStackedWidget_HeightForWidth_IsBase(bool value) const { qstackedwidget_heightforwidth_isbase = value; }
+    inline void setQStackedWidget_HasHeightForWidth_IsBase(bool value) const { qstackedwidget_hasheightforwidth_isbase = value; }
+    inline void setQStackedWidget_PaintEngine_IsBase(bool value) const { qstackedwidget_paintengine_isbase = value; }
+    inline void setQStackedWidget_MousePressEvent_IsBase(bool value) const { qstackedwidget_mousepressevent_isbase = value; }
+    inline void setQStackedWidget_MouseReleaseEvent_IsBase(bool value) const { qstackedwidget_mousereleaseevent_isbase = value; }
+    inline void setQStackedWidget_MouseDoubleClickEvent_IsBase(bool value) const { qstackedwidget_mousedoubleclickevent_isbase = value; }
+    inline void setQStackedWidget_MouseMoveEvent_IsBase(bool value) const { qstackedwidget_mousemoveevent_isbase = value; }
+    inline void setQStackedWidget_WheelEvent_IsBase(bool value) const { qstackedwidget_wheelevent_isbase = value; }
+    inline void setQStackedWidget_KeyPressEvent_IsBase(bool value) const { qstackedwidget_keypressevent_isbase = value; }
+    inline void setQStackedWidget_KeyReleaseEvent_IsBase(bool value) const { qstackedwidget_keyreleaseevent_isbase = value; }
+    inline void setQStackedWidget_FocusInEvent_IsBase(bool value) const { qstackedwidget_focusinevent_isbase = value; }
+    inline void setQStackedWidget_FocusOutEvent_IsBase(bool value) const { qstackedwidget_focusoutevent_isbase = value; }
+    inline void setQStackedWidget_EnterEvent_IsBase(bool value) const { qstackedwidget_enterevent_isbase = value; }
+    inline void setQStackedWidget_LeaveEvent_IsBase(bool value) const { qstackedwidget_leaveevent_isbase = value; }
+    inline void setQStackedWidget_MoveEvent_IsBase(bool value) const { qstackedwidget_moveevent_isbase = value; }
+    inline void setQStackedWidget_ResizeEvent_IsBase(bool value) const { qstackedwidget_resizeevent_isbase = value; }
+    inline void setQStackedWidget_CloseEvent_IsBase(bool value) const { qstackedwidget_closeevent_isbase = value; }
+    inline void setQStackedWidget_ContextMenuEvent_IsBase(bool value) const { qstackedwidget_contextmenuevent_isbase = value; }
+    inline void setQStackedWidget_TabletEvent_IsBase(bool value) const { qstackedwidget_tabletevent_isbase = value; }
+    inline void setQStackedWidget_ActionEvent_IsBase(bool value) const { qstackedwidget_actionevent_isbase = value; }
+    inline void setQStackedWidget_DragEnterEvent_IsBase(bool value) const { qstackedwidget_dragenterevent_isbase = value; }
+    inline void setQStackedWidget_DragMoveEvent_IsBase(bool value) const { qstackedwidget_dragmoveevent_isbase = value; }
+    inline void setQStackedWidget_DragLeaveEvent_IsBase(bool value) const { qstackedwidget_dragleaveevent_isbase = value; }
+    inline void setQStackedWidget_DropEvent_IsBase(bool value) const { qstackedwidget_dropevent_isbase = value; }
+    inline void setQStackedWidget_ShowEvent_IsBase(bool value) const { qstackedwidget_showevent_isbase = value; }
+    inline void setQStackedWidget_HideEvent_IsBase(bool value) const { qstackedwidget_hideevent_isbase = value; }
+    inline void setQStackedWidget_NativeEvent_IsBase(bool value) const { qstackedwidget_nativeevent_isbase = value; }
+    inline void setQStackedWidget_Metric_IsBase(bool value) const { qstackedwidget_metric_isbase = value; }
+    inline void setQStackedWidget_InitPainter_IsBase(bool value) const { qstackedwidget_initpainter_isbase = value; }
+    inline void setQStackedWidget_Redirected_IsBase(bool value) const { qstackedwidget_redirected_isbase = value; }
+    inline void setQStackedWidget_SharedPainter_IsBase(bool value) const { qstackedwidget_sharedpainter_isbase = value; }
+    inline void setQStackedWidget_InputMethodEvent_IsBase(bool value) const { qstackedwidget_inputmethodevent_isbase = value; }
+    inline void setQStackedWidget_InputMethodQuery_IsBase(bool value) const { qstackedwidget_inputmethodquery_isbase = value; }
+    inline void setQStackedWidget_FocusNextPrevChild_IsBase(bool value) const { qstackedwidget_focusnextprevchild_isbase = value; }
+    inline void setQStackedWidget_EventFilter_IsBase(bool value) const { qstackedwidget_eventfilter_isbase = value; }
+    inline void setQStackedWidget_TimerEvent_IsBase(bool value) const { qstackedwidget_timerevent_isbase = value; }
+    inline void setQStackedWidget_ChildEvent_IsBase(bool value) const { qstackedwidget_childevent_isbase = value; }
+    inline void setQStackedWidget_CustomEvent_IsBase(bool value) const { qstackedwidget_customevent_isbase = value; }
+    inline void setQStackedWidget_ConnectNotify_IsBase(bool value) const { qstackedwidget_connectnotify_isbase = value; }
+    inline void setQStackedWidget_DisconnectNotify_IsBase(bool value) const { qstackedwidget_disconnectnotify_isbase = value; }
+    inline void setQStackedWidget_DrawFrame_IsBase(bool value) const { qstackedwidget_drawframe_isbase = value; }
+    inline void setQStackedWidget_UpdateMicroFocus_IsBase(bool value) const { qstackedwidget_updatemicrofocus_isbase = value; }
+    inline void setQStackedWidget_Create_IsBase(bool value) const { qstackedwidget_create_isbase = value; }
+    inline void setQStackedWidget_Destroy_IsBase(bool value) const { qstackedwidget_destroy_isbase = value; }
+    inline void setQStackedWidget_FocusNextChild_IsBase(bool value) const { qstackedwidget_focusnextchild_isbase = value; }
+    inline void setQStackedWidget_FocusPreviousChild_IsBase(bool value) const { qstackedwidget_focuspreviouschild_isbase = value; }
+    inline void setQStackedWidget_Sender_IsBase(bool value) const { qstackedwidget_sender_isbase = value; }
+    inline void setQStackedWidget_SenderSignalIndex_IsBase(bool value) const { qstackedwidget_sendersignalindex_isbase = value; }
+    inline void setQStackedWidget_Receivers_IsBase(bool value) const { qstackedwidget_receivers_isbase = value; }
+    inline void setQStackedWidget_IsSignalConnected_IsBase(bool value) const { qstackedwidget_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -392,7 +395,12 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_metacall_isbase = false;
             return QStackedWidget::qt_metacall(param1, param2, param3);
         } else if (qstackedwidget_metacall_callback != nullptr) {
-            return qstackedwidget_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qstackedwidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QStackedWidget::qt_metacall(param1, param2, param3);
         }
@@ -404,7 +412,10 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_event_isbase = false;
             return QStackedWidget::event(e);
         } else if (qstackedwidget_event_callback != nullptr) {
-            return qstackedwidget_event_callback(this, e);
+            QEvent* cbval1 = e;
+
+            bool callback_ret = qstackedwidget_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QStackedWidget::event(e);
         }
@@ -416,7 +427,8 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_sizehint_isbase = false;
             return QStackedWidget::sizeHint();
         } else if (qstackedwidget_sizehint_callback != nullptr) {
-            return qstackedwidget_sizehint_callback();
+            QSize* callback_ret = qstackedwidget_sizehint_callback();
+            return *callback_ret;
         } else {
             return QStackedWidget::sizeHint();
         }
@@ -428,7 +440,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_paintevent_isbase = false;
             QStackedWidget::paintEvent(param1);
         } else if (qstackedwidget_paintevent_callback != nullptr) {
-            qstackedwidget_paintevent_callback(this, param1);
+            QPaintEvent* cbval1 = param1;
+
+            qstackedwidget_paintevent_callback(this, cbval1);
         } else {
             QStackedWidget::paintEvent(param1);
         }
@@ -440,7 +454,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_changeevent_isbase = false;
             QStackedWidget::changeEvent(param1);
         } else if (qstackedwidget_changeevent_callback != nullptr) {
-            qstackedwidget_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qstackedwidget_changeevent_callback(this, cbval1);
         } else {
             QStackedWidget::changeEvent(param1);
         }
@@ -452,7 +468,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_initstyleoption_isbase = false;
             QStackedWidget::initStyleOption(option);
         } else if (qstackedwidget_initstyleoption_callback != nullptr) {
-            qstackedwidget_initstyleoption_callback(this, option);
+            QStyleOptionFrame* cbval1 = option;
+
+            qstackedwidget_initstyleoption_callback(this, cbval1);
         } else {
             QStackedWidget::initStyleOption(option);
         }
@@ -464,7 +482,8 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_devtype_isbase = false;
             return QStackedWidget::devType();
         } else if (qstackedwidget_devtype_callback != nullptr) {
-            return qstackedwidget_devtype_callback();
+            int callback_ret = qstackedwidget_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QStackedWidget::devType();
         }
@@ -476,7 +495,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_setvisible_isbase = false;
             QStackedWidget::setVisible(visible);
         } else if (qstackedwidget_setvisible_callback != nullptr) {
-            qstackedwidget_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qstackedwidget_setvisible_callback(this, cbval1);
         } else {
             QStackedWidget::setVisible(visible);
         }
@@ -488,7 +509,8 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_minimumsizehint_isbase = false;
             return QStackedWidget::minimumSizeHint();
         } else if (qstackedwidget_minimumsizehint_callback != nullptr) {
-            return qstackedwidget_minimumsizehint_callback();
+            QSize* callback_ret = qstackedwidget_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QStackedWidget::minimumSizeHint();
         }
@@ -500,7 +522,10 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_heightforwidth_isbase = false;
             return QStackedWidget::heightForWidth(param1);
         } else if (qstackedwidget_heightforwidth_callback != nullptr) {
-            return qstackedwidget_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qstackedwidget_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QStackedWidget::heightForWidth(param1);
         }
@@ -512,7 +537,8 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_hasheightforwidth_isbase = false;
             return QStackedWidget::hasHeightForWidth();
         } else if (qstackedwidget_hasheightforwidth_callback != nullptr) {
-            return qstackedwidget_hasheightforwidth_callback();
+            bool callback_ret = qstackedwidget_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QStackedWidget::hasHeightForWidth();
         }
@@ -524,7 +550,8 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_paintengine_isbase = false;
             return QStackedWidget::paintEngine();
         } else if (qstackedwidget_paintengine_callback != nullptr) {
-            return qstackedwidget_paintengine_callback();
+            QPaintEngine* callback_ret = qstackedwidget_paintengine_callback();
+            return callback_ret;
         } else {
             return QStackedWidget::paintEngine();
         }
@@ -536,7 +563,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_mousepressevent_isbase = false;
             QStackedWidget::mousePressEvent(event);
         } else if (qstackedwidget_mousepressevent_callback != nullptr) {
-            qstackedwidget_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qstackedwidget_mousepressevent_callback(this, cbval1);
         } else {
             QStackedWidget::mousePressEvent(event);
         }
@@ -548,7 +577,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_mousereleaseevent_isbase = false;
             QStackedWidget::mouseReleaseEvent(event);
         } else if (qstackedwidget_mousereleaseevent_callback != nullptr) {
-            qstackedwidget_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qstackedwidget_mousereleaseevent_callback(this, cbval1);
         } else {
             QStackedWidget::mouseReleaseEvent(event);
         }
@@ -560,7 +591,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_mousedoubleclickevent_isbase = false;
             QStackedWidget::mouseDoubleClickEvent(event);
         } else if (qstackedwidget_mousedoubleclickevent_callback != nullptr) {
-            qstackedwidget_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qstackedwidget_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QStackedWidget::mouseDoubleClickEvent(event);
         }
@@ -572,7 +605,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_mousemoveevent_isbase = false;
             QStackedWidget::mouseMoveEvent(event);
         } else if (qstackedwidget_mousemoveevent_callback != nullptr) {
-            qstackedwidget_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qstackedwidget_mousemoveevent_callback(this, cbval1);
         } else {
             QStackedWidget::mouseMoveEvent(event);
         }
@@ -584,7 +619,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_wheelevent_isbase = false;
             QStackedWidget::wheelEvent(event);
         } else if (qstackedwidget_wheelevent_callback != nullptr) {
-            qstackedwidget_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qstackedwidget_wheelevent_callback(this, cbval1);
         } else {
             QStackedWidget::wheelEvent(event);
         }
@@ -596,7 +633,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_keypressevent_isbase = false;
             QStackedWidget::keyPressEvent(event);
         } else if (qstackedwidget_keypressevent_callback != nullptr) {
-            qstackedwidget_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qstackedwidget_keypressevent_callback(this, cbval1);
         } else {
             QStackedWidget::keyPressEvent(event);
         }
@@ -608,7 +647,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_keyreleaseevent_isbase = false;
             QStackedWidget::keyReleaseEvent(event);
         } else if (qstackedwidget_keyreleaseevent_callback != nullptr) {
-            qstackedwidget_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qstackedwidget_keyreleaseevent_callback(this, cbval1);
         } else {
             QStackedWidget::keyReleaseEvent(event);
         }
@@ -620,7 +661,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_focusinevent_isbase = false;
             QStackedWidget::focusInEvent(event);
         } else if (qstackedwidget_focusinevent_callback != nullptr) {
-            qstackedwidget_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qstackedwidget_focusinevent_callback(this, cbval1);
         } else {
             QStackedWidget::focusInEvent(event);
         }
@@ -632,7 +675,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_focusoutevent_isbase = false;
             QStackedWidget::focusOutEvent(event);
         } else if (qstackedwidget_focusoutevent_callback != nullptr) {
-            qstackedwidget_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qstackedwidget_focusoutevent_callback(this, cbval1);
         } else {
             QStackedWidget::focusOutEvent(event);
         }
@@ -644,7 +689,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_enterevent_isbase = false;
             QStackedWidget::enterEvent(event);
         } else if (qstackedwidget_enterevent_callback != nullptr) {
-            qstackedwidget_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qstackedwidget_enterevent_callback(this, cbval1);
         } else {
             QStackedWidget::enterEvent(event);
         }
@@ -656,7 +703,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_leaveevent_isbase = false;
             QStackedWidget::leaveEvent(event);
         } else if (qstackedwidget_leaveevent_callback != nullptr) {
-            qstackedwidget_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qstackedwidget_leaveevent_callback(this, cbval1);
         } else {
             QStackedWidget::leaveEvent(event);
         }
@@ -668,7 +717,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_moveevent_isbase = false;
             QStackedWidget::moveEvent(event);
         } else if (qstackedwidget_moveevent_callback != nullptr) {
-            qstackedwidget_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qstackedwidget_moveevent_callback(this, cbval1);
         } else {
             QStackedWidget::moveEvent(event);
         }
@@ -680,7 +731,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_resizeevent_isbase = false;
             QStackedWidget::resizeEvent(event);
         } else if (qstackedwidget_resizeevent_callback != nullptr) {
-            qstackedwidget_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qstackedwidget_resizeevent_callback(this, cbval1);
         } else {
             QStackedWidget::resizeEvent(event);
         }
@@ -692,7 +745,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_closeevent_isbase = false;
             QStackedWidget::closeEvent(event);
         } else if (qstackedwidget_closeevent_callback != nullptr) {
-            qstackedwidget_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qstackedwidget_closeevent_callback(this, cbval1);
         } else {
             QStackedWidget::closeEvent(event);
         }
@@ -704,7 +759,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_contextmenuevent_isbase = false;
             QStackedWidget::contextMenuEvent(event);
         } else if (qstackedwidget_contextmenuevent_callback != nullptr) {
-            qstackedwidget_contextmenuevent_callback(this, event);
+            QContextMenuEvent* cbval1 = event;
+
+            qstackedwidget_contextmenuevent_callback(this, cbval1);
         } else {
             QStackedWidget::contextMenuEvent(event);
         }
@@ -716,7 +773,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_tabletevent_isbase = false;
             QStackedWidget::tabletEvent(event);
         } else if (qstackedwidget_tabletevent_callback != nullptr) {
-            qstackedwidget_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qstackedwidget_tabletevent_callback(this, cbval1);
         } else {
             QStackedWidget::tabletEvent(event);
         }
@@ -728,7 +787,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_actionevent_isbase = false;
             QStackedWidget::actionEvent(event);
         } else if (qstackedwidget_actionevent_callback != nullptr) {
-            qstackedwidget_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qstackedwidget_actionevent_callback(this, cbval1);
         } else {
             QStackedWidget::actionEvent(event);
         }
@@ -740,7 +801,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_dragenterevent_isbase = false;
             QStackedWidget::dragEnterEvent(event);
         } else if (qstackedwidget_dragenterevent_callback != nullptr) {
-            qstackedwidget_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qstackedwidget_dragenterevent_callback(this, cbval1);
         } else {
             QStackedWidget::dragEnterEvent(event);
         }
@@ -752,7 +815,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_dragmoveevent_isbase = false;
             QStackedWidget::dragMoveEvent(event);
         } else if (qstackedwidget_dragmoveevent_callback != nullptr) {
-            qstackedwidget_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qstackedwidget_dragmoveevent_callback(this, cbval1);
         } else {
             QStackedWidget::dragMoveEvent(event);
         }
@@ -764,7 +829,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_dragleaveevent_isbase = false;
             QStackedWidget::dragLeaveEvent(event);
         } else if (qstackedwidget_dragleaveevent_callback != nullptr) {
-            qstackedwidget_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qstackedwidget_dragleaveevent_callback(this, cbval1);
         } else {
             QStackedWidget::dragLeaveEvent(event);
         }
@@ -776,7 +843,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_dropevent_isbase = false;
             QStackedWidget::dropEvent(event);
         } else if (qstackedwidget_dropevent_callback != nullptr) {
-            qstackedwidget_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qstackedwidget_dropevent_callback(this, cbval1);
         } else {
             QStackedWidget::dropEvent(event);
         }
@@ -788,7 +857,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_showevent_isbase = false;
             QStackedWidget::showEvent(event);
         } else if (qstackedwidget_showevent_callback != nullptr) {
-            qstackedwidget_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qstackedwidget_showevent_callback(this, cbval1);
         } else {
             QStackedWidget::showEvent(event);
         }
@@ -800,7 +871,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_hideevent_isbase = false;
             QStackedWidget::hideEvent(event);
         } else if (qstackedwidget_hideevent_callback != nullptr) {
-            qstackedwidget_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qstackedwidget_hideevent_callback(this, cbval1);
         } else {
             QStackedWidget::hideEvent(event);
         }
@@ -812,7 +885,19 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_nativeevent_isbase = false;
             return QStackedWidget::nativeEvent(eventType, message, result);
         } else if (qstackedwidget_nativeevent_callback != nullptr) {
-            return qstackedwidget_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qstackedwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QStackedWidget::nativeEvent(eventType, message, result);
         }
@@ -824,7 +909,10 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_metric_isbase = false;
             return QStackedWidget::metric(param1);
         } else if (qstackedwidget_metric_callback != nullptr) {
-            return qstackedwidget_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qstackedwidget_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QStackedWidget::metric(param1);
         }
@@ -836,7 +924,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_initpainter_isbase = false;
             QStackedWidget::initPainter(painter);
         } else if (qstackedwidget_initpainter_callback != nullptr) {
-            qstackedwidget_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qstackedwidget_initpainter_callback(this, cbval1);
         } else {
             QStackedWidget::initPainter(painter);
         }
@@ -848,7 +938,10 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_redirected_isbase = false;
             return QStackedWidget::redirected(offset);
         } else if (qstackedwidget_redirected_callback != nullptr) {
-            return qstackedwidget_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qstackedwidget_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QStackedWidget::redirected(offset);
         }
@@ -860,7 +953,8 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_sharedpainter_isbase = false;
             return QStackedWidget::sharedPainter();
         } else if (qstackedwidget_sharedpainter_callback != nullptr) {
-            return qstackedwidget_sharedpainter_callback();
+            QPainter* callback_ret = qstackedwidget_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QStackedWidget::sharedPainter();
         }
@@ -872,7 +966,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_inputmethodevent_isbase = false;
             QStackedWidget::inputMethodEvent(param1);
         } else if (qstackedwidget_inputmethodevent_callback != nullptr) {
-            qstackedwidget_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qstackedwidget_inputmethodevent_callback(this, cbval1);
         } else {
             QStackedWidget::inputMethodEvent(param1);
         }
@@ -884,7 +980,10 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_inputmethodquery_isbase = false;
             return QStackedWidget::inputMethodQuery(param1);
         } else if (qstackedwidget_inputmethodquery_callback != nullptr) {
-            return qstackedwidget_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qstackedwidget_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QStackedWidget::inputMethodQuery(param1);
         }
@@ -896,7 +995,10 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_focusnextprevchild_isbase = false;
             return QStackedWidget::focusNextPrevChild(next);
         } else if (qstackedwidget_focusnextprevchild_callback != nullptr) {
-            return qstackedwidget_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qstackedwidget_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QStackedWidget::focusNextPrevChild(next);
         }
@@ -908,7 +1010,11 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_eventfilter_isbase = false;
             return QStackedWidget::eventFilter(watched, event);
         } else if (qstackedwidget_eventfilter_callback != nullptr) {
-            return qstackedwidget_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qstackedwidget_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QStackedWidget::eventFilter(watched, event);
         }
@@ -920,7 +1026,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_timerevent_isbase = false;
             QStackedWidget::timerEvent(event);
         } else if (qstackedwidget_timerevent_callback != nullptr) {
-            qstackedwidget_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qstackedwidget_timerevent_callback(this, cbval1);
         } else {
             QStackedWidget::timerEvent(event);
         }
@@ -932,7 +1040,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_childevent_isbase = false;
             QStackedWidget::childEvent(event);
         } else if (qstackedwidget_childevent_callback != nullptr) {
-            qstackedwidget_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qstackedwidget_childevent_callback(this, cbval1);
         } else {
             QStackedWidget::childEvent(event);
         }
@@ -944,7 +1054,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_customevent_isbase = false;
             QStackedWidget::customEvent(event);
         } else if (qstackedwidget_customevent_callback != nullptr) {
-            qstackedwidget_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qstackedwidget_customevent_callback(this, cbval1);
         } else {
             QStackedWidget::customEvent(event);
         }
@@ -956,7 +1068,11 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_connectnotify_isbase = false;
             QStackedWidget::connectNotify(signal);
         } else if (qstackedwidget_connectnotify_callback != nullptr) {
-            qstackedwidget_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qstackedwidget_connectnotify_callback(this, cbval1);
         } else {
             QStackedWidget::connectNotify(signal);
         }
@@ -968,7 +1084,11 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_disconnectnotify_isbase = false;
             QStackedWidget::disconnectNotify(signal);
         } else if (qstackedwidget_disconnectnotify_callback != nullptr) {
-            qstackedwidget_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qstackedwidget_disconnectnotify_callback(this, cbval1);
         } else {
             QStackedWidget::disconnectNotify(signal);
         }
@@ -980,7 +1100,9 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_drawframe_isbase = false;
             QStackedWidget::drawFrame(param1);
         } else if (qstackedwidget_drawframe_callback != nullptr) {
-            qstackedwidget_drawframe_callback(this, param1);
+            QPainter* cbval1 = param1;
+
+            qstackedwidget_drawframe_callback(this, cbval1);
         } else {
             QStackedWidget::drawFrame(param1);
         }
@@ -1028,7 +1150,8 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_focusnextchild_isbase = false;
             return QStackedWidget::focusNextChild();
         } else if (qstackedwidget_focusnextchild_callback != nullptr) {
-            return qstackedwidget_focusnextchild_callback();
+            bool callback_ret = qstackedwidget_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QStackedWidget::focusNextChild();
         }
@@ -1040,7 +1163,8 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_focuspreviouschild_isbase = false;
             return QStackedWidget::focusPreviousChild();
         } else if (qstackedwidget_focuspreviouschild_callback != nullptr) {
-            return qstackedwidget_focuspreviouschild_callback();
+            bool callback_ret = qstackedwidget_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QStackedWidget::focusPreviousChild();
         }
@@ -1052,7 +1176,8 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_sender_isbase = false;
             return QStackedWidget::sender();
         } else if (qstackedwidget_sender_callback != nullptr) {
-            return qstackedwidget_sender_callback();
+            QObject* callback_ret = qstackedwidget_sender_callback();
+            return callback_ret;
         } else {
             return QStackedWidget::sender();
         }
@@ -1064,7 +1189,8 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_sendersignalindex_isbase = false;
             return QStackedWidget::senderSignalIndex();
         } else if (qstackedwidget_sendersignalindex_callback != nullptr) {
-            return qstackedwidget_sendersignalindex_callback();
+            int callback_ret = qstackedwidget_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QStackedWidget::senderSignalIndex();
         }
@@ -1076,7 +1202,10 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_receivers_isbase = false;
             return QStackedWidget::receivers(signal);
         } else if (qstackedwidget_receivers_callback != nullptr) {
-            return qstackedwidget_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qstackedwidget_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QStackedWidget::receivers(signal);
         }
@@ -1088,11 +1217,116 @@ class VirtualQStackedWidget : public QStackedWidget {
             qstackedwidget_issignalconnected_isbase = false;
             return QStackedWidget::isSignalConnected(signal);
         } else if (qstackedwidget_issignalconnected_callback != nullptr) {
-            return qstackedwidget_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qstackedwidget_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QStackedWidget::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QStackedWidget_Event(QStackedWidget* self, QEvent* e);
+    friend bool QStackedWidget_QBaseEvent(QStackedWidget* self, QEvent* e);
+    friend void QStackedWidget_PaintEvent(QStackedWidget* self, QPaintEvent* param1);
+    friend void QStackedWidget_QBasePaintEvent(QStackedWidget* self, QPaintEvent* param1);
+    friend void QStackedWidget_ChangeEvent(QStackedWidget* self, QEvent* param1);
+    friend void QStackedWidget_QBaseChangeEvent(QStackedWidget* self, QEvent* param1);
+    friend void QStackedWidget_InitStyleOption(const QStackedWidget* self, QStyleOptionFrame* option);
+    friend void QStackedWidget_QBaseInitStyleOption(const QStackedWidget* self, QStyleOptionFrame* option);
+    friend void QStackedWidget_MousePressEvent(QStackedWidget* self, QMouseEvent* event);
+    friend void QStackedWidget_QBaseMousePressEvent(QStackedWidget* self, QMouseEvent* event);
+    friend void QStackedWidget_MouseReleaseEvent(QStackedWidget* self, QMouseEvent* event);
+    friend void QStackedWidget_QBaseMouseReleaseEvent(QStackedWidget* self, QMouseEvent* event);
+    friend void QStackedWidget_MouseDoubleClickEvent(QStackedWidget* self, QMouseEvent* event);
+    friend void QStackedWidget_QBaseMouseDoubleClickEvent(QStackedWidget* self, QMouseEvent* event);
+    friend void QStackedWidget_MouseMoveEvent(QStackedWidget* self, QMouseEvent* event);
+    friend void QStackedWidget_QBaseMouseMoveEvent(QStackedWidget* self, QMouseEvent* event);
+    friend void QStackedWidget_WheelEvent(QStackedWidget* self, QWheelEvent* event);
+    friend void QStackedWidget_QBaseWheelEvent(QStackedWidget* self, QWheelEvent* event);
+    friend void QStackedWidget_KeyPressEvent(QStackedWidget* self, QKeyEvent* event);
+    friend void QStackedWidget_QBaseKeyPressEvent(QStackedWidget* self, QKeyEvent* event);
+    friend void QStackedWidget_KeyReleaseEvent(QStackedWidget* self, QKeyEvent* event);
+    friend void QStackedWidget_QBaseKeyReleaseEvent(QStackedWidget* self, QKeyEvent* event);
+    friend void QStackedWidget_FocusInEvent(QStackedWidget* self, QFocusEvent* event);
+    friend void QStackedWidget_QBaseFocusInEvent(QStackedWidget* self, QFocusEvent* event);
+    friend void QStackedWidget_FocusOutEvent(QStackedWidget* self, QFocusEvent* event);
+    friend void QStackedWidget_QBaseFocusOutEvent(QStackedWidget* self, QFocusEvent* event);
+    friend void QStackedWidget_EnterEvent(QStackedWidget* self, QEnterEvent* event);
+    friend void QStackedWidget_QBaseEnterEvent(QStackedWidget* self, QEnterEvent* event);
+    friend void QStackedWidget_LeaveEvent(QStackedWidget* self, QEvent* event);
+    friend void QStackedWidget_QBaseLeaveEvent(QStackedWidget* self, QEvent* event);
+    friend void QStackedWidget_MoveEvent(QStackedWidget* self, QMoveEvent* event);
+    friend void QStackedWidget_QBaseMoveEvent(QStackedWidget* self, QMoveEvent* event);
+    friend void QStackedWidget_ResizeEvent(QStackedWidget* self, QResizeEvent* event);
+    friend void QStackedWidget_QBaseResizeEvent(QStackedWidget* self, QResizeEvent* event);
+    friend void QStackedWidget_CloseEvent(QStackedWidget* self, QCloseEvent* event);
+    friend void QStackedWidget_QBaseCloseEvent(QStackedWidget* self, QCloseEvent* event);
+    friend void QStackedWidget_ContextMenuEvent(QStackedWidget* self, QContextMenuEvent* event);
+    friend void QStackedWidget_QBaseContextMenuEvent(QStackedWidget* self, QContextMenuEvent* event);
+    friend void QStackedWidget_TabletEvent(QStackedWidget* self, QTabletEvent* event);
+    friend void QStackedWidget_QBaseTabletEvent(QStackedWidget* self, QTabletEvent* event);
+    friend void QStackedWidget_ActionEvent(QStackedWidget* self, QActionEvent* event);
+    friend void QStackedWidget_QBaseActionEvent(QStackedWidget* self, QActionEvent* event);
+    friend void QStackedWidget_DragEnterEvent(QStackedWidget* self, QDragEnterEvent* event);
+    friend void QStackedWidget_QBaseDragEnterEvent(QStackedWidget* self, QDragEnterEvent* event);
+    friend void QStackedWidget_DragMoveEvent(QStackedWidget* self, QDragMoveEvent* event);
+    friend void QStackedWidget_QBaseDragMoveEvent(QStackedWidget* self, QDragMoveEvent* event);
+    friend void QStackedWidget_DragLeaveEvent(QStackedWidget* self, QDragLeaveEvent* event);
+    friend void QStackedWidget_QBaseDragLeaveEvent(QStackedWidget* self, QDragLeaveEvent* event);
+    friend void QStackedWidget_DropEvent(QStackedWidget* self, QDropEvent* event);
+    friend void QStackedWidget_QBaseDropEvent(QStackedWidget* self, QDropEvent* event);
+    friend void QStackedWidget_ShowEvent(QStackedWidget* self, QShowEvent* event);
+    friend void QStackedWidget_QBaseShowEvent(QStackedWidget* self, QShowEvent* event);
+    friend void QStackedWidget_HideEvent(QStackedWidget* self, QHideEvent* event);
+    friend void QStackedWidget_QBaseHideEvent(QStackedWidget* self, QHideEvent* event);
+    friend bool QStackedWidget_NativeEvent(QStackedWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QStackedWidget_QBaseNativeEvent(QStackedWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QStackedWidget_Metric(const QStackedWidget* self, int param1);
+    friend int QStackedWidget_QBaseMetric(const QStackedWidget* self, int param1);
+    friend void QStackedWidget_InitPainter(const QStackedWidget* self, QPainter* painter);
+    friend void QStackedWidget_QBaseInitPainter(const QStackedWidget* self, QPainter* painter);
+    friend QPaintDevice* QStackedWidget_Redirected(const QStackedWidget* self, QPoint* offset);
+    friend QPaintDevice* QStackedWidget_QBaseRedirected(const QStackedWidget* self, QPoint* offset);
+    friend QPainter* QStackedWidget_SharedPainter(const QStackedWidget* self);
+    friend QPainter* QStackedWidget_QBaseSharedPainter(const QStackedWidget* self);
+    friend void QStackedWidget_InputMethodEvent(QStackedWidget* self, QInputMethodEvent* param1);
+    friend void QStackedWidget_QBaseInputMethodEvent(QStackedWidget* self, QInputMethodEvent* param1);
+    friend bool QStackedWidget_FocusNextPrevChild(QStackedWidget* self, bool next);
+    friend bool QStackedWidget_QBaseFocusNextPrevChild(QStackedWidget* self, bool next);
+    friend void QStackedWidget_TimerEvent(QStackedWidget* self, QTimerEvent* event);
+    friend void QStackedWidget_QBaseTimerEvent(QStackedWidget* self, QTimerEvent* event);
+    friend void QStackedWidget_ChildEvent(QStackedWidget* self, QChildEvent* event);
+    friend void QStackedWidget_QBaseChildEvent(QStackedWidget* self, QChildEvent* event);
+    friend void QStackedWidget_CustomEvent(QStackedWidget* self, QEvent* event);
+    friend void QStackedWidget_QBaseCustomEvent(QStackedWidget* self, QEvent* event);
+    friend void QStackedWidget_ConnectNotify(QStackedWidget* self, const QMetaMethod* signal);
+    friend void QStackedWidget_QBaseConnectNotify(QStackedWidget* self, const QMetaMethod* signal);
+    friend void QStackedWidget_DisconnectNotify(QStackedWidget* self, const QMetaMethod* signal);
+    friend void QStackedWidget_QBaseDisconnectNotify(QStackedWidget* self, const QMetaMethod* signal);
+    friend void QStackedWidget_DrawFrame(QStackedWidget* self, QPainter* param1);
+    friend void QStackedWidget_QBaseDrawFrame(QStackedWidget* self, QPainter* param1);
+    friend void QStackedWidget_UpdateMicroFocus(QStackedWidget* self);
+    friend void QStackedWidget_QBaseUpdateMicroFocus(QStackedWidget* self);
+    friend void QStackedWidget_Create(QStackedWidget* self);
+    friend void QStackedWidget_QBaseCreate(QStackedWidget* self);
+    friend void QStackedWidget_Destroy(QStackedWidget* self);
+    friend void QStackedWidget_QBaseDestroy(QStackedWidget* self);
+    friend bool QStackedWidget_FocusNextChild(QStackedWidget* self);
+    friend bool QStackedWidget_QBaseFocusNextChild(QStackedWidget* self);
+    friend bool QStackedWidget_FocusPreviousChild(QStackedWidget* self);
+    friend bool QStackedWidget_QBaseFocusPreviousChild(QStackedWidget* self);
+    friend QObject* QStackedWidget_Sender(const QStackedWidget* self);
+    friend QObject* QStackedWidget_QBaseSender(const QStackedWidget* self);
+    friend int QStackedWidget_SenderSignalIndex(const QStackedWidget* self);
+    friend int QStackedWidget_QBaseSenderSignalIndex(const QStackedWidget* self);
+    friend int QStackedWidget_Receivers(const QStackedWidget* self, const char* signal);
+    friend int QStackedWidget_QBaseReceivers(const QStackedWidget* self, const char* signal);
+    friend bool QStackedWidget_IsSignalConnected(const QStackedWidget* self, const QMetaMethod* signal);
+    friend bool QStackedWidget_QBaseIsSignalConnected(const QStackedWidget* self, const QMetaMethod* signal);
 };
 
 #endif

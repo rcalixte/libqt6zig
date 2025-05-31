@@ -15,12 +15,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
@@ -28,15 +23,12 @@ typedef struct QIODevice QIODevice;
 typedef struct QImage QImage;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QMovie QMovie;
 typedef struct QObject QObject;
 typedef struct QPixmap QPixmap;
 typedef struct QRect QRect;
 typedef struct QSize QSize;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
@@ -49,12 +41,12 @@ typedef int MovieState; // C ABI enum
 
 QMovie* QMovie_new();
 QMovie* QMovie_new2(QIODevice* device);
-QMovie* QMovie_new3(libqt_string fileName);
+QMovie* QMovie_new3(const libqt_string fileName);
 QMovie* QMovie_new4(QObject* parent);
-QMovie* QMovie_new5(QIODevice* device, libqt_string format);
-QMovie* QMovie_new6(QIODevice* device, libqt_string format, QObject* parent);
-QMovie* QMovie_new7(libqt_string fileName, libqt_string format);
-QMovie* QMovie_new8(libqt_string fileName, libqt_string format, QObject* parent);
+QMovie* QMovie_new5(QIODevice* device, const libqt_string format);
+QMovie* QMovie_new6(QIODevice* device, const libqt_string format, QObject* parent);
+QMovie* QMovie_new7(const libqt_string fileName, const libqt_string format);
+QMovie* QMovie_new8(const libqt_string fileName, const libqt_string format, QObject* parent);
 QMetaObject* QMovie_MetaObject(const QMovie* self);
 void* QMovie_Metacast(QMovie* self, const char* param1);
 int QMovie_Metacall(QMovie* self, int param1, int param2, void** param3);
@@ -64,11 +56,11 @@ libqt_string QMovie_Tr(const char* s);
 libqt_list /* of libqt_string */ QMovie_SupportedFormats();
 void QMovie_SetDevice(QMovie* self, QIODevice* device);
 QIODevice* QMovie_Device(const QMovie* self);
-void QMovie_SetFileName(QMovie* self, libqt_string fileName);
+void QMovie_SetFileName(QMovie* self, const libqt_string fileName);
 libqt_string QMovie_FileName(const QMovie* self);
-void QMovie_SetFormat(QMovie* self, libqt_string format);
+void QMovie_SetFormat(QMovie* self, const libqt_string format);
 libqt_string QMovie_Format(const QMovie* self);
-void QMovie_SetBackgroundColor(QMovie* self, QColor* color);
+void QMovie_SetBackgroundColor(QMovie* self, const QColor* color);
 QColor* QMovie_BackgroundColor(const QMovie* self);
 int QMovie_State(const QMovie* self);
 QRect* QMovie_FrameRect(const QMovie* self);
@@ -84,14 +76,14 @@ int QMovie_NextFrameDelay(const QMovie* self);
 int QMovie_CurrentFrameNumber(const QMovie* self);
 int QMovie_Speed(const QMovie* self);
 QSize* QMovie_ScaledSize(QMovie* self);
-void QMovie_SetScaledSize(QMovie* self, QSize* size);
+void QMovie_SetScaledSize(QMovie* self, const QSize* size);
 int QMovie_CacheMode(const QMovie* self);
 void QMovie_SetCacheMode(QMovie* self, int mode);
 void QMovie_Started(QMovie* self);
 void QMovie_Connect_Started(QMovie* self, intptr_t slot);
-void QMovie_Resized(QMovie* self, QSize* size);
+void QMovie_Resized(QMovie* self, const QSize* size);
 void QMovie_Connect_Resized(QMovie* self, intptr_t slot);
-void QMovie_Updated(QMovie* self, QRect* rect);
+void QMovie_Updated(QMovie* self, const QRect* rect);
 void QMovie_Connect_Updated(QMovie* self, intptr_t slot);
 void QMovie_StateChanged(QMovie* self, int state);
 void QMovie_Connect_StateChanged(QMovie* self, intptr_t slot);
@@ -123,12 +115,12 @@ void QMovie_QBaseChildEvent(QMovie* self, QChildEvent* event);
 void QMovie_CustomEvent(QMovie* self, QEvent* event);
 void QMovie_OnCustomEvent(QMovie* self, intptr_t slot);
 void QMovie_QBaseCustomEvent(QMovie* self, QEvent* event);
-void QMovie_ConnectNotify(QMovie* self, QMetaMethod* signal);
+void QMovie_ConnectNotify(QMovie* self, const QMetaMethod* signal);
 void QMovie_OnConnectNotify(QMovie* self, intptr_t slot);
-void QMovie_QBaseConnectNotify(QMovie* self, QMetaMethod* signal);
-void QMovie_DisconnectNotify(QMovie* self, QMetaMethod* signal);
+void QMovie_QBaseConnectNotify(QMovie* self, const QMetaMethod* signal);
+void QMovie_DisconnectNotify(QMovie* self, const QMetaMethod* signal);
 void QMovie_OnDisconnectNotify(QMovie* self, intptr_t slot);
-void QMovie_QBaseDisconnectNotify(QMovie* self, QMetaMethod* signal);
+void QMovie_QBaseDisconnectNotify(QMovie* self, const QMetaMethod* signal);
 QObject* QMovie_Sender(const QMovie* self);
 void QMovie_OnSender(const QMovie* self, intptr_t slot);
 QObject* QMovie_QBaseSender(const QMovie* self);
@@ -138,9 +130,9 @@ int QMovie_QBaseSenderSignalIndex(const QMovie* self);
 int QMovie_Receivers(const QMovie* self, const char* signal);
 void QMovie_OnReceivers(const QMovie* self, intptr_t slot);
 int QMovie_QBaseReceivers(const QMovie* self, const char* signal);
-bool QMovie_IsSignalConnected(const QMovie* self, QMetaMethod* signal);
+bool QMovie_IsSignalConnected(const QMovie* self, const QMetaMethod* signal);
 void QMovie_OnIsSignalConnected(const QMovie* self, intptr_t slot);
-bool QMovie_QBaseIsSignalConnected(const QMovie* self, QMetaMethod* signal);
+bool QMovie_QBaseIsSignalConnected(const QMovie* self, const QMetaMethod* signal);
 void QMovie_Delete(QMovie* self);
 
 #ifdef __cplusplus

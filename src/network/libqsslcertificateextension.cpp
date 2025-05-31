@@ -11,11 +11,11 @@ QSslCertificateExtension* QSslCertificateExtension_new() {
     return new QSslCertificateExtension();
 }
 
-QSslCertificateExtension* QSslCertificateExtension_new2(QSslCertificateExtension* other) {
+QSslCertificateExtension* QSslCertificateExtension_new2(const QSslCertificateExtension* other) {
     return new QSslCertificateExtension(*other);
 }
 
-void QSslCertificateExtension_OperatorAssign(QSslCertificateExtension* self, QSslCertificateExtension* other) {
+void QSslCertificateExtension_OperatorAssign(QSslCertificateExtension* self, const QSslCertificateExtension* other) {
     self->operator=(*other);
 }
 

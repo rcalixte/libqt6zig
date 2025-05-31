@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qsslerror_enums = enums;
 const std = @import("std");
 
@@ -7,73 +8,73 @@ pub const qsslerror = struct {
     /// New constructs a new QSslError object.
     ///
     ///
-    pub fn New() ?*C.QSslError {
-        return C.QSslError_new();
+    pub fn New() QtC.QSslError {
+        return qtc.QSslError_new();
     }
 
     /// New2 constructs a new QSslError object.
     ///
     /// ``` errorVal: qsslerror_enums.SslError ```
-    pub fn New2(errorVal: i64) ?*C.QSslError {
-        return C.QSslError_new2(@intCast(errorVal));
+    pub fn New2(errorVal: i64) QtC.QSslError {
+        return qtc.QSslError_new2(@intCast(errorVal));
     }
 
     /// New3 constructs a new QSslError object.
     ///
-    /// ``` errorVal: qsslerror_enums.SslError, certificate: ?*C.QSslCertificate ```
-    pub fn New3(errorVal: i64, certificate: ?*anyopaque) ?*C.QSslError {
-        return C.QSslError_new3(@intCast(errorVal), @ptrCast(certificate));
+    /// ``` errorVal: qsslerror_enums.SslError, certificate: QtC.QSslCertificate ```
+    pub fn New3(errorVal: i64, certificate: ?*anyopaque) QtC.QSslError {
+        return qtc.QSslError_new3(@intCast(errorVal), @ptrCast(certificate));
     }
 
     /// New4 constructs a new QSslError object.
     ///
-    /// ``` other: ?*C.QSslError ```
-    pub fn New4(other: ?*anyopaque) ?*C.QSslError {
-        return C.QSslError_new4(@ptrCast(other));
+    /// ``` other: QtC.QSslError ```
+    pub fn New4(other: ?*anyopaque) QtC.QSslError {
+        return qtc.QSslError_new4(@ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#swap)
     ///
-    /// ``` self: ?*C.QSslError, other: ?*C.QSslError ```
+    /// ``` self: QtC.QSslError, other: QtC.QSslError ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QSslError_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QSslError_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#operator=)
     ///
-    /// ``` self: ?*C.QSslError, other: ?*C.QSslError ```
+    /// ``` self: QtC.QSslError, other: QtC.QSslError ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QSslError_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QSslError_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#operator==)
     ///
-    /// ``` self: ?*C.QSslError, other: ?*C.QSslError ```
+    /// ``` self: QtC.QSslError, other: QtC.QSslError ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return C.QSslError_OperatorEqual(@ptrCast(self), @ptrCast(other));
+        return qtc.QSslError_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#operator!=)
     ///
-    /// ``` self: ?*C.QSslError, other: ?*C.QSslError ```
+    /// ``` self: QtC.QSslError, other: QtC.QSslError ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return C.QSslError_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
+        return qtc.QSslError_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#error)
     ///
-    /// ``` self: ?*C.QSslError ```
+    /// ``` self: QtC.QSslError ```
     pub fn Error(self: ?*anyopaque) i64 {
-        return C.QSslError_Error(@ptrCast(self));
+        return qtc.QSslError_Error(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#errorString)
     ///
-    /// ``` self: ?*C.QSslError, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QSslError, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QSslError_ErrorString(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QSslError_ErrorString(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslerror.ErrorString: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -82,16 +83,18 @@ pub const qsslerror = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#certificate)
     ///
-    /// ``` self: ?*C.QSslError ```
-    pub fn Certificate(self: ?*anyopaque) ?*C.QSslCertificate {
-        return C.QSslError_Certificate(@ptrCast(self));
+    /// ``` self: QtC.QSslError ```
+    pub fn Certificate(self: ?*anyopaque) QtC.QSslCertificate {
+        return qtc.QSslError_Certificate(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#dtor.QSslError)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QSslError ```
+    /// ``` self: QtC.QSslError ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QSslError_Delete(@ptrCast(self));
+        qtc.QSslError_Delete(@ptrCast(self));
     }
 };
 

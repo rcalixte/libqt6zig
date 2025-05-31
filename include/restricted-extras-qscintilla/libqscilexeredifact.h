@@ -15,25 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSettings QSettings;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
-typedef struct QsciAbstractAPIs QsciAbstractAPIs;
 typedef struct QsciLexer QsciLexer;
 typedef struct QsciLexerEDIFACT QsciLexerEDIFACT;
 typedef struct QsciScintilla QsciScintilla;
@@ -128,21 +119,24 @@ const char* QsciLexerEDIFACT_QBaseWordCharacters(const QsciLexerEDIFACT* self);
 void QsciLexerEDIFACT_SetAutoIndentStyle(QsciLexerEDIFACT* self, int autoindentstyle);
 void QsciLexerEDIFACT_OnSetAutoIndentStyle(QsciLexerEDIFACT* self, intptr_t slot);
 void QsciLexerEDIFACT_QBaseSetAutoIndentStyle(QsciLexerEDIFACT* self, int autoindentstyle);
-void QsciLexerEDIFACT_SetColor(QsciLexerEDIFACT* self, QColor* c, int style);
+void QsciLexerEDIFACT_SetColor(QsciLexerEDIFACT* self, const QColor* c, int style);
 void QsciLexerEDIFACT_OnSetColor(QsciLexerEDIFACT* self, intptr_t slot);
-void QsciLexerEDIFACT_QBaseSetColor(QsciLexerEDIFACT* self, QColor* c, int style);
+void QsciLexerEDIFACT_QBaseSetColor(QsciLexerEDIFACT* self, const QColor* c, int style);
 void QsciLexerEDIFACT_SetEolFill(QsciLexerEDIFACT* self, bool eoffill, int style);
 void QsciLexerEDIFACT_OnSetEolFill(QsciLexerEDIFACT* self, intptr_t slot);
 void QsciLexerEDIFACT_QBaseSetEolFill(QsciLexerEDIFACT* self, bool eoffill, int style);
-void QsciLexerEDIFACT_SetFont(QsciLexerEDIFACT* self, QFont* f, int style);
+void QsciLexerEDIFACT_SetFont(QsciLexerEDIFACT* self, const QFont* f, int style);
 void QsciLexerEDIFACT_OnSetFont(QsciLexerEDIFACT* self, intptr_t slot);
-void QsciLexerEDIFACT_QBaseSetFont(QsciLexerEDIFACT* self, QFont* f, int style);
-void QsciLexerEDIFACT_SetPaper(QsciLexerEDIFACT* self, QColor* c, int style);
+void QsciLexerEDIFACT_QBaseSetFont(QsciLexerEDIFACT* self, const QFont* f, int style);
+void QsciLexerEDIFACT_SetPaper(QsciLexerEDIFACT* self, const QColor* c, int style);
 void QsciLexerEDIFACT_OnSetPaper(QsciLexerEDIFACT* self, intptr_t slot);
-void QsciLexerEDIFACT_QBaseSetPaper(QsciLexerEDIFACT* self, QColor* c, int style);
-bool QsciLexerEDIFACT_ReadProperties(QsciLexerEDIFACT* self, QSettings* qs, libqt_string prefix);
+void QsciLexerEDIFACT_QBaseSetPaper(QsciLexerEDIFACT* self, const QColor* c, int style);
+bool QsciLexerEDIFACT_ReadProperties(QsciLexerEDIFACT* self, QSettings* qs, const libqt_string prefix);
 void QsciLexerEDIFACT_OnReadProperties(QsciLexerEDIFACT* self, intptr_t slot);
-bool QsciLexerEDIFACT_QBaseReadProperties(QsciLexerEDIFACT* self, QSettings* qs, libqt_string prefix);
+bool QsciLexerEDIFACT_QBaseReadProperties(QsciLexerEDIFACT* self, QSettings* qs, const libqt_string prefix);
+bool QsciLexerEDIFACT_WriteProperties(const QsciLexerEDIFACT* self, QSettings* qs, const libqt_string prefix);
+void QsciLexerEDIFACT_OnWriteProperties(const QsciLexerEDIFACT* self, intptr_t slot);
+bool QsciLexerEDIFACT_QBaseWriteProperties(const QsciLexerEDIFACT* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexerEDIFACT_Event(QsciLexerEDIFACT* self, QEvent* event);
 void QsciLexerEDIFACT_OnEvent(QsciLexerEDIFACT* self, intptr_t slot);
 bool QsciLexerEDIFACT_QBaseEvent(QsciLexerEDIFACT* self, QEvent* event);
@@ -158,15 +152,12 @@ void QsciLexerEDIFACT_QBaseChildEvent(QsciLexerEDIFACT* self, QChildEvent* event
 void QsciLexerEDIFACT_CustomEvent(QsciLexerEDIFACT* self, QEvent* event);
 void QsciLexerEDIFACT_OnCustomEvent(QsciLexerEDIFACT* self, intptr_t slot);
 void QsciLexerEDIFACT_QBaseCustomEvent(QsciLexerEDIFACT* self, QEvent* event);
-void QsciLexerEDIFACT_ConnectNotify(QsciLexerEDIFACT* self, QMetaMethod* signal);
+void QsciLexerEDIFACT_ConnectNotify(QsciLexerEDIFACT* self, const QMetaMethod* signal);
 void QsciLexerEDIFACT_OnConnectNotify(QsciLexerEDIFACT* self, intptr_t slot);
-void QsciLexerEDIFACT_QBaseConnectNotify(QsciLexerEDIFACT* self, QMetaMethod* signal);
-void QsciLexerEDIFACT_DisconnectNotify(QsciLexerEDIFACT* self, QMetaMethod* signal);
+void QsciLexerEDIFACT_QBaseConnectNotify(QsciLexerEDIFACT* self, const QMetaMethod* signal);
+void QsciLexerEDIFACT_DisconnectNotify(QsciLexerEDIFACT* self, const QMetaMethod* signal);
 void QsciLexerEDIFACT_OnDisconnectNotify(QsciLexerEDIFACT* self, intptr_t slot);
-void QsciLexerEDIFACT_QBaseDisconnectNotify(QsciLexerEDIFACT* self, QMetaMethod* signal);
-bool QsciLexerEDIFACT_WriteProperties(const QsciLexerEDIFACT* self, QSettings* qs, libqt_string prefix);
-void QsciLexerEDIFACT_OnWriteProperties(const QsciLexerEDIFACT* self, intptr_t slot);
-bool QsciLexerEDIFACT_QBaseWriteProperties(const QsciLexerEDIFACT* self, QSettings* qs, libqt_string prefix);
+void QsciLexerEDIFACT_QBaseDisconnectNotify(QsciLexerEDIFACT* self, const QMetaMethod* signal);
 QObject* QsciLexerEDIFACT_Sender(const QsciLexerEDIFACT* self);
 void QsciLexerEDIFACT_OnSender(const QsciLexerEDIFACT* self, intptr_t slot);
 QObject* QsciLexerEDIFACT_QBaseSender(const QsciLexerEDIFACT* self);
@@ -176,9 +167,9 @@ int QsciLexerEDIFACT_QBaseSenderSignalIndex(const QsciLexerEDIFACT* self);
 int QsciLexerEDIFACT_Receivers(const QsciLexerEDIFACT* self, const char* signal);
 void QsciLexerEDIFACT_OnReceivers(const QsciLexerEDIFACT* self, intptr_t slot);
 int QsciLexerEDIFACT_QBaseReceivers(const QsciLexerEDIFACT* self, const char* signal);
-bool QsciLexerEDIFACT_IsSignalConnected(const QsciLexerEDIFACT* self, QMetaMethod* signal);
+bool QsciLexerEDIFACT_IsSignalConnected(const QsciLexerEDIFACT* self, const QMetaMethod* signal);
 void QsciLexerEDIFACT_OnIsSignalConnected(const QsciLexerEDIFACT* self, intptr_t slot);
-bool QsciLexerEDIFACT_QBaseIsSignalConnected(const QsciLexerEDIFACT* self, QMetaMethod* signal);
+bool QsciLexerEDIFACT_QBaseIsSignalConnected(const QsciLexerEDIFACT* self, const QMetaMethod* signal);
 void QsciLexerEDIFACT_Delete(QsciLexerEDIFACT* self);
 
 #ifdef __cplusplus

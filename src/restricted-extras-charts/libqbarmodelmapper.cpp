@@ -1,22 +1,12 @@
 #include <QAbstractBarSeries>
 #include <QAbstractItemModel>
-#include <QAnyStringView>
 #include <QBarModelMapper>
-#include <QBindingStorage>
-#include <QByteArray>
-#include <QChildEvent>
-#include <QEvent>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
-#include <QVariant>
 #include <qbarmodelmapper.h>
 #include "libqbarmodelmapper.h"
 #include "libqbarmodelmapper.hxx"
@@ -67,14 +57,6 @@ libqt_string QBarModelMapper_Tr3(const char* s, const char* c, int n) {
     memcpy(_str.data, _b.data(), _str.len);
     _str.data[_str.len] = '\0';
     return _str;
-}
-
-bool QBarModelMapper_Event(QBarModelMapper* self, QEvent* event) {
-    return self->event(event);
-}
-
-bool QBarModelMapper_EventFilter(QBarModelMapper* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
 }
 
 void QBarModelMapper_Delete(QBarModelMapper* self) {

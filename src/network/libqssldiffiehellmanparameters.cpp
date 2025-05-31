@@ -12,7 +12,7 @@ QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_new() {
     return new QSslDiffieHellmanParameters();
 }
 
-QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_new2(QSslDiffieHellmanParameters* other) {
+QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_new2(const QSslDiffieHellmanParameters* other) {
     return new QSslDiffieHellmanParameters(*other);
 }
 
@@ -20,7 +20,7 @@ QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_DefaultParameters() {
     return new QSslDiffieHellmanParameters(QSslDiffieHellmanParameters::defaultParameters());
 }
 
-void QSslDiffieHellmanParameters_OperatorAssign(QSslDiffieHellmanParameters* self, QSslDiffieHellmanParameters* other) {
+void QSslDiffieHellmanParameters_OperatorAssign(QSslDiffieHellmanParameters* self, const QSslDiffieHellmanParameters* other) {
     self->operator=(*other);
 }
 
@@ -28,7 +28,7 @@ void QSslDiffieHellmanParameters_Swap(QSslDiffieHellmanParameters* self, QSslDif
     self->swap(*other);
 }
 
-QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_FromEncoded(libqt_string encoded) {
+QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_FromEncoded(const libqt_string encoded) {
     QByteArray encoded_QByteArray(encoded.data, encoded.len);
     return new QSslDiffieHellmanParameters(QSslDiffieHellmanParameters::fromEncoded(encoded_QByteArray));
 }
@@ -61,7 +61,7 @@ libqt_string QSslDiffieHellmanParameters_ErrorString(const QSslDiffieHellmanPara
     return _str;
 }
 
-QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_FromEncoded2(libqt_string encoded, int format) {
+QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_FromEncoded2(const libqt_string encoded, int format) {
     QByteArray encoded_QByteArray(encoded.data, encoded.len);
     return new QSslDiffieHellmanParameters(QSslDiffieHellmanParameters::fromEncoded(encoded_QByteArray, static_cast<QSsl::EncodingFormat>(format)));
 }

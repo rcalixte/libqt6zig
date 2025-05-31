@@ -11,18 +11,21 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QVPieModelMapper so that we can call protected methods
-class VirtualQVPieModelMapper : public QVPieModelMapper {
+class VirtualQVPieModelMapper final : public QVPieModelMapper {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQVPieModelMapper = true;
+
     // Virtual class public types (including callbacks)
-    using QVPieModelMapper_Metacall_Callback = int (*)(QVPieModelMapper*, QMetaObject::Call, int, void**);
+    using QVPieModelMapper_Metacall_Callback = int (*)(QVPieModelMapper*, int, int, void**);
     using QVPieModelMapper_Event_Callback = bool (*)(QVPieModelMapper*, QEvent*);
     using QVPieModelMapper_EventFilter_Callback = bool (*)(QVPieModelMapper*, QObject*, QEvent*);
     using QVPieModelMapper_TimerEvent_Callback = void (*)(QVPieModelMapper*, QTimerEvent*);
     using QVPieModelMapper_ChildEvent_Callback = void (*)(QVPieModelMapper*, QChildEvent*);
     using QVPieModelMapper_CustomEvent_Callback = void (*)(QVPieModelMapper*, QEvent*);
-    using QVPieModelMapper_ConnectNotify_Callback = void (*)(QVPieModelMapper*, const QMetaMethod&);
-    using QVPieModelMapper_DisconnectNotify_Callback = void (*)(QVPieModelMapper*, const QMetaMethod&);
+    using QVPieModelMapper_ConnectNotify_Callback = void (*)(QVPieModelMapper*, QMetaMethod*);
+    using QVPieModelMapper_DisconnectNotify_Callback = void (*)(QVPieModelMapper*, QMetaMethod*);
     using QVPieModelMapper_First_Callback = int (*)();
     using QVPieModelMapper_SetFirst_Callback = void (*)(QVPieModelMapper*, int);
     using QVPieModelMapper_Count_Callback = int (*)();
@@ -31,12 +34,12 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
     using QVPieModelMapper_SetValuesSection_Callback = void (*)(QVPieModelMapper*, int);
     using QVPieModelMapper_LabelsSection_Callback = int (*)();
     using QVPieModelMapper_SetLabelsSection_Callback = void (*)(QVPieModelMapper*, int);
-    using QVPieModelMapper_Orientation_Callback = Qt::Orientation (*)();
-    using QVPieModelMapper_SetOrientation_Callback = void (*)(QVPieModelMapper*, Qt::Orientation);
+    using QVPieModelMapper_Orientation_Callback = int (*)();
+    using QVPieModelMapper_SetOrientation_Callback = void (*)(QVPieModelMapper*, int);
     using QVPieModelMapper_Sender_Callback = QObject* (*)();
     using QVPieModelMapper_SenderSignalIndex_Callback = int (*)();
     using QVPieModelMapper_Receivers_Callback = int (*)(const QVPieModelMapper*, const char*);
-    using QVPieModelMapper_IsSignalConnected_Callback = bool (*)(const QVPieModelMapper*, const QMetaMethod&);
+    using QVPieModelMapper_IsSignalConnected_Callback = bool (*)(const QVPieModelMapper*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -117,52 +120,52 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
     }
 
     // Callback setters
-    void setQVPieModelMapper_Metacall_Callback(QVPieModelMapper_Metacall_Callback cb) { qvpiemodelmapper_metacall_callback = cb; }
-    void setQVPieModelMapper_Event_Callback(QVPieModelMapper_Event_Callback cb) { qvpiemodelmapper_event_callback = cb; }
-    void setQVPieModelMapper_EventFilter_Callback(QVPieModelMapper_EventFilter_Callback cb) { qvpiemodelmapper_eventfilter_callback = cb; }
-    void setQVPieModelMapper_TimerEvent_Callback(QVPieModelMapper_TimerEvent_Callback cb) { qvpiemodelmapper_timerevent_callback = cb; }
-    void setQVPieModelMapper_ChildEvent_Callback(QVPieModelMapper_ChildEvent_Callback cb) { qvpiemodelmapper_childevent_callback = cb; }
-    void setQVPieModelMapper_CustomEvent_Callback(QVPieModelMapper_CustomEvent_Callback cb) { qvpiemodelmapper_customevent_callback = cb; }
-    void setQVPieModelMapper_ConnectNotify_Callback(QVPieModelMapper_ConnectNotify_Callback cb) { qvpiemodelmapper_connectnotify_callback = cb; }
-    void setQVPieModelMapper_DisconnectNotify_Callback(QVPieModelMapper_DisconnectNotify_Callback cb) { qvpiemodelmapper_disconnectnotify_callback = cb; }
-    void setQVPieModelMapper_First_Callback(QVPieModelMapper_First_Callback cb) { qvpiemodelmapper_first_callback = cb; }
-    void setQVPieModelMapper_SetFirst_Callback(QVPieModelMapper_SetFirst_Callback cb) { qvpiemodelmapper_setfirst_callback = cb; }
-    void setQVPieModelMapper_Count_Callback(QVPieModelMapper_Count_Callback cb) { qvpiemodelmapper_count_callback = cb; }
-    void setQVPieModelMapper_SetCount_Callback(QVPieModelMapper_SetCount_Callback cb) { qvpiemodelmapper_setcount_callback = cb; }
-    void setQVPieModelMapper_ValuesSection_Callback(QVPieModelMapper_ValuesSection_Callback cb) { qvpiemodelmapper_valuessection_callback = cb; }
-    void setQVPieModelMapper_SetValuesSection_Callback(QVPieModelMapper_SetValuesSection_Callback cb) { qvpiemodelmapper_setvaluessection_callback = cb; }
-    void setQVPieModelMapper_LabelsSection_Callback(QVPieModelMapper_LabelsSection_Callback cb) { qvpiemodelmapper_labelssection_callback = cb; }
-    void setQVPieModelMapper_SetLabelsSection_Callback(QVPieModelMapper_SetLabelsSection_Callback cb) { qvpiemodelmapper_setlabelssection_callback = cb; }
-    void setQVPieModelMapper_Orientation_Callback(QVPieModelMapper_Orientation_Callback cb) { qvpiemodelmapper_orientation_callback = cb; }
-    void setQVPieModelMapper_SetOrientation_Callback(QVPieModelMapper_SetOrientation_Callback cb) { qvpiemodelmapper_setorientation_callback = cb; }
-    void setQVPieModelMapper_Sender_Callback(QVPieModelMapper_Sender_Callback cb) { qvpiemodelmapper_sender_callback = cb; }
-    void setQVPieModelMapper_SenderSignalIndex_Callback(QVPieModelMapper_SenderSignalIndex_Callback cb) { qvpiemodelmapper_sendersignalindex_callback = cb; }
-    void setQVPieModelMapper_Receivers_Callback(QVPieModelMapper_Receivers_Callback cb) { qvpiemodelmapper_receivers_callback = cb; }
-    void setQVPieModelMapper_IsSignalConnected_Callback(QVPieModelMapper_IsSignalConnected_Callback cb) { qvpiemodelmapper_issignalconnected_callback = cb; }
+    inline void setQVPieModelMapper_Metacall_Callback(QVPieModelMapper_Metacall_Callback cb) { qvpiemodelmapper_metacall_callback = cb; }
+    inline void setQVPieModelMapper_Event_Callback(QVPieModelMapper_Event_Callback cb) { qvpiemodelmapper_event_callback = cb; }
+    inline void setQVPieModelMapper_EventFilter_Callback(QVPieModelMapper_EventFilter_Callback cb) { qvpiemodelmapper_eventfilter_callback = cb; }
+    inline void setQVPieModelMapper_TimerEvent_Callback(QVPieModelMapper_TimerEvent_Callback cb) { qvpiemodelmapper_timerevent_callback = cb; }
+    inline void setQVPieModelMapper_ChildEvent_Callback(QVPieModelMapper_ChildEvent_Callback cb) { qvpiemodelmapper_childevent_callback = cb; }
+    inline void setQVPieModelMapper_CustomEvent_Callback(QVPieModelMapper_CustomEvent_Callback cb) { qvpiemodelmapper_customevent_callback = cb; }
+    inline void setQVPieModelMapper_ConnectNotify_Callback(QVPieModelMapper_ConnectNotify_Callback cb) { qvpiemodelmapper_connectnotify_callback = cb; }
+    inline void setQVPieModelMapper_DisconnectNotify_Callback(QVPieModelMapper_DisconnectNotify_Callback cb) { qvpiemodelmapper_disconnectnotify_callback = cb; }
+    inline void setQVPieModelMapper_First_Callback(QVPieModelMapper_First_Callback cb) { qvpiemodelmapper_first_callback = cb; }
+    inline void setQVPieModelMapper_SetFirst_Callback(QVPieModelMapper_SetFirst_Callback cb) { qvpiemodelmapper_setfirst_callback = cb; }
+    inline void setQVPieModelMapper_Count_Callback(QVPieModelMapper_Count_Callback cb) { qvpiemodelmapper_count_callback = cb; }
+    inline void setQVPieModelMapper_SetCount_Callback(QVPieModelMapper_SetCount_Callback cb) { qvpiemodelmapper_setcount_callback = cb; }
+    inline void setQVPieModelMapper_ValuesSection_Callback(QVPieModelMapper_ValuesSection_Callback cb) { qvpiemodelmapper_valuessection_callback = cb; }
+    inline void setQVPieModelMapper_SetValuesSection_Callback(QVPieModelMapper_SetValuesSection_Callback cb) { qvpiemodelmapper_setvaluessection_callback = cb; }
+    inline void setQVPieModelMapper_LabelsSection_Callback(QVPieModelMapper_LabelsSection_Callback cb) { qvpiemodelmapper_labelssection_callback = cb; }
+    inline void setQVPieModelMapper_SetLabelsSection_Callback(QVPieModelMapper_SetLabelsSection_Callback cb) { qvpiemodelmapper_setlabelssection_callback = cb; }
+    inline void setQVPieModelMapper_Orientation_Callback(QVPieModelMapper_Orientation_Callback cb) { qvpiemodelmapper_orientation_callback = cb; }
+    inline void setQVPieModelMapper_SetOrientation_Callback(QVPieModelMapper_SetOrientation_Callback cb) { qvpiemodelmapper_setorientation_callback = cb; }
+    inline void setQVPieModelMapper_Sender_Callback(QVPieModelMapper_Sender_Callback cb) { qvpiemodelmapper_sender_callback = cb; }
+    inline void setQVPieModelMapper_SenderSignalIndex_Callback(QVPieModelMapper_SenderSignalIndex_Callback cb) { qvpiemodelmapper_sendersignalindex_callback = cb; }
+    inline void setQVPieModelMapper_Receivers_Callback(QVPieModelMapper_Receivers_Callback cb) { qvpiemodelmapper_receivers_callback = cb; }
+    inline void setQVPieModelMapper_IsSignalConnected_Callback(QVPieModelMapper_IsSignalConnected_Callback cb) { qvpiemodelmapper_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQVPieModelMapper_Metacall_IsBase(bool value) const { qvpiemodelmapper_metacall_isbase = value; }
-    void setQVPieModelMapper_Event_IsBase(bool value) const { qvpiemodelmapper_event_isbase = value; }
-    void setQVPieModelMapper_EventFilter_IsBase(bool value) const { qvpiemodelmapper_eventfilter_isbase = value; }
-    void setQVPieModelMapper_TimerEvent_IsBase(bool value) const { qvpiemodelmapper_timerevent_isbase = value; }
-    void setQVPieModelMapper_ChildEvent_IsBase(bool value) const { qvpiemodelmapper_childevent_isbase = value; }
-    void setQVPieModelMapper_CustomEvent_IsBase(bool value) const { qvpiemodelmapper_customevent_isbase = value; }
-    void setQVPieModelMapper_ConnectNotify_IsBase(bool value) const { qvpiemodelmapper_connectnotify_isbase = value; }
-    void setQVPieModelMapper_DisconnectNotify_IsBase(bool value) const { qvpiemodelmapper_disconnectnotify_isbase = value; }
-    void setQVPieModelMapper_First_IsBase(bool value) const { qvpiemodelmapper_first_isbase = value; }
-    void setQVPieModelMapper_SetFirst_IsBase(bool value) const { qvpiemodelmapper_setfirst_isbase = value; }
-    void setQVPieModelMapper_Count_IsBase(bool value) const { qvpiemodelmapper_count_isbase = value; }
-    void setQVPieModelMapper_SetCount_IsBase(bool value) const { qvpiemodelmapper_setcount_isbase = value; }
-    void setQVPieModelMapper_ValuesSection_IsBase(bool value) const { qvpiemodelmapper_valuessection_isbase = value; }
-    void setQVPieModelMapper_SetValuesSection_IsBase(bool value) const { qvpiemodelmapper_setvaluessection_isbase = value; }
-    void setQVPieModelMapper_LabelsSection_IsBase(bool value) const { qvpiemodelmapper_labelssection_isbase = value; }
-    void setQVPieModelMapper_SetLabelsSection_IsBase(bool value) const { qvpiemodelmapper_setlabelssection_isbase = value; }
-    void setQVPieModelMapper_Orientation_IsBase(bool value) const { qvpiemodelmapper_orientation_isbase = value; }
-    void setQVPieModelMapper_SetOrientation_IsBase(bool value) const { qvpiemodelmapper_setorientation_isbase = value; }
-    void setQVPieModelMapper_Sender_IsBase(bool value) const { qvpiemodelmapper_sender_isbase = value; }
-    void setQVPieModelMapper_SenderSignalIndex_IsBase(bool value) const { qvpiemodelmapper_sendersignalindex_isbase = value; }
-    void setQVPieModelMapper_Receivers_IsBase(bool value) const { qvpiemodelmapper_receivers_isbase = value; }
-    void setQVPieModelMapper_IsSignalConnected_IsBase(bool value) const { qvpiemodelmapper_issignalconnected_isbase = value; }
+    inline void setQVPieModelMapper_Metacall_IsBase(bool value) const { qvpiemodelmapper_metacall_isbase = value; }
+    inline void setQVPieModelMapper_Event_IsBase(bool value) const { qvpiemodelmapper_event_isbase = value; }
+    inline void setQVPieModelMapper_EventFilter_IsBase(bool value) const { qvpiemodelmapper_eventfilter_isbase = value; }
+    inline void setQVPieModelMapper_TimerEvent_IsBase(bool value) const { qvpiemodelmapper_timerevent_isbase = value; }
+    inline void setQVPieModelMapper_ChildEvent_IsBase(bool value) const { qvpiemodelmapper_childevent_isbase = value; }
+    inline void setQVPieModelMapper_CustomEvent_IsBase(bool value) const { qvpiemodelmapper_customevent_isbase = value; }
+    inline void setQVPieModelMapper_ConnectNotify_IsBase(bool value) const { qvpiemodelmapper_connectnotify_isbase = value; }
+    inline void setQVPieModelMapper_DisconnectNotify_IsBase(bool value) const { qvpiemodelmapper_disconnectnotify_isbase = value; }
+    inline void setQVPieModelMapper_First_IsBase(bool value) const { qvpiemodelmapper_first_isbase = value; }
+    inline void setQVPieModelMapper_SetFirst_IsBase(bool value) const { qvpiemodelmapper_setfirst_isbase = value; }
+    inline void setQVPieModelMapper_Count_IsBase(bool value) const { qvpiemodelmapper_count_isbase = value; }
+    inline void setQVPieModelMapper_SetCount_IsBase(bool value) const { qvpiemodelmapper_setcount_isbase = value; }
+    inline void setQVPieModelMapper_ValuesSection_IsBase(bool value) const { qvpiemodelmapper_valuessection_isbase = value; }
+    inline void setQVPieModelMapper_SetValuesSection_IsBase(bool value) const { qvpiemodelmapper_setvaluessection_isbase = value; }
+    inline void setQVPieModelMapper_LabelsSection_IsBase(bool value) const { qvpiemodelmapper_labelssection_isbase = value; }
+    inline void setQVPieModelMapper_SetLabelsSection_IsBase(bool value) const { qvpiemodelmapper_setlabelssection_isbase = value; }
+    inline void setQVPieModelMapper_Orientation_IsBase(bool value) const { qvpiemodelmapper_orientation_isbase = value; }
+    inline void setQVPieModelMapper_SetOrientation_IsBase(bool value) const { qvpiemodelmapper_setorientation_isbase = value; }
+    inline void setQVPieModelMapper_Sender_IsBase(bool value) const { qvpiemodelmapper_sender_isbase = value; }
+    inline void setQVPieModelMapper_SenderSignalIndex_IsBase(bool value) const { qvpiemodelmapper_sendersignalindex_isbase = value; }
+    inline void setQVPieModelMapper_Receivers_IsBase(bool value) const { qvpiemodelmapper_receivers_isbase = value; }
+    inline void setQVPieModelMapper_IsSignalConnected_IsBase(bool value) const { qvpiemodelmapper_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -170,7 +173,12 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_metacall_isbase = false;
             return QVPieModelMapper::qt_metacall(param1, param2, param3);
         } else if (qvpiemodelmapper_metacall_callback != nullptr) {
-            return qvpiemodelmapper_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qvpiemodelmapper_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QVPieModelMapper::qt_metacall(param1, param2, param3);
         }
@@ -182,7 +190,10 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_event_isbase = false;
             return QVPieModelMapper::event(event);
         } else if (qvpiemodelmapper_event_callback != nullptr) {
-            return qvpiemodelmapper_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qvpiemodelmapper_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QVPieModelMapper::event(event);
         }
@@ -194,7 +205,11 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_eventfilter_isbase = false;
             return QVPieModelMapper::eventFilter(watched, event);
         } else if (qvpiemodelmapper_eventfilter_callback != nullptr) {
-            return qvpiemodelmapper_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qvpiemodelmapper_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QVPieModelMapper::eventFilter(watched, event);
         }
@@ -206,7 +221,9 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_timerevent_isbase = false;
             QVPieModelMapper::timerEvent(event);
         } else if (qvpiemodelmapper_timerevent_callback != nullptr) {
-            qvpiemodelmapper_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qvpiemodelmapper_timerevent_callback(this, cbval1);
         } else {
             QVPieModelMapper::timerEvent(event);
         }
@@ -218,7 +235,9 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_childevent_isbase = false;
             QVPieModelMapper::childEvent(event);
         } else if (qvpiemodelmapper_childevent_callback != nullptr) {
-            qvpiemodelmapper_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qvpiemodelmapper_childevent_callback(this, cbval1);
         } else {
             QVPieModelMapper::childEvent(event);
         }
@@ -230,7 +249,9 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_customevent_isbase = false;
             QVPieModelMapper::customEvent(event);
         } else if (qvpiemodelmapper_customevent_callback != nullptr) {
-            qvpiemodelmapper_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qvpiemodelmapper_customevent_callback(this, cbval1);
         } else {
             QVPieModelMapper::customEvent(event);
         }
@@ -242,7 +263,11 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_connectnotify_isbase = false;
             QVPieModelMapper::connectNotify(signal);
         } else if (qvpiemodelmapper_connectnotify_callback != nullptr) {
-            qvpiemodelmapper_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qvpiemodelmapper_connectnotify_callback(this, cbval1);
         } else {
             QVPieModelMapper::connectNotify(signal);
         }
@@ -254,7 +279,11 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_disconnectnotify_isbase = false;
             QVPieModelMapper::disconnectNotify(signal);
         } else if (qvpiemodelmapper_disconnectnotify_callback != nullptr) {
-            qvpiemodelmapper_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qvpiemodelmapper_disconnectnotify_callback(this, cbval1);
         } else {
             QVPieModelMapper::disconnectNotify(signal);
         }
@@ -266,7 +295,8 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_first_isbase = false;
             return QVPieModelMapper::first();
         } else if (qvpiemodelmapper_first_callback != nullptr) {
-            return qvpiemodelmapper_first_callback();
+            int callback_ret = qvpiemodelmapper_first_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QVPieModelMapper::first();
         }
@@ -278,7 +308,9 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_setfirst_isbase = false;
             QVPieModelMapper::setFirst(first);
         } else if (qvpiemodelmapper_setfirst_callback != nullptr) {
-            qvpiemodelmapper_setfirst_callback(this, first);
+            int cbval1 = first;
+
+            qvpiemodelmapper_setfirst_callback(this, cbval1);
         } else {
             QVPieModelMapper::setFirst(first);
         }
@@ -290,7 +322,8 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_count_isbase = false;
             return QVPieModelMapper::count();
         } else if (qvpiemodelmapper_count_callback != nullptr) {
-            return qvpiemodelmapper_count_callback();
+            int callback_ret = qvpiemodelmapper_count_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QVPieModelMapper::count();
         }
@@ -302,7 +335,9 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_setcount_isbase = false;
             QVPieModelMapper::setCount(count);
         } else if (qvpiemodelmapper_setcount_callback != nullptr) {
-            qvpiemodelmapper_setcount_callback(this, count);
+            int cbval1 = count;
+
+            qvpiemodelmapper_setcount_callback(this, cbval1);
         } else {
             QVPieModelMapper::setCount(count);
         }
@@ -314,7 +349,8 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_valuessection_isbase = false;
             return QVPieModelMapper::valuesSection();
         } else if (qvpiemodelmapper_valuessection_callback != nullptr) {
-            return qvpiemodelmapper_valuessection_callback();
+            int callback_ret = qvpiemodelmapper_valuessection_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QVPieModelMapper::valuesSection();
         }
@@ -326,7 +362,9 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_setvaluessection_isbase = false;
             QVPieModelMapper::setValuesSection(valuesSection);
         } else if (qvpiemodelmapper_setvaluessection_callback != nullptr) {
-            qvpiemodelmapper_setvaluessection_callback(this, valuesSection);
+            int cbval1 = valuesSection;
+
+            qvpiemodelmapper_setvaluessection_callback(this, cbval1);
         } else {
             QVPieModelMapper::setValuesSection(valuesSection);
         }
@@ -338,7 +376,8 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_labelssection_isbase = false;
             return QVPieModelMapper::labelsSection();
         } else if (qvpiemodelmapper_labelssection_callback != nullptr) {
-            return qvpiemodelmapper_labelssection_callback();
+            int callback_ret = qvpiemodelmapper_labelssection_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QVPieModelMapper::labelsSection();
         }
@@ -350,7 +389,9 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_setlabelssection_isbase = false;
             QVPieModelMapper::setLabelsSection(labelsSection);
         } else if (qvpiemodelmapper_setlabelssection_callback != nullptr) {
-            qvpiemodelmapper_setlabelssection_callback(this, labelsSection);
+            int cbval1 = labelsSection;
+
+            qvpiemodelmapper_setlabelssection_callback(this, cbval1);
         } else {
             QVPieModelMapper::setLabelsSection(labelsSection);
         }
@@ -362,7 +403,8 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_orientation_isbase = false;
             return QVPieModelMapper::orientation();
         } else if (qvpiemodelmapper_orientation_callback != nullptr) {
-            return qvpiemodelmapper_orientation_callback();
+            int callback_ret = qvpiemodelmapper_orientation_callback();
+            return static_cast<Qt::Orientation>(callback_ret);
         } else {
             return QVPieModelMapper::orientation();
         }
@@ -374,7 +416,9 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_setorientation_isbase = false;
             QVPieModelMapper::setOrientation(orientation);
         } else if (qvpiemodelmapper_setorientation_callback != nullptr) {
-            qvpiemodelmapper_setorientation_callback(this, orientation);
+            int cbval1 = static_cast<int>(orientation);
+
+            qvpiemodelmapper_setorientation_callback(this, cbval1);
         } else {
             QVPieModelMapper::setOrientation(orientation);
         }
@@ -386,7 +430,8 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_sender_isbase = false;
             return QVPieModelMapper::sender();
         } else if (qvpiemodelmapper_sender_callback != nullptr) {
-            return qvpiemodelmapper_sender_callback();
+            QObject* callback_ret = qvpiemodelmapper_sender_callback();
+            return callback_ret;
         } else {
             return QVPieModelMapper::sender();
         }
@@ -398,7 +443,8 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_sendersignalindex_isbase = false;
             return QVPieModelMapper::senderSignalIndex();
         } else if (qvpiemodelmapper_sendersignalindex_callback != nullptr) {
-            return qvpiemodelmapper_sendersignalindex_callback();
+            int callback_ret = qvpiemodelmapper_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QVPieModelMapper::senderSignalIndex();
         }
@@ -410,7 +456,10 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_receivers_isbase = false;
             return QVPieModelMapper::receivers(signal);
         } else if (qvpiemodelmapper_receivers_callback != nullptr) {
-            return qvpiemodelmapper_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qvpiemodelmapper_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QVPieModelMapper::receivers(signal);
         }
@@ -422,11 +471,56 @@ class VirtualQVPieModelMapper : public QVPieModelMapper {
             qvpiemodelmapper_issignalconnected_isbase = false;
             return QVPieModelMapper::isSignalConnected(signal);
         } else if (qvpiemodelmapper_issignalconnected_callback != nullptr) {
-            return qvpiemodelmapper_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qvpiemodelmapper_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QVPieModelMapper::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QVPieModelMapper_TimerEvent(QVPieModelMapper* self, QTimerEvent* event);
+    friend void QVPieModelMapper_QBaseTimerEvent(QVPieModelMapper* self, QTimerEvent* event);
+    friend void QVPieModelMapper_ChildEvent(QVPieModelMapper* self, QChildEvent* event);
+    friend void QVPieModelMapper_QBaseChildEvent(QVPieModelMapper* self, QChildEvent* event);
+    friend void QVPieModelMapper_CustomEvent(QVPieModelMapper* self, QEvent* event);
+    friend void QVPieModelMapper_QBaseCustomEvent(QVPieModelMapper* self, QEvent* event);
+    friend void QVPieModelMapper_ConnectNotify(QVPieModelMapper* self, const QMetaMethod* signal);
+    friend void QVPieModelMapper_QBaseConnectNotify(QVPieModelMapper* self, const QMetaMethod* signal);
+    friend void QVPieModelMapper_DisconnectNotify(QVPieModelMapper* self, const QMetaMethod* signal);
+    friend void QVPieModelMapper_QBaseDisconnectNotify(QVPieModelMapper* self, const QMetaMethod* signal);
+    friend int QVPieModelMapper_First(const QVPieModelMapper* self);
+    friend int QVPieModelMapper_QBaseFirst(const QVPieModelMapper* self);
+    friend void QVPieModelMapper_SetFirst(QVPieModelMapper* self, int first);
+    friend void QVPieModelMapper_QBaseSetFirst(QVPieModelMapper* self, int first);
+    friend int QVPieModelMapper_Count(const QVPieModelMapper* self);
+    friend int QVPieModelMapper_QBaseCount(const QVPieModelMapper* self);
+    friend void QVPieModelMapper_SetCount(QVPieModelMapper* self, int count);
+    friend void QVPieModelMapper_QBaseSetCount(QVPieModelMapper* self, int count);
+    friend int QVPieModelMapper_ValuesSection(const QVPieModelMapper* self);
+    friend int QVPieModelMapper_QBaseValuesSection(const QVPieModelMapper* self);
+    friend void QVPieModelMapper_SetValuesSection(QVPieModelMapper* self, int valuesSection);
+    friend void QVPieModelMapper_QBaseSetValuesSection(QVPieModelMapper* self, int valuesSection);
+    friend int QVPieModelMapper_LabelsSection(const QVPieModelMapper* self);
+    friend int QVPieModelMapper_QBaseLabelsSection(const QVPieModelMapper* self);
+    friend void QVPieModelMapper_SetLabelsSection(QVPieModelMapper* self, int labelsSection);
+    friend void QVPieModelMapper_QBaseSetLabelsSection(QVPieModelMapper* self, int labelsSection);
+    friend int QVPieModelMapper_Orientation(const QVPieModelMapper* self);
+    friend int QVPieModelMapper_QBaseOrientation(const QVPieModelMapper* self);
+    friend void QVPieModelMapper_SetOrientation(QVPieModelMapper* self, int orientation);
+    friend void QVPieModelMapper_QBaseSetOrientation(QVPieModelMapper* self, int orientation);
+    friend QObject* QVPieModelMapper_Sender(const QVPieModelMapper* self);
+    friend QObject* QVPieModelMapper_QBaseSender(const QVPieModelMapper* self);
+    friend int QVPieModelMapper_SenderSignalIndex(const QVPieModelMapper* self);
+    friend int QVPieModelMapper_QBaseSenderSignalIndex(const QVPieModelMapper* self);
+    friend int QVPieModelMapper_Receivers(const QVPieModelMapper* self, const char* signal);
+    friend int QVPieModelMapper_QBaseReceivers(const QVPieModelMapper* self, const char* signal);
+    friend bool QVPieModelMapper_IsSignalConnected(const QVPieModelMapper* self, const QMetaMethod* signal);
+    friend bool QVPieModelMapper_QBaseIsSignalConnected(const QVPieModelMapper* self, const QMetaMethod* signal);
 };
 
 #endif

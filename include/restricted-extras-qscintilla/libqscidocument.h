@@ -20,8 +20,8 @@ typedef struct QsciDocument QsciDocument;
 #endif
 
 QsciDocument* QsciDocument_new();
-QsciDocument* QsciDocument_new2(QsciDocument* param1);
-void QsciDocument_OperatorAssign(QsciDocument* self, QsciDocument* param1);
+QsciDocument* QsciDocument_new2(const QsciDocument* param1);
+void QsciDocument_OperatorAssign(QsciDocument* self, const QsciDocument* param1);
 void QsciDocument_Delete(QsciDocument* self);
 
 #ifdef __cplusplus

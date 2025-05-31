@@ -15,23 +15,15 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QInputDevice QInputDevice;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QRect QRect;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
@@ -47,10 +39,10 @@ typedef int DeviceTypes;  // C ABI QFlags
 #endif
 
 QInputDevice* QInputDevice_new();
-QInputDevice* QInputDevice_new2(libqt_string name, long long systemId, int typeVal);
+QInputDevice* QInputDevice_new2(const libqt_string name, long long systemId, int typeVal);
 QInputDevice* QInputDevice_new3(QObject* parent);
-QInputDevice* QInputDevice_new4(libqt_string name, long long systemId, int typeVal, libqt_string seatName);
-QInputDevice* QInputDevice_new5(libqt_string name, long long systemId, int typeVal, libqt_string seatName, QObject* parent);
+QInputDevice* QInputDevice_new4(const libqt_string name, long long systemId, int typeVal, const libqt_string seatName);
+QInputDevice* QInputDevice_new5(const libqt_string name, long long systemId, int typeVal, const libqt_string seatName, QObject* parent);
 QMetaObject* QInputDevice_MetaObject(const QInputDevice* self);
 void* QInputDevice_Metacast(QInputDevice* self, const char* param1);
 int QInputDevice_Metacall(QInputDevice* self, int param1, int param2, void** param3);
@@ -67,12 +59,12 @@ QRect* QInputDevice_AvailableVirtualGeometry(const QInputDevice* self);
 libqt_list /* of libqt_string */ QInputDevice_SeatNames();
 libqt_list /* of QInputDevice* */ QInputDevice_Devices();
 QInputDevice* QInputDevice_PrimaryKeyboard();
-bool QInputDevice_OperatorEqual(const QInputDevice* self, QInputDevice* other);
+bool QInputDevice_OperatorEqual(const QInputDevice* self, const QInputDevice* other);
 void QInputDevice_AvailableVirtualGeometryChanged(QInputDevice* self, QRect* area);
 void QInputDevice_Connect_AvailableVirtualGeometryChanged(QInputDevice* self, intptr_t slot);
 libqt_string QInputDevice_Tr2(const char* s, const char* c);
 libqt_string QInputDevice_Tr3(const char* s, const char* c, int n);
-QInputDevice* QInputDevice_PrimaryKeyboard1(libqt_string seatName);
+QInputDevice* QInputDevice_PrimaryKeyboard1(const libqt_string seatName);
 bool QInputDevice_Event(QInputDevice* self, QEvent* event);
 void QInputDevice_OnEvent(QInputDevice* self, intptr_t slot);
 bool QInputDevice_QBaseEvent(QInputDevice* self, QEvent* event);
@@ -88,12 +80,12 @@ void QInputDevice_QBaseChildEvent(QInputDevice* self, QChildEvent* event);
 void QInputDevice_CustomEvent(QInputDevice* self, QEvent* event);
 void QInputDevice_OnCustomEvent(QInputDevice* self, intptr_t slot);
 void QInputDevice_QBaseCustomEvent(QInputDevice* self, QEvent* event);
-void QInputDevice_ConnectNotify(QInputDevice* self, QMetaMethod* signal);
+void QInputDevice_ConnectNotify(QInputDevice* self, const QMetaMethod* signal);
 void QInputDevice_OnConnectNotify(QInputDevice* self, intptr_t slot);
-void QInputDevice_QBaseConnectNotify(QInputDevice* self, QMetaMethod* signal);
-void QInputDevice_DisconnectNotify(QInputDevice* self, QMetaMethod* signal);
+void QInputDevice_QBaseConnectNotify(QInputDevice* self, const QMetaMethod* signal);
+void QInputDevice_DisconnectNotify(QInputDevice* self, const QMetaMethod* signal);
 void QInputDevice_OnDisconnectNotify(QInputDevice* self, intptr_t slot);
-void QInputDevice_QBaseDisconnectNotify(QInputDevice* self, QMetaMethod* signal);
+void QInputDevice_QBaseDisconnectNotify(QInputDevice* self, const QMetaMethod* signal);
 QObject* QInputDevice_Sender(const QInputDevice* self);
 void QInputDevice_OnSender(const QInputDevice* self, intptr_t slot);
 QObject* QInputDevice_QBaseSender(const QInputDevice* self);
@@ -103,9 +95,9 @@ int QInputDevice_QBaseSenderSignalIndex(const QInputDevice* self);
 int QInputDevice_Receivers(const QInputDevice* self, const char* signal);
 void QInputDevice_OnReceivers(const QInputDevice* self, intptr_t slot);
 int QInputDevice_QBaseReceivers(const QInputDevice* self, const char* signal);
-bool QInputDevice_IsSignalConnected(const QInputDevice* self, QMetaMethod* signal);
+bool QInputDevice_IsSignalConnected(const QInputDevice* self, const QMetaMethod* signal);
 void QInputDevice_OnIsSignalConnected(const QInputDevice* self, intptr_t slot);
-bool QInputDevice_QBaseIsSignalConnected(const QInputDevice* self, QMetaMethod* signal);
+bool QInputDevice_QBaseIsSignalConnected(const QInputDevice* self, const QMetaMethod* signal);
 void QInputDevice_Delete(QInputDevice* self);
 
 #ifdef __cplusplus

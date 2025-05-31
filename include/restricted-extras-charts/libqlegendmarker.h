@@ -15,26 +15,15 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractSeries QAbstractSeries;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QBrush QBrush;
-typedef struct QChildEvent QChildEvent;
-typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QLegendMarker QLegendMarker;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QPen QPen;
-typedef struct QThread QThread;
-typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
@@ -49,15 +38,15 @@ int QLegendMarker_Metacall(QLegendMarker* self, int param1, int param2, void** p
 libqt_string QLegendMarker_Tr(const char* s);
 int QLegendMarker_Type(QLegendMarker* self);
 libqt_string QLegendMarker_Label(const QLegendMarker* self);
-void QLegendMarker_SetLabel(QLegendMarker* self, libqt_string label);
+void QLegendMarker_SetLabel(QLegendMarker* self, const libqt_string label);
 QBrush* QLegendMarker_LabelBrush(const QLegendMarker* self);
-void QLegendMarker_SetLabelBrush(QLegendMarker* self, QBrush* brush);
+void QLegendMarker_SetLabelBrush(QLegendMarker* self, const QBrush* brush);
 QFont* QLegendMarker_Font(const QLegendMarker* self);
-void QLegendMarker_SetFont(QLegendMarker* self, QFont* font);
+void QLegendMarker_SetFont(QLegendMarker* self, const QFont* font);
 QPen* QLegendMarker_Pen(const QLegendMarker* self);
-void QLegendMarker_SetPen(QLegendMarker* self, QPen* pen);
+void QLegendMarker_SetPen(QLegendMarker* self, const QPen* pen);
 QBrush* QLegendMarker_Brush(const QLegendMarker* self);
-void QLegendMarker_SetBrush(QLegendMarker* self, QBrush* brush);
+void QLegendMarker_SetBrush(QLegendMarker* self, const QBrush* brush);
 bool QLegendMarker_IsVisible(const QLegendMarker* self);
 void QLegendMarker_SetVisible(QLegendMarker* self, bool visible);
 int QLegendMarker_Shape(const QLegendMarker* self);
@@ -83,8 +72,6 @@ void QLegendMarker_ShapeChanged(QLegendMarker* self);
 void QLegendMarker_Connect_ShapeChanged(QLegendMarker* self, intptr_t slot);
 libqt_string QLegendMarker_Tr2(const char* s, const char* c);
 libqt_string QLegendMarker_Tr3(const char* s, const char* c, int n);
-bool QLegendMarker_Event(QLegendMarker* self, QEvent* event);
-bool QLegendMarker_EventFilter(QLegendMarker* self, QObject* watched, QEvent* event);
 void QLegendMarker_Delete(QLegendMarker* self);
 
 #ifdef __cplusplus

@@ -12,7 +12,7 @@ QMediaFormat* QMediaFormat_new() {
     return new QMediaFormat();
 }
 
-QMediaFormat* QMediaFormat_new2(QMediaFormat* other) {
+QMediaFormat* QMediaFormat_new2(const QMediaFormat* other) {
     return new QMediaFormat(*other);
 }
 
@@ -20,7 +20,7 @@ QMediaFormat* QMediaFormat_new3(int format) {
     return new QMediaFormat(static_cast<QMediaFormat::FileFormat>(format));
 }
 
-void QMediaFormat_OperatorAssign(QMediaFormat* self, QMediaFormat* other) {
+void QMediaFormat_OperatorAssign(QMediaFormat* self, const QMediaFormat* other) {
     self->operator=(*other);
 }
 
@@ -171,11 +171,11 @@ libqt_string QMediaFormat_VideoCodecDescription(int codec) {
     return _str;
 }
 
-bool QMediaFormat_OperatorEqual(const QMediaFormat* self, QMediaFormat* other) {
+bool QMediaFormat_OperatorEqual(const QMediaFormat* self, const QMediaFormat* other) {
     return (*self == *other);
 }
 
-bool QMediaFormat_OperatorNotEqual(const QMediaFormat* self, QMediaFormat* other) {
+bool QMediaFormat_OperatorNotEqual(const QMediaFormat* self, const QMediaFormat* other) {
     return (*self != *other);
 }
 

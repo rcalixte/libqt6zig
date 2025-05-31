@@ -39,10 +39,10 @@ typedef int Attributes; // C ABI enum
 typedef int MethodType; // C ABI enum
 #endif
 
-QMetaMethod* QMetaMethod_new(QMetaMethod* other);
+QMetaMethod* QMetaMethod_new(const QMetaMethod* other);
 QMetaMethod* QMetaMethod_new2(QMetaMethod* other);
 QMetaMethod* QMetaMethod_new3();
-QMetaMethod* QMetaMethod_new4(QMetaMethod* param1);
+QMetaMethod* QMetaMethod_new4(const QMetaMethod* param1);
 void QMetaMethod_CopyAssign(QMetaMethod* self, QMetaMethod* other);
 void QMetaMethod_MoveAssign(QMetaMethod* self, QMetaMethod* other);
 libqt_string QMetaMethod_MethodSignature(const QMetaMethod* self);
@@ -135,10 +135,10 @@ bool QMetaMethod_InvokeOnGadget102(const QMetaMethod* self, void* gadget, QGener
 bool QMetaMethod_InvokeOnGadget112(const QMetaMethod* self, void* gadget, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2, QGenericArgument* val3, QGenericArgument* val4, QGenericArgument* val5, QGenericArgument* val6, QGenericArgument* val7, QGenericArgument* val8, QGenericArgument* val9);
 void QMetaMethod_Delete(QMetaMethod* self);
 
-QMetaEnum* QMetaEnum_new(QMetaEnum* other);
+QMetaEnum* QMetaEnum_new(const QMetaEnum* other);
 QMetaEnum* QMetaEnum_new2(QMetaEnum* other);
 QMetaEnum* QMetaEnum_new3();
-QMetaEnum* QMetaEnum_new4(QMetaEnum* param1);
+QMetaEnum* QMetaEnum_new4(const QMetaEnum* param1);
 void QMetaEnum_CopyAssign(QMetaEnum* self, QMetaEnum* other);
 void QMetaEnum_MoveAssign(QMetaEnum* self, QMetaEnum* other);
 const char* QMetaEnum_Name(const QMetaEnum* self);
@@ -159,7 +159,7 @@ int QMetaEnum_KeyToValue2(const QMetaEnum* self, const char* key, bool* ok);
 int QMetaEnum_KeysToValue2(const QMetaEnum* self, const char* keys, bool* ok);
 void QMetaEnum_Delete(QMetaEnum* self);
 
-QMetaProperty* QMetaProperty_new(QMetaProperty* other);
+QMetaProperty* QMetaProperty_new(const QMetaProperty* other);
 QMetaProperty* QMetaProperty_new2(QMetaProperty* other);
 QMetaProperty* QMetaProperty_new3();
 void QMetaProperty_CopyAssign(QMetaProperty* self, QMetaProperty* other);
@@ -190,12 +190,12 @@ bool QMetaProperty_HasNotifySignal(const QMetaProperty* self);
 QMetaMethod* QMetaProperty_NotifySignal(const QMetaProperty* self);
 int QMetaProperty_NotifySignalIndex(const QMetaProperty* self);
 int QMetaProperty_Revision(const QMetaProperty* self);
-QVariant* QMetaProperty_Read(const QMetaProperty* self, QObject* obj);
-bool QMetaProperty_Write(const QMetaProperty* self, QObject* obj, QVariant* value);
+QVariant* QMetaProperty_Read(const QMetaProperty* self, const QObject* obj);
+bool QMetaProperty_Write(const QMetaProperty* self, QObject* obj, const QVariant* value);
 bool QMetaProperty_Reset(const QMetaProperty* self, QObject* obj);
 QUntypedBindable* QMetaProperty_Bindable(const QMetaProperty* self, QObject* object);
 QVariant* QMetaProperty_ReadOnGadget(const QMetaProperty* self, const void* gadget);
-bool QMetaProperty_WriteOnGadget(const QMetaProperty* self, void* gadget, QVariant* value);
+bool QMetaProperty_WriteOnGadget(const QMetaProperty* self, void* gadget, const QVariant* value);
 bool QMetaProperty_ResetOnGadget(const QMetaProperty* self, void* gadget);
 bool QMetaProperty_HasStdCppSet(const QMetaProperty* self);
 bool QMetaProperty_IsAlias(const QMetaProperty* self);
@@ -203,7 +203,7 @@ bool QMetaProperty_IsValid(const QMetaProperty* self);
 QMetaObject* QMetaProperty_EnclosingMetaObject(const QMetaProperty* self);
 void QMetaProperty_Delete(QMetaProperty* self);
 
-QMetaClassInfo* QMetaClassInfo_new(QMetaClassInfo* other);
+QMetaClassInfo* QMetaClassInfo_new(const QMetaClassInfo* other);
 QMetaClassInfo* QMetaClassInfo_new2(QMetaClassInfo* other);
 QMetaClassInfo* QMetaClassInfo_new3();
 void QMetaClassInfo_CopyAssign(QMetaClassInfo* self, QMetaClassInfo* other);

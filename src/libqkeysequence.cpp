@@ -13,7 +13,7 @@ QKeySequence* QKeySequence_new() {
     return new QKeySequence();
 }
 
-QKeySequence* QKeySequence_new2(libqt_string key) {
+QKeySequence* QKeySequence_new2(const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QKeySequence(key_QString);
 }
@@ -26,7 +26,7 @@ QKeySequence* QKeySequence_new4(QKeyCombination* k1) {
     return new QKeySequence(*k1);
 }
 
-QKeySequence* QKeySequence_new5(QKeySequence* ks) {
+QKeySequence* QKeySequence_new5(const QKeySequence* ks) {
     return new QKeySequence(*ks);
 }
 
@@ -34,7 +34,7 @@ QKeySequence* QKeySequence_new6(int key) {
     return new QKeySequence(static_cast<QKeySequence::StandardKey>(key));
 }
 
-QKeySequence* QKeySequence_new7(libqt_string key, int format) {
+QKeySequence* QKeySequence_new7(const libqt_string key, int format) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QKeySequence(key_QString, static_cast<QKeySequence::SequenceFormat>(format));
 }
@@ -83,12 +83,12 @@ libqt_string QKeySequence_ToString(const QKeySequence* self) {
     return _str;
 }
 
-QKeySequence* QKeySequence_FromString(libqt_string str) {
+QKeySequence* QKeySequence_FromString(const libqt_string str) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
     return new QKeySequence(QKeySequence::fromString(str_QString));
 }
 
-libqt_list /* of QKeySequence* */ QKeySequence_ListFromString(libqt_string str) {
+libqt_list /* of QKeySequence* */ QKeySequence_ListFromString(const libqt_string str) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QKeySequence> _ret = QKeySequence::listFromString(str_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -102,7 +102,7 @@ libqt_list /* of QKeySequence* */ QKeySequence_ListFromString(libqt_string str) 
     return _out;
 }
 
-libqt_string QKeySequence_ListToString(libqt_list /* of QKeySequence* */ list) {
+libqt_string QKeySequence_ListToString(const libqt_list /* of QKeySequence* */ list) {
     QList<QKeySequence> list_QList;
     list_QList.reserve(list.len);
     QKeySequence** list_arr = static_cast<QKeySequence**>(list.data);
@@ -120,11 +120,11 @@ libqt_string QKeySequence_ListToString(libqt_list /* of QKeySequence* */ list) {
     return _str;
 }
 
-int QKeySequence_Matches(const QKeySequence* self, QKeySequence* seq) {
+int QKeySequence_Matches(const QKeySequence* self, const QKeySequence* seq) {
     return static_cast<int>(self->matches(*seq));
 }
 
-QKeySequence* QKeySequence_Mnemonic(libqt_string text) {
+QKeySequence* QKeySequence_Mnemonic(const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return new QKeySequence(QKeySequence::mnemonic(text_QString));
 }
@@ -150,7 +150,7 @@ QKeyCombination* QKeySequence_OperatorSubscript(const QKeySequence* self, unsign
     return new QKeyCombination(self->operator[](static_cast<uint>(i)));
 }
 
-void QKeySequence_OperatorAssign(QKeySequence* self, QKeySequence* other) {
+void QKeySequence_OperatorAssign(QKeySequence* self, const QKeySequence* other) {
     self->operator=(*other);
 }
 
@@ -158,27 +158,27 @@ void QKeySequence_Swap(QKeySequence* self, QKeySequence* other) {
     self->swap(*other);
 }
 
-bool QKeySequence_OperatorEqual(const QKeySequence* self, QKeySequence* other) {
+bool QKeySequence_OperatorEqual(const QKeySequence* self, const QKeySequence* other) {
     return (*self == *other);
 }
 
-bool QKeySequence_OperatorNotEqual(const QKeySequence* self, QKeySequence* other) {
+bool QKeySequence_OperatorNotEqual(const QKeySequence* self, const QKeySequence* other) {
     return (*self != *other);
 }
 
-bool QKeySequence_OperatorLesser(const QKeySequence* self, QKeySequence* ks) {
+bool QKeySequence_OperatorLesser(const QKeySequence* self, const QKeySequence* ks) {
     return (*self < *ks);
 }
 
-bool QKeySequence_OperatorGreater(const QKeySequence* self, QKeySequence* other) {
+bool QKeySequence_OperatorGreater(const QKeySequence* self, const QKeySequence* other) {
     return (*self > *other);
 }
 
-bool QKeySequence_OperatorLesserOrEqual(const QKeySequence* self, QKeySequence* other) {
+bool QKeySequence_OperatorLesserOrEqual(const QKeySequence* self, const QKeySequence* other) {
     return (*self <= *other);
 }
 
-bool QKeySequence_OperatorGreaterOrEqual(const QKeySequence* self, QKeySequence* other) {
+bool QKeySequence_OperatorGreaterOrEqual(const QKeySequence* self, const QKeySequence* other) {
     return (*self >= *other);
 }
 
@@ -198,12 +198,12 @@ libqt_string QKeySequence_ToString1(const QKeySequence* self, int format) {
     return _str;
 }
 
-QKeySequence* QKeySequence_FromString2(libqt_string str, int format) {
+QKeySequence* QKeySequence_FromString2(const libqt_string str, int format) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
     return new QKeySequence(QKeySequence::fromString(str_QString, static_cast<QKeySequence::SequenceFormat>(format)));
 }
 
-libqt_list /* of QKeySequence* */ QKeySequence_ListFromString2(libqt_string str, int format) {
+libqt_list /* of QKeySequence* */ QKeySequence_ListFromString2(const libqt_string str, int format) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QKeySequence> _ret = QKeySequence::listFromString(str_QString, static_cast<QKeySequence::SequenceFormat>(format));
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -217,7 +217,7 @@ libqt_list /* of QKeySequence* */ QKeySequence_ListFromString2(libqt_string str,
     return _out;
 }
 
-libqt_string QKeySequence_ListToString2(libqt_list /* of QKeySequence* */ list, int format) {
+libqt_string QKeySequence_ListToString2(const libqt_list /* of QKeySequence* */ list, int format) {
     QList<QKeySequence> list_QList;
     list_QList.reserve(list.len);
     QKeySequence** list_arr = static_cast<QKeySequence**>(list.data);

@@ -15,24 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QAudioDevice QAudioDevice;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QCameraDevice QCameraDevice;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMediaDevices QMediaDevices;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QMediaDevices* QMediaDevices_new();
@@ -72,12 +64,12 @@ void QMediaDevices_QBaseChildEvent(QMediaDevices* self, QChildEvent* event);
 void QMediaDevices_CustomEvent(QMediaDevices* self, QEvent* event);
 void QMediaDevices_OnCustomEvent(QMediaDevices* self, intptr_t slot);
 void QMediaDevices_QBaseCustomEvent(QMediaDevices* self, QEvent* event);
-void QMediaDevices_ConnectNotify(QMediaDevices* self, QMetaMethod* signal);
+void QMediaDevices_ConnectNotify(QMediaDevices* self, const QMetaMethod* signal);
 void QMediaDevices_OnConnectNotify(QMediaDevices* self, intptr_t slot);
-void QMediaDevices_QBaseConnectNotify(QMediaDevices* self, QMetaMethod* signal);
-void QMediaDevices_DisconnectNotify(QMediaDevices* self, QMetaMethod* signal);
+void QMediaDevices_QBaseConnectNotify(QMediaDevices* self, const QMetaMethod* signal);
+void QMediaDevices_DisconnectNotify(QMediaDevices* self, const QMetaMethod* signal);
 void QMediaDevices_OnDisconnectNotify(QMediaDevices* self, intptr_t slot);
-void QMediaDevices_QBaseDisconnectNotify(QMediaDevices* self, QMetaMethod* signal);
+void QMediaDevices_QBaseDisconnectNotify(QMediaDevices* self, const QMetaMethod* signal);
 QObject* QMediaDevices_Sender(const QMediaDevices* self);
 void QMediaDevices_OnSender(const QMediaDevices* self, intptr_t slot);
 QObject* QMediaDevices_QBaseSender(const QMediaDevices* self);
@@ -87,9 +79,9 @@ int QMediaDevices_QBaseSenderSignalIndex(const QMediaDevices* self);
 int QMediaDevices_Receivers(const QMediaDevices* self, const char* signal);
 void QMediaDevices_OnReceivers(const QMediaDevices* self, intptr_t slot);
 int QMediaDevices_QBaseReceivers(const QMediaDevices* self, const char* signal);
-bool QMediaDevices_IsSignalConnected(const QMediaDevices* self, QMetaMethod* signal);
+bool QMediaDevices_IsSignalConnected(const QMediaDevices* self, const QMetaMethod* signal);
 void QMediaDevices_OnIsSignalConnected(const QMediaDevices* self, intptr_t slot);
-bool QMediaDevices_QBaseIsSignalConnected(const QMediaDevices* self, QMetaMethod* signal);
+bool QMediaDevices_QBaseIsSignalConnected(const QMediaDevices* self, const QMetaMethod* signal);
 void QMediaDevices_Delete(QMediaDevices* self);
 
 #ifdef __cplusplus

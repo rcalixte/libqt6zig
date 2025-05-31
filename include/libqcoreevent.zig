@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qevent_enums = @import("libqevent.zig").enums;
 const std = @import("std");
 
@@ -7,127 +8,137 @@ pub const qevent = struct {
     /// New constructs a new QEvent object.
     ///
     /// ``` typeVal: qevent_enums.Type ```
-    pub fn New(typeVal: i64) ?*C.QEvent {
-        return C.QEvent_new(@intCast(typeVal));
+    pub fn New(typeVal: i64) QtC.QEvent {
+        return qtc.QEvent_new(@intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
-    /// ``` self: ?*C.QEvent ```
+    /// ``` self: QtC.QEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QEvent_Type(@ptrCast(self));
+        return qtc.QEvent_Type(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
-    /// ``` self: ?*C.QEvent ```
+    /// ``` self: QtC.QEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
-        return C.QEvent_Spontaneous(@ptrCast(self));
+        return qtc.QEvent_Spontaneous(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
-    /// ``` self: ?*C.QEvent, accepted: bool ```
+    /// ``` self: QtC.QEvent, accepted: bool ```
     pub fn SetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QEvent_SetAccepted(@ptrCast(self), accepted);
+        qtc.QEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QEvent, slot: fn (?*C.QEvent, bool) callconv(.c) void ```
+    /// ``` self: QtC.QEvent, slot: fn (self: QtC.QEvent, accepted: bool) callconv(.c) void ```
     pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QEvent, accepted: bool ```
+    /// ``` self: QtC.QEvent, accepted: bool ```
     pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+        qtc.QEvent_QBaseSetAccepted(@ptrCast(self), accepted);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
-    /// ``` self: ?*C.QEvent ```
+    /// ``` self: QtC.QEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
-        return C.QEvent_IsAccepted(@ptrCast(self));
+        return qtc.QEvent_IsAccepted(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
-    /// ``` self: ?*C.QEvent ```
+    /// ``` self: QtC.QEvent ```
     pub fn Accept(self: ?*anyopaque) void {
-        C.QEvent_Accept(@ptrCast(self));
+        qtc.QEvent_Accept(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
-    /// ``` self: ?*C.QEvent ```
+    /// ``` self: QtC.QEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
-        C.QEvent_Ignore(@ptrCast(self));
+        qtc.QEvent_Ignore(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
-    /// ``` self: ?*C.QEvent ```
+    /// ``` self: QtC.QEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsInputEvent(@ptrCast(self));
+        return qtc.QEvent_IsInputEvent(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
-    /// ``` self: ?*C.QEvent ```
+    /// ``` self: QtC.QEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsPointerEvent(@ptrCast(self));
+        return qtc.QEvent_IsPointerEvent(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
-    /// ``` self: ?*C.QEvent ```
+    /// ``` self: QtC.QEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsSinglePointEvent(@ptrCast(self));
+        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     ///
     pub fn RegisterEventType() i32 {
-        return C.QEvent_RegisterEventType();
+        return qtc.QEvent_RegisterEventType();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
-    /// ``` self: ?*C.QEvent ```
-    pub fn Clone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QEvent_Clone(@ptrCast(self));
+    /// ``` self: QtC.QEvent ```
+    pub fn Clone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QEvent_Clone(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QEvent, slot: fn () callconv(.c) ?*C.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QEvent) void {
-        C.QEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QEvent, slot: fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
+        qtc.QEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QEvent ```
-    pub fn QBaseClone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QEvent_QBaseClone(@ptrCast(self));
+    /// ``` self: QtC.QEvent ```
+    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QEvent_QBaseClone(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
-        return C.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@intCast(hint));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#dtor.QEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QEvent ```
+    /// ``` self: QtC.QEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QEvent_Delete(@ptrCast(self));
+        qtc.QEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -136,108 +147,112 @@ pub const qtimerevent = struct {
     /// New constructs a new QTimerEvent object.
     ///
     /// ``` timerId: i32 ```
-    pub fn New(timerId: i32) ?*C.QTimerEvent {
-        return C.QTimerEvent_new(@intCast(timerId));
+    pub fn New(timerId: i32) QtC.QTimerEvent {
+        return qtc.QTimerEvent_new(@intCast(timerId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtimerevent.html#clone)
     ///
-    /// ``` self: ?*C.QTimerEvent ```
-    pub fn Clone(self: ?*anyopaque) ?*C.QTimerEvent {
-        return C.QTimerEvent_Clone(@ptrCast(self));
+    /// ``` self: QtC.QTimerEvent ```
+    pub fn Clone(self: ?*anyopaque) QtC.QTimerEvent {
+        return qtc.QTimerEvent_Clone(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimerevent.html#clone)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QTimerEvent, slot: fn () callconv(.c) ?*C.QTimerEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QTimerEvent) void {
-        C.QTimerEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimerEvent, slot: fn () callconv(.c) QtC.QTimerEvent ```
+    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QTimerEvent) void {
+        qtc.QTimerEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimerevent.html#clone)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QTimerEvent ```
-    pub fn QBaseClone(self: ?*anyopaque) ?*C.QTimerEvent {
-        return C.QTimerEvent_QBaseClone(@ptrCast(self));
+    /// ``` self: QtC.QTimerEvent ```
+    pub fn QBaseClone(self: ?*anyopaque) QtC.QTimerEvent {
+        return qtc.QTimerEvent_QBaseClone(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtimerevent.html#timerId)
     ///
-    /// ``` self: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QTimerEvent ```
     pub fn TimerId(self: ?*anyopaque) i32 {
-        return C.QTimerEvent_TimerId(@ptrCast(self));
+        return qtc.QTimerEvent_TimerId(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
-    /// ``` self: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QTimerEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QEvent_Type(@ptrCast(self));
+        return qtc.QEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
-    /// ``` self: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QTimerEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
-        return C.QEvent_Spontaneous(@ptrCast(self));
+        return qtc.QEvent_Spontaneous(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
-    /// ``` self: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QTimerEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
-        return C.QEvent_IsAccepted(@ptrCast(self));
+        return qtc.QEvent_IsAccepted(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
-    /// ``` self: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QTimerEvent ```
     pub fn Accept(self: ?*anyopaque) void {
-        C.QEvent_Accept(@ptrCast(self));
+        qtc.QEvent_Accept(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
-    /// ``` self: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QTimerEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
-        C.QEvent_Ignore(@ptrCast(self));
+        qtc.QEvent_Ignore(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
-    /// ``` self: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QTimerEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsInputEvent(@ptrCast(self));
+        return qtc.QEvent_IsInputEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
-    /// ``` self: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QTimerEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsPointerEvent(@ptrCast(self));
+        return qtc.QEvent_IsPointerEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
-    /// ``` self: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QTimerEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsSinglePointEvent(@ptrCast(self));
+        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -246,7 +261,7 @@ pub const qtimerevent = struct {
     ///
     ///
     pub fn RegisterEventType() i32 {
-        return C.QEvent_RegisterEventType();
+        return qtc.QEvent_RegisterEventType();
     }
 
     /// Inherited from QEvent
@@ -255,7 +270,7 @@ pub const qtimerevent = struct {
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
-        return C.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@intCast(hint));
     }
 
     /// Inherited from QEvent
@@ -264,34 +279,40 @@ pub const qtimerevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QTimerEvent, accepted: bool ```
+    /// ``` self: QtC.QTimerEvent, accepted: bool ```
     pub fn SetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QTimerEvent_SetAccepted(@ptrCast(self), accepted);
+        qtc.QTimerEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTimerEvent, accepted: bool ```
+    /// ``` self: QtC.QTimerEvent, accepted: bool ```
     pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QTimerEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+        qtc.QTimerEvent_QBaseSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QTimerEvent, slot: fn (?*C.QTimerEvent, bool) callconv(.c) void ```
+    /// ``` self: QtC.QTimerEvent, slot: fn (self: QtC.QTimerEvent, accepted: bool) callconv(.c) void ```
     pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QTimerEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QTimerEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimerevent.html#dtor.QTimerEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QTimerEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QTimerEvent_Delete(@ptrCast(self));
+        qtc.QTimerEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -299,130 +320,134 @@ pub const qtimerevent = struct {
 pub const qchildevent = struct {
     /// New constructs a new QChildEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, child: ?*C.QObject ```
-    pub fn New(typeVal: i64, child: ?*anyopaque) ?*C.QChildEvent {
-        return C.QChildEvent_new(@intCast(typeVal), @ptrCast(child));
+    /// ``` typeVal: qevent_enums.Type, child: QtC.QObject ```
+    pub fn New(typeVal: i64, child: ?*anyopaque) QtC.QChildEvent {
+        return qtc.QChildEvent_new(@intCast(typeVal), @ptrCast(child));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchildevent.html#clone)
     ///
-    /// ``` self: ?*C.QChildEvent ```
-    pub fn Clone(self: ?*anyopaque) ?*C.QChildEvent {
-        return C.QChildEvent_Clone(@ptrCast(self));
+    /// ``` self: QtC.QChildEvent ```
+    pub fn Clone(self: ?*anyopaque) QtC.QChildEvent {
+        return qtc.QChildEvent_Clone(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qchildevent.html#clone)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QChildEvent, slot: fn () callconv(.c) ?*C.QChildEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QChildEvent) void {
-        C.QChildEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QChildEvent, slot: fn () callconv(.c) QtC.QChildEvent ```
+    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QChildEvent) void {
+        qtc.QChildEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qchildevent.html#clone)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QChildEvent ```
-    pub fn QBaseClone(self: ?*anyopaque) ?*C.QChildEvent {
-        return C.QChildEvent_QBaseClone(@ptrCast(self));
+    /// ``` self: QtC.QChildEvent ```
+    pub fn QBaseClone(self: ?*anyopaque) QtC.QChildEvent {
+        return qtc.QChildEvent_QBaseClone(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchildevent.html#child)
     ///
-    /// ``` self: ?*C.QChildEvent ```
-    pub fn Child(self: ?*anyopaque) ?*C.QObject {
-        return C.QChildEvent_Child(@ptrCast(self));
+    /// ``` self: QtC.QChildEvent ```
+    pub fn Child(self: ?*anyopaque) QtC.QObject {
+        return qtc.QChildEvent_Child(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchildevent.html#added)
     ///
-    /// ``` self: ?*C.QChildEvent ```
+    /// ``` self: QtC.QChildEvent ```
     pub fn Added(self: ?*anyopaque) bool {
-        return C.QChildEvent_Added(@ptrCast(self));
+        return qtc.QChildEvent_Added(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchildevent.html#polished)
     ///
-    /// ``` self: ?*C.QChildEvent ```
+    /// ``` self: QtC.QChildEvent ```
     pub fn Polished(self: ?*anyopaque) bool {
-        return C.QChildEvent_Polished(@ptrCast(self));
+        return qtc.QChildEvent_Polished(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchildevent.html#removed)
     ///
-    /// ``` self: ?*C.QChildEvent ```
+    /// ``` self: QtC.QChildEvent ```
     pub fn Removed(self: ?*anyopaque) bool {
-        return C.QChildEvent_Removed(@ptrCast(self));
+        return qtc.QChildEvent_Removed(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
-    /// ``` self: ?*C.QChildEvent ```
+    /// ``` self: QtC.QChildEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QEvent_Type(@ptrCast(self));
+        return qtc.QEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
-    /// ``` self: ?*C.QChildEvent ```
+    /// ``` self: QtC.QChildEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
-        return C.QEvent_Spontaneous(@ptrCast(self));
+        return qtc.QEvent_Spontaneous(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
-    /// ``` self: ?*C.QChildEvent ```
+    /// ``` self: QtC.QChildEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
-        return C.QEvent_IsAccepted(@ptrCast(self));
+        return qtc.QEvent_IsAccepted(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
-    /// ``` self: ?*C.QChildEvent ```
+    /// ``` self: QtC.QChildEvent ```
     pub fn Accept(self: ?*anyopaque) void {
-        C.QEvent_Accept(@ptrCast(self));
+        qtc.QEvent_Accept(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
-    /// ``` self: ?*C.QChildEvent ```
+    /// ``` self: QtC.QChildEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
-        C.QEvent_Ignore(@ptrCast(self));
+        qtc.QEvent_Ignore(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
-    /// ``` self: ?*C.QChildEvent ```
+    /// ``` self: QtC.QChildEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsInputEvent(@ptrCast(self));
+        return qtc.QEvent_IsInputEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
-    /// ``` self: ?*C.QChildEvent ```
+    /// ``` self: QtC.QChildEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsPointerEvent(@ptrCast(self));
+        return qtc.QEvent_IsPointerEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
-    /// ``` self: ?*C.QChildEvent ```
+    /// ``` self: QtC.QChildEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsSinglePointEvent(@ptrCast(self));
+        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -431,7 +456,7 @@ pub const qchildevent = struct {
     ///
     ///
     pub fn RegisterEventType() i32 {
-        return C.QEvent_RegisterEventType();
+        return qtc.QEvent_RegisterEventType();
     }
 
     /// Inherited from QEvent
@@ -440,7 +465,7 @@ pub const qchildevent = struct {
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
-        return C.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@intCast(hint));
     }
 
     /// Inherited from QEvent
@@ -449,34 +474,40 @@ pub const qchildevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QChildEvent, accepted: bool ```
+    /// ``` self: QtC.QChildEvent, accepted: bool ```
     pub fn SetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QChildEvent_SetAccepted(@ptrCast(self), accepted);
+        qtc.QChildEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QChildEvent, accepted: bool ```
+    /// ``` self: QtC.QChildEvent, accepted: bool ```
     pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QChildEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+        qtc.QChildEvent_QBaseSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QChildEvent, slot: fn (?*C.QChildEvent, bool) callconv(.c) void ```
+    /// ``` self: QtC.QChildEvent, slot: fn (self: QtC.QChildEvent, accepted: bool) callconv(.c) void ```
     pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QChildEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QChildEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qchildevent.html#dtor.QChildEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QChildEvent ```
+    /// ``` self: QtC.QChildEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QChildEvent_Delete(@ptrCast(self));
+        qtc.QChildEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -485,43 +516,47 @@ pub const qdynamicpropertychangeevent = struct {
     /// New constructs a new QDynamicPropertyChangeEvent object.
     ///
     /// ``` name: []u8 ```
-    pub fn New(name: []u8) ?*C.QDynamicPropertyChangeEvent {
-        const name_str = C.struct_libqt_string{
+    pub fn New(name: []u8) QtC.QDynamicPropertyChangeEvent {
+        const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = @constCast(name.ptr),
         };
 
-        return C.QDynamicPropertyChangeEvent_new(name_str);
+        return qtc.QDynamicPropertyChangeEvent_new(name_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdynamicpropertychangeevent.html#clone)
     ///
-    /// ``` self: ?*C.QDynamicPropertyChangeEvent ```
-    pub fn Clone(self: ?*anyopaque) ?*C.QDynamicPropertyChangeEvent {
-        return C.QDynamicPropertyChangeEvent_Clone(@ptrCast(self));
+    /// ``` self: QtC.QDynamicPropertyChangeEvent ```
+    pub fn Clone(self: ?*anyopaque) QtC.QDynamicPropertyChangeEvent {
+        return qtc.QDynamicPropertyChangeEvent_Clone(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdynamicpropertychangeevent.html#clone)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QDynamicPropertyChangeEvent, slot: fn () callconv(.c) ?*C.QDynamicPropertyChangeEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QDynamicPropertyChangeEvent) void {
-        C.QDynamicPropertyChangeEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDynamicPropertyChangeEvent, slot: fn () callconv(.c) QtC.QDynamicPropertyChangeEvent ```
+    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QDynamicPropertyChangeEvent) void {
+        qtc.QDynamicPropertyChangeEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdynamicpropertychangeevent.html#clone)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QDynamicPropertyChangeEvent ```
-    pub fn QBaseClone(self: ?*anyopaque) ?*C.QDynamicPropertyChangeEvent {
-        return C.QDynamicPropertyChangeEvent_QBaseClone(@ptrCast(self));
+    /// ``` self: QtC.QDynamicPropertyChangeEvent ```
+    pub fn QBaseClone(self: ?*anyopaque) QtC.QDynamicPropertyChangeEvent {
+        return qtc.QDynamicPropertyChangeEvent_QBaseClone(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdynamicpropertychangeevent.html#propertyName)
     ///
-    /// ``` self: ?*C.QDynamicPropertyChangeEvent, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QDynamicPropertyChangeEvent, allocator: std.mem.Allocator ```
     pub fn PropertyName(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: C.struct_libqt_string = C.QDynamicPropertyChangeEvent_PropertyName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_bytearray));
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Memory allocation failed");
+        const _bytearray: qtc.struct_libqt_string = qtc.QDynamicPropertyChangeEvent_PropertyName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdynamicpropertychangeevent.PropertyName: Memory allocation failed");
         for (0.._bytearray.len) |_i| {
             _ret[_i] = _bytearray.data[_i];
         }
@@ -532,72 +567,72 @@ pub const qdynamicpropertychangeevent = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
-    /// ``` self: ?*C.QDynamicPropertyChangeEvent ```
+    /// ``` self: QtC.QDynamicPropertyChangeEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QEvent_Type(@ptrCast(self));
+        return qtc.QEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
-    /// ``` self: ?*C.QDynamicPropertyChangeEvent ```
+    /// ``` self: QtC.QDynamicPropertyChangeEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
-        return C.QEvent_Spontaneous(@ptrCast(self));
+        return qtc.QEvent_Spontaneous(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
-    /// ``` self: ?*C.QDynamicPropertyChangeEvent ```
+    /// ``` self: QtC.QDynamicPropertyChangeEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
-        return C.QEvent_IsAccepted(@ptrCast(self));
+        return qtc.QEvent_IsAccepted(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
-    /// ``` self: ?*C.QDynamicPropertyChangeEvent ```
+    /// ``` self: QtC.QDynamicPropertyChangeEvent ```
     pub fn Accept(self: ?*anyopaque) void {
-        C.QEvent_Accept(@ptrCast(self));
+        qtc.QEvent_Accept(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
-    /// ``` self: ?*C.QDynamicPropertyChangeEvent ```
+    /// ``` self: QtC.QDynamicPropertyChangeEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
-        C.QEvent_Ignore(@ptrCast(self));
+        qtc.QEvent_Ignore(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
-    /// ``` self: ?*C.QDynamicPropertyChangeEvent ```
+    /// ``` self: QtC.QDynamicPropertyChangeEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsInputEvent(@ptrCast(self));
+        return qtc.QEvent_IsInputEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
-    /// ``` self: ?*C.QDynamicPropertyChangeEvent ```
+    /// ``` self: QtC.QDynamicPropertyChangeEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsPointerEvent(@ptrCast(self));
+        return qtc.QEvent_IsPointerEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
-    /// ``` self: ?*C.QDynamicPropertyChangeEvent ```
+    /// ``` self: QtC.QDynamicPropertyChangeEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsSinglePointEvent(@ptrCast(self));
+        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -606,7 +641,7 @@ pub const qdynamicpropertychangeevent = struct {
     ///
     ///
     pub fn RegisterEventType() i32 {
-        return C.QEvent_RegisterEventType();
+        return qtc.QEvent_RegisterEventType();
     }
 
     /// Inherited from QEvent
@@ -615,7 +650,7 @@ pub const qdynamicpropertychangeevent = struct {
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
-        return C.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@intCast(hint));
     }
 
     /// Inherited from QEvent
@@ -624,34 +659,40 @@ pub const qdynamicpropertychangeevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QDynamicPropertyChangeEvent, accepted: bool ```
+    /// ``` self: QtC.QDynamicPropertyChangeEvent, accepted: bool ```
     pub fn SetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QDynamicPropertyChangeEvent_SetAccepted(@ptrCast(self), accepted);
+        qtc.QDynamicPropertyChangeEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QDynamicPropertyChangeEvent, accepted: bool ```
+    /// ``` self: QtC.QDynamicPropertyChangeEvent, accepted: bool ```
     pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QDynamicPropertyChangeEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+        qtc.QDynamicPropertyChangeEvent_QBaseSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QDynamicPropertyChangeEvent, slot: fn (?*C.QDynamicPropertyChangeEvent, bool) callconv(.c) void ```
+    /// ``` self: QtC.QDynamicPropertyChangeEvent, slot: fn (self: QtC.QDynamicPropertyChangeEvent, accepted: bool) callconv(.c) void ```
     pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QDynamicPropertyChangeEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QDynamicPropertyChangeEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdynamicpropertychangeevent.html#dtor.QDynamicPropertyChangeEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QDynamicPropertyChangeEvent ```
+    /// ``` self: QtC.QDynamicPropertyChangeEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QDynamicPropertyChangeEvent_Delete(@ptrCast(self));
+        qtc.QDynamicPropertyChangeEvent_Delete(@ptrCast(self));
     }
 };
 

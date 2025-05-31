@@ -1,64 +1,25 @@
 #include <QAbstractSeries>
-#include <QAction>
-#include <QAnyStringView>
-#include <QBindingStorage>
 #include <QBrush>
-#include <QByteArray>
-#include <QChildEvent>
-#include <QCloseEvent>
 #include <QColor>
-#include <QCursor>
-#include <QEvent>
-#include <QFocusEvent>
 #include <QFont>
-#include <QGraphicsEffect>
 #include <QGraphicsItem>
-#include <QGraphicsItemGroup>
-#include <QGraphicsLayout>
 #include <QGraphicsLayoutItem>
 #include <QGraphicsObject>
-#include <QGraphicsScene>
-#include <QGraphicsSceneContextMenuEvent>
-#include <QGraphicsSceneDragDropEvent>
-#include <QGraphicsSceneHoverEvent>
-#include <QGraphicsSceneMouseEvent>
-#include <QGraphicsSceneMoveEvent>
-#include <QGraphicsSceneResizeEvent>
-#include <QGraphicsSceneWheelEvent>
-#include <QGraphicsTransform>
 #include <QGraphicsWidget>
 #include <QHideEvent>
-#include <QInputMethodEvent>
-#include <QKeyEvent>
-#include <QKeySequence>
 #include <QLegend>
 #include <QLegendMarker>
 #include <QList>
-#include <QMarginsF>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QPainter>
-#include <QPainterPath>
-#include <QPalette>
 #include <QPen>
-#include <QPointF>
-#include <QRectF>
-#include <QRegion>
 #include <QShowEvent>
-#include <QSize>
-#include <QSizeF>
-#include <QSizePolicy>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QStyle>
 #include <QStyleOptionGraphicsItem>
-#include <QThread>
-#include <QTimerEvent>
-#include <QTransform>
-#include <QVariant>
 #include <QWidget>
 #include <qlegend.h>
 #include "libqlegend.h"
@@ -88,11 +49,11 @@ libqt_string QLegend_Tr(const char* s) {
     return _str;
 }
 
-void QLegend_Paint(QLegend* self, QPainter* painter, QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QLegend_Paint(QLegend* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     self->paint(painter, option, widget);
 }
 
-void QLegend_SetBrush(QLegend* self, QBrush* brush) {
+void QLegend_SetBrush(QLegend* self, const QBrush* brush) {
     self->setBrush(*brush);
 }
 
@@ -108,7 +69,7 @@ QColor* QLegend_Color(QLegend* self) {
     return new QColor(self->color());
 }
 
-void QLegend_SetPen(QLegend* self, QPen* pen) {
+void QLegend_SetPen(QLegend* self, const QPen* pen) {
     self->setPen(*pen);
 }
 
@@ -124,7 +85,7 @@ QColor* QLegend_BorderColor(QLegend* self) {
     return new QColor(self->borderColor());
 }
 
-void QLegend_SetFont(QLegend* self, QFont* font) {
+void QLegend_SetFont(QLegend* self, const QFont* font) {
     self->setFont(*font);
 }
 
@@ -132,7 +93,7 @@ QFont* QLegend_Font(const QLegend* self) {
     return new QFont(self->font());
 }
 
-void QLegend_SetLabelBrush(QLegend* self, QBrush* brush) {
+void QLegend_SetLabelBrush(QLegend* self, const QBrush* brush) {
     self->setLabelBrush(*brush);
 }
 
@@ -384,62 +345,6 @@ libqt_list /* of QLegendMarker* */ QLegend_Markers1(const QLegend* self, QAbstra
 
 void QLegend_SetReverseMarkers1(QLegend* self, bool reverseMarkers) {
     self->setReverseMarkers(reverseMarkers);
-}
-
-void QLegend_SetGeometry(QLegend* self, QRectF* rect) {
-    self->setGeometry(*rect);
-}
-
-void QLegend_GetContentsMargins(const QLegend* self, double* left, double* top, double* right, double* bottom) {
-    self->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-}
-
-int QLegend_Type(const QLegend* self) {
-    return self->type();
-}
-
-void QLegend_PaintWindowFrame(QLegend* self, QPainter* painter, QStyleOptionGraphicsItem* option, QWidget* widget) {
-    self->paintWindowFrame(painter, option, widget);
-}
-
-QRectF* QLegend_BoundingRect(const QLegend* self) {
-    return new QRectF(self->boundingRect());
-}
-
-QPainterPath* QLegend_Shape(const QLegend* self) {
-    return new QPainterPath(self->shape());
-}
-
-bool QLegend_EventFilter(QLegend* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
-}
-
-void QLegend_Advance(QLegend* self, int phase) {
-    self->advance(static_cast<int>(phase));
-}
-
-bool QLegend_Contains(const QLegend* self, QPointF* point) {
-    return self->contains(*point);
-}
-
-bool QLegend_CollidesWithItem(const QLegend* self, QGraphicsItem* other, int mode) {
-    return self->collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
-}
-
-bool QLegend_CollidesWithPath(const QLegend* self, QPainterPath* path, int mode) {
-    return self->collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
-}
-
-bool QLegend_IsObscuredBy(const QLegend* self, QGraphicsItem* item) {
-    return self->isObscuredBy(item);
-}
-
-QPainterPath* QLegend_OpaqueArea(const QLegend* self) {
-    return new QPainterPath(self->opaqueArea());
-}
-
-bool QLegend_IsEmpty(const QLegend* self) {
-    return self->isEmpty();
 }
 
 void QLegend_Delete(QLegend* self) {

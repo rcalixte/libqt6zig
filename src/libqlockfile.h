@@ -25,7 +25,7 @@ typedef QLockFile::LockError LockError; // C++ enum
 typedef int LockError; // C ABI enum
 #endif
 
-QLockFile* QLockFile_new(libqt_string fileName);
+QLockFile* QLockFile_new(const libqt_string fileName);
 libqt_string QLockFile_FileName(const QLockFile* self);
 bool QLockFile_Lock(QLockFile* self);
 bool QLockFile_TryLock(QLockFile* self);

@@ -1,7 +1,4 @@
-#include <QAnyStringView>
 #include <QAudioOutput>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
 #include <QIODevice>
@@ -11,15 +8,12 @@
 #include <QMediaTimeRange>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
 #include <QUrl>
-#include <QVariant>
 #include <QVideoSink>
 #include <qmediaplayer.h>
 #include "libqmediaplayer.h"
@@ -42,27 +36,30 @@ void* QMediaPlayer_Metacast(QMediaPlayer* self, const char* param1) {
 }
 
 int QMediaPlayer_Metacall(QMediaPlayer* self, int param1, int param2, void** param3) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQMediaPlayer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QMediaPlayer_OnMetacall(QMediaPlayer* self, intptr_t slot) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_Metacall_Callback(reinterpret_cast<VirtualQMediaPlayer::QMediaPlayer_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QMediaPlayer_QBaseMetacall(QMediaPlayer* self, int param1, int param2, void** param3) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_Metacall_IsBase(true);
         return vqmediaplayer->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQMediaPlayer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -265,7 +262,7 @@ void QMediaPlayer_SetPlaybackRate(QMediaPlayer* self, double rate) {
     self->setPlaybackRate(static_cast<qreal>(rate));
 }
 
-void QMediaPlayer_SetSource(QMediaPlayer* self, QUrl* source) {
+void QMediaPlayer_SetSource(QMediaPlayer* self, const QUrl* source) {
     self->setSource(*source);
 }
 
@@ -273,7 +270,7 @@ void QMediaPlayer_SetSourceDevice(QMediaPlayer* self, QIODevice* device) {
     self->setSourceDevice(device);
 }
 
-void QMediaPlayer_SourceChanged(QMediaPlayer* self, QUrl* media) {
+void QMediaPlayer_SourceChanged(QMediaPlayer* self, const QUrl* media) {
     self->sourceChanged(*media);
 }
 
@@ -472,7 +469,7 @@ void QMediaPlayer_Connect_ErrorChanged(QMediaPlayer* self, intptr_t slot) {
     });
 }
 
-void QMediaPlayer_ErrorOccurred(QMediaPlayer* self, int errorVal, libqt_string errorString) {
+void QMediaPlayer_ErrorOccurred(QMediaPlayer* self, int errorVal, const libqt_string errorString) {
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     self->errorOccurred(static_cast<QMediaPlayer::Error>(errorVal), errorString_QString);
 }
@@ -518,292 +515,325 @@ libqt_string QMediaPlayer_Tr3(const char* s, const char* c, int n) {
     return _str;
 }
 
-void QMediaPlayer_SetSourceDevice2(QMediaPlayer* self, QIODevice* device, QUrl* sourceUrl) {
+void QMediaPlayer_SetSourceDevice2(QMediaPlayer* self, QIODevice* device, const QUrl* sourceUrl) {
     self->setSourceDevice(device, *sourceUrl);
 }
 
 // Derived class handler implementation
 bool QMediaPlayer_Event(QMediaPlayer* self, QEvent* event) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         return vqmediaplayer->event(event);
     } else {
-        return vqmediaplayer->event(event);
+        return self->QMediaPlayer::event(event);
     }
 }
 
 // Base class handler implementation
 bool QMediaPlayer_QBaseEvent(QMediaPlayer* self, QEvent* event) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_Event_IsBase(true);
         return vqmediaplayer->event(event);
     } else {
-        return vqmediaplayer->event(event);
+        return self->QMediaPlayer::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaPlayer_OnEvent(QMediaPlayer* self, intptr_t slot) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_Event_Callback(reinterpret_cast<VirtualQMediaPlayer::QMediaPlayer_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QMediaPlayer_EventFilter(QMediaPlayer* self, QObject* watched, QEvent* event) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         return vqmediaplayer->eventFilter(watched, event);
     } else {
-        return vqmediaplayer->eventFilter(watched, event);
+        return self->QMediaPlayer::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QMediaPlayer_QBaseEventFilter(QMediaPlayer* self, QObject* watched, QEvent* event) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_EventFilter_IsBase(true);
         return vqmediaplayer->eventFilter(watched, event);
     } else {
-        return vqmediaplayer->eventFilter(watched, event);
+        return self->QMediaPlayer::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaPlayer_OnEventFilter(QMediaPlayer* self, intptr_t slot) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_EventFilter_Callback(reinterpret_cast<VirtualQMediaPlayer::QMediaPlayer_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMediaPlayer_TimerEvent(QMediaPlayer* self, QTimerEvent* event) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->timerEvent(event);
     } else {
-        vqmediaplayer->timerEvent(event);
+        ((VirtualQMediaPlayer*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMediaPlayer_QBaseTimerEvent(QMediaPlayer* self, QTimerEvent* event) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_TimerEvent_IsBase(true);
         vqmediaplayer->timerEvent(event);
     } else {
-        vqmediaplayer->timerEvent(event);
+        ((VirtualQMediaPlayer*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaPlayer_OnTimerEvent(QMediaPlayer* self, intptr_t slot) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_TimerEvent_Callback(reinterpret_cast<VirtualQMediaPlayer::QMediaPlayer_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMediaPlayer_ChildEvent(QMediaPlayer* self, QChildEvent* event) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->childEvent(event);
     } else {
-        vqmediaplayer->childEvent(event);
+        ((VirtualQMediaPlayer*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMediaPlayer_QBaseChildEvent(QMediaPlayer* self, QChildEvent* event) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_ChildEvent_IsBase(true);
         vqmediaplayer->childEvent(event);
     } else {
-        vqmediaplayer->childEvent(event);
+        ((VirtualQMediaPlayer*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaPlayer_OnChildEvent(QMediaPlayer* self, intptr_t slot) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_ChildEvent_Callback(reinterpret_cast<VirtualQMediaPlayer::QMediaPlayer_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMediaPlayer_CustomEvent(QMediaPlayer* self, QEvent* event) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->customEvent(event);
     } else {
-        vqmediaplayer->customEvent(event);
+        ((VirtualQMediaPlayer*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMediaPlayer_QBaseCustomEvent(QMediaPlayer* self, QEvent* event) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_CustomEvent_IsBase(true);
         vqmediaplayer->customEvent(event);
     } else {
-        vqmediaplayer->customEvent(event);
+        ((VirtualQMediaPlayer*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaPlayer_OnCustomEvent(QMediaPlayer* self, intptr_t slot) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_CustomEvent_Callback(reinterpret_cast<VirtualQMediaPlayer::QMediaPlayer_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QMediaPlayer_ConnectNotify(QMediaPlayer* self, QMetaMethod* signal) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+void QMediaPlayer_ConnectNotify(QMediaPlayer* self, const QMetaMethod* signal) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->connectNotify(*signal);
     } else {
-        vqmediaplayer->connectNotify(*signal);
+        ((VirtualQMediaPlayer*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QMediaPlayer_QBaseConnectNotify(QMediaPlayer* self, QMetaMethod* signal) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+void QMediaPlayer_QBaseConnectNotify(QMediaPlayer* self, const QMetaMethod* signal) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_ConnectNotify_IsBase(true);
         vqmediaplayer->connectNotify(*signal);
     } else {
-        vqmediaplayer->connectNotify(*signal);
+        ((VirtualQMediaPlayer*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaPlayer_OnConnectNotify(QMediaPlayer* self, intptr_t slot) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_ConnectNotify_Callback(reinterpret_cast<VirtualQMediaPlayer::QMediaPlayer_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QMediaPlayer_DisconnectNotify(QMediaPlayer* self, QMetaMethod* signal) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+void QMediaPlayer_DisconnectNotify(QMediaPlayer* self, const QMetaMethod* signal) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->disconnectNotify(*signal);
     } else {
-        vqmediaplayer->disconnectNotify(*signal);
+        ((VirtualQMediaPlayer*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QMediaPlayer_QBaseDisconnectNotify(QMediaPlayer* self, QMetaMethod* signal) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+void QMediaPlayer_QBaseDisconnectNotify(QMediaPlayer* self, const QMetaMethod* signal) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_DisconnectNotify_IsBase(true);
         vqmediaplayer->disconnectNotify(*signal);
     } else {
-        vqmediaplayer->disconnectNotify(*signal);
+        ((VirtualQMediaPlayer*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaPlayer_OnDisconnectNotify(QMediaPlayer* self, intptr_t slot) {
-    if (auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self)) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_DisconnectNotify_Callback(reinterpret_cast<VirtualQMediaPlayer::QMediaPlayer_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QMediaPlayer_Sender(const QMediaPlayer* self) {
-    if (auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self))) {
+    auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         return vqmediaplayer->sender();
     } else {
-        return vqmediaplayer->sender();
+        return ((VirtualQMediaPlayer*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QMediaPlayer_QBaseSender(const QMediaPlayer* self) {
-    if (auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self))) {
+    auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_Sender_IsBase(true);
         return vqmediaplayer->sender();
     } else {
-        return vqmediaplayer->sender();
+        return ((VirtualQMediaPlayer*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaPlayer_OnSender(const QMediaPlayer* self, intptr_t slot) {
-    if (auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self))) {
+    auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_Sender_Callback(reinterpret_cast<VirtualQMediaPlayer::QMediaPlayer_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QMediaPlayer_SenderSignalIndex(const QMediaPlayer* self) {
-    if (auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self))) {
+    auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         return vqmediaplayer->senderSignalIndex();
     } else {
-        return vqmediaplayer->senderSignalIndex();
+        return ((VirtualQMediaPlayer*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QMediaPlayer_QBaseSenderSignalIndex(const QMediaPlayer* self) {
-    if (auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self))) {
+    auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_SenderSignalIndex_IsBase(true);
         return vqmediaplayer->senderSignalIndex();
     } else {
-        return vqmediaplayer->senderSignalIndex();
+        return ((VirtualQMediaPlayer*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaPlayer_OnSenderSignalIndex(const QMediaPlayer* self, intptr_t slot) {
-    if (auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self))) {
+    auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMediaPlayer::QMediaPlayer_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QMediaPlayer_Receivers(const QMediaPlayer* self, const char* signal) {
-    if (auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self))) {
+    auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         return vqmediaplayer->receivers(signal);
     } else {
-        return vqmediaplayer->receivers(signal);
+        return ((VirtualQMediaPlayer*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QMediaPlayer_QBaseReceivers(const QMediaPlayer* self, const char* signal) {
-    if (auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self))) {
+    auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_Receivers_IsBase(true);
         return vqmediaplayer->receivers(signal);
     } else {
-        return vqmediaplayer->receivers(signal);
+        return ((VirtualQMediaPlayer*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaPlayer_OnReceivers(const QMediaPlayer* self, intptr_t slot) {
-    if (auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self))) {
+    auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_Receivers_Callback(reinterpret_cast<VirtualQMediaPlayer::QMediaPlayer_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QMediaPlayer_IsSignalConnected(const QMediaPlayer* self, QMetaMethod* signal) {
-    if (auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self))) {
+bool QMediaPlayer_IsSignalConnected(const QMediaPlayer* self, const QMetaMethod* signal) {
+    auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         return vqmediaplayer->isSignalConnected(*signal);
     } else {
-        return vqmediaplayer->isSignalConnected(*signal);
+        return ((VirtualQMediaPlayer*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QMediaPlayer_QBaseIsSignalConnected(const QMediaPlayer* self, QMetaMethod* signal) {
-    if (auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self))) {
+bool QMediaPlayer_QBaseIsSignalConnected(const QMediaPlayer* self, const QMetaMethod* signal) {
+    auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_IsSignalConnected_IsBase(true);
         return vqmediaplayer->isSignalConnected(*signal);
     } else {
-        return vqmediaplayer->isSignalConnected(*signal);
+        return ((VirtualQMediaPlayer*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaPlayer_OnIsSignalConnected(const QMediaPlayer* self, intptr_t slot) {
-    if (auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self))) {
+    auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_IsSignalConnected_Callback(reinterpret_cast<VirtualQMediaPlayer::QMediaPlayer_IsSignalConnected_Callback>(slot));
     }
 }

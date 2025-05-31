@@ -62,9 +62,9 @@ QAccessibleInterface* QAccessibleInterface_ChildAt(const QAccessibleInterface* s
 QAccessibleInterface* QAccessibleInterface_Parent(const QAccessibleInterface* self);
 QAccessibleInterface* QAccessibleInterface_Child(const QAccessibleInterface* self, int index);
 int QAccessibleInterface_ChildCount(const QAccessibleInterface* self);
-int QAccessibleInterface_IndexOfChild(const QAccessibleInterface* self, QAccessibleInterface* param1);
+int QAccessibleInterface_IndexOfChild(const QAccessibleInterface* self, const QAccessibleInterface* param1);
 libqt_string QAccessibleInterface_Text(const QAccessibleInterface* self, int t);
-void QAccessibleInterface_SetText(QAccessibleInterface* self, int t, libqt_string text);
+void QAccessibleInterface_SetText(QAccessibleInterface* self, int t, const libqt_string text);
 QRect* QAccessibleInterface_Rect(const QAccessibleInterface* self);
 int QAccessibleInterface_Role(const QAccessibleInterface* self);
 QAccessible__State* QAccessibleInterface_State(const QAccessibleInterface* self);
@@ -94,24 +94,24 @@ libqt_string QAccessibleTextInterface_TextAfterOffset(const QAccessibleTextInter
 libqt_string QAccessibleTextInterface_TextAtOffset(const QAccessibleTextInterface* self, int offset, int boundaryType, int* startOffset, int* endOffset);
 int QAccessibleTextInterface_CharacterCount(const QAccessibleTextInterface* self);
 QRect* QAccessibleTextInterface_CharacterRect(const QAccessibleTextInterface* self, int offset);
-int QAccessibleTextInterface_OffsetAtPoint(const QAccessibleTextInterface* self, QPoint* point);
+int QAccessibleTextInterface_OffsetAtPoint(const QAccessibleTextInterface* self, const QPoint* point);
 void QAccessibleTextInterface_ScrollToSubstring(QAccessibleTextInterface* self, int startIndex, int endIndex);
 libqt_string QAccessibleTextInterface_Attributes(const QAccessibleTextInterface* self, int offset, int* startOffset, int* endOffset);
-void QAccessibleTextInterface_OperatorAssign(QAccessibleTextInterface* self, QAccessibleTextInterface* param1);
+void QAccessibleTextInterface_OperatorAssign(QAccessibleTextInterface* self, const QAccessibleTextInterface* param1);
 void QAccessibleTextInterface_Delete(QAccessibleTextInterface* self);
 
 void QAccessibleEditableTextInterface_DeleteText(QAccessibleEditableTextInterface* self, int startOffset, int endOffset);
-void QAccessibleEditableTextInterface_InsertText(QAccessibleEditableTextInterface* self, int offset, libqt_string text);
-void QAccessibleEditableTextInterface_ReplaceText(QAccessibleEditableTextInterface* self, int startOffset, int endOffset, libqt_string text);
-void QAccessibleEditableTextInterface_OperatorAssign(QAccessibleEditableTextInterface* self, QAccessibleEditableTextInterface* param1);
+void QAccessibleEditableTextInterface_InsertText(QAccessibleEditableTextInterface* self, int offset, const libqt_string text);
+void QAccessibleEditableTextInterface_ReplaceText(QAccessibleEditableTextInterface* self, int startOffset, int endOffset, const libqt_string text);
+void QAccessibleEditableTextInterface_OperatorAssign(QAccessibleEditableTextInterface* self, const QAccessibleEditableTextInterface* param1);
 void QAccessibleEditableTextInterface_Delete(QAccessibleEditableTextInterface* self);
 
 QVariant* QAccessibleValueInterface_CurrentValue(const QAccessibleValueInterface* self);
-void QAccessibleValueInterface_SetCurrentValue(QAccessibleValueInterface* self, QVariant* value);
+void QAccessibleValueInterface_SetCurrentValue(QAccessibleValueInterface* self, const QVariant* value);
 QVariant* QAccessibleValueInterface_MaximumValue(const QAccessibleValueInterface* self);
 QVariant* QAccessibleValueInterface_MinimumValue(const QAccessibleValueInterface* self);
 QVariant* QAccessibleValueInterface_MinimumStepSize(const QAccessibleValueInterface* self);
-void QAccessibleValueInterface_OperatorAssign(QAccessibleValueInterface* self, QAccessibleValueInterface* param1);
+void QAccessibleValueInterface_OperatorAssign(QAccessibleValueInterface* self, const QAccessibleValueInterface* param1);
 void QAccessibleValueInterface_Delete(QAccessibleValueInterface* self);
 
 bool QAccessibleTableCellInterface_IsSelected(const QAccessibleTableCellInterface* self);
@@ -122,7 +122,7 @@ int QAccessibleTableCellInterface_RowIndex(const QAccessibleTableCellInterface* 
 int QAccessibleTableCellInterface_ColumnExtent(const QAccessibleTableCellInterface* self);
 int QAccessibleTableCellInterface_RowExtent(const QAccessibleTableCellInterface* self);
 QAccessibleInterface* QAccessibleTableCellInterface_Table(const QAccessibleTableCellInterface* self);
-void QAccessibleTableCellInterface_OperatorAssign(QAccessibleTableCellInterface* self, QAccessibleTableCellInterface* param1);
+void QAccessibleTableCellInterface_OperatorAssign(QAccessibleTableCellInterface* self, const QAccessibleTableCellInterface* param1);
 void QAccessibleTableCellInterface_Delete(QAccessibleTableCellInterface* self);
 
 QAccessibleInterface* QAccessibleTableInterface_Caption(const QAccessibleTableInterface* self);
@@ -149,10 +149,10 @@ void QAccessibleTableInterface_Delete(QAccessibleTableInterface* self);
 
 libqt_string QAccessibleActionInterface_Tr(const char* sourceText);
 libqt_list /* of libqt_string */ QAccessibleActionInterface_ActionNames(const QAccessibleActionInterface* self);
-libqt_string QAccessibleActionInterface_LocalizedActionName(const QAccessibleActionInterface* self, libqt_string name);
-libqt_string QAccessibleActionInterface_LocalizedActionDescription(const QAccessibleActionInterface* self, libqt_string name);
-void QAccessibleActionInterface_DoAction(QAccessibleActionInterface* self, libqt_string actionName);
-libqt_list /* of libqt_string */ QAccessibleActionInterface_KeyBindingsForAction(const QAccessibleActionInterface* self, libqt_string actionName);
+libqt_string QAccessibleActionInterface_LocalizedActionName(const QAccessibleActionInterface* self, const libqt_string name);
+libqt_string QAccessibleActionInterface_LocalizedActionDescription(const QAccessibleActionInterface* self, const libqt_string name);
+void QAccessibleActionInterface_DoAction(QAccessibleActionInterface* self, const libqt_string actionName);
+libqt_list /* of libqt_string */ QAccessibleActionInterface_KeyBindingsForAction(const QAccessibleActionInterface* self, const libqt_string actionName);
 libqt_string QAccessibleActionInterface_PressAction();
 libqt_string QAccessibleActionInterface_IncreaseAction();
 libqt_string QAccessibleActionInterface_DecreaseAction();
@@ -165,7 +165,7 @@ libqt_string QAccessibleActionInterface_ScrollUpAction();
 libqt_string QAccessibleActionInterface_ScrollDownAction();
 libqt_string QAccessibleActionInterface_NextPageAction();
 libqt_string QAccessibleActionInterface_PreviousPageAction();
-void QAccessibleActionInterface_OperatorAssign(QAccessibleActionInterface* self, QAccessibleActionInterface* param1);
+void QAccessibleActionInterface_OperatorAssign(QAccessibleActionInterface* self, const QAccessibleActionInterface* param1);
 libqt_string QAccessibleActionInterface_Tr2(const char* sourceText, const char* disambiguation);
 libqt_string QAccessibleActionInterface_Tr3(const char* sourceText, const char* disambiguation, int n);
 void QAccessibleActionInterface_Delete(QAccessibleActionInterface* self);
@@ -173,7 +173,7 @@ void QAccessibleActionInterface_Delete(QAccessibleActionInterface* self);
 libqt_string QAccessibleImageInterface_ImageDescription(const QAccessibleImageInterface* self);
 QSize* QAccessibleImageInterface_ImageSize(const QAccessibleImageInterface* self);
 QPoint* QAccessibleImageInterface_ImagePosition(const QAccessibleImageInterface* self);
-void QAccessibleImageInterface_OperatorAssign(QAccessibleImageInterface* self, QAccessibleImageInterface* param1);
+void QAccessibleImageInterface_OperatorAssign(QAccessibleImageInterface* self, const QAccessibleImageInterface* param1);
 void QAccessibleImageInterface_Delete(QAccessibleImageInterface* self);
 
 libqt_string QAccessibleHyperlinkInterface_Anchor(const QAccessibleHyperlinkInterface* self);
@@ -181,7 +181,7 @@ libqt_string QAccessibleHyperlinkInterface_AnchorTarget(const QAccessibleHyperli
 int QAccessibleHyperlinkInterface_StartIndex(const QAccessibleHyperlinkInterface* self);
 int QAccessibleHyperlinkInterface_EndIndex(const QAccessibleHyperlinkInterface* self);
 bool QAccessibleHyperlinkInterface_IsValid(const QAccessibleHyperlinkInterface* self);
-void QAccessibleHyperlinkInterface_OperatorAssign(QAccessibleHyperlinkInterface* self, QAccessibleHyperlinkInterface* param1);
+void QAccessibleHyperlinkInterface_OperatorAssign(QAccessibleHyperlinkInterface* self, const QAccessibleHyperlinkInterface* param1);
 void QAccessibleHyperlinkInterface_Delete(QAccessibleHyperlinkInterface* self);
 
 QAccessibleEvent* QAccessibleEvent_new(QObject* obj, int typ);
@@ -223,8 +223,8 @@ void QAccessibleTextSelectionEvent_OnAccessibleInterface(const QAccessibleTextSe
 QAccessibleInterface* QAccessibleTextSelectionEvent_QBaseAccessibleInterface(const QAccessibleTextSelectionEvent* self);
 void QAccessibleTextSelectionEvent_Delete(QAccessibleTextSelectionEvent* self);
 
-QAccessibleTextInsertEvent* QAccessibleTextInsertEvent_new(QObject* obj, int position, libqt_string text);
-QAccessibleTextInsertEvent* QAccessibleTextInsertEvent_new2(QAccessibleInterface* iface, int position, libqt_string text);
+QAccessibleTextInsertEvent* QAccessibleTextInsertEvent_new(QObject* obj, int position, const libqt_string text);
+QAccessibleTextInsertEvent* QAccessibleTextInsertEvent_new2(QAccessibleInterface* iface, int position, const libqt_string text);
 libqt_string QAccessibleTextInsertEvent_TextInserted(const QAccessibleTextInsertEvent* self);
 int QAccessibleTextInsertEvent_ChangePosition(const QAccessibleTextInsertEvent* self);
 QAccessibleInterface* QAccessibleTextInsertEvent_AccessibleInterface(const QAccessibleTextInsertEvent* self);
@@ -232,8 +232,8 @@ void QAccessibleTextInsertEvent_OnAccessibleInterface(const QAccessibleTextInser
 QAccessibleInterface* QAccessibleTextInsertEvent_QBaseAccessibleInterface(const QAccessibleTextInsertEvent* self);
 void QAccessibleTextInsertEvent_Delete(QAccessibleTextInsertEvent* self);
 
-QAccessibleTextRemoveEvent* QAccessibleTextRemoveEvent_new(QObject* obj, int position, libqt_string text);
-QAccessibleTextRemoveEvent* QAccessibleTextRemoveEvent_new2(QAccessibleInterface* iface, int position, libqt_string text);
+QAccessibleTextRemoveEvent* QAccessibleTextRemoveEvent_new(QObject* obj, int position, const libqt_string text);
+QAccessibleTextRemoveEvent* QAccessibleTextRemoveEvent_new2(QAccessibleInterface* iface, int position, const libqt_string text);
 libqt_string QAccessibleTextRemoveEvent_TextRemoved(const QAccessibleTextRemoveEvent* self);
 int QAccessibleTextRemoveEvent_ChangePosition(const QAccessibleTextRemoveEvent* self);
 QAccessibleInterface* QAccessibleTextRemoveEvent_AccessibleInterface(const QAccessibleTextRemoveEvent* self);
@@ -241,8 +241,8 @@ void QAccessibleTextRemoveEvent_OnAccessibleInterface(const QAccessibleTextRemov
 QAccessibleInterface* QAccessibleTextRemoveEvent_QBaseAccessibleInterface(const QAccessibleTextRemoveEvent* self);
 void QAccessibleTextRemoveEvent_Delete(QAccessibleTextRemoveEvent* self);
 
-QAccessibleTextUpdateEvent* QAccessibleTextUpdateEvent_new(QObject* obj, int position, libqt_string oldText, libqt_string text);
-QAccessibleTextUpdateEvent* QAccessibleTextUpdateEvent_new2(QAccessibleInterface* iface, int position, libqt_string oldText, libqt_string text);
+QAccessibleTextUpdateEvent* QAccessibleTextUpdateEvent_new(QObject* obj, int position, const libqt_string oldText, const libqt_string text);
+QAccessibleTextUpdateEvent* QAccessibleTextUpdateEvent_new2(QAccessibleInterface* iface, int position, const libqt_string oldText, const libqt_string text);
 libqt_string QAccessibleTextUpdateEvent_TextRemoved(const QAccessibleTextUpdateEvent* self);
 libqt_string QAccessibleTextUpdateEvent_TextInserted(const QAccessibleTextUpdateEvent* self);
 int QAccessibleTextUpdateEvent_ChangePosition(const QAccessibleTextUpdateEvent* self);
@@ -251,9 +251,9 @@ void QAccessibleTextUpdateEvent_OnAccessibleInterface(const QAccessibleTextUpdat
 QAccessibleInterface* QAccessibleTextUpdateEvent_QBaseAccessibleInterface(const QAccessibleTextUpdateEvent* self);
 void QAccessibleTextUpdateEvent_Delete(QAccessibleTextUpdateEvent* self);
 
-QAccessibleValueChangeEvent* QAccessibleValueChangeEvent_new(QObject* obj, QVariant* val);
-QAccessibleValueChangeEvent* QAccessibleValueChangeEvent_new2(QAccessibleInterface* iface, QVariant* val);
-void QAccessibleValueChangeEvent_SetValue(QAccessibleValueChangeEvent* self, QVariant* val);
+QAccessibleValueChangeEvent* QAccessibleValueChangeEvent_new(QObject* obj, const QVariant* val);
+QAccessibleValueChangeEvent* QAccessibleValueChangeEvent_new2(QAccessibleInterface* iface, const QVariant* val);
+void QAccessibleValueChangeEvent_SetValue(QAccessibleValueChangeEvent* self, const QVariant* val);
 QVariant* QAccessibleValueChangeEvent_Value(const QAccessibleValueChangeEvent* self);
 QAccessibleInterface* QAccessibleValueChangeEvent_AccessibleInterface(const QAccessibleValueChangeEvent* self);
 void QAccessibleValueChangeEvent_OnAccessibleInterface(const QAccessibleValueChangeEvent* self, intptr_t slot);

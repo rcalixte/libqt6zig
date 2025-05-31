@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qwebengineloadinginfo_enums = enums;
 const std = @import("std");
 
@@ -6,46 +7,46 @@ const std = @import("std");
 pub const qwebengineloadinginfo = struct {
     /// New constructs a new QWebEngineLoadingInfo object.
     ///
-    /// ``` other: ?*C.QWebEngineLoadingInfo ```
-    pub fn New(other: ?*anyopaque) ?*C.QWebEngineLoadingInfo {
-        return C.QWebEngineLoadingInfo_new(@ptrCast(other));
+    /// ``` other: QtC.QWebEngineLoadingInfo ```
+    pub fn New(other: ?*anyopaque) QtC.QWebEngineLoadingInfo {
+        return qtc.QWebEngineLoadingInfo_new(@ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#operator=)
     ///
-    /// ``` self: ?*C.QWebEngineLoadingInfo, other: ?*C.QWebEngineLoadingInfo ```
+    /// ``` self: QtC.QWebEngineLoadingInfo, other: QtC.QWebEngineLoadingInfo ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QWebEngineLoadingInfo_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QWebEngineLoadingInfo_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#url)
     ///
-    /// ``` self: ?*C.QWebEngineLoadingInfo ```
-    pub fn Url(self: ?*anyopaque) ?*C.QUrl {
-        return C.QWebEngineLoadingInfo_Url(@ptrCast(self));
+    /// ``` self: QtC.QWebEngineLoadingInfo ```
+    pub fn Url(self: ?*anyopaque) QtC.QUrl {
+        return qtc.QWebEngineLoadingInfo_Url(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#isErrorPage)
     ///
-    /// ``` self: ?*C.QWebEngineLoadingInfo ```
+    /// ``` self: QtC.QWebEngineLoadingInfo ```
     pub fn IsErrorPage(self: ?*anyopaque) bool {
-        return C.QWebEngineLoadingInfo_IsErrorPage(@ptrCast(self));
+        return qtc.QWebEngineLoadingInfo_IsErrorPage(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#status)
     ///
-    /// ``` self: ?*C.QWebEngineLoadingInfo ```
+    /// ``` self: QtC.QWebEngineLoadingInfo ```
     pub fn Status(self: ?*anyopaque) i64 {
-        return C.QWebEngineLoadingInfo_Status(@ptrCast(self));
+        return qtc.QWebEngineLoadingInfo_Status(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorString)
     ///
-    /// ``` self: ?*C.QWebEngineLoadingInfo, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QWebEngineLoadingInfo, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWebEngineLoadingInfo_ErrorString(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWebEngineLoadingInfo_ErrorString(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineloadinginfo.ErrorString: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -54,23 +55,25 @@ pub const qwebengineloadinginfo = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorDomain)
     ///
-    /// ``` self: ?*C.QWebEngineLoadingInfo ```
+    /// ``` self: QtC.QWebEngineLoadingInfo ```
     pub fn ErrorDomain(self: ?*anyopaque) i64 {
-        return C.QWebEngineLoadingInfo_ErrorDomain(@ptrCast(self));
+        return qtc.QWebEngineLoadingInfo_ErrorDomain(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorCode)
     ///
-    /// ``` self: ?*C.QWebEngineLoadingInfo ```
+    /// ``` self: QtC.QWebEngineLoadingInfo ```
     pub fn ErrorCode(self: ?*anyopaque) i32 {
-        return C.QWebEngineLoadingInfo_ErrorCode(@ptrCast(self));
+        return qtc.QWebEngineLoadingInfo_ErrorCode(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#dtor.QWebEngineLoadingInfo)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QWebEngineLoadingInfo ```
+    /// ``` self: QtC.QWebEngineLoadingInfo ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QWebEngineLoadingInfo_Delete(@ptrCast(self));
+        qtc.QWebEngineLoadingInfo_Delete(@ptrCast(self));
     }
 };
 

@@ -26,11 +26,11 @@ typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
 QMimeType* QMimeType_new();
-QMimeType* QMimeType_new2(QMimeType* other);
-void QMimeType_OperatorAssign(QMimeType* self, QMimeType* other);
+QMimeType* QMimeType_new2(const QMimeType* other);
+void QMimeType_OperatorAssign(QMimeType* self, const QMimeType* other);
 void QMimeType_Swap(QMimeType* self, QMimeType* other);
-bool QMimeType_OperatorEqual(const QMimeType* self, QMimeType* other);
-bool QMimeType_OperatorNotEqual(const QMimeType* self, QMimeType* other);
+bool QMimeType_OperatorEqual(const QMimeType* self, const QMimeType* other);
+bool QMimeType_OperatorNotEqual(const QMimeType* self, const QMimeType* other);
 bool QMimeType_IsValid(const QMimeType* self);
 bool QMimeType_IsDefault(const QMimeType* self);
 libqt_string QMimeType_Name(const QMimeType* self);
@@ -43,7 +43,7 @@ libqt_list /* of libqt_string */ QMimeType_AllAncestors(const QMimeType* self);
 libqt_list /* of libqt_string */ QMimeType_Aliases(const QMimeType* self);
 libqt_list /* of libqt_string */ QMimeType_Suffixes(const QMimeType* self);
 libqt_string QMimeType_PreferredSuffix(const QMimeType* self);
-bool QMimeType_Inherits(const QMimeType* self, libqt_string mimeTypeName);
+bool QMimeType_Inherits(const QMimeType* self, const libqt_string mimeTypeName);
 libqt_string QMimeType_FilterString(const QMimeType* self);
 void QMimeType_Delete(QMimeType* self);
 

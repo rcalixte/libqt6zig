@@ -6,7 +6,7 @@
 #include "libqwebenginesettings.h"
 #include "libqwebenginesettings.hxx"
 
-void QWebEngineSettings_SetFontFamily(QWebEngineSettings* self, int which, libqt_string family) {
+void QWebEngineSettings_SetFontFamily(QWebEngineSettings* self, int which, const libqt_string family) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     self->setFontFamily(static_cast<QWebEngineSettings::FontFamily>(which), family_QString);
 }
@@ -51,7 +51,7 @@ void QWebEngineSettings_ResetAttribute(QWebEngineSettings* self, int attr) {
     self->resetAttribute(static_cast<QWebEngineSettings::WebAttribute>(attr));
 }
 
-void QWebEngineSettings_SetDefaultTextEncoding(QWebEngineSettings* self, libqt_string encoding) {
+void QWebEngineSettings_SetDefaultTextEncoding(QWebEngineSettings* self, const libqt_string encoding) {
     QString encoding_QString = QString::fromUtf8(encoding.data, encoding.len);
     self->setDefaultTextEncoding(encoding_QString);
 }

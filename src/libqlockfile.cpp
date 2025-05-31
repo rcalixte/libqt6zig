@@ -6,7 +6,7 @@
 #include "libqlockfile.h"
 #include "libqlockfile.hxx"
 
-QLockFile* QLockFile_new(libqt_string fileName) {
+QLockFile* QLockFile_new(const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return new QLockFile(fileName_QString);
 }

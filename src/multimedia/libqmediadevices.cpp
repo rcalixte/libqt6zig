@@ -1,7 +1,4 @@
-#include <QAnyStringView>
 #include <QAudioDevice>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QCameraDevice>
 #include <QChildEvent>
 #include <QEvent>
@@ -9,14 +6,11 @@
 #include <QMediaDevices>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <qmediadevices.h>
 #include "libqmediadevices.h"
 #include "libqmediadevices.hxx"
@@ -38,27 +32,30 @@ void* QMediaDevices_Metacast(QMediaDevices* self, const char* param1) {
 }
 
 int QMediaDevices_Metacall(QMediaDevices* self, int param1, int param2, void** param3) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQMediaDevices*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QMediaDevices_OnMetacall(QMediaDevices* self, intptr_t slot) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_Metacall_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QMediaDevices_QBaseMetacall(QMediaDevices* self, int param1, int param2, void** param3) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_Metacall_IsBase(true);
         return vqmediadevices->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQMediaDevices*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -184,286 +181,319 @@ libqt_string QMediaDevices_Tr3(const char* s, const char* c, int n) {
 
 // Derived class handler implementation
 bool QMediaDevices_Event(QMediaDevices* self, QEvent* event) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         return vqmediadevices->event(event);
     } else {
-        return vqmediadevices->event(event);
+        return self->QMediaDevices::event(event);
     }
 }
 
 // Base class handler implementation
 bool QMediaDevices_QBaseEvent(QMediaDevices* self, QEvent* event) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_Event_IsBase(true);
         return vqmediadevices->event(event);
     } else {
-        return vqmediadevices->event(event);
+        return self->QMediaDevices::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnEvent(QMediaDevices* self, intptr_t slot) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_Event_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QMediaDevices_EventFilter(QMediaDevices* self, QObject* watched, QEvent* event) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         return vqmediadevices->eventFilter(watched, event);
     } else {
-        return vqmediadevices->eventFilter(watched, event);
+        return self->QMediaDevices::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QMediaDevices_QBaseEventFilter(QMediaDevices* self, QObject* watched, QEvent* event) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_EventFilter_IsBase(true);
         return vqmediadevices->eventFilter(watched, event);
     } else {
-        return vqmediadevices->eventFilter(watched, event);
+        return self->QMediaDevices::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnEventFilter(QMediaDevices* self, intptr_t slot) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_EventFilter_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMediaDevices_TimerEvent(QMediaDevices* self, QTimerEvent* event) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->timerEvent(event);
     } else {
-        vqmediadevices->timerEvent(event);
+        ((VirtualQMediaDevices*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMediaDevices_QBaseTimerEvent(QMediaDevices* self, QTimerEvent* event) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_TimerEvent_IsBase(true);
         vqmediadevices->timerEvent(event);
     } else {
-        vqmediadevices->timerEvent(event);
+        ((VirtualQMediaDevices*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnTimerEvent(QMediaDevices* self, intptr_t slot) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_TimerEvent_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMediaDevices_ChildEvent(QMediaDevices* self, QChildEvent* event) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->childEvent(event);
     } else {
-        vqmediadevices->childEvent(event);
+        ((VirtualQMediaDevices*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMediaDevices_QBaseChildEvent(QMediaDevices* self, QChildEvent* event) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_ChildEvent_IsBase(true);
         vqmediadevices->childEvent(event);
     } else {
-        vqmediadevices->childEvent(event);
+        ((VirtualQMediaDevices*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnChildEvent(QMediaDevices* self, intptr_t slot) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_ChildEvent_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMediaDevices_CustomEvent(QMediaDevices* self, QEvent* event) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->customEvent(event);
     } else {
-        vqmediadevices->customEvent(event);
+        ((VirtualQMediaDevices*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMediaDevices_QBaseCustomEvent(QMediaDevices* self, QEvent* event) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_CustomEvent_IsBase(true);
         vqmediadevices->customEvent(event);
     } else {
-        vqmediadevices->customEvent(event);
+        ((VirtualQMediaDevices*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnCustomEvent(QMediaDevices* self, intptr_t slot) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_CustomEvent_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QMediaDevices_ConnectNotify(QMediaDevices* self, QMetaMethod* signal) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+void QMediaDevices_ConnectNotify(QMediaDevices* self, const QMetaMethod* signal) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->connectNotify(*signal);
     } else {
-        vqmediadevices->connectNotify(*signal);
+        ((VirtualQMediaDevices*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QMediaDevices_QBaseConnectNotify(QMediaDevices* self, QMetaMethod* signal) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+void QMediaDevices_QBaseConnectNotify(QMediaDevices* self, const QMetaMethod* signal) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_ConnectNotify_IsBase(true);
         vqmediadevices->connectNotify(*signal);
     } else {
-        vqmediadevices->connectNotify(*signal);
+        ((VirtualQMediaDevices*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnConnectNotify(QMediaDevices* self, intptr_t slot) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_ConnectNotify_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QMediaDevices_DisconnectNotify(QMediaDevices* self, QMetaMethod* signal) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+void QMediaDevices_DisconnectNotify(QMediaDevices* self, const QMetaMethod* signal) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->disconnectNotify(*signal);
     } else {
-        vqmediadevices->disconnectNotify(*signal);
+        ((VirtualQMediaDevices*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QMediaDevices_QBaseDisconnectNotify(QMediaDevices* self, QMetaMethod* signal) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+void QMediaDevices_QBaseDisconnectNotify(QMediaDevices* self, const QMetaMethod* signal) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_DisconnectNotify_IsBase(true);
         vqmediadevices->disconnectNotify(*signal);
     } else {
-        vqmediadevices->disconnectNotify(*signal);
+        ((VirtualQMediaDevices*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnDisconnectNotify(QMediaDevices* self, intptr_t slot) {
-    if (auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self)) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_DisconnectNotify_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QMediaDevices_Sender(const QMediaDevices* self) {
-    if (auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self))) {
+    auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         return vqmediadevices->sender();
     } else {
-        return vqmediadevices->sender();
+        return ((VirtualQMediaDevices*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QMediaDevices_QBaseSender(const QMediaDevices* self) {
-    if (auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self))) {
+    auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_Sender_IsBase(true);
         return vqmediadevices->sender();
     } else {
-        return vqmediadevices->sender();
+        return ((VirtualQMediaDevices*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnSender(const QMediaDevices* self, intptr_t slot) {
-    if (auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self))) {
+    auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_Sender_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QMediaDevices_SenderSignalIndex(const QMediaDevices* self) {
-    if (auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self))) {
+    auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         return vqmediadevices->senderSignalIndex();
     } else {
-        return vqmediadevices->senderSignalIndex();
+        return ((VirtualQMediaDevices*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QMediaDevices_QBaseSenderSignalIndex(const QMediaDevices* self) {
-    if (auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self))) {
+    auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_SenderSignalIndex_IsBase(true);
         return vqmediadevices->senderSignalIndex();
     } else {
-        return vqmediadevices->senderSignalIndex();
+        return ((VirtualQMediaDevices*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnSenderSignalIndex(const QMediaDevices* self, intptr_t slot) {
-    if (auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self))) {
+    auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QMediaDevices_Receivers(const QMediaDevices* self, const char* signal) {
-    if (auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self))) {
+    auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         return vqmediadevices->receivers(signal);
     } else {
-        return vqmediadevices->receivers(signal);
+        return ((VirtualQMediaDevices*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QMediaDevices_QBaseReceivers(const QMediaDevices* self, const char* signal) {
-    if (auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self))) {
+    auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_Receivers_IsBase(true);
         return vqmediadevices->receivers(signal);
     } else {
-        return vqmediadevices->receivers(signal);
+        return ((VirtualQMediaDevices*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnReceivers(const QMediaDevices* self, intptr_t slot) {
-    if (auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self))) {
+    auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_Receivers_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QMediaDevices_IsSignalConnected(const QMediaDevices* self, QMetaMethod* signal) {
-    if (auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self))) {
+bool QMediaDevices_IsSignalConnected(const QMediaDevices* self, const QMetaMethod* signal) {
+    auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         return vqmediadevices->isSignalConnected(*signal);
     } else {
-        return vqmediadevices->isSignalConnected(*signal);
+        return ((VirtualQMediaDevices*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QMediaDevices_QBaseIsSignalConnected(const QMediaDevices* self, QMetaMethod* signal) {
-    if (auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self))) {
+bool QMediaDevices_QBaseIsSignalConnected(const QMediaDevices* self, const QMetaMethod* signal) {
+    auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_IsSignalConnected_IsBase(true);
         return vqmediadevices->isSignalConnected(*signal);
     } else {
-        return vqmediadevices->isSignalConnected(*signal);
+        return ((VirtualQMediaDevices*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnIsSignalConnected(const QMediaDevices* self, intptr_t slot) {
-    if (auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self))) {
+    auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_IsSignalConnected_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_IsSignalConnected_Callback>(slot));
     }
 }

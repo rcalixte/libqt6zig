@@ -1,78 +1,81 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qarraydata_enums = enums;
-pub const struct_cqarraydata_anyopaque = struct { first: ?*C.QArrayData, second: ?*anyopaque };
+pub const struct_qtcqarraydata_anyopaque = struct { first: QtC.QArrayData, second: ?*anyopaque };
 
 /// https://doc.qt.io/qt-6/qarraydata.html
 pub const qarraydata = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#allocatedCapacity)
     ///
-    /// ``` self: ?*C.QArrayData ```
+    /// ``` self: QtC.QArrayData ```
     pub fn AllocatedCapacity(self: ?*anyopaque) i64 {
-        return C.QArrayData_AllocatedCapacity(@ptrCast(self));
+        return qtc.QArrayData_AllocatedCapacity(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#constAllocatedCapacity)
     ///
-    /// ``` self: ?*C.QArrayData ```
+    /// ``` self: QtC.QArrayData ```
     pub fn ConstAllocatedCapacity(self: ?*anyopaque) i64 {
-        return C.QArrayData_ConstAllocatedCapacity(@ptrCast(self));
+        return qtc.QArrayData_ConstAllocatedCapacity(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#ref)
     ///
-    /// ``` self: ?*C.QArrayData ```
+    /// ``` self: QtC.QArrayData ```
     pub fn Ref(self: ?*anyopaque) bool {
-        return C.QArrayData_Ref(@ptrCast(self));
+        return qtc.QArrayData_Ref(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#deref)
     ///
-    /// ``` self: ?*C.QArrayData ```
+    /// ``` self: QtC.QArrayData ```
     pub fn Deref(self: ?*anyopaque) bool {
-        return C.QArrayData_Deref(@ptrCast(self));
+        return qtc.QArrayData_Deref(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#isShared)
     ///
-    /// ``` self: ?*C.QArrayData ```
+    /// ``` self: QtC.QArrayData ```
     pub fn IsShared(self: ?*anyopaque) bool {
-        return C.QArrayData_IsShared(@ptrCast(self));
+        return qtc.QArrayData_IsShared(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#needsDetach)
     ///
-    /// ``` self: ?*C.QArrayData ```
+    /// ``` self: QtC.QArrayData ```
     pub fn NeedsDetach(self: ?*anyopaque) bool {
-        return C.QArrayData_NeedsDetach(@ptrCast(self));
+        return qtc.QArrayData_NeedsDetach(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#detachCapacity)
     ///
-    /// ``` self: ?*C.QArrayData, newSize: i64 ```
+    /// ``` self: QtC.QArrayData, newSize: i64 ```
     pub fn DetachCapacity(self: ?*anyopaque, newSize: i64) i64 {
-        return C.QArrayData_DetachCapacity(@ptrCast(self), @intCast(newSize));
+        return qtc.QArrayData_DetachCapacity(@ptrCast(self), @intCast(newSize));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#reallocateUnaligned)
     ///
-    /// ``` data: ?*C.QArrayData, dataPointer: ?*anyopaque, objectSize: i64, newCapacity: i64, option: qarraydata_enums.AllocationOption ```
-    pub fn ReallocateUnaligned(data: ?*anyopaque, dataPointer: ?*anyopaque, objectSize: i64, newCapacity: i64, option: i64) struct_cqarraydata_anyopaque {
-        const _pair: C.struct_libqt_pair = C.QArrayData_ReallocateUnaligned(@ptrCast(data), dataPointer, @intCast(objectSize), @intCast(newCapacity), @intCast(option));
-        return struct_cqarraydata_anyopaque{ .first = @ptrCast(_pair.first), .second = @ptrCast(_pair.second) };
+    /// ``` data: QtC.QArrayData, dataPointer: ?*anyopaque, objectSize: i64, newCapacity: i64, option: qarraydata_enums.AllocationOption ```
+    pub fn ReallocateUnaligned(data: ?*anyopaque, dataPointer: ?*anyopaque, objectSize: i64, newCapacity: i64, option: i64) struct_qtcqarraydata_anyopaque {
+        const _pair: qtc.struct_libqt_pair = qtc.QArrayData_ReallocateUnaligned(@ptrCast(data), dataPointer, @intCast(objectSize), @intCast(newCapacity), @intCast(option));
+        return struct_qtcqarraydata_anyopaque{ .first = @ptrCast(_pair.first), .second = @ptrCast(_pair.second) };
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#deallocate)
     ///
-    /// ``` data: ?*C.QArrayData, objectSize: i64, alignment: i64 ```
+    /// ``` data: QtC.QArrayData, objectSize: i64, alignment: i64 ```
     pub fn Deallocate(data: ?*anyopaque, objectSize: i64, alignment: i64) void {
-        C.QArrayData_Deallocate(@ptrCast(data), @intCast(objectSize), @intCast(alignment));
+        qtc.QArrayData_Deallocate(@ptrCast(data), @intCast(objectSize), @intCast(alignment));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#dtor.QArrayData)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QArrayData ```
+    /// ``` self: QtC.QArrayData ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QArrayData_Delete(@ptrCast(self));
+        qtc.QArrayData_Delete(@ptrCast(self));
     }
 };
 

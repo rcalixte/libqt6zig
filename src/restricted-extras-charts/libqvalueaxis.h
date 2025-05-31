@@ -15,27 +15,15 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractAxis QAbstractAxis;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
-typedef struct QBrush QBrush;
 typedef struct QChildEvent QChildEvent;
-typedef struct QColor QColor;
 typedef struct QEvent QEvent;
-typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QPen QPen;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QValueAxis QValueAxis;
-typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
@@ -70,7 +58,7 @@ void QValueAxis_SetTickInterval(QValueAxis* self, double insterval);
 double QValueAxis_TickInterval(const QValueAxis* self);
 void QValueAxis_SetTickType(QValueAxis* self, int typeVal);
 int QValueAxis_TickType(const QValueAxis* self);
-void QValueAxis_SetLabelFormat(QValueAxis* self, libqt_string format);
+void QValueAxis_SetLabelFormat(QValueAxis* self, const libqt_string format);
 libqt_string QValueAxis_LabelFormat(const QValueAxis* self);
 void QValueAxis_ApplyNiceNumbers(QValueAxis* self);
 void QValueAxis_MinChanged(QValueAxis* self, double min);
@@ -83,7 +71,7 @@ void QValueAxis_TickCountChanged(QValueAxis* self, int tickCount);
 void QValueAxis_Connect_TickCountChanged(QValueAxis* self, intptr_t slot);
 void QValueAxis_MinorTickCountChanged(QValueAxis* self, int tickCount);
 void QValueAxis_Connect_MinorTickCountChanged(QValueAxis* self, intptr_t slot);
-void QValueAxis_LabelFormatChanged(QValueAxis* self, libqt_string format);
+void QValueAxis_LabelFormatChanged(QValueAxis* self, const libqt_string format);
 void QValueAxis_Connect_LabelFormatChanged(QValueAxis* self, intptr_t slot);
 void QValueAxis_TickIntervalChanged(QValueAxis* self, double interval);
 void QValueAxis_Connect_TickIntervalChanged(QValueAxis* self, intptr_t slot);
@@ -108,12 +96,12 @@ void QValueAxis_QBaseChildEvent(QValueAxis* self, QChildEvent* event);
 void QValueAxis_CustomEvent(QValueAxis* self, QEvent* event);
 void QValueAxis_OnCustomEvent(QValueAxis* self, intptr_t slot);
 void QValueAxis_QBaseCustomEvent(QValueAxis* self, QEvent* event);
-void QValueAxis_ConnectNotify(QValueAxis* self, QMetaMethod* signal);
+void QValueAxis_ConnectNotify(QValueAxis* self, const QMetaMethod* signal);
 void QValueAxis_OnConnectNotify(QValueAxis* self, intptr_t slot);
-void QValueAxis_QBaseConnectNotify(QValueAxis* self, QMetaMethod* signal);
-void QValueAxis_DisconnectNotify(QValueAxis* self, QMetaMethod* signal);
+void QValueAxis_QBaseConnectNotify(QValueAxis* self, const QMetaMethod* signal);
+void QValueAxis_DisconnectNotify(QValueAxis* self, const QMetaMethod* signal);
 void QValueAxis_OnDisconnectNotify(QValueAxis* self, intptr_t slot);
-void QValueAxis_QBaseDisconnectNotify(QValueAxis* self, QMetaMethod* signal);
+void QValueAxis_QBaseDisconnectNotify(QValueAxis* self, const QMetaMethod* signal);
 QObject* QValueAxis_Sender(const QValueAxis* self);
 void QValueAxis_OnSender(const QValueAxis* self, intptr_t slot);
 QObject* QValueAxis_QBaseSender(const QValueAxis* self);
@@ -123,9 +111,9 @@ int QValueAxis_QBaseSenderSignalIndex(const QValueAxis* self);
 int QValueAxis_Receivers(const QValueAxis* self, const char* signal);
 void QValueAxis_OnReceivers(const QValueAxis* self, intptr_t slot);
 int QValueAxis_QBaseReceivers(const QValueAxis* self, const char* signal);
-bool QValueAxis_IsSignalConnected(const QValueAxis* self, QMetaMethod* signal);
+bool QValueAxis_IsSignalConnected(const QValueAxis* self, const QMetaMethod* signal);
 void QValueAxis_OnIsSignalConnected(const QValueAxis* self, intptr_t slot);
-bool QValueAxis_QBaseIsSignalConnected(const QValueAxis* self, QMetaMethod* signal);
+bool QValueAxis_QBaseIsSignalConnected(const QValueAxis* self, const QMetaMethod* signal);
 void QValueAxis_Delete(QValueAxis* self);
 
 #ifdef __cplusplus

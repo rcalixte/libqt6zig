@@ -1,48 +1,51 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qsurface_enums = enums;
 
 /// https://doc.qt.io/qt-6/qsurface.html
 pub const qsurface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#surfaceClass)
     ///
-    /// ``` self: ?*C.QSurface ```
+    /// ``` self: QtC.QSurface ```
     pub fn SurfaceClass(self: ?*anyopaque) i64 {
-        return C.QSurface_SurfaceClass(@ptrCast(self));
+        return qtc.QSurface_SurfaceClass(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#format)
     ///
-    /// ``` self: ?*C.QSurface ```
-    pub fn Format(self: ?*anyopaque) ?*C.QSurfaceFormat {
-        return C.QSurface_Format(@ptrCast(self));
+    /// ``` self: QtC.QSurface ```
+    pub fn Format(self: ?*anyopaque) QtC.QSurfaceFormat {
+        return qtc.QSurface_Format(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#surfaceType)
     ///
-    /// ``` self: ?*C.QSurface ```
+    /// ``` self: QtC.QSurface ```
     pub fn SurfaceType(self: ?*anyopaque) i64 {
-        return C.QSurface_SurfaceType(@ptrCast(self));
+        return qtc.QSurface_SurfaceType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#supportsOpenGL)
     ///
-    /// ``` self: ?*C.QSurface ```
+    /// ``` self: QtC.QSurface ```
     pub fn SupportsOpenGL(self: ?*anyopaque) bool {
-        return C.QSurface_SupportsOpenGL(@ptrCast(self));
+        return qtc.QSurface_SupportsOpenGL(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#size)
     ///
-    /// ``` self: ?*C.QSurface ```
-    pub fn Size(self: ?*anyopaque) ?*C.QSize {
-        return C.QSurface_Size(@ptrCast(self));
+    /// ``` self: QtC.QSurface ```
+    pub fn Size(self: ?*anyopaque) QtC.QSize {
+        return qtc.QSurface_Size(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#dtor.QSurface)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QSurface ```
+    /// ``` self: QtC.QSurface ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QSurface_Delete(@ptrCast(self));
+        qtc.QSurface_Delete(@ptrCast(self));
     }
 };
 

@@ -11,15 +11,18 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QRadioButton so that we can call protected methods
-class VirtualQRadioButton : public QRadioButton {
+class VirtualQRadioButton final : public QRadioButton {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQRadioButton = true;
+
     // Virtual class public types (including callbacks)
-    using QRadioButton_Metacall_Callback = int (*)(QRadioButton*, QMetaObject::Call, int, void**);
-    using QRadioButton_SizeHint_Callback = QSize (*)();
-    using QRadioButton_MinimumSizeHint_Callback = QSize (*)();
+    using QRadioButton_Metacall_Callback = int (*)(QRadioButton*, int, int, void**);
+    using QRadioButton_SizeHint_Callback = QSize* (*)();
+    using QRadioButton_MinimumSizeHint_Callback = QSize* (*)();
     using QRadioButton_Event_Callback = bool (*)(QRadioButton*, QEvent*);
-    using QRadioButton_HitButton_Callback = bool (*)(const QRadioButton*, const QPoint&);
+    using QRadioButton_HitButton_Callback = bool (*)(const QRadioButton*, QPoint*);
     using QRadioButton_PaintEvent_Callback = void (*)(QRadioButton*, QPaintEvent*);
     using QRadioButton_MouseMoveEvent_Callback = void (*)(QRadioButton*, QMouseEvent*);
     using QRadioButton_InitStyleOption_Callback = void (*)(const QRadioButton*, QStyleOptionButton*);
@@ -54,19 +57,19 @@ class VirtualQRadioButton : public QRadioButton {
     using QRadioButton_DropEvent_Callback = void (*)(QRadioButton*, QDropEvent*);
     using QRadioButton_ShowEvent_Callback = void (*)(QRadioButton*, QShowEvent*);
     using QRadioButton_HideEvent_Callback = void (*)(QRadioButton*, QHideEvent*);
-    using QRadioButton_NativeEvent_Callback = bool (*)(QRadioButton*, const QByteArray&, void*, qintptr*);
-    using QRadioButton_Metric_Callback = int (*)(const QRadioButton*, QPaintDevice::PaintDeviceMetric);
+    using QRadioButton_NativeEvent_Callback = bool (*)(QRadioButton*, libqt_string, void*, intptr_t*);
+    using QRadioButton_Metric_Callback = int (*)(const QRadioButton*, int);
     using QRadioButton_InitPainter_Callback = void (*)(const QRadioButton*, QPainter*);
     using QRadioButton_Redirected_Callback = QPaintDevice* (*)(const QRadioButton*, QPoint*);
     using QRadioButton_SharedPainter_Callback = QPainter* (*)();
     using QRadioButton_InputMethodEvent_Callback = void (*)(QRadioButton*, QInputMethodEvent*);
-    using QRadioButton_InputMethodQuery_Callback = QVariant (*)(const QRadioButton*, Qt::InputMethodQuery);
+    using QRadioButton_InputMethodQuery_Callback = QVariant* (*)(const QRadioButton*, int);
     using QRadioButton_FocusNextPrevChild_Callback = bool (*)(QRadioButton*, bool);
     using QRadioButton_EventFilter_Callback = bool (*)(QRadioButton*, QObject*, QEvent*);
     using QRadioButton_ChildEvent_Callback = void (*)(QRadioButton*, QChildEvent*);
     using QRadioButton_CustomEvent_Callback = void (*)(QRadioButton*, QEvent*);
-    using QRadioButton_ConnectNotify_Callback = void (*)(QRadioButton*, const QMetaMethod&);
-    using QRadioButton_DisconnectNotify_Callback = void (*)(QRadioButton*, const QMetaMethod&);
+    using QRadioButton_ConnectNotify_Callback = void (*)(QRadioButton*, QMetaMethod*);
+    using QRadioButton_DisconnectNotify_Callback = void (*)(QRadioButton*, QMetaMethod*);
     using QRadioButton_UpdateMicroFocus_Callback = void (*)();
     using QRadioButton_Create_Callback = void (*)();
     using QRadioButton_Destroy_Callback = void (*)();
@@ -75,7 +78,7 @@ class VirtualQRadioButton : public QRadioButton {
     using QRadioButton_Sender_Callback = QObject* (*)();
     using QRadioButton_SenderSignalIndex_Callback = int (*)();
     using QRadioButton_Receivers_Callback = int (*)(const QRadioButton*, const char*);
-    using QRadioButton_IsSignalConnected_Callback = bool (*)(const QRadioButton*, const QMetaMethod&);
+    using QRadioButton_IsSignalConnected_Callback = bool (*)(const QRadioButton*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -275,130 +278,130 @@ class VirtualQRadioButton : public QRadioButton {
     }
 
     // Callback setters
-    void setQRadioButton_Metacall_Callback(QRadioButton_Metacall_Callback cb) { qradiobutton_metacall_callback = cb; }
-    void setQRadioButton_SizeHint_Callback(QRadioButton_SizeHint_Callback cb) { qradiobutton_sizehint_callback = cb; }
-    void setQRadioButton_MinimumSizeHint_Callback(QRadioButton_MinimumSizeHint_Callback cb) { qradiobutton_minimumsizehint_callback = cb; }
-    void setQRadioButton_Event_Callback(QRadioButton_Event_Callback cb) { qradiobutton_event_callback = cb; }
-    void setQRadioButton_HitButton_Callback(QRadioButton_HitButton_Callback cb) { qradiobutton_hitbutton_callback = cb; }
-    void setQRadioButton_PaintEvent_Callback(QRadioButton_PaintEvent_Callback cb) { qradiobutton_paintevent_callback = cb; }
-    void setQRadioButton_MouseMoveEvent_Callback(QRadioButton_MouseMoveEvent_Callback cb) { qradiobutton_mousemoveevent_callback = cb; }
-    void setQRadioButton_InitStyleOption_Callback(QRadioButton_InitStyleOption_Callback cb) { qradiobutton_initstyleoption_callback = cb; }
-    void setQRadioButton_CheckStateSet_Callback(QRadioButton_CheckStateSet_Callback cb) { qradiobutton_checkstateset_callback = cb; }
-    void setQRadioButton_NextCheckState_Callback(QRadioButton_NextCheckState_Callback cb) { qradiobutton_nextcheckstate_callback = cb; }
-    void setQRadioButton_KeyPressEvent_Callback(QRadioButton_KeyPressEvent_Callback cb) { qradiobutton_keypressevent_callback = cb; }
-    void setQRadioButton_KeyReleaseEvent_Callback(QRadioButton_KeyReleaseEvent_Callback cb) { qradiobutton_keyreleaseevent_callback = cb; }
-    void setQRadioButton_MousePressEvent_Callback(QRadioButton_MousePressEvent_Callback cb) { qradiobutton_mousepressevent_callback = cb; }
-    void setQRadioButton_MouseReleaseEvent_Callback(QRadioButton_MouseReleaseEvent_Callback cb) { qradiobutton_mousereleaseevent_callback = cb; }
-    void setQRadioButton_FocusInEvent_Callback(QRadioButton_FocusInEvent_Callback cb) { qradiobutton_focusinevent_callback = cb; }
-    void setQRadioButton_FocusOutEvent_Callback(QRadioButton_FocusOutEvent_Callback cb) { qradiobutton_focusoutevent_callback = cb; }
-    void setQRadioButton_ChangeEvent_Callback(QRadioButton_ChangeEvent_Callback cb) { qradiobutton_changeevent_callback = cb; }
-    void setQRadioButton_TimerEvent_Callback(QRadioButton_TimerEvent_Callback cb) { qradiobutton_timerevent_callback = cb; }
-    void setQRadioButton_DevType_Callback(QRadioButton_DevType_Callback cb) { qradiobutton_devtype_callback = cb; }
-    void setQRadioButton_SetVisible_Callback(QRadioButton_SetVisible_Callback cb) { qradiobutton_setvisible_callback = cb; }
-    void setQRadioButton_HeightForWidth_Callback(QRadioButton_HeightForWidth_Callback cb) { qradiobutton_heightforwidth_callback = cb; }
-    void setQRadioButton_HasHeightForWidth_Callback(QRadioButton_HasHeightForWidth_Callback cb) { qradiobutton_hasheightforwidth_callback = cb; }
-    void setQRadioButton_PaintEngine_Callback(QRadioButton_PaintEngine_Callback cb) { qradiobutton_paintengine_callback = cb; }
-    void setQRadioButton_MouseDoubleClickEvent_Callback(QRadioButton_MouseDoubleClickEvent_Callback cb) { qradiobutton_mousedoubleclickevent_callback = cb; }
-    void setQRadioButton_WheelEvent_Callback(QRadioButton_WheelEvent_Callback cb) { qradiobutton_wheelevent_callback = cb; }
-    void setQRadioButton_EnterEvent_Callback(QRadioButton_EnterEvent_Callback cb) { qradiobutton_enterevent_callback = cb; }
-    void setQRadioButton_LeaveEvent_Callback(QRadioButton_LeaveEvent_Callback cb) { qradiobutton_leaveevent_callback = cb; }
-    void setQRadioButton_MoveEvent_Callback(QRadioButton_MoveEvent_Callback cb) { qradiobutton_moveevent_callback = cb; }
-    void setQRadioButton_ResizeEvent_Callback(QRadioButton_ResizeEvent_Callback cb) { qradiobutton_resizeevent_callback = cb; }
-    void setQRadioButton_CloseEvent_Callback(QRadioButton_CloseEvent_Callback cb) { qradiobutton_closeevent_callback = cb; }
-    void setQRadioButton_ContextMenuEvent_Callback(QRadioButton_ContextMenuEvent_Callback cb) { qradiobutton_contextmenuevent_callback = cb; }
-    void setQRadioButton_TabletEvent_Callback(QRadioButton_TabletEvent_Callback cb) { qradiobutton_tabletevent_callback = cb; }
-    void setQRadioButton_ActionEvent_Callback(QRadioButton_ActionEvent_Callback cb) { qradiobutton_actionevent_callback = cb; }
-    void setQRadioButton_DragEnterEvent_Callback(QRadioButton_DragEnterEvent_Callback cb) { qradiobutton_dragenterevent_callback = cb; }
-    void setQRadioButton_DragMoveEvent_Callback(QRadioButton_DragMoveEvent_Callback cb) { qradiobutton_dragmoveevent_callback = cb; }
-    void setQRadioButton_DragLeaveEvent_Callback(QRadioButton_DragLeaveEvent_Callback cb) { qradiobutton_dragleaveevent_callback = cb; }
-    void setQRadioButton_DropEvent_Callback(QRadioButton_DropEvent_Callback cb) { qradiobutton_dropevent_callback = cb; }
-    void setQRadioButton_ShowEvent_Callback(QRadioButton_ShowEvent_Callback cb) { qradiobutton_showevent_callback = cb; }
-    void setQRadioButton_HideEvent_Callback(QRadioButton_HideEvent_Callback cb) { qradiobutton_hideevent_callback = cb; }
-    void setQRadioButton_NativeEvent_Callback(QRadioButton_NativeEvent_Callback cb) { qradiobutton_nativeevent_callback = cb; }
-    void setQRadioButton_Metric_Callback(QRadioButton_Metric_Callback cb) { qradiobutton_metric_callback = cb; }
-    void setQRadioButton_InitPainter_Callback(QRadioButton_InitPainter_Callback cb) { qradiobutton_initpainter_callback = cb; }
-    void setQRadioButton_Redirected_Callback(QRadioButton_Redirected_Callback cb) { qradiobutton_redirected_callback = cb; }
-    void setQRadioButton_SharedPainter_Callback(QRadioButton_SharedPainter_Callback cb) { qradiobutton_sharedpainter_callback = cb; }
-    void setQRadioButton_InputMethodEvent_Callback(QRadioButton_InputMethodEvent_Callback cb) { qradiobutton_inputmethodevent_callback = cb; }
-    void setQRadioButton_InputMethodQuery_Callback(QRadioButton_InputMethodQuery_Callback cb) { qradiobutton_inputmethodquery_callback = cb; }
-    void setQRadioButton_FocusNextPrevChild_Callback(QRadioButton_FocusNextPrevChild_Callback cb) { qradiobutton_focusnextprevchild_callback = cb; }
-    void setQRadioButton_EventFilter_Callback(QRadioButton_EventFilter_Callback cb) { qradiobutton_eventfilter_callback = cb; }
-    void setQRadioButton_ChildEvent_Callback(QRadioButton_ChildEvent_Callback cb) { qradiobutton_childevent_callback = cb; }
-    void setQRadioButton_CustomEvent_Callback(QRadioButton_CustomEvent_Callback cb) { qradiobutton_customevent_callback = cb; }
-    void setQRadioButton_ConnectNotify_Callback(QRadioButton_ConnectNotify_Callback cb) { qradiobutton_connectnotify_callback = cb; }
-    void setQRadioButton_DisconnectNotify_Callback(QRadioButton_DisconnectNotify_Callback cb) { qradiobutton_disconnectnotify_callback = cb; }
-    void setQRadioButton_UpdateMicroFocus_Callback(QRadioButton_UpdateMicroFocus_Callback cb) { qradiobutton_updatemicrofocus_callback = cb; }
-    void setQRadioButton_Create_Callback(QRadioButton_Create_Callback cb) { qradiobutton_create_callback = cb; }
-    void setQRadioButton_Destroy_Callback(QRadioButton_Destroy_Callback cb) { qradiobutton_destroy_callback = cb; }
-    void setQRadioButton_FocusNextChild_Callback(QRadioButton_FocusNextChild_Callback cb) { qradiobutton_focusnextchild_callback = cb; }
-    void setQRadioButton_FocusPreviousChild_Callback(QRadioButton_FocusPreviousChild_Callback cb) { qradiobutton_focuspreviouschild_callback = cb; }
-    void setQRadioButton_Sender_Callback(QRadioButton_Sender_Callback cb) { qradiobutton_sender_callback = cb; }
-    void setQRadioButton_SenderSignalIndex_Callback(QRadioButton_SenderSignalIndex_Callback cb) { qradiobutton_sendersignalindex_callback = cb; }
-    void setQRadioButton_Receivers_Callback(QRadioButton_Receivers_Callback cb) { qradiobutton_receivers_callback = cb; }
-    void setQRadioButton_IsSignalConnected_Callback(QRadioButton_IsSignalConnected_Callback cb) { qradiobutton_issignalconnected_callback = cb; }
+    inline void setQRadioButton_Metacall_Callback(QRadioButton_Metacall_Callback cb) { qradiobutton_metacall_callback = cb; }
+    inline void setQRadioButton_SizeHint_Callback(QRadioButton_SizeHint_Callback cb) { qradiobutton_sizehint_callback = cb; }
+    inline void setQRadioButton_MinimumSizeHint_Callback(QRadioButton_MinimumSizeHint_Callback cb) { qradiobutton_minimumsizehint_callback = cb; }
+    inline void setQRadioButton_Event_Callback(QRadioButton_Event_Callback cb) { qradiobutton_event_callback = cb; }
+    inline void setQRadioButton_HitButton_Callback(QRadioButton_HitButton_Callback cb) { qradiobutton_hitbutton_callback = cb; }
+    inline void setQRadioButton_PaintEvent_Callback(QRadioButton_PaintEvent_Callback cb) { qradiobutton_paintevent_callback = cb; }
+    inline void setQRadioButton_MouseMoveEvent_Callback(QRadioButton_MouseMoveEvent_Callback cb) { qradiobutton_mousemoveevent_callback = cb; }
+    inline void setQRadioButton_InitStyleOption_Callback(QRadioButton_InitStyleOption_Callback cb) { qradiobutton_initstyleoption_callback = cb; }
+    inline void setQRadioButton_CheckStateSet_Callback(QRadioButton_CheckStateSet_Callback cb) { qradiobutton_checkstateset_callback = cb; }
+    inline void setQRadioButton_NextCheckState_Callback(QRadioButton_NextCheckState_Callback cb) { qradiobutton_nextcheckstate_callback = cb; }
+    inline void setQRadioButton_KeyPressEvent_Callback(QRadioButton_KeyPressEvent_Callback cb) { qradiobutton_keypressevent_callback = cb; }
+    inline void setQRadioButton_KeyReleaseEvent_Callback(QRadioButton_KeyReleaseEvent_Callback cb) { qradiobutton_keyreleaseevent_callback = cb; }
+    inline void setQRadioButton_MousePressEvent_Callback(QRadioButton_MousePressEvent_Callback cb) { qradiobutton_mousepressevent_callback = cb; }
+    inline void setQRadioButton_MouseReleaseEvent_Callback(QRadioButton_MouseReleaseEvent_Callback cb) { qradiobutton_mousereleaseevent_callback = cb; }
+    inline void setQRadioButton_FocusInEvent_Callback(QRadioButton_FocusInEvent_Callback cb) { qradiobutton_focusinevent_callback = cb; }
+    inline void setQRadioButton_FocusOutEvent_Callback(QRadioButton_FocusOutEvent_Callback cb) { qradiobutton_focusoutevent_callback = cb; }
+    inline void setQRadioButton_ChangeEvent_Callback(QRadioButton_ChangeEvent_Callback cb) { qradiobutton_changeevent_callback = cb; }
+    inline void setQRadioButton_TimerEvent_Callback(QRadioButton_TimerEvent_Callback cb) { qradiobutton_timerevent_callback = cb; }
+    inline void setQRadioButton_DevType_Callback(QRadioButton_DevType_Callback cb) { qradiobutton_devtype_callback = cb; }
+    inline void setQRadioButton_SetVisible_Callback(QRadioButton_SetVisible_Callback cb) { qradiobutton_setvisible_callback = cb; }
+    inline void setQRadioButton_HeightForWidth_Callback(QRadioButton_HeightForWidth_Callback cb) { qradiobutton_heightforwidth_callback = cb; }
+    inline void setQRadioButton_HasHeightForWidth_Callback(QRadioButton_HasHeightForWidth_Callback cb) { qradiobutton_hasheightforwidth_callback = cb; }
+    inline void setQRadioButton_PaintEngine_Callback(QRadioButton_PaintEngine_Callback cb) { qradiobutton_paintengine_callback = cb; }
+    inline void setQRadioButton_MouseDoubleClickEvent_Callback(QRadioButton_MouseDoubleClickEvent_Callback cb) { qradiobutton_mousedoubleclickevent_callback = cb; }
+    inline void setQRadioButton_WheelEvent_Callback(QRadioButton_WheelEvent_Callback cb) { qradiobutton_wheelevent_callback = cb; }
+    inline void setQRadioButton_EnterEvent_Callback(QRadioButton_EnterEvent_Callback cb) { qradiobutton_enterevent_callback = cb; }
+    inline void setQRadioButton_LeaveEvent_Callback(QRadioButton_LeaveEvent_Callback cb) { qradiobutton_leaveevent_callback = cb; }
+    inline void setQRadioButton_MoveEvent_Callback(QRadioButton_MoveEvent_Callback cb) { qradiobutton_moveevent_callback = cb; }
+    inline void setQRadioButton_ResizeEvent_Callback(QRadioButton_ResizeEvent_Callback cb) { qradiobutton_resizeevent_callback = cb; }
+    inline void setQRadioButton_CloseEvent_Callback(QRadioButton_CloseEvent_Callback cb) { qradiobutton_closeevent_callback = cb; }
+    inline void setQRadioButton_ContextMenuEvent_Callback(QRadioButton_ContextMenuEvent_Callback cb) { qradiobutton_contextmenuevent_callback = cb; }
+    inline void setQRadioButton_TabletEvent_Callback(QRadioButton_TabletEvent_Callback cb) { qradiobutton_tabletevent_callback = cb; }
+    inline void setQRadioButton_ActionEvent_Callback(QRadioButton_ActionEvent_Callback cb) { qradiobutton_actionevent_callback = cb; }
+    inline void setQRadioButton_DragEnterEvent_Callback(QRadioButton_DragEnterEvent_Callback cb) { qradiobutton_dragenterevent_callback = cb; }
+    inline void setQRadioButton_DragMoveEvent_Callback(QRadioButton_DragMoveEvent_Callback cb) { qradiobutton_dragmoveevent_callback = cb; }
+    inline void setQRadioButton_DragLeaveEvent_Callback(QRadioButton_DragLeaveEvent_Callback cb) { qradiobutton_dragleaveevent_callback = cb; }
+    inline void setQRadioButton_DropEvent_Callback(QRadioButton_DropEvent_Callback cb) { qradiobutton_dropevent_callback = cb; }
+    inline void setQRadioButton_ShowEvent_Callback(QRadioButton_ShowEvent_Callback cb) { qradiobutton_showevent_callback = cb; }
+    inline void setQRadioButton_HideEvent_Callback(QRadioButton_HideEvent_Callback cb) { qradiobutton_hideevent_callback = cb; }
+    inline void setQRadioButton_NativeEvent_Callback(QRadioButton_NativeEvent_Callback cb) { qradiobutton_nativeevent_callback = cb; }
+    inline void setQRadioButton_Metric_Callback(QRadioButton_Metric_Callback cb) { qradiobutton_metric_callback = cb; }
+    inline void setQRadioButton_InitPainter_Callback(QRadioButton_InitPainter_Callback cb) { qradiobutton_initpainter_callback = cb; }
+    inline void setQRadioButton_Redirected_Callback(QRadioButton_Redirected_Callback cb) { qradiobutton_redirected_callback = cb; }
+    inline void setQRadioButton_SharedPainter_Callback(QRadioButton_SharedPainter_Callback cb) { qradiobutton_sharedpainter_callback = cb; }
+    inline void setQRadioButton_InputMethodEvent_Callback(QRadioButton_InputMethodEvent_Callback cb) { qradiobutton_inputmethodevent_callback = cb; }
+    inline void setQRadioButton_InputMethodQuery_Callback(QRadioButton_InputMethodQuery_Callback cb) { qradiobutton_inputmethodquery_callback = cb; }
+    inline void setQRadioButton_FocusNextPrevChild_Callback(QRadioButton_FocusNextPrevChild_Callback cb) { qradiobutton_focusnextprevchild_callback = cb; }
+    inline void setQRadioButton_EventFilter_Callback(QRadioButton_EventFilter_Callback cb) { qradiobutton_eventfilter_callback = cb; }
+    inline void setQRadioButton_ChildEvent_Callback(QRadioButton_ChildEvent_Callback cb) { qradiobutton_childevent_callback = cb; }
+    inline void setQRadioButton_CustomEvent_Callback(QRadioButton_CustomEvent_Callback cb) { qradiobutton_customevent_callback = cb; }
+    inline void setQRadioButton_ConnectNotify_Callback(QRadioButton_ConnectNotify_Callback cb) { qradiobutton_connectnotify_callback = cb; }
+    inline void setQRadioButton_DisconnectNotify_Callback(QRadioButton_DisconnectNotify_Callback cb) { qradiobutton_disconnectnotify_callback = cb; }
+    inline void setQRadioButton_UpdateMicroFocus_Callback(QRadioButton_UpdateMicroFocus_Callback cb) { qradiobutton_updatemicrofocus_callback = cb; }
+    inline void setQRadioButton_Create_Callback(QRadioButton_Create_Callback cb) { qradiobutton_create_callback = cb; }
+    inline void setQRadioButton_Destroy_Callback(QRadioButton_Destroy_Callback cb) { qradiobutton_destroy_callback = cb; }
+    inline void setQRadioButton_FocusNextChild_Callback(QRadioButton_FocusNextChild_Callback cb) { qradiobutton_focusnextchild_callback = cb; }
+    inline void setQRadioButton_FocusPreviousChild_Callback(QRadioButton_FocusPreviousChild_Callback cb) { qradiobutton_focuspreviouschild_callback = cb; }
+    inline void setQRadioButton_Sender_Callback(QRadioButton_Sender_Callback cb) { qradiobutton_sender_callback = cb; }
+    inline void setQRadioButton_SenderSignalIndex_Callback(QRadioButton_SenderSignalIndex_Callback cb) { qradiobutton_sendersignalindex_callback = cb; }
+    inline void setQRadioButton_Receivers_Callback(QRadioButton_Receivers_Callback cb) { qradiobutton_receivers_callback = cb; }
+    inline void setQRadioButton_IsSignalConnected_Callback(QRadioButton_IsSignalConnected_Callback cb) { qradiobutton_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQRadioButton_Metacall_IsBase(bool value) const { qradiobutton_metacall_isbase = value; }
-    void setQRadioButton_SizeHint_IsBase(bool value) const { qradiobutton_sizehint_isbase = value; }
-    void setQRadioButton_MinimumSizeHint_IsBase(bool value) const { qradiobutton_minimumsizehint_isbase = value; }
-    void setQRadioButton_Event_IsBase(bool value) const { qradiobutton_event_isbase = value; }
-    void setQRadioButton_HitButton_IsBase(bool value) const { qradiobutton_hitbutton_isbase = value; }
-    void setQRadioButton_PaintEvent_IsBase(bool value) const { qradiobutton_paintevent_isbase = value; }
-    void setQRadioButton_MouseMoveEvent_IsBase(bool value) const { qradiobutton_mousemoveevent_isbase = value; }
-    void setQRadioButton_InitStyleOption_IsBase(bool value) const { qradiobutton_initstyleoption_isbase = value; }
-    void setQRadioButton_CheckStateSet_IsBase(bool value) const { qradiobutton_checkstateset_isbase = value; }
-    void setQRadioButton_NextCheckState_IsBase(bool value) const { qradiobutton_nextcheckstate_isbase = value; }
-    void setQRadioButton_KeyPressEvent_IsBase(bool value) const { qradiobutton_keypressevent_isbase = value; }
-    void setQRadioButton_KeyReleaseEvent_IsBase(bool value) const { qradiobutton_keyreleaseevent_isbase = value; }
-    void setQRadioButton_MousePressEvent_IsBase(bool value) const { qradiobutton_mousepressevent_isbase = value; }
-    void setQRadioButton_MouseReleaseEvent_IsBase(bool value) const { qradiobutton_mousereleaseevent_isbase = value; }
-    void setQRadioButton_FocusInEvent_IsBase(bool value) const { qradiobutton_focusinevent_isbase = value; }
-    void setQRadioButton_FocusOutEvent_IsBase(bool value) const { qradiobutton_focusoutevent_isbase = value; }
-    void setQRadioButton_ChangeEvent_IsBase(bool value) const { qradiobutton_changeevent_isbase = value; }
-    void setQRadioButton_TimerEvent_IsBase(bool value) const { qradiobutton_timerevent_isbase = value; }
-    void setQRadioButton_DevType_IsBase(bool value) const { qradiobutton_devtype_isbase = value; }
-    void setQRadioButton_SetVisible_IsBase(bool value) const { qradiobutton_setvisible_isbase = value; }
-    void setQRadioButton_HeightForWidth_IsBase(bool value) const { qradiobutton_heightforwidth_isbase = value; }
-    void setQRadioButton_HasHeightForWidth_IsBase(bool value) const { qradiobutton_hasheightforwidth_isbase = value; }
-    void setQRadioButton_PaintEngine_IsBase(bool value) const { qradiobutton_paintengine_isbase = value; }
-    void setQRadioButton_MouseDoubleClickEvent_IsBase(bool value) const { qradiobutton_mousedoubleclickevent_isbase = value; }
-    void setQRadioButton_WheelEvent_IsBase(bool value) const { qradiobutton_wheelevent_isbase = value; }
-    void setQRadioButton_EnterEvent_IsBase(bool value) const { qradiobutton_enterevent_isbase = value; }
-    void setQRadioButton_LeaveEvent_IsBase(bool value) const { qradiobutton_leaveevent_isbase = value; }
-    void setQRadioButton_MoveEvent_IsBase(bool value) const { qradiobutton_moveevent_isbase = value; }
-    void setQRadioButton_ResizeEvent_IsBase(bool value) const { qradiobutton_resizeevent_isbase = value; }
-    void setQRadioButton_CloseEvent_IsBase(bool value) const { qradiobutton_closeevent_isbase = value; }
-    void setQRadioButton_ContextMenuEvent_IsBase(bool value) const { qradiobutton_contextmenuevent_isbase = value; }
-    void setQRadioButton_TabletEvent_IsBase(bool value) const { qradiobutton_tabletevent_isbase = value; }
-    void setQRadioButton_ActionEvent_IsBase(bool value) const { qradiobutton_actionevent_isbase = value; }
-    void setQRadioButton_DragEnterEvent_IsBase(bool value) const { qradiobutton_dragenterevent_isbase = value; }
-    void setQRadioButton_DragMoveEvent_IsBase(bool value) const { qradiobutton_dragmoveevent_isbase = value; }
-    void setQRadioButton_DragLeaveEvent_IsBase(bool value) const { qradiobutton_dragleaveevent_isbase = value; }
-    void setQRadioButton_DropEvent_IsBase(bool value) const { qradiobutton_dropevent_isbase = value; }
-    void setQRadioButton_ShowEvent_IsBase(bool value) const { qradiobutton_showevent_isbase = value; }
-    void setQRadioButton_HideEvent_IsBase(bool value) const { qradiobutton_hideevent_isbase = value; }
-    void setQRadioButton_NativeEvent_IsBase(bool value) const { qradiobutton_nativeevent_isbase = value; }
-    void setQRadioButton_Metric_IsBase(bool value) const { qradiobutton_metric_isbase = value; }
-    void setQRadioButton_InitPainter_IsBase(bool value) const { qradiobutton_initpainter_isbase = value; }
-    void setQRadioButton_Redirected_IsBase(bool value) const { qradiobutton_redirected_isbase = value; }
-    void setQRadioButton_SharedPainter_IsBase(bool value) const { qradiobutton_sharedpainter_isbase = value; }
-    void setQRadioButton_InputMethodEvent_IsBase(bool value) const { qradiobutton_inputmethodevent_isbase = value; }
-    void setQRadioButton_InputMethodQuery_IsBase(bool value) const { qradiobutton_inputmethodquery_isbase = value; }
-    void setQRadioButton_FocusNextPrevChild_IsBase(bool value) const { qradiobutton_focusnextprevchild_isbase = value; }
-    void setQRadioButton_EventFilter_IsBase(bool value) const { qradiobutton_eventfilter_isbase = value; }
-    void setQRadioButton_ChildEvent_IsBase(bool value) const { qradiobutton_childevent_isbase = value; }
-    void setQRadioButton_CustomEvent_IsBase(bool value) const { qradiobutton_customevent_isbase = value; }
-    void setQRadioButton_ConnectNotify_IsBase(bool value) const { qradiobutton_connectnotify_isbase = value; }
-    void setQRadioButton_DisconnectNotify_IsBase(bool value) const { qradiobutton_disconnectnotify_isbase = value; }
-    void setQRadioButton_UpdateMicroFocus_IsBase(bool value) const { qradiobutton_updatemicrofocus_isbase = value; }
-    void setQRadioButton_Create_IsBase(bool value) const { qradiobutton_create_isbase = value; }
-    void setQRadioButton_Destroy_IsBase(bool value) const { qradiobutton_destroy_isbase = value; }
-    void setQRadioButton_FocusNextChild_IsBase(bool value) const { qradiobutton_focusnextchild_isbase = value; }
-    void setQRadioButton_FocusPreviousChild_IsBase(bool value) const { qradiobutton_focuspreviouschild_isbase = value; }
-    void setQRadioButton_Sender_IsBase(bool value) const { qradiobutton_sender_isbase = value; }
-    void setQRadioButton_SenderSignalIndex_IsBase(bool value) const { qradiobutton_sendersignalindex_isbase = value; }
-    void setQRadioButton_Receivers_IsBase(bool value) const { qradiobutton_receivers_isbase = value; }
-    void setQRadioButton_IsSignalConnected_IsBase(bool value) const { qradiobutton_issignalconnected_isbase = value; }
+    inline void setQRadioButton_Metacall_IsBase(bool value) const { qradiobutton_metacall_isbase = value; }
+    inline void setQRadioButton_SizeHint_IsBase(bool value) const { qradiobutton_sizehint_isbase = value; }
+    inline void setQRadioButton_MinimumSizeHint_IsBase(bool value) const { qradiobutton_minimumsizehint_isbase = value; }
+    inline void setQRadioButton_Event_IsBase(bool value) const { qradiobutton_event_isbase = value; }
+    inline void setQRadioButton_HitButton_IsBase(bool value) const { qradiobutton_hitbutton_isbase = value; }
+    inline void setQRadioButton_PaintEvent_IsBase(bool value) const { qradiobutton_paintevent_isbase = value; }
+    inline void setQRadioButton_MouseMoveEvent_IsBase(bool value) const { qradiobutton_mousemoveevent_isbase = value; }
+    inline void setQRadioButton_InitStyleOption_IsBase(bool value) const { qradiobutton_initstyleoption_isbase = value; }
+    inline void setQRadioButton_CheckStateSet_IsBase(bool value) const { qradiobutton_checkstateset_isbase = value; }
+    inline void setQRadioButton_NextCheckState_IsBase(bool value) const { qradiobutton_nextcheckstate_isbase = value; }
+    inline void setQRadioButton_KeyPressEvent_IsBase(bool value) const { qradiobutton_keypressevent_isbase = value; }
+    inline void setQRadioButton_KeyReleaseEvent_IsBase(bool value) const { qradiobutton_keyreleaseevent_isbase = value; }
+    inline void setQRadioButton_MousePressEvent_IsBase(bool value) const { qradiobutton_mousepressevent_isbase = value; }
+    inline void setQRadioButton_MouseReleaseEvent_IsBase(bool value) const { qradiobutton_mousereleaseevent_isbase = value; }
+    inline void setQRadioButton_FocusInEvent_IsBase(bool value) const { qradiobutton_focusinevent_isbase = value; }
+    inline void setQRadioButton_FocusOutEvent_IsBase(bool value) const { qradiobutton_focusoutevent_isbase = value; }
+    inline void setQRadioButton_ChangeEvent_IsBase(bool value) const { qradiobutton_changeevent_isbase = value; }
+    inline void setQRadioButton_TimerEvent_IsBase(bool value) const { qradiobutton_timerevent_isbase = value; }
+    inline void setQRadioButton_DevType_IsBase(bool value) const { qradiobutton_devtype_isbase = value; }
+    inline void setQRadioButton_SetVisible_IsBase(bool value) const { qradiobutton_setvisible_isbase = value; }
+    inline void setQRadioButton_HeightForWidth_IsBase(bool value) const { qradiobutton_heightforwidth_isbase = value; }
+    inline void setQRadioButton_HasHeightForWidth_IsBase(bool value) const { qradiobutton_hasheightforwidth_isbase = value; }
+    inline void setQRadioButton_PaintEngine_IsBase(bool value) const { qradiobutton_paintengine_isbase = value; }
+    inline void setQRadioButton_MouseDoubleClickEvent_IsBase(bool value) const { qradiobutton_mousedoubleclickevent_isbase = value; }
+    inline void setQRadioButton_WheelEvent_IsBase(bool value) const { qradiobutton_wheelevent_isbase = value; }
+    inline void setQRadioButton_EnterEvent_IsBase(bool value) const { qradiobutton_enterevent_isbase = value; }
+    inline void setQRadioButton_LeaveEvent_IsBase(bool value) const { qradiobutton_leaveevent_isbase = value; }
+    inline void setQRadioButton_MoveEvent_IsBase(bool value) const { qradiobutton_moveevent_isbase = value; }
+    inline void setQRadioButton_ResizeEvent_IsBase(bool value) const { qradiobutton_resizeevent_isbase = value; }
+    inline void setQRadioButton_CloseEvent_IsBase(bool value) const { qradiobutton_closeevent_isbase = value; }
+    inline void setQRadioButton_ContextMenuEvent_IsBase(bool value) const { qradiobutton_contextmenuevent_isbase = value; }
+    inline void setQRadioButton_TabletEvent_IsBase(bool value) const { qradiobutton_tabletevent_isbase = value; }
+    inline void setQRadioButton_ActionEvent_IsBase(bool value) const { qradiobutton_actionevent_isbase = value; }
+    inline void setQRadioButton_DragEnterEvent_IsBase(bool value) const { qradiobutton_dragenterevent_isbase = value; }
+    inline void setQRadioButton_DragMoveEvent_IsBase(bool value) const { qradiobutton_dragmoveevent_isbase = value; }
+    inline void setQRadioButton_DragLeaveEvent_IsBase(bool value) const { qradiobutton_dragleaveevent_isbase = value; }
+    inline void setQRadioButton_DropEvent_IsBase(bool value) const { qradiobutton_dropevent_isbase = value; }
+    inline void setQRadioButton_ShowEvent_IsBase(bool value) const { qradiobutton_showevent_isbase = value; }
+    inline void setQRadioButton_HideEvent_IsBase(bool value) const { qradiobutton_hideevent_isbase = value; }
+    inline void setQRadioButton_NativeEvent_IsBase(bool value) const { qradiobutton_nativeevent_isbase = value; }
+    inline void setQRadioButton_Metric_IsBase(bool value) const { qradiobutton_metric_isbase = value; }
+    inline void setQRadioButton_InitPainter_IsBase(bool value) const { qradiobutton_initpainter_isbase = value; }
+    inline void setQRadioButton_Redirected_IsBase(bool value) const { qradiobutton_redirected_isbase = value; }
+    inline void setQRadioButton_SharedPainter_IsBase(bool value) const { qradiobutton_sharedpainter_isbase = value; }
+    inline void setQRadioButton_InputMethodEvent_IsBase(bool value) const { qradiobutton_inputmethodevent_isbase = value; }
+    inline void setQRadioButton_InputMethodQuery_IsBase(bool value) const { qradiobutton_inputmethodquery_isbase = value; }
+    inline void setQRadioButton_FocusNextPrevChild_IsBase(bool value) const { qradiobutton_focusnextprevchild_isbase = value; }
+    inline void setQRadioButton_EventFilter_IsBase(bool value) const { qradiobutton_eventfilter_isbase = value; }
+    inline void setQRadioButton_ChildEvent_IsBase(bool value) const { qradiobutton_childevent_isbase = value; }
+    inline void setQRadioButton_CustomEvent_IsBase(bool value) const { qradiobutton_customevent_isbase = value; }
+    inline void setQRadioButton_ConnectNotify_IsBase(bool value) const { qradiobutton_connectnotify_isbase = value; }
+    inline void setQRadioButton_DisconnectNotify_IsBase(bool value) const { qradiobutton_disconnectnotify_isbase = value; }
+    inline void setQRadioButton_UpdateMicroFocus_IsBase(bool value) const { qradiobutton_updatemicrofocus_isbase = value; }
+    inline void setQRadioButton_Create_IsBase(bool value) const { qradiobutton_create_isbase = value; }
+    inline void setQRadioButton_Destroy_IsBase(bool value) const { qradiobutton_destroy_isbase = value; }
+    inline void setQRadioButton_FocusNextChild_IsBase(bool value) const { qradiobutton_focusnextchild_isbase = value; }
+    inline void setQRadioButton_FocusPreviousChild_IsBase(bool value) const { qradiobutton_focuspreviouschild_isbase = value; }
+    inline void setQRadioButton_Sender_IsBase(bool value) const { qradiobutton_sender_isbase = value; }
+    inline void setQRadioButton_SenderSignalIndex_IsBase(bool value) const { qradiobutton_sendersignalindex_isbase = value; }
+    inline void setQRadioButton_Receivers_IsBase(bool value) const { qradiobutton_receivers_isbase = value; }
+    inline void setQRadioButton_IsSignalConnected_IsBase(bool value) const { qradiobutton_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -406,7 +409,12 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_metacall_isbase = false;
             return QRadioButton::qt_metacall(param1, param2, param3);
         } else if (qradiobutton_metacall_callback != nullptr) {
-            return qradiobutton_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qradiobutton_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QRadioButton::qt_metacall(param1, param2, param3);
         }
@@ -418,7 +426,8 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_sizehint_isbase = false;
             return QRadioButton::sizeHint();
         } else if (qradiobutton_sizehint_callback != nullptr) {
-            return qradiobutton_sizehint_callback();
+            QSize* callback_ret = qradiobutton_sizehint_callback();
+            return *callback_ret;
         } else {
             return QRadioButton::sizeHint();
         }
@@ -430,7 +439,8 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_minimumsizehint_isbase = false;
             return QRadioButton::minimumSizeHint();
         } else if (qradiobutton_minimumsizehint_callback != nullptr) {
-            return qradiobutton_minimumsizehint_callback();
+            QSize* callback_ret = qradiobutton_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QRadioButton::minimumSizeHint();
         }
@@ -442,7 +452,10 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_event_isbase = false;
             return QRadioButton::event(e);
         } else if (qradiobutton_event_callback != nullptr) {
-            return qradiobutton_event_callback(this, e);
+            QEvent* cbval1 = e;
+
+            bool callback_ret = qradiobutton_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QRadioButton::event(e);
         }
@@ -454,7 +467,12 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_hitbutton_isbase = false;
             return QRadioButton::hitButton(param1);
         } else if (qradiobutton_hitbutton_callback != nullptr) {
-            return qradiobutton_hitbutton_callback(this, param1);
+            const QPoint& param1_ret = param1;
+            // Cast returned reference into pointer
+            QPoint* cbval1 = const_cast<QPoint*>(&param1_ret);
+
+            bool callback_ret = qradiobutton_hitbutton_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QRadioButton::hitButton(param1);
         }
@@ -466,7 +484,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_paintevent_isbase = false;
             QRadioButton::paintEvent(param1);
         } else if (qradiobutton_paintevent_callback != nullptr) {
-            qradiobutton_paintevent_callback(this, param1);
+            QPaintEvent* cbval1 = param1;
+
+            qradiobutton_paintevent_callback(this, cbval1);
         } else {
             QRadioButton::paintEvent(param1);
         }
@@ -478,7 +498,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_mousemoveevent_isbase = false;
             QRadioButton::mouseMoveEvent(param1);
         } else if (qradiobutton_mousemoveevent_callback != nullptr) {
-            qradiobutton_mousemoveevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qradiobutton_mousemoveevent_callback(this, cbval1);
         } else {
             QRadioButton::mouseMoveEvent(param1);
         }
@@ -490,7 +512,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_initstyleoption_isbase = false;
             QRadioButton::initStyleOption(button);
         } else if (qradiobutton_initstyleoption_callback != nullptr) {
-            qradiobutton_initstyleoption_callback(this, button);
+            QStyleOptionButton* cbval1 = button;
+
+            qradiobutton_initstyleoption_callback(this, cbval1);
         } else {
             QRadioButton::initStyleOption(button);
         }
@@ -526,7 +550,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_keypressevent_isbase = false;
             QRadioButton::keyPressEvent(e);
         } else if (qradiobutton_keypressevent_callback != nullptr) {
-            qradiobutton_keypressevent_callback(this, e);
+            QKeyEvent* cbval1 = e;
+
+            qradiobutton_keypressevent_callback(this, cbval1);
         } else {
             QRadioButton::keyPressEvent(e);
         }
@@ -538,7 +564,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_keyreleaseevent_isbase = false;
             QRadioButton::keyReleaseEvent(e);
         } else if (qradiobutton_keyreleaseevent_callback != nullptr) {
-            qradiobutton_keyreleaseevent_callback(this, e);
+            QKeyEvent* cbval1 = e;
+
+            qradiobutton_keyreleaseevent_callback(this, cbval1);
         } else {
             QRadioButton::keyReleaseEvent(e);
         }
@@ -550,7 +578,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_mousepressevent_isbase = false;
             QRadioButton::mousePressEvent(e);
         } else if (qradiobutton_mousepressevent_callback != nullptr) {
-            qradiobutton_mousepressevent_callback(this, e);
+            QMouseEvent* cbval1 = e;
+
+            qradiobutton_mousepressevent_callback(this, cbval1);
         } else {
             QRadioButton::mousePressEvent(e);
         }
@@ -562,7 +592,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_mousereleaseevent_isbase = false;
             QRadioButton::mouseReleaseEvent(e);
         } else if (qradiobutton_mousereleaseevent_callback != nullptr) {
-            qradiobutton_mousereleaseevent_callback(this, e);
+            QMouseEvent* cbval1 = e;
+
+            qradiobutton_mousereleaseevent_callback(this, cbval1);
         } else {
             QRadioButton::mouseReleaseEvent(e);
         }
@@ -574,7 +606,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_focusinevent_isbase = false;
             QRadioButton::focusInEvent(e);
         } else if (qradiobutton_focusinevent_callback != nullptr) {
-            qradiobutton_focusinevent_callback(this, e);
+            QFocusEvent* cbval1 = e;
+
+            qradiobutton_focusinevent_callback(this, cbval1);
         } else {
             QRadioButton::focusInEvent(e);
         }
@@ -586,7 +620,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_focusoutevent_isbase = false;
             QRadioButton::focusOutEvent(e);
         } else if (qradiobutton_focusoutevent_callback != nullptr) {
-            qradiobutton_focusoutevent_callback(this, e);
+            QFocusEvent* cbval1 = e;
+
+            qradiobutton_focusoutevent_callback(this, cbval1);
         } else {
             QRadioButton::focusOutEvent(e);
         }
@@ -598,7 +634,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_changeevent_isbase = false;
             QRadioButton::changeEvent(e);
         } else if (qradiobutton_changeevent_callback != nullptr) {
-            qradiobutton_changeevent_callback(this, e);
+            QEvent* cbval1 = e;
+
+            qradiobutton_changeevent_callback(this, cbval1);
         } else {
             QRadioButton::changeEvent(e);
         }
@@ -610,7 +648,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_timerevent_isbase = false;
             QRadioButton::timerEvent(e);
         } else if (qradiobutton_timerevent_callback != nullptr) {
-            qradiobutton_timerevent_callback(this, e);
+            QTimerEvent* cbval1 = e;
+
+            qradiobutton_timerevent_callback(this, cbval1);
         } else {
             QRadioButton::timerEvent(e);
         }
@@ -622,7 +662,8 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_devtype_isbase = false;
             return QRadioButton::devType();
         } else if (qradiobutton_devtype_callback != nullptr) {
-            return qradiobutton_devtype_callback();
+            int callback_ret = qradiobutton_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QRadioButton::devType();
         }
@@ -634,7 +675,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_setvisible_isbase = false;
             QRadioButton::setVisible(visible);
         } else if (qradiobutton_setvisible_callback != nullptr) {
-            qradiobutton_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qradiobutton_setvisible_callback(this, cbval1);
         } else {
             QRadioButton::setVisible(visible);
         }
@@ -646,7 +689,10 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_heightforwidth_isbase = false;
             return QRadioButton::heightForWidth(param1);
         } else if (qradiobutton_heightforwidth_callback != nullptr) {
-            return qradiobutton_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qradiobutton_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QRadioButton::heightForWidth(param1);
         }
@@ -658,7 +704,8 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_hasheightforwidth_isbase = false;
             return QRadioButton::hasHeightForWidth();
         } else if (qradiobutton_hasheightforwidth_callback != nullptr) {
-            return qradiobutton_hasheightforwidth_callback();
+            bool callback_ret = qradiobutton_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QRadioButton::hasHeightForWidth();
         }
@@ -670,7 +717,8 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_paintengine_isbase = false;
             return QRadioButton::paintEngine();
         } else if (qradiobutton_paintengine_callback != nullptr) {
-            return qradiobutton_paintengine_callback();
+            QPaintEngine* callback_ret = qradiobutton_paintengine_callback();
+            return callback_ret;
         } else {
             return QRadioButton::paintEngine();
         }
@@ -682,7 +730,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_mousedoubleclickevent_isbase = false;
             QRadioButton::mouseDoubleClickEvent(event);
         } else if (qradiobutton_mousedoubleclickevent_callback != nullptr) {
-            qradiobutton_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qradiobutton_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QRadioButton::mouseDoubleClickEvent(event);
         }
@@ -694,7 +744,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_wheelevent_isbase = false;
             QRadioButton::wheelEvent(event);
         } else if (qradiobutton_wheelevent_callback != nullptr) {
-            qradiobutton_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qradiobutton_wheelevent_callback(this, cbval1);
         } else {
             QRadioButton::wheelEvent(event);
         }
@@ -706,7 +758,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_enterevent_isbase = false;
             QRadioButton::enterEvent(event);
         } else if (qradiobutton_enterevent_callback != nullptr) {
-            qradiobutton_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qradiobutton_enterevent_callback(this, cbval1);
         } else {
             QRadioButton::enterEvent(event);
         }
@@ -718,7 +772,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_leaveevent_isbase = false;
             QRadioButton::leaveEvent(event);
         } else if (qradiobutton_leaveevent_callback != nullptr) {
-            qradiobutton_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qradiobutton_leaveevent_callback(this, cbval1);
         } else {
             QRadioButton::leaveEvent(event);
         }
@@ -730,7 +786,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_moveevent_isbase = false;
             QRadioButton::moveEvent(event);
         } else if (qradiobutton_moveevent_callback != nullptr) {
-            qradiobutton_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qradiobutton_moveevent_callback(this, cbval1);
         } else {
             QRadioButton::moveEvent(event);
         }
@@ -742,7 +800,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_resizeevent_isbase = false;
             QRadioButton::resizeEvent(event);
         } else if (qradiobutton_resizeevent_callback != nullptr) {
-            qradiobutton_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qradiobutton_resizeevent_callback(this, cbval1);
         } else {
             QRadioButton::resizeEvent(event);
         }
@@ -754,7 +814,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_closeevent_isbase = false;
             QRadioButton::closeEvent(event);
         } else if (qradiobutton_closeevent_callback != nullptr) {
-            qradiobutton_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qradiobutton_closeevent_callback(this, cbval1);
         } else {
             QRadioButton::closeEvent(event);
         }
@@ -766,7 +828,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_contextmenuevent_isbase = false;
             QRadioButton::contextMenuEvent(event);
         } else if (qradiobutton_contextmenuevent_callback != nullptr) {
-            qradiobutton_contextmenuevent_callback(this, event);
+            QContextMenuEvent* cbval1 = event;
+
+            qradiobutton_contextmenuevent_callback(this, cbval1);
         } else {
             QRadioButton::contextMenuEvent(event);
         }
@@ -778,7 +842,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_tabletevent_isbase = false;
             QRadioButton::tabletEvent(event);
         } else if (qradiobutton_tabletevent_callback != nullptr) {
-            qradiobutton_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qradiobutton_tabletevent_callback(this, cbval1);
         } else {
             QRadioButton::tabletEvent(event);
         }
@@ -790,7 +856,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_actionevent_isbase = false;
             QRadioButton::actionEvent(event);
         } else if (qradiobutton_actionevent_callback != nullptr) {
-            qradiobutton_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qradiobutton_actionevent_callback(this, cbval1);
         } else {
             QRadioButton::actionEvent(event);
         }
@@ -802,7 +870,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_dragenterevent_isbase = false;
             QRadioButton::dragEnterEvent(event);
         } else if (qradiobutton_dragenterevent_callback != nullptr) {
-            qradiobutton_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qradiobutton_dragenterevent_callback(this, cbval1);
         } else {
             QRadioButton::dragEnterEvent(event);
         }
@@ -814,7 +884,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_dragmoveevent_isbase = false;
             QRadioButton::dragMoveEvent(event);
         } else if (qradiobutton_dragmoveevent_callback != nullptr) {
-            qradiobutton_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qradiobutton_dragmoveevent_callback(this, cbval1);
         } else {
             QRadioButton::dragMoveEvent(event);
         }
@@ -826,7 +898,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_dragleaveevent_isbase = false;
             QRadioButton::dragLeaveEvent(event);
         } else if (qradiobutton_dragleaveevent_callback != nullptr) {
-            qradiobutton_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qradiobutton_dragleaveevent_callback(this, cbval1);
         } else {
             QRadioButton::dragLeaveEvent(event);
         }
@@ -838,7 +912,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_dropevent_isbase = false;
             QRadioButton::dropEvent(event);
         } else if (qradiobutton_dropevent_callback != nullptr) {
-            qradiobutton_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qradiobutton_dropevent_callback(this, cbval1);
         } else {
             QRadioButton::dropEvent(event);
         }
@@ -850,7 +926,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_showevent_isbase = false;
             QRadioButton::showEvent(event);
         } else if (qradiobutton_showevent_callback != nullptr) {
-            qradiobutton_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qradiobutton_showevent_callback(this, cbval1);
         } else {
             QRadioButton::showEvent(event);
         }
@@ -862,7 +940,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_hideevent_isbase = false;
             QRadioButton::hideEvent(event);
         } else if (qradiobutton_hideevent_callback != nullptr) {
-            qradiobutton_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qradiobutton_hideevent_callback(this, cbval1);
         } else {
             QRadioButton::hideEvent(event);
         }
@@ -874,7 +954,19 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_nativeevent_isbase = false;
             return QRadioButton::nativeEvent(eventType, message, result);
         } else if (qradiobutton_nativeevent_callback != nullptr) {
-            return qradiobutton_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qradiobutton_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QRadioButton::nativeEvent(eventType, message, result);
         }
@@ -886,7 +978,10 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_metric_isbase = false;
             return QRadioButton::metric(param1);
         } else if (qradiobutton_metric_callback != nullptr) {
-            return qradiobutton_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qradiobutton_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QRadioButton::metric(param1);
         }
@@ -898,7 +993,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_initpainter_isbase = false;
             QRadioButton::initPainter(painter);
         } else if (qradiobutton_initpainter_callback != nullptr) {
-            qradiobutton_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qradiobutton_initpainter_callback(this, cbval1);
         } else {
             QRadioButton::initPainter(painter);
         }
@@ -910,7 +1007,10 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_redirected_isbase = false;
             return QRadioButton::redirected(offset);
         } else if (qradiobutton_redirected_callback != nullptr) {
-            return qradiobutton_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qradiobutton_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QRadioButton::redirected(offset);
         }
@@ -922,7 +1022,8 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_sharedpainter_isbase = false;
             return QRadioButton::sharedPainter();
         } else if (qradiobutton_sharedpainter_callback != nullptr) {
-            return qradiobutton_sharedpainter_callback();
+            QPainter* callback_ret = qradiobutton_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QRadioButton::sharedPainter();
         }
@@ -934,7 +1035,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_inputmethodevent_isbase = false;
             QRadioButton::inputMethodEvent(param1);
         } else if (qradiobutton_inputmethodevent_callback != nullptr) {
-            qradiobutton_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qradiobutton_inputmethodevent_callback(this, cbval1);
         } else {
             QRadioButton::inputMethodEvent(param1);
         }
@@ -946,7 +1049,10 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_inputmethodquery_isbase = false;
             return QRadioButton::inputMethodQuery(param1);
         } else if (qradiobutton_inputmethodquery_callback != nullptr) {
-            return qradiobutton_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qradiobutton_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QRadioButton::inputMethodQuery(param1);
         }
@@ -958,7 +1064,10 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_focusnextprevchild_isbase = false;
             return QRadioButton::focusNextPrevChild(next);
         } else if (qradiobutton_focusnextprevchild_callback != nullptr) {
-            return qradiobutton_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qradiobutton_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QRadioButton::focusNextPrevChild(next);
         }
@@ -970,7 +1079,11 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_eventfilter_isbase = false;
             return QRadioButton::eventFilter(watched, event);
         } else if (qradiobutton_eventfilter_callback != nullptr) {
-            return qradiobutton_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qradiobutton_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QRadioButton::eventFilter(watched, event);
         }
@@ -982,7 +1095,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_childevent_isbase = false;
             QRadioButton::childEvent(event);
         } else if (qradiobutton_childevent_callback != nullptr) {
-            qradiobutton_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qradiobutton_childevent_callback(this, cbval1);
         } else {
             QRadioButton::childEvent(event);
         }
@@ -994,7 +1109,9 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_customevent_isbase = false;
             QRadioButton::customEvent(event);
         } else if (qradiobutton_customevent_callback != nullptr) {
-            qradiobutton_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qradiobutton_customevent_callback(this, cbval1);
         } else {
             QRadioButton::customEvent(event);
         }
@@ -1006,7 +1123,11 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_connectnotify_isbase = false;
             QRadioButton::connectNotify(signal);
         } else if (qradiobutton_connectnotify_callback != nullptr) {
-            qradiobutton_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qradiobutton_connectnotify_callback(this, cbval1);
         } else {
             QRadioButton::connectNotify(signal);
         }
@@ -1018,7 +1139,11 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_disconnectnotify_isbase = false;
             QRadioButton::disconnectNotify(signal);
         } else if (qradiobutton_disconnectnotify_callback != nullptr) {
-            qradiobutton_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qradiobutton_disconnectnotify_callback(this, cbval1);
         } else {
             QRadioButton::disconnectNotify(signal);
         }
@@ -1066,7 +1191,8 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_focusnextchild_isbase = false;
             return QRadioButton::focusNextChild();
         } else if (qradiobutton_focusnextchild_callback != nullptr) {
-            return qradiobutton_focusnextchild_callback();
+            bool callback_ret = qradiobutton_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QRadioButton::focusNextChild();
         }
@@ -1078,7 +1204,8 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_focuspreviouschild_isbase = false;
             return QRadioButton::focusPreviousChild();
         } else if (qradiobutton_focuspreviouschild_callback != nullptr) {
-            return qradiobutton_focuspreviouschild_callback();
+            bool callback_ret = qradiobutton_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QRadioButton::focusPreviousChild();
         }
@@ -1090,7 +1217,8 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_sender_isbase = false;
             return QRadioButton::sender();
         } else if (qradiobutton_sender_callback != nullptr) {
-            return qradiobutton_sender_callback();
+            QObject* callback_ret = qradiobutton_sender_callback();
+            return callback_ret;
         } else {
             return QRadioButton::sender();
         }
@@ -1102,7 +1230,8 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_sendersignalindex_isbase = false;
             return QRadioButton::senderSignalIndex();
         } else if (qradiobutton_sendersignalindex_callback != nullptr) {
-            return qradiobutton_sendersignalindex_callback();
+            int callback_ret = qradiobutton_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QRadioButton::senderSignalIndex();
         }
@@ -1114,7 +1243,10 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_receivers_isbase = false;
             return QRadioButton::receivers(signal);
         } else if (qradiobutton_receivers_callback != nullptr) {
-            return qradiobutton_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qradiobutton_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QRadioButton::receivers(signal);
         }
@@ -1126,11 +1258,120 @@ class VirtualQRadioButton : public QRadioButton {
             qradiobutton_issignalconnected_isbase = false;
             return QRadioButton::isSignalConnected(signal);
         } else if (qradiobutton_issignalconnected_callback != nullptr) {
-            return qradiobutton_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qradiobutton_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QRadioButton::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QRadioButton_Event(QRadioButton* self, QEvent* e);
+    friend bool QRadioButton_QBaseEvent(QRadioButton* self, QEvent* e);
+    friend bool QRadioButton_HitButton(const QRadioButton* self, const QPoint* param1);
+    friend bool QRadioButton_QBaseHitButton(const QRadioButton* self, const QPoint* param1);
+    friend void QRadioButton_PaintEvent(QRadioButton* self, QPaintEvent* param1);
+    friend void QRadioButton_QBasePaintEvent(QRadioButton* self, QPaintEvent* param1);
+    friend void QRadioButton_MouseMoveEvent(QRadioButton* self, QMouseEvent* param1);
+    friend void QRadioButton_QBaseMouseMoveEvent(QRadioButton* self, QMouseEvent* param1);
+    friend void QRadioButton_InitStyleOption(const QRadioButton* self, QStyleOptionButton* button);
+    friend void QRadioButton_QBaseInitStyleOption(const QRadioButton* self, QStyleOptionButton* button);
+    friend void QRadioButton_CheckStateSet(QRadioButton* self);
+    friend void QRadioButton_QBaseCheckStateSet(QRadioButton* self);
+    friend void QRadioButton_NextCheckState(QRadioButton* self);
+    friend void QRadioButton_QBaseNextCheckState(QRadioButton* self);
+    friend void QRadioButton_KeyPressEvent(QRadioButton* self, QKeyEvent* e);
+    friend void QRadioButton_QBaseKeyPressEvent(QRadioButton* self, QKeyEvent* e);
+    friend void QRadioButton_KeyReleaseEvent(QRadioButton* self, QKeyEvent* e);
+    friend void QRadioButton_QBaseKeyReleaseEvent(QRadioButton* self, QKeyEvent* e);
+    friend void QRadioButton_MousePressEvent(QRadioButton* self, QMouseEvent* e);
+    friend void QRadioButton_QBaseMousePressEvent(QRadioButton* self, QMouseEvent* e);
+    friend void QRadioButton_MouseReleaseEvent(QRadioButton* self, QMouseEvent* e);
+    friend void QRadioButton_QBaseMouseReleaseEvent(QRadioButton* self, QMouseEvent* e);
+    friend void QRadioButton_FocusInEvent(QRadioButton* self, QFocusEvent* e);
+    friend void QRadioButton_QBaseFocusInEvent(QRadioButton* self, QFocusEvent* e);
+    friend void QRadioButton_FocusOutEvent(QRadioButton* self, QFocusEvent* e);
+    friend void QRadioButton_QBaseFocusOutEvent(QRadioButton* self, QFocusEvent* e);
+    friend void QRadioButton_ChangeEvent(QRadioButton* self, QEvent* e);
+    friend void QRadioButton_QBaseChangeEvent(QRadioButton* self, QEvent* e);
+    friend void QRadioButton_TimerEvent(QRadioButton* self, QTimerEvent* e);
+    friend void QRadioButton_QBaseTimerEvent(QRadioButton* self, QTimerEvent* e);
+    friend void QRadioButton_MouseDoubleClickEvent(QRadioButton* self, QMouseEvent* event);
+    friend void QRadioButton_QBaseMouseDoubleClickEvent(QRadioButton* self, QMouseEvent* event);
+    friend void QRadioButton_WheelEvent(QRadioButton* self, QWheelEvent* event);
+    friend void QRadioButton_QBaseWheelEvent(QRadioButton* self, QWheelEvent* event);
+    friend void QRadioButton_EnterEvent(QRadioButton* self, QEnterEvent* event);
+    friend void QRadioButton_QBaseEnterEvent(QRadioButton* self, QEnterEvent* event);
+    friend void QRadioButton_LeaveEvent(QRadioButton* self, QEvent* event);
+    friend void QRadioButton_QBaseLeaveEvent(QRadioButton* self, QEvent* event);
+    friend void QRadioButton_MoveEvent(QRadioButton* self, QMoveEvent* event);
+    friend void QRadioButton_QBaseMoveEvent(QRadioButton* self, QMoveEvent* event);
+    friend void QRadioButton_ResizeEvent(QRadioButton* self, QResizeEvent* event);
+    friend void QRadioButton_QBaseResizeEvent(QRadioButton* self, QResizeEvent* event);
+    friend void QRadioButton_CloseEvent(QRadioButton* self, QCloseEvent* event);
+    friend void QRadioButton_QBaseCloseEvent(QRadioButton* self, QCloseEvent* event);
+    friend void QRadioButton_ContextMenuEvent(QRadioButton* self, QContextMenuEvent* event);
+    friend void QRadioButton_QBaseContextMenuEvent(QRadioButton* self, QContextMenuEvent* event);
+    friend void QRadioButton_TabletEvent(QRadioButton* self, QTabletEvent* event);
+    friend void QRadioButton_QBaseTabletEvent(QRadioButton* self, QTabletEvent* event);
+    friend void QRadioButton_ActionEvent(QRadioButton* self, QActionEvent* event);
+    friend void QRadioButton_QBaseActionEvent(QRadioButton* self, QActionEvent* event);
+    friend void QRadioButton_DragEnterEvent(QRadioButton* self, QDragEnterEvent* event);
+    friend void QRadioButton_QBaseDragEnterEvent(QRadioButton* self, QDragEnterEvent* event);
+    friend void QRadioButton_DragMoveEvent(QRadioButton* self, QDragMoveEvent* event);
+    friend void QRadioButton_QBaseDragMoveEvent(QRadioButton* self, QDragMoveEvent* event);
+    friend void QRadioButton_DragLeaveEvent(QRadioButton* self, QDragLeaveEvent* event);
+    friend void QRadioButton_QBaseDragLeaveEvent(QRadioButton* self, QDragLeaveEvent* event);
+    friend void QRadioButton_DropEvent(QRadioButton* self, QDropEvent* event);
+    friend void QRadioButton_QBaseDropEvent(QRadioButton* self, QDropEvent* event);
+    friend void QRadioButton_ShowEvent(QRadioButton* self, QShowEvent* event);
+    friend void QRadioButton_QBaseShowEvent(QRadioButton* self, QShowEvent* event);
+    friend void QRadioButton_HideEvent(QRadioButton* self, QHideEvent* event);
+    friend void QRadioButton_QBaseHideEvent(QRadioButton* self, QHideEvent* event);
+    friend bool QRadioButton_NativeEvent(QRadioButton* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QRadioButton_QBaseNativeEvent(QRadioButton* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QRadioButton_Metric(const QRadioButton* self, int param1);
+    friend int QRadioButton_QBaseMetric(const QRadioButton* self, int param1);
+    friend void QRadioButton_InitPainter(const QRadioButton* self, QPainter* painter);
+    friend void QRadioButton_QBaseInitPainter(const QRadioButton* self, QPainter* painter);
+    friend QPaintDevice* QRadioButton_Redirected(const QRadioButton* self, QPoint* offset);
+    friend QPaintDevice* QRadioButton_QBaseRedirected(const QRadioButton* self, QPoint* offset);
+    friend QPainter* QRadioButton_SharedPainter(const QRadioButton* self);
+    friend QPainter* QRadioButton_QBaseSharedPainter(const QRadioButton* self);
+    friend void QRadioButton_InputMethodEvent(QRadioButton* self, QInputMethodEvent* param1);
+    friend void QRadioButton_QBaseInputMethodEvent(QRadioButton* self, QInputMethodEvent* param1);
+    friend bool QRadioButton_FocusNextPrevChild(QRadioButton* self, bool next);
+    friend bool QRadioButton_QBaseFocusNextPrevChild(QRadioButton* self, bool next);
+    friend void QRadioButton_ChildEvent(QRadioButton* self, QChildEvent* event);
+    friend void QRadioButton_QBaseChildEvent(QRadioButton* self, QChildEvent* event);
+    friend void QRadioButton_CustomEvent(QRadioButton* self, QEvent* event);
+    friend void QRadioButton_QBaseCustomEvent(QRadioButton* self, QEvent* event);
+    friend void QRadioButton_ConnectNotify(QRadioButton* self, const QMetaMethod* signal);
+    friend void QRadioButton_QBaseConnectNotify(QRadioButton* self, const QMetaMethod* signal);
+    friend void QRadioButton_DisconnectNotify(QRadioButton* self, const QMetaMethod* signal);
+    friend void QRadioButton_QBaseDisconnectNotify(QRadioButton* self, const QMetaMethod* signal);
+    friend void QRadioButton_UpdateMicroFocus(QRadioButton* self);
+    friend void QRadioButton_QBaseUpdateMicroFocus(QRadioButton* self);
+    friend void QRadioButton_Create(QRadioButton* self);
+    friend void QRadioButton_QBaseCreate(QRadioButton* self);
+    friend void QRadioButton_Destroy(QRadioButton* self);
+    friend void QRadioButton_QBaseDestroy(QRadioButton* self);
+    friend bool QRadioButton_FocusNextChild(QRadioButton* self);
+    friend bool QRadioButton_QBaseFocusNextChild(QRadioButton* self);
+    friend bool QRadioButton_FocusPreviousChild(QRadioButton* self);
+    friend bool QRadioButton_QBaseFocusPreviousChild(QRadioButton* self);
+    friend QObject* QRadioButton_Sender(const QRadioButton* self);
+    friend QObject* QRadioButton_QBaseSender(const QRadioButton* self);
+    friend int QRadioButton_SenderSignalIndex(const QRadioButton* self);
+    friend int QRadioButton_QBaseSenderSignalIndex(const QRadioButton* self);
+    friend int QRadioButton_Receivers(const QRadioButton* self, const char* signal);
+    friend int QRadioButton_QBaseReceivers(const QRadioButton* self, const char* signal);
+    friend bool QRadioButton_IsSignalConnected(const QRadioButton* self, const QMetaMethod* signal);
+    friend bool QRadioButton_QBaseIsSignalConnected(const QRadioButton* self, const QMetaMethod* signal);
 };
 
 #endif

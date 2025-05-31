@@ -11,33 +11,36 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QAbstractItemView so that we can call protected methods
-class VirtualQAbstractItemView : public QAbstractItemView {
+class VirtualQAbstractItemView final : public QAbstractItemView {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQAbstractItemView = true;
+
     // Virtual class public types (including callbacks)
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
-    using QAbstractItemView_Metacall_Callback = int (*)(QAbstractItemView*, QMetaObject::Call, int, void**);
+    using QAbstractItemView_Metacall_Callback = int (*)(QAbstractItemView*, int, int, void**);
     using QAbstractItemView_SetModel_Callback = void (*)(QAbstractItemView*, QAbstractItemModel*);
     using QAbstractItemView_SetSelectionModel_Callback = void (*)(QAbstractItemView*, QItemSelectionModel*);
-    using QAbstractItemView_KeyboardSearch_Callback = void (*)(QAbstractItemView*, const QString&);
-    using QAbstractItemView_VisualRect_Callback = QRect (*)(const QAbstractItemView*, const QModelIndex&);
-    using QAbstractItemView_ScrollTo_Callback = void (*)(QAbstractItemView*, const QModelIndex&, QAbstractItemView::ScrollHint);
-    using QAbstractItemView_IndexAt_Callback = QModelIndex (*)(const QAbstractItemView*, const QPoint&);
+    using QAbstractItemView_KeyboardSearch_Callback = void (*)(QAbstractItemView*, libqt_string);
+    using QAbstractItemView_VisualRect_Callback = QRect* (*)(const QAbstractItemView*, QModelIndex*);
+    using QAbstractItemView_ScrollTo_Callback = void (*)(QAbstractItemView*, QModelIndex*, int);
+    using QAbstractItemView_IndexAt_Callback = QModelIndex* (*)(const QAbstractItemView*, QPoint*);
     using QAbstractItemView_SizeHintForRow_Callback = int (*)(const QAbstractItemView*, int);
     using QAbstractItemView_SizeHintForColumn_Callback = int (*)(const QAbstractItemView*, int);
-    using QAbstractItemView_ItemDelegateForIndex_Callback = QAbstractItemDelegate* (*)(const QAbstractItemView*, const QModelIndex&);
-    using QAbstractItemView_InputMethodQuery_Callback = QVariant (*)(const QAbstractItemView*, Qt::InputMethodQuery);
+    using QAbstractItemView_ItemDelegateForIndex_Callback = QAbstractItemDelegate* (*)(const QAbstractItemView*, QModelIndex*);
+    using QAbstractItemView_InputMethodQuery_Callback = QVariant* (*)(const QAbstractItemView*, int);
     using QAbstractItemView_Reset_Callback = void (*)();
-    using QAbstractItemView_SetRootIndex_Callback = void (*)(QAbstractItemView*, const QModelIndex&);
+    using QAbstractItemView_SetRootIndex_Callback = void (*)(QAbstractItemView*, QModelIndex*);
     using QAbstractItemView_DoItemsLayout_Callback = void (*)();
     using QAbstractItemView_SelectAll_Callback = void (*)();
-    using QAbstractItemView_DataChanged_Callback = void (*)(QAbstractItemView*, const QModelIndex&, const QModelIndex&, const QList<int>&);
-    using QAbstractItemView_RowsInserted_Callback = void (*)(QAbstractItemView*, const QModelIndex&, int, int);
-    using QAbstractItemView_RowsAboutToBeRemoved_Callback = void (*)(QAbstractItemView*, const QModelIndex&, int, int);
-    using QAbstractItemView_SelectionChanged_Callback = void (*)(QAbstractItemView*, const QItemSelection&, const QItemSelection&);
-    using QAbstractItemView_CurrentChanged_Callback = void (*)(QAbstractItemView*, const QModelIndex&, const QModelIndex&);
+    using QAbstractItemView_DataChanged_Callback = void (*)(QAbstractItemView*, QModelIndex*, QModelIndex*, libqt_list /* of int */);
+    using QAbstractItemView_RowsInserted_Callback = void (*)(QAbstractItemView*, QModelIndex*, int, int);
+    using QAbstractItemView_RowsAboutToBeRemoved_Callback = void (*)(QAbstractItemView*, QModelIndex*, int, int);
+    using QAbstractItemView_SelectionChanged_Callback = void (*)(QAbstractItemView*, QItemSelection*, QItemSelection*);
+    using QAbstractItemView_CurrentChanged_Callback = void (*)(QAbstractItemView*, QModelIndex*, QModelIndex*);
     using QAbstractItemView_UpdateEditorData_Callback = void (*)();
     using QAbstractItemView_UpdateEditorGeometries_Callback = void (*)();
     using QAbstractItemView_UpdateGeometries_Callback = void (*)();
@@ -45,19 +48,19 @@ class VirtualQAbstractItemView : public QAbstractItemView {
     using QAbstractItemView_HorizontalScrollbarAction_Callback = void (*)(QAbstractItemView*, int);
     using QAbstractItemView_VerticalScrollbarValueChanged_Callback = void (*)(QAbstractItemView*, int);
     using QAbstractItemView_HorizontalScrollbarValueChanged_Callback = void (*)(QAbstractItemView*, int);
-    using QAbstractItemView_CloseEditor_Callback = void (*)(QAbstractItemView*, QWidget*, QAbstractItemDelegate::EndEditHint);
+    using QAbstractItemView_CloseEditor_Callback = void (*)(QAbstractItemView*, QWidget*, int);
     using QAbstractItemView_CommitData_Callback = void (*)(QAbstractItemView*, QWidget*);
     using QAbstractItemView_EditorDestroyed_Callback = void (*)(QAbstractItemView*, QObject*);
-    using QAbstractItemView_MoveCursor_Callback = QModelIndex (*)(QAbstractItemView*, int, Qt::KeyboardModifiers);
+    using QAbstractItemView_MoveCursor_Callback = QModelIndex* (*)(QAbstractItemView*, int, int);
     using QAbstractItemView_HorizontalOffset_Callback = int (*)();
     using QAbstractItemView_VerticalOffset_Callback = int (*)();
-    using QAbstractItemView_IsIndexHidden_Callback = bool (*)(const QAbstractItemView*, const QModelIndex&);
-    using QAbstractItemView_SetSelection_Callback = void (*)(QAbstractItemView*, const QRect&, QItemSelectionModel::SelectionFlags);
-    using QAbstractItemView_VisualRegionForSelection_Callback = QRegion (*)(const QAbstractItemView*, const QItemSelection&);
-    using QAbstractItemView_SelectedIndexes_Callback = QModelIndexList (*)();
-    using QAbstractItemView_Edit2_Callback = bool (*)(QAbstractItemView*, const QModelIndex&, QAbstractItemView::EditTrigger, QEvent*);
-    using QAbstractItemView_SelectionCommand_Callback = QItemSelectionModel::SelectionFlags (*)(const QAbstractItemView*, const QModelIndex&, const QEvent*);
-    using QAbstractItemView_StartDrag_Callback = void (*)(QAbstractItemView*, Qt::DropActions);
+    using QAbstractItemView_IsIndexHidden_Callback = bool (*)(const QAbstractItemView*, QModelIndex*);
+    using QAbstractItemView_SetSelection_Callback = void (*)(QAbstractItemView*, QRect*, int);
+    using QAbstractItemView_VisualRegionForSelection_Callback = QRegion* (*)(const QAbstractItemView*, QItemSelection*);
+    using QAbstractItemView_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
+    using QAbstractItemView_Edit2_Callback = bool (*)(QAbstractItemView*, QModelIndex*, int, QEvent*);
+    using QAbstractItemView_SelectionCommand_Callback = int (*)(const QAbstractItemView*, QModelIndex*, QEvent*);
+    using QAbstractItemView_StartDrag_Callback = void (*)(QAbstractItemView*, int);
     using QAbstractItemView_InitViewItemOption_Callback = void (*)(const QAbstractItemView*, QStyleOptionViewItem*);
     using QAbstractItemView_FocusNextPrevChild_Callback = bool (*)(QAbstractItemView*, bool);
     using QAbstractItemView_Event_Callback = bool (*)(QAbstractItemView*, QEvent*);
@@ -77,9 +80,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
     using QAbstractItemView_TimerEvent_Callback = void (*)(QAbstractItemView*, QTimerEvent*);
     using QAbstractItemView_InputMethodEvent_Callback = void (*)(QAbstractItemView*, QInputMethodEvent*);
     using QAbstractItemView_EventFilter_Callback = bool (*)(QAbstractItemView*, QObject*, QEvent*);
-    using QAbstractItemView_ViewportSizeHint_Callback = QSize (*)();
-    using QAbstractItemView_MinimumSizeHint_Callback = QSize (*)();
-    using QAbstractItemView_SizeHint_Callback = QSize (*)();
+    using QAbstractItemView_ViewportSizeHint_Callback = QSize* (*)();
+    using QAbstractItemView_MinimumSizeHint_Callback = QSize* (*)();
+    using QAbstractItemView_SizeHint_Callback = QSize* (*)();
     using QAbstractItemView_SetupViewport_Callback = void (*)(QAbstractItemView*, QWidget*);
     using QAbstractItemView_PaintEvent_Callback = void (*)(QAbstractItemView*, QPaintEvent*);
     using QAbstractItemView_WheelEvent_Callback = void (*)(QAbstractItemView*, QWheelEvent*);
@@ -101,28 +104,28 @@ class VirtualQAbstractItemView : public QAbstractItemView {
     using QAbstractItemView_ActionEvent_Callback = void (*)(QAbstractItemView*, QActionEvent*);
     using QAbstractItemView_ShowEvent_Callback = void (*)(QAbstractItemView*, QShowEvent*);
     using QAbstractItemView_HideEvent_Callback = void (*)(QAbstractItemView*, QHideEvent*);
-    using QAbstractItemView_NativeEvent_Callback = bool (*)(QAbstractItemView*, const QByteArray&, void*, qintptr*);
-    using QAbstractItemView_Metric_Callback = int (*)(const QAbstractItemView*, QPaintDevice::PaintDeviceMetric);
+    using QAbstractItemView_NativeEvent_Callback = bool (*)(QAbstractItemView*, libqt_string, void*, intptr_t*);
+    using QAbstractItemView_Metric_Callback = int (*)(const QAbstractItemView*, int);
     using QAbstractItemView_InitPainter_Callback = void (*)(const QAbstractItemView*, QPainter*);
     using QAbstractItemView_Redirected_Callback = QPaintDevice* (*)(const QAbstractItemView*, QPoint*);
     using QAbstractItemView_SharedPainter_Callback = QPainter* (*)();
     using QAbstractItemView_ChildEvent_Callback = void (*)(QAbstractItemView*, QChildEvent*);
     using QAbstractItemView_CustomEvent_Callback = void (*)(QAbstractItemView*, QEvent*);
-    using QAbstractItemView_ConnectNotify_Callback = void (*)(QAbstractItemView*, const QMetaMethod&);
-    using QAbstractItemView_DisconnectNotify_Callback = void (*)(QAbstractItemView*, const QMetaMethod&);
-    using QAbstractItemView_State_Callback = QAbstractItemView::State (*)();
+    using QAbstractItemView_ConnectNotify_Callback = void (*)(QAbstractItemView*, QMetaMethod*);
+    using QAbstractItemView_DisconnectNotify_Callback = void (*)(QAbstractItemView*, QMetaMethod*);
+    using QAbstractItemView_State_Callback = int (*)();
     using QAbstractItemView_SetState_Callback = void (*)(QAbstractItemView*, int);
     using QAbstractItemView_ScheduleDelayedItemsLayout_Callback = void (*)();
     using QAbstractItemView_ExecuteDelayedItemsLayout_Callback = void (*)();
-    using QAbstractItemView_SetDirtyRegion_Callback = void (*)(QAbstractItemView*, const QRegion&);
+    using QAbstractItemView_SetDirtyRegion_Callback = void (*)(QAbstractItemView*, QRegion*);
     using QAbstractItemView_ScrollDirtyRegion_Callback = void (*)(QAbstractItemView*, int, int);
-    using QAbstractItemView_DirtyRegionOffset_Callback = QPoint (*)();
+    using QAbstractItemView_DirtyRegionOffset_Callback = QPoint* (*)();
     using QAbstractItemView_StartAutoScroll_Callback = void (*)();
     using QAbstractItemView_StopAutoScroll_Callback = void (*)();
     using QAbstractItemView_DoAutoScroll_Callback = void (*)();
-    using QAbstractItemView_DropIndicatorPosition_Callback = QAbstractItemView::DropIndicatorPosition (*)();
+    using QAbstractItemView_DropIndicatorPosition_Callback = int (*)();
     using QAbstractItemView_SetViewportMargins_Callback = void (*)(QAbstractItemView*, int, int, int, int);
-    using QAbstractItemView_ViewportMargins_Callback = QMargins (*)();
+    using QAbstractItemView_ViewportMargins_Callback = QMargins* (*)();
     using QAbstractItemView_DrawFrame_Callback = void (*)(QAbstractItemView*, QPainter*);
     using QAbstractItemView_UpdateMicroFocus_Callback = void (*)();
     using QAbstractItemView_Create_Callback = void (*)();
@@ -132,7 +135,7 @@ class VirtualQAbstractItemView : public QAbstractItemView {
     using QAbstractItemView_Sender_Callback = QObject* (*)();
     using QAbstractItemView_SenderSignalIndex_Callback = int (*)();
     using QAbstractItemView_Receivers_Callback = int (*)(const QAbstractItemView*, const char*);
-    using QAbstractItemView_IsSignalConnected_Callback = bool (*)(const QAbstractItemView*, const QMetaMethod&);
+    using QAbstractItemView_IsSignalConnected_Callback = bool (*)(const QAbstractItemView*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -492,238 +495,238 @@ class VirtualQAbstractItemView : public QAbstractItemView {
     }
 
     // Callback setters
-    void setQAbstractItemView_Metacall_Callback(QAbstractItemView_Metacall_Callback cb) { qabstractitemview_metacall_callback = cb; }
-    void setQAbstractItemView_SetModel_Callback(QAbstractItemView_SetModel_Callback cb) { qabstractitemview_setmodel_callback = cb; }
-    void setQAbstractItemView_SetSelectionModel_Callback(QAbstractItemView_SetSelectionModel_Callback cb) { qabstractitemview_setselectionmodel_callback = cb; }
-    void setQAbstractItemView_KeyboardSearch_Callback(QAbstractItemView_KeyboardSearch_Callback cb) { qabstractitemview_keyboardsearch_callback = cb; }
-    void setQAbstractItemView_VisualRect_Callback(QAbstractItemView_VisualRect_Callback cb) { qabstractitemview_visualrect_callback = cb; }
-    void setQAbstractItemView_ScrollTo_Callback(QAbstractItemView_ScrollTo_Callback cb) { qabstractitemview_scrollto_callback = cb; }
-    void setQAbstractItemView_IndexAt_Callback(QAbstractItemView_IndexAt_Callback cb) { qabstractitemview_indexat_callback = cb; }
-    void setQAbstractItemView_SizeHintForRow_Callback(QAbstractItemView_SizeHintForRow_Callback cb) { qabstractitemview_sizehintforrow_callback = cb; }
-    void setQAbstractItemView_SizeHintForColumn_Callback(QAbstractItemView_SizeHintForColumn_Callback cb) { qabstractitemview_sizehintforcolumn_callback = cb; }
-    void setQAbstractItemView_ItemDelegateForIndex_Callback(QAbstractItemView_ItemDelegateForIndex_Callback cb) { qabstractitemview_itemdelegateforindex_callback = cb; }
-    void setQAbstractItemView_InputMethodQuery_Callback(QAbstractItemView_InputMethodQuery_Callback cb) { qabstractitemview_inputmethodquery_callback = cb; }
-    void setQAbstractItemView_Reset_Callback(QAbstractItemView_Reset_Callback cb) { qabstractitemview_reset_callback = cb; }
-    void setQAbstractItemView_SetRootIndex_Callback(QAbstractItemView_SetRootIndex_Callback cb) { qabstractitemview_setrootindex_callback = cb; }
-    void setQAbstractItemView_DoItemsLayout_Callback(QAbstractItemView_DoItemsLayout_Callback cb) { qabstractitemview_doitemslayout_callback = cb; }
-    void setQAbstractItemView_SelectAll_Callback(QAbstractItemView_SelectAll_Callback cb) { qabstractitemview_selectall_callback = cb; }
-    void setQAbstractItemView_DataChanged_Callback(QAbstractItemView_DataChanged_Callback cb) { qabstractitemview_datachanged_callback = cb; }
-    void setQAbstractItemView_RowsInserted_Callback(QAbstractItemView_RowsInserted_Callback cb) { qabstractitemview_rowsinserted_callback = cb; }
-    void setQAbstractItemView_RowsAboutToBeRemoved_Callback(QAbstractItemView_RowsAboutToBeRemoved_Callback cb) { qabstractitemview_rowsabouttoberemoved_callback = cb; }
-    void setQAbstractItemView_SelectionChanged_Callback(QAbstractItemView_SelectionChanged_Callback cb) { qabstractitemview_selectionchanged_callback = cb; }
-    void setQAbstractItemView_CurrentChanged_Callback(QAbstractItemView_CurrentChanged_Callback cb) { qabstractitemview_currentchanged_callback = cb; }
-    void setQAbstractItemView_UpdateEditorData_Callback(QAbstractItemView_UpdateEditorData_Callback cb) { qabstractitemview_updateeditordata_callback = cb; }
-    void setQAbstractItemView_UpdateEditorGeometries_Callback(QAbstractItemView_UpdateEditorGeometries_Callback cb) { qabstractitemview_updateeditorgeometries_callback = cb; }
-    void setQAbstractItemView_UpdateGeometries_Callback(QAbstractItemView_UpdateGeometries_Callback cb) { qabstractitemview_updategeometries_callback = cb; }
-    void setQAbstractItemView_VerticalScrollbarAction_Callback(QAbstractItemView_VerticalScrollbarAction_Callback cb) { qabstractitemview_verticalscrollbaraction_callback = cb; }
-    void setQAbstractItemView_HorizontalScrollbarAction_Callback(QAbstractItemView_HorizontalScrollbarAction_Callback cb) { qabstractitemview_horizontalscrollbaraction_callback = cb; }
-    void setQAbstractItemView_VerticalScrollbarValueChanged_Callback(QAbstractItemView_VerticalScrollbarValueChanged_Callback cb) { qabstractitemview_verticalscrollbarvaluechanged_callback = cb; }
-    void setQAbstractItemView_HorizontalScrollbarValueChanged_Callback(QAbstractItemView_HorizontalScrollbarValueChanged_Callback cb) { qabstractitemview_horizontalscrollbarvaluechanged_callback = cb; }
-    void setQAbstractItemView_CloseEditor_Callback(QAbstractItemView_CloseEditor_Callback cb) { qabstractitemview_closeeditor_callback = cb; }
-    void setQAbstractItemView_CommitData_Callback(QAbstractItemView_CommitData_Callback cb) { qabstractitemview_commitdata_callback = cb; }
-    void setQAbstractItemView_EditorDestroyed_Callback(QAbstractItemView_EditorDestroyed_Callback cb) { qabstractitemview_editordestroyed_callback = cb; }
-    void setQAbstractItemView_MoveCursor_Callback(QAbstractItemView_MoveCursor_Callback cb) { qabstractitemview_movecursor_callback = cb; }
-    void setQAbstractItemView_HorizontalOffset_Callback(QAbstractItemView_HorizontalOffset_Callback cb) { qabstractitemview_horizontaloffset_callback = cb; }
-    void setQAbstractItemView_VerticalOffset_Callback(QAbstractItemView_VerticalOffset_Callback cb) { qabstractitemview_verticaloffset_callback = cb; }
-    void setQAbstractItemView_IsIndexHidden_Callback(QAbstractItemView_IsIndexHidden_Callback cb) { qabstractitemview_isindexhidden_callback = cb; }
-    void setQAbstractItemView_SetSelection_Callback(QAbstractItemView_SetSelection_Callback cb) { qabstractitemview_setselection_callback = cb; }
-    void setQAbstractItemView_VisualRegionForSelection_Callback(QAbstractItemView_VisualRegionForSelection_Callback cb) { qabstractitemview_visualregionforselection_callback = cb; }
-    void setQAbstractItemView_SelectedIndexes_Callback(QAbstractItemView_SelectedIndexes_Callback cb) { qabstractitemview_selectedindexes_callback = cb; }
-    void setQAbstractItemView_Edit2_Callback(QAbstractItemView_Edit2_Callback cb) { qabstractitemview_edit2_callback = cb; }
-    void setQAbstractItemView_SelectionCommand_Callback(QAbstractItemView_SelectionCommand_Callback cb) { qabstractitemview_selectioncommand_callback = cb; }
-    void setQAbstractItemView_StartDrag_Callback(QAbstractItemView_StartDrag_Callback cb) { qabstractitemview_startdrag_callback = cb; }
-    void setQAbstractItemView_InitViewItemOption_Callback(QAbstractItemView_InitViewItemOption_Callback cb) { qabstractitemview_initviewitemoption_callback = cb; }
-    void setQAbstractItemView_FocusNextPrevChild_Callback(QAbstractItemView_FocusNextPrevChild_Callback cb) { qabstractitemview_focusnextprevchild_callback = cb; }
-    void setQAbstractItemView_Event_Callback(QAbstractItemView_Event_Callback cb) { qabstractitemview_event_callback = cb; }
-    void setQAbstractItemView_ViewportEvent_Callback(QAbstractItemView_ViewportEvent_Callback cb) { qabstractitemview_viewportevent_callback = cb; }
-    void setQAbstractItemView_MousePressEvent_Callback(QAbstractItemView_MousePressEvent_Callback cb) { qabstractitemview_mousepressevent_callback = cb; }
-    void setQAbstractItemView_MouseMoveEvent_Callback(QAbstractItemView_MouseMoveEvent_Callback cb) { qabstractitemview_mousemoveevent_callback = cb; }
-    void setQAbstractItemView_MouseReleaseEvent_Callback(QAbstractItemView_MouseReleaseEvent_Callback cb) { qabstractitemview_mousereleaseevent_callback = cb; }
-    void setQAbstractItemView_MouseDoubleClickEvent_Callback(QAbstractItemView_MouseDoubleClickEvent_Callback cb) { qabstractitemview_mousedoubleclickevent_callback = cb; }
-    void setQAbstractItemView_DragEnterEvent_Callback(QAbstractItemView_DragEnterEvent_Callback cb) { qabstractitemview_dragenterevent_callback = cb; }
-    void setQAbstractItemView_DragMoveEvent_Callback(QAbstractItemView_DragMoveEvent_Callback cb) { qabstractitemview_dragmoveevent_callback = cb; }
-    void setQAbstractItemView_DragLeaveEvent_Callback(QAbstractItemView_DragLeaveEvent_Callback cb) { qabstractitemview_dragleaveevent_callback = cb; }
-    void setQAbstractItemView_DropEvent_Callback(QAbstractItemView_DropEvent_Callback cb) { qabstractitemview_dropevent_callback = cb; }
-    void setQAbstractItemView_FocusInEvent_Callback(QAbstractItemView_FocusInEvent_Callback cb) { qabstractitemview_focusinevent_callback = cb; }
-    void setQAbstractItemView_FocusOutEvent_Callback(QAbstractItemView_FocusOutEvent_Callback cb) { qabstractitemview_focusoutevent_callback = cb; }
-    void setQAbstractItemView_KeyPressEvent_Callback(QAbstractItemView_KeyPressEvent_Callback cb) { qabstractitemview_keypressevent_callback = cb; }
-    void setQAbstractItemView_ResizeEvent_Callback(QAbstractItemView_ResizeEvent_Callback cb) { qabstractitemview_resizeevent_callback = cb; }
-    void setQAbstractItemView_TimerEvent_Callback(QAbstractItemView_TimerEvent_Callback cb) { qabstractitemview_timerevent_callback = cb; }
-    void setQAbstractItemView_InputMethodEvent_Callback(QAbstractItemView_InputMethodEvent_Callback cb) { qabstractitemview_inputmethodevent_callback = cb; }
-    void setQAbstractItemView_EventFilter_Callback(QAbstractItemView_EventFilter_Callback cb) { qabstractitemview_eventfilter_callback = cb; }
-    void setQAbstractItemView_ViewportSizeHint_Callback(QAbstractItemView_ViewportSizeHint_Callback cb) { qabstractitemview_viewportsizehint_callback = cb; }
-    void setQAbstractItemView_MinimumSizeHint_Callback(QAbstractItemView_MinimumSizeHint_Callback cb) { qabstractitemview_minimumsizehint_callback = cb; }
-    void setQAbstractItemView_SizeHint_Callback(QAbstractItemView_SizeHint_Callback cb) { qabstractitemview_sizehint_callback = cb; }
-    void setQAbstractItemView_SetupViewport_Callback(QAbstractItemView_SetupViewport_Callback cb) { qabstractitemview_setupviewport_callback = cb; }
-    void setQAbstractItemView_PaintEvent_Callback(QAbstractItemView_PaintEvent_Callback cb) { qabstractitemview_paintevent_callback = cb; }
-    void setQAbstractItemView_WheelEvent_Callback(QAbstractItemView_WheelEvent_Callback cb) { qabstractitemview_wheelevent_callback = cb; }
-    void setQAbstractItemView_ContextMenuEvent_Callback(QAbstractItemView_ContextMenuEvent_Callback cb) { qabstractitemview_contextmenuevent_callback = cb; }
-    void setQAbstractItemView_ScrollContentsBy_Callback(QAbstractItemView_ScrollContentsBy_Callback cb) { qabstractitemview_scrollcontentsby_callback = cb; }
-    void setQAbstractItemView_ChangeEvent_Callback(QAbstractItemView_ChangeEvent_Callback cb) { qabstractitemview_changeevent_callback = cb; }
-    void setQAbstractItemView_InitStyleOption_Callback(QAbstractItemView_InitStyleOption_Callback cb) { qabstractitemview_initstyleoption_callback = cb; }
-    void setQAbstractItemView_DevType_Callback(QAbstractItemView_DevType_Callback cb) { qabstractitemview_devtype_callback = cb; }
-    void setQAbstractItemView_SetVisible_Callback(QAbstractItemView_SetVisible_Callback cb) { qabstractitemview_setvisible_callback = cb; }
-    void setQAbstractItemView_HeightForWidth_Callback(QAbstractItemView_HeightForWidth_Callback cb) { qabstractitemview_heightforwidth_callback = cb; }
-    void setQAbstractItemView_HasHeightForWidth_Callback(QAbstractItemView_HasHeightForWidth_Callback cb) { qabstractitemview_hasheightforwidth_callback = cb; }
-    void setQAbstractItemView_PaintEngine_Callback(QAbstractItemView_PaintEngine_Callback cb) { qabstractitemview_paintengine_callback = cb; }
-    void setQAbstractItemView_KeyReleaseEvent_Callback(QAbstractItemView_KeyReleaseEvent_Callback cb) { qabstractitemview_keyreleaseevent_callback = cb; }
-    void setQAbstractItemView_EnterEvent_Callback(QAbstractItemView_EnterEvent_Callback cb) { qabstractitemview_enterevent_callback = cb; }
-    void setQAbstractItemView_LeaveEvent_Callback(QAbstractItemView_LeaveEvent_Callback cb) { qabstractitemview_leaveevent_callback = cb; }
-    void setQAbstractItemView_MoveEvent_Callback(QAbstractItemView_MoveEvent_Callback cb) { qabstractitemview_moveevent_callback = cb; }
-    void setQAbstractItemView_CloseEvent_Callback(QAbstractItemView_CloseEvent_Callback cb) { qabstractitemview_closeevent_callback = cb; }
-    void setQAbstractItemView_TabletEvent_Callback(QAbstractItemView_TabletEvent_Callback cb) { qabstractitemview_tabletevent_callback = cb; }
-    void setQAbstractItemView_ActionEvent_Callback(QAbstractItemView_ActionEvent_Callback cb) { qabstractitemview_actionevent_callback = cb; }
-    void setQAbstractItemView_ShowEvent_Callback(QAbstractItemView_ShowEvent_Callback cb) { qabstractitemview_showevent_callback = cb; }
-    void setQAbstractItemView_HideEvent_Callback(QAbstractItemView_HideEvent_Callback cb) { qabstractitemview_hideevent_callback = cb; }
-    void setQAbstractItemView_NativeEvent_Callback(QAbstractItemView_NativeEvent_Callback cb) { qabstractitemview_nativeevent_callback = cb; }
-    void setQAbstractItemView_Metric_Callback(QAbstractItemView_Metric_Callback cb) { qabstractitemview_metric_callback = cb; }
-    void setQAbstractItemView_InitPainter_Callback(QAbstractItemView_InitPainter_Callback cb) { qabstractitemview_initpainter_callback = cb; }
-    void setQAbstractItemView_Redirected_Callback(QAbstractItemView_Redirected_Callback cb) { qabstractitemview_redirected_callback = cb; }
-    void setQAbstractItemView_SharedPainter_Callback(QAbstractItemView_SharedPainter_Callback cb) { qabstractitemview_sharedpainter_callback = cb; }
-    void setQAbstractItemView_ChildEvent_Callback(QAbstractItemView_ChildEvent_Callback cb) { qabstractitemview_childevent_callback = cb; }
-    void setQAbstractItemView_CustomEvent_Callback(QAbstractItemView_CustomEvent_Callback cb) { qabstractitemview_customevent_callback = cb; }
-    void setQAbstractItemView_ConnectNotify_Callback(QAbstractItemView_ConnectNotify_Callback cb) { qabstractitemview_connectnotify_callback = cb; }
-    void setQAbstractItemView_DisconnectNotify_Callback(QAbstractItemView_DisconnectNotify_Callback cb) { qabstractitemview_disconnectnotify_callback = cb; }
-    void setQAbstractItemView_State_Callback(QAbstractItemView_State_Callback cb) { qabstractitemview_state_callback = cb; }
-    void setQAbstractItemView_SetState_Callback(QAbstractItemView_SetState_Callback cb) { qabstractitemview_setstate_callback = cb; }
-    void setQAbstractItemView_ScheduleDelayedItemsLayout_Callback(QAbstractItemView_ScheduleDelayedItemsLayout_Callback cb) { qabstractitemview_scheduledelayeditemslayout_callback = cb; }
-    void setQAbstractItemView_ExecuteDelayedItemsLayout_Callback(QAbstractItemView_ExecuteDelayedItemsLayout_Callback cb) { qabstractitemview_executedelayeditemslayout_callback = cb; }
-    void setQAbstractItemView_SetDirtyRegion_Callback(QAbstractItemView_SetDirtyRegion_Callback cb) { qabstractitemview_setdirtyregion_callback = cb; }
-    void setQAbstractItemView_ScrollDirtyRegion_Callback(QAbstractItemView_ScrollDirtyRegion_Callback cb) { qabstractitemview_scrolldirtyregion_callback = cb; }
-    void setQAbstractItemView_DirtyRegionOffset_Callback(QAbstractItemView_DirtyRegionOffset_Callback cb) { qabstractitemview_dirtyregionoffset_callback = cb; }
-    void setQAbstractItemView_StartAutoScroll_Callback(QAbstractItemView_StartAutoScroll_Callback cb) { qabstractitemview_startautoscroll_callback = cb; }
-    void setQAbstractItemView_StopAutoScroll_Callback(QAbstractItemView_StopAutoScroll_Callback cb) { qabstractitemview_stopautoscroll_callback = cb; }
-    void setQAbstractItemView_DoAutoScroll_Callback(QAbstractItemView_DoAutoScroll_Callback cb) { qabstractitemview_doautoscroll_callback = cb; }
-    void setQAbstractItemView_DropIndicatorPosition_Callback(QAbstractItemView_DropIndicatorPosition_Callback cb) { qabstractitemview_dropindicatorposition_callback = cb; }
-    void setQAbstractItemView_SetViewportMargins_Callback(QAbstractItemView_SetViewportMargins_Callback cb) { qabstractitemview_setviewportmargins_callback = cb; }
-    void setQAbstractItemView_ViewportMargins_Callback(QAbstractItemView_ViewportMargins_Callback cb) { qabstractitemview_viewportmargins_callback = cb; }
-    void setQAbstractItemView_DrawFrame_Callback(QAbstractItemView_DrawFrame_Callback cb) { qabstractitemview_drawframe_callback = cb; }
-    void setQAbstractItemView_UpdateMicroFocus_Callback(QAbstractItemView_UpdateMicroFocus_Callback cb) { qabstractitemview_updatemicrofocus_callback = cb; }
-    void setQAbstractItemView_Create_Callback(QAbstractItemView_Create_Callback cb) { qabstractitemview_create_callback = cb; }
-    void setQAbstractItemView_Destroy_Callback(QAbstractItemView_Destroy_Callback cb) { qabstractitemview_destroy_callback = cb; }
-    void setQAbstractItemView_FocusNextChild_Callback(QAbstractItemView_FocusNextChild_Callback cb) { qabstractitemview_focusnextchild_callback = cb; }
-    void setQAbstractItemView_FocusPreviousChild_Callback(QAbstractItemView_FocusPreviousChild_Callback cb) { qabstractitemview_focuspreviouschild_callback = cb; }
-    void setQAbstractItemView_Sender_Callback(QAbstractItemView_Sender_Callback cb) { qabstractitemview_sender_callback = cb; }
-    void setQAbstractItemView_SenderSignalIndex_Callback(QAbstractItemView_SenderSignalIndex_Callback cb) { qabstractitemview_sendersignalindex_callback = cb; }
-    void setQAbstractItemView_Receivers_Callback(QAbstractItemView_Receivers_Callback cb) { qabstractitemview_receivers_callback = cb; }
-    void setQAbstractItemView_IsSignalConnected_Callback(QAbstractItemView_IsSignalConnected_Callback cb) { qabstractitemview_issignalconnected_callback = cb; }
+    inline void setQAbstractItemView_Metacall_Callback(QAbstractItemView_Metacall_Callback cb) { qabstractitemview_metacall_callback = cb; }
+    inline void setQAbstractItemView_SetModel_Callback(QAbstractItemView_SetModel_Callback cb) { qabstractitemview_setmodel_callback = cb; }
+    inline void setQAbstractItemView_SetSelectionModel_Callback(QAbstractItemView_SetSelectionModel_Callback cb) { qabstractitemview_setselectionmodel_callback = cb; }
+    inline void setQAbstractItemView_KeyboardSearch_Callback(QAbstractItemView_KeyboardSearch_Callback cb) { qabstractitemview_keyboardsearch_callback = cb; }
+    inline void setQAbstractItemView_VisualRect_Callback(QAbstractItemView_VisualRect_Callback cb) { qabstractitemview_visualrect_callback = cb; }
+    inline void setQAbstractItemView_ScrollTo_Callback(QAbstractItemView_ScrollTo_Callback cb) { qabstractitemview_scrollto_callback = cb; }
+    inline void setQAbstractItemView_IndexAt_Callback(QAbstractItemView_IndexAt_Callback cb) { qabstractitemview_indexat_callback = cb; }
+    inline void setQAbstractItemView_SizeHintForRow_Callback(QAbstractItemView_SizeHintForRow_Callback cb) { qabstractitemview_sizehintforrow_callback = cb; }
+    inline void setQAbstractItemView_SizeHintForColumn_Callback(QAbstractItemView_SizeHintForColumn_Callback cb) { qabstractitemview_sizehintforcolumn_callback = cb; }
+    inline void setQAbstractItemView_ItemDelegateForIndex_Callback(QAbstractItemView_ItemDelegateForIndex_Callback cb) { qabstractitemview_itemdelegateforindex_callback = cb; }
+    inline void setQAbstractItemView_InputMethodQuery_Callback(QAbstractItemView_InputMethodQuery_Callback cb) { qabstractitemview_inputmethodquery_callback = cb; }
+    inline void setQAbstractItemView_Reset_Callback(QAbstractItemView_Reset_Callback cb) { qabstractitemview_reset_callback = cb; }
+    inline void setQAbstractItemView_SetRootIndex_Callback(QAbstractItemView_SetRootIndex_Callback cb) { qabstractitemview_setrootindex_callback = cb; }
+    inline void setQAbstractItemView_DoItemsLayout_Callback(QAbstractItemView_DoItemsLayout_Callback cb) { qabstractitemview_doitemslayout_callback = cb; }
+    inline void setQAbstractItemView_SelectAll_Callback(QAbstractItemView_SelectAll_Callback cb) { qabstractitemview_selectall_callback = cb; }
+    inline void setQAbstractItemView_DataChanged_Callback(QAbstractItemView_DataChanged_Callback cb) { qabstractitemview_datachanged_callback = cb; }
+    inline void setQAbstractItemView_RowsInserted_Callback(QAbstractItemView_RowsInserted_Callback cb) { qabstractitemview_rowsinserted_callback = cb; }
+    inline void setQAbstractItemView_RowsAboutToBeRemoved_Callback(QAbstractItemView_RowsAboutToBeRemoved_Callback cb) { qabstractitemview_rowsabouttoberemoved_callback = cb; }
+    inline void setQAbstractItemView_SelectionChanged_Callback(QAbstractItemView_SelectionChanged_Callback cb) { qabstractitemview_selectionchanged_callback = cb; }
+    inline void setQAbstractItemView_CurrentChanged_Callback(QAbstractItemView_CurrentChanged_Callback cb) { qabstractitemview_currentchanged_callback = cb; }
+    inline void setQAbstractItemView_UpdateEditorData_Callback(QAbstractItemView_UpdateEditorData_Callback cb) { qabstractitemview_updateeditordata_callback = cb; }
+    inline void setQAbstractItemView_UpdateEditorGeometries_Callback(QAbstractItemView_UpdateEditorGeometries_Callback cb) { qabstractitemview_updateeditorgeometries_callback = cb; }
+    inline void setQAbstractItemView_UpdateGeometries_Callback(QAbstractItemView_UpdateGeometries_Callback cb) { qabstractitemview_updategeometries_callback = cb; }
+    inline void setQAbstractItemView_VerticalScrollbarAction_Callback(QAbstractItemView_VerticalScrollbarAction_Callback cb) { qabstractitemview_verticalscrollbaraction_callback = cb; }
+    inline void setQAbstractItemView_HorizontalScrollbarAction_Callback(QAbstractItemView_HorizontalScrollbarAction_Callback cb) { qabstractitemview_horizontalscrollbaraction_callback = cb; }
+    inline void setQAbstractItemView_VerticalScrollbarValueChanged_Callback(QAbstractItemView_VerticalScrollbarValueChanged_Callback cb) { qabstractitemview_verticalscrollbarvaluechanged_callback = cb; }
+    inline void setQAbstractItemView_HorizontalScrollbarValueChanged_Callback(QAbstractItemView_HorizontalScrollbarValueChanged_Callback cb) { qabstractitemview_horizontalscrollbarvaluechanged_callback = cb; }
+    inline void setQAbstractItemView_CloseEditor_Callback(QAbstractItemView_CloseEditor_Callback cb) { qabstractitemview_closeeditor_callback = cb; }
+    inline void setQAbstractItemView_CommitData_Callback(QAbstractItemView_CommitData_Callback cb) { qabstractitemview_commitdata_callback = cb; }
+    inline void setQAbstractItemView_EditorDestroyed_Callback(QAbstractItemView_EditorDestroyed_Callback cb) { qabstractitemview_editordestroyed_callback = cb; }
+    inline void setQAbstractItemView_MoveCursor_Callback(QAbstractItemView_MoveCursor_Callback cb) { qabstractitemview_movecursor_callback = cb; }
+    inline void setQAbstractItemView_HorizontalOffset_Callback(QAbstractItemView_HorizontalOffset_Callback cb) { qabstractitemview_horizontaloffset_callback = cb; }
+    inline void setQAbstractItemView_VerticalOffset_Callback(QAbstractItemView_VerticalOffset_Callback cb) { qabstractitemview_verticaloffset_callback = cb; }
+    inline void setQAbstractItemView_IsIndexHidden_Callback(QAbstractItemView_IsIndexHidden_Callback cb) { qabstractitemview_isindexhidden_callback = cb; }
+    inline void setQAbstractItemView_SetSelection_Callback(QAbstractItemView_SetSelection_Callback cb) { qabstractitemview_setselection_callback = cb; }
+    inline void setQAbstractItemView_VisualRegionForSelection_Callback(QAbstractItemView_VisualRegionForSelection_Callback cb) { qabstractitemview_visualregionforselection_callback = cb; }
+    inline void setQAbstractItemView_SelectedIndexes_Callback(QAbstractItemView_SelectedIndexes_Callback cb) { qabstractitemview_selectedindexes_callback = cb; }
+    inline void setQAbstractItemView_Edit2_Callback(QAbstractItemView_Edit2_Callback cb) { qabstractitemview_edit2_callback = cb; }
+    inline void setQAbstractItemView_SelectionCommand_Callback(QAbstractItemView_SelectionCommand_Callback cb) { qabstractitemview_selectioncommand_callback = cb; }
+    inline void setQAbstractItemView_StartDrag_Callback(QAbstractItemView_StartDrag_Callback cb) { qabstractitemview_startdrag_callback = cb; }
+    inline void setQAbstractItemView_InitViewItemOption_Callback(QAbstractItemView_InitViewItemOption_Callback cb) { qabstractitemview_initviewitemoption_callback = cb; }
+    inline void setQAbstractItemView_FocusNextPrevChild_Callback(QAbstractItemView_FocusNextPrevChild_Callback cb) { qabstractitemview_focusnextprevchild_callback = cb; }
+    inline void setQAbstractItemView_Event_Callback(QAbstractItemView_Event_Callback cb) { qabstractitemview_event_callback = cb; }
+    inline void setQAbstractItemView_ViewportEvent_Callback(QAbstractItemView_ViewportEvent_Callback cb) { qabstractitemview_viewportevent_callback = cb; }
+    inline void setQAbstractItemView_MousePressEvent_Callback(QAbstractItemView_MousePressEvent_Callback cb) { qabstractitemview_mousepressevent_callback = cb; }
+    inline void setQAbstractItemView_MouseMoveEvent_Callback(QAbstractItemView_MouseMoveEvent_Callback cb) { qabstractitemview_mousemoveevent_callback = cb; }
+    inline void setQAbstractItemView_MouseReleaseEvent_Callback(QAbstractItemView_MouseReleaseEvent_Callback cb) { qabstractitemview_mousereleaseevent_callback = cb; }
+    inline void setQAbstractItemView_MouseDoubleClickEvent_Callback(QAbstractItemView_MouseDoubleClickEvent_Callback cb) { qabstractitemview_mousedoubleclickevent_callback = cb; }
+    inline void setQAbstractItemView_DragEnterEvent_Callback(QAbstractItemView_DragEnterEvent_Callback cb) { qabstractitemview_dragenterevent_callback = cb; }
+    inline void setQAbstractItemView_DragMoveEvent_Callback(QAbstractItemView_DragMoveEvent_Callback cb) { qabstractitemview_dragmoveevent_callback = cb; }
+    inline void setQAbstractItemView_DragLeaveEvent_Callback(QAbstractItemView_DragLeaveEvent_Callback cb) { qabstractitemview_dragleaveevent_callback = cb; }
+    inline void setQAbstractItemView_DropEvent_Callback(QAbstractItemView_DropEvent_Callback cb) { qabstractitemview_dropevent_callback = cb; }
+    inline void setQAbstractItemView_FocusInEvent_Callback(QAbstractItemView_FocusInEvent_Callback cb) { qabstractitemview_focusinevent_callback = cb; }
+    inline void setQAbstractItemView_FocusOutEvent_Callback(QAbstractItemView_FocusOutEvent_Callback cb) { qabstractitemview_focusoutevent_callback = cb; }
+    inline void setQAbstractItemView_KeyPressEvent_Callback(QAbstractItemView_KeyPressEvent_Callback cb) { qabstractitemview_keypressevent_callback = cb; }
+    inline void setQAbstractItemView_ResizeEvent_Callback(QAbstractItemView_ResizeEvent_Callback cb) { qabstractitemview_resizeevent_callback = cb; }
+    inline void setQAbstractItemView_TimerEvent_Callback(QAbstractItemView_TimerEvent_Callback cb) { qabstractitemview_timerevent_callback = cb; }
+    inline void setQAbstractItemView_InputMethodEvent_Callback(QAbstractItemView_InputMethodEvent_Callback cb) { qabstractitemview_inputmethodevent_callback = cb; }
+    inline void setQAbstractItemView_EventFilter_Callback(QAbstractItemView_EventFilter_Callback cb) { qabstractitemview_eventfilter_callback = cb; }
+    inline void setQAbstractItemView_ViewportSizeHint_Callback(QAbstractItemView_ViewportSizeHint_Callback cb) { qabstractitemview_viewportsizehint_callback = cb; }
+    inline void setQAbstractItemView_MinimumSizeHint_Callback(QAbstractItemView_MinimumSizeHint_Callback cb) { qabstractitemview_minimumsizehint_callback = cb; }
+    inline void setQAbstractItemView_SizeHint_Callback(QAbstractItemView_SizeHint_Callback cb) { qabstractitemview_sizehint_callback = cb; }
+    inline void setQAbstractItemView_SetupViewport_Callback(QAbstractItemView_SetupViewport_Callback cb) { qabstractitemview_setupviewport_callback = cb; }
+    inline void setQAbstractItemView_PaintEvent_Callback(QAbstractItemView_PaintEvent_Callback cb) { qabstractitemview_paintevent_callback = cb; }
+    inline void setQAbstractItemView_WheelEvent_Callback(QAbstractItemView_WheelEvent_Callback cb) { qabstractitemview_wheelevent_callback = cb; }
+    inline void setQAbstractItemView_ContextMenuEvent_Callback(QAbstractItemView_ContextMenuEvent_Callback cb) { qabstractitemview_contextmenuevent_callback = cb; }
+    inline void setQAbstractItemView_ScrollContentsBy_Callback(QAbstractItemView_ScrollContentsBy_Callback cb) { qabstractitemview_scrollcontentsby_callback = cb; }
+    inline void setQAbstractItemView_ChangeEvent_Callback(QAbstractItemView_ChangeEvent_Callback cb) { qabstractitemview_changeevent_callback = cb; }
+    inline void setQAbstractItemView_InitStyleOption_Callback(QAbstractItemView_InitStyleOption_Callback cb) { qabstractitemview_initstyleoption_callback = cb; }
+    inline void setQAbstractItemView_DevType_Callback(QAbstractItemView_DevType_Callback cb) { qabstractitemview_devtype_callback = cb; }
+    inline void setQAbstractItemView_SetVisible_Callback(QAbstractItemView_SetVisible_Callback cb) { qabstractitemview_setvisible_callback = cb; }
+    inline void setQAbstractItemView_HeightForWidth_Callback(QAbstractItemView_HeightForWidth_Callback cb) { qabstractitemview_heightforwidth_callback = cb; }
+    inline void setQAbstractItemView_HasHeightForWidth_Callback(QAbstractItemView_HasHeightForWidth_Callback cb) { qabstractitemview_hasheightforwidth_callback = cb; }
+    inline void setQAbstractItemView_PaintEngine_Callback(QAbstractItemView_PaintEngine_Callback cb) { qabstractitemview_paintengine_callback = cb; }
+    inline void setQAbstractItemView_KeyReleaseEvent_Callback(QAbstractItemView_KeyReleaseEvent_Callback cb) { qabstractitemview_keyreleaseevent_callback = cb; }
+    inline void setQAbstractItemView_EnterEvent_Callback(QAbstractItemView_EnterEvent_Callback cb) { qabstractitemview_enterevent_callback = cb; }
+    inline void setQAbstractItemView_LeaveEvent_Callback(QAbstractItemView_LeaveEvent_Callback cb) { qabstractitemview_leaveevent_callback = cb; }
+    inline void setQAbstractItemView_MoveEvent_Callback(QAbstractItemView_MoveEvent_Callback cb) { qabstractitemview_moveevent_callback = cb; }
+    inline void setQAbstractItemView_CloseEvent_Callback(QAbstractItemView_CloseEvent_Callback cb) { qabstractitemview_closeevent_callback = cb; }
+    inline void setQAbstractItemView_TabletEvent_Callback(QAbstractItemView_TabletEvent_Callback cb) { qabstractitemview_tabletevent_callback = cb; }
+    inline void setQAbstractItemView_ActionEvent_Callback(QAbstractItemView_ActionEvent_Callback cb) { qabstractitemview_actionevent_callback = cb; }
+    inline void setQAbstractItemView_ShowEvent_Callback(QAbstractItemView_ShowEvent_Callback cb) { qabstractitemview_showevent_callback = cb; }
+    inline void setQAbstractItemView_HideEvent_Callback(QAbstractItemView_HideEvent_Callback cb) { qabstractitemview_hideevent_callback = cb; }
+    inline void setQAbstractItemView_NativeEvent_Callback(QAbstractItemView_NativeEvent_Callback cb) { qabstractitemview_nativeevent_callback = cb; }
+    inline void setQAbstractItemView_Metric_Callback(QAbstractItemView_Metric_Callback cb) { qabstractitemview_metric_callback = cb; }
+    inline void setQAbstractItemView_InitPainter_Callback(QAbstractItemView_InitPainter_Callback cb) { qabstractitemview_initpainter_callback = cb; }
+    inline void setQAbstractItemView_Redirected_Callback(QAbstractItemView_Redirected_Callback cb) { qabstractitemview_redirected_callback = cb; }
+    inline void setQAbstractItemView_SharedPainter_Callback(QAbstractItemView_SharedPainter_Callback cb) { qabstractitemview_sharedpainter_callback = cb; }
+    inline void setQAbstractItemView_ChildEvent_Callback(QAbstractItemView_ChildEvent_Callback cb) { qabstractitemview_childevent_callback = cb; }
+    inline void setQAbstractItemView_CustomEvent_Callback(QAbstractItemView_CustomEvent_Callback cb) { qabstractitemview_customevent_callback = cb; }
+    inline void setQAbstractItemView_ConnectNotify_Callback(QAbstractItemView_ConnectNotify_Callback cb) { qabstractitemview_connectnotify_callback = cb; }
+    inline void setQAbstractItemView_DisconnectNotify_Callback(QAbstractItemView_DisconnectNotify_Callback cb) { qabstractitemview_disconnectnotify_callback = cb; }
+    inline void setQAbstractItemView_State_Callback(QAbstractItemView_State_Callback cb) { qabstractitemview_state_callback = cb; }
+    inline void setQAbstractItemView_SetState_Callback(QAbstractItemView_SetState_Callback cb) { qabstractitemview_setstate_callback = cb; }
+    inline void setQAbstractItemView_ScheduleDelayedItemsLayout_Callback(QAbstractItemView_ScheduleDelayedItemsLayout_Callback cb) { qabstractitemview_scheduledelayeditemslayout_callback = cb; }
+    inline void setQAbstractItemView_ExecuteDelayedItemsLayout_Callback(QAbstractItemView_ExecuteDelayedItemsLayout_Callback cb) { qabstractitemview_executedelayeditemslayout_callback = cb; }
+    inline void setQAbstractItemView_SetDirtyRegion_Callback(QAbstractItemView_SetDirtyRegion_Callback cb) { qabstractitemview_setdirtyregion_callback = cb; }
+    inline void setQAbstractItemView_ScrollDirtyRegion_Callback(QAbstractItemView_ScrollDirtyRegion_Callback cb) { qabstractitemview_scrolldirtyregion_callback = cb; }
+    inline void setQAbstractItemView_DirtyRegionOffset_Callback(QAbstractItemView_DirtyRegionOffset_Callback cb) { qabstractitemview_dirtyregionoffset_callback = cb; }
+    inline void setQAbstractItemView_StartAutoScroll_Callback(QAbstractItemView_StartAutoScroll_Callback cb) { qabstractitemview_startautoscroll_callback = cb; }
+    inline void setQAbstractItemView_StopAutoScroll_Callback(QAbstractItemView_StopAutoScroll_Callback cb) { qabstractitemview_stopautoscroll_callback = cb; }
+    inline void setQAbstractItemView_DoAutoScroll_Callback(QAbstractItemView_DoAutoScroll_Callback cb) { qabstractitemview_doautoscroll_callback = cb; }
+    inline void setQAbstractItemView_DropIndicatorPosition_Callback(QAbstractItemView_DropIndicatorPosition_Callback cb) { qabstractitemview_dropindicatorposition_callback = cb; }
+    inline void setQAbstractItemView_SetViewportMargins_Callback(QAbstractItemView_SetViewportMargins_Callback cb) { qabstractitemview_setviewportmargins_callback = cb; }
+    inline void setQAbstractItemView_ViewportMargins_Callback(QAbstractItemView_ViewportMargins_Callback cb) { qabstractitemview_viewportmargins_callback = cb; }
+    inline void setQAbstractItemView_DrawFrame_Callback(QAbstractItemView_DrawFrame_Callback cb) { qabstractitemview_drawframe_callback = cb; }
+    inline void setQAbstractItemView_UpdateMicroFocus_Callback(QAbstractItemView_UpdateMicroFocus_Callback cb) { qabstractitemview_updatemicrofocus_callback = cb; }
+    inline void setQAbstractItemView_Create_Callback(QAbstractItemView_Create_Callback cb) { qabstractitemview_create_callback = cb; }
+    inline void setQAbstractItemView_Destroy_Callback(QAbstractItemView_Destroy_Callback cb) { qabstractitemview_destroy_callback = cb; }
+    inline void setQAbstractItemView_FocusNextChild_Callback(QAbstractItemView_FocusNextChild_Callback cb) { qabstractitemview_focusnextchild_callback = cb; }
+    inline void setQAbstractItemView_FocusPreviousChild_Callback(QAbstractItemView_FocusPreviousChild_Callback cb) { qabstractitemview_focuspreviouschild_callback = cb; }
+    inline void setQAbstractItemView_Sender_Callback(QAbstractItemView_Sender_Callback cb) { qabstractitemview_sender_callback = cb; }
+    inline void setQAbstractItemView_SenderSignalIndex_Callback(QAbstractItemView_SenderSignalIndex_Callback cb) { qabstractitemview_sendersignalindex_callback = cb; }
+    inline void setQAbstractItemView_Receivers_Callback(QAbstractItemView_Receivers_Callback cb) { qabstractitemview_receivers_callback = cb; }
+    inline void setQAbstractItemView_IsSignalConnected_Callback(QAbstractItemView_IsSignalConnected_Callback cb) { qabstractitemview_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQAbstractItemView_Metacall_IsBase(bool value) const { qabstractitemview_metacall_isbase = value; }
-    void setQAbstractItemView_SetModel_IsBase(bool value) const { qabstractitemview_setmodel_isbase = value; }
-    void setQAbstractItemView_SetSelectionModel_IsBase(bool value) const { qabstractitemview_setselectionmodel_isbase = value; }
-    void setQAbstractItemView_KeyboardSearch_IsBase(bool value) const { qabstractitemview_keyboardsearch_isbase = value; }
-    void setQAbstractItemView_VisualRect_IsBase(bool value) const { qabstractitemview_visualrect_isbase = value; }
-    void setQAbstractItemView_ScrollTo_IsBase(bool value) const { qabstractitemview_scrollto_isbase = value; }
-    void setQAbstractItemView_IndexAt_IsBase(bool value) const { qabstractitemview_indexat_isbase = value; }
-    void setQAbstractItemView_SizeHintForRow_IsBase(bool value) const { qabstractitemview_sizehintforrow_isbase = value; }
-    void setQAbstractItemView_SizeHintForColumn_IsBase(bool value) const { qabstractitemview_sizehintforcolumn_isbase = value; }
-    void setQAbstractItemView_ItemDelegateForIndex_IsBase(bool value) const { qabstractitemview_itemdelegateforindex_isbase = value; }
-    void setQAbstractItemView_InputMethodQuery_IsBase(bool value) const { qabstractitemview_inputmethodquery_isbase = value; }
-    void setQAbstractItemView_Reset_IsBase(bool value) const { qabstractitemview_reset_isbase = value; }
-    void setQAbstractItemView_SetRootIndex_IsBase(bool value) const { qabstractitemview_setrootindex_isbase = value; }
-    void setQAbstractItemView_DoItemsLayout_IsBase(bool value) const { qabstractitemview_doitemslayout_isbase = value; }
-    void setQAbstractItemView_SelectAll_IsBase(bool value) const { qabstractitemview_selectall_isbase = value; }
-    void setQAbstractItemView_DataChanged_IsBase(bool value) const { qabstractitemview_datachanged_isbase = value; }
-    void setQAbstractItemView_RowsInserted_IsBase(bool value) const { qabstractitemview_rowsinserted_isbase = value; }
-    void setQAbstractItemView_RowsAboutToBeRemoved_IsBase(bool value) const { qabstractitemview_rowsabouttoberemoved_isbase = value; }
-    void setQAbstractItemView_SelectionChanged_IsBase(bool value) const { qabstractitemview_selectionchanged_isbase = value; }
-    void setQAbstractItemView_CurrentChanged_IsBase(bool value) const { qabstractitemview_currentchanged_isbase = value; }
-    void setQAbstractItemView_UpdateEditorData_IsBase(bool value) const { qabstractitemview_updateeditordata_isbase = value; }
-    void setQAbstractItemView_UpdateEditorGeometries_IsBase(bool value) const { qabstractitemview_updateeditorgeometries_isbase = value; }
-    void setQAbstractItemView_UpdateGeometries_IsBase(bool value) const { qabstractitemview_updategeometries_isbase = value; }
-    void setQAbstractItemView_VerticalScrollbarAction_IsBase(bool value) const { qabstractitemview_verticalscrollbaraction_isbase = value; }
-    void setQAbstractItemView_HorizontalScrollbarAction_IsBase(bool value) const { qabstractitemview_horizontalscrollbaraction_isbase = value; }
-    void setQAbstractItemView_VerticalScrollbarValueChanged_IsBase(bool value) const { qabstractitemview_verticalscrollbarvaluechanged_isbase = value; }
-    void setQAbstractItemView_HorizontalScrollbarValueChanged_IsBase(bool value) const { qabstractitemview_horizontalscrollbarvaluechanged_isbase = value; }
-    void setQAbstractItemView_CloseEditor_IsBase(bool value) const { qabstractitemview_closeeditor_isbase = value; }
-    void setQAbstractItemView_CommitData_IsBase(bool value) const { qabstractitemview_commitdata_isbase = value; }
-    void setQAbstractItemView_EditorDestroyed_IsBase(bool value) const { qabstractitemview_editordestroyed_isbase = value; }
-    void setQAbstractItemView_MoveCursor_IsBase(bool value) const { qabstractitemview_movecursor_isbase = value; }
-    void setQAbstractItemView_HorizontalOffset_IsBase(bool value) const { qabstractitemview_horizontaloffset_isbase = value; }
-    void setQAbstractItemView_VerticalOffset_IsBase(bool value) const { qabstractitemview_verticaloffset_isbase = value; }
-    void setQAbstractItemView_IsIndexHidden_IsBase(bool value) const { qabstractitemview_isindexhidden_isbase = value; }
-    void setQAbstractItemView_SetSelection_IsBase(bool value) const { qabstractitemview_setselection_isbase = value; }
-    void setQAbstractItemView_VisualRegionForSelection_IsBase(bool value) const { qabstractitemview_visualregionforselection_isbase = value; }
-    void setQAbstractItemView_SelectedIndexes_IsBase(bool value) const { qabstractitemview_selectedindexes_isbase = value; }
-    void setQAbstractItemView_Edit2_IsBase(bool value) const { qabstractitemview_edit2_isbase = value; }
-    void setQAbstractItemView_SelectionCommand_IsBase(bool value) const { qabstractitemview_selectioncommand_isbase = value; }
-    void setQAbstractItemView_StartDrag_IsBase(bool value) const { qabstractitemview_startdrag_isbase = value; }
-    void setQAbstractItemView_InitViewItemOption_IsBase(bool value) const { qabstractitemview_initviewitemoption_isbase = value; }
-    void setQAbstractItemView_FocusNextPrevChild_IsBase(bool value) const { qabstractitemview_focusnextprevchild_isbase = value; }
-    void setQAbstractItemView_Event_IsBase(bool value) const { qabstractitemview_event_isbase = value; }
-    void setQAbstractItemView_ViewportEvent_IsBase(bool value) const { qabstractitemview_viewportevent_isbase = value; }
-    void setQAbstractItemView_MousePressEvent_IsBase(bool value) const { qabstractitemview_mousepressevent_isbase = value; }
-    void setQAbstractItemView_MouseMoveEvent_IsBase(bool value) const { qabstractitemview_mousemoveevent_isbase = value; }
-    void setQAbstractItemView_MouseReleaseEvent_IsBase(bool value) const { qabstractitemview_mousereleaseevent_isbase = value; }
-    void setQAbstractItemView_MouseDoubleClickEvent_IsBase(bool value) const { qabstractitemview_mousedoubleclickevent_isbase = value; }
-    void setQAbstractItemView_DragEnterEvent_IsBase(bool value) const { qabstractitemview_dragenterevent_isbase = value; }
-    void setQAbstractItemView_DragMoveEvent_IsBase(bool value) const { qabstractitemview_dragmoveevent_isbase = value; }
-    void setQAbstractItemView_DragLeaveEvent_IsBase(bool value) const { qabstractitemview_dragleaveevent_isbase = value; }
-    void setQAbstractItemView_DropEvent_IsBase(bool value) const { qabstractitemview_dropevent_isbase = value; }
-    void setQAbstractItemView_FocusInEvent_IsBase(bool value) const { qabstractitemview_focusinevent_isbase = value; }
-    void setQAbstractItemView_FocusOutEvent_IsBase(bool value) const { qabstractitemview_focusoutevent_isbase = value; }
-    void setQAbstractItemView_KeyPressEvent_IsBase(bool value) const { qabstractitemview_keypressevent_isbase = value; }
-    void setQAbstractItemView_ResizeEvent_IsBase(bool value) const { qabstractitemview_resizeevent_isbase = value; }
-    void setQAbstractItemView_TimerEvent_IsBase(bool value) const { qabstractitemview_timerevent_isbase = value; }
-    void setQAbstractItemView_InputMethodEvent_IsBase(bool value) const { qabstractitemview_inputmethodevent_isbase = value; }
-    void setQAbstractItemView_EventFilter_IsBase(bool value) const { qabstractitemview_eventfilter_isbase = value; }
-    void setQAbstractItemView_ViewportSizeHint_IsBase(bool value) const { qabstractitemview_viewportsizehint_isbase = value; }
-    void setQAbstractItemView_MinimumSizeHint_IsBase(bool value) const { qabstractitemview_minimumsizehint_isbase = value; }
-    void setQAbstractItemView_SizeHint_IsBase(bool value) const { qabstractitemview_sizehint_isbase = value; }
-    void setQAbstractItemView_SetupViewport_IsBase(bool value) const { qabstractitemview_setupviewport_isbase = value; }
-    void setQAbstractItemView_PaintEvent_IsBase(bool value) const { qabstractitemview_paintevent_isbase = value; }
-    void setQAbstractItemView_WheelEvent_IsBase(bool value) const { qabstractitemview_wheelevent_isbase = value; }
-    void setQAbstractItemView_ContextMenuEvent_IsBase(bool value) const { qabstractitemview_contextmenuevent_isbase = value; }
-    void setQAbstractItemView_ScrollContentsBy_IsBase(bool value) const { qabstractitemview_scrollcontentsby_isbase = value; }
-    void setQAbstractItemView_ChangeEvent_IsBase(bool value) const { qabstractitemview_changeevent_isbase = value; }
-    void setQAbstractItemView_InitStyleOption_IsBase(bool value) const { qabstractitemview_initstyleoption_isbase = value; }
-    void setQAbstractItemView_DevType_IsBase(bool value) const { qabstractitemview_devtype_isbase = value; }
-    void setQAbstractItemView_SetVisible_IsBase(bool value) const { qabstractitemview_setvisible_isbase = value; }
-    void setQAbstractItemView_HeightForWidth_IsBase(bool value) const { qabstractitemview_heightforwidth_isbase = value; }
-    void setQAbstractItemView_HasHeightForWidth_IsBase(bool value) const { qabstractitemview_hasheightforwidth_isbase = value; }
-    void setQAbstractItemView_PaintEngine_IsBase(bool value) const { qabstractitemview_paintengine_isbase = value; }
-    void setQAbstractItemView_KeyReleaseEvent_IsBase(bool value) const { qabstractitemview_keyreleaseevent_isbase = value; }
-    void setQAbstractItemView_EnterEvent_IsBase(bool value) const { qabstractitemview_enterevent_isbase = value; }
-    void setQAbstractItemView_LeaveEvent_IsBase(bool value) const { qabstractitemview_leaveevent_isbase = value; }
-    void setQAbstractItemView_MoveEvent_IsBase(bool value) const { qabstractitemview_moveevent_isbase = value; }
-    void setQAbstractItemView_CloseEvent_IsBase(bool value) const { qabstractitemview_closeevent_isbase = value; }
-    void setQAbstractItemView_TabletEvent_IsBase(bool value) const { qabstractitemview_tabletevent_isbase = value; }
-    void setQAbstractItemView_ActionEvent_IsBase(bool value) const { qabstractitemview_actionevent_isbase = value; }
-    void setQAbstractItemView_ShowEvent_IsBase(bool value) const { qabstractitemview_showevent_isbase = value; }
-    void setQAbstractItemView_HideEvent_IsBase(bool value) const { qabstractitemview_hideevent_isbase = value; }
-    void setQAbstractItemView_NativeEvent_IsBase(bool value) const { qabstractitemview_nativeevent_isbase = value; }
-    void setQAbstractItemView_Metric_IsBase(bool value) const { qabstractitemview_metric_isbase = value; }
-    void setQAbstractItemView_InitPainter_IsBase(bool value) const { qabstractitemview_initpainter_isbase = value; }
-    void setQAbstractItemView_Redirected_IsBase(bool value) const { qabstractitemview_redirected_isbase = value; }
-    void setQAbstractItemView_SharedPainter_IsBase(bool value) const { qabstractitemview_sharedpainter_isbase = value; }
-    void setQAbstractItemView_ChildEvent_IsBase(bool value) const { qabstractitemview_childevent_isbase = value; }
-    void setQAbstractItemView_CustomEvent_IsBase(bool value) const { qabstractitemview_customevent_isbase = value; }
-    void setQAbstractItemView_ConnectNotify_IsBase(bool value) const { qabstractitemview_connectnotify_isbase = value; }
-    void setQAbstractItemView_DisconnectNotify_IsBase(bool value) const { qabstractitemview_disconnectnotify_isbase = value; }
-    void setQAbstractItemView_State_IsBase(bool value) const { qabstractitemview_state_isbase = value; }
-    void setQAbstractItemView_SetState_IsBase(bool value) const { qabstractitemview_setstate_isbase = value; }
-    void setQAbstractItemView_ScheduleDelayedItemsLayout_IsBase(bool value) const { qabstractitemview_scheduledelayeditemslayout_isbase = value; }
-    void setQAbstractItemView_ExecuteDelayedItemsLayout_IsBase(bool value) const { qabstractitemview_executedelayeditemslayout_isbase = value; }
-    void setQAbstractItemView_SetDirtyRegion_IsBase(bool value) const { qabstractitemview_setdirtyregion_isbase = value; }
-    void setQAbstractItemView_ScrollDirtyRegion_IsBase(bool value) const { qabstractitemview_scrolldirtyregion_isbase = value; }
-    void setQAbstractItemView_DirtyRegionOffset_IsBase(bool value) const { qabstractitemview_dirtyregionoffset_isbase = value; }
-    void setQAbstractItemView_StartAutoScroll_IsBase(bool value) const { qabstractitemview_startautoscroll_isbase = value; }
-    void setQAbstractItemView_StopAutoScroll_IsBase(bool value) const { qabstractitemview_stopautoscroll_isbase = value; }
-    void setQAbstractItemView_DoAutoScroll_IsBase(bool value) const { qabstractitemview_doautoscroll_isbase = value; }
-    void setQAbstractItemView_DropIndicatorPosition_IsBase(bool value) const { qabstractitemview_dropindicatorposition_isbase = value; }
-    void setQAbstractItemView_SetViewportMargins_IsBase(bool value) const { qabstractitemview_setviewportmargins_isbase = value; }
-    void setQAbstractItemView_ViewportMargins_IsBase(bool value) const { qabstractitemview_viewportmargins_isbase = value; }
-    void setQAbstractItemView_DrawFrame_IsBase(bool value) const { qabstractitemview_drawframe_isbase = value; }
-    void setQAbstractItemView_UpdateMicroFocus_IsBase(bool value) const { qabstractitemview_updatemicrofocus_isbase = value; }
-    void setQAbstractItemView_Create_IsBase(bool value) const { qabstractitemview_create_isbase = value; }
-    void setQAbstractItemView_Destroy_IsBase(bool value) const { qabstractitemview_destroy_isbase = value; }
-    void setQAbstractItemView_FocusNextChild_IsBase(bool value) const { qabstractitemview_focusnextchild_isbase = value; }
-    void setQAbstractItemView_FocusPreviousChild_IsBase(bool value) const { qabstractitemview_focuspreviouschild_isbase = value; }
-    void setQAbstractItemView_Sender_IsBase(bool value) const { qabstractitemview_sender_isbase = value; }
-    void setQAbstractItemView_SenderSignalIndex_IsBase(bool value) const { qabstractitemview_sendersignalindex_isbase = value; }
-    void setQAbstractItemView_Receivers_IsBase(bool value) const { qabstractitemview_receivers_isbase = value; }
-    void setQAbstractItemView_IsSignalConnected_IsBase(bool value) const { qabstractitemview_issignalconnected_isbase = value; }
+    inline void setQAbstractItemView_Metacall_IsBase(bool value) const { qabstractitemview_metacall_isbase = value; }
+    inline void setQAbstractItemView_SetModel_IsBase(bool value) const { qabstractitemview_setmodel_isbase = value; }
+    inline void setQAbstractItemView_SetSelectionModel_IsBase(bool value) const { qabstractitemview_setselectionmodel_isbase = value; }
+    inline void setQAbstractItemView_KeyboardSearch_IsBase(bool value) const { qabstractitemview_keyboardsearch_isbase = value; }
+    inline void setQAbstractItemView_VisualRect_IsBase(bool value) const { qabstractitemview_visualrect_isbase = value; }
+    inline void setQAbstractItemView_ScrollTo_IsBase(bool value) const { qabstractitemview_scrollto_isbase = value; }
+    inline void setQAbstractItemView_IndexAt_IsBase(bool value) const { qabstractitemview_indexat_isbase = value; }
+    inline void setQAbstractItemView_SizeHintForRow_IsBase(bool value) const { qabstractitemview_sizehintforrow_isbase = value; }
+    inline void setQAbstractItemView_SizeHintForColumn_IsBase(bool value) const { qabstractitemview_sizehintforcolumn_isbase = value; }
+    inline void setQAbstractItemView_ItemDelegateForIndex_IsBase(bool value) const { qabstractitemview_itemdelegateforindex_isbase = value; }
+    inline void setQAbstractItemView_InputMethodQuery_IsBase(bool value) const { qabstractitemview_inputmethodquery_isbase = value; }
+    inline void setQAbstractItemView_Reset_IsBase(bool value) const { qabstractitemview_reset_isbase = value; }
+    inline void setQAbstractItemView_SetRootIndex_IsBase(bool value) const { qabstractitemview_setrootindex_isbase = value; }
+    inline void setQAbstractItemView_DoItemsLayout_IsBase(bool value) const { qabstractitemview_doitemslayout_isbase = value; }
+    inline void setQAbstractItemView_SelectAll_IsBase(bool value) const { qabstractitemview_selectall_isbase = value; }
+    inline void setQAbstractItemView_DataChanged_IsBase(bool value) const { qabstractitemview_datachanged_isbase = value; }
+    inline void setQAbstractItemView_RowsInserted_IsBase(bool value) const { qabstractitemview_rowsinserted_isbase = value; }
+    inline void setQAbstractItemView_RowsAboutToBeRemoved_IsBase(bool value) const { qabstractitemview_rowsabouttoberemoved_isbase = value; }
+    inline void setQAbstractItemView_SelectionChanged_IsBase(bool value) const { qabstractitemview_selectionchanged_isbase = value; }
+    inline void setQAbstractItemView_CurrentChanged_IsBase(bool value) const { qabstractitemview_currentchanged_isbase = value; }
+    inline void setQAbstractItemView_UpdateEditorData_IsBase(bool value) const { qabstractitemview_updateeditordata_isbase = value; }
+    inline void setQAbstractItemView_UpdateEditorGeometries_IsBase(bool value) const { qabstractitemview_updateeditorgeometries_isbase = value; }
+    inline void setQAbstractItemView_UpdateGeometries_IsBase(bool value) const { qabstractitemview_updategeometries_isbase = value; }
+    inline void setQAbstractItemView_VerticalScrollbarAction_IsBase(bool value) const { qabstractitemview_verticalscrollbaraction_isbase = value; }
+    inline void setQAbstractItemView_HorizontalScrollbarAction_IsBase(bool value) const { qabstractitemview_horizontalscrollbaraction_isbase = value; }
+    inline void setQAbstractItemView_VerticalScrollbarValueChanged_IsBase(bool value) const { qabstractitemview_verticalscrollbarvaluechanged_isbase = value; }
+    inline void setQAbstractItemView_HorizontalScrollbarValueChanged_IsBase(bool value) const { qabstractitemview_horizontalscrollbarvaluechanged_isbase = value; }
+    inline void setQAbstractItemView_CloseEditor_IsBase(bool value) const { qabstractitemview_closeeditor_isbase = value; }
+    inline void setQAbstractItemView_CommitData_IsBase(bool value) const { qabstractitemview_commitdata_isbase = value; }
+    inline void setQAbstractItemView_EditorDestroyed_IsBase(bool value) const { qabstractitemview_editordestroyed_isbase = value; }
+    inline void setQAbstractItemView_MoveCursor_IsBase(bool value) const { qabstractitemview_movecursor_isbase = value; }
+    inline void setQAbstractItemView_HorizontalOffset_IsBase(bool value) const { qabstractitemview_horizontaloffset_isbase = value; }
+    inline void setQAbstractItemView_VerticalOffset_IsBase(bool value) const { qabstractitemview_verticaloffset_isbase = value; }
+    inline void setQAbstractItemView_IsIndexHidden_IsBase(bool value) const { qabstractitemview_isindexhidden_isbase = value; }
+    inline void setQAbstractItemView_SetSelection_IsBase(bool value) const { qabstractitemview_setselection_isbase = value; }
+    inline void setQAbstractItemView_VisualRegionForSelection_IsBase(bool value) const { qabstractitemview_visualregionforselection_isbase = value; }
+    inline void setQAbstractItemView_SelectedIndexes_IsBase(bool value) const { qabstractitemview_selectedindexes_isbase = value; }
+    inline void setQAbstractItemView_Edit2_IsBase(bool value) const { qabstractitemview_edit2_isbase = value; }
+    inline void setQAbstractItemView_SelectionCommand_IsBase(bool value) const { qabstractitemview_selectioncommand_isbase = value; }
+    inline void setQAbstractItemView_StartDrag_IsBase(bool value) const { qabstractitemview_startdrag_isbase = value; }
+    inline void setQAbstractItemView_InitViewItemOption_IsBase(bool value) const { qabstractitemview_initviewitemoption_isbase = value; }
+    inline void setQAbstractItemView_FocusNextPrevChild_IsBase(bool value) const { qabstractitemview_focusnextprevchild_isbase = value; }
+    inline void setQAbstractItemView_Event_IsBase(bool value) const { qabstractitemview_event_isbase = value; }
+    inline void setQAbstractItemView_ViewportEvent_IsBase(bool value) const { qabstractitemview_viewportevent_isbase = value; }
+    inline void setQAbstractItemView_MousePressEvent_IsBase(bool value) const { qabstractitemview_mousepressevent_isbase = value; }
+    inline void setQAbstractItemView_MouseMoveEvent_IsBase(bool value) const { qabstractitemview_mousemoveevent_isbase = value; }
+    inline void setQAbstractItemView_MouseReleaseEvent_IsBase(bool value) const { qabstractitemview_mousereleaseevent_isbase = value; }
+    inline void setQAbstractItemView_MouseDoubleClickEvent_IsBase(bool value) const { qabstractitemview_mousedoubleclickevent_isbase = value; }
+    inline void setQAbstractItemView_DragEnterEvent_IsBase(bool value) const { qabstractitemview_dragenterevent_isbase = value; }
+    inline void setQAbstractItemView_DragMoveEvent_IsBase(bool value) const { qabstractitemview_dragmoveevent_isbase = value; }
+    inline void setQAbstractItemView_DragLeaveEvent_IsBase(bool value) const { qabstractitemview_dragleaveevent_isbase = value; }
+    inline void setQAbstractItemView_DropEvent_IsBase(bool value) const { qabstractitemview_dropevent_isbase = value; }
+    inline void setQAbstractItemView_FocusInEvent_IsBase(bool value) const { qabstractitemview_focusinevent_isbase = value; }
+    inline void setQAbstractItemView_FocusOutEvent_IsBase(bool value) const { qabstractitemview_focusoutevent_isbase = value; }
+    inline void setQAbstractItemView_KeyPressEvent_IsBase(bool value) const { qabstractitemview_keypressevent_isbase = value; }
+    inline void setQAbstractItemView_ResizeEvent_IsBase(bool value) const { qabstractitemview_resizeevent_isbase = value; }
+    inline void setQAbstractItemView_TimerEvent_IsBase(bool value) const { qabstractitemview_timerevent_isbase = value; }
+    inline void setQAbstractItemView_InputMethodEvent_IsBase(bool value) const { qabstractitemview_inputmethodevent_isbase = value; }
+    inline void setQAbstractItemView_EventFilter_IsBase(bool value) const { qabstractitemview_eventfilter_isbase = value; }
+    inline void setQAbstractItemView_ViewportSizeHint_IsBase(bool value) const { qabstractitemview_viewportsizehint_isbase = value; }
+    inline void setQAbstractItemView_MinimumSizeHint_IsBase(bool value) const { qabstractitemview_minimumsizehint_isbase = value; }
+    inline void setQAbstractItemView_SizeHint_IsBase(bool value) const { qabstractitemview_sizehint_isbase = value; }
+    inline void setQAbstractItemView_SetupViewport_IsBase(bool value) const { qabstractitemview_setupviewport_isbase = value; }
+    inline void setQAbstractItemView_PaintEvent_IsBase(bool value) const { qabstractitemview_paintevent_isbase = value; }
+    inline void setQAbstractItemView_WheelEvent_IsBase(bool value) const { qabstractitemview_wheelevent_isbase = value; }
+    inline void setQAbstractItemView_ContextMenuEvent_IsBase(bool value) const { qabstractitemview_contextmenuevent_isbase = value; }
+    inline void setQAbstractItemView_ScrollContentsBy_IsBase(bool value) const { qabstractitemview_scrollcontentsby_isbase = value; }
+    inline void setQAbstractItemView_ChangeEvent_IsBase(bool value) const { qabstractitemview_changeevent_isbase = value; }
+    inline void setQAbstractItemView_InitStyleOption_IsBase(bool value) const { qabstractitemview_initstyleoption_isbase = value; }
+    inline void setQAbstractItemView_DevType_IsBase(bool value) const { qabstractitemview_devtype_isbase = value; }
+    inline void setQAbstractItemView_SetVisible_IsBase(bool value) const { qabstractitemview_setvisible_isbase = value; }
+    inline void setQAbstractItemView_HeightForWidth_IsBase(bool value) const { qabstractitemview_heightforwidth_isbase = value; }
+    inline void setQAbstractItemView_HasHeightForWidth_IsBase(bool value) const { qabstractitemview_hasheightforwidth_isbase = value; }
+    inline void setQAbstractItemView_PaintEngine_IsBase(bool value) const { qabstractitemview_paintengine_isbase = value; }
+    inline void setQAbstractItemView_KeyReleaseEvent_IsBase(bool value) const { qabstractitemview_keyreleaseevent_isbase = value; }
+    inline void setQAbstractItemView_EnterEvent_IsBase(bool value) const { qabstractitemview_enterevent_isbase = value; }
+    inline void setQAbstractItemView_LeaveEvent_IsBase(bool value) const { qabstractitemview_leaveevent_isbase = value; }
+    inline void setQAbstractItemView_MoveEvent_IsBase(bool value) const { qabstractitemview_moveevent_isbase = value; }
+    inline void setQAbstractItemView_CloseEvent_IsBase(bool value) const { qabstractitemview_closeevent_isbase = value; }
+    inline void setQAbstractItemView_TabletEvent_IsBase(bool value) const { qabstractitemview_tabletevent_isbase = value; }
+    inline void setQAbstractItemView_ActionEvent_IsBase(bool value) const { qabstractitemview_actionevent_isbase = value; }
+    inline void setQAbstractItemView_ShowEvent_IsBase(bool value) const { qabstractitemview_showevent_isbase = value; }
+    inline void setQAbstractItemView_HideEvent_IsBase(bool value) const { qabstractitemview_hideevent_isbase = value; }
+    inline void setQAbstractItemView_NativeEvent_IsBase(bool value) const { qabstractitemview_nativeevent_isbase = value; }
+    inline void setQAbstractItemView_Metric_IsBase(bool value) const { qabstractitemview_metric_isbase = value; }
+    inline void setQAbstractItemView_InitPainter_IsBase(bool value) const { qabstractitemview_initpainter_isbase = value; }
+    inline void setQAbstractItemView_Redirected_IsBase(bool value) const { qabstractitemview_redirected_isbase = value; }
+    inline void setQAbstractItemView_SharedPainter_IsBase(bool value) const { qabstractitemview_sharedpainter_isbase = value; }
+    inline void setQAbstractItemView_ChildEvent_IsBase(bool value) const { qabstractitemview_childevent_isbase = value; }
+    inline void setQAbstractItemView_CustomEvent_IsBase(bool value) const { qabstractitemview_customevent_isbase = value; }
+    inline void setQAbstractItemView_ConnectNotify_IsBase(bool value) const { qabstractitemview_connectnotify_isbase = value; }
+    inline void setQAbstractItemView_DisconnectNotify_IsBase(bool value) const { qabstractitemview_disconnectnotify_isbase = value; }
+    inline void setQAbstractItemView_State_IsBase(bool value) const { qabstractitemview_state_isbase = value; }
+    inline void setQAbstractItemView_SetState_IsBase(bool value) const { qabstractitemview_setstate_isbase = value; }
+    inline void setQAbstractItemView_ScheduleDelayedItemsLayout_IsBase(bool value) const { qabstractitemview_scheduledelayeditemslayout_isbase = value; }
+    inline void setQAbstractItemView_ExecuteDelayedItemsLayout_IsBase(bool value) const { qabstractitemview_executedelayeditemslayout_isbase = value; }
+    inline void setQAbstractItemView_SetDirtyRegion_IsBase(bool value) const { qabstractitemview_setdirtyregion_isbase = value; }
+    inline void setQAbstractItemView_ScrollDirtyRegion_IsBase(bool value) const { qabstractitemview_scrolldirtyregion_isbase = value; }
+    inline void setQAbstractItemView_DirtyRegionOffset_IsBase(bool value) const { qabstractitemview_dirtyregionoffset_isbase = value; }
+    inline void setQAbstractItemView_StartAutoScroll_IsBase(bool value) const { qabstractitemview_startautoscroll_isbase = value; }
+    inline void setQAbstractItemView_StopAutoScroll_IsBase(bool value) const { qabstractitemview_stopautoscroll_isbase = value; }
+    inline void setQAbstractItemView_DoAutoScroll_IsBase(bool value) const { qabstractitemview_doautoscroll_isbase = value; }
+    inline void setQAbstractItemView_DropIndicatorPosition_IsBase(bool value) const { qabstractitemview_dropindicatorposition_isbase = value; }
+    inline void setQAbstractItemView_SetViewportMargins_IsBase(bool value) const { qabstractitemview_setviewportmargins_isbase = value; }
+    inline void setQAbstractItemView_ViewportMargins_IsBase(bool value) const { qabstractitemview_viewportmargins_isbase = value; }
+    inline void setQAbstractItemView_DrawFrame_IsBase(bool value) const { qabstractitemview_drawframe_isbase = value; }
+    inline void setQAbstractItemView_UpdateMicroFocus_IsBase(bool value) const { qabstractitemview_updatemicrofocus_isbase = value; }
+    inline void setQAbstractItemView_Create_IsBase(bool value) const { qabstractitemview_create_isbase = value; }
+    inline void setQAbstractItemView_Destroy_IsBase(bool value) const { qabstractitemview_destroy_isbase = value; }
+    inline void setQAbstractItemView_FocusNextChild_IsBase(bool value) const { qabstractitemview_focusnextchild_isbase = value; }
+    inline void setQAbstractItemView_FocusPreviousChild_IsBase(bool value) const { qabstractitemview_focuspreviouschild_isbase = value; }
+    inline void setQAbstractItemView_Sender_IsBase(bool value) const { qabstractitemview_sender_isbase = value; }
+    inline void setQAbstractItemView_SenderSignalIndex_IsBase(bool value) const { qabstractitemview_sendersignalindex_isbase = value; }
+    inline void setQAbstractItemView_Receivers_IsBase(bool value) const { qabstractitemview_receivers_isbase = value; }
+    inline void setQAbstractItemView_IsSignalConnected_IsBase(bool value) const { qabstractitemview_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -731,7 +734,12 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_metacall_isbase = false;
             return QAbstractItemView::qt_metacall(param1, param2, param3);
         } else if (qabstractitemview_metacall_callback != nullptr) {
-            return qabstractitemview_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qabstractitemview_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractItemView::qt_metacall(param1, param2, param3);
         }
@@ -743,7 +751,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_setmodel_isbase = false;
             QAbstractItemView::setModel(model);
         } else if (qabstractitemview_setmodel_callback != nullptr) {
-            qabstractitemview_setmodel_callback(this, model);
+            QAbstractItemModel* cbval1 = model;
+
+            qabstractitemview_setmodel_callback(this, cbval1);
         } else {
             QAbstractItemView::setModel(model);
         }
@@ -755,7 +765,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_setselectionmodel_isbase = false;
             QAbstractItemView::setSelectionModel(selectionModel);
         } else if (qabstractitemview_setselectionmodel_callback != nullptr) {
-            qabstractitemview_setselectionmodel_callback(this, selectionModel);
+            QItemSelectionModel* cbval1 = selectionModel;
+
+            qabstractitemview_setselectionmodel_callback(this, cbval1);
         } else {
             QAbstractItemView::setSelectionModel(selectionModel);
         }
@@ -767,7 +779,17 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_keyboardsearch_isbase = false;
             QAbstractItemView::keyboardSearch(search);
         } else if (qabstractitemview_keyboardsearch_callback != nullptr) {
-            qabstractitemview_keyboardsearch_callback(this, search);
+            const QString search_ret = search;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray search_b = search_ret.toUtf8();
+            libqt_string search_str;
+            search_str.len = search_b.length();
+            search_str.data = static_cast<char*>(malloc((search_str.len + 1) * sizeof(char)));
+            memcpy(search_str.data, search_b.data(), search_str.len);
+            search_str.data[search_str.len] = '\0';
+            libqt_string cbval1 = search_str;
+
+            qabstractitemview_keyboardsearch_callback(this, cbval1);
         } else {
             QAbstractItemView::keyboardSearch(search);
         }
@@ -775,17 +797,42 @@ class VirtualQAbstractItemView : public QAbstractItemView {
 
     // Virtual method for C ABI access and custom callback
     virtual QRect visualRect(const QModelIndex& index) const override {
-        return qabstractitemview_visualrect_callback(this, index);
+        if (qabstractitemview_visualrect_callback != nullptr) {
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QRect* callback_ret = qabstractitemview_visualrect_callback(this, cbval1);
+            return *callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void scrollTo(const QModelIndex& index, QAbstractItemView::ScrollHint hint) override {
-        qabstractitemview_scrollto_callback(this, index, hint);
+        if (qabstractitemview_scrollto_callback != nullptr) {
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            int cbval2 = static_cast<int>(hint);
+
+            qabstractitemview_scrollto_callback(this, cbval1, cbval2);
+        }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex indexAt(const QPoint& point) const override {
-        return qabstractitemview_indexat_callback(this, point);
+        if (qabstractitemview_indexat_callback != nullptr) {
+            const QPoint& point_ret = point;
+            // Cast returned reference into pointer
+            QPoint* cbval1 = const_cast<QPoint*>(&point_ret);
+
+            QModelIndex* callback_ret = qabstractitemview_indexat_callback(this, cbval1);
+            return *callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -794,7 +841,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_sizehintforrow_isbase = false;
             return QAbstractItemView::sizeHintForRow(row);
         } else if (qabstractitemview_sizehintforrow_callback != nullptr) {
-            return qabstractitemview_sizehintforrow_callback(this, row);
+            int cbval1 = row;
+
+            int callback_ret = qabstractitemview_sizehintforrow_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractItemView::sizeHintForRow(row);
         }
@@ -806,7 +856,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_sizehintforcolumn_isbase = false;
             return QAbstractItemView::sizeHintForColumn(column);
         } else if (qabstractitemview_sizehintforcolumn_callback != nullptr) {
-            return qabstractitemview_sizehintforcolumn_callback(this, column);
+            int cbval1 = column;
+
+            int callback_ret = qabstractitemview_sizehintforcolumn_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractItemView::sizeHintForColumn(column);
         }
@@ -818,7 +871,12 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_itemdelegateforindex_isbase = false;
             return QAbstractItemView::itemDelegateForIndex(index);
         } else if (qabstractitemview_itemdelegateforindex_callback != nullptr) {
-            return qabstractitemview_itemdelegateforindex_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QAbstractItemDelegate* callback_ret = qabstractitemview_itemdelegateforindex_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractItemView::itemDelegateForIndex(index);
         }
@@ -830,7 +888,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_inputmethodquery_isbase = false;
             return QAbstractItemView::inputMethodQuery(query);
         } else if (qabstractitemview_inputmethodquery_callback != nullptr) {
-            return qabstractitemview_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qabstractitemview_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QAbstractItemView::inputMethodQuery(query);
         }
@@ -854,7 +915,11 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_setrootindex_isbase = false;
             QAbstractItemView::setRootIndex(index);
         } else if (qabstractitemview_setrootindex_callback != nullptr) {
-            qabstractitemview_setrootindex_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            qabstractitemview_setrootindex_callback(this, cbval1);
         } else {
             QAbstractItemView::setRootIndex(index);
         }
@@ -890,7 +955,24 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_datachanged_isbase = false;
             QAbstractItemView::dataChanged(topLeft, bottomRight, roles);
         } else if (qabstractitemview_datachanged_callback != nullptr) {
-            qabstractitemview_datachanged_callback(this, topLeft, bottomRight, roles);
+            const QModelIndex& topLeft_ret = topLeft;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&topLeft_ret);
+            const QModelIndex& bottomRight_ret = bottomRight;
+            // Cast returned reference into pointer
+            QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
+            const QList<int>& roles_ret = roles;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.length()));
+            for (size_t i = 0; i < roles_ret.length(); ++i) {
+                roles_arr[i] = roles_ret[i];
+            }
+            libqt_list roles_out;
+            roles_out.len = roles_ret.length();
+            roles_out.data = static_cast<void*>(roles_arr);
+            libqt_list /* of int */ cbval3 = roles_out;
+
+            qabstractitemview_datachanged_callback(this, cbval1, cbval2, cbval3);
         } else {
             QAbstractItemView::dataChanged(topLeft, bottomRight, roles);
         }
@@ -902,7 +984,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_rowsinserted_isbase = false;
             QAbstractItemView::rowsInserted(parent, start, end);
         } else if (qabstractitemview_rowsinserted_callback != nullptr) {
-            qabstractitemview_rowsinserted_callback(this, parent, start, end);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = start;
+            int cbval3 = end;
+
+            qabstractitemview_rowsinserted_callback(this, cbval1, cbval2, cbval3);
         } else {
             QAbstractItemView::rowsInserted(parent, start, end);
         }
@@ -914,7 +1002,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_rowsabouttoberemoved_isbase = false;
             QAbstractItemView::rowsAboutToBeRemoved(parent, start, end);
         } else if (qabstractitemview_rowsabouttoberemoved_callback != nullptr) {
-            qabstractitemview_rowsabouttoberemoved_callback(this, parent, start, end);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = start;
+            int cbval3 = end;
+
+            qabstractitemview_rowsabouttoberemoved_callback(this, cbval1, cbval2, cbval3);
         } else {
             QAbstractItemView::rowsAboutToBeRemoved(parent, start, end);
         }
@@ -926,7 +1020,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_selectionchanged_isbase = false;
             QAbstractItemView::selectionChanged(selected, deselected);
         } else if (qabstractitemview_selectionchanged_callback != nullptr) {
-            qabstractitemview_selectionchanged_callback(this, selected, deselected);
+            const QItemSelection& selected_ret = selected;
+            // Cast returned reference into pointer
+            QItemSelection* cbval1 = const_cast<QItemSelection*>(&selected_ret);
+            const QItemSelection& deselected_ret = deselected;
+            // Cast returned reference into pointer
+            QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
+
+            qabstractitemview_selectionchanged_callback(this, cbval1, cbval2);
         } else {
             QAbstractItemView::selectionChanged(selected, deselected);
         }
@@ -938,7 +1039,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_currentchanged_isbase = false;
             QAbstractItemView::currentChanged(current, previous);
         } else if (qabstractitemview_currentchanged_callback != nullptr) {
-            qabstractitemview_currentchanged_callback(this, current, previous);
+            const QModelIndex& current_ret = current;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&current_ret);
+            const QModelIndex& previous_ret = previous;
+            // Cast returned reference into pointer
+            QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
+
+            qabstractitemview_currentchanged_callback(this, cbval1, cbval2);
         } else {
             QAbstractItemView::currentChanged(current, previous);
         }
@@ -986,7 +1094,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_verticalscrollbaraction_isbase = false;
             QAbstractItemView::verticalScrollbarAction(action);
         } else if (qabstractitemview_verticalscrollbaraction_callback != nullptr) {
-            qabstractitemview_verticalscrollbaraction_callback(this, action);
+            int cbval1 = action;
+
+            qabstractitemview_verticalscrollbaraction_callback(this, cbval1);
         } else {
             QAbstractItemView::verticalScrollbarAction(action);
         }
@@ -998,7 +1108,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_horizontalscrollbaraction_isbase = false;
             QAbstractItemView::horizontalScrollbarAction(action);
         } else if (qabstractitemview_horizontalscrollbaraction_callback != nullptr) {
-            qabstractitemview_horizontalscrollbaraction_callback(this, action);
+            int cbval1 = action;
+
+            qabstractitemview_horizontalscrollbaraction_callback(this, cbval1);
         } else {
             QAbstractItemView::horizontalScrollbarAction(action);
         }
@@ -1010,7 +1122,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_verticalscrollbarvaluechanged_isbase = false;
             QAbstractItemView::verticalScrollbarValueChanged(value);
         } else if (qabstractitemview_verticalscrollbarvaluechanged_callback != nullptr) {
-            qabstractitemview_verticalscrollbarvaluechanged_callback(this, value);
+            int cbval1 = value;
+
+            qabstractitemview_verticalscrollbarvaluechanged_callback(this, cbval1);
         } else {
             QAbstractItemView::verticalScrollbarValueChanged(value);
         }
@@ -1022,7 +1136,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_horizontalscrollbarvaluechanged_isbase = false;
             QAbstractItemView::horizontalScrollbarValueChanged(value);
         } else if (qabstractitemview_horizontalscrollbarvaluechanged_callback != nullptr) {
-            qabstractitemview_horizontalscrollbarvaluechanged_callback(this, value);
+            int cbval1 = value;
+
+            qabstractitemview_horizontalscrollbarvaluechanged_callback(this, cbval1);
         } else {
             QAbstractItemView::horizontalScrollbarValueChanged(value);
         }
@@ -1034,7 +1150,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_closeeditor_isbase = false;
             QAbstractItemView::closeEditor(editor, hint);
         } else if (qabstractitemview_closeeditor_callback != nullptr) {
-            qabstractitemview_closeeditor_callback(this, editor, hint);
+            QWidget* cbval1 = editor;
+            int cbval2 = static_cast<int>(hint);
+
+            qabstractitemview_closeeditor_callback(this, cbval1, cbval2);
         } else {
             QAbstractItemView::closeEditor(editor, hint);
         }
@@ -1046,7 +1165,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_commitdata_isbase = false;
             QAbstractItemView::commitData(editor);
         } else if (qabstractitemview_commitdata_callback != nullptr) {
-            qabstractitemview_commitdata_callback(this, editor);
+            QWidget* cbval1 = editor;
+
+            qabstractitemview_commitdata_callback(this, cbval1);
         } else {
             QAbstractItemView::commitData(editor);
         }
@@ -1058,7 +1179,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_editordestroyed_isbase = false;
             QAbstractItemView::editorDestroyed(editor);
         } else if (qabstractitemview_editordestroyed_callback != nullptr) {
-            qabstractitemview_editordestroyed_callback(this, editor);
+            QObject* cbval1 = editor;
+
+            qabstractitemview_editordestroyed_callback(this, cbval1);
         } else {
             QAbstractItemView::editorDestroyed(editor);
         }
@@ -1066,32 +1189,75 @@ class VirtualQAbstractItemView : public QAbstractItemView {
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex moveCursor(QAbstractItemView::CursorAction cursorAction, Qt::KeyboardModifiers modifiers) override {
-        return qabstractitemview_movecursor_callback(this, cursorAction, modifiers);
+        if (qabstractitemview_movecursor_callback != nullptr) {
+            int cbval1 = static_cast<int>(cursorAction);
+            int cbval2 = static_cast<int>(modifiers);
+
+            QModelIndex* callback_ret = qabstractitemview_movecursor_callback(this, cbval1, cbval2);
+            return *callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int horizontalOffset() const override {
-        return qabstractitemview_horizontaloffset_callback();
+        if (qabstractitemview_horizontaloffset_callback != nullptr) {
+            int callback_ret = qabstractitemview_horizontaloffset_callback();
+            return static_cast<int>(callback_ret);
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int verticalOffset() const override {
-        return qabstractitemview_verticaloffset_callback();
+        if (qabstractitemview_verticaloffset_callback != nullptr) {
+            int callback_ret = qabstractitemview_verticaloffset_callback();
+            return static_cast<int>(callback_ret);
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isIndexHidden(const QModelIndex& index) const override {
-        return qabstractitemview_isindexhidden_callback(this, index);
+        if (qabstractitemview_isindexhidden_callback != nullptr) {
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            bool callback_ret = qabstractitemview_isindexhidden_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setSelection(const QRect& rect, QItemSelectionModel::SelectionFlags command) override {
-        qabstractitemview_setselection_callback(this, rect, command);
+        if (qabstractitemview_setselection_callback != nullptr) {
+            const QRect& rect_ret = rect;
+            // Cast returned reference into pointer
+            QRect* cbval1 = const_cast<QRect*>(&rect_ret);
+            int cbval2 = static_cast<int>(command);
+
+            qabstractitemview_setselection_callback(this, cbval1, cbval2);
+        }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QRegion visualRegionForSelection(const QItemSelection& selection) const override {
-        return qabstractitemview_visualregionforselection_callback(this, selection);
+        if (qabstractitemview_visualregionforselection_callback != nullptr) {
+            const QItemSelection& selection_ret = selection;
+            // Cast returned reference into pointer
+            QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
+
+            QRegion* callback_ret = qabstractitemview_visualregionforselection_callback(this, cbval1);
+            return *callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1100,7 +1266,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_selectedindexes_isbase = false;
             return QAbstractItemView::selectedIndexes();
         } else if (qabstractitemview_selectedindexes_callback != nullptr) {
-            return qabstractitemview_selectedindexes_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qabstractitemview_selectedindexes_callback();
+            QModelIndexList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            }
+            return callback_ret_QList;
         } else {
             return QAbstractItemView::selectedIndexes();
         }
@@ -1112,7 +1285,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_edit2_isbase = false;
             return QAbstractItemView::edit(index, trigger, event);
         } else if (qabstractitemview_edit2_callback != nullptr) {
-            return qabstractitemview_edit2_callback(this, index, trigger, event);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            int cbval2 = static_cast<int>(trigger);
+            QEvent* cbval3 = event;
+
+            bool callback_ret = qabstractitemview_edit2_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QAbstractItemView::edit(index, trigger, event);
         }
@@ -1124,7 +1304,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_selectioncommand_isbase = false;
             return QAbstractItemView::selectionCommand(index, event);
         } else if (qabstractitemview_selectioncommand_callback != nullptr) {
-            return qabstractitemview_selectioncommand_callback(this, index, event);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            QEvent* cbval2 = (QEvent*)event;
+
+            int callback_ret = qabstractitemview_selectioncommand_callback(this, cbval1, cbval2);
+            return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
         } else {
             return QAbstractItemView::selectionCommand(index, event);
         }
@@ -1136,7 +1322,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_startdrag_isbase = false;
             QAbstractItemView::startDrag(supportedActions);
         } else if (qabstractitemview_startdrag_callback != nullptr) {
-            qabstractitemview_startdrag_callback(this, supportedActions);
+            int cbval1 = static_cast<int>(supportedActions);
+
+            qabstractitemview_startdrag_callback(this, cbval1);
         } else {
             QAbstractItemView::startDrag(supportedActions);
         }
@@ -1148,7 +1336,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_initviewitemoption_isbase = false;
             QAbstractItemView::initViewItemOption(option);
         } else if (qabstractitemview_initviewitemoption_callback != nullptr) {
-            qabstractitemview_initviewitemoption_callback(this, option);
+            QStyleOptionViewItem* cbval1 = option;
+
+            qabstractitemview_initviewitemoption_callback(this, cbval1);
         } else {
             QAbstractItemView::initViewItemOption(option);
         }
@@ -1160,7 +1350,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_focusnextprevchild_isbase = false;
             return QAbstractItemView::focusNextPrevChild(next);
         } else if (qabstractitemview_focusnextprevchild_callback != nullptr) {
-            return qabstractitemview_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qabstractitemview_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractItemView::focusNextPrevChild(next);
         }
@@ -1172,7 +1365,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_event_isbase = false;
             return QAbstractItemView::event(event);
         } else if (qabstractitemview_event_callback != nullptr) {
-            return qabstractitemview_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qabstractitemview_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractItemView::event(event);
         }
@@ -1184,7 +1380,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_viewportevent_isbase = false;
             return QAbstractItemView::viewportEvent(event);
         } else if (qabstractitemview_viewportevent_callback != nullptr) {
-            return qabstractitemview_viewportevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qabstractitemview_viewportevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractItemView::viewportEvent(event);
         }
@@ -1196,7 +1395,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_mousepressevent_isbase = false;
             QAbstractItemView::mousePressEvent(event);
         } else if (qabstractitemview_mousepressevent_callback != nullptr) {
-            qabstractitemview_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qabstractitemview_mousepressevent_callback(this, cbval1);
         } else {
             QAbstractItemView::mousePressEvent(event);
         }
@@ -1208,7 +1409,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_mousemoveevent_isbase = false;
             QAbstractItemView::mouseMoveEvent(event);
         } else if (qabstractitemview_mousemoveevent_callback != nullptr) {
-            qabstractitemview_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qabstractitemview_mousemoveevent_callback(this, cbval1);
         } else {
             QAbstractItemView::mouseMoveEvent(event);
         }
@@ -1220,7 +1423,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_mousereleaseevent_isbase = false;
             QAbstractItemView::mouseReleaseEvent(event);
         } else if (qabstractitemview_mousereleaseevent_callback != nullptr) {
-            qabstractitemview_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qabstractitemview_mousereleaseevent_callback(this, cbval1);
         } else {
             QAbstractItemView::mouseReleaseEvent(event);
         }
@@ -1232,7 +1437,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_mousedoubleclickevent_isbase = false;
             QAbstractItemView::mouseDoubleClickEvent(event);
         } else if (qabstractitemview_mousedoubleclickevent_callback != nullptr) {
-            qabstractitemview_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qabstractitemview_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QAbstractItemView::mouseDoubleClickEvent(event);
         }
@@ -1244,7 +1451,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_dragenterevent_isbase = false;
             QAbstractItemView::dragEnterEvent(event);
         } else if (qabstractitemview_dragenterevent_callback != nullptr) {
-            qabstractitemview_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qabstractitemview_dragenterevent_callback(this, cbval1);
         } else {
             QAbstractItemView::dragEnterEvent(event);
         }
@@ -1256,7 +1465,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_dragmoveevent_isbase = false;
             QAbstractItemView::dragMoveEvent(event);
         } else if (qabstractitemview_dragmoveevent_callback != nullptr) {
-            qabstractitemview_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qabstractitemview_dragmoveevent_callback(this, cbval1);
         } else {
             QAbstractItemView::dragMoveEvent(event);
         }
@@ -1268,7 +1479,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_dragleaveevent_isbase = false;
             QAbstractItemView::dragLeaveEvent(event);
         } else if (qabstractitemview_dragleaveevent_callback != nullptr) {
-            qabstractitemview_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qabstractitemview_dragleaveevent_callback(this, cbval1);
         } else {
             QAbstractItemView::dragLeaveEvent(event);
         }
@@ -1280,7 +1493,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_dropevent_isbase = false;
             QAbstractItemView::dropEvent(event);
         } else if (qabstractitemview_dropevent_callback != nullptr) {
-            qabstractitemview_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qabstractitemview_dropevent_callback(this, cbval1);
         } else {
             QAbstractItemView::dropEvent(event);
         }
@@ -1292,7 +1507,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_focusinevent_isbase = false;
             QAbstractItemView::focusInEvent(event);
         } else if (qabstractitemview_focusinevent_callback != nullptr) {
-            qabstractitemview_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qabstractitemview_focusinevent_callback(this, cbval1);
         } else {
             QAbstractItemView::focusInEvent(event);
         }
@@ -1304,7 +1521,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_focusoutevent_isbase = false;
             QAbstractItemView::focusOutEvent(event);
         } else if (qabstractitemview_focusoutevent_callback != nullptr) {
-            qabstractitemview_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qabstractitemview_focusoutevent_callback(this, cbval1);
         } else {
             QAbstractItemView::focusOutEvent(event);
         }
@@ -1316,7 +1535,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_keypressevent_isbase = false;
             QAbstractItemView::keyPressEvent(event);
         } else if (qabstractitemview_keypressevent_callback != nullptr) {
-            qabstractitemview_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qabstractitemview_keypressevent_callback(this, cbval1);
         } else {
             QAbstractItemView::keyPressEvent(event);
         }
@@ -1328,7 +1549,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_resizeevent_isbase = false;
             QAbstractItemView::resizeEvent(event);
         } else if (qabstractitemview_resizeevent_callback != nullptr) {
-            qabstractitemview_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qabstractitemview_resizeevent_callback(this, cbval1);
         } else {
             QAbstractItemView::resizeEvent(event);
         }
@@ -1340,7 +1563,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_timerevent_isbase = false;
             QAbstractItemView::timerEvent(event);
         } else if (qabstractitemview_timerevent_callback != nullptr) {
-            qabstractitemview_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qabstractitemview_timerevent_callback(this, cbval1);
         } else {
             QAbstractItemView::timerEvent(event);
         }
@@ -1352,7 +1577,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_inputmethodevent_isbase = false;
             QAbstractItemView::inputMethodEvent(event);
         } else if (qabstractitemview_inputmethodevent_callback != nullptr) {
-            qabstractitemview_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qabstractitemview_inputmethodevent_callback(this, cbval1);
         } else {
             QAbstractItemView::inputMethodEvent(event);
         }
@@ -1364,7 +1591,11 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_eventfilter_isbase = false;
             return QAbstractItemView::eventFilter(object, event);
         } else if (qabstractitemview_eventfilter_callback != nullptr) {
-            return qabstractitemview_eventfilter_callback(this, object, event);
+            QObject* cbval1 = object;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qabstractitemview_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QAbstractItemView::eventFilter(object, event);
         }
@@ -1376,7 +1607,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_viewportsizehint_isbase = false;
             return QAbstractItemView::viewportSizeHint();
         } else if (qabstractitemview_viewportsizehint_callback != nullptr) {
-            return qabstractitemview_viewportsizehint_callback();
+            QSize* callback_ret = qabstractitemview_viewportsizehint_callback();
+            return *callback_ret;
         } else {
             return QAbstractItemView::viewportSizeHint();
         }
@@ -1388,7 +1620,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_minimumsizehint_isbase = false;
             return QAbstractItemView::minimumSizeHint();
         } else if (qabstractitemview_minimumsizehint_callback != nullptr) {
-            return qabstractitemview_minimumsizehint_callback();
+            QSize* callback_ret = qabstractitemview_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QAbstractItemView::minimumSizeHint();
         }
@@ -1400,7 +1633,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_sizehint_isbase = false;
             return QAbstractItemView::sizeHint();
         } else if (qabstractitemview_sizehint_callback != nullptr) {
-            return qabstractitemview_sizehint_callback();
+            QSize* callback_ret = qabstractitemview_sizehint_callback();
+            return *callback_ret;
         } else {
             return QAbstractItemView::sizeHint();
         }
@@ -1412,7 +1646,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_setupviewport_isbase = false;
             QAbstractItemView::setupViewport(viewport);
         } else if (qabstractitemview_setupviewport_callback != nullptr) {
-            qabstractitemview_setupviewport_callback(this, viewport);
+            QWidget* cbval1 = viewport;
+
+            qabstractitemview_setupviewport_callback(this, cbval1);
         } else {
             QAbstractItemView::setupViewport(viewport);
         }
@@ -1424,7 +1660,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_paintevent_isbase = false;
             QAbstractItemView::paintEvent(param1);
         } else if (qabstractitemview_paintevent_callback != nullptr) {
-            qabstractitemview_paintevent_callback(this, param1);
+            QPaintEvent* cbval1 = param1;
+
+            qabstractitemview_paintevent_callback(this, cbval1);
         } else {
             QAbstractItemView::paintEvent(param1);
         }
@@ -1436,7 +1674,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_wheelevent_isbase = false;
             QAbstractItemView::wheelEvent(param1);
         } else if (qabstractitemview_wheelevent_callback != nullptr) {
-            qabstractitemview_wheelevent_callback(this, param1);
+            QWheelEvent* cbval1 = param1;
+
+            qabstractitemview_wheelevent_callback(this, cbval1);
         } else {
             QAbstractItemView::wheelEvent(param1);
         }
@@ -1448,7 +1688,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_contextmenuevent_isbase = false;
             QAbstractItemView::contextMenuEvent(param1);
         } else if (qabstractitemview_contextmenuevent_callback != nullptr) {
-            qabstractitemview_contextmenuevent_callback(this, param1);
+            QContextMenuEvent* cbval1 = param1;
+
+            qabstractitemview_contextmenuevent_callback(this, cbval1);
         } else {
             QAbstractItemView::contextMenuEvent(param1);
         }
@@ -1460,7 +1702,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_scrollcontentsby_isbase = false;
             QAbstractItemView::scrollContentsBy(dx, dy);
         } else if (qabstractitemview_scrollcontentsby_callback != nullptr) {
-            qabstractitemview_scrollcontentsby_callback(this, dx, dy);
+            int cbval1 = dx;
+            int cbval2 = dy;
+
+            qabstractitemview_scrollcontentsby_callback(this, cbval1, cbval2);
         } else {
             QAbstractItemView::scrollContentsBy(dx, dy);
         }
@@ -1472,7 +1717,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_changeevent_isbase = false;
             QAbstractItemView::changeEvent(param1);
         } else if (qabstractitemview_changeevent_callback != nullptr) {
-            qabstractitemview_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qabstractitemview_changeevent_callback(this, cbval1);
         } else {
             QAbstractItemView::changeEvent(param1);
         }
@@ -1484,7 +1731,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_initstyleoption_isbase = false;
             QAbstractItemView::initStyleOption(option);
         } else if (qabstractitemview_initstyleoption_callback != nullptr) {
-            qabstractitemview_initstyleoption_callback(this, option);
+            QStyleOptionFrame* cbval1 = option;
+
+            qabstractitemview_initstyleoption_callback(this, cbval1);
         } else {
             QAbstractItemView::initStyleOption(option);
         }
@@ -1496,7 +1745,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_devtype_isbase = false;
             return QAbstractItemView::devType();
         } else if (qabstractitemview_devtype_callback != nullptr) {
-            return qabstractitemview_devtype_callback();
+            int callback_ret = qabstractitemview_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractItemView::devType();
         }
@@ -1508,7 +1758,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_setvisible_isbase = false;
             QAbstractItemView::setVisible(visible);
         } else if (qabstractitemview_setvisible_callback != nullptr) {
-            qabstractitemview_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qabstractitemview_setvisible_callback(this, cbval1);
         } else {
             QAbstractItemView::setVisible(visible);
         }
@@ -1520,7 +1772,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_heightforwidth_isbase = false;
             return QAbstractItemView::heightForWidth(param1);
         } else if (qabstractitemview_heightforwidth_callback != nullptr) {
-            return qabstractitemview_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qabstractitemview_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractItemView::heightForWidth(param1);
         }
@@ -1532,7 +1787,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_hasheightforwidth_isbase = false;
             return QAbstractItemView::hasHeightForWidth();
         } else if (qabstractitemview_hasheightforwidth_callback != nullptr) {
-            return qabstractitemview_hasheightforwidth_callback();
+            bool callback_ret = qabstractitemview_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QAbstractItemView::hasHeightForWidth();
         }
@@ -1544,7 +1800,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_paintengine_isbase = false;
             return QAbstractItemView::paintEngine();
         } else if (qabstractitemview_paintengine_callback != nullptr) {
-            return qabstractitemview_paintengine_callback();
+            QPaintEngine* callback_ret = qabstractitemview_paintengine_callback();
+            return callback_ret;
         } else {
             return QAbstractItemView::paintEngine();
         }
@@ -1556,7 +1813,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_keyreleaseevent_isbase = false;
             QAbstractItemView::keyReleaseEvent(event);
         } else if (qabstractitemview_keyreleaseevent_callback != nullptr) {
-            qabstractitemview_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qabstractitemview_keyreleaseevent_callback(this, cbval1);
         } else {
             QAbstractItemView::keyReleaseEvent(event);
         }
@@ -1568,7 +1827,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_enterevent_isbase = false;
             QAbstractItemView::enterEvent(event);
         } else if (qabstractitemview_enterevent_callback != nullptr) {
-            qabstractitemview_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qabstractitemview_enterevent_callback(this, cbval1);
         } else {
             QAbstractItemView::enterEvent(event);
         }
@@ -1580,7 +1841,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_leaveevent_isbase = false;
             QAbstractItemView::leaveEvent(event);
         } else if (qabstractitemview_leaveevent_callback != nullptr) {
-            qabstractitemview_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qabstractitemview_leaveevent_callback(this, cbval1);
         } else {
             QAbstractItemView::leaveEvent(event);
         }
@@ -1592,7 +1855,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_moveevent_isbase = false;
             QAbstractItemView::moveEvent(event);
         } else if (qabstractitemview_moveevent_callback != nullptr) {
-            qabstractitemview_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qabstractitemview_moveevent_callback(this, cbval1);
         } else {
             QAbstractItemView::moveEvent(event);
         }
@@ -1604,7 +1869,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_closeevent_isbase = false;
             QAbstractItemView::closeEvent(event);
         } else if (qabstractitemview_closeevent_callback != nullptr) {
-            qabstractitemview_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qabstractitemview_closeevent_callback(this, cbval1);
         } else {
             QAbstractItemView::closeEvent(event);
         }
@@ -1616,7 +1883,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_tabletevent_isbase = false;
             QAbstractItemView::tabletEvent(event);
         } else if (qabstractitemview_tabletevent_callback != nullptr) {
-            qabstractitemview_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qabstractitemview_tabletevent_callback(this, cbval1);
         } else {
             QAbstractItemView::tabletEvent(event);
         }
@@ -1628,7 +1897,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_actionevent_isbase = false;
             QAbstractItemView::actionEvent(event);
         } else if (qabstractitemview_actionevent_callback != nullptr) {
-            qabstractitemview_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qabstractitemview_actionevent_callback(this, cbval1);
         } else {
             QAbstractItemView::actionEvent(event);
         }
@@ -1640,7 +1911,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_showevent_isbase = false;
             QAbstractItemView::showEvent(event);
         } else if (qabstractitemview_showevent_callback != nullptr) {
-            qabstractitemview_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qabstractitemview_showevent_callback(this, cbval1);
         } else {
             QAbstractItemView::showEvent(event);
         }
@@ -1652,7 +1925,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_hideevent_isbase = false;
             QAbstractItemView::hideEvent(event);
         } else if (qabstractitemview_hideevent_callback != nullptr) {
-            qabstractitemview_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qabstractitemview_hideevent_callback(this, cbval1);
         } else {
             QAbstractItemView::hideEvent(event);
         }
@@ -1664,7 +1939,19 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_nativeevent_isbase = false;
             return QAbstractItemView::nativeEvent(eventType, message, result);
         } else if (qabstractitemview_nativeevent_callback != nullptr) {
-            return qabstractitemview_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qabstractitemview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QAbstractItemView::nativeEvent(eventType, message, result);
         }
@@ -1676,7 +1963,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_metric_isbase = false;
             return QAbstractItemView::metric(param1);
         } else if (qabstractitemview_metric_callback != nullptr) {
-            return qabstractitemview_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qabstractitemview_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractItemView::metric(param1);
         }
@@ -1688,7 +1978,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_initpainter_isbase = false;
             QAbstractItemView::initPainter(painter);
         } else if (qabstractitemview_initpainter_callback != nullptr) {
-            qabstractitemview_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qabstractitemview_initpainter_callback(this, cbval1);
         } else {
             QAbstractItemView::initPainter(painter);
         }
@@ -1700,7 +1992,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_redirected_isbase = false;
             return QAbstractItemView::redirected(offset);
         } else if (qabstractitemview_redirected_callback != nullptr) {
-            return qabstractitemview_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qabstractitemview_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractItemView::redirected(offset);
         }
@@ -1712,7 +2007,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_sharedpainter_isbase = false;
             return QAbstractItemView::sharedPainter();
         } else if (qabstractitemview_sharedpainter_callback != nullptr) {
-            return qabstractitemview_sharedpainter_callback();
+            QPainter* callback_ret = qabstractitemview_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QAbstractItemView::sharedPainter();
         }
@@ -1724,7 +2020,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_childevent_isbase = false;
             QAbstractItemView::childEvent(event);
         } else if (qabstractitemview_childevent_callback != nullptr) {
-            qabstractitemview_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qabstractitemview_childevent_callback(this, cbval1);
         } else {
             QAbstractItemView::childEvent(event);
         }
@@ -1736,7 +2034,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_customevent_isbase = false;
             QAbstractItemView::customEvent(event);
         } else if (qabstractitemview_customevent_callback != nullptr) {
-            qabstractitemview_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qabstractitemview_customevent_callback(this, cbval1);
         } else {
             QAbstractItemView::customEvent(event);
         }
@@ -1748,7 +2048,11 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_connectnotify_isbase = false;
             QAbstractItemView::connectNotify(signal);
         } else if (qabstractitemview_connectnotify_callback != nullptr) {
-            qabstractitemview_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qabstractitemview_connectnotify_callback(this, cbval1);
         } else {
             QAbstractItemView::connectNotify(signal);
         }
@@ -1760,7 +2064,11 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_disconnectnotify_isbase = false;
             QAbstractItemView::disconnectNotify(signal);
         } else if (qabstractitemview_disconnectnotify_callback != nullptr) {
-            qabstractitemview_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qabstractitemview_disconnectnotify_callback(this, cbval1);
         } else {
             QAbstractItemView::disconnectNotify(signal);
         }
@@ -1772,7 +2080,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_state_isbase = false;
             return QAbstractItemView::state();
         } else if (qabstractitemview_state_callback != nullptr) {
-            return qabstractitemview_state_callback();
+            int callback_ret = qabstractitemview_state_callback();
+            return static_cast<VirtualQAbstractItemView::State>(callback_ret);
         } else {
             return QAbstractItemView::state();
         }
@@ -1784,7 +2093,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_setstate_isbase = false;
             QAbstractItemView::setState(state);
         } else if (qabstractitemview_setstate_callback != nullptr) {
-            qabstractitemview_setstate_callback(this, state);
+            int cbval1 = static_cast<int>(state);
+
+            qabstractitemview_setstate_callback(this, cbval1);
         } else {
             QAbstractItemView::setState(state);
         }
@@ -1820,7 +2131,11 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_setdirtyregion_isbase = false;
             QAbstractItemView::setDirtyRegion(region);
         } else if (qabstractitemview_setdirtyregion_callback != nullptr) {
-            qabstractitemview_setdirtyregion_callback(this, region);
+            const QRegion& region_ret = region;
+            // Cast returned reference into pointer
+            QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
+
+            qabstractitemview_setdirtyregion_callback(this, cbval1);
         } else {
             QAbstractItemView::setDirtyRegion(region);
         }
@@ -1832,7 +2147,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_scrolldirtyregion_isbase = false;
             QAbstractItemView::scrollDirtyRegion(dx, dy);
         } else if (qabstractitemview_scrolldirtyregion_callback != nullptr) {
-            qabstractitemview_scrolldirtyregion_callback(this, dx, dy);
+            int cbval1 = dx;
+            int cbval2 = dy;
+
+            qabstractitemview_scrolldirtyregion_callback(this, cbval1, cbval2);
         } else {
             QAbstractItemView::scrollDirtyRegion(dx, dy);
         }
@@ -1844,7 +2162,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_dirtyregionoffset_isbase = false;
             return QAbstractItemView::dirtyRegionOffset();
         } else if (qabstractitemview_dirtyregionoffset_callback != nullptr) {
-            return qabstractitemview_dirtyregionoffset_callback();
+            QPoint* callback_ret = qabstractitemview_dirtyregionoffset_callback();
+            return *callback_ret;
         } else {
             return QAbstractItemView::dirtyRegionOffset();
         }
@@ -1892,7 +2211,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_dropindicatorposition_isbase = false;
             return QAbstractItemView::dropIndicatorPosition();
         } else if (qabstractitemview_dropindicatorposition_callback != nullptr) {
-            return qabstractitemview_dropindicatorposition_callback();
+            int callback_ret = qabstractitemview_dropindicatorposition_callback();
+            return static_cast<VirtualQAbstractItemView::DropIndicatorPosition>(callback_ret);
         } else {
             return QAbstractItemView::dropIndicatorPosition();
         }
@@ -1904,7 +2224,12 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_setviewportmargins_isbase = false;
             QAbstractItemView::setViewportMargins(left, top, right, bottom);
         } else if (qabstractitemview_setviewportmargins_callback != nullptr) {
-            qabstractitemview_setviewportmargins_callback(this, left, top, right, bottom);
+            int cbval1 = left;
+            int cbval2 = top;
+            int cbval3 = right;
+            int cbval4 = bottom;
+
+            qabstractitemview_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QAbstractItemView::setViewportMargins(left, top, right, bottom);
         }
@@ -1916,7 +2241,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_viewportmargins_isbase = false;
             return QAbstractItemView::viewportMargins();
         } else if (qabstractitemview_viewportmargins_callback != nullptr) {
-            return qabstractitemview_viewportmargins_callback();
+            QMargins* callback_ret = qabstractitemview_viewportmargins_callback();
+            return *callback_ret;
         } else {
             return QAbstractItemView::viewportMargins();
         }
@@ -1928,7 +2254,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_drawframe_isbase = false;
             QAbstractItemView::drawFrame(param1);
         } else if (qabstractitemview_drawframe_callback != nullptr) {
-            qabstractitemview_drawframe_callback(this, param1);
+            QPainter* cbval1 = param1;
+
+            qabstractitemview_drawframe_callback(this, cbval1);
         } else {
             QAbstractItemView::drawFrame(param1);
         }
@@ -1976,7 +2304,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_focusnextchild_isbase = false;
             return QAbstractItemView::focusNextChild();
         } else if (qabstractitemview_focusnextchild_callback != nullptr) {
-            return qabstractitemview_focusnextchild_callback();
+            bool callback_ret = qabstractitemview_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QAbstractItemView::focusNextChild();
         }
@@ -1988,7 +2317,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_focuspreviouschild_isbase = false;
             return QAbstractItemView::focusPreviousChild();
         } else if (qabstractitemview_focuspreviouschild_callback != nullptr) {
-            return qabstractitemview_focuspreviouschild_callback();
+            bool callback_ret = qabstractitemview_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QAbstractItemView::focusPreviousChild();
         }
@@ -2000,7 +2330,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_sender_isbase = false;
             return QAbstractItemView::sender();
         } else if (qabstractitemview_sender_callback != nullptr) {
-            return qabstractitemview_sender_callback();
+            QObject* callback_ret = qabstractitemview_sender_callback();
+            return callback_ret;
         } else {
             return QAbstractItemView::sender();
         }
@@ -2012,7 +2343,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_sendersignalindex_isbase = false;
             return QAbstractItemView::senderSignalIndex();
         } else if (qabstractitemview_sendersignalindex_callback != nullptr) {
-            return qabstractitemview_sendersignalindex_callback();
+            int callback_ret = qabstractitemview_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractItemView::senderSignalIndex();
         }
@@ -2024,7 +2356,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_receivers_isbase = false;
             return QAbstractItemView::receivers(signal);
         } else if (qabstractitemview_receivers_callback != nullptr) {
-            return qabstractitemview_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qabstractitemview_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractItemView::receivers(signal);
         }
@@ -2036,11 +2371,202 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_issignalconnected_isbase = false;
             return QAbstractItemView::isSignalConnected(signal);
         } else if (qabstractitemview_issignalconnected_callback != nullptr) {
-            return qabstractitemview_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qabstractitemview_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractItemView::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QAbstractItemView_DataChanged(QAbstractItemView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles);
+    friend void QAbstractItemView_QBaseDataChanged(QAbstractItemView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles);
+    friend void QAbstractItemView_RowsInserted(QAbstractItemView* self, const QModelIndex* parent, int start, int end);
+    friend void QAbstractItemView_QBaseRowsInserted(QAbstractItemView* self, const QModelIndex* parent, int start, int end);
+    friend void QAbstractItemView_RowsAboutToBeRemoved(QAbstractItemView* self, const QModelIndex* parent, int start, int end);
+    friend void QAbstractItemView_QBaseRowsAboutToBeRemoved(QAbstractItemView* self, const QModelIndex* parent, int start, int end);
+    friend void QAbstractItemView_SelectionChanged(QAbstractItemView* self, const QItemSelection* selected, const QItemSelection* deselected);
+    friend void QAbstractItemView_QBaseSelectionChanged(QAbstractItemView* self, const QItemSelection* selected, const QItemSelection* deselected);
+    friend void QAbstractItemView_CurrentChanged(QAbstractItemView* self, const QModelIndex* current, const QModelIndex* previous);
+    friend void QAbstractItemView_QBaseCurrentChanged(QAbstractItemView* self, const QModelIndex* current, const QModelIndex* previous);
+    friend void QAbstractItemView_UpdateEditorData(QAbstractItemView* self);
+    friend void QAbstractItemView_QBaseUpdateEditorData(QAbstractItemView* self);
+    friend void QAbstractItemView_UpdateEditorGeometries(QAbstractItemView* self);
+    friend void QAbstractItemView_QBaseUpdateEditorGeometries(QAbstractItemView* self);
+    friend void QAbstractItemView_UpdateGeometries(QAbstractItemView* self);
+    friend void QAbstractItemView_QBaseUpdateGeometries(QAbstractItemView* self);
+    friend void QAbstractItemView_VerticalScrollbarAction(QAbstractItemView* self, int action);
+    friend void QAbstractItemView_QBaseVerticalScrollbarAction(QAbstractItemView* self, int action);
+    friend void QAbstractItemView_HorizontalScrollbarAction(QAbstractItemView* self, int action);
+    friend void QAbstractItemView_QBaseHorizontalScrollbarAction(QAbstractItemView* self, int action);
+    friend void QAbstractItemView_VerticalScrollbarValueChanged(QAbstractItemView* self, int value);
+    friend void QAbstractItemView_QBaseVerticalScrollbarValueChanged(QAbstractItemView* self, int value);
+    friend void QAbstractItemView_HorizontalScrollbarValueChanged(QAbstractItemView* self, int value);
+    friend void QAbstractItemView_QBaseHorizontalScrollbarValueChanged(QAbstractItemView* self, int value);
+    friend void QAbstractItemView_CloseEditor(QAbstractItemView* self, QWidget* editor, int hint);
+    friend void QAbstractItemView_QBaseCloseEditor(QAbstractItemView* self, QWidget* editor, int hint);
+    friend void QAbstractItemView_CommitData(QAbstractItemView* self, QWidget* editor);
+    friend void QAbstractItemView_QBaseCommitData(QAbstractItemView* self, QWidget* editor);
+    friend void QAbstractItemView_EditorDestroyed(QAbstractItemView* self, QObject* editor);
+    friend void QAbstractItemView_QBaseEditorDestroyed(QAbstractItemView* self, QObject* editor);
+    friend QModelIndex* QAbstractItemView_MoveCursor(QAbstractItemView* self, int cursorAction, int modifiers);
+    friend QModelIndex* QAbstractItemView_QBaseMoveCursor(QAbstractItemView* self, int cursorAction, int modifiers);
+    friend int QAbstractItemView_HorizontalOffset(const QAbstractItemView* self);
+    friend int QAbstractItemView_QBaseHorizontalOffset(const QAbstractItemView* self);
+    friend int QAbstractItemView_VerticalOffset(const QAbstractItemView* self);
+    friend int QAbstractItemView_QBaseVerticalOffset(const QAbstractItemView* self);
+    friend bool QAbstractItemView_IsIndexHidden(const QAbstractItemView* self, const QModelIndex* index);
+    friend bool QAbstractItemView_QBaseIsIndexHidden(const QAbstractItemView* self, const QModelIndex* index);
+    friend void QAbstractItemView_SetSelection(QAbstractItemView* self, const QRect* rect, int command);
+    friend void QAbstractItemView_QBaseSetSelection(QAbstractItemView* self, const QRect* rect, int command);
+    friend QRegion* QAbstractItemView_VisualRegionForSelection(const QAbstractItemView* self, const QItemSelection* selection);
+    friend QRegion* QAbstractItemView_QBaseVisualRegionForSelection(const QAbstractItemView* self, const QItemSelection* selection);
+    friend libqt_list /* of QModelIndex* */ QAbstractItemView_SelectedIndexes(const QAbstractItemView* self);
+    friend libqt_list /* of QModelIndex* */ QAbstractItemView_QBaseSelectedIndexes(const QAbstractItemView* self);
+    friend bool QAbstractItemView_Edit2(QAbstractItemView* self, const QModelIndex* index, int trigger, QEvent* event);
+    friend bool QAbstractItemView_QBaseEdit2(QAbstractItemView* self, const QModelIndex* index, int trigger, QEvent* event);
+    friend int QAbstractItemView_SelectionCommand(const QAbstractItemView* self, const QModelIndex* index, const QEvent* event);
+    friend int QAbstractItemView_QBaseSelectionCommand(const QAbstractItemView* self, const QModelIndex* index, const QEvent* event);
+    friend void QAbstractItemView_StartDrag(QAbstractItemView* self, int supportedActions);
+    friend void QAbstractItemView_QBaseStartDrag(QAbstractItemView* self, int supportedActions);
+    friend void QAbstractItemView_InitViewItemOption(const QAbstractItemView* self, QStyleOptionViewItem* option);
+    friend void QAbstractItemView_QBaseInitViewItemOption(const QAbstractItemView* self, QStyleOptionViewItem* option);
+    friend bool QAbstractItemView_FocusNextPrevChild(QAbstractItemView* self, bool next);
+    friend bool QAbstractItemView_QBaseFocusNextPrevChild(QAbstractItemView* self, bool next);
+    friend bool QAbstractItemView_Event(QAbstractItemView* self, QEvent* event);
+    friend bool QAbstractItemView_QBaseEvent(QAbstractItemView* self, QEvent* event);
+    friend bool QAbstractItemView_ViewportEvent(QAbstractItemView* self, QEvent* event);
+    friend bool QAbstractItemView_QBaseViewportEvent(QAbstractItemView* self, QEvent* event);
+    friend void QAbstractItemView_MousePressEvent(QAbstractItemView* self, QMouseEvent* event);
+    friend void QAbstractItemView_QBaseMousePressEvent(QAbstractItemView* self, QMouseEvent* event);
+    friend void QAbstractItemView_MouseMoveEvent(QAbstractItemView* self, QMouseEvent* event);
+    friend void QAbstractItemView_QBaseMouseMoveEvent(QAbstractItemView* self, QMouseEvent* event);
+    friend void QAbstractItemView_MouseReleaseEvent(QAbstractItemView* self, QMouseEvent* event);
+    friend void QAbstractItemView_QBaseMouseReleaseEvent(QAbstractItemView* self, QMouseEvent* event);
+    friend void QAbstractItemView_MouseDoubleClickEvent(QAbstractItemView* self, QMouseEvent* event);
+    friend void QAbstractItemView_QBaseMouseDoubleClickEvent(QAbstractItemView* self, QMouseEvent* event);
+    friend void QAbstractItemView_DragEnterEvent(QAbstractItemView* self, QDragEnterEvent* event);
+    friend void QAbstractItemView_QBaseDragEnterEvent(QAbstractItemView* self, QDragEnterEvent* event);
+    friend void QAbstractItemView_DragMoveEvent(QAbstractItemView* self, QDragMoveEvent* event);
+    friend void QAbstractItemView_QBaseDragMoveEvent(QAbstractItemView* self, QDragMoveEvent* event);
+    friend void QAbstractItemView_DragLeaveEvent(QAbstractItemView* self, QDragLeaveEvent* event);
+    friend void QAbstractItemView_QBaseDragLeaveEvent(QAbstractItemView* self, QDragLeaveEvent* event);
+    friend void QAbstractItemView_DropEvent(QAbstractItemView* self, QDropEvent* event);
+    friend void QAbstractItemView_QBaseDropEvent(QAbstractItemView* self, QDropEvent* event);
+    friend void QAbstractItemView_FocusInEvent(QAbstractItemView* self, QFocusEvent* event);
+    friend void QAbstractItemView_QBaseFocusInEvent(QAbstractItemView* self, QFocusEvent* event);
+    friend void QAbstractItemView_FocusOutEvent(QAbstractItemView* self, QFocusEvent* event);
+    friend void QAbstractItemView_QBaseFocusOutEvent(QAbstractItemView* self, QFocusEvent* event);
+    friend void QAbstractItemView_KeyPressEvent(QAbstractItemView* self, QKeyEvent* event);
+    friend void QAbstractItemView_QBaseKeyPressEvent(QAbstractItemView* self, QKeyEvent* event);
+    friend void QAbstractItemView_ResizeEvent(QAbstractItemView* self, QResizeEvent* event);
+    friend void QAbstractItemView_QBaseResizeEvent(QAbstractItemView* self, QResizeEvent* event);
+    friend void QAbstractItemView_TimerEvent(QAbstractItemView* self, QTimerEvent* event);
+    friend void QAbstractItemView_QBaseTimerEvent(QAbstractItemView* self, QTimerEvent* event);
+    friend void QAbstractItemView_InputMethodEvent(QAbstractItemView* self, QInputMethodEvent* event);
+    friend void QAbstractItemView_QBaseInputMethodEvent(QAbstractItemView* self, QInputMethodEvent* event);
+    friend bool QAbstractItemView_EventFilter(QAbstractItemView* self, QObject* object, QEvent* event);
+    friend bool QAbstractItemView_QBaseEventFilter(QAbstractItemView* self, QObject* object, QEvent* event);
+    friend QSize* QAbstractItemView_ViewportSizeHint(const QAbstractItemView* self);
+    friend QSize* QAbstractItemView_QBaseViewportSizeHint(const QAbstractItemView* self);
+    friend void QAbstractItemView_PaintEvent(QAbstractItemView* self, QPaintEvent* param1);
+    friend void QAbstractItemView_QBasePaintEvent(QAbstractItemView* self, QPaintEvent* param1);
+    friend void QAbstractItemView_WheelEvent(QAbstractItemView* self, QWheelEvent* param1);
+    friend void QAbstractItemView_QBaseWheelEvent(QAbstractItemView* self, QWheelEvent* param1);
+    friend void QAbstractItemView_ContextMenuEvent(QAbstractItemView* self, QContextMenuEvent* param1);
+    friend void QAbstractItemView_QBaseContextMenuEvent(QAbstractItemView* self, QContextMenuEvent* param1);
+    friend void QAbstractItemView_ScrollContentsBy(QAbstractItemView* self, int dx, int dy);
+    friend void QAbstractItemView_QBaseScrollContentsBy(QAbstractItemView* self, int dx, int dy);
+    friend void QAbstractItemView_ChangeEvent(QAbstractItemView* self, QEvent* param1);
+    friend void QAbstractItemView_QBaseChangeEvent(QAbstractItemView* self, QEvent* param1);
+    friend void QAbstractItemView_InitStyleOption(const QAbstractItemView* self, QStyleOptionFrame* option);
+    friend void QAbstractItemView_QBaseInitStyleOption(const QAbstractItemView* self, QStyleOptionFrame* option);
+    friend void QAbstractItemView_KeyReleaseEvent(QAbstractItemView* self, QKeyEvent* event);
+    friend void QAbstractItemView_QBaseKeyReleaseEvent(QAbstractItemView* self, QKeyEvent* event);
+    friend void QAbstractItemView_EnterEvent(QAbstractItemView* self, QEnterEvent* event);
+    friend void QAbstractItemView_QBaseEnterEvent(QAbstractItemView* self, QEnterEvent* event);
+    friend void QAbstractItemView_LeaveEvent(QAbstractItemView* self, QEvent* event);
+    friend void QAbstractItemView_QBaseLeaveEvent(QAbstractItemView* self, QEvent* event);
+    friend void QAbstractItemView_MoveEvent(QAbstractItemView* self, QMoveEvent* event);
+    friend void QAbstractItemView_QBaseMoveEvent(QAbstractItemView* self, QMoveEvent* event);
+    friend void QAbstractItemView_CloseEvent(QAbstractItemView* self, QCloseEvent* event);
+    friend void QAbstractItemView_QBaseCloseEvent(QAbstractItemView* self, QCloseEvent* event);
+    friend void QAbstractItemView_TabletEvent(QAbstractItemView* self, QTabletEvent* event);
+    friend void QAbstractItemView_QBaseTabletEvent(QAbstractItemView* self, QTabletEvent* event);
+    friend void QAbstractItemView_ActionEvent(QAbstractItemView* self, QActionEvent* event);
+    friend void QAbstractItemView_QBaseActionEvent(QAbstractItemView* self, QActionEvent* event);
+    friend void QAbstractItemView_ShowEvent(QAbstractItemView* self, QShowEvent* event);
+    friend void QAbstractItemView_QBaseShowEvent(QAbstractItemView* self, QShowEvent* event);
+    friend void QAbstractItemView_HideEvent(QAbstractItemView* self, QHideEvent* event);
+    friend void QAbstractItemView_QBaseHideEvent(QAbstractItemView* self, QHideEvent* event);
+    friend bool QAbstractItemView_NativeEvent(QAbstractItemView* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QAbstractItemView_QBaseNativeEvent(QAbstractItemView* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QAbstractItemView_Metric(const QAbstractItemView* self, int param1);
+    friend int QAbstractItemView_QBaseMetric(const QAbstractItemView* self, int param1);
+    friend void QAbstractItemView_InitPainter(const QAbstractItemView* self, QPainter* painter);
+    friend void QAbstractItemView_QBaseInitPainter(const QAbstractItemView* self, QPainter* painter);
+    friend QPaintDevice* QAbstractItemView_Redirected(const QAbstractItemView* self, QPoint* offset);
+    friend QPaintDevice* QAbstractItemView_QBaseRedirected(const QAbstractItemView* self, QPoint* offset);
+    friend QPainter* QAbstractItemView_SharedPainter(const QAbstractItemView* self);
+    friend QPainter* QAbstractItemView_QBaseSharedPainter(const QAbstractItemView* self);
+    friend void QAbstractItemView_ChildEvent(QAbstractItemView* self, QChildEvent* event);
+    friend void QAbstractItemView_QBaseChildEvent(QAbstractItemView* self, QChildEvent* event);
+    friend void QAbstractItemView_CustomEvent(QAbstractItemView* self, QEvent* event);
+    friend void QAbstractItemView_QBaseCustomEvent(QAbstractItemView* self, QEvent* event);
+    friend void QAbstractItemView_ConnectNotify(QAbstractItemView* self, const QMetaMethod* signal);
+    friend void QAbstractItemView_QBaseConnectNotify(QAbstractItemView* self, const QMetaMethod* signal);
+    friend void QAbstractItemView_DisconnectNotify(QAbstractItemView* self, const QMetaMethod* signal);
+    friend void QAbstractItemView_QBaseDisconnectNotify(QAbstractItemView* self, const QMetaMethod* signal);
+    friend int QAbstractItemView_State(const QAbstractItemView* self);
+    friend int QAbstractItemView_QBaseState(const QAbstractItemView* self);
+    friend void QAbstractItemView_SetState(QAbstractItemView* self, int state);
+    friend void QAbstractItemView_QBaseSetState(QAbstractItemView* self, int state);
+    friend void QAbstractItemView_ScheduleDelayedItemsLayout(QAbstractItemView* self);
+    friend void QAbstractItemView_QBaseScheduleDelayedItemsLayout(QAbstractItemView* self);
+    friend void QAbstractItemView_ExecuteDelayedItemsLayout(QAbstractItemView* self);
+    friend void QAbstractItemView_QBaseExecuteDelayedItemsLayout(QAbstractItemView* self);
+    friend void QAbstractItemView_SetDirtyRegion(QAbstractItemView* self, const QRegion* region);
+    friend void QAbstractItemView_QBaseSetDirtyRegion(QAbstractItemView* self, const QRegion* region);
+    friend void QAbstractItemView_ScrollDirtyRegion(QAbstractItemView* self, int dx, int dy);
+    friend void QAbstractItemView_QBaseScrollDirtyRegion(QAbstractItemView* self, int dx, int dy);
+    friend QPoint* QAbstractItemView_DirtyRegionOffset(const QAbstractItemView* self);
+    friend QPoint* QAbstractItemView_QBaseDirtyRegionOffset(const QAbstractItemView* self);
+    friend void QAbstractItemView_StartAutoScroll(QAbstractItemView* self);
+    friend void QAbstractItemView_QBaseStartAutoScroll(QAbstractItemView* self);
+    friend void QAbstractItemView_StopAutoScroll(QAbstractItemView* self);
+    friend void QAbstractItemView_QBaseStopAutoScroll(QAbstractItemView* self);
+    friend void QAbstractItemView_DoAutoScroll(QAbstractItemView* self);
+    friend void QAbstractItemView_QBaseDoAutoScroll(QAbstractItemView* self);
+    friend int QAbstractItemView_DropIndicatorPosition(const QAbstractItemView* self);
+    friend int QAbstractItemView_QBaseDropIndicatorPosition(const QAbstractItemView* self);
+    friend void QAbstractItemView_SetViewportMargins(QAbstractItemView* self, int left, int top, int right, int bottom);
+    friend void QAbstractItemView_QBaseSetViewportMargins(QAbstractItemView* self, int left, int top, int right, int bottom);
+    friend QMargins* QAbstractItemView_ViewportMargins(const QAbstractItemView* self);
+    friend QMargins* QAbstractItemView_QBaseViewportMargins(const QAbstractItemView* self);
+    friend void QAbstractItemView_DrawFrame(QAbstractItemView* self, QPainter* param1);
+    friend void QAbstractItemView_QBaseDrawFrame(QAbstractItemView* self, QPainter* param1);
+    friend void QAbstractItemView_UpdateMicroFocus(QAbstractItemView* self);
+    friend void QAbstractItemView_QBaseUpdateMicroFocus(QAbstractItemView* self);
+    friend void QAbstractItemView_Create(QAbstractItemView* self);
+    friend void QAbstractItemView_QBaseCreate(QAbstractItemView* self);
+    friend void QAbstractItemView_Destroy(QAbstractItemView* self);
+    friend void QAbstractItemView_QBaseDestroy(QAbstractItemView* self);
+    friend bool QAbstractItemView_FocusNextChild(QAbstractItemView* self);
+    friend bool QAbstractItemView_QBaseFocusNextChild(QAbstractItemView* self);
+    friend bool QAbstractItemView_FocusPreviousChild(QAbstractItemView* self);
+    friend bool QAbstractItemView_QBaseFocusPreviousChild(QAbstractItemView* self);
+    friend QObject* QAbstractItemView_Sender(const QAbstractItemView* self);
+    friend QObject* QAbstractItemView_QBaseSender(const QAbstractItemView* self);
+    friend int QAbstractItemView_SenderSignalIndex(const QAbstractItemView* self);
+    friend int QAbstractItemView_QBaseSenderSignalIndex(const QAbstractItemView* self);
+    friend int QAbstractItemView_Receivers(const QAbstractItemView* self, const char* signal);
+    friend int QAbstractItemView_QBaseReceivers(const QAbstractItemView* self, const char* signal);
+    friend bool QAbstractItemView_IsSignalConnected(const QAbstractItemView* self, const QMetaMethod* signal);
+    friend bool QAbstractItemView_QBaseIsSignalConnected(const QAbstractItemView* self, const QMetaMethod* signal);
 };
 
 #endif

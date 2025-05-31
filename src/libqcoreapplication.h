@@ -15,25 +15,17 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractEventDispatcher QAbstractEventDispatcher;
 typedef struct QAbstractNativeEventFilter QAbstractNativeEventFilter;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QCoreApplication QCoreApplication;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QTranslator QTranslator;
-typedef struct QVariant QVariant;
 #endif
 
 QCoreApplication* QCoreApplication_new(int* argc, char** argv);
@@ -47,13 +39,13 @@ libqt_string QCoreApplication_Tr(const char* s);
 libqt_list /* of libqt_string */ QCoreApplication_Arguments();
 void QCoreApplication_SetAttribute(int attribute);
 bool QCoreApplication_TestAttribute(int attribute);
-void QCoreApplication_SetOrganizationDomain(libqt_string orgDomain);
+void QCoreApplication_SetOrganizationDomain(const libqt_string orgDomain);
 libqt_string QCoreApplication_OrganizationDomain();
-void QCoreApplication_SetOrganizationName(libqt_string orgName);
+void QCoreApplication_SetOrganizationName(const libqt_string orgName);
 libqt_string QCoreApplication_OrganizationName();
-void QCoreApplication_SetApplicationName(libqt_string application);
+void QCoreApplication_SetApplicationName(const libqt_string application);
 libqt_string QCoreApplication_ApplicationName();
-void QCoreApplication_SetApplicationVersion(libqt_string version);
+void QCoreApplication_SetApplicationVersion(const libqt_string version);
 libqt_string QCoreApplication_ApplicationVersion();
 void QCoreApplication_SetSetuidAllowed(bool allow);
 bool QCoreApplication_IsSetuidAllowed();
@@ -75,10 +67,10 @@ bool QCoreApplication_ClosingDown();
 libqt_string QCoreApplication_ApplicationDirPath();
 libqt_string QCoreApplication_ApplicationFilePath();
 long long QCoreApplication_ApplicationPid();
-void QCoreApplication_SetLibraryPaths(libqt_list /* of libqt_string */ libraryPaths);
+void QCoreApplication_SetLibraryPaths(const libqt_list /* of libqt_string */ libraryPaths);
 libqt_list /* of libqt_string */ QCoreApplication_LibraryPaths();
-void QCoreApplication_AddLibraryPath(libqt_string param1);
-void QCoreApplication_RemoveLibraryPath(libqt_string param1);
+void QCoreApplication_AddLibraryPath(const libqt_string param1);
+void QCoreApplication_RemoveLibraryPath(const libqt_string param1);
 bool QCoreApplication_InstallTranslator(QTranslator* messageFile);
 bool QCoreApplication_RemoveTranslator(QTranslator* messageFile);
 libqt_string QCoreApplication_Translate(const char* context, const char* key);
@@ -124,12 +116,12 @@ void QCoreApplication_QBaseChildEvent(QCoreApplication* self, QChildEvent* event
 void QCoreApplication_CustomEvent(QCoreApplication* self, QEvent* event);
 void QCoreApplication_OnCustomEvent(QCoreApplication* self, intptr_t slot);
 void QCoreApplication_QBaseCustomEvent(QCoreApplication* self, QEvent* event);
-void QCoreApplication_ConnectNotify(QCoreApplication* self, QMetaMethod* signal);
+void QCoreApplication_ConnectNotify(QCoreApplication* self, const QMetaMethod* signal);
 void QCoreApplication_OnConnectNotify(QCoreApplication* self, intptr_t slot);
-void QCoreApplication_QBaseConnectNotify(QCoreApplication* self, QMetaMethod* signal);
-void QCoreApplication_DisconnectNotify(QCoreApplication* self, QMetaMethod* signal);
+void QCoreApplication_QBaseConnectNotify(QCoreApplication* self, const QMetaMethod* signal);
+void QCoreApplication_DisconnectNotify(QCoreApplication* self, const QMetaMethod* signal);
 void QCoreApplication_OnDisconnectNotify(QCoreApplication* self, intptr_t slot);
-void QCoreApplication_QBaseDisconnectNotify(QCoreApplication* self, QMetaMethod* signal);
+void QCoreApplication_QBaseDisconnectNotify(QCoreApplication* self, const QMetaMethod* signal);
 void* QCoreApplication_ResolveInterface(const QCoreApplication* self, const char* name, int revision);
 void QCoreApplication_OnResolveInterface(const QCoreApplication* self, intptr_t slot);
 void* QCoreApplication_QBaseResolveInterface(const QCoreApplication* self, const char* name, int revision);
@@ -142,9 +134,10 @@ int QCoreApplication_QBaseSenderSignalIndex(const QCoreApplication* self);
 int QCoreApplication_Receivers(const QCoreApplication* self, const char* signal);
 void QCoreApplication_OnReceivers(const QCoreApplication* self, intptr_t slot);
 int QCoreApplication_QBaseReceivers(const QCoreApplication* self, const char* signal);
-bool QCoreApplication_IsSignalConnected(const QCoreApplication* self, QMetaMethod* signal);
+bool QCoreApplication_IsSignalConnected(const QCoreApplication* self, const QMetaMethod* signal);
 void QCoreApplication_OnIsSignalConnected(const QCoreApplication* self, intptr_t slot);
-bool QCoreApplication_QBaseIsSignalConnected(const QCoreApplication* self, QMetaMethod* signal);
+bool QCoreApplication_QBaseIsSignalConnected(const QCoreApplication* self, const QMetaMethod* signal);
+void QCoreApplication_Connect_AboutToQuit(QCoreApplication* self, intptr_t slot);
 void QCoreApplication_Delete(QCoreApplication* self);
 
 #ifdef __cplusplus

@@ -1,21 +1,15 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
 #include <QInputDevice>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QRect>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <qinputdevice.h>
 #include "libqinputdevice.h"
 #include "libqinputdevice.hxx"
@@ -24,7 +18,7 @@ QInputDevice* QInputDevice_new() {
     return new VirtualQInputDevice();
 }
 
-QInputDevice* QInputDevice_new2(libqt_string name, long long systemId, int typeVal) {
+QInputDevice* QInputDevice_new2(const libqt_string name, long long systemId, int typeVal) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     return new VirtualQInputDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(typeVal));
 }
@@ -33,13 +27,13 @@ QInputDevice* QInputDevice_new3(QObject* parent) {
     return new VirtualQInputDevice(parent);
 }
 
-QInputDevice* QInputDevice_new4(libqt_string name, long long systemId, int typeVal, libqt_string seatName) {
+QInputDevice* QInputDevice_new4(const libqt_string name, long long systemId, int typeVal, const libqt_string seatName) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString seatName_QString = QString::fromUtf8(seatName.data, seatName.len);
     return new VirtualQInputDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(typeVal), seatName_QString);
 }
 
-QInputDevice* QInputDevice_new5(libqt_string name, long long systemId, int typeVal, libqt_string seatName, QObject* parent) {
+QInputDevice* QInputDevice_new5(const libqt_string name, long long systemId, int typeVal, const libqt_string seatName, QObject* parent) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString seatName_QString = QString::fromUtf8(seatName.data, seatName.len);
     return new VirtualQInputDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(typeVal), seatName_QString, parent);
@@ -54,27 +48,30 @@ void* QInputDevice_Metacast(QInputDevice* self, const char* param1) {
 }
 
 int QInputDevice_Metacall(QInputDevice* self, int param1, int param2, void** param3) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQInputDevice*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QInputDevice_OnMetacall(QInputDevice* self, intptr_t slot) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_Metacall_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QInputDevice_QBaseMetacall(QInputDevice* self, int param1, int param2, void** param3) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_Metacall_IsBase(true);
         return vqinputdevice->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQInputDevice*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -172,7 +169,7 @@ QInputDevice* QInputDevice_PrimaryKeyboard() {
     return (QInputDevice*)QInputDevice::primaryKeyboard();
 }
 
-bool QInputDevice_OperatorEqual(const QInputDevice* self, QInputDevice* other) {
+bool QInputDevice_OperatorEqual(const QInputDevice* self, const QInputDevice* other) {
     return (*self == *other);
 }
 
@@ -212,293 +209,326 @@ libqt_string QInputDevice_Tr3(const char* s, const char* c, int n) {
     return _str;
 }
 
-QInputDevice* QInputDevice_PrimaryKeyboard1(libqt_string seatName) {
+QInputDevice* QInputDevice_PrimaryKeyboard1(const libqt_string seatName) {
     QString seatName_QString = QString::fromUtf8(seatName.data, seatName.len);
     return (QInputDevice*)QInputDevice::primaryKeyboard(seatName_QString);
 }
 
 // Derived class handler implementation
 bool QInputDevice_Event(QInputDevice* self, QEvent* event) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         return vqinputdevice->event(event);
     } else {
-        return vqinputdevice->event(event);
+        return self->QInputDevice::event(event);
     }
 }
 
 // Base class handler implementation
 bool QInputDevice_QBaseEvent(QInputDevice* self, QEvent* event) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_Event_IsBase(true);
         return vqinputdevice->event(event);
     } else {
-        return vqinputdevice->event(event);
+        return self->QInputDevice::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnEvent(QInputDevice* self, intptr_t slot) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_Event_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QInputDevice_EventFilter(QInputDevice* self, QObject* watched, QEvent* event) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         return vqinputdevice->eventFilter(watched, event);
     } else {
-        return vqinputdevice->eventFilter(watched, event);
+        return self->QInputDevice::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QInputDevice_QBaseEventFilter(QInputDevice* self, QObject* watched, QEvent* event) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_EventFilter_IsBase(true);
         return vqinputdevice->eventFilter(watched, event);
     } else {
-        return vqinputdevice->eventFilter(watched, event);
+        return self->QInputDevice::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnEventFilter(QInputDevice* self, intptr_t slot) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_EventFilter_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QInputDevice_TimerEvent(QInputDevice* self, QTimerEvent* event) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->timerEvent(event);
     } else {
-        vqinputdevice->timerEvent(event);
+        ((VirtualQInputDevice*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QInputDevice_QBaseTimerEvent(QInputDevice* self, QTimerEvent* event) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_TimerEvent_IsBase(true);
         vqinputdevice->timerEvent(event);
     } else {
-        vqinputdevice->timerEvent(event);
+        ((VirtualQInputDevice*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnTimerEvent(QInputDevice* self, intptr_t slot) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_TimerEvent_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QInputDevice_ChildEvent(QInputDevice* self, QChildEvent* event) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->childEvent(event);
     } else {
-        vqinputdevice->childEvent(event);
+        ((VirtualQInputDevice*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QInputDevice_QBaseChildEvent(QInputDevice* self, QChildEvent* event) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_ChildEvent_IsBase(true);
         vqinputdevice->childEvent(event);
     } else {
-        vqinputdevice->childEvent(event);
+        ((VirtualQInputDevice*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnChildEvent(QInputDevice* self, intptr_t slot) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_ChildEvent_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QInputDevice_CustomEvent(QInputDevice* self, QEvent* event) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->customEvent(event);
     } else {
-        vqinputdevice->customEvent(event);
+        ((VirtualQInputDevice*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QInputDevice_QBaseCustomEvent(QInputDevice* self, QEvent* event) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_CustomEvent_IsBase(true);
         vqinputdevice->customEvent(event);
     } else {
-        vqinputdevice->customEvent(event);
+        ((VirtualQInputDevice*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnCustomEvent(QInputDevice* self, intptr_t slot) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_CustomEvent_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QInputDevice_ConnectNotify(QInputDevice* self, QMetaMethod* signal) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+void QInputDevice_ConnectNotify(QInputDevice* self, const QMetaMethod* signal) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->connectNotify(*signal);
     } else {
-        vqinputdevice->connectNotify(*signal);
+        ((VirtualQInputDevice*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QInputDevice_QBaseConnectNotify(QInputDevice* self, QMetaMethod* signal) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+void QInputDevice_QBaseConnectNotify(QInputDevice* self, const QMetaMethod* signal) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_ConnectNotify_IsBase(true);
         vqinputdevice->connectNotify(*signal);
     } else {
-        vqinputdevice->connectNotify(*signal);
+        ((VirtualQInputDevice*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnConnectNotify(QInputDevice* self, intptr_t slot) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_ConnectNotify_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QInputDevice_DisconnectNotify(QInputDevice* self, QMetaMethod* signal) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+void QInputDevice_DisconnectNotify(QInputDevice* self, const QMetaMethod* signal) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->disconnectNotify(*signal);
     } else {
-        vqinputdevice->disconnectNotify(*signal);
+        ((VirtualQInputDevice*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QInputDevice_QBaseDisconnectNotify(QInputDevice* self, QMetaMethod* signal) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+void QInputDevice_QBaseDisconnectNotify(QInputDevice* self, const QMetaMethod* signal) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_DisconnectNotify_IsBase(true);
         vqinputdevice->disconnectNotify(*signal);
     } else {
-        vqinputdevice->disconnectNotify(*signal);
+        ((VirtualQInputDevice*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnDisconnectNotify(QInputDevice* self, intptr_t slot) {
-    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_DisconnectNotify_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QInputDevice_Sender(const QInputDevice* self) {
-    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self))) {
+    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         return vqinputdevice->sender();
     } else {
-        return vqinputdevice->sender();
+        return ((VirtualQInputDevice*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QInputDevice_QBaseSender(const QInputDevice* self) {
-    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self))) {
+    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_Sender_IsBase(true);
         return vqinputdevice->sender();
     } else {
-        return vqinputdevice->sender();
+        return ((VirtualQInputDevice*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnSender(const QInputDevice* self, intptr_t slot) {
-    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self))) {
+    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_Sender_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QInputDevice_SenderSignalIndex(const QInputDevice* self) {
-    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self))) {
+    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         return vqinputdevice->senderSignalIndex();
     } else {
-        return vqinputdevice->senderSignalIndex();
+        return ((VirtualQInputDevice*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QInputDevice_QBaseSenderSignalIndex(const QInputDevice* self) {
-    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self))) {
+    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_SenderSignalIndex_IsBase(true);
         return vqinputdevice->senderSignalIndex();
     } else {
-        return vqinputdevice->senderSignalIndex();
+        return ((VirtualQInputDevice*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnSenderSignalIndex(const QInputDevice* self, intptr_t slot) {
-    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self))) {
+    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_SenderSignalIndex_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QInputDevice_Receivers(const QInputDevice* self, const char* signal) {
-    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self))) {
+    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         return vqinputdevice->receivers(signal);
     } else {
-        return vqinputdevice->receivers(signal);
+        return ((VirtualQInputDevice*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QInputDevice_QBaseReceivers(const QInputDevice* self, const char* signal) {
-    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self))) {
+    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_Receivers_IsBase(true);
         return vqinputdevice->receivers(signal);
     } else {
-        return vqinputdevice->receivers(signal);
+        return ((VirtualQInputDevice*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnReceivers(const QInputDevice* self, intptr_t slot) {
-    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self))) {
+    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_Receivers_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QInputDevice_IsSignalConnected(const QInputDevice* self, QMetaMethod* signal) {
-    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self))) {
+bool QInputDevice_IsSignalConnected(const QInputDevice* self, const QMetaMethod* signal) {
+    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         return vqinputdevice->isSignalConnected(*signal);
     } else {
-        return vqinputdevice->isSignalConnected(*signal);
+        return ((VirtualQInputDevice*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QInputDevice_QBaseIsSignalConnected(const QInputDevice* self, QMetaMethod* signal) {
-    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self))) {
+bool QInputDevice_QBaseIsSignalConnected(const QInputDevice* self, const QMetaMethod* signal) {
+    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_IsSignalConnected_IsBase(true);
         return vqinputdevice->isSignalConnected(*signal);
     } else {
-        return vqinputdevice->isSignalConnected(*signal);
+        return ((VirtualQInputDevice*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnIsSignalConnected(const QInputDevice* self, intptr_t slot) {
-    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self))) {
+    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_IsSignalConnected_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_IsSignalConnected_Callback>(slot));
     }
 }

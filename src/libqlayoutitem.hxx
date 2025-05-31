@@ -11,16 +11,19 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QLayoutItem so that we can call protected methods
-class VirtualQLayoutItem : public QLayoutItem {
+class VirtualQLayoutItem final : public QLayoutItem {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQLayoutItem = true;
+
     // Virtual class public types (including callbacks)
-    using QLayoutItem_SizeHint_Callback = QSize (*)();
-    using QLayoutItem_MinimumSize_Callback = QSize (*)();
-    using QLayoutItem_MaximumSize_Callback = QSize (*)();
-    using QLayoutItem_ExpandingDirections_Callback = Qt::Orientations (*)();
-    using QLayoutItem_SetGeometry_Callback = void (*)(QLayoutItem*, const QRect&);
-    using QLayoutItem_Geometry_Callback = QRect (*)();
+    using QLayoutItem_SizeHint_Callback = QSize* (*)();
+    using QLayoutItem_MinimumSize_Callback = QSize* (*)();
+    using QLayoutItem_MaximumSize_Callback = QSize* (*)();
+    using QLayoutItem_ExpandingDirections_Callback = int (*)();
+    using QLayoutItem_SetGeometry_Callback = void (*)(QLayoutItem*, QRect*);
+    using QLayoutItem_Geometry_Callback = QRect* (*)();
     using QLayoutItem_IsEmpty_Callback = bool (*)();
     using QLayoutItem_HasHeightForWidth_Callback = bool (*)();
     using QLayoutItem_HeightForWidth_Callback = int (*)(const QLayoutItem*, int);
@@ -29,8 +32,8 @@ class VirtualQLayoutItem : public QLayoutItem {
     using QLayoutItem_Widget_Callback = QWidget* (*)();
     using QLayoutItem_Layout_Callback = QLayout* (*)();
     using QLayoutItem_SpacerItem_Callback = QSpacerItem* (*)();
-    using QLayoutItem_ControlTypes_Callback = QSizePolicy::ControlTypes (*)();
-    using QLayoutItem_OperatorAssign_Callback = void (*)(QLayoutItem*, const QLayoutItem&);
+    using QLayoutItem_ControlTypes_Callback = int (*)();
+    using QLayoutItem_OperatorAssign_Callback = void (*)(QLayoutItem*, QLayoutItem*);
 
   protected:
     // Instance callback storage
@@ -94,74 +97,110 @@ class VirtualQLayoutItem : public QLayoutItem {
     }
 
     // Callback setters
-    void setQLayoutItem_SizeHint_Callback(QLayoutItem_SizeHint_Callback cb) { qlayoutitem_sizehint_callback = cb; }
-    void setQLayoutItem_MinimumSize_Callback(QLayoutItem_MinimumSize_Callback cb) { qlayoutitem_minimumsize_callback = cb; }
-    void setQLayoutItem_MaximumSize_Callback(QLayoutItem_MaximumSize_Callback cb) { qlayoutitem_maximumsize_callback = cb; }
-    void setQLayoutItem_ExpandingDirections_Callback(QLayoutItem_ExpandingDirections_Callback cb) { qlayoutitem_expandingdirections_callback = cb; }
-    void setQLayoutItem_SetGeometry_Callback(QLayoutItem_SetGeometry_Callback cb) { qlayoutitem_setgeometry_callback = cb; }
-    void setQLayoutItem_Geometry_Callback(QLayoutItem_Geometry_Callback cb) { qlayoutitem_geometry_callback = cb; }
-    void setQLayoutItem_IsEmpty_Callback(QLayoutItem_IsEmpty_Callback cb) { qlayoutitem_isempty_callback = cb; }
-    void setQLayoutItem_HasHeightForWidth_Callback(QLayoutItem_HasHeightForWidth_Callback cb) { qlayoutitem_hasheightforwidth_callback = cb; }
-    void setQLayoutItem_HeightForWidth_Callback(QLayoutItem_HeightForWidth_Callback cb) { qlayoutitem_heightforwidth_callback = cb; }
-    void setQLayoutItem_MinimumHeightForWidth_Callback(QLayoutItem_MinimumHeightForWidth_Callback cb) { qlayoutitem_minimumheightforwidth_callback = cb; }
-    void setQLayoutItem_Invalidate_Callback(QLayoutItem_Invalidate_Callback cb) { qlayoutitem_invalidate_callback = cb; }
-    void setQLayoutItem_Widget_Callback(QLayoutItem_Widget_Callback cb) { qlayoutitem_widget_callback = cb; }
-    void setQLayoutItem_Layout_Callback(QLayoutItem_Layout_Callback cb) { qlayoutitem_layout_callback = cb; }
-    void setQLayoutItem_SpacerItem_Callback(QLayoutItem_SpacerItem_Callback cb) { qlayoutitem_spaceritem_callback = cb; }
-    void setQLayoutItem_ControlTypes_Callback(QLayoutItem_ControlTypes_Callback cb) { qlayoutitem_controltypes_callback = cb; }
-    void setQLayoutItem_OperatorAssign_Callback(QLayoutItem_OperatorAssign_Callback cb) { qlayoutitem_operatorassign_callback = cb; }
+    inline void setQLayoutItem_SizeHint_Callback(QLayoutItem_SizeHint_Callback cb) { qlayoutitem_sizehint_callback = cb; }
+    inline void setQLayoutItem_MinimumSize_Callback(QLayoutItem_MinimumSize_Callback cb) { qlayoutitem_minimumsize_callback = cb; }
+    inline void setQLayoutItem_MaximumSize_Callback(QLayoutItem_MaximumSize_Callback cb) { qlayoutitem_maximumsize_callback = cb; }
+    inline void setQLayoutItem_ExpandingDirections_Callback(QLayoutItem_ExpandingDirections_Callback cb) { qlayoutitem_expandingdirections_callback = cb; }
+    inline void setQLayoutItem_SetGeometry_Callback(QLayoutItem_SetGeometry_Callback cb) { qlayoutitem_setgeometry_callback = cb; }
+    inline void setQLayoutItem_Geometry_Callback(QLayoutItem_Geometry_Callback cb) { qlayoutitem_geometry_callback = cb; }
+    inline void setQLayoutItem_IsEmpty_Callback(QLayoutItem_IsEmpty_Callback cb) { qlayoutitem_isempty_callback = cb; }
+    inline void setQLayoutItem_HasHeightForWidth_Callback(QLayoutItem_HasHeightForWidth_Callback cb) { qlayoutitem_hasheightforwidth_callback = cb; }
+    inline void setQLayoutItem_HeightForWidth_Callback(QLayoutItem_HeightForWidth_Callback cb) { qlayoutitem_heightforwidth_callback = cb; }
+    inline void setQLayoutItem_MinimumHeightForWidth_Callback(QLayoutItem_MinimumHeightForWidth_Callback cb) { qlayoutitem_minimumheightforwidth_callback = cb; }
+    inline void setQLayoutItem_Invalidate_Callback(QLayoutItem_Invalidate_Callback cb) { qlayoutitem_invalidate_callback = cb; }
+    inline void setQLayoutItem_Widget_Callback(QLayoutItem_Widget_Callback cb) { qlayoutitem_widget_callback = cb; }
+    inline void setQLayoutItem_Layout_Callback(QLayoutItem_Layout_Callback cb) { qlayoutitem_layout_callback = cb; }
+    inline void setQLayoutItem_SpacerItem_Callback(QLayoutItem_SpacerItem_Callback cb) { qlayoutitem_spaceritem_callback = cb; }
+    inline void setQLayoutItem_ControlTypes_Callback(QLayoutItem_ControlTypes_Callback cb) { qlayoutitem_controltypes_callback = cb; }
+    inline void setQLayoutItem_OperatorAssign_Callback(QLayoutItem_OperatorAssign_Callback cb) { qlayoutitem_operatorassign_callback = cb; }
 
     // Base flag setters
-    void setQLayoutItem_SizeHint_IsBase(bool value) const { qlayoutitem_sizehint_isbase = value; }
-    void setQLayoutItem_MinimumSize_IsBase(bool value) const { qlayoutitem_minimumsize_isbase = value; }
-    void setQLayoutItem_MaximumSize_IsBase(bool value) const { qlayoutitem_maximumsize_isbase = value; }
-    void setQLayoutItem_ExpandingDirections_IsBase(bool value) const { qlayoutitem_expandingdirections_isbase = value; }
-    void setQLayoutItem_SetGeometry_IsBase(bool value) const { qlayoutitem_setgeometry_isbase = value; }
-    void setQLayoutItem_Geometry_IsBase(bool value) const { qlayoutitem_geometry_isbase = value; }
-    void setQLayoutItem_IsEmpty_IsBase(bool value) const { qlayoutitem_isempty_isbase = value; }
-    void setQLayoutItem_HasHeightForWidth_IsBase(bool value) const { qlayoutitem_hasheightforwidth_isbase = value; }
-    void setQLayoutItem_HeightForWidth_IsBase(bool value) const { qlayoutitem_heightforwidth_isbase = value; }
-    void setQLayoutItem_MinimumHeightForWidth_IsBase(bool value) const { qlayoutitem_minimumheightforwidth_isbase = value; }
-    void setQLayoutItem_Invalidate_IsBase(bool value) const { qlayoutitem_invalidate_isbase = value; }
-    void setQLayoutItem_Widget_IsBase(bool value) const { qlayoutitem_widget_isbase = value; }
-    void setQLayoutItem_Layout_IsBase(bool value) const { qlayoutitem_layout_isbase = value; }
-    void setQLayoutItem_SpacerItem_IsBase(bool value) const { qlayoutitem_spaceritem_isbase = value; }
-    void setQLayoutItem_ControlTypes_IsBase(bool value) const { qlayoutitem_controltypes_isbase = value; }
-    void setQLayoutItem_OperatorAssign_IsBase(bool value) const { qlayoutitem_operatorassign_isbase = value; }
+    inline void setQLayoutItem_SizeHint_IsBase(bool value) const { qlayoutitem_sizehint_isbase = value; }
+    inline void setQLayoutItem_MinimumSize_IsBase(bool value) const { qlayoutitem_minimumsize_isbase = value; }
+    inline void setQLayoutItem_MaximumSize_IsBase(bool value) const { qlayoutitem_maximumsize_isbase = value; }
+    inline void setQLayoutItem_ExpandingDirections_IsBase(bool value) const { qlayoutitem_expandingdirections_isbase = value; }
+    inline void setQLayoutItem_SetGeometry_IsBase(bool value) const { qlayoutitem_setgeometry_isbase = value; }
+    inline void setQLayoutItem_Geometry_IsBase(bool value) const { qlayoutitem_geometry_isbase = value; }
+    inline void setQLayoutItem_IsEmpty_IsBase(bool value) const { qlayoutitem_isempty_isbase = value; }
+    inline void setQLayoutItem_HasHeightForWidth_IsBase(bool value) const { qlayoutitem_hasheightforwidth_isbase = value; }
+    inline void setQLayoutItem_HeightForWidth_IsBase(bool value) const { qlayoutitem_heightforwidth_isbase = value; }
+    inline void setQLayoutItem_MinimumHeightForWidth_IsBase(bool value) const { qlayoutitem_minimumheightforwidth_isbase = value; }
+    inline void setQLayoutItem_Invalidate_IsBase(bool value) const { qlayoutitem_invalidate_isbase = value; }
+    inline void setQLayoutItem_Widget_IsBase(bool value) const { qlayoutitem_widget_isbase = value; }
+    inline void setQLayoutItem_Layout_IsBase(bool value) const { qlayoutitem_layout_isbase = value; }
+    inline void setQLayoutItem_SpacerItem_IsBase(bool value) const { qlayoutitem_spaceritem_isbase = value; }
+    inline void setQLayoutItem_ControlTypes_IsBase(bool value) const { qlayoutitem_controltypes_isbase = value; }
+    inline void setQLayoutItem_OperatorAssign_IsBase(bool value) const { qlayoutitem_operatorassign_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        return qlayoutitem_sizehint_callback();
+        if (qlayoutitem_sizehint_callback != nullptr) {
+            QSize* callback_ret = qlayoutitem_sizehint_callback();
+            return *callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSize() const override {
-        return qlayoutitem_minimumsize_callback();
+        if (qlayoutitem_minimumsize_callback != nullptr) {
+            QSize* callback_ret = qlayoutitem_minimumsize_callback();
+            return *callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QSize maximumSize() const override {
-        return qlayoutitem_maximumsize_callback();
+        if (qlayoutitem_maximumsize_callback != nullptr) {
+            QSize* callback_ret = qlayoutitem_maximumsize_callback();
+            return *callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual Qt::Orientations expandingDirections() const override {
-        return qlayoutitem_expandingdirections_callback();
+        if (qlayoutitem_expandingdirections_callback != nullptr) {
+            int callback_ret = qlayoutitem_expandingdirections_callback();
+            return static_cast<Qt::Orientations>(callback_ret);
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setGeometry(const QRect& geometry) override {
-        qlayoutitem_setgeometry_callback(this, geometry);
+        if (qlayoutitem_setgeometry_callback != nullptr) {
+            const QRect& geometry_ret = geometry;
+            // Cast returned reference into pointer
+            QRect* cbval1 = const_cast<QRect*>(&geometry_ret);
+
+            qlayoutitem_setgeometry_callback(this, cbval1);
+        }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QRect geometry() const override {
-        return qlayoutitem_geometry_callback();
+        if (qlayoutitem_geometry_callback != nullptr) {
+            QRect* callback_ret = qlayoutitem_geometry_callback();
+            return *callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isEmpty() const override {
-        return qlayoutitem_isempty_callback();
+        if (qlayoutitem_isempty_callback != nullptr) {
+            bool callback_ret = qlayoutitem_isempty_callback();
+            return callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -170,7 +209,8 @@ class VirtualQLayoutItem : public QLayoutItem {
             qlayoutitem_hasheightforwidth_isbase = false;
             return QLayoutItem::hasHeightForWidth();
         } else if (qlayoutitem_hasheightforwidth_callback != nullptr) {
-            return qlayoutitem_hasheightforwidth_callback();
+            bool callback_ret = qlayoutitem_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QLayoutItem::hasHeightForWidth();
         }
@@ -182,7 +222,10 @@ class VirtualQLayoutItem : public QLayoutItem {
             qlayoutitem_heightforwidth_isbase = false;
             return QLayoutItem::heightForWidth(param1);
         } else if (qlayoutitem_heightforwidth_callback != nullptr) {
-            return qlayoutitem_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qlayoutitem_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QLayoutItem::heightForWidth(param1);
         }
@@ -194,7 +237,10 @@ class VirtualQLayoutItem : public QLayoutItem {
             qlayoutitem_minimumheightforwidth_isbase = false;
             return QLayoutItem::minimumHeightForWidth(param1);
         } else if (qlayoutitem_minimumheightforwidth_callback != nullptr) {
-            return qlayoutitem_minimumheightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qlayoutitem_minimumheightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QLayoutItem::minimumHeightForWidth(param1);
         }
@@ -218,7 +264,8 @@ class VirtualQLayoutItem : public QLayoutItem {
             qlayoutitem_widget_isbase = false;
             return QLayoutItem::widget();
         } else if (qlayoutitem_widget_callback != nullptr) {
-            return qlayoutitem_widget_callback();
+            QWidget* callback_ret = qlayoutitem_widget_callback();
+            return callback_ret;
         } else {
             return QLayoutItem::widget();
         }
@@ -230,7 +277,8 @@ class VirtualQLayoutItem : public QLayoutItem {
             qlayoutitem_layout_isbase = false;
             return QLayoutItem::layout();
         } else if (qlayoutitem_layout_callback != nullptr) {
-            return qlayoutitem_layout_callback();
+            QLayout* callback_ret = qlayoutitem_layout_callback();
+            return callback_ret;
         } else {
             return QLayoutItem::layout();
         }
@@ -242,7 +290,8 @@ class VirtualQLayoutItem : public QLayoutItem {
             qlayoutitem_spaceritem_isbase = false;
             return QLayoutItem::spacerItem();
         } else if (qlayoutitem_spaceritem_callback != nullptr) {
-            return qlayoutitem_spaceritem_callback();
+            QSpacerItem* callback_ret = qlayoutitem_spaceritem_callback();
+            return callback_ret;
         } else {
             return QLayoutItem::spacerItem();
         }
@@ -254,7 +303,8 @@ class VirtualQLayoutItem : public QLayoutItem {
             qlayoutitem_controltypes_isbase = false;
             return QLayoutItem::controlTypes();
         } else if (qlayoutitem_controltypes_callback != nullptr) {
-            return qlayoutitem_controltypes_callback();
+            int callback_ret = qlayoutitem_controltypes_callback();
+            return static_cast<QSizePolicy::ControlTypes>(callback_ret);
         } else {
             return QLayoutItem::controlTypes();
         }
@@ -266,25 +316,36 @@ class VirtualQLayoutItem : public QLayoutItem {
             qlayoutitem_operatorassign_isbase = false;
             QLayoutItem::operator=(param1);
         } else if (qlayoutitem_operatorassign_callback != nullptr) {
-            qlayoutitem_operatorassign_callback(this, param1);
+            const QLayoutItem& param1_ret = param1;
+            // Cast returned reference into pointer
+            QLayoutItem* cbval1 = const_cast<QLayoutItem*>(&param1_ret);
+
+            qlayoutitem_operatorassign_callback(this, cbval1);
         } else {
             QLayoutItem::operator=(param1);
         }
     }
+
+    // Friend functions
+    friend void QLayoutItem_OperatorAssign(QLayoutItem* self, const QLayoutItem* param1);
+    friend void QLayoutItem_QBaseOperatorAssign(QLayoutItem* self, const QLayoutItem* param1);
 };
 
 // This class is a subclass of QSpacerItem so that we can call protected methods
-class VirtualQSpacerItem : public QSpacerItem {
+class VirtualQSpacerItem final : public QSpacerItem {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQSpacerItem = true;
+
     // Virtual class public types (including callbacks)
-    using QSpacerItem_SizeHint_Callback = QSize (*)();
-    using QSpacerItem_MinimumSize_Callback = QSize (*)();
-    using QSpacerItem_MaximumSize_Callback = QSize (*)();
-    using QSpacerItem_ExpandingDirections_Callback = Qt::Orientations (*)();
+    using QSpacerItem_SizeHint_Callback = QSize* (*)();
+    using QSpacerItem_MinimumSize_Callback = QSize* (*)();
+    using QSpacerItem_MaximumSize_Callback = QSize* (*)();
+    using QSpacerItem_ExpandingDirections_Callback = int (*)();
     using QSpacerItem_IsEmpty_Callback = bool (*)();
-    using QSpacerItem_SetGeometry_Callback = void (*)(QSpacerItem*, const QRect&);
-    using QSpacerItem_Geometry_Callback = QRect (*)();
+    using QSpacerItem_SetGeometry_Callback = void (*)(QSpacerItem*, QRect*);
+    using QSpacerItem_Geometry_Callback = QRect* (*)();
     using QSpacerItem_SpacerItem_Callback = QSpacerItem* (*)();
     using QSpacerItem_HasHeightForWidth_Callback = bool (*)();
     using QSpacerItem_HeightForWidth_Callback = int (*)(const QSpacerItem*, int);
@@ -292,7 +353,7 @@ class VirtualQSpacerItem : public QSpacerItem {
     using QSpacerItem_Invalidate_Callback = void (*)();
     using QSpacerItem_Widget_Callback = QWidget* (*)();
     using QSpacerItem_Layout_Callback = QLayout* (*)();
-    using QSpacerItem_ControlTypes_Callback = QSizePolicy::ControlTypes (*)();
+    using QSpacerItem_ControlTypes_Callback = int (*)();
 
   protected:
     // Instance callback storage
@@ -354,38 +415,38 @@ class VirtualQSpacerItem : public QSpacerItem {
     }
 
     // Callback setters
-    void setQSpacerItem_SizeHint_Callback(QSpacerItem_SizeHint_Callback cb) { qspaceritem_sizehint_callback = cb; }
-    void setQSpacerItem_MinimumSize_Callback(QSpacerItem_MinimumSize_Callback cb) { qspaceritem_minimumsize_callback = cb; }
-    void setQSpacerItem_MaximumSize_Callback(QSpacerItem_MaximumSize_Callback cb) { qspaceritem_maximumsize_callback = cb; }
-    void setQSpacerItem_ExpandingDirections_Callback(QSpacerItem_ExpandingDirections_Callback cb) { qspaceritem_expandingdirections_callback = cb; }
-    void setQSpacerItem_IsEmpty_Callback(QSpacerItem_IsEmpty_Callback cb) { qspaceritem_isempty_callback = cb; }
-    void setQSpacerItem_SetGeometry_Callback(QSpacerItem_SetGeometry_Callback cb) { qspaceritem_setgeometry_callback = cb; }
-    void setQSpacerItem_Geometry_Callback(QSpacerItem_Geometry_Callback cb) { qspaceritem_geometry_callback = cb; }
-    void setQSpacerItem_SpacerItem_Callback(QSpacerItem_SpacerItem_Callback cb) { qspaceritem_spaceritem_callback = cb; }
-    void setQSpacerItem_HasHeightForWidth_Callback(QSpacerItem_HasHeightForWidth_Callback cb) { qspaceritem_hasheightforwidth_callback = cb; }
-    void setQSpacerItem_HeightForWidth_Callback(QSpacerItem_HeightForWidth_Callback cb) { qspaceritem_heightforwidth_callback = cb; }
-    void setQSpacerItem_MinimumHeightForWidth_Callback(QSpacerItem_MinimumHeightForWidth_Callback cb) { qspaceritem_minimumheightforwidth_callback = cb; }
-    void setQSpacerItem_Invalidate_Callback(QSpacerItem_Invalidate_Callback cb) { qspaceritem_invalidate_callback = cb; }
-    void setQSpacerItem_Widget_Callback(QSpacerItem_Widget_Callback cb) { qspaceritem_widget_callback = cb; }
-    void setQSpacerItem_Layout_Callback(QSpacerItem_Layout_Callback cb) { qspaceritem_layout_callback = cb; }
-    void setQSpacerItem_ControlTypes_Callback(QSpacerItem_ControlTypes_Callback cb) { qspaceritem_controltypes_callback = cb; }
+    inline void setQSpacerItem_SizeHint_Callback(QSpacerItem_SizeHint_Callback cb) { qspaceritem_sizehint_callback = cb; }
+    inline void setQSpacerItem_MinimumSize_Callback(QSpacerItem_MinimumSize_Callback cb) { qspaceritem_minimumsize_callback = cb; }
+    inline void setQSpacerItem_MaximumSize_Callback(QSpacerItem_MaximumSize_Callback cb) { qspaceritem_maximumsize_callback = cb; }
+    inline void setQSpacerItem_ExpandingDirections_Callback(QSpacerItem_ExpandingDirections_Callback cb) { qspaceritem_expandingdirections_callback = cb; }
+    inline void setQSpacerItem_IsEmpty_Callback(QSpacerItem_IsEmpty_Callback cb) { qspaceritem_isempty_callback = cb; }
+    inline void setQSpacerItem_SetGeometry_Callback(QSpacerItem_SetGeometry_Callback cb) { qspaceritem_setgeometry_callback = cb; }
+    inline void setQSpacerItem_Geometry_Callback(QSpacerItem_Geometry_Callback cb) { qspaceritem_geometry_callback = cb; }
+    inline void setQSpacerItem_SpacerItem_Callback(QSpacerItem_SpacerItem_Callback cb) { qspaceritem_spaceritem_callback = cb; }
+    inline void setQSpacerItem_HasHeightForWidth_Callback(QSpacerItem_HasHeightForWidth_Callback cb) { qspaceritem_hasheightforwidth_callback = cb; }
+    inline void setQSpacerItem_HeightForWidth_Callback(QSpacerItem_HeightForWidth_Callback cb) { qspaceritem_heightforwidth_callback = cb; }
+    inline void setQSpacerItem_MinimumHeightForWidth_Callback(QSpacerItem_MinimumHeightForWidth_Callback cb) { qspaceritem_minimumheightforwidth_callback = cb; }
+    inline void setQSpacerItem_Invalidate_Callback(QSpacerItem_Invalidate_Callback cb) { qspaceritem_invalidate_callback = cb; }
+    inline void setQSpacerItem_Widget_Callback(QSpacerItem_Widget_Callback cb) { qspaceritem_widget_callback = cb; }
+    inline void setQSpacerItem_Layout_Callback(QSpacerItem_Layout_Callback cb) { qspaceritem_layout_callback = cb; }
+    inline void setQSpacerItem_ControlTypes_Callback(QSpacerItem_ControlTypes_Callback cb) { qspaceritem_controltypes_callback = cb; }
 
     // Base flag setters
-    void setQSpacerItem_SizeHint_IsBase(bool value) const { qspaceritem_sizehint_isbase = value; }
-    void setQSpacerItem_MinimumSize_IsBase(bool value) const { qspaceritem_minimumsize_isbase = value; }
-    void setQSpacerItem_MaximumSize_IsBase(bool value) const { qspaceritem_maximumsize_isbase = value; }
-    void setQSpacerItem_ExpandingDirections_IsBase(bool value) const { qspaceritem_expandingdirections_isbase = value; }
-    void setQSpacerItem_IsEmpty_IsBase(bool value) const { qspaceritem_isempty_isbase = value; }
-    void setQSpacerItem_SetGeometry_IsBase(bool value) const { qspaceritem_setgeometry_isbase = value; }
-    void setQSpacerItem_Geometry_IsBase(bool value) const { qspaceritem_geometry_isbase = value; }
-    void setQSpacerItem_SpacerItem_IsBase(bool value) const { qspaceritem_spaceritem_isbase = value; }
-    void setQSpacerItem_HasHeightForWidth_IsBase(bool value) const { qspaceritem_hasheightforwidth_isbase = value; }
-    void setQSpacerItem_HeightForWidth_IsBase(bool value) const { qspaceritem_heightforwidth_isbase = value; }
-    void setQSpacerItem_MinimumHeightForWidth_IsBase(bool value) const { qspaceritem_minimumheightforwidth_isbase = value; }
-    void setQSpacerItem_Invalidate_IsBase(bool value) const { qspaceritem_invalidate_isbase = value; }
-    void setQSpacerItem_Widget_IsBase(bool value) const { qspaceritem_widget_isbase = value; }
-    void setQSpacerItem_Layout_IsBase(bool value) const { qspaceritem_layout_isbase = value; }
-    void setQSpacerItem_ControlTypes_IsBase(bool value) const { qspaceritem_controltypes_isbase = value; }
+    inline void setQSpacerItem_SizeHint_IsBase(bool value) const { qspaceritem_sizehint_isbase = value; }
+    inline void setQSpacerItem_MinimumSize_IsBase(bool value) const { qspaceritem_minimumsize_isbase = value; }
+    inline void setQSpacerItem_MaximumSize_IsBase(bool value) const { qspaceritem_maximumsize_isbase = value; }
+    inline void setQSpacerItem_ExpandingDirections_IsBase(bool value) const { qspaceritem_expandingdirections_isbase = value; }
+    inline void setQSpacerItem_IsEmpty_IsBase(bool value) const { qspaceritem_isempty_isbase = value; }
+    inline void setQSpacerItem_SetGeometry_IsBase(bool value) const { qspaceritem_setgeometry_isbase = value; }
+    inline void setQSpacerItem_Geometry_IsBase(bool value) const { qspaceritem_geometry_isbase = value; }
+    inline void setQSpacerItem_SpacerItem_IsBase(bool value) const { qspaceritem_spaceritem_isbase = value; }
+    inline void setQSpacerItem_HasHeightForWidth_IsBase(bool value) const { qspaceritem_hasheightforwidth_isbase = value; }
+    inline void setQSpacerItem_HeightForWidth_IsBase(bool value) const { qspaceritem_heightforwidth_isbase = value; }
+    inline void setQSpacerItem_MinimumHeightForWidth_IsBase(bool value) const { qspaceritem_minimumheightforwidth_isbase = value; }
+    inline void setQSpacerItem_Invalidate_IsBase(bool value) const { qspaceritem_invalidate_isbase = value; }
+    inline void setQSpacerItem_Widget_IsBase(bool value) const { qspaceritem_widget_isbase = value; }
+    inline void setQSpacerItem_Layout_IsBase(bool value) const { qspaceritem_layout_isbase = value; }
+    inline void setQSpacerItem_ControlTypes_IsBase(bool value) const { qspaceritem_controltypes_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
@@ -393,7 +454,8 @@ class VirtualQSpacerItem : public QSpacerItem {
             qspaceritem_sizehint_isbase = false;
             return QSpacerItem::sizeHint();
         } else if (qspaceritem_sizehint_callback != nullptr) {
-            return qspaceritem_sizehint_callback();
+            QSize* callback_ret = qspaceritem_sizehint_callback();
+            return *callback_ret;
         } else {
             return QSpacerItem::sizeHint();
         }
@@ -405,7 +467,8 @@ class VirtualQSpacerItem : public QSpacerItem {
             qspaceritem_minimumsize_isbase = false;
             return QSpacerItem::minimumSize();
         } else if (qspaceritem_minimumsize_callback != nullptr) {
-            return qspaceritem_minimumsize_callback();
+            QSize* callback_ret = qspaceritem_minimumsize_callback();
+            return *callback_ret;
         } else {
             return QSpacerItem::minimumSize();
         }
@@ -417,7 +480,8 @@ class VirtualQSpacerItem : public QSpacerItem {
             qspaceritem_maximumsize_isbase = false;
             return QSpacerItem::maximumSize();
         } else if (qspaceritem_maximumsize_callback != nullptr) {
-            return qspaceritem_maximumsize_callback();
+            QSize* callback_ret = qspaceritem_maximumsize_callback();
+            return *callback_ret;
         } else {
             return QSpacerItem::maximumSize();
         }
@@ -429,7 +493,8 @@ class VirtualQSpacerItem : public QSpacerItem {
             qspaceritem_expandingdirections_isbase = false;
             return QSpacerItem::expandingDirections();
         } else if (qspaceritem_expandingdirections_callback != nullptr) {
-            return qspaceritem_expandingdirections_callback();
+            int callback_ret = qspaceritem_expandingdirections_callback();
+            return static_cast<Qt::Orientations>(callback_ret);
         } else {
             return QSpacerItem::expandingDirections();
         }
@@ -441,7 +506,8 @@ class VirtualQSpacerItem : public QSpacerItem {
             qspaceritem_isempty_isbase = false;
             return QSpacerItem::isEmpty();
         } else if (qspaceritem_isempty_callback != nullptr) {
-            return qspaceritem_isempty_callback();
+            bool callback_ret = qspaceritem_isempty_callback();
+            return callback_ret;
         } else {
             return QSpacerItem::isEmpty();
         }
@@ -453,7 +519,11 @@ class VirtualQSpacerItem : public QSpacerItem {
             qspaceritem_setgeometry_isbase = false;
             QSpacerItem::setGeometry(geometry);
         } else if (qspaceritem_setgeometry_callback != nullptr) {
-            qspaceritem_setgeometry_callback(this, geometry);
+            const QRect& geometry_ret = geometry;
+            // Cast returned reference into pointer
+            QRect* cbval1 = const_cast<QRect*>(&geometry_ret);
+
+            qspaceritem_setgeometry_callback(this, cbval1);
         } else {
             QSpacerItem::setGeometry(geometry);
         }
@@ -465,7 +535,8 @@ class VirtualQSpacerItem : public QSpacerItem {
             qspaceritem_geometry_isbase = false;
             return QSpacerItem::geometry();
         } else if (qspaceritem_geometry_callback != nullptr) {
-            return qspaceritem_geometry_callback();
+            QRect* callback_ret = qspaceritem_geometry_callback();
+            return *callback_ret;
         } else {
             return QSpacerItem::geometry();
         }
@@ -477,7 +548,8 @@ class VirtualQSpacerItem : public QSpacerItem {
             qspaceritem_spaceritem_isbase = false;
             return QSpacerItem::spacerItem();
         } else if (qspaceritem_spaceritem_callback != nullptr) {
-            return qspaceritem_spaceritem_callback();
+            QSpacerItem* callback_ret = qspaceritem_spaceritem_callback();
+            return callback_ret;
         } else {
             return QSpacerItem::spacerItem();
         }
@@ -489,7 +561,8 @@ class VirtualQSpacerItem : public QSpacerItem {
             qspaceritem_hasheightforwidth_isbase = false;
             return QSpacerItem::hasHeightForWidth();
         } else if (qspaceritem_hasheightforwidth_callback != nullptr) {
-            return qspaceritem_hasheightforwidth_callback();
+            bool callback_ret = qspaceritem_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QSpacerItem::hasHeightForWidth();
         }
@@ -501,7 +574,10 @@ class VirtualQSpacerItem : public QSpacerItem {
             qspaceritem_heightforwidth_isbase = false;
             return QSpacerItem::heightForWidth(param1);
         } else if (qspaceritem_heightforwidth_callback != nullptr) {
-            return qspaceritem_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qspaceritem_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QSpacerItem::heightForWidth(param1);
         }
@@ -513,7 +589,10 @@ class VirtualQSpacerItem : public QSpacerItem {
             qspaceritem_minimumheightforwidth_isbase = false;
             return QSpacerItem::minimumHeightForWidth(param1);
         } else if (qspaceritem_minimumheightforwidth_callback != nullptr) {
-            return qspaceritem_minimumheightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qspaceritem_minimumheightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QSpacerItem::minimumHeightForWidth(param1);
         }
@@ -537,7 +616,8 @@ class VirtualQSpacerItem : public QSpacerItem {
             qspaceritem_widget_isbase = false;
             return QSpacerItem::widget();
         } else if (qspaceritem_widget_callback != nullptr) {
-            return qspaceritem_widget_callback();
+            QWidget* callback_ret = qspaceritem_widget_callback();
+            return callback_ret;
         } else {
             return QSpacerItem::widget();
         }
@@ -549,7 +629,8 @@ class VirtualQSpacerItem : public QSpacerItem {
             qspaceritem_layout_isbase = false;
             return QSpacerItem::layout();
         } else if (qspaceritem_layout_callback != nullptr) {
-            return qspaceritem_layout_callback();
+            QLayout* callback_ret = qspaceritem_layout_callback();
+            return callback_ret;
         } else {
             return QSpacerItem::layout();
         }
@@ -561,7 +642,8 @@ class VirtualQSpacerItem : public QSpacerItem {
             qspaceritem_controltypes_isbase = false;
             return QSpacerItem::controlTypes();
         } else if (qspaceritem_controltypes_callback != nullptr) {
-            return qspaceritem_controltypes_callback();
+            int callback_ret = qspaceritem_controltypes_callback();
+            return static_cast<QSizePolicy::ControlTypes>(callback_ret);
         } else {
             return QSpacerItem::controlTypes();
         }
@@ -569,22 +651,25 @@ class VirtualQSpacerItem : public QSpacerItem {
 };
 
 // This class is a subclass of QWidgetItem so that we can call protected methods
-class VirtualQWidgetItem : public QWidgetItem {
+class VirtualQWidgetItem final : public QWidgetItem {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQWidgetItem = true;
+
     // Virtual class public types (including callbacks)
-    using QWidgetItem_SizeHint_Callback = QSize (*)();
-    using QWidgetItem_MinimumSize_Callback = QSize (*)();
-    using QWidgetItem_MaximumSize_Callback = QSize (*)();
-    using QWidgetItem_ExpandingDirections_Callback = Qt::Orientations (*)();
+    using QWidgetItem_SizeHint_Callback = QSize* (*)();
+    using QWidgetItem_MinimumSize_Callback = QSize* (*)();
+    using QWidgetItem_MaximumSize_Callback = QSize* (*)();
+    using QWidgetItem_ExpandingDirections_Callback = int (*)();
     using QWidgetItem_IsEmpty_Callback = bool (*)();
-    using QWidgetItem_SetGeometry_Callback = void (*)(QWidgetItem*, const QRect&);
-    using QWidgetItem_Geometry_Callback = QRect (*)();
+    using QWidgetItem_SetGeometry_Callback = void (*)(QWidgetItem*, QRect*);
+    using QWidgetItem_Geometry_Callback = QRect* (*)();
     using QWidgetItem_Widget_Callback = QWidget* (*)();
     using QWidgetItem_HasHeightForWidth_Callback = bool (*)();
     using QWidgetItem_HeightForWidth_Callback = int (*)(const QWidgetItem*, int);
     using QWidgetItem_MinimumHeightForWidth_Callback = int (*)(const QWidgetItem*, int);
-    using QWidgetItem_ControlTypes_Callback = QSizePolicy::ControlTypes (*)();
+    using QWidgetItem_ControlTypes_Callback = int (*)();
     using QWidgetItem_Invalidate_Callback = void (*)();
     using QWidgetItem_Layout_Callback = QLayout* (*)();
     using QWidgetItem_SpacerItem_Callback = QSpacerItem* (*)();
@@ -646,38 +731,38 @@ class VirtualQWidgetItem : public QWidgetItem {
     }
 
     // Callback setters
-    void setQWidgetItem_SizeHint_Callback(QWidgetItem_SizeHint_Callback cb) { qwidgetitem_sizehint_callback = cb; }
-    void setQWidgetItem_MinimumSize_Callback(QWidgetItem_MinimumSize_Callback cb) { qwidgetitem_minimumsize_callback = cb; }
-    void setQWidgetItem_MaximumSize_Callback(QWidgetItem_MaximumSize_Callback cb) { qwidgetitem_maximumsize_callback = cb; }
-    void setQWidgetItem_ExpandingDirections_Callback(QWidgetItem_ExpandingDirections_Callback cb) { qwidgetitem_expandingdirections_callback = cb; }
-    void setQWidgetItem_IsEmpty_Callback(QWidgetItem_IsEmpty_Callback cb) { qwidgetitem_isempty_callback = cb; }
-    void setQWidgetItem_SetGeometry_Callback(QWidgetItem_SetGeometry_Callback cb) { qwidgetitem_setgeometry_callback = cb; }
-    void setQWidgetItem_Geometry_Callback(QWidgetItem_Geometry_Callback cb) { qwidgetitem_geometry_callback = cb; }
-    void setQWidgetItem_Widget_Callback(QWidgetItem_Widget_Callback cb) { qwidgetitem_widget_callback = cb; }
-    void setQWidgetItem_HasHeightForWidth_Callback(QWidgetItem_HasHeightForWidth_Callback cb) { qwidgetitem_hasheightforwidth_callback = cb; }
-    void setQWidgetItem_HeightForWidth_Callback(QWidgetItem_HeightForWidth_Callback cb) { qwidgetitem_heightforwidth_callback = cb; }
-    void setQWidgetItem_MinimumHeightForWidth_Callback(QWidgetItem_MinimumHeightForWidth_Callback cb) { qwidgetitem_minimumheightforwidth_callback = cb; }
-    void setQWidgetItem_ControlTypes_Callback(QWidgetItem_ControlTypes_Callback cb) { qwidgetitem_controltypes_callback = cb; }
-    void setQWidgetItem_Invalidate_Callback(QWidgetItem_Invalidate_Callback cb) { qwidgetitem_invalidate_callback = cb; }
-    void setQWidgetItem_Layout_Callback(QWidgetItem_Layout_Callback cb) { qwidgetitem_layout_callback = cb; }
-    void setQWidgetItem_SpacerItem_Callback(QWidgetItem_SpacerItem_Callback cb) { qwidgetitem_spaceritem_callback = cb; }
+    inline void setQWidgetItem_SizeHint_Callback(QWidgetItem_SizeHint_Callback cb) { qwidgetitem_sizehint_callback = cb; }
+    inline void setQWidgetItem_MinimumSize_Callback(QWidgetItem_MinimumSize_Callback cb) { qwidgetitem_minimumsize_callback = cb; }
+    inline void setQWidgetItem_MaximumSize_Callback(QWidgetItem_MaximumSize_Callback cb) { qwidgetitem_maximumsize_callback = cb; }
+    inline void setQWidgetItem_ExpandingDirections_Callback(QWidgetItem_ExpandingDirections_Callback cb) { qwidgetitem_expandingdirections_callback = cb; }
+    inline void setQWidgetItem_IsEmpty_Callback(QWidgetItem_IsEmpty_Callback cb) { qwidgetitem_isempty_callback = cb; }
+    inline void setQWidgetItem_SetGeometry_Callback(QWidgetItem_SetGeometry_Callback cb) { qwidgetitem_setgeometry_callback = cb; }
+    inline void setQWidgetItem_Geometry_Callback(QWidgetItem_Geometry_Callback cb) { qwidgetitem_geometry_callback = cb; }
+    inline void setQWidgetItem_Widget_Callback(QWidgetItem_Widget_Callback cb) { qwidgetitem_widget_callback = cb; }
+    inline void setQWidgetItem_HasHeightForWidth_Callback(QWidgetItem_HasHeightForWidth_Callback cb) { qwidgetitem_hasheightforwidth_callback = cb; }
+    inline void setQWidgetItem_HeightForWidth_Callback(QWidgetItem_HeightForWidth_Callback cb) { qwidgetitem_heightforwidth_callback = cb; }
+    inline void setQWidgetItem_MinimumHeightForWidth_Callback(QWidgetItem_MinimumHeightForWidth_Callback cb) { qwidgetitem_minimumheightforwidth_callback = cb; }
+    inline void setQWidgetItem_ControlTypes_Callback(QWidgetItem_ControlTypes_Callback cb) { qwidgetitem_controltypes_callback = cb; }
+    inline void setQWidgetItem_Invalidate_Callback(QWidgetItem_Invalidate_Callback cb) { qwidgetitem_invalidate_callback = cb; }
+    inline void setQWidgetItem_Layout_Callback(QWidgetItem_Layout_Callback cb) { qwidgetitem_layout_callback = cb; }
+    inline void setQWidgetItem_SpacerItem_Callback(QWidgetItem_SpacerItem_Callback cb) { qwidgetitem_spaceritem_callback = cb; }
 
     // Base flag setters
-    void setQWidgetItem_SizeHint_IsBase(bool value) const { qwidgetitem_sizehint_isbase = value; }
-    void setQWidgetItem_MinimumSize_IsBase(bool value) const { qwidgetitem_minimumsize_isbase = value; }
-    void setQWidgetItem_MaximumSize_IsBase(bool value) const { qwidgetitem_maximumsize_isbase = value; }
-    void setQWidgetItem_ExpandingDirections_IsBase(bool value) const { qwidgetitem_expandingdirections_isbase = value; }
-    void setQWidgetItem_IsEmpty_IsBase(bool value) const { qwidgetitem_isempty_isbase = value; }
-    void setQWidgetItem_SetGeometry_IsBase(bool value) const { qwidgetitem_setgeometry_isbase = value; }
-    void setQWidgetItem_Geometry_IsBase(bool value) const { qwidgetitem_geometry_isbase = value; }
-    void setQWidgetItem_Widget_IsBase(bool value) const { qwidgetitem_widget_isbase = value; }
-    void setQWidgetItem_HasHeightForWidth_IsBase(bool value) const { qwidgetitem_hasheightforwidth_isbase = value; }
-    void setQWidgetItem_HeightForWidth_IsBase(bool value) const { qwidgetitem_heightforwidth_isbase = value; }
-    void setQWidgetItem_MinimumHeightForWidth_IsBase(bool value) const { qwidgetitem_minimumheightforwidth_isbase = value; }
-    void setQWidgetItem_ControlTypes_IsBase(bool value) const { qwidgetitem_controltypes_isbase = value; }
-    void setQWidgetItem_Invalidate_IsBase(bool value) const { qwidgetitem_invalidate_isbase = value; }
-    void setQWidgetItem_Layout_IsBase(bool value) const { qwidgetitem_layout_isbase = value; }
-    void setQWidgetItem_SpacerItem_IsBase(bool value) const { qwidgetitem_spaceritem_isbase = value; }
+    inline void setQWidgetItem_SizeHint_IsBase(bool value) const { qwidgetitem_sizehint_isbase = value; }
+    inline void setQWidgetItem_MinimumSize_IsBase(bool value) const { qwidgetitem_minimumsize_isbase = value; }
+    inline void setQWidgetItem_MaximumSize_IsBase(bool value) const { qwidgetitem_maximumsize_isbase = value; }
+    inline void setQWidgetItem_ExpandingDirections_IsBase(bool value) const { qwidgetitem_expandingdirections_isbase = value; }
+    inline void setQWidgetItem_IsEmpty_IsBase(bool value) const { qwidgetitem_isempty_isbase = value; }
+    inline void setQWidgetItem_SetGeometry_IsBase(bool value) const { qwidgetitem_setgeometry_isbase = value; }
+    inline void setQWidgetItem_Geometry_IsBase(bool value) const { qwidgetitem_geometry_isbase = value; }
+    inline void setQWidgetItem_Widget_IsBase(bool value) const { qwidgetitem_widget_isbase = value; }
+    inline void setQWidgetItem_HasHeightForWidth_IsBase(bool value) const { qwidgetitem_hasheightforwidth_isbase = value; }
+    inline void setQWidgetItem_HeightForWidth_IsBase(bool value) const { qwidgetitem_heightforwidth_isbase = value; }
+    inline void setQWidgetItem_MinimumHeightForWidth_IsBase(bool value) const { qwidgetitem_minimumheightforwidth_isbase = value; }
+    inline void setQWidgetItem_ControlTypes_IsBase(bool value) const { qwidgetitem_controltypes_isbase = value; }
+    inline void setQWidgetItem_Invalidate_IsBase(bool value) const { qwidgetitem_invalidate_isbase = value; }
+    inline void setQWidgetItem_Layout_IsBase(bool value) const { qwidgetitem_layout_isbase = value; }
+    inline void setQWidgetItem_SpacerItem_IsBase(bool value) const { qwidgetitem_spaceritem_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
@@ -685,7 +770,8 @@ class VirtualQWidgetItem : public QWidgetItem {
             qwidgetitem_sizehint_isbase = false;
             return QWidgetItem::sizeHint();
         } else if (qwidgetitem_sizehint_callback != nullptr) {
-            return qwidgetitem_sizehint_callback();
+            QSize* callback_ret = qwidgetitem_sizehint_callback();
+            return *callback_ret;
         } else {
             return QWidgetItem::sizeHint();
         }
@@ -697,7 +783,8 @@ class VirtualQWidgetItem : public QWidgetItem {
             qwidgetitem_minimumsize_isbase = false;
             return QWidgetItem::minimumSize();
         } else if (qwidgetitem_minimumsize_callback != nullptr) {
-            return qwidgetitem_minimumsize_callback();
+            QSize* callback_ret = qwidgetitem_minimumsize_callback();
+            return *callback_ret;
         } else {
             return QWidgetItem::minimumSize();
         }
@@ -709,7 +796,8 @@ class VirtualQWidgetItem : public QWidgetItem {
             qwidgetitem_maximumsize_isbase = false;
             return QWidgetItem::maximumSize();
         } else if (qwidgetitem_maximumsize_callback != nullptr) {
-            return qwidgetitem_maximumsize_callback();
+            QSize* callback_ret = qwidgetitem_maximumsize_callback();
+            return *callback_ret;
         } else {
             return QWidgetItem::maximumSize();
         }
@@ -721,7 +809,8 @@ class VirtualQWidgetItem : public QWidgetItem {
             qwidgetitem_expandingdirections_isbase = false;
             return QWidgetItem::expandingDirections();
         } else if (qwidgetitem_expandingdirections_callback != nullptr) {
-            return qwidgetitem_expandingdirections_callback();
+            int callback_ret = qwidgetitem_expandingdirections_callback();
+            return static_cast<Qt::Orientations>(callback_ret);
         } else {
             return QWidgetItem::expandingDirections();
         }
@@ -733,7 +822,8 @@ class VirtualQWidgetItem : public QWidgetItem {
             qwidgetitem_isempty_isbase = false;
             return QWidgetItem::isEmpty();
         } else if (qwidgetitem_isempty_callback != nullptr) {
-            return qwidgetitem_isempty_callback();
+            bool callback_ret = qwidgetitem_isempty_callback();
+            return callback_ret;
         } else {
             return QWidgetItem::isEmpty();
         }
@@ -745,7 +835,11 @@ class VirtualQWidgetItem : public QWidgetItem {
             qwidgetitem_setgeometry_isbase = false;
             QWidgetItem::setGeometry(geometry);
         } else if (qwidgetitem_setgeometry_callback != nullptr) {
-            qwidgetitem_setgeometry_callback(this, geometry);
+            const QRect& geometry_ret = geometry;
+            // Cast returned reference into pointer
+            QRect* cbval1 = const_cast<QRect*>(&geometry_ret);
+
+            qwidgetitem_setgeometry_callback(this, cbval1);
         } else {
             QWidgetItem::setGeometry(geometry);
         }
@@ -757,7 +851,8 @@ class VirtualQWidgetItem : public QWidgetItem {
             qwidgetitem_geometry_isbase = false;
             return QWidgetItem::geometry();
         } else if (qwidgetitem_geometry_callback != nullptr) {
-            return qwidgetitem_geometry_callback();
+            QRect* callback_ret = qwidgetitem_geometry_callback();
+            return *callback_ret;
         } else {
             return QWidgetItem::geometry();
         }
@@ -769,7 +864,8 @@ class VirtualQWidgetItem : public QWidgetItem {
             qwidgetitem_widget_isbase = false;
             return QWidgetItem::widget();
         } else if (qwidgetitem_widget_callback != nullptr) {
-            return qwidgetitem_widget_callback();
+            QWidget* callback_ret = qwidgetitem_widget_callback();
+            return callback_ret;
         } else {
             return QWidgetItem::widget();
         }
@@ -781,7 +877,8 @@ class VirtualQWidgetItem : public QWidgetItem {
             qwidgetitem_hasheightforwidth_isbase = false;
             return QWidgetItem::hasHeightForWidth();
         } else if (qwidgetitem_hasheightforwidth_callback != nullptr) {
-            return qwidgetitem_hasheightforwidth_callback();
+            bool callback_ret = qwidgetitem_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QWidgetItem::hasHeightForWidth();
         }
@@ -793,7 +890,10 @@ class VirtualQWidgetItem : public QWidgetItem {
             qwidgetitem_heightforwidth_isbase = false;
             return QWidgetItem::heightForWidth(param1);
         } else if (qwidgetitem_heightforwidth_callback != nullptr) {
-            return qwidgetitem_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qwidgetitem_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QWidgetItem::heightForWidth(param1);
         }
@@ -805,7 +905,10 @@ class VirtualQWidgetItem : public QWidgetItem {
             qwidgetitem_minimumheightforwidth_isbase = false;
             return QWidgetItem::minimumHeightForWidth(param1);
         } else if (qwidgetitem_minimumheightforwidth_callback != nullptr) {
-            return qwidgetitem_minimumheightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qwidgetitem_minimumheightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QWidgetItem::minimumHeightForWidth(param1);
         }
@@ -817,7 +920,8 @@ class VirtualQWidgetItem : public QWidgetItem {
             qwidgetitem_controltypes_isbase = false;
             return QWidgetItem::controlTypes();
         } else if (qwidgetitem_controltypes_callback != nullptr) {
-            return qwidgetitem_controltypes_callback();
+            int callback_ret = qwidgetitem_controltypes_callback();
+            return static_cast<QSizePolicy::ControlTypes>(callback_ret);
         } else {
             return QWidgetItem::controlTypes();
         }
@@ -841,7 +945,8 @@ class VirtualQWidgetItem : public QWidgetItem {
             qwidgetitem_layout_isbase = false;
             return QWidgetItem::layout();
         } else if (qwidgetitem_layout_callback != nullptr) {
-            return qwidgetitem_layout_callback();
+            QLayout* callback_ret = qwidgetitem_layout_callback();
+            return callback_ret;
         } else {
             return QWidgetItem::layout();
         }
@@ -853,7 +958,8 @@ class VirtualQWidgetItem : public QWidgetItem {
             qwidgetitem_spaceritem_isbase = false;
             return QWidgetItem::spacerItem();
         } else if (qwidgetitem_spaceritem_callback != nullptr) {
-            return qwidgetitem_spaceritem_callback();
+            QSpacerItem* callback_ret = qwidgetitem_spaceritem_callback();
+            return callback_ret;
         } else {
             return QWidgetItem::spacerItem();
         }
@@ -861,22 +967,25 @@ class VirtualQWidgetItem : public QWidgetItem {
 };
 
 // This class is a subclass of QWidgetItemV2 so that we can call protected methods
-class VirtualQWidgetItemV2 : public QWidgetItemV2 {
+class VirtualQWidgetItemV2 final : public QWidgetItemV2 {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQWidgetItemV2 = true;
+
     // Virtual class public types (including callbacks)
-    using QWidgetItemV2_SizeHint_Callback = QSize (*)();
-    using QWidgetItemV2_MinimumSize_Callback = QSize (*)();
-    using QWidgetItemV2_MaximumSize_Callback = QSize (*)();
+    using QWidgetItemV2_SizeHint_Callback = QSize* (*)();
+    using QWidgetItemV2_MinimumSize_Callback = QSize* (*)();
+    using QWidgetItemV2_MaximumSize_Callback = QSize* (*)();
     using QWidgetItemV2_HeightForWidth_Callback = int (*)(const QWidgetItemV2*, int);
-    using QWidgetItemV2_ExpandingDirections_Callback = Qt::Orientations (*)();
+    using QWidgetItemV2_ExpandingDirections_Callback = int (*)();
     using QWidgetItemV2_IsEmpty_Callback = bool (*)();
-    using QWidgetItemV2_SetGeometry_Callback = void (*)(QWidgetItemV2*, const QRect&);
-    using QWidgetItemV2_Geometry_Callback = QRect (*)();
+    using QWidgetItemV2_SetGeometry_Callback = void (*)(QWidgetItemV2*, QRect*);
+    using QWidgetItemV2_Geometry_Callback = QRect* (*)();
     using QWidgetItemV2_Widget_Callback = QWidget* (*)();
     using QWidgetItemV2_HasHeightForWidth_Callback = bool (*)();
     using QWidgetItemV2_MinimumHeightForWidth_Callback = int (*)(const QWidgetItemV2*, int);
-    using QWidgetItemV2_ControlTypes_Callback = QSizePolicy::ControlTypes (*)();
+    using QWidgetItemV2_ControlTypes_Callback = int (*)();
     using QWidgetItemV2_Invalidate_Callback = void (*)();
     using QWidgetItemV2_Layout_Callback = QLayout* (*)();
     using QWidgetItemV2_SpacerItem_Callback = QSpacerItem* (*)();
@@ -938,38 +1047,38 @@ class VirtualQWidgetItemV2 : public QWidgetItemV2 {
     }
 
     // Callback setters
-    void setQWidgetItemV2_SizeHint_Callback(QWidgetItemV2_SizeHint_Callback cb) { qwidgetitemv2_sizehint_callback = cb; }
-    void setQWidgetItemV2_MinimumSize_Callback(QWidgetItemV2_MinimumSize_Callback cb) { qwidgetitemv2_minimumsize_callback = cb; }
-    void setQWidgetItemV2_MaximumSize_Callback(QWidgetItemV2_MaximumSize_Callback cb) { qwidgetitemv2_maximumsize_callback = cb; }
-    void setQWidgetItemV2_HeightForWidth_Callback(QWidgetItemV2_HeightForWidth_Callback cb) { qwidgetitemv2_heightforwidth_callback = cb; }
-    void setQWidgetItemV2_ExpandingDirections_Callback(QWidgetItemV2_ExpandingDirections_Callback cb) { qwidgetitemv2_expandingdirections_callback = cb; }
-    void setQWidgetItemV2_IsEmpty_Callback(QWidgetItemV2_IsEmpty_Callback cb) { qwidgetitemv2_isempty_callback = cb; }
-    void setQWidgetItemV2_SetGeometry_Callback(QWidgetItemV2_SetGeometry_Callback cb) { qwidgetitemv2_setgeometry_callback = cb; }
-    void setQWidgetItemV2_Geometry_Callback(QWidgetItemV2_Geometry_Callback cb) { qwidgetitemv2_geometry_callback = cb; }
-    void setQWidgetItemV2_Widget_Callback(QWidgetItemV2_Widget_Callback cb) { qwidgetitemv2_widget_callback = cb; }
-    void setQWidgetItemV2_HasHeightForWidth_Callback(QWidgetItemV2_HasHeightForWidth_Callback cb) { qwidgetitemv2_hasheightforwidth_callback = cb; }
-    void setQWidgetItemV2_MinimumHeightForWidth_Callback(QWidgetItemV2_MinimumHeightForWidth_Callback cb) { qwidgetitemv2_minimumheightforwidth_callback = cb; }
-    void setQWidgetItemV2_ControlTypes_Callback(QWidgetItemV2_ControlTypes_Callback cb) { qwidgetitemv2_controltypes_callback = cb; }
-    void setQWidgetItemV2_Invalidate_Callback(QWidgetItemV2_Invalidate_Callback cb) { qwidgetitemv2_invalidate_callback = cb; }
-    void setQWidgetItemV2_Layout_Callback(QWidgetItemV2_Layout_Callback cb) { qwidgetitemv2_layout_callback = cb; }
-    void setQWidgetItemV2_SpacerItem_Callback(QWidgetItemV2_SpacerItem_Callback cb) { qwidgetitemv2_spaceritem_callback = cb; }
+    inline void setQWidgetItemV2_SizeHint_Callback(QWidgetItemV2_SizeHint_Callback cb) { qwidgetitemv2_sizehint_callback = cb; }
+    inline void setQWidgetItemV2_MinimumSize_Callback(QWidgetItemV2_MinimumSize_Callback cb) { qwidgetitemv2_minimumsize_callback = cb; }
+    inline void setQWidgetItemV2_MaximumSize_Callback(QWidgetItemV2_MaximumSize_Callback cb) { qwidgetitemv2_maximumsize_callback = cb; }
+    inline void setQWidgetItemV2_HeightForWidth_Callback(QWidgetItemV2_HeightForWidth_Callback cb) { qwidgetitemv2_heightforwidth_callback = cb; }
+    inline void setQWidgetItemV2_ExpandingDirections_Callback(QWidgetItemV2_ExpandingDirections_Callback cb) { qwidgetitemv2_expandingdirections_callback = cb; }
+    inline void setQWidgetItemV2_IsEmpty_Callback(QWidgetItemV2_IsEmpty_Callback cb) { qwidgetitemv2_isempty_callback = cb; }
+    inline void setQWidgetItemV2_SetGeometry_Callback(QWidgetItemV2_SetGeometry_Callback cb) { qwidgetitemv2_setgeometry_callback = cb; }
+    inline void setQWidgetItemV2_Geometry_Callback(QWidgetItemV2_Geometry_Callback cb) { qwidgetitemv2_geometry_callback = cb; }
+    inline void setQWidgetItemV2_Widget_Callback(QWidgetItemV2_Widget_Callback cb) { qwidgetitemv2_widget_callback = cb; }
+    inline void setQWidgetItemV2_HasHeightForWidth_Callback(QWidgetItemV2_HasHeightForWidth_Callback cb) { qwidgetitemv2_hasheightforwidth_callback = cb; }
+    inline void setQWidgetItemV2_MinimumHeightForWidth_Callback(QWidgetItemV2_MinimumHeightForWidth_Callback cb) { qwidgetitemv2_minimumheightforwidth_callback = cb; }
+    inline void setQWidgetItemV2_ControlTypes_Callback(QWidgetItemV2_ControlTypes_Callback cb) { qwidgetitemv2_controltypes_callback = cb; }
+    inline void setQWidgetItemV2_Invalidate_Callback(QWidgetItemV2_Invalidate_Callback cb) { qwidgetitemv2_invalidate_callback = cb; }
+    inline void setQWidgetItemV2_Layout_Callback(QWidgetItemV2_Layout_Callback cb) { qwidgetitemv2_layout_callback = cb; }
+    inline void setQWidgetItemV2_SpacerItem_Callback(QWidgetItemV2_SpacerItem_Callback cb) { qwidgetitemv2_spaceritem_callback = cb; }
 
     // Base flag setters
-    void setQWidgetItemV2_SizeHint_IsBase(bool value) const { qwidgetitemv2_sizehint_isbase = value; }
-    void setQWidgetItemV2_MinimumSize_IsBase(bool value) const { qwidgetitemv2_minimumsize_isbase = value; }
-    void setQWidgetItemV2_MaximumSize_IsBase(bool value) const { qwidgetitemv2_maximumsize_isbase = value; }
-    void setQWidgetItemV2_HeightForWidth_IsBase(bool value) const { qwidgetitemv2_heightforwidth_isbase = value; }
-    void setQWidgetItemV2_ExpandingDirections_IsBase(bool value) const { qwidgetitemv2_expandingdirections_isbase = value; }
-    void setQWidgetItemV2_IsEmpty_IsBase(bool value) const { qwidgetitemv2_isempty_isbase = value; }
-    void setQWidgetItemV2_SetGeometry_IsBase(bool value) const { qwidgetitemv2_setgeometry_isbase = value; }
-    void setQWidgetItemV2_Geometry_IsBase(bool value) const { qwidgetitemv2_geometry_isbase = value; }
-    void setQWidgetItemV2_Widget_IsBase(bool value) const { qwidgetitemv2_widget_isbase = value; }
-    void setQWidgetItemV2_HasHeightForWidth_IsBase(bool value) const { qwidgetitemv2_hasheightforwidth_isbase = value; }
-    void setQWidgetItemV2_MinimumHeightForWidth_IsBase(bool value) const { qwidgetitemv2_minimumheightforwidth_isbase = value; }
-    void setQWidgetItemV2_ControlTypes_IsBase(bool value) const { qwidgetitemv2_controltypes_isbase = value; }
-    void setQWidgetItemV2_Invalidate_IsBase(bool value) const { qwidgetitemv2_invalidate_isbase = value; }
-    void setQWidgetItemV2_Layout_IsBase(bool value) const { qwidgetitemv2_layout_isbase = value; }
-    void setQWidgetItemV2_SpacerItem_IsBase(bool value) const { qwidgetitemv2_spaceritem_isbase = value; }
+    inline void setQWidgetItemV2_SizeHint_IsBase(bool value) const { qwidgetitemv2_sizehint_isbase = value; }
+    inline void setQWidgetItemV2_MinimumSize_IsBase(bool value) const { qwidgetitemv2_minimumsize_isbase = value; }
+    inline void setQWidgetItemV2_MaximumSize_IsBase(bool value) const { qwidgetitemv2_maximumsize_isbase = value; }
+    inline void setQWidgetItemV2_HeightForWidth_IsBase(bool value) const { qwidgetitemv2_heightforwidth_isbase = value; }
+    inline void setQWidgetItemV2_ExpandingDirections_IsBase(bool value) const { qwidgetitemv2_expandingdirections_isbase = value; }
+    inline void setQWidgetItemV2_IsEmpty_IsBase(bool value) const { qwidgetitemv2_isempty_isbase = value; }
+    inline void setQWidgetItemV2_SetGeometry_IsBase(bool value) const { qwidgetitemv2_setgeometry_isbase = value; }
+    inline void setQWidgetItemV2_Geometry_IsBase(bool value) const { qwidgetitemv2_geometry_isbase = value; }
+    inline void setQWidgetItemV2_Widget_IsBase(bool value) const { qwidgetitemv2_widget_isbase = value; }
+    inline void setQWidgetItemV2_HasHeightForWidth_IsBase(bool value) const { qwidgetitemv2_hasheightforwidth_isbase = value; }
+    inline void setQWidgetItemV2_MinimumHeightForWidth_IsBase(bool value) const { qwidgetitemv2_minimumheightforwidth_isbase = value; }
+    inline void setQWidgetItemV2_ControlTypes_IsBase(bool value) const { qwidgetitemv2_controltypes_isbase = value; }
+    inline void setQWidgetItemV2_Invalidate_IsBase(bool value) const { qwidgetitemv2_invalidate_isbase = value; }
+    inline void setQWidgetItemV2_Layout_IsBase(bool value) const { qwidgetitemv2_layout_isbase = value; }
+    inline void setQWidgetItemV2_SpacerItem_IsBase(bool value) const { qwidgetitemv2_spaceritem_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
@@ -977,7 +1086,8 @@ class VirtualQWidgetItemV2 : public QWidgetItemV2 {
             qwidgetitemv2_sizehint_isbase = false;
             return QWidgetItemV2::sizeHint();
         } else if (qwidgetitemv2_sizehint_callback != nullptr) {
-            return qwidgetitemv2_sizehint_callback();
+            QSize* callback_ret = qwidgetitemv2_sizehint_callback();
+            return *callback_ret;
         } else {
             return QWidgetItemV2::sizeHint();
         }
@@ -989,7 +1099,8 @@ class VirtualQWidgetItemV2 : public QWidgetItemV2 {
             qwidgetitemv2_minimumsize_isbase = false;
             return QWidgetItemV2::minimumSize();
         } else if (qwidgetitemv2_minimumsize_callback != nullptr) {
-            return qwidgetitemv2_minimumsize_callback();
+            QSize* callback_ret = qwidgetitemv2_minimumsize_callback();
+            return *callback_ret;
         } else {
             return QWidgetItemV2::minimumSize();
         }
@@ -1001,7 +1112,8 @@ class VirtualQWidgetItemV2 : public QWidgetItemV2 {
             qwidgetitemv2_maximumsize_isbase = false;
             return QWidgetItemV2::maximumSize();
         } else if (qwidgetitemv2_maximumsize_callback != nullptr) {
-            return qwidgetitemv2_maximumsize_callback();
+            QSize* callback_ret = qwidgetitemv2_maximumsize_callback();
+            return *callback_ret;
         } else {
             return QWidgetItemV2::maximumSize();
         }
@@ -1013,7 +1125,10 @@ class VirtualQWidgetItemV2 : public QWidgetItemV2 {
             qwidgetitemv2_heightforwidth_isbase = false;
             return QWidgetItemV2::heightForWidth(width);
         } else if (qwidgetitemv2_heightforwidth_callback != nullptr) {
-            return qwidgetitemv2_heightforwidth_callback(this, width);
+            int cbval1 = width;
+
+            int callback_ret = qwidgetitemv2_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QWidgetItemV2::heightForWidth(width);
         }
@@ -1025,7 +1140,8 @@ class VirtualQWidgetItemV2 : public QWidgetItemV2 {
             qwidgetitemv2_expandingdirections_isbase = false;
             return QWidgetItemV2::expandingDirections();
         } else if (qwidgetitemv2_expandingdirections_callback != nullptr) {
-            return qwidgetitemv2_expandingdirections_callback();
+            int callback_ret = qwidgetitemv2_expandingdirections_callback();
+            return static_cast<Qt::Orientations>(callback_ret);
         } else {
             return QWidgetItemV2::expandingDirections();
         }
@@ -1037,7 +1153,8 @@ class VirtualQWidgetItemV2 : public QWidgetItemV2 {
             qwidgetitemv2_isempty_isbase = false;
             return QWidgetItemV2::isEmpty();
         } else if (qwidgetitemv2_isempty_callback != nullptr) {
-            return qwidgetitemv2_isempty_callback();
+            bool callback_ret = qwidgetitemv2_isempty_callback();
+            return callback_ret;
         } else {
             return QWidgetItemV2::isEmpty();
         }
@@ -1049,7 +1166,11 @@ class VirtualQWidgetItemV2 : public QWidgetItemV2 {
             qwidgetitemv2_setgeometry_isbase = false;
             QWidgetItemV2::setGeometry(geometry);
         } else if (qwidgetitemv2_setgeometry_callback != nullptr) {
-            qwidgetitemv2_setgeometry_callback(this, geometry);
+            const QRect& geometry_ret = geometry;
+            // Cast returned reference into pointer
+            QRect* cbval1 = const_cast<QRect*>(&geometry_ret);
+
+            qwidgetitemv2_setgeometry_callback(this, cbval1);
         } else {
             QWidgetItemV2::setGeometry(geometry);
         }
@@ -1061,7 +1182,8 @@ class VirtualQWidgetItemV2 : public QWidgetItemV2 {
             qwidgetitemv2_geometry_isbase = false;
             return QWidgetItemV2::geometry();
         } else if (qwidgetitemv2_geometry_callback != nullptr) {
-            return qwidgetitemv2_geometry_callback();
+            QRect* callback_ret = qwidgetitemv2_geometry_callback();
+            return *callback_ret;
         } else {
             return QWidgetItemV2::geometry();
         }
@@ -1073,7 +1195,8 @@ class VirtualQWidgetItemV2 : public QWidgetItemV2 {
             qwidgetitemv2_widget_isbase = false;
             return QWidgetItemV2::widget();
         } else if (qwidgetitemv2_widget_callback != nullptr) {
-            return qwidgetitemv2_widget_callback();
+            QWidget* callback_ret = qwidgetitemv2_widget_callback();
+            return callback_ret;
         } else {
             return QWidgetItemV2::widget();
         }
@@ -1085,7 +1208,8 @@ class VirtualQWidgetItemV2 : public QWidgetItemV2 {
             qwidgetitemv2_hasheightforwidth_isbase = false;
             return QWidgetItemV2::hasHeightForWidth();
         } else if (qwidgetitemv2_hasheightforwidth_callback != nullptr) {
-            return qwidgetitemv2_hasheightforwidth_callback();
+            bool callback_ret = qwidgetitemv2_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QWidgetItemV2::hasHeightForWidth();
         }
@@ -1097,7 +1221,10 @@ class VirtualQWidgetItemV2 : public QWidgetItemV2 {
             qwidgetitemv2_minimumheightforwidth_isbase = false;
             return QWidgetItemV2::minimumHeightForWidth(param1);
         } else if (qwidgetitemv2_minimumheightforwidth_callback != nullptr) {
-            return qwidgetitemv2_minimumheightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qwidgetitemv2_minimumheightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QWidgetItemV2::minimumHeightForWidth(param1);
         }
@@ -1109,7 +1236,8 @@ class VirtualQWidgetItemV2 : public QWidgetItemV2 {
             qwidgetitemv2_controltypes_isbase = false;
             return QWidgetItemV2::controlTypes();
         } else if (qwidgetitemv2_controltypes_callback != nullptr) {
-            return qwidgetitemv2_controltypes_callback();
+            int callback_ret = qwidgetitemv2_controltypes_callback();
+            return static_cast<QSizePolicy::ControlTypes>(callback_ret);
         } else {
             return QWidgetItemV2::controlTypes();
         }
@@ -1133,7 +1261,8 @@ class VirtualQWidgetItemV2 : public QWidgetItemV2 {
             qwidgetitemv2_layout_isbase = false;
             return QWidgetItemV2::layout();
         } else if (qwidgetitemv2_layout_callback != nullptr) {
-            return qwidgetitemv2_layout_callback();
+            QLayout* callback_ret = qwidgetitemv2_layout_callback();
+            return callback_ret;
         } else {
             return QWidgetItemV2::layout();
         }
@@ -1145,7 +1274,8 @@ class VirtualQWidgetItemV2 : public QWidgetItemV2 {
             qwidgetitemv2_spaceritem_isbase = false;
             return QWidgetItemV2::spacerItem();
         } else if (qwidgetitemv2_spaceritem_callback != nullptr) {
-            return qwidgetitemv2_spaceritem_callback();
+            QSpacerItem* callback_ret = qwidgetitemv2_spaceritem_callback();
+            return callback_ret;
         } else {
             return QWidgetItemV2::spacerItem();
         }

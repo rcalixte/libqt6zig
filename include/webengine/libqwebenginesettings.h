@@ -31,7 +31,7 @@ typedef int UnknownUrlSchemePolicy; // C ABI enum
 typedef int WebAttribute;           // C ABI enum
 #endif
 
-void QWebEngineSettings_SetFontFamily(QWebEngineSettings* self, int which, libqt_string family);
+void QWebEngineSettings_SetFontFamily(QWebEngineSettings* self, int which, const libqt_string family);
 libqt_string QWebEngineSettings_FontFamily(const QWebEngineSettings* self, int which);
 void QWebEngineSettings_ResetFontFamily(QWebEngineSettings* self, int which);
 void QWebEngineSettings_SetFontSize(QWebEngineSettings* self, int typeVal, int size);
@@ -40,7 +40,7 @@ void QWebEngineSettings_ResetFontSize(QWebEngineSettings* self, int typeVal);
 void QWebEngineSettings_SetAttribute(QWebEngineSettings* self, int attr, bool on);
 bool QWebEngineSettings_TestAttribute(const QWebEngineSettings* self, int attr);
 void QWebEngineSettings_ResetAttribute(QWebEngineSettings* self, int attr);
-void QWebEngineSettings_SetDefaultTextEncoding(QWebEngineSettings* self, libqt_string encoding);
+void QWebEngineSettings_SetDefaultTextEncoding(QWebEngineSettings* self, const libqt_string encoding);
 libqt_string QWebEngineSettings_DefaultTextEncoding(const QWebEngineSettings* self);
 int QWebEngineSettings_UnknownUrlSchemePolicy(const QWebEngineSettings* self);
 void QWebEngineSettings_SetUnknownUrlSchemePolicy(QWebEngineSettings* self, int policy);

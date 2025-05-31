@@ -1,23 +1,17 @@
 #include <QAbstractItemDelegate>
 #include <QAbstractItemModel>
-#include <QAnyStringView>
-#include <QBindingStorage>
 #include <QByteArray>
 #include <QChildEvent>
 #include <QDataWidgetMapper>
 #include <QEvent>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QModelIndex>
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <QWidget>
 #include <qdatawidgetmapper.h>
 #include "libqdatawidgetmapper.h"
@@ -40,27 +34,30 @@ void* QDataWidgetMapper_Metacast(QDataWidgetMapper* self, const char* param1) {
 }
 
 int QDataWidgetMapper_Metacall(QDataWidgetMapper* self, int param1, int param2, void** param3) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQDataWidgetMapper*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QDataWidgetMapper_OnMetacall(QDataWidgetMapper* self, intptr_t slot) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_Metacall_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QDataWidgetMapper_QBaseMetacall(QDataWidgetMapper* self, int param1, int param2, void** param3) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_Metacall_IsBase(true);
         return vqdatawidgetmapper->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQDataWidgetMapper*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -92,7 +89,7 @@ QAbstractItemDelegate* QDataWidgetMapper_ItemDelegate(const QDataWidgetMapper* s
     return self->itemDelegate();
 }
 
-void QDataWidgetMapper_SetRootIndex(QDataWidgetMapper* self, QModelIndex* index) {
+void QDataWidgetMapper_SetRootIndex(QDataWidgetMapper* self, const QModelIndex* index) {
     self->setRootIndex(*index);
 }
 
@@ -120,7 +117,7 @@ void QDataWidgetMapper_AddMapping(QDataWidgetMapper* self, QWidget* widget, int 
     self->addMapping(widget, static_cast<int>(section));
 }
 
-void QDataWidgetMapper_AddMapping2(QDataWidgetMapper* self, QWidget* widget, int section, libqt_string propertyName) {
+void QDataWidgetMapper_AddMapping2(QDataWidgetMapper* self, QWidget* widget, int section, const libqt_string propertyName) {
     QByteArray propertyName_QByteArray(propertyName.data, propertyName.len);
     self->addMapping(widget, static_cast<int>(section), propertyName_QByteArray);
 }
@@ -179,7 +176,7 @@ void QDataWidgetMapper_ToPrevious(QDataWidgetMapper* self) {
     self->toPrevious();
 }
 
-void QDataWidgetMapper_SetCurrentModelIndex(QDataWidgetMapper* self, QModelIndex* index) {
+void QDataWidgetMapper_SetCurrentModelIndex(QDataWidgetMapper* self, const QModelIndex* index) {
     self->setCurrentModelIndex(*index);
 }
 
@@ -221,312 +218,348 @@ libqt_string QDataWidgetMapper_Tr3(const char* s, const char* c, int n) {
 
 // Derived class handler implementation
 void QDataWidgetMapper_SetCurrentIndex(QDataWidgetMapper* self, int index) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setCurrentIndex(static_cast<int>(index));
     } else {
-        vqdatawidgetmapper->setCurrentIndex(static_cast<int>(index));
+        self->QDataWidgetMapper::setCurrentIndex(static_cast<int>(index));
     }
 }
 
 // Base class handler implementation
 void QDataWidgetMapper_QBaseSetCurrentIndex(QDataWidgetMapper* self, int index) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_SetCurrentIndex_IsBase(true);
         vqdatawidgetmapper->setCurrentIndex(static_cast<int>(index));
     } else {
-        vqdatawidgetmapper->setCurrentIndex(static_cast<int>(index));
+        self->QDataWidgetMapper::setCurrentIndex(static_cast<int>(index));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDataWidgetMapper_OnSetCurrentIndex(QDataWidgetMapper* self, intptr_t slot) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_SetCurrentIndex_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_SetCurrentIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QDataWidgetMapper_Event(QDataWidgetMapper* self, QEvent* event) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         return vqdatawidgetmapper->event(event);
     } else {
-        return vqdatawidgetmapper->event(event);
+        return self->QDataWidgetMapper::event(event);
     }
 }
 
 // Base class handler implementation
 bool QDataWidgetMapper_QBaseEvent(QDataWidgetMapper* self, QEvent* event) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_Event_IsBase(true);
         return vqdatawidgetmapper->event(event);
     } else {
-        return vqdatawidgetmapper->event(event);
+        return self->QDataWidgetMapper::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDataWidgetMapper_OnEvent(QDataWidgetMapper* self, intptr_t slot) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_Event_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QDataWidgetMapper_EventFilter(QDataWidgetMapper* self, QObject* watched, QEvent* event) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         return vqdatawidgetmapper->eventFilter(watched, event);
     } else {
-        return vqdatawidgetmapper->eventFilter(watched, event);
+        return self->QDataWidgetMapper::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QDataWidgetMapper_QBaseEventFilter(QDataWidgetMapper* self, QObject* watched, QEvent* event) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_EventFilter_IsBase(true);
         return vqdatawidgetmapper->eventFilter(watched, event);
     } else {
-        return vqdatawidgetmapper->eventFilter(watched, event);
+        return self->QDataWidgetMapper::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDataWidgetMapper_OnEventFilter(QDataWidgetMapper* self, intptr_t slot) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_EventFilter_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QDataWidgetMapper_TimerEvent(QDataWidgetMapper* self, QTimerEvent* event) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->timerEvent(event);
     } else {
-        vqdatawidgetmapper->timerEvent(event);
+        ((VirtualQDataWidgetMapper*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QDataWidgetMapper_QBaseTimerEvent(QDataWidgetMapper* self, QTimerEvent* event) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_TimerEvent_IsBase(true);
         vqdatawidgetmapper->timerEvent(event);
     } else {
-        vqdatawidgetmapper->timerEvent(event);
+        ((VirtualQDataWidgetMapper*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDataWidgetMapper_OnTimerEvent(QDataWidgetMapper* self, intptr_t slot) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_TimerEvent_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QDataWidgetMapper_ChildEvent(QDataWidgetMapper* self, QChildEvent* event) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->childEvent(event);
     } else {
-        vqdatawidgetmapper->childEvent(event);
+        ((VirtualQDataWidgetMapper*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QDataWidgetMapper_QBaseChildEvent(QDataWidgetMapper* self, QChildEvent* event) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_ChildEvent_IsBase(true);
         vqdatawidgetmapper->childEvent(event);
     } else {
-        vqdatawidgetmapper->childEvent(event);
+        ((VirtualQDataWidgetMapper*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDataWidgetMapper_OnChildEvent(QDataWidgetMapper* self, intptr_t slot) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_ChildEvent_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QDataWidgetMapper_CustomEvent(QDataWidgetMapper* self, QEvent* event) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->customEvent(event);
     } else {
-        vqdatawidgetmapper->customEvent(event);
+        ((VirtualQDataWidgetMapper*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QDataWidgetMapper_QBaseCustomEvent(QDataWidgetMapper* self, QEvent* event) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_CustomEvent_IsBase(true);
         vqdatawidgetmapper->customEvent(event);
     } else {
-        vqdatawidgetmapper->customEvent(event);
+        ((VirtualQDataWidgetMapper*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDataWidgetMapper_OnCustomEvent(QDataWidgetMapper* self, intptr_t slot) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_CustomEvent_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QDataWidgetMapper_ConnectNotify(QDataWidgetMapper* self, QMetaMethod* signal) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+void QDataWidgetMapper_ConnectNotify(QDataWidgetMapper* self, const QMetaMethod* signal) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->connectNotify(*signal);
     } else {
-        vqdatawidgetmapper->connectNotify(*signal);
+        ((VirtualQDataWidgetMapper*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QDataWidgetMapper_QBaseConnectNotify(QDataWidgetMapper* self, QMetaMethod* signal) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+void QDataWidgetMapper_QBaseConnectNotify(QDataWidgetMapper* self, const QMetaMethod* signal) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_ConnectNotify_IsBase(true);
         vqdatawidgetmapper->connectNotify(*signal);
     } else {
-        vqdatawidgetmapper->connectNotify(*signal);
+        ((VirtualQDataWidgetMapper*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDataWidgetMapper_OnConnectNotify(QDataWidgetMapper* self, intptr_t slot) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_ConnectNotify_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QDataWidgetMapper_DisconnectNotify(QDataWidgetMapper* self, QMetaMethod* signal) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+void QDataWidgetMapper_DisconnectNotify(QDataWidgetMapper* self, const QMetaMethod* signal) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->disconnectNotify(*signal);
     } else {
-        vqdatawidgetmapper->disconnectNotify(*signal);
+        ((VirtualQDataWidgetMapper*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QDataWidgetMapper_QBaseDisconnectNotify(QDataWidgetMapper* self, QMetaMethod* signal) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+void QDataWidgetMapper_QBaseDisconnectNotify(QDataWidgetMapper* self, const QMetaMethod* signal) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_DisconnectNotify_IsBase(true);
         vqdatawidgetmapper->disconnectNotify(*signal);
     } else {
-        vqdatawidgetmapper->disconnectNotify(*signal);
+        ((VirtualQDataWidgetMapper*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDataWidgetMapper_OnDisconnectNotify(QDataWidgetMapper* self, intptr_t slot) {
-    if (auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self)) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_DisconnectNotify_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QDataWidgetMapper_Sender(const QDataWidgetMapper* self) {
-    if (auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self))) {
+    auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self));
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         return vqdatawidgetmapper->sender();
     } else {
-        return vqdatawidgetmapper->sender();
+        return ((VirtualQDataWidgetMapper*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QDataWidgetMapper_QBaseSender(const QDataWidgetMapper* self) {
-    if (auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self))) {
+    auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self));
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_Sender_IsBase(true);
         return vqdatawidgetmapper->sender();
     } else {
-        return vqdatawidgetmapper->sender();
+        return ((VirtualQDataWidgetMapper*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDataWidgetMapper_OnSender(const QDataWidgetMapper* self, intptr_t slot) {
-    if (auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self))) {
+    auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self));
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_Sender_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QDataWidgetMapper_SenderSignalIndex(const QDataWidgetMapper* self) {
-    if (auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self))) {
+    auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self));
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         return vqdatawidgetmapper->senderSignalIndex();
     } else {
-        return vqdatawidgetmapper->senderSignalIndex();
+        return ((VirtualQDataWidgetMapper*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QDataWidgetMapper_QBaseSenderSignalIndex(const QDataWidgetMapper* self) {
-    if (auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self))) {
+    auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self));
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_SenderSignalIndex_IsBase(true);
         return vqdatawidgetmapper->senderSignalIndex();
     } else {
-        return vqdatawidgetmapper->senderSignalIndex();
+        return ((VirtualQDataWidgetMapper*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDataWidgetMapper_OnSenderSignalIndex(const QDataWidgetMapper* self, intptr_t slot) {
-    if (auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self))) {
+    auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self));
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QDataWidgetMapper_Receivers(const QDataWidgetMapper* self, const char* signal) {
-    if (auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self))) {
+    auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self));
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         return vqdatawidgetmapper->receivers(signal);
     } else {
-        return vqdatawidgetmapper->receivers(signal);
+        return ((VirtualQDataWidgetMapper*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QDataWidgetMapper_QBaseReceivers(const QDataWidgetMapper* self, const char* signal) {
-    if (auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self))) {
+    auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self));
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_Receivers_IsBase(true);
         return vqdatawidgetmapper->receivers(signal);
     } else {
-        return vqdatawidgetmapper->receivers(signal);
+        return ((VirtualQDataWidgetMapper*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDataWidgetMapper_OnReceivers(const QDataWidgetMapper* self, intptr_t slot) {
-    if (auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self))) {
+    auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self));
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_Receivers_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QDataWidgetMapper_IsSignalConnected(const QDataWidgetMapper* self, QMetaMethod* signal) {
-    if (auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self))) {
+bool QDataWidgetMapper_IsSignalConnected(const QDataWidgetMapper* self, const QMetaMethod* signal) {
+    auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self));
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         return vqdatawidgetmapper->isSignalConnected(*signal);
     } else {
-        return vqdatawidgetmapper->isSignalConnected(*signal);
+        return ((VirtualQDataWidgetMapper*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QDataWidgetMapper_QBaseIsSignalConnected(const QDataWidgetMapper* self, QMetaMethod* signal) {
-    if (auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self))) {
+bool QDataWidgetMapper_QBaseIsSignalConnected(const QDataWidgetMapper* self, const QMetaMethod* signal) {
+    auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self));
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_IsSignalConnected_IsBase(true);
         return vqdatawidgetmapper->isSignalConnected(*signal);
     } else {
-        return vqdatawidgetmapper->isSignalConnected(*signal);
+        return ((VirtualQDataWidgetMapper*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDataWidgetMapper_OnIsSignalConnected(const QDataWidgetMapper* self, intptr_t slot) {
-    if (auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self))) {
+    auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self));
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
         vqdatawidgetmapper->setQDataWidgetMapper_IsSignalConnected_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_IsSignalConnected_Callback>(slot));
     }
 }

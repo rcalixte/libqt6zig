@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qssl_enums = @import("libqssl.zig").enums;
 const qssldiffiehellmanparameters_enums = enums;
 const std = @import("std");
@@ -8,84 +9,84 @@ pub const qssldiffiehellmanparameters = struct {
     /// New constructs a new QSslDiffieHellmanParameters object.
     ///
     ///
-    pub fn New() ?*C.QSslDiffieHellmanParameters {
-        return C.QSslDiffieHellmanParameters_new();
+    pub fn New() QtC.QSslDiffieHellmanParameters {
+        return qtc.QSslDiffieHellmanParameters_new();
     }
 
     /// New2 constructs a new QSslDiffieHellmanParameters object.
     ///
-    /// ``` other: ?*C.QSslDiffieHellmanParameters ```
-    pub fn New2(other: ?*anyopaque) ?*C.QSslDiffieHellmanParameters {
-        return C.QSslDiffieHellmanParameters_new2(@ptrCast(other));
+    /// ``` other: QtC.QSslDiffieHellmanParameters ```
+    pub fn New2(other: ?*anyopaque) QtC.QSslDiffieHellmanParameters {
+        return qtc.QSslDiffieHellmanParameters_new2(@ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#defaultParameters)
     ///
     ///
-    pub fn DefaultParameters() ?*C.QSslDiffieHellmanParameters {
-        return C.QSslDiffieHellmanParameters_DefaultParameters();
+    pub fn DefaultParameters() QtC.QSslDiffieHellmanParameters {
+        return qtc.QSslDiffieHellmanParameters_DefaultParameters();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#operator=)
     ///
-    /// ``` self: ?*C.QSslDiffieHellmanParameters, other: ?*C.QSslDiffieHellmanParameters ```
+    /// ``` self: QtC.QSslDiffieHellmanParameters, other: QtC.QSslDiffieHellmanParameters ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QSslDiffieHellmanParameters_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QSslDiffieHellmanParameters_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#swap)
     ///
-    /// ``` self: ?*C.QSslDiffieHellmanParameters, other: ?*C.QSslDiffieHellmanParameters ```
+    /// ``` self: QtC.QSslDiffieHellmanParameters, other: QtC.QSslDiffieHellmanParameters ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QSslDiffieHellmanParameters_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QSslDiffieHellmanParameters_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#fromEncoded)
     ///
     /// ``` encoded: []u8 ```
-    pub fn FromEncoded(encoded: []u8) ?*C.QSslDiffieHellmanParameters {
-        const encoded_str = C.struct_libqt_string{
+    pub fn FromEncoded(encoded: []u8) QtC.QSslDiffieHellmanParameters {
+        const encoded_str = qtc.struct_libqt_string{
             .len = encoded.len,
             .data = @constCast(encoded.ptr),
         };
-        return C.QSslDiffieHellmanParameters_FromEncoded(encoded_str);
+        return qtc.QSslDiffieHellmanParameters_FromEncoded(encoded_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#fromEncoded)
     ///
-    /// ``` device: ?*C.QIODevice ```
-    pub fn FromEncodedWithDevice(device: ?*anyopaque) ?*C.QSslDiffieHellmanParameters {
-        return C.QSslDiffieHellmanParameters_FromEncodedWithDevice(@ptrCast(device));
+    /// ``` device: QtC.QIODevice ```
+    pub fn FromEncodedWithDevice(device: ?*anyopaque) QtC.QSslDiffieHellmanParameters {
+        return qtc.QSslDiffieHellmanParameters_FromEncodedWithDevice(@ptrCast(device));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#isEmpty)
     ///
-    /// ``` self: ?*C.QSslDiffieHellmanParameters ```
+    /// ``` self: QtC.QSslDiffieHellmanParameters ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
-        return C.QSslDiffieHellmanParameters_IsEmpty(@ptrCast(self));
+        return qtc.QSslDiffieHellmanParameters_IsEmpty(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#isValid)
     ///
-    /// ``` self: ?*C.QSslDiffieHellmanParameters ```
+    /// ``` self: QtC.QSslDiffieHellmanParameters ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QSslDiffieHellmanParameters_IsValid(@ptrCast(self));
+        return qtc.QSslDiffieHellmanParameters_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#error)
     ///
-    /// ``` self: ?*C.QSslDiffieHellmanParameters ```
+    /// ``` self: QtC.QSslDiffieHellmanParameters ```
     pub fn Error(self: ?*anyopaque) i64 {
-        return C.QSslDiffieHellmanParameters_Error(@ptrCast(self));
+        return qtc.QSslDiffieHellmanParameters_Error(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#errorString)
     ///
-    /// ``` self: ?*C.QSslDiffieHellmanParameters, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QSslDiffieHellmanParameters, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QSslDiffieHellmanParameters_ErrorString(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QSslDiffieHellmanParameters_ErrorString(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qssldiffiehellmanparameters.ErrorString: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -95,26 +96,28 @@ pub const qssldiffiehellmanparameters = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#fromEncoded)
     ///
     /// ``` encoded: []u8, format: qssl_enums.EncodingFormat ```
-    pub fn FromEncoded2(encoded: []u8, format: i64) ?*C.QSslDiffieHellmanParameters {
-        const encoded_str = C.struct_libqt_string{
+    pub fn FromEncoded2(encoded: []u8, format: i64) QtC.QSslDiffieHellmanParameters {
+        const encoded_str = qtc.struct_libqt_string{
             .len = encoded.len,
             .data = @constCast(encoded.ptr),
         };
-        return C.QSslDiffieHellmanParameters_FromEncoded2(encoded_str, @intCast(format));
+        return qtc.QSslDiffieHellmanParameters_FromEncoded2(encoded_str, @intCast(format));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#fromEncoded)
     ///
-    /// ``` device: ?*C.QIODevice, format: qssl_enums.EncodingFormat ```
-    pub fn FromEncoded22(device: ?*anyopaque, format: i64) ?*C.QSslDiffieHellmanParameters {
-        return C.QSslDiffieHellmanParameters_FromEncoded22(@ptrCast(device), @intCast(format));
+    /// ``` device: QtC.QIODevice, format: qssl_enums.EncodingFormat ```
+    pub fn FromEncoded22(device: ?*anyopaque, format: i64) QtC.QSslDiffieHellmanParameters {
+        return qtc.QSslDiffieHellmanParameters_FromEncoded22(@ptrCast(device), @intCast(format));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#dtor.QSslDiffieHellmanParameters)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QSslDiffieHellmanParameters ```
+    /// ``` self: QtC.QSslDiffieHellmanParameters ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QSslDiffieHellmanParameters_Delete(@ptrCast(self));
+        qtc.QSslDiffieHellmanParameters_Delete(@ptrCast(self));
     }
 };
 

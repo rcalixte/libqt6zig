@@ -34,11 +34,11 @@ typedef void QtGadgetHelper;  // C ABI QFlags
 QCborStreamReader* QCborStreamReader_new();
 QCborStreamReader* QCborStreamReader_new2(const char* data, ptrdiff_t lenVal);
 QCborStreamReader* QCborStreamReader_new3(const unsigned char* data, ptrdiff_t lenVal);
-QCborStreamReader* QCborStreamReader_new4(libqt_string data);
+QCborStreamReader* QCborStreamReader_new4(const libqt_string data);
 QCborStreamReader* QCborStreamReader_new5(QIODevice* device);
 void QCborStreamReader_SetDevice(QCborStreamReader* self, QIODevice* device);
 QIODevice* QCborStreamReader_Device(const QCborStreamReader* self);
-void QCborStreamReader_AddData(QCborStreamReader* self, libqt_string data);
+void QCborStreamReader_AddData(QCborStreamReader* self, const libqt_string data);
 void QCborStreamReader_AddData2(QCborStreamReader* self, const char* data, ptrdiff_t lenVal);
 void QCborStreamReader_AddData3(QCborStreamReader* self, const unsigned char* data, ptrdiff_t lenVal);
 void QCborStreamReader_Reparse(QCborStreamReader* self);

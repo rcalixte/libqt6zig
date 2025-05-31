@@ -1,21 +1,11 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChar>
-#include <QChildEvent>
-#include <QEvent>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
 #include <QStyleHints>
-#include <QThread>
-#include <QTimerEvent>
-#include <QVariant>
 #include <qstylehints.h>
 #include "libqstylehints.h"
 #include "libqstylehints.hxx"
@@ -334,14 +324,6 @@ libqt_string QStyleHints_Tr3(const char* s, const char* c, int n) {
     memcpy(_str.data, _b.data(), _str.len);
     _str.data[_str.len] = '\0';
     return _str;
-}
-
-bool QStyleHints_Event(QStyleHints* self, QEvent* event) {
-    return self->event(event);
-}
-
-bool QStyleHints_EventFilter(QStyleHints* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
 }
 
 void QStyleHints_Delete(QStyleHints* self) {

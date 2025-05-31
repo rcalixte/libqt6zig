@@ -1,34 +1,35 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qstringconverter.html
 pub const qstringconverter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#isValid)
     ///
-    /// ``` self: ?*C.QStringConverter ```
+    /// ``` self: QtC.QStringConverter ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QStringConverter_IsValid(@ptrCast(self));
+        return qtc.QStringConverter_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#resetState)
     ///
-    /// ``` self: ?*C.QStringConverter ```
+    /// ``` self: QtC.QStringConverter ```
     pub fn ResetState(self: ?*anyopaque) void {
-        C.QStringConverter_ResetState(@ptrCast(self));
+        qtc.QStringConverter_ResetState(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#hasError)
     ///
-    /// ``` self: ?*C.QStringConverter ```
+    /// ``` self: QtC.QStringConverter ```
     pub fn HasError(self: ?*anyopaque) bool {
-        return C.QStringConverter_HasError(@ptrCast(self));
+        return qtc.QStringConverter_HasError(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#name)
     ///
-    /// ``` self: ?*C.QStringConverter ```
+    /// ``` self: QtC.QStringConverter ```
     pub fn Name(self: ?*anyopaque) []const u8 {
-        const _ret = C.QStringConverter_Name(@ptrCast(self));
+        const _ret = qtc.QStringConverter_Name(@ptrCast(self));
         return std.mem.span(_ret);
     }
 
@@ -36,7 +37,7 @@ pub const qstringconverter = struct {
     ///
     /// ``` e: qstringconverter_enums.Encoding ```
     pub fn NameForEncoding(e: i64) []const u8 {
-        const _ret = C.QStringConverter_NameForEncoding(@intCast(e));
+        const _ret = qtc.QStringConverter_NameForEncoding(@intCast(e));
         return std.mem.span(_ret);
     }
 };
@@ -46,36 +47,36 @@ pub const qstringconverterbase__state = struct {
     /// New constructs a new QStringConverterBase::State object.
     ///
     ///
-    pub fn New() ?*C.QStringConverterBase__State {
-        return C.QStringConverterBase__State_new();
+    pub fn New() QtC.QStringConverterBase__State {
+        return qtc.QStringConverterBase__State_new();
     }
 
     /// New2 constructs a new QStringConverterBase::State object.
     ///
     /// ``` f: i32 ```
-    pub fn New2(f: i64) ?*C.QStringConverterBase__State {
-        return C.QStringConverterBase__State_new2(@intCast(f));
+    pub fn New2(f: i64) QtC.QStringConverterBase__State {
+        return qtc.QStringConverterBase__State_new2(@intCast(f));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase__state.html#clear)
     ///
-    /// ``` self: ?*C.QStringConverterBase__State ```
+    /// ``` self: QtC.QStringConverterBase__State ```
     pub fn Clear(self: ?*anyopaque) void {
-        C.QStringConverterBase__State_Clear(@ptrCast(self));
+        qtc.QStringConverterBase__State_Clear(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase__state.html#reset)
     ///
-    /// ``` self: ?*C.QStringConverterBase__State ```
+    /// ``` self: QtC.QStringConverterBase__State ```
     pub fn Reset(self: ?*anyopaque) void {
-        C.QStringConverterBase__State_Reset(@ptrCast(self));
+        qtc.QStringConverterBase__State_Reset(@ptrCast(self));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStringConverterBase__State ```
+    /// ``` self: QtC.QStringConverterBase__State ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStringConverterBase__State_Delete(@ptrCast(self));
+        qtc.QStringConverterBase__State_Delete(@ptrCast(self));
     }
 };
 

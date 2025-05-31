@@ -15,25 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSettings QSettings;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
-typedef struct QsciAbstractAPIs QsciAbstractAPIs;
 typedef struct QsciLexer QsciLexer;
 typedef struct QsciLexerBatch QsciLexerBatch;
 typedef struct QsciScintilla QsciScintilla;
@@ -122,21 +113,24 @@ int QsciLexerBatch_QBaseStyleBitsNeeded(const QsciLexerBatch* self);
 void QsciLexerBatch_SetAutoIndentStyle(QsciLexerBatch* self, int autoindentstyle);
 void QsciLexerBatch_OnSetAutoIndentStyle(QsciLexerBatch* self, intptr_t slot);
 void QsciLexerBatch_QBaseSetAutoIndentStyle(QsciLexerBatch* self, int autoindentstyle);
-void QsciLexerBatch_SetColor(QsciLexerBatch* self, QColor* c, int style);
+void QsciLexerBatch_SetColor(QsciLexerBatch* self, const QColor* c, int style);
 void QsciLexerBatch_OnSetColor(QsciLexerBatch* self, intptr_t slot);
-void QsciLexerBatch_QBaseSetColor(QsciLexerBatch* self, QColor* c, int style);
+void QsciLexerBatch_QBaseSetColor(QsciLexerBatch* self, const QColor* c, int style);
 void QsciLexerBatch_SetEolFill(QsciLexerBatch* self, bool eoffill, int style);
 void QsciLexerBatch_OnSetEolFill(QsciLexerBatch* self, intptr_t slot);
 void QsciLexerBatch_QBaseSetEolFill(QsciLexerBatch* self, bool eoffill, int style);
-void QsciLexerBatch_SetFont(QsciLexerBatch* self, QFont* f, int style);
+void QsciLexerBatch_SetFont(QsciLexerBatch* self, const QFont* f, int style);
 void QsciLexerBatch_OnSetFont(QsciLexerBatch* self, intptr_t slot);
-void QsciLexerBatch_QBaseSetFont(QsciLexerBatch* self, QFont* f, int style);
-void QsciLexerBatch_SetPaper(QsciLexerBatch* self, QColor* c, int style);
+void QsciLexerBatch_QBaseSetFont(QsciLexerBatch* self, const QFont* f, int style);
+void QsciLexerBatch_SetPaper(QsciLexerBatch* self, const QColor* c, int style);
 void QsciLexerBatch_OnSetPaper(QsciLexerBatch* self, intptr_t slot);
-void QsciLexerBatch_QBaseSetPaper(QsciLexerBatch* self, QColor* c, int style);
-bool QsciLexerBatch_ReadProperties(QsciLexerBatch* self, QSettings* qs, libqt_string prefix);
+void QsciLexerBatch_QBaseSetPaper(QsciLexerBatch* self, const QColor* c, int style);
+bool QsciLexerBatch_ReadProperties(QsciLexerBatch* self, QSettings* qs, const libqt_string prefix);
 void QsciLexerBatch_OnReadProperties(QsciLexerBatch* self, intptr_t slot);
-bool QsciLexerBatch_QBaseReadProperties(QsciLexerBatch* self, QSettings* qs, libqt_string prefix);
+bool QsciLexerBatch_QBaseReadProperties(QsciLexerBatch* self, QSettings* qs, const libqt_string prefix);
+bool QsciLexerBatch_WriteProperties(const QsciLexerBatch* self, QSettings* qs, const libqt_string prefix);
+void QsciLexerBatch_OnWriteProperties(const QsciLexerBatch* self, intptr_t slot);
+bool QsciLexerBatch_QBaseWriteProperties(const QsciLexerBatch* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexerBatch_Event(QsciLexerBatch* self, QEvent* event);
 void QsciLexerBatch_OnEvent(QsciLexerBatch* self, intptr_t slot);
 bool QsciLexerBatch_QBaseEvent(QsciLexerBatch* self, QEvent* event);
@@ -152,15 +146,12 @@ void QsciLexerBatch_QBaseChildEvent(QsciLexerBatch* self, QChildEvent* event);
 void QsciLexerBatch_CustomEvent(QsciLexerBatch* self, QEvent* event);
 void QsciLexerBatch_OnCustomEvent(QsciLexerBatch* self, intptr_t slot);
 void QsciLexerBatch_QBaseCustomEvent(QsciLexerBatch* self, QEvent* event);
-void QsciLexerBatch_ConnectNotify(QsciLexerBatch* self, QMetaMethod* signal);
+void QsciLexerBatch_ConnectNotify(QsciLexerBatch* self, const QMetaMethod* signal);
 void QsciLexerBatch_OnConnectNotify(QsciLexerBatch* self, intptr_t slot);
-void QsciLexerBatch_QBaseConnectNotify(QsciLexerBatch* self, QMetaMethod* signal);
-void QsciLexerBatch_DisconnectNotify(QsciLexerBatch* self, QMetaMethod* signal);
+void QsciLexerBatch_QBaseConnectNotify(QsciLexerBatch* self, const QMetaMethod* signal);
+void QsciLexerBatch_DisconnectNotify(QsciLexerBatch* self, const QMetaMethod* signal);
 void QsciLexerBatch_OnDisconnectNotify(QsciLexerBatch* self, intptr_t slot);
-void QsciLexerBatch_QBaseDisconnectNotify(QsciLexerBatch* self, QMetaMethod* signal);
-bool QsciLexerBatch_WriteProperties(const QsciLexerBatch* self, QSettings* qs, libqt_string prefix);
-void QsciLexerBatch_OnWriteProperties(const QsciLexerBatch* self, intptr_t slot);
-bool QsciLexerBatch_QBaseWriteProperties(const QsciLexerBatch* self, QSettings* qs, libqt_string prefix);
+void QsciLexerBatch_QBaseDisconnectNotify(QsciLexerBatch* self, const QMetaMethod* signal);
 QObject* QsciLexerBatch_Sender(const QsciLexerBatch* self);
 void QsciLexerBatch_OnSender(const QsciLexerBatch* self, intptr_t slot);
 QObject* QsciLexerBatch_QBaseSender(const QsciLexerBatch* self);
@@ -170,9 +161,9 @@ int QsciLexerBatch_QBaseSenderSignalIndex(const QsciLexerBatch* self);
 int QsciLexerBatch_Receivers(const QsciLexerBatch* self, const char* signal);
 void QsciLexerBatch_OnReceivers(const QsciLexerBatch* self, intptr_t slot);
 int QsciLexerBatch_QBaseReceivers(const QsciLexerBatch* self, const char* signal);
-bool QsciLexerBatch_IsSignalConnected(const QsciLexerBatch* self, QMetaMethod* signal);
+bool QsciLexerBatch_IsSignalConnected(const QsciLexerBatch* self, const QMetaMethod* signal);
 void QsciLexerBatch_OnIsSignalConnected(const QsciLexerBatch* self, intptr_t slot);
-bool QsciLexerBatch_QBaseIsSignalConnected(const QsciLexerBatch* self, QMetaMethod* signal);
+bool QsciLexerBatch_QBaseIsSignalConnected(const QsciLexerBatch* self, const QMetaMethod* signal);
 void QsciLexerBatch_Delete(QsciLexerBatch* self);
 
 #ifdef __cplusplus

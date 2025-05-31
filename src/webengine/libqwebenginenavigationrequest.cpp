@@ -1,20 +1,10 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
-#include <QChildEvent>
-#include <QEvent>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
 #include <QUrl>
-#include <QVariant>
 #include <QWebEngineNavigationRequest>
 #include <qwebenginenavigationrequest.h>
 #include "libqwebenginenavigationrequest.h"
@@ -97,14 +87,6 @@ libqt_string QWebEngineNavigationRequest_Tr3(const char* s, const char* c, int n
     memcpy(_str.data, _b.data(), _str.len);
     _str.data[_str.len] = '\0';
     return _str;
-}
-
-bool QWebEngineNavigationRequest_Event(QWebEngineNavigationRequest* self, QEvent* event) {
-    return self->event(event);
-}
-
-bool QWebEngineNavigationRequest_EventFilter(QWebEngineNavigationRequest* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
 }
 
 void QWebEngineNavigationRequest_Delete(QWebEngineNavigationRequest* self) {

@@ -11,9 +11,12 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QAccessibleEvent so that we can call protected methods
-class VirtualQAccessibleEvent : public QAccessibleEvent {
+class VirtualQAccessibleEvent final : public QAccessibleEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQAccessibleEvent = true;
+
     // Virtual class public types (including callbacks)
     using QAccessibleEvent_AccessibleInterface_Callback = QAccessibleInterface* (*)();
 
@@ -33,10 +36,10 @@ class VirtualQAccessibleEvent : public QAccessibleEvent {
     }
 
     // Callback setters
-    void setQAccessibleEvent_AccessibleInterface_Callback(QAccessibleEvent_AccessibleInterface_Callback cb) { qaccessibleevent_accessibleinterface_callback = cb; }
+    inline void setQAccessibleEvent_AccessibleInterface_Callback(QAccessibleEvent_AccessibleInterface_Callback cb) { qaccessibleevent_accessibleinterface_callback = cb; }
 
     // Base flag setters
-    void setQAccessibleEvent_AccessibleInterface_IsBase(bool value) const { qaccessibleevent_accessibleinterface_isbase = value; }
+    inline void setQAccessibleEvent_AccessibleInterface_IsBase(bool value) const { qaccessibleevent_accessibleinterface_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QAccessibleInterface* accessibleInterface() const override {
@@ -44,7 +47,8 @@ class VirtualQAccessibleEvent : public QAccessibleEvent {
             qaccessibleevent_accessibleinterface_isbase = false;
             return QAccessibleEvent::accessibleInterface();
         } else if (qaccessibleevent_accessibleinterface_callback != nullptr) {
-            return qaccessibleevent_accessibleinterface_callback();
+            QAccessibleInterface* callback_ret = qaccessibleevent_accessibleinterface_callback();
+            return callback_ret;
         } else {
             return QAccessibleEvent::accessibleInterface();
         }
@@ -52,9 +56,12 @@ class VirtualQAccessibleEvent : public QAccessibleEvent {
 };
 
 // This class is a subclass of QAccessibleStateChangeEvent so that we can call protected methods
-class VirtualQAccessibleStateChangeEvent : public QAccessibleStateChangeEvent {
+class VirtualQAccessibleStateChangeEvent final : public QAccessibleStateChangeEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQAccessibleStateChangeEvent = true;
+
     // Virtual class public types (including callbacks)
     using QAccessibleStateChangeEvent_AccessibleInterface_Callback = QAccessibleInterface* (*)();
 
@@ -74,10 +81,10 @@ class VirtualQAccessibleStateChangeEvent : public QAccessibleStateChangeEvent {
     }
 
     // Callback setters
-    void setQAccessibleStateChangeEvent_AccessibleInterface_Callback(QAccessibleStateChangeEvent_AccessibleInterface_Callback cb) { qaccessiblestatechangeevent_accessibleinterface_callback = cb; }
+    inline void setQAccessibleStateChangeEvent_AccessibleInterface_Callback(QAccessibleStateChangeEvent_AccessibleInterface_Callback cb) { qaccessiblestatechangeevent_accessibleinterface_callback = cb; }
 
     // Base flag setters
-    void setQAccessibleStateChangeEvent_AccessibleInterface_IsBase(bool value) const { qaccessiblestatechangeevent_accessibleinterface_isbase = value; }
+    inline void setQAccessibleStateChangeEvent_AccessibleInterface_IsBase(bool value) const { qaccessiblestatechangeevent_accessibleinterface_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QAccessibleInterface* accessibleInterface() const override {
@@ -85,7 +92,8 @@ class VirtualQAccessibleStateChangeEvent : public QAccessibleStateChangeEvent {
             qaccessiblestatechangeevent_accessibleinterface_isbase = false;
             return QAccessibleStateChangeEvent::accessibleInterface();
         } else if (qaccessiblestatechangeevent_accessibleinterface_callback != nullptr) {
-            return qaccessiblestatechangeevent_accessibleinterface_callback();
+            QAccessibleInterface* callback_ret = qaccessiblestatechangeevent_accessibleinterface_callback();
+            return callback_ret;
         } else {
             return QAccessibleStateChangeEvent::accessibleInterface();
         }
@@ -93,9 +101,12 @@ class VirtualQAccessibleStateChangeEvent : public QAccessibleStateChangeEvent {
 };
 
 // This class is a subclass of QAccessibleTextCursorEvent so that we can call protected methods
-class VirtualQAccessibleTextCursorEvent : public QAccessibleTextCursorEvent {
+class VirtualQAccessibleTextCursorEvent final : public QAccessibleTextCursorEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQAccessibleTextCursorEvent = true;
+
     // Virtual class public types (including callbacks)
     using QAccessibleTextCursorEvent_AccessibleInterface_Callback = QAccessibleInterface* (*)();
 
@@ -115,10 +126,10 @@ class VirtualQAccessibleTextCursorEvent : public QAccessibleTextCursorEvent {
     }
 
     // Callback setters
-    void setQAccessibleTextCursorEvent_AccessibleInterface_Callback(QAccessibleTextCursorEvent_AccessibleInterface_Callback cb) { qaccessibletextcursorevent_accessibleinterface_callback = cb; }
+    inline void setQAccessibleTextCursorEvent_AccessibleInterface_Callback(QAccessibleTextCursorEvent_AccessibleInterface_Callback cb) { qaccessibletextcursorevent_accessibleinterface_callback = cb; }
 
     // Base flag setters
-    void setQAccessibleTextCursorEvent_AccessibleInterface_IsBase(bool value) const { qaccessibletextcursorevent_accessibleinterface_isbase = value; }
+    inline void setQAccessibleTextCursorEvent_AccessibleInterface_IsBase(bool value) const { qaccessibletextcursorevent_accessibleinterface_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QAccessibleInterface* accessibleInterface() const override {
@@ -126,7 +137,8 @@ class VirtualQAccessibleTextCursorEvent : public QAccessibleTextCursorEvent {
             qaccessibletextcursorevent_accessibleinterface_isbase = false;
             return QAccessibleTextCursorEvent::accessibleInterface();
         } else if (qaccessibletextcursorevent_accessibleinterface_callback != nullptr) {
-            return qaccessibletextcursorevent_accessibleinterface_callback();
+            QAccessibleInterface* callback_ret = qaccessibletextcursorevent_accessibleinterface_callback();
+            return callback_ret;
         } else {
             return QAccessibleTextCursorEvent::accessibleInterface();
         }
@@ -134,9 +146,12 @@ class VirtualQAccessibleTextCursorEvent : public QAccessibleTextCursorEvent {
 };
 
 // This class is a subclass of QAccessibleTextSelectionEvent so that we can call protected methods
-class VirtualQAccessibleTextSelectionEvent : public QAccessibleTextSelectionEvent {
+class VirtualQAccessibleTextSelectionEvent final : public QAccessibleTextSelectionEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQAccessibleTextSelectionEvent = true;
+
     // Virtual class public types (including callbacks)
     using QAccessibleTextSelectionEvent_AccessibleInterface_Callback = QAccessibleInterface* (*)();
 
@@ -156,10 +171,10 @@ class VirtualQAccessibleTextSelectionEvent : public QAccessibleTextSelectionEven
     }
 
     // Callback setters
-    void setQAccessibleTextSelectionEvent_AccessibleInterface_Callback(QAccessibleTextSelectionEvent_AccessibleInterface_Callback cb) { qaccessibletextselectionevent_accessibleinterface_callback = cb; }
+    inline void setQAccessibleTextSelectionEvent_AccessibleInterface_Callback(QAccessibleTextSelectionEvent_AccessibleInterface_Callback cb) { qaccessibletextselectionevent_accessibleinterface_callback = cb; }
 
     // Base flag setters
-    void setQAccessibleTextSelectionEvent_AccessibleInterface_IsBase(bool value) const { qaccessibletextselectionevent_accessibleinterface_isbase = value; }
+    inline void setQAccessibleTextSelectionEvent_AccessibleInterface_IsBase(bool value) const { qaccessibletextselectionevent_accessibleinterface_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QAccessibleInterface* accessibleInterface() const override {
@@ -167,7 +182,8 @@ class VirtualQAccessibleTextSelectionEvent : public QAccessibleTextSelectionEven
             qaccessibletextselectionevent_accessibleinterface_isbase = false;
             return QAccessibleTextSelectionEvent::accessibleInterface();
         } else if (qaccessibletextselectionevent_accessibleinterface_callback != nullptr) {
-            return qaccessibletextselectionevent_accessibleinterface_callback();
+            QAccessibleInterface* callback_ret = qaccessibletextselectionevent_accessibleinterface_callback();
+            return callback_ret;
         } else {
             return QAccessibleTextSelectionEvent::accessibleInterface();
         }
@@ -175,9 +191,12 @@ class VirtualQAccessibleTextSelectionEvent : public QAccessibleTextSelectionEven
 };
 
 // This class is a subclass of QAccessibleTextInsertEvent so that we can call protected methods
-class VirtualQAccessibleTextInsertEvent : public QAccessibleTextInsertEvent {
+class VirtualQAccessibleTextInsertEvent final : public QAccessibleTextInsertEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQAccessibleTextInsertEvent = true;
+
     // Virtual class public types (including callbacks)
     using QAccessibleTextInsertEvent_AccessibleInterface_Callback = QAccessibleInterface* (*)();
 
@@ -197,10 +216,10 @@ class VirtualQAccessibleTextInsertEvent : public QAccessibleTextInsertEvent {
     }
 
     // Callback setters
-    void setQAccessibleTextInsertEvent_AccessibleInterface_Callback(QAccessibleTextInsertEvent_AccessibleInterface_Callback cb) { qaccessibletextinsertevent_accessibleinterface_callback = cb; }
+    inline void setQAccessibleTextInsertEvent_AccessibleInterface_Callback(QAccessibleTextInsertEvent_AccessibleInterface_Callback cb) { qaccessibletextinsertevent_accessibleinterface_callback = cb; }
 
     // Base flag setters
-    void setQAccessibleTextInsertEvent_AccessibleInterface_IsBase(bool value) const { qaccessibletextinsertevent_accessibleinterface_isbase = value; }
+    inline void setQAccessibleTextInsertEvent_AccessibleInterface_IsBase(bool value) const { qaccessibletextinsertevent_accessibleinterface_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QAccessibleInterface* accessibleInterface() const override {
@@ -208,7 +227,8 @@ class VirtualQAccessibleTextInsertEvent : public QAccessibleTextInsertEvent {
             qaccessibletextinsertevent_accessibleinterface_isbase = false;
             return QAccessibleTextInsertEvent::accessibleInterface();
         } else if (qaccessibletextinsertevent_accessibleinterface_callback != nullptr) {
-            return qaccessibletextinsertevent_accessibleinterface_callback();
+            QAccessibleInterface* callback_ret = qaccessibletextinsertevent_accessibleinterface_callback();
+            return callback_ret;
         } else {
             return QAccessibleTextInsertEvent::accessibleInterface();
         }
@@ -216,9 +236,12 @@ class VirtualQAccessibleTextInsertEvent : public QAccessibleTextInsertEvent {
 };
 
 // This class is a subclass of QAccessibleTextRemoveEvent so that we can call protected methods
-class VirtualQAccessibleTextRemoveEvent : public QAccessibleTextRemoveEvent {
+class VirtualQAccessibleTextRemoveEvent final : public QAccessibleTextRemoveEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQAccessibleTextRemoveEvent = true;
+
     // Virtual class public types (including callbacks)
     using QAccessibleTextRemoveEvent_AccessibleInterface_Callback = QAccessibleInterface* (*)();
 
@@ -238,10 +261,10 @@ class VirtualQAccessibleTextRemoveEvent : public QAccessibleTextRemoveEvent {
     }
 
     // Callback setters
-    void setQAccessibleTextRemoveEvent_AccessibleInterface_Callback(QAccessibleTextRemoveEvent_AccessibleInterface_Callback cb) { qaccessibletextremoveevent_accessibleinterface_callback = cb; }
+    inline void setQAccessibleTextRemoveEvent_AccessibleInterface_Callback(QAccessibleTextRemoveEvent_AccessibleInterface_Callback cb) { qaccessibletextremoveevent_accessibleinterface_callback = cb; }
 
     // Base flag setters
-    void setQAccessibleTextRemoveEvent_AccessibleInterface_IsBase(bool value) const { qaccessibletextremoveevent_accessibleinterface_isbase = value; }
+    inline void setQAccessibleTextRemoveEvent_AccessibleInterface_IsBase(bool value) const { qaccessibletextremoveevent_accessibleinterface_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QAccessibleInterface* accessibleInterface() const override {
@@ -249,7 +272,8 @@ class VirtualQAccessibleTextRemoveEvent : public QAccessibleTextRemoveEvent {
             qaccessibletextremoveevent_accessibleinterface_isbase = false;
             return QAccessibleTextRemoveEvent::accessibleInterface();
         } else if (qaccessibletextremoveevent_accessibleinterface_callback != nullptr) {
-            return qaccessibletextremoveevent_accessibleinterface_callback();
+            QAccessibleInterface* callback_ret = qaccessibletextremoveevent_accessibleinterface_callback();
+            return callback_ret;
         } else {
             return QAccessibleTextRemoveEvent::accessibleInterface();
         }
@@ -257,9 +281,12 @@ class VirtualQAccessibleTextRemoveEvent : public QAccessibleTextRemoveEvent {
 };
 
 // This class is a subclass of QAccessibleTextUpdateEvent so that we can call protected methods
-class VirtualQAccessibleTextUpdateEvent : public QAccessibleTextUpdateEvent {
+class VirtualQAccessibleTextUpdateEvent final : public QAccessibleTextUpdateEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQAccessibleTextUpdateEvent = true;
+
     // Virtual class public types (including callbacks)
     using QAccessibleTextUpdateEvent_AccessibleInterface_Callback = QAccessibleInterface* (*)();
 
@@ -279,10 +306,10 @@ class VirtualQAccessibleTextUpdateEvent : public QAccessibleTextUpdateEvent {
     }
 
     // Callback setters
-    void setQAccessibleTextUpdateEvent_AccessibleInterface_Callback(QAccessibleTextUpdateEvent_AccessibleInterface_Callback cb) { qaccessibletextupdateevent_accessibleinterface_callback = cb; }
+    inline void setQAccessibleTextUpdateEvent_AccessibleInterface_Callback(QAccessibleTextUpdateEvent_AccessibleInterface_Callback cb) { qaccessibletextupdateevent_accessibleinterface_callback = cb; }
 
     // Base flag setters
-    void setQAccessibleTextUpdateEvent_AccessibleInterface_IsBase(bool value) const { qaccessibletextupdateevent_accessibleinterface_isbase = value; }
+    inline void setQAccessibleTextUpdateEvent_AccessibleInterface_IsBase(bool value) const { qaccessibletextupdateevent_accessibleinterface_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QAccessibleInterface* accessibleInterface() const override {
@@ -290,7 +317,8 @@ class VirtualQAccessibleTextUpdateEvent : public QAccessibleTextUpdateEvent {
             qaccessibletextupdateevent_accessibleinterface_isbase = false;
             return QAccessibleTextUpdateEvent::accessibleInterface();
         } else if (qaccessibletextupdateevent_accessibleinterface_callback != nullptr) {
-            return qaccessibletextupdateevent_accessibleinterface_callback();
+            QAccessibleInterface* callback_ret = qaccessibletextupdateevent_accessibleinterface_callback();
+            return callback_ret;
         } else {
             return QAccessibleTextUpdateEvent::accessibleInterface();
         }
@@ -298,9 +326,12 @@ class VirtualQAccessibleTextUpdateEvent : public QAccessibleTextUpdateEvent {
 };
 
 // This class is a subclass of QAccessibleValueChangeEvent so that we can call protected methods
-class VirtualQAccessibleValueChangeEvent : public QAccessibleValueChangeEvent {
+class VirtualQAccessibleValueChangeEvent final : public QAccessibleValueChangeEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQAccessibleValueChangeEvent = true;
+
     // Virtual class public types (including callbacks)
     using QAccessibleValueChangeEvent_AccessibleInterface_Callback = QAccessibleInterface* (*)();
 
@@ -320,10 +351,10 @@ class VirtualQAccessibleValueChangeEvent : public QAccessibleValueChangeEvent {
     }
 
     // Callback setters
-    void setQAccessibleValueChangeEvent_AccessibleInterface_Callback(QAccessibleValueChangeEvent_AccessibleInterface_Callback cb) { qaccessiblevaluechangeevent_accessibleinterface_callback = cb; }
+    inline void setQAccessibleValueChangeEvent_AccessibleInterface_Callback(QAccessibleValueChangeEvent_AccessibleInterface_Callback cb) { qaccessiblevaluechangeevent_accessibleinterface_callback = cb; }
 
     // Base flag setters
-    void setQAccessibleValueChangeEvent_AccessibleInterface_IsBase(bool value) const { qaccessiblevaluechangeevent_accessibleinterface_isbase = value; }
+    inline void setQAccessibleValueChangeEvent_AccessibleInterface_IsBase(bool value) const { qaccessiblevaluechangeevent_accessibleinterface_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QAccessibleInterface* accessibleInterface() const override {
@@ -331,7 +362,8 @@ class VirtualQAccessibleValueChangeEvent : public QAccessibleValueChangeEvent {
             qaccessiblevaluechangeevent_accessibleinterface_isbase = false;
             return QAccessibleValueChangeEvent::accessibleInterface();
         } else if (qaccessiblevaluechangeevent_accessibleinterface_callback != nullptr) {
-            return qaccessiblevaluechangeevent_accessibleinterface_callback();
+            QAccessibleInterface* callback_ret = qaccessiblevaluechangeevent_accessibleinterface_callback();
+            return callback_ret;
         } else {
             return QAccessibleValueChangeEvent::accessibleInterface();
         }
@@ -339,9 +371,12 @@ class VirtualQAccessibleValueChangeEvent : public QAccessibleValueChangeEvent {
 };
 
 // This class is a subclass of QAccessibleTableModelChangeEvent so that we can call protected methods
-class VirtualQAccessibleTableModelChangeEvent : public QAccessibleTableModelChangeEvent {
+class VirtualQAccessibleTableModelChangeEvent final : public QAccessibleTableModelChangeEvent {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQAccessibleTableModelChangeEvent = true;
+
     // Virtual class public types (including callbacks)
     using QAccessibleTableModelChangeEvent_AccessibleInterface_Callback = QAccessibleInterface* (*)();
 
@@ -361,10 +396,10 @@ class VirtualQAccessibleTableModelChangeEvent : public QAccessibleTableModelChan
     }
 
     // Callback setters
-    void setQAccessibleTableModelChangeEvent_AccessibleInterface_Callback(QAccessibleTableModelChangeEvent_AccessibleInterface_Callback cb) { qaccessibletablemodelchangeevent_accessibleinterface_callback = cb; }
+    inline void setQAccessibleTableModelChangeEvent_AccessibleInterface_Callback(QAccessibleTableModelChangeEvent_AccessibleInterface_Callback cb) { qaccessibletablemodelchangeevent_accessibleinterface_callback = cb; }
 
     // Base flag setters
-    void setQAccessibleTableModelChangeEvent_AccessibleInterface_IsBase(bool value) const { qaccessibletablemodelchangeevent_accessibleinterface_isbase = value; }
+    inline void setQAccessibleTableModelChangeEvent_AccessibleInterface_IsBase(bool value) const { qaccessibletablemodelchangeevent_accessibleinterface_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QAccessibleInterface* accessibleInterface() const override {
@@ -372,7 +407,8 @@ class VirtualQAccessibleTableModelChangeEvent : public QAccessibleTableModelChan
             qaccessibletablemodelchangeevent_accessibleinterface_isbase = false;
             return QAccessibleTableModelChangeEvent::accessibleInterface();
         } else if (qaccessibletablemodelchangeevent_accessibleinterface_callback != nullptr) {
-            return qaccessibletablemodelchangeevent_accessibleinterface_callback();
+            QAccessibleInterface* callback_ret = qaccessibletablemodelchangeevent_accessibleinterface_callback();
+            return callback_ret;
         } else {
             return QAccessibleTableModelChangeEvent::accessibleInterface();
         }

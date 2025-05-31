@@ -15,31 +15,23 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QAudioFormat QAudioFormat;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QIODevice QIODevice;
 typedef struct QIODeviceBase QIODeviceBase;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 typedef struct QWaveDecoder QWaveDecoder;
 #endif
 
 QWaveDecoder* QWaveDecoder_new(QIODevice* device);
-QWaveDecoder* QWaveDecoder_new2(QIODevice* device, QAudioFormat* format);
+QWaveDecoder* QWaveDecoder_new2(QIODevice* device, const QAudioFormat* format);
 QWaveDecoder* QWaveDecoder_new3(QIODevice* device, QObject* parent);
-QWaveDecoder* QWaveDecoder_new4(QIODevice* device, QAudioFormat* format, QObject* parent);
+QWaveDecoder* QWaveDecoder_new4(QIODevice* device, const QAudioFormat* format, QObject* parent);
 QMetaObject* QWaveDecoder_MetaObject(const QWaveDecoder* self);
 void* QWaveDecoder_Metacast(QWaveDecoder* self, const char* param1);
 int QWaveDecoder_Metacall(QWaveDecoder* self, int param1, int param2, void** param3);
@@ -116,18 +108,18 @@ void QWaveDecoder_QBaseChildEvent(QWaveDecoder* self, QChildEvent* event);
 void QWaveDecoder_CustomEvent(QWaveDecoder* self, QEvent* event);
 void QWaveDecoder_OnCustomEvent(QWaveDecoder* self, intptr_t slot);
 void QWaveDecoder_QBaseCustomEvent(QWaveDecoder* self, QEvent* event);
-void QWaveDecoder_ConnectNotify(QWaveDecoder* self, QMetaMethod* signal);
+void QWaveDecoder_ConnectNotify(QWaveDecoder* self, const QMetaMethod* signal);
 void QWaveDecoder_OnConnectNotify(QWaveDecoder* self, intptr_t slot);
-void QWaveDecoder_QBaseConnectNotify(QWaveDecoder* self, QMetaMethod* signal);
-void QWaveDecoder_DisconnectNotify(QWaveDecoder* self, QMetaMethod* signal);
+void QWaveDecoder_QBaseConnectNotify(QWaveDecoder* self, const QMetaMethod* signal);
+void QWaveDecoder_DisconnectNotify(QWaveDecoder* self, const QMetaMethod* signal);
 void QWaveDecoder_OnDisconnectNotify(QWaveDecoder* self, intptr_t slot);
-void QWaveDecoder_QBaseDisconnectNotify(QWaveDecoder* self, QMetaMethod* signal);
+void QWaveDecoder_QBaseDisconnectNotify(QWaveDecoder* self, const QMetaMethod* signal);
 void QWaveDecoder_SetOpenMode(QWaveDecoder* self, int openMode);
 void QWaveDecoder_OnSetOpenMode(QWaveDecoder* self, intptr_t slot);
 void QWaveDecoder_QBaseSetOpenMode(QWaveDecoder* self, int openMode);
-void QWaveDecoder_SetErrorString(QWaveDecoder* self, libqt_string errorString);
+void QWaveDecoder_SetErrorString(QWaveDecoder* self, const libqt_string errorString);
 void QWaveDecoder_OnSetErrorString(QWaveDecoder* self, intptr_t slot);
-void QWaveDecoder_QBaseSetErrorString(QWaveDecoder* self, libqt_string errorString);
+void QWaveDecoder_QBaseSetErrorString(QWaveDecoder* self, const libqt_string errorString);
 QObject* QWaveDecoder_Sender(const QWaveDecoder* self);
 void QWaveDecoder_OnSender(const QWaveDecoder* self, intptr_t slot);
 QObject* QWaveDecoder_QBaseSender(const QWaveDecoder* self);
@@ -137,9 +129,9 @@ int QWaveDecoder_QBaseSenderSignalIndex(const QWaveDecoder* self);
 int QWaveDecoder_Receivers(const QWaveDecoder* self, const char* signal);
 void QWaveDecoder_OnReceivers(const QWaveDecoder* self, intptr_t slot);
 int QWaveDecoder_QBaseReceivers(const QWaveDecoder* self, const char* signal);
-bool QWaveDecoder_IsSignalConnected(const QWaveDecoder* self, QMetaMethod* signal);
+bool QWaveDecoder_IsSignalConnected(const QWaveDecoder* self, const QMetaMethod* signal);
 void QWaveDecoder_OnIsSignalConnected(const QWaveDecoder* self, intptr_t slot);
-bool QWaveDecoder_QBaseIsSignalConnected(const QWaveDecoder* self, QMetaMethod* signal);
+bool QWaveDecoder_QBaseIsSignalConnected(const QWaveDecoder* self, const QMetaMethod* signal);
 void QWaveDecoder_Delete(QWaveDecoder* self);
 
 #ifdef __cplusplus

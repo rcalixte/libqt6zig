@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qchar_enums = enums;
 const std = @import("std");
 
@@ -6,58 +7,60 @@ const std = @import("std");
 pub const qlatin1char = struct {
     /// New constructs a new QLatin1Char object.
     ///
-    /// ``` other: ?*C.QLatin1Char ```
-    pub fn New(other: ?*anyopaque) ?*C.QLatin1Char {
-        return C.QLatin1Char_new(@ptrCast(other));
+    /// ``` other: QtC.QLatin1Char ```
+    pub fn New(other: ?*anyopaque) QtC.QLatin1Char {
+        return qtc.QLatin1Char_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QLatin1Char object and invalidates the source QLatin1Char object.
     ///
-    /// ``` other: ?*C.QLatin1Char ```
-    pub fn New2(other: ?*anyopaque) ?*C.QLatin1Char {
-        return C.QLatin1Char_new2(@ptrCast(other));
+    /// ``` other: QtC.QLatin1Char ```
+    pub fn New2(other: ?*anyopaque) QtC.QLatin1Char {
+        return qtc.QLatin1Char_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QLatin1Char object.
     ///
     /// ``` c: i8 ```
-    pub fn New3(c: i8) ?*C.QLatin1Char {
-        return C.QLatin1Char_new3(@intCast(c));
+    pub fn New3(c: i8) QtC.QLatin1Char {
+        return qtc.QLatin1Char_new3(@intCast(c));
     }
 
     /// New4 constructs a new QLatin1Char object.
     ///
-    /// ``` param1: ?*C.QLatin1Char ```
-    pub fn New4(param1: ?*anyopaque) ?*C.QLatin1Char {
-        return C.QLatin1Char_new4(@ptrCast(param1));
+    /// ``` param1: QtC.QLatin1Char ```
+    pub fn New4(param1: ?*anyopaque) QtC.QLatin1Char {
+        return qtc.QLatin1Char_new4(@ptrCast(param1));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QLatin1Char, other: ?*QLatin1Char ```
+    /// ``` self: QtC.QLatin1Char, other: QtC.QLatin1Char ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QLatin1Char_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QLatin1Char_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QLatin1Char, other: ?*QLatin1Char ```
+    /// ``` self: QtC.QLatin1Char, other: QtC.QLatin1Char ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QLatin1Char_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QLatin1Char_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1char.html#toLatin1)
     ///
-    /// ``` self: ?*C.QLatin1Char ```
+    /// ``` self: QtC.QLatin1Char ```
     pub fn ToLatin1(self: ?*anyopaque) i8 {
-        return C.QLatin1Char_ToLatin1(@ptrCast(self));
+        return qtc.QLatin1Char_ToLatin1(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1char.html#dtor.QLatin1Char)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QLatin1Char ```
+    /// ``` self: QtC.QLatin1Char ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QLatin1Char_Delete(@ptrCast(self));
+        qtc.QLatin1Char_Delete(@ptrCast(self));
     }
 };
 
@@ -65,158 +68,158 @@ pub const qlatin1char = struct {
 pub const qchar = struct {
     /// New constructs a new QChar object.
     ///
-    /// ``` other: ?*C.QChar ```
-    pub fn New(other: ?*anyopaque) ?*C.QChar {
-        return C.QChar_new(@ptrCast(other));
+    /// ``` other: QtC.QChar ```
+    pub fn New(other: ?*anyopaque) QtC.QChar {
+        return qtc.QChar_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QChar object and invalidates the source QChar object.
     ///
-    /// ``` other: ?*C.QChar ```
-    pub fn New2(other: ?*anyopaque) ?*C.QChar {
-        return C.QChar_new2(@ptrCast(other));
+    /// ``` other: QtC.QChar ```
+    pub fn New2(other: ?*anyopaque) QtC.QChar {
+        return qtc.QChar_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QChar object.
     ///
     ///
-    pub fn New3() ?*C.QChar {
-        return C.QChar_new3();
+    pub fn New3() QtC.QChar {
+        return qtc.QChar_new3();
     }
 
     /// New4 constructs a new QChar object.
     ///
     /// ``` rc: u16 ```
-    pub fn New4(rc: u16) ?*C.QChar {
-        return C.QChar_new4(@intCast(rc));
+    pub fn New4(rc: u16) QtC.QChar {
+        return qtc.QChar_new4(@intCast(rc));
     }
 
     /// New5 constructs a new QChar object.
     ///
     /// ``` c: u8, r: u8 ```
-    pub fn New5(c: u8, r: u8) ?*C.QChar {
-        return C.QChar_new5(@intCast(c), @intCast(r));
+    pub fn New5(c: u8, r: u8) QtC.QChar {
+        return qtc.QChar_new5(@intCast(c), @intCast(r));
     }
 
     /// New6 constructs a new QChar object.
     ///
     /// ``` rc: i16 ```
-    pub fn New6(rc: i16) ?*C.QChar {
-        return C.QChar_new6(@intCast(rc));
+    pub fn New6(rc: i16) QtC.QChar {
+        return qtc.QChar_new6(@intCast(rc));
     }
 
     /// New7 constructs a new QChar object.
     ///
     /// ``` rc: u32 ```
-    pub fn New7(rc: u32) ?*C.QChar {
-        return C.QChar_new7(@intCast(rc));
+    pub fn New7(rc: u32) QtC.QChar {
+        return qtc.QChar_new7(@intCast(rc));
     }
 
     /// New8 constructs a new QChar object.
     ///
     /// ``` rc: i32 ```
-    pub fn New8(rc: i32) ?*C.QChar {
-        return C.QChar_new8(@intCast(rc));
+    pub fn New8(rc: i32) QtC.QChar {
+        return qtc.QChar_new8(@intCast(rc));
     }
 
     /// New9 constructs a new QChar object.
     ///
     /// ``` s: qchar_enums.SpecialCharacter ```
-    pub fn New9(s: i64) ?*C.QChar {
-        return C.QChar_new9(@intCast(s));
+    pub fn New9(s: i64) QtC.QChar {
+        return qtc.QChar_new9(@intCast(s));
     }
 
     /// New10 constructs a new QChar object.
     ///
-    /// ``` ch: ?*C.QLatin1Char ```
-    pub fn New10(ch: ?*C.QLatin1Char) ?*C.QChar {
-        return C.QChar_new10(@ptrCast(ch));
+    /// ``` ch: QtC.QLatin1Char ```
+    pub fn New10(ch: QtC.QLatin1Char) QtC.QChar {
+        return qtc.QChar_new10(@ptrCast(ch));
     }
 
     /// New11 constructs a new QChar object.
     ///
     /// ``` c: i8 ```
-    pub fn New11(c: i8) ?*C.QChar {
-        return C.QChar_new11(@intCast(c));
+    pub fn New11(c: i8) QtC.QChar {
+        return qtc.QChar_new11(@intCast(c));
     }
 
     /// New12 constructs a new QChar object.
     ///
     /// ``` c: u8 ```
-    pub fn New12(c: u8) ?*C.QChar {
-        return C.QChar_new12(@intCast(c));
+    pub fn New12(c: u8) QtC.QChar {
+        return qtc.QChar_new12(@intCast(c));
     }
 
     /// New13 constructs a new QChar object.
     ///
-    /// ``` param1: ?*C.QChar ```
-    pub fn New13(param1: ?*anyopaque) ?*C.QChar {
-        return C.QChar_new13(@ptrCast(param1));
+    /// ``` param1: QtC.QChar ```
+    pub fn New13(param1: ?*anyopaque) QtC.QChar {
+        return qtc.QChar_new13(@ptrCast(param1));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QChar, other: ?*QChar ```
+    /// ``` self: QtC.QChar, other: QtC.QChar ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QChar_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QChar_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QChar, other: ?*QChar ```
+    /// ``` self: QtC.QChar, other: QtC.QChar ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QChar_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QChar_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#category)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn Category(self: ?*anyopaque) i64 {
-        return C.QChar_Category(@ptrCast(self));
+        return qtc.QChar_Category(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#direction)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn Direction(self: ?*anyopaque) i64 {
-        return C.QChar_Direction(@ptrCast(self));
+        return qtc.QChar_Direction(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#joiningType)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn JoiningType(self: ?*anyopaque) i64 {
-        return C.QChar_JoiningType(@ptrCast(self));
+        return qtc.QChar_JoiningType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#combiningClass)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn CombiningClass(self: ?*anyopaque) u8 {
-        return C.QChar_CombiningClass(@ptrCast(self));
+        return qtc.QChar_CombiningClass(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#mirroredChar)
     ///
-    /// ``` self: ?*C.QChar ```
-    pub fn MirroredChar(self: ?*anyopaque) ?*C.QChar {
-        return C.QChar_MirroredChar(@ptrCast(self));
+    /// ``` self: QtC.QChar ```
+    pub fn MirroredChar(self: ?*anyopaque) QtC.QChar {
+        return qtc.QChar_MirroredChar(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#hasMirrored)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn HasMirrored(self: ?*anyopaque) bool {
-        return C.QChar_HasMirrored(@ptrCast(self));
+        return qtc.QChar_HasMirrored(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#decomposition)
     ///
-    /// ``` self: ?*C.QChar, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QChar, allocator: std.mem.Allocator ```
     pub fn Decomposition(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QChar_Decomposition(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QChar_Decomposition(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qchar.Decomposition: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -225,233 +228,235 @@ pub const qchar = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#decompositionTag)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn DecompositionTag(self: ?*anyopaque) i64 {
-        return C.QChar_DecompositionTag(@ptrCast(self));
+        return qtc.QChar_DecompositionTag(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#digitValue)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn DigitValue(self: ?*anyopaque) i32 {
-        return C.QChar_DigitValue(@ptrCast(self));
+        return qtc.QChar_DigitValue(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#toLower)
     ///
-    /// ``` self: ?*C.QChar ```
-    pub fn ToLower(self: ?*anyopaque) ?*C.QChar {
-        return C.QChar_ToLower(@ptrCast(self));
+    /// ``` self: QtC.QChar ```
+    pub fn ToLower(self: ?*anyopaque) QtC.QChar {
+        return qtc.QChar_ToLower(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#toUpper)
     ///
-    /// ``` self: ?*C.QChar ```
-    pub fn ToUpper(self: ?*anyopaque) ?*C.QChar {
-        return C.QChar_ToUpper(@ptrCast(self));
+    /// ``` self: QtC.QChar ```
+    pub fn ToUpper(self: ?*anyopaque) QtC.QChar {
+        return qtc.QChar_ToUpper(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#toTitleCase)
     ///
-    /// ``` self: ?*C.QChar ```
-    pub fn ToTitleCase(self: ?*anyopaque) ?*C.QChar {
-        return C.QChar_ToTitleCase(@ptrCast(self));
+    /// ``` self: QtC.QChar ```
+    pub fn ToTitleCase(self: ?*anyopaque) QtC.QChar {
+        return qtc.QChar_ToTitleCase(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#toCaseFolded)
     ///
-    /// ``` self: ?*C.QChar ```
-    pub fn ToCaseFolded(self: ?*anyopaque) ?*C.QChar {
-        return C.QChar_ToCaseFolded(@ptrCast(self));
+    /// ``` self: QtC.QChar ```
+    pub fn ToCaseFolded(self: ?*anyopaque) QtC.QChar {
+        return qtc.QChar_ToCaseFolded(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#script)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn Script(self: ?*anyopaque) i64 {
-        return C.QChar_Script(@ptrCast(self));
+        return qtc.QChar_Script(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#unicodeVersion)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn UnicodeVersion(self: ?*anyopaque) i64 {
-        return C.QChar_UnicodeVersion(@ptrCast(self));
+        return qtc.QChar_UnicodeVersion(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#toLatin1)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn ToLatin1(self: ?*anyopaque) i8 {
-        return C.QChar_ToLatin1(@ptrCast(self));
+        return qtc.QChar_ToLatin1(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#fromLatin1)
     ///
     /// ``` c: i8 ```
-    pub fn FromLatin1(c: i8) ?*C.QChar {
-        return C.QChar_FromLatin1(@intCast(c));
+    pub fn FromLatin1(c: i8) QtC.QChar {
+        return qtc.QChar_FromLatin1(@intCast(c));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isNull)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsNull(self: ?*anyopaque) bool {
-        return C.QChar_IsNull(@ptrCast(self));
+        return qtc.QChar_IsNull(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isPrint)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsPrint(self: ?*anyopaque) bool {
-        return C.QChar_IsPrint(@ptrCast(self));
+        return qtc.QChar_IsPrint(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isSpace)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsSpace(self: ?*anyopaque) bool {
-        return C.QChar_IsSpace(@ptrCast(self));
+        return qtc.QChar_IsSpace(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isMark)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsMark(self: ?*anyopaque) bool {
-        return C.QChar_IsMark(@ptrCast(self));
+        return qtc.QChar_IsMark(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isPunct)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsPunct(self: ?*anyopaque) bool {
-        return C.QChar_IsPunct(@ptrCast(self));
+        return qtc.QChar_IsPunct(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isSymbol)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsSymbol(self: ?*anyopaque) bool {
-        return C.QChar_IsSymbol(@ptrCast(self));
+        return qtc.QChar_IsSymbol(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isLetter)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsLetter(self: ?*anyopaque) bool {
-        return C.QChar_IsLetter(@ptrCast(self));
+        return qtc.QChar_IsLetter(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isNumber)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsNumber(self: ?*anyopaque) bool {
-        return C.QChar_IsNumber(@ptrCast(self));
+        return qtc.QChar_IsNumber(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isLetterOrNumber)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsLetterOrNumber(self: ?*anyopaque) bool {
-        return C.QChar_IsLetterOrNumber(@ptrCast(self));
+        return qtc.QChar_IsLetterOrNumber(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isDigit)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsDigit(self: ?*anyopaque) bool {
-        return C.QChar_IsDigit(@ptrCast(self));
+        return qtc.QChar_IsDigit(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isLower)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsLower(self: ?*anyopaque) bool {
-        return C.QChar_IsLower(@ptrCast(self));
+        return qtc.QChar_IsLower(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isUpper)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsUpper(self: ?*anyopaque) bool {
-        return C.QChar_IsUpper(@ptrCast(self));
+        return qtc.QChar_IsUpper(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isTitleCase)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsTitleCase(self: ?*anyopaque) bool {
-        return C.QChar_IsTitleCase(@ptrCast(self));
+        return qtc.QChar_IsTitleCase(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isNonCharacter)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsNonCharacter(self: ?*anyopaque) bool {
-        return C.QChar_IsNonCharacter(@ptrCast(self));
+        return qtc.QChar_IsNonCharacter(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isHighSurrogate)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsHighSurrogate(self: ?*anyopaque) bool {
-        return C.QChar_IsHighSurrogate(@ptrCast(self));
+        return qtc.QChar_IsHighSurrogate(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isLowSurrogate)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsLowSurrogate(self: ?*anyopaque) bool {
-        return C.QChar_IsLowSurrogate(@ptrCast(self));
+        return qtc.QChar_IsLowSurrogate(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#isSurrogate)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn IsSurrogate(self: ?*anyopaque) bool {
-        return C.QChar_IsSurrogate(@ptrCast(self));
+        return qtc.QChar_IsSurrogate(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#cell)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn Cell(self: ?*anyopaque) u8 {
-        return C.QChar_Cell(@ptrCast(self));
+        return qtc.QChar_Cell(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#row)
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn Row(self: ?*anyopaque) u8 {
-        return C.QChar_Row(@ptrCast(self));
+        return qtc.QChar_Row(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#setCell)
     ///
-    /// ``` self: ?*C.QChar, acell: u8 ```
+    /// ``` self: QtC.QChar, acell: u8 ```
     pub fn SetCell(self: ?*anyopaque, acell: u8) void {
-        C.QChar_SetCell(@ptrCast(self), @intCast(acell));
+        qtc.QChar_SetCell(@ptrCast(self), @intCast(acell));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#setRow)
     ///
-    /// ``` self: ?*C.QChar, arow: u8 ```
+    /// ``` self: QtC.QChar, arow: u8 ```
     pub fn SetRow(self: ?*anyopaque, arow: u8) void {
-        C.QChar_SetRow(@ptrCast(self), @intCast(arow));
+        qtc.QChar_SetRow(@ptrCast(self), @intCast(arow));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#currentUnicodeVersion)
     ///
     ///
     pub fn CurrentUnicodeVersion() i64 {
-        return C.QChar_CurrentUnicodeVersion();
+        return qtc.QChar_CurrentUnicodeVersion();
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#dtor.QChar)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QChar ```
+    /// ``` self: QtC.QChar ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QChar_Delete(@ptrCast(self));
+        qtc.QChar_Delete(@ptrCast(self));
     }
 };
 

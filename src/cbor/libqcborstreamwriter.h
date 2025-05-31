@@ -26,7 +26,7 @@ QIODevice* QCborStreamWriter_Device(const QCborStreamWriter* self);
 void QCborStreamWriter_Append(QCborStreamWriter* self, unsigned long long u);
 void QCborStreamWriter_AppendWithQint64(QCborStreamWriter* self, long long i);
 void QCborStreamWriter_AppendWithQCborNegativeInteger(QCborStreamWriter* self, uint64_t n);
-void QCborStreamWriter_AppendWithBa(QCborStreamWriter* self, libqt_string ba);
+void QCborStreamWriter_AppendWithBa(QCborStreamWriter* self, const libqt_string ba);
 void QCborStreamWriter_AppendWithTag(QCborStreamWriter* self, uint64_t tag);
 void QCborStreamWriter_Append3(QCborStreamWriter* self, int tag);
 void QCborStreamWriter_AppendWithSt(QCborStreamWriter* self, uint8_t st);

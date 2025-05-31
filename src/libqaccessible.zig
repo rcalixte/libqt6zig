@@ -1,48 +1,49 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qaccessible_base_enums = @import("libqaccessible_base.zig").enums;
 const qaccessible_enums = enums;
 const std = @import("std");
-pub const struct_cqaccessibleinterface_i32 = struct { first: ?*C.QAccessibleInterface, second: i32 };
-pub const struct_cqaccessibleinterface_i64 = struct { first: ?*C.QAccessibleInterface, second: i64 };
+pub const struct_qtcqaccessibleinterface_i32 = struct { first: QtC.QAccessibleInterface, second: i32 };
+pub const struct_qtcqaccessibleinterface_i64 = struct { first: QtC.QAccessibleInterface, second: i64 };
 
 /// https://doc.qt.io/qt-6/qaccessibleinterface.html
 pub const qaccessibleinterface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#isValid)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
+    /// ``` self: QtC.QAccessibleInterface ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QAccessibleInterface_IsValid(@ptrCast(self));
+        return qtc.QAccessibleInterface_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#object)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
-    pub fn Object(self: ?*anyopaque) ?*C.QObject {
-        return C.QAccessibleInterface_Object(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleInterface ```
+    pub fn Object(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAccessibleInterface_Object(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#window)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
-    pub fn Window(self: ?*anyopaque) ?*C.QWindow {
-        return C.QAccessibleInterface_Window(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleInterface ```
+    pub fn Window(self: ?*anyopaque) QtC.QWindow {
+        return qtc.QAccessibleInterface_Window(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#relations)
     ///
-    /// ``` self: ?*C.QAccessibleInterface, match: i32, allocator: std.mem.Allocator ```
-    pub fn Relations(self: ?*anyopaque, match: i64, allocator: std.mem.Allocator) []struct_cqaccessibleinterface_i64 {
-        const _arr: C.struct_libqt_list = C.QAccessibleInterface_Relations(@ptrCast(self), @intCast(match));
+    /// ``` self: QtC.QAccessibleInterface, match: i32, allocator: std.mem.Allocator ```
+    pub fn Relations(self: ?*anyopaque, match: i64, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i64 {
+        const _arr: qtc.struct_libqt_list = qtc.QAccessibleInterface_Relations(@ptrCast(self), @intCast(match));
         defer {
-            const _pair: [*]C.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
+            const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |_i| {
-                C.libqt_free(_pair[_i].first);
-                C.libqt_free(_pair[_i].second);
+                qtc.libqt_free(_pair[_i].first);
+                qtc.libqt_free(_pair[_i].second);
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(struct_cqaccessibleinterface_i32, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]struct_cqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessibleinterface.Relations: Memory allocation failed");
+        const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -51,53 +52,53 @@ pub const qaccessibleinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#focusChild)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
-    pub fn FocusChild(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleInterface_FocusChild(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleInterface ```
+    pub fn FocusChild(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleInterface_FocusChild(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#childAt)
     ///
-    /// ``` self: ?*C.QAccessibleInterface, x: i32, y: i32 ```
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) ?*C.QAccessibleInterface {
-        return C.QAccessibleInterface_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
+    /// ``` self: QtC.QAccessibleInterface, x: i32, y: i32 ```
+    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QAccessibleInterface {
+        return qtc.QAccessibleInterface_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#parent)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
-    pub fn Parent(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleInterface_Parent(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleInterface ```
+    pub fn Parent(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleInterface_Parent(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#child)
     ///
-    /// ``` self: ?*C.QAccessibleInterface, index: i32 ```
-    pub fn Child(self: ?*anyopaque, index: i32) ?*C.QAccessibleInterface {
-        return C.QAccessibleInterface_Child(@ptrCast(self), @intCast(index));
+    /// ``` self: QtC.QAccessibleInterface, index: i32 ```
+    pub fn Child(self: ?*anyopaque, index: i32) QtC.QAccessibleInterface {
+        return qtc.QAccessibleInterface_Child(@ptrCast(self), @intCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#childCount)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
+    /// ``` self: QtC.QAccessibleInterface ```
     pub fn ChildCount(self: ?*anyopaque) i32 {
-        return C.QAccessibleInterface_ChildCount(@ptrCast(self));
+        return qtc.QAccessibleInterface_ChildCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#indexOfChild)
     ///
-    /// ``` self: ?*C.QAccessibleInterface, param1: ?*C.QAccessibleInterface ```
+    /// ``` self: QtC.QAccessibleInterface, param1: QtC.QAccessibleInterface ```
     pub fn IndexOfChild(self: ?*anyopaque, param1: ?*anyopaque) i32 {
-        return C.QAccessibleInterface_IndexOfChild(@ptrCast(self), @ptrCast(param1));
+        return qtc.QAccessibleInterface_IndexOfChild(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#text)
     ///
-    /// ``` self: ?*C.QAccessibleInterface, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleInterface, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, t: i64, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleInterface_Text(@ptrCast(self), @intCast(t));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleInterface_Text(@ptrCast(self), @intCast(t));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleinterface.Text: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -106,118 +107,118 @@ pub const qaccessibleinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#setText)
     ///
-    /// ``` self: ?*C.QAccessibleInterface, t: qaccessible_base_enums.Text, text: []const u8 ```
+    /// ``` self: QtC.QAccessibleInterface, t: qaccessible_base_enums.Text, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, t: i64, text: []const u8) void {
-        const text_str = C.struct_libqt_string{
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        C.QAccessibleInterface_SetText(@ptrCast(self), @intCast(t), text_str);
+        qtc.QAccessibleInterface_SetText(@ptrCast(self), @intCast(t), text_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#rect)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
-    pub fn Rect(self: ?*anyopaque) ?*C.QRect {
-        return C.QAccessibleInterface_Rect(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleInterface ```
+    pub fn Rect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QAccessibleInterface_Rect(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#role)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
+    /// ``` self: QtC.QAccessibleInterface ```
     pub fn Role(self: ?*anyopaque) i64 {
-        return C.QAccessibleInterface_Role(@ptrCast(self));
+        return qtc.QAccessibleInterface_Role(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#state)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
-    pub fn State(self: ?*anyopaque) ?*C.QAccessible__State {
-        return C.QAccessibleInterface_State(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleInterface ```
+    pub fn State(self: ?*anyopaque) QtC.QAccessible__State {
+        return qtc.QAccessibleInterface_State(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#foregroundColor)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
-    pub fn ForegroundColor(self: ?*anyopaque) ?*C.QColor {
-        return C.QAccessibleInterface_ForegroundColor(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleInterface ```
+    pub fn ForegroundColor(self: ?*anyopaque) QtC.QColor {
+        return qtc.QAccessibleInterface_ForegroundColor(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#backgroundColor)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
-    pub fn BackgroundColor(self: ?*anyopaque) ?*C.QColor {
-        return C.QAccessibleInterface_BackgroundColor(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleInterface ```
+    pub fn BackgroundColor(self: ?*anyopaque) QtC.QColor {
+        return qtc.QAccessibleInterface_BackgroundColor(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#textInterface)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
-    pub fn TextInterface(self: ?*anyopaque) ?*C.QAccessibleTextInterface {
-        return C.QAccessibleInterface_TextInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleInterface ```
+    pub fn TextInterface(self: ?*anyopaque) QtC.QAccessibleTextInterface {
+        return qtc.QAccessibleInterface_TextInterface(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#editableTextInterface)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
-    pub fn EditableTextInterface(self: ?*anyopaque) ?*C.QAccessibleEditableTextInterface {
-        return C.QAccessibleInterface_EditableTextInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleInterface ```
+    pub fn EditableTextInterface(self: ?*anyopaque) QtC.QAccessibleEditableTextInterface {
+        return qtc.QAccessibleInterface_EditableTextInterface(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#valueInterface)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
-    pub fn ValueInterface(self: ?*anyopaque) ?*C.QAccessibleValueInterface {
-        return C.QAccessibleInterface_ValueInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleInterface ```
+    pub fn ValueInterface(self: ?*anyopaque) QtC.QAccessibleValueInterface {
+        return qtc.QAccessibleInterface_ValueInterface(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#actionInterface)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
-    pub fn ActionInterface(self: ?*anyopaque) ?*C.QAccessibleActionInterface {
-        return C.QAccessibleInterface_ActionInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleInterface ```
+    pub fn ActionInterface(self: ?*anyopaque) QtC.QAccessibleActionInterface {
+        return qtc.QAccessibleInterface_ActionInterface(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#imageInterface)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
-    pub fn ImageInterface(self: ?*anyopaque) ?*C.QAccessibleImageInterface {
-        return C.QAccessibleInterface_ImageInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleInterface ```
+    pub fn ImageInterface(self: ?*anyopaque) QtC.QAccessibleImageInterface {
+        return qtc.QAccessibleInterface_ImageInterface(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#tableInterface)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
-    pub fn TableInterface(self: ?*anyopaque) ?*C.QAccessibleTableInterface {
-        return C.QAccessibleInterface_TableInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleInterface ```
+    pub fn TableInterface(self: ?*anyopaque) QtC.QAccessibleTableInterface {
+        return qtc.QAccessibleInterface_TableInterface(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#tableCellInterface)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
-    pub fn TableCellInterface(self: ?*anyopaque) ?*C.QAccessibleTableCellInterface {
-        return C.QAccessibleInterface_TableCellInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleInterface ```
+    pub fn TableCellInterface(self: ?*anyopaque) QtC.QAccessibleTableCellInterface {
+        return qtc.QAccessibleInterface_TableCellInterface(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#hyperlinkInterface)
     ///
-    /// ``` self: ?*C.QAccessibleInterface ```
-    pub fn HyperlinkInterface(self: ?*anyopaque) ?*C.QAccessibleHyperlinkInterface {
-        return C.QAccessibleInterface_HyperlinkInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleInterface ```
+    pub fn HyperlinkInterface(self: ?*anyopaque) QtC.QAccessibleHyperlinkInterface {
+        return qtc.QAccessibleInterface_HyperlinkInterface(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
     ///
-    /// ``` self: ?*C.QAccessibleInterface, id: i32, data: ?*anyopaque ```
+    /// ``` self: QtC.QAccessibleInterface, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        C.QAccessibleInterface_VirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.QAccessibleInterface_VirtualHook(@ptrCast(self), @intCast(id), data);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#interface_cast)
     ///
-    /// ``` self: ?*C.QAccessibleInterface, param1: qaccessible_base_enums.InterfaceType ```
+    /// ``` self: QtC.QAccessibleInterface, param1: qaccessible_base_enums.InterfaceType ```
     pub fn InterfaceCast(self: ?*anyopaque, param1: i64) ?*anyopaque {
-        return C.QAccessibleInterface_InterfaceCast(@ptrCast(self), @intCast(param1));
+        return qtc.QAccessibleInterface_InterfaceCast(@ptrCast(self), @intCast(param1));
     }
 };
 
@@ -225,60 +226,60 @@ pub const qaccessibleinterface = struct {
 pub const qaccessibletextinterface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#selection)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface, selectionIndex: i32, startOffset: ?*i32, endOffset: ?*i32 ```
+    /// ``` self: QtC.QAccessibleTextInterface, selectionIndex: i32, startOffset: ?*i32, endOffset: ?*i32 ```
     pub fn Selection(self: ?*anyopaque, selectionIndex: i32, startOffset: ?*anyopaque, endOffset: ?*anyopaque) void {
-        C.QAccessibleTextInterface_Selection(@ptrCast(self), @intCast(selectionIndex), @intCast(startOffset), @intCast(endOffset));
+        qtc.QAccessibleTextInterface_Selection(@ptrCast(self), @intCast(selectionIndex), @intCast(startOffset), @intCast(endOffset));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#selectionCount)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface ```
+    /// ``` self: QtC.QAccessibleTextInterface ```
     pub fn SelectionCount(self: ?*anyopaque) i32 {
-        return C.QAccessibleTextInterface_SelectionCount(@ptrCast(self));
+        return qtc.QAccessibleTextInterface_SelectionCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#addSelection)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface, startOffset: i32, endOffset: i32 ```
+    /// ``` self: QtC.QAccessibleTextInterface, startOffset: i32, endOffset: i32 ```
     pub fn AddSelection(self: ?*anyopaque, startOffset: i32, endOffset: i32) void {
-        C.QAccessibleTextInterface_AddSelection(@ptrCast(self), @intCast(startOffset), @intCast(endOffset));
+        qtc.QAccessibleTextInterface_AddSelection(@ptrCast(self), @intCast(startOffset), @intCast(endOffset));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#removeSelection)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface, selectionIndex: i32 ```
+    /// ``` self: QtC.QAccessibleTextInterface, selectionIndex: i32 ```
     pub fn RemoveSelection(self: ?*anyopaque, selectionIndex: i32) void {
-        C.QAccessibleTextInterface_RemoveSelection(@ptrCast(self), @intCast(selectionIndex));
+        qtc.QAccessibleTextInterface_RemoveSelection(@ptrCast(self), @intCast(selectionIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#setSelection)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface, selectionIndex: i32, startOffset: i32, endOffset: i32 ```
+    /// ``` self: QtC.QAccessibleTextInterface, selectionIndex: i32, startOffset: i32, endOffset: i32 ```
     pub fn SetSelection(self: ?*anyopaque, selectionIndex: i32, startOffset: i32, endOffset: i32) void {
-        C.QAccessibleTextInterface_SetSelection(@ptrCast(self), @intCast(selectionIndex), @intCast(startOffset), @intCast(endOffset));
+        qtc.QAccessibleTextInterface_SetSelection(@ptrCast(self), @intCast(selectionIndex), @intCast(startOffset), @intCast(endOffset));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#cursorPosition)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface ```
+    /// ``` self: QtC.QAccessibleTextInterface ```
     pub fn CursorPosition(self: ?*anyopaque) i32 {
-        return C.QAccessibleTextInterface_CursorPosition(@ptrCast(self));
+        return qtc.QAccessibleTextInterface_CursorPosition(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#setCursorPosition)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface, position: i32 ```
+    /// ``` self: QtC.QAccessibleTextInterface, position: i32 ```
     pub fn SetCursorPosition(self: ?*anyopaque, position: i32) void {
-        C.QAccessibleTextInterface_SetCursorPosition(@ptrCast(self), @intCast(position));
+        qtc.QAccessibleTextInterface_SetCursorPosition(@ptrCast(self), @intCast(position));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#text)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface, startOffset: i32, endOffset: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleTextInterface, startOffset: i32, endOffset: i32, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, startOffset: i32, endOffset: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleTextInterface_Text(@ptrCast(self), @intCast(startOffset), @intCast(endOffset));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleTextInterface_Text(@ptrCast(self), @intCast(startOffset), @intCast(endOffset));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.Text: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -287,11 +288,11 @@ pub const qaccessibletextinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#textBeforeOffset)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface, offset: i32, boundaryType: qaccessible_base_enums.TextBoundaryType, startOffset: ?*i32, endOffset: ?*i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleTextInterface, offset: i32, boundaryType: qaccessible_base_enums.TextBoundaryType, startOffset: ?*i32, endOffset: ?*i32, allocator: std.mem.Allocator ```
     pub fn TextBeforeOffset(self: ?*anyopaque, offset: i32, boundaryType: i64, startOffset: ?*anyopaque, endOffset: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleTextInterface_TextBeforeOffset(@ptrCast(self), @intCast(offset), @intCast(boundaryType), @intCast(startOffset), @intCast(endOffset));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleTextInterface_TextBeforeOffset(@ptrCast(self), @intCast(offset), @intCast(boundaryType), @intCast(startOffset), @intCast(endOffset));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.TextBeforeOffset: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -300,11 +301,11 @@ pub const qaccessibletextinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#textAfterOffset)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface, offset: i32, boundaryType: qaccessible_base_enums.TextBoundaryType, startOffset: ?*i32, endOffset: ?*i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleTextInterface, offset: i32, boundaryType: qaccessible_base_enums.TextBoundaryType, startOffset: ?*i32, endOffset: ?*i32, allocator: std.mem.Allocator ```
     pub fn TextAfterOffset(self: ?*anyopaque, offset: i32, boundaryType: i64, startOffset: ?*anyopaque, endOffset: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleTextInterface_TextAfterOffset(@ptrCast(self), @intCast(offset), @intCast(boundaryType), @intCast(startOffset), @intCast(endOffset));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleTextInterface_TextAfterOffset(@ptrCast(self), @intCast(offset), @intCast(boundaryType), @intCast(startOffset), @intCast(endOffset));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.TextAfterOffset: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -313,11 +314,11 @@ pub const qaccessibletextinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#textAtOffset)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface, offset: i32, boundaryType: qaccessible_base_enums.TextBoundaryType, startOffset: ?*i32, endOffset: ?*i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleTextInterface, offset: i32, boundaryType: qaccessible_base_enums.TextBoundaryType, startOffset: ?*i32, endOffset: ?*i32, allocator: std.mem.Allocator ```
     pub fn TextAtOffset(self: ?*anyopaque, offset: i32, boundaryType: i64, startOffset: ?*anyopaque, endOffset: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleTextInterface_TextAtOffset(@ptrCast(self), @intCast(offset), @intCast(boundaryType), @intCast(startOffset), @intCast(endOffset));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleTextInterface_TextAtOffset(@ptrCast(self), @intCast(offset), @intCast(boundaryType), @intCast(startOffset), @intCast(endOffset));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.TextAtOffset: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -326,39 +327,39 @@ pub const qaccessibletextinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#characterCount)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface ```
+    /// ``` self: QtC.QAccessibleTextInterface ```
     pub fn CharacterCount(self: ?*anyopaque) i32 {
-        return C.QAccessibleTextInterface_CharacterCount(@ptrCast(self));
+        return qtc.QAccessibleTextInterface_CharacterCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#characterRect)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface, offset: i32 ```
-    pub fn CharacterRect(self: ?*anyopaque, offset: i32) ?*C.QRect {
-        return C.QAccessibleTextInterface_CharacterRect(@ptrCast(self), @intCast(offset));
+    /// ``` self: QtC.QAccessibleTextInterface, offset: i32 ```
+    pub fn CharacterRect(self: ?*anyopaque, offset: i32) QtC.QRect {
+        return qtc.QAccessibleTextInterface_CharacterRect(@ptrCast(self), @intCast(offset));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#offsetAtPoint)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface, point: ?*C.QPoint ```
+    /// ``` self: QtC.QAccessibleTextInterface, point: QtC.QPoint ```
     pub fn OffsetAtPoint(self: ?*anyopaque, point: ?*anyopaque) i32 {
-        return C.QAccessibleTextInterface_OffsetAtPoint(@ptrCast(self), @ptrCast(point));
+        return qtc.QAccessibleTextInterface_OffsetAtPoint(@ptrCast(self), @ptrCast(point));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#scrollToSubstring)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface, startIndex: i32, endIndex: i32 ```
+    /// ``` self: QtC.QAccessibleTextInterface, startIndex: i32, endIndex: i32 ```
     pub fn ScrollToSubstring(self: ?*anyopaque, startIndex: i32, endIndex: i32) void {
-        C.QAccessibleTextInterface_ScrollToSubstring(@ptrCast(self), @intCast(startIndex), @intCast(endIndex));
+        qtc.QAccessibleTextInterface_ScrollToSubstring(@ptrCast(self), @intCast(startIndex), @intCast(endIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#attributes)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface, offset: i32, startOffset: ?*i32, endOffset: ?*i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleTextInterface, offset: i32, startOffset: ?*i32, endOffset: ?*i32, allocator: std.mem.Allocator ```
     pub fn Attributes(self: ?*anyopaque, offset: i32, startOffset: ?*anyopaque, endOffset: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleTextInterface_Attributes(@ptrCast(self), @intCast(offset), @intCast(startOffset), @intCast(endOffset));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleTextInterface_Attributes(@ptrCast(self), @intCast(offset), @intCast(startOffset), @intCast(endOffset));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.Attributes: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -367,16 +368,18 @@ pub const qaccessibletextinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#operator=)
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface, param1: ?*C.QAccessibleTextInterface ```
+    /// ``` self: QtC.QAccessibleTextInterface, param1: QtC.QAccessibleTextInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QAccessibleTextInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+        qtc.QAccessibleTextInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#dtor.QAccessibleTextInterface)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleTextInterface ```
+    /// ``` self: QtC.QAccessibleTextInterface ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleTextInterface_Delete(@ptrCast(self));
+        qtc.QAccessibleTextInterface_Delete(@ptrCast(self));
     }
 };
 
@@ -384,45 +387,47 @@ pub const qaccessibletextinterface = struct {
 pub const qaccessibleeditabletextinterface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleeditabletextinterface.html#deleteText)
     ///
-    /// ``` self: ?*C.QAccessibleEditableTextInterface, startOffset: i32, endOffset: i32 ```
+    /// ``` self: QtC.QAccessibleEditableTextInterface, startOffset: i32, endOffset: i32 ```
     pub fn DeleteText(self: ?*anyopaque, startOffset: i32, endOffset: i32) void {
-        C.QAccessibleEditableTextInterface_DeleteText(@ptrCast(self), @intCast(startOffset), @intCast(endOffset));
+        qtc.QAccessibleEditableTextInterface_DeleteText(@ptrCast(self), @intCast(startOffset), @intCast(endOffset));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleeditabletextinterface.html#insertText)
     ///
-    /// ``` self: ?*C.QAccessibleEditableTextInterface, offset: i32, text: []const u8 ```
+    /// ``` self: QtC.QAccessibleEditableTextInterface, offset: i32, text: []const u8 ```
     pub fn InsertText(self: ?*anyopaque, offset: i32, text: []const u8) void {
-        const text_str = C.struct_libqt_string{
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        C.QAccessibleEditableTextInterface_InsertText(@ptrCast(self), @intCast(offset), text_str);
+        qtc.QAccessibleEditableTextInterface_InsertText(@ptrCast(self), @intCast(offset), text_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleeditabletextinterface.html#replaceText)
     ///
-    /// ``` self: ?*C.QAccessibleEditableTextInterface, startOffset: i32, endOffset: i32, text: []const u8 ```
+    /// ``` self: QtC.QAccessibleEditableTextInterface, startOffset: i32, endOffset: i32, text: []const u8 ```
     pub fn ReplaceText(self: ?*anyopaque, startOffset: i32, endOffset: i32, text: []const u8) void {
-        const text_str = C.struct_libqt_string{
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        C.QAccessibleEditableTextInterface_ReplaceText(@ptrCast(self), @intCast(startOffset), @intCast(endOffset), text_str);
+        qtc.QAccessibleEditableTextInterface_ReplaceText(@ptrCast(self), @intCast(startOffset), @intCast(endOffset), text_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleeditabletextinterface.html#operator=)
     ///
-    /// ``` self: ?*C.QAccessibleEditableTextInterface, param1: ?*C.QAccessibleEditableTextInterface ```
+    /// ``` self: QtC.QAccessibleEditableTextInterface, param1: QtC.QAccessibleEditableTextInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QAccessibleEditableTextInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+        qtc.QAccessibleEditableTextInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleeditabletextinterface.html#dtor.QAccessibleEditableTextInterface)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleEditableTextInterface ```
+    /// ``` self: QtC.QAccessibleEditableTextInterface ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleEditableTextInterface_Delete(@ptrCast(self));
+        qtc.QAccessibleEditableTextInterface_Delete(@ptrCast(self));
     }
 };
 
@@ -430,51 +435,53 @@ pub const qaccessibleeditabletextinterface = struct {
 pub const qaccessiblevalueinterface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblevalueinterface.html#currentValue)
     ///
-    /// ``` self: ?*C.QAccessibleValueInterface ```
-    pub fn CurrentValue(self: ?*anyopaque) ?*C.QVariant {
-        return C.QAccessibleValueInterface_CurrentValue(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleValueInterface ```
+    pub fn CurrentValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QAccessibleValueInterface_CurrentValue(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblevalueinterface.html#setCurrentValue)
     ///
-    /// ``` self: ?*C.QAccessibleValueInterface, value: ?*C.QVariant ```
+    /// ``` self: QtC.QAccessibleValueInterface, value: QtC.QVariant ```
     pub fn SetCurrentValue(self: ?*anyopaque, value: ?*anyopaque) void {
-        C.QAccessibleValueInterface_SetCurrentValue(@ptrCast(self), @ptrCast(value));
+        qtc.QAccessibleValueInterface_SetCurrentValue(@ptrCast(self), @ptrCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblevalueinterface.html#maximumValue)
     ///
-    /// ``` self: ?*C.QAccessibleValueInterface ```
-    pub fn MaximumValue(self: ?*anyopaque) ?*C.QVariant {
-        return C.QAccessibleValueInterface_MaximumValue(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleValueInterface ```
+    pub fn MaximumValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QAccessibleValueInterface_MaximumValue(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblevalueinterface.html#minimumValue)
     ///
-    /// ``` self: ?*C.QAccessibleValueInterface ```
-    pub fn MinimumValue(self: ?*anyopaque) ?*C.QVariant {
-        return C.QAccessibleValueInterface_MinimumValue(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleValueInterface ```
+    pub fn MinimumValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QAccessibleValueInterface_MinimumValue(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblevalueinterface.html#minimumStepSize)
     ///
-    /// ``` self: ?*C.QAccessibleValueInterface ```
-    pub fn MinimumStepSize(self: ?*anyopaque) ?*C.QVariant {
-        return C.QAccessibleValueInterface_MinimumStepSize(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleValueInterface ```
+    pub fn MinimumStepSize(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QAccessibleValueInterface_MinimumStepSize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblevalueinterface.html#operator=)
     ///
-    /// ``` self: ?*C.QAccessibleValueInterface, param1: ?*C.QAccessibleValueInterface ```
+    /// ``` self: QtC.QAccessibleValueInterface, param1: QtC.QAccessibleValueInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QAccessibleValueInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+        qtc.QAccessibleValueInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblevalueinterface.html#dtor.QAccessibleValueInterface)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleValueInterface ```
+    /// ``` self: QtC.QAccessibleValueInterface ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleValueInterface_Delete(@ptrCast(self));
+        qtc.QAccessibleValueInterface_Delete(@ptrCast(self));
     }
 };
 
@@ -482,19 +489,19 @@ pub const qaccessiblevalueinterface = struct {
 pub const qaccessibletablecellinterface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#isSelected)
     ///
-    /// ``` self: ?*C.QAccessibleTableCellInterface ```
+    /// ``` self: QtC.QAccessibleTableCellInterface ```
     pub fn IsSelected(self: ?*anyopaque) bool {
-        return C.QAccessibleTableCellInterface_IsSelected(@ptrCast(self));
+        return qtc.QAccessibleTableCellInterface_IsSelected(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#columnHeaderCells)
     ///
-    /// ``` self: ?*C.QAccessibleTableCellInterface, allocator: std.mem.Allocator ```
-    pub fn ColumnHeaderCells(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QAccessibleInterface {
-        const _arr: C.struct_libqt_list = C.QAccessibleTableCellInterface_ColumnHeaderCells(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QAccessibleInterface, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QAccessibleInterface = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QAccessibleTableCellInterface, allocator: std.mem.Allocator ```
+    pub fn ColumnHeaderCells(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAccessibleInterface {
+        const _arr: qtc.struct_libqt_list = qtc.QAccessibleTableCellInterface_ColumnHeaderCells(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QAccessibleInterface, _arr.len) catch @panic("qaccessibletablecellinterface.ColumnHeaderCells: Memory allocation failed");
+        const _data: [*]QtC.QAccessibleInterface = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -503,12 +510,12 @@ pub const qaccessibletablecellinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#rowHeaderCells)
     ///
-    /// ``` self: ?*C.QAccessibleTableCellInterface, allocator: std.mem.Allocator ```
-    pub fn RowHeaderCells(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QAccessibleInterface {
-        const _arr: C.struct_libqt_list = C.QAccessibleTableCellInterface_RowHeaderCells(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QAccessibleInterface, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QAccessibleInterface = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QAccessibleTableCellInterface, allocator: std.mem.Allocator ```
+    pub fn RowHeaderCells(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAccessibleInterface {
+        const _arr: qtc.struct_libqt_list = qtc.QAccessibleTableCellInterface_RowHeaderCells(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QAccessibleInterface, _arr.len) catch @panic("qaccessibletablecellinterface.RowHeaderCells: Memory allocation failed");
+        const _data: [*]QtC.QAccessibleInterface = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -517,51 +524,53 @@ pub const qaccessibletablecellinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#columnIndex)
     ///
-    /// ``` self: ?*C.QAccessibleTableCellInterface ```
+    /// ``` self: QtC.QAccessibleTableCellInterface ```
     pub fn ColumnIndex(self: ?*anyopaque) i32 {
-        return C.QAccessibleTableCellInterface_ColumnIndex(@ptrCast(self));
+        return qtc.QAccessibleTableCellInterface_ColumnIndex(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#rowIndex)
     ///
-    /// ``` self: ?*C.QAccessibleTableCellInterface ```
+    /// ``` self: QtC.QAccessibleTableCellInterface ```
     pub fn RowIndex(self: ?*anyopaque) i32 {
-        return C.QAccessibleTableCellInterface_RowIndex(@ptrCast(self));
+        return qtc.QAccessibleTableCellInterface_RowIndex(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#columnExtent)
     ///
-    /// ``` self: ?*C.QAccessibleTableCellInterface ```
+    /// ``` self: QtC.QAccessibleTableCellInterface ```
     pub fn ColumnExtent(self: ?*anyopaque) i32 {
-        return C.QAccessibleTableCellInterface_ColumnExtent(@ptrCast(self));
+        return qtc.QAccessibleTableCellInterface_ColumnExtent(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#rowExtent)
     ///
-    /// ``` self: ?*C.QAccessibleTableCellInterface ```
+    /// ``` self: QtC.QAccessibleTableCellInterface ```
     pub fn RowExtent(self: ?*anyopaque) i32 {
-        return C.QAccessibleTableCellInterface_RowExtent(@ptrCast(self));
+        return qtc.QAccessibleTableCellInterface_RowExtent(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#table)
     ///
-    /// ``` self: ?*C.QAccessibleTableCellInterface ```
-    pub fn Table(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleTableCellInterface_Table(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTableCellInterface ```
+    pub fn Table(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTableCellInterface_Table(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#operator=)
     ///
-    /// ``` self: ?*C.QAccessibleTableCellInterface, param1: ?*C.QAccessibleTableCellInterface ```
+    /// ``` self: QtC.QAccessibleTableCellInterface, param1: QtC.QAccessibleTableCellInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QAccessibleTableCellInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+        qtc.QAccessibleTableCellInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#dtor.QAccessibleTableCellInterface)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleTableCellInterface ```
+    /// ``` self: QtC.QAccessibleTableCellInterface ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleTableCellInterface_Delete(@ptrCast(self));
+        qtc.QAccessibleTableCellInterface_Delete(@ptrCast(self));
     }
 };
 
@@ -569,40 +578,40 @@ pub const qaccessibletablecellinterface = struct {
 pub const qaccessibletableinterface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#caption)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface ```
-    pub fn Caption(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleTableInterface_Caption(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTableInterface ```
+    pub fn Caption(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTableInterface_Caption(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#summary)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface ```
-    pub fn Summary(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleTableInterface_Summary(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTableInterface ```
+    pub fn Summary(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTableInterface_Summary(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#cellAt)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface, row: i32, column: i32 ```
-    pub fn CellAt(self: ?*anyopaque, row: i32, column: i32) ?*C.QAccessibleInterface {
-        return C.QAccessibleTableInterface_CellAt(@ptrCast(self), @intCast(row), @intCast(column));
+    /// ``` self: QtC.QAccessibleTableInterface, row: i32, column: i32 ```
+    pub fn CellAt(self: ?*anyopaque, row: i32, column: i32) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTableInterface_CellAt(@ptrCast(self), @intCast(row), @intCast(column));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectedCellCount)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface ```
+    /// ``` self: QtC.QAccessibleTableInterface ```
     pub fn SelectedCellCount(self: ?*anyopaque) i32 {
-        return C.QAccessibleTableInterface_SelectedCellCount(@ptrCast(self));
+        return qtc.QAccessibleTableInterface_SelectedCellCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectedCells)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface, allocator: std.mem.Allocator ```
-    pub fn SelectedCells(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QAccessibleInterface {
-        const _arr: C.struct_libqt_list = C.QAccessibleTableInterface_SelectedCells(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QAccessibleInterface, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QAccessibleInterface = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QAccessibleTableInterface, allocator: std.mem.Allocator ```
+    pub fn SelectedCells(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAccessibleInterface {
+        const _arr: qtc.struct_libqt_list = qtc.QAccessibleTableInterface_SelectedCells(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QAccessibleInterface, _arr.len) catch @panic("qaccessibletableinterface.SelectedCells: Memory allocation failed");
+        const _data: [*]QtC.QAccessibleInterface = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -611,11 +620,11 @@ pub const qaccessibletableinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#columnDescription)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface, column: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleTableInterface, column: i32, allocator: std.mem.Allocator ```
     pub fn ColumnDescription(self: ?*anyopaque, column: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleTableInterface_ColumnDescription(@ptrCast(self), @intCast(column));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleTableInterface_ColumnDescription(@ptrCast(self), @intCast(column));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletableinterface.ColumnDescription: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -624,11 +633,11 @@ pub const qaccessibletableinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#rowDescription)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface, row: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleTableInterface, row: i32, allocator: std.mem.Allocator ```
     pub fn RowDescription(self: ?*anyopaque, row: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleTableInterface_RowDescription(@ptrCast(self), @intCast(row));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleTableInterface_RowDescription(@ptrCast(self), @intCast(row));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletableinterface.RowDescription: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -637,39 +646,39 @@ pub const qaccessibletableinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectedColumnCount)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface ```
+    /// ``` self: QtC.QAccessibleTableInterface ```
     pub fn SelectedColumnCount(self: ?*anyopaque) i32 {
-        return C.QAccessibleTableInterface_SelectedColumnCount(@ptrCast(self));
+        return qtc.QAccessibleTableInterface_SelectedColumnCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectedRowCount)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface ```
+    /// ``` self: QtC.QAccessibleTableInterface ```
     pub fn SelectedRowCount(self: ?*anyopaque) i32 {
-        return C.QAccessibleTableInterface_SelectedRowCount(@ptrCast(self));
+        return qtc.QAccessibleTableInterface_SelectedRowCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#columnCount)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface ```
+    /// ``` self: QtC.QAccessibleTableInterface ```
     pub fn ColumnCount(self: ?*anyopaque) i32 {
-        return C.QAccessibleTableInterface_ColumnCount(@ptrCast(self));
+        return qtc.QAccessibleTableInterface_ColumnCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#rowCount)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface ```
+    /// ``` self: QtC.QAccessibleTableInterface ```
     pub fn RowCount(self: ?*anyopaque) i32 {
-        return C.QAccessibleTableInterface_RowCount(@ptrCast(self));
+        return qtc.QAccessibleTableInterface_RowCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectedColumns)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleTableInterface, allocator: std.mem.Allocator ```
     pub fn SelectedColumns(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: C.struct_libqt_list = C.QAccessibleTableInterface_SelectedColumns(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("Memory allocation failed");
+        const _arr: qtc.struct_libqt_list = qtc.QAccessibleTableInterface_SelectedColumns(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qaccessibletableinterface.SelectedColumns: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
@@ -679,11 +688,11 @@ pub const qaccessibletableinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectedRows)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleTableInterface, allocator: std.mem.Allocator ```
     pub fn SelectedRows(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: C.struct_libqt_list = C.QAccessibleTableInterface_SelectedRows(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("Memory allocation failed");
+        const _arr: qtc.struct_libqt_list = qtc.QAccessibleTableInterface_SelectedRows(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qaccessibletableinterface.SelectedRows: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
@@ -693,58 +702,60 @@ pub const qaccessibletableinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#isColumnSelected)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface, column: i32 ```
+    /// ``` self: QtC.QAccessibleTableInterface, column: i32 ```
     pub fn IsColumnSelected(self: ?*anyopaque, column: i32) bool {
-        return C.QAccessibleTableInterface_IsColumnSelected(@ptrCast(self), @intCast(column));
+        return qtc.QAccessibleTableInterface_IsColumnSelected(@ptrCast(self), @intCast(column));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#isRowSelected)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface, row: i32 ```
+    /// ``` self: QtC.QAccessibleTableInterface, row: i32 ```
     pub fn IsRowSelected(self: ?*anyopaque, row: i32) bool {
-        return C.QAccessibleTableInterface_IsRowSelected(@ptrCast(self), @intCast(row));
+        return qtc.QAccessibleTableInterface_IsRowSelected(@ptrCast(self), @intCast(row));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectRow)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface, row: i32 ```
+    /// ``` self: QtC.QAccessibleTableInterface, row: i32 ```
     pub fn SelectRow(self: ?*anyopaque, row: i32) bool {
-        return C.QAccessibleTableInterface_SelectRow(@ptrCast(self), @intCast(row));
+        return qtc.QAccessibleTableInterface_SelectRow(@ptrCast(self), @intCast(row));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectColumn)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface, column: i32 ```
+    /// ``` self: QtC.QAccessibleTableInterface, column: i32 ```
     pub fn SelectColumn(self: ?*anyopaque, column: i32) bool {
-        return C.QAccessibleTableInterface_SelectColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAccessibleTableInterface_SelectColumn(@ptrCast(self), @intCast(column));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#unselectRow)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface, row: i32 ```
+    /// ``` self: QtC.QAccessibleTableInterface, row: i32 ```
     pub fn UnselectRow(self: ?*anyopaque, row: i32) bool {
-        return C.QAccessibleTableInterface_UnselectRow(@ptrCast(self), @intCast(row));
+        return qtc.QAccessibleTableInterface_UnselectRow(@ptrCast(self), @intCast(row));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#unselectColumn)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface, column: i32 ```
+    /// ``` self: QtC.QAccessibleTableInterface, column: i32 ```
     pub fn UnselectColumn(self: ?*anyopaque, column: i32) bool {
-        return C.QAccessibleTableInterface_UnselectColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAccessibleTableInterface_UnselectColumn(@ptrCast(self), @intCast(column));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#modelChange)
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface, event: ?*C.QAccessibleTableModelChangeEvent ```
+    /// ``` self: QtC.QAccessibleTableInterface, event: QtC.QAccessibleTableModelChangeEvent ```
     pub fn ModelChange(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QAccessibleTableInterface_ModelChange(@ptrCast(self), @ptrCast(event));
+        qtc.QAccessibleTableInterface_ModelChange(@ptrCast(self), @ptrCast(event));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletableinterface.html#dtor.QAccessibleTableInterface)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleTableInterface ```
+    /// ``` self: QtC.QAccessibleTableInterface ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleTableInterface_Delete(@ptrCast(self));
+        qtc.QAccessibleTableInterface_Delete(@ptrCast(self));
     }
 };
 
@@ -755,9 +766,9 @@ pub const qaccessibleactioninterface = struct {
     /// ``` sourceText: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(sourceText: []const u8, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = @constCast(sourceText.ptr);
-        const _str = C.QAccessibleActionInterface_Tr(sourceText_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_Tr(sourceText_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.Tr: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -766,20 +777,20 @@ pub const qaccessibleactioninterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#actionNames)
     ///
-    /// ``` self: ?*C.QAccessibleActionInterface, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleActionInterface, allocator: std.mem.Allocator ```
     pub fn ActionNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: C.struct_libqt_list = C.QAccessibleActionInterface_ActionNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QAccessibleActionInterface_ActionNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qaccessibleactioninterface.ActionNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qaccessibleactioninterface.ActionNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -788,15 +799,15 @@ pub const qaccessibleactioninterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#localizedActionName)
     ///
-    /// ``` self: ?*C.QAccessibleActionInterface, name: []const u8, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleActionInterface, name: []const u8, allocator: std.mem.Allocator ```
     pub fn LocalizedActionName(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const name_str = C.struct_libqt_string{
+        const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = @constCast(name.ptr),
         };
-        const _str = C.QAccessibleActionInterface_LocalizedActionName(@ptrCast(self), name_str);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_LocalizedActionName(@ptrCast(self), name_str);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.LocalizedActionName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -805,15 +816,15 @@ pub const qaccessibleactioninterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#localizedActionDescription)
     ///
-    /// ``` self: ?*C.QAccessibleActionInterface, name: []const u8, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleActionInterface, name: []const u8, allocator: std.mem.Allocator ```
     pub fn LocalizedActionDescription(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const name_str = C.struct_libqt_string{
+        const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = @constCast(name.ptr),
         };
-        const _str = C.QAccessibleActionInterface_LocalizedActionDescription(@ptrCast(self), name_str);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_LocalizedActionDescription(@ptrCast(self), name_str);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.LocalizedActionDescription: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -822,35 +833,35 @@ pub const qaccessibleactioninterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#doAction)
     ///
-    /// ``` self: ?*C.QAccessibleActionInterface, actionName: []const u8 ```
+    /// ``` self: QtC.QAccessibleActionInterface, actionName: []const u8 ```
     pub fn DoAction(self: ?*anyopaque, actionName: []const u8) void {
-        const actionName_str = C.struct_libqt_string{
+        const actionName_str = qtc.struct_libqt_string{
             .len = actionName.len,
             .data = @constCast(actionName.ptr),
         };
-        C.QAccessibleActionInterface_DoAction(@ptrCast(self), actionName_str);
+        qtc.QAccessibleActionInterface_DoAction(@ptrCast(self), actionName_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#keyBindingsForAction)
     ///
-    /// ``` self: ?*C.QAccessibleActionInterface, actionName: []const u8, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleActionInterface, actionName: []const u8, allocator: std.mem.Allocator ```
     pub fn KeyBindingsForAction(self: ?*anyopaque, actionName: []const u8, allocator: std.mem.Allocator) [][]const u8 {
-        const actionName_str = C.struct_libqt_string{
+        const actionName_str = qtc.struct_libqt_string{
             .len = actionName.len,
             .data = @constCast(actionName.ptr),
         };
-        const _arr: C.struct_libqt_list = C.QAccessibleActionInterface_KeyBindingsForAction(@ptrCast(self), actionName_str);
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QAccessibleActionInterface_KeyBindingsForAction(@ptrCast(self), actionName_str);
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qaccessibleactioninterface.KeyBindingsForAction: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qaccessibleactioninterface.KeyBindingsForAction: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -861,9 +872,9 @@ pub const qaccessibleactioninterface = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn PressAction(allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleActionInterface_PressAction();
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_PressAction();
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.PressAction: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -874,9 +885,9 @@ pub const qaccessibleactioninterface = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn IncreaseAction(allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleActionInterface_IncreaseAction();
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_IncreaseAction();
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.IncreaseAction: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -887,9 +898,9 @@ pub const qaccessibleactioninterface = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn DecreaseAction(allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleActionInterface_DecreaseAction();
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_DecreaseAction();
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.DecreaseAction: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -900,9 +911,9 @@ pub const qaccessibleactioninterface = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ShowMenuAction(allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleActionInterface_ShowMenuAction();
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_ShowMenuAction();
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.ShowMenuAction: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -913,9 +924,9 @@ pub const qaccessibleactioninterface = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SetFocusAction(allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleActionInterface_SetFocusAction();
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_SetFocusAction();
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.SetFocusAction: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -926,9 +937,9 @@ pub const qaccessibleactioninterface = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ToggleAction(allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleActionInterface_ToggleAction();
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_ToggleAction();
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.ToggleAction: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -939,9 +950,9 @@ pub const qaccessibleactioninterface = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ScrollLeftAction(allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleActionInterface_ScrollLeftAction();
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_ScrollLeftAction();
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.ScrollLeftAction: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -952,9 +963,9 @@ pub const qaccessibleactioninterface = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ScrollRightAction(allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleActionInterface_ScrollRightAction();
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_ScrollRightAction();
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.ScrollRightAction: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -965,9 +976,9 @@ pub const qaccessibleactioninterface = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ScrollUpAction(allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleActionInterface_ScrollUpAction();
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_ScrollUpAction();
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.ScrollUpAction: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -978,9 +989,9 @@ pub const qaccessibleactioninterface = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ScrollDownAction(allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleActionInterface_ScrollDownAction();
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_ScrollDownAction();
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.ScrollDownAction: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -991,9 +1002,9 @@ pub const qaccessibleactioninterface = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn NextPageAction(allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleActionInterface_NextPageAction();
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_NextPageAction();
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.NextPageAction: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1004,9 +1015,9 @@ pub const qaccessibleactioninterface = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn PreviousPageAction(allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleActionInterface_PreviousPageAction();
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_PreviousPageAction();
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.PreviousPageAction: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1015,9 +1026,9 @@ pub const qaccessibleactioninterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#operator=)
     ///
-    /// ``` self: ?*C.QAccessibleActionInterface, param1: ?*C.QAccessibleActionInterface ```
+    /// ``` self: QtC.QAccessibleActionInterface, param1: QtC.QAccessibleActionInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QAccessibleActionInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+        qtc.QAccessibleActionInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1026,9 +1037,9 @@ pub const qaccessibleactioninterface = struct {
     pub fn Tr2(sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = @constCast(sourceText.ptr);
         const disambiguation_Cstring = @constCast(disambiguation.ptr);
-        const _str = C.QAccessibleActionInterface_Tr2(sourceText_Cstring, disambiguation_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_Tr2(sourceText_Cstring, disambiguation_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.Tr2: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1041,20 +1052,22 @@ pub const qaccessibleactioninterface = struct {
     pub fn Tr3(sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = @constCast(sourceText.ptr);
         const disambiguation_Cstring = @constCast(disambiguation.ptr);
-        const _str = C.QAccessibleActionInterface_Tr3(sourceText_Cstring, disambiguation_Cstring, @intCast(n));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleActionInterface_Tr3(sourceText_Cstring, disambiguation_Cstring, @intCast(n));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.Tr3: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#dtor.QAccessibleActionInterface)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleActionInterface ```
+    /// ``` self: QtC.QAccessibleActionInterface ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleActionInterface_Delete(@ptrCast(self));
+        qtc.QAccessibleActionInterface_Delete(@ptrCast(self));
     }
 };
 
@@ -1062,11 +1075,11 @@ pub const qaccessibleactioninterface = struct {
 pub const qaccessibleimageinterface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleimageinterface.html#imageDescription)
     ///
-    /// ``` self: ?*C.QAccessibleImageInterface, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleImageInterface, allocator: std.mem.Allocator ```
     pub fn ImageDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleImageInterface_ImageDescription(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleImageInterface_ImageDescription(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleimageinterface.ImageDescription: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1075,30 +1088,32 @@ pub const qaccessibleimageinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleimageinterface.html#imageSize)
     ///
-    /// ``` self: ?*C.QAccessibleImageInterface ```
-    pub fn ImageSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QAccessibleImageInterface_ImageSize(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleImageInterface ```
+    pub fn ImageSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QAccessibleImageInterface_ImageSize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleimageinterface.html#imagePosition)
     ///
-    /// ``` self: ?*C.QAccessibleImageInterface ```
-    pub fn ImagePosition(self: ?*anyopaque) ?*C.QPoint {
-        return C.QAccessibleImageInterface_ImagePosition(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleImageInterface ```
+    pub fn ImagePosition(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QAccessibleImageInterface_ImagePosition(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleimageinterface.html#operator=)
     ///
-    /// ``` self: ?*C.QAccessibleImageInterface, param1: ?*C.QAccessibleImageInterface ```
+    /// ``` self: QtC.QAccessibleImageInterface, param1: QtC.QAccessibleImageInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QAccessibleImageInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+        qtc.QAccessibleImageInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleimageinterface.html#dtor.QAccessibleImageInterface)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleImageInterface ```
+    /// ``` self: QtC.QAccessibleImageInterface ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleImageInterface_Delete(@ptrCast(self));
+        qtc.QAccessibleImageInterface_Delete(@ptrCast(self));
     }
 };
 
@@ -1106,11 +1121,11 @@ pub const qaccessibleimageinterface = struct {
 pub const qaccessiblehyperlinkinterface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html#anchor)
     ///
-    /// ``` self: ?*C.QAccessibleHyperlinkInterface, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleHyperlinkInterface, allocator: std.mem.Allocator ```
     pub fn Anchor(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleHyperlinkInterface_Anchor(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleHyperlinkInterface_Anchor(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessiblehyperlinkinterface.Anchor: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1119,11 +1134,11 @@ pub const qaccessiblehyperlinkinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html#anchorTarget)
     ///
-    /// ``` self: ?*C.QAccessibleHyperlinkInterface, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleHyperlinkInterface, allocator: std.mem.Allocator ```
     pub fn AnchorTarget(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleHyperlinkInterface_AnchorTarget(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleHyperlinkInterface_AnchorTarget(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessiblehyperlinkinterface.AnchorTarget: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1132,37 +1147,39 @@ pub const qaccessiblehyperlinkinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html#startIndex)
     ///
-    /// ``` self: ?*C.QAccessibleHyperlinkInterface ```
+    /// ``` self: QtC.QAccessibleHyperlinkInterface ```
     pub fn StartIndex(self: ?*anyopaque) i32 {
-        return C.QAccessibleHyperlinkInterface_StartIndex(@ptrCast(self));
+        return qtc.QAccessibleHyperlinkInterface_StartIndex(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html#endIndex)
     ///
-    /// ``` self: ?*C.QAccessibleHyperlinkInterface ```
+    /// ``` self: QtC.QAccessibleHyperlinkInterface ```
     pub fn EndIndex(self: ?*anyopaque) i32 {
-        return C.QAccessibleHyperlinkInterface_EndIndex(@ptrCast(self));
+        return qtc.QAccessibleHyperlinkInterface_EndIndex(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html#isValid)
     ///
-    /// ``` self: ?*C.QAccessibleHyperlinkInterface ```
+    /// ``` self: QtC.QAccessibleHyperlinkInterface ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QAccessibleHyperlinkInterface_IsValid(@ptrCast(self));
+        return qtc.QAccessibleHyperlinkInterface_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html#operator=)
     ///
-    /// ``` self: ?*C.QAccessibleHyperlinkInterface, param1: ?*C.QAccessibleHyperlinkInterface ```
+    /// ``` self: QtC.QAccessibleHyperlinkInterface, param1: QtC.QAccessibleHyperlinkInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QAccessibleHyperlinkInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+        qtc.QAccessibleHyperlinkInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html#dtor.QAccessibleHyperlinkInterface)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleHyperlinkInterface ```
+    /// ``` self: QtC.QAccessibleHyperlinkInterface ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleHyperlinkInterface_Delete(@ptrCast(self));
+        qtc.QAccessibleHyperlinkInterface_Delete(@ptrCast(self));
     }
 };
 
@@ -1170,79 +1187,85 @@ pub const qaccessiblehyperlinkinterface = struct {
 pub const qaccessibleevent = struct {
     /// New constructs a new QAccessibleEvent object.
     ///
-    /// ``` obj: ?*C.QObject, typ: qaccessible_base_enums.Event ```
-    pub fn New(obj: ?*anyopaque, typ: i64) ?*C.QAccessibleEvent {
-        return C.QAccessibleEvent_new(@ptrCast(obj), @intCast(typ));
+    /// ``` obj: QtC.QObject, typ: qaccessible_base_enums.Event ```
+    pub fn New(obj: ?*anyopaque, typ: i64) QtC.QAccessibleEvent {
+        return qtc.QAccessibleEvent_new(@ptrCast(obj), @intCast(typ));
     }
 
     /// New2 constructs a new QAccessibleEvent object.
     ///
-    /// ``` iface: ?*C.QAccessibleInterface, typ: qaccessible_base_enums.Event ```
-    pub fn New2(iface: ?*anyopaque, typ: i64) ?*C.QAccessibleEvent {
-        return C.QAccessibleEvent_new2(@ptrCast(iface), @intCast(typ));
+    /// ``` iface: QtC.QAccessibleInterface, typ: qaccessible_base_enums.Event ```
+    pub fn New2(iface: ?*anyopaque, typ: i64) QtC.QAccessibleEvent {
+        return qtc.QAccessibleEvent_new2(@ptrCast(iface), @intCast(typ));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#type)
     ///
-    /// ``` self: ?*C.QAccessibleEvent ```
+    /// ``` self: QtC.QAccessibleEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QAccessibleEvent_Type(@ptrCast(self));
+        return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#object)
     ///
-    /// ``` self: ?*C.QAccessibleEvent ```
-    pub fn Object(self: ?*anyopaque) ?*C.QObject {
-        return C.QAccessibleEvent_Object(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleEvent ```
+    pub fn Object(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAccessibleEvent_Object(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#uniqueId)
     ///
-    /// ``` self: ?*C.QAccessibleEvent ```
+    /// ``` self: QtC.QAccessibleEvent ```
     pub fn UniqueId(self: ?*anyopaque) u32 {
-        return C.QAccessibleEvent_UniqueId(@ptrCast(self));
+        return qtc.QAccessibleEvent_UniqueId(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#setChild)
     ///
-    /// ``` self: ?*C.QAccessibleEvent, chld: i32 ```
+    /// ``` self: QtC.QAccessibleEvent, chld: i32 ```
     pub fn SetChild(self: ?*anyopaque, chld: i32) void {
-        C.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
+        qtc.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#child)
     ///
-    /// ``` self: ?*C.QAccessibleEvent ```
+    /// ``` self: QtC.QAccessibleEvent ```
     pub fn Child(self: ?*anyopaque) i32 {
-        return C.QAccessibleEvent_Child(@ptrCast(self));
+        return qtc.QAccessibleEvent_Child(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
     ///
-    /// ``` self: ?*C.QAccessibleEvent ```
-    pub fn AccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleEvent_AccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleEvent ```
+    pub fn AccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleEvent_AccessibleInterface(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QAccessibleEvent, slot: fn () callconv(.c) ?*C.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QAccessibleInterface) void {
-        C.QAccessibleEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QAccessibleEvent ```
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleEvent_QBaseAccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleEvent ```
+    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleEvent_QBaseAccessibleInterface(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#dtor.QAccessibleEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleEvent ```
+    /// ``` self: QtC.QAccessibleEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleEvent_Delete(@ptrCast(self));
+        qtc.QAccessibleEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -1250,68 +1273,68 @@ pub const qaccessibleevent = struct {
 pub const qaccessiblestatechangeevent = struct {
     /// New constructs a new QAccessibleStateChangeEvent object.
     ///
-    /// ``` obj: ?*C.QObject, state: ?*C.QAccessible__State ```
-    pub fn New(obj: ?*anyopaque, state: ?*C.QAccessible__State) ?*C.QAccessibleStateChangeEvent {
-        return C.QAccessibleStateChangeEvent_new(@ptrCast(obj), @ptrCast(state));
+    /// ``` obj: QtC.QObject, state: QtC.QAccessible__State ```
+    pub fn New(obj: ?*anyopaque, state: QtC.QAccessible__State) QtC.QAccessibleStateChangeEvent {
+        return qtc.QAccessibleStateChangeEvent_new(@ptrCast(obj), @ptrCast(state));
     }
 
     /// New2 constructs a new QAccessibleStateChangeEvent object.
     ///
-    /// ``` iface: ?*C.QAccessibleInterface, state: ?*C.QAccessible__State ```
-    pub fn New2(iface: ?*anyopaque, state: ?*C.QAccessible__State) ?*C.QAccessibleStateChangeEvent {
-        return C.QAccessibleStateChangeEvent_new2(@ptrCast(iface), @ptrCast(state));
+    /// ``` iface: QtC.QAccessibleInterface, state: QtC.QAccessible__State ```
+    pub fn New2(iface: ?*anyopaque, state: QtC.QAccessible__State) QtC.QAccessibleStateChangeEvent {
+        return qtc.QAccessibleStateChangeEvent_new2(@ptrCast(iface), @ptrCast(state));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblestatechangeevent.html#changedStates)
     ///
-    /// ``` self: ?*C.QAccessibleStateChangeEvent ```
-    pub fn ChangedStates(self: ?*anyopaque) ?*C.QAccessible__State {
-        return C.QAccessibleStateChangeEvent_ChangedStates(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleStateChangeEvent ```
+    pub fn ChangedStates(self: ?*anyopaque) QtC.QAccessible__State {
+        return qtc.QAccessibleStateChangeEvent_ChangedStates(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#type)
     ///
-    /// ``` self: ?*C.QAccessibleStateChangeEvent ```
+    /// ``` self: QtC.QAccessibleStateChangeEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QAccessibleEvent_Type(@ptrCast(self));
+        return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#object)
     ///
-    /// ``` self: ?*C.QAccessibleStateChangeEvent ```
-    pub fn Object(self: ?*anyopaque) ?*C.QObject {
-        return C.QAccessibleEvent_Object(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleStateChangeEvent ```
+    pub fn Object(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAccessibleEvent_Object(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#uniqueId)
     ///
-    /// ``` self: ?*C.QAccessibleStateChangeEvent ```
+    /// ``` self: QtC.QAccessibleStateChangeEvent ```
     pub fn UniqueId(self: ?*anyopaque) u32 {
-        return C.QAccessibleEvent_UniqueId(@ptrCast(self));
+        return qtc.QAccessibleEvent_UniqueId(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#setChild)
     ///
-    /// ``` self: ?*C.QAccessibleStateChangeEvent, chld: i32 ```
+    /// ``` self: QtC.QAccessibleStateChangeEvent, chld: i32 ```
     pub fn SetChild(self: ?*anyopaque, chld: i32) void {
-        C.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
+        qtc.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#child)
     ///
-    /// ``` self: ?*C.QAccessibleStateChangeEvent ```
+    /// ``` self: QtC.QAccessibleStateChangeEvent ```
     pub fn Child(self: ?*anyopaque) i32 {
-        return C.QAccessibleEvent_Child(@ptrCast(self));
+        return qtc.QAccessibleEvent_Child(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -1320,34 +1343,40 @@ pub const qaccessiblestatechangeevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleStateChangeEvent ```
-    pub fn AccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleStateChangeEvent_AccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleStateChangeEvent ```
+    pub fn AccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleStateChangeEvent_AccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleStateChangeEvent ```
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleStateChangeEvent_QBaseAccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleStateChangeEvent ```
+    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleStateChangeEvent_QBaseAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleStateChangeEvent, slot: fn () callconv(.c) ?*C.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QAccessibleInterface) void {
-        C.QAccessibleStateChangeEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleStateChangeEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleStateChangeEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblestatechangeevent.html#dtor.QAccessibleStateChangeEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleStateChangeEvent ```
+    /// ``` self: QtC.QAccessibleStateChangeEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleStateChangeEvent_Delete(@ptrCast(self));
+        qtc.QAccessibleStateChangeEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -1355,75 +1384,75 @@ pub const qaccessiblestatechangeevent = struct {
 pub const qaccessibletextcursorevent = struct {
     /// New constructs a new QAccessibleTextCursorEvent object.
     ///
-    /// ``` obj: ?*C.QObject, cursorPos: i32 ```
-    pub fn New(obj: ?*anyopaque, cursorPos: i32) ?*C.QAccessibleTextCursorEvent {
-        return C.QAccessibleTextCursorEvent_new(@ptrCast(obj), @intCast(cursorPos));
+    /// ``` obj: QtC.QObject, cursorPos: i32 ```
+    pub fn New(obj: ?*anyopaque, cursorPos: i32) QtC.QAccessibleTextCursorEvent {
+        return qtc.QAccessibleTextCursorEvent_new(@ptrCast(obj), @intCast(cursorPos));
     }
 
     /// New2 constructs a new QAccessibleTextCursorEvent object.
     ///
-    /// ``` iface: ?*C.QAccessibleInterface, cursorPos: i32 ```
-    pub fn New2(iface: ?*anyopaque, cursorPos: i32) ?*C.QAccessibleTextCursorEvent {
-        return C.QAccessibleTextCursorEvent_new2(@ptrCast(iface), @intCast(cursorPos));
+    /// ``` iface: QtC.QAccessibleInterface, cursorPos: i32 ```
+    pub fn New2(iface: ?*anyopaque, cursorPos: i32) QtC.QAccessibleTextCursorEvent {
+        return qtc.QAccessibleTextCursorEvent_new2(@ptrCast(iface), @intCast(cursorPos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextcursorevent.html#setCursorPosition)
     ///
-    /// ``` self: ?*C.QAccessibleTextCursorEvent, position: i32 ```
+    /// ``` self: QtC.QAccessibleTextCursorEvent, position: i32 ```
     pub fn SetCursorPosition(self: ?*anyopaque, position: i32) void {
-        C.QAccessibleTextCursorEvent_SetCursorPosition(@ptrCast(self), @intCast(position));
+        qtc.QAccessibleTextCursorEvent_SetCursorPosition(@ptrCast(self), @intCast(position));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextcursorevent.html#cursorPosition)
     ///
-    /// ``` self: ?*C.QAccessibleTextCursorEvent ```
+    /// ``` self: QtC.QAccessibleTextCursorEvent ```
     pub fn CursorPosition(self: ?*anyopaque) i32 {
-        return C.QAccessibleTextCursorEvent_CursorPosition(@ptrCast(self));
+        return qtc.QAccessibleTextCursorEvent_CursorPosition(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#type)
     ///
-    /// ``` self: ?*C.QAccessibleTextCursorEvent ```
+    /// ``` self: QtC.QAccessibleTextCursorEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QAccessibleEvent_Type(@ptrCast(self));
+        return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#object)
     ///
-    /// ``` self: ?*C.QAccessibleTextCursorEvent ```
-    pub fn Object(self: ?*anyopaque) ?*C.QObject {
-        return C.QAccessibleEvent_Object(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTextCursorEvent ```
+    pub fn Object(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAccessibleEvent_Object(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#uniqueId)
     ///
-    /// ``` self: ?*C.QAccessibleTextCursorEvent ```
+    /// ``` self: QtC.QAccessibleTextCursorEvent ```
     pub fn UniqueId(self: ?*anyopaque) u32 {
-        return C.QAccessibleEvent_UniqueId(@ptrCast(self));
+        return qtc.QAccessibleEvent_UniqueId(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#setChild)
     ///
-    /// ``` self: ?*C.QAccessibleTextCursorEvent, chld: i32 ```
+    /// ``` self: QtC.QAccessibleTextCursorEvent, chld: i32 ```
     pub fn SetChild(self: ?*anyopaque, chld: i32) void {
-        C.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
+        qtc.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#child)
     ///
-    /// ``` self: ?*C.QAccessibleTextCursorEvent ```
+    /// ``` self: QtC.QAccessibleTextCursorEvent ```
     pub fn Child(self: ?*anyopaque) i32 {
-        return C.QAccessibleEvent_Child(@ptrCast(self));
+        return qtc.QAccessibleEvent_Child(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -1432,34 +1461,40 @@ pub const qaccessibletextcursorevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTextCursorEvent ```
-    pub fn AccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleTextCursorEvent_AccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTextCursorEvent ```
+    pub fn AccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTextCursorEvent_AccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTextCursorEvent ```
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleTextCursorEvent_QBaseAccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTextCursorEvent ```
+    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTextCursorEvent_QBaseAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTextCursorEvent, slot: fn () callconv(.c) ?*C.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QAccessibleInterface) void {
-        C.QAccessibleTextCursorEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleTextCursorEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleTextCursorEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextcursorevent.html#dtor.QAccessibleTextCursorEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleTextCursorEvent ```
+    /// ``` self: QtC.QAccessibleTextCursorEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleTextCursorEvent_Delete(@ptrCast(self));
+        qtc.QAccessibleTextCursorEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -1467,100 +1502,100 @@ pub const qaccessibletextcursorevent = struct {
 pub const qaccessibletextselectionevent = struct {
     /// New constructs a new QAccessibleTextSelectionEvent object.
     ///
-    /// ``` obj: ?*C.QObject, start: i32, end: i32 ```
-    pub fn New(obj: ?*anyopaque, start: i32, end: i32) ?*C.QAccessibleTextSelectionEvent {
-        return C.QAccessibleTextSelectionEvent_new(@ptrCast(obj), @intCast(start), @intCast(end));
+    /// ``` obj: QtC.QObject, start: i32, end: i32 ```
+    pub fn New(obj: ?*anyopaque, start: i32, end: i32) QtC.QAccessibleTextSelectionEvent {
+        return qtc.QAccessibleTextSelectionEvent_new(@ptrCast(obj), @intCast(start), @intCast(end));
     }
 
     /// New2 constructs a new QAccessibleTextSelectionEvent object.
     ///
-    /// ``` iface: ?*C.QAccessibleInterface, start: i32, end: i32 ```
-    pub fn New2(iface: ?*anyopaque, start: i32, end: i32) ?*C.QAccessibleTextSelectionEvent {
-        return C.QAccessibleTextSelectionEvent_new2(@ptrCast(iface), @intCast(start), @intCast(end));
+    /// ``` iface: QtC.QAccessibleInterface, start: i32, end: i32 ```
+    pub fn New2(iface: ?*anyopaque, start: i32, end: i32) QtC.QAccessibleTextSelectionEvent {
+        return qtc.QAccessibleTextSelectionEvent_new2(@ptrCast(iface), @intCast(start), @intCast(end));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextselectionevent.html#setSelection)
     ///
-    /// ``` self: ?*C.QAccessibleTextSelectionEvent, start: i32, end: i32 ```
+    /// ``` self: QtC.QAccessibleTextSelectionEvent, start: i32, end: i32 ```
     pub fn SetSelection(self: ?*anyopaque, start: i32, end: i32) void {
-        C.QAccessibleTextSelectionEvent_SetSelection(@ptrCast(self), @intCast(start), @intCast(end));
+        qtc.QAccessibleTextSelectionEvent_SetSelection(@ptrCast(self), @intCast(start), @intCast(end));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextselectionevent.html#selectionStart)
     ///
-    /// ``` self: ?*C.QAccessibleTextSelectionEvent ```
+    /// ``` self: QtC.QAccessibleTextSelectionEvent ```
     pub fn SelectionStart(self: ?*anyopaque) i32 {
-        return C.QAccessibleTextSelectionEvent_SelectionStart(@ptrCast(self));
+        return qtc.QAccessibleTextSelectionEvent_SelectionStart(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextselectionevent.html#selectionEnd)
     ///
-    /// ``` self: ?*C.QAccessibleTextSelectionEvent ```
+    /// ``` self: QtC.QAccessibleTextSelectionEvent ```
     pub fn SelectionEnd(self: ?*anyopaque) i32 {
-        return C.QAccessibleTextSelectionEvent_SelectionEnd(@ptrCast(self));
+        return qtc.QAccessibleTextSelectionEvent_SelectionEnd(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleTextCursorEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextcursorevent.html#setCursorPosition)
     ///
-    /// ``` self: ?*C.QAccessibleTextSelectionEvent, position: i32 ```
+    /// ``` self: QtC.QAccessibleTextSelectionEvent, position: i32 ```
     pub fn SetCursorPosition(self: ?*anyopaque, position: i32) void {
-        C.QAccessibleTextCursorEvent_SetCursorPosition(@ptrCast(self), @intCast(position));
+        qtc.QAccessibleTextCursorEvent_SetCursorPosition(@ptrCast(self), @intCast(position));
     }
 
     /// Inherited from QAccessibleTextCursorEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextcursorevent.html#cursorPosition)
     ///
-    /// ``` self: ?*C.QAccessibleTextSelectionEvent ```
+    /// ``` self: QtC.QAccessibleTextSelectionEvent ```
     pub fn CursorPosition(self: ?*anyopaque) i32 {
-        return C.QAccessibleTextCursorEvent_CursorPosition(@ptrCast(self));
+        return qtc.QAccessibleTextCursorEvent_CursorPosition(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#type)
     ///
-    /// ``` self: ?*C.QAccessibleTextSelectionEvent ```
+    /// ``` self: QtC.QAccessibleTextSelectionEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QAccessibleEvent_Type(@ptrCast(self));
+        return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#object)
     ///
-    /// ``` self: ?*C.QAccessibleTextSelectionEvent ```
-    pub fn Object(self: ?*anyopaque) ?*C.QObject {
-        return C.QAccessibleEvent_Object(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTextSelectionEvent ```
+    pub fn Object(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAccessibleEvent_Object(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#uniqueId)
     ///
-    /// ``` self: ?*C.QAccessibleTextSelectionEvent ```
+    /// ``` self: QtC.QAccessibleTextSelectionEvent ```
     pub fn UniqueId(self: ?*anyopaque) u32 {
-        return C.QAccessibleEvent_UniqueId(@ptrCast(self));
+        return qtc.QAccessibleEvent_UniqueId(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#setChild)
     ///
-    /// ``` self: ?*C.QAccessibleTextSelectionEvent, chld: i32 ```
+    /// ``` self: QtC.QAccessibleTextSelectionEvent, chld: i32 ```
     pub fn SetChild(self: ?*anyopaque, chld: i32) void {
-        C.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
+        qtc.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#child)
     ///
-    /// ``` self: ?*C.QAccessibleTextSelectionEvent ```
+    /// ``` self: QtC.QAccessibleTextSelectionEvent ```
     pub fn Child(self: ?*anyopaque) i32 {
-        return C.QAccessibleEvent_Child(@ptrCast(self));
+        return qtc.QAccessibleEvent_Child(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -1569,34 +1604,40 @@ pub const qaccessibletextselectionevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTextSelectionEvent ```
-    pub fn AccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleTextSelectionEvent_AccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTextSelectionEvent ```
+    pub fn AccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTextSelectionEvent_AccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTextSelectionEvent ```
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleTextSelectionEvent_QBaseAccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTextSelectionEvent ```
+    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTextSelectionEvent_QBaseAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTextSelectionEvent, slot: fn () callconv(.c) ?*C.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QAccessibleInterface) void {
-        C.QAccessibleTextSelectionEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleTextSelectionEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleTextSelectionEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextselectionevent.html#dtor.QAccessibleTextSelectionEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleTextSelectionEvent ```
+    /// ``` self: QtC.QAccessibleTextSelectionEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleTextSelectionEvent_Delete(@ptrCast(self));
+        qtc.QAccessibleTextSelectionEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -1604,35 +1645,35 @@ pub const qaccessibletextselectionevent = struct {
 pub const qaccessibletextinsertevent = struct {
     /// New constructs a new QAccessibleTextInsertEvent object.
     ///
-    /// ``` obj: ?*C.QObject, position: i32, text: []const u8 ```
-    pub fn New(obj: ?*anyopaque, position: i32, text: []const u8) ?*C.QAccessibleTextInsertEvent {
-        const text_str = C.struct_libqt_string{
+    /// ``` obj: QtC.QObject, position: i32, text: []const u8 ```
+    pub fn New(obj: ?*anyopaque, position: i32, text: []const u8) QtC.QAccessibleTextInsertEvent {
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
 
-        return C.QAccessibleTextInsertEvent_new(@ptrCast(obj), @intCast(position), text_str);
+        return qtc.QAccessibleTextInsertEvent_new(@ptrCast(obj), @intCast(position), text_str);
     }
 
     /// New2 constructs a new QAccessibleTextInsertEvent object.
     ///
-    /// ``` iface: ?*C.QAccessibleInterface, position: i32, text: []const u8 ```
-    pub fn New2(iface: ?*anyopaque, position: i32, text: []const u8) ?*C.QAccessibleTextInsertEvent {
-        const text_str = C.struct_libqt_string{
+    /// ``` iface: QtC.QAccessibleInterface, position: i32, text: []const u8 ```
+    pub fn New2(iface: ?*anyopaque, position: i32, text: []const u8) QtC.QAccessibleTextInsertEvent {
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
 
-        return C.QAccessibleTextInsertEvent_new2(@ptrCast(iface), @intCast(position), text_str);
+        return qtc.QAccessibleTextInsertEvent_new2(@ptrCast(iface), @intCast(position), text_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinsertevent.html#textInserted)
     ///
-    /// ``` self: ?*C.QAccessibleTextInsertEvent, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleTextInsertEvent, allocator: std.mem.Allocator ```
     pub fn TextInserted(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleTextInsertEvent_TextInserted(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleTextInsertEvent_TextInserted(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinsertevent.TextInserted: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1641,72 +1682,72 @@ pub const qaccessibletextinsertevent = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinsertevent.html#changePosition)
     ///
-    /// ``` self: ?*C.QAccessibleTextInsertEvent ```
+    /// ``` self: QtC.QAccessibleTextInsertEvent ```
     pub fn ChangePosition(self: ?*anyopaque) i32 {
-        return C.QAccessibleTextInsertEvent_ChangePosition(@ptrCast(self));
+        return qtc.QAccessibleTextInsertEvent_ChangePosition(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleTextCursorEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextcursorevent.html#setCursorPosition)
     ///
-    /// ``` self: ?*C.QAccessibleTextInsertEvent, position: i32 ```
+    /// ``` self: QtC.QAccessibleTextInsertEvent, position: i32 ```
     pub fn SetCursorPosition(self: ?*anyopaque, position: i32) void {
-        C.QAccessibleTextCursorEvent_SetCursorPosition(@ptrCast(self), @intCast(position));
+        qtc.QAccessibleTextCursorEvent_SetCursorPosition(@ptrCast(self), @intCast(position));
     }
 
     /// Inherited from QAccessibleTextCursorEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextcursorevent.html#cursorPosition)
     ///
-    /// ``` self: ?*C.QAccessibleTextInsertEvent ```
+    /// ``` self: QtC.QAccessibleTextInsertEvent ```
     pub fn CursorPosition(self: ?*anyopaque) i32 {
-        return C.QAccessibleTextCursorEvent_CursorPosition(@ptrCast(self));
+        return qtc.QAccessibleTextCursorEvent_CursorPosition(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#type)
     ///
-    /// ``` self: ?*C.QAccessibleTextInsertEvent ```
+    /// ``` self: QtC.QAccessibleTextInsertEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QAccessibleEvent_Type(@ptrCast(self));
+        return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#object)
     ///
-    /// ``` self: ?*C.QAccessibleTextInsertEvent ```
-    pub fn Object(self: ?*anyopaque) ?*C.QObject {
-        return C.QAccessibleEvent_Object(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTextInsertEvent ```
+    pub fn Object(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAccessibleEvent_Object(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#uniqueId)
     ///
-    /// ``` self: ?*C.QAccessibleTextInsertEvent ```
+    /// ``` self: QtC.QAccessibleTextInsertEvent ```
     pub fn UniqueId(self: ?*anyopaque) u32 {
-        return C.QAccessibleEvent_UniqueId(@ptrCast(self));
+        return qtc.QAccessibleEvent_UniqueId(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#setChild)
     ///
-    /// ``` self: ?*C.QAccessibleTextInsertEvent, chld: i32 ```
+    /// ``` self: QtC.QAccessibleTextInsertEvent, chld: i32 ```
     pub fn SetChild(self: ?*anyopaque, chld: i32) void {
-        C.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
+        qtc.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#child)
     ///
-    /// ``` self: ?*C.QAccessibleTextInsertEvent ```
+    /// ``` self: QtC.QAccessibleTextInsertEvent ```
     pub fn Child(self: ?*anyopaque) i32 {
-        return C.QAccessibleEvent_Child(@ptrCast(self));
+        return qtc.QAccessibleEvent_Child(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -1715,34 +1756,40 @@ pub const qaccessibletextinsertevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTextInsertEvent ```
-    pub fn AccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleTextInsertEvent_AccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTextInsertEvent ```
+    pub fn AccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTextInsertEvent_AccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTextInsertEvent ```
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleTextInsertEvent_QBaseAccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTextInsertEvent ```
+    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTextInsertEvent_QBaseAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTextInsertEvent, slot: fn () callconv(.c) ?*C.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QAccessibleInterface) void {
-        C.QAccessibleTextInsertEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleTextInsertEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleTextInsertEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinsertevent.html#dtor.QAccessibleTextInsertEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleTextInsertEvent ```
+    /// ``` self: QtC.QAccessibleTextInsertEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleTextInsertEvent_Delete(@ptrCast(self));
+        qtc.QAccessibleTextInsertEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -1750,35 +1797,35 @@ pub const qaccessibletextinsertevent = struct {
 pub const qaccessibletextremoveevent = struct {
     /// New constructs a new QAccessibleTextRemoveEvent object.
     ///
-    /// ``` obj: ?*C.QObject, position: i32, text: []const u8 ```
-    pub fn New(obj: ?*anyopaque, position: i32, text: []const u8) ?*C.QAccessibleTextRemoveEvent {
-        const text_str = C.struct_libqt_string{
+    /// ``` obj: QtC.QObject, position: i32, text: []const u8 ```
+    pub fn New(obj: ?*anyopaque, position: i32, text: []const u8) QtC.QAccessibleTextRemoveEvent {
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
 
-        return C.QAccessibleTextRemoveEvent_new(@ptrCast(obj), @intCast(position), text_str);
+        return qtc.QAccessibleTextRemoveEvent_new(@ptrCast(obj), @intCast(position), text_str);
     }
 
     /// New2 constructs a new QAccessibleTextRemoveEvent object.
     ///
-    /// ``` iface: ?*C.QAccessibleInterface, position: i32, text: []const u8 ```
-    pub fn New2(iface: ?*anyopaque, position: i32, text: []const u8) ?*C.QAccessibleTextRemoveEvent {
-        const text_str = C.struct_libqt_string{
+    /// ``` iface: QtC.QAccessibleInterface, position: i32, text: []const u8 ```
+    pub fn New2(iface: ?*anyopaque, position: i32, text: []const u8) QtC.QAccessibleTextRemoveEvent {
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
 
-        return C.QAccessibleTextRemoveEvent_new2(@ptrCast(iface), @intCast(position), text_str);
+        return qtc.QAccessibleTextRemoveEvent_new2(@ptrCast(iface), @intCast(position), text_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextremoveevent.html#textRemoved)
     ///
-    /// ``` self: ?*C.QAccessibleTextRemoveEvent, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleTextRemoveEvent, allocator: std.mem.Allocator ```
     pub fn TextRemoved(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleTextRemoveEvent_TextRemoved(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleTextRemoveEvent_TextRemoved(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextremoveevent.TextRemoved: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1787,72 +1834,72 @@ pub const qaccessibletextremoveevent = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextremoveevent.html#changePosition)
     ///
-    /// ``` self: ?*C.QAccessibleTextRemoveEvent ```
+    /// ``` self: QtC.QAccessibleTextRemoveEvent ```
     pub fn ChangePosition(self: ?*anyopaque) i32 {
-        return C.QAccessibleTextRemoveEvent_ChangePosition(@ptrCast(self));
+        return qtc.QAccessibleTextRemoveEvent_ChangePosition(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleTextCursorEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextcursorevent.html#setCursorPosition)
     ///
-    /// ``` self: ?*C.QAccessibleTextRemoveEvent, position: i32 ```
+    /// ``` self: QtC.QAccessibleTextRemoveEvent, position: i32 ```
     pub fn SetCursorPosition(self: ?*anyopaque, position: i32) void {
-        C.QAccessibleTextCursorEvent_SetCursorPosition(@ptrCast(self), @intCast(position));
+        qtc.QAccessibleTextCursorEvent_SetCursorPosition(@ptrCast(self), @intCast(position));
     }
 
     /// Inherited from QAccessibleTextCursorEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextcursorevent.html#cursorPosition)
     ///
-    /// ``` self: ?*C.QAccessibleTextRemoveEvent ```
+    /// ``` self: QtC.QAccessibleTextRemoveEvent ```
     pub fn CursorPosition(self: ?*anyopaque) i32 {
-        return C.QAccessibleTextCursorEvent_CursorPosition(@ptrCast(self));
+        return qtc.QAccessibleTextCursorEvent_CursorPosition(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#type)
     ///
-    /// ``` self: ?*C.QAccessibleTextRemoveEvent ```
+    /// ``` self: QtC.QAccessibleTextRemoveEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QAccessibleEvent_Type(@ptrCast(self));
+        return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#object)
     ///
-    /// ``` self: ?*C.QAccessibleTextRemoveEvent ```
-    pub fn Object(self: ?*anyopaque) ?*C.QObject {
-        return C.QAccessibleEvent_Object(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTextRemoveEvent ```
+    pub fn Object(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAccessibleEvent_Object(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#uniqueId)
     ///
-    /// ``` self: ?*C.QAccessibleTextRemoveEvent ```
+    /// ``` self: QtC.QAccessibleTextRemoveEvent ```
     pub fn UniqueId(self: ?*anyopaque) u32 {
-        return C.QAccessibleEvent_UniqueId(@ptrCast(self));
+        return qtc.QAccessibleEvent_UniqueId(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#setChild)
     ///
-    /// ``` self: ?*C.QAccessibleTextRemoveEvent, chld: i32 ```
+    /// ``` self: QtC.QAccessibleTextRemoveEvent, chld: i32 ```
     pub fn SetChild(self: ?*anyopaque, chld: i32) void {
-        C.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
+        qtc.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#child)
     ///
-    /// ``` self: ?*C.QAccessibleTextRemoveEvent ```
+    /// ``` self: QtC.QAccessibleTextRemoveEvent ```
     pub fn Child(self: ?*anyopaque) i32 {
-        return C.QAccessibleEvent_Child(@ptrCast(self));
+        return qtc.QAccessibleEvent_Child(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -1861,34 +1908,40 @@ pub const qaccessibletextremoveevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTextRemoveEvent ```
-    pub fn AccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleTextRemoveEvent_AccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTextRemoveEvent ```
+    pub fn AccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTextRemoveEvent_AccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTextRemoveEvent ```
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleTextRemoveEvent_QBaseAccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTextRemoveEvent ```
+    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTextRemoveEvent_QBaseAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTextRemoveEvent, slot: fn () callconv(.c) ?*C.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QAccessibleInterface) void {
-        C.QAccessibleTextRemoveEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleTextRemoveEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleTextRemoveEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextremoveevent.html#dtor.QAccessibleTextRemoveEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleTextRemoveEvent ```
+    /// ``` self: QtC.QAccessibleTextRemoveEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleTextRemoveEvent_Delete(@ptrCast(self));
+        qtc.QAccessibleTextRemoveEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -1896,43 +1949,43 @@ pub const qaccessibletextremoveevent = struct {
 pub const qaccessibletextupdateevent = struct {
     /// New constructs a new QAccessibleTextUpdateEvent object.
     ///
-    /// ``` obj: ?*C.QObject, position: i32, oldText: []const u8, text: []const u8 ```
-    pub fn New(obj: ?*anyopaque, position: i32, oldText: []const u8, text: []const u8) ?*C.QAccessibleTextUpdateEvent {
-        const oldText_str = C.struct_libqt_string{
+    /// ``` obj: QtC.QObject, position: i32, oldText: []const u8, text: []const u8 ```
+    pub fn New(obj: ?*anyopaque, position: i32, oldText: []const u8, text: []const u8) QtC.QAccessibleTextUpdateEvent {
+        const oldText_str = qtc.struct_libqt_string{
             .len = oldText.len,
             .data = @constCast(oldText.ptr),
         };
-        const text_str = C.struct_libqt_string{
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
 
-        return C.QAccessibleTextUpdateEvent_new(@ptrCast(obj), @intCast(position), oldText_str, text_str);
+        return qtc.QAccessibleTextUpdateEvent_new(@ptrCast(obj), @intCast(position), oldText_str, text_str);
     }
 
     /// New2 constructs a new QAccessibleTextUpdateEvent object.
     ///
-    /// ``` iface: ?*C.QAccessibleInterface, position: i32, oldText: []const u8, text: []const u8 ```
-    pub fn New2(iface: ?*anyopaque, position: i32, oldText: []const u8, text: []const u8) ?*C.QAccessibleTextUpdateEvent {
-        const oldText_str = C.struct_libqt_string{
+    /// ``` iface: QtC.QAccessibleInterface, position: i32, oldText: []const u8, text: []const u8 ```
+    pub fn New2(iface: ?*anyopaque, position: i32, oldText: []const u8, text: []const u8) QtC.QAccessibleTextUpdateEvent {
+        const oldText_str = qtc.struct_libqt_string{
             .len = oldText.len,
             .data = @constCast(oldText.ptr),
         };
-        const text_str = C.struct_libqt_string{
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
 
-        return C.QAccessibleTextUpdateEvent_new2(@ptrCast(iface), @intCast(position), oldText_str, text_str);
+        return qtc.QAccessibleTextUpdateEvent_new2(@ptrCast(iface), @intCast(position), oldText_str, text_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextupdateevent.html#textRemoved)
     ///
-    /// ``` self: ?*C.QAccessibleTextUpdateEvent, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleTextUpdateEvent, allocator: std.mem.Allocator ```
     pub fn TextRemoved(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleTextUpdateEvent_TextRemoved(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleTextUpdateEvent_TextRemoved(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextupdateevent.TextRemoved: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1941,11 +1994,11 @@ pub const qaccessibletextupdateevent = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextupdateevent.html#textInserted)
     ///
-    /// ``` self: ?*C.QAccessibleTextUpdateEvent, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleTextUpdateEvent, allocator: std.mem.Allocator ```
     pub fn TextInserted(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAccessibleTextUpdateEvent_TextInserted(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAccessibleTextUpdateEvent_TextInserted(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextupdateevent.TextInserted: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1954,72 +2007,72 @@ pub const qaccessibletextupdateevent = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextupdateevent.html#changePosition)
     ///
-    /// ``` self: ?*C.QAccessibleTextUpdateEvent ```
+    /// ``` self: QtC.QAccessibleTextUpdateEvent ```
     pub fn ChangePosition(self: ?*anyopaque) i32 {
-        return C.QAccessibleTextUpdateEvent_ChangePosition(@ptrCast(self));
+        return qtc.QAccessibleTextUpdateEvent_ChangePosition(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleTextCursorEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextcursorevent.html#setCursorPosition)
     ///
-    /// ``` self: ?*C.QAccessibleTextUpdateEvent, position: i32 ```
+    /// ``` self: QtC.QAccessibleTextUpdateEvent, position: i32 ```
     pub fn SetCursorPosition(self: ?*anyopaque, position: i32) void {
-        C.QAccessibleTextCursorEvent_SetCursorPosition(@ptrCast(self), @intCast(position));
+        qtc.QAccessibleTextCursorEvent_SetCursorPosition(@ptrCast(self), @intCast(position));
     }
 
     /// Inherited from QAccessibleTextCursorEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextcursorevent.html#cursorPosition)
     ///
-    /// ``` self: ?*C.QAccessibleTextUpdateEvent ```
+    /// ``` self: QtC.QAccessibleTextUpdateEvent ```
     pub fn CursorPosition(self: ?*anyopaque) i32 {
-        return C.QAccessibleTextCursorEvent_CursorPosition(@ptrCast(self));
+        return qtc.QAccessibleTextCursorEvent_CursorPosition(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#type)
     ///
-    /// ``` self: ?*C.QAccessibleTextUpdateEvent ```
+    /// ``` self: QtC.QAccessibleTextUpdateEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QAccessibleEvent_Type(@ptrCast(self));
+        return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#object)
     ///
-    /// ``` self: ?*C.QAccessibleTextUpdateEvent ```
-    pub fn Object(self: ?*anyopaque) ?*C.QObject {
-        return C.QAccessibleEvent_Object(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTextUpdateEvent ```
+    pub fn Object(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAccessibleEvent_Object(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#uniqueId)
     ///
-    /// ``` self: ?*C.QAccessibleTextUpdateEvent ```
+    /// ``` self: QtC.QAccessibleTextUpdateEvent ```
     pub fn UniqueId(self: ?*anyopaque) u32 {
-        return C.QAccessibleEvent_UniqueId(@ptrCast(self));
+        return qtc.QAccessibleEvent_UniqueId(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#setChild)
     ///
-    /// ``` self: ?*C.QAccessibleTextUpdateEvent, chld: i32 ```
+    /// ``` self: QtC.QAccessibleTextUpdateEvent, chld: i32 ```
     pub fn SetChild(self: ?*anyopaque, chld: i32) void {
-        C.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
+        qtc.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#child)
     ///
-    /// ``` self: ?*C.QAccessibleTextUpdateEvent ```
+    /// ``` self: QtC.QAccessibleTextUpdateEvent ```
     pub fn Child(self: ?*anyopaque) i32 {
-        return C.QAccessibleEvent_Child(@ptrCast(self));
+        return qtc.QAccessibleEvent_Child(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -2028,34 +2081,40 @@ pub const qaccessibletextupdateevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTextUpdateEvent ```
-    pub fn AccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleTextUpdateEvent_AccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTextUpdateEvent ```
+    pub fn AccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTextUpdateEvent_AccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTextUpdateEvent ```
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleTextUpdateEvent_QBaseAccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTextUpdateEvent ```
+    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTextUpdateEvent_QBaseAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTextUpdateEvent, slot: fn () callconv(.c) ?*C.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QAccessibleInterface) void {
-        C.QAccessibleTextUpdateEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleTextUpdateEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleTextUpdateEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextupdateevent.html#dtor.QAccessibleTextUpdateEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleTextUpdateEvent ```
+    /// ``` self: QtC.QAccessibleTextUpdateEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleTextUpdateEvent_Delete(@ptrCast(self));
+        qtc.QAccessibleTextUpdateEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -2063,75 +2122,75 @@ pub const qaccessibletextupdateevent = struct {
 pub const qaccessiblevaluechangeevent = struct {
     /// New constructs a new QAccessibleValueChangeEvent object.
     ///
-    /// ``` obj: ?*C.QObject, val: ?*C.QVariant ```
-    pub fn New(obj: ?*anyopaque, val: ?*anyopaque) ?*C.QAccessibleValueChangeEvent {
-        return C.QAccessibleValueChangeEvent_new(@ptrCast(obj), @ptrCast(val));
+    /// ``` obj: QtC.QObject, val: QtC.QVariant ```
+    pub fn New(obj: ?*anyopaque, val: ?*anyopaque) QtC.QAccessibleValueChangeEvent {
+        return qtc.QAccessibleValueChangeEvent_new(@ptrCast(obj), @ptrCast(val));
     }
 
     /// New2 constructs a new QAccessibleValueChangeEvent object.
     ///
-    /// ``` iface: ?*C.QAccessibleInterface, val: ?*C.QVariant ```
-    pub fn New2(iface: ?*anyopaque, val: ?*anyopaque) ?*C.QAccessibleValueChangeEvent {
-        return C.QAccessibleValueChangeEvent_new2(@ptrCast(iface), @ptrCast(val));
+    /// ``` iface: QtC.QAccessibleInterface, val: QtC.QVariant ```
+    pub fn New2(iface: ?*anyopaque, val: ?*anyopaque) QtC.QAccessibleValueChangeEvent {
+        return qtc.QAccessibleValueChangeEvent_new2(@ptrCast(iface), @ptrCast(val));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblevaluechangeevent.html#setValue)
     ///
-    /// ``` self: ?*C.QAccessibleValueChangeEvent, val: ?*C.QVariant ```
+    /// ``` self: QtC.QAccessibleValueChangeEvent, val: QtC.QVariant ```
     pub fn SetValue(self: ?*anyopaque, val: ?*anyopaque) void {
-        C.QAccessibleValueChangeEvent_SetValue(@ptrCast(self), @ptrCast(val));
+        qtc.QAccessibleValueChangeEvent_SetValue(@ptrCast(self), @ptrCast(val));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblevaluechangeevent.html#value)
     ///
-    /// ``` self: ?*C.QAccessibleValueChangeEvent ```
-    pub fn Value(self: ?*anyopaque) ?*C.QVariant {
-        return C.QAccessibleValueChangeEvent_Value(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleValueChangeEvent ```
+    pub fn Value(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QAccessibleValueChangeEvent_Value(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#type)
     ///
-    /// ``` self: ?*C.QAccessibleValueChangeEvent ```
+    /// ``` self: QtC.QAccessibleValueChangeEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QAccessibleEvent_Type(@ptrCast(self));
+        return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#object)
     ///
-    /// ``` self: ?*C.QAccessibleValueChangeEvent ```
-    pub fn Object(self: ?*anyopaque) ?*C.QObject {
-        return C.QAccessibleEvent_Object(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleValueChangeEvent ```
+    pub fn Object(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAccessibleEvent_Object(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#uniqueId)
     ///
-    /// ``` self: ?*C.QAccessibleValueChangeEvent ```
+    /// ``` self: QtC.QAccessibleValueChangeEvent ```
     pub fn UniqueId(self: ?*anyopaque) u32 {
-        return C.QAccessibleEvent_UniqueId(@ptrCast(self));
+        return qtc.QAccessibleEvent_UniqueId(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#setChild)
     ///
-    /// ``` self: ?*C.QAccessibleValueChangeEvent, chld: i32 ```
+    /// ``` self: QtC.QAccessibleValueChangeEvent, chld: i32 ```
     pub fn SetChild(self: ?*anyopaque, chld: i32) void {
-        C.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
+        qtc.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#child)
     ///
-    /// ``` self: ?*C.QAccessibleValueChangeEvent ```
+    /// ``` self: QtC.QAccessibleValueChangeEvent ```
     pub fn Child(self: ?*anyopaque) i32 {
-        return C.QAccessibleEvent_Child(@ptrCast(self));
+        return qtc.QAccessibleEvent_Child(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -2140,34 +2199,40 @@ pub const qaccessiblevaluechangeevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleValueChangeEvent ```
-    pub fn AccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleValueChangeEvent_AccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleValueChangeEvent ```
+    pub fn AccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleValueChangeEvent_AccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleValueChangeEvent ```
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleValueChangeEvent_QBaseAccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleValueChangeEvent ```
+    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleValueChangeEvent_QBaseAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleValueChangeEvent, slot: fn () callconv(.c) ?*C.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QAccessibleInterface) void {
-        C.QAccessibleValueChangeEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleValueChangeEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleValueChangeEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblevaluechangeevent.html#dtor.QAccessibleValueChangeEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleValueChangeEvent ```
+    /// ``` self: QtC.QAccessibleValueChangeEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleValueChangeEvent_Delete(@ptrCast(self));
+        qtc.QAccessibleValueChangeEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -2175,131 +2240,131 @@ pub const qaccessiblevaluechangeevent = struct {
 pub const qaccessibletablemodelchangeevent = struct {
     /// New constructs a new QAccessibleTableModelChangeEvent object.
     ///
-    /// ``` obj: ?*C.QObject, changeType: qaccessible_enums.ModelChangeType ```
-    pub fn New(obj: ?*anyopaque, changeType: i64) ?*C.QAccessibleTableModelChangeEvent {
-        return C.QAccessibleTableModelChangeEvent_new(@ptrCast(obj), @intCast(changeType));
+    /// ``` obj: QtC.QObject, changeType: qaccessible_enums.ModelChangeType ```
+    pub fn New(obj: ?*anyopaque, changeType: i64) QtC.QAccessibleTableModelChangeEvent {
+        return qtc.QAccessibleTableModelChangeEvent_new(@ptrCast(obj), @intCast(changeType));
     }
 
     /// New2 constructs a new QAccessibleTableModelChangeEvent object.
     ///
-    /// ``` iface: ?*C.QAccessibleInterface, changeType: qaccessible_enums.ModelChangeType ```
-    pub fn New2(iface: ?*anyopaque, changeType: i64) ?*C.QAccessibleTableModelChangeEvent {
-        return C.QAccessibleTableModelChangeEvent_new2(@ptrCast(iface), @intCast(changeType));
+    /// ``` iface: QtC.QAccessibleInterface, changeType: qaccessible_enums.ModelChangeType ```
+    pub fn New2(iface: ?*anyopaque, changeType: i64) QtC.QAccessibleTableModelChangeEvent {
+        return qtc.QAccessibleTableModelChangeEvent_new2(@ptrCast(iface), @intCast(changeType));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablemodelchangeevent.html#setModelChangeType)
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent, changeType: qaccessible_enums.ModelChangeType ```
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent, changeType: qaccessible_enums.ModelChangeType ```
     pub fn SetModelChangeType(self: ?*anyopaque, changeType: i64) void {
-        C.QAccessibleTableModelChangeEvent_SetModelChangeType(@ptrCast(self), @intCast(changeType));
+        qtc.QAccessibleTableModelChangeEvent_SetModelChangeType(@ptrCast(self), @intCast(changeType));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablemodelchangeevent.html#modelChangeType)
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent ```
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent ```
     pub fn ModelChangeType(self: ?*anyopaque) i64 {
-        return C.QAccessibleTableModelChangeEvent_ModelChangeType(@ptrCast(self));
+        return qtc.QAccessibleTableModelChangeEvent_ModelChangeType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablemodelchangeevent.html#setFirstRow)
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent, row: i32 ```
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent, row: i32 ```
     pub fn SetFirstRow(self: ?*anyopaque, row: i32) void {
-        C.QAccessibleTableModelChangeEvent_SetFirstRow(@ptrCast(self), @intCast(row));
+        qtc.QAccessibleTableModelChangeEvent_SetFirstRow(@ptrCast(self), @intCast(row));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablemodelchangeevent.html#setFirstColumn)
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent, col: i32 ```
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent, col: i32 ```
     pub fn SetFirstColumn(self: ?*anyopaque, col: i32) void {
-        C.QAccessibleTableModelChangeEvent_SetFirstColumn(@ptrCast(self), @intCast(col));
+        qtc.QAccessibleTableModelChangeEvent_SetFirstColumn(@ptrCast(self), @intCast(col));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablemodelchangeevent.html#setLastRow)
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent, row: i32 ```
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent, row: i32 ```
     pub fn SetLastRow(self: ?*anyopaque, row: i32) void {
-        C.QAccessibleTableModelChangeEvent_SetLastRow(@ptrCast(self), @intCast(row));
+        qtc.QAccessibleTableModelChangeEvent_SetLastRow(@ptrCast(self), @intCast(row));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablemodelchangeevent.html#setLastColumn)
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent, col: i32 ```
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent, col: i32 ```
     pub fn SetLastColumn(self: ?*anyopaque, col: i32) void {
-        C.QAccessibleTableModelChangeEvent_SetLastColumn(@ptrCast(self), @intCast(col));
+        qtc.QAccessibleTableModelChangeEvent_SetLastColumn(@ptrCast(self), @intCast(col));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablemodelchangeevent.html#firstRow)
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent ```
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent ```
     pub fn FirstRow(self: ?*anyopaque) i32 {
-        return C.QAccessibleTableModelChangeEvent_FirstRow(@ptrCast(self));
+        return qtc.QAccessibleTableModelChangeEvent_FirstRow(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablemodelchangeevent.html#firstColumn)
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent ```
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent ```
     pub fn FirstColumn(self: ?*anyopaque) i32 {
-        return C.QAccessibleTableModelChangeEvent_FirstColumn(@ptrCast(self));
+        return qtc.QAccessibleTableModelChangeEvent_FirstColumn(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablemodelchangeevent.html#lastRow)
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent ```
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent ```
     pub fn LastRow(self: ?*anyopaque) i32 {
-        return C.QAccessibleTableModelChangeEvent_LastRow(@ptrCast(self));
+        return qtc.QAccessibleTableModelChangeEvent_LastRow(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablemodelchangeevent.html#lastColumn)
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent ```
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent ```
     pub fn LastColumn(self: ?*anyopaque) i32 {
-        return C.QAccessibleTableModelChangeEvent_LastColumn(@ptrCast(self));
+        return qtc.QAccessibleTableModelChangeEvent_LastColumn(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#type)
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent ```
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QAccessibleEvent_Type(@ptrCast(self));
+        return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#object)
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent ```
-    pub fn Object(self: ?*anyopaque) ?*C.QObject {
-        return C.QAccessibleEvent_Object(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent ```
+    pub fn Object(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAccessibleEvent_Object(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#uniqueId)
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent ```
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent ```
     pub fn UniqueId(self: ?*anyopaque) u32 {
-        return C.QAccessibleEvent_UniqueId(@ptrCast(self));
+        return qtc.QAccessibleEvent_UniqueId(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#setChild)
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent, chld: i32 ```
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent, chld: i32 ```
     pub fn SetChild(self: ?*anyopaque, chld: i32) void {
-        C.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
+        qtc.QAccessibleEvent_SetChild(@ptrCast(self), @intCast(chld));
     }
 
     /// Inherited from QAccessibleEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#child)
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent ```
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent ```
     pub fn Child(self: ?*anyopaque) i32 {
-        return C.QAccessibleEvent_Child(@ptrCast(self));
+        return qtc.QAccessibleEvent_Child(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -2308,34 +2373,40 @@ pub const qaccessibletablemodelchangeevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent ```
-    pub fn AccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleTableModelChangeEvent_AccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent ```
+    pub fn AccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTableModelChangeEvent_AccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent ```
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessibleTableModelChangeEvent_QBaseAccessibleInterface(@ptrCast(self));
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent ```
+    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTableModelChangeEvent_QBaseAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent, slot: fn () callconv(.c) ?*C.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QAccessibleInterface) void {
-        C.QAccessibleTableModelChangeEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleTableModelChangeEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablemodelchangeevent.html#dtor.QAccessibleTableModelChangeEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessibleTableModelChangeEvent ```
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessibleTableModelChangeEvent_Delete(@ptrCast(self));
+        qtc.QAccessibleTableModelChangeEvent_Delete(@ptrCast(self));
     }
 };
 

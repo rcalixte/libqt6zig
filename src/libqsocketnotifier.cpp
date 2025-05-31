@@ -1,21 +1,14 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QSocketDescriptor>
 #include <QSocketNotifier>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <qsocketnotifier.h>
 #include "libqsocketnotifier.h"
 #include "libqsocketnotifier.hxx"
@@ -45,27 +38,30 @@ void* QSocketNotifier_Metacast(QSocketNotifier* self, const char* param1) {
 }
 
 int QSocketNotifier_Metacall(QSocketNotifier* self, int param1, int param2, void** param3) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQSocketNotifier*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QSocketNotifier_OnMetacall(QSocketNotifier* self, intptr_t slot) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_Metacall_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QSocketNotifier_QBaseMetacall(QSocketNotifier* self, int param1, int param2, void** param3) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_Metacall_IsBase(true);
         return vqsocketnotifier->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQSocketNotifier*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -132,295 +128,337 @@ libqt_string QSocketNotifier_Tr3(const char* s, const char* c, int n) {
 
 // Derived class handler implementation
 bool QSocketNotifier_Event(QSocketNotifier* self, QEvent* param1) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         return vqsocketnotifier->event(param1);
     } else {
-        return vqsocketnotifier->event(param1);
+        return ((VirtualQSocketNotifier*)self)->event(param1);
     }
 }
 
 // Base class handler implementation
 bool QSocketNotifier_QBaseEvent(QSocketNotifier* self, QEvent* param1) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_Event_IsBase(true);
         return vqsocketnotifier->event(param1);
     } else {
-        return vqsocketnotifier->event(param1);
+        return ((VirtualQSocketNotifier*)self)->event(param1);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnEvent(QSocketNotifier* self, intptr_t slot) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_Event_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QSocketNotifier_EventFilter(QSocketNotifier* self, QObject* watched, QEvent* event) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         return vqsocketnotifier->eventFilter(watched, event);
     } else {
-        return vqsocketnotifier->eventFilter(watched, event);
+        return self->QSocketNotifier::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QSocketNotifier_QBaseEventFilter(QSocketNotifier* self, QObject* watched, QEvent* event) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_EventFilter_IsBase(true);
         return vqsocketnotifier->eventFilter(watched, event);
     } else {
-        return vqsocketnotifier->eventFilter(watched, event);
+        return self->QSocketNotifier::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnEventFilter(QSocketNotifier* self, intptr_t slot) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_EventFilter_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QSocketNotifier_TimerEvent(QSocketNotifier* self, QTimerEvent* event) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->timerEvent(event);
     } else {
-        vqsocketnotifier->timerEvent(event);
+        ((VirtualQSocketNotifier*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QSocketNotifier_QBaseTimerEvent(QSocketNotifier* self, QTimerEvent* event) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_TimerEvent_IsBase(true);
         vqsocketnotifier->timerEvent(event);
     } else {
-        vqsocketnotifier->timerEvent(event);
+        ((VirtualQSocketNotifier*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnTimerEvent(QSocketNotifier* self, intptr_t slot) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_TimerEvent_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QSocketNotifier_ChildEvent(QSocketNotifier* self, QChildEvent* event) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->childEvent(event);
     } else {
-        vqsocketnotifier->childEvent(event);
+        ((VirtualQSocketNotifier*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QSocketNotifier_QBaseChildEvent(QSocketNotifier* self, QChildEvent* event) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_ChildEvent_IsBase(true);
         vqsocketnotifier->childEvent(event);
     } else {
-        vqsocketnotifier->childEvent(event);
+        ((VirtualQSocketNotifier*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnChildEvent(QSocketNotifier* self, intptr_t slot) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_ChildEvent_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QSocketNotifier_CustomEvent(QSocketNotifier* self, QEvent* event) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->customEvent(event);
     } else {
-        vqsocketnotifier->customEvent(event);
+        ((VirtualQSocketNotifier*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QSocketNotifier_QBaseCustomEvent(QSocketNotifier* self, QEvent* event) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_CustomEvent_IsBase(true);
         vqsocketnotifier->customEvent(event);
     } else {
-        vqsocketnotifier->customEvent(event);
+        ((VirtualQSocketNotifier*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnCustomEvent(QSocketNotifier* self, intptr_t slot) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_CustomEvent_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QSocketNotifier_ConnectNotify(QSocketNotifier* self, QMetaMethod* signal) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+void QSocketNotifier_ConnectNotify(QSocketNotifier* self, const QMetaMethod* signal) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->connectNotify(*signal);
     } else {
-        vqsocketnotifier->connectNotify(*signal);
+        ((VirtualQSocketNotifier*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QSocketNotifier_QBaseConnectNotify(QSocketNotifier* self, QMetaMethod* signal) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+void QSocketNotifier_QBaseConnectNotify(QSocketNotifier* self, const QMetaMethod* signal) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_ConnectNotify_IsBase(true);
         vqsocketnotifier->connectNotify(*signal);
     } else {
-        vqsocketnotifier->connectNotify(*signal);
+        ((VirtualQSocketNotifier*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnConnectNotify(QSocketNotifier* self, intptr_t slot) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_ConnectNotify_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QSocketNotifier_DisconnectNotify(QSocketNotifier* self, QMetaMethod* signal) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+void QSocketNotifier_DisconnectNotify(QSocketNotifier* self, const QMetaMethod* signal) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->disconnectNotify(*signal);
     } else {
-        vqsocketnotifier->disconnectNotify(*signal);
+        ((VirtualQSocketNotifier*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QSocketNotifier_QBaseDisconnectNotify(QSocketNotifier* self, QMetaMethod* signal) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+void QSocketNotifier_QBaseDisconnectNotify(QSocketNotifier* self, const QMetaMethod* signal) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_DisconnectNotify_IsBase(true);
         vqsocketnotifier->disconnectNotify(*signal);
     } else {
-        vqsocketnotifier->disconnectNotify(*signal);
+        ((VirtualQSocketNotifier*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnDisconnectNotify(QSocketNotifier* self, intptr_t slot) {
-    if (auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self)) {
+    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_DisconnectNotify_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QSocketNotifier_Sender(const QSocketNotifier* self) {
-    if (auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self))) {
+    auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         return vqsocketnotifier->sender();
     } else {
-        return vqsocketnotifier->sender();
+        return ((VirtualQSocketNotifier*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QSocketNotifier_QBaseSender(const QSocketNotifier* self) {
-    if (auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self))) {
+    auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_Sender_IsBase(true);
         return vqsocketnotifier->sender();
     } else {
-        return vqsocketnotifier->sender();
+        return ((VirtualQSocketNotifier*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnSender(const QSocketNotifier* self, intptr_t slot) {
-    if (auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self))) {
+    auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_Sender_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QSocketNotifier_SenderSignalIndex(const QSocketNotifier* self) {
-    if (auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self))) {
+    auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         return vqsocketnotifier->senderSignalIndex();
     } else {
-        return vqsocketnotifier->senderSignalIndex();
+        return ((VirtualQSocketNotifier*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QSocketNotifier_QBaseSenderSignalIndex(const QSocketNotifier* self) {
-    if (auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self))) {
+    auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_SenderSignalIndex_IsBase(true);
         return vqsocketnotifier->senderSignalIndex();
     } else {
-        return vqsocketnotifier->senderSignalIndex();
+        return ((VirtualQSocketNotifier*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnSenderSignalIndex(const QSocketNotifier* self, intptr_t slot) {
-    if (auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self))) {
+    auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QSocketNotifier_Receivers(const QSocketNotifier* self, const char* signal) {
-    if (auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self))) {
+    auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         return vqsocketnotifier->receivers(signal);
     } else {
-        return vqsocketnotifier->receivers(signal);
+        return ((VirtualQSocketNotifier*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QSocketNotifier_QBaseReceivers(const QSocketNotifier* self, const char* signal) {
-    if (auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self))) {
+    auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_Receivers_IsBase(true);
         return vqsocketnotifier->receivers(signal);
     } else {
-        return vqsocketnotifier->receivers(signal);
+        return ((VirtualQSocketNotifier*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnReceivers(const QSocketNotifier* self, intptr_t slot) {
-    if (auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self))) {
+    auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_Receivers_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QSocketNotifier_IsSignalConnected(const QSocketNotifier* self, QMetaMethod* signal) {
-    if (auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self))) {
+bool QSocketNotifier_IsSignalConnected(const QSocketNotifier* self, const QMetaMethod* signal) {
+    auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         return vqsocketnotifier->isSignalConnected(*signal);
     } else {
-        return vqsocketnotifier->isSignalConnected(*signal);
+        return ((VirtualQSocketNotifier*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QSocketNotifier_QBaseIsSignalConnected(const QSocketNotifier* self, QMetaMethod* signal) {
-    if (auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self))) {
+bool QSocketNotifier_QBaseIsSignalConnected(const QSocketNotifier* self, const QMetaMethod* signal) {
+    auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_IsSignalConnected_IsBase(true);
         return vqsocketnotifier->isSignalConnected(*signal);
     } else {
-        return vqsocketnotifier->isSignalConnected(*signal);
+        return ((VirtualQSocketNotifier*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnIsSignalConnected(const QSocketNotifier* self, intptr_t slot) {
-    if (auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self))) {
+    auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_IsSignalConnected_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_IsSignalConnected_Callback>(slot));
     }
+}
+
+void QSocketNotifier_Connect_Activated(QSocketNotifier* self, intptr_t slot) {
+    void (*slotFunc)(QSocketNotifier*, QSocketDescriptor*, int) = reinterpret_cast<void (*)(QSocketNotifier*, QSocketDescriptor*, int)>(slot);
+    QSocketNotifier::connect(self, &QSocketNotifier::activated, [self, slotFunc](QSocketDescriptor socket, QSocketNotifier::Type activationEvent) {
+        QSocketDescriptor* sigval1 = new QSocketDescriptor(socket);
+        int sigval2 = static_cast<int>(activationEvent);
+        slotFunc(self, sigval1, sigval2);
+    });
 }
 
 void QSocketNotifier_Delete(QSocketNotifier* self) {
     delete self;
 }
 
-QSocketDescriptor* QSocketDescriptor_new(QSocketDescriptor* other) {
+QSocketDescriptor* QSocketDescriptor_new(const QSocketDescriptor* other) {
     return new QSocketDescriptor(*other);
 }
 
@@ -432,7 +470,7 @@ QSocketDescriptor* QSocketDescriptor_new3() {
     return new QSocketDescriptor();
 }
 
-QSocketDescriptor* QSocketDescriptor_new4(QSocketDescriptor* param1) {
+QSocketDescriptor* QSocketDescriptor_new4(const QSocketDescriptor* param1) {
     return new QSocketDescriptor(*param1);
 }
 

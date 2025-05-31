@@ -13,7 +13,7 @@ QFutureInterfaceBase* QFutureInterfaceBase_new() {
     return new QFutureInterfaceBase();
 }
 
-QFutureInterfaceBase* QFutureInterfaceBase_new2(QFutureInterfaceBase* other) {
+QFutureInterfaceBase* QFutureInterfaceBase_new2(const QFutureInterfaceBase* other) {
     return new QFutureInterfaceBase(*other);
 }
 
@@ -21,7 +21,7 @@ QFutureInterfaceBase* QFutureInterfaceBase_new3(int initialState) {
     return new QFutureInterfaceBase(static_cast<QFutureInterfaceBase::State>(initialState));
 }
 
-void QFutureInterfaceBase_OperatorAssign(QFutureInterfaceBase* self, QFutureInterfaceBase* other) {
+void QFutureInterfaceBase_OperatorAssign(QFutureInterfaceBase* self, const QFutureInterfaceBase* other) {
     self->operator=(*other);
 }
 
@@ -81,7 +81,7 @@ int QFutureInterfaceBase_ProgressValue(const QFutureInterfaceBase* self) {
     return self->progressValue();
 }
 
-void QFutureInterfaceBase_SetProgressValueAndText(QFutureInterfaceBase* self, int progressValue, libqt_string progressText) {
+void QFutureInterfaceBase_SetProgressValueAndText(QFutureInterfaceBase* self, int progressValue, const libqt_string progressText) {
     QString progressText_QString = QString::fromUtf8(progressText.data, progressText.len);
     self->setProgressValueAndText(static_cast<int>(progressValue), progressText_QString);
 }
@@ -220,11 +220,11 @@ bool QFutureInterfaceBase_HasException(const QFutureInterfaceBase* self) {
     return self->hasException();
 }
 
-bool QFutureInterfaceBase_OperatorEqual(const QFutureInterfaceBase* self, QFutureInterfaceBase* other) {
+bool QFutureInterfaceBase_OperatorEqual(const QFutureInterfaceBase* self, const QFutureInterfaceBase* other) {
     return (*self == *other);
 }
 
-bool QFutureInterfaceBase_OperatorNotEqual(const QFutureInterfaceBase* self, QFutureInterfaceBase* other) {
+bool QFutureInterfaceBase_OperatorNotEqual(const QFutureInterfaceBase* self, const QFutureInterfaceBase* other) {
     return (*self != *other);
 }
 

@@ -15,14 +15,9 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QAudioInput QAudioInput;
 typedef struct QAudioOutput QAudioOutput;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QCamera QCamera;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
@@ -31,11 +26,8 @@ typedef struct QMediaCaptureSession QMediaCaptureSession;
 typedef struct QMediaRecorder QMediaRecorder;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 typedef struct QVideoSink QVideoSink;
 #endif
 
@@ -90,12 +82,12 @@ void QMediaCaptureSession_QBaseChildEvent(QMediaCaptureSession* self, QChildEven
 void QMediaCaptureSession_CustomEvent(QMediaCaptureSession* self, QEvent* event);
 void QMediaCaptureSession_OnCustomEvent(QMediaCaptureSession* self, intptr_t slot);
 void QMediaCaptureSession_QBaseCustomEvent(QMediaCaptureSession* self, QEvent* event);
-void QMediaCaptureSession_ConnectNotify(QMediaCaptureSession* self, QMetaMethod* signal);
+void QMediaCaptureSession_ConnectNotify(QMediaCaptureSession* self, const QMetaMethod* signal);
 void QMediaCaptureSession_OnConnectNotify(QMediaCaptureSession* self, intptr_t slot);
-void QMediaCaptureSession_QBaseConnectNotify(QMediaCaptureSession* self, QMetaMethod* signal);
-void QMediaCaptureSession_DisconnectNotify(QMediaCaptureSession* self, QMetaMethod* signal);
+void QMediaCaptureSession_QBaseConnectNotify(QMediaCaptureSession* self, const QMetaMethod* signal);
+void QMediaCaptureSession_DisconnectNotify(QMediaCaptureSession* self, const QMetaMethod* signal);
 void QMediaCaptureSession_OnDisconnectNotify(QMediaCaptureSession* self, intptr_t slot);
-void QMediaCaptureSession_QBaseDisconnectNotify(QMediaCaptureSession* self, QMetaMethod* signal);
+void QMediaCaptureSession_QBaseDisconnectNotify(QMediaCaptureSession* self, const QMetaMethod* signal);
 QObject* QMediaCaptureSession_Sender(const QMediaCaptureSession* self);
 void QMediaCaptureSession_OnSender(const QMediaCaptureSession* self, intptr_t slot);
 QObject* QMediaCaptureSession_QBaseSender(const QMediaCaptureSession* self);
@@ -105,9 +97,9 @@ int QMediaCaptureSession_QBaseSenderSignalIndex(const QMediaCaptureSession* self
 int QMediaCaptureSession_Receivers(const QMediaCaptureSession* self, const char* signal);
 void QMediaCaptureSession_OnReceivers(const QMediaCaptureSession* self, intptr_t slot);
 int QMediaCaptureSession_QBaseReceivers(const QMediaCaptureSession* self, const char* signal);
-bool QMediaCaptureSession_IsSignalConnected(const QMediaCaptureSession* self, QMetaMethod* signal);
+bool QMediaCaptureSession_IsSignalConnected(const QMediaCaptureSession* self, const QMetaMethod* signal);
 void QMediaCaptureSession_OnIsSignalConnected(const QMediaCaptureSession* self, intptr_t slot);
-bool QMediaCaptureSession_QBaseIsSignalConnected(const QMediaCaptureSession* self, QMetaMethod* signal);
+bool QMediaCaptureSession_QBaseIsSignalConnected(const QMediaCaptureSession* self, const QMetaMethod* signal);
 void QMediaCaptureSession_Delete(QMediaCaptureSession* self);
 
 #ifdef __cplusplus

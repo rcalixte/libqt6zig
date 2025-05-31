@@ -1,20 +1,11 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
-#include <QChildEvent>
-#include <QEvent>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QSessionManager>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
-#include <QVariant>
 #include <qsessionmanager.h>
 #include "libqsessionmanager.h"
 #include "libqsessionmanager.hxx"
@@ -91,7 +82,7 @@ int QSessionManager_RestartHint(const QSessionManager* self) {
     return static_cast<int>(self->restartHint());
 }
 
-void QSessionManager_SetRestartCommand(QSessionManager* self, libqt_list /* of libqt_string */ restartCommand) {
+void QSessionManager_SetRestartCommand(QSessionManager* self, const libqt_list /* of libqt_string */ restartCommand) {
     QStringList restartCommand_QList;
     restartCommand_QList.reserve(restartCommand.len);
     libqt_string* restartCommand_arr = static_cast<libqt_string*>(restartCommand.data);
@@ -123,7 +114,7 @@ libqt_list /* of libqt_string */ QSessionManager_RestartCommand(const QSessionMa
     return _out;
 }
 
-void QSessionManager_SetDiscardCommand(QSessionManager* self, libqt_list /* of libqt_string */ discardCommand) {
+void QSessionManager_SetDiscardCommand(QSessionManager* self, const libqt_list /* of libqt_string */ discardCommand) {
     QStringList discardCommand_QList;
     discardCommand_QList.reserve(discardCommand.len);
     libqt_string* discardCommand_arr = static_cast<libqt_string*>(discardCommand.data);
@@ -155,13 +146,13 @@ libqt_list /* of libqt_string */ QSessionManager_DiscardCommand(const QSessionMa
     return _out;
 }
 
-void QSessionManager_SetManagerProperty(QSessionManager* self, libqt_string name, libqt_string value) {
+void QSessionManager_SetManagerProperty(QSessionManager* self, const libqt_string name, const libqt_string value) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString value_QString = QString::fromUtf8(value.data, value.len);
     self->setManagerProperty(name_QString, value_QString);
 }
 
-void QSessionManager_SetManagerProperty2(QSessionManager* self, libqt_string name, libqt_list /* of libqt_string */ value) {
+void QSessionManager_SetManagerProperty2(QSessionManager* self, const libqt_string name, const libqt_list /* of libqt_string */ value) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QStringList value_QList;
     value_QList.reserve(value.len);

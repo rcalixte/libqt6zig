@@ -11,56 +11,59 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QsciLexerRuby so that we can call protected methods
-class VirtualQsciLexerRuby : public QsciLexerRuby {
+class VirtualQsciLexerRuby final : public QsciLexerRuby {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQsciLexerRuby = true;
+
     // Virtual class public types (including callbacks)
-    using QsciLexerRuby_Metacall_Callback = int (*)(QsciLexerRuby*, QMetaObject::Call, int, void**);
+    using QsciLexerRuby_Metacall_Callback = int (*)(QsciLexerRuby*, int, int, void**);
     using QsciLexerRuby_Language_Callback = const char* (*)();
     using QsciLexerRuby_Lexer_Callback = const char* (*)();
     using QsciLexerRuby_LexerId_Callback = int (*)();
     using QsciLexerRuby_AutoCompletionFillups_Callback = const char* (*)();
-    using QsciLexerRuby_AutoCompletionWordSeparators_Callback = QStringList (*)();
+    using QsciLexerRuby_AutoCompletionWordSeparators_Callback = libqt_list /* of libqt_string */ (*)();
     using QsciLexerRuby_BlockEnd_Callback = const char* (*)(const QsciLexerRuby*, int*);
     using QsciLexerRuby_BlockLookback_Callback = int (*)();
     using QsciLexerRuby_BlockStart_Callback = const char* (*)(const QsciLexerRuby*, int*);
     using QsciLexerRuby_BlockStartKeyword_Callback = const char* (*)(const QsciLexerRuby*, int*);
     using QsciLexerRuby_BraceStyle_Callback = int (*)();
     using QsciLexerRuby_CaseSensitive_Callback = bool (*)();
-    using QsciLexerRuby_Color_Callback = QColor (*)(const QsciLexerRuby*, int);
+    using QsciLexerRuby_Color_Callback = QColor* (*)(const QsciLexerRuby*, int);
     using QsciLexerRuby_EolFill_Callback = bool (*)(const QsciLexerRuby*, int);
-    using QsciLexerRuby_Font_Callback = QFont (*)(const QsciLexerRuby*, int);
+    using QsciLexerRuby_Font_Callback = QFont* (*)(const QsciLexerRuby*, int);
     using QsciLexerRuby_IndentationGuideView_Callback = int (*)();
     using QsciLexerRuby_Keywords_Callback = const char* (*)(const QsciLexerRuby*, int);
     using QsciLexerRuby_DefaultStyle_Callback = int (*)();
-    using QsciLexerRuby_Description_Callback = QString (*)(const QsciLexerRuby*, int);
-    using QsciLexerRuby_Paper_Callback = QColor (*)(const QsciLexerRuby*, int);
-    using QsciLexerRuby_DefaultColorWithStyle_Callback = QColor (*)(const QsciLexerRuby*, int);
+    using QsciLexerRuby_Description_Callback = libqt_string (*)(const QsciLexerRuby*, int);
+    using QsciLexerRuby_Paper_Callback = QColor* (*)(const QsciLexerRuby*, int);
+    using QsciLexerRuby_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerRuby*, int);
     using QsciLexerRuby_DefaultEolFill_Callback = bool (*)(const QsciLexerRuby*, int);
-    using QsciLexerRuby_DefaultFontWithStyle_Callback = QFont (*)(const QsciLexerRuby*, int);
-    using QsciLexerRuby_DefaultPaperWithStyle_Callback = QColor (*)(const QsciLexerRuby*, int);
+    using QsciLexerRuby_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerRuby*, int);
+    using QsciLexerRuby_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerRuby*, int);
     using QsciLexerRuby_SetEditor_Callback = void (*)(QsciLexerRuby*, QsciScintilla*);
     using QsciLexerRuby_RefreshProperties_Callback = void (*)();
     using QsciLexerRuby_StyleBitsNeeded_Callback = int (*)();
     using QsciLexerRuby_WordCharacters_Callback = const char* (*)();
     using QsciLexerRuby_SetAutoIndentStyle_Callback = void (*)(QsciLexerRuby*, int);
-    using QsciLexerRuby_SetColor_Callback = void (*)(QsciLexerRuby*, const QColor&, int);
+    using QsciLexerRuby_SetColor_Callback = void (*)(QsciLexerRuby*, QColor*, int);
     using QsciLexerRuby_SetEolFill_Callback = void (*)(QsciLexerRuby*, bool, int);
-    using QsciLexerRuby_SetFont_Callback = void (*)(QsciLexerRuby*, const QFont&, int);
-    using QsciLexerRuby_SetPaper_Callback = void (*)(QsciLexerRuby*, const QColor&, int);
-    using QsciLexerRuby_ReadProperties_Callback = bool (*)(QsciLexerRuby*, QSettings&, const QString&);
-    using QsciLexerRuby_WriteProperties_Callback = bool (*)(const QsciLexerRuby*, QSettings&, const QString&);
+    using QsciLexerRuby_SetFont_Callback = void (*)(QsciLexerRuby*, QFont*, int);
+    using QsciLexerRuby_SetPaper_Callback = void (*)(QsciLexerRuby*, QColor*, int);
+    using QsciLexerRuby_ReadProperties_Callback = bool (*)(QsciLexerRuby*, QSettings*, libqt_string);
+    using QsciLexerRuby_WriteProperties_Callback = bool (*)(const QsciLexerRuby*, QSettings*, libqt_string);
     using QsciLexerRuby_Event_Callback = bool (*)(QsciLexerRuby*, QEvent*);
     using QsciLexerRuby_EventFilter_Callback = bool (*)(QsciLexerRuby*, QObject*, QEvent*);
     using QsciLexerRuby_TimerEvent_Callback = void (*)(QsciLexerRuby*, QTimerEvent*);
     using QsciLexerRuby_ChildEvent_Callback = void (*)(QsciLexerRuby*, QChildEvent*);
     using QsciLexerRuby_CustomEvent_Callback = void (*)(QsciLexerRuby*, QEvent*);
-    using QsciLexerRuby_ConnectNotify_Callback = void (*)(QsciLexerRuby*, const QMetaMethod&);
-    using QsciLexerRuby_DisconnectNotify_Callback = void (*)(QsciLexerRuby*, const QMetaMethod&);
+    using QsciLexerRuby_ConnectNotify_Callback = void (*)(QsciLexerRuby*, QMetaMethod*);
+    using QsciLexerRuby_DisconnectNotify_Callback = void (*)(QsciLexerRuby*, QMetaMethod*);
     using QsciLexerRuby_Sender_Callback = QObject* (*)();
     using QsciLexerRuby_SenderSignalIndex_Callback = int (*)();
     using QsciLexerRuby_Receivers_Callback = int (*)(const QsciLexerRuby*, const char*);
-    using QsciLexerRuby_IsSignalConnected_Callback = bool (*)(const QsciLexerRuby*, const QMetaMethod&);
+    using QsciLexerRuby_IsSignalConnected_Callback = bool (*)(const QsciLexerRuby*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -213,100 +216,100 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
     }
 
     // Callback setters
-    void setQsciLexerRuby_Metacall_Callback(QsciLexerRuby_Metacall_Callback cb) { qscilexerruby_metacall_callback = cb; }
-    void setQsciLexerRuby_Language_Callback(QsciLexerRuby_Language_Callback cb) { qscilexerruby_language_callback = cb; }
-    void setQsciLexerRuby_Lexer_Callback(QsciLexerRuby_Lexer_Callback cb) { qscilexerruby_lexer_callback = cb; }
-    void setQsciLexerRuby_LexerId_Callback(QsciLexerRuby_LexerId_Callback cb) { qscilexerruby_lexerid_callback = cb; }
-    void setQsciLexerRuby_AutoCompletionFillups_Callback(QsciLexerRuby_AutoCompletionFillups_Callback cb) { qscilexerruby_autocompletionfillups_callback = cb; }
-    void setQsciLexerRuby_AutoCompletionWordSeparators_Callback(QsciLexerRuby_AutoCompletionWordSeparators_Callback cb) { qscilexerruby_autocompletionwordseparators_callback = cb; }
-    void setQsciLexerRuby_BlockEnd_Callback(QsciLexerRuby_BlockEnd_Callback cb) { qscilexerruby_blockend_callback = cb; }
-    void setQsciLexerRuby_BlockLookback_Callback(QsciLexerRuby_BlockLookback_Callback cb) { qscilexerruby_blocklookback_callback = cb; }
-    void setQsciLexerRuby_BlockStart_Callback(QsciLexerRuby_BlockStart_Callback cb) { qscilexerruby_blockstart_callback = cb; }
-    void setQsciLexerRuby_BlockStartKeyword_Callback(QsciLexerRuby_BlockStartKeyword_Callback cb) { qscilexerruby_blockstartkeyword_callback = cb; }
-    void setQsciLexerRuby_BraceStyle_Callback(QsciLexerRuby_BraceStyle_Callback cb) { qscilexerruby_bracestyle_callback = cb; }
-    void setQsciLexerRuby_CaseSensitive_Callback(QsciLexerRuby_CaseSensitive_Callback cb) { qscilexerruby_casesensitive_callback = cb; }
-    void setQsciLexerRuby_Color_Callback(QsciLexerRuby_Color_Callback cb) { qscilexerruby_color_callback = cb; }
-    void setQsciLexerRuby_EolFill_Callback(QsciLexerRuby_EolFill_Callback cb) { qscilexerruby_eolfill_callback = cb; }
-    void setQsciLexerRuby_Font_Callback(QsciLexerRuby_Font_Callback cb) { qscilexerruby_font_callback = cb; }
-    void setQsciLexerRuby_IndentationGuideView_Callback(QsciLexerRuby_IndentationGuideView_Callback cb) { qscilexerruby_indentationguideview_callback = cb; }
-    void setQsciLexerRuby_Keywords_Callback(QsciLexerRuby_Keywords_Callback cb) { qscilexerruby_keywords_callback = cb; }
-    void setQsciLexerRuby_DefaultStyle_Callback(QsciLexerRuby_DefaultStyle_Callback cb) { qscilexerruby_defaultstyle_callback = cb; }
-    void setQsciLexerRuby_Description_Callback(QsciLexerRuby_Description_Callback cb) { qscilexerruby_description_callback = cb; }
-    void setQsciLexerRuby_Paper_Callback(QsciLexerRuby_Paper_Callback cb) { qscilexerruby_paper_callback = cb; }
-    void setQsciLexerRuby_DefaultColorWithStyle_Callback(QsciLexerRuby_DefaultColorWithStyle_Callback cb) { qscilexerruby_defaultcolorwithstyle_callback = cb; }
-    void setQsciLexerRuby_DefaultEolFill_Callback(QsciLexerRuby_DefaultEolFill_Callback cb) { qscilexerruby_defaulteolfill_callback = cb; }
-    void setQsciLexerRuby_DefaultFontWithStyle_Callback(QsciLexerRuby_DefaultFontWithStyle_Callback cb) { qscilexerruby_defaultfontwithstyle_callback = cb; }
-    void setQsciLexerRuby_DefaultPaperWithStyle_Callback(QsciLexerRuby_DefaultPaperWithStyle_Callback cb) { qscilexerruby_defaultpaperwithstyle_callback = cb; }
-    void setQsciLexerRuby_SetEditor_Callback(QsciLexerRuby_SetEditor_Callback cb) { qscilexerruby_seteditor_callback = cb; }
-    void setQsciLexerRuby_RefreshProperties_Callback(QsciLexerRuby_RefreshProperties_Callback cb) { qscilexerruby_refreshproperties_callback = cb; }
-    void setQsciLexerRuby_StyleBitsNeeded_Callback(QsciLexerRuby_StyleBitsNeeded_Callback cb) { qscilexerruby_stylebitsneeded_callback = cb; }
-    void setQsciLexerRuby_WordCharacters_Callback(QsciLexerRuby_WordCharacters_Callback cb) { qscilexerruby_wordcharacters_callback = cb; }
-    void setQsciLexerRuby_SetAutoIndentStyle_Callback(QsciLexerRuby_SetAutoIndentStyle_Callback cb) { qscilexerruby_setautoindentstyle_callback = cb; }
-    void setQsciLexerRuby_SetColor_Callback(QsciLexerRuby_SetColor_Callback cb) { qscilexerruby_setcolor_callback = cb; }
-    void setQsciLexerRuby_SetEolFill_Callback(QsciLexerRuby_SetEolFill_Callback cb) { qscilexerruby_seteolfill_callback = cb; }
-    void setQsciLexerRuby_SetFont_Callback(QsciLexerRuby_SetFont_Callback cb) { qscilexerruby_setfont_callback = cb; }
-    void setQsciLexerRuby_SetPaper_Callback(QsciLexerRuby_SetPaper_Callback cb) { qscilexerruby_setpaper_callback = cb; }
-    void setQsciLexerRuby_ReadProperties_Callback(QsciLexerRuby_ReadProperties_Callback cb) { qscilexerruby_readproperties_callback = cb; }
-    void setQsciLexerRuby_WriteProperties_Callback(QsciLexerRuby_WriteProperties_Callback cb) { qscilexerruby_writeproperties_callback = cb; }
-    void setQsciLexerRuby_Event_Callback(QsciLexerRuby_Event_Callback cb) { qscilexerruby_event_callback = cb; }
-    void setQsciLexerRuby_EventFilter_Callback(QsciLexerRuby_EventFilter_Callback cb) { qscilexerruby_eventfilter_callback = cb; }
-    void setQsciLexerRuby_TimerEvent_Callback(QsciLexerRuby_TimerEvent_Callback cb) { qscilexerruby_timerevent_callback = cb; }
-    void setQsciLexerRuby_ChildEvent_Callback(QsciLexerRuby_ChildEvent_Callback cb) { qscilexerruby_childevent_callback = cb; }
-    void setQsciLexerRuby_CustomEvent_Callback(QsciLexerRuby_CustomEvent_Callback cb) { qscilexerruby_customevent_callback = cb; }
-    void setQsciLexerRuby_ConnectNotify_Callback(QsciLexerRuby_ConnectNotify_Callback cb) { qscilexerruby_connectnotify_callback = cb; }
-    void setQsciLexerRuby_DisconnectNotify_Callback(QsciLexerRuby_DisconnectNotify_Callback cb) { qscilexerruby_disconnectnotify_callback = cb; }
-    void setQsciLexerRuby_Sender_Callback(QsciLexerRuby_Sender_Callback cb) { qscilexerruby_sender_callback = cb; }
-    void setQsciLexerRuby_SenderSignalIndex_Callback(QsciLexerRuby_SenderSignalIndex_Callback cb) { qscilexerruby_sendersignalindex_callback = cb; }
-    void setQsciLexerRuby_Receivers_Callback(QsciLexerRuby_Receivers_Callback cb) { qscilexerruby_receivers_callback = cb; }
-    void setQsciLexerRuby_IsSignalConnected_Callback(QsciLexerRuby_IsSignalConnected_Callback cb) { qscilexerruby_issignalconnected_callback = cb; }
+    inline void setQsciLexerRuby_Metacall_Callback(QsciLexerRuby_Metacall_Callback cb) { qscilexerruby_metacall_callback = cb; }
+    inline void setQsciLexerRuby_Language_Callback(QsciLexerRuby_Language_Callback cb) { qscilexerruby_language_callback = cb; }
+    inline void setQsciLexerRuby_Lexer_Callback(QsciLexerRuby_Lexer_Callback cb) { qscilexerruby_lexer_callback = cb; }
+    inline void setQsciLexerRuby_LexerId_Callback(QsciLexerRuby_LexerId_Callback cb) { qscilexerruby_lexerid_callback = cb; }
+    inline void setQsciLexerRuby_AutoCompletionFillups_Callback(QsciLexerRuby_AutoCompletionFillups_Callback cb) { qscilexerruby_autocompletionfillups_callback = cb; }
+    inline void setQsciLexerRuby_AutoCompletionWordSeparators_Callback(QsciLexerRuby_AutoCompletionWordSeparators_Callback cb) { qscilexerruby_autocompletionwordseparators_callback = cb; }
+    inline void setQsciLexerRuby_BlockEnd_Callback(QsciLexerRuby_BlockEnd_Callback cb) { qscilexerruby_blockend_callback = cb; }
+    inline void setQsciLexerRuby_BlockLookback_Callback(QsciLexerRuby_BlockLookback_Callback cb) { qscilexerruby_blocklookback_callback = cb; }
+    inline void setQsciLexerRuby_BlockStart_Callback(QsciLexerRuby_BlockStart_Callback cb) { qscilexerruby_blockstart_callback = cb; }
+    inline void setQsciLexerRuby_BlockStartKeyword_Callback(QsciLexerRuby_BlockStartKeyword_Callback cb) { qscilexerruby_blockstartkeyword_callback = cb; }
+    inline void setQsciLexerRuby_BraceStyle_Callback(QsciLexerRuby_BraceStyle_Callback cb) { qscilexerruby_bracestyle_callback = cb; }
+    inline void setQsciLexerRuby_CaseSensitive_Callback(QsciLexerRuby_CaseSensitive_Callback cb) { qscilexerruby_casesensitive_callback = cb; }
+    inline void setQsciLexerRuby_Color_Callback(QsciLexerRuby_Color_Callback cb) { qscilexerruby_color_callback = cb; }
+    inline void setQsciLexerRuby_EolFill_Callback(QsciLexerRuby_EolFill_Callback cb) { qscilexerruby_eolfill_callback = cb; }
+    inline void setQsciLexerRuby_Font_Callback(QsciLexerRuby_Font_Callback cb) { qscilexerruby_font_callback = cb; }
+    inline void setQsciLexerRuby_IndentationGuideView_Callback(QsciLexerRuby_IndentationGuideView_Callback cb) { qscilexerruby_indentationguideview_callback = cb; }
+    inline void setQsciLexerRuby_Keywords_Callback(QsciLexerRuby_Keywords_Callback cb) { qscilexerruby_keywords_callback = cb; }
+    inline void setQsciLexerRuby_DefaultStyle_Callback(QsciLexerRuby_DefaultStyle_Callback cb) { qscilexerruby_defaultstyle_callback = cb; }
+    inline void setQsciLexerRuby_Description_Callback(QsciLexerRuby_Description_Callback cb) { qscilexerruby_description_callback = cb; }
+    inline void setQsciLexerRuby_Paper_Callback(QsciLexerRuby_Paper_Callback cb) { qscilexerruby_paper_callback = cb; }
+    inline void setQsciLexerRuby_DefaultColorWithStyle_Callback(QsciLexerRuby_DefaultColorWithStyle_Callback cb) { qscilexerruby_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerRuby_DefaultEolFill_Callback(QsciLexerRuby_DefaultEolFill_Callback cb) { qscilexerruby_defaulteolfill_callback = cb; }
+    inline void setQsciLexerRuby_DefaultFontWithStyle_Callback(QsciLexerRuby_DefaultFontWithStyle_Callback cb) { qscilexerruby_defaultfontwithstyle_callback = cb; }
+    inline void setQsciLexerRuby_DefaultPaperWithStyle_Callback(QsciLexerRuby_DefaultPaperWithStyle_Callback cb) { qscilexerruby_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerRuby_SetEditor_Callback(QsciLexerRuby_SetEditor_Callback cb) { qscilexerruby_seteditor_callback = cb; }
+    inline void setQsciLexerRuby_RefreshProperties_Callback(QsciLexerRuby_RefreshProperties_Callback cb) { qscilexerruby_refreshproperties_callback = cb; }
+    inline void setQsciLexerRuby_StyleBitsNeeded_Callback(QsciLexerRuby_StyleBitsNeeded_Callback cb) { qscilexerruby_stylebitsneeded_callback = cb; }
+    inline void setQsciLexerRuby_WordCharacters_Callback(QsciLexerRuby_WordCharacters_Callback cb) { qscilexerruby_wordcharacters_callback = cb; }
+    inline void setQsciLexerRuby_SetAutoIndentStyle_Callback(QsciLexerRuby_SetAutoIndentStyle_Callback cb) { qscilexerruby_setautoindentstyle_callback = cb; }
+    inline void setQsciLexerRuby_SetColor_Callback(QsciLexerRuby_SetColor_Callback cb) { qscilexerruby_setcolor_callback = cb; }
+    inline void setQsciLexerRuby_SetEolFill_Callback(QsciLexerRuby_SetEolFill_Callback cb) { qscilexerruby_seteolfill_callback = cb; }
+    inline void setQsciLexerRuby_SetFont_Callback(QsciLexerRuby_SetFont_Callback cb) { qscilexerruby_setfont_callback = cb; }
+    inline void setQsciLexerRuby_SetPaper_Callback(QsciLexerRuby_SetPaper_Callback cb) { qscilexerruby_setpaper_callback = cb; }
+    inline void setQsciLexerRuby_ReadProperties_Callback(QsciLexerRuby_ReadProperties_Callback cb) { qscilexerruby_readproperties_callback = cb; }
+    inline void setQsciLexerRuby_WriteProperties_Callback(QsciLexerRuby_WriteProperties_Callback cb) { qscilexerruby_writeproperties_callback = cb; }
+    inline void setQsciLexerRuby_Event_Callback(QsciLexerRuby_Event_Callback cb) { qscilexerruby_event_callback = cb; }
+    inline void setQsciLexerRuby_EventFilter_Callback(QsciLexerRuby_EventFilter_Callback cb) { qscilexerruby_eventfilter_callback = cb; }
+    inline void setQsciLexerRuby_TimerEvent_Callback(QsciLexerRuby_TimerEvent_Callback cb) { qscilexerruby_timerevent_callback = cb; }
+    inline void setQsciLexerRuby_ChildEvent_Callback(QsciLexerRuby_ChildEvent_Callback cb) { qscilexerruby_childevent_callback = cb; }
+    inline void setQsciLexerRuby_CustomEvent_Callback(QsciLexerRuby_CustomEvent_Callback cb) { qscilexerruby_customevent_callback = cb; }
+    inline void setQsciLexerRuby_ConnectNotify_Callback(QsciLexerRuby_ConnectNotify_Callback cb) { qscilexerruby_connectnotify_callback = cb; }
+    inline void setQsciLexerRuby_DisconnectNotify_Callback(QsciLexerRuby_DisconnectNotify_Callback cb) { qscilexerruby_disconnectnotify_callback = cb; }
+    inline void setQsciLexerRuby_Sender_Callback(QsciLexerRuby_Sender_Callback cb) { qscilexerruby_sender_callback = cb; }
+    inline void setQsciLexerRuby_SenderSignalIndex_Callback(QsciLexerRuby_SenderSignalIndex_Callback cb) { qscilexerruby_sendersignalindex_callback = cb; }
+    inline void setQsciLexerRuby_Receivers_Callback(QsciLexerRuby_Receivers_Callback cb) { qscilexerruby_receivers_callback = cb; }
+    inline void setQsciLexerRuby_IsSignalConnected_Callback(QsciLexerRuby_IsSignalConnected_Callback cb) { qscilexerruby_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQsciLexerRuby_Metacall_IsBase(bool value) const { qscilexerruby_metacall_isbase = value; }
-    void setQsciLexerRuby_Language_IsBase(bool value) const { qscilexerruby_language_isbase = value; }
-    void setQsciLexerRuby_Lexer_IsBase(bool value) const { qscilexerruby_lexer_isbase = value; }
-    void setQsciLexerRuby_LexerId_IsBase(bool value) const { qscilexerruby_lexerid_isbase = value; }
-    void setQsciLexerRuby_AutoCompletionFillups_IsBase(bool value) const { qscilexerruby_autocompletionfillups_isbase = value; }
-    void setQsciLexerRuby_AutoCompletionWordSeparators_IsBase(bool value) const { qscilexerruby_autocompletionwordseparators_isbase = value; }
-    void setQsciLexerRuby_BlockEnd_IsBase(bool value) const { qscilexerruby_blockend_isbase = value; }
-    void setQsciLexerRuby_BlockLookback_IsBase(bool value) const { qscilexerruby_blocklookback_isbase = value; }
-    void setQsciLexerRuby_BlockStart_IsBase(bool value) const { qscilexerruby_blockstart_isbase = value; }
-    void setQsciLexerRuby_BlockStartKeyword_IsBase(bool value) const { qscilexerruby_blockstartkeyword_isbase = value; }
-    void setQsciLexerRuby_BraceStyle_IsBase(bool value) const { qscilexerruby_bracestyle_isbase = value; }
-    void setQsciLexerRuby_CaseSensitive_IsBase(bool value) const { qscilexerruby_casesensitive_isbase = value; }
-    void setQsciLexerRuby_Color_IsBase(bool value) const { qscilexerruby_color_isbase = value; }
-    void setQsciLexerRuby_EolFill_IsBase(bool value) const { qscilexerruby_eolfill_isbase = value; }
-    void setQsciLexerRuby_Font_IsBase(bool value) const { qscilexerruby_font_isbase = value; }
-    void setQsciLexerRuby_IndentationGuideView_IsBase(bool value) const { qscilexerruby_indentationguideview_isbase = value; }
-    void setQsciLexerRuby_Keywords_IsBase(bool value) const { qscilexerruby_keywords_isbase = value; }
-    void setQsciLexerRuby_DefaultStyle_IsBase(bool value) const { qscilexerruby_defaultstyle_isbase = value; }
-    void setQsciLexerRuby_Description_IsBase(bool value) const { qscilexerruby_description_isbase = value; }
-    void setQsciLexerRuby_Paper_IsBase(bool value) const { qscilexerruby_paper_isbase = value; }
-    void setQsciLexerRuby_DefaultColorWithStyle_IsBase(bool value) const { qscilexerruby_defaultcolorwithstyle_isbase = value; }
-    void setQsciLexerRuby_DefaultEolFill_IsBase(bool value) const { qscilexerruby_defaulteolfill_isbase = value; }
-    void setQsciLexerRuby_DefaultFontWithStyle_IsBase(bool value) const { qscilexerruby_defaultfontwithstyle_isbase = value; }
-    void setQsciLexerRuby_DefaultPaperWithStyle_IsBase(bool value) const { qscilexerruby_defaultpaperwithstyle_isbase = value; }
-    void setQsciLexerRuby_SetEditor_IsBase(bool value) const { qscilexerruby_seteditor_isbase = value; }
-    void setQsciLexerRuby_RefreshProperties_IsBase(bool value) const { qscilexerruby_refreshproperties_isbase = value; }
-    void setQsciLexerRuby_StyleBitsNeeded_IsBase(bool value) const { qscilexerruby_stylebitsneeded_isbase = value; }
-    void setQsciLexerRuby_WordCharacters_IsBase(bool value) const { qscilexerruby_wordcharacters_isbase = value; }
-    void setQsciLexerRuby_SetAutoIndentStyle_IsBase(bool value) const { qscilexerruby_setautoindentstyle_isbase = value; }
-    void setQsciLexerRuby_SetColor_IsBase(bool value) const { qscilexerruby_setcolor_isbase = value; }
-    void setQsciLexerRuby_SetEolFill_IsBase(bool value) const { qscilexerruby_seteolfill_isbase = value; }
-    void setQsciLexerRuby_SetFont_IsBase(bool value) const { qscilexerruby_setfont_isbase = value; }
-    void setQsciLexerRuby_SetPaper_IsBase(bool value) const { qscilexerruby_setpaper_isbase = value; }
-    void setQsciLexerRuby_ReadProperties_IsBase(bool value) const { qscilexerruby_readproperties_isbase = value; }
-    void setQsciLexerRuby_WriteProperties_IsBase(bool value) const { qscilexerruby_writeproperties_isbase = value; }
-    void setQsciLexerRuby_Event_IsBase(bool value) const { qscilexerruby_event_isbase = value; }
-    void setQsciLexerRuby_EventFilter_IsBase(bool value) const { qscilexerruby_eventfilter_isbase = value; }
-    void setQsciLexerRuby_TimerEvent_IsBase(bool value) const { qscilexerruby_timerevent_isbase = value; }
-    void setQsciLexerRuby_ChildEvent_IsBase(bool value) const { qscilexerruby_childevent_isbase = value; }
-    void setQsciLexerRuby_CustomEvent_IsBase(bool value) const { qscilexerruby_customevent_isbase = value; }
-    void setQsciLexerRuby_ConnectNotify_IsBase(bool value) const { qscilexerruby_connectnotify_isbase = value; }
-    void setQsciLexerRuby_DisconnectNotify_IsBase(bool value) const { qscilexerruby_disconnectnotify_isbase = value; }
-    void setQsciLexerRuby_Sender_IsBase(bool value) const { qscilexerruby_sender_isbase = value; }
-    void setQsciLexerRuby_SenderSignalIndex_IsBase(bool value) const { qscilexerruby_sendersignalindex_isbase = value; }
-    void setQsciLexerRuby_Receivers_IsBase(bool value) const { qscilexerruby_receivers_isbase = value; }
-    void setQsciLexerRuby_IsSignalConnected_IsBase(bool value) const { qscilexerruby_issignalconnected_isbase = value; }
+    inline void setQsciLexerRuby_Metacall_IsBase(bool value) const { qscilexerruby_metacall_isbase = value; }
+    inline void setQsciLexerRuby_Language_IsBase(bool value) const { qscilexerruby_language_isbase = value; }
+    inline void setQsciLexerRuby_Lexer_IsBase(bool value) const { qscilexerruby_lexer_isbase = value; }
+    inline void setQsciLexerRuby_LexerId_IsBase(bool value) const { qscilexerruby_lexerid_isbase = value; }
+    inline void setQsciLexerRuby_AutoCompletionFillups_IsBase(bool value) const { qscilexerruby_autocompletionfillups_isbase = value; }
+    inline void setQsciLexerRuby_AutoCompletionWordSeparators_IsBase(bool value) const { qscilexerruby_autocompletionwordseparators_isbase = value; }
+    inline void setQsciLexerRuby_BlockEnd_IsBase(bool value) const { qscilexerruby_blockend_isbase = value; }
+    inline void setQsciLexerRuby_BlockLookback_IsBase(bool value) const { qscilexerruby_blocklookback_isbase = value; }
+    inline void setQsciLexerRuby_BlockStart_IsBase(bool value) const { qscilexerruby_blockstart_isbase = value; }
+    inline void setQsciLexerRuby_BlockStartKeyword_IsBase(bool value) const { qscilexerruby_blockstartkeyword_isbase = value; }
+    inline void setQsciLexerRuby_BraceStyle_IsBase(bool value) const { qscilexerruby_bracestyle_isbase = value; }
+    inline void setQsciLexerRuby_CaseSensitive_IsBase(bool value) const { qscilexerruby_casesensitive_isbase = value; }
+    inline void setQsciLexerRuby_Color_IsBase(bool value) const { qscilexerruby_color_isbase = value; }
+    inline void setQsciLexerRuby_EolFill_IsBase(bool value) const { qscilexerruby_eolfill_isbase = value; }
+    inline void setQsciLexerRuby_Font_IsBase(bool value) const { qscilexerruby_font_isbase = value; }
+    inline void setQsciLexerRuby_IndentationGuideView_IsBase(bool value) const { qscilexerruby_indentationguideview_isbase = value; }
+    inline void setQsciLexerRuby_Keywords_IsBase(bool value) const { qscilexerruby_keywords_isbase = value; }
+    inline void setQsciLexerRuby_DefaultStyle_IsBase(bool value) const { qscilexerruby_defaultstyle_isbase = value; }
+    inline void setQsciLexerRuby_Description_IsBase(bool value) const { qscilexerruby_description_isbase = value; }
+    inline void setQsciLexerRuby_Paper_IsBase(bool value) const { qscilexerruby_paper_isbase = value; }
+    inline void setQsciLexerRuby_DefaultColorWithStyle_IsBase(bool value) const { qscilexerruby_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerRuby_DefaultEolFill_IsBase(bool value) const { qscilexerruby_defaulteolfill_isbase = value; }
+    inline void setQsciLexerRuby_DefaultFontWithStyle_IsBase(bool value) const { qscilexerruby_defaultfontwithstyle_isbase = value; }
+    inline void setQsciLexerRuby_DefaultPaperWithStyle_IsBase(bool value) const { qscilexerruby_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerRuby_SetEditor_IsBase(bool value) const { qscilexerruby_seteditor_isbase = value; }
+    inline void setQsciLexerRuby_RefreshProperties_IsBase(bool value) const { qscilexerruby_refreshproperties_isbase = value; }
+    inline void setQsciLexerRuby_StyleBitsNeeded_IsBase(bool value) const { qscilexerruby_stylebitsneeded_isbase = value; }
+    inline void setQsciLexerRuby_WordCharacters_IsBase(bool value) const { qscilexerruby_wordcharacters_isbase = value; }
+    inline void setQsciLexerRuby_SetAutoIndentStyle_IsBase(bool value) const { qscilexerruby_setautoindentstyle_isbase = value; }
+    inline void setQsciLexerRuby_SetColor_IsBase(bool value) const { qscilexerruby_setcolor_isbase = value; }
+    inline void setQsciLexerRuby_SetEolFill_IsBase(bool value) const { qscilexerruby_seteolfill_isbase = value; }
+    inline void setQsciLexerRuby_SetFont_IsBase(bool value) const { qscilexerruby_setfont_isbase = value; }
+    inline void setQsciLexerRuby_SetPaper_IsBase(bool value) const { qscilexerruby_setpaper_isbase = value; }
+    inline void setQsciLexerRuby_ReadProperties_IsBase(bool value) const { qscilexerruby_readproperties_isbase = value; }
+    inline void setQsciLexerRuby_WriteProperties_IsBase(bool value) const { qscilexerruby_writeproperties_isbase = value; }
+    inline void setQsciLexerRuby_Event_IsBase(bool value) const { qscilexerruby_event_isbase = value; }
+    inline void setQsciLexerRuby_EventFilter_IsBase(bool value) const { qscilexerruby_eventfilter_isbase = value; }
+    inline void setQsciLexerRuby_TimerEvent_IsBase(bool value) const { qscilexerruby_timerevent_isbase = value; }
+    inline void setQsciLexerRuby_ChildEvent_IsBase(bool value) const { qscilexerruby_childevent_isbase = value; }
+    inline void setQsciLexerRuby_CustomEvent_IsBase(bool value) const { qscilexerruby_customevent_isbase = value; }
+    inline void setQsciLexerRuby_ConnectNotify_IsBase(bool value) const { qscilexerruby_connectnotify_isbase = value; }
+    inline void setQsciLexerRuby_DisconnectNotify_IsBase(bool value) const { qscilexerruby_disconnectnotify_isbase = value; }
+    inline void setQsciLexerRuby_Sender_IsBase(bool value) const { qscilexerruby_sender_isbase = value; }
+    inline void setQsciLexerRuby_SenderSignalIndex_IsBase(bool value) const { qscilexerruby_sendersignalindex_isbase = value; }
+    inline void setQsciLexerRuby_Receivers_IsBase(bool value) const { qscilexerruby_receivers_isbase = value; }
+    inline void setQsciLexerRuby_IsSignalConnected_IsBase(bool value) const { qscilexerruby_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -314,7 +317,12 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_metacall_isbase = false;
             return QsciLexerRuby::qt_metacall(param1, param2, param3);
         } else if (qscilexerruby_metacall_callback != nullptr) {
-            return qscilexerruby_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qscilexerruby_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerRuby::qt_metacall(param1, param2, param3);
         }
@@ -322,7 +330,12 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
 
     // Virtual method for C ABI access and custom callback
     virtual const char* language() const override {
-        return qscilexerruby_language_callback();
+        if (qscilexerruby_language_callback != nullptr) {
+            const char* callback_ret = qscilexerruby_language_callback();
+            return callback_ret;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -331,7 +344,8 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_lexer_isbase = false;
             return QsciLexerRuby::lexer();
         } else if (qscilexerruby_lexer_callback != nullptr) {
-            return qscilexerruby_lexer_callback();
+            const char* callback_ret = qscilexerruby_lexer_callback();
+            return callback_ret;
         } else {
             return QsciLexerRuby::lexer();
         }
@@ -343,7 +357,8 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_lexerid_isbase = false;
             return QsciLexerRuby::lexerId();
         } else if (qscilexerruby_lexerid_callback != nullptr) {
-            return qscilexerruby_lexerid_callback();
+            int callback_ret = qscilexerruby_lexerid_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerRuby::lexerId();
         }
@@ -355,7 +370,8 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_autocompletionfillups_isbase = false;
             return QsciLexerRuby::autoCompletionFillups();
         } else if (qscilexerruby_autocompletionfillups_callback != nullptr) {
-            return qscilexerruby_autocompletionfillups_callback();
+            const char* callback_ret = qscilexerruby_autocompletionfillups_callback();
+            return callback_ret;
         } else {
             return QsciLexerRuby::autoCompletionFillups();
         }
@@ -367,7 +383,15 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_autocompletionwordseparators_isbase = false;
             return QsciLexerRuby::autoCompletionWordSeparators();
         } else if (qscilexerruby_autocompletionwordseparators_callback != nullptr) {
-            return qscilexerruby_autocompletionwordseparators_callback();
+            libqt_list /* of libqt_string */ callback_ret = qscilexerruby_autocompletionwordseparators_callback();
+            QStringList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+                callback_ret_QList.push_back(callback_ret_arr_i_QString);
+            }
+            return callback_ret_QList;
         } else {
             return QsciLexerRuby::autoCompletionWordSeparators();
         }
@@ -379,7 +403,10 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_blockend_isbase = false;
             return QsciLexerRuby::blockEnd(style);
         } else if (qscilexerruby_blockend_callback != nullptr) {
-            return qscilexerruby_blockend_callback(this, style);
+            int* cbval1 = style;
+
+            const char* callback_ret = qscilexerruby_blockend_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerRuby::blockEnd(style);
         }
@@ -391,7 +418,8 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_blocklookback_isbase = false;
             return QsciLexerRuby::blockLookback();
         } else if (qscilexerruby_blocklookback_callback != nullptr) {
-            return qscilexerruby_blocklookback_callback();
+            int callback_ret = qscilexerruby_blocklookback_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerRuby::blockLookback();
         }
@@ -403,7 +431,10 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_blockstart_isbase = false;
             return QsciLexerRuby::blockStart(style);
         } else if (qscilexerruby_blockstart_callback != nullptr) {
-            return qscilexerruby_blockstart_callback(this, style);
+            int* cbval1 = style;
+
+            const char* callback_ret = qscilexerruby_blockstart_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerRuby::blockStart(style);
         }
@@ -415,7 +446,10 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_blockstartkeyword_isbase = false;
             return QsciLexerRuby::blockStartKeyword(style);
         } else if (qscilexerruby_blockstartkeyword_callback != nullptr) {
-            return qscilexerruby_blockstartkeyword_callback(this, style);
+            int* cbval1 = style;
+
+            const char* callback_ret = qscilexerruby_blockstartkeyword_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerRuby::blockStartKeyword(style);
         }
@@ -427,7 +461,8 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_bracestyle_isbase = false;
             return QsciLexerRuby::braceStyle();
         } else if (qscilexerruby_bracestyle_callback != nullptr) {
-            return qscilexerruby_bracestyle_callback();
+            int callback_ret = qscilexerruby_bracestyle_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerRuby::braceStyle();
         }
@@ -439,7 +474,8 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_casesensitive_isbase = false;
             return QsciLexerRuby::caseSensitive();
         } else if (qscilexerruby_casesensitive_callback != nullptr) {
-            return qscilexerruby_casesensitive_callback();
+            bool callback_ret = qscilexerruby_casesensitive_callback();
+            return callback_ret;
         } else {
             return QsciLexerRuby::caseSensitive();
         }
@@ -451,7 +487,10 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_color_isbase = false;
             return QsciLexerRuby::color(style);
         } else if (qscilexerruby_color_callback != nullptr) {
-            return qscilexerruby_color_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexerruby_color_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerRuby::color(style);
         }
@@ -463,7 +502,10 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_eolfill_isbase = false;
             return QsciLexerRuby::eolFill(style);
         } else if (qscilexerruby_eolfill_callback != nullptr) {
-            return qscilexerruby_eolfill_callback(this, style);
+            int cbval1 = style;
+
+            bool callback_ret = qscilexerruby_eolfill_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerRuby::eolFill(style);
         }
@@ -475,7 +517,10 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_font_isbase = false;
             return QsciLexerRuby::font(style);
         } else if (qscilexerruby_font_callback != nullptr) {
-            return qscilexerruby_font_callback(this, style);
+            int cbval1 = style;
+
+            QFont* callback_ret = qscilexerruby_font_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerRuby::font(style);
         }
@@ -487,7 +532,8 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_indentationguideview_isbase = false;
             return QsciLexerRuby::indentationGuideView();
         } else if (qscilexerruby_indentationguideview_callback != nullptr) {
-            return qscilexerruby_indentationguideview_callback();
+            int callback_ret = qscilexerruby_indentationguideview_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerRuby::indentationGuideView();
         }
@@ -499,7 +545,10 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_keywords_isbase = false;
             return QsciLexerRuby::keywords(set);
         } else if (qscilexerruby_keywords_callback != nullptr) {
-            return qscilexerruby_keywords_callback(this, set);
+            int cbval1 = set;
+
+            const char* callback_ret = qscilexerruby_keywords_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerRuby::keywords(set);
         }
@@ -511,7 +560,8 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_defaultstyle_isbase = false;
             return QsciLexerRuby::defaultStyle();
         } else if (qscilexerruby_defaultstyle_callback != nullptr) {
-            return qscilexerruby_defaultstyle_callback();
+            int callback_ret = qscilexerruby_defaultstyle_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerRuby::defaultStyle();
         }
@@ -519,7 +569,15 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
 
     // Virtual method for C ABI access and custom callback
     virtual QString description(int style) const override {
-        return qscilexerruby_description_callback(this, style);
+        if (qscilexerruby_description_callback != nullptr) {
+            int cbval1 = style;
+
+            libqt_string callback_ret = qscilexerruby_description_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return {};
+        }
     }
 
     // Virtual method for C ABI access and custom callback
@@ -528,7 +586,10 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_paper_isbase = false;
             return QsciLexerRuby::paper(style);
         } else if (qscilexerruby_paper_callback != nullptr) {
-            return qscilexerruby_paper_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexerruby_paper_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerRuby::paper(style);
         }
@@ -540,7 +601,10 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_defaultcolorwithstyle_isbase = false;
             return QsciLexerRuby::defaultColor(style);
         } else if (qscilexerruby_defaultcolorwithstyle_callback != nullptr) {
-            return qscilexerruby_defaultcolorwithstyle_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexerruby_defaultcolorwithstyle_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerRuby::defaultColor(style);
         }
@@ -552,7 +616,10 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_defaulteolfill_isbase = false;
             return QsciLexerRuby::defaultEolFill(style);
         } else if (qscilexerruby_defaulteolfill_callback != nullptr) {
-            return qscilexerruby_defaulteolfill_callback(this, style);
+            int cbval1 = style;
+
+            bool callback_ret = qscilexerruby_defaulteolfill_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerRuby::defaultEolFill(style);
         }
@@ -564,7 +631,10 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_defaultfontwithstyle_isbase = false;
             return QsciLexerRuby::defaultFont(style);
         } else if (qscilexerruby_defaultfontwithstyle_callback != nullptr) {
-            return qscilexerruby_defaultfontwithstyle_callback(this, style);
+            int cbval1 = style;
+
+            QFont* callback_ret = qscilexerruby_defaultfontwithstyle_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerRuby::defaultFont(style);
         }
@@ -576,7 +646,10 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_defaultpaperwithstyle_isbase = false;
             return QsciLexerRuby::defaultPaper(style);
         } else if (qscilexerruby_defaultpaperwithstyle_callback != nullptr) {
-            return qscilexerruby_defaultpaperwithstyle_callback(this, style);
+            int cbval1 = style;
+
+            QColor* callback_ret = qscilexerruby_defaultpaperwithstyle_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QsciLexerRuby::defaultPaper(style);
         }
@@ -588,7 +661,9 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_seteditor_isbase = false;
             QsciLexerRuby::setEditor(editor);
         } else if (qscilexerruby_seteditor_callback != nullptr) {
-            qscilexerruby_seteditor_callback(this, editor);
+            QsciScintilla* cbval1 = editor;
+
+            qscilexerruby_seteditor_callback(this, cbval1);
         } else {
             QsciLexerRuby::setEditor(editor);
         }
@@ -612,7 +687,8 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_stylebitsneeded_isbase = false;
             return QsciLexerRuby::styleBitsNeeded();
         } else if (qscilexerruby_stylebitsneeded_callback != nullptr) {
-            return qscilexerruby_stylebitsneeded_callback();
+            int callback_ret = qscilexerruby_stylebitsneeded_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerRuby::styleBitsNeeded();
         }
@@ -624,7 +700,8 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_wordcharacters_isbase = false;
             return QsciLexerRuby::wordCharacters();
         } else if (qscilexerruby_wordcharacters_callback != nullptr) {
-            return qscilexerruby_wordcharacters_callback();
+            const char* callback_ret = qscilexerruby_wordcharacters_callback();
+            return callback_ret;
         } else {
             return QsciLexerRuby::wordCharacters();
         }
@@ -636,7 +713,9 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_setautoindentstyle_isbase = false;
             QsciLexerRuby::setAutoIndentStyle(autoindentstyle);
         } else if (qscilexerruby_setautoindentstyle_callback != nullptr) {
-            qscilexerruby_setautoindentstyle_callback(this, autoindentstyle);
+            int cbval1 = autoindentstyle;
+
+            qscilexerruby_setautoindentstyle_callback(this, cbval1);
         } else {
             QsciLexerRuby::setAutoIndentStyle(autoindentstyle);
         }
@@ -648,7 +727,12 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_setcolor_isbase = false;
             QsciLexerRuby::setColor(c, style);
         } else if (qscilexerruby_setcolor_callback != nullptr) {
-            qscilexerruby_setcolor_callback(this, c, style);
+            const QColor& c_ret = c;
+            // Cast returned reference into pointer
+            QColor* cbval1 = const_cast<QColor*>(&c_ret);
+            int cbval2 = style;
+
+            qscilexerruby_setcolor_callback(this, cbval1, cbval2);
         } else {
             QsciLexerRuby::setColor(c, style);
         }
@@ -660,7 +744,10 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_seteolfill_isbase = false;
             QsciLexerRuby::setEolFill(eoffill, style);
         } else if (qscilexerruby_seteolfill_callback != nullptr) {
-            qscilexerruby_seteolfill_callback(this, eoffill, style);
+            bool cbval1 = eoffill;
+            int cbval2 = style;
+
+            qscilexerruby_seteolfill_callback(this, cbval1, cbval2);
         } else {
             QsciLexerRuby::setEolFill(eoffill, style);
         }
@@ -672,7 +759,12 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_setfont_isbase = false;
             QsciLexerRuby::setFont(f, style);
         } else if (qscilexerruby_setfont_callback != nullptr) {
-            qscilexerruby_setfont_callback(this, f, style);
+            const QFont& f_ret = f;
+            // Cast returned reference into pointer
+            QFont* cbval1 = const_cast<QFont*>(&f_ret);
+            int cbval2 = style;
+
+            qscilexerruby_setfont_callback(this, cbval1, cbval2);
         } else {
             QsciLexerRuby::setFont(f, style);
         }
@@ -684,7 +776,12 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_setpaper_isbase = false;
             QsciLexerRuby::setPaper(c, style);
         } else if (qscilexerruby_setpaper_callback != nullptr) {
-            qscilexerruby_setpaper_callback(this, c, style);
+            const QColor& c_ret = c;
+            // Cast returned reference into pointer
+            QColor* cbval1 = const_cast<QColor*>(&c_ret);
+            int cbval2 = style;
+
+            qscilexerruby_setpaper_callback(this, cbval1, cbval2);
         } else {
             QsciLexerRuby::setPaper(c, style);
         }
@@ -696,7 +793,21 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_readproperties_isbase = false;
             return QsciLexerRuby::readProperties(qs, prefix);
         } else if (qscilexerruby_readproperties_callback != nullptr) {
-            return qscilexerruby_readproperties_callback(this, qs, prefix);
+            QSettings& qs_ret = qs;
+            // Cast returned reference into pointer
+            QSettings* cbval1 = &qs_ret;
+            const QString prefix_ret = prefix;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray prefix_b = prefix_ret.toUtf8();
+            libqt_string prefix_str;
+            prefix_str.len = prefix_b.length();
+            prefix_str.data = static_cast<char*>(malloc((prefix_str.len + 1) * sizeof(char)));
+            memcpy(prefix_str.data, prefix_b.data(), prefix_str.len);
+            prefix_str.data[prefix_str.len] = '\0';
+            libqt_string cbval2 = prefix_str;
+
+            bool callback_ret = qscilexerruby_readproperties_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QsciLexerRuby::readProperties(qs, prefix);
         }
@@ -708,7 +819,21 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_writeproperties_isbase = false;
             return QsciLexerRuby::writeProperties(qs, prefix);
         } else if (qscilexerruby_writeproperties_callback != nullptr) {
-            return qscilexerruby_writeproperties_callback(this, qs, prefix);
+            QSettings& qs_ret = qs;
+            // Cast returned reference into pointer
+            QSettings* cbval1 = &qs_ret;
+            const QString prefix_ret = prefix;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray prefix_b = prefix_ret.toUtf8();
+            libqt_string prefix_str;
+            prefix_str.len = prefix_b.length();
+            prefix_str.data = static_cast<char*>(malloc((prefix_str.len + 1) * sizeof(char)));
+            memcpy(prefix_str.data, prefix_b.data(), prefix_str.len);
+            prefix_str.data[prefix_str.len] = '\0';
+            libqt_string cbval2 = prefix_str;
+
+            bool callback_ret = qscilexerruby_writeproperties_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QsciLexerRuby::writeProperties(qs, prefix);
         }
@@ -720,7 +845,10 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_event_isbase = false;
             return QsciLexerRuby::event(event);
         } else if (qscilexerruby_event_callback != nullptr) {
-            return qscilexerruby_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qscilexerruby_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerRuby::event(event);
         }
@@ -732,7 +860,11 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_eventfilter_isbase = false;
             return QsciLexerRuby::eventFilter(watched, event);
         } else if (qscilexerruby_eventfilter_callback != nullptr) {
-            return qscilexerruby_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qscilexerruby_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QsciLexerRuby::eventFilter(watched, event);
         }
@@ -744,7 +876,9 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_timerevent_isbase = false;
             QsciLexerRuby::timerEvent(event);
         } else if (qscilexerruby_timerevent_callback != nullptr) {
-            qscilexerruby_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qscilexerruby_timerevent_callback(this, cbval1);
         } else {
             QsciLexerRuby::timerEvent(event);
         }
@@ -756,7 +890,9 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_childevent_isbase = false;
             QsciLexerRuby::childEvent(event);
         } else if (qscilexerruby_childevent_callback != nullptr) {
-            qscilexerruby_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qscilexerruby_childevent_callback(this, cbval1);
         } else {
             QsciLexerRuby::childEvent(event);
         }
@@ -768,7 +904,9 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_customevent_isbase = false;
             QsciLexerRuby::customEvent(event);
         } else if (qscilexerruby_customevent_callback != nullptr) {
-            qscilexerruby_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qscilexerruby_customevent_callback(this, cbval1);
         } else {
             QsciLexerRuby::customEvent(event);
         }
@@ -780,7 +918,11 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_connectnotify_isbase = false;
             QsciLexerRuby::connectNotify(signal);
         } else if (qscilexerruby_connectnotify_callback != nullptr) {
-            qscilexerruby_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qscilexerruby_connectnotify_callback(this, cbval1);
         } else {
             QsciLexerRuby::connectNotify(signal);
         }
@@ -792,7 +934,11 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_disconnectnotify_isbase = false;
             QsciLexerRuby::disconnectNotify(signal);
         } else if (qscilexerruby_disconnectnotify_callback != nullptr) {
-            qscilexerruby_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qscilexerruby_disconnectnotify_callback(this, cbval1);
         } else {
             QsciLexerRuby::disconnectNotify(signal);
         }
@@ -804,7 +950,8 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_sender_isbase = false;
             return QsciLexerRuby::sender();
         } else if (qscilexerruby_sender_callback != nullptr) {
-            return qscilexerruby_sender_callback();
+            QObject* callback_ret = qscilexerruby_sender_callback();
+            return callback_ret;
         } else {
             return QsciLexerRuby::sender();
         }
@@ -816,7 +963,8 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_sendersignalindex_isbase = false;
             return QsciLexerRuby::senderSignalIndex();
         } else if (qscilexerruby_sendersignalindex_callback != nullptr) {
-            return qscilexerruby_sendersignalindex_callback();
+            int callback_ret = qscilexerruby_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerRuby::senderSignalIndex();
         }
@@ -828,7 +976,10 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_receivers_isbase = false;
             return QsciLexerRuby::receivers(signal);
         } else if (qscilexerruby_receivers_callback != nullptr) {
-            return qscilexerruby_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qscilexerruby_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QsciLexerRuby::receivers(signal);
         }
@@ -840,11 +991,40 @@ class VirtualQsciLexerRuby : public QsciLexerRuby {
             qscilexerruby_issignalconnected_isbase = false;
             return QsciLexerRuby::isSignalConnected(signal);
         } else if (qscilexerruby_issignalconnected_callback != nullptr) {
-            return qscilexerruby_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qscilexerruby_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QsciLexerRuby::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QsciLexerRuby_ReadProperties(QsciLexerRuby* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerRuby_QBaseReadProperties(QsciLexerRuby* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerRuby_WriteProperties(const QsciLexerRuby* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerRuby_QBaseWriteProperties(const QsciLexerRuby* self, QSettings* qs, const libqt_string prefix);
+    friend void QsciLexerRuby_TimerEvent(QsciLexerRuby* self, QTimerEvent* event);
+    friend void QsciLexerRuby_QBaseTimerEvent(QsciLexerRuby* self, QTimerEvent* event);
+    friend void QsciLexerRuby_ChildEvent(QsciLexerRuby* self, QChildEvent* event);
+    friend void QsciLexerRuby_QBaseChildEvent(QsciLexerRuby* self, QChildEvent* event);
+    friend void QsciLexerRuby_CustomEvent(QsciLexerRuby* self, QEvent* event);
+    friend void QsciLexerRuby_QBaseCustomEvent(QsciLexerRuby* self, QEvent* event);
+    friend void QsciLexerRuby_ConnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
+    friend void QsciLexerRuby_QBaseConnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
+    friend void QsciLexerRuby_DisconnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
+    friend void QsciLexerRuby_QBaseDisconnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
+    friend QObject* QsciLexerRuby_Sender(const QsciLexerRuby* self);
+    friend QObject* QsciLexerRuby_QBaseSender(const QsciLexerRuby* self);
+    friend int QsciLexerRuby_SenderSignalIndex(const QsciLexerRuby* self);
+    friend int QsciLexerRuby_QBaseSenderSignalIndex(const QsciLexerRuby* self);
+    friend int QsciLexerRuby_Receivers(const QsciLexerRuby* self, const char* signal);
+    friend int QsciLexerRuby_QBaseReceivers(const QsciLexerRuby* self, const char* signal);
+    friend bool QsciLexerRuby_IsSignalConnected(const QsciLexerRuby* self, const QMetaMethod* signal);
+    friend bool QsciLexerRuby_QBaseIsSignalConnected(const QsciLexerRuby* self, const QMetaMethod* signal);
 };
 
 #endif

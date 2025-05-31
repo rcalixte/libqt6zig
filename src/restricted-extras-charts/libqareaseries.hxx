@@ -11,23 +11,26 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QAreaSeries so that we can call protected methods
-class VirtualQAreaSeries : public QAreaSeries {
+class VirtualQAreaSeries final : public QAreaSeries {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQAreaSeries = true;
+
     // Virtual class public types (including callbacks)
-    using QAreaSeries_Metacall_Callback = int (*)(QAreaSeries*, QMetaObject::Call, int, void**);
-    using QAreaSeries_Type_Callback = QAbstractSeries::SeriesType (*)();
+    using QAreaSeries_Metacall_Callback = int (*)(QAreaSeries*, int, int, void**);
+    using QAreaSeries_Type_Callback = int (*)();
     using QAreaSeries_Event_Callback = bool (*)(QAreaSeries*, QEvent*);
     using QAreaSeries_EventFilter_Callback = bool (*)(QAreaSeries*, QObject*, QEvent*);
     using QAreaSeries_TimerEvent_Callback = void (*)(QAreaSeries*, QTimerEvent*);
     using QAreaSeries_ChildEvent_Callback = void (*)(QAreaSeries*, QChildEvent*);
     using QAreaSeries_CustomEvent_Callback = void (*)(QAreaSeries*, QEvent*);
-    using QAreaSeries_ConnectNotify_Callback = void (*)(QAreaSeries*, const QMetaMethod&);
-    using QAreaSeries_DisconnectNotify_Callback = void (*)(QAreaSeries*, const QMetaMethod&);
+    using QAreaSeries_ConnectNotify_Callback = void (*)(QAreaSeries*, QMetaMethod*);
+    using QAreaSeries_DisconnectNotify_Callback = void (*)(QAreaSeries*, QMetaMethod*);
     using QAreaSeries_Sender_Callback = QObject* (*)();
     using QAreaSeries_SenderSignalIndex_Callback = int (*)();
     using QAreaSeries_Receivers_Callback = int (*)(const QAreaSeries*, const char*);
-    using QAreaSeries_IsSignalConnected_Callback = bool (*)(const QAreaSeries*, const QMetaMethod&);
+    using QAreaSeries_IsSignalConnected_Callback = bool (*)(const QAreaSeries*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -83,34 +86,34 @@ class VirtualQAreaSeries : public QAreaSeries {
     }
 
     // Callback setters
-    void setQAreaSeries_Metacall_Callback(QAreaSeries_Metacall_Callback cb) { qareaseries_metacall_callback = cb; }
-    void setQAreaSeries_Type_Callback(QAreaSeries_Type_Callback cb) { qareaseries_type_callback = cb; }
-    void setQAreaSeries_Event_Callback(QAreaSeries_Event_Callback cb) { qareaseries_event_callback = cb; }
-    void setQAreaSeries_EventFilter_Callback(QAreaSeries_EventFilter_Callback cb) { qareaseries_eventfilter_callback = cb; }
-    void setQAreaSeries_TimerEvent_Callback(QAreaSeries_TimerEvent_Callback cb) { qareaseries_timerevent_callback = cb; }
-    void setQAreaSeries_ChildEvent_Callback(QAreaSeries_ChildEvent_Callback cb) { qareaseries_childevent_callback = cb; }
-    void setQAreaSeries_CustomEvent_Callback(QAreaSeries_CustomEvent_Callback cb) { qareaseries_customevent_callback = cb; }
-    void setQAreaSeries_ConnectNotify_Callback(QAreaSeries_ConnectNotify_Callback cb) { qareaseries_connectnotify_callback = cb; }
-    void setQAreaSeries_DisconnectNotify_Callback(QAreaSeries_DisconnectNotify_Callback cb) { qareaseries_disconnectnotify_callback = cb; }
-    void setQAreaSeries_Sender_Callback(QAreaSeries_Sender_Callback cb) { qareaseries_sender_callback = cb; }
-    void setQAreaSeries_SenderSignalIndex_Callback(QAreaSeries_SenderSignalIndex_Callback cb) { qareaseries_sendersignalindex_callback = cb; }
-    void setQAreaSeries_Receivers_Callback(QAreaSeries_Receivers_Callback cb) { qareaseries_receivers_callback = cb; }
-    void setQAreaSeries_IsSignalConnected_Callback(QAreaSeries_IsSignalConnected_Callback cb) { qareaseries_issignalconnected_callback = cb; }
+    inline void setQAreaSeries_Metacall_Callback(QAreaSeries_Metacall_Callback cb) { qareaseries_metacall_callback = cb; }
+    inline void setQAreaSeries_Type_Callback(QAreaSeries_Type_Callback cb) { qareaseries_type_callback = cb; }
+    inline void setQAreaSeries_Event_Callback(QAreaSeries_Event_Callback cb) { qareaseries_event_callback = cb; }
+    inline void setQAreaSeries_EventFilter_Callback(QAreaSeries_EventFilter_Callback cb) { qareaseries_eventfilter_callback = cb; }
+    inline void setQAreaSeries_TimerEvent_Callback(QAreaSeries_TimerEvent_Callback cb) { qareaseries_timerevent_callback = cb; }
+    inline void setQAreaSeries_ChildEvent_Callback(QAreaSeries_ChildEvent_Callback cb) { qareaseries_childevent_callback = cb; }
+    inline void setQAreaSeries_CustomEvent_Callback(QAreaSeries_CustomEvent_Callback cb) { qareaseries_customevent_callback = cb; }
+    inline void setQAreaSeries_ConnectNotify_Callback(QAreaSeries_ConnectNotify_Callback cb) { qareaseries_connectnotify_callback = cb; }
+    inline void setQAreaSeries_DisconnectNotify_Callback(QAreaSeries_DisconnectNotify_Callback cb) { qareaseries_disconnectnotify_callback = cb; }
+    inline void setQAreaSeries_Sender_Callback(QAreaSeries_Sender_Callback cb) { qareaseries_sender_callback = cb; }
+    inline void setQAreaSeries_SenderSignalIndex_Callback(QAreaSeries_SenderSignalIndex_Callback cb) { qareaseries_sendersignalindex_callback = cb; }
+    inline void setQAreaSeries_Receivers_Callback(QAreaSeries_Receivers_Callback cb) { qareaseries_receivers_callback = cb; }
+    inline void setQAreaSeries_IsSignalConnected_Callback(QAreaSeries_IsSignalConnected_Callback cb) { qareaseries_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQAreaSeries_Metacall_IsBase(bool value) const { qareaseries_metacall_isbase = value; }
-    void setQAreaSeries_Type_IsBase(bool value) const { qareaseries_type_isbase = value; }
-    void setQAreaSeries_Event_IsBase(bool value) const { qareaseries_event_isbase = value; }
-    void setQAreaSeries_EventFilter_IsBase(bool value) const { qareaseries_eventfilter_isbase = value; }
-    void setQAreaSeries_TimerEvent_IsBase(bool value) const { qareaseries_timerevent_isbase = value; }
-    void setQAreaSeries_ChildEvent_IsBase(bool value) const { qareaseries_childevent_isbase = value; }
-    void setQAreaSeries_CustomEvent_IsBase(bool value) const { qareaseries_customevent_isbase = value; }
-    void setQAreaSeries_ConnectNotify_IsBase(bool value) const { qareaseries_connectnotify_isbase = value; }
-    void setQAreaSeries_DisconnectNotify_IsBase(bool value) const { qareaseries_disconnectnotify_isbase = value; }
-    void setQAreaSeries_Sender_IsBase(bool value) const { qareaseries_sender_isbase = value; }
-    void setQAreaSeries_SenderSignalIndex_IsBase(bool value) const { qareaseries_sendersignalindex_isbase = value; }
-    void setQAreaSeries_Receivers_IsBase(bool value) const { qareaseries_receivers_isbase = value; }
-    void setQAreaSeries_IsSignalConnected_IsBase(bool value) const { qareaseries_issignalconnected_isbase = value; }
+    inline void setQAreaSeries_Metacall_IsBase(bool value) const { qareaseries_metacall_isbase = value; }
+    inline void setQAreaSeries_Type_IsBase(bool value) const { qareaseries_type_isbase = value; }
+    inline void setQAreaSeries_Event_IsBase(bool value) const { qareaseries_event_isbase = value; }
+    inline void setQAreaSeries_EventFilter_IsBase(bool value) const { qareaseries_eventfilter_isbase = value; }
+    inline void setQAreaSeries_TimerEvent_IsBase(bool value) const { qareaseries_timerevent_isbase = value; }
+    inline void setQAreaSeries_ChildEvent_IsBase(bool value) const { qareaseries_childevent_isbase = value; }
+    inline void setQAreaSeries_CustomEvent_IsBase(bool value) const { qareaseries_customevent_isbase = value; }
+    inline void setQAreaSeries_ConnectNotify_IsBase(bool value) const { qareaseries_connectnotify_isbase = value; }
+    inline void setQAreaSeries_DisconnectNotify_IsBase(bool value) const { qareaseries_disconnectnotify_isbase = value; }
+    inline void setQAreaSeries_Sender_IsBase(bool value) const { qareaseries_sender_isbase = value; }
+    inline void setQAreaSeries_SenderSignalIndex_IsBase(bool value) const { qareaseries_sendersignalindex_isbase = value; }
+    inline void setQAreaSeries_Receivers_IsBase(bool value) const { qareaseries_receivers_isbase = value; }
+    inline void setQAreaSeries_IsSignalConnected_IsBase(bool value) const { qareaseries_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -118,7 +121,12 @@ class VirtualQAreaSeries : public QAreaSeries {
             qareaseries_metacall_isbase = false;
             return QAreaSeries::qt_metacall(param1, param2, param3);
         } else if (qareaseries_metacall_callback != nullptr) {
-            return qareaseries_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qareaseries_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QAreaSeries::qt_metacall(param1, param2, param3);
         }
@@ -130,7 +138,8 @@ class VirtualQAreaSeries : public QAreaSeries {
             qareaseries_type_isbase = false;
             return QAreaSeries::type();
         } else if (qareaseries_type_callback != nullptr) {
-            return qareaseries_type_callback();
+            int callback_ret = qareaseries_type_callback();
+            return static_cast<QAbstractSeries::SeriesType>(callback_ret);
         } else {
             return QAreaSeries::type();
         }
@@ -142,7 +151,10 @@ class VirtualQAreaSeries : public QAreaSeries {
             qareaseries_event_isbase = false;
             return QAreaSeries::event(event);
         } else if (qareaseries_event_callback != nullptr) {
-            return qareaseries_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qareaseries_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAreaSeries::event(event);
         }
@@ -154,7 +166,11 @@ class VirtualQAreaSeries : public QAreaSeries {
             qareaseries_eventfilter_isbase = false;
             return QAreaSeries::eventFilter(watched, event);
         } else if (qareaseries_eventfilter_callback != nullptr) {
-            return qareaseries_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qareaseries_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QAreaSeries::eventFilter(watched, event);
         }
@@ -166,7 +182,9 @@ class VirtualQAreaSeries : public QAreaSeries {
             qareaseries_timerevent_isbase = false;
             QAreaSeries::timerEvent(event);
         } else if (qareaseries_timerevent_callback != nullptr) {
-            qareaseries_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qareaseries_timerevent_callback(this, cbval1);
         } else {
             QAreaSeries::timerEvent(event);
         }
@@ -178,7 +196,9 @@ class VirtualQAreaSeries : public QAreaSeries {
             qareaseries_childevent_isbase = false;
             QAreaSeries::childEvent(event);
         } else if (qareaseries_childevent_callback != nullptr) {
-            qareaseries_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qareaseries_childevent_callback(this, cbval1);
         } else {
             QAreaSeries::childEvent(event);
         }
@@ -190,7 +210,9 @@ class VirtualQAreaSeries : public QAreaSeries {
             qareaseries_customevent_isbase = false;
             QAreaSeries::customEvent(event);
         } else if (qareaseries_customevent_callback != nullptr) {
-            qareaseries_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qareaseries_customevent_callback(this, cbval1);
         } else {
             QAreaSeries::customEvent(event);
         }
@@ -202,7 +224,11 @@ class VirtualQAreaSeries : public QAreaSeries {
             qareaseries_connectnotify_isbase = false;
             QAreaSeries::connectNotify(signal);
         } else if (qareaseries_connectnotify_callback != nullptr) {
-            qareaseries_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qareaseries_connectnotify_callback(this, cbval1);
         } else {
             QAreaSeries::connectNotify(signal);
         }
@@ -214,7 +240,11 @@ class VirtualQAreaSeries : public QAreaSeries {
             qareaseries_disconnectnotify_isbase = false;
             QAreaSeries::disconnectNotify(signal);
         } else if (qareaseries_disconnectnotify_callback != nullptr) {
-            qareaseries_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qareaseries_disconnectnotify_callback(this, cbval1);
         } else {
             QAreaSeries::disconnectNotify(signal);
         }
@@ -226,7 +256,8 @@ class VirtualQAreaSeries : public QAreaSeries {
             qareaseries_sender_isbase = false;
             return QAreaSeries::sender();
         } else if (qareaseries_sender_callback != nullptr) {
-            return qareaseries_sender_callback();
+            QObject* callback_ret = qareaseries_sender_callback();
+            return callback_ret;
         } else {
             return QAreaSeries::sender();
         }
@@ -238,7 +269,8 @@ class VirtualQAreaSeries : public QAreaSeries {
             qareaseries_sendersignalindex_isbase = false;
             return QAreaSeries::senderSignalIndex();
         } else if (qareaseries_sendersignalindex_callback != nullptr) {
-            return qareaseries_sendersignalindex_callback();
+            int callback_ret = qareaseries_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QAreaSeries::senderSignalIndex();
         }
@@ -250,7 +282,10 @@ class VirtualQAreaSeries : public QAreaSeries {
             qareaseries_receivers_isbase = false;
             return QAreaSeries::receivers(signal);
         } else if (qareaseries_receivers_callback != nullptr) {
-            return qareaseries_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qareaseries_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QAreaSeries::receivers(signal);
         }
@@ -262,11 +297,36 @@ class VirtualQAreaSeries : public QAreaSeries {
             qareaseries_issignalconnected_isbase = false;
             return QAreaSeries::isSignalConnected(signal);
         } else if (qareaseries_issignalconnected_callback != nullptr) {
-            return qareaseries_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qareaseries_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAreaSeries::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QAreaSeries_TimerEvent(QAreaSeries* self, QTimerEvent* event);
+    friend void QAreaSeries_QBaseTimerEvent(QAreaSeries* self, QTimerEvent* event);
+    friend void QAreaSeries_ChildEvent(QAreaSeries* self, QChildEvent* event);
+    friend void QAreaSeries_QBaseChildEvent(QAreaSeries* self, QChildEvent* event);
+    friend void QAreaSeries_CustomEvent(QAreaSeries* self, QEvent* event);
+    friend void QAreaSeries_QBaseCustomEvent(QAreaSeries* self, QEvent* event);
+    friend void QAreaSeries_ConnectNotify(QAreaSeries* self, const QMetaMethod* signal);
+    friend void QAreaSeries_QBaseConnectNotify(QAreaSeries* self, const QMetaMethod* signal);
+    friend void QAreaSeries_DisconnectNotify(QAreaSeries* self, const QMetaMethod* signal);
+    friend void QAreaSeries_QBaseDisconnectNotify(QAreaSeries* self, const QMetaMethod* signal);
+    friend QObject* QAreaSeries_Sender(const QAreaSeries* self);
+    friend QObject* QAreaSeries_QBaseSender(const QAreaSeries* self);
+    friend int QAreaSeries_SenderSignalIndex(const QAreaSeries* self);
+    friend int QAreaSeries_QBaseSenderSignalIndex(const QAreaSeries* self);
+    friend int QAreaSeries_Receivers(const QAreaSeries* self, const char* signal);
+    friend int QAreaSeries_QBaseReceivers(const QAreaSeries* self, const char* signal);
+    friend bool QAreaSeries_IsSignalConnected(const QAreaSeries* self, const QMetaMethod* signal);
+    friend bool QAreaSeries_QBaseIsSignalConnected(const QAreaSeries* self, const QMetaMethod* signal);
 };
 
 #endif

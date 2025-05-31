@@ -1,67 +1,70 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 
 /// https://doc.qt.io/qt-6/qwebenginequotarequest.html
 pub const qwebenginequotarequest = struct {
     /// New constructs a new QWebEngineQuotaRequest object.
     ///
     ///
-    pub fn New() ?*C.QWebEngineQuotaRequest {
-        return C.QWebEngineQuotaRequest_new();
+    pub fn New() QtC.QWebEngineQuotaRequest {
+        return qtc.QWebEngineQuotaRequest_new();
     }
 
     /// New2 constructs a new QWebEngineQuotaRequest object.
     ///
-    /// ``` param1: ?*C.QWebEngineQuotaRequest ```
-    pub fn New2(param1: ?*anyopaque) ?*C.QWebEngineQuotaRequest {
-        return C.QWebEngineQuotaRequest_new2(@ptrCast(param1));
+    /// ``` param1: QtC.QWebEngineQuotaRequest ```
+    pub fn New2(param1: ?*anyopaque) QtC.QWebEngineQuotaRequest {
+        return qtc.QWebEngineQuotaRequest_new2(@ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#accept)
     ///
-    /// ``` self: ?*C.QWebEngineQuotaRequest ```
+    /// ``` self: QtC.QWebEngineQuotaRequest ```
     pub fn Accept(self: ?*anyopaque) void {
-        C.QWebEngineQuotaRequest_Accept(@ptrCast(self));
+        qtc.QWebEngineQuotaRequest_Accept(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#reject)
     ///
-    /// ``` self: ?*C.QWebEngineQuotaRequest ```
+    /// ``` self: QtC.QWebEngineQuotaRequest ```
     pub fn Reject(self: ?*anyopaque) void {
-        C.QWebEngineQuotaRequest_Reject(@ptrCast(self));
+        qtc.QWebEngineQuotaRequest_Reject(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#origin)
     ///
-    /// ``` self: ?*C.QWebEngineQuotaRequest ```
-    pub fn Origin(self: ?*anyopaque) ?*C.QUrl {
-        return C.QWebEngineQuotaRequest_Origin(@ptrCast(self));
+    /// ``` self: QtC.QWebEngineQuotaRequest ```
+    pub fn Origin(self: ?*anyopaque) QtC.QUrl {
+        return qtc.QWebEngineQuotaRequest_Origin(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#requestedSize)
     ///
-    /// ``` self: ?*C.QWebEngineQuotaRequest ```
+    /// ``` self: QtC.QWebEngineQuotaRequest ```
     pub fn RequestedSize(self: ?*anyopaque) i64 {
-        return C.QWebEngineQuotaRequest_RequestedSize(@ptrCast(self));
+        return qtc.QWebEngineQuotaRequest_RequestedSize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#operator==)
     ///
-    /// ``` self: ?*C.QWebEngineQuotaRequest, that: ?*C.QWebEngineQuotaRequest ```
+    /// ``` self: QtC.QWebEngineQuotaRequest, that: QtC.QWebEngineQuotaRequest ```
     pub fn OperatorEqual(self: ?*anyopaque, that: ?*anyopaque) bool {
-        return C.QWebEngineQuotaRequest_OperatorEqual(@ptrCast(self), @ptrCast(that));
+        return qtc.QWebEngineQuotaRequest_OperatorEqual(@ptrCast(self), @ptrCast(that));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#operator!=)
     ///
-    /// ``` self: ?*C.QWebEngineQuotaRequest, that: ?*C.QWebEngineQuotaRequest ```
+    /// ``` self: QtC.QWebEngineQuotaRequest, that: QtC.QWebEngineQuotaRequest ```
     pub fn OperatorNotEqual(self: ?*anyopaque, that: ?*anyopaque) bool {
-        return C.QWebEngineQuotaRequest_OperatorNotEqual(@ptrCast(self), @ptrCast(that));
+        return qtc.QWebEngineQuotaRequest_OperatorNotEqual(@ptrCast(self), @ptrCast(that));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#dtor.QWebEngineQuotaRequest)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QWebEngineQuotaRequest ```
+    /// ``` self: QtC.QWebEngineQuotaRequest ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QWebEngineQuotaRequest_Delete(@ptrCast(self));
+        qtc.QWebEngineQuotaRequest_Delete(@ptrCast(self));
     }
 };

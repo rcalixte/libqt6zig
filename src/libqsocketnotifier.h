@@ -15,23 +15,15 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSocketDescriptor QSocketDescriptor;
 typedef struct QSocketNotifier QSocketNotifier;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
@@ -75,12 +67,12 @@ void QSocketNotifier_QBaseChildEvent(QSocketNotifier* self, QChildEvent* event);
 void QSocketNotifier_CustomEvent(QSocketNotifier* self, QEvent* event);
 void QSocketNotifier_OnCustomEvent(QSocketNotifier* self, intptr_t slot);
 void QSocketNotifier_QBaseCustomEvent(QSocketNotifier* self, QEvent* event);
-void QSocketNotifier_ConnectNotify(QSocketNotifier* self, QMetaMethod* signal);
+void QSocketNotifier_ConnectNotify(QSocketNotifier* self, const QMetaMethod* signal);
 void QSocketNotifier_OnConnectNotify(QSocketNotifier* self, intptr_t slot);
-void QSocketNotifier_QBaseConnectNotify(QSocketNotifier* self, QMetaMethod* signal);
-void QSocketNotifier_DisconnectNotify(QSocketNotifier* self, QMetaMethod* signal);
+void QSocketNotifier_QBaseConnectNotify(QSocketNotifier* self, const QMetaMethod* signal);
+void QSocketNotifier_DisconnectNotify(QSocketNotifier* self, const QMetaMethod* signal);
 void QSocketNotifier_OnDisconnectNotify(QSocketNotifier* self, intptr_t slot);
-void QSocketNotifier_QBaseDisconnectNotify(QSocketNotifier* self, QMetaMethod* signal);
+void QSocketNotifier_QBaseDisconnectNotify(QSocketNotifier* self, const QMetaMethod* signal);
 QObject* QSocketNotifier_Sender(const QSocketNotifier* self);
 void QSocketNotifier_OnSender(const QSocketNotifier* self, intptr_t slot);
 QObject* QSocketNotifier_QBaseSender(const QSocketNotifier* self);
@@ -90,15 +82,16 @@ int QSocketNotifier_QBaseSenderSignalIndex(const QSocketNotifier* self);
 int QSocketNotifier_Receivers(const QSocketNotifier* self, const char* signal);
 void QSocketNotifier_OnReceivers(const QSocketNotifier* self, intptr_t slot);
 int QSocketNotifier_QBaseReceivers(const QSocketNotifier* self, const char* signal);
-bool QSocketNotifier_IsSignalConnected(const QSocketNotifier* self, QMetaMethod* signal);
+bool QSocketNotifier_IsSignalConnected(const QSocketNotifier* self, const QMetaMethod* signal);
 void QSocketNotifier_OnIsSignalConnected(const QSocketNotifier* self, intptr_t slot);
-bool QSocketNotifier_QBaseIsSignalConnected(const QSocketNotifier* self, QMetaMethod* signal);
+bool QSocketNotifier_QBaseIsSignalConnected(const QSocketNotifier* self, const QMetaMethod* signal);
+void QSocketNotifier_Connect_Activated(QSocketNotifier* self, intptr_t slot);
 void QSocketNotifier_Delete(QSocketNotifier* self);
 
-QSocketDescriptor* QSocketDescriptor_new(QSocketDescriptor* other);
+QSocketDescriptor* QSocketDescriptor_new(const QSocketDescriptor* other);
 QSocketDescriptor* QSocketDescriptor_new2(QSocketDescriptor* other);
 QSocketDescriptor* QSocketDescriptor_new3();
-QSocketDescriptor* QSocketDescriptor_new4(QSocketDescriptor* param1);
+QSocketDescriptor* QSocketDescriptor_new4(const QSocketDescriptor* param1);
 QSocketDescriptor* QSocketDescriptor_new5(int descriptor);
 void QSocketDescriptor_CopyAssign(QSocketDescriptor* self, QSocketDescriptor* other);
 void QSocketDescriptor_MoveAssign(QSocketDescriptor* self, QSocketDescriptor* other);

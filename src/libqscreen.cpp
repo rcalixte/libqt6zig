@@ -1,12 +1,6 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
-#include <QChildEvent>
-#include <QEvent>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QPixmap>
 #include <QPoint>
@@ -17,10 +11,7 @@
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
 #include <QTransform>
-#include <QVariant>
 #include <qscreen.h>
 #include "libqscreen.h"
 #include "libqscreen.hxx"
@@ -198,11 +189,11 @@ int QScreen_AngleBetween(const QScreen* self, int a, int b) {
     return self->angleBetween(static_cast<Qt::ScreenOrientation>(a), static_cast<Qt::ScreenOrientation>(b));
 }
 
-QTransform* QScreen_TransformBetween(const QScreen* self, int a, int b, QRect* target) {
+QTransform* QScreen_TransformBetween(const QScreen* self, int a, int b, const QRect* target) {
     return new QTransform(self->transformBetween(static_cast<Qt::ScreenOrientation>(a), static_cast<Qt::ScreenOrientation>(b), *target));
 }
 
-QRect* QScreen_MapBetween(const QScreen* self, int a, int b, QRect* rect) {
+QRect* QScreen_MapBetween(const QScreen* self, int a, int b, const QRect* rect) {
     return new QRect(self->mapBetween(static_cast<Qt::ScreenOrientation>(a), static_cast<Qt::ScreenOrientation>(b), *rect));
 }
 
@@ -222,7 +213,7 @@ double QScreen_RefreshRate(const QScreen* self) {
     return static_cast<double>(self->refreshRate());
 }
 
-void QScreen_GeometryChanged(QScreen* self, QRect* geometry) {
+void QScreen_GeometryChanged(QScreen* self, const QRect* geometry) {
     self->geometryChanged(*geometry);
 }
 
@@ -236,7 +227,7 @@ void QScreen_Connect_GeometryChanged(QScreen* self, intptr_t slot) {
     });
 }
 
-void QScreen_AvailableGeometryChanged(QScreen* self, QRect* geometry) {
+void QScreen_AvailableGeometryChanged(QScreen* self, const QRect* geometry) {
     self->availableGeometryChanged(*geometry);
 }
 
@@ -250,7 +241,7 @@ void QScreen_Connect_AvailableGeometryChanged(QScreen* self, intptr_t slot) {
     });
 }
 
-void QScreen_PhysicalSizeChanged(QScreen* self, QSizeF* size) {
+void QScreen_PhysicalSizeChanged(QScreen* self, const QSizeF* size) {
     self->physicalSizeChanged(*size);
 }
 
@@ -288,7 +279,7 @@ void QScreen_Connect_LogicalDotsPerInchChanged(QScreen* self, intptr_t slot) {
     });
 }
 
-void QScreen_VirtualGeometryChanged(QScreen* self, QRect* rect) {
+void QScreen_VirtualGeometryChanged(QScreen* self, const QRect* rect) {
     self->virtualGeometryChanged(*rect);
 }
 
@@ -380,14 +371,6 @@ QPixmap* QScreen_GrabWindow4(QScreen* self, uintptr_t window, int x, int y, int 
 
 QPixmap* QScreen_GrabWindow5(QScreen* self, uintptr_t window, int x, int y, int w, int h) {
     return new QPixmap(self->grabWindow(static_cast<WId>(window), static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h)));
-}
-
-bool QScreen_Event(QScreen* self, QEvent* event) {
-    return self->event(event);
-}
-
-bool QScreen_EventFilter(QScreen* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
 }
 
 void QScreen_Delete(QScreen* self) {

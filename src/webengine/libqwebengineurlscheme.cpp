@@ -8,24 +8,24 @@ QWebEngineUrlScheme* QWebEngineUrlScheme_new() {
     return new QWebEngineUrlScheme();
 }
 
-QWebEngineUrlScheme* QWebEngineUrlScheme_new2(libqt_string name) {
+QWebEngineUrlScheme* QWebEngineUrlScheme_new2(const libqt_string name) {
     QByteArray name_QByteArray(name.data, name.len);
     return new QWebEngineUrlScheme(name_QByteArray);
 }
 
-QWebEngineUrlScheme* QWebEngineUrlScheme_new3(QWebEngineUrlScheme* that) {
+QWebEngineUrlScheme* QWebEngineUrlScheme_new3(const QWebEngineUrlScheme* that) {
     return new QWebEngineUrlScheme(*that);
 }
 
-void QWebEngineUrlScheme_OperatorAssign(QWebEngineUrlScheme* self, QWebEngineUrlScheme* that) {
+void QWebEngineUrlScheme_OperatorAssign(QWebEngineUrlScheme* self, const QWebEngineUrlScheme* that) {
     self->operator=(*that);
 }
 
-bool QWebEngineUrlScheme_OperatorEqual(const QWebEngineUrlScheme* self, QWebEngineUrlScheme* that) {
+bool QWebEngineUrlScheme_OperatorEqual(const QWebEngineUrlScheme* self, const QWebEngineUrlScheme* that) {
     return (*self == *that);
 }
 
-bool QWebEngineUrlScheme_OperatorNotEqual(const QWebEngineUrlScheme* self, QWebEngineUrlScheme* that) {
+bool QWebEngineUrlScheme_OperatorNotEqual(const QWebEngineUrlScheme* self, const QWebEngineUrlScheme* that) {
     return (*self != *that);
 }
 
@@ -39,7 +39,7 @@ libqt_string QWebEngineUrlScheme_Name(const QWebEngineUrlScheme* self) {
     return _str;
 }
 
-void QWebEngineUrlScheme_SetName(QWebEngineUrlScheme* self, libqt_string newValue) {
+void QWebEngineUrlScheme_SetName(QWebEngineUrlScheme* self, const libqt_string newValue) {
     QByteArray newValue_QByteArray(newValue.data, newValue.len);
     self->setName(newValue_QByteArray);
 }
@@ -68,11 +68,11 @@ void QWebEngineUrlScheme_SetFlags(QWebEngineUrlScheme* self, int newValue) {
     self->setFlags(static_cast<QWebEngineUrlScheme::Flags>(newValue));
 }
 
-void QWebEngineUrlScheme_RegisterScheme(QWebEngineUrlScheme* scheme) {
+void QWebEngineUrlScheme_RegisterScheme(const QWebEngineUrlScheme* scheme) {
     QWebEngineUrlScheme::registerScheme(*scheme);
 }
 
-QWebEngineUrlScheme* QWebEngineUrlScheme_SchemeByName(libqt_string name) {
+QWebEngineUrlScheme* QWebEngineUrlScheme_SchemeByName(const libqt_string name) {
     QByteArray name_QByteArray(name.data, name.len);
     return new QWebEngineUrlScheme(QWebEngineUrlScheme::schemeByName(name_QByteArray));
 }

@@ -1,20 +1,13 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
 #include <QJsonObject>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <QWebChannelAbstractTransport>
 #include <qwebchannelabstracttransport.h>
 #include "libqwebchannelabstracttransport.h"
@@ -37,27 +30,30 @@ void* QWebChannelAbstractTransport_Metacast(QWebChannelAbstractTransport* self, 
 }
 
 int QWebChannelAbstractTransport_Metacall(QWebChannelAbstractTransport* self, int param1, int param2, void** param3) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQWebChannelAbstractTransport*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QWebChannelAbstractTransport_OnMetacall(QWebChannelAbstractTransport* self, intptr_t slot) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_Metacall_Callback(reinterpret_cast<VirtualQWebChannelAbstractTransport::QWebChannelAbstractTransport_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QWebChannelAbstractTransport_QBaseMetacall(QWebChannelAbstractTransport* self, int param1, int param2, void** param3) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_Metacall_IsBase(true);
         return vqwebchannelabstracttransport->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQWebChannelAbstractTransport*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -73,7 +69,7 @@ libqt_string QWebChannelAbstractTransport_Tr(const char* s) {
     return _str;
 }
 
-void QWebChannelAbstractTransport_MessageReceived(QWebChannelAbstractTransport* self, QJsonObject* message, QWebChannelAbstractTransport* transport) {
+void QWebChannelAbstractTransport_MessageReceived(QWebChannelAbstractTransport* self, const QJsonObject* message, QWebChannelAbstractTransport* transport) {
     self->messageReceived(*message, transport);
 }
 
@@ -113,313 +109,349 @@ libqt_string QWebChannelAbstractTransport_Tr3(const char* s, const char* c, int 
 }
 
 // Derived class handler implementation
-void QWebChannelAbstractTransport_SendMessage(QWebChannelAbstractTransport* self, QJsonObject* message) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+void QWebChannelAbstractTransport_SendMessage(QWebChannelAbstractTransport* self, const QJsonObject* message) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->sendMessage(*message);
     } else {
-        vqwebchannelabstracttransport->sendMessage(*message);
+        ((VirtualQWebChannelAbstractTransport*)self)->sendMessage(*message);
     }
 }
 
 // Base class handler implementation
-void QWebChannelAbstractTransport_QBaseSendMessage(QWebChannelAbstractTransport* self, QJsonObject* message) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+void QWebChannelAbstractTransport_QBaseSendMessage(QWebChannelAbstractTransport* self, const QJsonObject* message) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_SendMessage_IsBase(true);
         vqwebchannelabstracttransport->sendMessage(*message);
     } else {
-        vqwebchannelabstracttransport->sendMessage(*message);
+        ((VirtualQWebChannelAbstractTransport*)self)->sendMessage(*message);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebChannelAbstractTransport_OnSendMessage(QWebChannelAbstractTransport* self, intptr_t slot) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_SendMessage_Callback(reinterpret_cast<VirtualQWebChannelAbstractTransport::QWebChannelAbstractTransport_SendMessage_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QWebChannelAbstractTransport_Event(QWebChannelAbstractTransport* self, QEvent* event) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         return vqwebchannelabstracttransport->event(event);
     } else {
-        return vqwebchannelabstracttransport->event(event);
+        return self->QWebChannelAbstractTransport::event(event);
     }
 }
 
 // Base class handler implementation
 bool QWebChannelAbstractTransport_QBaseEvent(QWebChannelAbstractTransport* self, QEvent* event) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_Event_IsBase(true);
         return vqwebchannelabstracttransport->event(event);
     } else {
-        return vqwebchannelabstracttransport->event(event);
+        return self->QWebChannelAbstractTransport::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebChannelAbstractTransport_OnEvent(QWebChannelAbstractTransport* self, intptr_t slot) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_Event_Callback(reinterpret_cast<VirtualQWebChannelAbstractTransport::QWebChannelAbstractTransport_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QWebChannelAbstractTransport_EventFilter(QWebChannelAbstractTransport* self, QObject* watched, QEvent* event) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         return vqwebchannelabstracttransport->eventFilter(watched, event);
     } else {
-        return vqwebchannelabstracttransport->eventFilter(watched, event);
+        return self->QWebChannelAbstractTransport::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QWebChannelAbstractTransport_QBaseEventFilter(QWebChannelAbstractTransport* self, QObject* watched, QEvent* event) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_EventFilter_IsBase(true);
         return vqwebchannelabstracttransport->eventFilter(watched, event);
     } else {
-        return vqwebchannelabstracttransport->eventFilter(watched, event);
+        return self->QWebChannelAbstractTransport::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebChannelAbstractTransport_OnEventFilter(QWebChannelAbstractTransport* self, intptr_t slot) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_EventFilter_Callback(reinterpret_cast<VirtualQWebChannelAbstractTransport::QWebChannelAbstractTransport_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QWebChannelAbstractTransport_TimerEvent(QWebChannelAbstractTransport* self, QTimerEvent* event) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->timerEvent(event);
     } else {
-        vqwebchannelabstracttransport->timerEvent(event);
+        ((VirtualQWebChannelAbstractTransport*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QWebChannelAbstractTransport_QBaseTimerEvent(QWebChannelAbstractTransport* self, QTimerEvent* event) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_TimerEvent_IsBase(true);
         vqwebchannelabstracttransport->timerEvent(event);
     } else {
-        vqwebchannelabstracttransport->timerEvent(event);
+        ((VirtualQWebChannelAbstractTransport*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebChannelAbstractTransport_OnTimerEvent(QWebChannelAbstractTransport* self, intptr_t slot) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_TimerEvent_Callback(reinterpret_cast<VirtualQWebChannelAbstractTransport::QWebChannelAbstractTransport_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QWebChannelAbstractTransport_ChildEvent(QWebChannelAbstractTransport* self, QChildEvent* event) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->childEvent(event);
     } else {
-        vqwebchannelabstracttransport->childEvent(event);
+        ((VirtualQWebChannelAbstractTransport*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QWebChannelAbstractTransport_QBaseChildEvent(QWebChannelAbstractTransport* self, QChildEvent* event) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_ChildEvent_IsBase(true);
         vqwebchannelabstracttransport->childEvent(event);
     } else {
-        vqwebchannelabstracttransport->childEvent(event);
+        ((VirtualQWebChannelAbstractTransport*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebChannelAbstractTransport_OnChildEvent(QWebChannelAbstractTransport* self, intptr_t slot) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_ChildEvent_Callback(reinterpret_cast<VirtualQWebChannelAbstractTransport::QWebChannelAbstractTransport_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QWebChannelAbstractTransport_CustomEvent(QWebChannelAbstractTransport* self, QEvent* event) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->customEvent(event);
     } else {
-        vqwebchannelabstracttransport->customEvent(event);
+        ((VirtualQWebChannelAbstractTransport*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QWebChannelAbstractTransport_QBaseCustomEvent(QWebChannelAbstractTransport* self, QEvent* event) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_CustomEvent_IsBase(true);
         vqwebchannelabstracttransport->customEvent(event);
     } else {
-        vqwebchannelabstracttransport->customEvent(event);
+        ((VirtualQWebChannelAbstractTransport*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebChannelAbstractTransport_OnCustomEvent(QWebChannelAbstractTransport* self, intptr_t slot) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_CustomEvent_Callback(reinterpret_cast<VirtualQWebChannelAbstractTransport::QWebChannelAbstractTransport_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QWebChannelAbstractTransport_ConnectNotify(QWebChannelAbstractTransport* self, QMetaMethod* signal) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+void QWebChannelAbstractTransport_ConnectNotify(QWebChannelAbstractTransport* self, const QMetaMethod* signal) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->connectNotify(*signal);
     } else {
-        vqwebchannelabstracttransport->connectNotify(*signal);
+        ((VirtualQWebChannelAbstractTransport*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QWebChannelAbstractTransport_QBaseConnectNotify(QWebChannelAbstractTransport* self, QMetaMethod* signal) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+void QWebChannelAbstractTransport_QBaseConnectNotify(QWebChannelAbstractTransport* self, const QMetaMethod* signal) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_ConnectNotify_IsBase(true);
         vqwebchannelabstracttransport->connectNotify(*signal);
     } else {
-        vqwebchannelabstracttransport->connectNotify(*signal);
+        ((VirtualQWebChannelAbstractTransport*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebChannelAbstractTransport_OnConnectNotify(QWebChannelAbstractTransport* self, intptr_t slot) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_ConnectNotify_Callback(reinterpret_cast<VirtualQWebChannelAbstractTransport::QWebChannelAbstractTransport_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QWebChannelAbstractTransport_DisconnectNotify(QWebChannelAbstractTransport* self, QMetaMethod* signal) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+void QWebChannelAbstractTransport_DisconnectNotify(QWebChannelAbstractTransport* self, const QMetaMethod* signal) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->disconnectNotify(*signal);
     } else {
-        vqwebchannelabstracttransport->disconnectNotify(*signal);
+        ((VirtualQWebChannelAbstractTransport*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QWebChannelAbstractTransport_QBaseDisconnectNotify(QWebChannelAbstractTransport* self, QMetaMethod* signal) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+void QWebChannelAbstractTransport_QBaseDisconnectNotify(QWebChannelAbstractTransport* self, const QMetaMethod* signal) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_DisconnectNotify_IsBase(true);
         vqwebchannelabstracttransport->disconnectNotify(*signal);
     } else {
-        vqwebchannelabstracttransport->disconnectNotify(*signal);
+        ((VirtualQWebChannelAbstractTransport*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebChannelAbstractTransport_OnDisconnectNotify(QWebChannelAbstractTransport* self, intptr_t slot) {
-    if (auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self)) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_DisconnectNotify_Callback(reinterpret_cast<VirtualQWebChannelAbstractTransport::QWebChannelAbstractTransport_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QWebChannelAbstractTransport_Sender(const QWebChannelAbstractTransport* self) {
-    if (auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self))) {
+    auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self));
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         return vqwebchannelabstracttransport->sender();
     } else {
-        return vqwebchannelabstracttransport->sender();
+        return ((VirtualQWebChannelAbstractTransport*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QWebChannelAbstractTransport_QBaseSender(const QWebChannelAbstractTransport* self) {
-    if (auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self))) {
+    auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self));
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_Sender_IsBase(true);
         return vqwebchannelabstracttransport->sender();
     } else {
-        return vqwebchannelabstracttransport->sender();
+        return ((VirtualQWebChannelAbstractTransport*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebChannelAbstractTransport_OnSender(const QWebChannelAbstractTransport* self, intptr_t slot) {
-    if (auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self))) {
+    auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self));
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_Sender_Callback(reinterpret_cast<VirtualQWebChannelAbstractTransport::QWebChannelAbstractTransport_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QWebChannelAbstractTransport_SenderSignalIndex(const QWebChannelAbstractTransport* self) {
-    if (auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self))) {
+    auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self));
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         return vqwebchannelabstracttransport->senderSignalIndex();
     } else {
-        return vqwebchannelabstracttransport->senderSignalIndex();
+        return ((VirtualQWebChannelAbstractTransport*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QWebChannelAbstractTransport_QBaseSenderSignalIndex(const QWebChannelAbstractTransport* self) {
-    if (auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self))) {
+    auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self));
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_SenderSignalIndex_IsBase(true);
         return vqwebchannelabstracttransport->senderSignalIndex();
     } else {
-        return vqwebchannelabstracttransport->senderSignalIndex();
+        return ((VirtualQWebChannelAbstractTransport*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebChannelAbstractTransport_OnSenderSignalIndex(const QWebChannelAbstractTransport* self, intptr_t slot) {
-    if (auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self))) {
+    auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self));
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWebChannelAbstractTransport::QWebChannelAbstractTransport_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QWebChannelAbstractTransport_Receivers(const QWebChannelAbstractTransport* self, const char* signal) {
-    if (auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self))) {
+    auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self));
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         return vqwebchannelabstracttransport->receivers(signal);
     } else {
-        return vqwebchannelabstracttransport->receivers(signal);
+        return ((VirtualQWebChannelAbstractTransport*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QWebChannelAbstractTransport_QBaseReceivers(const QWebChannelAbstractTransport* self, const char* signal) {
-    if (auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self))) {
+    auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self));
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_Receivers_IsBase(true);
         return vqwebchannelabstracttransport->receivers(signal);
     } else {
-        return vqwebchannelabstracttransport->receivers(signal);
+        return ((VirtualQWebChannelAbstractTransport*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebChannelAbstractTransport_OnReceivers(const QWebChannelAbstractTransport* self, intptr_t slot) {
-    if (auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self))) {
+    auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self));
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_Receivers_Callback(reinterpret_cast<VirtualQWebChannelAbstractTransport::QWebChannelAbstractTransport_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QWebChannelAbstractTransport_IsSignalConnected(const QWebChannelAbstractTransport* self, QMetaMethod* signal) {
-    if (auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self))) {
+bool QWebChannelAbstractTransport_IsSignalConnected(const QWebChannelAbstractTransport* self, const QMetaMethod* signal) {
+    auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self));
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         return vqwebchannelabstracttransport->isSignalConnected(*signal);
     } else {
-        return vqwebchannelabstracttransport->isSignalConnected(*signal);
+        return ((VirtualQWebChannelAbstractTransport*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QWebChannelAbstractTransport_QBaseIsSignalConnected(const QWebChannelAbstractTransport* self, QMetaMethod* signal) {
-    if (auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self))) {
+bool QWebChannelAbstractTransport_QBaseIsSignalConnected(const QWebChannelAbstractTransport* self, const QMetaMethod* signal) {
+    auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self));
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_IsSignalConnected_IsBase(true);
         return vqwebchannelabstracttransport->isSignalConnected(*signal);
     } else {
-        return vqwebchannelabstracttransport->isSignalConnected(*signal);
+        return ((VirtualQWebChannelAbstractTransport*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebChannelAbstractTransport_OnIsSignalConnected(const QWebChannelAbstractTransport* self, intptr_t slot) {
-    if (auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self))) {
+    auto* vqwebchannelabstracttransport = const_cast<VirtualQWebChannelAbstractTransport*>(dynamic_cast<const VirtualQWebChannelAbstractTransport*>(self));
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
         vqwebchannelabstracttransport->setQWebChannelAbstractTransport_IsSignalConnected_Callback(reinterpret_cast<VirtualQWebChannelAbstractTransport::QWebChannelAbstractTransport_IsSignalConnected_Callback>(slot));
     }
 }

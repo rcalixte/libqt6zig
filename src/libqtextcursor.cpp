@@ -31,15 +31,15 @@ QTextCursor* QTextCursor_new3(QTextFrame* frame) {
     return new QTextCursor(frame);
 }
 
-QTextCursor* QTextCursor_new4(QTextBlock* block) {
+QTextCursor* QTextCursor_new4(const QTextBlock* block) {
     return new QTextCursor(*block);
 }
 
-QTextCursor* QTextCursor_new5(QTextCursor* cursor) {
+QTextCursor* QTextCursor_new5(const QTextCursor* cursor) {
     return new QTextCursor(*cursor);
 }
 
-void QTextCursor_OperatorAssign(QTextCursor* self, QTextCursor* other) {
+void QTextCursor_OperatorAssign(QTextCursor* self, const QTextCursor* other) {
     self->operator=(*other);
 }
 
@@ -67,12 +67,12 @@ int QTextCursor_Anchor(const QTextCursor* self) {
     return self->anchor();
 }
 
-void QTextCursor_InsertText(QTextCursor* self, libqt_string text) {
+void QTextCursor_InsertText(QTextCursor* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->insertText(text_QString);
 }
 
-void QTextCursor_InsertText2(QTextCursor* self, libqt_string text, QTextCharFormat* format) {
+void QTextCursor_InsertText2(QTextCursor* self, const libqt_string text, const QTextCharFormat* format) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->insertText(text_QString, *format);
 }
@@ -169,11 +169,11 @@ QTextCharFormat* QTextCursor_CharFormat(const QTextCursor* self) {
     return new QTextCharFormat(self->charFormat());
 }
 
-void QTextCursor_SetCharFormat(QTextCursor* self, QTextCharFormat* format) {
+void QTextCursor_SetCharFormat(QTextCursor* self, const QTextCharFormat* format) {
     self->setCharFormat(*format);
 }
 
-void QTextCursor_MergeCharFormat(QTextCursor* self, QTextCharFormat* modifier) {
+void QTextCursor_MergeCharFormat(QTextCursor* self, const QTextCharFormat* modifier) {
     self->mergeCharFormat(*modifier);
 }
 
@@ -181,11 +181,11 @@ QTextBlockFormat* QTextCursor_BlockFormat(const QTextCursor* self) {
     return new QTextBlockFormat(self->blockFormat());
 }
 
-void QTextCursor_SetBlockFormat(QTextCursor* self, QTextBlockFormat* format) {
+void QTextCursor_SetBlockFormat(QTextCursor* self, const QTextBlockFormat* format) {
     self->setBlockFormat(*format);
 }
 
-void QTextCursor_MergeBlockFormat(QTextCursor* self, QTextBlockFormat* modifier) {
+void QTextCursor_MergeBlockFormat(QTextCursor* self, const QTextBlockFormat* modifier) {
     self->mergeBlockFormat(*modifier);
 }
 
@@ -193,11 +193,11 @@ QTextCharFormat* QTextCursor_BlockCharFormat(const QTextCursor* self) {
     return new QTextCharFormat(self->blockCharFormat());
 }
 
-void QTextCursor_SetBlockCharFormat(QTextCursor* self, QTextCharFormat* format) {
+void QTextCursor_SetBlockCharFormat(QTextCursor* self, const QTextCharFormat* format) {
     self->setBlockCharFormat(*format);
 }
 
-void QTextCursor_MergeBlockCharFormat(QTextCursor* self, QTextCharFormat* modifier) {
+void QTextCursor_MergeBlockCharFormat(QTextCursor* self, const QTextCharFormat* modifier) {
     self->mergeBlockCharFormat(*modifier);
 }
 
@@ -221,15 +221,15 @@ void QTextCursor_InsertBlock(QTextCursor* self) {
     self->insertBlock();
 }
 
-void QTextCursor_InsertBlockWithFormat(QTextCursor* self, QTextBlockFormat* format) {
+void QTextCursor_InsertBlockWithFormat(QTextCursor* self, const QTextBlockFormat* format) {
     self->insertBlock(*format);
 }
 
-void QTextCursor_InsertBlock2(QTextCursor* self, QTextBlockFormat* format, QTextCharFormat* charFormat) {
+void QTextCursor_InsertBlock2(QTextCursor* self, const QTextBlockFormat* format, const QTextCharFormat* charFormat) {
     self->insertBlock(*format, *charFormat);
 }
 
-QTextList* QTextCursor_InsertList(QTextCursor* self, QTextListFormat* format) {
+QTextList* QTextCursor_InsertList(QTextCursor* self, const QTextListFormat* format) {
     return self->insertList(*format);
 }
 
@@ -237,7 +237,7 @@ QTextList* QTextCursor_InsertListWithStyle(QTextCursor* self, int style) {
     return self->insertList(static_cast<QTextListFormat::Style>(style));
 }
 
-QTextList* QTextCursor_CreateList(QTextCursor* self, QTextListFormat* format) {
+QTextList* QTextCursor_CreateList(QTextCursor* self, const QTextListFormat* format) {
     return self->createList(*format);
 }
 
@@ -249,7 +249,7 @@ QTextList* QTextCursor_CurrentList(const QTextCursor* self) {
     return self->currentList();
 }
 
-QTextTable* QTextCursor_InsertTable(QTextCursor* self, int rows, int cols, QTextTableFormat* format) {
+QTextTable* QTextCursor_InsertTable(QTextCursor* self, int rows, int cols, const QTextTableFormat* format) {
     return self->insertTable(static_cast<int>(rows), static_cast<int>(cols), *format);
 }
 
@@ -261,7 +261,7 @@ QTextTable* QTextCursor_CurrentTable(const QTextCursor* self) {
     return self->currentTable();
 }
 
-QTextFrame* QTextCursor_InsertFrame(QTextCursor* self, QTextFrameFormat* format) {
+QTextFrame* QTextCursor_InsertFrame(QTextCursor* self, const QTextFrameFormat* format) {
     return self->insertFrame(*format);
 }
 
@@ -269,34 +269,34 @@ QTextFrame* QTextCursor_CurrentFrame(const QTextCursor* self) {
     return self->currentFrame();
 }
 
-void QTextCursor_InsertFragment(QTextCursor* self, QTextDocumentFragment* fragment) {
+void QTextCursor_InsertFragment(QTextCursor* self, const QTextDocumentFragment* fragment) {
     self->insertFragment(*fragment);
 }
 
-void QTextCursor_InsertHtml(QTextCursor* self, libqt_string html) {
+void QTextCursor_InsertHtml(QTextCursor* self, const libqt_string html) {
     QString html_QString = QString::fromUtf8(html.data, html.len);
     self->insertHtml(html_QString);
 }
 
-void QTextCursor_InsertMarkdown(QTextCursor* self, libqt_string markdown) {
+void QTextCursor_InsertMarkdown(QTextCursor* self, const libqt_string markdown) {
     QString markdown_QString = QString::fromUtf8(markdown.data, markdown.len);
     self->insertMarkdown(markdown_QString);
 }
 
-void QTextCursor_InsertImage(QTextCursor* self, QTextImageFormat* format, int alignment) {
+void QTextCursor_InsertImage(QTextCursor* self, const QTextImageFormat* format, int alignment) {
     self->insertImage(*format, static_cast<QTextFrameFormat::Position>(alignment));
 }
 
-void QTextCursor_InsertImageWithFormat(QTextCursor* self, QTextImageFormat* format) {
+void QTextCursor_InsertImageWithFormat(QTextCursor* self, const QTextImageFormat* format) {
     self->insertImage(*format);
 }
 
-void QTextCursor_InsertImageWithName(QTextCursor* self, libqt_string name) {
+void QTextCursor_InsertImageWithName(QTextCursor* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     self->insertImage(name_QString);
 }
 
-void QTextCursor_InsertImageWithImage(QTextCursor* self, QImage* image) {
+void QTextCursor_InsertImageWithImage(QTextCursor* self, const QImage* image) {
     self->insertImage(*image);
 }
 
@@ -312,31 +312,31 @@ void QTextCursor_EndEditBlock(QTextCursor* self) {
     self->endEditBlock();
 }
 
-bool QTextCursor_OperatorNotEqual(const QTextCursor* self, QTextCursor* rhs) {
+bool QTextCursor_OperatorNotEqual(const QTextCursor* self, const QTextCursor* rhs) {
     return (*self != *rhs);
 }
 
-bool QTextCursor_OperatorLesser(const QTextCursor* self, QTextCursor* rhs) {
+bool QTextCursor_OperatorLesser(const QTextCursor* self, const QTextCursor* rhs) {
     return (*self < *rhs);
 }
 
-bool QTextCursor_OperatorLesserOrEqual(const QTextCursor* self, QTextCursor* rhs) {
+bool QTextCursor_OperatorLesserOrEqual(const QTextCursor* self, const QTextCursor* rhs) {
     return (*self <= *rhs);
 }
 
-bool QTextCursor_OperatorEqual(const QTextCursor* self, QTextCursor* rhs) {
+bool QTextCursor_OperatorEqual(const QTextCursor* self, const QTextCursor* rhs) {
     return (*self == *rhs);
 }
 
-bool QTextCursor_OperatorGreaterOrEqual(const QTextCursor* self, QTextCursor* rhs) {
+bool QTextCursor_OperatorGreaterOrEqual(const QTextCursor* self, const QTextCursor* rhs) {
     return (*self >= *rhs);
 }
 
-bool QTextCursor_OperatorGreater(const QTextCursor* self, QTextCursor* rhs) {
+bool QTextCursor_OperatorGreater(const QTextCursor* self, const QTextCursor* rhs) {
     return (*self > *rhs);
 }
 
-bool QTextCursor_IsCopyOf(const QTextCursor* self, QTextCursor* other) {
+bool QTextCursor_IsCopyOf(const QTextCursor* self, const QTextCursor* other) {
     return self->isCopyOf(*other);
 }
 
@@ -364,12 +364,12 @@ bool QTextCursor_MovePosition3(QTextCursor* self, int op, int param2, int n) {
     return self->movePosition(static_cast<QTextCursor::MoveOperation>(op), static_cast<QTextCursor::MoveMode>(param2), static_cast<int>(n));
 }
 
-void QTextCursor_InsertMarkdown2(QTextCursor* self, libqt_string markdown, int features) {
+void QTextCursor_InsertMarkdown2(QTextCursor* self, const libqt_string markdown, int features) {
     QString markdown_QString = QString::fromUtf8(markdown.data, markdown.len);
     self->insertMarkdown(markdown_QString, static_cast<QTextDocument::MarkdownFeatures>(features));
 }
 
-void QTextCursor_InsertImage2(QTextCursor* self, QImage* image, libqt_string name) {
+void QTextCursor_InsertImage2(QTextCursor* self, const QImage* image, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     self->insertImage(*image, name_QString);
 }

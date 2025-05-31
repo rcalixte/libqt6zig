@@ -15,28 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractAxis QAbstractAxis;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
-typedef struct QBrush QBrush;
 typedef struct QChildEvent QChildEvent;
-typedef struct QColor QColor;
 typedef struct QColorAxis QColorAxis;
 typedef struct QEvent QEvent;
-typedef struct QFont QFont;
 typedef struct QLinearGradient QLinearGradient;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QPen QPen;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QColorAxis* QColorAxis_new();
@@ -59,7 +47,7 @@ void QColorAxis_SetTickCount(QColorAxis* self, int count);
 int QColorAxis_TickCount(const QColorAxis* self);
 void QColorAxis_SetSize(QColorAxis* self, const double size);
 double QColorAxis_Size(const QColorAxis* self);
-void QColorAxis_SetGradient(QColorAxis* self, QLinearGradient* gradient);
+void QColorAxis_SetGradient(QColorAxis* self, const QLinearGradient* gradient);
 QLinearGradient* QColorAxis_Gradient(const QColorAxis* self);
 void QColorAxis_SetAutoRange(QColorAxis* self, bool autoRange);
 bool QColorAxis_AutoRange(const QColorAxis* self);
@@ -71,7 +59,7 @@ void QColorAxis_RangeChanged(QColorAxis* self, double min, double max);
 void QColorAxis_Connect_RangeChanged(QColorAxis* self, intptr_t slot);
 void QColorAxis_TickCountChanged(QColorAxis* self, int tickCount);
 void QColorAxis_Connect_TickCountChanged(QColorAxis* self, intptr_t slot);
-void QColorAxis_GradientChanged(QColorAxis* self, QLinearGradient* gradient);
+void QColorAxis_GradientChanged(QColorAxis* self, const QLinearGradient* gradient);
 void QColorAxis_Connect_GradientChanged(QColorAxis* self, intptr_t slot);
 void QColorAxis_SizeChanged(QColorAxis* self, const double size);
 void QColorAxis_Connect_SizeChanged(QColorAxis* self, intptr_t slot);
@@ -94,12 +82,12 @@ void QColorAxis_QBaseChildEvent(QColorAxis* self, QChildEvent* event);
 void QColorAxis_CustomEvent(QColorAxis* self, QEvent* event);
 void QColorAxis_OnCustomEvent(QColorAxis* self, intptr_t slot);
 void QColorAxis_QBaseCustomEvent(QColorAxis* self, QEvent* event);
-void QColorAxis_ConnectNotify(QColorAxis* self, QMetaMethod* signal);
+void QColorAxis_ConnectNotify(QColorAxis* self, const QMetaMethod* signal);
 void QColorAxis_OnConnectNotify(QColorAxis* self, intptr_t slot);
-void QColorAxis_QBaseConnectNotify(QColorAxis* self, QMetaMethod* signal);
-void QColorAxis_DisconnectNotify(QColorAxis* self, QMetaMethod* signal);
+void QColorAxis_QBaseConnectNotify(QColorAxis* self, const QMetaMethod* signal);
+void QColorAxis_DisconnectNotify(QColorAxis* self, const QMetaMethod* signal);
 void QColorAxis_OnDisconnectNotify(QColorAxis* self, intptr_t slot);
-void QColorAxis_QBaseDisconnectNotify(QColorAxis* self, QMetaMethod* signal);
+void QColorAxis_QBaseDisconnectNotify(QColorAxis* self, const QMetaMethod* signal);
 QObject* QColorAxis_Sender(const QColorAxis* self);
 void QColorAxis_OnSender(const QColorAxis* self, intptr_t slot);
 QObject* QColorAxis_QBaseSender(const QColorAxis* self);
@@ -109,9 +97,9 @@ int QColorAxis_QBaseSenderSignalIndex(const QColorAxis* self);
 int QColorAxis_Receivers(const QColorAxis* self, const char* signal);
 void QColorAxis_OnReceivers(const QColorAxis* self, intptr_t slot);
 int QColorAxis_QBaseReceivers(const QColorAxis* self, const char* signal);
-bool QColorAxis_IsSignalConnected(const QColorAxis* self, QMetaMethod* signal);
+bool QColorAxis_IsSignalConnected(const QColorAxis* self, const QMetaMethod* signal);
 void QColorAxis_OnIsSignalConnected(const QColorAxis* self, intptr_t slot);
-bool QColorAxis_QBaseIsSignalConnected(const QColorAxis* self, QMetaMethod* signal);
+bool QColorAxis_QBaseIsSignalConnected(const QColorAxis* self, const QMetaMethod* signal);
 void QColorAxis_Delete(QColorAxis* self);
 
 #ifdef __cplusplus

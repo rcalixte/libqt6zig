@@ -20,13 +20,13 @@ typedef struct QSslCipher QSslCipher;
 #endif
 
 QSslCipher* QSslCipher_new();
-QSslCipher* QSslCipher_new2(libqt_string name);
-QSslCipher* QSslCipher_new3(libqt_string name, int protocol);
-QSslCipher* QSslCipher_new4(QSslCipher* other);
-void QSslCipher_OperatorAssign(QSslCipher* self, QSslCipher* other);
+QSslCipher* QSslCipher_new2(const libqt_string name);
+QSslCipher* QSslCipher_new3(const libqt_string name, int protocol);
+QSslCipher* QSslCipher_new4(const QSslCipher* other);
+void QSslCipher_OperatorAssign(QSslCipher* self, const QSslCipher* other);
 void QSslCipher_Swap(QSslCipher* self, QSslCipher* other);
-bool QSslCipher_OperatorEqual(const QSslCipher* self, QSslCipher* other);
-bool QSslCipher_OperatorNotEqual(const QSslCipher* self, QSslCipher* other);
+bool QSslCipher_OperatorEqual(const QSslCipher* self, const QSslCipher* other);
+bool QSslCipher_OperatorNotEqual(const QSslCipher* self, const QSslCipher* other);
 bool QSslCipher_IsNull(const QSslCipher* self);
 libqt_string QSslCipher_Name(const QSslCipher* self);
 int QSslCipher_SupportedBits(const QSslCipher* self);

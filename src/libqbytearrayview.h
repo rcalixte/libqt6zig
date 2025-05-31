@@ -34,10 +34,10 @@ typedef long long difference_type; // C ABI QFlags
 typedef ptrdiff_t size_type;       // C ABI QFlags
 #endif
 
-QByteArrayView* QByteArrayView_new(QByteArrayView* other);
+QByteArrayView* QByteArrayView_new(const QByteArrayView* other);
 QByteArrayView* QByteArrayView_new2(QByteArrayView* other);
 QByteArrayView* QByteArrayView_new3();
-QByteArrayView* QByteArrayView_new4(QByteArrayView* param1);
+QByteArrayView* QByteArrayView_new4(const QByteArrayView* param1);
 void QByteArrayView_CopyAssign(QByteArrayView* self, QByteArrayView* other);
 void QByteArrayView_MoveAssign(QByteArrayView* self, QByteArrayView* other);
 libqt_string QByteArrayView_ToByteArray(const QByteArrayView* self);

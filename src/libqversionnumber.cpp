@@ -13,7 +13,7 @@ QVersionNumber* QVersionNumber_new() {
     return new QVersionNumber();
 }
 
-QVersionNumber* QVersionNumber_new2(libqt_list /* of int */ seg) {
+QVersionNumber* QVersionNumber_new2(const libqt_list /* of int */ seg) {
     QList<int> seg_QList;
     seg_QList.reserve(seg.len);
     int* seg_arr = static_cast<int*>(seg.data);
@@ -35,7 +35,7 @@ QVersionNumber* QVersionNumber_new5(int maj, int min, int mic) {
     return new QVersionNumber(static_cast<int>(maj), static_cast<int>(min), static_cast<int>(mic));
 }
 
-QVersionNumber* QVersionNumber_new6(QVersionNumber* param1) {
+QVersionNumber* QVersionNumber_new6(const QVersionNumber* param1) {
     return new QVersionNumber(*param1);
 }
 
@@ -84,15 +84,15 @@ ptrdiff_t QVersionNumber_SegmentCount(const QVersionNumber* self) {
     return static_cast<ptrdiff_t>(self->segmentCount());
 }
 
-bool QVersionNumber_IsPrefixOf(const QVersionNumber* self, QVersionNumber* other) {
+bool QVersionNumber_IsPrefixOf(const QVersionNumber* self, const QVersionNumber* other) {
     return self->isPrefixOf(*other);
 }
 
-int QVersionNumber_Compare(QVersionNumber* v1, QVersionNumber* v2) {
+int QVersionNumber_Compare(const QVersionNumber* v1, const QVersionNumber* v2) {
     return QVersionNumber::compare(*v1, *v2);
 }
 
-QVersionNumber* QVersionNumber_CommonPrefix(QVersionNumber* v1, QVersionNumber* v2) {
+QVersionNumber* QVersionNumber_CommonPrefix(const QVersionNumber* v1, const QVersionNumber* v2) {
     return new QVersionNumber(QVersionNumber::commonPrefix(*v1, *v2));
 }
 
@@ -120,7 +120,7 @@ void QVersionNumber_Delete(QVersionNumber* self) {
     delete self;
 }
 
-QTypeRevision* QTypeRevision_new(QTypeRevision* other) {
+QTypeRevision* QTypeRevision_new(const QTypeRevision* other) {
     return new QTypeRevision(*other);
 }
 
@@ -132,7 +132,7 @@ QTypeRevision* QTypeRevision_new3() {
     return new QTypeRevision();
 }
 
-QTypeRevision* QTypeRevision_new4(QTypeRevision* param1) {
+QTypeRevision* QTypeRevision_new4(const QTypeRevision* param1) {
     return new QTypeRevision(*param1);
 }
 

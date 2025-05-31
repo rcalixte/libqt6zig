@@ -13,17 +13,17 @@ QResource* QResource_new() {
     return new QResource();
 }
 
-QResource* QResource_new2(libqt_string file) {
+QResource* QResource_new2(const libqt_string file) {
     QString file_QString = QString::fromUtf8(file.data, file.len);
     return new QResource(file_QString);
 }
 
-QResource* QResource_new3(libqt_string file, QLocale* locale) {
+QResource* QResource_new3(const libqt_string file, const QLocale* locale) {
     QString file_QString = QString::fromUtf8(file.data, file.len);
     return new QResource(file_QString, *locale);
 }
 
-void QResource_SetFileName(QResource* self, libqt_string file) {
+void QResource_SetFileName(QResource* self, const libqt_string file) {
     QString file_QString = QString::fromUtf8(file.data, file.len);
     self->setFileName(file_QString);
 }
@@ -52,7 +52,7 @@ libqt_string QResource_AbsoluteFilePath(const QResource* self) {
     return _str;
 }
 
-void QResource_SetLocale(QResource* self, QLocale* locale) {
+void QResource_SetLocale(QResource* self, const QLocale* locale) {
     self->setLocale(*locale);
 }
 
@@ -94,12 +94,12 @@ QDateTime* QResource_LastModified(const QResource* self) {
     return new QDateTime(self->lastModified());
 }
 
-bool QResource_RegisterResource(libqt_string rccFilename) {
+bool QResource_RegisterResource(const libqt_string rccFilename) {
     QString rccFilename_QString = QString::fromUtf8(rccFilename.data, rccFilename.len);
     return QResource::registerResource(rccFilename_QString);
 }
 
-bool QResource_UnregisterResource(libqt_string rccFilename) {
+bool QResource_UnregisterResource(const libqt_string rccFilename) {
     QString rccFilename_QString = QString::fromUtf8(rccFilename.data, rccFilename.len);
     return QResource::unregisterResource(rccFilename_QString);
 }
@@ -112,24 +112,24 @@ bool QResource_UnregisterResourceWithRccData(const unsigned char* rccData) {
     return QResource::unregisterResource(static_cast<const uchar*>(rccData));
 }
 
-bool QResource_RegisterResource2(libqt_string rccFilename, libqt_string resourceRoot) {
+bool QResource_RegisterResource2(const libqt_string rccFilename, const libqt_string resourceRoot) {
     QString rccFilename_QString = QString::fromUtf8(rccFilename.data, rccFilename.len);
     QString resourceRoot_QString = QString::fromUtf8(resourceRoot.data, resourceRoot.len);
     return QResource::registerResource(rccFilename_QString, resourceRoot_QString);
 }
 
-bool QResource_UnregisterResource2(libqt_string rccFilename, libqt_string resourceRoot) {
+bool QResource_UnregisterResource2(const libqt_string rccFilename, const libqt_string resourceRoot) {
     QString rccFilename_QString = QString::fromUtf8(rccFilename.data, rccFilename.len);
     QString resourceRoot_QString = QString::fromUtf8(resourceRoot.data, resourceRoot.len);
     return QResource::unregisterResource(rccFilename_QString, resourceRoot_QString);
 }
 
-bool QResource_RegisterResource22(const unsigned char* rccData, libqt_string resourceRoot) {
+bool QResource_RegisterResource22(const unsigned char* rccData, const libqt_string resourceRoot) {
     QString resourceRoot_QString = QString::fromUtf8(resourceRoot.data, resourceRoot.len);
     return QResource::registerResource(static_cast<const uchar*>(rccData), resourceRoot_QString);
 }
 
-bool QResource_UnregisterResource22(const unsigned char* rccData, libqt_string resourceRoot) {
+bool QResource_UnregisterResource22(const unsigned char* rccData, const libqt_string resourceRoot) {
     QString resourceRoot_QString = QString::fromUtf8(resourceRoot.data, resourceRoot.len);
     return QResource::unregisterResource(static_cast<const uchar*>(rccData), resourceRoot_QString);
 }

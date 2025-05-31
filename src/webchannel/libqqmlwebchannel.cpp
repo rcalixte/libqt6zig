@@ -1,23 +1,16 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
-#include <QList>
 #include <QMap>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QQmlWebChannel>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
 #include <QVariant>
 #include <QWebChannel>
-#include <QWebChannelAbstractTransport>
 #include <qqmlwebchannel.h>
 #include "libqqmlwebchannel.h"
 #include "libqqmlwebchannel.hxx"
@@ -39,27 +32,30 @@ void* QQmlWebChannel_Metacast(QQmlWebChannel* self, const char* param1) {
 }
 
 int QQmlWebChannel_Metacall(QQmlWebChannel* self, int param1, int param2, void** param3) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQQmlWebChannel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QQmlWebChannel_OnMetacall(QQmlWebChannel* self, intptr_t slot) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_Metacall_Callback(reinterpret_cast<VirtualQQmlWebChannel::QQmlWebChannel_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QQmlWebChannel_QBaseMetacall(QQmlWebChannel* self, int param1, int param2, void** param3) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_Metacall_IsBase(true);
         return vqqmlwebchannel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQQmlWebChannel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -75,7 +71,7 @@ libqt_string QQmlWebChannel_Tr(const char* s) {
     return _str;
 }
 
-void QQmlWebChannel_RegisterObjects(QQmlWebChannel* self, libqt_map /* of libqt_string to QVariant* */ objects) {
+void QQmlWebChannel_RegisterObjects(QQmlWebChannel* self, const libqt_map /* of libqt_string to QVariant* */ objects) {
     QVariantMap objects_QMap;
     libqt_string* objects_karr = static_cast<libqt_string*>(objects.keys);
     QVariant** objects_varr = static_cast<QVariant**>(objects.values);
@@ -120,286 +116,319 @@ libqt_string QQmlWebChannel_Tr3(const char* s, const char* c, int n) {
 
 // Derived class handler implementation
 bool QQmlWebChannel_Event(QQmlWebChannel* self, QEvent* event) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         return vqqmlwebchannel->event(event);
     } else {
-        return vqqmlwebchannel->event(event);
+        return self->QQmlWebChannel::event(event);
     }
 }
 
 // Base class handler implementation
 bool QQmlWebChannel_QBaseEvent(QQmlWebChannel* self, QEvent* event) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_Event_IsBase(true);
         return vqqmlwebchannel->event(event);
     } else {
-        return vqqmlwebchannel->event(event);
+        return self->QQmlWebChannel::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlWebChannel_OnEvent(QQmlWebChannel* self, intptr_t slot) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_Event_Callback(reinterpret_cast<VirtualQQmlWebChannel::QQmlWebChannel_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QQmlWebChannel_EventFilter(QQmlWebChannel* self, QObject* watched, QEvent* event) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         return vqqmlwebchannel->eventFilter(watched, event);
     } else {
-        return vqqmlwebchannel->eventFilter(watched, event);
+        return self->QQmlWebChannel::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QQmlWebChannel_QBaseEventFilter(QQmlWebChannel* self, QObject* watched, QEvent* event) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_EventFilter_IsBase(true);
         return vqqmlwebchannel->eventFilter(watched, event);
     } else {
-        return vqqmlwebchannel->eventFilter(watched, event);
+        return self->QQmlWebChannel::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlWebChannel_OnEventFilter(QQmlWebChannel* self, intptr_t slot) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_EventFilter_Callback(reinterpret_cast<VirtualQQmlWebChannel::QQmlWebChannel_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QQmlWebChannel_TimerEvent(QQmlWebChannel* self, QTimerEvent* event) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->timerEvent(event);
     } else {
-        vqqmlwebchannel->timerEvent(event);
+        ((VirtualQQmlWebChannel*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QQmlWebChannel_QBaseTimerEvent(QQmlWebChannel* self, QTimerEvent* event) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_TimerEvent_IsBase(true);
         vqqmlwebchannel->timerEvent(event);
     } else {
-        vqqmlwebchannel->timerEvent(event);
+        ((VirtualQQmlWebChannel*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlWebChannel_OnTimerEvent(QQmlWebChannel* self, intptr_t slot) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_TimerEvent_Callback(reinterpret_cast<VirtualQQmlWebChannel::QQmlWebChannel_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QQmlWebChannel_ChildEvent(QQmlWebChannel* self, QChildEvent* event) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->childEvent(event);
     } else {
-        vqqmlwebchannel->childEvent(event);
+        ((VirtualQQmlWebChannel*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QQmlWebChannel_QBaseChildEvent(QQmlWebChannel* self, QChildEvent* event) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_ChildEvent_IsBase(true);
         vqqmlwebchannel->childEvent(event);
     } else {
-        vqqmlwebchannel->childEvent(event);
+        ((VirtualQQmlWebChannel*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlWebChannel_OnChildEvent(QQmlWebChannel* self, intptr_t slot) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_ChildEvent_Callback(reinterpret_cast<VirtualQQmlWebChannel::QQmlWebChannel_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QQmlWebChannel_CustomEvent(QQmlWebChannel* self, QEvent* event) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->customEvent(event);
     } else {
-        vqqmlwebchannel->customEvent(event);
+        ((VirtualQQmlWebChannel*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QQmlWebChannel_QBaseCustomEvent(QQmlWebChannel* self, QEvent* event) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_CustomEvent_IsBase(true);
         vqqmlwebchannel->customEvent(event);
     } else {
-        vqqmlwebchannel->customEvent(event);
+        ((VirtualQQmlWebChannel*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlWebChannel_OnCustomEvent(QQmlWebChannel* self, intptr_t slot) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_CustomEvent_Callback(reinterpret_cast<VirtualQQmlWebChannel::QQmlWebChannel_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QQmlWebChannel_ConnectNotify(QQmlWebChannel* self, QMetaMethod* signal) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+void QQmlWebChannel_ConnectNotify(QQmlWebChannel* self, const QMetaMethod* signal) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->connectNotify(*signal);
     } else {
-        vqqmlwebchannel->connectNotify(*signal);
+        ((VirtualQQmlWebChannel*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QQmlWebChannel_QBaseConnectNotify(QQmlWebChannel* self, QMetaMethod* signal) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+void QQmlWebChannel_QBaseConnectNotify(QQmlWebChannel* self, const QMetaMethod* signal) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_ConnectNotify_IsBase(true);
         vqqmlwebchannel->connectNotify(*signal);
     } else {
-        vqqmlwebchannel->connectNotify(*signal);
+        ((VirtualQQmlWebChannel*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlWebChannel_OnConnectNotify(QQmlWebChannel* self, intptr_t slot) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_ConnectNotify_Callback(reinterpret_cast<VirtualQQmlWebChannel::QQmlWebChannel_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QQmlWebChannel_DisconnectNotify(QQmlWebChannel* self, QMetaMethod* signal) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+void QQmlWebChannel_DisconnectNotify(QQmlWebChannel* self, const QMetaMethod* signal) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->disconnectNotify(*signal);
     } else {
-        vqqmlwebchannel->disconnectNotify(*signal);
+        ((VirtualQQmlWebChannel*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QQmlWebChannel_QBaseDisconnectNotify(QQmlWebChannel* self, QMetaMethod* signal) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+void QQmlWebChannel_QBaseDisconnectNotify(QQmlWebChannel* self, const QMetaMethod* signal) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_DisconnectNotify_IsBase(true);
         vqqmlwebchannel->disconnectNotify(*signal);
     } else {
-        vqqmlwebchannel->disconnectNotify(*signal);
+        ((VirtualQQmlWebChannel*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlWebChannel_OnDisconnectNotify(QQmlWebChannel* self, intptr_t slot) {
-    if (auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self)) {
+    auto* vqqmlwebchannel = dynamic_cast<VirtualQQmlWebChannel*>(self);
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_DisconnectNotify_Callback(reinterpret_cast<VirtualQQmlWebChannel::QQmlWebChannel_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QQmlWebChannel_Sender(const QQmlWebChannel* self) {
-    if (auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self))) {
+    auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self));
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         return vqqmlwebchannel->sender();
     } else {
-        return vqqmlwebchannel->sender();
+        return ((VirtualQQmlWebChannel*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QQmlWebChannel_QBaseSender(const QQmlWebChannel* self) {
-    if (auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self))) {
+    auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self));
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_Sender_IsBase(true);
         return vqqmlwebchannel->sender();
     } else {
-        return vqqmlwebchannel->sender();
+        return ((VirtualQQmlWebChannel*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlWebChannel_OnSender(const QQmlWebChannel* self, intptr_t slot) {
-    if (auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self))) {
+    auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self));
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_Sender_Callback(reinterpret_cast<VirtualQQmlWebChannel::QQmlWebChannel_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QQmlWebChannel_SenderSignalIndex(const QQmlWebChannel* self) {
-    if (auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self))) {
+    auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self));
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         return vqqmlwebchannel->senderSignalIndex();
     } else {
-        return vqqmlwebchannel->senderSignalIndex();
+        return ((VirtualQQmlWebChannel*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QQmlWebChannel_QBaseSenderSignalIndex(const QQmlWebChannel* self) {
-    if (auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self))) {
+    auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self));
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_SenderSignalIndex_IsBase(true);
         return vqqmlwebchannel->senderSignalIndex();
     } else {
-        return vqqmlwebchannel->senderSignalIndex();
+        return ((VirtualQQmlWebChannel*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlWebChannel_OnSenderSignalIndex(const QQmlWebChannel* self, intptr_t slot) {
-    if (auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self))) {
+    auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self));
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_SenderSignalIndex_Callback(reinterpret_cast<VirtualQQmlWebChannel::QQmlWebChannel_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QQmlWebChannel_Receivers(const QQmlWebChannel* self, const char* signal) {
-    if (auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self))) {
+    auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self));
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         return vqqmlwebchannel->receivers(signal);
     } else {
-        return vqqmlwebchannel->receivers(signal);
+        return ((VirtualQQmlWebChannel*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QQmlWebChannel_QBaseReceivers(const QQmlWebChannel* self, const char* signal) {
-    if (auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self))) {
+    auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self));
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_Receivers_IsBase(true);
         return vqqmlwebchannel->receivers(signal);
     } else {
-        return vqqmlwebchannel->receivers(signal);
+        return ((VirtualQQmlWebChannel*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlWebChannel_OnReceivers(const QQmlWebChannel* self, intptr_t slot) {
-    if (auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self))) {
+    auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self));
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_Receivers_Callback(reinterpret_cast<VirtualQQmlWebChannel::QQmlWebChannel_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QQmlWebChannel_IsSignalConnected(const QQmlWebChannel* self, QMetaMethod* signal) {
-    if (auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self))) {
+bool QQmlWebChannel_IsSignalConnected(const QQmlWebChannel* self, const QMetaMethod* signal) {
+    auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self));
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         return vqqmlwebchannel->isSignalConnected(*signal);
     } else {
-        return vqqmlwebchannel->isSignalConnected(*signal);
+        return ((VirtualQQmlWebChannel*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QQmlWebChannel_QBaseIsSignalConnected(const QQmlWebChannel* self, QMetaMethod* signal) {
-    if (auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self))) {
+bool QQmlWebChannel_QBaseIsSignalConnected(const QQmlWebChannel* self, const QMetaMethod* signal) {
+    auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self));
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_IsSignalConnected_IsBase(true);
         return vqqmlwebchannel->isSignalConnected(*signal);
     } else {
-        return vqqmlwebchannel->isSignalConnected(*signal);
+        return ((VirtualQQmlWebChannel*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlWebChannel_OnIsSignalConnected(const QQmlWebChannel* self, intptr_t slot) {
-    if (auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self))) {
+    auto* vqqmlwebchannel = const_cast<VirtualQQmlWebChannel*>(dynamic_cast<const VirtualQQmlWebChannel*>(self));
+    if (vqqmlwebchannel && vqqmlwebchannel->isVirtualQQmlWebChannel) {
         vqqmlwebchannel->setQQmlWebChannel_IsSignalConnected_Callback(reinterpret_cast<VirtualQQmlWebChannel::QQmlWebChannel_IsSignalConnected_Callback>(slot));
     }
 }

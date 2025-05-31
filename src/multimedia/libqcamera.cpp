@@ -1,24 +1,17 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QCamera>
 #include <QCameraDevice>
 #include <QCameraFormat>
 #include <QChildEvent>
 #include <QEvent>
-#include <QList>
 #include <QMediaCaptureSession>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QPointF>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <qcamera.h>
 #include "libqcamera.h"
 #include "libqcamera.hxx"
@@ -27,7 +20,7 @@ QCamera* QCamera_new() {
     return new VirtualQCamera();
 }
 
-QCamera* QCamera_new2(QCameraDevice* cameraDevice) {
+QCamera* QCamera_new2(const QCameraDevice* cameraDevice) {
     return new VirtualQCamera(*cameraDevice);
 }
 
@@ -39,7 +32,7 @@ QCamera* QCamera_new4(QObject* parent) {
     return new VirtualQCamera(parent);
 }
 
-QCamera* QCamera_new5(QCameraDevice* cameraDevice, QObject* parent) {
+QCamera* QCamera_new5(const QCameraDevice* cameraDevice, QObject* parent) {
     return new VirtualQCamera(*cameraDevice, parent);
 }
 
@@ -56,27 +49,30 @@ void* QCamera_Metacast(QCamera* self, const char* param1) {
 }
 
 int QCamera_Metacall(QCamera* self, int param1, int param2, void** param3) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQCamera*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QCamera_OnMetacall(QCamera* self, intptr_t slot) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_Metacall_Callback(reinterpret_cast<VirtualQCamera::QCamera_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QCamera_QBaseMetacall(QCamera* self, int param1, int param2, void** param3) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_Metacall_IsBase(true);
         return vqcamera->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQCamera*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -108,7 +104,7 @@ QCameraDevice* QCamera_CameraDevice(const QCamera* self) {
     return new QCameraDevice(self->cameraDevice());
 }
 
-void QCamera_SetCameraDevice(QCamera* self, QCameraDevice* cameraDevice) {
+void QCamera_SetCameraDevice(QCamera* self, const QCameraDevice* cameraDevice) {
     self->setCameraDevice(*cameraDevice);
 }
 
@@ -116,7 +112,7 @@ QCameraFormat* QCamera_CameraFormat(const QCamera* self) {
     return new QCameraFormat(self->cameraFormat());
 }
 
-void QCamera_SetCameraFormat(QCamera* self, QCameraFormat* format) {
+void QCamera_SetCameraFormat(QCamera* self, const QCameraFormat* format) {
     self->setCameraFormat(*format);
 }
 
@@ -160,7 +156,7 @@ QPointF* QCamera_CustomFocusPoint(const QCamera* self) {
     return new QPointF(self->customFocusPoint());
 }
 
-void QCamera_SetCustomFocusPoint(QCamera* self, QPointF* point) {
+void QCamera_SetCustomFocusPoint(QCamera* self, const QPointF* point) {
     self->setCustomFocusPoint(*point);
 }
 
@@ -343,7 +339,7 @@ void QCamera_Connect_ErrorChanged(QCamera* self, intptr_t slot) {
     });
 }
 
-void QCamera_ErrorOccurred(QCamera* self, int errorVal, libqt_string errorString) {
+void QCamera_ErrorOccurred(QCamera* self, int errorVal, const libqt_string errorString) {
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     self->errorOccurred(static_cast<QCamera::Error>(errorVal), errorString_QString);
 }
@@ -676,286 +672,319 @@ libqt_string QCamera_Tr3(const char* s, const char* c, int n) {
 
 // Derived class handler implementation
 bool QCamera_Event(QCamera* self, QEvent* event) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         return vqcamera->event(event);
     } else {
-        return vqcamera->event(event);
+        return self->QCamera::event(event);
     }
 }
 
 // Base class handler implementation
 bool QCamera_QBaseEvent(QCamera* self, QEvent* event) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_Event_IsBase(true);
         return vqcamera->event(event);
     } else {
-        return vqcamera->event(event);
+        return self->QCamera::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCamera_OnEvent(QCamera* self, intptr_t slot) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_Event_Callback(reinterpret_cast<VirtualQCamera::QCamera_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QCamera_EventFilter(QCamera* self, QObject* watched, QEvent* event) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         return vqcamera->eventFilter(watched, event);
     } else {
-        return vqcamera->eventFilter(watched, event);
+        return self->QCamera::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QCamera_QBaseEventFilter(QCamera* self, QObject* watched, QEvent* event) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_EventFilter_IsBase(true);
         return vqcamera->eventFilter(watched, event);
     } else {
-        return vqcamera->eventFilter(watched, event);
+        return self->QCamera::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCamera_OnEventFilter(QCamera* self, intptr_t slot) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_EventFilter_Callback(reinterpret_cast<VirtualQCamera::QCamera_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QCamera_TimerEvent(QCamera* self, QTimerEvent* event) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->timerEvent(event);
     } else {
-        vqcamera->timerEvent(event);
+        ((VirtualQCamera*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QCamera_QBaseTimerEvent(QCamera* self, QTimerEvent* event) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_TimerEvent_IsBase(true);
         vqcamera->timerEvent(event);
     } else {
-        vqcamera->timerEvent(event);
+        ((VirtualQCamera*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCamera_OnTimerEvent(QCamera* self, intptr_t slot) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_TimerEvent_Callback(reinterpret_cast<VirtualQCamera::QCamera_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QCamera_ChildEvent(QCamera* self, QChildEvent* event) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->childEvent(event);
     } else {
-        vqcamera->childEvent(event);
+        ((VirtualQCamera*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QCamera_QBaseChildEvent(QCamera* self, QChildEvent* event) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_ChildEvent_IsBase(true);
         vqcamera->childEvent(event);
     } else {
-        vqcamera->childEvent(event);
+        ((VirtualQCamera*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCamera_OnChildEvent(QCamera* self, intptr_t slot) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_ChildEvent_Callback(reinterpret_cast<VirtualQCamera::QCamera_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QCamera_CustomEvent(QCamera* self, QEvent* event) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->customEvent(event);
     } else {
-        vqcamera->customEvent(event);
+        ((VirtualQCamera*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QCamera_QBaseCustomEvent(QCamera* self, QEvent* event) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_CustomEvent_IsBase(true);
         vqcamera->customEvent(event);
     } else {
-        vqcamera->customEvent(event);
+        ((VirtualQCamera*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCamera_OnCustomEvent(QCamera* self, intptr_t slot) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_CustomEvent_Callback(reinterpret_cast<VirtualQCamera::QCamera_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QCamera_ConnectNotify(QCamera* self, QMetaMethod* signal) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+void QCamera_ConnectNotify(QCamera* self, const QMetaMethod* signal) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->connectNotify(*signal);
     } else {
-        vqcamera->connectNotify(*signal);
+        ((VirtualQCamera*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QCamera_QBaseConnectNotify(QCamera* self, QMetaMethod* signal) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+void QCamera_QBaseConnectNotify(QCamera* self, const QMetaMethod* signal) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_ConnectNotify_IsBase(true);
         vqcamera->connectNotify(*signal);
     } else {
-        vqcamera->connectNotify(*signal);
+        ((VirtualQCamera*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCamera_OnConnectNotify(QCamera* self, intptr_t slot) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_ConnectNotify_Callback(reinterpret_cast<VirtualQCamera::QCamera_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QCamera_DisconnectNotify(QCamera* self, QMetaMethod* signal) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+void QCamera_DisconnectNotify(QCamera* self, const QMetaMethod* signal) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->disconnectNotify(*signal);
     } else {
-        vqcamera->disconnectNotify(*signal);
+        ((VirtualQCamera*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QCamera_QBaseDisconnectNotify(QCamera* self, QMetaMethod* signal) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+void QCamera_QBaseDisconnectNotify(QCamera* self, const QMetaMethod* signal) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_DisconnectNotify_IsBase(true);
         vqcamera->disconnectNotify(*signal);
     } else {
-        vqcamera->disconnectNotify(*signal);
+        ((VirtualQCamera*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCamera_OnDisconnectNotify(QCamera* self, intptr_t slot) {
-    if (auto* vqcamera = dynamic_cast<VirtualQCamera*>(self)) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_DisconnectNotify_Callback(reinterpret_cast<VirtualQCamera::QCamera_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QCamera_Sender(const QCamera* self) {
-    if (auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self))) {
+    auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         return vqcamera->sender();
     } else {
-        return vqcamera->sender();
+        return ((VirtualQCamera*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QCamera_QBaseSender(const QCamera* self) {
-    if (auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self))) {
+    auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_Sender_IsBase(true);
         return vqcamera->sender();
     } else {
-        return vqcamera->sender();
+        return ((VirtualQCamera*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCamera_OnSender(const QCamera* self, intptr_t slot) {
-    if (auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self))) {
+    auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_Sender_Callback(reinterpret_cast<VirtualQCamera::QCamera_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QCamera_SenderSignalIndex(const QCamera* self) {
-    if (auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self))) {
+    auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         return vqcamera->senderSignalIndex();
     } else {
-        return vqcamera->senderSignalIndex();
+        return ((VirtualQCamera*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QCamera_QBaseSenderSignalIndex(const QCamera* self) {
-    if (auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self))) {
+    auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_SenderSignalIndex_IsBase(true);
         return vqcamera->senderSignalIndex();
     } else {
-        return vqcamera->senderSignalIndex();
+        return ((VirtualQCamera*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCamera_OnSenderSignalIndex(const QCamera* self, intptr_t slot) {
-    if (auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self))) {
+    auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_SenderSignalIndex_Callback(reinterpret_cast<VirtualQCamera::QCamera_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QCamera_Receivers(const QCamera* self, const char* signal) {
-    if (auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self))) {
+    auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         return vqcamera->receivers(signal);
     } else {
-        return vqcamera->receivers(signal);
+        return ((VirtualQCamera*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QCamera_QBaseReceivers(const QCamera* self, const char* signal) {
-    if (auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self))) {
+    auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_Receivers_IsBase(true);
         return vqcamera->receivers(signal);
     } else {
-        return vqcamera->receivers(signal);
+        return ((VirtualQCamera*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCamera_OnReceivers(const QCamera* self, intptr_t slot) {
-    if (auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self))) {
+    auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_Receivers_Callback(reinterpret_cast<VirtualQCamera::QCamera_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QCamera_IsSignalConnected(const QCamera* self, QMetaMethod* signal) {
-    if (auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self))) {
+bool QCamera_IsSignalConnected(const QCamera* self, const QMetaMethod* signal) {
+    auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         return vqcamera->isSignalConnected(*signal);
     } else {
-        return vqcamera->isSignalConnected(*signal);
+        return ((VirtualQCamera*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QCamera_QBaseIsSignalConnected(const QCamera* self, QMetaMethod* signal) {
-    if (auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self))) {
+bool QCamera_QBaseIsSignalConnected(const QCamera* self, const QMetaMethod* signal) {
+    auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_IsSignalConnected_IsBase(true);
         return vqcamera->isSignalConnected(*signal);
     } else {
-        return vqcamera->isSignalConnected(*signal);
+        return ((VirtualQCamera*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCamera_OnIsSignalConnected(const QCamera* self, intptr_t slot) {
-    if (auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self))) {
+    auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
+    if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_IsSignalConnected_Callback(reinterpret_cast<VirtualQCamera::QCamera_IsSignalConnected_Callback>(slot));
     }
 }

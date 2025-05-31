@@ -16,35 +16,35 @@ QCursor* QCursor_new2(int shape) {
     return new QCursor(static_cast<Qt::CursorShape>(shape));
 }
 
-QCursor* QCursor_new3(QBitmap* bitmap, QBitmap* mask) {
+QCursor* QCursor_new3(const QBitmap* bitmap, const QBitmap* mask) {
     return new QCursor(*bitmap, *mask);
 }
 
-QCursor* QCursor_new4(QPixmap* pixmap) {
+QCursor* QCursor_new4(const QPixmap* pixmap) {
     return new QCursor(*pixmap);
 }
 
-QCursor* QCursor_new5(QCursor* cursor) {
+QCursor* QCursor_new5(const QCursor* cursor) {
     return new QCursor(*cursor);
 }
 
-QCursor* QCursor_new6(QBitmap* bitmap, QBitmap* mask, int hotX) {
+QCursor* QCursor_new6(const QBitmap* bitmap, const QBitmap* mask, int hotX) {
     return new QCursor(*bitmap, *mask, static_cast<int>(hotX));
 }
 
-QCursor* QCursor_new7(QBitmap* bitmap, QBitmap* mask, int hotX, int hotY) {
+QCursor* QCursor_new7(const QBitmap* bitmap, const QBitmap* mask, int hotX, int hotY) {
     return new QCursor(*bitmap, *mask, static_cast<int>(hotX), static_cast<int>(hotY));
 }
 
-QCursor* QCursor_new8(QPixmap* pixmap, int hotX) {
+QCursor* QCursor_new8(const QPixmap* pixmap, int hotX) {
     return new QCursor(*pixmap, static_cast<int>(hotX));
 }
 
-QCursor* QCursor_new9(QPixmap* pixmap, int hotX, int hotY) {
+QCursor* QCursor_new9(const QPixmap* pixmap, int hotX, int hotY) {
     return new QCursor(*pixmap, static_cast<int>(hotX), static_cast<int>(hotY));
 }
 
-void QCursor_OperatorAssign(QCursor* self, QCursor* cursor) {
+void QCursor_OperatorAssign(QCursor* self, const QCursor* cursor) {
     self->operator=(*cursor);
 }
 
@@ -92,7 +92,7 @@ QPoint* QCursor_Pos() {
     return new QPoint(QCursor::pos());
 }
 
-QPoint* QCursor_PosWithScreen(QScreen* screen) {
+QPoint* QCursor_PosWithScreen(const QScreen* screen) {
     return new QPoint(QCursor::pos(screen));
 }
 
@@ -104,11 +104,11 @@ void QCursor_SetPos2(QScreen* screen, int x, int y) {
     QCursor::setPos(screen, static_cast<int>(x), static_cast<int>(y));
 }
 
-void QCursor_SetPosWithQPoint(QPoint* p) {
+void QCursor_SetPosWithQPoint(const QPoint* p) {
     QCursor::setPos(*p);
 }
 
-void QCursor_SetPos3(QScreen* screen, QPoint* p) {
+void QCursor_SetPos3(QScreen* screen, const QPoint* p) {
     QCursor::setPos(screen, *p);
 }
 

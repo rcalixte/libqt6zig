@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qevent_enums = @import("libqevent.zig").enums;
 const qgraphicssceneevent_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
@@ -8,108 +9,108 @@ pub const qgraphicssceneevent = struct {
     /// New constructs a new QGraphicsSceneEvent object.
     ///
     /// ``` typeVal: qevent_enums.Type ```
-    pub fn New(typeVal: i64) ?*C.QGraphicsSceneEvent {
-        return C.QGraphicsSceneEvent_new(@intCast(typeVal));
+    pub fn New(typeVal: i64) QtC.QGraphicsSceneEvent {
+        return qtc.QGraphicsSceneEvent_new(@intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent ```
-    pub fn Widget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QGraphicsSceneEvent_Widget(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneEvent ```
+    pub fn Widget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QGraphicsSceneEvent_Widget(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent, widget: ?*C.QWidget ```
+    /// ``` self: QtC.QGraphicsSceneEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        C.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent ```
+    /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
-        return C.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
+        return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent, ts: u64 ```
+    /// ``` self: QtC.QGraphicsSceneEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
-        C.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
+        qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent ```
+    /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QEvent_Type(@ptrCast(self));
+        return qtc.QEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent ```
+    /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
-        return C.QEvent_Spontaneous(@ptrCast(self));
+        return qtc.QEvent_Spontaneous(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent ```
+    /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
-        return C.QEvent_IsAccepted(@ptrCast(self));
+        return qtc.QEvent_IsAccepted(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent ```
+    /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn Accept(self: ?*anyopaque) void {
-        C.QEvent_Accept(@ptrCast(self));
+        qtc.QEvent_Accept(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent ```
+    /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
-        C.QEvent_Ignore(@ptrCast(self));
+        qtc.QEvent_Ignore(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent ```
+    /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsInputEvent(@ptrCast(self));
+        return qtc.QEvent_IsInputEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent ```
+    /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsPointerEvent(@ptrCast(self));
+        return qtc.QEvent_IsPointerEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent ```
+    /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsSinglePointEvent(@ptrCast(self));
+        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -118,7 +119,7 @@ pub const qgraphicssceneevent = struct {
     ///
     ///
     pub fn RegisterEventType() i32 {
-        return C.QEvent_RegisterEventType();
+        return qtc.QEvent_RegisterEventType();
     }
 
     /// Inherited from QEvent
@@ -127,7 +128,7 @@ pub const qgraphicssceneevent = struct {
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
-        return C.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@intCast(hint));
     }
 
     /// Inherited from QEvent
@@ -136,27 +137,31 @@ pub const qgraphicssceneevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneEvent, accepted: bool ```
     pub fn SetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneEvent_SetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneEvent, accepted: bool ```
     pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneEvent_QBaseSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent, slot: fn (?*C.QGraphicsSceneEvent, bool) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsSceneEvent, slot: fn (self: QtC.QGraphicsSceneEvent, accepted: bool) callconv(.c) void ```
     pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QGraphicsSceneEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGraphicsSceneEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QEvent
@@ -165,34 +170,40 @@ pub const qgraphicssceneevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent ```
-    pub fn Clone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneEvent_Clone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneEvent ```
+    pub fn Clone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneEvent_Clone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent ```
-    pub fn QBaseClone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneEvent_QBaseClone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneEvent ```
+    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneEvent_QBaseClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent, slot: fn () callconv(.c) ?*C.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QEvent) void {
-        C.QGraphicsSceneEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneEvent, slot: fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#dtor.QGraphicsSceneEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QGraphicsSceneEvent ```
+    /// ``` self: QtC.QGraphicsSceneEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QGraphicsSceneEvent_Delete(@ptrCast(self));
+        qtc.QGraphicsSceneEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -201,319 +212,319 @@ pub const qgraphicsscenemouseevent = struct {
     /// New constructs a new QGraphicsSceneMouseEvent object.
     ///
     ///
-    pub fn New() ?*C.QGraphicsSceneMouseEvent {
-        return C.QGraphicsSceneMouseEvent_new();
+    pub fn New() QtC.QGraphicsSceneMouseEvent {
+        return qtc.QGraphicsSceneMouseEvent_new();
     }
 
     /// New2 constructs a new QGraphicsSceneMouseEvent object.
     ///
     /// ``` typeVal: qevent_enums.Type ```
-    pub fn New2(typeVal: i64) ?*C.QGraphicsSceneMouseEvent {
-        return C.QGraphicsSceneMouseEvent_new2(@intCast(typeVal));
+    pub fn New2(typeVal: i64) QtC.QGraphicsSceneMouseEvent {
+        return qtc.QGraphicsSceneMouseEvent_new2(@intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#pos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
-    pub fn Pos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneMouseEvent_Pos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
+    pub fn Pos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneMouseEvent_Pos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, pos: QtC.QPointF ```
     pub fn SetPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneMouseEvent_SetPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneMouseEvent_SetPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#scenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
-    pub fn ScenePos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneMouseEvent_ScenePos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
+    pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneMouseEvent_ScenePos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setScenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, pos: QtC.QPointF ```
     pub fn SetScenePos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneMouseEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneMouseEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#screenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
-    pub fn ScreenPos(self: ?*anyopaque) ?*C.QPoint {
-        return C.QGraphicsSceneMouseEvent_ScreenPos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
+    pub fn ScreenPos(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QGraphicsSceneMouseEvent_ScreenPos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setScreenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, pos: ?*C.QPoint ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, pos: QtC.QPoint ```
     pub fn SetScreenPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneMouseEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneMouseEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttonDownPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton ```
-    pub fn ButtonDownPos(self: ?*anyopaque, button: i64) ?*C.QPointF {
-        return C.QGraphicsSceneMouseEvent_ButtonDownPos(@ptrCast(self), @intCast(button));
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton ```
+    pub fn ButtonDownPos(self: ?*anyopaque, button: i64) QtC.QPointF {
+        return qtc.QGraphicsSceneMouseEvent_ButtonDownPos(@ptrCast(self), @intCast(button));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtonDownPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton, pos: QtC.QPointF ```
     pub fn SetButtonDownPos(self: ?*anyopaque, button: i64, pos: ?*anyopaque) void {
-        C.QGraphicsSceneMouseEvent_SetButtonDownPos(@ptrCast(self), @intCast(button), @ptrCast(pos));
+        qtc.QGraphicsSceneMouseEvent_SetButtonDownPos(@ptrCast(self), @intCast(button), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttonDownScenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton ```
-    pub fn ButtonDownScenePos(self: ?*anyopaque, button: i64) ?*C.QPointF {
-        return C.QGraphicsSceneMouseEvent_ButtonDownScenePos(@ptrCast(self), @intCast(button));
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton ```
+    pub fn ButtonDownScenePos(self: ?*anyopaque, button: i64) QtC.QPointF {
+        return qtc.QGraphicsSceneMouseEvent_ButtonDownScenePos(@ptrCast(self), @intCast(button));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtonDownScenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton, pos: QtC.QPointF ```
     pub fn SetButtonDownScenePos(self: ?*anyopaque, button: i64, pos: ?*anyopaque) void {
-        C.QGraphicsSceneMouseEvent_SetButtonDownScenePos(@ptrCast(self), @intCast(button), @ptrCast(pos));
+        qtc.QGraphicsSceneMouseEvent_SetButtonDownScenePos(@ptrCast(self), @intCast(button), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttonDownScreenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton ```
-    pub fn ButtonDownScreenPos(self: ?*anyopaque, button: i64) ?*C.QPoint {
-        return C.QGraphicsSceneMouseEvent_ButtonDownScreenPos(@ptrCast(self), @intCast(button));
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton ```
+    pub fn ButtonDownScreenPos(self: ?*anyopaque, button: i64) QtC.QPoint {
+        return qtc.QGraphicsSceneMouseEvent_ButtonDownScreenPos(@ptrCast(self), @intCast(button));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtonDownScreenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton, pos: ?*C.QPoint ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton, pos: QtC.QPoint ```
     pub fn SetButtonDownScreenPos(self: ?*anyopaque, button: i64, pos: ?*anyopaque) void {
-        C.QGraphicsSceneMouseEvent_SetButtonDownScreenPos(@ptrCast(self), @intCast(button), @ptrCast(pos));
+        qtc.QGraphicsSceneMouseEvent_SetButtonDownScreenPos(@ptrCast(self), @intCast(button), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#lastPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
-    pub fn LastPos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneMouseEvent_LastPos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
+    pub fn LastPos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneMouseEvent_LastPos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setLastPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, pos: QtC.QPointF ```
     pub fn SetLastPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneMouseEvent_SetLastPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneMouseEvent_SetLastPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#lastScenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
-    pub fn LastScenePos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneMouseEvent_LastScenePos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
+    pub fn LastScenePos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneMouseEvent_LastScenePos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setLastScenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, pos: QtC.QPointF ```
     pub fn SetLastScenePos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneMouseEvent_SetLastScenePos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneMouseEvent_SetLastScenePos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#lastScreenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
-    pub fn LastScreenPos(self: ?*anyopaque) ?*C.QPoint {
-        return C.QGraphicsSceneMouseEvent_LastScreenPos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
+    pub fn LastScreenPos(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QGraphicsSceneMouseEvent_LastScreenPos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setLastScreenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, pos: ?*C.QPoint ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, pos: QtC.QPoint ```
     pub fn SetLastScreenPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneMouseEvent_SetLastScreenPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneMouseEvent_SetLastScreenPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttons)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn Buttons(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneMouseEvent_Buttons(@ptrCast(self));
+        return qtc.QGraphicsSceneMouseEvent_Buttons(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtons)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, buttons: i32 ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, buttons: i32 ```
     pub fn SetButtons(self: ?*anyopaque, buttons: i64) void {
-        C.QGraphicsSceneMouseEvent_SetButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsSceneMouseEvent_SetButtons(@ptrCast(self), @intCast(buttons));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#button)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn Button(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneMouseEvent_Button(@ptrCast(self));
+        return qtc.QGraphicsSceneMouseEvent_Button(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButton)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, button: qnamespace_enums.MouseButton ```
     pub fn SetButton(self: ?*anyopaque, button: i64) void {
-        C.QGraphicsSceneMouseEvent_SetButton(@ptrCast(self), @intCast(button));
+        qtc.QGraphicsSceneMouseEvent_SetButton(@ptrCast(self), @intCast(button));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#modifiers)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneMouseEvent_Modifiers(@ptrCast(self));
+        return qtc.QGraphicsSceneMouseEvent_Modifiers(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setModifiers)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, modifiers: i32 ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, modifiers: i32 ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
-        C.QGraphicsSceneMouseEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QGraphicsSceneMouseEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#source)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn Source(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneMouseEvent_Source(@ptrCast(self));
+        return qtc.QGraphicsSceneMouseEvent_Source(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setSource)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, source: qnamespace_enums.MouseEventSource ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, source: qnamespace_enums.MouseEventSource ```
     pub fn SetSource(self: ?*anyopaque, source: i64) void {
-        C.QGraphicsSceneMouseEvent_SetSource(@ptrCast(self), @intCast(source));
+        qtc.QGraphicsSceneMouseEvent_SetSource(@ptrCast(self), @intCast(source));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#flags)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn Flags(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneMouseEvent_Flags(@ptrCast(self));
+        return qtc.QGraphicsSceneMouseEvent_Flags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setFlags)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, flags: i32 ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, flags: i32 ```
     pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
-        C.QGraphicsSceneMouseEvent_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsSceneMouseEvent_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
-    pub fn Widget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QGraphicsSceneEvent_Widget(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
+    pub fn Widget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QGraphicsSceneEvent_Widget(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, widget: ?*C.QWidget ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        C.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
-        return C.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
+        return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, ts: u64 ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
-        C.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
+        qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QEvent_Type(@ptrCast(self));
+        return qtc.QEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
-        return C.QEvent_Spontaneous(@ptrCast(self));
+        return qtc.QEvent_Spontaneous(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
-        return C.QEvent_IsAccepted(@ptrCast(self));
+        return qtc.QEvent_IsAccepted(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn Accept(self: ?*anyopaque) void {
-        C.QEvent_Accept(@ptrCast(self));
+        qtc.QEvent_Accept(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
-        C.QEvent_Ignore(@ptrCast(self));
+        qtc.QEvent_Ignore(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsInputEvent(@ptrCast(self));
+        return qtc.QEvent_IsInputEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsPointerEvent(@ptrCast(self));
+        return qtc.QEvent_IsPointerEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsSinglePointEvent(@ptrCast(self));
+        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -522,7 +533,7 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     ///
     pub fn RegisterEventType() i32 {
-        return C.QEvent_RegisterEventType();
+        return qtc.QEvent_RegisterEventType();
     }
 
     /// Inherited from QEvent
@@ -531,7 +542,7 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
-        return C.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@intCast(hint));
     }
 
     /// Inherited from QEvent
@@ -540,27 +551,31 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, accepted: bool ```
     pub fn SetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneMouseEvent_SetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneMouseEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, accepted: bool ```
     pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneMouseEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneMouseEvent_QBaseSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, slot: fn (?*C.QGraphicsSceneMouseEvent, bool) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, slot: fn (self: QtC.QGraphicsSceneMouseEvent, accepted: bool) callconv(.c) void ```
     pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QGraphicsSceneMouseEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGraphicsSceneMouseEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QEvent
@@ -569,34 +584,40 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
-    pub fn Clone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneMouseEvent_Clone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
+    pub fn Clone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneMouseEvent_Clone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
-    pub fn QBaseClone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneMouseEvent_QBaseClone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
+    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneMouseEvent_QBaseClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent, slot: fn () callconv(.c) ?*C.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QEvent) void {
-        C.QGraphicsSceneMouseEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, slot: fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneMouseEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#dtor.QGraphicsSceneMouseEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QGraphicsSceneMouseEvent ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QGraphicsSceneMouseEvent_Delete(@ptrCast(self));
+        qtc.QGraphicsSceneMouseEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -605,263 +626,263 @@ pub const qgraphicsscenewheelevent = struct {
     /// New constructs a new QGraphicsSceneWheelEvent object.
     ///
     ///
-    pub fn New() ?*C.QGraphicsSceneWheelEvent {
-        return C.QGraphicsSceneWheelEvent_new();
+    pub fn New() QtC.QGraphicsSceneWheelEvent {
+        return qtc.QGraphicsSceneWheelEvent_new();
     }
 
     /// New2 constructs a new QGraphicsSceneWheelEvent object.
     ///
     /// ``` typeVal: qevent_enums.Type ```
-    pub fn New2(typeVal: i64) ?*C.QGraphicsSceneWheelEvent {
-        return C.QGraphicsSceneWheelEvent_new2(@intCast(typeVal));
+    pub fn New2(typeVal: i64) QtC.QGraphicsSceneWheelEvent {
+        return qtc.QGraphicsSceneWheelEvent_new2(@intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#pos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
-    pub fn Pos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneWheelEvent_Pos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
+    pub fn Pos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneWheelEvent_Pos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, pos: QtC.QPointF ```
     pub fn SetPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneWheelEvent_SetPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneWheelEvent_SetPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#scenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
-    pub fn ScenePos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneWheelEvent_ScenePos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
+    pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneWheelEvent_ScenePos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setScenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, pos: QtC.QPointF ```
     pub fn SetScenePos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneWheelEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneWheelEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#screenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
-    pub fn ScreenPos(self: ?*anyopaque) ?*C.QPoint {
-        return C.QGraphicsSceneWheelEvent_ScreenPos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
+    pub fn ScreenPos(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QGraphicsSceneWheelEvent_ScreenPos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setScreenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent, pos: ?*C.QPoint ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, pos: QtC.QPoint ```
     pub fn SetScreenPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneWheelEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneWheelEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#buttons)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Buttons(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneWheelEvent_Buttons(@ptrCast(self));
+        return qtc.QGraphicsSceneWheelEvent_Buttons(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setButtons)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent, buttons: i32 ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, buttons: i32 ```
     pub fn SetButtons(self: ?*anyopaque, buttons: i64) void {
-        C.QGraphicsSceneWheelEvent_SetButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsSceneWheelEvent_SetButtons(@ptrCast(self), @intCast(buttons));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#modifiers)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneWheelEvent_Modifiers(@ptrCast(self));
+        return qtc.QGraphicsSceneWheelEvent_Modifiers(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setModifiers)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent, modifiers: i32 ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, modifiers: i32 ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
-        C.QGraphicsSceneWheelEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QGraphicsSceneWheelEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#delta)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Delta(self: ?*anyopaque) i32 {
-        return C.QGraphicsSceneWheelEvent_Delta(@ptrCast(self));
+        return qtc.QGraphicsSceneWheelEvent_Delta(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setDelta)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent, delta: i32 ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, delta: i32 ```
     pub fn SetDelta(self: ?*anyopaque, delta: i32) void {
-        C.QGraphicsSceneWheelEvent_SetDelta(@ptrCast(self), @intCast(delta));
+        qtc.QGraphicsSceneWheelEvent_SetDelta(@ptrCast(self), @intCast(delta));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#orientation)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Orientation(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneWheelEvent_Orientation(@ptrCast(self));
+        return qtc.QGraphicsSceneWheelEvent_Orientation(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setOrientation)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent, orientation: qnamespace_enums.Orientation ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, orientation: qnamespace_enums.Orientation ```
     pub fn SetOrientation(self: ?*anyopaque, orientation: i64) void {
-        C.QGraphicsSceneWheelEvent_SetOrientation(@ptrCast(self), @intCast(orientation));
+        qtc.QGraphicsSceneWheelEvent_SetOrientation(@ptrCast(self), @intCast(orientation));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#phase)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Phase(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneWheelEvent_Phase(@ptrCast(self));
+        return qtc.QGraphicsSceneWheelEvent_Phase(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setPhase)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent, scrollPhase: qnamespace_enums.ScrollPhase ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, scrollPhase: qnamespace_enums.ScrollPhase ```
     pub fn SetPhase(self: ?*anyopaque, scrollPhase: i64) void {
-        C.QGraphicsSceneWheelEvent_SetPhase(@ptrCast(self), @intCast(scrollPhase));
+        qtc.QGraphicsSceneWheelEvent_SetPhase(@ptrCast(self), @intCast(scrollPhase));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#pixelDelta)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
-    pub fn PixelDelta(self: ?*anyopaque) ?*C.QPoint {
-        return C.QGraphicsSceneWheelEvent_PixelDelta(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
+    pub fn PixelDelta(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QGraphicsSceneWheelEvent_PixelDelta(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setPixelDelta)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent, delta: ?*C.QPoint ```
-    pub fn SetPixelDelta(self: ?*anyopaque, delta: ?*C.QPoint) void {
-        C.QGraphicsSceneWheelEvent_SetPixelDelta(@ptrCast(self), @ptrCast(delta));
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, delta: QtC.QPoint ```
+    pub fn SetPixelDelta(self: ?*anyopaque, delta: QtC.QPoint) void {
+        qtc.QGraphicsSceneWheelEvent_SetPixelDelta(@ptrCast(self), @ptrCast(delta));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#isInverted)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn IsInverted(self: ?*anyopaque) bool {
-        return C.QGraphicsSceneWheelEvent_IsInverted(@ptrCast(self));
+        return qtc.QGraphicsSceneWheelEvent_IsInverted(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setInverted)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent, inverted: bool ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, inverted: bool ```
     pub fn SetInverted(self: ?*anyopaque, inverted: bool) void {
-        C.QGraphicsSceneWheelEvent_SetInverted(@ptrCast(self), inverted);
+        qtc.QGraphicsSceneWheelEvent_SetInverted(@ptrCast(self), inverted);
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
-    pub fn Widget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QGraphicsSceneEvent_Widget(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
+    pub fn Widget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QGraphicsSceneEvent_Widget(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent, widget: ?*C.QWidget ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        C.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
-        return C.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
+        return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent, ts: u64 ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
-        C.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
+        qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QEvent_Type(@ptrCast(self));
+        return qtc.QEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
-        return C.QEvent_Spontaneous(@ptrCast(self));
+        return qtc.QEvent_Spontaneous(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
-        return C.QEvent_IsAccepted(@ptrCast(self));
+        return qtc.QEvent_IsAccepted(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Accept(self: ?*anyopaque) void {
-        C.QEvent_Accept(@ptrCast(self));
+        qtc.QEvent_Accept(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
-        C.QEvent_Ignore(@ptrCast(self));
+        qtc.QEvent_Ignore(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsInputEvent(@ptrCast(self));
+        return qtc.QEvent_IsInputEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsPointerEvent(@ptrCast(self));
+        return qtc.QEvent_IsPointerEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsSinglePointEvent(@ptrCast(self));
+        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -870,7 +891,7 @@ pub const qgraphicsscenewheelevent = struct {
     ///
     ///
     pub fn RegisterEventType() i32 {
-        return C.QEvent_RegisterEventType();
+        return qtc.QEvent_RegisterEventType();
     }
 
     /// Inherited from QEvent
@@ -879,7 +900,7 @@ pub const qgraphicsscenewheelevent = struct {
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
-        return C.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@intCast(hint));
     }
 
     /// Inherited from QEvent
@@ -888,27 +909,31 @@ pub const qgraphicsscenewheelevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, accepted: bool ```
     pub fn SetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneWheelEvent_SetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneWheelEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, accepted: bool ```
     pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneWheelEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneWheelEvent_QBaseSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent, slot: fn (?*C.QGraphicsSceneWheelEvent, bool) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, slot: fn (self: QtC.QGraphicsSceneWheelEvent, accepted: bool) callconv(.c) void ```
     pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QGraphicsSceneWheelEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGraphicsSceneWheelEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QEvent
@@ -917,34 +942,40 @@ pub const qgraphicsscenewheelevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
-    pub fn Clone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneWheelEvent_Clone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
+    pub fn Clone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneWheelEvent_Clone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
-    pub fn QBaseClone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneWheelEvent_QBaseClone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
+    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneWheelEvent_QBaseClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent, slot: fn () callconv(.c) ?*C.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QEvent) void {
-        C.QGraphicsSceneWheelEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, slot: fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneWheelEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#dtor.QGraphicsSceneWheelEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QGraphicsSceneWheelEvent ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QGraphicsSceneWheelEvent_Delete(@ptrCast(self));
+        qtc.QGraphicsSceneWheelEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -953,193 +984,193 @@ pub const qgraphicsscenecontextmenuevent = struct {
     /// New constructs a new QGraphicsSceneContextMenuEvent object.
     ///
     ///
-    pub fn New() ?*C.QGraphicsSceneContextMenuEvent {
-        return C.QGraphicsSceneContextMenuEvent_new();
+    pub fn New() QtC.QGraphicsSceneContextMenuEvent {
+        return qtc.QGraphicsSceneContextMenuEvent_new();
     }
 
     /// New2 constructs a new QGraphicsSceneContextMenuEvent object.
     ///
     /// ``` typeVal: qevent_enums.Type ```
-    pub fn New2(typeVal: i64) ?*C.QGraphicsSceneContextMenuEvent {
-        return C.QGraphicsSceneContextMenuEvent_new2(@intCast(typeVal));
+    pub fn New2(typeVal: i64) QtC.QGraphicsSceneContextMenuEvent {
+        return qtc.QGraphicsSceneContextMenuEvent_new2(@intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#pos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
-    pub fn Pos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneContextMenuEvent_Pos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
+    pub fn Pos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneContextMenuEvent_Pos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, pos: QtC.QPointF ```
     pub fn SetPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneContextMenuEvent_SetPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneContextMenuEvent_SetPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#scenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
-    pub fn ScenePos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneContextMenuEvent_ScenePos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
+    pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneContextMenuEvent_ScenePos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setScenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, pos: QtC.QPointF ```
     pub fn SetScenePos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneContextMenuEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneContextMenuEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#screenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
-    pub fn ScreenPos(self: ?*anyopaque) ?*C.QPoint {
-        return C.QGraphicsSceneContextMenuEvent_ScreenPos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
+    pub fn ScreenPos(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QGraphicsSceneContextMenuEvent_ScreenPos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setScreenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent, pos: ?*C.QPoint ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, pos: QtC.QPoint ```
     pub fn SetScreenPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneContextMenuEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneContextMenuEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#modifiers)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneContextMenuEvent_Modifiers(@ptrCast(self));
+        return qtc.QGraphicsSceneContextMenuEvent_Modifiers(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setModifiers)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent, modifiers: i32 ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, modifiers: i32 ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
-        C.QGraphicsSceneContextMenuEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QGraphicsSceneContextMenuEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#reason)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn Reason(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneContextMenuEvent_Reason(@ptrCast(self));
+        return qtc.QGraphicsSceneContextMenuEvent_Reason(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setReason)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent, reason: qgraphicssceneevent_enums.Reason ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, reason: qgraphicssceneevent_enums.Reason ```
     pub fn SetReason(self: ?*anyopaque, reason: i64) void {
-        C.QGraphicsSceneContextMenuEvent_SetReason(@ptrCast(self), @intCast(reason));
+        qtc.QGraphicsSceneContextMenuEvent_SetReason(@ptrCast(self), @intCast(reason));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
-    pub fn Widget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QGraphicsSceneEvent_Widget(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
+    pub fn Widget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QGraphicsSceneEvent_Widget(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent, widget: ?*C.QWidget ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        C.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
-        return C.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
+        return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent, ts: u64 ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
-        C.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
+        qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QEvent_Type(@ptrCast(self));
+        return qtc.QEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
-        return C.QEvent_Spontaneous(@ptrCast(self));
+        return qtc.QEvent_Spontaneous(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
-        return C.QEvent_IsAccepted(@ptrCast(self));
+        return qtc.QEvent_IsAccepted(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn Accept(self: ?*anyopaque) void {
-        C.QEvent_Accept(@ptrCast(self));
+        qtc.QEvent_Accept(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
-        C.QEvent_Ignore(@ptrCast(self));
+        qtc.QEvent_Ignore(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsInputEvent(@ptrCast(self));
+        return qtc.QEvent_IsInputEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsPointerEvent(@ptrCast(self));
+        return qtc.QEvent_IsPointerEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsSinglePointEvent(@ptrCast(self));
+        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -1148,7 +1179,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
     ///
     ///
     pub fn RegisterEventType() i32 {
-        return C.QEvent_RegisterEventType();
+        return qtc.QEvent_RegisterEventType();
     }
 
     /// Inherited from QEvent
@@ -1157,7 +1188,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
-        return C.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@intCast(hint));
     }
 
     /// Inherited from QEvent
@@ -1166,27 +1197,31 @@ pub const qgraphicsscenecontextmenuevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, accepted: bool ```
     pub fn SetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneContextMenuEvent_SetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneContextMenuEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, accepted: bool ```
     pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneContextMenuEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneContextMenuEvent_QBaseSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent, slot: fn (?*C.QGraphicsSceneContextMenuEvent, bool) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, slot: fn (self: QtC.QGraphicsSceneContextMenuEvent, accepted: bool) callconv(.c) void ```
     pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QGraphicsSceneContextMenuEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGraphicsSceneContextMenuEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QEvent
@@ -1195,34 +1230,40 @@ pub const qgraphicsscenecontextmenuevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
-    pub fn Clone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneContextMenuEvent_Clone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
+    pub fn Clone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneContextMenuEvent_Clone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
-    pub fn QBaseClone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneContextMenuEvent_QBaseClone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
+    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneContextMenuEvent_QBaseClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent, slot: fn () callconv(.c) ?*C.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QEvent) void {
-        C.QGraphicsSceneContextMenuEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, slot: fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneContextMenuEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#dtor.QGraphicsSceneContextMenuEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QGraphicsSceneContextMenuEvent ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QGraphicsSceneContextMenuEvent_Delete(@ptrCast(self));
+        qtc.QGraphicsSceneContextMenuEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -1231,221 +1272,221 @@ pub const qgraphicsscenehoverevent = struct {
     /// New constructs a new QGraphicsSceneHoverEvent object.
     ///
     ///
-    pub fn New() ?*C.QGraphicsSceneHoverEvent {
-        return C.QGraphicsSceneHoverEvent_new();
+    pub fn New() QtC.QGraphicsSceneHoverEvent {
+        return qtc.QGraphicsSceneHoverEvent_new();
     }
 
     /// New2 constructs a new QGraphicsSceneHoverEvent object.
     ///
     /// ``` typeVal: qevent_enums.Type ```
-    pub fn New2(typeVal: i64) ?*C.QGraphicsSceneHoverEvent {
-        return C.QGraphicsSceneHoverEvent_new2(@intCast(typeVal));
+    pub fn New2(typeVal: i64) QtC.QGraphicsSceneHoverEvent {
+        return qtc.QGraphicsSceneHoverEvent_new2(@intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#pos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
-    pub fn Pos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneHoverEvent_Pos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
+    pub fn Pos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneHoverEvent_Pos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent, pos: QtC.QPointF ```
     pub fn SetPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneHoverEvent_SetPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneHoverEvent_SetPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#scenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
-    pub fn ScenePos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneHoverEvent_ScenePos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
+    pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneHoverEvent_ScenePos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setScenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent, pos: QtC.QPointF ```
     pub fn SetScenePos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneHoverEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneHoverEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#screenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
-    pub fn ScreenPos(self: ?*anyopaque) ?*C.QPoint {
-        return C.QGraphicsSceneHoverEvent_ScreenPos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
+    pub fn ScreenPos(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QGraphicsSceneHoverEvent_ScreenPos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setScreenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent, pos: ?*C.QPoint ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent, pos: QtC.QPoint ```
     pub fn SetScreenPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneHoverEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneHoverEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#lastPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
-    pub fn LastPos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneHoverEvent_LastPos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
+    pub fn LastPos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneHoverEvent_LastPos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setLastPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent, pos: QtC.QPointF ```
     pub fn SetLastPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneHoverEvent_SetLastPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneHoverEvent_SetLastPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#lastScenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
-    pub fn LastScenePos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneHoverEvent_LastScenePos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
+    pub fn LastScenePos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneHoverEvent_LastScenePos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setLastScenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent, pos: QtC.QPointF ```
     pub fn SetLastScenePos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneHoverEvent_SetLastScenePos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneHoverEvent_SetLastScenePos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#lastScreenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
-    pub fn LastScreenPos(self: ?*anyopaque) ?*C.QPoint {
-        return C.QGraphicsSceneHoverEvent_LastScreenPos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
+    pub fn LastScreenPos(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QGraphicsSceneHoverEvent_LastScreenPos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setLastScreenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent, pos: ?*C.QPoint ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent, pos: QtC.QPoint ```
     pub fn SetLastScreenPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneHoverEvent_SetLastScreenPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneHoverEvent_SetLastScreenPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#modifiers)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneHoverEvent_Modifiers(@ptrCast(self));
+        return qtc.QGraphicsSceneHoverEvent_Modifiers(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setModifiers)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent, modifiers: i32 ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent, modifiers: i32 ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
-        C.QGraphicsSceneHoverEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QGraphicsSceneHoverEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
-    pub fn Widget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QGraphicsSceneEvent_Widget(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
+    pub fn Widget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QGraphicsSceneEvent_Widget(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent, widget: ?*C.QWidget ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        C.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
-        return C.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
+        return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent, ts: u64 ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
-        C.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
+        qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QEvent_Type(@ptrCast(self));
+        return qtc.QEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
-        return C.QEvent_Spontaneous(@ptrCast(self));
+        return qtc.QEvent_Spontaneous(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
-        return C.QEvent_IsAccepted(@ptrCast(self));
+        return qtc.QEvent_IsAccepted(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn Accept(self: ?*anyopaque) void {
-        C.QEvent_Accept(@ptrCast(self));
+        qtc.QEvent_Accept(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
-        C.QEvent_Ignore(@ptrCast(self));
+        qtc.QEvent_Ignore(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsInputEvent(@ptrCast(self));
+        return qtc.QEvent_IsInputEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsPointerEvent(@ptrCast(self));
+        return qtc.QEvent_IsPointerEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsSinglePointEvent(@ptrCast(self));
+        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -1454,7 +1495,7 @@ pub const qgraphicsscenehoverevent = struct {
     ///
     ///
     pub fn RegisterEventType() i32 {
-        return C.QEvent_RegisterEventType();
+        return qtc.QEvent_RegisterEventType();
     }
 
     /// Inherited from QEvent
@@ -1463,7 +1504,7 @@ pub const qgraphicsscenehoverevent = struct {
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
-        return C.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@intCast(hint));
     }
 
     /// Inherited from QEvent
@@ -1472,27 +1513,31 @@ pub const qgraphicsscenehoverevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent, accepted: bool ```
     pub fn SetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneHoverEvent_SetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneHoverEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent, accepted: bool ```
     pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneHoverEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneHoverEvent_QBaseSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent, slot: fn (?*C.QGraphicsSceneHoverEvent, bool) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent, slot: fn (self: QtC.QGraphicsSceneHoverEvent, accepted: bool) callconv(.c) void ```
     pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QGraphicsSceneHoverEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGraphicsSceneHoverEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QEvent
@@ -1501,34 +1546,40 @@ pub const qgraphicsscenehoverevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
-    pub fn Clone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneHoverEvent_Clone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
+    pub fn Clone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneHoverEvent_Clone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
-    pub fn QBaseClone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneHoverEvent_QBaseClone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
+    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneHoverEvent_QBaseClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent, slot: fn () callconv(.c) ?*C.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QEvent) void {
-        C.QGraphicsSceneHoverEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneHoverEvent, slot: fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneHoverEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#dtor.QGraphicsSceneHoverEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QGraphicsSceneHoverEvent ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QGraphicsSceneHoverEvent_Delete(@ptrCast(self));
+        qtc.QGraphicsSceneHoverEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -1537,151 +1588,151 @@ pub const qgraphicsscenehelpevent = struct {
     /// New constructs a new QGraphicsSceneHelpEvent object.
     ///
     ///
-    pub fn New() ?*C.QGraphicsSceneHelpEvent {
-        return C.QGraphicsSceneHelpEvent_new();
+    pub fn New() QtC.QGraphicsSceneHelpEvent {
+        return qtc.QGraphicsSceneHelpEvent_new();
     }
 
     /// New2 constructs a new QGraphicsSceneHelpEvent object.
     ///
     /// ``` typeVal: qevent_enums.Type ```
-    pub fn New2(typeVal: i64) ?*C.QGraphicsSceneHelpEvent {
-        return C.QGraphicsSceneHelpEvent_new2(@intCast(typeVal));
+    pub fn New2(typeVal: i64) QtC.QGraphicsSceneHelpEvent {
+        return qtc.QGraphicsSceneHelpEvent_new2(@intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#scenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent ```
-    pub fn ScenePos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneHelpEvent_ScenePos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneHelpEvent ```
+    pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneHelpEvent_ScenePos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#setScenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent, pos: QtC.QPointF ```
     pub fn SetScenePos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneHelpEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneHelpEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#screenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent ```
-    pub fn ScreenPos(self: ?*anyopaque) ?*C.QPoint {
-        return C.QGraphicsSceneHelpEvent_ScreenPos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneHelpEvent ```
+    pub fn ScreenPos(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QGraphicsSceneHelpEvent_ScreenPos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#setScreenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent, pos: ?*C.QPoint ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent, pos: QtC.QPoint ```
     pub fn SetScreenPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneHelpEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneHelpEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent ```
-    pub fn Widget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QGraphicsSceneEvent_Widget(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneHelpEvent ```
+    pub fn Widget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QGraphicsSceneEvent_Widget(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent, widget: ?*C.QWidget ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        C.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
-        return C.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
+        return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent, ts: u64 ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
-        C.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
+        qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QEvent_Type(@ptrCast(self));
+        return qtc.QEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
-        return C.QEvent_Spontaneous(@ptrCast(self));
+        return qtc.QEvent_Spontaneous(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
-        return C.QEvent_IsAccepted(@ptrCast(self));
+        return qtc.QEvent_IsAccepted(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn Accept(self: ?*anyopaque) void {
-        C.QEvent_Accept(@ptrCast(self));
+        qtc.QEvent_Accept(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
-        C.QEvent_Ignore(@ptrCast(self));
+        qtc.QEvent_Ignore(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsInputEvent(@ptrCast(self));
+        return qtc.QEvent_IsInputEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsPointerEvent(@ptrCast(self));
+        return qtc.QEvent_IsPointerEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsSinglePointEvent(@ptrCast(self));
+        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -1690,7 +1741,7 @@ pub const qgraphicsscenehelpevent = struct {
     ///
     ///
     pub fn RegisterEventType() i32 {
-        return C.QEvent_RegisterEventType();
+        return qtc.QEvent_RegisterEventType();
     }
 
     /// Inherited from QEvent
@@ -1699,7 +1750,7 @@ pub const qgraphicsscenehelpevent = struct {
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
-        return C.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@intCast(hint));
     }
 
     /// Inherited from QEvent
@@ -1708,27 +1759,31 @@ pub const qgraphicsscenehelpevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent, accepted: bool ```
     pub fn SetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneHelpEvent_SetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneHelpEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent, accepted: bool ```
     pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneHelpEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneHelpEvent_QBaseSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent, slot: fn (?*C.QGraphicsSceneHelpEvent, bool) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent, slot: fn (self: QtC.QGraphicsSceneHelpEvent, accepted: bool) callconv(.c) void ```
     pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QGraphicsSceneHelpEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGraphicsSceneHelpEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QEvent
@@ -1737,34 +1792,40 @@ pub const qgraphicsscenehelpevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent ```
-    pub fn Clone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneHelpEvent_Clone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneHelpEvent ```
+    pub fn Clone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneHelpEvent_Clone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent ```
-    pub fn QBaseClone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneHelpEvent_QBaseClone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneHelpEvent ```
+    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneHelpEvent_QBaseClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent, slot: fn () callconv(.c) ?*C.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QEvent) void {
-        C.QGraphicsSceneHelpEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneHelpEvent, slot: fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneHelpEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#dtor.QGraphicsSceneHelpEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QGraphicsSceneHelpEvent ```
+    /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QGraphicsSceneHelpEvent_Delete(@ptrCast(self));
+        qtc.QGraphicsSceneHelpEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -1773,270 +1834,270 @@ pub const qgraphicsscenedragdropevent = struct {
     /// New constructs a new QGraphicsSceneDragDropEvent object.
     ///
     ///
-    pub fn New() ?*C.QGraphicsSceneDragDropEvent {
-        return C.QGraphicsSceneDragDropEvent_new();
+    pub fn New() QtC.QGraphicsSceneDragDropEvent {
+        return qtc.QGraphicsSceneDragDropEvent_new();
     }
 
     /// New2 constructs a new QGraphicsSceneDragDropEvent object.
     ///
     /// ``` typeVal: qevent_enums.Type ```
-    pub fn New2(typeVal: i64) ?*C.QGraphicsSceneDragDropEvent {
-        return C.QGraphicsSceneDragDropEvent_new2(@intCast(typeVal));
+    pub fn New2(typeVal: i64) QtC.QGraphicsSceneDragDropEvent {
+        return qtc.QGraphicsSceneDragDropEvent_new2(@intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#pos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
-    pub fn Pos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneDragDropEvent_Pos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
+    pub fn Pos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneDragDropEvent_Pos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, pos: QtC.QPointF ```
     pub fn SetPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneDragDropEvent_SetPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneDragDropEvent_SetPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#scenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
-    pub fn ScenePos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneDragDropEvent_ScenePos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
+    pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneDragDropEvent_ScenePos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setScenePos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, pos: QtC.QPointF ```
     pub fn SetScenePos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneDragDropEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneDragDropEvent_SetScenePos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#screenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
-    pub fn ScreenPos(self: ?*anyopaque) ?*C.QPoint {
-        return C.QGraphicsSceneDragDropEvent_ScreenPos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
+    pub fn ScreenPos(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QGraphicsSceneDragDropEvent_ScreenPos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setScreenPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent, pos: ?*C.QPoint ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, pos: QtC.QPoint ```
     pub fn SetScreenPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneDragDropEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneDragDropEvent_SetScreenPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#buttons)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn Buttons(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneDragDropEvent_Buttons(@ptrCast(self));
+        return qtc.QGraphicsSceneDragDropEvent_Buttons(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setButtons)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent, buttons: i32 ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, buttons: i32 ```
     pub fn SetButtons(self: ?*anyopaque, buttons: i64) void {
-        C.QGraphicsSceneDragDropEvent_SetButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsSceneDragDropEvent_SetButtons(@ptrCast(self), @intCast(buttons));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#modifiers)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneDragDropEvent_Modifiers(@ptrCast(self));
+        return qtc.QGraphicsSceneDragDropEvent_Modifiers(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setModifiers)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent, modifiers: i32 ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, modifiers: i32 ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
-        C.QGraphicsSceneDragDropEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QGraphicsSceneDragDropEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#possibleActions)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn PossibleActions(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneDragDropEvent_PossibleActions(@ptrCast(self));
+        return qtc.QGraphicsSceneDragDropEvent_PossibleActions(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setPossibleActions)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent, actions: i32 ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, actions: i32 ```
     pub fn SetPossibleActions(self: ?*anyopaque, actions: i64) void {
-        C.QGraphicsSceneDragDropEvent_SetPossibleActions(@ptrCast(self), @intCast(actions));
+        qtc.QGraphicsSceneDragDropEvent_SetPossibleActions(@ptrCast(self), @intCast(actions));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#proposedAction)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn ProposedAction(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneDragDropEvent_ProposedAction(@ptrCast(self));
+        return qtc.QGraphicsSceneDragDropEvent_ProposedAction(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setProposedAction)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent, action: qnamespace_enums.DropAction ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, action: qnamespace_enums.DropAction ```
     pub fn SetProposedAction(self: ?*anyopaque, action: i64) void {
-        C.QGraphicsSceneDragDropEvent_SetProposedAction(@ptrCast(self), @intCast(action));
+        qtc.QGraphicsSceneDragDropEvent_SetProposedAction(@ptrCast(self), @intCast(action));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#acceptProposedAction)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn AcceptProposedAction(self: ?*anyopaque) void {
-        C.QGraphicsSceneDragDropEvent_AcceptProposedAction(@ptrCast(self));
+        qtc.QGraphicsSceneDragDropEvent_AcceptProposedAction(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#dropAction)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn DropAction(self: ?*anyopaque) i64 {
-        return C.QGraphicsSceneDragDropEvent_DropAction(@ptrCast(self));
+        return qtc.QGraphicsSceneDragDropEvent_DropAction(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setDropAction)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent, action: qnamespace_enums.DropAction ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, action: qnamespace_enums.DropAction ```
     pub fn SetDropAction(self: ?*anyopaque, action: i64) void {
-        C.QGraphicsSceneDragDropEvent_SetDropAction(@ptrCast(self), @intCast(action));
+        qtc.QGraphicsSceneDragDropEvent_SetDropAction(@ptrCast(self), @intCast(action));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#source)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
-    pub fn Source(self: ?*anyopaque) ?*C.QWidget {
-        return C.QGraphicsSceneDragDropEvent_Source(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
+    pub fn Source(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QGraphicsSceneDragDropEvent_Source(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setSource)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent, source: ?*C.QWidget ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, source: QtC.QWidget ```
     pub fn SetSource(self: ?*anyopaque, source: ?*anyopaque) void {
-        C.QGraphicsSceneDragDropEvent_SetSource(@ptrCast(self), @ptrCast(source));
+        qtc.QGraphicsSceneDragDropEvent_SetSource(@ptrCast(self), @ptrCast(source));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#mimeData)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
-    pub fn MimeData(self: ?*anyopaque) ?*C.QMimeData {
-        return C.QGraphicsSceneDragDropEvent_MimeData(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
+    pub fn MimeData(self: ?*anyopaque) QtC.QMimeData {
+        return qtc.QGraphicsSceneDragDropEvent_MimeData(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setMimeData)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent, data: ?*C.QMimeData ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, data: QtC.QMimeData ```
     pub fn SetMimeData(self: ?*anyopaque, data: ?*anyopaque) void {
-        C.QGraphicsSceneDragDropEvent_SetMimeData(@ptrCast(self), @ptrCast(data));
+        qtc.QGraphicsSceneDragDropEvent_SetMimeData(@ptrCast(self), @ptrCast(data));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
-    pub fn Widget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QGraphicsSceneEvent_Widget(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
+    pub fn Widget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QGraphicsSceneEvent_Widget(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent, widget: ?*C.QWidget ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        C.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
-        return C.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
+        return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent, ts: u64 ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
-        C.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
+        qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QEvent_Type(@ptrCast(self));
+        return qtc.QEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
-        return C.QEvent_Spontaneous(@ptrCast(self));
+        return qtc.QEvent_Spontaneous(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
-        return C.QEvent_IsAccepted(@ptrCast(self));
+        return qtc.QEvent_IsAccepted(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn Accept(self: ?*anyopaque) void {
-        C.QEvent_Accept(@ptrCast(self));
+        qtc.QEvent_Accept(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
-        C.QEvent_Ignore(@ptrCast(self));
+        qtc.QEvent_Ignore(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsInputEvent(@ptrCast(self));
+        return qtc.QEvent_IsInputEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsPointerEvent(@ptrCast(self));
+        return qtc.QEvent_IsPointerEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsSinglePointEvent(@ptrCast(self));
+        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -2045,7 +2106,7 @@ pub const qgraphicsscenedragdropevent = struct {
     ///
     ///
     pub fn RegisterEventType() i32 {
-        return C.QEvent_RegisterEventType();
+        return qtc.QEvent_RegisterEventType();
     }
 
     /// Inherited from QEvent
@@ -2054,7 +2115,7 @@ pub const qgraphicsscenedragdropevent = struct {
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
-        return C.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@intCast(hint));
     }
 
     /// Inherited from QEvent
@@ -2063,27 +2124,31 @@ pub const qgraphicsscenedragdropevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, accepted: bool ```
     pub fn SetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneDragDropEvent_SetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneDragDropEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, accepted: bool ```
     pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneDragDropEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneDragDropEvent_QBaseSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent, slot: fn (?*C.QGraphicsSceneDragDropEvent, bool) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, slot: fn (self: QtC.QGraphicsSceneDragDropEvent, accepted: bool) callconv(.c) void ```
     pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QGraphicsSceneDragDropEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGraphicsSceneDragDropEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QEvent
@@ -2092,34 +2157,40 @@ pub const qgraphicsscenedragdropevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
-    pub fn Clone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneDragDropEvent_Clone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
+    pub fn Clone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneDragDropEvent_Clone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
-    pub fn QBaseClone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneDragDropEvent_QBaseClone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
+    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneDragDropEvent_QBaseClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent, slot: fn () callconv(.c) ?*C.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QEvent) void {
-        C.QGraphicsSceneDragDropEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, slot: fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneDragDropEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#dtor.QGraphicsSceneDragDropEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QGraphicsSceneDragDropEvent ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QGraphicsSceneDragDropEvent_Delete(@ptrCast(self));
+        qtc.QGraphicsSceneDragDropEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -2128,144 +2199,144 @@ pub const qgraphicssceneresizeevent = struct {
     /// New constructs a new QGraphicsSceneResizeEvent object.
     ///
     ///
-    pub fn New() ?*C.QGraphicsSceneResizeEvent {
-        return C.QGraphicsSceneResizeEvent_new();
+    pub fn New() QtC.QGraphicsSceneResizeEvent {
+        return qtc.QGraphicsSceneResizeEvent_new();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#oldSize)
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent ```
-    pub fn OldSize(self: ?*anyopaque) ?*C.QSizeF {
-        return C.QGraphicsSceneResizeEvent_OldSize(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneResizeEvent ```
+    pub fn OldSize(self: ?*anyopaque) QtC.QSizeF {
+        return qtc.QGraphicsSceneResizeEvent_OldSize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#setOldSize)
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent, size: ?*C.QSizeF ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent, size: QtC.QSizeF ```
     pub fn SetOldSize(self: ?*anyopaque, size: ?*anyopaque) void {
-        C.QGraphicsSceneResizeEvent_SetOldSize(@ptrCast(self), @ptrCast(size));
+        qtc.QGraphicsSceneResizeEvent_SetOldSize(@ptrCast(self), @ptrCast(size));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#newSize)
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent ```
-    pub fn NewSize(self: ?*anyopaque) ?*C.QSizeF {
-        return C.QGraphicsSceneResizeEvent_NewSize(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneResizeEvent ```
+    pub fn NewSize(self: ?*anyopaque) QtC.QSizeF {
+        return qtc.QGraphicsSceneResizeEvent_NewSize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#setNewSize)
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent, size: ?*C.QSizeF ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent, size: QtC.QSizeF ```
     pub fn SetNewSize(self: ?*anyopaque, size: ?*anyopaque) void {
-        C.QGraphicsSceneResizeEvent_SetNewSize(@ptrCast(self), @ptrCast(size));
+        qtc.QGraphicsSceneResizeEvent_SetNewSize(@ptrCast(self), @ptrCast(size));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent ```
-    pub fn Widget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QGraphicsSceneEvent_Widget(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneResizeEvent ```
+    pub fn Widget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QGraphicsSceneEvent_Widget(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent, widget: ?*C.QWidget ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        C.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
-        return C.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
+        return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent, ts: u64 ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
-        C.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
+        qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QEvent_Type(@ptrCast(self));
+        return qtc.QEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
-        return C.QEvent_Spontaneous(@ptrCast(self));
+        return qtc.QEvent_Spontaneous(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
-        return C.QEvent_IsAccepted(@ptrCast(self));
+        return qtc.QEvent_IsAccepted(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn Accept(self: ?*anyopaque) void {
-        C.QEvent_Accept(@ptrCast(self));
+        qtc.QEvent_Accept(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
-        C.QEvent_Ignore(@ptrCast(self));
+        qtc.QEvent_Ignore(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsInputEvent(@ptrCast(self));
+        return qtc.QEvent_IsInputEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsPointerEvent(@ptrCast(self));
+        return qtc.QEvent_IsPointerEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsSinglePointEvent(@ptrCast(self));
+        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -2274,7 +2345,7 @@ pub const qgraphicssceneresizeevent = struct {
     ///
     ///
     pub fn RegisterEventType() i32 {
-        return C.QEvent_RegisterEventType();
+        return qtc.QEvent_RegisterEventType();
     }
 
     /// Inherited from QEvent
@@ -2283,7 +2354,7 @@ pub const qgraphicssceneresizeevent = struct {
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
-        return C.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@intCast(hint));
     }
 
     /// Inherited from QEvent
@@ -2292,27 +2363,31 @@ pub const qgraphicssceneresizeevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent, accepted: bool ```
     pub fn SetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneResizeEvent_SetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneResizeEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent, accepted: bool ```
     pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneResizeEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneResizeEvent_QBaseSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent, slot: fn (?*C.QGraphicsSceneResizeEvent, bool) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent, slot: fn (self: QtC.QGraphicsSceneResizeEvent, accepted: bool) callconv(.c) void ```
     pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QGraphicsSceneResizeEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGraphicsSceneResizeEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QEvent
@@ -2321,34 +2396,40 @@ pub const qgraphicssceneresizeevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent ```
-    pub fn Clone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneResizeEvent_Clone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneResizeEvent ```
+    pub fn Clone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneResizeEvent_Clone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent ```
-    pub fn QBaseClone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneResizeEvent_QBaseClone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneResizeEvent ```
+    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneResizeEvent_QBaseClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent, slot: fn () callconv(.c) ?*C.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QEvent) void {
-        C.QGraphicsSceneResizeEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneResizeEvent, slot: fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneResizeEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#dtor.QGraphicsSceneResizeEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QGraphicsSceneResizeEvent ```
+    /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QGraphicsSceneResizeEvent_Delete(@ptrCast(self));
+        qtc.QGraphicsSceneResizeEvent_Delete(@ptrCast(self));
     }
 };
 
@@ -2357,144 +2438,144 @@ pub const qgraphicsscenemoveevent = struct {
     /// New constructs a new QGraphicsSceneMoveEvent object.
     ///
     ///
-    pub fn New() ?*C.QGraphicsSceneMoveEvent {
-        return C.QGraphicsSceneMoveEvent_new();
+    pub fn New() QtC.QGraphicsSceneMoveEvent {
+        return qtc.QGraphicsSceneMoveEvent_new();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#oldPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent ```
-    pub fn OldPos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneMoveEvent_OldPos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneMoveEvent ```
+    pub fn OldPos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneMoveEvent_OldPos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#setOldPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent, pos: QtC.QPointF ```
     pub fn SetOldPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneMoveEvent_SetOldPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneMoveEvent_SetOldPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#newPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent ```
-    pub fn NewPos(self: ?*anyopaque) ?*C.QPointF {
-        return C.QGraphicsSceneMoveEvent_NewPos(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneMoveEvent ```
+    pub fn NewPos(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QGraphicsSceneMoveEvent_NewPos(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#setNewPos)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent, pos: ?*C.QPointF ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent, pos: QtC.QPointF ```
     pub fn SetNewPos(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QGraphicsSceneMoveEvent_SetNewPos(@ptrCast(self), @ptrCast(pos));
+        qtc.QGraphicsSceneMoveEvent_SetNewPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent ```
-    pub fn Widget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QGraphicsSceneEvent_Widget(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneMoveEvent ```
+    pub fn Widget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QGraphicsSceneEvent_Widget(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent, widget: ?*C.QWidget ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        C.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn Timestamp(self: ?*anyopaque) u64 {
-        return C.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
+        return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsSceneEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent, ts: u64 ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent, ts: u64 ```
     pub fn SetTimestamp(self: ?*anyopaque, ts: u64) void {
-        C.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
+        qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self), @intCast(ts));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QEvent_Type(@ptrCast(self));
+        return qtc.QEvent_Type(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
-        return C.QEvent_Spontaneous(@ptrCast(self));
+        return qtc.QEvent_Spontaneous(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn IsAccepted(self: ?*anyopaque) bool {
-        return C.QEvent_IsAccepted(@ptrCast(self));
+        return qtc.QEvent_IsAccepted(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn Accept(self: ?*anyopaque) void {
-        C.QEvent_Accept(@ptrCast(self));
+        qtc.QEvent_Accept(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn Ignore(self: ?*anyopaque) void {
-        C.QEvent_Ignore(@ptrCast(self));
+        qtc.QEvent_Ignore(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsInputEvent(@ptrCast(self));
+        return qtc.QEvent_IsInputEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsPointerEvent(@ptrCast(self));
+        return qtc.QEvent_IsPointerEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
-        return C.QEvent_IsSinglePointEvent(@ptrCast(self));
+        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -2503,7 +2584,7 @@ pub const qgraphicsscenemoveevent = struct {
     ///
     ///
     pub fn RegisterEventType() i32 {
-        return C.QEvent_RegisterEventType();
+        return qtc.QEvent_RegisterEventType();
     }
 
     /// Inherited from QEvent
@@ -2512,7 +2593,7 @@ pub const qgraphicsscenemoveevent = struct {
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
-        return C.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@intCast(hint));
     }
 
     /// Inherited from QEvent
@@ -2521,27 +2602,31 @@ pub const qgraphicsscenemoveevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent, accepted: bool ```
     pub fn SetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneMoveEvent_SetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneMoveEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent, accepted: bool ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent, accepted: bool ```
     pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        C.QGraphicsSceneMoveEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+        qtc.QGraphicsSceneMoveEvent_QBaseSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent, slot: fn (?*C.QGraphicsSceneMoveEvent, bool) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent, slot: fn (self: QtC.QGraphicsSceneMoveEvent, accepted: bool) callconv(.c) void ```
     pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QGraphicsSceneMoveEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QGraphicsSceneMoveEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QEvent
@@ -2550,34 +2635,40 @@ pub const qgraphicsscenemoveevent = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent ```
-    pub fn Clone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneMoveEvent_Clone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneMoveEvent ```
+    pub fn Clone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneMoveEvent_Clone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent ```
-    pub fn QBaseClone(self: ?*anyopaque) ?*C.QEvent {
-        return C.QGraphicsSceneMoveEvent_QBaseClone(@ptrCast(self));
+    /// ``` self: QtC.QGraphicsSceneMoveEvent ```
+    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneMoveEvent_QBaseClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent, slot: fn () callconv(.c) ?*C.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QEvent) void {
-        C.QGraphicsSceneMoveEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneMoveEvent, slot: fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneMoveEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#dtor.QGraphicsSceneMoveEvent)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QGraphicsSceneMoveEvent ```
+    /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QGraphicsSceneMoveEvent_Delete(@ptrCast(self));
+        qtc.QGraphicsSceneMoveEvent_Delete(@ptrCast(self));
     }
 };
 

@@ -11,12 +11,15 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QDateTimeEdit so that we can call protected methods
-class VirtualQDateTimeEdit : public QDateTimeEdit {
+class VirtualQDateTimeEdit final : public QDateTimeEdit {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQDateTimeEdit = true;
+
     // Virtual class public types (including callbacks)
-    using QDateTimeEdit_Metacall_Callback = int (*)(QDateTimeEdit*, QMetaObject::Call, int, void**);
-    using QDateTimeEdit_SizeHint_Callback = QSize (*)();
+    using QDateTimeEdit_Metacall_Callback = int (*)(QDateTimeEdit*, int, int, void**);
+    using QDateTimeEdit_SizeHint_Callback = QSize* (*)();
     using QDateTimeEdit_Clear_Callback = void (*)();
     using QDateTimeEdit_StepBy_Callback = void (*)(QDateTimeEdit*, int);
     using QDateTimeEdit_Event_Callback = bool (*)(QDateTimeEdit*, QEvent*);
@@ -24,16 +27,16 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
     using QDateTimeEdit_WheelEvent_Callback = void (*)(QDateTimeEdit*, QWheelEvent*);
     using QDateTimeEdit_FocusInEvent_Callback = void (*)(QDateTimeEdit*, QFocusEvent*);
     using QDateTimeEdit_FocusNextPrevChild_Callback = bool (*)(QDateTimeEdit*, bool);
-    using QDateTimeEdit_Validate_Callback = QValidator::State (*)(const QDateTimeEdit*, QString&, int&);
-    using QDateTimeEdit_Fixup_Callback = void (*)(const QDateTimeEdit*, QString&);
-    using QDateTimeEdit_DateTimeFromText_Callback = QDateTime (*)(const QDateTimeEdit*, const QString&);
-    using QDateTimeEdit_TextFromDateTime_Callback = QString (*)(const QDateTimeEdit*, const QDateTime&);
-    using QDateTimeEdit_StepEnabled_Callback = QAbstractSpinBox::StepEnabled (*)();
+    using QDateTimeEdit_Validate_Callback = int (*)(const QDateTimeEdit*, libqt_string, int*);
+    using QDateTimeEdit_Fixup_Callback = void (*)(const QDateTimeEdit*, libqt_string);
+    using QDateTimeEdit_DateTimeFromText_Callback = QDateTime* (*)(const QDateTimeEdit*, libqt_string);
+    using QDateTimeEdit_TextFromDateTime_Callback = libqt_string (*)(const QDateTimeEdit*, QDateTime*);
+    using QDateTimeEdit_StepEnabled_Callback = int (*)();
     using QDateTimeEdit_MousePressEvent_Callback = void (*)(QDateTimeEdit*, QMouseEvent*);
     using QDateTimeEdit_PaintEvent_Callback = void (*)(QDateTimeEdit*, QPaintEvent*);
     using QDateTimeEdit_InitStyleOption_Callback = void (*)(const QDateTimeEdit*, QStyleOptionSpinBox*);
-    using QDateTimeEdit_MinimumSizeHint_Callback = QSize (*)();
-    using QDateTimeEdit_InputMethodQuery_Callback = QVariant (*)(const QDateTimeEdit*, Qt::InputMethodQuery);
+    using QDateTimeEdit_MinimumSizeHint_Callback = QSize* (*)();
+    using QDateTimeEdit_InputMethodQuery_Callback = QVariant* (*)(const QDateTimeEdit*, int);
     using QDateTimeEdit_ResizeEvent_Callback = void (*)(QDateTimeEdit*, QResizeEvent*);
     using QDateTimeEdit_KeyReleaseEvent_Callback = void (*)(QDateTimeEdit*, QKeyEvent*);
     using QDateTimeEdit_FocusOutEvent_Callback = void (*)(QDateTimeEdit*, QFocusEvent*);
@@ -60,8 +63,8 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
     using QDateTimeEdit_DragMoveEvent_Callback = void (*)(QDateTimeEdit*, QDragMoveEvent*);
     using QDateTimeEdit_DragLeaveEvent_Callback = void (*)(QDateTimeEdit*, QDragLeaveEvent*);
     using QDateTimeEdit_DropEvent_Callback = void (*)(QDateTimeEdit*, QDropEvent*);
-    using QDateTimeEdit_NativeEvent_Callback = bool (*)(QDateTimeEdit*, const QByteArray&, void*, qintptr*);
-    using QDateTimeEdit_Metric_Callback = int (*)(const QDateTimeEdit*, QPaintDevice::PaintDeviceMetric);
+    using QDateTimeEdit_NativeEvent_Callback = bool (*)(QDateTimeEdit*, libqt_string, void*, intptr_t*);
+    using QDateTimeEdit_Metric_Callback = int (*)(const QDateTimeEdit*, int);
     using QDateTimeEdit_InitPainter_Callback = void (*)(const QDateTimeEdit*, QPainter*);
     using QDateTimeEdit_Redirected_Callback = QPaintDevice* (*)(const QDateTimeEdit*, QPoint*);
     using QDateTimeEdit_SharedPainter_Callback = QPainter* (*)();
@@ -69,8 +72,8 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
     using QDateTimeEdit_EventFilter_Callback = bool (*)(QDateTimeEdit*, QObject*, QEvent*);
     using QDateTimeEdit_ChildEvent_Callback = void (*)(QDateTimeEdit*, QChildEvent*);
     using QDateTimeEdit_CustomEvent_Callback = void (*)(QDateTimeEdit*, QEvent*);
-    using QDateTimeEdit_ConnectNotify_Callback = void (*)(QDateTimeEdit*, const QMetaMethod&);
-    using QDateTimeEdit_DisconnectNotify_Callback = void (*)(QDateTimeEdit*, const QMetaMethod&);
+    using QDateTimeEdit_ConnectNotify_Callback = void (*)(QDateTimeEdit*, QMetaMethod*);
+    using QDateTimeEdit_DisconnectNotify_Callback = void (*)(QDateTimeEdit*, QMetaMethod*);
     using QDateTimeEdit_LineEdit_Callback = QLineEdit* (*)();
     using QDateTimeEdit_SetLineEdit_Callback = void (*)(QDateTimeEdit*, QLineEdit*);
     using QDateTimeEdit_UpdateMicroFocus_Callback = void (*)();
@@ -81,7 +84,7 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
     using QDateTimeEdit_Sender_Callback = QObject* (*)();
     using QDateTimeEdit_SenderSignalIndex_Callback = int (*)();
     using QDateTimeEdit_Receivers_Callback = int (*)(const QDateTimeEdit*, const char*);
-    using QDateTimeEdit_IsSignalConnected_Callback = bool (*)(const QDateTimeEdit*, const QMetaMethod&);
+    using QDateTimeEdit_IsSignalConnected_Callback = bool (*)(const QDateTimeEdit*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -303,142 +306,142 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
     }
 
     // Callback setters
-    void setQDateTimeEdit_Metacall_Callback(QDateTimeEdit_Metacall_Callback cb) { qdatetimeedit_metacall_callback = cb; }
-    void setQDateTimeEdit_SizeHint_Callback(QDateTimeEdit_SizeHint_Callback cb) { qdatetimeedit_sizehint_callback = cb; }
-    void setQDateTimeEdit_Clear_Callback(QDateTimeEdit_Clear_Callback cb) { qdatetimeedit_clear_callback = cb; }
-    void setQDateTimeEdit_StepBy_Callback(QDateTimeEdit_StepBy_Callback cb) { qdatetimeedit_stepby_callback = cb; }
-    void setQDateTimeEdit_Event_Callback(QDateTimeEdit_Event_Callback cb) { qdatetimeedit_event_callback = cb; }
-    void setQDateTimeEdit_KeyPressEvent_Callback(QDateTimeEdit_KeyPressEvent_Callback cb) { qdatetimeedit_keypressevent_callback = cb; }
-    void setQDateTimeEdit_WheelEvent_Callback(QDateTimeEdit_WheelEvent_Callback cb) { qdatetimeedit_wheelevent_callback = cb; }
-    void setQDateTimeEdit_FocusInEvent_Callback(QDateTimeEdit_FocusInEvent_Callback cb) { qdatetimeedit_focusinevent_callback = cb; }
-    void setQDateTimeEdit_FocusNextPrevChild_Callback(QDateTimeEdit_FocusNextPrevChild_Callback cb) { qdatetimeedit_focusnextprevchild_callback = cb; }
-    void setQDateTimeEdit_Validate_Callback(QDateTimeEdit_Validate_Callback cb) { qdatetimeedit_validate_callback = cb; }
-    void setQDateTimeEdit_Fixup_Callback(QDateTimeEdit_Fixup_Callback cb) { qdatetimeedit_fixup_callback = cb; }
-    void setQDateTimeEdit_DateTimeFromText_Callback(QDateTimeEdit_DateTimeFromText_Callback cb) { qdatetimeedit_datetimefromtext_callback = cb; }
-    void setQDateTimeEdit_TextFromDateTime_Callback(QDateTimeEdit_TextFromDateTime_Callback cb) { qdatetimeedit_textfromdatetime_callback = cb; }
-    void setQDateTimeEdit_StepEnabled_Callback(QDateTimeEdit_StepEnabled_Callback cb) { qdatetimeedit_stepenabled_callback = cb; }
-    void setQDateTimeEdit_MousePressEvent_Callback(QDateTimeEdit_MousePressEvent_Callback cb) { qdatetimeedit_mousepressevent_callback = cb; }
-    void setQDateTimeEdit_PaintEvent_Callback(QDateTimeEdit_PaintEvent_Callback cb) { qdatetimeedit_paintevent_callback = cb; }
-    void setQDateTimeEdit_InitStyleOption_Callback(QDateTimeEdit_InitStyleOption_Callback cb) { qdatetimeedit_initstyleoption_callback = cb; }
-    void setQDateTimeEdit_MinimumSizeHint_Callback(QDateTimeEdit_MinimumSizeHint_Callback cb) { qdatetimeedit_minimumsizehint_callback = cb; }
-    void setQDateTimeEdit_InputMethodQuery_Callback(QDateTimeEdit_InputMethodQuery_Callback cb) { qdatetimeedit_inputmethodquery_callback = cb; }
-    void setQDateTimeEdit_ResizeEvent_Callback(QDateTimeEdit_ResizeEvent_Callback cb) { qdatetimeedit_resizeevent_callback = cb; }
-    void setQDateTimeEdit_KeyReleaseEvent_Callback(QDateTimeEdit_KeyReleaseEvent_Callback cb) { qdatetimeedit_keyreleaseevent_callback = cb; }
-    void setQDateTimeEdit_FocusOutEvent_Callback(QDateTimeEdit_FocusOutEvent_Callback cb) { qdatetimeedit_focusoutevent_callback = cb; }
-    void setQDateTimeEdit_ContextMenuEvent_Callback(QDateTimeEdit_ContextMenuEvent_Callback cb) { qdatetimeedit_contextmenuevent_callback = cb; }
-    void setQDateTimeEdit_ChangeEvent_Callback(QDateTimeEdit_ChangeEvent_Callback cb) { qdatetimeedit_changeevent_callback = cb; }
-    void setQDateTimeEdit_CloseEvent_Callback(QDateTimeEdit_CloseEvent_Callback cb) { qdatetimeedit_closeevent_callback = cb; }
-    void setQDateTimeEdit_HideEvent_Callback(QDateTimeEdit_HideEvent_Callback cb) { qdatetimeedit_hideevent_callback = cb; }
-    void setQDateTimeEdit_MouseReleaseEvent_Callback(QDateTimeEdit_MouseReleaseEvent_Callback cb) { qdatetimeedit_mousereleaseevent_callback = cb; }
-    void setQDateTimeEdit_MouseMoveEvent_Callback(QDateTimeEdit_MouseMoveEvent_Callback cb) { qdatetimeedit_mousemoveevent_callback = cb; }
-    void setQDateTimeEdit_TimerEvent_Callback(QDateTimeEdit_TimerEvent_Callback cb) { qdatetimeedit_timerevent_callback = cb; }
-    void setQDateTimeEdit_ShowEvent_Callback(QDateTimeEdit_ShowEvent_Callback cb) { qdatetimeedit_showevent_callback = cb; }
-    void setQDateTimeEdit_DevType_Callback(QDateTimeEdit_DevType_Callback cb) { qdatetimeedit_devtype_callback = cb; }
-    void setQDateTimeEdit_SetVisible_Callback(QDateTimeEdit_SetVisible_Callback cb) { qdatetimeedit_setvisible_callback = cb; }
-    void setQDateTimeEdit_HeightForWidth_Callback(QDateTimeEdit_HeightForWidth_Callback cb) { qdatetimeedit_heightforwidth_callback = cb; }
-    void setQDateTimeEdit_HasHeightForWidth_Callback(QDateTimeEdit_HasHeightForWidth_Callback cb) { qdatetimeedit_hasheightforwidth_callback = cb; }
-    void setQDateTimeEdit_PaintEngine_Callback(QDateTimeEdit_PaintEngine_Callback cb) { qdatetimeedit_paintengine_callback = cb; }
-    void setQDateTimeEdit_MouseDoubleClickEvent_Callback(QDateTimeEdit_MouseDoubleClickEvent_Callback cb) { qdatetimeedit_mousedoubleclickevent_callback = cb; }
-    void setQDateTimeEdit_EnterEvent_Callback(QDateTimeEdit_EnterEvent_Callback cb) { qdatetimeedit_enterevent_callback = cb; }
-    void setQDateTimeEdit_LeaveEvent_Callback(QDateTimeEdit_LeaveEvent_Callback cb) { qdatetimeedit_leaveevent_callback = cb; }
-    void setQDateTimeEdit_MoveEvent_Callback(QDateTimeEdit_MoveEvent_Callback cb) { qdatetimeedit_moveevent_callback = cb; }
-    void setQDateTimeEdit_TabletEvent_Callback(QDateTimeEdit_TabletEvent_Callback cb) { qdatetimeedit_tabletevent_callback = cb; }
-    void setQDateTimeEdit_ActionEvent_Callback(QDateTimeEdit_ActionEvent_Callback cb) { qdatetimeedit_actionevent_callback = cb; }
-    void setQDateTimeEdit_DragEnterEvent_Callback(QDateTimeEdit_DragEnterEvent_Callback cb) { qdatetimeedit_dragenterevent_callback = cb; }
-    void setQDateTimeEdit_DragMoveEvent_Callback(QDateTimeEdit_DragMoveEvent_Callback cb) { qdatetimeedit_dragmoveevent_callback = cb; }
-    void setQDateTimeEdit_DragLeaveEvent_Callback(QDateTimeEdit_DragLeaveEvent_Callback cb) { qdatetimeedit_dragleaveevent_callback = cb; }
-    void setQDateTimeEdit_DropEvent_Callback(QDateTimeEdit_DropEvent_Callback cb) { qdatetimeedit_dropevent_callback = cb; }
-    void setQDateTimeEdit_NativeEvent_Callback(QDateTimeEdit_NativeEvent_Callback cb) { qdatetimeedit_nativeevent_callback = cb; }
-    void setQDateTimeEdit_Metric_Callback(QDateTimeEdit_Metric_Callback cb) { qdatetimeedit_metric_callback = cb; }
-    void setQDateTimeEdit_InitPainter_Callback(QDateTimeEdit_InitPainter_Callback cb) { qdatetimeedit_initpainter_callback = cb; }
-    void setQDateTimeEdit_Redirected_Callback(QDateTimeEdit_Redirected_Callback cb) { qdatetimeedit_redirected_callback = cb; }
-    void setQDateTimeEdit_SharedPainter_Callback(QDateTimeEdit_SharedPainter_Callback cb) { qdatetimeedit_sharedpainter_callback = cb; }
-    void setQDateTimeEdit_InputMethodEvent_Callback(QDateTimeEdit_InputMethodEvent_Callback cb) { qdatetimeedit_inputmethodevent_callback = cb; }
-    void setQDateTimeEdit_EventFilter_Callback(QDateTimeEdit_EventFilter_Callback cb) { qdatetimeedit_eventfilter_callback = cb; }
-    void setQDateTimeEdit_ChildEvent_Callback(QDateTimeEdit_ChildEvent_Callback cb) { qdatetimeedit_childevent_callback = cb; }
-    void setQDateTimeEdit_CustomEvent_Callback(QDateTimeEdit_CustomEvent_Callback cb) { qdatetimeedit_customevent_callback = cb; }
-    void setQDateTimeEdit_ConnectNotify_Callback(QDateTimeEdit_ConnectNotify_Callback cb) { qdatetimeedit_connectnotify_callback = cb; }
-    void setQDateTimeEdit_DisconnectNotify_Callback(QDateTimeEdit_DisconnectNotify_Callback cb) { qdatetimeedit_disconnectnotify_callback = cb; }
-    void setQDateTimeEdit_LineEdit_Callback(QDateTimeEdit_LineEdit_Callback cb) { qdatetimeedit_lineedit_callback = cb; }
-    void setQDateTimeEdit_SetLineEdit_Callback(QDateTimeEdit_SetLineEdit_Callback cb) { qdatetimeedit_setlineedit_callback = cb; }
-    void setQDateTimeEdit_UpdateMicroFocus_Callback(QDateTimeEdit_UpdateMicroFocus_Callback cb) { qdatetimeedit_updatemicrofocus_callback = cb; }
-    void setQDateTimeEdit_Create_Callback(QDateTimeEdit_Create_Callback cb) { qdatetimeedit_create_callback = cb; }
-    void setQDateTimeEdit_Destroy_Callback(QDateTimeEdit_Destroy_Callback cb) { qdatetimeedit_destroy_callback = cb; }
-    void setQDateTimeEdit_FocusNextChild_Callback(QDateTimeEdit_FocusNextChild_Callback cb) { qdatetimeedit_focusnextchild_callback = cb; }
-    void setQDateTimeEdit_FocusPreviousChild_Callback(QDateTimeEdit_FocusPreviousChild_Callback cb) { qdatetimeedit_focuspreviouschild_callback = cb; }
-    void setQDateTimeEdit_Sender_Callback(QDateTimeEdit_Sender_Callback cb) { qdatetimeedit_sender_callback = cb; }
-    void setQDateTimeEdit_SenderSignalIndex_Callback(QDateTimeEdit_SenderSignalIndex_Callback cb) { qdatetimeedit_sendersignalindex_callback = cb; }
-    void setQDateTimeEdit_Receivers_Callback(QDateTimeEdit_Receivers_Callback cb) { qdatetimeedit_receivers_callback = cb; }
-    void setQDateTimeEdit_IsSignalConnected_Callback(QDateTimeEdit_IsSignalConnected_Callback cb) { qdatetimeedit_issignalconnected_callback = cb; }
+    inline void setQDateTimeEdit_Metacall_Callback(QDateTimeEdit_Metacall_Callback cb) { qdatetimeedit_metacall_callback = cb; }
+    inline void setQDateTimeEdit_SizeHint_Callback(QDateTimeEdit_SizeHint_Callback cb) { qdatetimeedit_sizehint_callback = cb; }
+    inline void setQDateTimeEdit_Clear_Callback(QDateTimeEdit_Clear_Callback cb) { qdatetimeedit_clear_callback = cb; }
+    inline void setQDateTimeEdit_StepBy_Callback(QDateTimeEdit_StepBy_Callback cb) { qdatetimeedit_stepby_callback = cb; }
+    inline void setQDateTimeEdit_Event_Callback(QDateTimeEdit_Event_Callback cb) { qdatetimeedit_event_callback = cb; }
+    inline void setQDateTimeEdit_KeyPressEvent_Callback(QDateTimeEdit_KeyPressEvent_Callback cb) { qdatetimeedit_keypressevent_callback = cb; }
+    inline void setQDateTimeEdit_WheelEvent_Callback(QDateTimeEdit_WheelEvent_Callback cb) { qdatetimeedit_wheelevent_callback = cb; }
+    inline void setQDateTimeEdit_FocusInEvent_Callback(QDateTimeEdit_FocusInEvent_Callback cb) { qdatetimeedit_focusinevent_callback = cb; }
+    inline void setQDateTimeEdit_FocusNextPrevChild_Callback(QDateTimeEdit_FocusNextPrevChild_Callback cb) { qdatetimeedit_focusnextprevchild_callback = cb; }
+    inline void setQDateTimeEdit_Validate_Callback(QDateTimeEdit_Validate_Callback cb) { qdatetimeedit_validate_callback = cb; }
+    inline void setQDateTimeEdit_Fixup_Callback(QDateTimeEdit_Fixup_Callback cb) { qdatetimeedit_fixup_callback = cb; }
+    inline void setQDateTimeEdit_DateTimeFromText_Callback(QDateTimeEdit_DateTimeFromText_Callback cb) { qdatetimeedit_datetimefromtext_callback = cb; }
+    inline void setQDateTimeEdit_TextFromDateTime_Callback(QDateTimeEdit_TextFromDateTime_Callback cb) { qdatetimeedit_textfromdatetime_callback = cb; }
+    inline void setQDateTimeEdit_StepEnabled_Callback(QDateTimeEdit_StepEnabled_Callback cb) { qdatetimeedit_stepenabled_callback = cb; }
+    inline void setQDateTimeEdit_MousePressEvent_Callback(QDateTimeEdit_MousePressEvent_Callback cb) { qdatetimeedit_mousepressevent_callback = cb; }
+    inline void setQDateTimeEdit_PaintEvent_Callback(QDateTimeEdit_PaintEvent_Callback cb) { qdatetimeedit_paintevent_callback = cb; }
+    inline void setQDateTimeEdit_InitStyleOption_Callback(QDateTimeEdit_InitStyleOption_Callback cb) { qdatetimeedit_initstyleoption_callback = cb; }
+    inline void setQDateTimeEdit_MinimumSizeHint_Callback(QDateTimeEdit_MinimumSizeHint_Callback cb) { qdatetimeedit_minimumsizehint_callback = cb; }
+    inline void setQDateTimeEdit_InputMethodQuery_Callback(QDateTimeEdit_InputMethodQuery_Callback cb) { qdatetimeedit_inputmethodquery_callback = cb; }
+    inline void setQDateTimeEdit_ResizeEvent_Callback(QDateTimeEdit_ResizeEvent_Callback cb) { qdatetimeedit_resizeevent_callback = cb; }
+    inline void setQDateTimeEdit_KeyReleaseEvent_Callback(QDateTimeEdit_KeyReleaseEvent_Callback cb) { qdatetimeedit_keyreleaseevent_callback = cb; }
+    inline void setQDateTimeEdit_FocusOutEvent_Callback(QDateTimeEdit_FocusOutEvent_Callback cb) { qdatetimeedit_focusoutevent_callback = cb; }
+    inline void setQDateTimeEdit_ContextMenuEvent_Callback(QDateTimeEdit_ContextMenuEvent_Callback cb) { qdatetimeedit_contextmenuevent_callback = cb; }
+    inline void setQDateTimeEdit_ChangeEvent_Callback(QDateTimeEdit_ChangeEvent_Callback cb) { qdatetimeedit_changeevent_callback = cb; }
+    inline void setQDateTimeEdit_CloseEvent_Callback(QDateTimeEdit_CloseEvent_Callback cb) { qdatetimeedit_closeevent_callback = cb; }
+    inline void setQDateTimeEdit_HideEvent_Callback(QDateTimeEdit_HideEvent_Callback cb) { qdatetimeedit_hideevent_callback = cb; }
+    inline void setQDateTimeEdit_MouseReleaseEvent_Callback(QDateTimeEdit_MouseReleaseEvent_Callback cb) { qdatetimeedit_mousereleaseevent_callback = cb; }
+    inline void setQDateTimeEdit_MouseMoveEvent_Callback(QDateTimeEdit_MouseMoveEvent_Callback cb) { qdatetimeedit_mousemoveevent_callback = cb; }
+    inline void setQDateTimeEdit_TimerEvent_Callback(QDateTimeEdit_TimerEvent_Callback cb) { qdatetimeedit_timerevent_callback = cb; }
+    inline void setQDateTimeEdit_ShowEvent_Callback(QDateTimeEdit_ShowEvent_Callback cb) { qdatetimeedit_showevent_callback = cb; }
+    inline void setQDateTimeEdit_DevType_Callback(QDateTimeEdit_DevType_Callback cb) { qdatetimeedit_devtype_callback = cb; }
+    inline void setQDateTimeEdit_SetVisible_Callback(QDateTimeEdit_SetVisible_Callback cb) { qdatetimeedit_setvisible_callback = cb; }
+    inline void setQDateTimeEdit_HeightForWidth_Callback(QDateTimeEdit_HeightForWidth_Callback cb) { qdatetimeedit_heightforwidth_callback = cb; }
+    inline void setQDateTimeEdit_HasHeightForWidth_Callback(QDateTimeEdit_HasHeightForWidth_Callback cb) { qdatetimeedit_hasheightforwidth_callback = cb; }
+    inline void setQDateTimeEdit_PaintEngine_Callback(QDateTimeEdit_PaintEngine_Callback cb) { qdatetimeedit_paintengine_callback = cb; }
+    inline void setQDateTimeEdit_MouseDoubleClickEvent_Callback(QDateTimeEdit_MouseDoubleClickEvent_Callback cb) { qdatetimeedit_mousedoubleclickevent_callback = cb; }
+    inline void setQDateTimeEdit_EnterEvent_Callback(QDateTimeEdit_EnterEvent_Callback cb) { qdatetimeedit_enterevent_callback = cb; }
+    inline void setQDateTimeEdit_LeaveEvent_Callback(QDateTimeEdit_LeaveEvent_Callback cb) { qdatetimeedit_leaveevent_callback = cb; }
+    inline void setQDateTimeEdit_MoveEvent_Callback(QDateTimeEdit_MoveEvent_Callback cb) { qdatetimeedit_moveevent_callback = cb; }
+    inline void setQDateTimeEdit_TabletEvent_Callback(QDateTimeEdit_TabletEvent_Callback cb) { qdatetimeedit_tabletevent_callback = cb; }
+    inline void setQDateTimeEdit_ActionEvent_Callback(QDateTimeEdit_ActionEvent_Callback cb) { qdatetimeedit_actionevent_callback = cb; }
+    inline void setQDateTimeEdit_DragEnterEvent_Callback(QDateTimeEdit_DragEnterEvent_Callback cb) { qdatetimeedit_dragenterevent_callback = cb; }
+    inline void setQDateTimeEdit_DragMoveEvent_Callback(QDateTimeEdit_DragMoveEvent_Callback cb) { qdatetimeedit_dragmoveevent_callback = cb; }
+    inline void setQDateTimeEdit_DragLeaveEvent_Callback(QDateTimeEdit_DragLeaveEvent_Callback cb) { qdatetimeedit_dragleaveevent_callback = cb; }
+    inline void setQDateTimeEdit_DropEvent_Callback(QDateTimeEdit_DropEvent_Callback cb) { qdatetimeedit_dropevent_callback = cb; }
+    inline void setQDateTimeEdit_NativeEvent_Callback(QDateTimeEdit_NativeEvent_Callback cb) { qdatetimeedit_nativeevent_callback = cb; }
+    inline void setQDateTimeEdit_Metric_Callback(QDateTimeEdit_Metric_Callback cb) { qdatetimeedit_metric_callback = cb; }
+    inline void setQDateTimeEdit_InitPainter_Callback(QDateTimeEdit_InitPainter_Callback cb) { qdatetimeedit_initpainter_callback = cb; }
+    inline void setQDateTimeEdit_Redirected_Callback(QDateTimeEdit_Redirected_Callback cb) { qdatetimeedit_redirected_callback = cb; }
+    inline void setQDateTimeEdit_SharedPainter_Callback(QDateTimeEdit_SharedPainter_Callback cb) { qdatetimeedit_sharedpainter_callback = cb; }
+    inline void setQDateTimeEdit_InputMethodEvent_Callback(QDateTimeEdit_InputMethodEvent_Callback cb) { qdatetimeedit_inputmethodevent_callback = cb; }
+    inline void setQDateTimeEdit_EventFilter_Callback(QDateTimeEdit_EventFilter_Callback cb) { qdatetimeedit_eventfilter_callback = cb; }
+    inline void setQDateTimeEdit_ChildEvent_Callback(QDateTimeEdit_ChildEvent_Callback cb) { qdatetimeedit_childevent_callback = cb; }
+    inline void setQDateTimeEdit_CustomEvent_Callback(QDateTimeEdit_CustomEvent_Callback cb) { qdatetimeedit_customevent_callback = cb; }
+    inline void setQDateTimeEdit_ConnectNotify_Callback(QDateTimeEdit_ConnectNotify_Callback cb) { qdatetimeedit_connectnotify_callback = cb; }
+    inline void setQDateTimeEdit_DisconnectNotify_Callback(QDateTimeEdit_DisconnectNotify_Callback cb) { qdatetimeedit_disconnectnotify_callback = cb; }
+    inline void setQDateTimeEdit_LineEdit_Callback(QDateTimeEdit_LineEdit_Callback cb) { qdatetimeedit_lineedit_callback = cb; }
+    inline void setQDateTimeEdit_SetLineEdit_Callback(QDateTimeEdit_SetLineEdit_Callback cb) { qdatetimeedit_setlineedit_callback = cb; }
+    inline void setQDateTimeEdit_UpdateMicroFocus_Callback(QDateTimeEdit_UpdateMicroFocus_Callback cb) { qdatetimeedit_updatemicrofocus_callback = cb; }
+    inline void setQDateTimeEdit_Create_Callback(QDateTimeEdit_Create_Callback cb) { qdatetimeedit_create_callback = cb; }
+    inline void setQDateTimeEdit_Destroy_Callback(QDateTimeEdit_Destroy_Callback cb) { qdatetimeedit_destroy_callback = cb; }
+    inline void setQDateTimeEdit_FocusNextChild_Callback(QDateTimeEdit_FocusNextChild_Callback cb) { qdatetimeedit_focusnextchild_callback = cb; }
+    inline void setQDateTimeEdit_FocusPreviousChild_Callback(QDateTimeEdit_FocusPreviousChild_Callback cb) { qdatetimeedit_focuspreviouschild_callback = cb; }
+    inline void setQDateTimeEdit_Sender_Callback(QDateTimeEdit_Sender_Callback cb) { qdatetimeedit_sender_callback = cb; }
+    inline void setQDateTimeEdit_SenderSignalIndex_Callback(QDateTimeEdit_SenderSignalIndex_Callback cb) { qdatetimeedit_sendersignalindex_callback = cb; }
+    inline void setQDateTimeEdit_Receivers_Callback(QDateTimeEdit_Receivers_Callback cb) { qdatetimeedit_receivers_callback = cb; }
+    inline void setQDateTimeEdit_IsSignalConnected_Callback(QDateTimeEdit_IsSignalConnected_Callback cb) { qdatetimeedit_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQDateTimeEdit_Metacall_IsBase(bool value) const { qdatetimeedit_metacall_isbase = value; }
-    void setQDateTimeEdit_SizeHint_IsBase(bool value) const { qdatetimeedit_sizehint_isbase = value; }
-    void setQDateTimeEdit_Clear_IsBase(bool value) const { qdatetimeedit_clear_isbase = value; }
-    void setQDateTimeEdit_StepBy_IsBase(bool value) const { qdatetimeedit_stepby_isbase = value; }
-    void setQDateTimeEdit_Event_IsBase(bool value) const { qdatetimeedit_event_isbase = value; }
-    void setQDateTimeEdit_KeyPressEvent_IsBase(bool value) const { qdatetimeedit_keypressevent_isbase = value; }
-    void setQDateTimeEdit_WheelEvent_IsBase(bool value) const { qdatetimeedit_wheelevent_isbase = value; }
-    void setQDateTimeEdit_FocusInEvent_IsBase(bool value) const { qdatetimeedit_focusinevent_isbase = value; }
-    void setQDateTimeEdit_FocusNextPrevChild_IsBase(bool value) const { qdatetimeedit_focusnextprevchild_isbase = value; }
-    void setQDateTimeEdit_Validate_IsBase(bool value) const { qdatetimeedit_validate_isbase = value; }
-    void setQDateTimeEdit_Fixup_IsBase(bool value) const { qdatetimeedit_fixup_isbase = value; }
-    void setQDateTimeEdit_DateTimeFromText_IsBase(bool value) const { qdatetimeedit_datetimefromtext_isbase = value; }
-    void setQDateTimeEdit_TextFromDateTime_IsBase(bool value) const { qdatetimeedit_textfromdatetime_isbase = value; }
-    void setQDateTimeEdit_StepEnabled_IsBase(bool value) const { qdatetimeedit_stepenabled_isbase = value; }
-    void setQDateTimeEdit_MousePressEvent_IsBase(bool value) const { qdatetimeedit_mousepressevent_isbase = value; }
-    void setQDateTimeEdit_PaintEvent_IsBase(bool value) const { qdatetimeedit_paintevent_isbase = value; }
-    void setQDateTimeEdit_InitStyleOption_IsBase(bool value) const { qdatetimeedit_initstyleoption_isbase = value; }
-    void setQDateTimeEdit_MinimumSizeHint_IsBase(bool value) const { qdatetimeedit_minimumsizehint_isbase = value; }
-    void setQDateTimeEdit_InputMethodQuery_IsBase(bool value) const { qdatetimeedit_inputmethodquery_isbase = value; }
-    void setQDateTimeEdit_ResizeEvent_IsBase(bool value) const { qdatetimeedit_resizeevent_isbase = value; }
-    void setQDateTimeEdit_KeyReleaseEvent_IsBase(bool value) const { qdatetimeedit_keyreleaseevent_isbase = value; }
-    void setQDateTimeEdit_FocusOutEvent_IsBase(bool value) const { qdatetimeedit_focusoutevent_isbase = value; }
-    void setQDateTimeEdit_ContextMenuEvent_IsBase(bool value) const { qdatetimeedit_contextmenuevent_isbase = value; }
-    void setQDateTimeEdit_ChangeEvent_IsBase(bool value) const { qdatetimeedit_changeevent_isbase = value; }
-    void setQDateTimeEdit_CloseEvent_IsBase(bool value) const { qdatetimeedit_closeevent_isbase = value; }
-    void setQDateTimeEdit_HideEvent_IsBase(bool value) const { qdatetimeedit_hideevent_isbase = value; }
-    void setQDateTimeEdit_MouseReleaseEvent_IsBase(bool value) const { qdatetimeedit_mousereleaseevent_isbase = value; }
-    void setQDateTimeEdit_MouseMoveEvent_IsBase(bool value) const { qdatetimeedit_mousemoveevent_isbase = value; }
-    void setQDateTimeEdit_TimerEvent_IsBase(bool value) const { qdatetimeedit_timerevent_isbase = value; }
-    void setQDateTimeEdit_ShowEvent_IsBase(bool value) const { qdatetimeedit_showevent_isbase = value; }
-    void setQDateTimeEdit_DevType_IsBase(bool value) const { qdatetimeedit_devtype_isbase = value; }
-    void setQDateTimeEdit_SetVisible_IsBase(bool value) const { qdatetimeedit_setvisible_isbase = value; }
-    void setQDateTimeEdit_HeightForWidth_IsBase(bool value) const { qdatetimeedit_heightforwidth_isbase = value; }
-    void setQDateTimeEdit_HasHeightForWidth_IsBase(bool value) const { qdatetimeedit_hasheightforwidth_isbase = value; }
-    void setQDateTimeEdit_PaintEngine_IsBase(bool value) const { qdatetimeedit_paintengine_isbase = value; }
-    void setQDateTimeEdit_MouseDoubleClickEvent_IsBase(bool value) const { qdatetimeedit_mousedoubleclickevent_isbase = value; }
-    void setQDateTimeEdit_EnterEvent_IsBase(bool value) const { qdatetimeedit_enterevent_isbase = value; }
-    void setQDateTimeEdit_LeaveEvent_IsBase(bool value) const { qdatetimeedit_leaveevent_isbase = value; }
-    void setQDateTimeEdit_MoveEvent_IsBase(bool value) const { qdatetimeedit_moveevent_isbase = value; }
-    void setQDateTimeEdit_TabletEvent_IsBase(bool value) const { qdatetimeedit_tabletevent_isbase = value; }
-    void setQDateTimeEdit_ActionEvent_IsBase(bool value) const { qdatetimeedit_actionevent_isbase = value; }
-    void setQDateTimeEdit_DragEnterEvent_IsBase(bool value) const { qdatetimeedit_dragenterevent_isbase = value; }
-    void setQDateTimeEdit_DragMoveEvent_IsBase(bool value) const { qdatetimeedit_dragmoveevent_isbase = value; }
-    void setQDateTimeEdit_DragLeaveEvent_IsBase(bool value) const { qdatetimeedit_dragleaveevent_isbase = value; }
-    void setQDateTimeEdit_DropEvent_IsBase(bool value) const { qdatetimeedit_dropevent_isbase = value; }
-    void setQDateTimeEdit_NativeEvent_IsBase(bool value) const { qdatetimeedit_nativeevent_isbase = value; }
-    void setQDateTimeEdit_Metric_IsBase(bool value) const { qdatetimeedit_metric_isbase = value; }
-    void setQDateTimeEdit_InitPainter_IsBase(bool value) const { qdatetimeedit_initpainter_isbase = value; }
-    void setQDateTimeEdit_Redirected_IsBase(bool value) const { qdatetimeedit_redirected_isbase = value; }
-    void setQDateTimeEdit_SharedPainter_IsBase(bool value) const { qdatetimeedit_sharedpainter_isbase = value; }
-    void setQDateTimeEdit_InputMethodEvent_IsBase(bool value) const { qdatetimeedit_inputmethodevent_isbase = value; }
-    void setQDateTimeEdit_EventFilter_IsBase(bool value) const { qdatetimeedit_eventfilter_isbase = value; }
-    void setQDateTimeEdit_ChildEvent_IsBase(bool value) const { qdatetimeedit_childevent_isbase = value; }
-    void setQDateTimeEdit_CustomEvent_IsBase(bool value) const { qdatetimeedit_customevent_isbase = value; }
-    void setQDateTimeEdit_ConnectNotify_IsBase(bool value) const { qdatetimeedit_connectnotify_isbase = value; }
-    void setQDateTimeEdit_DisconnectNotify_IsBase(bool value) const { qdatetimeedit_disconnectnotify_isbase = value; }
-    void setQDateTimeEdit_LineEdit_IsBase(bool value) const { qdatetimeedit_lineedit_isbase = value; }
-    void setQDateTimeEdit_SetLineEdit_IsBase(bool value) const { qdatetimeedit_setlineedit_isbase = value; }
-    void setQDateTimeEdit_UpdateMicroFocus_IsBase(bool value) const { qdatetimeedit_updatemicrofocus_isbase = value; }
-    void setQDateTimeEdit_Create_IsBase(bool value) const { qdatetimeedit_create_isbase = value; }
-    void setQDateTimeEdit_Destroy_IsBase(bool value) const { qdatetimeedit_destroy_isbase = value; }
-    void setQDateTimeEdit_FocusNextChild_IsBase(bool value) const { qdatetimeedit_focusnextchild_isbase = value; }
-    void setQDateTimeEdit_FocusPreviousChild_IsBase(bool value) const { qdatetimeedit_focuspreviouschild_isbase = value; }
-    void setQDateTimeEdit_Sender_IsBase(bool value) const { qdatetimeedit_sender_isbase = value; }
-    void setQDateTimeEdit_SenderSignalIndex_IsBase(bool value) const { qdatetimeedit_sendersignalindex_isbase = value; }
-    void setQDateTimeEdit_Receivers_IsBase(bool value) const { qdatetimeedit_receivers_isbase = value; }
-    void setQDateTimeEdit_IsSignalConnected_IsBase(bool value) const { qdatetimeedit_issignalconnected_isbase = value; }
+    inline void setQDateTimeEdit_Metacall_IsBase(bool value) const { qdatetimeedit_metacall_isbase = value; }
+    inline void setQDateTimeEdit_SizeHint_IsBase(bool value) const { qdatetimeedit_sizehint_isbase = value; }
+    inline void setQDateTimeEdit_Clear_IsBase(bool value) const { qdatetimeedit_clear_isbase = value; }
+    inline void setQDateTimeEdit_StepBy_IsBase(bool value) const { qdatetimeedit_stepby_isbase = value; }
+    inline void setQDateTimeEdit_Event_IsBase(bool value) const { qdatetimeedit_event_isbase = value; }
+    inline void setQDateTimeEdit_KeyPressEvent_IsBase(bool value) const { qdatetimeedit_keypressevent_isbase = value; }
+    inline void setQDateTimeEdit_WheelEvent_IsBase(bool value) const { qdatetimeedit_wheelevent_isbase = value; }
+    inline void setQDateTimeEdit_FocusInEvent_IsBase(bool value) const { qdatetimeedit_focusinevent_isbase = value; }
+    inline void setQDateTimeEdit_FocusNextPrevChild_IsBase(bool value) const { qdatetimeedit_focusnextprevchild_isbase = value; }
+    inline void setQDateTimeEdit_Validate_IsBase(bool value) const { qdatetimeedit_validate_isbase = value; }
+    inline void setQDateTimeEdit_Fixup_IsBase(bool value) const { qdatetimeedit_fixup_isbase = value; }
+    inline void setQDateTimeEdit_DateTimeFromText_IsBase(bool value) const { qdatetimeedit_datetimefromtext_isbase = value; }
+    inline void setQDateTimeEdit_TextFromDateTime_IsBase(bool value) const { qdatetimeedit_textfromdatetime_isbase = value; }
+    inline void setQDateTimeEdit_StepEnabled_IsBase(bool value) const { qdatetimeedit_stepenabled_isbase = value; }
+    inline void setQDateTimeEdit_MousePressEvent_IsBase(bool value) const { qdatetimeedit_mousepressevent_isbase = value; }
+    inline void setQDateTimeEdit_PaintEvent_IsBase(bool value) const { qdatetimeedit_paintevent_isbase = value; }
+    inline void setQDateTimeEdit_InitStyleOption_IsBase(bool value) const { qdatetimeedit_initstyleoption_isbase = value; }
+    inline void setQDateTimeEdit_MinimumSizeHint_IsBase(bool value) const { qdatetimeedit_minimumsizehint_isbase = value; }
+    inline void setQDateTimeEdit_InputMethodQuery_IsBase(bool value) const { qdatetimeedit_inputmethodquery_isbase = value; }
+    inline void setQDateTimeEdit_ResizeEvent_IsBase(bool value) const { qdatetimeedit_resizeevent_isbase = value; }
+    inline void setQDateTimeEdit_KeyReleaseEvent_IsBase(bool value) const { qdatetimeedit_keyreleaseevent_isbase = value; }
+    inline void setQDateTimeEdit_FocusOutEvent_IsBase(bool value) const { qdatetimeedit_focusoutevent_isbase = value; }
+    inline void setQDateTimeEdit_ContextMenuEvent_IsBase(bool value) const { qdatetimeedit_contextmenuevent_isbase = value; }
+    inline void setQDateTimeEdit_ChangeEvent_IsBase(bool value) const { qdatetimeedit_changeevent_isbase = value; }
+    inline void setQDateTimeEdit_CloseEvent_IsBase(bool value) const { qdatetimeedit_closeevent_isbase = value; }
+    inline void setQDateTimeEdit_HideEvent_IsBase(bool value) const { qdatetimeedit_hideevent_isbase = value; }
+    inline void setQDateTimeEdit_MouseReleaseEvent_IsBase(bool value) const { qdatetimeedit_mousereleaseevent_isbase = value; }
+    inline void setQDateTimeEdit_MouseMoveEvent_IsBase(bool value) const { qdatetimeedit_mousemoveevent_isbase = value; }
+    inline void setQDateTimeEdit_TimerEvent_IsBase(bool value) const { qdatetimeedit_timerevent_isbase = value; }
+    inline void setQDateTimeEdit_ShowEvent_IsBase(bool value) const { qdatetimeedit_showevent_isbase = value; }
+    inline void setQDateTimeEdit_DevType_IsBase(bool value) const { qdatetimeedit_devtype_isbase = value; }
+    inline void setQDateTimeEdit_SetVisible_IsBase(bool value) const { qdatetimeedit_setvisible_isbase = value; }
+    inline void setQDateTimeEdit_HeightForWidth_IsBase(bool value) const { qdatetimeedit_heightforwidth_isbase = value; }
+    inline void setQDateTimeEdit_HasHeightForWidth_IsBase(bool value) const { qdatetimeedit_hasheightforwidth_isbase = value; }
+    inline void setQDateTimeEdit_PaintEngine_IsBase(bool value) const { qdatetimeedit_paintengine_isbase = value; }
+    inline void setQDateTimeEdit_MouseDoubleClickEvent_IsBase(bool value) const { qdatetimeedit_mousedoubleclickevent_isbase = value; }
+    inline void setQDateTimeEdit_EnterEvent_IsBase(bool value) const { qdatetimeedit_enterevent_isbase = value; }
+    inline void setQDateTimeEdit_LeaveEvent_IsBase(bool value) const { qdatetimeedit_leaveevent_isbase = value; }
+    inline void setQDateTimeEdit_MoveEvent_IsBase(bool value) const { qdatetimeedit_moveevent_isbase = value; }
+    inline void setQDateTimeEdit_TabletEvent_IsBase(bool value) const { qdatetimeedit_tabletevent_isbase = value; }
+    inline void setQDateTimeEdit_ActionEvent_IsBase(bool value) const { qdatetimeedit_actionevent_isbase = value; }
+    inline void setQDateTimeEdit_DragEnterEvent_IsBase(bool value) const { qdatetimeedit_dragenterevent_isbase = value; }
+    inline void setQDateTimeEdit_DragMoveEvent_IsBase(bool value) const { qdatetimeedit_dragmoveevent_isbase = value; }
+    inline void setQDateTimeEdit_DragLeaveEvent_IsBase(bool value) const { qdatetimeedit_dragleaveevent_isbase = value; }
+    inline void setQDateTimeEdit_DropEvent_IsBase(bool value) const { qdatetimeedit_dropevent_isbase = value; }
+    inline void setQDateTimeEdit_NativeEvent_IsBase(bool value) const { qdatetimeedit_nativeevent_isbase = value; }
+    inline void setQDateTimeEdit_Metric_IsBase(bool value) const { qdatetimeedit_metric_isbase = value; }
+    inline void setQDateTimeEdit_InitPainter_IsBase(bool value) const { qdatetimeedit_initpainter_isbase = value; }
+    inline void setQDateTimeEdit_Redirected_IsBase(bool value) const { qdatetimeedit_redirected_isbase = value; }
+    inline void setQDateTimeEdit_SharedPainter_IsBase(bool value) const { qdatetimeedit_sharedpainter_isbase = value; }
+    inline void setQDateTimeEdit_InputMethodEvent_IsBase(bool value) const { qdatetimeedit_inputmethodevent_isbase = value; }
+    inline void setQDateTimeEdit_EventFilter_IsBase(bool value) const { qdatetimeedit_eventfilter_isbase = value; }
+    inline void setQDateTimeEdit_ChildEvent_IsBase(bool value) const { qdatetimeedit_childevent_isbase = value; }
+    inline void setQDateTimeEdit_CustomEvent_IsBase(bool value) const { qdatetimeedit_customevent_isbase = value; }
+    inline void setQDateTimeEdit_ConnectNotify_IsBase(bool value) const { qdatetimeedit_connectnotify_isbase = value; }
+    inline void setQDateTimeEdit_DisconnectNotify_IsBase(bool value) const { qdatetimeedit_disconnectnotify_isbase = value; }
+    inline void setQDateTimeEdit_LineEdit_IsBase(bool value) const { qdatetimeedit_lineedit_isbase = value; }
+    inline void setQDateTimeEdit_SetLineEdit_IsBase(bool value) const { qdatetimeedit_setlineedit_isbase = value; }
+    inline void setQDateTimeEdit_UpdateMicroFocus_IsBase(bool value) const { qdatetimeedit_updatemicrofocus_isbase = value; }
+    inline void setQDateTimeEdit_Create_IsBase(bool value) const { qdatetimeedit_create_isbase = value; }
+    inline void setQDateTimeEdit_Destroy_IsBase(bool value) const { qdatetimeedit_destroy_isbase = value; }
+    inline void setQDateTimeEdit_FocusNextChild_IsBase(bool value) const { qdatetimeedit_focusnextchild_isbase = value; }
+    inline void setQDateTimeEdit_FocusPreviousChild_IsBase(bool value) const { qdatetimeedit_focuspreviouschild_isbase = value; }
+    inline void setQDateTimeEdit_Sender_IsBase(bool value) const { qdatetimeedit_sender_isbase = value; }
+    inline void setQDateTimeEdit_SenderSignalIndex_IsBase(bool value) const { qdatetimeedit_sendersignalindex_isbase = value; }
+    inline void setQDateTimeEdit_Receivers_IsBase(bool value) const { qdatetimeedit_receivers_isbase = value; }
+    inline void setQDateTimeEdit_IsSignalConnected_IsBase(bool value) const { qdatetimeedit_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -446,7 +449,12 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_metacall_isbase = false;
             return QDateTimeEdit::qt_metacall(param1, param2, param3);
         } else if (qdatetimeedit_metacall_callback != nullptr) {
-            return qdatetimeedit_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qdatetimeedit_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QDateTimeEdit::qt_metacall(param1, param2, param3);
         }
@@ -458,7 +466,8 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_sizehint_isbase = false;
             return QDateTimeEdit::sizeHint();
         } else if (qdatetimeedit_sizehint_callback != nullptr) {
-            return qdatetimeedit_sizehint_callback();
+            QSize* callback_ret = qdatetimeedit_sizehint_callback();
+            return *callback_ret;
         } else {
             return QDateTimeEdit::sizeHint();
         }
@@ -482,7 +491,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_stepby_isbase = false;
             QDateTimeEdit::stepBy(steps);
         } else if (qdatetimeedit_stepby_callback != nullptr) {
-            qdatetimeedit_stepby_callback(this, steps);
+            int cbval1 = steps;
+
+            qdatetimeedit_stepby_callback(this, cbval1);
         } else {
             QDateTimeEdit::stepBy(steps);
         }
@@ -494,7 +505,10 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_event_isbase = false;
             return QDateTimeEdit::event(event);
         } else if (qdatetimeedit_event_callback != nullptr) {
-            return qdatetimeedit_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qdatetimeedit_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QDateTimeEdit::event(event);
         }
@@ -506,7 +520,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_keypressevent_isbase = false;
             QDateTimeEdit::keyPressEvent(event);
         } else if (qdatetimeedit_keypressevent_callback != nullptr) {
-            qdatetimeedit_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qdatetimeedit_keypressevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::keyPressEvent(event);
         }
@@ -518,7 +534,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_wheelevent_isbase = false;
             QDateTimeEdit::wheelEvent(event);
         } else if (qdatetimeedit_wheelevent_callback != nullptr) {
-            qdatetimeedit_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qdatetimeedit_wheelevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::wheelEvent(event);
         }
@@ -530,7 +548,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_focusinevent_isbase = false;
             QDateTimeEdit::focusInEvent(event);
         } else if (qdatetimeedit_focusinevent_callback != nullptr) {
-            qdatetimeedit_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qdatetimeedit_focusinevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::focusInEvent(event);
         }
@@ -542,7 +562,10 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_focusnextprevchild_isbase = false;
             return QDateTimeEdit::focusNextPrevChild(next);
         } else if (qdatetimeedit_focusnextprevchild_callback != nullptr) {
-            return qdatetimeedit_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qdatetimeedit_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QDateTimeEdit::focusNextPrevChild(next);
         }
@@ -554,7 +577,19 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_validate_isbase = false;
             return QDateTimeEdit::validate(input, pos);
         } else if (qdatetimeedit_validate_callback != nullptr) {
-            return qdatetimeedit_validate_callback(this, input, pos);
+            QString input_ret = input;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray input_b = input_ret.toUtf8();
+            libqt_string input_str;
+            input_str.len = input_b.length();
+            input_str.data = static_cast<char*>(malloc((input_str.len + 1) * sizeof(char)));
+            memcpy(input_str.data, input_b.data(), input_str.len);
+            input_str.data[input_str.len] = '\0';
+            libqt_string cbval1 = input_str;
+            int* cbval2 = &pos;
+
+            int callback_ret = qdatetimeedit_validate_callback(this, cbval1, cbval2);
+            return static_cast<QValidator::State>(callback_ret);
         } else {
             return QDateTimeEdit::validate(input, pos);
         }
@@ -566,7 +601,17 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_fixup_isbase = false;
             QDateTimeEdit::fixup(input);
         } else if (qdatetimeedit_fixup_callback != nullptr) {
-            qdatetimeedit_fixup_callback(this, input);
+            QString input_ret = input;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray input_b = input_ret.toUtf8();
+            libqt_string input_str;
+            input_str.len = input_b.length();
+            input_str.data = static_cast<char*>(malloc((input_str.len + 1) * sizeof(char)));
+            memcpy(input_str.data, input_b.data(), input_str.len);
+            input_str.data[input_str.len] = '\0';
+            libqt_string cbval1 = input_str;
+
+            qdatetimeedit_fixup_callback(this, cbval1);
         } else {
             QDateTimeEdit::fixup(input);
         }
@@ -578,7 +623,18 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_datetimefromtext_isbase = false;
             return QDateTimeEdit::dateTimeFromText(text);
         } else if (qdatetimeedit_datetimefromtext_callback != nullptr) {
-            return qdatetimeedit_datetimefromtext_callback(this, text);
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy(text_str.data, text_b.data(), text_str.len);
+            text_str.data[text_str.len] = '\0';
+            libqt_string cbval1 = text_str;
+
+            QDateTime* callback_ret = qdatetimeedit_datetimefromtext_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QDateTimeEdit::dateTimeFromText(text);
         }
@@ -590,7 +646,13 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_textfromdatetime_isbase = false;
             return QDateTimeEdit::textFromDateTime(dt);
         } else if (qdatetimeedit_textfromdatetime_callback != nullptr) {
-            return qdatetimeedit_textfromdatetime_callback(this, dt);
+            const QDateTime& dt_ret = dt;
+            // Cast returned reference into pointer
+            QDateTime* cbval1 = const_cast<QDateTime*>(&dt_ret);
+
+            libqt_string callback_ret = qdatetimeedit_textfromdatetime_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
         } else {
             return QDateTimeEdit::textFromDateTime(dt);
         }
@@ -602,7 +664,8 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_stepenabled_isbase = false;
             return QDateTimeEdit::stepEnabled();
         } else if (qdatetimeedit_stepenabled_callback != nullptr) {
-            return qdatetimeedit_stepenabled_callback();
+            int callback_ret = qdatetimeedit_stepenabled_callback();
+            return static_cast<QAbstractSpinBox::StepEnabled>(callback_ret);
         } else {
             return QDateTimeEdit::stepEnabled();
         }
@@ -614,7 +677,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_mousepressevent_isbase = false;
             QDateTimeEdit::mousePressEvent(event);
         } else if (qdatetimeedit_mousepressevent_callback != nullptr) {
-            qdatetimeedit_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qdatetimeedit_mousepressevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::mousePressEvent(event);
         }
@@ -626,7 +691,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_paintevent_isbase = false;
             QDateTimeEdit::paintEvent(event);
         } else if (qdatetimeedit_paintevent_callback != nullptr) {
-            qdatetimeedit_paintevent_callback(this, event);
+            QPaintEvent* cbval1 = event;
+
+            qdatetimeedit_paintevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::paintEvent(event);
         }
@@ -638,7 +705,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_initstyleoption_isbase = false;
             QDateTimeEdit::initStyleOption(option);
         } else if (qdatetimeedit_initstyleoption_callback != nullptr) {
-            qdatetimeedit_initstyleoption_callback(this, option);
+            QStyleOptionSpinBox* cbval1 = option;
+
+            qdatetimeedit_initstyleoption_callback(this, cbval1);
         } else {
             QDateTimeEdit::initStyleOption(option);
         }
@@ -650,7 +719,8 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_minimumsizehint_isbase = false;
             return QDateTimeEdit::minimumSizeHint();
         } else if (qdatetimeedit_minimumsizehint_callback != nullptr) {
-            return qdatetimeedit_minimumsizehint_callback();
+            QSize* callback_ret = qdatetimeedit_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QDateTimeEdit::minimumSizeHint();
         }
@@ -662,7 +732,10 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_inputmethodquery_isbase = false;
             return QDateTimeEdit::inputMethodQuery(param1);
         } else if (qdatetimeedit_inputmethodquery_callback != nullptr) {
-            return qdatetimeedit_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qdatetimeedit_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QDateTimeEdit::inputMethodQuery(param1);
         }
@@ -674,7 +747,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_resizeevent_isbase = false;
             QDateTimeEdit::resizeEvent(event);
         } else if (qdatetimeedit_resizeevent_callback != nullptr) {
-            qdatetimeedit_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qdatetimeedit_resizeevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::resizeEvent(event);
         }
@@ -686,7 +761,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_keyreleaseevent_isbase = false;
             QDateTimeEdit::keyReleaseEvent(event);
         } else if (qdatetimeedit_keyreleaseevent_callback != nullptr) {
-            qdatetimeedit_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qdatetimeedit_keyreleaseevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::keyReleaseEvent(event);
         }
@@ -698,7 +775,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_focusoutevent_isbase = false;
             QDateTimeEdit::focusOutEvent(event);
         } else if (qdatetimeedit_focusoutevent_callback != nullptr) {
-            qdatetimeedit_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qdatetimeedit_focusoutevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::focusOutEvent(event);
         }
@@ -710,7 +789,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_contextmenuevent_isbase = false;
             QDateTimeEdit::contextMenuEvent(event);
         } else if (qdatetimeedit_contextmenuevent_callback != nullptr) {
-            qdatetimeedit_contextmenuevent_callback(this, event);
+            QContextMenuEvent* cbval1 = event;
+
+            qdatetimeedit_contextmenuevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::contextMenuEvent(event);
         }
@@ -722,7 +803,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_changeevent_isbase = false;
             QDateTimeEdit::changeEvent(event);
         } else if (qdatetimeedit_changeevent_callback != nullptr) {
-            qdatetimeedit_changeevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qdatetimeedit_changeevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::changeEvent(event);
         }
@@ -734,7 +817,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_closeevent_isbase = false;
             QDateTimeEdit::closeEvent(event);
         } else if (qdatetimeedit_closeevent_callback != nullptr) {
-            qdatetimeedit_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qdatetimeedit_closeevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::closeEvent(event);
         }
@@ -746,7 +831,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_hideevent_isbase = false;
             QDateTimeEdit::hideEvent(event);
         } else if (qdatetimeedit_hideevent_callback != nullptr) {
-            qdatetimeedit_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qdatetimeedit_hideevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::hideEvent(event);
         }
@@ -758,7 +845,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_mousereleaseevent_isbase = false;
             QDateTimeEdit::mouseReleaseEvent(event);
         } else if (qdatetimeedit_mousereleaseevent_callback != nullptr) {
-            qdatetimeedit_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qdatetimeedit_mousereleaseevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::mouseReleaseEvent(event);
         }
@@ -770,7 +859,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_mousemoveevent_isbase = false;
             QDateTimeEdit::mouseMoveEvent(event);
         } else if (qdatetimeedit_mousemoveevent_callback != nullptr) {
-            qdatetimeedit_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qdatetimeedit_mousemoveevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::mouseMoveEvent(event);
         }
@@ -782,7 +873,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_timerevent_isbase = false;
             QDateTimeEdit::timerEvent(event);
         } else if (qdatetimeedit_timerevent_callback != nullptr) {
-            qdatetimeedit_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qdatetimeedit_timerevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::timerEvent(event);
         }
@@ -794,7 +887,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_showevent_isbase = false;
             QDateTimeEdit::showEvent(event);
         } else if (qdatetimeedit_showevent_callback != nullptr) {
-            qdatetimeedit_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qdatetimeedit_showevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::showEvent(event);
         }
@@ -806,7 +901,8 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_devtype_isbase = false;
             return QDateTimeEdit::devType();
         } else if (qdatetimeedit_devtype_callback != nullptr) {
-            return qdatetimeedit_devtype_callback();
+            int callback_ret = qdatetimeedit_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QDateTimeEdit::devType();
         }
@@ -818,7 +914,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_setvisible_isbase = false;
             QDateTimeEdit::setVisible(visible);
         } else if (qdatetimeedit_setvisible_callback != nullptr) {
-            qdatetimeedit_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qdatetimeedit_setvisible_callback(this, cbval1);
         } else {
             QDateTimeEdit::setVisible(visible);
         }
@@ -830,7 +928,10 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_heightforwidth_isbase = false;
             return QDateTimeEdit::heightForWidth(param1);
         } else if (qdatetimeedit_heightforwidth_callback != nullptr) {
-            return qdatetimeedit_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qdatetimeedit_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QDateTimeEdit::heightForWidth(param1);
         }
@@ -842,7 +943,8 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_hasheightforwidth_isbase = false;
             return QDateTimeEdit::hasHeightForWidth();
         } else if (qdatetimeedit_hasheightforwidth_callback != nullptr) {
-            return qdatetimeedit_hasheightforwidth_callback();
+            bool callback_ret = qdatetimeedit_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QDateTimeEdit::hasHeightForWidth();
         }
@@ -854,7 +956,8 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_paintengine_isbase = false;
             return QDateTimeEdit::paintEngine();
         } else if (qdatetimeedit_paintengine_callback != nullptr) {
-            return qdatetimeedit_paintengine_callback();
+            QPaintEngine* callback_ret = qdatetimeedit_paintengine_callback();
+            return callback_ret;
         } else {
             return QDateTimeEdit::paintEngine();
         }
@@ -866,7 +969,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_mousedoubleclickevent_isbase = false;
             QDateTimeEdit::mouseDoubleClickEvent(event);
         } else if (qdatetimeedit_mousedoubleclickevent_callback != nullptr) {
-            qdatetimeedit_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qdatetimeedit_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::mouseDoubleClickEvent(event);
         }
@@ -878,7 +983,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_enterevent_isbase = false;
             QDateTimeEdit::enterEvent(event);
         } else if (qdatetimeedit_enterevent_callback != nullptr) {
-            qdatetimeedit_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qdatetimeedit_enterevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::enterEvent(event);
         }
@@ -890,7 +997,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_leaveevent_isbase = false;
             QDateTimeEdit::leaveEvent(event);
         } else if (qdatetimeedit_leaveevent_callback != nullptr) {
-            qdatetimeedit_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qdatetimeedit_leaveevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::leaveEvent(event);
         }
@@ -902,7 +1011,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_moveevent_isbase = false;
             QDateTimeEdit::moveEvent(event);
         } else if (qdatetimeedit_moveevent_callback != nullptr) {
-            qdatetimeedit_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qdatetimeedit_moveevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::moveEvent(event);
         }
@@ -914,7 +1025,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_tabletevent_isbase = false;
             QDateTimeEdit::tabletEvent(event);
         } else if (qdatetimeedit_tabletevent_callback != nullptr) {
-            qdatetimeedit_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qdatetimeedit_tabletevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::tabletEvent(event);
         }
@@ -926,7 +1039,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_actionevent_isbase = false;
             QDateTimeEdit::actionEvent(event);
         } else if (qdatetimeedit_actionevent_callback != nullptr) {
-            qdatetimeedit_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qdatetimeedit_actionevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::actionEvent(event);
         }
@@ -938,7 +1053,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_dragenterevent_isbase = false;
             QDateTimeEdit::dragEnterEvent(event);
         } else if (qdatetimeedit_dragenterevent_callback != nullptr) {
-            qdatetimeedit_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qdatetimeedit_dragenterevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::dragEnterEvent(event);
         }
@@ -950,7 +1067,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_dragmoveevent_isbase = false;
             QDateTimeEdit::dragMoveEvent(event);
         } else if (qdatetimeedit_dragmoveevent_callback != nullptr) {
-            qdatetimeedit_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qdatetimeedit_dragmoveevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::dragMoveEvent(event);
         }
@@ -962,7 +1081,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_dragleaveevent_isbase = false;
             QDateTimeEdit::dragLeaveEvent(event);
         } else if (qdatetimeedit_dragleaveevent_callback != nullptr) {
-            qdatetimeedit_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qdatetimeedit_dragleaveevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::dragLeaveEvent(event);
         }
@@ -974,7 +1095,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_dropevent_isbase = false;
             QDateTimeEdit::dropEvent(event);
         } else if (qdatetimeedit_dropevent_callback != nullptr) {
-            qdatetimeedit_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qdatetimeedit_dropevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::dropEvent(event);
         }
@@ -986,7 +1109,19 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_nativeevent_isbase = false;
             return QDateTimeEdit::nativeEvent(eventType, message, result);
         } else if (qdatetimeedit_nativeevent_callback != nullptr) {
-            return qdatetimeedit_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qdatetimeedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QDateTimeEdit::nativeEvent(eventType, message, result);
         }
@@ -998,7 +1133,10 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_metric_isbase = false;
             return QDateTimeEdit::metric(param1);
         } else if (qdatetimeedit_metric_callback != nullptr) {
-            return qdatetimeedit_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qdatetimeedit_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QDateTimeEdit::metric(param1);
         }
@@ -1010,7 +1148,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_initpainter_isbase = false;
             QDateTimeEdit::initPainter(painter);
         } else if (qdatetimeedit_initpainter_callback != nullptr) {
-            qdatetimeedit_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qdatetimeedit_initpainter_callback(this, cbval1);
         } else {
             QDateTimeEdit::initPainter(painter);
         }
@@ -1022,7 +1162,10 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_redirected_isbase = false;
             return QDateTimeEdit::redirected(offset);
         } else if (qdatetimeedit_redirected_callback != nullptr) {
-            return qdatetimeedit_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qdatetimeedit_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QDateTimeEdit::redirected(offset);
         }
@@ -1034,7 +1177,8 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_sharedpainter_isbase = false;
             return QDateTimeEdit::sharedPainter();
         } else if (qdatetimeedit_sharedpainter_callback != nullptr) {
-            return qdatetimeedit_sharedpainter_callback();
+            QPainter* callback_ret = qdatetimeedit_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QDateTimeEdit::sharedPainter();
         }
@@ -1046,7 +1190,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_inputmethodevent_isbase = false;
             QDateTimeEdit::inputMethodEvent(param1);
         } else if (qdatetimeedit_inputmethodevent_callback != nullptr) {
-            qdatetimeedit_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qdatetimeedit_inputmethodevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::inputMethodEvent(param1);
         }
@@ -1058,7 +1204,11 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_eventfilter_isbase = false;
             return QDateTimeEdit::eventFilter(watched, event);
         } else if (qdatetimeedit_eventfilter_callback != nullptr) {
-            return qdatetimeedit_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qdatetimeedit_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QDateTimeEdit::eventFilter(watched, event);
         }
@@ -1070,7 +1220,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_childevent_isbase = false;
             QDateTimeEdit::childEvent(event);
         } else if (qdatetimeedit_childevent_callback != nullptr) {
-            qdatetimeedit_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qdatetimeedit_childevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::childEvent(event);
         }
@@ -1082,7 +1234,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_customevent_isbase = false;
             QDateTimeEdit::customEvent(event);
         } else if (qdatetimeedit_customevent_callback != nullptr) {
-            qdatetimeedit_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qdatetimeedit_customevent_callback(this, cbval1);
         } else {
             QDateTimeEdit::customEvent(event);
         }
@@ -1094,7 +1248,11 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_connectnotify_isbase = false;
             QDateTimeEdit::connectNotify(signal);
         } else if (qdatetimeedit_connectnotify_callback != nullptr) {
-            qdatetimeedit_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qdatetimeedit_connectnotify_callback(this, cbval1);
         } else {
             QDateTimeEdit::connectNotify(signal);
         }
@@ -1106,7 +1264,11 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_disconnectnotify_isbase = false;
             QDateTimeEdit::disconnectNotify(signal);
         } else if (qdatetimeedit_disconnectnotify_callback != nullptr) {
-            qdatetimeedit_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qdatetimeedit_disconnectnotify_callback(this, cbval1);
         } else {
             QDateTimeEdit::disconnectNotify(signal);
         }
@@ -1118,7 +1280,8 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_lineedit_isbase = false;
             return QDateTimeEdit::lineEdit();
         } else if (qdatetimeedit_lineedit_callback != nullptr) {
-            return qdatetimeedit_lineedit_callback();
+            QLineEdit* callback_ret = qdatetimeedit_lineedit_callback();
+            return callback_ret;
         } else {
             return QDateTimeEdit::lineEdit();
         }
@@ -1130,7 +1293,9 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_setlineedit_isbase = false;
             QDateTimeEdit::setLineEdit(edit);
         } else if (qdatetimeedit_setlineedit_callback != nullptr) {
-            qdatetimeedit_setlineedit_callback(this, edit);
+            QLineEdit* cbval1 = edit;
+
+            qdatetimeedit_setlineedit_callback(this, cbval1);
         } else {
             QDateTimeEdit::setLineEdit(edit);
         }
@@ -1178,7 +1343,8 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_focusnextchild_isbase = false;
             return QDateTimeEdit::focusNextChild();
         } else if (qdatetimeedit_focusnextchild_callback != nullptr) {
-            return qdatetimeedit_focusnextchild_callback();
+            bool callback_ret = qdatetimeedit_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QDateTimeEdit::focusNextChild();
         }
@@ -1190,7 +1356,8 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_focuspreviouschild_isbase = false;
             return QDateTimeEdit::focusPreviousChild();
         } else if (qdatetimeedit_focuspreviouschild_callback != nullptr) {
-            return qdatetimeedit_focuspreviouschild_callback();
+            bool callback_ret = qdatetimeedit_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QDateTimeEdit::focusPreviousChild();
         }
@@ -1202,7 +1369,8 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_sender_isbase = false;
             return QDateTimeEdit::sender();
         } else if (qdatetimeedit_sender_callback != nullptr) {
-            return qdatetimeedit_sender_callback();
+            QObject* callback_ret = qdatetimeedit_sender_callback();
+            return callback_ret;
         } else {
             return QDateTimeEdit::sender();
         }
@@ -1214,7 +1382,8 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_sendersignalindex_isbase = false;
             return QDateTimeEdit::senderSignalIndex();
         } else if (qdatetimeedit_sendersignalindex_callback != nullptr) {
-            return qdatetimeedit_sendersignalindex_callback();
+            int callback_ret = qdatetimeedit_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QDateTimeEdit::senderSignalIndex();
         }
@@ -1226,7 +1395,10 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_receivers_isbase = false;
             return QDateTimeEdit::receivers(signal);
         } else if (qdatetimeedit_receivers_callback != nullptr) {
-            return qdatetimeedit_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qdatetimeedit_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QDateTimeEdit::receivers(signal);
         }
@@ -1238,20 +1410,138 @@ class VirtualQDateTimeEdit : public QDateTimeEdit {
             qdatetimeedit_issignalconnected_isbase = false;
             return QDateTimeEdit::isSignalConnected(signal);
         } else if (qdatetimeedit_issignalconnected_callback != nullptr) {
-            return qdatetimeedit_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qdatetimeedit_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QDateTimeEdit::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QDateTimeEdit_KeyPressEvent(QDateTimeEdit* self, QKeyEvent* event);
+    friend void QDateTimeEdit_QBaseKeyPressEvent(QDateTimeEdit* self, QKeyEvent* event);
+    friend void QDateTimeEdit_WheelEvent(QDateTimeEdit* self, QWheelEvent* event);
+    friend void QDateTimeEdit_QBaseWheelEvent(QDateTimeEdit* self, QWheelEvent* event);
+    friend void QDateTimeEdit_FocusInEvent(QDateTimeEdit* self, QFocusEvent* event);
+    friend void QDateTimeEdit_QBaseFocusInEvent(QDateTimeEdit* self, QFocusEvent* event);
+    friend bool QDateTimeEdit_FocusNextPrevChild(QDateTimeEdit* self, bool next);
+    friend bool QDateTimeEdit_QBaseFocusNextPrevChild(QDateTimeEdit* self, bool next);
+    friend int QDateTimeEdit_Validate(const QDateTimeEdit* self, libqt_string input, int* pos);
+    friend int QDateTimeEdit_QBaseValidate(const QDateTimeEdit* self, libqt_string input, int* pos);
+    friend void QDateTimeEdit_Fixup(const QDateTimeEdit* self, libqt_string input);
+    friend void QDateTimeEdit_QBaseFixup(const QDateTimeEdit* self, libqt_string input);
+    friend QDateTime* QDateTimeEdit_DateTimeFromText(const QDateTimeEdit* self, const libqt_string text);
+    friend QDateTime* QDateTimeEdit_QBaseDateTimeFromText(const QDateTimeEdit* self, const libqt_string text);
+    friend libqt_string QDateTimeEdit_TextFromDateTime(const QDateTimeEdit* self, const QDateTime* dt);
+    friend libqt_string QDateTimeEdit_QBaseTextFromDateTime(const QDateTimeEdit* self, const QDateTime* dt);
+    friend int QDateTimeEdit_StepEnabled(const QDateTimeEdit* self);
+    friend int QDateTimeEdit_QBaseStepEnabled(const QDateTimeEdit* self);
+    friend void QDateTimeEdit_MousePressEvent(QDateTimeEdit* self, QMouseEvent* event);
+    friend void QDateTimeEdit_QBaseMousePressEvent(QDateTimeEdit* self, QMouseEvent* event);
+    friend void QDateTimeEdit_PaintEvent(QDateTimeEdit* self, QPaintEvent* event);
+    friend void QDateTimeEdit_QBasePaintEvent(QDateTimeEdit* self, QPaintEvent* event);
+    friend void QDateTimeEdit_InitStyleOption(const QDateTimeEdit* self, QStyleOptionSpinBox* option);
+    friend void QDateTimeEdit_QBaseInitStyleOption(const QDateTimeEdit* self, QStyleOptionSpinBox* option);
+    friend void QDateTimeEdit_ResizeEvent(QDateTimeEdit* self, QResizeEvent* event);
+    friend void QDateTimeEdit_QBaseResizeEvent(QDateTimeEdit* self, QResizeEvent* event);
+    friend void QDateTimeEdit_KeyReleaseEvent(QDateTimeEdit* self, QKeyEvent* event);
+    friend void QDateTimeEdit_QBaseKeyReleaseEvent(QDateTimeEdit* self, QKeyEvent* event);
+    friend void QDateTimeEdit_FocusOutEvent(QDateTimeEdit* self, QFocusEvent* event);
+    friend void QDateTimeEdit_QBaseFocusOutEvent(QDateTimeEdit* self, QFocusEvent* event);
+    friend void QDateTimeEdit_ContextMenuEvent(QDateTimeEdit* self, QContextMenuEvent* event);
+    friend void QDateTimeEdit_QBaseContextMenuEvent(QDateTimeEdit* self, QContextMenuEvent* event);
+    friend void QDateTimeEdit_ChangeEvent(QDateTimeEdit* self, QEvent* event);
+    friend void QDateTimeEdit_QBaseChangeEvent(QDateTimeEdit* self, QEvent* event);
+    friend void QDateTimeEdit_CloseEvent(QDateTimeEdit* self, QCloseEvent* event);
+    friend void QDateTimeEdit_QBaseCloseEvent(QDateTimeEdit* self, QCloseEvent* event);
+    friend void QDateTimeEdit_HideEvent(QDateTimeEdit* self, QHideEvent* event);
+    friend void QDateTimeEdit_QBaseHideEvent(QDateTimeEdit* self, QHideEvent* event);
+    friend void QDateTimeEdit_MouseReleaseEvent(QDateTimeEdit* self, QMouseEvent* event);
+    friend void QDateTimeEdit_QBaseMouseReleaseEvent(QDateTimeEdit* self, QMouseEvent* event);
+    friend void QDateTimeEdit_MouseMoveEvent(QDateTimeEdit* self, QMouseEvent* event);
+    friend void QDateTimeEdit_QBaseMouseMoveEvent(QDateTimeEdit* self, QMouseEvent* event);
+    friend void QDateTimeEdit_TimerEvent(QDateTimeEdit* self, QTimerEvent* event);
+    friend void QDateTimeEdit_QBaseTimerEvent(QDateTimeEdit* self, QTimerEvent* event);
+    friend void QDateTimeEdit_ShowEvent(QDateTimeEdit* self, QShowEvent* event);
+    friend void QDateTimeEdit_QBaseShowEvent(QDateTimeEdit* self, QShowEvent* event);
+    friend void QDateTimeEdit_MouseDoubleClickEvent(QDateTimeEdit* self, QMouseEvent* event);
+    friend void QDateTimeEdit_QBaseMouseDoubleClickEvent(QDateTimeEdit* self, QMouseEvent* event);
+    friend void QDateTimeEdit_EnterEvent(QDateTimeEdit* self, QEnterEvent* event);
+    friend void QDateTimeEdit_QBaseEnterEvent(QDateTimeEdit* self, QEnterEvent* event);
+    friend void QDateTimeEdit_LeaveEvent(QDateTimeEdit* self, QEvent* event);
+    friend void QDateTimeEdit_QBaseLeaveEvent(QDateTimeEdit* self, QEvent* event);
+    friend void QDateTimeEdit_MoveEvent(QDateTimeEdit* self, QMoveEvent* event);
+    friend void QDateTimeEdit_QBaseMoveEvent(QDateTimeEdit* self, QMoveEvent* event);
+    friend void QDateTimeEdit_TabletEvent(QDateTimeEdit* self, QTabletEvent* event);
+    friend void QDateTimeEdit_QBaseTabletEvent(QDateTimeEdit* self, QTabletEvent* event);
+    friend void QDateTimeEdit_ActionEvent(QDateTimeEdit* self, QActionEvent* event);
+    friend void QDateTimeEdit_QBaseActionEvent(QDateTimeEdit* self, QActionEvent* event);
+    friend void QDateTimeEdit_DragEnterEvent(QDateTimeEdit* self, QDragEnterEvent* event);
+    friend void QDateTimeEdit_QBaseDragEnterEvent(QDateTimeEdit* self, QDragEnterEvent* event);
+    friend void QDateTimeEdit_DragMoveEvent(QDateTimeEdit* self, QDragMoveEvent* event);
+    friend void QDateTimeEdit_QBaseDragMoveEvent(QDateTimeEdit* self, QDragMoveEvent* event);
+    friend void QDateTimeEdit_DragLeaveEvent(QDateTimeEdit* self, QDragLeaveEvent* event);
+    friend void QDateTimeEdit_QBaseDragLeaveEvent(QDateTimeEdit* self, QDragLeaveEvent* event);
+    friend void QDateTimeEdit_DropEvent(QDateTimeEdit* self, QDropEvent* event);
+    friend void QDateTimeEdit_QBaseDropEvent(QDateTimeEdit* self, QDropEvent* event);
+    friend bool QDateTimeEdit_NativeEvent(QDateTimeEdit* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QDateTimeEdit_QBaseNativeEvent(QDateTimeEdit* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QDateTimeEdit_Metric(const QDateTimeEdit* self, int param1);
+    friend int QDateTimeEdit_QBaseMetric(const QDateTimeEdit* self, int param1);
+    friend void QDateTimeEdit_InitPainter(const QDateTimeEdit* self, QPainter* painter);
+    friend void QDateTimeEdit_QBaseInitPainter(const QDateTimeEdit* self, QPainter* painter);
+    friend QPaintDevice* QDateTimeEdit_Redirected(const QDateTimeEdit* self, QPoint* offset);
+    friend QPaintDevice* QDateTimeEdit_QBaseRedirected(const QDateTimeEdit* self, QPoint* offset);
+    friend QPainter* QDateTimeEdit_SharedPainter(const QDateTimeEdit* self);
+    friend QPainter* QDateTimeEdit_QBaseSharedPainter(const QDateTimeEdit* self);
+    friend void QDateTimeEdit_InputMethodEvent(QDateTimeEdit* self, QInputMethodEvent* param1);
+    friend void QDateTimeEdit_QBaseInputMethodEvent(QDateTimeEdit* self, QInputMethodEvent* param1);
+    friend void QDateTimeEdit_ChildEvent(QDateTimeEdit* self, QChildEvent* event);
+    friend void QDateTimeEdit_QBaseChildEvent(QDateTimeEdit* self, QChildEvent* event);
+    friend void QDateTimeEdit_CustomEvent(QDateTimeEdit* self, QEvent* event);
+    friend void QDateTimeEdit_QBaseCustomEvent(QDateTimeEdit* self, QEvent* event);
+    friend void QDateTimeEdit_ConnectNotify(QDateTimeEdit* self, const QMetaMethod* signal);
+    friend void QDateTimeEdit_QBaseConnectNotify(QDateTimeEdit* self, const QMetaMethod* signal);
+    friend void QDateTimeEdit_DisconnectNotify(QDateTimeEdit* self, const QMetaMethod* signal);
+    friend void QDateTimeEdit_QBaseDisconnectNotify(QDateTimeEdit* self, const QMetaMethod* signal);
+    friend QLineEdit* QDateTimeEdit_LineEdit(const QDateTimeEdit* self);
+    friend QLineEdit* QDateTimeEdit_QBaseLineEdit(const QDateTimeEdit* self);
+    friend void QDateTimeEdit_SetLineEdit(QDateTimeEdit* self, QLineEdit* edit);
+    friend void QDateTimeEdit_QBaseSetLineEdit(QDateTimeEdit* self, QLineEdit* edit);
+    friend void QDateTimeEdit_UpdateMicroFocus(QDateTimeEdit* self);
+    friend void QDateTimeEdit_QBaseUpdateMicroFocus(QDateTimeEdit* self);
+    friend void QDateTimeEdit_Create(QDateTimeEdit* self);
+    friend void QDateTimeEdit_QBaseCreate(QDateTimeEdit* self);
+    friend void QDateTimeEdit_Destroy(QDateTimeEdit* self);
+    friend void QDateTimeEdit_QBaseDestroy(QDateTimeEdit* self);
+    friend bool QDateTimeEdit_FocusNextChild(QDateTimeEdit* self);
+    friend bool QDateTimeEdit_QBaseFocusNextChild(QDateTimeEdit* self);
+    friend bool QDateTimeEdit_FocusPreviousChild(QDateTimeEdit* self);
+    friend bool QDateTimeEdit_QBaseFocusPreviousChild(QDateTimeEdit* self);
+    friend QObject* QDateTimeEdit_Sender(const QDateTimeEdit* self);
+    friend QObject* QDateTimeEdit_QBaseSender(const QDateTimeEdit* self);
+    friend int QDateTimeEdit_SenderSignalIndex(const QDateTimeEdit* self);
+    friend int QDateTimeEdit_QBaseSenderSignalIndex(const QDateTimeEdit* self);
+    friend int QDateTimeEdit_Receivers(const QDateTimeEdit* self, const char* signal);
+    friend int QDateTimeEdit_QBaseReceivers(const QDateTimeEdit* self, const char* signal);
+    friend bool QDateTimeEdit_IsSignalConnected(const QDateTimeEdit* self, const QMetaMethod* signal);
+    friend bool QDateTimeEdit_QBaseIsSignalConnected(const QDateTimeEdit* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QTimeEdit so that we can call protected methods
-class VirtualQTimeEdit : public QTimeEdit {
+class VirtualQTimeEdit final : public QTimeEdit {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQTimeEdit = true;
+
     // Virtual class public types (including callbacks)
-    using QTimeEdit_Metacall_Callback = int (*)(QTimeEdit*, QMetaObject::Call, int, void**);
-    using QTimeEdit_SizeHint_Callback = QSize (*)();
+    using QTimeEdit_Metacall_Callback = int (*)(QTimeEdit*, int, int, void**);
+    using QTimeEdit_SizeHint_Callback = QSize* (*)();
     using QTimeEdit_Clear_Callback = void (*)();
     using QTimeEdit_StepBy_Callback = void (*)(QTimeEdit*, int);
     using QTimeEdit_Event_Callback = bool (*)(QTimeEdit*, QEvent*);
@@ -1259,16 +1549,16 @@ class VirtualQTimeEdit : public QTimeEdit {
     using QTimeEdit_WheelEvent_Callback = void (*)(QTimeEdit*, QWheelEvent*);
     using QTimeEdit_FocusInEvent_Callback = void (*)(QTimeEdit*, QFocusEvent*);
     using QTimeEdit_FocusNextPrevChild_Callback = bool (*)(QTimeEdit*, bool);
-    using QTimeEdit_Validate_Callback = QValidator::State (*)(const QTimeEdit*, QString&, int&);
-    using QTimeEdit_Fixup_Callback = void (*)(const QTimeEdit*, QString&);
-    using QTimeEdit_DateTimeFromText_Callback = QDateTime (*)(const QTimeEdit*, const QString&);
-    using QTimeEdit_TextFromDateTime_Callback = QString (*)(const QTimeEdit*, const QDateTime&);
-    using QTimeEdit_StepEnabled_Callback = QAbstractSpinBox::StepEnabled (*)();
+    using QTimeEdit_Validate_Callback = int (*)(const QTimeEdit*, libqt_string, int*);
+    using QTimeEdit_Fixup_Callback = void (*)(const QTimeEdit*, libqt_string);
+    using QTimeEdit_DateTimeFromText_Callback = QDateTime* (*)(const QTimeEdit*, libqt_string);
+    using QTimeEdit_TextFromDateTime_Callback = libqt_string (*)(const QTimeEdit*, QDateTime*);
+    using QTimeEdit_StepEnabled_Callback = int (*)();
     using QTimeEdit_MousePressEvent_Callback = void (*)(QTimeEdit*, QMouseEvent*);
     using QTimeEdit_PaintEvent_Callback = void (*)(QTimeEdit*, QPaintEvent*);
     using QTimeEdit_InitStyleOption_Callback = void (*)(const QTimeEdit*, QStyleOptionSpinBox*);
-    using QTimeEdit_MinimumSizeHint_Callback = QSize (*)();
-    using QTimeEdit_InputMethodQuery_Callback = QVariant (*)(const QTimeEdit*, Qt::InputMethodQuery);
+    using QTimeEdit_MinimumSizeHint_Callback = QSize* (*)();
+    using QTimeEdit_InputMethodQuery_Callback = QVariant* (*)(const QTimeEdit*, int);
     using QTimeEdit_ResizeEvent_Callback = void (*)(QTimeEdit*, QResizeEvent*);
     using QTimeEdit_KeyReleaseEvent_Callback = void (*)(QTimeEdit*, QKeyEvent*);
     using QTimeEdit_FocusOutEvent_Callback = void (*)(QTimeEdit*, QFocusEvent*);
@@ -1295,8 +1585,8 @@ class VirtualQTimeEdit : public QTimeEdit {
     using QTimeEdit_DragMoveEvent_Callback = void (*)(QTimeEdit*, QDragMoveEvent*);
     using QTimeEdit_DragLeaveEvent_Callback = void (*)(QTimeEdit*, QDragLeaveEvent*);
     using QTimeEdit_DropEvent_Callback = void (*)(QTimeEdit*, QDropEvent*);
-    using QTimeEdit_NativeEvent_Callback = bool (*)(QTimeEdit*, const QByteArray&, void*, qintptr*);
-    using QTimeEdit_Metric_Callback = int (*)(const QTimeEdit*, QPaintDevice::PaintDeviceMetric);
+    using QTimeEdit_NativeEvent_Callback = bool (*)(QTimeEdit*, libqt_string, void*, intptr_t*);
+    using QTimeEdit_Metric_Callback = int (*)(const QTimeEdit*, int);
     using QTimeEdit_InitPainter_Callback = void (*)(const QTimeEdit*, QPainter*);
     using QTimeEdit_Redirected_Callback = QPaintDevice* (*)(const QTimeEdit*, QPoint*);
     using QTimeEdit_SharedPainter_Callback = QPainter* (*)();
@@ -1304,8 +1594,8 @@ class VirtualQTimeEdit : public QTimeEdit {
     using QTimeEdit_EventFilter_Callback = bool (*)(QTimeEdit*, QObject*, QEvent*);
     using QTimeEdit_ChildEvent_Callback = void (*)(QTimeEdit*, QChildEvent*);
     using QTimeEdit_CustomEvent_Callback = void (*)(QTimeEdit*, QEvent*);
-    using QTimeEdit_ConnectNotify_Callback = void (*)(QTimeEdit*, const QMetaMethod&);
-    using QTimeEdit_DisconnectNotify_Callback = void (*)(QTimeEdit*, const QMetaMethod&);
+    using QTimeEdit_ConnectNotify_Callback = void (*)(QTimeEdit*, QMetaMethod*);
+    using QTimeEdit_DisconnectNotify_Callback = void (*)(QTimeEdit*, QMetaMethod*);
     using QTimeEdit_LineEdit_Callback = QLineEdit* (*)();
     using QTimeEdit_SetLineEdit_Callback = void (*)(QTimeEdit*, QLineEdit*);
     using QTimeEdit_UpdateMicroFocus_Callback = void (*)();
@@ -1316,7 +1606,7 @@ class VirtualQTimeEdit : public QTimeEdit {
     using QTimeEdit_Sender_Callback = QObject* (*)();
     using QTimeEdit_SenderSignalIndex_Callback = int (*)();
     using QTimeEdit_Receivers_Callback = int (*)(const QTimeEdit*, const char*);
-    using QTimeEdit_IsSignalConnected_Callback = bool (*)(const QTimeEdit*, const QMetaMethod&);
+    using QTimeEdit_IsSignalConnected_Callback = bool (*)(const QTimeEdit*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -1534,142 +1824,142 @@ class VirtualQTimeEdit : public QTimeEdit {
     }
 
     // Callback setters
-    void setQTimeEdit_Metacall_Callback(QTimeEdit_Metacall_Callback cb) { qtimeedit_metacall_callback = cb; }
-    void setQTimeEdit_SizeHint_Callback(QTimeEdit_SizeHint_Callback cb) { qtimeedit_sizehint_callback = cb; }
-    void setQTimeEdit_Clear_Callback(QTimeEdit_Clear_Callback cb) { qtimeedit_clear_callback = cb; }
-    void setQTimeEdit_StepBy_Callback(QTimeEdit_StepBy_Callback cb) { qtimeedit_stepby_callback = cb; }
-    void setQTimeEdit_Event_Callback(QTimeEdit_Event_Callback cb) { qtimeedit_event_callback = cb; }
-    void setQTimeEdit_KeyPressEvent_Callback(QTimeEdit_KeyPressEvent_Callback cb) { qtimeedit_keypressevent_callback = cb; }
-    void setQTimeEdit_WheelEvent_Callback(QTimeEdit_WheelEvent_Callback cb) { qtimeedit_wheelevent_callback = cb; }
-    void setQTimeEdit_FocusInEvent_Callback(QTimeEdit_FocusInEvent_Callback cb) { qtimeedit_focusinevent_callback = cb; }
-    void setQTimeEdit_FocusNextPrevChild_Callback(QTimeEdit_FocusNextPrevChild_Callback cb) { qtimeedit_focusnextprevchild_callback = cb; }
-    void setQTimeEdit_Validate_Callback(QTimeEdit_Validate_Callback cb) { qtimeedit_validate_callback = cb; }
-    void setQTimeEdit_Fixup_Callback(QTimeEdit_Fixup_Callback cb) { qtimeedit_fixup_callback = cb; }
-    void setQTimeEdit_DateTimeFromText_Callback(QTimeEdit_DateTimeFromText_Callback cb) { qtimeedit_datetimefromtext_callback = cb; }
-    void setQTimeEdit_TextFromDateTime_Callback(QTimeEdit_TextFromDateTime_Callback cb) { qtimeedit_textfromdatetime_callback = cb; }
-    void setQTimeEdit_StepEnabled_Callback(QTimeEdit_StepEnabled_Callback cb) { qtimeedit_stepenabled_callback = cb; }
-    void setQTimeEdit_MousePressEvent_Callback(QTimeEdit_MousePressEvent_Callback cb) { qtimeedit_mousepressevent_callback = cb; }
-    void setQTimeEdit_PaintEvent_Callback(QTimeEdit_PaintEvent_Callback cb) { qtimeedit_paintevent_callback = cb; }
-    void setQTimeEdit_InitStyleOption_Callback(QTimeEdit_InitStyleOption_Callback cb) { qtimeedit_initstyleoption_callback = cb; }
-    void setQTimeEdit_MinimumSizeHint_Callback(QTimeEdit_MinimumSizeHint_Callback cb) { qtimeedit_minimumsizehint_callback = cb; }
-    void setQTimeEdit_InputMethodQuery_Callback(QTimeEdit_InputMethodQuery_Callback cb) { qtimeedit_inputmethodquery_callback = cb; }
-    void setQTimeEdit_ResizeEvent_Callback(QTimeEdit_ResizeEvent_Callback cb) { qtimeedit_resizeevent_callback = cb; }
-    void setQTimeEdit_KeyReleaseEvent_Callback(QTimeEdit_KeyReleaseEvent_Callback cb) { qtimeedit_keyreleaseevent_callback = cb; }
-    void setQTimeEdit_FocusOutEvent_Callback(QTimeEdit_FocusOutEvent_Callback cb) { qtimeedit_focusoutevent_callback = cb; }
-    void setQTimeEdit_ContextMenuEvent_Callback(QTimeEdit_ContextMenuEvent_Callback cb) { qtimeedit_contextmenuevent_callback = cb; }
-    void setQTimeEdit_ChangeEvent_Callback(QTimeEdit_ChangeEvent_Callback cb) { qtimeedit_changeevent_callback = cb; }
-    void setQTimeEdit_CloseEvent_Callback(QTimeEdit_CloseEvent_Callback cb) { qtimeedit_closeevent_callback = cb; }
-    void setQTimeEdit_HideEvent_Callback(QTimeEdit_HideEvent_Callback cb) { qtimeedit_hideevent_callback = cb; }
-    void setQTimeEdit_MouseReleaseEvent_Callback(QTimeEdit_MouseReleaseEvent_Callback cb) { qtimeedit_mousereleaseevent_callback = cb; }
-    void setQTimeEdit_MouseMoveEvent_Callback(QTimeEdit_MouseMoveEvent_Callback cb) { qtimeedit_mousemoveevent_callback = cb; }
-    void setQTimeEdit_TimerEvent_Callback(QTimeEdit_TimerEvent_Callback cb) { qtimeedit_timerevent_callback = cb; }
-    void setQTimeEdit_ShowEvent_Callback(QTimeEdit_ShowEvent_Callback cb) { qtimeedit_showevent_callback = cb; }
-    void setQTimeEdit_DevType_Callback(QTimeEdit_DevType_Callback cb) { qtimeedit_devtype_callback = cb; }
-    void setQTimeEdit_SetVisible_Callback(QTimeEdit_SetVisible_Callback cb) { qtimeedit_setvisible_callback = cb; }
-    void setQTimeEdit_HeightForWidth_Callback(QTimeEdit_HeightForWidth_Callback cb) { qtimeedit_heightforwidth_callback = cb; }
-    void setQTimeEdit_HasHeightForWidth_Callback(QTimeEdit_HasHeightForWidth_Callback cb) { qtimeedit_hasheightforwidth_callback = cb; }
-    void setQTimeEdit_PaintEngine_Callback(QTimeEdit_PaintEngine_Callback cb) { qtimeedit_paintengine_callback = cb; }
-    void setQTimeEdit_MouseDoubleClickEvent_Callback(QTimeEdit_MouseDoubleClickEvent_Callback cb) { qtimeedit_mousedoubleclickevent_callback = cb; }
-    void setQTimeEdit_EnterEvent_Callback(QTimeEdit_EnterEvent_Callback cb) { qtimeedit_enterevent_callback = cb; }
-    void setQTimeEdit_LeaveEvent_Callback(QTimeEdit_LeaveEvent_Callback cb) { qtimeedit_leaveevent_callback = cb; }
-    void setQTimeEdit_MoveEvent_Callback(QTimeEdit_MoveEvent_Callback cb) { qtimeedit_moveevent_callback = cb; }
-    void setQTimeEdit_TabletEvent_Callback(QTimeEdit_TabletEvent_Callback cb) { qtimeedit_tabletevent_callback = cb; }
-    void setQTimeEdit_ActionEvent_Callback(QTimeEdit_ActionEvent_Callback cb) { qtimeedit_actionevent_callback = cb; }
-    void setQTimeEdit_DragEnterEvent_Callback(QTimeEdit_DragEnterEvent_Callback cb) { qtimeedit_dragenterevent_callback = cb; }
-    void setQTimeEdit_DragMoveEvent_Callback(QTimeEdit_DragMoveEvent_Callback cb) { qtimeedit_dragmoveevent_callback = cb; }
-    void setQTimeEdit_DragLeaveEvent_Callback(QTimeEdit_DragLeaveEvent_Callback cb) { qtimeedit_dragleaveevent_callback = cb; }
-    void setQTimeEdit_DropEvent_Callback(QTimeEdit_DropEvent_Callback cb) { qtimeedit_dropevent_callback = cb; }
-    void setQTimeEdit_NativeEvent_Callback(QTimeEdit_NativeEvent_Callback cb) { qtimeedit_nativeevent_callback = cb; }
-    void setQTimeEdit_Metric_Callback(QTimeEdit_Metric_Callback cb) { qtimeedit_metric_callback = cb; }
-    void setQTimeEdit_InitPainter_Callback(QTimeEdit_InitPainter_Callback cb) { qtimeedit_initpainter_callback = cb; }
-    void setQTimeEdit_Redirected_Callback(QTimeEdit_Redirected_Callback cb) { qtimeedit_redirected_callback = cb; }
-    void setQTimeEdit_SharedPainter_Callback(QTimeEdit_SharedPainter_Callback cb) { qtimeedit_sharedpainter_callback = cb; }
-    void setQTimeEdit_InputMethodEvent_Callback(QTimeEdit_InputMethodEvent_Callback cb) { qtimeedit_inputmethodevent_callback = cb; }
-    void setQTimeEdit_EventFilter_Callback(QTimeEdit_EventFilter_Callback cb) { qtimeedit_eventfilter_callback = cb; }
-    void setQTimeEdit_ChildEvent_Callback(QTimeEdit_ChildEvent_Callback cb) { qtimeedit_childevent_callback = cb; }
-    void setQTimeEdit_CustomEvent_Callback(QTimeEdit_CustomEvent_Callback cb) { qtimeedit_customevent_callback = cb; }
-    void setQTimeEdit_ConnectNotify_Callback(QTimeEdit_ConnectNotify_Callback cb) { qtimeedit_connectnotify_callback = cb; }
-    void setQTimeEdit_DisconnectNotify_Callback(QTimeEdit_DisconnectNotify_Callback cb) { qtimeedit_disconnectnotify_callback = cb; }
-    void setQTimeEdit_LineEdit_Callback(QTimeEdit_LineEdit_Callback cb) { qtimeedit_lineedit_callback = cb; }
-    void setQTimeEdit_SetLineEdit_Callback(QTimeEdit_SetLineEdit_Callback cb) { qtimeedit_setlineedit_callback = cb; }
-    void setQTimeEdit_UpdateMicroFocus_Callback(QTimeEdit_UpdateMicroFocus_Callback cb) { qtimeedit_updatemicrofocus_callback = cb; }
-    void setQTimeEdit_Create_Callback(QTimeEdit_Create_Callback cb) { qtimeedit_create_callback = cb; }
-    void setQTimeEdit_Destroy_Callback(QTimeEdit_Destroy_Callback cb) { qtimeedit_destroy_callback = cb; }
-    void setQTimeEdit_FocusNextChild_Callback(QTimeEdit_FocusNextChild_Callback cb) { qtimeedit_focusnextchild_callback = cb; }
-    void setQTimeEdit_FocusPreviousChild_Callback(QTimeEdit_FocusPreviousChild_Callback cb) { qtimeedit_focuspreviouschild_callback = cb; }
-    void setQTimeEdit_Sender_Callback(QTimeEdit_Sender_Callback cb) { qtimeedit_sender_callback = cb; }
-    void setQTimeEdit_SenderSignalIndex_Callback(QTimeEdit_SenderSignalIndex_Callback cb) { qtimeedit_sendersignalindex_callback = cb; }
-    void setQTimeEdit_Receivers_Callback(QTimeEdit_Receivers_Callback cb) { qtimeedit_receivers_callback = cb; }
-    void setQTimeEdit_IsSignalConnected_Callback(QTimeEdit_IsSignalConnected_Callback cb) { qtimeedit_issignalconnected_callback = cb; }
+    inline void setQTimeEdit_Metacall_Callback(QTimeEdit_Metacall_Callback cb) { qtimeedit_metacall_callback = cb; }
+    inline void setQTimeEdit_SizeHint_Callback(QTimeEdit_SizeHint_Callback cb) { qtimeedit_sizehint_callback = cb; }
+    inline void setQTimeEdit_Clear_Callback(QTimeEdit_Clear_Callback cb) { qtimeedit_clear_callback = cb; }
+    inline void setQTimeEdit_StepBy_Callback(QTimeEdit_StepBy_Callback cb) { qtimeedit_stepby_callback = cb; }
+    inline void setQTimeEdit_Event_Callback(QTimeEdit_Event_Callback cb) { qtimeedit_event_callback = cb; }
+    inline void setQTimeEdit_KeyPressEvent_Callback(QTimeEdit_KeyPressEvent_Callback cb) { qtimeedit_keypressevent_callback = cb; }
+    inline void setQTimeEdit_WheelEvent_Callback(QTimeEdit_WheelEvent_Callback cb) { qtimeedit_wheelevent_callback = cb; }
+    inline void setQTimeEdit_FocusInEvent_Callback(QTimeEdit_FocusInEvent_Callback cb) { qtimeedit_focusinevent_callback = cb; }
+    inline void setQTimeEdit_FocusNextPrevChild_Callback(QTimeEdit_FocusNextPrevChild_Callback cb) { qtimeedit_focusnextprevchild_callback = cb; }
+    inline void setQTimeEdit_Validate_Callback(QTimeEdit_Validate_Callback cb) { qtimeedit_validate_callback = cb; }
+    inline void setQTimeEdit_Fixup_Callback(QTimeEdit_Fixup_Callback cb) { qtimeedit_fixup_callback = cb; }
+    inline void setQTimeEdit_DateTimeFromText_Callback(QTimeEdit_DateTimeFromText_Callback cb) { qtimeedit_datetimefromtext_callback = cb; }
+    inline void setQTimeEdit_TextFromDateTime_Callback(QTimeEdit_TextFromDateTime_Callback cb) { qtimeedit_textfromdatetime_callback = cb; }
+    inline void setQTimeEdit_StepEnabled_Callback(QTimeEdit_StepEnabled_Callback cb) { qtimeedit_stepenabled_callback = cb; }
+    inline void setQTimeEdit_MousePressEvent_Callback(QTimeEdit_MousePressEvent_Callback cb) { qtimeedit_mousepressevent_callback = cb; }
+    inline void setQTimeEdit_PaintEvent_Callback(QTimeEdit_PaintEvent_Callback cb) { qtimeedit_paintevent_callback = cb; }
+    inline void setQTimeEdit_InitStyleOption_Callback(QTimeEdit_InitStyleOption_Callback cb) { qtimeedit_initstyleoption_callback = cb; }
+    inline void setQTimeEdit_MinimumSizeHint_Callback(QTimeEdit_MinimumSizeHint_Callback cb) { qtimeedit_minimumsizehint_callback = cb; }
+    inline void setQTimeEdit_InputMethodQuery_Callback(QTimeEdit_InputMethodQuery_Callback cb) { qtimeedit_inputmethodquery_callback = cb; }
+    inline void setQTimeEdit_ResizeEvent_Callback(QTimeEdit_ResizeEvent_Callback cb) { qtimeedit_resizeevent_callback = cb; }
+    inline void setQTimeEdit_KeyReleaseEvent_Callback(QTimeEdit_KeyReleaseEvent_Callback cb) { qtimeedit_keyreleaseevent_callback = cb; }
+    inline void setQTimeEdit_FocusOutEvent_Callback(QTimeEdit_FocusOutEvent_Callback cb) { qtimeedit_focusoutevent_callback = cb; }
+    inline void setQTimeEdit_ContextMenuEvent_Callback(QTimeEdit_ContextMenuEvent_Callback cb) { qtimeedit_contextmenuevent_callback = cb; }
+    inline void setQTimeEdit_ChangeEvent_Callback(QTimeEdit_ChangeEvent_Callback cb) { qtimeedit_changeevent_callback = cb; }
+    inline void setQTimeEdit_CloseEvent_Callback(QTimeEdit_CloseEvent_Callback cb) { qtimeedit_closeevent_callback = cb; }
+    inline void setQTimeEdit_HideEvent_Callback(QTimeEdit_HideEvent_Callback cb) { qtimeedit_hideevent_callback = cb; }
+    inline void setQTimeEdit_MouseReleaseEvent_Callback(QTimeEdit_MouseReleaseEvent_Callback cb) { qtimeedit_mousereleaseevent_callback = cb; }
+    inline void setQTimeEdit_MouseMoveEvent_Callback(QTimeEdit_MouseMoveEvent_Callback cb) { qtimeedit_mousemoveevent_callback = cb; }
+    inline void setQTimeEdit_TimerEvent_Callback(QTimeEdit_TimerEvent_Callback cb) { qtimeedit_timerevent_callback = cb; }
+    inline void setQTimeEdit_ShowEvent_Callback(QTimeEdit_ShowEvent_Callback cb) { qtimeedit_showevent_callback = cb; }
+    inline void setQTimeEdit_DevType_Callback(QTimeEdit_DevType_Callback cb) { qtimeedit_devtype_callback = cb; }
+    inline void setQTimeEdit_SetVisible_Callback(QTimeEdit_SetVisible_Callback cb) { qtimeedit_setvisible_callback = cb; }
+    inline void setQTimeEdit_HeightForWidth_Callback(QTimeEdit_HeightForWidth_Callback cb) { qtimeedit_heightforwidth_callback = cb; }
+    inline void setQTimeEdit_HasHeightForWidth_Callback(QTimeEdit_HasHeightForWidth_Callback cb) { qtimeedit_hasheightforwidth_callback = cb; }
+    inline void setQTimeEdit_PaintEngine_Callback(QTimeEdit_PaintEngine_Callback cb) { qtimeedit_paintengine_callback = cb; }
+    inline void setQTimeEdit_MouseDoubleClickEvent_Callback(QTimeEdit_MouseDoubleClickEvent_Callback cb) { qtimeedit_mousedoubleclickevent_callback = cb; }
+    inline void setQTimeEdit_EnterEvent_Callback(QTimeEdit_EnterEvent_Callback cb) { qtimeedit_enterevent_callback = cb; }
+    inline void setQTimeEdit_LeaveEvent_Callback(QTimeEdit_LeaveEvent_Callback cb) { qtimeedit_leaveevent_callback = cb; }
+    inline void setQTimeEdit_MoveEvent_Callback(QTimeEdit_MoveEvent_Callback cb) { qtimeedit_moveevent_callback = cb; }
+    inline void setQTimeEdit_TabletEvent_Callback(QTimeEdit_TabletEvent_Callback cb) { qtimeedit_tabletevent_callback = cb; }
+    inline void setQTimeEdit_ActionEvent_Callback(QTimeEdit_ActionEvent_Callback cb) { qtimeedit_actionevent_callback = cb; }
+    inline void setQTimeEdit_DragEnterEvent_Callback(QTimeEdit_DragEnterEvent_Callback cb) { qtimeedit_dragenterevent_callback = cb; }
+    inline void setQTimeEdit_DragMoveEvent_Callback(QTimeEdit_DragMoveEvent_Callback cb) { qtimeedit_dragmoveevent_callback = cb; }
+    inline void setQTimeEdit_DragLeaveEvent_Callback(QTimeEdit_DragLeaveEvent_Callback cb) { qtimeedit_dragleaveevent_callback = cb; }
+    inline void setQTimeEdit_DropEvent_Callback(QTimeEdit_DropEvent_Callback cb) { qtimeedit_dropevent_callback = cb; }
+    inline void setQTimeEdit_NativeEvent_Callback(QTimeEdit_NativeEvent_Callback cb) { qtimeedit_nativeevent_callback = cb; }
+    inline void setQTimeEdit_Metric_Callback(QTimeEdit_Metric_Callback cb) { qtimeedit_metric_callback = cb; }
+    inline void setQTimeEdit_InitPainter_Callback(QTimeEdit_InitPainter_Callback cb) { qtimeedit_initpainter_callback = cb; }
+    inline void setQTimeEdit_Redirected_Callback(QTimeEdit_Redirected_Callback cb) { qtimeedit_redirected_callback = cb; }
+    inline void setQTimeEdit_SharedPainter_Callback(QTimeEdit_SharedPainter_Callback cb) { qtimeedit_sharedpainter_callback = cb; }
+    inline void setQTimeEdit_InputMethodEvent_Callback(QTimeEdit_InputMethodEvent_Callback cb) { qtimeedit_inputmethodevent_callback = cb; }
+    inline void setQTimeEdit_EventFilter_Callback(QTimeEdit_EventFilter_Callback cb) { qtimeedit_eventfilter_callback = cb; }
+    inline void setQTimeEdit_ChildEvent_Callback(QTimeEdit_ChildEvent_Callback cb) { qtimeedit_childevent_callback = cb; }
+    inline void setQTimeEdit_CustomEvent_Callback(QTimeEdit_CustomEvent_Callback cb) { qtimeedit_customevent_callback = cb; }
+    inline void setQTimeEdit_ConnectNotify_Callback(QTimeEdit_ConnectNotify_Callback cb) { qtimeedit_connectnotify_callback = cb; }
+    inline void setQTimeEdit_DisconnectNotify_Callback(QTimeEdit_DisconnectNotify_Callback cb) { qtimeedit_disconnectnotify_callback = cb; }
+    inline void setQTimeEdit_LineEdit_Callback(QTimeEdit_LineEdit_Callback cb) { qtimeedit_lineedit_callback = cb; }
+    inline void setQTimeEdit_SetLineEdit_Callback(QTimeEdit_SetLineEdit_Callback cb) { qtimeedit_setlineedit_callback = cb; }
+    inline void setQTimeEdit_UpdateMicroFocus_Callback(QTimeEdit_UpdateMicroFocus_Callback cb) { qtimeedit_updatemicrofocus_callback = cb; }
+    inline void setQTimeEdit_Create_Callback(QTimeEdit_Create_Callback cb) { qtimeedit_create_callback = cb; }
+    inline void setQTimeEdit_Destroy_Callback(QTimeEdit_Destroy_Callback cb) { qtimeedit_destroy_callback = cb; }
+    inline void setQTimeEdit_FocusNextChild_Callback(QTimeEdit_FocusNextChild_Callback cb) { qtimeedit_focusnextchild_callback = cb; }
+    inline void setQTimeEdit_FocusPreviousChild_Callback(QTimeEdit_FocusPreviousChild_Callback cb) { qtimeedit_focuspreviouschild_callback = cb; }
+    inline void setQTimeEdit_Sender_Callback(QTimeEdit_Sender_Callback cb) { qtimeedit_sender_callback = cb; }
+    inline void setQTimeEdit_SenderSignalIndex_Callback(QTimeEdit_SenderSignalIndex_Callback cb) { qtimeedit_sendersignalindex_callback = cb; }
+    inline void setQTimeEdit_Receivers_Callback(QTimeEdit_Receivers_Callback cb) { qtimeedit_receivers_callback = cb; }
+    inline void setQTimeEdit_IsSignalConnected_Callback(QTimeEdit_IsSignalConnected_Callback cb) { qtimeedit_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQTimeEdit_Metacall_IsBase(bool value) const { qtimeedit_metacall_isbase = value; }
-    void setQTimeEdit_SizeHint_IsBase(bool value) const { qtimeedit_sizehint_isbase = value; }
-    void setQTimeEdit_Clear_IsBase(bool value) const { qtimeedit_clear_isbase = value; }
-    void setQTimeEdit_StepBy_IsBase(bool value) const { qtimeedit_stepby_isbase = value; }
-    void setQTimeEdit_Event_IsBase(bool value) const { qtimeedit_event_isbase = value; }
-    void setQTimeEdit_KeyPressEvent_IsBase(bool value) const { qtimeedit_keypressevent_isbase = value; }
-    void setQTimeEdit_WheelEvent_IsBase(bool value) const { qtimeedit_wheelevent_isbase = value; }
-    void setQTimeEdit_FocusInEvent_IsBase(bool value) const { qtimeedit_focusinevent_isbase = value; }
-    void setQTimeEdit_FocusNextPrevChild_IsBase(bool value) const { qtimeedit_focusnextprevchild_isbase = value; }
-    void setQTimeEdit_Validate_IsBase(bool value) const { qtimeedit_validate_isbase = value; }
-    void setQTimeEdit_Fixup_IsBase(bool value) const { qtimeedit_fixup_isbase = value; }
-    void setQTimeEdit_DateTimeFromText_IsBase(bool value) const { qtimeedit_datetimefromtext_isbase = value; }
-    void setQTimeEdit_TextFromDateTime_IsBase(bool value) const { qtimeedit_textfromdatetime_isbase = value; }
-    void setQTimeEdit_StepEnabled_IsBase(bool value) const { qtimeedit_stepenabled_isbase = value; }
-    void setQTimeEdit_MousePressEvent_IsBase(bool value) const { qtimeedit_mousepressevent_isbase = value; }
-    void setQTimeEdit_PaintEvent_IsBase(bool value) const { qtimeedit_paintevent_isbase = value; }
-    void setQTimeEdit_InitStyleOption_IsBase(bool value) const { qtimeedit_initstyleoption_isbase = value; }
-    void setQTimeEdit_MinimumSizeHint_IsBase(bool value) const { qtimeedit_minimumsizehint_isbase = value; }
-    void setQTimeEdit_InputMethodQuery_IsBase(bool value) const { qtimeedit_inputmethodquery_isbase = value; }
-    void setQTimeEdit_ResizeEvent_IsBase(bool value) const { qtimeedit_resizeevent_isbase = value; }
-    void setQTimeEdit_KeyReleaseEvent_IsBase(bool value) const { qtimeedit_keyreleaseevent_isbase = value; }
-    void setQTimeEdit_FocusOutEvent_IsBase(bool value) const { qtimeedit_focusoutevent_isbase = value; }
-    void setQTimeEdit_ContextMenuEvent_IsBase(bool value) const { qtimeedit_contextmenuevent_isbase = value; }
-    void setQTimeEdit_ChangeEvent_IsBase(bool value) const { qtimeedit_changeevent_isbase = value; }
-    void setQTimeEdit_CloseEvent_IsBase(bool value) const { qtimeedit_closeevent_isbase = value; }
-    void setQTimeEdit_HideEvent_IsBase(bool value) const { qtimeedit_hideevent_isbase = value; }
-    void setQTimeEdit_MouseReleaseEvent_IsBase(bool value) const { qtimeedit_mousereleaseevent_isbase = value; }
-    void setQTimeEdit_MouseMoveEvent_IsBase(bool value) const { qtimeedit_mousemoveevent_isbase = value; }
-    void setQTimeEdit_TimerEvent_IsBase(bool value) const { qtimeedit_timerevent_isbase = value; }
-    void setQTimeEdit_ShowEvent_IsBase(bool value) const { qtimeedit_showevent_isbase = value; }
-    void setQTimeEdit_DevType_IsBase(bool value) const { qtimeedit_devtype_isbase = value; }
-    void setQTimeEdit_SetVisible_IsBase(bool value) const { qtimeedit_setvisible_isbase = value; }
-    void setQTimeEdit_HeightForWidth_IsBase(bool value) const { qtimeedit_heightforwidth_isbase = value; }
-    void setQTimeEdit_HasHeightForWidth_IsBase(bool value) const { qtimeedit_hasheightforwidth_isbase = value; }
-    void setQTimeEdit_PaintEngine_IsBase(bool value) const { qtimeedit_paintengine_isbase = value; }
-    void setQTimeEdit_MouseDoubleClickEvent_IsBase(bool value) const { qtimeedit_mousedoubleclickevent_isbase = value; }
-    void setQTimeEdit_EnterEvent_IsBase(bool value) const { qtimeedit_enterevent_isbase = value; }
-    void setQTimeEdit_LeaveEvent_IsBase(bool value) const { qtimeedit_leaveevent_isbase = value; }
-    void setQTimeEdit_MoveEvent_IsBase(bool value) const { qtimeedit_moveevent_isbase = value; }
-    void setQTimeEdit_TabletEvent_IsBase(bool value) const { qtimeedit_tabletevent_isbase = value; }
-    void setQTimeEdit_ActionEvent_IsBase(bool value) const { qtimeedit_actionevent_isbase = value; }
-    void setQTimeEdit_DragEnterEvent_IsBase(bool value) const { qtimeedit_dragenterevent_isbase = value; }
-    void setQTimeEdit_DragMoveEvent_IsBase(bool value) const { qtimeedit_dragmoveevent_isbase = value; }
-    void setQTimeEdit_DragLeaveEvent_IsBase(bool value) const { qtimeedit_dragleaveevent_isbase = value; }
-    void setQTimeEdit_DropEvent_IsBase(bool value) const { qtimeedit_dropevent_isbase = value; }
-    void setQTimeEdit_NativeEvent_IsBase(bool value) const { qtimeedit_nativeevent_isbase = value; }
-    void setQTimeEdit_Metric_IsBase(bool value) const { qtimeedit_metric_isbase = value; }
-    void setQTimeEdit_InitPainter_IsBase(bool value) const { qtimeedit_initpainter_isbase = value; }
-    void setQTimeEdit_Redirected_IsBase(bool value) const { qtimeedit_redirected_isbase = value; }
-    void setQTimeEdit_SharedPainter_IsBase(bool value) const { qtimeedit_sharedpainter_isbase = value; }
-    void setQTimeEdit_InputMethodEvent_IsBase(bool value) const { qtimeedit_inputmethodevent_isbase = value; }
-    void setQTimeEdit_EventFilter_IsBase(bool value) const { qtimeedit_eventfilter_isbase = value; }
-    void setQTimeEdit_ChildEvent_IsBase(bool value) const { qtimeedit_childevent_isbase = value; }
-    void setQTimeEdit_CustomEvent_IsBase(bool value) const { qtimeedit_customevent_isbase = value; }
-    void setQTimeEdit_ConnectNotify_IsBase(bool value) const { qtimeedit_connectnotify_isbase = value; }
-    void setQTimeEdit_DisconnectNotify_IsBase(bool value) const { qtimeedit_disconnectnotify_isbase = value; }
-    void setQTimeEdit_LineEdit_IsBase(bool value) const { qtimeedit_lineedit_isbase = value; }
-    void setQTimeEdit_SetLineEdit_IsBase(bool value) const { qtimeedit_setlineedit_isbase = value; }
-    void setQTimeEdit_UpdateMicroFocus_IsBase(bool value) const { qtimeedit_updatemicrofocus_isbase = value; }
-    void setQTimeEdit_Create_IsBase(bool value) const { qtimeedit_create_isbase = value; }
-    void setQTimeEdit_Destroy_IsBase(bool value) const { qtimeedit_destroy_isbase = value; }
-    void setQTimeEdit_FocusNextChild_IsBase(bool value) const { qtimeedit_focusnextchild_isbase = value; }
-    void setQTimeEdit_FocusPreviousChild_IsBase(bool value) const { qtimeedit_focuspreviouschild_isbase = value; }
-    void setQTimeEdit_Sender_IsBase(bool value) const { qtimeedit_sender_isbase = value; }
-    void setQTimeEdit_SenderSignalIndex_IsBase(bool value) const { qtimeedit_sendersignalindex_isbase = value; }
-    void setQTimeEdit_Receivers_IsBase(bool value) const { qtimeedit_receivers_isbase = value; }
-    void setQTimeEdit_IsSignalConnected_IsBase(bool value) const { qtimeedit_issignalconnected_isbase = value; }
+    inline void setQTimeEdit_Metacall_IsBase(bool value) const { qtimeedit_metacall_isbase = value; }
+    inline void setQTimeEdit_SizeHint_IsBase(bool value) const { qtimeedit_sizehint_isbase = value; }
+    inline void setQTimeEdit_Clear_IsBase(bool value) const { qtimeedit_clear_isbase = value; }
+    inline void setQTimeEdit_StepBy_IsBase(bool value) const { qtimeedit_stepby_isbase = value; }
+    inline void setQTimeEdit_Event_IsBase(bool value) const { qtimeedit_event_isbase = value; }
+    inline void setQTimeEdit_KeyPressEvent_IsBase(bool value) const { qtimeedit_keypressevent_isbase = value; }
+    inline void setQTimeEdit_WheelEvent_IsBase(bool value) const { qtimeedit_wheelevent_isbase = value; }
+    inline void setQTimeEdit_FocusInEvent_IsBase(bool value) const { qtimeedit_focusinevent_isbase = value; }
+    inline void setQTimeEdit_FocusNextPrevChild_IsBase(bool value) const { qtimeedit_focusnextprevchild_isbase = value; }
+    inline void setQTimeEdit_Validate_IsBase(bool value) const { qtimeedit_validate_isbase = value; }
+    inline void setQTimeEdit_Fixup_IsBase(bool value) const { qtimeedit_fixup_isbase = value; }
+    inline void setQTimeEdit_DateTimeFromText_IsBase(bool value) const { qtimeedit_datetimefromtext_isbase = value; }
+    inline void setQTimeEdit_TextFromDateTime_IsBase(bool value) const { qtimeedit_textfromdatetime_isbase = value; }
+    inline void setQTimeEdit_StepEnabled_IsBase(bool value) const { qtimeedit_stepenabled_isbase = value; }
+    inline void setQTimeEdit_MousePressEvent_IsBase(bool value) const { qtimeedit_mousepressevent_isbase = value; }
+    inline void setQTimeEdit_PaintEvent_IsBase(bool value) const { qtimeedit_paintevent_isbase = value; }
+    inline void setQTimeEdit_InitStyleOption_IsBase(bool value) const { qtimeedit_initstyleoption_isbase = value; }
+    inline void setQTimeEdit_MinimumSizeHint_IsBase(bool value) const { qtimeedit_minimumsizehint_isbase = value; }
+    inline void setQTimeEdit_InputMethodQuery_IsBase(bool value) const { qtimeedit_inputmethodquery_isbase = value; }
+    inline void setQTimeEdit_ResizeEvent_IsBase(bool value) const { qtimeedit_resizeevent_isbase = value; }
+    inline void setQTimeEdit_KeyReleaseEvent_IsBase(bool value) const { qtimeedit_keyreleaseevent_isbase = value; }
+    inline void setQTimeEdit_FocusOutEvent_IsBase(bool value) const { qtimeedit_focusoutevent_isbase = value; }
+    inline void setQTimeEdit_ContextMenuEvent_IsBase(bool value) const { qtimeedit_contextmenuevent_isbase = value; }
+    inline void setQTimeEdit_ChangeEvent_IsBase(bool value) const { qtimeedit_changeevent_isbase = value; }
+    inline void setQTimeEdit_CloseEvent_IsBase(bool value) const { qtimeedit_closeevent_isbase = value; }
+    inline void setQTimeEdit_HideEvent_IsBase(bool value) const { qtimeedit_hideevent_isbase = value; }
+    inline void setQTimeEdit_MouseReleaseEvent_IsBase(bool value) const { qtimeedit_mousereleaseevent_isbase = value; }
+    inline void setQTimeEdit_MouseMoveEvent_IsBase(bool value) const { qtimeedit_mousemoveevent_isbase = value; }
+    inline void setQTimeEdit_TimerEvent_IsBase(bool value) const { qtimeedit_timerevent_isbase = value; }
+    inline void setQTimeEdit_ShowEvent_IsBase(bool value) const { qtimeedit_showevent_isbase = value; }
+    inline void setQTimeEdit_DevType_IsBase(bool value) const { qtimeedit_devtype_isbase = value; }
+    inline void setQTimeEdit_SetVisible_IsBase(bool value) const { qtimeedit_setvisible_isbase = value; }
+    inline void setQTimeEdit_HeightForWidth_IsBase(bool value) const { qtimeedit_heightforwidth_isbase = value; }
+    inline void setQTimeEdit_HasHeightForWidth_IsBase(bool value) const { qtimeedit_hasheightforwidth_isbase = value; }
+    inline void setQTimeEdit_PaintEngine_IsBase(bool value) const { qtimeedit_paintengine_isbase = value; }
+    inline void setQTimeEdit_MouseDoubleClickEvent_IsBase(bool value) const { qtimeedit_mousedoubleclickevent_isbase = value; }
+    inline void setQTimeEdit_EnterEvent_IsBase(bool value) const { qtimeedit_enterevent_isbase = value; }
+    inline void setQTimeEdit_LeaveEvent_IsBase(bool value) const { qtimeedit_leaveevent_isbase = value; }
+    inline void setQTimeEdit_MoveEvent_IsBase(bool value) const { qtimeedit_moveevent_isbase = value; }
+    inline void setQTimeEdit_TabletEvent_IsBase(bool value) const { qtimeedit_tabletevent_isbase = value; }
+    inline void setQTimeEdit_ActionEvent_IsBase(bool value) const { qtimeedit_actionevent_isbase = value; }
+    inline void setQTimeEdit_DragEnterEvent_IsBase(bool value) const { qtimeedit_dragenterevent_isbase = value; }
+    inline void setQTimeEdit_DragMoveEvent_IsBase(bool value) const { qtimeedit_dragmoveevent_isbase = value; }
+    inline void setQTimeEdit_DragLeaveEvent_IsBase(bool value) const { qtimeedit_dragleaveevent_isbase = value; }
+    inline void setQTimeEdit_DropEvent_IsBase(bool value) const { qtimeedit_dropevent_isbase = value; }
+    inline void setQTimeEdit_NativeEvent_IsBase(bool value) const { qtimeedit_nativeevent_isbase = value; }
+    inline void setQTimeEdit_Metric_IsBase(bool value) const { qtimeedit_metric_isbase = value; }
+    inline void setQTimeEdit_InitPainter_IsBase(bool value) const { qtimeedit_initpainter_isbase = value; }
+    inline void setQTimeEdit_Redirected_IsBase(bool value) const { qtimeedit_redirected_isbase = value; }
+    inline void setQTimeEdit_SharedPainter_IsBase(bool value) const { qtimeedit_sharedpainter_isbase = value; }
+    inline void setQTimeEdit_InputMethodEvent_IsBase(bool value) const { qtimeedit_inputmethodevent_isbase = value; }
+    inline void setQTimeEdit_EventFilter_IsBase(bool value) const { qtimeedit_eventfilter_isbase = value; }
+    inline void setQTimeEdit_ChildEvent_IsBase(bool value) const { qtimeedit_childevent_isbase = value; }
+    inline void setQTimeEdit_CustomEvent_IsBase(bool value) const { qtimeedit_customevent_isbase = value; }
+    inline void setQTimeEdit_ConnectNotify_IsBase(bool value) const { qtimeedit_connectnotify_isbase = value; }
+    inline void setQTimeEdit_DisconnectNotify_IsBase(bool value) const { qtimeedit_disconnectnotify_isbase = value; }
+    inline void setQTimeEdit_LineEdit_IsBase(bool value) const { qtimeedit_lineedit_isbase = value; }
+    inline void setQTimeEdit_SetLineEdit_IsBase(bool value) const { qtimeedit_setlineedit_isbase = value; }
+    inline void setQTimeEdit_UpdateMicroFocus_IsBase(bool value) const { qtimeedit_updatemicrofocus_isbase = value; }
+    inline void setQTimeEdit_Create_IsBase(bool value) const { qtimeedit_create_isbase = value; }
+    inline void setQTimeEdit_Destroy_IsBase(bool value) const { qtimeedit_destroy_isbase = value; }
+    inline void setQTimeEdit_FocusNextChild_IsBase(bool value) const { qtimeedit_focusnextchild_isbase = value; }
+    inline void setQTimeEdit_FocusPreviousChild_IsBase(bool value) const { qtimeedit_focuspreviouschild_isbase = value; }
+    inline void setQTimeEdit_Sender_IsBase(bool value) const { qtimeedit_sender_isbase = value; }
+    inline void setQTimeEdit_SenderSignalIndex_IsBase(bool value) const { qtimeedit_sendersignalindex_isbase = value; }
+    inline void setQTimeEdit_Receivers_IsBase(bool value) const { qtimeedit_receivers_isbase = value; }
+    inline void setQTimeEdit_IsSignalConnected_IsBase(bool value) const { qtimeedit_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1677,7 +1967,12 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_metacall_isbase = false;
             return QTimeEdit::qt_metacall(param1, param2, param3);
         } else if (qtimeedit_metacall_callback != nullptr) {
-            return qtimeedit_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qtimeedit_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QTimeEdit::qt_metacall(param1, param2, param3);
         }
@@ -1689,7 +1984,8 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_sizehint_isbase = false;
             return QTimeEdit::sizeHint();
         } else if (qtimeedit_sizehint_callback != nullptr) {
-            return qtimeedit_sizehint_callback();
+            QSize* callback_ret = qtimeedit_sizehint_callback();
+            return *callback_ret;
         } else {
             return QTimeEdit::sizeHint();
         }
@@ -1713,7 +2009,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_stepby_isbase = false;
             QTimeEdit::stepBy(steps);
         } else if (qtimeedit_stepby_callback != nullptr) {
-            qtimeedit_stepby_callback(this, steps);
+            int cbval1 = steps;
+
+            qtimeedit_stepby_callback(this, cbval1);
         } else {
             QTimeEdit::stepBy(steps);
         }
@@ -1725,7 +2023,10 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_event_isbase = false;
             return QTimeEdit::event(event);
         } else if (qtimeedit_event_callback != nullptr) {
-            return qtimeedit_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qtimeedit_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTimeEdit::event(event);
         }
@@ -1737,7 +2038,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_keypressevent_isbase = false;
             QTimeEdit::keyPressEvent(event);
         } else if (qtimeedit_keypressevent_callback != nullptr) {
-            qtimeedit_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qtimeedit_keypressevent_callback(this, cbval1);
         } else {
             QTimeEdit::keyPressEvent(event);
         }
@@ -1749,7 +2052,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_wheelevent_isbase = false;
             QTimeEdit::wheelEvent(event);
         } else if (qtimeedit_wheelevent_callback != nullptr) {
-            qtimeedit_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qtimeedit_wheelevent_callback(this, cbval1);
         } else {
             QTimeEdit::wheelEvent(event);
         }
@@ -1761,7 +2066,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_focusinevent_isbase = false;
             QTimeEdit::focusInEvent(event);
         } else if (qtimeedit_focusinevent_callback != nullptr) {
-            qtimeedit_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qtimeedit_focusinevent_callback(this, cbval1);
         } else {
             QTimeEdit::focusInEvent(event);
         }
@@ -1773,7 +2080,10 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_focusnextprevchild_isbase = false;
             return QTimeEdit::focusNextPrevChild(next);
         } else if (qtimeedit_focusnextprevchild_callback != nullptr) {
-            return qtimeedit_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qtimeedit_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTimeEdit::focusNextPrevChild(next);
         }
@@ -1785,7 +2095,19 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_validate_isbase = false;
             return QTimeEdit::validate(input, pos);
         } else if (qtimeedit_validate_callback != nullptr) {
-            return qtimeedit_validate_callback(this, input, pos);
+            QString input_ret = input;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray input_b = input_ret.toUtf8();
+            libqt_string input_str;
+            input_str.len = input_b.length();
+            input_str.data = static_cast<char*>(malloc((input_str.len + 1) * sizeof(char)));
+            memcpy(input_str.data, input_b.data(), input_str.len);
+            input_str.data[input_str.len] = '\0';
+            libqt_string cbval1 = input_str;
+            int* cbval2 = &pos;
+
+            int callback_ret = qtimeedit_validate_callback(this, cbval1, cbval2);
+            return static_cast<QValidator::State>(callback_ret);
         } else {
             return QTimeEdit::validate(input, pos);
         }
@@ -1797,7 +2119,17 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_fixup_isbase = false;
             QTimeEdit::fixup(input);
         } else if (qtimeedit_fixup_callback != nullptr) {
-            qtimeedit_fixup_callback(this, input);
+            QString input_ret = input;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray input_b = input_ret.toUtf8();
+            libqt_string input_str;
+            input_str.len = input_b.length();
+            input_str.data = static_cast<char*>(malloc((input_str.len + 1) * sizeof(char)));
+            memcpy(input_str.data, input_b.data(), input_str.len);
+            input_str.data[input_str.len] = '\0';
+            libqt_string cbval1 = input_str;
+
+            qtimeedit_fixup_callback(this, cbval1);
         } else {
             QTimeEdit::fixup(input);
         }
@@ -1809,7 +2141,18 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_datetimefromtext_isbase = false;
             return QTimeEdit::dateTimeFromText(text);
         } else if (qtimeedit_datetimefromtext_callback != nullptr) {
-            return qtimeedit_datetimefromtext_callback(this, text);
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy(text_str.data, text_b.data(), text_str.len);
+            text_str.data[text_str.len] = '\0';
+            libqt_string cbval1 = text_str;
+
+            QDateTime* callback_ret = qtimeedit_datetimefromtext_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTimeEdit::dateTimeFromText(text);
         }
@@ -1821,7 +2164,13 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_textfromdatetime_isbase = false;
             return QTimeEdit::textFromDateTime(dt);
         } else if (qtimeedit_textfromdatetime_callback != nullptr) {
-            return qtimeedit_textfromdatetime_callback(this, dt);
+            const QDateTime& dt_ret = dt;
+            // Cast returned reference into pointer
+            QDateTime* cbval1 = const_cast<QDateTime*>(&dt_ret);
+
+            libqt_string callback_ret = qtimeedit_textfromdatetime_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
         } else {
             return QTimeEdit::textFromDateTime(dt);
         }
@@ -1833,7 +2182,8 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_stepenabled_isbase = false;
             return QTimeEdit::stepEnabled();
         } else if (qtimeedit_stepenabled_callback != nullptr) {
-            return qtimeedit_stepenabled_callback();
+            int callback_ret = qtimeedit_stepenabled_callback();
+            return static_cast<QAbstractSpinBox::StepEnabled>(callback_ret);
         } else {
             return QTimeEdit::stepEnabled();
         }
@@ -1845,7 +2195,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_mousepressevent_isbase = false;
             QTimeEdit::mousePressEvent(event);
         } else if (qtimeedit_mousepressevent_callback != nullptr) {
-            qtimeedit_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qtimeedit_mousepressevent_callback(this, cbval1);
         } else {
             QTimeEdit::mousePressEvent(event);
         }
@@ -1857,7 +2209,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_paintevent_isbase = false;
             QTimeEdit::paintEvent(event);
         } else if (qtimeedit_paintevent_callback != nullptr) {
-            qtimeedit_paintevent_callback(this, event);
+            QPaintEvent* cbval1 = event;
+
+            qtimeedit_paintevent_callback(this, cbval1);
         } else {
             QTimeEdit::paintEvent(event);
         }
@@ -1869,7 +2223,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_initstyleoption_isbase = false;
             QTimeEdit::initStyleOption(option);
         } else if (qtimeedit_initstyleoption_callback != nullptr) {
-            qtimeedit_initstyleoption_callback(this, option);
+            QStyleOptionSpinBox* cbval1 = option;
+
+            qtimeedit_initstyleoption_callback(this, cbval1);
         } else {
             QTimeEdit::initStyleOption(option);
         }
@@ -1881,7 +2237,8 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_minimumsizehint_isbase = false;
             return QTimeEdit::minimumSizeHint();
         } else if (qtimeedit_minimumsizehint_callback != nullptr) {
-            return qtimeedit_minimumsizehint_callback();
+            QSize* callback_ret = qtimeedit_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QTimeEdit::minimumSizeHint();
         }
@@ -1893,7 +2250,10 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_inputmethodquery_isbase = false;
             return QTimeEdit::inputMethodQuery(param1);
         } else if (qtimeedit_inputmethodquery_callback != nullptr) {
-            return qtimeedit_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qtimeedit_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTimeEdit::inputMethodQuery(param1);
         }
@@ -1905,7 +2265,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_resizeevent_isbase = false;
             QTimeEdit::resizeEvent(event);
         } else if (qtimeedit_resizeevent_callback != nullptr) {
-            qtimeedit_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qtimeedit_resizeevent_callback(this, cbval1);
         } else {
             QTimeEdit::resizeEvent(event);
         }
@@ -1917,7 +2279,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_keyreleaseevent_isbase = false;
             QTimeEdit::keyReleaseEvent(event);
         } else if (qtimeedit_keyreleaseevent_callback != nullptr) {
-            qtimeedit_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qtimeedit_keyreleaseevent_callback(this, cbval1);
         } else {
             QTimeEdit::keyReleaseEvent(event);
         }
@@ -1929,7 +2293,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_focusoutevent_isbase = false;
             QTimeEdit::focusOutEvent(event);
         } else if (qtimeedit_focusoutevent_callback != nullptr) {
-            qtimeedit_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qtimeedit_focusoutevent_callback(this, cbval1);
         } else {
             QTimeEdit::focusOutEvent(event);
         }
@@ -1941,7 +2307,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_contextmenuevent_isbase = false;
             QTimeEdit::contextMenuEvent(event);
         } else if (qtimeedit_contextmenuevent_callback != nullptr) {
-            qtimeedit_contextmenuevent_callback(this, event);
+            QContextMenuEvent* cbval1 = event;
+
+            qtimeedit_contextmenuevent_callback(this, cbval1);
         } else {
             QTimeEdit::contextMenuEvent(event);
         }
@@ -1953,7 +2321,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_changeevent_isbase = false;
             QTimeEdit::changeEvent(event);
         } else if (qtimeedit_changeevent_callback != nullptr) {
-            qtimeedit_changeevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qtimeedit_changeevent_callback(this, cbval1);
         } else {
             QTimeEdit::changeEvent(event);
         }
@@ -1965,7 +2335,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_closeevent_isbase = false;
             QTimeEdit::closeEvent(event);
         } else if (qtimeedit_closeevent_callback != nullptr) {
-            qtimeedit_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qtimeedit_closeevent_callback(this, cbval1);
         } else {
             QTimeEdit::closeEvent(event);
         }
@@ -1977,7 +2349,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_hideevent_isbase = false;
             QTimeEdit::hideEvent(event);
         } else if (qtimeedit_hideevent_callback != nullptr) {
-            qtimeedit_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qtimeedit_hideevent_callback(this, cbval1);
         } else {
             QTimeEdit::hideEvent(event);
         }
@@ -1989,7 +2363,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_mousereleaseevent_isbase = false;
             QTimeEdit::mouseReleaseEvent(event);
         } else if (qtimeedit_mousereleaseevent_callback != nullptr) {
-            qtimeedit_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qtimeedit_mousereleaseevent_callback(this, cbval1);
         } else {
             QTimeEdit::mouseReleaseEvent(event);
         }
@@ -2001,7 +2377,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_mousemoveevent_isbase = false;
             QTimeEdit::mouseMoveEvent(event);
         } else if (qtimeedit_mousemoveevent_callback != nullptr) {
-            qtimeedit_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qtimeedit_mousemoveevent_callback(this, cbval1);
         } else {
             QTimeEdit::mouseMoveEvent(event);
         }
@@ -2013,7 +2391,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_timerevent_isbase = false;
             QTimeEdit::timerEvent(event);
         } else if (qtimeedit_timerevent_callback != nullptr) {
-            qtimeedit_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qtimeedit_timerevent_callback(this, cbval1);
         } else {
             QTimeEdit::timerEvent(event);
         }
@@ -2025,7 +2405,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_showevent_isbase = false;
             QTimeEdit::showEvent(event);
         } else if (qtimeedit_showevent_callback != nullptr) {
-            qtimeedit_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qtimeedit_showevent_callback(this, cbval1);
         } else {
             QTimeEdit::showEvent(event);
         }
@@ -2037,7 +2419,8 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_devtype_isbase = false;
             return QTimeEdit::devType();
         } else if (qtimeedit_devtype_callback != nullptr) {
-            return qtimeedit_devtype_callback();
+            int callback_ret = qtimeedit_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QTimeEdit::devType();
         }
@@ -2049,7 +2432,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_setvisible_isbase = false;
             QTimeEdit::setVisible(visible);
         } else if (qtimeedit_setvisible_callback != nullptr) {
-            qtimeedit_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qtimeedit_setvisible_callback(this, cbval1);
         } else {
             QTimeEdit::setVisible(visible);
         }
@@ -2061,7 +2446,10 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_heightforwidth_isbase = false;
             return QTimeEdit::heightForWidth(param1);
         } else if (qtimeedit_heightforwidth_callback != nullptr) {
-            return qtimeedit_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qtimeedit_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTimeEdit::heightForWidth(param1);
         }
@@ -2073,7 +2461,8 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_hasheightforwidth_isbase = false;
             return QTimeEdit::hasHeightForWidth();
         } else if (qtimeedit_hasheightforwidth_callback != nullptr) {
-            return qtimeedit_hasheightforwidth_callback();
+            bool callback_ret = qtimeedit_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QTimeEdit::hasHeightForWidth();
         }
@@ -2085,7 +2474,8 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_paintengine_isbase = false;
             return QTimeEdit::paintEngine();
         } else if (qtimeedit_paintengine_callback != nullptr) {
-            return qtimeedit_paintengine_callback();
+            QPaintEngine* callback_ret = qtimeedit_paintengine_callback();
+            return callback_ret;
         } else {
             return QTimeEdit::paintEngine();
         }
@@ -2097,7 +2487,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_mousedoubleclickevent_isbase = false;
             QTimeEdit::mouseDoubleClickEvent(event);
         } else if (qtimeedit_mousedoubleclickevent_callback != nullptr) {
-            qtimeedit_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qtimeedit_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QTimeEdit::mouseDoubleClickEvent(event);
         }
@@ -2109,7 +2501,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_enterevent_isbase = false;
             QTimeEdit::enterEvent(event);
         } else if (qtimeedit_enterevent_callback != nullptr) {
-            qtimeedit_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qtimeedit_enterevent_callback(this, cbval1);
         } else {
             QTimeEdit::enterEvent(event);
         }
@@ -2121,7 +2515,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_leaveevent_isbase = false;
             QTimeEdit::leaveEvent(event);
         } else if (qtimeedit_leaveevent_callback != nullptr) {
-            qtimeedit_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qtimeedit_leaveevent_callback(this, cbval1);
         } else {
             QTimeEdit::leaveEvent(event);
         }
@@ -2133,7 +2529,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_moveevent_isbase = false;
             QTimeEdit::moveEvent(event);
         } else if (qtimeedit_moveevent_callback != nullptr) {
-            qtimeedit_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qtimeedit_moveevent_callback(this, cbval1);
         } else {
             QTimeEdit::moveEvent(event);
         }
@@ -2145,7 +2543,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_tabletevent_isbase = false;
             QTimeEdit::tabletEvent(event);
         } else if (qtimeedit_tabletevent_callback != nullptr) {
-            qtimeedit_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qtimeedit_tabletevent_callback(this, cbval1);
         } else {
             QTimeEdit::tabletEvent(event);
         }
@@ -2157,7 +2557,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_actionevent_isbase = false;
             QTimeEdit::actionEvent(event);
         } else if (qtimeedit_actionevent_callback != nullptr) {
-            qtimeedit_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qtimeedit_actionevent_callback(this, cbval1);
         } else {
             QTimeEdit::actionEvent(event);
         }
@@ -2169,7 +2571,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_dragenterevent_isbase = false;
             QTimeEdit::dragEnterEvent(event);
         } else if (qtimeedit_dragenterevent_callback != nullptr) {
-            qtimeedit_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qtimeedit_dragenterevent_callback(this, cbval1);
         } else {
             QTimeEdit::dragEnterEvent(event);
         }
@@ -2181,7 +2585,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_dragmoveevent_isbase = false;
             QTimeEdit::dragMoveEvent(event);
         } else if (qtimeedit_dragmoveevent_callback != nullptr) {
-            qtimeedit_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qtimeedit_dragmoveevent_callback(this, cbval1);
         } else {
             QTimeEdit::dragMoveEvent(event);
         }
@@ -2193,7 +2599,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_dragleaveevent_isbase = false;
             QTimeEdit::dragLeaveEvent(event);
         } else if (qtimeedit_dragleaveevent_callback != nullptr) {
-            qtimeedit_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qtimeedit_dragleaveevent_callback(this, cbval1);
         } else {
             QTimeEdit::dragLeaveEvent(event);
         }
@@ -2205,7 +2613,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_dropevent_isbase = false;
             QTimeEdit::dropEvent(event);
         } else if (qtimeedit_dropevent_callback != nullptr) {
-            qtimeedit_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qtimeedit_dropevent_callback(this, cbval1);
         } else {
             QTimeEdit::dropEvent(event);
         }
@@ -2217,7 +2627,19 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_nativeevent_isbase = false;
             return QTimeEdit::nativeEvent(eventType, message, result);
         } else if (qtimeedit_nativeevent_callback != nullptr) {
-            return qtimeedit_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qtimeedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QTimeEdit::nativeEvent(eventType, message, result);
         }
@@ -2229,7 +2651,10 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_metric_isbase = false;
             return QTimeEdit::metric(param1);
         } else if (qtimeedit_metric_callback != nullptr) {
-            return qtimeedit_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qtimeedit_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTimeEdit::metric(param1);
         }
@@ -2241,7 +2666,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_initpainter_isbase = false;
             QTimeEdit::initPainter(painter);
         } else if (qtimeedit_initpainter_callback != nullptr) {
-            qtimeedit_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qtimeedit_initpainter_callback(this, cbval1);
         } else {
             QTimeEdit::initPainter(painter);
         }
@@ -2253,7 +2680,10 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_redirected_isbase = false;
             return QTimeEdit::redirected(offset);
         } else if (qtimeedit_redirected_callback != nullptr) {
-            return qtimeedit_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qtimeedit_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTimeEdit::redirected(offset);
         }
@@ -2265,7 +2695,8 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_sharedpainter_isbase = false;
             return QTimeEdit::sharedPainter();
         } else if (qtimeedit_sharedpainter_callback != nullptr) {
-            return qtimeedit_sharedpainter_callback();
+            QPainter* callback_ret = qtimeedit_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QTimeEdit::sharedPainter();
         }
@@ -2277,7 +2708,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_inputmethodevent_isbase = false;
             QTimeEdit::inputMethodEvent(param1);
         } else if (qtimeedit_inputmethodevent_callback != nullptr) {
-            qtimeedit_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qtimeedit_inputmethodevent_callback(this, cbval1);
         } else {
             QTimeEdit::inputMethodEvent(param1);
         }
@@ -2289,7 +2722,11 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_eventfilter_isbase = false;
             return QTimeEdit::eventFilter(watched, event);
         } else if (qtimeedit_eventfilter_callback != nullptr) {
-            return qtimeedit_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qtimeedit_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QTimeEdit::eventFilter(watched, event);
         }
@@ -2301,7 +2738,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_childevent_isbase = false;
             QTimeEdit::childEvent(event);
         } else if (qtimeedit_childevent_callback != nullptr) {
-            qtimeedit_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qtimeedit_childevent_callback(this, cbval1);
         } else {
             QTimeEdit::childEvent(event);
         }
@@ -2313,7 +2752,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_customevent_isbase = false;
             QTimeEdit::customEvent(event);
         } else if (qtimeedit_customevent_callback != nullptr) {
-            qtimeedit_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qtimeedit_customevent_callback(this, cbval1);
         } else {
             QTimeEdit::customEvent(event);
         }
@@ -2325,7 +2766,11 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_connectnotify_isbase = false;
             QTimeEdit::connectNotify(signal);
         } else if (qtimeedit_connectnotify_callback != nullptr) {
-            qtimeedit_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtimeedit_connectnotify_callback(this, cbval1);
         } else {
             QTimeEdit::connectNotify(signal);
         }
@@ -2337,7 +2782,11 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_disconnectnotify_isbase = false;
             QTimeEdit::disconnectNotify(signal);
         } else if (qtimeedit_disconnectnotify_callback != nullptr) {
-            qtimeedit_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtimeedit_disconnectnotify_callback(this, cbval1);
         } else {
             QTimeEdit::disconnectNotify(signal);
         }
@@ -2349,7 +2798,8 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_lineedit_isbase = false;
             return QTimeEdit::lineEdit();
         } else if (qtimeedit_lineedit_callback != nullptr) {
-            return qtimeedit_lineedit_callback();
+            QLineEdit* callback_ret = qtimeedit_lineedit_callback();
+            return callback_ret;
         } else {
             return QTimeEdit::lineEdit();
         }
@@ -2361,7 +2811,9 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_setlineedit_isbase = false;
             QTimeEdit::setLineEdit(edit);
         } else if (qtimeedit_setlineedit_callback != nullptr) {
-            qtimeedit_setlineedit_callback(this, edit);
+            QLineEdit* cbval1 = edit;
+
+            qtimeedit_setlineedit_callback(this, cbval1);
         } else {
             QTimeEdit::setLineEdit(edit);
         }
@@ -2409,7 +2861,8 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_focusnextchild_isbase = false;
             return QTimeEdit::focusNextChild();
         } else if (qtimeedit_focusnextchild_callback != nullptr) {
-            return qtimeedit_focusnextchild_callback();
+            bool callback_ret = qtimeedit_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QTimeEdit::focusNextChild();
         }
@@ -2421,7 +2874,8 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_focuspreviouschild_isbase = false;
             return QTimeEdit::focusPreviousChild();
         } else if (qtimeedit_focuspreviouschild_callback != nullptr) {
-            return qtimeedit_focuspreviouschild_callback();
+            bool callback_ret = qtimeedit_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QTimeEdit::focusPreviousChild();
         }
@@ -2433,7 +2887,8 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_sender_isbase = false;
             return QTimeEdit::sender();
         } else if (qtimeedit_sender_callback != nullptr) {
-            return qtimeedit_sender_callback();
+            QObject* callback_ret = qtimeedit_sender_callback();
+            return callback_ret;
         } else {
             return QTimeEdit::sender();
         }
@@ -2445,7 +2900,8 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_sendersignalindex_isbase = false;
             return QTimeEdit::senderSignalIndex();
         } else if (qtimeedit_sendersignalindex_callback != nullptr) {
-            return qtimeedit_sendersignalindex_callback();
+            int callback_ret = qtimeedit_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QTimeEdit::senderSignalIndex();
         }
@@ -2457,7 +2913,10 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_receivers_isbase = false;
             return QTimeEdit::receivers(signal);
         } else if (qtimeedit_receivers_callback != nullptr) {
-            return qtimeedit_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qtimeedit_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTimeEdit::receivers(signal);
         }
@@ -2469,20 +2928,138 @@ class VirtualQTimeEdit : public QTimeEdit {
             qtimeedit_issignalconnected_isbase = false;
             return QTimeEdit::isSignalConnected(signal);
         } else if (qtimeedit_issignalconnected_callback != nullptr) {
-            return qtimeedit_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qtimeedit_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTimeEdit::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QTimeEdit_KeyPressEvent(QTimeEdit* self, QKeyEvent* event);
+    friend void QTimeEdit_QBaseKeyPressEvent(QTimeEdit* self, QKeyEvent* event);
+    friend void QTimeEdit_WheelEvent(QTimeEdit* self, QWheelEvent* event);
+    friend void QTimeEdit_QBaseWheelEvent(QTimeEdit* self, QWheelEvent* event);
+    friend void QTimeEdit_FocusInEvent(QTimeEdit* self, QFocusEvent* event);
+    friend void QTimeEdit_QBaseFocusInEvent(QTimeEdit* self, QFocusEvent* event);
+    friend bool QTimeEdit_FocusNextPrevChild(QTimeEdit* self, bool next);
+    friend bool QTimeEdit_QBaseFocusNextPrevChild(QTimeEdit* self, bool next);
+    friend int QTimeEdit_Validate(const QTimeEdit* self, libqt_string input, int* pos);
+    friend int QTimeEdit_QBaseValidate(const QTimeEdit* self, libqt_string input, int* pos);
+    friend void QTimeEdit_Fixup(const QTimeEdit* self, libqt_string input);
+    friend void QTimeEdit_QBaseFixup(const QTimeEdit* self, libqt_string input);
+    friend QDateTime* QTimeEdit_DateTimeFromText(const QTimeEdit* self, const libqt_string text);
+    friend QDateTime* QTimeEdit_QBaseDateTimeFromText(const QTimeEdit* self, const libqt_string text);
+    friend libqt_string QTimeEdit_TextFromDateTime(const QTimeEdit* self, const QDateTime* dt);
+    friend libqt_string QTimeEdit_QBaseTextFromDateTime(const QTimeEdit* self, const QDateTime* dt);
+    friend int QTimeEdit_StepEnabled(const QTimeEdit* self);
+    friend int QTimeEdit_QBaseStepEnabled(const QTimeEdit* self);
+    friend void QTimeEdit_MousePressEvent(QTimeEdit* self, QMouseEvent* event);
+    friend void QTimeEdit_QBaseMousePressEvent(QTimeEdit* self, QMouseEvent* event);
+    friend void QTimeEdit_PaintEvent(QTimeEdit* self, QPaintEvent* event);
+    friend void QTimeEdit_QBasePaintEvent(QTimeEdit* self, QPaintEvent* event);
+    friend void QTimeEdit_InitStyleOption(const QTimeEdit* self, QStyleOptionSpinBox* option);
+    friend void QTimeEdit_QBaseInitStyleOption(const QTimeEdit* self, QStyleOptionSpinBox* option);
+    friend void QTimeEdit_ResizeEvent(QTimeEdit* self, QResizeEvent* event);
+    friend void QTimeEdit_QBaseResizeEvent(QTimeEdit* self, QResizeEvent* event);
+    friend void QTimeEdit_KeyReleaseEvent(QTimeEdit* self, QKeyEvent* event);
+    friend void QTimeEdit_QBaseKeyReleaseEvent(QTimeEdit* self, QKeyEvent* event);
+    friend void QTimeEdit_FocusOutEvent(QTimeEdit* self, QFocusEvent* event);
+    friend void QTimeEdit_QBaseFocusOutEvent(QTimeEdit* self, QFocusEvent* event);
+    friend void QTimeEdit_ContextMenuEvent(QTimeEdit* self, QContextMenuEvent* event);
+    friend void QTimeEdit_QBaseContextMenuEvent(QTimeEdit* self, QContextMenuEvent* event);
+    friend void QTimeEdit_ChangeEvent(QTimeEdit* self, QEvent* event);
+    friend void QTimeEdit_QBaseChangeEvent(QTimeEdit* self, QEvent* event);
+    friend void QTimeEdit_CloseEvent(QTimeEdit* self, QCloseEvent* event);
+    friend void QTimeEdit_QBaseCloseEvent(QTimeEdit* self, QCloseEvent* event);
+    friend void QTimeEdit_HideEvent(QTimeEdit* self, QHideEvent* event);
+    friend void QTimeEdit_QBaseHideEvent(QTimeEdit* self, QHideEvent* event);
+    friend void QTimeEdit_MouseReleaseEvent(QTimeEdit* self, QMouseEvent* event);
+    friend void QTimeEdit_QBaseMouseReleaseEvent(QTimeEdit* self, QMouseEvent* event);
+    friend void QTimeEdit_MouseMoveEvent(QTimeEdit* self, QMouseEvent* event);
+    friend void QTimeEdit_QBaseMouseMoveEvent(QTimeEdit* self, QMouseEvent* event);
+    friend void QTimeEdit_TimerEvent(QTimeEdit* self, QTimerEvent* event);
+    friend void QTimeEdit_QBaseTimerEvent(QTimeEdit* self, QTimerEvent* event);
+    friend void QTimeEdit_ShowEvent(QTimeEdit* self, QShowEvent* event);
+    friend void QTimeEdit_QBaseShowEvent(QTimeEdit* self, QShowEvent* event);
+    friend void QTimeEdit_MouseDoubleClickEvent(QTimeEdit* self, QMouseEvent* event);
+    friend void QTimeEdit_QBaseMouseDoubleClickEvent(QTimeEdit* self, QMouseEvent* event);
+    friend void QTimeEdit_EnterEvent(QTimeEdit* self, QEnterEvent* event);
+    friend void QTimeEdit_QBaseEnterEvent(QTimeEdit* self, QEnterEvent* event);
+    friend void QTimeEdit_LeaveEvent(QTimeEdit* self, QEvent* event);
+    friend void QTimeEdit_QBaseLeaveEvent(QTimeEdit* self, QEvent* event);
+    friend void QTimeEdit_MoveEvent(QTimeEdit* self, QMoveEvent* event);
+    friend void QTimeEdit_QBaseMoveEvent(QTimeEdit* self, QMoveEvent* event);
+    friend void QTimeEdit_TabletEvent(QTimeEdit* self, QTabletEvent* event);
+    friend void QTimeEdit_QBaseTabletEvent(QTimeEdit* self, QTabletEvent* event);
+    friend void QTimeEdit_ActionEvent(QTimeEdit* self, QActionEvent* event);
+    friend void QTimeEdit_QBaseActionEvent(QTimeEdit* self, QActionEvent* event);
+    friend void QTimeEdit_DragEnterEvent(QTimeEdit* self, QDragEnterEvent* event);
+    friend void QTimeEdit_QBaseDragEnterEvent(QTimeEdit* self, QDragEnterEvent* event);
+    friend void QTimeEdit_DragMoveEvent(QTimeEdit* self, QDragMoveEvent* event);
+    friend void QTimeEdit_QBaseDragMoveEvent(QTimeEdit* self, QDragMoveEvent* event);
+    friend void QTimeEdit_DragLeaveEvent(QTimeEdit* self, QDragLeaveEvent* event);
+    friend void QTimeEdit_QBaseDragLeaveEvent(QTimeEdit* self, QDragLeaveEvent* event);
+    friend void QTimeEdit_DropEvent(QTimeEdit* self, QDropEvent* event);
+    friend void QTimeEdit_QBaseDropEvent(QTimeEdit* self, QDropEvent* event);
+    friend bool QTimeEdit_NativeEvent(QTimeEdit* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QTimeEdit_QBaseNativeEvent(QTimeEdit* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QTimeEdit_Metric(const QTimeEdit* self, int param1);
+    friend int QTimeEdit_QBaseMetric(const QTimeEdit* self, int param1);
+    friend void QTimeEdit_InitPainter(const QTimeEdit* self, QPainter* painter);
+    friend void QTimeEdit_QBaseInitPainter(const QTimeEdit* self, QPainter* painter);
+    friend QPaintDevice* QTimeEdit_Redirected(const QTimeEdit* self, QPoint* offset);
+    friend QPaintDevice* QTimeEdit_QBaseRedirected(const QTimeEdit* self, QPoint* offset);
+    friend QPainter* QTimeEdit_SharedPainter(const QTimeEdit* self);
+    friend QPainter* QTimeEdit_QBaseSharedPainter(const QTimeEdit* self);
+    friend void QTimeEdit_InputMethodEvent(QTimeEdit* self, QInputMethodEvent* param1);
+    friend void QTimeEdit_QBaseInputMethodEvent(QTimeEdit* self, QInputMethodEvent* param1);
+    friend void QTimeEdit_ChildEvent(QTimeEdit* self, QChildEvent* event);
+    friend void QTimeEdit_QBaseChildEvent(QTimeEdit* self, QChildEvent* event);
+    friend void QTimeEdit_CustomEvent(QTimeEdit* self, QEvent* event);
+    friend void QTimeEdit_QBaseCustomEvent(QTimeEdit* self, QEvent* event);
+    friend void QTimeEdit_ConnectNotify(QTimeEdit* self, const QMetaMethod* signal);
+    friend void QTimeEdit_QBaseConnectNotify(QTimeEdit* self, const QMetaMethod* signal);
+    friend void QTimeEdit_DisconnectNotify(QTimeEdit* self, const QMetaMethod* signal);
+    friend void QTimeEdit_QBaseDisconnectNotify(QTimeEdit* self, const QMetaMethod* signal);
+    friend QLineEdit* QTimeEdit_LineEdit(const QTimeEdit* self);
+    friend QLineEdit* QTimeEdit_QBaseLineEdit(const QTimeEdit* self);
+    friend void QTimeEdit_SetLineEdit(QTimeEdit* self, QLineEdit* edit);
+    friend void QTimeEdit_QBaseSetLineEdit(QTimeEdit* self, QLineEdit* edit);
+    friend void QTimeEdit_UpdateMicroFocus(QTimeEdit* self);
+    friend void QTimeEdit_QBaseUpdateMicroFocus(QTimeEdit* self);
+    friend void QTimeEdit_Create(QTimeEdit* self);
+    friend void QTimeEdit_QBaseCreate(QTimeEdit* self);
+    friend void QTimeEdit_Destroy(QTimeEdit* self);
+    friend void QTimeEdit_QBaseDestroy(QTimeEdit* self);
+    friend bool QTimeEdit_FocusNextChild(QTimeEdit* self);
+    friend bool QTimeEdit_QBaseFocusNextChild(QTimeEdit* self);
+    friend bool QTimeEdit_FocusPreviousChild(QTimeEdit* self);
+    friend bool QTimeEdit_QBaseFocusPreviousChild(QTimeEdit* self);
+    friend QObject* QTimeEdit_Sender(const QTimeEdit* self);
+    friend QObject* QTimeEdit_QBaseSender(const QTimeEdit* self);
+    friend int QTimeEdit_SenderSignalIndex(const QTimeEdit* self);
+    friend int QTimeEdit_QBaseSenderSignalIndex(const QTimeEdit* self);
+    friend int QTimeEdit_Receivers(const QTimeEdit* self, const char* signal);
+    friend int QTimeEdit_QBaseReceivers(const QTimeEdit* self, const char* signal);
+    friend bool QTimeEdit_IsSignalConnected(const QTimeEdit* self, const QMetaMethod* signal);
+    friend bool QTimeEdit_QBaseIsSignalConnected(const QTimeEdit* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QDateEdit so that we can call protected methods
-class VirtualQDateEdit : public QDateEdit {
+class VirtualQDateEdit final : public QDateEdit {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQDateEdit = true;
+
     // Virtual class public types (including callbacks)
-    using QDateEdit_Metacall_Callback = int (*)(QDateEdit*, QMetaObject::Call, int, void**);
-    using QDateEdit_SizeHint_Callback = QSize (*)();
+    using QDateEdit_Metacall_Callback = int (*)(QDateEdit*, int, int, void**);
+    using QDateEdit_SizeHint_Callback = QSize* (*)();
     using QDateEdit_Clear_Callback = void (*)();
     using QDateEdit_StepBy_Callback = void (*)(QDateEdit*, int);
     using QDateEdit_Event_Callback = bool (*)(QDateEdit*, QEvent*);
@@ -2490,16 +3067,16 @@ class VirtualQDateEdit : public QDateEdit {
     using QDateEdit_WheelEvent_Callback = void (*)(QDateEdit*, QWheelEvent*);
     using QDateEdit_FocusInEvent_Callback = void (*)(QDateEdit*, QFocusEvent*);
     using QDateEdit_FocusNextPrevChild_Callback = bool (*)(QDateEdit*, bool);
-    using QDateEdit_Validate_Callback = QValidator::State (*)(const QDateEdit*, QString&, int&);
-    using QDateEdit_Fixup_Callback = void (*)(const QDateEdit*, QString&);
-    using QDateEdit_DateTimeFromText_Callback = QDateTime (*)(const QDateEdit*, const QString&);
-    using QDateEdit_TextFromDateTime_Callback = QString (*)(const QDateEdit*, const QDateTime&);
-    using QDateEdit_StepEnabled_Callback = QAbstractSpinBox::StepEnabled (*)();
+    using QDateEdit_Validate_Callback = int (*)(const QDateEdit*, libqt_string, int*);
+    using QDateEdit_Fixup_Callback = void (*)(const QDateEdit*, libqt_string);
+    using QDateEdit_DateTimeFromText_Callback = QDateTime* (*)(const QDateEdit*, libqt_string);
+    using QDateEdit_TextFromDateTime_Callback = libqt_string (*)(const QDateEdit*, QDateTime*);
+    using QDateEdit_StepEnabled_Callback = int (*)();
     using QDateEdit_MousePressEvent_Callback = void (*)(QDateEdit*, QMouseEvent*);
     using QDateEdit_PaintEvent_Callback = void (*)(QDateEdit*, QPaintEvent*);
     using QDateEdit_InitStyleOption_Callback = void (*)(const QDateEdit*, QStyleOptionSpinBox*);
-    using QDateEdit_MinimumSizeHint_Callback = QSize (*)();
-    using QDateEdit_InputMethodQuery_Callback = QVariant (*)(const QDateEdit*, Qt::InputMethodQuery);
+    using QDateEdit_MinimumSizeHint_Callback = QSize* (*)();
+    using QDateEdit_InputMethodQuery_Callback = QVariant* (*)(const QDateEdit*, int);
     using QDateEdit_ResizeEvent_Callback = void (*)(QDateEdit*, QResizeEvent*);
     using QDateEdit_KeyReleaseEvent_Callback = void (*)(QDateEdit*, QKeyEvent*);
     using QDateEdit_FocusOutEvent_Callback = void (*)(QDateEdit*, QFocusEvent*);
@@ -2526,8 +3103,8 @@ class VirtualQDateEdit : public QDateEdit {
     using QDateEdit_DragMoveEvent_Callback = void (*)(QDateEdit*, QDragMoveEvent*);
     using QDateEdit_DragLeaveEvent_Callback = void (*)(QDateEdit*, QDragLeaveEvent*);
     using QDateEdit_DropEvent_Callback = void (*)(QDateEdit*, QDropEvent*);
-    using QDateEdit_NativeEvent_Callback = bool (*)(QDateEdit*, const QByteArray&, void*, qintptr*);
-    using QDateEdit_Metric_Callback = int (*)(const QDateEdit*, QPaintDevice::PaintDeviceMetric);
+    using QDateEdit_NativeEvent_Callback = bool (*)(QDateEdit*, libqt_string, void*, intptr_t*);
+    using QDateEdit_Metric_Callback = int (*)(const QDateEdit*, int);
     using QDateEdit_InitPainter_Callback = void (*)(const QDateEdit*, QPainter*);
     using QDateEdit_Redirected_Callback = QPaintDevice* (*)(const QDateEdit*, QPoint*);
     using QDateEdit_SharedPainter_Callback = QPainter* (*)();
@@ -2535,8 +3112,8 @@ class VirtualQDateEdit : public QDateEdit {
     using QDateEdit_EventFilter_Callback = bool (*)(QDateEdit*, QObject*, QEvent*);
     using QDateEdit_ChildEvent_Callback = void (*)(QDateEdit*, QChildEvent*);
     using QDateEdit_CustomEvent_Callback = void (*)(QDateEdit*, QEvent*);
-    using QDateEdit_ConnectNotify_Callback = void (*)(QDateEdit*, const QMetaMethod&);
-    using QDateEdit_DisconnectNotify_Callback = void (*)(QDateEdit*, const QMetaMethod&);
+    using QDateEdit_ConnectNotify_Callback = void (*)(QDateEdit*, QMetaMethod*);
+    using QDateEdit_DisconnectNotify_Callback = void (*)(QDateEdit*, QMetaMethod*);
     using QDateEdit_LineEdit_Callback = QLineEdit* (*)();
     using QDateEdit_SetLineEdit_Callback = void (*)(QDateEdit*, QLineEdit*);
     using QDateEdit_UpdateMicroFocus_Callback = void (*)();
@@ -2547,7 +3124,7 @@ class VirtualQDateEdit : public QDateEdit {
     using QDateEdit_Sender_Callback = QObject* (*)();
     using QDateEdit_SenderSignalIndex_Callback = int (*)();
     using QDateEdit_Receivers_Callback = int (*)(const QDateEdit*, const char*);
-    using QDateEdit_IsSignalConnected_Callback = bool (*)(const QDateEdit*, const QMetaMethod&);
+    using QDateEdit_IsSignalConnected_Callback = bool (*)(const QDateEdit*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -2765,142 +3342,142 @@ class VirtualQDateEdit : public QDateEdit {
     }
 
     // Callback setters
-    void setQDateEdit_Metacall_Callback(QDateEdit_Metacall_Callback cb) { qdateedit_metacall_callback = cb; }
-    void setQDateEdit_SizeHint_Callback(QDateEdit_SizeHint_Callback cb) { qdateedit_sizehint_callback = cb; }
-    void setQDateEdit_Clear_Callback(QDateEdit_Clear_Callback cb) { qdateedit_clear_callback = cb; }
-    void setQDateEdit_StepBy_Callback(QDateEdit_StepBy_Callback cb) { qdateedit_stepby_callback = cb; }
-    void setQDateEdit_Event_Callback(QDateEdit_Event_Callback cb) { qdateedit_event_callback = cb; }
-    void setQDateEdit_KeyPressEvent_Callback(QDateEdit_KeyPressEvent_Callback cb) { qdateedit_keypressevent_callback = cb; }
-    void setQDateEdit_WheelEvent_Callback(QDateEdit_WheelEvent_Callback cb) { qdateedit_wheelevent_callback = cb; }
-    void setQDateEdit_FocusInEvent_Callback(QDateEdit_FocusInEvent_Callback cb) { qdateedit_focusinevent_callback = cb; }
-    void setQDateEdit_FocusNextPrevChild_Callback(QDateEdit_FocusNextPrevChild_Callback cb) { qdateedit_focusnextprevchild_callback = cb; }
-    void setQDateEdit_Validate_Callback(QDateEdit_Validate_Callback cb) { qdateedit_validate_callback = cb; }
-    void setQDateEdit_Fixup_Callback(QDateEdit_Fixup_Callback cb) { qdateedit_fixup_callback = cb; }
-    void setQDateEdit_DateTimeFromText_Callback(QDateEdit_DateTimeFromText_Callback cb) { qdateedit_datetimefromtext_callback = cb; }
-    void setQDateEdit_TextFromDateTime_Callback(QDateEdit_TextFromDateTime_Callback cb) { qdateedit_textfromdatetime_callback = cb; }
-    void setQDateEdit_StepEnabled_Callback(QDateEdit_StepEnabled_Callback cb) { qdateedit_stepenabled_callback = cb; }
-    void setQDateEdit_MousePressEvent_Callback(QDateEdit_MousePressEvent_Callback cb) { qdateedit_mousepressevent_callback = cb; }
-    void setQDateEdit_PaintEvent_Callback(QDateEdit_PaintEvent_Callback cb) { qdateedit_paintevent_callback = cb; }
-    void setQDateEdit_InitStyleOption_Callback(QDateEdit_InitStyleOption_Callback cb) { qdateedit_initstyleoption_callback = cb; }
-    void setQDateEdit_MinimumSizeHint_Callback(QDateEdit_MinimumSizeHint_Callback cb) { qdateedit_minimumsizehint_callback = cb; }
-    void setQDateEdit_InputMethodQuery_Callback(QDateEdit_InputMethodQuery_Callback cb) { qdateedit_inputmethodquery_callback = cb; }
-    void setQDateEdit_ResizeEvent_Callback(QDateEdit_ResizeEvent_Callback cb) { qdateedit_resizeevent_callback = cb; }
-    void setQDateEdit_KeyReleaseEvent_Callback(QDateEdit_KeyReleaseEvent_Callback cb) { qdateedit_keyreleaseevent_callback = cb; }
-    void setQDateEdit_FocusOutEvent_Callback(QDateEdit_FocusOutEvent_Callback cb) { qdateedit_focusoutevent_callback = cb; }
-    void setQDateEdit_ContextMenuEvent_Callback(QDateEdit_ContextMenuEvent_Callback cb) { qdateedit_contextmenuevent_callback = cb; }
-    void setQDateEdit_ChangeEvent_Callback(QDateEdit_ChangeEvent_Callback cb) { qdateedit_changeevent_callback = cb; }
-    void setQDateEdit_CloseEvent_Callback(QDateEdit_CloseEvent_Callback cb) { qdateedit_closeevent_callback = cb; }
-    void setQDateEdit_HideEvent_Callback(QDateEdit_HideEvent_Callback cb) { qdateedit_hideevent_callback = cb; }
-    void setQDateEdit_MouseReleaseEvent_Callback(QDateEdit_MouseReleaseEvent_Callback cb) { qdateedit_mousereleaseevent_callback = cb; }
-    void setQDateEdit_MouseMoveEvent_Callback(QDateEdit_MouseMoveEvent_Callback cb) { qdateedit_mousemoveevent_callback = cb; }
-    void setQDateEdit_TimerEvent_Callback(QDateEdit_TimerEvent_Callback cb) { qdateedit_timerevent_callback = cb; }
-    void setQDateEdit_ShowEvent_Callback(QDateEdit_ShowEvent_Callback cb) { qdateedit_showevent_callback = cb; }
-    void setQDateEdit_DevType_Callback(QDateEdit_DevType_Callback cb) { qdateedit_devtype_callback = cb; }
-    void setQDateEdit_SetVisible_Callback(QDateEdit_SetVisible_Callback cb) { qdateedit_setvisible_callback = cb; }
-    void setQDateEdit_HeightForWidth_Callback(QDateEdit_HeightForWidth_Callback cb) { qdateedit_heightforwidth_callback = cb; }
-    void setQDateEdit_HasHeightForWidth_Callback(QDateEdit_HasHeightForWidth_Callback cb) { qdateedit_hasheightforwidth_callback = cb; }
-    void setQDateEdit_PaintEngine_Callback(QDateEdit_PaintEngine_Callback cb) { qdateedit_paintengine_callback = cb; }
-    void setQDateEdit_MouseDoubleClickEvent_Callback(QDateEdit_MouseDoubleClickEvent_Callback cb) { qdateedit_mousedoubleclickevent_callback = cb; }
-    void setQDateEdit_EnterEvent_Callback(QDateEdit_EnterEvent_Callback cb) { qdateedit_enterevent_callback = cb; }
-    void setQDateEdit_LeaveEvent_Callback(QDateEdit_LeaveEvent_Callback cb) { qdateedit_leaveevent_callback = cb; }
-    void setQDateEdit_MoveEvent_Callback(QDateEdit_MoveEvent_Callback cb) { qdateedit_moveevent_callback = cb; }
-    void setQDateEdit_TabletEvent_Callback(QDateEdit_TabletEvent_Callback cb) { qdateedit_tabletevent_callback = cb; }
-    void setQDateEdit_ActionEvent_Callback(QDateEdit_ActionEvent_Callback cb) { qdateedit_actionevent_callback = cb; }
-    void setQDateEdit_DragEnterEvent_Callback(QDateEdit_DragEnterEvent_Callback cb) { qdateedit_dragenterevent_callback = cb; }
-    void setQDateEdit_DragMoveEvent_Callback(QDateEdit_DragMoveEvent_Callback cb) { qdateedit_dragmoveevent_callback = cb; }
-    void setQDateEdit_DragLeaveEvent_Callback(QDateEdit_DragLeaveEvent_Callback cb) { qdateedit_dragleaveevent_callback = cb; }
-    void setQDateEdit_DropEvent_Callback(QDateEdit_DropEvent_Callback cb) { qdateedit_dropevent_callback = cb; }
-    void setQDateEdit_NativeEvent_Callback(QDateEdit_NativeEvent_Callback cb) { qdateedit_nativeevent_callback = cb; }
-    void setQDateEdit_Metric_Callback(QDateEdit_Metric_Callback cb) { qdateedit_metric_callback = cb; }
-    void setQDateEdit_InitPainter_Callback(QDateEdit_InitPainter_Callback cb) { qdateedit_initpainter_callback = cb; }
-    void setQDateEdit_Redirected_Callback(QDateEdit_Redirected_Callback cb) { qdateedit_redirected_callback = cb; }
-    void setQDateEdit_SharedPainter_Callback(QDateEdit_SharedPainter_Callback cb) { qdateedit_sharedpainter_callback = cb; }
-    void setQDateEdit_InputMethodEvent_Callback(QDateEdit_InputMethodEvent_Callback cb) { qdateedit_inputmethodevent_callback = cb; }
-    void setQDateEdit_EventFilter_Callback(QDateEdit_EventFilter_Callback cb) { qdateedit_eventfilter_callback = cb; }
-    void setQDateEdit_ChildEvent_Callback(QDateEdit_ChildEvent_Callback cb) { qdateedit_childevent_callback = cb; }
-    void setQDateEdit_CustomEvent_Callback(QDateEdit_CustomEvent_Callback cb) { qdateedit_customevent_callback = cb; }
-    void setQDateEdit_ConnectNotify_Callback(QDateEdit_ConnectNotify_Callback cb) { qdateedit_connectnotify_callback = cb; }
-    void setQDateEdit_DisconnectNotify_Callback(QDateEdit_DisconnectNotify_Callback cb) { qdateedit_disconnectnotify_callback = cb; }
-    void setQDateEdit_LineEdit_Callback(QDateEdit_LineEdit_Callback cb) { qdateedit_lineedit_callback = cb; }
-    void setQDateEdit_SetLineEdit_Callback(QDateEdit_SetLineEdit_Callback cb) { qdateedit_setlineedit_callback = cb; }
-    void setQDateEdit_UpdateMicroFocus_Callback(QDateEdit_UpdateMicroFocus_Callback cb) { qdateedit_updatemicrofocus_callback = cb; }
-    void setQDateEdit_Create_Callback(QDateEdit_Create_Callback cb) { qdateedit_create_callback = cb; }
-    void setQDateEdit_Destroy_Callback(QDateEdit_Destroy_Callback cb) { qdateedit_destroy_callback = cb; }
-    void setQDateEdit_FocusNextChild_Callback(QDateEdit_FocusNextChild_Callback cb) { qdateedit_focusnextchild_callback = cb; }
-    void setQDateEdit_FocusPreviousChild_Callback(QDateEdit_FocusPreviousChild_Callback cb) { qdateedit_focuspreviouschild_callback = cb; }
-    void setQDateEdit_Sender_Callback(QDateEdit_Sender_Callback cb) { qdateedit_sender_callback = cb; }
-    void setQDateEdit_SenderSignalIndex_Callback(QDateEdit_SenderSignalIndex_Callback cb) { qdateedit_sendersignalindex_callback = cb; }
-    void setQDateEdit_Receivers_Callback(QDateEdit_Receivers_Callback cb) { qdateedit_receivers_callback = cb; }
-    void setQDateEdit_IsSignalConnected_Callback(QDateEdit_IsSignalConnected_Callback cb) { qdateedit_issignalconnected_callback = cb; }
+    inline void setQDateEdit_Metacall_Callback(QDateEdit_Metacall_Callback cb) { qdateedit_metacall_callback = cb; }
+    inline void setQDateEdit_SizeHint_Callback(QDateEdit_SizeHint_Callback cb) { qdateedit_sizehint_callback = cb; }
+    inline void setQDateEdit_Clear_Callback(QDateEdit_Clear_Callback cb) { qdateedit_clear_callback = cb; }
+    inline void setQDateEdit_StepBy_Callback(QDateEdit_StepBy_Callback cb) { qdateedit_stepby_callback = cb; }
+    inline void setQDateEdit_Event_Callback(QDateEdit_Event_Callback cb) { qdateedit_event_callback = cb; }
+    inline void setQDateEdit_KeyPressEvent_Callback(QDateEdit_KeyPressEvent_Callback cb) { qdateedit_keypressevent_callback = cb; }
+    inline void setQDateEdit_WheelEvent_Callback(QDateEdit_WheelEvent_Callback cb) { qdateedit_wheelevent_callback = cb; }
+    inline void setQDateEdit_FocusInEvent_Callback(QDateEdit_FocusInEvent_Callback cb) { qdateedit_focusinevent_callback = cb; }
+    inline void setQDateEdit_FocusNextPrevChild_Callback(QDateEdit_FocusNextPrevChild_Callback cb) { qdateedit_focusnextprevchild_callback = cb; }
+    inline void setQDateEdit_Validate_Callback(QDateEdit_Validate_Callback cb) { qdateedit_validate_callback = cb; }
+    inline void setQDateEdit_Fixup_Callback(QDateEdit_Fixup_Callback cb) { qdateedit_fixup_callback = cb; }
+    inline void setQDateEdit_DateTimeFromText_Callback(QDateEdit_DateTimeFromText_Callback cb) { qdateedit_datetimefromtext_callback = cb; }
+    inline void setQDateEdit_TextFromDateTime_Callback(QDateEdit_TextFromDateTime_Callback cb) { qdateedit_textfromdatetime_callback = cb; }
+    inline void setQDateEdit_StepEnabled_Callback(QDateEdit_StepEnabled_Callback cb) { qdateedit_stepenabled_callback = cb; }
+    inline void setQDateEdit_MousePressEvent_Callback(QDateEdit_MousePressEvent_Callback cb) { qdateedit_mousepressevent_callback = cb; }
+    inline void setQDateEdit_PaintEvent_Callback(QDateEdit_PaintEvent_Callback cb) { qdateedit_paintevent_callback = cb; }
+    inline void setQDateEdit_InitStyleOption_Callback(QDateEdit_InitStyleOption_Callback cb) { qdateedit_initstyleoption_callback = cb; }
+    inline void setQDateEdit_MinimumSizeHint_Callback(QDateEdit_MinimumSizeHint_Callback cb) { qdateedit_minimumsizehint_callback = cb; }
+    inline void setQDateEdit_InputMethodQuery_Callback(QDateEdit_InputMethodQuery_Callback cb) { qdateedit_inputmethodquery_callback = cb; }
+    inline void setQDateEdit_ResizeEvent_Callback(QDateEdit_ResizeEvent_Callback cb) { qdateedit_resizeevent_callback = cb; }
+    inline void setQDateEdit_KeyReleaseEvent_Callback(QDateEdit_KeyReleaseEvent_Callback cb) { qdateedit_keyreleaseevent_callback = cb; }
+    inline void setQDateEdit_FocusOutEvent_Callback(QDateEdit_FocusOutEvent_Callback cb) { qdateedit_focusoutevent_callback = cb; }
+    inline void setQDateEdit_ContextMenuEvent_Callback(QDateEdit_ContextMenuEvent_Callback cb) { qdateedit_contextmenuevent_callback = cb; }
+    inline void setQDateEdit_ChangeEvent_Callback(QDateEdit_ChangeEvent_Callback cb) { qdateedit_changeevent_callback = cb; }
+    inline void setQDateEdit_CloseEvent_Callback(QDateEdit_CloseEvent_Callback cb) { qdateedit_closeevent_callback = cb; }
+    inline void setQDateEdit_HideEvent_Callback(QDateEdit_HideEvent_Callback cb) { qdateedit_hideevent_callback = cb; }
+    inline void setQDateEdit_MouseReleaseEvent_Callback(QDateEdit_MouseReleaseEvent_Callback cb) { qdateedit_mousereleaseevent_callback = cb; }
+    inline void setQDateEdit_MouseMoveEvent_Callback(QDateEdit_MouseMoveEvent_Callback cb) { qdateedit_mousemoveevent_callback = cb; }
+    inline void setQDateEdit_TimerEvent_Callback(QDateEdit_TimerEvent_Callback cb) { qdateedit_timerevent_callback = cb; }
+    inline void setQDateEdit_ShowEvent_Callback(QDateEdit_ShowEvent_Callback cb) { qdateedit_showevent_callback = cb; }
+    inline void setQDateEdit_DevType_Callback(QDateEdit_DevType_Callback cb) { qdateedit_devtype_callback = cb; }
+    inline void setQDateEdit_SetVisible_Callback(QDateEdit_SetVisible_Callback cb) { qdateedit_setvisible_callback = cb; }
+    inline void setQDateEdit_HeightForWidth_Callback(QDateEdit_HeightForWidth_Callback cb) { qdateedit_heightforwidth_callback = cb; }
+    inline void setQDateEdit_HasHeightForWidth_Callback(QDateEdit_HasHeightForWidth_Callback cb) { qdateedit_hasheightforwidth_callback = cb; }
+    inline void setQDateEdit_PaintEngine_Callback(QDateEdit_PaintEngine_Callback cb) { qdateedit_paintengine_callback = cb; }
+    inline void setQDateEdit_MouseDoubleClickEvent_Callback(QDateEdit_MouseDoubleClickEvent_Callback cb) { qdateedit_mousedoubleclickevent_callback = cb; }
+    inline void setQDateEdit_EnterEvent_Callback(QDateEdit_EnterEvent_Callback cb) { qdateedit_enterevent_callback = cb; }
+    inline void setQDateEdit_LeaveEvent_Callback(QDateEdit_LeaveEvent_Callback cb) { qdateedit_leaveevent_callback = cb; }
+    inline void setQDateEdit_MoveEvent_Callback(QDateEdit_MoveEvent_Callback cb) { qdateedit_moveevent_callback = cb; }
+    inline void setQDateEdit_TabletEvent_Callback(QDateEdit_TabletEvent_Callback cb) { qdateedit_tabletevent_callback = cb; }
+    inline void setQDateEdit_ActionEvent_Callback(QDateEdit_ActionEvent_Callback cb) { qdateedit_actionevent_callback = cb; }
+    inline void setQDateEdit_DragEnterEvent_Callback(QDateEdit_DragEnterEvent_Callback cb) { qdateedit_dragenterevent_callback = cb; }
+    inline void setQDateEdit_DragMoveEvent_Callback(QDateEdit_DragMoveEvent_Callback cb) { qdateedit_dragmoveevent_callback = cb; }
+    inline void setQDateEdit_DragLeaveEvent_Callback(QDateEdit_DragLeaveEvent_Callback cb) { qdateedit_dragleaveevent_callback = cb; }
+    inline void setQDateEdit_DropEvent_Callback(QDateEdit_DropEvent_Callback cb) { qdateedit_dropevent_callback = cb; }
+    inline void setQDateEdit_NativeEvent_Callback(QDateEdit_NativeEvent_Callback cb) { qdateedit_nativeevent_callback = cb; }
+    inline void setQDateEdit_Metric_Callback(QDateEdit_Metric_Callback cb) { qdateedit_metric_callback = cb; }
+    inline void setQDateEdit_InitPainter_Callback(QDateEdit_InitPainter_Callback cb) { qdateedit_initpainter_callback = cb; }
+    inline void setQDateEdit_Redirected_Callback(QDateEdit_Redirected_Callback cb) { qdateedit_redirected_callback = cb; }
+    inline void setQDateEdit_SharedPainter_Callback(QDateEdit_SharedPainter_Callback cb) { qdateedit_sharedpainter_callback = cb; }
+    inline void setQDateEdit_InputMethodEvent_Callback(QDateEdit_InputMethodEvent_Callback cb) { qdateedit_inputmethodevent_callback = cb; }
+    inline void setQDateEdit_EventFilter_Callback(QDateEdit_EventFilter_Callback cb) { qdateedit_eventfilter_callback = cb; }
+    inline void setQDateEdit_ChildEvent_Callback(QDateEdit_ChildEvent_Callback cb) { qdateedit_childevent_callback = cb; }
+    inline void setQDateEdit_CustomEvent_Callback(QDateEdit_CustomEvent_Callback cb) { qdateedit_customevent_callback = cb; }
+    inline void setQDateEdit_ConnectNotify_Callback(QDateEdit_ConnectNotify_Callback cb) { qdateedit_connectnotify_callback = cb; }
+    inline void setQDateEdit_DisconnectNotify_Callback(QDateEdit_DisconnectNotify_Callback cb) { qdateedit_disconnectnotify_callback = cb; }
+    inline void setQDateEdit_LineEdit_Callback(QDateEdit_LineEdit_Callback cb) { qdateedit_lineedit_callback = cb; }
+    inline void setQDateEdit_SetLineEdit_Callback(QDateEdit_SetLineEdit_Callback cb) { qdateedit_setlineedit_callback = cb; }
+    inline void setQDateEdit_UpdateMicroFocus_Callback(QDateEdit_UpdateMicroFocus_Callback cb) { qdateedit_updatemicrofocus_callback = cb; }
+    inline void setQDateEdit_Create_Callback(QDateEdit_Create_Callback cb) { qdateedit_create_callback = cb; }
+    inline void setQDateEdit_Destroy_Callback(QDateEdit_Destroy_Callback cb) { qdateedit_destroy_callback = cb; }
+    inline void setQDateEdit_FocusNextChild_Callback(QDateEdit_FocusNextChild_Callback cb) { qdateedit_focusnextchild_callback = cb; }
+    inline void setQDateEdit_FocusPreviousChild_Callback(QDateEdit_FocusPreviousChild_Callback cb) { qdateedit_focuspreviouschild_callback = cb; }
+    inline void setQDateEdit_Sender_Callback(QDateEdit_Sender_Callback cb) { qdateedit_sender_callback = cb; }
+    inline void setQDateEdit_SenderSignalIndex_Callback(QDateEdit_SenderSignalIndex_Callback cb) { qdateedit_sendersignalindex_callback = cb; }
+    inline void setQDateEdit_Receivers_Callback(QDateEdit_Receivers_Callback cb) { qdateedit_receivers_callback = cb; }
+    inline void setQDateEdit_IsSignalConnected_Callback(QDateEdit_IsSignalConnected_Callback cb) { qdateedit_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQDateEdit_Metacall_IsBase(bool value) const { qdateedit_metacall_isbase = value; }
-    void setQDateEdit_SizeHint_IsBase(bool value) const { qdateedit_sizehint_isbase = value; }
-    void setQDateEdit_Clear_IsBase(bool value) const { qdateedit_clear_isbase = value; }
-    void setQDateEdit_StepBy_IsBase(bool value) const { qdateedit_stepby_isbase = value; }
-    void setQDateEdit_Event_IsBase(bool value) const { qdateedit_event_isbase = value; }
-    void setQDateEdit_KeyPressEvent_IsBase(bool value) const { qdateedit_keypressevent_isbase = value; }
-    void setQDateEdit_WheelEvent_IsBase(bool value) const { qdateedit_wheelevent_isbase = value; }
-    void setQDateEdit_FocusInEvent_IsBase(bool value) const { qdateedit_focusinevent_isbase = value; }
-    void setQDateEdit_FocusNextPrevChild_IsBase(bool value) const { qdateedit_focusnextprevchild_isbase = value; }
-    void setQDateEdit_Validate_IsBase(bool value) const { qdateedit_validate_isbase = value; }
-    void setQDateEdit_Fixup_IsBase(bool value) const { qdateedit_fixup_isbase = value; }
-    void setQDateEdit_DateTimeFromText_IsBase(bool value) const { qdateedit_datetimefromtext_isbase = value; }
-    void setQDateEdit_TextFromDateTime_IsBase(bool value) const { qdateedit_textfromdatetime_isbase = value; }
-    void setQDateEdit_StepEnabled_IsBase(bool value) const { qdateedit_stepenabled_isbase = value; }
-    void setQDateEdit_MousePressEvent_IsBase(bool value) const { qdateedit_mousepressevent_isbase = value; }
-    void setQDateEdit_PaintEvent_IsBase(bool value) const { qdateedit_paintevent_isbase = value; }
-    void setQDateEdit_InitStyleOption_IsBase(bool value) const { qdateedit_initstyleoption_isbase = value; }
-    void setQDateEdit_MinimumSizeHint_IsBase(bool value) const { qdateedit_minimumsizehint_isbase = value; }
-    void setQDateEdit_InputMethodQuery_IsBase(bool value) const { qdateedit_inputmethodquery_isbase = value; }
-    void setQDateEdit_ResizeEvent_IsBase(bool value) const { qdateedit_resizeevent_isbase = value; }
-    void setQDateEdit_KeyReleaseEvent_IsBase(bool value) const { qdateedit_keyreleaseevent_isbase = value; }
-    void setQDateEdit_FocusOutEvent_IsBase(bool value) const { qdateedit_focusoutevent_isbase = value; }
-    void setQDateEdit_ContextMenuEvent_IsBase(bool value) const { qdateedit_contextmenuevent_isbase = value; }
-    void setQDateEdit_ChangeEvent_IsBase(bool value) const { qdateedit_changeevent_isbase = value; }
-    void setQDateEdit_CloseEvent_IsBase(bool value) const { qdateedit_closeevent_isbase = value; }
-    void setQDateEdit_HideEvent_IsBase(bool value) const { qdateedit_hideevent_isbase = value; }
-    void setQDateEdit_MouseReleaseEvent_IsBase(bool value) const { qdateedit_mousereleaseevent_isbase = value; }
-    void setQDateEdit_MouseMoveEvent_IsBase(bool value) const { qdateedit_mousemoveevent_isbase = value; }
-    void setQDateEdit_TimerEvent_IsBase(bool value) const { qdateedit_timerevent_isbase = value; }
-    void setQDateEdit_ShowEvent_IsBase(bool value) const { qdateedit_showevent_isbase = value; }
-    void setQDateEdit_DevType_IsBase(bool value) const { qdateedit_devtype_isbase = value; }
-    void setQDateEdit_SetVisible_IsBase(bool value) const { qdateedit_setvisible_isbase = value; }
-    void setQDateEdit_HeightForWidth_IsBase(bool value) const { qdateedit_heightforwidth_isbase = value; }
-    void setQDateEdit_HasHeightForWidth_IsBase(bool value) const { qdateedit_hasheightforwidth_isbase = value; }
-    void setQDateEdit_PaintEngine_IsBase(bool value) const { qdateedit_paintengine_isbase = value; }
-    void setQDateEdit_MouseDoubleClickEvent_IsBase(bool value) const { qdateedit_mousedoubleclickevent_isbase = value; }
-    void setQDateEdit_EnterEvent_IsBase(bool value) const { qdateedit_enterevent_isbase = value; }
-    void setQDateEdit_LeaveEvent_IsBase(bool value) const { qdateedit_leaveevent_isbase = value; }
-    void setQDateEdit_MoveEvent_IsBase(bool value) const { qdateedit_moveevent_isbase = value; }
-    void setQDateEdit_TabletEvent_IsBase(bool value) const { qdateedit_tabletevent_isbase = value; }
-    void setQDateEdit_ActionEvent_IsBase(bool value) const { qdateedit_actionevent_isbase = value; }
-    void setQDateEdit_DragEnterEvent_IsBase(bool value) const { qdateedit_dragenterevent_isbase = value; }
-    void setQDateEdit_DragMoveEvent_IsBase(bool value) const { qdateedit_dragmoveevent_isbase = value; }
-    void setQDateEdit_DragLeaveEvent_IsBase(bool value) const { qdateedit_dragleaveevent_isbase = value; }
-    void setQDateEdit_DropEvent_IsBase(bool value) const { qdateedit_dropevent_isbase = value; }
-    void setQDateEdit_NativeEvent_IsBase(bool value) const { qdateedit_nativeevent_isbase = value; }
-    void setQDateEdit_Metric_IsBase(bool value) const { qdateedit_metric_isbase = value; }
-    void setQDateEdit_InitPainter_IsBase(bool value) const { qdateedit_initpainter_isbase = value; }
-    void setQDateEdit_Redirected_IsBase(bool value) const { qdateedit_redirected_isbase = value; }
-    void setQDateEdit_SharedPainter_IsBase(bool value) const { qdateedit_sharedpainter_isbase = value; }
-    void setQDateEdit_InputMethodEvent_IsBase(bool value) const { qdateedit_inputmethodevent_isbase = value; }
-    void setQDateEdit_EventFilter_IsBase(bool value) const { qdateedit_eventfilter_isbase = value; }
-    void setQDateEdit_ChildEvent_IsBase(bool value) const { qdateedit_childevent_isbase = value; }
-    void setQDateEdit_CustomEvent_IsBase(bool value) const { qdateedit_customevent_isbase = value; }
-    void setQDateEdit_ConnectNotify_IsBase(bool value) const { qdateedit_connectnotify_isbase = value; }
-    void setQDateEdit_DisconnectNotify_IsBase(bool value) const { qdateedit_disconnectnotify_isbase = value; }
-    void setQDateEdit_LineEdit_IsBase(bool value) const { qdateedit_lineedit_isbase = value; }
-    void setQDateEdit_SetLineEdit_IsBase(bool value) const { qdateedit_setlineedit_isbase = value; }
-    void setQDateEdit_UpdateMicroFocus_IsBase(bool value) const { qdateedit_updatemicrofocus_isbase = value; }
-    void setQDateEdit_Create_IsBase(bool value) const { qdateedit_create_isbase = value; }
-    void setQDateEdit_Destroy_IsBase(bool value) const { qdateedit_destroy_isbase = value; }
-    void setQDateEdit_FocusNextChild_IsBase(bool value) const { qdateedit_focusnextchild_isbase = value; }
-    void setQDateEdit_FocusPreviousChild_IsBase(bool value) const { qdateedit_focuspreviouschild_isbase = value; }
-    void setQDateEdit_Sender_IsBase(bool value) const { qdateedit_sender_isbase = value; }
-    void setQDateEdit_SenderSignalIndex_IsBase(bool value) const { qdateedit_sendersignalindex_isbase = value; }
-    void setQDateEdit_Receivers_IsBase(bool value) const { qdateedit_receivers_isbase = value; }
-    void setQDateEdit_IsSignalConnected_IsBase(bool value) const { qdateedit_issignalconnected_isbase = value; }
+    inline void setQDateEdit_Metacall_IsBase(bool value) const { qdateedit_metacall_isbase = value; }
+    inline void setQDateEdit_SizeHint_IsBase(bool value) const { qdateedit_sizehint_isbase = value; }
+    inline void setQDateEdit_Clear_IsBase(bool value) const { qdateedit_clear_isbase = value; }
+    inline void setQDateEdit_StepBy_IsBase(bool value) const { qdateedit_stepby_isbase = value; }
+    inline void setQDateEdit_Event_IsBase(bool value) const { qdateedit_event_isbase = value; }
+    inline void setQDateEdit_KeyPressEvent_IsBase(bool value) const { qdateedit_keypressevent_isbase = value; }
+    inline void setQDateEdit_WheelEvent_IsBase(bool value) const { qdateedit_wheelevent_isbase = value; }
+    inline void setQDateEdit_FocusInEvent_IsBase(bool value) const { qdateedit_focusinevent_isbase = value; }
+    inline void setQDateEdit_FocusNextPrevChild_IsBase(bool value) const { qdateedit_focusnextprevchild_isbase = value; }
+    inline void setQDateEdit_Validate_IsBase(bool value) const { qdateedit_validate_isbase = value; }
+    inline void setQDateEdit_Fixup_IsBase(bool value) const { qdateedit_fixup_isbase = value; }
+    inline void setQDateEdit_DateTimeFromText_IsBase(bool value) const { qdateedit_datetimefromtext_isbase = value; }
+    inline void setQDateEdit_TextFromDateTime_IsBase(bool value) const { qdateedit_textfromdatetime_isbase = value; }
+    inline void setQDateEdit_StepEnabled_IsBase(bool value) const { qdateedit_stepenabled_isbase = value; }
+    inline void setQDateEdit_MousePressEvent_IsBase(bool value) const { qdateedit_mousepressevent_isbase = value; }
+    inline void setQDateEdit_PaintEvent_IsBase(bool value) const { qdateedit_paintevent_isbase = value; }
+    inline void setQDateEdit_InitStyleOption_IsBase(bool value) const { qdateedit_initstyleoption_isbase = value; }
+    inline void setQDateEdit_MinimumSizeHint_IsBase(bool value) const { qdateedit_minimumsizehint_isbase = value; }
+    inline void setQDateEdit_InputMethodQuery_IsBase(bool value) const { qdateedit_inputmethodquery_isbase = value; }
+    inline void setQDateEdit_ResizeEvent_IsBase(bool value) const { qdateedit_resizeevent_isbase = value; }
+    inline void setQDateEdit_KeyReleaseEvent_IsBase(bool value) const { qdateedit_keyreleaseevent_isbase = value; }
+    inline void setQDateEdit_FocusOutEvent_IsBase(bool value) const { qdateedit_focusoutevent_isbase = value; }
+    inline void setQDateEdit_ContextMenuEvent_IsBase(bool value) const { qdateedit_contextmenuevent_isbase = value; }
+    inline void setQDateEdit_ChangeEvent_IsBase(bool value) const { qdateedit_changeevent_isbase = value; }
+    inline void setQDateEdit_CloseEvent_IsBase(bool value) const { qdateedit_closeevent_isbase = value; }
+    inline void setQDateEdit_HideEvent_IsBase(bool value) const { qdateedit_hideevent_isbase = value; }
+    inline void setQDateEdit_MouseReleaseEvent_IsBase(bool value) const { qdateedit_mousereleaseevent_isbase = value; }
+    inline void setQDateEdit_MouseMoveEvent_IsBase(bool value) const { qdateedit_mousemoveevent_isbase = value; }
+    inline void setQDateEdit_TimerEvent_IsBase(bool value) const { qdateedit_timerevent_isbase = value; }
+    inline void setQDateEdit_ShowEvent_IsBase(bool value) const { qdateedit_showevent_isbase = value; }
+    inline void setQDateEdit_DevType_IsBase(bool value) const { qdateedit_devtype_isbase = value; }
+    inline void setQDateEdit_SetVisible_IsBase(bool value) const { qdateedit_setvisible_isbase = value; }
+    inline void setQDateEdit_HeightForWidth_IsBase(bool value) const { qdateedit_heightforwidth_isbase = value; }
+    inline void setQDateEdit_HasHeightForWidth_IsBase(bool value) const { qdateedit_hasheightforwidth_isbase = value; }
+    inline void setQDateEdit_PaintEngine_IsBase(bool value) const { qdateedit_paintengine_isbase = value; }
+    inline void setQDateEdit_MouseDoubleClickEvent_IsBase(bool value) const { qdateedit_mousedoubleclickevent_isbase = value; }
+    inline void setQDateEdit_EnterEvent_IsBase(bool value) const { qdateedit_enterevent_isbase = value; }
+    inline void setQDateEdit_LeaveEvent_IsBase(bool value) const { qdateedit_leaveevent_isbase = value; }
+    inline void setQDateEdit_MoveEvent_IsBase(bool value) const { qdateedit_moveevent_isbase = value; }
+    inline void setQDateEdit_TabletEvent_IsBase(bool value) const { qdateedit_tabletevent_isbase = value; }
+    inline void setQDateEdit_ActionEvent_IsBase(bool value) const { qdateedit_actionevent_isbase = value; }
+    inline void setQDateEdit_DragEnterEvent_IsBase(bool value) const { qdateedit_dragenterevent_isbase = value; }
+    inline void setQDateEdit_DragMoveEvent_IsBase(bool value) const { qdateedit_dragmoveevent_isbase = value; }
+    inline void setQDateEdit_DragLeaveEvent_IsBase(bool value) const { qdateedit_dragleaveevent_isbase = value; }
+    inline void setQDateEdit_DropEvent_IsBase(bool value) const { qdateedit_dropevent_isbase = value; }
+    inline void setQDateEdit_NativeEvent_IsBase(bool value) const { qdateedit_nativeevent_isbase = value; }
+    inline void setQDateEdit_Metric_IsBase(bool value) const { qdateedit_metric_isbase = value; }
+    inline void setQDateEdit_InitPainter_IsBase(bool value) const { qdateedit_initpainter_isbase = value; }
+    inline void setQDateEdit_Redirected_IsBase(bool value) const { qdateedit_redirected_isbase = value; }
+    inline void setQDateEdit_SharedPainter_IsBase(bool value) const { qdateedit_sharedpainter_isbase = value; }
+    inline void setQDateEdit_InputMethodEvent_IsBase(bool value) const { qdateedit_inputmethodevent_isbase = value; }
+    inline void setQDateEdit_EventFilter_IsBase(bool value) const { qdateedit_eventfilter_isbase = value; }
+    inline void setQDateEdit_ChildEvent_IsBase(bool value) const { qdateedit_childevent_isbase = value; }
+    inline void setQDateEdit_CustomEvent_IsBase(bool value) const { qdateedit_customevent_isbase = value; }
+    inline void setQDateEdit_ConnectNotify_IsBase(bool value) const { qdateedit_connectnotify_isbase = value; }
+    inline void setQDateEdit_DisconnectNotify_IsBase(bool value) const { qdateedit_disconnectnotify_isbase = value; }
+    inline void setQDateEdit_LineEdit_IsBase(bool value) const { qdateedit_lineedit_isbase = value; }
+    inline void setQDateEdit_SetLineEdit_IsBase(bool value) const { qdateedit_setlineedit_isbase = value; }
+    inline void setQDateEdit_UpdateMicroFocus_IsBase(bool value) const { qdateedit_updatemicrofocus_isbase = value; }
+    inline void setQDateEdit_Create_IsBase(bool value) const { qdateedit_create_isbase = value; }
+    inline void setQDateEdit_Destroy_IsBase(bool value) const { qdateedit_destroy_isbase = value; }
+    inline void setQDateEdit_FocusNextChild_IsBase(bool value) const { qdateedit_focusnextchild_isbase = value; }
+    inline void setQDateEdit_FocusPreviousChild_IsBase(bool value) const { qdateedit_focuspreviouschild_isbase = value; }
+    inline void setQDateEdit_Sender_IsBase(bool value) const { qdateedit_sender_isbase = value; }
+    inline void setQDateEdit_SenderSignalIndex_IsBase(bool value) const { qdateedit_sendersignalindex_isbase = value; }
+    inline void setQDateEdit_Receivers_IsBase(bool value) const { qdateedit_receivers_isbase = value; }
+    inline void setQDateEdit_IsSignalConnected_IsBase(bool value) const { qdateedit_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -2908,7 +3485,12 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_metacall_isbase = false;
             return QDateEdit::qt_metacall(param1, param2, param3);
         } else if (qdateedit_metacall_callback != nullptr) {
-            return qdateedit_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qdateedit_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QDateEdit::qt_metacall(param1, param2, param3);
         }
@@ -2920,7 +3502,8 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_sizehint_isbase = false;
             return QDateEdit::sizeHint();
         } else if (qdateedit_sizehint_callback != nullptr) {
-            return qdateedit_sizehint_callback();
+            QSize* callback_ret = qdateedit_sizehint_callback();
+            return *callback_ret;
         } else {
             return QDateEdit::sizeHint();
         }
@@ -2944,7 +3527,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_stepby_isbase = false;
             QDateEdit::stepBy(steps);
         } else if (qdateedit_stepby_callback != nullptr) {
-            qdateedit_stepby_callback(this, steps);
+            int cbval1 = steps;
+
+            qdateedit_stepby_callback(this, cbval1);
         } else {
             QDateEdit::stepBy(steps);
         }
@@ -2956,7 +3541,10 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_event_isbase = false;
             return QDateEdit::event(event);
         } else if (qdateedit_event_callback != nullptr) {
-            return qdateedit_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qdateedit_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QDateEdit::event(event);
         }
@@ -2968,7 +3556,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_keypressevent_isbase = false;
             QDateEdit::keyPressEvent(event);
         } else if (qdateedit_keypressevent_callback != nullptr) {
-            qdateedit_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qdateedit_keypressevent_callback(this, cbval1);
         } else {
             QDateEdit::keyPressEvent(event);
         }
@@ -2980,7 +3570,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_wheelevent_isbase = false;
             QDateEdit::wheelEvent(event);
         } else if (qdateedit_wheelevent_callback != nullptr) {
-            qdateedit_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qdateedit_wheelevent_callback(this, cbval1);
         } else {
             QDateEdit::wheelEvent(event);
         }
@@ -2992,7 +3584,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_focusinevent_isbase = false;
             QDateEdit::focusInEvent(event);
         } else if (qdateedit_focusinevent_callback != nullptr) {
-            qdateedit_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qdateedit_focusinevent_callback(this, cbval1);
         } else {
             QDateEdit::focusInEvent(event);
         }
@@ -3004,7 +3598,10 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_focusnextprevchild_isbase = false;
             return QDateEdit::focusNextPrevChild(next);
         } else if (qdateedit_focusnextprevchild_callback != nullptr) {
-            return qdateedit_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qdateedit_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QDateEdit::focusNextPrevChild(next);
         }
@@ -3016,7 +3613,19 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_validate_isbase = false;
             return QDateEdit::validate(input, pos);
         } else if (qdateedit_validate_callback != nullptr) {
-            return qdateedit_validate_callback(this, input, pos);
+            QString input_ret = input;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray input_b = input_ret.toUtf8();
+            libqt_string input_str;
+            input_str.len = input_b.length();
+            input_str.data = static_cast<char*>(malloc((input_str.len + 1) * sizeof(char)));
+            memcpy(input_str.data, input_b.data(), input_str.len);
+            input_str.data[input_str.len] = '\0';
+            libqt_string cbval1 = input_str;
+            int* cbval2 = &pos;
+
+            int callback_ret = qdateedit_validate_callback(this, cbval1, cbval2);
+            return static_cast<QValidator::State>(callback_ret);
         } else {
             return QDateEdit::validate(input, pos);
         }
@@ -3028,7 +3637,17 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_fixup_isbase = false;
             QDateEdit::fixup(input);
         } else if (qdateedit_fixup_callback != nullptr) {
-            qdateedit_fixup_callback(this, input);
+            QString input_ret = input;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray input_b = input_ret.toUtf8();
+            libqt_string input_str;
+            input_str.len = input_b.length();
+            input_str.data = static_cast<char*>(malloc((input_str.len + 1) * sizeof(char)));
+            memcpy(input_str.data, input_b.data(), input_str.len);
+            input_str.data[input_str.len] = '\0';
+            libqt_string cbval1 = input_str;
+
+            qdateedit_fixup_callback(this, cbval1);
         } else {
             QDateEdit::fixup(input);
         }
@@ -3040,7 +3659,18 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_datetimefromtext_isbase = false;
             return QDateEdit::dateTimeFromText(text);
         } else if (qdateedit_datetimefromtext_callback != nullptr) {
-            return qdateedit_datetimefromtext_callback(this, text);
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy(text_str.data, text_b.data(), text_str.len);
+            text_str.data[text_str.len] = '\0';
+            libqt_string cbval1 = text_str;
+
+            QDateTime* callback_ret = qdateedit_datetimefromtext_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QDateEdit::dateTimeFromText(text);
         }
@@ -3052,7 +3682,13 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_textfromdatetime_isbase = false;
             return QDateEdit::textFromDateTime(dt);
         } else if (qdateedit_textfromdatetime_callback != nullptr) {
-            return qdateedit_textfromdatetime_callback(this, dt);
+            const QDateTime& dt_ret = dt;
+            // Cast returned reference into pointer
+            QDateTime* cbval1 = const_cast<QDateTime*>(&dt_ret);
+
+            libqt_string callback_ret = qdateedit_textfromdatetime_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
         } else {
             return QDateEdit::textFromDateTime(dt);
         }
@@ -3064,7 +3700,8 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_stepenabled_isbase = false;
             return QDateEdit::stepEnabled();
         } else if (qdateedit_stepenabled_callback != nullptr) {
-            return qdateedit_stepenabled_callback();
+            int callback_ret = qdateedit_stepenabled_callback();
+            return static_cast<QAbstractSpinBox::StepEnabled>(callback_ret);
         } else {
             return QDateEdit::stepEnabled();
         }
@@ -3076,7 +3713,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_mousepressevent_isbase = false;
             QDateEdit::mousePressEvent(event);
         } else if (qdateedit_mousepressevent_callback != nullptr) {
-            qdateedit_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qdateedit_mousepressevent_callback(this, cbval1);
         } else {
             QDateEdit::mousePressEvent(event);
         }
@@ -3088,7 +3727,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_paintevent_isbase = false;
             QDateEdit::paintEvent(event);
         } else if (qdateedit_paintevent_callback != nullptr) {
-            qdateedit_paintevent_callback(this, event);
+            QPaintEvent* cbval1 = event;
+
+            qdateedit_paintevent_callback(this, cbval1);
         } else {
             QDateEdit::paintEvent(event);
         }
@@ -3100,7 +3741,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_initstyleoption_isbase = false;
             QDateEdit::initStyleOption(option);
         } else if (qdateedit_initstyleoption_callback != nullptr) {
-            qdateedit_initstyleoption_callback(this, option);
+            QStyleOptionSpinBox* cbval1 = option;
+
+            qdateedit_initstyleoption_callback(this, cbval1);
         } else {
             QDateEdit::initStyleOption(option);
         }
@@ -3112,7 +3755,8 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_minimumsizehint_isbase = false;
             return QDateEdit::minimumSizeHint();
         } else if (qdateedit_minimumsizehint_callback != nullptr) {
-            return qdateedit_minimumsizehint_callback();
+            QSize* callback_ret = qdateedit_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QDateEdit::minimumSizeHint();
         }
@@ -3124,7 +3768,10 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_inputmethodquery_isbase = false;
             return QDateEdit::inputMethodQuery(param1);
         } else if (qdateedit_inputmethodquery_callback != nullptr) {
-            return qdateedit_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qdateedit_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QDateEdit::inputMethodQuery(param1);
         }
@@ -3136,7 +3783,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_resizeevent_isbase = false;
             QDateEdit::resizeEvent(event);
         } else if (qdateedit_resizeevent_callback != nullptr) {
-            qdateedit_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qdateedit_resizeevent_callback(this, cbval1);
         } else {
             QDateEdit::resizeEvent(event);
         }
@@ -3148,7 +3797,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_keyreleaseevent_isbase = false;
             QDateEdit::keyReleaseEvent(event);
         } else if (qdateedit_keyreleaseevent_callback != nullptr) {
-            qdateedit_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qdateedit_keyreleaseevent_callback(this, cbval1);
         } else {
             QDateEdit::keyReleaseEvent(event);
         }
@@ -3160,7 +3811,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_focusoutevent_isbase = false;
             QDateEdit::focusOutEvent(event);
         } else if (qdateedit_focusoutevent_callback != nullptr) {
-            qdateedit_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qdateedit_focusoutevent_callback(this, cbval1);
         } else {
             QDateEdit::focusOutEvent(event);
         }
@@ -3172,7 +3825,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_contextmenuevent_isbase = false;
             QDateEdit::contextMenuEvent(event);
         } else if (qdateedit_contextmenuevent_callback != nullptr) {
-            qdateedit_contextmenuevent_callback(this, event);
+            QContextMenuEvent* cbval1 = event;
+
+            qdateedit_contextmenuevent_callback(this, cbval1);
         } else {
             QDateEdit::contextMenuEvent(event);
         }
@@ -3184,7 +3839,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_changeevent_isbase = false;
             QDateEdit::changeEvent(event);
         } else if (qdateedit_changeevent_callback != nullptr) {
-            qdateedit_changeevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qdateedit_changeevent_callback(this, cbval1);
         } else {
             QDateEdit::changeEvent(event);
         }
@@ -3196,7 +3853,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_closeevent_isbase = false;
             QDateEdit::closeEvent(event);
         } else if (qdateedit_closeevent_callback != nullptr) {
-            qdateedit_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qdateedit_closeevent_callback(this, cbval1);
         } else {
             QDateEdit::closeEvent(event);
         }
@@ -3208,7 +3867,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_hideevent_isbase = false;
             QDateEdit::hideEvent(event);
         } else if (qdateedit_hideevent_callback != nullptr) {
-            qdateedit_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qdateedit_hideevent_callback(this, cbval1);
         } else {
             QDateEdit::hideEvent(event);
         }
@@ -3220,7 +3881,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_mousereleaseevent_isbase = false;
             QDateEdit::mouseReleaseEvent(event);
         } else if (qdateedit_mousereleaseevent_callback != nullptr) {
-            qdateedit_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qdateedit_mousereleaseevent_callback(this, cbval1);
         } else {
             QDateEdit::mouseReleaseEvent(event);
         }
@@ -3232,7 +3895,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_mousemoveevent_isbase = false;
             QDateEdit::mouseMoveEvent(event);
         } else if (qdateedit_mousemoveevent_callback != nullptr) {
-            qdateedit_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qdateedit_mousemoveevent_callback(this, cbval1);
         } else {
             QDateEdit::mouseMoveEvent(event);
         }
@@ -3244,7 +3909,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_timerevent_isbase = false;
             QDateEdit::timerEvent(event);
         } else if (qdateedit_timerevent_callback != nullptr) {
-            qdateedit_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qdateedit_timerevent_callback(this, cbval1);
         } else {
             QDateEdit::timerEvent(event);
         }
@@ -3256,7 +3923,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_showevent_isbase = false;
             QDateEdit::showEvent(event);
         } else if (qdateedit_showevent_callback != nullptr) {
-            qdateedit_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qdateedit_showevent_callback(this, cbval1);
         } else {
             QDateEdit::showEvent(event);
         }
@@ -3268,7 +3937,8 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_devtype_isbase = false;
             return QDateEdit::devType();
         } else if (qdateedit_devtype_callback != nullptr) {
-            return qdateedit_devtype_callback();
+            int callback_ret = qdateedit_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QDateEdit::devType();
         }
@@ -3280,7 +3950,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_setvisible_isbase = false;
             QDateEdit::setVisible(visible);
         } else if (qdateedit_setvisible_callback != nullptr) {
-            qdateedit_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qdateedit_setvisible_callback(this, cbval1);
         } else {
             QDateEdit::setVisible(visible);
         }
@@ -3292,7 +3964,10 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_heightforwidth_isbase = false;
             return QDateEdit::heightForWidth(param1);
         } else if (qdateedit_heightforwidth_callback != nullptr) {
-            return qdateedit_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qdateedit_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QDateEdit::heightForWidth(param1);
         }
@@ -3304,7 +3979,8 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_hasheightforwidth_isbase = false;
             return QDateEdit::hasHeightForWidth();
         } else if (qdateedit_hasheightforwidth_callback != nullptr) {
-            return qdateedit_hasheightforwidth_callback();
+            bool callback_ret = qdateedit_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QDateEdit::hasHeightForWidth();
         }
@@ -3316,7 +3992,8 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_paintengine_isbase = false;
             return QDateEdit::paintEngine();
         } else if (qdateedit_paintengine_callback != nullptr) {
-            return qdateedit_paintengine_callback();
+            QPaintEngine* callback_ret = qdateedit_paintengine_callback();
+            return callback_ret;
         } else {
             return QDateEdit::paintEngine();
         }
@@ -3328,7 +4005,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_mousedoubleclickevent_isbase = false;
             QDateEdit::mouseDoubleClickEvent(event);
         } else if (qdateedit_mousedoubleclickevent_callback != nullptr) {
-            qdateedit_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qdateedit_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QDateEdit::mouseDoubleClickEvent(event);
         }
@@ -3340,7 +4019,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_enterevent_isbase = false;
             QDateEdit::enterEvent(event);
         } else if (qdateedit_enterevent_callback != nullptr) {
-            qdateedit_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qdateedit_enterevent_callback(this, cbval1);
         } else {
             QDateEdit::enterEvent(event);
         }
@@ -3352,7 +4033,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_leaveevent_isbase = false;
             QDateEdit::leaveEvent(event);
         } else if (qdateedit_leaveevent_callback != nullptr) {
-            qdateedit_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qdateedit_leaveevent_callback(this, cbval1);
         } else {
             QDateEdit::leaveEvent(event);
         }
@@ -3364,7 +4047,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_moveevent_isbase = false;
             QDateEdit::moveEvent(event);
         } else if (qdateedit_moveevent_callback != nullptr) {
-            qdateedit_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qdateedit_moveevent_callback(this, cbval1);
         } else {
             QDateEdit::moveEvent(event);
         }
@@ -3376,7 +4061,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_tabletevent_isbase = false;
             QDateEdit::tabletEvent(event);
         } else if (qdateedit_tabletevent_callback != nullptr) {
-            qdateedit_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qdateedit_tabletevent_callback(this, cbval1);
         } else {
             QDateEdit::tabletEvent(event);
         }
@@ -3388,7 +4075,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_actionevent_isbase = false;
             QDateEdit::actionEvent(event);
         } else if (qdateedit_actionevent_callback != nullptr) {
-            qdateedit_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qdateedit_actionevent_callback(this, cbval1);
         } else {
             QDateEdit::actionEvent(event);
         }
@@ -3400,7 +4089,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_dragenterevent_isbase = false;
             QDateEdit::dragEnterEvent(event);
         } else if (qdateedit_dragenterevent_callback != nullptr) {
-            qdateedit_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qdateedit_dragenterevent_callback(this, cbval1);
         } else {
             QDateEdit::dragEnterEvent(event);
         }
@@ -3412,7 +4103,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_dragmoveevent_isbase = false;
             QDateEdit::dragMoveEvent(event);
         } else if (qdateedit_dragmoveevent_callback != nullptr) {
-            qdateedit_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qdateedit_dragmoveevent_callback(this, cbval1);
         } else {
             QDateEdit::dragMoveEvent(event);
         }
@@ -3424,7 +4117,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_dragleaveevent_isbase = false;
             QDateEdit::dragLeaveEvent(event);
         } else if (qdateedit_dragleaveevent_callback != nullptr) {
-            qdateedit_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qdateedit_dragleaveevent_callback(this, cbval1);
         } else {
             QDateEdit::dragLeaveEvent(event);
         }
@@ -3436,7 +4131,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_dropevent_isbase = false;
             QDateEdit::dropEvent(event);
         } else if (qdateedit_dropevent_callback != nullptr) {
-            qdateedit_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qdateedit_dropevent_callback(this, cbval1);
         } else {
             QDateEdit::dropEvent(event);
         }
@@ -3448,7 +4145,19 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_nativeevent_isbase = false;
             return QDateEdit::nativeEvent(eventType, message, result);
         } else if (qdateedit_nativeevent_callback != nullptr) {
-            return qdateedit_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qdateedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QDateEdit::nativeEvent(eventType, message, result);
         }
@@ -3460,7 +4169,10 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_metric_isbase = false;
             return QDateEdit::metric(param1);
         } else if (qdateedit_metric_callback != nullptr) {
-            return qdateedit_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qdateedit_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QDateEdit::metric(param1);
         }
@@ -3472,7 +4184,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_initpainter_isbase = false;
             QDateEdit::initPainter(painter);
         } else if (qdateedit_initpainter_callback != nullptr) {
-            qdateedit_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qdateedit_initpainter_callback(this, cbval1);
         } else {
             QDateEdit::initPainter(painter);
         }
@@ -3484,7 +4198,10 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_redirected_isbase = false;
             return QDateEdit::redirected(offset);
         } else if (qdateedit_redirected_callback != nullptr) {
-            return qdateedit_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qdateedit_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QDateEdit::redirected(offset);
         }
@@ -3496,7 +4213,8 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_sharedpainter_isbase = false;
             return QDateEdit::sharedPainter();
         } else if (qdateedit_sharedpainter_callback != nullptr) {
-            return qdateedit_sharedpainter_callback();
+            QPainter* callback_ret = qdateedit_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QDateEdit::sharedPainter();
         }
@@ -3508,7 +4226,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_inputmethodevent_isbase = false;
             QDateEdit::inputMethodEvent(param1);
         } else if (qdateedit_inputmethodevent_callback != nullptr) {
-            qdateedit_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qdateedit_inputmethodevent_callback(this, cbval1);
         } else {
             QDateEdit::inputMethodEvent(param1);
         }
@@ -3520,7 +4240,11 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_eventfilter_isbase = false;
             return QDateEdit::eventFilter(watched, event);
         } else if (qdateedit_eventfilter_callback != nullptr) {
-            return qdateedit_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qdateedit_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QDateEdit::eventFilter(watched, event);
         }
@@ -3532,7 +4256,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_childevent_isbase = false;
             QDateEdit::childEvent(event);
         } else if (qdateedit_childevent_callback != nullptr) {
-            qdateedit_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qdateedit_childevent_callback(this, cbval1);
         } else {
             QDateEdit::childEvent(event);
         }
@@ -3544,7 +4270,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_customevent_isbase = false;
             QDateEdit::customEvent(event);
         } else if (qdateedit_customevent_callback != nullptr) {
-            qdateedit_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qdateedit_customevent_callback(this, cbval1);
         } else {
             QDateEdit::customEvent(event);
         }
@@ -3556,7 +4284,11 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_connectnotify_isbase = false;
             QDateEdit::connectNotify(signal);
         } else if (qdateedit_connectnotify_callback != nullptr) {
-            qdateedit_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qdateedit_connectnotify_callback(this, cbval1);
         } else {
             QDateEdit::connectNotify(signal);
         }
@@ -3568,7 +4300,11 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_disconnectnotify_isbase = false;
             QDateEdit::disconnectNotify(signal);
         } else if (qdateedit_disconnectnotify_callback != nullptr) {
-            qdateedit_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qdateedit_disconnectnotify_callback(this, cbval1);
         } else {
             QDateEdit::disconnectNotify(signal);
         }
@@ -3580,7 +4316,8 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_lineedit_isbase = false;
             return QDateEdit::lineEdit();
         } else if (qdateedit_lineedit_callback != nullptr) {
-            return qdateedit_lineedit_callback();
+            QLineEdit* callback_ret = qdateedit_lineedit_callback();
+            return callback_ret;
         } else {
             return QDateEdit::lineEdit();
         }
@@ -3592,7 +4329,9 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_setlineedit_isbase = false;
             QDateEdit::setLineEdit(edit);
         } else if (qdateedit_setlineedit_callback != nullptr) {
-            qdateedit_setlineedit_callback(this, edit);
+            QLineEdit* cbval1 = edit;
+
+            qdateedit_setlineedit_callback(this, cbval1);
         } else {
             QDateEdit::setLineEdit(edit);
         }
@@ -3640,7 +4379,8 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_focusnextchild_isbase = false;
             return QDateEdit::focusNextChild();
         } else if (qdateedit_focusnextchild_callback != nullptr) {
-            return qdateedit_focusnextchild_callback();
+            bool callback_ret = qdateedit_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QDateEdit::focusNextChild();
         }
@@ -3652,7 +4392,8 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_focuspreviouschild_isbase = false;
             return QDateEdit::focusPreviousChild();
         } else if (qdateedit_focuspreviouschild_callback != nullptr) {
-            return qdateedit_focuspreviouschild_callback();
+            bool callback_ret = qdateedit_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QDateEdit::focusPreviousChild();
         }
@@ -3664,7 +4405,8 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_sender_isbase = false;
             return QDateEdit::sender();
         } else if (qdateedit_sender_callback != nullptr) {
-            return qdateedit_sender_callback();
+            QObject* callback_ret = qdateedit_sender_callback();
+            return callback_ret;
         } else {
             return QDateEdit::sender();
         }
@@ -3676,7 +4418,8 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_sendersignalindex_isbase = false;
             return QDateEdit::senderSignalIndex();
         } else if (qdateedit_sendersignalindex_callback != nullptr) {
-            return qdateedit_sendersignalindex_callback();
+            int callback_ret = qdateedit_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QDateEdit::senderSignalIndex();
         }
@@ -3688,7 +4431,10 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_receivers_isbase = false;
             return QDateEdit::receivers(signal);
         } else if (qdateedit_receivers_callback != nullptr) {
-            return qdateedit_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qdateedit_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QDateEdit::receivers(signal);
         }
@@ -3700,11 +4446,126 @@ class VirtualQDateEdit : public QDateEdit {
             qdateedit_issignalconnected_isbase = false;
             return QDateEdit::isSignalConnected(signal);
         } else if (qdateedit_issignalconnected_callback != nullptr) {
-            return qdateedit_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qdateedit_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QDateEdit::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QDateEdit_KeyPressEvent(QDateEdit* self, QKeyEvent* event);
+    friend void QDateEdit_QBaseKeyPressEvent(QDateEdit* self, QKeyEvent* event);
+    friend void QDateEdit_WheelEvent(QDateEdit* self, QWheelEvent* event);
+    friend void QDateEdit_QBaseWheelEvent(QDateEdit* self, QWheelEvent* event);
+    friend void QDateEdit_FocusInEvent(QDateEdit* self, QFocusEvent* event);
+    friend void QDateEdit_QBaseFocusInEvent(QDateEdit* self, QFocusEvent* event);
+    friend bool QDateEdit_FocusNextPrevChild(QDateEdit* self, bool next);
+    friend bool QDateEdit_QBaseFocusNextPrevChild(QDateEdit* self, bool next);
+    friend int QDateEdit_Validate(const QDateEdit* self, libqt_string input, int* pos);
+    friend int QDateEdit_QBaseValidate(const QDateEdit* self, libqt_string input, int* pos);
+    friend void QDateEdit_Fixup(const QDateEdit* self, libqt_string input);
+    friend void QDateEdit_QBaseFixup(const QDateEdit* self, libqt_string input);
+    friend QDateTime* QDateEdit_DateTimeFromText(const QDateEdit* self, const libqt_string text);
+    friend QDateTime* QDateEdit_QBaseDateTimeFromText(const QDateEdit* self, const libqt_string text);
+    friend libqt_string QDateEdit_TextFromDateTime(const QDateEdit* self, const QDateTime* dt);
+    friend libqt_string QDateEdit_QBaseTextFromDateTime(const QDateEdit* self, const QDateTime* dt);
+    friend int QDateEdit_StepEnabled(const QDateEdit* self);
+    friend int QDateEdit_QBaseStepEnabled(const QDateEdit* self);
+    friend void QDateEdit_MousePressEvent(QDateEdit* self, QMouseEvent* event);
+    friend void QDateEdit_QBaseMousePressEvent(QDateEdit* self, QMouseEvent* event);
+    friend void QDateEdit_PaintEvent(QDateEdit* self, QPaintEvent* event);
+    friend void QDateEdit_QBasePaintEvent(QDateEdit* self, QPaintEvent* event);
+    friend void QDateEdit_InitStyleOption(const QDateEdit* self, QStyleOptionSpinBox* option);
+    friend void QDateEdit_QBaseInitStyleOption(const QDateEdit* self, QStyleOptionSpinBox* option);
+    friend void QDateEdit_ResizeEvent(QDateEdit* self, QResizeEvent* event);
+    friend void QDateEdit_QBaseResizeEvent(QDateEdit* self, QResizeEvent* event);
+    friend void QDateEdit_KeyReleaseEvent(QDateEdit* self, QKeyEvent* event);
+    friend void QDateEdit_QBaseKeyReleaseEvent(QDateEdit* self, QKeyEvent* event);
+    friend void QDateEdit_FocusOutEvent(QDateEdit* self, QFocusEvent* event);
+    friend void QDateEdit_QBaseFocusOutEvent(QDateEdit* self, QFocusEvent* event);
+    friend void QDateEdit_ContextMenuEvent(QDateEdit* self, QContextMenuEvent* event);
+    friend void QDateEdit_QBaseContextMenuEvent(QDateEdit* self, QContextMenuEvent* event);
+    friend void QDateEdit_ChangeEvent(QDateEdit* self, QEvent* event);
+    friend void QDateEdit_QBaseChangeEvent(QDateEdit* self, QEvent* event);
+    friend void QDateEdit_CloseEvent(QDateEdit* self, QCloseEvent* event);
+    friend void QDateEdit_QBaseCloseEvent(QDateEdit* self, QCloseEvent* event);
+    friend void QDateEdit_HideEvent(QDateEdit* self, QHideEvent* event);
+    friend void QDateEdit_QBaseHideEvent(QDateEdit* self, QHideEvent* event);
+    friend void QDateEdit_MouseReleaseEvent(QDateEdit* self, QMouseEvent* event);
+    friend void QDateEdit_QBaseMouseReleaseEvent(QDateEdit* self, QMouseEvent* event);
+    friend void QDateEdit_MouseMoveEvent(QDateEdit* self, QMouseEvent* event);
+    friend void QDateEdit_QBaseMouseMoveEvent(QDateEdit* self, QMouseEvent* event);
+    friend void QDateEdit_TimerEvent(QDateEdit* self, QTimerEvent* event);
+    friend void QDateEdit_QBaseTimerEvent(QDateEdit* self, QTimerEvent* event);
+    friend void QDateEdit_ShowEvent(QDateEdit* self, QShowEvent* event);
+    friend void QDateEdit_QBaseShowEvent(QDateEdit* self, QShowEvent* event);
+    friend void QDateEdit_MouseDoubleClickEvent(QDateEdit* self, QMouseEvent* event);
+    friend void QDateEdit_QBaseMouseDoubleClickEvent(QDateEdit* self, QMouseEvent* event);
+    friend void QDateEdit_EnterEvent(QDateEdit* self, QEnterEvent* event);
+    friend void QDateEdit_QBaseEnterEvent(QDateEdit* self, QEnterEvent* event);
+    friend void QDateEdit_LeaveEvent(QDateEdit* self, QEvent* event);
+    friend void QDateEdit_QBaseLeaveEvent(QDateEdit* self, QEvent* event);
+    friend void QDateEdit_MoveEvent(QDateEdit* self, QMoveEvent* event);
+    friend void QDateEdit_QBaseMoveEvent(QDateEdit* self, QMoveEvent* event);
+    friend void QDateEdit_TabletEvent(QDateEdit* self, QTabletEvent* event);
+    friend void QDateEdit_QBaseTabletEvent(QDateEdit* self, QTabletEvent* event);
+    friend void QDateEdit_ActionEvent(QDateEdit* self, QActionEvent* event);
+    friend void QDateEdit_QBaseActionEvent(QDateEdit* self, QActionEvent* event);
+    friend void QDateEdit_DragEnterEvent(QDateEdit* self, QDragEnterEvent* event);
+    friend void QDateEdit_QBaseDragEnterEvent(QDateEdit* self, QDragEnterEvent* event);
+    friend void QDateEdit_DragMoveEvent(QDateEdit* self, QDragMoveEvent* event);
+    friend void QDateEdit_QBaseDragMoveEvent(QDateEdit* self, QDragMoveEvent* event);
+    friend void QDateEdit_DragLeaveEvent(QDateEdit* self, QDragLeaveEvent* event);
+    friend void QDateEdit_QBaseDragLeaveEvent(QDateEdit* self, QDragLeaveEvent* event);
+    friend void QDateEdit_DropEvent(QDateEdit* self, QDropEvent* event);
+    friend void QDateEdit_QBaseDropEvent(QDateEdit* self, QDropEvent* event);
+    friend bool QDateEdit_NativeEvent(QDateEdit* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QDateEdit_QBaseNativeEvent(QDateEdit* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QDateEdit_Metric(const QDateEdit* self, int param1);
+    friend int QDateEdit_QBaseMetric(const QDateEdit* self, int param1);
+    friend void QDateEdit_InitPainter(const QDateEdit* self, QPainter* painter);
+    friend void QDateEdit_QBaseInitPainter(const QDateEdit* self, QPainter* painter);
+    friend QPaintDevice* QDateEdit_Redirected(const QDateEdit* self, QPoint* offset);
+    friend QPaintDevice* QDateEdit_QBaseRedirected(const QDateEdit* self, QPoint* offset);
+    friend QPainter* QDateEdit_SharedPainter(const QDateEdit* self);
+    friend QPainter* QDateEdit_QBaseSharedPainter(const QDateEdit* self);
+    friend void QDateEdit_InputMethodEvent(QDateEdit* self, QInputMethodEvent* param1);
+    friend void QDateEdit_QBaseInputMethodEvent(QDateEdit* self, QInputMethodEvent* param1);
+    friend void QDateEdit_ChildEvent(QDateEdit* self, QChildEvent* event);
+    friend void QDateEdit_QBaseChildEvent(QDateEdit* self, QChildEvent* event);
+    friend void QDateEdit_CustomEvent(QDateEdit* self, QEvent* event);
+    friend void QDateEdit_QBaseCustomEvent(QDateEdit* self, QEvent* event);
+    friend void QDateEdit_ConnectNotify(QDateEdit* self, const QMetaMethod* signal);
+    friend void QDateEdit_QBaseConnectNotify(QDateEdit* self, const QMetaMethod* signal);
+    friend void QDateEdit_DisconnectNotify(QDateEdit* self, const QMetaMethod* signal);
+    friend void QDateEdit_QBaseDisconnectNotify(QDateEdit* self, const QMetaMethod* signal);
+    friend QLineEdit* QDateEdit_LineEdit(const QDateEdit* self);
+    friend QLineEdit* QDateEdit_QBaseLineEdit(const QDateEdit* self);
+    friend void QDateEdit_SetLineEdit(QDateEdit* self, QLineEdit* edit);
+    friend void QDateEdit_QBaseSetLineEdit(QDateEdit* self, QLineEdit* edit);
+    friend void QDateEdit_UpdateMicroFocus(QDateEdit* self);
+    friend void QDateEdit_QBaseUpdateMicroFocus(QDateEdit* self);
+    friend void QDateEdit_Create(QDateEdit* self);
+    friend void QDateEdit_QBaseCreate(QDateEdit* self);
+    friend void QDateEdit_Destroy(QDateEdit* self);
+    friend void QDateEdit_QBaseDestroy(QDateEdit* self);
+    friend bool QDateEdit_FocusNextChild(QDateEdit* self);
+    friend bool QDateEdit_QBaseFocusNextChild(QDateEdit* self);
+    friend bool QDateEdit_FocusPreviousChild(QDateEdit* self);
+    friend bool QDateEdit_QBaseFocusPreviousChild(QDateEdit* self);
+    friend QObject* QDateEdit_Sender(const QDateEdit* self);
+    friend QObject* QDateEdit_QBaseSender(const QDateEdit* self);
+    friend int QDateEdit_SenderSignalIndex(const QDateEdit* self);
+    friend int QDateEdit_QBaseSenderSignalIndex(const QDateEdit* self);
+    friend int QDateEdit_Receivers(const QDateEdit* self, const char* signal);
+    friend int QDateEdit_QBaseReceivers(const QDateEdit* self, const char* signal);
+    friend bool QDateEdit_IsSignalConnected(const QDateEdit* self, const QMetaMethod* signal);
+    friend bool QDateEdit_QBaseIsSignalConnected(const QDateEdit* self, const QMetaMethod* signal);
 };
 
 #endif

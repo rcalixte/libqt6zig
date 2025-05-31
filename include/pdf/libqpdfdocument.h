@@ -15,20 +15,14 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractListModel QAbstractListModel;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QIODevice QIODevice;
 typedef struct QImage QImage;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QPdfDocument QPdfDocument;
 typedef struct QPdfDocumentRenderOptions QPdfDocumentRenderOptions;
@@ -36,7 +30,6 @@ typedef struct QPdfSelection QPdfSelection;
 typedef struct QPointF QPointF;
 typedef struct QSize QSize;
 typedef struct QSizeF QSizeF;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 #endif
@@ -61,10 +54,10 @@ int QPdfDocument_Metacall(QPdfDocument* self, int param1, int param2, void** par
 void QPdfDocument_OnMetacall(QPdfDocument* self, intptr_t slot);
 int QPdfDocument_QBaseMetacall(QPdfDocument* self, int param1, int param2, void** param3);
 libqt_string QPdfDocument_Tr(const char* s);
-int QPdfDocument_Load(QPdfDocument* self, libqt_string fileName);
+int QPdfDocument_Load(QPdfDocument* self, const libqt_string fileName);
 int QPdfDocument_Status(const QPdfDocument* self);
 void QPdfDocument_LoadWithDevice(QPdfDocument* self, QIODevice* device);
-void QPdfDocument_SetPassword(QPdfDocument* self, libqt_string password);
+void QPdfDocument_SetPassword(QPdfDocument* self, const libqt_string password);
 libqt_string QPdfDocument_Password(const QPdfDocument* self);
 QVariant* QPdfDocument_MetaData(const QPdfDocument* self, int field);
 int QPdfDocument_Error(const QPdfDocument* self);
@@ -105,12 +98,12 @@ void QPdfDocument_QBaseChildEvent(QPdfDocument* self, QChildEvent* event);
 void QPdfDocument_CustomEvent(QPdfDocument* self, QEvent* event);
 void QPdfDocument_OnCustomEvent(QPdfDocument* self, intptr_t slot);
 void QPdfDocument_QBaseCustomEvent(QPdfDocument* self, QEvent* event);
-void QPdfDocument_ConnectNotify(QPdfDocument* self, QMetaMethod* signal);
+void QPdfDocument_ConnectNotify(QPdfDocument* self, const QMetaMethod* signal);
 void QPdfDocument_OnConnectNotify(QPdfDocument* self, intptr_t slot);
-void QPdfDocument_QBaseConnectNotify(QPdfDocument* self, QMetaMethod* signal);
-void QPdfDocument_DisconnectNotify(QPdfDocument* self, QMetaMethod* signal);
+void QPdfDocument_QBaseConnectNotify(QPdfDocument* self, const QMetaMethod* signal);
+void QPdfDocument_DisconnectNotify(QPdfDocument* self, const QMetaMethod* signal);
 void QPdfDocument_OnDisconnectNotify(QPdfDocument* self, intptr_t slot);
-void QPdfDocument_QBaseDisconnectNotify(QPdfDocument* self, QMetaMethod* signal);
+void QPdfDocument_QBaseDisconnectNotify(QPdfDocument* self, const QMetaMethod* signal);
 QObject* QPdfDocument_Sender(const QPdfDocument* self);
 void QPdfDocument_OnSender(const QPdfDocument* self, intptr_t slot);
 QObject* QPdfDocument_QBaseSender(const QPdfDocument* self);
@@ -120,9 +113,9 @@ int QPdfDocument_QBaseSenderSignalIndex(const QPdfDocument* self);
 int QPdfDocument_Receivers(const QPdfDocument* self, const char* signal);
 void QPdfDocument_OnReceivers(const QPdfDocument* self, intptr_t slot);
 int QPdfDocument_QBaseReceivers(const QPdfDocument* self, const char* signal);
-bool QPdfDocument_IsSignalConnected(const QPdfDocument* self, QMetaMethod* signal);
+bool QPdfDocument_IsSignalConnected(const QPdfDocument* self, const QMetaMethod* signal);
 void QPdfDocument_OnIsSignalConnected(const QPdfDocument* self, intptr_t slot);
-bool QPdfDocument_QBaseIsSignalConnected(const QPdfDocument* self, QMetaMethod* signal);
+bool QPdfDocument_QBaseIsSignalConnected(const QPdfDocument* self, const QMetaMethod* signal);
 void QPdfDocument_Delete(QPdfDocument* self);
 
 #ifdef __cplusplus

@@ -15,25 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSettings QSettings;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
-typedef struct QsciAbstractAPIs QsciAbstractAPIs;
 typedef struct QsciLexer QsciLexer;
 typedef struct QsciLexerSpice QsciLexerSpice;
 typedef struct QsciScintilla QsciScintilla;
@@ -125,21 +116,24 @@ const char* QsciLexerSpice_QBaseWordCharacters(const QsciLexerSpice* self);
 void QsciLexerSpice_SetAutoIndentStyle(QsciLexerSpice* self, int autoindentstyle);
 void QsciLexerSpice_OnSetAutoIndentStyle(QsciLexerSpice* self, intptr_t slot);
 void QsciLexerSpice_QBaseSetAutoIndentStyle(QsciLexerSpice* self, int autoindentstyle);
-void QsciLexerSpice_SetColor(QsciLexerSpice* self, QColor* c, int style);
+void QsciLexerSpice_SetColor(QsciLexerSpice* self, const QColor* c, int style);
 void QsciLexerSpice_OnSetColor(QsciLexerSpice* self, intptr_t slot);
-void QsciLexerSpice_QBaseSetColor(QsciLexerSpice* self, QColor* c, int style);
+void QsciLexerSpice_QBaseSetColor(QsciLexerSpice* self, const QColor* c, int style);
 void QsciLexerSpice_SetEolFill(QsciLexerSpice* self, bool eoffill, int style);
 void QsciLexerSpice_OnSetEolFill(QsciLexerSpice* self, intptr_t slot);
 void QsciLexerSpice_QBaseSetEolFill(QsciLexerSpice* self, bool eoffill, int style);
-void QsciLexerSpice_SetFont(QsciLexerSpice* self, QFont* f, int style);
+void QsciLexerSpice_SetFont(QsciLexerSpice* self, const QFont* f, int style);
 void QsciLexerSpice_OnSetFont(QsciLexerSpice* self, intptr_t slot);
-void QsciLexerSpice_QBaseSetFont(QsciLexerSpice* self, QFont* f, int style);
-void QsciLexerSpice_SetPaper(QsciLexerSpice* self, QColor* c, int style);
+void QsciLexerSpice_QBaseSetFont(QsciLexerSpice* self, const QFont* f, int style);
+void QsciLexerSpice_SetPaper(QsciLexerSpice* self, const QColor* c, int style);
 void QsciLexerSpice_OnSetPaper(QsciLexerSpice* self, intptr_t slot);
-void QsciLexerSpice_QBaseSetPaper(QsciLexerSpice* self, QColor* c, int style);
-bool QsciLexerSpice_ReadProperties(QsciLexerSpice* self, QSettings* qs, libqt_string prefix);
+void QsciLexerSpice_QBaseSetPaper(QsciLexerSpice* self, const QColor* c, int style);
+bool QsciLexerSpice_ReadProperties(QsciLexerSpice* self, QSettings* qs, const libqt_string prefix);
 void QsciLexerSpice_OnReadProperties(QsciLexerSpice* self, intptr_t slot);
-bool QsciLexerSpice_QBaseReadProperties(QsciLexerSpice* self, QSettings* qs, libqt_string prefix);
+bool QsciLexerSpice_QBaseReadProperties(QsciLexerSpice* self, QSettings* qs, const libqt_string prefix);
+bool QsciLexerSpice_WriteProperties(const QsciLexerSpice* self, QSettings* qs, const libqt_string prefix);
+void QsciLexerSpice_OnWriteProperties(const QsciLexerSpice* self, intptr_t slot);
+bool QsciLexerSpice_QBaseWriteProperties(const QsciLexerSpice* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexerSpice_Event(QsciLexerSpice* self, QEvent* event);
 void QsciLexerSpice_OnEvent(QsciLexerSpice* self, intptr_t slot);
 bool QsciLexerSpice_QBaseEvent(QsciLexerSpice* self, QEvent* event);
@@ -155,15 +149,12 @@ void QsciLexerSpice_QBaseChildEvent(QsciLexerSpice* self, QChildEvent* event);
 void QsciLexerSpice_CustomEvent(QsciLexerSpice* self, QEvent* event);
 void QsciLexerSpice_OnCustomEvent(QsciLexerSpice* self, intptr_t slot);
 void QsciLexerSpice_QBaseCustomEvent(QsciLexerSpice* self, QEvent* event);
-void QsciLexerSpice_ConnectNotify(QsciLexerSpice* self, QMetaMethod* signal);
+void QsciLexerSpice_ConnectNotify(QsciLexerSpice* self, const QMetaMethod* signal);
 void QsciLexerSpice_OnConnectNotify(QsciLexerSpice* self, intptr_t slot);
-void QsciLexerSpice_QBaseConnectNotify(QsciLexerSpice* self, QMetaMethod* signal);
-void QsciLexerSpice_DisconnectNotify(QsciLexerSpice* self, QMetaMethod* signal);
+void QsciLexerSpice_QBaseConnectNotify(QsciLexerSpice* self, const QMetaMethod* signal);
+void QsciLexerSpice_DisconnectNotify(QsciLexerSpice* self, const QMetaMethod* signal);
 void QsciLexerSpice_OnDisconnectNotify(QsciLexerSpice* self, intptr_t slot);
-void QsciLexerSpice_QBaseDisconnectNotify(QsciLexerSpice* self, QMetaMethod* signal);
-bool QsciLexerSpice_WriteProperties(const QsciLexerSpice* self, QSettings* qs, libqt_string prefix);
-void QsciLexerSpice_OnWriteProperties(const QsciLexerSpice* self, intptr_t slot);
-bool QsciLexerSpice_QBaseWriteProperties(const QsciLexerSpice* self, QSettings* qs, libqt_string prefix);
+void QsciLexerSpice_QBaseDisconnectNotify(QsciLexerSpice* self, const QMetaMethod* signal);
 QObject* QsciLexerSpice_Sender(const QsciLexerSpice* self);
 void QsciLexerSpice_OnSender(const QsciLexerSpice* self, intptr_t slot);
 QObject* QsciLexerSpice_QBaseSender(const QsciLexerSpice* self);
@@ -173,9 +164,9 @@ int QsciLexerSpice_QBaseSenderSignalIndex(const QsciLexerSpice* self);
 int QsciLexerSpice_Receivers(const QsciLexerSpice* self, const char* signal);
 void QsciLexerSpice_OnReceivers(const QsciLexerSpice* self, intptr_t slot);
 int QsciLexerSpice_QBaseReceivers(const QsciLexerSpice* self, const char* signal);
-bool QsciLexerSpice_IsSignalConnected(const QsciLexerSpice* self, QMetaMethod* signal);
+bool QsciLexerSpice_IsSignalConnected(const QsciLexerSpice* self, const QMetaMethod* signal);
 void QsciLexerSpice_OnIsSignalConnected(const QsciLexerSpice* self, intptr_t slot);
-bool QsciLexerSpice_QBaseIsSignalConnected(const QsciLexerSpice* self, QMetaMethod* signal);
+bool QsciLexerSpice_QBaseIsSignalConnected(const QsciLexerSpice* self, const QMetaMethod* signal);
 void QsciLexerSpice_Delete(QsciLexerSpice* self);
 
 #ifdef __cplusplus

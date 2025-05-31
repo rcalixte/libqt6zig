@@ -15,23 +15,15 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractAnimation QAbstractAnimation;
 typedef struct QAnimationGroup QAnimationGroup;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QAnimationGroup* QAnimationGroup_new();
@@ -79,12 +71,12 @@ void QAnimationGroup_QBaseChildEvent(QAnimationGroup* self, QChildEvent* event);
 void QAnimationGroup_CustomEvent(QAnimationGroup* self, QEvent* event);
 void QAnimationGroup_OnCustomEvent(QAnimationGroup* self, intptr_t slot);
 void QAnimationGroup_QBaseCustomEvent(QAnimationGroup* self, QEvent* event);
-void QAnimationGroup_ConnectNotify(QAnimationGroup* self, QMetaMethod* signal);
+void QAnimationGroup_ConnectNotify(QAnimationGroup* self, const QMetaMethod* signal);
 void QAnimationGroup_OnConnectNotify(QAnimationGroup* self, intptr_t slot);
-void QAnimationGroup_QBaseConnectNotify(QAnimationGroup* self, QMetaMethod* signal);
-void QAnimationGroup_DisconnectNotify(QAnimationGroup* self, QMetaMethod* signal);
+void QAnimationGroup_QBaseConnectNotify(QAnimationGroup* self, const QMetaMethod* signal);
+void QAnimationGroup_DisconnectNotify(QAnimationGroup* self, const QMetaMethod* signal);
 void QAnimationGroup_OnDisconnectNotify(QAnimationGroup* self, intptr_t slot);
-void QAnimationGroup_QBaseDisconnectNotify(QAnimationGroup* self, QMetaMethod* signal);
+void QAnimationGroup_QBaseDisconnectNotify(QAnimationGroup* self, const QMetaMethod* signal);
 QObject* QAnimationGroup_Sender(const QAnimationGroup* self);
 void QAnimationGroup_OnSender(const QAnimationGroup* self, intptr_t slot);
 QObject* QAnimationGroup_QBaseSender(const QAnimationGroup* self);
@@ -94,9 +86,9 @@ int QAnimationGroup_QBaseSenderSignalIndex(const QAnimationGroup* self);
 int QAnimationGroup_Receivers(const QAnimationGroup* self, const char* signal);
 void QAnimationGroup_OnReceivers(const QAnimationGroup* self, intptr_t slot);
 int QAnimationGroup_QBaseReceivers(const QAnimationGroup* self, const char* signal);
-bool QAnimationGroup_IsSignalConnected(const QAnimationGroup* self, QMetaMethod* signal);
+bool QAnimationGroup_IsSignalConnected(const QAnimationGroup* self, const QMetaMethod* signal);
 void QAnimationGroup_OnIsSignalConnected(const QAnimationGroup* self, intptr_t slot);
-bool QAnimationGroup_QBaseIsSignalConnected(const QAnimationGroup* self, QMetaMethod* signal);
+bool QAnimationGroup_QBaseIsSignalConnected(const QAnimationGroup* self, const QMetaMethod* signal);
 void QAnimationGroup_Delete(QAnimationGroup* self);
 
 #ifdef __cplusplus

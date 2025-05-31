@@ -15,21 +15,12 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractSpinBox QAbstractSpinBox;
-typedef struct QAction QAction;
 typedef struct QActionEvent QActionEvent;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBackingStore QBackingStore;
-typedef struct QBindingStorage QBindingStorage;
-typedef struct QBitmap QBitmap;
 typedef struct QChildEvent QChildEvent;
 typedef struct QCloseEvent QCloseEvent;
 typedef struct QContextMenuEvent QContextMenuEvent;
-typedef struct QCursor QCursor;
 typedef struct QDragEnterEvent QDragEnterEvent;
 typedef struct QDragLeaveEvent QDragLeaveEvent;
 typedef struct QDragMoveEvent QDragMoveEvent;
@@ -37,23 +28,12 @@ typedef struct QDropEvent QDropEvent;
 typedef struct QEnterEvent QEnterEvent;
 typedef struct QEvent QEvent;
 typedef struct QFocusEvent QFocusEvent;
-typedef struct QFont QFont;
-typedef struct QFontInfo QFontInfo;
-typedef struct QFontMetrics QFontMetrics;
-typedef struct QGraphicsEffect QGraphicsEffect;
-typedef struct QGraphicsProxyWidget QGraphicsProxyWidget;
 typedef struct QHideEvent QHideEvent;
-typedef struct QIcon QIcon;
 typedef struct QInputMethodEvent QInputMethodEvent;
 typedef struct QKeyEvent QKeyEvent;
-typedef struct QKeySequence QKeySequence;
-typedef struct QLayout QLayout;
 typedef struct QLineEdit QLineEdit;
-typedef struct QLocale QLocale;
-typedef struct QMargins QMargins;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QMouseEvent QMouseEvent;
 typedef struct QMoveEvent QMoveEvent;
 typedef struct QObject QObject;
@@ -61,26 +41,16 @@ typedef struct QPaintDevice QPaintDevice;
 typedef struct QPaintEngine QPaintEngine;
 typedef struct QPaintEvent QPaintEvent;
 typedef struct QPainter QPainter;
-typedef struct QPalette QPalette;
-typedef struct QPixmap QPixmap;
 typedef struct QPoint QPoint;
-typedef struct QPointF QPointF;
-typedef struct QRect QRect;
-typedef struct QRegion QRegion;
 typedef struct QResizeEvent QResizeEvent;
-typedef struct QScreen QScreen;
 typedef struct QShowEvent QShowEvent;
 typedef struct QSize QSize;
-typedef struct QSizePolicy QSizePolicy;
-typedef struct QStyle QStyle;
 typedef struct QStyleOptionSpinBox QStyleOptionSpinBox;
 typedef struct QTabletEvent QTabletEvent;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
-typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
@@ -112,7 +82,7 @@ int QAbstractSpinBox_CorrectionMode(const QAbstractSpinBox* self);
 bool QAbstractSpinBox_HasAcceptableInput(const QAbstractSpinBox* self);
 libqt_string QAbstractSpinBox_Text(const QAbstractSpinBox* self);
 libqt_string QAbstractSpinBox_SpecialValueText(const QAbstractSpinBox* self);
-void QAbstractSpinBox_SetSpecialValueText(QAbstractSpinBox* self, libqt_string txt);
+void QAbstractSpinBox_SetSpecialValueText(QAbstractSpinBox* self, const libqt_string txt);
 bool QAbstractSpinBox_Wrapping(const QAbstractSpinBox* self);
 void QAbstractSpinBox_SetWrapping(QAbstractSpinBox* self, bool w);
 void QAbstractSpinBox_SetReadOnly(QAbstractSpinBox* self, bool r);
@@ -258,9 +228,21 @@ void QAbstractSpinBox_QBaseDragLeaveEvent(QAbstractSpinBox* self, QDragLeaveEven
 void QAbstractSpinBox_DropEvent(QAbstractSpinBox* self, QDropEvent* event);
 void QAbstractSpinBox_OnDropEvent(QAbstractSpinBox* self, intptr_t slot);
 void QAbstractSpinBox_QBaseDropEvent(QAbstractSpinBox* self, QDropEvent* event);
-bool QAbstractSpinBox_NativeEvent(QAbstractSpinBox* self, libqt_string eventType, void* message, intptr_t* result);
+bool QAbstractSpinBox_NativeEvent(QAbstractSpinBox* self, const libqt_string eventType, void* message, intptr_t* result);
 void QAbstractSpinBox_OnNativeEvent(QAbstractSpinBox* self, intptr_t slot);
-bool QAbstractSpinBox_QBaseNativeEvent(QAbstractSpinBox* self, libqt_string eventType, void* message, intptr_t* result);
+bool QAbstractSpinBox_QBaseNativeEvent(QAbstractSpinBox* self, const libqt_string eventType, void* message, intptr_t* result);
+int QAbstractSpinBox_Metric(const QAbstractSpinBox* self, int param1);
+void QAbstractSpinBox_OnMetric(const QAbstractSpinBox* self, intptr_t slot);
+int QAbstractSpinBox_QBaseMetric(const QAbstractSpinBox* self, int param1);
+void QAbstractSpinBox_InitPainter(const QAbstractSpinBox* self, QPainter* painter);
+void QAbstractSpinBox_OnInitPainter(const QAbstractSpinBox* self, intptr_t slot);
+void QAbstractSpinBox_QBaseInitPainter(const QAbstractSpinBox* self, QPainter* painter);
+QPaintDevice* QAbstractSpinBox_Redirected(const QAbstractSpinBox* self, QPoint* offset);
+void QAbstractSpinBox_OnRedirected(const QAbstractSpinBox* self, intptr_t slot);
+QPaintDevice* QAbstractSpinBox_QBaseRedirected(const QAbstractSpinBox* self, QPoint* offset);
+QPainter* QAbstractSpinBox_SharedPainter(const QAbstractSpinBox* self);
+void QAbstractSpinBox_OnSharedPainter(const QAbstractSpinBox* self, intptr_t slot);
+QPainter* QAbstractSpinBox_QBaseSharedPainter(const QAbstractSpinBox* self);
 void QAbstractSpinBox_InputMethodEvent(QAbstractSpinBox* self, QInputMethodEvent* param1);
 void QAbstractSpinBox_OnInputMethodEvent(QAbstractSpinBox* self, intptr_t slot);
 void QAbstractSpinBox_QBaseInputMethodEvent(QAbstractSpinBox* self, QInputMethodEvent* param1);
@@ -276,24 +258,12 @@ void QAbstractSpinBox_QBaseChildEvent(QAbstractSpinBox* self, QChildEvent* event
 void QAbstractSpinBox_CustomEvent(QAbstractSpinBox* self, QEvent* event);
 void QAbstractSpinBox_OnCustomEvent(QAbstractSpinBox* self, intptr_t slot);
 void QAbstractSpinBox_QBaseCustomEvent(QAbstractSpinBox* self, QEvent* event);
-void QAbstractSpinBox_ConnectNotify(QAbstractSpinBox* self, QMetaMethod* signal);
+void QAbstractSpinBox_ConnectNotify(QAbstractSpinBox* self, const QMetaMethod* signal);
 void QAbstractSpinBox_OnConnectNotify(QAbstractSpinBox* self, intptr_t slot);
-void QAbstractSpinBox_QBaseConnectNotify(QAbstractSpinBox* self, QMetaMethod* signal);
-void QAbstractSpinBox_DisconnectNotify(QAbstractSpinBox* self, QMetaMethod* signal);
+void QAbstractSpinBox_QBaseConnectNotify(QAbstractSpinBox* self, const QMetaMethod* signal);
+void QAbstractSpinBox_DisconnectNotify(QAbstractSpinBox* self, const QMetaMethod* signal);
 void QAbstractSpinBox_OnDisconnectNotify(QAbstractSpinBox* self, intptr_t slot);
-void QAbstractSpinBox_QBaseDisconnectNotify(QAbstractSpinBox* self, QMetaMethod* signal);
-int QAbstractSpinBox_Metric(const QAbstractSpinBox* self, int param1);
-void QAbstractSpinBox_OnMetric(const QAbstractSpinBox* self, intptr_t slot);
-int QAbstractSpinBox_QBaseMetric(const QAbstractSpinBox* self, int param1);
-void QAbstractSpinBox_InitPainter(const QAbstractSpinBox* self, QPainter* painter);
-void QAbstractSpinBox_OnInitPainter(const QAbstractSpinBox* self, intptr_t slot);
-void QAbstractSpinBox_QBaseInitPainter(const QAbstractSpinBox* self, QPainter* painter);
-QPaintDevice* QAbstractSpinBox_Redirected(const QAbstractSpinBox* self, QPoint* offset);
-void QAbstractSpinBox_OnRedirected(const QAbstractSpinBox* self, intptr_t slot);
-QPaintDevice* QAbstractSpinBox_QBaseRedirected(const QAbstractSpinBox* self, QPoint* offset);
-QPainter* QAbstractSpinBox_SharedPainter(const QAbstractSpinBox* self);
-void QAbstractSpinBox_OnSharedPainter(const QAbstractSpinBox* self, intptr_t slot);
-QPainter* QAbstractSpinBox_QBaseSharedPainter(const QAbstractSpinBox* self);
+void QAbstractSpinBox_QBaseDisconnectNotify(QAbstractSpinBox* self, const QMetaMethod* signal);
 QLineEdit* QAbstractSpinBox_LineEdit(const QAbstractSpinBox* self);
 void QAbstractSpinBox_OnLineEdit(const QAbstractSpinBox* self, intptr_t slot);
 QLineEdit* QAbstractSpinBox_QBaseLineEdit(const QAbstractSpinBox* self);
@@ -324,9 +294,9 @@ int QAbstractSpinBox_QBaseSenderSignalIndex(const QAbstractSpinBox* self);
 int QAbstractSpinBox_Receivers(const QAbstractSpinBox* self, const char* signal);
 void QAbstractSpinBox_OnReceivers(const QAbstractSpinBox* self, intptr_t slot);
 int QAbstractSpinBox_QBaseReceivers(const QAbstractSpinBox* self, const char* signal);
-bool QAbstractSpinBox_IsSignalConnected(const QAbstractSpinBox* self, QMetaMethod* signal);
+bool QAbstractSpinBox_IsSignalConnected(const QAbstractSpinBox* self, const QMetaMethod* signal);
 void QAbstractSpinBox_OnIsSignalConnected(const QAbstractSpinBox* self, intptr_t slot);
-bool QAbstractSpinBox_QBaseIsSignalConnected(const QAbstractSpinBox* self, QMetaMethod* signal);
+bool QAbstractSpinBox_QBaseIsSignalConnected(const QAbstractSpinBox* self, const QMetaMethod* signal);
 void QAbstractSpinBox_Delete(QAbstractSpinBox* self);
 
 #ifdef __cplusplus

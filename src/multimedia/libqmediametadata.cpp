@@ -8,7 +8,7 @@
 #include "libqmediametadata.h"
 #include "libqmediametadata.hxx"
 
-QMediaMetaData* QMediaMetaData_new(QMediaMetaData* param1) {
+QMediaMetaData* QMediaMetaData_new(const QMediaMetaData* param1) {
     return new QMediaMetaData(*param1);
 }
 
@@ -20,7 +20,7 @@ QVariant* QMediaMetaData_Value(const QMediaMetaData* self, int k) {
     return new QVariant(self->value(static_cast<QMediaMetaData::Key>(k)));
 }
 
-void QMediaMetaData_Insert(QMediaMetaData* self, int k, QVariant* value) {
+void QMediaMetaData_Insert(QMediaMetaData* self, int k, const QVariant* value) {
     self->insert(static_cast<QMediaMetaData::Key>(k), *value);
 }
 

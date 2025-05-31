@@ -15,25 +15,17 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QAudioEngine QAudioEngine;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QQuaternion QQuaternion;
 typedef struct QSpatialSound QSpatialSound;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QUrl QUrl;
-typedef struct QVariant QVariant;
 typedef struct QVector3D QVector3D;
 #endif
 
@@ -52,7 +44,7 @@ int QSpatialSound_Metacall(QSpatialSound* self, int param1, int param2, void** p
 void QSpatialSound_OnMetacall(QSpatialSound* self, intptr_t slot);
 int QSpatialSound_QBaseMetacall(QSpatialSound* self, int param1, int param2, void** param3);
 libqt_string QSpatialSound_Tr(const char* s);
-void QSpatialSound_SetSource(QSpatialSound* self, QUrl* url);
+void QSpatialSound_SetSource(QSpatialSound* self, const QUrl* url);
 QUrl* QSpatialSound_Source(const QSpatialSound* self);
 int QSpatialSound_Loops(const QSpatialSound* self);
 void QSpatialSound_SetLoops(QSpatialSound* self, int loops);
@@ -60,7 +52,7 @@ bool QSpatialSound_AutoPlay(const QSpatialSound* self);
 void QSpatialSound_SetAutoPlay(QSpatialSound* self, bool autoPlay);
 void QSpatialSound_SetPosition(QSpatialSound* self, QVector3D* pos);
 QVector3D* QSpatialSound_Position(const QSpatialSound* self);
-void QSpatialSound_SetRotation(QSpatialSound* self, QQuaternion* q);
+void QSpatialSound_SetRotation(QSpatialSound* self, const QQuaternion* q);
 QQuaternion* QSpatialSound_Rotation(const QSpatialSound* self);
 void QSpatialSound_SetVolume(QSpatialSound* self, float volume);
 float QSpatialSound_Volume(const QSpatialSound* self);
@@ -129,12 +121,12 @@ void QSpatialSound_QBaseChildEvent(QSpatialSound* self, QChildEvent* event);
 void QSpatialSound_CustomEvent(QSpatialSound* self, QEvent* event);
 void QSpatialSound_OnCustomEvent(QSpatialSound* self, intptr_t slot);
 void QSpatialSound_QBaseCustomEvent(QSpatialSound* self, QEvent* event);
-void QSpatialSound_ConnectNotify(QSpatialSound* self, QMetaMethod* signal);
+void QSpatialSound_ConnectNotify(QSpatialSound* self, const QMetaMethod* signal);
 void QSpatialSound_OnConnectNotify(QSpatialSound* self, intptr_t slot);
-void QSpatialSound_QBaseConnectNotify(QSpatialSound* self, QMetaMethod* signal);
-void QSpatialSound_DisconnectNotify(QSpatialSound* self, QMetaMethod* signal);
+void QSpatialSound_QBaseConnectNotify(QSpatialSound* self, const QMetaMethod* signal);
+void QSpatialSound_DisconnectNotify(QSpatialSound* self, const QMetaMethod* signal);
 void QSpatialSound_OnDisconnectNotify(QSpatialSound* self, intptr_t slot);
-void QSpatialSound_QBaseDisconnectNotify(QSpatialSound* self, QMetaMethod* signal);
+void QSpatialSound_QBaseDisconnectNotify(QSpatialSound* self, const QMetaMethod* signal);
 QObject* QSpatialSound_Sender(const QSpatialSound* self);
 void QSpatialSound_OnSender(const QSpatialSound* self, intptr_t slot);
 QObject* QSpatialSound_QBaseSender(const QSpatialSound* self);
@@ -144,9 +136,9 @@ int QSpatialSound_QBaseSenderSignalIndex(const QSpatialSound* self);
 int QSpatialSound_Receivers(const QSpatialSound* self, const char* signal);
 void QSpatialSound_OnReceivers(const QSpatialSound* self, intptr_t slot);
 int QSpatialSound_QBaseReceivers(const QSpatialSound* self, const char* signal);
-bool QSpatialSound_IsSignalConnected(const QSpatialSound* self, QMetaMethod* signal);
+bool QSpatialSound_IsSignalConnected(const QSpatialSound* self, const QMetaMethod* signal);
 void QSpatialSound_OnIsSignalConnected(const QSpatialSound* self, intptr_t slot);
-bool QSpatialSound_QBaseIsSignalConnected(const QSpatialSound* self, QMetaMethod* signal);
+bool QSpatialSound_QBaseIsSignalConnected(const QSpatialSound* self, const QMetaMethod* signal);
 void QSpatialSound_Delete(QSpatialSound* self);
 
 #ifdef __cplusplus

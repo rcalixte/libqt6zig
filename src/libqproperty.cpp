@@ -13,7 +13,7 @@
 #include "libqproperty.h"
 #include "libqproperty.hxx"
 
-QPropertyBindingSourceLocation* QPropertyBindingSourceLocation_new(QPropertyBindingSourceLocation* other) {
+QPropertyBindingSourceLocation* QPropertyBindingSourceLocation_new(const QPropertyBindingSourceLocation* other) {
     return new QPropertyBindingSourceLocation(*other);
 }
 
@@ -25,7 +25,7 @@ QPropertyBindingSourceLocation* QPropertyBindingSourceLocation_new3() {
     return new QPropertyBindingSourceLocation();
 }
 
-QPropertyBindingSourceLocation* QPropertyBindingSourceLocation_new4(QPropertyBindingSourceLocation* param1) {
+QPropertyBindingSourceLocation* QPropertyBindingSourceLocation_new4(const QPropertyBindingSourceLocation* param1) {
     return new QPropertyBindingSourceLocation(*param1);
 }
 
@@ -49,16 +49,16 @@ QPropertyBindingError* QPropertyBindingError_new2(int typeVal) {
     return new QPropertyBindingError(static_cast<QPropertyBindingError::Type>(typeVal));
 }
 
-QPropertyBindingError* QPropertyBindingError_new3(QPropertyBindingError* other) {
+QPropertyBindingError* QPropertyBindingError_new3(const QPropertyBindingError* other) {
     return new QPropertyBindingError(*other);
 }
 
-QPropertyBindingError* QPropertyBindingError_new4(int typeVal, libqt_string description) {
+QPropertyBindingError* QPropertyBindingError_new4(int typeVal, const libqt_string description) {
     QString description_QString = QString::fromUtf8(description.data, description.len);
     return new QPropertyBindingError(static_cast<QPropertyBindingError::Type>(typeVal), description_QString);
 }
 
-void QPropertyBindingError_OperatorAssign(QPropertyBindingError* self, QPropertyBindingError* other) {
+void QPropertyBindingError_OperatorAssign(QPropertyBindingError* self, const QPropertyBindingError* other) {
     self->operator=(*other);
 }
 
@@ -90,11 +90,11 @@ QUntypedPropertyBinding* QUntypedPropertyBinding_new() {
     return new QUntypedPropertyBinding();
 }
 
-QUntypedPropertyBinding* QUntypedPropertyBinding_new2(QUntypedPropertyBinding* other) {
+QUntypedPropertyBinding* QUntypedPropertyBinding_new2(const QUntypedPropertyBinding* other) {
     return new QUntypedPropertyBinding(*other);
 }
 
-void QUntypedPropertyBinding_OperatorAssign(QUntypedPropertyBinding* self, QUntypedPropertyBinding* other) {
+void QUntypedPropertyBinding_OperatorAssign(QUntypedPropertyBinding* self, const QUntypedPropertyBinding* other) {
     self->operator=(*other);
 }
 
@@ -118,7 +118,7 @@ QPropertyObserverBase* QPropertyObserverBase_new() {
     return new QPropertyObserverBase();
 }
 
-QPropertyObserverBase* QPropertyObserverBase_new2(QPropertyObserverBase* param1) {
+QPropertyObserverBase* QPropertyObserverBase_new2(const QPropertyObserverBase* param1) {
     return new QPropertyObserverBase(*param1);
 }
 
@@ -142,7 +142,7 @@ void QPropertyNotifier_Delete(QPropertyNotifier* self) {
     delete self;
 }
 
-QUntypedBindable* QUntypedBindable_new(QUntypedBindable* other) {
+QUntypedBindable* QUntypedBindable_new(const QUntypedBindable* other) {
     return new QUntypedBindable(*other);
 }
 
@@ -154,7 +154,7 @@ QUntypedBindable* QUntypedBindable_new3() {
     return new QUntypedBindable();
 }
 
-QUntypedBindable* QUntypedBindable_new4(QUntypedBindable* param1) {
+QUntypedBindable* QUntypedBindable_new4(const QUntypedBindable* param1) {
     return new QUntypedBindable(*param1);
 }
 
@@ -194,7 +194,7 @@ QUntypedPropertyBinding* QUntypedBindable_Binding(const QUntypedBindable* self) 
     return new QUntypedPropertyBinding(self->binding());
 }
 
-bool QUntypedBindable_SetBinding(QUntypedBindable* self, QUntypedPropertyBinding* binding) {
+bool QUntypedBindable_SetBinding(QUntypedBindable* self, const QUntypedPropertyBinding* binding) {
     return self->setBinding(*binding);
 }
 
@@ -206,7 +206,7 @@ QMetaType* QUntypedBindable_MetaType(const QUntypedBindable* self) {
     return new QMetaType(self->metaType());
 }
 
-QUntypedPropertyBinding* QUntypedBindable_MakeBinding1(const QUntypedBindable* self, QPropertyBindingSourceLocation* location) {
+QUntypedPropertyBinding* QUntypedBindable_MakeBinding1(const QUntypedBindable* self, const QPropertyBindingSourceLocation* location) {
     return new QUntypedPropertyBinding(self->makeBinding(*location));
 }
 

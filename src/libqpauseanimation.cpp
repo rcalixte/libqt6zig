@@ -1,22 +1,14 @@
 #include <QAbstractAnimation>
-#include <QAnimationGroup>
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QPauseAnimation>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <qpauseanimation.h>
 #include "libqpauseanimation.h"
 #include "libqpauseanimation.hxx"
@@ -46,27 +38,30 @@ void* QPauseAnimation_Metacast(QPauseAnimation* self, const char* param1) {
 }
 
 int QPauseAnimation_Metacall(QPauseAnimation* self, int param1, int param2, void** param3) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQPauseAnimation*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QPauseAnimation_OnMetacall(QPauseAnimation* self, intptr_t slot) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_Metacall_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QPauseAnimation_QBaseMetacall(QPauseAnimation* self, int param1, int param2, void** param3) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_Metacall_IsBase(true);
         return vqpauseanimation->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQPauseAnimation*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -112,390 +107,435 @@ libqt_string QPauseAnimation_Tr3(const char* s, const char* c, int n) {
 
 // Derived class handler implementation
 int QPauseAnimation_Duration(const QPauseAnimation* self) {
-    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         return vqpauseanimation->duration();
     } else {
-        return vqpauseanimation->duration();
+        return self->QPauseAnimation::duration();
     }
 }
 
 // Base class handler implementation
 int QPauseAnimation_QBaseDuration(const QPauseAnimation* self) {
-    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_Duration_IsBase(true);
         return vqpauseanimation->duration();
     } else {
-        return vqpauseanimation->duration();
+        return self->QPauseAnimation::duration();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnDuration(const QPauseAnimation* self, intptr_t slot) {
-    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_Duration_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_Duration_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QPauseAnimation_Event(QPauseAnimation* self, QEvent* e) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         return vqpauseanimation->event(e);
     } else {
-        return vqpauseanimation->event(e);
+        return ((VirtualQPauseAnimation*)self)->event(e);
     }
 }
 
 // Base class handler implementation
 bool QPauseAnimation_QBaseEvent(QPauseAnimation* self, QEvent* e) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_Event_IsBase(true);
         return vqpauseanimation->event(e);
     } else {
-        return vqpauseanimation->event(e);
+        return ((VirtualQPauseAnimation*)self)->event(e);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnEvent(QPauseAnimation* self, intptr_t slot) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_Event_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QPauseAnimation_UpdateCurrentTime(QPauseAnimation* self, int param1) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->updateCurrentTime(static_cast<int>(param1));
     } else {
-        vqpauseanimation->updateCurrentTime(static_cast<int>(param1));
+        ((VirtualQPauseAnimation*)self)->updateCurrentTime(static_cast<int>(param1));
     }
 }
 
 // Base class handler implementation
 void QPauseAnimation_QBaseUpdateCurrentTime(QPauseAnimation* self, int param1) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_UpdateCurrentTime_IsBase(true);
         vqpauseanimation->updateCurrentTime(static_cast<int>(param1));
     } else {
-        vqpauseanimation->updateCurrentTime(static_cast<int>(param1));
+        ((VirtualQPauseAnimation*)self)->updateCurrentTime(static_cast<int>(param1));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnUpdateCurrentTime(QPauseAnimation* self, intptr_t slot) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_UpdateCurrentTime_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_UpdateCurrentTime_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QPauseAnimation_UpdateState(QPauseAnimation* self, int newState, int oldState) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
     } else {
-        vqpauseanimation->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
+        ((VirtualQPauseAnimation*)self)->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
     }
 }
 
 // Base class handler implementation
 void QPauseAnimation_QBaseUpdateState(QPauseAnimation* self, int newState, int oldState) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_UpdateState_IsBase(true);
         vqpauseanimation->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
     } else {
-        vqpauseanimation->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
+        ((VirtualQPauseAnimation*)self)->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnUpdateState(QPauseAnimation* self, intptr_t slot) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_UpdateState_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_UpdateState_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QPauseAnimation_UpdateDirection(QPauseAnimation* self, int direction) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
     } else {
-        vqpauseanimation->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
+        ((VirtualQPauseAnimation*)self)->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
     }
 }
 
 // Base class handler implementation
 void QPauseAnimation_QBaseUpdateDirection(QPauseAnimation* self, int direction) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_UpdateDirection_IsBase(true);
         vqpauseanimation->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
     } else {
-        vqpauseanimation->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
+        ((VirtualQPauseAnimation*)self)->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnUpdateDirection(QPauseAnimation* self, intptr_t slot) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_UpdateDirection_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_UpdateDirection_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QPauseAnimation_EventFilter(QPauseAnimation* self, QObject* watched, QEvent* event) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         return vqpauseanimation->eventFilter(watched, event);
     } else {
-        return vqpauseanimation->eventFilter(watched, event);
+        return self->QPauseAnimation::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QPauseAnimation_QBaseEventFilter(QPauseAnimation* self, QObject* watched, QEvent* event) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_EventFilter_IsBase(true);
         return vqpauseanimation->eventFilter(watched, event);
     } else {
-        return vqpauseanimation->eventFilter(watched, event);
+        return self->QPauseAnimation::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnEventFilter(QPauseAnimation* self, intptr_t slot) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_EventFilter_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QPauseAnimation_TimerEvent(QPauseAnimation* self, QTimerEvent* event) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->timerEvent(event);
     } else {
-        vqpauseanimation->timerEvent(event);
+        ((VirtualQPauseAnimation*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QPauseAnimation_QBaseTimerEvent(QPauseAnimation* self, QTimerEvent* event) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_TimerEvent_IsBase(true);
         vqpauseanimation->timerEvent(event);
     } else {
-        vqpauseanimation->timerEvent(event);
+        ((VirtualQPauseAnimation*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnTimerEvent(QPauseAnimation* self, intptr_t slot) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_TimerEvent_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QPauseAnimation_ChildEvent(QPauseAnimation* self, QChildEvent* event) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->childEvent(event);
     } else {
-        vqpauseanimation->childEvent(event);
+        ((VirtualQPauseAnimation*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QPauseAnimation_QBaseChildEvent(QPauseAnimation* self, QChildEvent* event) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_ChildEvent_IsBase(true);
         vqpauseanimation->childEvent(event);
     } else {
-        vqpauseanimation->childEvent(event);
+        ((VirtualQPauseAnimation*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnChildEvent(QPauseAnimation* self, intptr_t slot) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_ChildEvent_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QPauseAnimation_CustomEvent(QPauseAnimation* self, QEvent* event) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->customEvent(event);
     } else {
-        vqpauseanimation->customEvent(event);
+        ((VirtualQPauseAnimation*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QPauseAnimation_QBaseCustomEvent(QPauseAnimation* self, QEvent* event) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_CustomEvent_IsBase(true);
         vqpauseanimation->customEvent(event);
     } else {
-        vqpauseanimation->customEvent(event);
+        ((VirtualQPauseAnimation*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnCustomEvent(QPauseAnimation* self, intptr_t slot) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_CustomEvent_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QPauseAnimation_ConnectNotify(QPauseAnimation* self, QMetaMethod* signal) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+void QPauseAnimation_ConnectNotify(QPauseAnimation* self, const QMetaMethod* signal) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->connectNotify(*signal);
     } else {
-        vqpauseanimation->connectNotify(*signal);
+        ((VirtualQPauseAnimation*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QPauseAnimation_QBaseConnectNotify(QPauseAnimation* self, QMetaMethod* signal) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+void QPauseAnimation_QBaseConnectNotify(QPauseAnimation* self, const QMetaMethod* signal) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_ConnectNotify_IsBase(true);
         vqpauseanimation->connectNotify(*signal);
     } else {
-        vqpauseanimation->connectNotify(*signal);
+        ((VirtualQPauseAnimation*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnConnectNotify(QPauseAnimation* self, intptr_t slot) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_ConnectNotify_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QPauseAnimation_DisconnectNotify(QPauseAnimation* self, QMetaMethod* signal) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+void QPauseAnimation_DisconnectNotify(QPauseAnimation* self, const QMetaMethod* signal) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->disconnectNotify(*signal);
     } else {
-        vqpauseanimation->disconnectNotify(*signal);
+        ((VirtualQPauseAnimation*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QPauseAnimation_QBaseDisconnectNotify(QPauseAnimation* self, QMetaMethod* signal) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+void QPauseAnimation_QBaseDisconnectNotify(QPauseAnimation* self, const QMetaMethod* signal) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_DisconnectNotify_IsBase(true);
         vqpauseanimation->disconnectNotify(*signal);
     } else {
-        vqpauseanimation->disconnectNotify(*signal);
+        ((VirtualQPauseAnimation*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnDisconnectNotify(QPauseAnimation* self, intptr_t slot) {
-    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_DisconnectNotify_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QPauseAnimation_Sender(const QPauseAnimation* self) {
-    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         return vqpauseanimation->sender();
     } else {
-        return vqpauseanimation->sender();
+        return ((VirtualQPauseAnimation*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QPauseAnimation_QBaseSender(const QPauseAnimation* self) {
-    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_Sender_IsBase(true);
         return vqpauseanimation->sender();
     } else {
-        return vqpauseanimation->sender();
+        return ((VirtualQPauseAnimation*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnSender(const QPauseAnimation* self, intptr_t slot) {
-    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_Sender_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QPauseAnimation_SenderSignalIndex(const QPauseAnimation* self) {
-    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         return vqpauseanimation->senderSignalIndex();
     } else {
-        return vqpauseanimation->senderSignalIndex();
+        return ((VirtualQPauseAnimation*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QPauseAnimation_QBaseSenderSignalIndex(const QPauseAnimation* self) {
-    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_SenderSignalIndex_IsBase(true);
         return vqpauseanimation->senderSignalIndex();
     } else {
-        return vqpauseanimation->senderSignalIndex();
+        return ((VirtualQPauseAnimation*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnSenderSignalIndex(const QPauseAnimation* self, intptr_t slot) {
-    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QPauseAnimation_Receivers(const QPauseAnimation* self, const char* signal) {
-    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         return vqpauseanimation->receivers(signal);
     } else {
-        return vqpauseanimation->receivers(signal);
+        return ((VirtualQPauseAnimation*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QPauseAnimation_QBaseReceivers(const QPauseAnimation* self, const char* signal) {
-    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_Receivers_IsBase(true);
         return vqpauseanimation->receivers(signal);
     } else {
-        return vqpauseanimation->receivers(signal);
+        return ((VirtualQPauseAnimation*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnReceivers(const QPauseAnimation* self, intptr_t slot) {
-    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_Receivers_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QPauseAnimation_IsSignalConnected(const QPauseAnimation* self, QMetaMethod* signal) {
-    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+bool QPauseAnimation_IsSignalConnected(const QPauseAnimation* self, const QMetaMethod* signal) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         return vqpauseanimation->isSignalConnected(*signal);
     } else {
-        return vqpauseanimation->isSignalConnected(*signal);
+        return ((VirtualQPauseAnimation*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QPauseAnimation_QBaseIsSignalConnected(const QPauseAnimation* self, QMetaMethod* signal) {
-    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+bool QPauseAnimation_QBaseIsSignalConnected(const QPauseAnimation* self, const QMetaMethod* signal) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_IsSignalConnected_IsBase(true);
         return vqpauseanimation->isSignalConnected(*signal);
     } else {
-        return vqpauseanimation->isSignalConnected(*signal);
+        return ((VirtualQPauseAnimation*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnIsSignalConnected(const QPauseAnimation* self, intptr_t slot) {
-    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->setQPauseAnimation_IsSignalConnected_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_IsSignalConnected_Callback>(slot));
     }
 }

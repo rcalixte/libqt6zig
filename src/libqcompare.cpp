@@ -3,7 +3,7 @@
 #include "libqcompare.h"
 #include "libqcompare.hxx"
 
-QPartialOrdering* QPartialOrdering_new(QPartialOrdering* other) {
+QPartialOrdering* QPartialOrdering_new(const QPartialOrdering* other) {
     return new QPartialOrdering(*other);
 }
 
@@ -11,7 +11,7 @@ QPartialOrdering* QPartialOrdering_new2(QPartialOrdering* other) {
     return new QPartialOrdering(std::move(*other));
 }
 
-QPartialOrdering* QPartialOrdering_new3(QPartialOrdering* param1) {
+QPartialOrdering* QPartialOrdering_new3(const QPartialOrdering* param1) {
     return new QPartialOrdering(*param1);
 }
 

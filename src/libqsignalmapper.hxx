@@ -11,22 +11,25 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QSignalMapper so that we can call protected methods
-class VirtualQSignalMapper : public QSignalMapper {
+class VirtualQSignalMapper final : public QSignalMapper {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQSignalMapper = true;
+
     // Virtual class public types (including callbacks)
-    using QSignalMapper_Metacall_Callback = int (*)(QSignalMapper*, QMetaObject::Call, int, void**);
+    using QSignalMapper_Metacall_Callback = int (*)(QSignalMapper*, int, int, void**);
     using QSignalMapper_Event_Callback = bool (*)(QSignalMapper*, QEvent*);
     using QSignalMapper_EventFilter_Callback = bool (*)(QSignalMapper*, QObject*, QEvent*);
     using QSignalMapper_TimerEvent_Callback = void (*)(QSignalMapper*, QTimerEvent*);
     using QSignalMapper_ChildEvent_Callback = void (*)(QSignalMapper*, QChildEvent*);
     using QSignalMapper_CustomEvent_Callback = void (*)(QSignalMapper*, QEvent*);
-    using QSignalMapper_ConnectNotify_Callback = void (*)(QSignalMapper*, const QMetaMethod&);
-    using QSignalMapper_DisconnectNotify_Callback = void (*)(QSignalMapper*, const QMetaMethod&);
+    using QSignalMapper_ConnectNotify_Callback = void (*)(QSignalMapper*, QMetaMethod*);
+    using QSignalMapper_DisconnectNotify_Callback = void (*)(QSignalMapper*, QMetaMethod*);
     using QSignalMapper_Sender_Callback = QObject* (*)();
     using QSignalMapper_SenderSignalIndex_Callback = int (*)();
     using QSignalMapper_Receivers_Callback = int (*)(const QSignalMapper*, const char*);
-    using QSignalMapper_IsSignalConnected_Callback = bool (*)(const QSignalMapper*, const QMetaMethod&);
+    using QSignalMapper_IsSignalConnected_Callback = bool (*)(const QSignalMapper*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -77,32 +80,32 @@ class VirtualQSignalMapper : public QSignalMapper {
     }
 
     // Callback setters
-    void setQSignalMapper_Metacall_Callback(QSignalMapper_Metacall_Callback cb) { qsignalmapper_metacall_callback = cb; }
-    void setQSignalMapper_Event_Callback(QSignalMapper_Event_Callback cb) { qsignalmapper_event_callback = cb; }
-    void setQSignalMapper_EventFilter_Callback(QSignalMapper_EventFilter_Callback cb) { qsignalmapper_eventfilter_callback = cb; }
-    void setQSignalMapper_TimerEvent_Callback(QSignalMapper_TimerEvent_Callback cb) { qsignalmapper_timerevent_callback = cb; }
-    void setQSignalMapper_ChildEvent_Callback(QSignalMapper_ChildEvent_Callback cb) { qsignalmapper_childevent_callback = cb; }
-    void setQSignalMapper_CustomEvent_Callback(QSignalMapper_CustomEvent_Callback cb) { qsignalmapper_customevent_callback = cb; }
-    void setQSignalMapper_ConnectNotify_Callback(QSignalMapper_ConnectNotify_Callback cb) { qsignalmapper_connectnotify_callback = cb; }
-    void setQSignalMapper_DisconnectNotify_Callback(QSignalMapper_DisconnectNotify_Callback cb) { qsignalmapper_disconnectnotify_callback = cb; }
-    void setQSignalMapper_Sender_Callback(QSignalMapper_Sender_Callback cb) { qsignalmapper_sender_callback = cb; }
-    void setQSignalMapper_SenderSignalIndex_Callback(QSignalMapper_SenderSignalIndex_Callback cb) { qsignalmapper_sendersignalindex_callback = cb; }
-    void setQSignalMapper_Receivers_Callback(QSignalMapper_Receivers_Callback cb) { qsignalmapper_receivers_callback = cb; }
-    void setQSignalMapper_IsSignalConnected_Callback(QSignalMapper_IsSignalConnected_Callback cb) { qsignalmapper_issignalconnected_callback = cb; }
+    inline void setQSignalMapper_Metacall_Callback(QSignalMapper_Metacall_Callback cb) { qsignalmapper_metacall_callback = cb; }
+    inline void setQSignalMapper_Event_Callback(QSignalMapper_Event_Callback cb) { qsignalmapper_event_callback = cb; }
+    inline void setQSignalMapper_EventFilter_Callback(QSignalMapper_EventFilter_Callback cb) { qsignalmapper_eventfilter_callback = cb; }
+    inline void setQSignalMapper_TimerEvent_Callback(QSignalMapper_TimerEvent_Callback cb) { qsignalmapper_timerevent_callback = cb; }
+    inline void setQSignalMapper_ChildEvent_Callback(QSignalMapper_ChildEvent_Callback cb) { qsignalmapper_childevent_callback = cb; }
+    inline void setQSignalMapper_CustomEvent_Callback(QSignalMapper_CustomEvent_Callback cb) { qsignalmapper_customevent_callback = cb; }
+    inline void setQSignalMapper_ConnectNotify_Callback(QSignalMapper_ConnectNotify_Callback cb) { qsignalmapper_connectnotify_callback = cb; }
+    inline void setQSignalMapper_DisconnectNotify_Callback(QSignalMapper_DisconnectNotify_Callback cb) { qsignalmapper_disconnectnotify_callback = cb; }
+    inline void setQSignalMapper_Sender_Callback(QSignalMapper_Sender_Callback cb) { qsignalmapper_sender_callback = cb; }
+    inline void setQSignalMapper_SenderSignalIndex_Callback(QSignalMapper_SenderSignalIndex_Callback cb) { qsignalmapper_sendersignalindex_callback = cb; }
+    inline void setQSignalMapper_Receivers_Callback(QSignalMapper_Receivers_Callback cb) { qsignalmapper_receivers_callback = cb; }
+    inline void setQSignalMapper_IsSignalConnected_Callback(QSignalMapper_IsSignalConnected_Callback cb) { qsignalmapper_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQSignalMapper_Metacall_IsBase(bool value) const { qsignalmapper_metacall_isbase = value; }
-    void setQSignalMapper_Event_IsBase(bool value) const { qsignalmapper_event_isbase = value; }
-    void setQSignalMapper_EventFilter_IsBase(bool value) const { qsignalmapper_eventfilter_isbase = value; }
-    void setQSignalMapper_TimerEvent_IsBase(bool value) const { qsignalmapper_timerevent_isbase = value; }
-    void setQSignalMapper_ChildEvent_IsBase(bool value) const { qsignalmapper_childevent_isbase = value; }
-    void setQSignalMapper_CustomEvent_IsBase(bool value) const { qsignalmapper_customevent_isbase = value; }
-    void setQSignalMapper_ConnectNotify_IsBase(bool value) const { qsignalmapper_connectnotify_isbase = value; }
-    void setQSignalMapper_DisconnectNotify_IsBase(bool value) const { qsignalmapper_disconnectnotify_isbase = value; }
-    void setQSignalMapper_Sender_IsBase(bool value) const { qsignalmapper_sender_isbase = value; }
-    void setQSignalMapper_SenderSignalIndex_IsBase(bool value) const { qsignalmapper_sendersignalindex_isbase = value; }
-    void setQSignalMapper_Receivers_IsBase(bool value) const { qsignalmapper_receivers_isbase = value; }
-    void setQSignalMapper_IsSignalConnected_IsBase(bool value) const { qsignalmapper_issignalconnected_isbase = value; }
+    inline void setQSignalMapper_Metacall_IsBase(bool value) const { qsignalmapper_metacall_isbase = value; }
+    inline void setQSignalMapper_Event_IsBase(bool value) const { qsignalmapper_event_isbase = value; }
+    inline void setQSignalMapper_EventFilter_IsBase(bool value) const { qsignalmapper_eventfilter_isbase = value; }
+    inline void setQSignalMapper_TimerEvent_IsBase(bool value) const { qsignalmapper_timerevent_isbase = value; }
+    inline void setQSignalMapper_ChildEvent_IsBase(bool value) const { qsignalmapper_childevent_isbase = value; }
+    inline void setQSignalMapper_CustomEvent_IsBase(bool value) const { qsignalmapper_customevent_isbase = value; }
+    inline void setQSignalMapper_ConnectNotify_IsBase(bool value) const { qsignalmapper_connectnotify_isbase = value; }
+    inline void setQSignalMapper_DisconnectNotify_IsBase(bool value) const { qsignalmapper_disconnectnotify_isbase = value; }
+    inline void setQSignalMapper_Sender_IsBase(bool value) const { qsignalmapper_sender_isbase = value; }
+    inline void setQSignalMapper_SenderSignalIndex_IsBase(bool value) const { qsignalmapper_sendersignalindex_isbase = value; }
+    inline void setQSignalMapper_Receivers_IsBase(bool value) const { qsignalmapper_receivers_isbase = value; }
+    inline void setQSignalMapper_IsSignalConnected_IsBase(bool value) const { qsignalmapper_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -110,7 +113,12 @@ class VirtualQSignalMapper : public QSignalMapper {
             qsignalmapper_metacall_isbase = false;
             return QSignalMapper::qt_metacall(param1, param2, param3);
         } else if (qsignalmapper_metacall_callback != nullptr) {
-            return qsignalmapper_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qsignalmapper_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QSignalMapper::qt_metacall(param1, param2, param3);
         }
@@ -122,7 +130,10 @@ class VirtualQSignalMapper : public QSignalMapper {
             qsignalmapper_event_isbase = false;
             return QSignalMapper::event(event);
         } else if (qsignalmapper_event_callback != nullptr) {
-            return qsignalmapper_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qsignalmapper_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QSignalMapper::event(event);
         }
@@ -134,7 +145,11 @@ class VirtualQSignalMapper : public QSignalMapper {
             qsignalmapper_eventfilter_isbase = false;
             return QSignalMapper::eventFilter(watched, event);
         } else if (qsignalmapper_eventfilter_callback != nullptr) {
-            return qsignalmapper_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qsignalmapper_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QSignalMapper::eventFilter(watched, event);
         }
@@ -146,7 +161,9 @@ class VirtualQSignalMapper : public QSignalMapper {
             qsignalmapper_timerevent_isbase = false;
             QSignalMapper::timerEvent(event);
         } else if (qsignalmapper_timerevent_callback != nullptr) {
-            qsignalmapper_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qsignalmapper_timerevent_callback(this, cbval1);
         } else {
             QSignalMapper::timerEvent(event);
         }
@@ -158,7 +175,9 @@ class VirtualQSignalMapper : public QSignalMapper {
             qsignalmapper_childevent_isbase = false;
             QSignalMapper::childEvent(event);
         } else if (qsignalmapper_childevent_callback != nullptr) {
-            qsignalmapper_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qsignalmapper_childevent_callback(this, cbval1);
         } else {
             QSignalMapper::childEvent(event);
         }
@@ -170,7 +189,9 @@ class VirtualQSignalMapper : public QSignalMapper {
             qsignalmapper_customevent_isbase = false;
             QSignalMapper::customEvent(event);
         } else if (qsignalmapper_customevent_callback != nullptr) {
-            qsignalmapper_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qsignalmapper_customevent_callback(this, cbval1);
         } else {
             QSignalMapper::customEvent(event);
         }
@@ -182,7 +203,11 @@ class VirtualQSignalMapper : public QSignalMapper {
             qsignalmapper_connectnotify_isbase = false;
             QSignalMapper::connectNotify(signal);
         } else if (qsignalmapper_connectnotify_callback != nullptr) {
-            qsignalmapper_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qsignalmapper_connectnotify_callback(this, cbval1);
         } else {
             QSignalMapper::connectNotify(signal);
         }
@@ -194,7 +219,11 @@ class VirtualQSignalMapper : public QSignalMapper {
             qsignalmapper_disconnectnotify_isbase = false;
             QSignalMapper::disconnectNotify(signal);
         } else if (qsignalmapper_disconnectnotify_callback != nullptr) {
-            qsignalmapper_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qsignalmapper_disconnectnotify_callback(this, cbval1);
         } else {
             QSignalMapper::disconnectNotify(signal);
         }
@@ -206,7 +235,8 @@ class VirtualQSignalMapper : public QSignalMapper {
             qsignalmapper_sender_isbase = false;
             return QSignalMapper::sender();
         } else if (qsignalmapper_sender_callback != nullptr) {
-            return qsignalmapper_sender_callback();
+            QObject* callback_ret = qsignalmapper_sender_callback();
+            return callback_ret;
         } else {
             return QSignalMapper::sender();
         }
@@ -218,7 +248,8 @@ class VirtualQSignalMapper : public QSignalMapper {
             qsignalmapper_sendersignalindex_isbase = false;
             return QSignalMapper::senderSignalIndex();
         } else if (qsignalmapper_sendersignalindex_callback != nullptr) {
-            return qsignalmapper_sendersignalindex_callback();
+            int callback_ret = qsignalmapper_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QSignalMapper::senderSignalIndex();
         }
@@ -230,7 +261,10 @@ class VirtualQSignalMapper : public QSignalMapper {
             qsignalmapper_receivers_isbase = false;
             return QSignalMapper::receivers(signal);
         } else if (qsignalmapper_receivers_callback != nullptr) {
-            return qsignalmapper_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qsignalmapper_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QSignalMapper::receivers(signal);
         }
@@ -242,11 +276,36 @@ class VirtualQSignalMapper : public QSignalMapper {
             qsignalmapper_issignalconnected_isbase = false;
             return QSignalMapper::isSignalConnected(signal);
         } else if (qsignalmapper_issignalconnected_callback != nullptr) {
-            return qsignalmapper_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qsignalmapper_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QSignalMapper::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QSignalMapper_TimerEvent(QSignalMapper* self, QTimerEvent* event);
+    friend void QSignalMapper_QBaseTimerEvent(QSignalMapper* self, QTimerEvent* event);
+    friend void QSignalMapper_ChildEvent(QSignalMapper* self, QChildEvent* event);
+    friend void QSignalMapper_QBaseChildEvent(QSignalMapper* self, QChildEvent* event);
+    friend void QSignalMapper_CustomEvent(QSignalMapper* self, QEvent* event);
+    friend void QSignalMapper_QBaseCustomEvent(QSignalMapper* self, QEvent* event);
+    friend void QSignalMapper_ConnectNotify(QSignalMapper* self, const QMetaMethod* signal);
+    friend void QSignalMapper_QBaseConnectNotify(QSignalMapper* self, const QMetaMethod* signal);
+    friend void QSignalMapper_DisconnectNotify(QSignalMapper* self, const QMetaMethod* signal);
+    friend void QSignalMapper_QBaseDisconnectNotify(QSignalMapper* self, const QMetaMethod* signal);
+    friend QObject* QSignalMapper_Sender(const QSignalMapper* self);
+    friend QObject* QSignalMapper_QBaseSender(const QSignalMapper* self);
+    friend int QSignalMapper_SenderSignalIndex(const QSignalMapper* self);
+    friend int QSignalMapper_QBaseSenderSignalIndex(const QSignalMapper* self);
+    friend int QSignalMapper_Receivers(const QSignalMapper* self, const char* signal);
+    friend int QSignalMapper_QBaseReceivers(const QSignalMapper* self, const char* signal);
+    friend bool QSignalMapper_IsSignalConnected(const QSignalMapper* self, const QMetaMethod* signal);
+    friend bool QSignalMapper_QBaseIsSignalConnected(const QSignalMapper* self, const QMetaMethod* signal);
 };
 
 #endif

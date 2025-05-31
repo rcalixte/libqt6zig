@@ -15,20 +15,12 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAction QAction;
 typedef struct QActionEvent QActionEvent;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBackingStore QBackingStore;
-typedef struct QBindingStorage QBindingStorage;
-typedef struct QBitmap QBitmap;
 typedef struct QChildEvent QChildEvent;
 typedef struct QCloseEvent QCloseEvent;
 typedef struct QContextMenuEvent QContextMenuEvent;
-typedef struct QCursor QCursor;
 typedef struct QDockWidget QDockWidget;
 typedef struct QDragEnterEvent QDragEnterEvent;
 typedef struct QDragLeaveEvent QDragLeaveEvent;
@@ -37,22 +29,11 @@ typedef struct QDropEvent QDropEvent;
 typedef struct QEnterEvent QEnterEvent;
 typedef struct QEvent QEvent;
 typedef struct QFocusEvent QFocusEvent;
-typedef struct QFont QFont;
-typedef struct QFontInfo QFontInfo;
-typedef struct QFontMetrics QFontMetrics;
-typedef struct QGraphicsEffect QGraphicsEffect;
-typedef struct QGraphicsProxyWidget QGraphicsProxyWidget;
 typedef struct QHideEvent QHideEvent;
-typedef struct QIcon QIcon;
 typedef struct QInputMethodEvent QInputMethodEvent;
 typedef struct QKeyEvent QKeyEvent;
-typedef struct QKeySequence QKeySequence;
-typedef struct QLayout QLayout;
-typedef struct QLocale QLocale;
-typedef struct QMargins QMargins;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QMouseEvent QMouseEvent;
 typedef struct QMoveEvent QMoveEvent;
 typedef struct QObject QObject;
@@ -60,26 +41,16 @@ typedef struct QPaintDevice QPaintDevice;
 typedef struct QPaintEngine QPaintEngine;
 typedef struct QPaintEvent QPaintEvent;
 typedef struct QPainter QPainter;
-typedef struct QPalette QPalette;
-typedef struct QPixmap QPixmap;
 typedef struct QPoint QPoint;
-typedef struct QPointF QPointF;
-typedef struct QRect QRect;
-typedef struct QRegion QRegion;
 typedef struct QResizeEvent QResizeEvent;
-typedef struct QScreen QScreen;
 typedef struct QShowEvent QShowEvent;
 typedef struct QSize QSize;
-typedef struct QSizePolicy QSizePolicy;
-typedef struct QStyle QStyle;
 typedef struct QStyleOptionDockWidget QStyleOptionDockWidget;
 typedef struct QTabletEvent QTabletEvent;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
-typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
@@ -91,10 +62,10 @@ typedef int DockWidgetFeatures; // C ABI QFlags
 #endif
 
 QDockWidget* QDockWidget_new(QWidget* parent);
-QDockWidget* QDockWidget_new2(libqt_string title);
+QDockWidget* QDockWidget_new2(const libqt_string title);
 QDockWidget* QDockWidget_new3();
-QDockWidget* QDockWidget_new4(libqt_string title, QWidget* parent);
-QDockWidget* QDockWidget_new5(libqt_string title, QWidget* parent, int flags);
+QDockWidget* QDockWidget_new4(const libqt_string title, QWidget* parent);
+QDockWidget* QDockWidget_new5(const libqt_string title, QWidget* parent, int flags);
 QDockWidget* QDockWidget_new6(QWidget* parent, int flags);
 QMetaObject* QDockWidget_MetaObject(const QDockWidget* self);
 void* QDockWidget_Metacast(QDockWidget* self, const char* param1);
@@ -228,9 +199,21 @@ void QDockWidget_QBaseShowEvent(QDockWidget* self, QShowEvent* event);
 void QDockWidget_HideEvent(QDockWidget* self, QHideEvent* event);
 void QDockWidget_OnHideEvent(QDockWidget* self, intptr_t slot);
 void QDockWidget_QBaseHideEvent(QDockWidget* self, QHideEvent* event);
-bool QDockWidget_NativeEvent(QDockWidget* self, libqt_string eventType, void* message, intptr_t* result);
+bool QDockWidget_NativeEvent(QDockWidget* self, const libqt_string eventType, void* message, intptr_t* result);
 void QDockWidget_OnNativeEvent(QDockWidget* self, intptr_t slot);
-bool QDockWidget_QBaseNativeEvent(QDockWidget* self, libqt_string eventType, void* message, intptr_t* result);
+bool QDockWidget_QBaseNativeEvent(QDockWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+int QDockWidget_Metric(const QDockWidget* self, int param1);
+void QDockWidget_OnMetric(const QDockWidget* self, intptr_t slot);
+int QDockWidget_QBaseMetric(const QDockWidget* self, int param1);
+void QDockWidget_InitPainter(const QDockWidget* self, QPainter* painter);
+void QDockWidget_OnInitPainter(const QDockWidget* self, intptr_t slot);
+void QDockWidget_QBaseInitPainter(const QDockWidget* self, QPainter* painter);
+QPaintDevice* QDockWidget_Redirected(const QDockWidget* self, QPoint* offset);
+void QDockWidget_OnRedirected(const QDockWidget* self, intptr_t slot);
+QPaintDevice* QDockWidget_QBaseRedirected(const QDockWidget* self, QPoint* offset);
+QPainter* QDockWidget_SharedPainter(const QDockWidget* self);
+void QDockWidget_OnSharedPainter(const QDockWidget* self, intptr_t slot);
+QPainter* QDockWidget_QBaseSharedPainter(const QDockWidget* self);
 void QDockWidget_InputMethodEvent(QDockWidget* self, QInputMethodEvent* param1);
 void QDockWidget_OnInputMethodEvent(QDockWidget* self, intptr_t slot);
 void QDockWidget_QBaseInputMethodEvent(QDockWidget* self, QInputMethodEvent* param1);
@@ -252,24 +235,12 @@ void QDockWidget_QBaseChildEvent(QDockWidget* self, QChildEvent* event);
 void QDockWidget_CustomEvent(QDockWidget* self, QEvent* event);
 void QDockWidget_OnCustomEvent(QDockWidget* self, intptr_t slot);
 void QDockWidget_QBaseCustomEvent(QDockWidget* self, QEvent* event);
-void QDockWidget_ConnectNotify(QDockWidget* self, QMetaMethod* signal);
+void QDockWidget_ConnectNotify(QDockWidget* self, const QMetaMethod* signal);
 void QDockWidget_OnConnectNotify(QDockWidget* self, intptr_t slot);
-void QDockWidget_QBaseConnectNotify(QDockWidget* self, QMetaMethod* signal);
-void QDockWidget_DisconnectNotify(QDockWidget* self, QMetaMethod* signal);
+void QDockWidget_QBaseConnectNotify(QDockWidget* self, const QMetaMethod* signal);
+void QDockWidget_DisconnectNotify(QDockWidget* self, const QMetaMethod* signal);
 void QDockWidget_OnDisconnectNotify(QDockWidget* self, intptr_t slot);
-void QDockWidget_QBaseDisconnectNotify(QDockWidget* self, QMetaMethod* signal);
-int QDockWidget_Metric(const QDockWidget* self, int param1);
-void QDockWidget_OnMetric(const QDockWidget* self, intptr_t slot);
-int QDockWidget_QBaseMetric(const QDockWidget* self, int param1);
-void QDockWidget_InitPainter(const QDockWidget* self, QPainter* painter);
-void QDockWidget_OnInitPainter(const QDockWidget* self, intptr_t slot);
-void QDockWidget_QBaseInitPainter(const QDockWidget* self, QPainter* painter);
-QPaintDevice* QDockWidget_Redirected(const QDockWidget* self, QPoint* offset);
-void QDockWidget_OnRedirected(const QDockWidget* self, intptr_t slot);
-QPaintDevice* QDockWidget_QBaseRedirected(const QDockWidget* self, QPoint* offset);
-QPainter* QDockWidget_SharedPainter(const QDockWidget* self);
-void QDockWidget_OnSharedPainter(const QDockWidget* self, intptr_t slot);
-QPainter* QDockWidget_QBaseSharedPainter(const QDockWidget* self);
+void QDockWidget_QBaseDisconnectNotify(QDockWidget* self, const QMetaMethod* signal);
 void QDockWidget_UpdateMicroFocus(QDockWidget* self);
 void QDockWidget_OnUpdateMicroFocus(QDockWidget* self, intptr_t slot);
 void QDockWidget_QBaseUpdateMicroFocus(QDockWidget* self);
@@ -294,9 +265,9 @@ int QDockWidget_QBaseSenderSignalIndex(const QDockWidget* self);
 int QDockWidget_Receivers(const QDockWidget* self, const char* signal);
 void QDockWidget_OnReceivers(const QDockWidget* self, intptr_t slot);
 int QDockWidget_QBaseReceivers(const QDockWidget* self, const char* signal);
-bool QDockWidget_IsSignalConnected(const QDockWidget* self, QMetaMethod* signal);
+bool QDockWidget_IsSignalConnected(const QDockWidget* self, const QMetaMethod* signal);
 void QDockWidget_OnIsSignalConnected(const QDockWidget* self, intptr_t slot);
-bool QDockWidget_QBaseIsSignalConnected(const QDockWidget* self, QMetaMethod* signal);
+bool QDockWidget_QBaseIsSignalConnected(const QDockWidget* self, const QMetaMethod* signal);
 void QDockWidget_Delete(QDockWidget* self);
 
 #ifdef __cplusplus

@@ -1,22 +1,15 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
 #include <QIODevice>
 #include <QIODeviceBase>
-#include <QList>
 #include <QLocalSocket>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <qlocalsocket.h>
 #include "libqlocalsocket.h"
 #include "libqlocalsocket.hxx"
@@ -38,27 +31,30 @@ void* QLocalSocket_Metacast(QLocalSocket* self, const char* param1) {
 }
 
 int QLocalSocket_Metacall(QLocalSocket* self, int param1, int param2, void** param3) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQLocalSocket*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QLocalSocket_OnMetacall(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Metacall_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QLocalSocket_QBaseMetacall(QLocalSocket* self, int param1, int param2, void** param3) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Metacall_IsBase(true);
         return vqlocalsocket->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQLocalSocket*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -78,7 +74,7 @@ void QLocalSocket_ConnectToServer(QLocalSocket* self) {
     self->connectToServer();
 }
 
-void QLocalSocket_ConnectToServerWithName(QLocalSocket* self, libqt_string name) {
+void QLocalSocket_ConnectToServerWithName(QLocalSocket* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     self->connectToServer(name_QString);
 }
@@ -87,7 +83,7 @@ void QLocalSocket_DisconnectFromServer(QLocalSocket* self) {
     self->disconnectFromServer();
 }
 
-void QLocalSocket_SetServerName(QLocalSocket* self, libqt_string name) {
+void QLocalSocket_SetServerName(QLocalSocket* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     self->setServerName(name_QString);
 }
@@ -243,7 +239,7 @@ void QLocalSocket_ConnectToServer1(QLocalSocket* self, int openMode) {
     self->connectToServer(static_cast<QIODeviceBase::OpenMode>(openMode));
 }
 
-void QLocalSocket_ConnectToServer2(QLocalSocket* self, libqt_string name, int openMode) {
+void QLocalSocket_ConnectToServer2(QLocalSocket* self, const libqt_string name, int openMode) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     self->connectToServer(name_QString, static_cast<QIODeviceBase::OpenMode>(openMode));
 }
@@ -266,782 +262,872 @@ bool QLocalSocket_WaitForDisconnected1(QLocalSocket* self, int msecs) {
 
 // Derived class handler implementation
 bool QLocalSocket_IsSequential(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return vqlocalsocket->isSequential();
     } else {
-        return vqlocalsocket->isSequential();
+        return self->QLocalSocket::isSequential();
     }
 }
 
 // Base class handler implementation
 bool QLocalSocket_QBaseIsSequential(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_IsSequential_IsBase(true);
         return vqlocalsocket->isSequential();
     } else {
-        return vqlocalsocket->isSequential();
+        return self->QLocalSocket::isSequential();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnIsSequential(const QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_IsSequential_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_IsSequential_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 long long QLocalSocket_BytesAvailable(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return static_cast<long long>(vqlocalsocket->bytesAvailable());
     } else {
-        return static_cast<long long>(vqlocalsocket->bytesAvailable());
+        return static_cast<long long>(self->QLocalSocket::bytesAvailable());
     }
 }
 
 // Base class handler implementation
 long long QLocalSocket_QBaseBytesAvailable(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_BytesAvailable_IsBase(true);
         return static_cast<long long>(vqlocalsocket->bytesAvailable());
     } else {
-        return static_cast<long long>(vqlocalsocket->bytesAvailable());
+        return static_cast<long long>(self->QLocalSocket::bytesAvailable());
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnBytesAvailable(const QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_BytesAvailable_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_BytesAvailable_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 long long QLocalSocket_BytesToWrite(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return static_cast<long long>(vqlocalsocket->bytesToWrite());
     } else {
-        return static_cast<long long>(vqlocalsocket->bytesToWrite());
+        return static_cast<long long>(self->QLocalSocket::bytesToWrite());
     }
 }
 
 // Base class handler implementation
 long long QLocalSocket_QBaseBytesToWrite(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_BytesToWrite_IsBase(true);
         return static_cast<long long>(vqlocalsocket->bytesToWrite());
     } else {
-        return static_cast<long long>(vqlocalsocket->bytesToWrite());
+        return static_cast<long long>(self->QLocalSocket::bytesToWrite());
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnBytesToWrite(const QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_BytesToWrite_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_BytesToWrite_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QLocalSocket_CanReadLine(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return vqlocalsocket->canReadLine();
     } else {
-        return vqlocalsocket->canReadLine();
+        return self->QLocalSocket::canReadLine();
     }
 }
 
 // Base class handler implementation
 bool QLocalSocket_QBaseCanReadLine(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_CanReadLine_IsBase(true);
         return vqlocalsocket->canReadLine();
     } else {
-        return vqlocalsocket->canReadLine();
+        return self->QLocalSocket::canReadLine();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnCanReadLine(const QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_CanReadLine_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_CanReadLine_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QLocalSocket_Open(QLocalSocket* self, int openMode) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return vqlocalsocket->open(static_cast<QIODeviceBase::OpenMode>(openMode));
     } else {
-        return vqlocalsocket->open(static_cast<QIODeviceBase::OpenMode>(openMode));
+        return self->QLocalSocket::open(static_cast<QIODeviceBase::OpenMode>(openMode));
     }
 }
 
 // Base class handler implementation
 bool QLocalSocket_QBaseOpen(QLocalSocket* self, int openMode) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Open_IsBase(true);
         return vqlocalsocket->open(static_cast<QIODeviceBase::OpenMode>(openMode));
     } else {
-        return vqlocalsocket->open(static_cast<QIODeviceBase::OpenMode>(openMode));
+        return self->QLocalSocket::open(static_cast<QIODeviceBase::OpenMode>(openMode));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnOpen(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Open_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_Open_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QLocalSocket_Close(QLocalSocket* self) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->close();
     } else {
-        vqlocalsocket->close();
+        self->QLocalSocket::close();
     }
 }
 
 // Base class handler implementation
 void QLocalSocket_QBaseClose(QLocalSocket* self) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Close_IsBase(true);
         vqlocalsocket->close();
     } else {
-        vqlocalsocket->close();
+        self->QLocalSocket::close();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnClose(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Close_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_Close_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QLocalSocket_WaitForBytesWritten(QLocalSocket* self, int msecs) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return vqlocalsocket->waitForBytesWritten(static_cast<int>(msecs));
     } else {
-        return vqlocalsocket->waitForBytesWritten(static_cast<int>(msecs));
+        return self->QLocalSocket::waitForBytesWritten(static_cast<int>(msecs));
     }
 }
 
 // Base class handler implementation
 bool QLocalSocket_QBaseWaitForBytesWritten(QLocalSocket* self, int msecs) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_WaitForBytesWritten_IsBase(true);
         return vqlocalsocket->waitForBytesWritten(static_cast<int>(msecs));
     } else {
-        return vqlocalsocket->waitForBytesWritten(static_cast<int>(msecs));
+        return self->QLocalSocket::waitForBytesWritten(static_cast<int>(msecs));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnWaitForBytesWritten(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_WaitForBytesWritten_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_WaitForBytesWritten_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QLocalSocket_WaitForReadyRead(QLocalSocket* self, int msecs) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return vqlocalsocket->waitForReadyRead(static_cast<int>(msecs));
     } else {
-        return vqlocalsocket->waitForReadyRead(static_cast<int>(msecs));
+        return self->QLocalSocket::waitForReadyRead(static_cast<int>(msecs));
     }
 }
 
 // Base class handler implementation
 bool QLocalSocket_QBaseWaitForReadyRead(QLocalSocket* self, int msecs) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_WaitForReadyRead_IsBase(true);
         return vqlocalsocket->waitForReadyRead(static_cast<int>(msecs));
     } else {
-        return vqlocalsocket->waitForReadyRead(static_cast<int>(msecs));
+        return self->QLocalSocket::waitForReadyRead(static_cast<int>(msecs));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnWaitForReadyRead(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_WaitForReadyRead_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_WaitForReadyRead_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 long long QLocalSocket_ReadData(QLocalSocket* self, char* param1, long long param2) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return static_cast<long long>(vqlocalsocket->readData(param1, static_cast<long long>(param2)));
     } else {
-        return static_cast<long long>(vqlocalsocket->readData(param1, static_cast<long long>(param2)));
+        return static_cast<long long>(((VirtualQLocalSocket*)self)->readData(param1, static_cast<long long>(param2)));
     }
 }
 
 // Base class handler implementation
 long long QLocalSocket_QBaseReadData(QLocalSocket* self, char* param1, long long param2) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_ReadData_IsBase(true);
         return static_cast<long long>(vqlocalsocket->readData(param1, static_cast<long long>(param2)));
     } else {
-        return static_cast<long long>(vqlocalsocket->readData(param1, static_cast<long long>(param2)));
+        return static_cast<long long>(((VirtualQLocalSocket*)self)->readData(param1, static_cast<long long>(param2)));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnReadData(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_ReadData_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_ReadData_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 long long QLocalSocket_ReadLineData(QLocalSocket* self, char* data, long long maxSize) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return static_cast<long long>(vqlocalsocket->readLineData(data, static_cast<qint64>(maxSize)));
     } else {
-        return static_cast<long long>(vqlocalsocket->readLineData(data, static_cast<qint64>(maxSize)));
+        return static_cast<long long>(((VirtualQLocalSocket*)self)->readLineData(data, static_cast<qint64>(maxSize)));
     }
 }
 
 // Base class handler implementation
 long long QLocalSocket_QBaseReadLineData(QLocalSocket* self, char* data, long long maxSize) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_ReadLineData_IsBase(true);
         return static_cast<long long>(vqlocalsocket->readLineData(data, static_cast<qint64>(maxSize)));
     } else {
-        return static_cast<long long>(vqlocalsocket->readLineData(data, static_cast<qint64>(maxSize)));
+        return static_cast<long long>(((VirtualQLocalSocket*)self)->readLineData(data, static_cast<qint64>(maxSize)));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnReadLineData(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_ReadLineData_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_ReadLineData_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 long long QLocalSocket_SkipData(QLocalSocket* self, long long maxSize) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return static_cast<long long>(vqlocalsocket->skipData(static_cast<qint64>(maxSize)));
     } else {
-        return static_cast<long long>(vqlocalsocket->skipData(static_cast<qint64>(maxSize)));
+        return static_cast<long long>(((VirtualQLocalSocket*)self)->skipData(static_cast<qint64>(maxSize)));
     }
 }
 
 // Base class handler implementation
 long long QLocalSocket_QBaseSkipData(QLocalSocket* self, long long maxSize) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_SkipData_IsBase(true);
         return static_cast<long long>(vqlocalsocket->skipData(static_cast<qint64>(maxSize)));
     } else {
-        return static_cast<long long>(vqlocalsocket->skipData(static_cast<qint64>(maxSize)));
+        return static_cast<long long>(((VirtualQLocalSocket*)self)->skipData(static_cast<qint64>(maxSize)));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnSkipData(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_SkipData_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_SkipData_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 long long QLocalSocket_WriteData(QLocalSocket* self, const char* param1, long long param2) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return static_cast<long long>(vqlocalsocket->writeData(param1, static_cast<long long>(param2)));
     } else {
-        return static_cast<long long>(vqlocalsocket->writeData(param1, static_cast<long long>(param2)));
+        return static_cast<long long>(((VirtualQLocalSocket*)self)->writeData(param1, static_cast<long long>(param2)));
     }
 }
 
 // Base class handler implementation
 long long QLocalSocket_QBaseWriteData(QLocalSocket* self, const char* param1, long long param2) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_WriteData_IsBase(true);
         return static_cast<long long>(vqlocalsocket->writeData(param1, static_cast<long long>(param2)));
     } else {
-        return static_cast<long long>(vqlocalsocket->writeData(param1, static_cast<long long>(param2)));
+        return static_cast<long long>(((VirtualQLocalSocket*)self)->writeData(param1, static_cast<long long>(param2)));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnWriteData(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_WriteData_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_WriteData_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 long long QLocalSocket_Pos(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return static_cast<long long>(vqlocalsocket->pos());
     } else {
-        return static_cast<long long>(vqlocalsocket->pos());
+        return static_cast<long long>(self->QLocalSocket::pos());
     }
 }
 
 // Base class handler implementation
 long long QLocalSocket_QBasePos(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Pos_IsBase(true);
         return static_cast<long long>(vqlocalsocket->pos());
     } else {
-        return static_cast<long long>(vqlocalsocket->pos());
+        return static_cast<long long>(self->QLocalSocket::pos());
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnPos(const QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Pos_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_Pos_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 long long QLocalSocket_Size(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return static_cast<long long>(vqlocalsocket->size());
     } else {
-        return static_cast<long long>(vqlocalsocket->size());
+        return static_cast<long long>(self->QLocalSocket::size());
     }
 }
 
 // Base class handler implementation
 long long QLocalSocket_QBaseSize(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Size_IsBase(true);
         return static_cast<long long>(vqlocalsocket->size());
     } else {
-        return static_cast<long long>(vqlocalsocket->size());
+        return static_cast<long long>(self->QLocalSocket::size());
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnSize(const QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Size_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_Size_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QLocalSocket_Seek(QLocalSocket* self, long long pos) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return vqlocalsocket->seek(static_cast<qint64>(pos));
     } else {
-        return vqlocalsocket->seek(static_cast<qint64>(pos));
+        return self->QLocalSocket::seek(static_cast<qint64>(pos));
     }
 }
 
 // Base class handler implementation
 bool QLocalSocket_QBaseSeek(QLocalSocket* self, long long pos) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Seek_IsBase(true);
         return vqlocalsocket->seek(static_cast<qint64>(pos));
     } else {
-        return vqlocalsocket->seek(static_cast<qint64>(pos));
+        return self->QLocalSocket::seek(static_cast<qint64>(pos));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnSeek(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Seek_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_Seek_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QLocalSocket_AtEnd(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return vqlocalsocket->atEnd();
     } else {
-        return vqlocalsocket->atEnd();
+        return self->QLocalSocket::atEnd();
     }
 }
 
 // Base class handler implementation
 bool QLocalSocket_QBaseAtEnd(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_AtEnd_IsBase(true);
         return vqlocalsocket->atEnd();
     } else {
-        return vqlocalsocket->atEnd();
+        return self->QLocalSocket::atEnd();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnAtEnd(const QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_AtEnd_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_AtEnd_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QLocalSocket_Reset(QLocalSocket* self) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return vqlocalsocket->reset();
     } else {
-        return vqlocalsocket->reset();
+        return self->QLocalSocket::reset();
     }
 }
 
 // Base class handler implementation
 bool QLocalSocket_QBaseReset(QLocalSocket* self) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Reset_IsBase(true);
         return vqlocalsocket->reset();
     } else {
-        return vqlocalsocket->reset();
+        return self->QLocalSocket::reset();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnReset(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Reset_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_Reset_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QLocalSocket_Event(QLocalSocket* self, QEvent* event) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return vqlocalsocket->event(event);
     } else {
-        return vqlocalsocket->event(event);
+        return self->QLocalSocket::event(event);
     }
 }
 
 // Base class handler implementation
 bool QLocalSocket_QBaseEvent(QLocalSocket* self, QEvent* event) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Event_IsBase(true);
         return vqlocalsocket->event(event);
     } else {
-        return vqlocalsocket->event(event);
+        return self->QLocalSocket::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnEvent(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Event_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QLocalSocket_EventFilter(QLocalSocket* self, QObject* watched, QEvent* event) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return vqlocalsocket->eventFilter(watched, event);
     } else {
-        return vqlocalsocket->eventFilter(watched, event);
+        return self->QLocalSocket::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QLocalSocket_QBaseEventFilter(QLocalSocket* self, QObject* watched, QEvent* event) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_EventFilter_IsBase(true);
         return vqlocalsocket->eventFilter(watched, event);
     } else {
-        return vqlocalsocket->eventFilter(watched, event);
+        return self->QLocalSocket::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnEventFilter(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_EventFilter_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QLocalSocket_TimerEvent(QLocalSocket* self, QTimerEvent* event) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->timerEvent(event);
     } else {
-        vqlocalsocket->timerEvent(event);
+        ((VirtualQLocalSocket*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QLocalSocket_QBaseTimerEvent(QLocalSocket* self, QTimerEvent* event) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_TimerEvent_IsBase(true);
         vqlocalsocket->timerEvent(event);
     } else {
-        vqlocalsocket->timerEvent(event);
+        ((VirtualQLocalSocket*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnTimerEvent(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_TimerEvent_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QLocalSocket_ChildEvent(QLocalSocket* self, QChildEvent* event) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->childEvent(event);
     } else {
-        vqlocalsocket->childEvent(event);
+        ((VirtualQLocalSocket*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QLocalSocket_QBaseChildEvent(QLocalSocket* self, QChildEvent* event) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_ChildEvent_IsBase(true);
         vqlocalsocket->childEvent(event);
     } else {
-        vqlocalsocket->childEvent(event);
+        ((VirtualQLocalSocket*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnChildEvent(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_ChildEvent_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QLocalSocket_CustomEvent(QLocalSocket* self, QEvent* event) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->customEvent(event);
     } else {
-        vqlocalsocket->customEvent(event);
+        ((VirtualQLocalSocket*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QLocalSocket_QBaseCustomEvent(QLocalSocket* self, QEvent* event) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_CustomEvent_IsBase(true);
         vqlocalsocket->customEvent(event);
     } else {
-        vqlocalsocket->customEvent(event);
+        ((VirtualQLocalSocket*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnCustomEvent(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_CustomEvent_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QLocalSocket_ConnectNotify(QLocalSocket* self, QMetaMethod* signal) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+void QLocalSocket_ConnectNotify(QLocalSocket* self, const QMetaMethod* signal) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->connectNotify(*signal);
     } else {
-        vqlocalsocket->connectNotify(*signal);
+        ((VirtualQLocalSocket*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QLocalSocket_QBaseConnectNotify(QLocalSocket* self, QMetaMethod* signal) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+void QLocalSocket_QBaseConnectNotify(QLocalSocket* self, const QMetaMethod* signal) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_ConnectNotify_IsBase(true);
         vqlocalsocket->connectNotify(*signal);
     } else {
-        vqlocalsocket->connectNotify(*signal);
+        ((VirtualQLocalSocket*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnConnectNotify(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_ConnectNotify_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QLocalSocket_DisconnectNotify(QLocalSocket* self, QMetaMethod* signal) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+void QLocalSocket_DisconnectNotify(QLocalSocket* self, const QMetaMethod* signal) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->disconnectNotify(*signal);
     } else {
-        vqlocalsocket->disconnectNotify(*signal);
+        ((VirtualQLocalSocket*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QLocalSocket_QBaseDisconnectNotify(QLocalSocket* self, QMetaMethod* signal) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+void QLocalSocket_QBaseDisconnectNotify(QLocalSocket* self, const QMetaMethod* signal) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_DisconnectNotify_IsBase(true);
         vqlocalsocket->disconnectNotify(*signal);
     } else {
-        vqlocalsocket->disconnectNotify(*signal);
+        ((VirtualQLocalSocket*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnDisconnectNotify(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_DisconnectNotify_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QLocalSocket_SetOpenMode(QLocalSocket* self, int openMode) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setOpenMode(static_cast<QIODeviceBase::OpenMode>(openMode));
     } else {
-        vqlocalsocket->setOpenMode(static_cast<QIODeviceBase::OpenMode>(openMode));
+        ((VirtualQLocalSocket*)self)->setOpenMode(static_cast<QIODeviceBase::OpenMode>(openMode));
     }
 }
 
 // Base class handler implementation
 void QLocalSocket_QBaseSetOpenMode(QLocalSocket* self, int openMode) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_SetOpenMode_IsBase(true);
         vqlocalsocket->setOpenMode(static_cast<QIODeviceBase::OpenMode>(openMode));
     } else {
-        vqlocalsocket->setOpenMode(static_cast<QIODeviceBase::OpenMode>(openMode));
+        ((VirtualQLocalSocket*)self)->setOpenMode(static_cast<QIODeviceBase::OpenMode>(openMode));
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnSetOpenMode(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_SetOpenMode_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_SetOpenMode_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QLocalSocket_SetErrorString(QLocalSocket* self, libqt_string errorString) {
+void QLocalSocket_SetErrorString(QLocalSocket* self, const libqt_string errorString) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setErrorString(errorString_QString);
     } else {
-        vqlocalsocket->setErrorString(errorString_QString);
+        ((VirtualQLocalSocket*)self)->setErrorString(errorString_QString);
     }
 }
 
 // Base class handler implementation
-void QLocalSocket_QBaseSetErrorString(QLocalSocket* self, libqt_string errorString) {
+void QLocalSocket_QBaseSetErrorString(QLocalSocket* self, const libqt_string errorString) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_SetErrorString_IsBase(true);
         vqlocalsocket->setErrorString(errorString_QString);
     } else {
-        vqlocalsocket->setErrorString(errorString_QString);
+        ((VirtualQLocalSocket*)self)->setErrorString(errorString_QString);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnSetErrorString(QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self)) {
+    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_SetErrorString_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_SetErrorString_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QLocalSocket_Sender(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return vqlocalsocket->sender();
     } else {
-        return vqlocalsocket->sender();
+        return ((VirtualQLocalSocket*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QLocalSocket_QBaseSender(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Sender_IsBase(true);
         return vqlocalsocket->sender();
     } else {
-        return vqlocalsocket->sender();
+        return ((VirtualQLocalSocket*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnSender(const QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Sender_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QLocalSocket_SenderSignalIndex(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return vqlocalsocket->senderSignalIndex();
     } else {
-        return vqlocalsocket->senderSignalIndex();
+        return ((VirtualQLocalSocket*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QLocalSocket_QBaseSenderSignalIndex(const QLocalSocket* self) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_SenderSignalIndex_IsBase(true);
         return vqlocalsocket->senderSignalIndex();
     } else {
-        return vqlocalsocket->senderSignalIndex();
+        return ((VirtualQLocalSocket*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnSenderSignalIndex(const QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_SenderSignalIndex_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QLocalSocket_Receivers(const QLocalSocket* self, const char* signal) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return vqlocalsocket->receivers(signal);
     } else {
-        return vqlocalsocket->receivers(signal);
+        return ((VirtualQLocalSocket*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QLocalSocket_QBaseReceivers(const QLocalSocket* self, const char* signal) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Receivers_IsBase(true);
         return vqlocalsocket->receivers(signal);
     } else {
-        return vqlocalsocket->receivers(signal);
+        return ((VirtualQLocalSocket*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnReceivers(const QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Receivers_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QLocalSocket_IsSignalConnected(const QLocalSocket* self, QMetaMethod* signal) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+bool QLocalSocket_IsSignalConnected(const QLocalSocket* self, const QMetaMethod* signal) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         return vqlocalsocket->isSignalConnected(*signal);
     } else {
-        return vqlocalsocket->isSignalConnected(*signal);
+        return ((VirtualQLocalSocket*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QLocalSocket_QBaseIsSignalConnected(const QLocalSocket* self, QMetaMethod* signal) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+bool QLocalSocket_QBaseIsSignalConnected(const QLocalSocket* self, const QMetaMethod* signal) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_IsSignalConnected_IsBase(true);
         return vqlocalsocket->isSignalConnected(*signal);
     } else {
-        return vqlocalsocket->isSignalConnected(*signal);
+        return ((VirtualQLocalSocket*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLocalSocket_OnIsSignalConnected(const QLocalSocket* self, intptr_t slot) {
-    if (auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self))) {
+    auto* vqlocalsocket = const_cast<VirtualQLocalSocket*>(dynamic_cast<const VirtualQLocalSocket*>(self));
+    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_IsSignalConnected_Callback(reinterpret_cast<VirtualQLocalSocket::QLocalSocket_IsSignalConnected_Callback>(slot));
     }
 }

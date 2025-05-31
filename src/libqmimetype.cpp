@@ -11,11 +11,11 @@ QMimeType* QMimeType_new() {
     return new QMimeType();
 }
 
-QMimeType* QMimeType_new2(QMimeType* other) {
+QMimeType* QMimeType_new2(const QMimeType* other) {
     return new QMimeType(*other);
 }
 
-void QMimeType_OperatorAssign(QMimeType* self, QMimeType* other) {
+void QMimeType_OperatorAssign(QMimeType* self, const QMimeType* other) {
     self->operator=(*other);
 }
 
@@ -23,11 +23,11 @@ void QMimeType_Swap(QMimeType* self, QMimeType* other) {
     self->swap(*other);
 }
 
-bool QMimeType_OperatorEqual(const QMimeType* self, QMimeType* other) {
+bool QMimeType_OperatorEqual(const QMimeType* self, const QMimeType* other) {
     return (*self == *other);
 }
 
-bool QMimeType_OperatorNotEqual(const QMimeType* self, QMimeType* other) {
+bool QMimeType_OperatorNotEqual(const QMimeType* self, const QMimeType* other) {
     return (*self != *other);
 }
 
@@ -204,7 +204,7 @@ libqt_string QMimeType_PreferredSuffix(const QMimeType* self) {
     return _str;
 }
 
-bool QMimeType_Inherits(const QMimeType* self, libqt_string mimeTypeName) {
+bool QMimeType_Inherits(const QMimeType* self, const libqt_string mimeTypeName) {
     QString mimeTypeName_QString = QString::fromUtf8(mimeTypeName.data, mimeTypeName.len);
     return self->inherits(mimeTypeName_QString);
 }

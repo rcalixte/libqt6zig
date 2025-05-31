@@ -40,8 +40,8 @@ typedef void QtGadgetHelper;      // C ABI QFlags
 
 QSurfaceFormat* QSurfaceFormat_new();
 QSurfaceFormat* QSurfaceFormat_new2(int options);
-QSurfaceFormat* QSurfaceFormat_new3(QSurfaceFormat* other);
-void QSurfaceFormat_OperatorAssign(QSurfaceFormat* self, QSurfaceFormat* other);
+QSurfaceFormat* QSurfaceFormat_new3(const QSurfaceFormat* other);
+void QSurfaceFormat_OperatorAssign(QSurfaceFormat* self, const QSurfaceFormat* other);
 void QSurfaceFormat_SetDepthBufferSize(QSurfaceFormat* self, int size);
 int QSurfaceFormat_DepthBufferSize(const QSurfaceFormat* self);
 void QSurfaceFormat_SetStencilBufferSize(QSurfaceFormat* self, int size);
@@ -78,9 +78,9 @@ int QSurfaceFormat_Options(const QSurfaceFormat* self);
 int QSurfaceFormat_SwapInterval(const QSurfaceFormat* self);
 void QSurfaceFormat_SetSwapInterval(QSurfaceFormat* self, int interval);
 QColorSpace* QSurfaceFormat_ColorSpace(const QSurfaceFormat* self);
-void QSurfaceFormat_SetColorSpace(QSurfaceFormat* self, QColorSpace* colorSpace);
+void QSurfaceFormat_SetColorSpace(QSurfaceFormat* self, const QColorSpace* colorSpace);
 void QSurfaceFormat_SetColorSpaceWithColorSpace(QSurfaceFormat* self, int colorSpace);
-void QSurfaceFormat_SetDefaultFormat(QSurfaceFormat* format);
+void QSurfaceFormat_SetDefaultFormat(const QSurfaceFormat* format);
 QSurfaceFormat* QSurfaceFormat_DefaultFormat();
 void QSurfaceFormat_SetOption2(QSurfaceFormat* self, int option, bool on);
 void QSurfaceFormat_Delete(QSurfaceFormat* self);

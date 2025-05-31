@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qoperatingsystemversion_enums = enums;
 const std = @import("std");
 
@@ -7,45 +8,45 @@ pub const qoperatingsystemversionbase = struct {
     /// New constructs a new QOperatingSystemVersionBase object.
     ///
     /// ``` osType: qoperatingsystemversion_enums.OSType, vmajor: i32 ```
-    pub fn New(osType: i64, vmajor: i32) ?*C.QOperatingSystemVersionBase {
-        return C.QOperatingSystemVersionBase_new(@intCast(osType), @intCast(vmajor));
+    pub fn New(osType: i64, vmajor: i32) QtC.QOperatingSystemVersionBase {
+        return qtc.QOperatingSystemVersionBase_new(@intCast(osType), @intCast(vmajor));
     }
 
     /// New2 constructs a new QOperatingSystemVersionBase object.
     ///
-    /// ``` param1: ?*C.QOperatingSystemVersionBase ```
-    pub fn New2(param1: ?*anyopaque) ?*C.QOperatingSystemVersionBase {
-        return C.QOperatingSystemVersionBase_new2(@ptrCast(param1));
+    /// ``` param1: QtC.QOperatingSystemVersionBase ```
+    pub fn New2(param1: ?*anyopaque) QtC.QOperatingSystemVersionBase {
+        return qtc.QOperatingSystemVersionBase_new2(@ptrCast(param1));
     }
 
     /// New3 constructs a new QOperatingSystemVersionBase object.
     ///
     /// ``` osType: qoperatingsystemversion_enums.OSType, vmajor: i32, vminor: i32 ```
-    pub fn New3(osType: i64, vmajor: i32, vminor: i32) ?*C.QOperatingSystemVersionBase {
-        return C.QOperatingSystemVersionBase_new3(@intCast(osType), @intCast(vmajor), @intCast(vminor));
+    pub fn New3(osType: i64, vmajor: i32, vminor: i32) QtC.QOperatingSystemVersionBase {
+        return qtc.QOperatingSystemVersionBase_new3(@intCast(osType), @intCast(vmajor), @intCast(vminor));
     }
 
     /// New4 constructs a new QOperatingSystemVersionBase object.
     ///
     /// ``` osType: qoperatingsystemversion_enums.OSType, vmajor: i32, vminor: i32, vmicro: i32 ```
-    pub fn New4(osType: i64, vmajor: i32, vminor: i32, vmicro: i32) ?*C.QOperatingSystemVersionBase {
-        return C.QOperatingSystemVersionBase_new4(@intCast(osType), @intCast(vmajor), @intCast(vminor), @intCast(vmicro));
+    pub fn New4(osType: i64, vmajor: i32, vminor: i32, vmicro: i32) QtC.QOperatingSystemVersionBase {
+        return qtc.QOperatingSystemVersionBase_new4(@intCast(osType), @intCast(vmajor), @intCast(vminor), @intCast(vmicro));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#current)
     ///
     ///
-    pub fn Current() ?*C.QOperatingSystemVersionBase {
-        return C.QOperatingSystemVersionBase_Current();
+    pub fn Current() QtC.QOperatingSystemVersionBase {
+        return qtc.QOperatingSystemVersionBase_Current();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#name)
     ///
-    /// ``` osversion: ?*C.QOperatingSystemVersionBase, allocator: std.mem.Allocator ```
-    pub fn Name(osversion: ?*C.QOperatingSystemVersionBase, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QOperatingSystemVersionBase_Name(@ptrCast(osversion));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+    /// ``` osversion: QtC.QOperatingSystemVersionBase, allocator: std.mem.Allocator ```
+    pub fn Name(osversion: QtC.QOperatingSystemVersionBase, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QOperatingSystemVersionBase_Name(@ptrCast(osversion));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qoperatingsystemversionbase.Name: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -56,69 +57,71 @@ pub const qoperatingsystemversionbase = struct {
     ///
     ///
     pub fn CurrentType() i64 {
-        return C.QOperatingSystemVersionBase_CurrentType();
+        return qtc.QOperatingSystemVersionBase_CurrentType();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#version)
     ///
-    /// ``` self: ?*C.QOperatingSystemVersionBase ```
-    pub fn Version(self: ?*anyopaque) ?*C.QVersionNumber {
-        return C.QOperatingSystemVersionBase_Version(@ptrCast(self));
+    /// ``` self: QtC.QOperatingSystemVersionBase ```
+    pub fn Version(self: ?*anyopaque) QtC.QVersionNumber {
+        return qtc.QOperatingSystemVersionBase_Version(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#majorVersion)
     ///
-    /// ``` self: ?*C.QOperatingSystemVersionBase ```
+    /// ``` self: QtC.QOperatingSystemVersionBase ```
     pub fn MajorVersion(self: ?*anyopaque) i32 {
-        return C.QOperatingSystemVersionBase_MajorVersion(@ptrCast(self));
+        return qtc.QOperatingSystemVersionBase_MajorVersion(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#minorVersion)
     ///
-    /// ``` self: ?*C.QOperatingSystemVersionBase ```
+    /// ``` self: QtC.QOperatingSystemVersionBase ```
     pub fn MinorVersion(self: ?*anyopaque) i32 {
-        return C.QOperatingSystemVersionBase_MinorVersion(@ptrCast(self));
+        return qtc.QOperatingSystemVersionBase_MinorVersion(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#microVersion)
     ///
-    /// ``` self: ?*C.QOperatingSystemVersionBase ```
+    /// ``` self: QtC.QOperatingSystemVersionBase ```
     pub fn MicroVersion(self: ?*anyopaque) i32 {
-        return C.QOperatingSystemVersionBase_MicroVersion(@ptrCast(self));
+        return qtc.QOperatingSystemVersionBase_MicroVersion(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#segmentCount)
     ///
-    /// ``` self: ?*C.QOperatingSystemVersionBase ```
+    /// ``` self: QtC.QOperatingSystemVersionBase ```
     pub fn SegmentCount(self: ?*anyopaque) i32 {
-        return C.QOperatingSystemVersionBase_SegmentCount(@ptrCast(self));
+        return qtc.QOperatingSystemVersionBase_SegmentCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#type)
     ///
-    /// ``` self: ?*C.QOperatingSystemVersionBase ```
+    /// ``` self: QtC.QOperatingSystemVersionBase ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QOperatingSystemVersionBase_Type(@ptrCast(self));
+        return qtc.QOperatingSystemVersionBase_Type(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#name)
     ///
-    /// ``` self: ?*C.QOperatingSystemVersionBase, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QOperatingSystemVersionBase, allocator: std.mem.Allocator ```
     pub fn Name2(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QOperatingSystemVersionBase_Name2(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QOperatingSystemVersionBase_Name2(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qoperatingsystemversionbase.Name2: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#dtor.QOperatingSystemVersionBase)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QOperatingSystemVersionBase ```
+    /// ``` self: QtC.QOperatingSystemVersionBase ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QOperatingSystemVersionBase_Delete(@ptrCast(self));
+        qtc.QOperatingSystemVersionBase_Delete(@ptrCast(self));
     }
 };
 
@@ -126,102 +129,102 @@ pub const qoperatingsystemversionbase = struct {
 pub const qoperatingsystemversion = struct {
     /// New constructs a new QOperatingSystemVersion object.
     ///
-    /// ``` osversion: ?*C.QOperatingSystemVersionBase ```
-    pub fn New(osversion: ?*anyopaque) ?*C.QOperatingSystemVersion {
-        return C.QOperatingSystemVersion_new(@ptrCast(osversion));
+    /// ``` osversion: QtC.QOperatingSystemVersionBase ```
+    pub fn New(osversion: ?*anyopaque) QtC.QOperatingSystemVersion {
+        return qtc.QOperatingSystemVersion_new(@ptrCast(osversion));
     }
 
     /// New2 constructs a new QOperatingSystemVersion object.
     ///
     /// ``` osType: qoperatingsystemversion_enums.OSType, vmajor: i32 ```
-    pub fn New2(osType: i64, vmajor: i32) ?*C.QOperatingSystemVersion {
-        return C.QOperatingSystemVersion_new2(@intCast(osType), @intCast(vmajor));
+    pub fn New2(osType: i64, vmajor: i32) QtC.QOperatingSystemVersion {
+        return qtc.QOperatingSystemVersion_new2(@intCast(osType), @intCast(vmajor));
     }
 
     /// New3 constructs a new QOperatingSystemVersion object.
     ///
-    /// ``` param1: ?*C.QOperatingSystemVersion ```
-    pub fn New3(param1: ?*anyopaque) ?*C.QOperatingSystemVersion {
-        return C.QOperatingSystemVersion_new3(@ptrCast(param1));
+    /// ``` param1: QtC.QOperatingSystemVersion ```
+    pub fn New3(param1: ?*anyopaque) QtC.QOperatingSystemVersion {
+        return qtc.QOperatingSystemVersion_new3(@ptrCast(param1));
     }
 
     /// New4 constructs a new QOperatingSystemVersion object.
     ///
     /// ``` osType: qoperatingsystemversion_enums.OSType, vmajor: i32, vminor: i32 ```
-    pub fn New4(osType: i64, vmajor: i32, vminor: i32) ?*C.QOperatingSystemVersion {
-        return C.QOperatingSystemVersion_new4(@intCast(osType), @intCast(vmajor), @intCast(vminor));
+    pub fn New4(osType: i64, vmajor: i32, vminor: i32) QtC.QOperatingSystemVersion {
+        return qtc.QOperatingSystemVersion_new4(@intCast(osType), @intCast(vmajor), @intCast(vminor));
     }
 
     /// New5 constructs a new QOperatingSystemVersion object.
     ///
     /// ``` osType: qoperatingsystemversion_enums.OSType, vmajor: i32, vminor: i32, vmicro: i32 ```
-    pub fn New5(osType: i64, vmajor: i32, vminor: i32, vmicro: i32) ?*C.QOperatingSystemVersion {
-        return C.QOperatingSystemVersion_new5(@intCast(osType), @intCast(vmajor), @intCast(vminor), @intCast(vmicro));
+    pub fn New5(osType: i64, vmajor: i32, vminor: i32, vmicro: i32) QtC.QOperatingSystemVersion {
+        return qtc.QOperatingSystemVersion_new5(@intCast(osType), @intCast(vmajor), @intCast(vminor), @intCast(vmicro));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversion.html#current)
     ///
     ///
-    pub fn Current() ?*C.QOperatingSystemVersion {
-        return C.QOperatingSystemVersion_Current();
+    pub fn Current() QtC.QOperatingSystemVersion {
+        return qtc.QOperatingSystemVersion_Current();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversion.html#currentType)
     ///
     ///
     pub fn CurrentType() i64 {
-        return C.QOperatingSystemVersion_CurrentType();
+        return qtc.QOperatingSystemVersion_CurrentType();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversion.html#version)
     ///
-    /// ``` self: ?*C.QOperatingSystemVersion ```
-    pub fn Version(self: ?*anyopaque) ?*C.QVersionNumber {
-        return C.QOperatingSystemVersion_Version(@ptrCast(self));
+    /// ``` self: QtC.QOperatingSystemVersion ```
+    pub fn Version(self: ?*anyopaque) QtC.QVersionNumber {
+        return qtc.QOperatingSystemVersion_Version(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversion.html#majorVersion)
     ///
-    /// ``` self: ?*C.QOperatingSystemVersion ```
+    /// ``` self: QtC.QOperatingSystemVersion ```
     pub fn MajorVersion(self: ?*anyopaque) i32 {
-        return C.QOperatingSystemVersion_MajorVersion(@ptrCast(self));
+        return qtc.QOperatingSystemVersion_MajorVersion(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversion.html#minorVersion)
     ///
-    /// ``` self: ?*C.QOperatingSystemVersion ```
+    /// ``` self: QtC.QOperatingSystemVersion ```
     pub fn MinorVersion(self: ?*anyopaque) i32 {
-        return C.QOperatingSystemVersion_MinorVersion(@ptrCast(self));
+        return qtc.QOperatingSystemVersion_MinorVersion(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversion.html#microVersion)
     ///
-    /// ``` self: ?*C.QOperatingSystemVersion ```
+    /// ``` self: QtC.QOperatingSystemVersion ```
     pub fn MicroVersion(self: ?*anyopaque) i32 {
-        return C.QOperatingSystemVersion_MicroVersion(@ptrCast(self));
+        return qtc.QOperatingSystemVersion_MicroVersion(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversion.html#segmentCount)
     ///
-    /// ``` self: ?*C.QOperatingSystemVersion ```
+    /// ``` self: QtC.QOperatingSystemVersion ```
     pub fn SegmentCount(self: ?*anyopaque) i32 {
-        return C.QOperatingSystemVersion_SegmentCount(@ptrCast(self));
+        return qtc.QOperatingSystemVersion_SegmentCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversion.html#type)
     ///
-    /// ``` self: ?*C.QOperatingSystemVersion ```
+    /// ``` self: QtC.QOperatingSystemVersion ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QOperatingSystemVersion_Type(@ptrCast(self));
+        return qtc.QOperatingSystemVersion_Type(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversion.html#name)
     ///
-    /// ``` self: ?*C.QOperatingSystemVersion, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QOperatingSystemVersion, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QOperatingSystemVersion_Name(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QOperatingSystemVersion_Name(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qoperatingsystemversion.Name: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -232,22 +235,24 @@ pub const qoperatingsystemversion = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#name)
     ///
-    /// ``` self: ?*C.QOperatingSystemVersion, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QOperatingSystemVersion, allocator: std.mem.Allocator ```
     pub fn Name2(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QOperatingSystemVersionBase_Name2(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QOperatingSystemVersionBase_Name2(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qoperatingsystemversion.Name2: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversion.html#dtor.QOperatingSystemVersion)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QOperatingSystemVersion ```
+    /// ``` self: QtC.QOperatingSystemVersion ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QOperatingSystemVersion_Delete(@ptrCast(self));
+        qtc.QOperatingSystemVersion_Delete(@ptrCast(self));
     }
 };
 

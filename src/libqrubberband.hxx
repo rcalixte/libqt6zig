@@ -11,11 +11,14 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QRubberBand so that we can call protected methods
-class VirtualQRubberBand : public QRubberBand {
+class VirtualQRubberBand final : public QRubberBand {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQRubberBand = true;
+
     // Virtual class public types (including callbacks)
-    using QRubberBand_Metacall_Callback = int (*)(QRubberBand*, QMetaObject::Call, int, void**);
+    using QRubberBand_Metacall_Callback = int (*)(QRubberBand*, int, int, void**);
     using QRubberBand_Event_Callback = bool (*)(QRubberBand*, QEvent*);
     using QRubberBand_PaintEvent_Callback = void (*)(QRubberBand*, QPaintEvent*);
     using QRubberBand_ChangeEvent_Callback = void (*)(QRubberBand*, QEvent*);
@@ -25,8 +28,8 @@ class VirtualQRubberBand : public QRubberBand {
     using QRubberBand_InitStyleOption_Callback = void (*)(const QRubberBand*, QStyleOptionRubberBand*);
     using QRubberBand_DevType_Callback = int (*)();
     using QRubberBand_SetVisible_Callback = void (*)(QRubberBand*, bool);
-    using QRubberBand_SizeHint_Callback = QSize (*)();
-    using QRubberBand_MinimumSizeHint_Callback = QSize (*)();
+    using QRubberBand_SizeHint_Callback = QSize* (*)();
+    using QRubberBand_MinimumSizeHint_Callback = QSize* (*)();
     using QRubberBand_HeightForWidth_Callback = int (*)(const QRubberBand*, int);
     using QRubberBand_HasHeightForWidth_Callback = bool (*)();
     using QRubberBand_PaintEngine_Callback = QPaintEngine* (*)();
@@ -50,20 +53,20 @@ class VirtualQRubberBand : public QRubberBand {
     using QRubberBand_DragLeaveEvent_Callback = void (*)(QRubberBand*, QDragLeaveEvent*);
     using QRubberBand_DropEvent_Callback = void (*)(QRubberBand*, QDropEvent*);
     using QRubberBand_HideEvent_Callback = void (*)(QRubberBand*, QHideEvent*);
-    using QRubberBand_NativeEvent_Callback = bool (*)(QRubberBand*, const QByteArray&, void*, qintptr*);
-    using QRubberBand_Metric_Callback = int (*)(const QRubberBand*, QPaintDevice::PaintDeviceMetric);
+    using QRubberBand_NativeEvent_Callback = bool (*)(QRubberBand*, libqt_string, void*, intptr_t*);
+    using QRubberBand_Metric_Callback = int (*)(const QRubberBand*, int);
     using QRubberBand_InitPainter_Callback = void (*)(const QRubberBand*, QPainter*);
     using QRubberBand_Redirected_Callback = QPaintDevice* (*)(const QRubberBand*, QPoint*);
     using QRubberBand_SharedPainter_Callback = QPainter* (*)();
     using QRubberBand_InputMethodEvent_Callback = void (*)(QRubberBand*, QInputMethodEvent*);
-    using QRubberBand_InputMethodQuery_Callback = QVariant (*)(const QRubberBand*, Qt::InputMethodQuery);
+    using QRubberBand_InputMethodQuery_Callback = QVariant* (*)(const QRubberBand*, int);
     using QRubberBand_FocusNextPrevChild_Callback = bool (*)(QRubberBand*, bool);
     using QRubberBand_EventFilter_Callback = bool (*)(QRubberBand*, QObject*, QEvent*);
     using QRubberBand_TimerEvent_Callback = void (*)(QRubberBand*, QTimerEvent*);
     using QRubberBand_ChildEvent_Callback = void (*)(QRubberBand*, QChildEvent*);
     using QRubberBand_CustomEvent_Callback = void (*)(QRubberBand*, QEvent*);
-    using QRubberBand_ConnectNotify_Callback = void (*)(QRubberBand*, const QMetaMethod&);
-    using QRubberBand_DisconnectNotify_Callback = void (*)(QRubberBand*, const QMetaMethod&);
+    using QRubberBand_ConnectNotify_Callback = void (*)(QRubberBand*, QMetaMethod*);
+    using QRubberBand_DisconnectNotify_Callback = void (*)(QRubberBand*, QMetaMethod*);
     using QRubberBand_UpdateMicroFocus_Callback = void (*)();
     using QRubberBand_Create_Callback = void (*)();
     using QRubberBand_Destroy_Callback = void (*)();
@@ -72,7 +75,7 @@ class VirtualQRubberBand : public QRubberBand {
     using QRubberBand_Sender_Callback = QObject* (*)();
     using QRubberBand_SenderSignalIndex_Callback = int (*)();
     using QRubberBand_Receivers_Callback = int (*)(const QRubberBand*, const char*);
-    using QRubberBand_IsSignalConnected_Callback = bool (*)(const QRubberBand*, const QMetaMethod&);
+    using QRubberBand_IsSignalConnected_Callback = bool (*)(const QRubberBand*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -261,124 +264,124 @@ class VirtualQRubberBand : public QRubberBand {
     }
 
     // Callback setters
-    void setQRubberBand_Metacall_Callback(QRubberBand_Metacall_Callback cb) { qrubberband_metacall_callback = cb; }
-    void setQRubberBand_Event_Callback(QRubberBand_Event_Callback cb) { qrubberband_event_callback = cb; }
-    void setQRubberBand_PaintEvent_Callback(QRubberBand_PaintEvent_Callback cb) { qrubberband_paintevent_callback = cb; }
-    void setQRubberBand_ChangeEvent_Callback(QRubberBand_ChangeEvent_Callback cb) { qrubberband_changeevent_callback = cb; }
-    void setQRubberBand_ShowEvent_Callback(QRubberBand_ShowEvent_Callback cb) { qrubberband_showevent_callback = cb; }
-    void setQRubberBand_ResizeEvent_Callback(QRubberBand_ResizeEvent_Callback cb) { qrubberband_resizeevent_callback = cb; }
-    void setQRubberBand_MoveEvent_Callback(QRubberBand_MoveEvent_Callback cb) { qrubberband_moveevent_callback = cb; }
-    void setQRubberBand_InitStyleOption_Callback(QRubberBand_InitStyleOption_Callback cb) { qrubberband_initstyleoption_callback = cb; }
-    void setQRubberBand_DevType_Callback(QRubberBand_DevType_Callback cb) { qrubberband_devtype_callback = cb; }
-    void setQRubberBand_SetVisible_Callback(QRubberBand_SetVisible_Callback cb) { qrubberband_setvisible_callback = cb; }
-    void setQRubberBand_SizeHint_Callback(QRubberBand_SizeHint_Callback cb) { qrubberband_sizehint_callback = cb; }
-    void setQRubberBand_MinimumSizeHint_Callback(QRubberBand_MinimumSizeHint_Callback cb) { qrubberband_minimumsizehint_callback = cb; }
-    void setQRubberBand_HeightForWidth_Callback(QRubberBand_HeightForWidth_Callback cb) { qrubberband_heightforwidth_callback = cb; }
-    void setQRubberBand_HasHeightForWidth_Callback(QRubberBand_HasHeightForWidth_Callback cb) { qrubberband_hasheightforwidth_callback = cb; }
-    void setQRubberBand_PaintEngine_Callback(QRubberBand_PaintEngine_Callback cb) { qrubberband_paintengine_callback = cb; }
-    void setQRubberBand_MousePressEvent_Callback(QRubberBand_MousePressEvent_Callback cb) { qrubberband_mousepressevent_callback = cb; }
-    void setQRubberBand_MouseReleaseEvent_Callback(QRubberBand_MouseReleaseEvent_Callback cb) { qrubberband_mousereleaseevent_callback = cb; }
-    void setQRubberBand_MouseDoubleClickEvent_Callback(QRubberBand_MouseDoubleClickEvent_Callback cb) { qrubberband_mousedoubleclickevent_callback = cb; }
-    void setQRubberBand_MouseMoveEvent_Callback(QRubberBand_MouseMoveEvent_Callback cb) { qrubberband_mousemoveevent_callback = cb; }
-    void setQRubberBand_WheelEvent_Callback(QRubberBand_WheelEvent_Callback cb) { qrubberband_wheelevent_callback = cb; }
-    void setQRubberBand_KeyPressEvent_Callback(QRubberBand_KeyPressEvent_Callback cb) { qrubberband_keypressevent_callback = cb; }
-    void setQRubberBand_KeyReleaseEvent_Callback(QRubberBand_KeyReleaseEvent_Callback cb) { qrubberband_keyreleaseevent_callback = cb; }
-    void setQRubberBand_FocusInEvent_Callback(QRubberBand_FocusInEvent_Callback cb) { qrubberband_focusinevent_callback = cb; }
-    void setQRubberBand_FocusOutEvent_Callback(QRubberBand_FocusOutEvent_Callback cb) { qrubberband_focusoutevent_callback = cb; }
-    void setQRubberBand_EnterEvent_Callback(QRubberBand_EnterEvent_Callback cb) { qrubberband_enterevent_callback = cb; }
-    void setQRubberBand_LeaveEvent_Callback(QRubberBand_LeaveEvent_Callback cb) { qrubberband_leaveevent_callback = cb; }
-    void setQRubberBand_CloseEvent_Callback(QRubberBand_CloseEvent_Callback cb) { qrubberband_closeevent_callback = cb; }
-    void setQRubberBand_ContextMenuEvent_Callback(QRubberBand_ContextMenuEvent_Callback cb) { qrubberband_contextmenuevent_callback = cb; }
-    void setQRubberBand_TabletEvent_Callback(QRubberBand_TabletEvent_Callback cb) { qrubberband_tabletevent_callback = cb; }
-    void setQRubberBand_ActionEvent_Callback(QRubberBand_ActionEvent_Callback cb) { qrubberband_actionevent_callback = cb; }
-    void setQRubberBand_DragEnterEvent_Callback(QRubberBand_DragEnterEvent_Callback cb) { qrubberband_dragenterevent_callback = cb; }
-    void setQRubberBand_DragMoveEvent_Callback(QRubberBand_DragMoveEvent_Callback cb) { qrubberband_dragmoveevent_callback = cb; }
-    void setQRubberBand_DragLeaveEvent_Callback(QRubberBand_DragLeaveEvent_Callback cb) { qrubberband_dragleaveevent_callback = cb; }
-    void setQRubberBand_DropEvent_Callback(QRubberBand_DropEvent_Callback cb) { qrubberband_dropevent_callback = cb; }
-    void setQRubberBand_HideEvent_Callback(QRubberBand_HideEvent_Callback cb) { qrubberband_hideevent_callback = cb; }
-    void setQRubberBand_NativeEvent_Callback(QRubberBand_NativeEvent_Callback cb) { qrubberband_nativeevent_callback = cb; }
-    void setQRubberBand_Metric_Callback(QRubberBand_Metric_Callback cb) { qrubberband_metric_callback = cb; }
-    void setQRubberBand_InitPainter_Callback(QRubberBand_InitPainter_Callback cb) { qrubberband_initpainter_callback = cb; }
-    void setQRubberBand_Redirected_Callback(QRubberBand_Redirected_Callback cb) { qrubberband_redirected_callback = cb; }
-    void setQRubberBand_SharedPainter_Callback(QRubberBand_SharedPainter_Callback cb) { qrubberband_sharedpainter_callback = cb; }
-    void setQRubberBand_InputMethodEvent_Callback(QRubberBand_InputMethodEvent_Callback cb) { qrubberband_inputmethodevent_callback = cb; }
-    void setQRubberBand_InputMethodQuery_Callback(QRubberBand_InputMethodQuery_Callback cb) { qrubberband_inputmethodquery_callback = cb; }
-    void setQRubberBand_FocusNextPrevChild_Callback(QRubberBand_FocusNextPrevChild_Callback cb) { qrubberband_focusnextprevchild_callback = cb; }
-    void setQRubberBand_EventFilter_Callback(QRubberBand_EventFilter_Callback cb) { qrubberband_eventfilter_callback = cb; }
-    void setQRubberBand_TimerEvent_Callback(QRubberBand_TimerEvent_Callback cb) { qrubberband_timerevent_callback = cb; }
-    void setQRubberBand_ChildEvent_Callback(QRubberBand_ChildEvent_Callback cb) { qrubberband_childevent_callback = cb; }
-    void setQRubberBand_CustomEvent_Callback(QRubberBand_CustomEvent_Callback cb) { qrubberband_customevent_callback = cb; }
-    void setQRubberBand_ConnectNotify_Callback(QRubberBand_ConnectNotify_Callback cb) { qrubberband_connectnotify_callback = cb; }
-    void setQRubberBand_DisconnectNotify_Callback(QRubberBand_DisconnectNotify_Callback cb) { qrubberband_disconnectnotify_callback = cb; }
-    void setQRubberBand_UpdateMicroFocus_Callback(QRubberBand_UpdateMicroFocus_Callback cb) { qrubberband_updatemicrofocus_callback = cb; }
-    void setQRubberBand_Create_Callback(QRubberBand_Create_Callback cb) { qrubberband_create_callback = cb; }
-    void setQRubberBand_Destroy_Callback(QRubberBand_Destroy_Callback cb) { qrubberband_destroy_callback = cb; }
-    void setQRubberBand_FocusNextChild_Callback(QRubberBand_FocusNextChild_Callback cb) { qrubberband_focusnextchild_callback = cb; }
-    void setQRubberBand_FocusPreviousChild_Callback(QRubberBand_FocusPreviousChild_Callback cb) { qrubberband_focuspreviouschild_callback = cb; }
-    void setQRubberBand_Sender_Callback(QRubberBand_Sender_Callback cb) { qrubberband_sender_callback = cb; }
-    void setQRubberBand_SenderSignalIndex_Callback(QRubberBand_SenderSignalIndex_Callback cb) { qrubberband_sendersignalindex_callback = cb; }
-    void setQRubberBand_Receivers_Callback(QRubberBand_Receivers_Callback cb) { qrubberband_receivers_callback = cb; }
-    void setQRubberBand_IsSignalConnected_Callback(QRubberBand_IsSignalConnected_Callback cb) { qrubberband_issignalconnected_callback = cb; }
+    inline void setQRubberBand_Metacall_Callback(QRubberBand_Metacall_Callback cb) { qrubberband_metacall_callback = cb; }
+    inline void setQRubberBand_Event_Callback(QRubberBand_Event_Callback cb) { qrubberband_event_callback = cb; }
+    inline void setQRubberBand_PaintEvent_Callback(QRubberBand_PaintEvent_Callback cb) { qrubberband_paintevent_callback = cb; }
+    inline void setQRubberBand_ChangeEvent_Callback(QRubberBand_ChangeEvent_Callback cb) { qrubberband_changeevent_callback = cb; }
+    inline void setQRubberBand_ShowEvent_Callback(QRubberBand_ShowEvent_Callback cb) { qrubberband_showevent_callback = cb; }
+    inline void setQRubberBand_ResizeEvent_Callback(QRubberBand_ResizeEvent_Callback cb) { qrubberband_resizeevent_callback = cb; }
+    inline void setQRubberBand_MoveEvent_Callback(QRubberBand_MoveEvent_Callback cb) { qrubberband_moveevent_callback = cb; }
+    inline void setQRubberBand_InitStyleOption_Callback(QRubberBand_InitStyleOption_Callback cb) { qrubberband_initstyleoption_callback = cb; }
+    inline void setQRubberBand_DevType_Callback(QRubberBand_DevType_Callback cb) { qrubberband_devtype_callback = cb; }
+    inline void setQRubberBand_SetVisible_Callback(QRubberBand_SetVisible_Callback cb) { qrubberband_setvisible_callback = cb; }
+    inline void setQRubberBand_SizeHint_Callback(QRubberBand_SizeHint_Callback cb) { qrubberband_sizehint_callback = cb; }
+    inline void setQRubberBand_MinimumSizeHint_Callback(QRubberBand_MinimumSizeHint_Callback cb) { qrubberband_minimumsizehint_callback = cb; }
+    inline void setQRubberBand_HeightForWidth_Callback(QRubberBand_HeightForWidth_Callback cb) { qrubberband_heightforwidth_callback = cb; }
+    inline void setQRubberBand_HasHeightForWidth_Callback(QRubberBand_HasHeightForWidth_Callback cb) { qrubberband_hasheightforwidth_callback = cb; }
+    inline void setQRubberBand_PaintEngine_Callback(QRubberBand_PaintEngine_Callback cb) { qrubberband_paintengine_callback = cb; }
+    inline void setQRubberBand_MousePressEvent_Callback(QRubberBand_MousePressEvent_Callback cb) { qrubberband_mousepressevent_callback = cb; }
+    inline void setQRubberBand_MouseReleaseEvent_Callback(QRubberBand_MouseReleaseEvent_Callback cb) { qrubberband_mousereleaseevent_callback = cb; }
+    inline void setQRubberBand_MouseDoubleClickEvent_Callback(QRubberBand_MouseDoubleClickEvent_Callback cb) { qrubberband_mousedoubleclickevent_callback = cb; }
+    inline void setQRubberBand_MouseMoveEvent_Callback(QRubberBand_MouseMoveEvent_Callback cb) { qrubberband_mousemoveevent_callback = cb; }
+    inline void setQRubberBand_WheelEvent_Callback(QRubberBand_WheelEvent_Callback cb) { qrubberband_wheelevent_callback = cb; }
+    inline void setQRubberBand_KeyPressEvent_Callback(QRubberBand_KeyPressEvent_Callback cb) { qrubberband_keypressevent_callback = cb; }
+    inline void setQRubberBand_KeyReleaseEvent_Callback(QRubberBand_KeyReleaseEvent_Callback cb) { qrubberband_keyreleaseevent_callback = cb; }
+    inline void setQRubberBand_FocusInEvent_Callback(QRubberBand_FocusInEvent_Callback cb) { qrubberband_focusinevent_callback = cb; }
+    inline void setQRubberBand_FocusOutEvent_Callback(QRubberBand_FocusOutEvent_Callback cb) { qrubberband_focusoutevent_callback = cb; }
+    inline void setQRubberBand_EnterEvent_Callback(QRubberBand_EnterEvent_Callback cb) { qrubberband_enterevent_callback = cb; }
+    inline void setQRubberBand_LeaveEvent_Callback(QRubberBand_LeaveEvent_Callback cb) { qrubberband_leaveevent_callback = cb; }
+    inline void setQRubberBand_CloseEvent_Callback(QRubberBand_CloseEvent_Callback cb) { qrubberband_closeevent_callback = cb; }
+    inline void setQRubberBand_ContextMenuEvent_Callback(QRubberBand_ContextMenuEvent_Callback cb) { qrubberband_contextmenuevent_callback = cb; }
+    inline void setQRubberBand_TabletEvent_Callback(QRubberBand_TabletEvent_Callback cb) { qrubberband_tabletevent_callback = cb; }
+    inline void setQRubberBand_ActionEvent_Callback(QRubberBand_ActionEvent_Callback cb) { qrubberband_actionevent_callback = cb; }
+    inline void setQRubberBand_DragEnterEvent_Callback(QRubberBand_DragEnterEvent_Callback cb) { qrubberband_dragenterevent_callback = cb; }
+    inline void setQRubberBand_DragMoveEvent_Callback(QRubberBand_DragMoveEvent_Callback cb) { qrubberband_dragmoveevent_callback = cb; }
+    inline void setQRubberBand_DragLeaveEvent_Callback(QRubberBand_DragLeaveEvent_Callback cb) { qrubberband_dragleaveevent_callback = cb; }
+    inline void setQRubberBand_DropEvent_Callback(QRubberBand_DropEvent_Callback cb) { qrubberband_dropevent_callback = cb; }
+    inline void setQRubberBand_HideEvent_Callback(QRubberBand_HideEvent_Callback cb) { qrubberband_hideevent_callback = cb; }
+    inline void setQRubberBand_NativeEvent_Callback(QRubberBand_NativeEvent_Callback cb) { qrubberband_nativeevent_callback = cb; }
+    inline void setQRubberBand_Metric_Callback(QRubberBand_Metric_Callback cb) { qrubberband_metric_callback = cb; }
+    inline void setQRubberBand_InitPainter_Callback(QRubberBand_InitPainter_Callback cb) { qrubberband_initpainter_callback = cb; }
+    inline void setQRubberBand_Redirected_Callback(QRubberBand_Redirected_Callback cb) { qrubberband_redirected_callback = cb; }
+    inline void setQRubberBand_SharedPainter_Callback(QRubberBand_SharedPainter_Callback cb) { qrubberband_sharedpainter_callback = cb; }
+    inline void setQRubberBand_InputMethodEvent_Callback(QRubberBand_InputMethodEvent_Callback cb) { qrubberband_inputmethodevent_callback = cb; }
+    inline void setQRubberBand_InputMethodQuery_Callback(QRubberBand_InputMethodQuery_Callback cb) { qrubberband_inputmethodquery_callback = cb; }
+    inline void setQRubberBand_FocusNextPrevChild_Callback(QRubberBand_FocusNextPrevChild_Callback cb) { qrubberband_focusnextprevchild_callback = cb; }
+    inline void setQRubberBand_EventFilter_Callback(QRubberBand_EventFilter_Callback cb) { qrubberband_eventfilter_callback = cb; }
+    inline void setQRubberBand_TimerEvent_Callback(QRubberBand_TimerEvent_Callback cb) { qrubberband_timerevent_callback = cb; }
+    inline void setQRubberBand_ChildEvent_Callback(QRubberBand_ChildEvent_Callback cb) { qrubberband_childevent_callback = cb; }
+    inline void setQRubberBand_CustomEvent_Callback(QRubberBand_CustomEvent_Callback cb) { qrubberband_customevent_callback = cb; }
+    inline void setQRubberBand_ConnectNotify_Callback(QRubberBand_ConnectNotify_Callback cb) { qrubberband_connectnotify_callback = cb; }
+    inline void setQRubberBand_DisconnectNotify_Callback(QRubberBand_DisconnectNotify_Callback cb) { qrubberband_disconnectnotify_callback = cb; }
+    inline void setQRubberBand_UpdateMicroFocus_Callback(QRubberBand_UpdateMicroFocus_Callback cb) { qrubberband_updatemicrofocus_callback = cb; }
+    inline void setQRubberBand_Create_Callback(QRubberBand_Create_Callback cb) { qrubberband_create_callback = cb; }
+    inline void setQRubberBand_Destroy_Callback(QRubberBand_Destroy_Callback cb) { qrubberband_destroy_callback = cb; }
+    inline void setQRubberBand_FocusNextChild_Callback(QRubberBand_FocusNextChild_Callback cb) { qrubberband_focusnextchild_callback = cb; }
+    inline void setQRubberBand_FocusPreviousChild_Callback(QRubberBand_FocusPreviousChild_Callback cb) { qrubberband_focuspreviouschild_callback = cb; }
+    inline void setQRubberBand_Sender_Callback(QRubberBand_Sender_Callback cb) { qrubberband_sender_callback = cb; }
+    inline void setQRubberBand_SenderSignalIndex_Callback(QRubberBand_SenderSignalIndex_Callback cb) { qrubberband_sendersignalindex_callback = cb; }
+    inline void setQRubberBand_Receivers_Callback(QRubberBand_Receivers_Callback cb) { qrubberband_receivers_callback = cb; }
+    inline void setQRubberBand_IsSignalConnected_Callback(QRubberBand_IsSignalConnected_Callback cb) { qrubberband_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQRubberBand_Metacall_IsBase(bool value) const { qrubberband_metacall_isbase = value; }
-    void setQRubberBand_Event_IsBase(bool value) const { qrubberband_event_isbase = value; }
-    void setQRubberBand_PaintEvent_IsBase(bool value) const { qrubberband_paintevent_isbase = value; }
-    void setQRubberBand_ChangeEvent_IsBase(bool value) const { qrubberband_changeevent_isbase = value; }
-    void setQRubberBand_ShowEvent_IsBase(bool value) const { qrubberband_showevent_isbase = value; }
-    void setQRubberBand_ResizeEvent_IsBase(bool value) const { qrubberband_resizeevent_isbase = value; }
-    void setQRubberBand_MoveEvent_IsBase(bool value) const { qrubberband_moveevent_isbase = value; }
-    void setQRubberBand_InitStyleOption_IsBase(bool value) const { qrubberband_initstyleoption_isbase = value; }
-    void setQRubberBand_DevType_IsBase(bool value) const { qrubberband_devtype_isbase = value; }
-    void setQRubberBand_SetVisible_IsBase(bool value) const { qrubberband_setvisible_isbase = value; }
-    void setQRubberBand_SizeHint_IsBase(bool value) const { qrubberband_sizehint_isbase = value; }
-    void setQRubberBand_MinimumSizeHint_IsBase(bool value) const { qrubberband_minimumsizehint_isbase = value; }
-    void setQRubberBand_HeightForWidth_IsBase(bool value) const { qrubberband_heightforwidth_isbase = value; }
-    void setQRubberBand_HasHeightForWidth_IsBase(bool value) const { qrubberband_hasheightforwidth_isbase = value; }
-    void setQRubberBand_PaintEngine_IsBase(bool value) const { qrubberband_paintengine_isbase = value; }
-    void setQRubberBand_MousePressEvent_IsBase(bool value) const { qrubberband_mousepressevent_isbase = value; }
-    void setQRubberBand_MouseReleaseEvent_IsBase(bool value) const { qrubberband_mousereleaseevent_isbase = value; }
-    void setQRubberBand_MouseDoubleClickEvent_IsBase(bool value) const { qrubberband_mousedoubleclickevent_isbase = value; }
-    void setQRubberBand_MouseMoveEvent_IsBase(bool value) const { qrubberband_mousemoveevent_isbase = value; }
-    void setQRubberBand_WheelEvent_IsBase(bool value) const { qrubberband_wheelevent_isbase = value; }
-    void setQRubberBand_KeyPressEvent_IsBase(bool value) const { qrubberband_keypressevent_isbase = value; }
-    void setQRubberBand_KeyReleaseEvent_IsBase(bool value) const { qrubberband_keyreleaseevent_isbase = value; }
-    void setQRubberBand_FocusInEvent_IsBase(bool value) const { qrubberband_focusinevent_isbase = value; }
-    void setQRubberBand_FocusOutEvent_IsBase(bool value) const { qrubberband_focusoutevent_isbase = value; }
-    void setQRubberBand_EnterEvent_IsBase(bool value) const { qrubberband_enterevent_isbase = value; }
-    void setQRubberBand_LeaveEvent_IsBase(bool value) const { qrubberband_leaveevent_isbase = value; }
-    void setQRubberBand_CloseEvent_IsBase(bool value) const { qrubberband_closeevent_isbase = value; }
-    void setQRubberBand_ContextMenuEvent_IsBase(bool value) const { qrubberband_contextmenuevent_isbase = value; }
-    void setQRubberBand_TabletEvent_IsBase(bool value) const { qrubberband_tabletevent_isbase = value; }
-    void setQRubberBand_ActionEvent_IsBase(bool value) const { qrubberband_actionevent_isbase = value; }
-    void setQRubberBand_DragEnterEvent_IsBase(bool value) const { qrubberband_dragenterevent_isbase = value; }
-    void setQRubberBand_DragMoveEvent_IsBase(bool value) const { qrubberband_dragmoveevent_isbase = value; }
-    void setQRubberBand_DragLeaveEvent_IsBase(bool value) const { qrubberband_dragleaveevent_isbase = value; }
-    void setQRubberBand_DropEvent_IsBase(bool value) const { qrubberband_dropevent_isbase = value; }
-    void setQRubberBand_HideEvent_IsBase(bool value) const { qrubberband_hideevent_isbase = value; }
-    void setQRubberBand_NativeEvent_IsBase(bool value) const { qrubberband_nativeevent_isbase = value; }
-    void setQRubberBand_Metric_IsBase(bool value) const { qrubberband_metric_isbase = value; }
-    void setQRubberBand_InitPainter_IsBase(bool value) const { qrubberband_initpainter_isbase = value; }
-    void setQRubberBand_Redirected_IsBase(bool value) const { qrubberband_redirected_isbase = value; }
-    void setQRubberBand_SharedPainter_IsBase(bool value) const { qrubberband_sharedpainter_isbase = value; }
-    void setQRubberBand_InputMethodEvent_IsBase(bool value) const { qrubberband_inputmethodevent_isbase = value; }
-    void setQRubberBand_InputMethodQuery_IsBase(bool value) const { qrubberband_inputmethodquery_isbase = value; }
-    void setQRubberBand_FocusNextPrevChild_IsBase(bool value) const { qrubberband_focusnextprevchild_isbase = value; }
-    void setQRubberBand_EventFilter_IsBase(bool value) const { qrubberband_eventfilter_isbase = value; }
-    void setQRubberBand_TimerEvent_IsBase(bool value) const { qrubberband_timerevent_isbase = value; }
-    void setQRubberBand_ChildEvent_IsBase(bool value) const { qrubberband_childevent_isbase = value; }
-    void setQRubberBand_CustomEvent_IsBase(bool value) const { qrubberband_customevent_isbase = value; }
-    void setQRubberBand_ConnectNotify_IsBase(bool value) const { qrubberband_connectnotify_isbase = value; }
-    void setQRubberBand_DisconnectNotify_IsBase(bool value) const { qrubberband_disconnectnotify_isbase = value; }
-    void setQRubberBand_UpdateMicroFocus_IsBase(bool value) const { qrubberband_updatemicrofocus_isbase = value; }
-    void setQRubberBand_Create_IsBase(bool value) const { qrubberband_create_isbase = value; }
-    void setQRubberBand_Destroy_IsBase(bool value) const { qrubberband_destroy_isbase = value; }
-    void setQRubberBand_FocusNextChild_IsBase(bool value) const { qrubberband_focusnextchild_isbase = value; }
-    void setQRubberBand_FocusPreviousChild_IsBase(bool value) const { qrubberband_focuspreviouschild_isbase = value; }
-    void setQRubberBand_Sender_IsBase(bool value) const { qrubberband_sender_isbase = value; }
-    void setQRubberBand_SenderSignalIndex_IsBase(bool value) const { qrubberband_sendersignalindex_isbase = value; }
-    void setQRubberBand_Receivers_IsBase(bool value) const { qrubberband_receivers_isbase = value; }
-    void setQRubberBand_IsSignalConnected_IsBase(bool value) const { qrubberband_issignalconnected_isbase = value; }
+    inline void setQRubberBand_Metacall_IsBase(bool value) const { qrubberband_metacall_isbase = value; }
+    inline void setQRubberBand_Event_IsBase(bool value) const { qrubberband_event_isbase = value; }
+    inline void setQRubberBand_PaintEvent_IsBase(bool value) const { qrubberband_paintevent_isbase = value; }
+    inline void setQRubberBand_ChangeEvent_IsBase(bool value) const { qrubberband_changeevent_isbase = value; }
+    inline void setQRubberBand_ShowEvent_IsBase(bool value) const { qrubberband_showevent_isbase = value; }
+    inline void setQRubberBand_ResizeEvent_IsBase(bool value) const { qrubberband_resizeevent_isbase = value; }
+    inline void setQRubberBand_MoveEvent_IsBase(bool value) const { qrubberband_moveevent_isbase = value; }
+    inline void setQRubberBand_InitStyleOption_IsBase(bool value) const { qrubberband_initstyleoption_isbase = value; }
+    inline void setQRubberBand_DevType_IsBase(bool value) const { qrubberband_devtype_isbase = value; }
+    inline void setQRubberBand_SetVisible_IsBase(bool value) const { qrubberband_setvisible_isbase = value; }
+    inline void setQRubberBand_SizeHint_IsBase(bool value) const { qrubberband_sizehint_isbase = value; }
+    inline void setQRubberBand_MinimumSizeHint_IsBase(bool value) const { qrubberband_minimumsizehint_isbase = value; }
+    inline void setQRubberBand_HeightForWidth_IsBase(bool value) const { qrubberband_heightforwidth_isbase = value; }
+    inline void setQRubberBand_HasHeightForWidth_IsBase(bool value) const { qrubberband_hasheightforwidth_isbase = value; }
+    inline void setQRubberBand_PaintEngine_IsBase(bool value) const { qrubberband_paintengine_isbase = value; }
+    inline void setQRubberBand_MousePressEvent_IsBase(bool value) const { qrubberband_mousepressevent_isbase = value; }
+    inline void setQRubberBand_MouseReleaseEvent_IsBase(bool value) const { qrubberband_mousereleaseevent_isbase = value; }
+    inline void setQRubberBand_MouseDoubleClickEvent_IsBase(bool value) const { qrubberband_mousedoubleclickevent_isbase = value; }
+    inline void setQRubberBand_MouseMoveEvent_IsBase(bool value) const { qrubberband_mousemoveevent_isbase = value; }
+    inline void setQRubberBand_WheelEvent_IsBase(bool value) const { qrubberband_wheelevent_isbase = value; }
+    inline void setQRubberBand_KeyPressEvent_IsBase(bool value) const { qrubberband_keypressevent_isbase = value; }
+    inline void setQRubberBand_KeyReleaseEvent_IsBase(bool value) const { qrubberband_keyreleaseevent_isbase = value; }
+    inline void setQRubberBand_FocusInEvent_IsBase(bool value) const { qrubberband_focusinevent_isbase = value; }
+    inline void setQRubberBand_FocusOutEvent_IsBase(bool value) const { qrubberband_focusoutevent_isbase = value; }
+    inline void setQRubberBand_EnterEvent_IsBase(bool value) const { qrubberband_enterevent_isbase = value; }
+    inline void setQRubberBand_LeaveEvent_IsBase(bool value) const { qrubberband_leaveevent_isbase = value; }
+    inline void setQRubberBand_CloseEvent_IsBase(bool value) const { qrubberband_closeevent_isbase = value; }
+    inline void setQRubberBand_ContextMenuEvent_IsBase(bool value) const { qrubberband_contextmenuevent_isbase = value; }
+    inline void setQRubberBand_TabletEvent_IsBase(bool value) const { qrubberband_tabletevent_isbase = value; }
+    inline void setQRubberBand_ActionEvent_IsBase(bool value) const { qrubberband_actionevent_isbase = value; }
+    inline void setQRubberBand_DragEnterEvent_IsBase(bool value) const { qrubberband_dragenterevent_isbase = value; }
+    inline void setQRubberBand_DragMoveEvent_IsBase(bool value) const { qrubberband_dragmoveevent_isbase = value; }
+    inline void setQRubberBand_DragLeaveEvent_IsBase(bool value) const { qrubberband_dragleaveevent_isbase = value; }
+    inline void setQRubberBand_DropEvent_IsBase(bool value) const { qrubberband_dropevent_isbase = value; }
+    inline void setQRubberBand_HideEvent_IsBase(bool value) const { qrubberband_hideevent_isbase = value; }
+    inline void setQRubberBand_NativeEvent_IsBase(bool value) const { qrubberband_nativeevent_isbase = value; }
+    inline void setQRubberBand_Metric_IsBase(bool value) const { qrubberband_metric_isbase = value; }
+    inline void setQRubberBand_InitPainter_IsBase(bool value) const { qrubberband_initpainter_isbase = value; }
+    inline void setQRubberBand_Redirected_IsBase(bool value) const { qrubberband_redirected_isbase = value; }
+    inline void setQRubberBand_SharedPainter_IsBase(bool value) const { qrubberband_sharedpainter_isbase = value; }
+    inline void setQRubberBand_InputMethodEvent_IsBase(bool value) const { qrubberband_inputmethodevent_isbase = value; }
+    inline void setQRubberBand_InputMethodQuery_IsBase(bool value) const { qrubberband_inputmethodquery_isbase = value; }
+    inline void setQRubberBand_FocusNextPrevChild_IsBase(bool value) const { qrubberband_focusnextprevchild_isbase = value; }
+    inline void setQRubberBand_EventFilter_IsBase(bool value) const { qrubberband_eventfilter_isbase = value; }
+    inline void setQRubberBand_TimerEvent_IsBase(bool value) const { qrubberband_timerevent_isbase = value; }
+    inline void setQRubberBand_ChildEvent_IsBase(bool value) const { qrubberband_childevent_isbase = value; }
+    inline void setQRubberBand_CustomEvent_IsBase(bool value) const { qrubberband_customevent_isbase = value; }
+    inline void setQRubberBand_ConnectNotify_IsBase(bool value) const { qrubberband_connectnotify_isbase = value; }
+    inline void setQRubberBand_DisconnectNotify_IsBase(bool value) const { qrubberband_disconnectnotify_isbase = value; }
+    inline void setQRubberBand_UpdateMicroFocus_IsBase(bool value) const { qrubberband_updatemicrofocus_isbase = value; }
+    inline void setQRubberBand_Create_IsBase(bool value) const { qrubberband_create_isbase = value; }
+    inline void setQRubberBand_Destroy_IsBase(bool value) const { qrubberband_destroy_isbase = value; }
+    inline void setQRubberBand_FocusNextChild_IsBase(bool value) const { qrubberband_focusnextchild_isbase = value; }
+    inline void setQRubberBand_FocusPreviousChild_IsBase(bool value) const { qrubberband_focuspreviouschild_isbase = value; }
+    inline void setQRubberBand_Sender_IsBase(bool value) const { qrubberband_sender_isbase = value; }
+    inline void setQRubberBand_SenderSignalIndex_IsBase(bool value) const { qrubberband_sendersignalindex_isbase = value; }
+    inline void setQRubberBand_Receivers_IsBase(bool value) const { qrubberband_receivers_isbase = value; }
+    inline void setQRubberBand_IsSignalConnected_IsBase(bool value) const { qrubberband_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -386,7 +389,12 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_metacall_isbase = false;
             return QRubberBand::qt_metacall(param1, param2, param3);
         } else if (qrubberband_metacall_callback != nullptr) {
-            return qrubberband_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qrubberband_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QRubberBand::qt_metacall(param1, param2, param3);
         }
@@ -398,7 +406,10 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_event_isbase = false;
             return QRubberBand::event(e);
         } else if (qrubberband_event_callback != nullptr) {
-            return qrubberband_event_callback(this, e);
+            QEvent* cbval1 = e;
+
+            bool callback_ret = qrubberband_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QRubberBand::event(e);
         }
@@ -410,7 +421,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_paintevent_isbase = false;
             QRubberBand::paintEvent(param1);
         } else if (qrubberband_paintevent_callback != nullptr) {
-            qrubberband_paintevent_callback(this, param1);
+            QPaintEvent* cbval1 = param1;
+
+            qrubberband_paintevent_callback(this, cbval1);
         } else {
             QRubberBand::paintEvent(param1);
         }
@@ -422,7 +435,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_changeevent_isbase = false;
             QRubberBand::changeEvent(param1);
         } else if (qrubberband_changeevent_callback != nullptr) {
-            qrubberband_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qrubberband_changeevent_callback(this, cbval1);
         } else {
             QRubberBand::changeEvent(param1);
         }
@@ -434,7 +449,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_showevent_isbase = false;
             QRubberBand::showEvent(param1);
         } else if (qrubberband_showevent_callback != nullptr) {
-            qrubberband_showevent_callback(this, param1);
+            QShowEvent* cbval1 = param1;
+
+            qrubberband_showevent_callback(this, cbval1);
         } else {
             QRubberBand::showEvent(param1);
         }
@@ -446,7 +463,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_resizeevent_isbase = false;
             QRubberBand::resizeEvent(param1);
         } else if (qrubberband_resizeevent_callback != nullptr) {
-            qrubberband_resizeevent_callback(this, param1);
+            QResizeEvent* cbval1 = param1;
+
+            qrubberband_resizeevent_callback(this, cbval1);
         } else {
             QRubberBand::resizeEvent(param1);
         }
@@ -458,7 +477,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_moveevent_isbase = false;
             QRubberBand::moveEvent(param1);
         } else if (qrubberband_moveevent_callback != nullptr) {
-            qrubberband_moveevent_callback(this, param1);
+            QMoveEvent* cbval1 = param1;
+
+            qrubberband_moveevent_callback(this, cbval1);
         } else {
             QRubberBand::moveEvent(param1);
         }
@@ -470,7 +491,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_initstyleoption_isbase = false;
             QRubberBand::initStyleOption(option);
         } else if (qrubberband_initstyleoption_callback != nullptr) {
-            qrubberband_initstyleoption_callback(this, option);
+            QStyleOptionRubberBand* cbval1 = option;
+
+            qrubberband_initstyleoption_callback(this, cbval1);
         } else {
             QRubberBand::initStyleOption(option);
         }
@@ -482,7 +505,8 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_devtype_isbase = false;
             return QRubberBand::devType();
         } else if (qrubberband_devtype_callback != nullptr) {
-            return qrubberband_devtype_callback();
+            int callback_ret = qrubberband_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QRubberBand::devType();
         }
@@ -494,7 +518,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_setvisible_isbase = false;
             QRubberBand::setVisible(visible);
         } else if (qrubberband_setvisible_callback != nullptr) {
-            qrubberband_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qrubberband_setvisible_callback(this, cbval1);
         } else {
             QRubberBand::setVisible(visible);
         }
@@ -506,7 +532,8 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_sizehint_isbase = false;
             return QRubberBand::sizeHint();
         } else if (qrubberband_sizehint_callback != nullptr) {
-            return qrubberband_sizehint_callback();
+            QSize* callback_ret = qrubberband_sizehint_callback();
+            return *callback_ret;
         } else {
             return QRubberBand::sizeHint();
         }
@@ -518,7 +545,8 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_minimumsizehint_isbase = false;
             return QRubberBand::minimumSizeHint();
         } else if (qrubberband_minimumsizehint_callback != nullptr) {
-            return qrubberband_minimumsizehint_callback();
+            QSize* callback_ret = qrubberband_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QRubberBand::minimumSizeHint();
         }
@@ -530,7 +558,10 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_heightforwidth_isbase = false;
             return QRubberBand::heightForWidth(param1);
         } else if (qrubberband_heightforwidth_callback != nullptr) {
-            return qrubberband_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qrubberband_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QRubberBand::heightForWidth(param1);
         }
@@ -542,7 +573,8 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_hasheightforwidth_isbase = false;
             return QRubberBand::hasHeightForWidth();
         } else if (qrubberband_hasheightforwidth_callback != nullptr) {
-            return qrubberband_hasheightforwidth_callback();
+            bool callback_ret = qrubberband_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QRubberBand::hasHeightForWidth();
         }
@@ -554,7 +586,8 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_paintengine_isbase = false;
             return QRubberBand::paintEngine();
         } else if (qrubberband_paintengine_callback != nullptr) {
-            return qrubberband_paintengine_callback();
+            QPaintEngine* callback_ret = qrubberband_paintengine_callback();
+            return callback_ret;
         } else {
             return QRubberBand::paintEngine();
         }
@@ -566,7 +599,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_mousepressevent_isbase = false;
             QRubberBand::mousePressEvent(event);
         } else if (qrubberband_mousepressevent_callback != nullptr) {
-            qrubberband_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qrubberband_mousepressevent_callback(this, cbval1);
         } else {
             QRubberBand::mousePressEvent(event);
         }
@@ -578,7 +613,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_mousereleaseevent_isbase = false;
             QRubberBand::mouseReleaseEvent(event);
         } else if (qrubberband_mousereleaseevent_callback != nullptr) {
-            qrubberband_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qrubberband_mousereleaseevent_callback(this, cbval1);
         } else {
             QRubberBand::mouseReleaseEvent(event);
         }
@@ -590,7 +627,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_mousedoubleclickevent_isbase = false;
             QRubberBand::mouseDoubleClickEvent(event);
         } else if (qrubberband_mousedoubleclickevent_callback != nullptr) {
-            qrubberband_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qrubberband_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QRubberBand::mouseDoubleClickEvent(event);
         }
@@ -602,7 +641,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_mousemoveevent_isbase = false;
             QRubberBand::mouseMoveEvent(event);
         } else if (qrubberband_mousemoveevent_callback != nullptr) {
-            qrubberband_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qrubberband_mousemoveevent_callback(this, cbval1);
         } else {
             QRubberBand::mouseMoveEvent(event);
         }
@@ -614,7 +655,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_wheelevent_isbase = false;
             QRubberBand::wheelEvent(event);
         } else if (qrubberband_wheelevent_callback != nullptr) {
-            qrubberband_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qrubberband_wheelevent_callback(this, cbval1);
         } else {
             QRubberBand::wheelEvent(event);
         }
@@ -626,7 +669,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_keypressevent_isbase = false;
             QRubberBand::keyPressEvent(event);
         } else if (qrubberband_keypressevent_callback != nullptr) {
-            qrubberband_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qrubberband_keypressevent_callback(this, cbval1);
         } else {
             QRubberBand::keyPressEvent(event);
         }
@@ -638,7 +683,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_keyreleaseevent_isbase = false;
             QRubberBand::keyReleaseEvent(event);
         } else if (qrubberband_keyreleaseevent_callback != nullptr) {
-            qrubberband_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qrubberband_keyreleaseevent_callback(this, cbval1);
         } else {
             QRubberBand::keyReleaseEvent(event);
         }
@@ -650,7 +697,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_focusinevent_isbase = false;
             QRubberBand::focusInEvent(event);
         } else if (qrubberband_focusinevent_callback != nullptr) {
-            qrubberband_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qrubberband_focusinevent_callback(this, cbval1);
         } else {
             QRubberBand::focusInEvent(event);
         }
@@ -662,7 +711,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_focusoutevent_isbase = false;
             QRubberBand::focusOutEvent(event);
         } else if (qrubberband_focusoutevent_callback != nullptr) {
-            qrubberband_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qrubberband_focusoutevent_callback(this, cbval1);
         } else {
             QRubberBand::focusOutEvent(event);
         }
@@ -674,7 +725,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_enterevent_isbase = false;
             QRubberBand::enterEvent(event);
         } else if (qrubberband_enterevent_callback != nullptr) {
-            qrubberband_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qrubberband_enterevent_callback(this, cbval1);
         } else {
             QRubberBand::enterEvent(event);
         }
@@ -686,7 +739,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_leaveevent_isbase = false;
             QRubberBand::leaveEvent(event);
         } else if (qrubberband_leaveevent_callback != nullptr) {
-            qrubberband_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qrubberband_leaveevent_callback(this, cbval1);
         } else {
             QRubberBand::leaveEvent(event);
         }
@@ -698,7 +753,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_closeevent_isbase = false;
             QRubberBand::closeEvent(event);
         } else if (qrubberband_closeevent_callback != nullptr) {
-            qrubberband_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qrubberband_closeevent_callback(this, cbval1);
         } else {
             QRubberBand::closeEvent(event);
         }
@@ -710,7 +767,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_contextmenuevent_isbase = false;
             QRubberBand::contextMenuEvent(event);
         } else if (qrubberband_contextmenuevent_callback != nullptr) {
-            qrubberband_contextmenuevent_callback(this, event);
+            QContextMenuEvent* cbval1 = event;
+
+            qrubberband_contextmenuevent_callback(this, cbval1);
         } else {
             QRubberBand::contextMenuEvent(event);
         }
@@ -722,7 +781,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_tabletevent_isbase = false;
             QRubberBand::tabletEvent(event);
         } else if (qrubberband_tabletevent_callback != nullptr) {
-            qrubberband_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qrubberband_tabletevent_callback(this, cbval1);
         } else {
             QRubberBand::tabletEvent(event);
         }
@@ -734,7 +795,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_actionevent_isbase = false;
             QRubberBand::actionEvent(event);
         } else if (qrubberband_actionevent_callback != nullptr) {
-            qrubberband_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qrubberband_actionevent_callback(this, cbval1);
         } else {
             QRubberBand::actionEvent(event);
         }
@@ -746,7 +809,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_dragenterevent_isbase = false;
             QRubberBand::dragEnterEvent(event);
         } else if (qrubberband_dragenterevent_callback != nullptr) {
-            qrubberband_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qrubberband_dragenterevent_callback(this, cbval1);
         } else {
             QRubberBand::dragEnterEvent(event);
         }
@@ -758,7 +823,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_dragmoveevent_isbase = false;
             QRubberBand::dragMoveEvent(event);
         } else if (qrubberband_dragmoveevent_callback != nullptr) {
-            qrubberband_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qrubberband_dragmoveevent_callback(this, cbval1);
         } else {
             QRubberBand::dragMoveEvent(event);
         }
@@ -770,7 +837,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_dragleaveevent_isbase = false;
             QRubberBand::dragLeaveEvent(event);
         } else if (qrubberband_dragleaveevent_callback != nullptr) {
-            qrubberband_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qrubberband_dragleaveevent_callback(this, cbval1);
         } else {
             QRubberBand::dragLeaveEvent(event);
         }
@@ -782,7 +851,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_dropevent_isbase = false;
             QRubberBand::dropEvent(event);
         } else if (qrubberband_dropevent_callback != nullptr) {
-            qrubberband_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qrubberband_dropevent_callback(this, cbval1);
         } else {
             QRubberBand::dropEvent(event);
         }
@@ -794,7 +865,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_hideevent_isbase = false;
             QRubberBand::hideEvent(event);
         } else if (qrubberband_hideevent_callback != nullptr) {
-            qrubberband_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qrubberband_hideevent_callback(this, cbval1);
         } else {
             QRubberBand::hideEvent(event);
         }
@@ -806,7 +879,19 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_nativeevent_isbase = false;
             return QRubberBand::nativeEvent(eventType, message, result);
         } else if (qrubberband_nativeevent_callback != nullptr) {
-            return qrubberband_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qrubberband_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QRubberBand::nativeEvent(eventType, message, result);
         }
@@ -818,7 +903,10 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_metric_isbase = false;
             return QRubberBand::metric(param1);
         } else if (qrubberband_metric_callback != nullptr) {
-            return qrubberband_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qrubberband_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QRubberBand::metric(param1);
         }
@@ -830,7 +918,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_initpainter_isbase = false;
             QRubberBand::initPainter(painter);
         } else if (qrubberband_initpainter_callback != nullptr) {
-            qrubberband_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qrubberband_initpainter_callback(this, cbval1);
         } else {
             QRubberBand::initPainter(painter);
         }
@@ -842,7 +932,10 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_redirected_isbase = false;
             return QRubberBand::redirected(offset);
         } else if (qrubberband_redirected_callback != nullptr) {
-            return qrubberband_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qrubberband_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QRubberBand::redirected(offset);
         }
@@ -854,7 +947,8 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_sharedpainter_isbase = false;
             return QRubberBand::sharedPainter();
         } else if (qrubberband_sharedpainter_callback != nullptr) {
-            return qrubberband_sharedpainter_callback();
+            QPainter* callback_ret = qrubberband_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QRubberBand::sharedPainter();
         }
@@ -866,7 +960,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_inputmethodevent_isbase = false;
             QRubberBand::inputMethodEvent(param1);
         } else if (qrubberband_inputmethodevent_callback != nullptr) {
-            qrubberband_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qrubberband_inputmethodevent_callback(this, cbval1);
         } else {
             QRubberBand::inputMethodEvent(param1);
         }
@@ -878,7 +974,10 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_inputmethodquery_isbase = false;
             return QRubberBand::inputMethodQuery(param1);
         } else if (qrubberband_inputmethodquery_callback != nullptr) {
-            return qrubberband_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qrubberband_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QRubberBand::inputMethodQuery(param1);
         }
@@ -890,7 +989,10 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_focusnextprevchild_isbase = false;
             return QRubberBand::focusNextPrevChild(next);
         } else if (qrubberband_focusnextprevchild_callback != nullptr) {
-            return qrubberband_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qrubberband_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QRubberBand::focusNextPrevChild(next);
         }
@@ -902,7 +1004,11 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_eventfilter_isbase = false;
             return QRubberBand::eventFilter(watched, event);
         } else if (qrubberband_eventfilter_callback != nullptr) {
-            return qrubberband_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qrubberband_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QRubberBand::eventFilter(watched, event);
         }
@@ -914,7 +1020,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_timerevent_isbase = false;
             QRubberBand::timerEvent(event);
         } else if (qrubberband_timerevent_callback != nullptr) {
-            qrubberband_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qrubberband_timerevent_callback(this, cbval1);
         } else {
             QRubberBand::timerEvent(event);
         }
@@ -926,7 +1034,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_childevent_isbase = false;
             QRubberBand::childEvent(event);
         } else if (qrubberband_childevent_callback != nullptr) {
-            qrubberband_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qrubberband_childevent_callback(this, cbval1);
         } else {
             QRubberBand::childEvent(event);
         }
@@ -938,7 +1048,9 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_customevent_isbase = false;
             QRubberBand::customEvent(event);
         } else if (qrubberband_customevent_callback != nullptr) {
-            qrubberband_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qrubberband_customevent_callback(this, cbval1);
         } else {
             QRubberBand::customEvent(event);
         }
@@ -950,7 +1062,11 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_connectnotify_isbase = false;
             QRubberBand::connectNotify(signal);
         } else if (qrubberband_connectnotify_callback != nullptr) {
-            qrubberband_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qrubberband_connectnotify_callback(this, cbval1);
         } else {
             QRubberBand::connectNotify(signal);
         }
@@ -962,7 +1078,11 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_disconnectnotify_isbase = false;
             QRubberBand::disconnectNotify(signal);
         } else if (qrubberband_disconnectnotify_callback != nullptr) {
-            qrubberband_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qrubberband_disconnectnotify_callback(this, cbval1);
         } else {
             QRubberBand::disconnectNotify(signal);
         }
@@ -1010,7 +1130,8 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_focusnextchild_isbase = false;
             return QRubberBand::focusNextChild();
         } else if (qrubberband_focusnextchild_callback != nullptr) {
-            return qrubberband_focusnextchild_callback();
+            bool callback_ret = qrubberband_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QRubberBand::focusNextChild();
         }
@@ -1022,7 +1143,8 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_focuspreviouschild_isbase = false;
             return QRubberBand::focusPreviousChild();
         } else if (qrubberband_focuspreviouschild_callback != nullptr) {
-            return qrubberband_focuspreviouschild_callback();
+            bool callback_ret = qrubberband_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QRubberBand::focusPreviousChild();
         }
@@ -1034,7 +1156,8 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_sender_isbase = false;
             return QRubberBand::sender();
         } else if (qrubberband_sender_callback != nullptr) {
-            return qrubberband_sender_callback();
+            QObject* callback_ret = qrubberband_sender_callback();
+            return callback_ret;
         } else {
             return QRubberBand::sender();
         }
@@ -1046,7 +1169,8 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_sendersignalindex_isbase = false;
             return QRubberBand::senderSignalIndex();
         } else if (qrubberband_sendersignalindex_callback != nullptr) {
-            return qrubberband_sendersignalindex_callback();
+            int callback_ret = qrubberband_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QRubberBand::senderSignalIndex();
         }
@@ -1058,7 +1182,10 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_receivers_isbase = false;
             return QRubberBand::receivers(signal);
         } else if (qrubberband_receivers_callback != nullptr) {
-            return qrubberband_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qrubberband_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QRubberBand::receivers(signal);
         }
@@ -1070,11 +1197,114 @@ class VirtualQRubberBand : public QRubberBand {
             qrubberband_issignalconnected_isbase = false;
             return QRubberBand::isSignalConnected(signal);
         } else if (qrubberband_issignalconnected_callback != nullptr) {
-            return qrubberband_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qrubberband_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QRubberBand::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QRubberBand_Event(QRubberBand* self, QEvent* e);
+    friend bool QRubberBand_QBaseEvent(QRubberBand* self, QEvent* e);
+    friend void QRubberBand_PaintEvent(QRubberBand* self, QPaintEvent* param1);
+    friend void QRubberBand_QBasePaintEvent(QRubberBand* self, QPaintEvent* param1);
+    friend void QRubberBand_ChangeEvent(QRubberBand* self, QEvent* param1);
+    friend void QRubberBand_QBaseChangeEvent(QRubberBand* self, QEvent* param1);
+    friend void QRubberBand_ShowEvent(QRubberBand* self, QShowEvent* param1);
+    friend void QRubberBand_QBaseShowEvent(QRubberBand* self, QShowEvent* param1);
+    friend void QRubberBand_ResizeEvent(QRubberBand* self, QResizeEvent* param1);
+    friend void QRubberBand_QBaseResizeEvent(QRubberBand* self, QResizeEvent* param1);
+    friend void QRubberBand_MoveEvent(QRubberBand* self, QMoveEvent* param1);
+    friend void QRubberBand_QBaseMoveEvent(QRubberBand* self, QMoveEvent* param1);
+    friend void QRubberBand_InitStyleOption(const QRubberBand* self, QStyleOptionRubberBand* option);
+    friend void QRubberBand_QBaseInitStyleOption(const QRubberBand* self, QStyleOptionRubberBand* option);
+    friend void QRubberBand_MousePressEvent(QRubberBand* self, QMouseEvent* event);
+    friend void QRubberBand_QBaseMousePressEvent(QRubberBand* self, QMouseEvent* event);
+    friend void QRubberBand_MouseReleaseEvent(QRubberBand* self, QMouseEvent* event);
+    friend void QRubberBand_QBaseMouseReleaseEvent(QRubberBand* self, QMouseEvent* event);
+    friend void QRubberBand_MouseDoubleClickEvent(QRubberBand* self, QMouseEvent* event);
+    friend void QRubberBand_QBaseMouseDoubleClickEvent(QRubberBand* self, QMouseEvent* event);
+    friend void QRubberBand_MouseMoveEvent(QRubberBand* self, QMouseEvent* event);
+    friend void QRubberBand_QBaseMouseMoveEvent(QRubberBand* self, QMouseEvent* event);
+    friend void QRubberBand_WheelEvent(QRubberBand* self, QWheelEvent* event);
+    friend void QRubberBand_QBaseWheelEvent(QRubberBand* self, QWheelEvent* event);
+    friend void QRubberBand_KeyPressEvent(QRubberBand* self, QKeyEvent* event);
+    friend void QRubberBand_QBaseKeyPressEvent(QRubberBand* self, QKeyEvent* event);
+    friend void QRubberBand_KeyReleaseEvent(QRubberBand* self, QKeyEvent* event);
+    friend void QRubberBand_QBaseKeyReleaseEvent(QRubberBand* self, QKeyEvent* event);
+    friend void QRubberBand_FocusInEvent(QRubberBand* self, QFocusEvent* event);
+    friend void QRubberBand_QBaseFocusInEvent(QRubberBand* self, QFocusEvent* event);
+    friend void QRubberBand_FocusOutEvent(QRubberBand* self, QFocusEvent* event);
+    friend void QRubberBand_QBaseFocusOutEvent(QRubberBand* self, QFocusEvent* event);
+    friend void QRubberBand_EnterEvent(QRubberBand* self, QEnterEvent* event);
+    friend void QRubberBand_QBaseEnterEvent(QRubberBand* self, QEnterEvent* event);
+    friend void QRubberBand_LeaveEvent(QRubberBand* self, QEvent* event);
+    friend void QRubberBand_QBaseLeaveEvent(QRubberBand* self, QEvent* event);
+    friend void QRubberBand_CloseEvent(QRubberBand* self, QCloseEvent* event);
+    friend void QRubberBand_QBaseCloseEvent(QRubberBand* self, QCloseEvent* event);
+    friend void QRubberBand_ContextMenuEvent(QRubberBand* self, QContextMenuEvent* event);
+    friend void QRubberBand_QBaseContextMenuEvent(QRubberBand* self, QContextMenuEvent* event);
+    friend void QRubberBand_TabletEvent(QRubberBand* self, QTabletEvent* event);
+    friend void QRubberBand_QBaseTabletEvent(QRubberBand* self, QTabletEvent* event);
+    friend void QRubberBand_ActionEvent(QRubberBand* self, QActionEvent* event);
+    friend void QRubberBand_QBaseActionEvent(QRubberBand* self, QActionEvent* event);
+    friend void QRubberBand_DragEnterEvent(QRubberBand* self, QDragEnterEvent* event);
+    friend void QRubberBand_QBaseDragEnterEvent(QRubberBand* self, QDragEnterEvent* event);
+    friend void QRubberBand_DragMoveEvent(QRubberBand* self, QDragMoveEvent* event);
+    friend void QRubberBand_QBaseDragMoveEvent(QRubberBand* self, QDragMoveEvent* event);
+    friend void QRubberBand_DragLeaveEvent(QRubberBand* self, QDragLeaveEvent* event);
+    friend void QRubberBand_QBaseDragLeaveEvent(QRubberBand* self, QDragLeaveEvent* event);
+    friend void QRubberBand_DropEvent(QRubberBand* self, QDropEvent* event);
+    friend void QRubberBand_QBaseDropEvent(QRubberBand* self, QDropEvent* event);
+    friend void QRubberBand_HideEvent(QRubberBand* self, QHideEvent* event);
+    friend void QRubberBand_QBaseHideEvent(QRubberBand* self, QHideEvent* event);
+    friend bool QRubberBand_NativeEvent(QRubberBand* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QRubberBand_QBaseNativeEvent(QRubberBand* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QRubberBand_Metric(const QRubberBand* self, int param1);
+    friend int QRubberBand_QBaseMetric(const QRubberBand* self, int param1);
+    friend void QRubberBand_InitPainter(const QRubberBand* self, QPainter* painter);
+    friend void QRubberBand_QBaseInitPainter(const QRubberBand* self, QPainter* painter);
+    friend QPaintDevice* QRubberBand_Redirected(const QRubberBand* self, QPoint* offset);
+    friend QPaintDevice* QRubberBand_QBaseRedirected(const QRubberBand* self, QPoint* offset);
+    friend QPainter* QRubberBand_SharedPainter(const QRubberBand* self);
+    friend QPainter* QRubberBand_QBaseSharedPainter(const QRubberBand* self);
+    friend void QRubberBand_InputMethodEvent(QRubberBand* self, QInputMethodEvent* param1);
+    friend void QRubberBand_QBaseInputMethodEvent(QRubberBand* self, QInputMethodEvent* param1);
+    friend bool QRubberBand_FocusNextPrevChild(QRubberBand* self, bool next);
+    friend bool QRubberBand_QBaseFocusNextPrevChild(QRubberBand* self, bool next);
+    friend void QRubberBand_TimerEvent(QRubberBand* self, QTimerEvent* event);
+    friend void QRubberBand_QBaseTimerEvent(QRubberBand* self, QTimerEvent* event);
+    friend void QRubberBand_ChildEvent(QRubberBand* self, QChildEvent* event);
+    friend void QRubberBand_QBaseChildEvent(QRubberBand* self, QChildEvent* event);
+    friend void QRubberBand_CustomEvent(QRubberBand* self, QEvent* event);
+    friend void QRubberBand_QBaseCustomEvent(QRubberBand* self, QEvent* event);
+    friend void QRubberBand_ConnectNotify(QRubberBand* self, const QMetaMethod* signal);
+    friend void QRubberBand_QBaseConnectNotify(QRubberBand* self, const QMetaMethod* signal);
+    friend void QRubberBand_DisconnectNotify(QRubberBand* self, const QMetaMethod* signal);
+    friend void QRubberBand_QBaseDisconnectNotify(QRubberBand* self, const QMetaMethod* signal);
+    friend void QRubberBand_UpdateMicroFocus(QRubberBand* self);
+    friend void QRubberBand_QBaseUpdateMicroFocus(QRubberBand* self);
+    friend void QRubberBand_Create(QRubberBand* self);
+    friend void QRubberBand_QBaseCreate(QRubberBand* self);
+    friend void QRubberBand_Destroy(QRubberBand* self);
+    friend void QRubberBand_QBaseDestroy(QRubberBand* self);
+    friend bool QRubberBand_FocusNextChild(QRubberBand* self);
+    friend bool QRubberBand_QBaseFocusNextChild(QRubberBand* self);
+    friend bool QRubberBand_FocusPreviousChild(QRubberBand* self);
+    friend bool QRubberBand_QBaseFocusPreviousChild(QRubberBand* self);
+    friend QObject* QRubberBand_Sender(const QRubberBand* self);
+    friend QObject* QRubberBand_QBaseSender(const QRubberBand* self);
+    friend int QRubberBand_SenderSignalIndex(const QRubberBand* self);
+    friend int QRubberBand_QBaseSenderSignalIndex(const QRubberBand* self);
+    friend int QRubberBand_Receivers(const QRubberBand* self, const char* signal);
+    friend int QRubberBand_QBaseReceivers(const QRubberBand* self, const char* signal);
+    friend bool QRubberBand_IsSignalConnected(const QRubberBand* self, const QMetaMethod* signal);
+    friend bool QRubberBand_QBaseIsSignalConnected(const QRubberBand* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -1,24 +1,14 @@
 #include <QAbstractSeries>
-#include <QAnyStringView>
-#include <QBindingStorage>
 #include <QBrush>
-#include <QByteArray>
-#include <QChildEvent>
-#include <QEvent>
 #include <QFont>
 #include <QLegendMarker>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QPen>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
-#include <QVariant>
 #include <qlegendmarker.h>
 #include "libqlegendmarker.h"
 #include "libqlegendmarker.hxx"
@@ -63,7 +53,7 @@ libqt_string QLegendMarker_Label(const QLegendMarker* self) {
     return _str;
 }
 
-void QLegendMarker_SetLabel(QLegendMarker* self, libqt_string label) {
+void QLegendMarker_SetLabel(QLegendMarker* self, const libqt_string label) {
     QString label_QString = QString::fromUtf8(label.data, label.len);
     self->setLabel(label_QString);
 }
@@ -72,7 +62,7 @@ QBrush* QLegendMarker_LabelBrush(const QLegendMarker* self) {
     return new QBrush(self->labelBrush());
 }
 
-void QLegendMarker_SetLabelBrush(QLegendMarker* self, QBrush* brush) {
+void QLegendMarker_SetLabelBrush(QLegendMarker* self, const QBrush* brush) {
     self->setLabelBrush(*brush);
 }
 
@@ -80,7 +70,7 @@ QFont* QLegendMarker_Font(const QLegendMarker* self) {
     return new QFont(self->font());
 }
 
-void QLegendMarker_SetFont(QLegendMarker* self, QFont* font) {
+void QLegendMarker_SetFont(QLegendMarker* self, const QFont* font) {
     self->setFont(*font);
 }
 
@@ -88,7 +78,7 @@ QPen* QLegendMarker_Pen(const QLegendMarker* self) {
     return new QPen(self->pen());
 }
 
-void QLegendMarker_SetPen(QLegendMarker* self, QPen* pen) {
+void QLegendMarker_SetPen(QLegendMarker* self, const QPen* pen) {
     self->setPen(*pen);
 }
 
@@ -96,7 +86,7 @@ QBrush* QLegendMarker_Brush(const QLegendMarker* self) {
     return new QBrush(self->brush());
 }
 
-void QLegendMarker_SetBrush(QLegendMarker* self, QBrush* brush) {
+void QLegendMarker_SetBrush(QLegendMarker* self, const QBrush* brush) {
     self->setBrush(*brush);
 }
 
@@ -242,14 +232,6 @@ libqt_string QLegendMarker_Tr3(const char* s, const char* c, int n) {
     memcpy(_str.data, _b.data(), _str.len);
     _str.data[_str.len] = '\0';
     return _str;
-}
-
-bool QLegendMarker_Event(QLegendMarker* self, QEvent* event) {
-    return self->event(event);
-}
-
-bool QLegendMarker_EventFilter(QLegendMarker* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
 }
 
 void QLegendMarker_Delete(QLegendMarker* self) {

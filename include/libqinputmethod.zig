@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qinputmethod_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
@@ -8,20 +9,20 @@ const std = @import("std");
 pub const qinputmethod = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: ?*C.QInputMethod ```
-    pub fn MetaObject(self: ?*anyopaque) ?*C.QMetaObject {
-        return C.QInputMethod_MetaObject(@ptrCast(self));
+    /// ``` self: QtC.QInputMethod ```
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QInputMethod_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QInputMethod, param1: []const u8 ```
+    /// ``` self: QtC.QInputMethod, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = @constCast(param1.ptr);
-        return C.QInputMethod_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QInputMethod_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: ?*C.QInputMethod, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QInputMethod, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QInputMethod_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QInputMethod_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -29,9 +30,9 @@ pub const qinputmethod = struct {
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
-        const _str = C.QInputMethod_Tr(s_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QInputMethod_Tr(s_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputmethod.Tr: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -40,238 +41,254 @@ pub const qinputmethod = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#inputItemTransform)
     ///
-    /// ``` self: ?*C.QInputMethod ```
-    pub fn InputItemTransform(self: ?*anyopaque) ?*C.QTransform {
-        return C.QInputMethod_InputItemTransform(@ptrCast(self));
+    /// ``` self: QtC.QInputMethod ```
+    pub fn InputItemTransform(self: ?*anyopaque) QtC.QTransform {
+        return qtc.QInputMethod_InputItemTransform(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#setInputItemTransform)
     ///
-    /// ``` self: ?*C.QInputMethod, transform: ?*C.QTransform ```
+    /// ``` self: QtC.QInputMethod, transform: QtC.QTransform ```
     pub fn SetInputItemTransform(self: ?*anyopaque, transform: ?*anyopaque) void {
-        C.QInputMethod_SetInputItemTransform(@ptrCast(self), @ptrCast(transform));
+        qtc.QInputMethod_SetInputItemTransform(@ptrCast(self), @ptrCast(transform));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#inputItemRectangle)
     ///
-    /// ``` self: ?*C.QInputMethod ```
-    pub fn InputItemRectangle(self: ?*anyopaque) ?*C.QRectF {
-        return C.QInputMethod_InputItemRectangle(@ptrCast(self));
+    /// ``` self: QtC.QInputMethod ```
+    pub fn InputItemRectangle(self: ?*anyopaque) QtC.QRectF {
+        return qtc.QInputMethod_InputItemRectangle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#setInputItemRectangle)
     ///
-    /// ``` self: ?*C.QInputMethod, rect: ?*C.QRectF ```
+    /// ``` self: QtC.QInputMethod, rect: QtC.QRectF ```
     pub fn SetInputItemRectangle(self: ?*anyopaque, rect: ?*anyopaque) void {
-        C.QInputMethod_SetInputItemRectangle(@ptrCast(self), @ptrCast(rect));
+        qtc.QInputMethod_SetInputItemRectangle(@ptrCast(self), @ptrCast(rect));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#cursorRectangle)
     ///
-    /// ``` self: ?*C.QInputMethod ```
-    pub fn CursorRectangle(self: ?*anyopaque) ?*C.QRectF {
-        return C.QInputMethod_CursorRectangle(@ptrCast(self));
+    /// ``` self: QtC.QInputMethod ```
+    pub fn CursorRectangle(self: ?*anyopaque) QtC.QRectF {
+        return qtc.QInputMethod_CursorRectangle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#anchorRectangle)
     ///
-    /// ``` self: ?*C.QInputMethod ```
-    pub fn AnchorRectangle(self: ?*anyopaque) ?*C.QRectF {
-        return C.QInputMethod_AnchorRectangle(@ptrCast(self));
+    /// ``` self: QtC.QInputMethod ```
+    pub fn AnchorRectangle(self: ?*anyopaque) QtC.QRectF {
+        return qtc.QInputMethod_AnchorRectangle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#keyboardRectangle)
     ///
-    /// ``` self: ?*C.QInputMethod ```
-    pub fn KeyboardRectangle(self: ?*anyopaque) ?*C.QRectF {
-        return C.QInputMethod_KeyboardRectangle(@ptrCast(self));
+    /// ``` self: QtC.QInputMethod ```
+    pub fn KeyboardRectangle(self: ?*anyopaque) QtC.QRectF {
+        return qtc.QInputMethod_KeyboardRectangle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#inputItemClipRectangle)
     ///
-    /// ``` self: ?*C.QInputMethod ```
-    pub fn InputItemClipRectangle(self: ?*anyopaque) ?*C.QRectF {
-        return C.QInputMethod_InputItemClipRectangle(@ptrCast(self));
+    /// ``` self: QtC.QInputMethod ```
+    pub fn InputItemClipRectangle(self: ?*anyopaque) QtC.QRectF {
+        return qtc.QInputMethod_InputItemClipRectangle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#isVisible)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn IsVisible(self: ?*anyopaque) bool {
-        return C.QInputMethod_IsVisible(@ptrCast(self));
+        return qtc.QInputMethod_IsVisible(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#setVisible)
     ///
-    /// ``` self: ?*C.QInputMethod, visible: bool ```
+    /// ``` self: QtC.QInputMethod, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        C.QInputMethod_SetVisible(@ptrCast(self), visible);
+        qtc.QInputMethod_SetVisible(@ptrCast(self), visible);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#isAnimating)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn IsAnimating(self: ?*anyopaque) bool {
-        return C.QInputMethod_IsAnimating(@ptrCast(self));
+        return qtc.QInputMethod_IsAnimating(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#locale)
     ///
-    /// ``` self: ?*C.QInputMethod ```
-    pub fn Locale(self: ?*anyopaque) ?*C.QLocale {
-        return C.QInputMethod_Locale(@ptrCast(self));
+    /// ``` self: QtC.QInputMethod ```
+    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
+        return qtc.QInputMethod_Locale(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#inputDirection)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn InputDirection(self: ?*anyopaque) i64 {
-        return C.QInputMethod_InputDirection(@ptrCast(self));
+        return qtc.QInputMethod_InputDirection(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#queryFocusObject)
     ///
-    /// ``` query: qnamespace_enums.InputMethodQuery, argument: ?*C.QVariant ```
-    pub fn QueryFocusObject(query: i64, argument: ?*anyopaque) ?*C.QVariant {
-        return C.QInputMethod_QueryFocusObject(@intCast(query), @ptrCast(argument));
+    /// ``` query: qnamespace_enums.InputMethodQuery, argument: QtC.QVariant ```
+    pub fn QueryFocusObject(query: i64, argument: ?*anyopaque) QtC.QVariant {
+        return qtc.QInputMethod_QueryFocusObject(@intCast(query), @ptrCast(argument));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#show)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn Show(self: ?*anyopaque) void {
-        C.QInputMethod_Show(@ptrCast(self));
+        qtc.QInputMethod_Show(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#hide)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn Hide(self: ?*anyopaque) void {
-        C.QInputMethod_Hide(@ptrCast(self));
+        qtc.QInputMethod_Hide(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#update)
     ///
-    /// ``` self: ?*C.QInputMethod, queries: i32 ```
+    /// ``` self: QtC.QInputMethod, queries: i32 ```
     pub fn Update(self: ?*anyopaque, queries: i64) void {
-        C.QInputMethod_Update(@ptrCast(self), @intCast(queries));
+        qtc.QInputMethod_Update(@ptrCast(self), @intCast(queries));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#reset)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn Reset(self: ?*anyopaque) void {
-        C.QInputMethod_Reset(@ptrCast(self));
+        qtc.QInputMethod_Reset(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#commit)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn Commit(self: ?*anyopaque) void {
-        C.QInputMethod_Commit(@ptrCast(self));
+        qtc.QInputMethod_Commit(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#invokeAction)
     ///
-    /// ``` self: ?*C.QInputMethod, a: qinputmethod_enums.Action, cursorPosition: i32 ```
+    /// ``` self: QtC.QInputMethod, a: qinputmethod_enums.Action, cursorPosition: i32 ```
     pub fn InvokeAction(self: ?*anyopaque, a: i64, cursorPosition: i32) void {
-        C.QInputMethod_InvokeAction(@ptrCast(self), @intCast(a), @intCast(cursorPosition));
+        qtc.QInputMethod_InvokeAction(@ptrCast(self), @intCast(a), @intCast(cursorPosition));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#cursorRectangleChanged)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn CursorRectangleChanged(self: ?*anyopaque) void {
-        C.QInputMethod_CursorRectangleChanged(@ptrCast(self));
+        qtc.QInputMethod_CursorRectangleChanged(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QInputMethod, slot: fn (?*C.QInputMethod) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#cursorRectangleChanged)
+    ///
+    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod) callconv(.c) void ```
     pub fn OnCursorRectangleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QInputMethod_Connect_CursorRectangleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QInputMethod_Connect_CursorRectangleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#anchorRectangleChanged)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn AnchorRectangleChanged(self: ?*anyopaque) void {
-        C.QInputMethod_AnchorRectangleChanged(@ptrCast(self));
+        qtc.QInputMethod_AnchorRectangleChanged(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QInputMethod, slot: fn (?*C.QInputMethod) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#anchorRectangleChanged)
+    ///
+    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod) callconv(.c) void ```
     pub fn OnAnchorRectangleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QInputMethod_Connect_AnchorRectangleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QInputMethod_Connect_AnchorRectangleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#keyboardRectangleChanged)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn KeyboardRectangleChanged(self: ?*anyopaque) void {
-        C.QInputMethod_KeyboardRectangleChanged(@ptrCast(self));
+        qtc.QInputMethod_KeyboardRectangleChanged(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QInputMethod, slot: fn (?*C.QInputMethod) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#keyboardRectangleChanged)
+    ///
+    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod) callconv(.c) void ```
     pub fn OnKeyboardRectangleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QInputMethod_Connect_KeyboardRectangleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QInputMethod_Connect_KeyboardRectangleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#inputItemClipRectangleChanged)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn InputItemClipRectangleChanged(self: ?*anyopaque) void {
-        C.QInputMethod_InputItemClipRectangleChanged(@ptrCast(self));
+        qtc.QInputMethod_InputItemClipRectangleChanged(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QInputMethod, slot: fn (?*C.QInputMethod) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#inputItemClipRectangleChanged)
+    ///
+    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod) callconv(.c) void ```
     pub fn OnInputItemClipRectangleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QInputMethod_Connect_InputItemClipRectangleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QInputMethod_Connect_InputItemClipRectangleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#visibleChanged)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn VisibleChanged(self: ?*anyopaque) void {
-        C.QInputMethod_VisibleChanged(@ptrCast(self));
+        qtc.QInputMethod_VisibleChanged(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QInputMethod, slot: fn (?*C.QInputMethod) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#visibleChanged)
+    ///
+    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QInputMethod_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QInputMethod_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#animatingChanged)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn AnimatingChanged(self: ?*anyopaque) void {
-        C.QInputMethod_AnimatingChanged(@ptrCast(self));
+        qtc.QInputMethod_AnimatingChanged(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QInputMethod, slot: fn (?*C.QInputMethod) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#animatingChanged)
+    ///
+    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod) callconv(.c) void ```
     pub fn OnAnimatingChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QInputMethod_Connect_AnimatingChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QInputMethod_Connect_AnimatingChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#localeChanged)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn LocaleChanged(self: ?*anyopaque) void {
-        C.QInputMethod_LocaleChanged(@ptrCast(self));
+        qtc.QInputMethod_LocaleChanged(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QInputMethod, slot: fn (?*C.QInputMethod) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#localeChanged)
+    ///
+    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod) callconv(.c) void ```
     pub fn OnLocaleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QInputMethod_Connect_LocaleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QInputMethod_Connect_LocaleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#inputDirectionChanged)
     ///
-    /// ``` self: ?*C.QInputMethod, newDirection: qnamespace_enums.LayoutDirection ```
+    /// ``` self: QtC.QInputMethod, newDirection: qnamespace_enums.LayoutDirection ```
     pub fn InputDirectionChanged(self: ?*anyopaque, newDirection: i64) void {
-        C.QInputMethod_InputDirectionChanged(@ptrCast(self), @intCast(newDirection));
+        qtc.QInputMethod_InputDirectionChanged(@ptrCast(self), @intCast(newDirection));
     }
 
-    /// ``` self: ?*C.QInputMethod, slot: fn (?*C.QInputMethod, qnamespace_enums.LayoutDirection) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#inputDirectionChanged)
+    ///
+    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod, newDirection: qnamespace_enums.LayoutDirection) callconv(.c) void ```
     pub fn OnInputDirectionChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
-        C.QInputMethod_Connect_InputDirectionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QInputMethod_Connect_InputDirectionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -280,9 +297,9 @@ pub const qinputmethod = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QInputMethod_Tr2(s_Cstring, c_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QInputMethod_Tr2(s_Cstring, c_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputmethod.Tr2: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -295,9 +312,9 @@ pub const qinputmethod = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QInputMethod_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QInputMethod_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputmethod.Tr3: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -308,29 +325,29 @@ pub const qinputmethod = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
     ///
-    /// ``` self: ?*C.QInputMethod, event: ?*C.QEvent ```
+    /// ``` self: QtC.QInputMethod, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QObject_Event(@ptrCast(self), @ptrCast(event));
+        return qtc.QObject_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
-    /// ``` self: ?*C.QInputMethod, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QInputMethod, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: ?*C.QInputMethod, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QInputMethod, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QObject_ObjectName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputmethod.ObjectName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -341,102 +358,102 @@ pub const qinputmethod = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: ?*C.QInputMethod, name: []const u8 ```
+    /// ``` self: QtC.QInputMethod, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return C.QObject_IsWidgetType(@ptrCast(self));
+        return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
-        return C.QObject_IsWindowType(@ptrCast(self));
+        return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return C.QObject_IsQuickItemType(@ptrCast(self));
+        return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return C.QObject_SignalsBlocked(@ptrCast(self));
+        return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: ?*C.QInputMethod, b: bool ```
+    /// ``` self: QtC.QInputMethod, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return C.QObject_BlockSignals(@ptrCast(self), b);
+        return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: ?*C.QInputMethod ```
-    pub fn Thread(self: ?*anyopaque) ?*C.QThread {
-        return C.QObject_Thread(@ptrCast(self));
+    /// ``` self: QtC.QInputMethod ```
+    pub fn Thread(self: ?*anyopaque) QtC.QThread {
+        return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: ?*C.QInputMethod, thread: ?*C.QThread ```
+    /// ``` self: QtC.QInputMethod, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        C.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QInputMethod, interval: i32 ```
+    /// ``` self: QtC.QInputMethod, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return C.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: ?*C.QInputMethod, id: i32 ```
+    /// ``` self: QtC.QInputMethod, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        C.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: ?*C.QInputMethod, allocator: std.mem.Allocator ```
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QObject {
-        const _arr: C.struct_libqt_list = C.QObject_Children(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QObject, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QObject = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QInputMethod, allocator: std.mem.Allocator ```
+    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
+        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qinputmethod.Children: Memory allocation failed");
+        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -447,123 +464,123 @@ pub const qinputmethod = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: ?*C.QInputMethod, parent: ?*C.QObject ```
+    /// ``` self: QtC.QInputMethod, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        C.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: ?*C.QInputMethod, filterObj: ?*C.QObject ```
+    /// ``` self: QtC.QInputMethod, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        C.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: ?*C.QInputMethod, obj: ?*C.QObject ```
+    /// ``` self: QtC.QInputMethod, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        C.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod ```
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QInputMethod, sender: ?*C.QObject, signal: []const u8, member: []const u8 ```
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QInputMethod, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, member: ?*C.QMetaMethod ```
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return C.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: ?*C.QMetaObject__Connection ```
+    /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return C.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
-        C.QObject_DumpObjectTree(@ptrCast(self));
+        qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        C.QObject_DumpObjectInfo(@ptrCast(self));
+        qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: ?*C.QInputMethod, name: []const u8, value: ?*C.QVariant ```
+    /// ``` self: QtC.QInputMethod, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: ?*C.QInputMethod, name: []const u8 ```
-    pub fn Property(self: ?*anyopaque, name: []const u8) ?*C.QVariant {
+    /// ``` self: QtC.QInputMethod, name: []const u8 ```
+    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_Property(@ptrCast(self), name_Cstring);
+        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: ?*C.QInputMethod, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QInputMethod, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: C.struct_libqt_list = C.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qinputmethod.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qinputmethod.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -574,107 +591,122 @@ pub const qinputmethod = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QInputMethod ```
-    pub fn BindingStorage(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage(@ptrCast(self));
+    /// ``` self: QtC.QInputMethod ```
+    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QInputMethod ```
-    pub fn BindingStorage2(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage2(@ptrCast(self));
+    /// ``` self: QtC.QInputMethod ```
+    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn Destroyed(self: ?*anyopaque) void {
-        C.QObject_Destroyed(@ptrCast(self));
+        qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: ?*C.QInputMethod ```
-    pub fn Parent(self: ?*anyopaque) ?*C.QObject {
-        return C.QObject_Parent(@ptrCast(self));
+    /// ``` self: QtC.QInputMethod ```
+    pub fn Parent(self: ?*anyopaque) QtC.QObject {
+        return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: ?*C.QInputMethod, classname: []const u8 ```
+    /// ``` self: QtC.QInputMethod, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = @constCast(classname.ptr);
-        return C.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: ?*C.QInputMethod ```
+    /// ``` self: QtC.QInputMethod ```
     pub fn DeleteLater(self: ?*anyopaque) void {
-        C.QObject_DeleteLater(@ptrCast(self));
+        qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QInputMethod, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ``` self: QtC.QInputMethod, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return C.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QInputMethod, sender: ?*C.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QInputMethod, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QInputMethod, param1: ?*C.QObject ```
+    /// ``` self: QtC.QInputMethod, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject, ?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    ///
+    /// Wrapper to allow calling private signal
+    ///
+    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 };
 

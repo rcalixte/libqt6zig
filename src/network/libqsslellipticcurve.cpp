@@ -6,7 +6,7 @@
 #include "libqsslellipticcurve.h"
 #include "libqsslellipticcurve.hxx"
 
-QSslEllipticCurve* QSslEllipticCurve_new(QSslEllipticCurve* other) {
+QSslEllipticCurve* QSslEllipticCurve_new(const QSslEllipticCurve* other) {
     return new QSslEllipticCurve(*other);
 }
 
@@ -18,7 +18,7 @@ QSslEllipticCurve* QSslEllipticCurve_new3() {
     return new QSslEllipticCurve();
 }
 
-QSslEllipticCurve* QSslEllipticCurve_new4(QSslEllipticCurve* param1) {
+QSslEllipticCurve* QSslEllipticCurve_new4(const QSslEllipticCurve* param1) {
     return new QSslEllipticCurve(*param1);
 }
 
@@ -30,12 +30,12 @@ void QSslEllipticCurve_MoveAssign(QSslEllipticCurve* self, QSslEllipticCurve* ot
     *self = std::move(*other);
 }
 
-QSslEllipticCurve* QSslEllipticCurve_FromShortName(libqt_string name) {
+QSslEllipticCurve* QSslEllipticCurve_FromShortName(const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     return new QSslEllipticCurve(QSslEllipticCurve::fromShortName(name_QString));
 }
 
-QSslEllipticCurve* QSslEllipticCurve_FromLongName(libqt_string name) {
+QSslEllipticCurve* QSslEllipticCurve_FromLongName(const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     return new QSslEllipticCurve(QSslEllipticCurve::fromLongName(name_QString));
 }

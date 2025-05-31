@@ -11,36 +11,39 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QAbstractSocket so that we can call protected methods
-class VirtualQAbstractSocket : public QAbstractSocket {
+class VirtualQAbstractSocket final : public QAbstractSocket {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQAbstractSocket = true;
+
     // Virtual class public types (including callbacks)
-    using QAbstractSocket_Metacall_Callback = int (*)(QAbstractSocket*, QMetaObject::Call, int, void**);
+    using QAbstractSocket_Metacall_Callback = int (*)(QAbstractSocket*, int, int, void**);
     using QAbstractSocket_Resume_Callback = void (*)();
-    using QAbstractSocket_Bind_Callback = bool (*)(QAbstractSocket*, const QHostAddress&, quint16, QAbstractSocket::BindMode);
-    using QAbstractSocket_ConnectToHost_Callback = void (*)(QAbstractSocket*, const QString&, quint16, QIODeviceBase::OpenMode, QAbstractSocket::NetworkLayerProtocol);
+    using QAbstractSocket_Bind_Callback = bool (*)(QAbstractSocket*, QHostAddress*, uint16_t, int);
+    using QAbstractSocket_ConnectToHost_Callback = void (*)(QAbstractSocket*, libqt_string, uint16_t, int, int);
     using QAbstractSocket_DisconnectFromHost_Callback = void (*)();
-    using QAbstractSocket_BytesAvailable_Callback = qint64 (*)();
-    using QAbstractSocket_BytesToWrite_Callback = qint64 (*)();
-    using QAbstractSocket_SetReadBufferSize_Callback = void (*)(QAbstractSocket*, qint64);
-    using QAbstractSocket_SocketDescriptor_Callback = qintptr (*)();
-    using QAbstractSocket_SetSocketDescriptor_Callback = bool (*)(QAbstractSocket*, qintptr, QAbstractSocket::SocketState, QIODeviceBase::OpenMode);
-    using QAbstractSocket_SetSocketOption_Callback = void (*)(QAbstractSocket*, QAbstractSocket::SocketOption, const QVariant&);
-    using QAbstractSocket_SocketOption_Callback = QVariant (*)(QAbstractSocket*, QAbstractSocket::SocketOption);
+    using QAbstractSocket_BytesAvailable_Callback = long long (*)();
+    using QAbstractSocket_BytesToWrite_Callback = long long (*)();
+    using QAbstractSocket_SetReadBufferSize_Callback = void (*)(QAbstractSocket*, long long);
+    using QAbstractSocket_SocketDescriptor_Callback = intptr_t (*)();
+    using QAbstractSocket_SetSocketDescriptor_Callback = bool (*)(QAbstractSocket*, intptr_t, int, int);
+    using QAbstractSocket_SetSocketOption_Callback = void (*)(QAbstractSocket*, int, QVariant*);
+    using QAbstractSocket_SocketOption_Callback = QVariant* (*)(QAbstractSocket*, int);
     using QAbstractSocket_Close_Callback = void (*)();
     using QAbstractSocket_IsSequential_Callback = bool (*)();
     using QAbstractSocket_WaitForConnected_Callback = bool (*)(QAbstractSocket*, int);
     using QAbstractSocket_WaitForReadyRead_Callback = bool (*)(QAbstractSocket*, int);
     using QAbstractSocket_WaitForBytesWritten_Callback = bool (*)(QAbstractSocket*, int);
     using QAbstractSocket_WaitForDisconnected_Callback = bool (*)(QAbstractSocket*, int);
-    using QAbstractSocket_ReadData_Callback = qint64 (*)(QAbstractSocket*, char*, qint64);
-    using QAbstractSocket_ReadLineData_Callback = qint64 (*)(QAbstractSocket*, char*, qint64);
-    using QAbstractSocket_SkipData_Callback = qint64 (*)(QAbstractSocket*, qint64);
-    using QAbstractSocket_WriteData_Callback = qint64 (*)(QAbstractSocket*, const char*, qint64);
-    using QAbstractSocket_Open_Callback = bool (*)(QAbstractSocket*, QIODeviceBase::OpenMode);
-    using QAbstractSocket_Pos_Callback = qint64 (*)();
-    using QAbstractSocket_Size_Callback = qint64 (*)();
-    using QAbstractSocket_Seek_Callback = bool (*)(QAbstractSocket*, qint64);
+    using QAbstractSocket_ReadData_Callback = long long (*)(QAbstractSocket*, char*, long long);
+    using QAbstractSocket_ReadLineData_Callback = long long (*)(QAbstractSocket*, char*, long long);
+    using QAbstractSocket_SkipData_Callback = long long (*)(QAbstractSocket*, long long);
+    using QAbstractSocket_WriteData_Callback = long long (*)(QAbstractSocket*, const char*, long long);
+    using QAbstractSocket_Open_Callback = bool (*)(QAbstractSocket*, int);
+    using QAbstractSocket_Pos_Callback = long long (*)();
+    using QAbstractSocket_Size_Callback = long long (*)();
+    using QAbstractSocket_Seek_Callback = bool (*)(QAbstractSocket*, long long);
     using QAbstractSocket_AtEnd_Callback = bool (*)();
     using QAbstractSocket_Reset_Callback = bool (*)();
     using QAbstractSocket_CanReadLine_Callback = bool (*)();
@@ -49,21 +52,21 @@ class VirtualQAbstractSocket : public QAbstractSocket {
     using QAbstractSocket_TimerEvent_Callback = void (*)(QAbstractSocket*, QTimerEvent*);
     using QAbstractSocket_ChildEvent_Callback = void (*)(QAbstractSocket*, QChildEvent*);
     using QAbstractSocket_CustomEvent_Callback = void (*)(QAbstractSocket*, QEvent*);
-    using QAbstractSocket_ConnectNotify_Callback = void (*)(QAbstractSocket*, const QMetaMethod&);
-    using QAbstractSocket_DisconnectNotify_Callback = void (*)(QAbstractSocket*, const QMetaMethod&);
-    using QAbstractSocket_SetSocketState_Callback = void (*)(QAbstractSocket*, QAbstractSocket::SocketState);
-    using QAbstractSocket_SetSocketError_Callback = void (*)(QAbstractSocket*, QAbstractSocket::SocketError);
-    using QAbstractSocket_SetLocalPort_Callback = void (*)(QAbstractSocket*, quint16);
-    using QAbstractSocket_SetLocalAddress_Callback = void (*)(QAbstractSocket*, const QHostAddress&);
-    using QAbstractSocket_SetPeerPort_Callback = void (*)(QAbstractSocket*, quint16);
-    using QAbstractSocket_SetPeerAddress_Callback = void (*)(QAbstractSocket*, const QHostAddress&);
-    using QAbstractSocket_SetPeerName_Callback = void (*)(QAbstractSocket*, const QString&);
-    using QAbstractSocket_SetOpenMode_Callback = void (*)(QAbstractSocket*, QIODeviceBase::OpenMode);
-    using QAbstractSocket_SetErrorString_Callback = void (*)(QAbstractSocket*, const QString&);
+    using QAbstractSocket_ConnectNotify_Callback = void (*)(QAbstractSocket*, QMetaMethod*);
+    using QAbstractSocket_DisconnectNotify_Callback = void (*)(QAbstractSocket*, QMetaMethod*);
+    using QAbstractSocket_SetSocketState_Callback = void (*)(QAbstractSocket*, int);
+    using QAbstractSocket_SetSocketError_Callback = void (*)(QAbstractSocket*, int);
+    using QAbstractSocket_SetLocalPort_Callback = void (*)(QAbstractSocket*, uint16_t);
+    using QAbstractSocket_SetLocalAddress_Callback = void (*)(QAbstractSocket*, QHostAddress*);
+    using QAbstractSocket_SetPeerPort_Callback = void (*)(QAbstractSocket*, uint16_t);
+    using QAbstractSocket_SetPeerAddress_Callback = void (*)(QAbstractSocket*, QHostAddress*);
+    using QAbstractSocket_SetPeerName_Callback = void (*)(QAbstractSocket*, libqt_string);
+    using QAbstractSocket_SetOpenMode_Callback = void (*)(QAbstractSocket*, int);
+    using QAbstractSocket_SetErrorString_Callback = void (*)(QAbstractSocket*, libqt_string);
     using QAbstractSocket_Sender_Callback = QObject* (*)();
     using QAbstractSocket_SenderSignalIndex_Callback = int (*)();
     using QAbstractSocket_Receivers_Callback = int (*)(const QAbstractSocket*, const char*);
-    using QAbstractSocket_IsSignalConnected_Callback = bool (*)(const QAbstractSocket*, const QMetaMethod&);
+    using QAbstractSocket_IsSignalConnected_Callback = bool (*)(const QAbstractSocket*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -224,106 +227,106 @@ class VirtualQAbstractSocket : public QAbstractSocket {
     }
 
     // Callback setters
-    void setQAbstractSocket_Metacall_Callback(QAbstractSocket_Metacall_Callback cb) { qabstractsocket_metacall_callback = cb; }
-    void setQAbstractSocket_Resume_Callback(QAbstractSocket_Resume_Callback cb) { qabstractsocket_resume_callback = cb; }
-    void setQAbstractSocket_Bind_Callback(QAbstractSocket_Bind_Callback cb) { qabstractsocket_bind_callback = cb; }
-    void setQAbstractSocket_ConnectToHost_Callback(QAbstractSocket_ConnectToHost_Callback cb) { qabstractsocket_connecttohost_callback = cb; }
-    void setQAbstractSocket_DisconnectFromHost_Callback(QAbstractSocket_DisconnectFromHost_Callback cb) { qabstractsocket_disconnectfromhost_callback = cb; }
-    void setQAbstractSocket_BytesAvailable_Callback(QAbstractSocket_BytesAvailable_Callback cb) { qabstractsocket_bytesavailable_callback = cb; }
-    void setQAbstractSocket_BytesToWrite_Callback(QAbstractSocket_BytesToWrite_Callback cb) { qabstractsocket_bytestowrite_callback = cb; }
-    void setQAbstractSocket_SetReadBufferSize_Callback(QAbstractSocket_SetReadBufferSize_Callback cb) { qabstractsocket_setreadbuffersize_callback = cb; }
-    void setQAbstractSocket_SocketDescriptor_Callback(QAbstractSocket_SocketDescriptor_Callback cb) { qabstractsocket_socketdescriptor_callback = cb; }
-    void setQAbstractSocket_SetSocketDescriptor_Callback(QAbstractSocket_SetSocketDescriptor_Callback cb) { qabstractsocket_setsocketdescriptor_callback = cb; }
-    void setQAbstractSocket_SetSocketOption_Callback(QAbstractSocket_SetSocketOption_Callback cb) { qabstractsocket_setsocketoption_callback = cb; }
-    void setQAbstractSocket_SocketOption_Callback(QAbstractSocket_SocketOption_Callback cb) { qabstractsocket_socketoption_callback = cb; }
-    void setQAbstractSocket_Close_Callback(QAbstractSocket_Close_Callback cb) { qabstractsocket_close_callback = cb; }
-    void setQAbstractSocket_IsSequential_Callback(QAbstractSocket_IsSequential_Callback cb) { qabstractsocket_issequential_callback = cb; }
-    void setQAbstractSocket_WaitForConnected_Callback(QAbstractSocket_WaitForConnected_Callback cb) { qabstractsocket_waitforconnected_callback = cb; }
-    void setQAbstractSocket_WaitForReadyRead_Callback(QAbstractSocket_WaitForReadyRead_Callback cb) { qabstractsocket_waitforreadyread_callback = cb; }
-    void setQAbstractSocket_WaitForBytesWritten_Callback(QAbstractSocket_WaitForBytesWritten_Callback cb) { qabstractsocket_waitforbyteswritten_callback = cb; }
-    void setQAbstractSocket_WaitForDisconnected_Callback(QAbstractSocket_WaitForDisconnected_Callback cb) { qabstractsocket_waitfordisconnected_callback = cb; }
-    void setQAbstractSocket_ReadData_Callback(QAbstractSocket_ReadData_Callback cb) { qabstractsocket_readdata_callback = cb; }
-    void setQAbstractSocket_ReadLineData_Callback(QAbstractSocket_ReadLineData_Callback cb) { qabstractsocket_readlinedata_callback = cb; }
-    void setQAbstractSocket_SkipData_Callback(QAbstractSocket_SkipData_Callback cb) { qabstractsocket_skipdata_callback = cb; }
-    void setQAbstractSocket_WriteData_Callback(QAbstractSocket_WriteData_Callback cb) { qabstractsocket_writedata_callback = cb; }
-    void setQAbstractSocket_Open_Callback(QAbstractSocket_Open_Callback cb) { qabstractsocket_open_callback = cb; }
-    void setQAbstractSocket_Pos_Callback(QAbstractSocket_Pos_Callback cb) { qabstractsocket_pos_callback = cb; }
-    void setQAbstractSocket_Size_Callback(QAbstractSocket_Size_Callback cb) { qabstractsocket_size_callback = cb; }
-    void setQAbstractSocket_Seek_Callback(QAbstractSocket_Seek_Callback cb) { qabstractsocket_seek_callback = cb; }
-    void setQAbstractSocket_AtEnd_Callback(QAbstractSocket_AtEnd_Callback cb) { qabstractsocket_atend_callback = cb; }
-    void setQAbstractSocket_Reset_Callback(QAbstractSocket_Reset_Callback cb) { qabstractsocket_reset_callback = cb; }
-    void setQAbstractSocket_CanReadLine_Callback(QAbstractSocket_CanReadLine_Callback cb) { qabstractsocket_canreadline_callback = cb; }
-    void setQAbstractSocket_Event_Callback(QAbstractSocket_Event_Callback cb) { qabstractsocket_event_callback = cb; }
-    void setQAbstractSocket_EventFilter_Callback(QAbstractSocket_EventFilter_Callback cb) { qabstractsocket_eventfilter_callback = cb; }
-    void setQAbstractSocket_TimerEvent_Callback(QAbstractSocket_TimerEvent_Callback cb) { qabstractsocket_timerevent_callback = cb; }
-    void setQAbstractSocket_ChildEvent_Callback(QAbstractSocket_ChildEvent_Callback cb) { qabstractsocket_childevent_callback = cb; }
-    void setQAbstractSocket_CustomEvent_Callback(QAbstractSocket_CustomEvent_Callback cb) { qabstractsocket_customevent_callback = cb; }
-    void setQAbstractSocket_ConnectNotify_Callback(QAbstractSocket_ConnectNotify_Callback cb) { qabstractsocket_connectnotify_callback = cb; }
-    void setQAbstractSocket_DisconnectNotify_Callback(QAbstractSocket_DisconnectNotify_Callback cb) { qabstractsocket_disconnectnotify_callback = cb; }
-    void setQAbstractSocket_SetSocketState_Callback(QAbstractSocket_SetSocketState_Callback cb) { qabstractsocket_setsocketstate_callback = cb; }
-    void setQAbstractSocket_SetSocketError_Callback(QAbstractSocket_SetSocketError_Callback cb) { qabstractsocket_setsocketerror_callback = cb; }
-    void setQAbstractSocket_SetLocalPort_Callback(QAbstractSocket_SetLocalPort_Callback cb) { qabstractsocket_setlocalport_callback = cb; }
-    void setQAbstractSocket_SetLocalAddress_Callback(QAbstractSocket_SetLocalAddress_Callback cb) { qabstractsocket_setlocaladdress_callback = cb; }
-    void setQAbstractSocket_SetPeerPort_Callback(QAbstractSocket_SetPeerPort_Callback cb) { qabstractsocket_setpeerport_callback = cb; }
-    void setQAbstractSocket_SetPeerAddress_Callback(QAbstractSocket_SetPeerAddress_Callback cb) { qabstractsocket_setpeeraddress_callback = cb; }
-    void setQAbstractSocket_SetPeerName_Callback(QAbstractSocket_SetPeerName_Callback cb) { qabstractsocket_setpeername_callback = cb; }
-    void setQAbstractSocket_SetOpenMode_Callback(QAbstractSocket_SetOpenMode_Callback cb) { qabstractsocket_setopenmode_callback = cb; }
-    void setQAbstractSocket_SetErrorString_Callback(QAbstractSocket_SetErrorString_Callback cb) { qabstractsocket_seterrorstring_callback = cb; }
-    void setQAbstractSocket_Sender_Callback(QAbstractSocket_Sender_Callback cb) { qabstractsocket_sender_callback = cb; }
-    void setQAbstractSocket_SenderSignalIndex_Callback(QAbstractSocket_SenderSignalIndex_Callback cb) { qabstractsocket_sendersignalindex_callback = cb; }
-    void setQAbstractSocket_Receivers_Callback(QAbstractSocket_Receivers_Callback cb) { qabstractsocket_receivers_callback = cb; }
-    void setQAbstractSocket_IsSignalConnected_Callback(QAbstractSocket_IsSignalConnected_Callback cb) { qabstractsocket_issignalconnected_callback = cb; }
+    inline void setQAbstractSocket_Metacall_Callback(QAbstractSocket_Metacall_Callback cb) { qabstractsocket_metacall_callback = cb; }
+    inline void setQAbstractSocket_Resume_Callback(QAbstractSocket_Resume_Callback cb) { qabstractsocket_resume_callback = cb; }
+    inline void setQAbstractSocket_Bind_Callback(QAbstractSocket_Bind_Callback cb) { qabstractsocket_bind_callback = cb; }
+    inline void setQAbstractSocket_ConnectToHost_Callback(QAbstractSocket_ConnectToHost_Callback cb) { qabstractsocket_connecttohost_callback = cb; }
+    inline void setQAbstractSocket_DisconnectFromHost_Callback(QAbstractSocket_DisconnectFromHost_Callback cb) { qabstractsocket_disconnectfromhost_callback = cb; }
+    inline void setQAbstractSocket_BytesAvailable_Callback(QAbstractSocket_BytesAvailable_Callback cb) { qabstractsocket_bytesavailable_callback = cb; }
+    inline void setQAbstractSocket_BytesToWrite_Callback(QAbstractSocket_BytesToWrite_Callback cb) { qabstractsocket_bytestowrite_callback = cb; }
+    inline void setQAbstractSocket_SetReadBufferSize_Callback(QAbstractSocket_SetReadBufferSize_Callback cb) { qabstractsocket_setreadbuffersize_callback = cb; }
+    inline void setQAbstractSocket_SocketDescriptor_Callback(QAbstractSocket_SocketDescriptor_Callback cb) { qabstractsocket_socketdescriptor_callback = cb; }
+    inline void setQAbstractSocket_SetSocketDescriptor_Callback(QAbstractSocket_SetSocketDescriptor_Callback cb) { qabstractsocket_setsocketdescriptor_callback = cb; }
+    inline void setQAbstractSocket_SetSocketOption_Callback(QAbstractSocket_SetSocketOption_Callback cb) { qabstractsocket_setsocketoption_callback = cb; }
+    inline void setQAbstractSocket_SocketOption_Callback(QAbstractSocket_SocketOption_Callback cb) { qabstractsocket_socketoption_callback = cb; }
+    inline void setQAbstractSocket_Close_Callback(QAbstractSocket_Close_Callback cb) { qabstractsocket_close_callback = cb; }
+    inline void setQAbstractSocket_IsSequential_Callback(QAbstractSocket_IsSequential_Callback cb) { qabstractsocket_issequential_callback = cb; }
+    inline void setQAbstractSocket_WaitForConnected_Callback(QAbstractSocket_WaitForConnected_Callback cb) { qabstractsocket_waitforconnected_callback = cb; }
+    inline void setQAbstractSocket_WaitForReadyRead_Callback(QAbstractSocket_WaitForReadyRead_Callback cb) { qabstractsocket_waitforreadyread_callback = cb; }
+    inline void setQAbstractSocket_WaitForBytesWritten_Callback(QAbstractSocket_WaitForBytesWritten_Callback cb) { qabstractsocket_waitforbyteswritten_callback = cb; }
+    inline void setQAbstractSocket_WaitForDisconnected_Callback(QAbstractSocket_WaitForDisconnected_Callback cb) { qabstractsocket_waitfordisconnected_callback = cb; }
+    inline void setQAbstractSocket_ReadData_Callback(QAbstractSocket_ReadData_Callback cb) { qabstractsocket_readdata_callback = cb; }
+    inline void setQAbstractSocket_ReadLineData_Callback(QAbstractSocket_ReadLineData_Callback cb) { qabstractsocket_readlinedata_callback = cb; }
+    inline void setQAbstractSocket_SkipData_Callback(QAbstractSocket_SkipData_Callback cb) { qabstractsocket_skipdata_callback = cb; }
+    inline void setQAbstractSocket_WriteData_Callback(QAbstractSocket_WriteData_Callback cb) { qabstractsocket_writedata_callback = cb; }
+    inline void setQAbstractSocket_Open_Callback(QAbstractSocket_Open_Callback cb) { qabstractsocket_open_callback = cb; }
+    inline void setQAbstractSocket_Pos_Callback(QAbstractSocket_Pos_Callback cb) { qabstractsocket_pos_callback = cb; }
+    inline void setQAbstractSocket_Size_Callback(QAbstractSocket_Size_Callback cb) { qabstractsocket_size_callback = cb; }
+    inline void setQAbstractSocket_Seek_Callback(QAbstractSocket_Seek_Callback cb) { qabstractsocket_seek_callback = cb; }
+    inline void setQAbstractSocket_AtEnd_Callback(QAbstractSocket_AtEnd_Callback cb) { qabstractsocket_atend_callback = cb; }
+    inline void setQAbstractSocket_Reset_Callback(QAbstractSocket_Reset_Callback cb) { qabstractsocket_reset_callback = cb; }
+    inline void setQAbstractSocket_CanReadLine_Callback(QAbstractSocket_CanReadLine_Callback cb) { qabstractsocket_canreadline_callback = cb; }
+    inline void setQAbstractSocket_Event_Callback(QAbstractSocket_Event_Callback cb) { qabstractsocket_event_callback = cb; }
+    inline void setQAbstractSocket_EventFilter_Callback(QAbstractSocket_EventFilter_Callback cb) { qabstractsocket_eventfilter_callback = cb; }
+    inline void setQAbstractSocket_TimerEvent_Callback(QAbstractSocket_TimerEvent_Callback cb) { qabstractsocket_timerevent_callback = cb; }
+    inline void setQAbstractSocket_ChildEvent_Callback(QAbstractSocket_ChildEvent_Callback cb) { qabstractsocket_childevent_callback = cb; }
+    inline void setQAbstractSocket_CustomEvent_Callback(QAbstractSocket_CustomEvent_Callback cb) { qabstractsocket_customevent_callback = cb; }
+    inline void setQAbstractSocket_ConnectNotify_Callback(QAbstractSocket_ConnectNotify_Callback cb) { qabstractsocket_connectnotify_callback = cb; }
+    inline void setQAbstractSocket_DisconnectNotify_Callback(QAbstractSocket_DisconnectNotify_Callback cb) { qabstractsocket_disconnectnotify_callback = cb; }
+    inline void setQAbstractSocket_SetSocketState_Callback(QAbstractSocket_SetSocketState_Callback cb) { qabstractsocket_setsocketstate_callback = cb; }
+    inline void setQAbstractSocket_SetSocketError_Callback(QAbstractSocket_SetSocketError_Callback cb) { qabstractsocket_setsocketerror_callback = cb; }
+    inline void setQAbstractSocket_SetLocalPort_Callback(QAbstractSocket_SetLocalPort_Callback cb) { qabstractsocket_setlocalport_callback = cb; }
+    inline void setQAbstractSocket_SetLocalAddress_Callback(QAbstractSocket_SetLocalAddress_Callback cb) { qabstractsocket_setlocaladdress_callback = cb; }
+    inline void setQAbstractSocket_SetPeerPort_Callback(QAbstractSocket_SetPeerPort_Callback cb) { qabstractsocket_setpeerport_callback = cb; }
+    inline void setQAbstractSocket_SetPeerAddress_Callback(QAbstractSocket_SetPeerAddress_Callback cb) { qabstractsocket_setpeeraddress_callback = cb; }
+    inline void setQAbstractSocket_SetPeerName_Callback(QAbstractSocket_SetPeerName_Callback cb) { qabstractsocket_setpeername_callback = cb; }
+    inline void setQAbstractSocket_SetOpenMode_Callback(QAbstractSocket_SetOpenMode_Callback cb) { qabstractsocket_setopenmode_callback = cb; }
+    inline void setQAbstractSocket_SetErrorString_Callback(QAbstractSocket_SetErrorString_Callback cb) { qabstractsocket_seterrorstring_callback = cb; }
+    inline void setQAbstractSocket_Sender_Callback(QAbstractSocket_Sender_Callback cb) { qabstractsocket_sender_callback = cb; }
+    inline void setQAbstractSocket_SenderSignalIndex_Callback(QAbstractSocket_SenderSignalIndex_Callback cb) { qabstractsocket_sendersignalindex_callback = cb; }
+    inline void setQAbstractSocket_Receivers_Callback(QAbstractSocket_Receivers_Callback cb) { qabstractsocket_receivers_callback = cb; }
+    inline void setQAbstractSocket_IsSignalConnected_Callback(QAbstractSocket_IsSignalConnected_Callback cb) { qabstractsocket_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQAbstractSocket_Metacall_IsBase(bool value) const { qabstractsocket_metacall_isbase = value; }
-    void setQAbstractSocket_Resume_IsBase(bool value) const { qabstractsocket_resume_isbase = value; }
-    void setQAbstractSocket_Bind_IsBase(bool value) const { qabstractsocket_bind_isbase = value; }
-    void setQAbstractSocket_ConnectToHost_IsBase(bool value) const { qabstractsocket_connecttohost_isbase = value; }
-    void setQAbstractSocket_DisconnectFromHost_IsBase(bool value) const { qabstractsocket_disconnectfromhost_isbase = value; }
-    void setQAbstractSocket_BytesAvailable_IsBase(bool value) const { qabstractsocket_bytesavailable_isbase = value; }
-    void setQAbstractSocket_BytesToWrite_IsBase(bool value) const { qabstractsocket_bytestowrite_isbase = value; }
-    void setQAbstractSocket_SetReadBufferSize_IsBase(bool value) const { qabstractsocket_setreadbuffersize_isbase = value; }
-    void setQAbstractSocket_SocketDescriptor_IsBase(bool value) const { qabstractsocket_socketdescriptor_isbase = value; }
-    void setQAbstractSocket_SetSocketDescriptor_IsBase(bool value) const { qabstractsocket_setsocketdescriptor_isbase = value; }
-    void setQAbstractSocket_SetSocketOption_IsBase(bool value) const { qabstractsocket_setsocketoption_isbase = value; }
-    void setQAbstractSocket_SocketOption_IsBase(bool value) const { qabstractsocket_socketoption_isbase = value; }
-    void setQAbstractSocket_Close_IsBase(bool value) const { qabstractsocket_close_isbase = value; }
-    void setQAbstractSocket_IsSequential_IsBase(bool value) const { qabstractsocket_issequential_isbase = value; }
-    void setQAbstractSocket_WaitForConnected_IsBase(bool value) const { qabstractsocket_waitforconnected_isbase = value; }
-    void setQAbstractSocket_WaitForReadyRead_IsBase(bool value) const { qabstractsocket_waitforreadyread_isbase = value; }
-    void setQAbstractSocket_WaitForBytesWritten_IsBase(bool value) const { qabstractsocket_waitforbyteswritten_isbase = value; }
-    void setQAbstractSocket_WaitForDisconnected_IsBase(bool value) const { qabstractsocket_waitfordisconnected_isbase = value; }
-    void setQAbstractSocket_ReadData_IsBase(bool value) const { qabstractsocket_readdata_isbase = value; }
-    void setQAbstractSocket_ReadLineData_IsBase(bool value) const { qabstractsocket_readlinedata_isbase = value; }
-    void setQAbstractSocket_SkipData_IsBase(bool value) const { qabstractsocket_skipdata_isbase = value; }
-    void setQAbstractSocket_WriteData_IsBase(bool value) const { qabstractsocket_writedata_isbase = value; }
-    void setQAbstractSocket_Open_IsBase(bool value) const { qabstractsocket_open_isbase = value; }
-    void setQAbstractSocket_Pos_IsBase(bool value) const { qabstractsocket_pos_isbase = value; }
-    void setQAbstractSocket_Size_IsBase(bool value) const { qabstractsocket_size_isbase = value; }
-    void setQAbstractSocket_Seek_IsBase(bool value) const { qabstractsocket_seek_isbase = value; }
-    void setQAbstractSocket_AtEnd_IsBase(bool value) const { qabstractsocket_atend_isbase = value; }
-    void setQAbstractSocket_Reset_IsBase(bool value) const { qabstractsocket_reset_isbase = value; }
-    void setQAbstractSocket_CanReadLine_IsBase(bool value) const { qabstractsocket_canreadline_isbase = value; }
-    void setQAbstractSocket_Event_IsBase(bool value) const { qabstractsocket_event_isbase = value; }
-    void setQAbstractSocket_EventFilter_IsBase(bool value) const { qabstractsocket_eventfilter_isbase = value; }
-    void setQAbstractSocket_TimerEvent_IsBase(bool value) const { qabstractsocket_timerevent_isbase = value; }
-    void setQAbstractSocket_ChildEvent_IsBase(bool value) const { qabstractsocket_childevent_isbase = value; }
-    void setQAbstractSocket_CustomEvent_IsBase(bool value) const { qabstractsocket_customevent_isbase = value; }
-    void setQAbstractSocket_ConnectNotify_IsBase(bool value) const { qabstractsocket_connectnotify_isbase = value; }
-    void setQAbstractSocket_DisconnectNotify_IsBase(bool value) const { qabstractsocket_disconnectnotify_isbase = value; }
-    void setQAbstractSocket_SetSocketState_IsBase(bool value) const { qabstractsocket_setsocketstate_isbase = value; }
-    void setQAbstractSocket_SetSocketError_IsBase(bool value) const { qabstractsocket_setsocketerror_isbase = value; }
-    void setQAbstractSocket_SetLocalPort_IsBase(bool value) const { qabstractsocket_setlocalport_isbase = value; }
-    void setQAbstractSocket_SetLocalAddress_IsBase(bool value) const { qabstractsocket_setlocaladdress_isbase = value; }
-    void setQAbstractSocket_SetPeerPort_IsBase(bool value) const { qabstractsocket_setpeerport_isbase = value; }
-    void setQAbstractSocket_SetPeerAddress_IsBase(bool value) const { qabstractsocket_setpeeraddress_isbase = value; }
-    void setQAbstractSocket_SetPeerName_IsBase(bool value) const { qabstractsocket_setpeername_isbase = value; }
-    void setQAbstractSocket_SetOpenMode_IsBase(bool value) const { qabstractsocket_setopenmode_isbase = value; }
-    void setQAbstractSocket_SetErrorString_IsBase(bool value) const { qabstractsocket_seterrorstring_isbase = value; }
-    void setQAbstractSocket_Sender_IsBase(bool value) const { qabstractsocket_sender_isbase = value; }
-    void setQAbstractSocket_SenderSignalIndex_IsBase(bool value) const { qabstractsocket_sendersignalindex_isbase = value; }
-    void setQAbstractSocket_Receivers_IsBase(bool value) const { qabstractsocket_receivers_isbase = value; }
-    void setQAbstractSocket_IsSignalConnected_IsBase(bool value) const { qabstractsocket_issignalconnected_isbase = value; }
+    inline void setQAbstractSocket_Metacall_IsBase(bool value) const { qabstractsocket_metacall_isbase = value; }
+    inline void setQAbstractSocket_Resume_IsBase(bool value) const { qabstractsocket_resume_isbase = value; }
+    inline void setQAbstractSocket_Bind_IsBase(bool value) const { qabstractsocket_bind_isbase = value; }
+    inline void setQAbstractSocket_ConnectToHost_IsBase(bool value) const { qabstractsocket_connecttohost_isbase = value; }
+    inline void setQAbstractSocket_DisconnectFromHost_IsBase(bool value) const { qabstractsocket_disconnectfromhost_isbase = value; }
+    inline void setQAbstractSocket_BytesAvailable_IsBase(bool value) const { qabstractsocket_bytesavailable_isbase = value; }
+    inline void setQAbstractSocket_BytesToWrite_IsBase(bool value) const { qabstractsocket_bytestowrite_isbase = value; }
+    inline void setQAbstractSocket_SetReadBufferSize_IsBase(bool value) const { qabstractsocket_setreadbuffersize_isbase = value; }
+    inline void setQAbstractSocket_SocketDescriptor_IsBase(bool value) const { qabstractsocket_socketdescriptor_isbase = value; }
+    inline void setQAbstractSocket_SetSocketDescriptor_IsBase(bool value) const { qabstractsocket_setsocketdescriptor_isbase = value; }
+    inline void setQAbstractSocket_SetSocketOption_IsBase(bool value) const { qabstractsocket_setsocketoption_isbase = value; }
+    inline void setQAbstractSocket_SocketOption_IsBase(bool value) const { qabstractsocket_socketoption_isbase = value; }
+    inline void setQAbstractSocket_Close_IsBase(bool value) const { qabstractsocket_close_isbase = value; }
+    inline void setQAbstractSocket_IsSequential_IsBase(bool value) const { qabstractsocket_issequential_isbase = value; }
+    inline void setQAbstractSocket_WaitForConnected_IsBase(bool value) const { qabstractsocket_waitforconnected_isbase = value; }
+    inline void setQAbstractSocket_WaitForReadyRead_IsBase(bool value) const { qabstractsocket_waitforreadyread_isbase = value; }
+    inline void setQAbstractSocket_WaitForBytesWritten_IsBase(bool value) const { qabstractsocket_waitforbyteswritten_isbase = value; }
+    inline void setQAbstractSocket_WaitForDisconnected_IsBase(bool value) const { qabstractsocket_waitfordisconnected_isbase = value; }
+    inline void setQAbstractSocket_ReadData_IsBase(bool value) const { qabstractsocket_readdata_isbase = value; }
+    inline void setQAbstractSocket_ReadLineData_IsBase(bool value) const { qabstractsocket_readlinedata_isbase = value; }
+    inline void setQAbstractSocket_SkipData_IsBase(bool value) const { qabstractsocket_skipdata_isbase = value; }
+    inline void setQAbstractSocket_WriteData_IsBase(bool value) const { qabstractsocket_writedata_isbase = value; }
+    inline void setQAbstractSocket_Open_IsBase(bool value) const { qabstractsocket_open_isbase = value; }
+    inline void setQAbstractSocket_Pos_IsBase(bool value) const { qabstractsocket_pos_isbase = value; }
+    inline void setQAbstractSocket_Size_IsBase(bool value) const { qabstractsocket_size_isbase = value; }
+    inline void setQAbstractSocket_Seek_IsBase(bool value) const { qabstractsocket_seek_isbase = value; }
+    inline void setQAbstractSocket_AtEnd_IsBase(bool value) const { qabstractsocket_atend_isbase = value; }
+    inline void setQAbstractSocket_Reset_IsBase(bool value) const { qabstractsocket_reset_isbase = value; }
+    inline void setQAbstractSocket_CanReadLine_IsBase(bool value) const { qabstractsocket_canreadline_isbase = value; }
+    inline void setQAbstractSocket_Event_IsBase(bool value) const { qabstractsocket_event_isbase = value; }
+    inline void setQAbstractSocket_EventFilter_IsBase(bool value) const { qabstractsocket_eventfilter_isbase = value; }
+    inline void setQAbstractSocket_TimerEvent_IsBase(bool value) const { qabstractsocket_timerevent_isbase = value; }
+    inline void setQAbstractSocket_ChildEvent_IsBase(bool value) const { qabstractsocket_childevent_isbase = value; }
+    inline void setQAbstractSocket_CustomEvent_IsBase(bool value) const { qabstractsocket_customevent_isbase = value; }
+    inline void setQAbstractSocket_ConnectNotify_IsBase(bool value) const { qabstractsocket_connectnotify_isbase = value; }
+    inline void setQAbstractSocket_DisconnectNotify_IsBase(bool value) const { qabstractsocket_disconnectnotify_isbase = value; }
+    inline void setQAbstractSocket_SetSocketState_IsBase(bool value) const { qabstractsocket_setsocketstate_isbase = value; }
+    inline void setQAbstractSocket_SetSocketError_IsBase(bool value) const { qabstractsocket_setsocketerror_isbase = value; }
+    inline void setQAbstractSocket_SetLocalPort_IsBase(bool value) const { qabstractsocket_setlocalport_isbase = value; }
+    inline void setQAbstractSocket_SetLocalAddress_IsBase(bool value) const { qabstractsocket_setlocaladdress_isbase = value; }
+    inline void setQAbstractSocket_SetPeerPort_IsBase(bool value) const { qabstractsocket_setpeerport_isbase = value; }
+    inline void setQAbstractSocket_SetPeerAddress_IsBase(bool value) const { qabstractsocket_setpeeraddress_isbase = value; }
+    inline void setQAbstractSocket_SetPeerName_IsBase(bool value) const { qabstractsocket_setpeername_isbase = value; }
+    inline void setQAbstractSocket_SetOpenMode_IsBase(bool value) const { qabstractsocket_setopenmode_isbase = value; }
+    inline void setQAbstractSocket_SetErrorString_IsBase(bool value) const { qabstractsocket_seterrorstring_isbase = value; }
+    inline void setQAbstractSocket_Sender_IsBase(bool value) const { qabstractsocket_sender_isbase = value; }
+    inline void setQAbstractSocket_SenderSignalIndex_IsBase(bool value) const { qabstractsocket_sendersignalindex_isbase = value; }
+    inline void setQAbstractSocket_Receivers_IsBase(bool value) const { qabstractsocket_receivers_isbase = value; }
+    inline void setQAbstractSocket_IsSignalConnected_IsBase(bool value) const { qabstractsocket_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -331,7 +334,12 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_metacall_isbase = false;
             return QAbstractSocket::qt_metacall(param1, param2, param3);
         } else if (qabstractsocket_metacall_callback != nullptr) {
-            return qabstractsocket_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qabstractsocket_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractSocket::qt_metacall(param1, param2, param3);
         }
@@ -355,7 +363,14 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_bind_isbase = false;
             return QAbstractSocket::bind(address, port, mode);
         } else if (qabstractsocket_bind_callback != nullptr) {
-            return qabstractsocket_bind_callback(this, address, port, mode);
+            const QHostAddress& address_ret = address;
+            // Cast returned reference into pointer
+            QHostAddress* cbval1 = const_cast<QHostAddress*>(&address_ret);
+            uint16_t cbval2 = static_cast<uint16_t>(port);
+            int cbval3 = static_cast<int>(mode);
+
+            bool callback_ret = qabstractsocket_bind_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QAbstractSocket::bind(address, port, mode);
         }
@@ -367,7 +382,20 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_connecttohost_isbase = false;
             QAbstractSocket::connectToHost(hostName, port, mode, protocol);
         } else if (qabstractsocket_connecttohost_callback != nullptr) {
-            qabstractsocket_connecttohost_callback(this, hostName, port, mode, protocol);
+            const QString hostName_ret = hostName;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray hostName_b = hostName_ret.toUtf8();
+            libqt_string hostName_str;
+            hostName_str.len = hostName_b.length();
+            hostName_str.data = static_cast<char*>(malloc((hostName_str.len + 1) * sizeof(char)));
+            memcpy(hostName_str.data, hostName_b.data(), hostName_str.len);
+            hostName_str.data[hostName_str.len] = '\0';
+            libqt_string cbval1 = hostName_str;
+            uint16_t cbval2 = static_cast<uint16_t>(port);
+            int cbval3 = static_cast<int>(mode);
+            int cbval4 = static_cast<int>(protocol);
+
+            qabstractsocket_connecttohost_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QAbstractSocket::connectToHost(hostName, port, mode, protocol);
         }
@@ -391,7 +419,8 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_bytesavailable_isbase = false;
             return QAbstractSocket::bytesAvailable();
         } else if (qabstractsocket_bytesavailable_callback != nullptr) {
-            return qabstractsocket_bytesavailable_callback();
+            long long callback_ret = qabstractsocket_bytesavailable_callback();
+            return static_cast<qint64>(callback_ret);
         } else {
             return QAbstractSocket::bytesAvailable();
         }
@@ -403,7 +432,8 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_bytestowrite_isbase = false;
             return QAbstractSocket::bytesToWrite();
         } else if (qabstractsocket_bytestowrite_callback != nullptr) {
-            return qabstractsocket_bytestowrite_callback();
+            long long callback_ret = qabstractsocket_bytestowrite_callback();
+            return static_cast<qint64>(callback_ret);
         } else {
             return QAbstractSocket::bytesToWrite();
         }
@@ -415,7 +445,9 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_setreadbuffersize_isbase = false;
             QAbstractSocket::setReadBufferSize(size);
         } else if (qabstractsocket_setreadbuffersize_callback != nullptr) {
-            qabstractsocket_setreadbuffersize_callback(this, size);
+            long long cbval1 = static_cast<long long>(size);
+
+            qabstractsocket_setreadbuffersize_callback(this, cbval1);
         } else {
             QAbstractSocket::setReadBufferSize(size);
         }
@@ -427,7 +459,8 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_socketdescriptor_isbase = false;
             return QAbstractSocket::socketDescriptor();
         } else if (qabstractsocket_socketdescriptor_callback != nullptr) {
-            return qabstractsocket_socketdescriptor_callback();
+            intptr_t callback_ret = qabstractsocket_socketdescriptor_callback();
+            return (qintptr)(callback_ret);
         } else {
             return QAbstractSocket::socketDescriptor();
         }
@@ -439,7 +472,13 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_setsocketdescriptor_isbase = false;
             return QAbstractSocket::setSocketDescriptor(socketDescriptor, state, openMode);
         } else if (qabstractsocket_setsocketdescriptor_callback != nullptr) {
-            return qabstractsocket_setsocketdescriptor_callback(this, socketDescriptor, state, openMode);
+            qintptr socketDescriptor_ret = socketDescriptor;
+            intptr_t cbval1 = (intptr_t)(socketDescriptor_ret);
+            int cbval2 = static_cast<int>(state);
+            int cbval3 = static_cast<int>(openMode);
+
+            bool callback_ret = qabstractsocket_setsocketdescriptor_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QAbstractSocket::setSocketDescriptor(socketDescriptor, state, openMode);
         }
@@ -451,7 +490,12 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_setsocketoption_isbase = false;
             QAbstractSocket::setSocketOption(option, value);
         } else if (qabstractsocket_setsocketoption_callback != nullptr) {
-            qabstractsocket_setsocketoption_callback(this, option, value);
+            int cbval1 = static_cast<int>(option);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            qabstractsocket_setsocketoption_callback(this, cbval1, cbval2);
         } else {
             QAbstractSocket::setSocketOption(option, value);
         }
@@ -463,7 +507,10 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_socketoption_isbase = false;
             return QAbstractSocket::socketOption(option);
         } else if (qabstractsocket_socketoption_callback != nullptr) {
-            return qabstractsocket_socketoption_callback(this, option);
+            int cbval1 = static_cast<int>(option);
+
+            QVariant* callback_ret = qabstractsocket_socketoption_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QAbstractSocket::socketOption(option);
         }
@@ -487,7 +534,8 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_issequential_isbase = false;
             return QAbstractSocket::isSequential();
         } else if (qabstractsocket_issequential_callback != nullptr) {
-            return qabstractsocket_issequential_callback();
+            bool callback_ret = qabstractsocket_issequential_callback();
+            return callback_ret;
         } else {
             return QAbstractSocket::isSequential();
         }
@@ -499,7 +547,10 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_waitforconnected_isbase = false;
             return QAbstractSocket::waitForConnected(msecs);
         } else if (qabstractsocket_waitforconnected_callback != nullptr) {
-            return qabstractsocket_waitforconnected_callback(this, msecs);
+            int cbval1 = msecs;
+
+            bool callback_ret = qabstractsocket_waitforconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractSocket::waitForConnected(msecs);
         }
@@ -511,7 +562,10 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_waitforreadyread_isbase = false;
             return QAbstractSocket::waitForReadyRead(msecs);
         } else if (qabstractsocket_waitforreadyread_callback != nullptr) {
-            return qabstractsocket_waitforreadyread_callback(this, msecs);
+            int cbval1 = msecs;
+
+            bool callback_ret = qabstractsocket_waitforreadyread_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractSocket::waitForReadyRead(msecs);
         }
@@ -523,7 +577,10 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_waitforbyteswritten_isbase = false;
             return QAbstractSocket::waitForBytesWritten(msecs);
         } else if (qabstractsocket_waitforbyteswritten_callback != nullptr) {
-            return qabstractsocket_waitforbyteswritten_callback(this, msecs);
+            int cbval1 = msecs;
+
+            bool callback_ret = qabstractsocket_waitforbyteswritten_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractSocket::waitForBytesWritten(msecs);
         }
@@ -535,7 +592,10 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_waitfordisconnected_isbase = false;
             return QAbstractSocket::waitForDisconnected(msecs);
         } else if (qabstractsocket_waitfordisconnected_callback != nullptr) {
-            return qabstractsocket_waitfordisconnected_callback(this, msecs);
+            int cbval1 = msecs;
+
+            bool callback_ret = qabstractsocket_waitfordisconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractSocket::waitForDisconnected(msecs);
         }
@@ -547,7 +607,11 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_readdata_isbase = false;
             return QAbstractSocket::readData(data, maxlen);
         } else if (qabstractsocket_readdata_callback != nullptr) {
-            return qabstractsocket_readdata_callback(this, data, maxlen);
+            char* cbval1 = data;
+            long long cbval2 = static_cast<long long>(maxlen);
+
+            long long callback_ret = qabstractsocket_readdata_callback(this, cbval1, cbval2);
+            return static_cast<qint64>(callback_ret);
         } else {
             return QAbstractSocket::readData(data, maxlen);
         }
@@ -559,7 +623,11 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_readlinedata_isbase = false;
             return QAbstractSocket::readLineData(data, maxlen);
         } else if (qabstractsocket_readlinedata_callback != nullptr) {
-            return qabstractsocket_readlinedata_callback(this, data, maxlen);
+            char* cbval1 = data;
+            long long cbval2 = static_cast<long long>(maxlen);
+
+            long long callback_ret = qabstractsocket_readlinedata_callback(this, cbval1, cbval2);
+            return static_cast<qint64>(callback_ret);
         } else {
             return QAbstractSocket::readLineData(data, maxlen);
         }
@@ -571,7 +639,10 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_skipdata_isbase = false;
             return QAbstractSocket::skipData(maxSize);
         } else if (qabstractsocket_skipdata_callback != nullptr) {
-            return qabstractsocket_skipdata_callback(this, maxSize);
+            long long cbval1 = static_cast<long long>(maxSize);
+
+            long long callback_ret = qabstractsocket_skipdata_callback(this, cbval1);
+            return static_cast<qint64>(callback_ret);
         } else {
             return QAbstractSocket::skipData(maxSize);
         }
@@ -583,7 +654,11 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_writedata_isbase = false;
             return QAbstractSocket::writeData(data, lenVal);
         } else if (qabstractsocket_writedata_callback != nullptr) {
-            return qabstractsocket_writedata_callback(this, data, lenVal);
+            const char* cbval1 = (const char*)data;
+            long long cbval2 = static_cast<long long>(lenVal);
+
+            long long callback_ret = qabstractsocket_writedata_callback(this, cbval1, cbval2);
+            return static_cast<qint64>(callback_ret);
         } else {
             return QAbstractSocket::writeData(data, lenVal);
         }
@@ -595,7 +670,10 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_open_isbase = false;
             return QAbstractSocket::open(mode);
         } else if (qabstractsocket_open_callback != nullptr) {
-            return qabstractsocket_open_callback(this, mode);
+            int cbval1 = static_cast<int>(mode);
+
+            bool callback_ret = qabstractsocket_open_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractSocket::open(mode);
         }
@@ -607,7 +685,8 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_pos_isbase = false;
             return QAbstractSocket::pos();
         } else if (qabstractsocket_pos_callback != nullptr) {
-            return qabstractsocket_pos_callback();
+            long long callback_ret = qabstractsocket_pos_callback();
+            return static_cast<qint64>(callback_ret);
         } else {
             return QAbstractSocket::pos();
         }
@@ -619,7 +698,8 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_size_isbase = false;
             return QAbstractSocket::size();
         } else if (qabstractsocket_size_callback != nullptr) {
-            return qabstractsocket_size_callback();
+            long long callback_ret = qabstractsocket_size_callback();
+            return static_cast<qint64>(callback_ret);
         } else {
             return QAbstractSocket::size();
         }
@@ -631,7 +711,10 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_seek_isbase = false;
             return QAbstractSocket::seek(pos);
         } else if (qabstractsocket_seek_callback != nullptr) {
-            return qabstractsocket_seek_callback(this, pos);
+            long long cbval1 = static_cast<long long>(pos);
+
+            bool callback_ret = qabstractsocket_seek_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractSocket::seek(pos);
         }
@@ -643,7 +726,8 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_atend_isbase = false;
             return QAbstractSocket::atEnd();
         } else if (qabstractsocket_atend_callback != nullptr) {
-            return qabstractsocket_atend_callback();
+            bool callback_ret = qabstractsocket_atend_callback();
+            return callback_ret;
         } else {
             return QAbstractSocket::atEnd();
         }
@@ -655,7 +739,8 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_reset_isbase = false;
             return QAbstractSocket::reset();
         } else if (qabstractsocket_reset_callback != nullptr) {
-            return qabstractsocket_reset_callback();
+            bool callback_ret = qabstractsocket_reset_callback();
+            return callback_ret;
         } else {
             return QAbstractSocket::reset();
         }
@@ -667,7 +752,8 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_canreadline_isbase = false;
             return QAbstractSocket::canReadLine();
         } else if (qabstractsocket_canreadline_callback != nullptr) {
-            return qabstractsocket_canreadline_callback();
+            bool callback_ret = qabstractsocket_canreadline_callback();
+            return callback_ret;
         } else {
             return QAbstractSocket::canReadLine();
         }
@@ -679,7 +765,10 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_event_isbase = false;
             return QAbstractSocket::event(event);
         } else if (qabstractsocket_event_callback != nullptr) {
-            return qabstractsocket_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qabstractsocket_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractSocket::event(event);
         }
@@ -691,7 +780,11 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_eventfilter_isbase = false;
             return QAbstractSocket::eventFilter(watched, event);
         } else if (qabstractsocket_eventfilter_callback != nullptr) {
-            return qabstractsocket_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qabstractsocket_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QAbstractSocket::eventFilter(watched, event);
         }
@@ -703,7 +796,9 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_timerevent_isbase = false;
             QAbstractSocket::timerEvent(event);
         } else if (qabstractsocket_timerevent_callback != nullptr) {
-            qabstractsocket_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qabstractsocket_timerevent_callback(this, cbval1);
         } else {
             QAbstractSocket::timerEvent(event);
         }
@@ -715,7 +810,9 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_childevent_isbase = false;
             QAbstractSocket::childEvent(event);
         } else if (qabstractsocket_childevent_callback != nullptr) {
-            qabstractsocket_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qabstractsocket_childevent_callback(this, cbval1);
         } else {
             QAbstractSocket::childEvent(event);
         }
@@ -727,7 +824,9 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_customevent_isbase = false;
             QAbstractSocket::customEvent(event);
         } else if (qabstractsocket_customevent_callback != nullptr) {
-            qabstractsocket_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qabstractsocket_customevent_callback(this, cbval1);
         } else {
             QAbstractSocket::customEvent(event);
         }
@@ -739,7 +838,11 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_connectnotify_isbase = false;
             QAbstractSocket::connectNotify(signal);
         } else if (qabstractsocket_connectnotify_callback != nullptr) {
-            qabstractsocket_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qabstractsocket_connectnotify_callback(this, cbval1);
         } else {
             QAbstractSocket::connectNotify(signal);
         }
@@ -751,7 +854,11 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_disconnectnotify_isbase = false;
             QAbstractSocket::disconnectNotify(signal);
         } else if (qabstractsocket_disconnectnotify_callback != nullptr) {
-            qabstractsocket_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qabstractsocket_disconnectnotify_callback(this, cbval1);
         } else {
             QAbstractSocket::disconnectNotify(signal);
         }
@@ -763,7 +870,9 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_setsocketstate_isbase = false;
             QAbstractSocket::setSocketState(state);
         } else if (qabstractsocket_setsocketstate_callback != nullptr) {
-            qabstractsocket_setsocketstate_callback(this, state);
+            int cbval1 = static_cast<int>(state);
+
+            qabstractsocket_setsocketstate_callback(this, cbval1);
         } else {
             QAbstractSocket::setSocketState(state);
         }
@@ -775,7 +884,9 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_setsocketerror_isbase = false;
             QAbstractSocket::setSocketError(socketError);
         } else if (qabstractsocket_setsocketerror_callback != nullptr) {
-            qabstractsocket_setsocketerror_callback(this, socketError);
+            int cbval1 = static_cast<int>(socketError);
+
+            qabstractsocket_setsocketerror_callback(this, cbval1);
         } else {
             QAbstractSocket::setSocketError(socketError);
         }
@@ -787,7 +898,9 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_setlocalport_isbase = false;
             QAbstractSocket::setLocalPort(port);
         } else if (qabstractsocket_setlocalport_callback != nullptr) {
-            qabstractsocket_setlocalport_callback(this, port);
+            uint16_t cbval1 = static_cast<uint16_t>(port);
+
+            qabstractsocket_setlocalport_callback(this, cbval1);
         } else {
             QAbstractSocket::setLocalPort(port);
         }
@@ -799,7 +912,11 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_setlocaladdress_isbase = false;
             QAbstractSocket::setLocalAddress(address);
         } else if (qabstractsocket_setlocaladdress_callback != nullptr) {
-            qabstractsocket_setlocaladdress_callback(this, address);
+            const QHostAddress& address_ret = address;
+            // Cast returned reference into pointer
+            QHostAddress* cbval1 = const_cast<QHostAddress*>(&address_ret);
+
+            qabstractsocket_setlocaladdress_callback(this, cbval1);
         } else {
             QAbstractSocket::setLocalAddress(address);
         }
@@ -811,7 +928,9 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_setpeerport_isbase = false;
             QAbstractSocket::setPeerPort(port);
         } else if (qabstractsocket_setpeerport_callback != nullptr) {
-            qabstractsocket_setpeerport_callback(this, port);
+            uint16_t cbval1 = static_cast<uint16_t>(port);
+
+            qabstractsocket_setpeerport_callback(this, cbval1);
         } else {
             QAbstractSocket::setPeerPort(port);
         }
@@ -823,7 +942,11 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_setpeeraddress_isbase = false;
             QAbstractSocket::setPeerAddress(address);
         } else if (qabstractsocket_setpeeraddress_callback != nullptr) {
-            qabstractsocket_setpeeraddress_callback(this, address);
+            const QHostAddress& address_ret = address;
+            // Cast returned reference into pointer
+            QHostAddress* cbval1 = const_cast<QHostAddress*>(&address_ret);
+
+            qabstractsocket_setpeeraddress_callback(this, cbval1);
         } else {
             QAbstractSocket::setPeerAddress(address);
         }
@@ -835,7 +958,17 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_setpeername_isbase = false;
             QAbstractSocket::setPeerName(name);
         } else if (qabstractsocket_setpeername_callback != nullptr) {
-            qabstractsocket_setpeername_callback(this, name);
+            const QString name_ret = name;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray name_b = name_ret.toUtf8();
+            libqt_string name_str;
+            name_str.len = name_b.length();
+            name_str.data = static_cast<char*>(malloc((name_str.len + 1) * sizeof(char)));
+            memcpy(name_str.data, name_b.data(), name_str.len);
+            name_str.data[name_str.len] = '\0';
+            libqt_string cbval1 = name_str;
+
+            qabstractsocket_setpeername_callback(this, cbval1);
         } else {
             QAbstractSocket::setPeerName(name);
         }
@@ -847,7 +980,9 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_setopenmode_isbase = false;
             QAbstractSocket::setOpenMode(openMode);
         } else if (qabstractsocket_setopenmode_callback != nullptr) {
-            qabstractsocket_setopenmode_callback(this, openMode);
+            int cbval1 = static_cast<int>(openMode);
+
+            qabstractsocket_setopenmode_callback(this, cbval1);
         } else {
             QAbstractSocket::setOpenMode(openMode);
         }
@@ -859,7 +994,17 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_seterrorstring_isbase = false;
             QAbstractSocket::setErrorString(errorString);
         } else if (qabstractsocket_seterrorstring_callback != nullptr) {
-            qabstractsocket_seterrorstring_callback(this, errorString);
+            const QString errorString_ret = errorString;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray errorString_b = errorString_ret.toUtf8();
+            libqt_string errorString_str;
+            errorString_str.len = errorString_b.length();
+            errorString_str.data = static_cast<char*>(malloc((errorString_str.len + 1) * sizeof(char)));
+            memcpy(errorString_str.data, errorString_b.data(), errorString_str.len);
+            errorString_str.data[errorString_str.len] = '\0';
+            libqt_string cbval1 = errorString_str;
+
+            qabstractsocket_seterrorstring_callback(this, cbval1);
         } else {
             QAbstractSocket::setErrorString(errorString);
         }
@@ -871,7 +1016,8 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_sender_isbase = false;
             return QAbstractSocket::sender();
         } else if (qabstractsocket_sender_callback != nullptr) {
-            return qabstractsocket_sender_callback();
+            QObject* callback_ret = qabstractsocket_sender_callback();
+            return callback_ret;
         } else {
             return QAbstractSocket::sender();
         }
@@ -883,7 +1029,8 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_sendersignalindex_isbase = false;
             return QAbstractSocket::senderSignalIndex();
         } else if (qabstractsocket_sendersignalindex_callback != nullptr) {
-            return qabstractsocket_sendersignalindex_callback();
+            int callback_ret = qabstractsocket_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractSocket::senderSignalIndex();
         }
@@ -895,7 +1042,10 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_receivers_isbase = false;
             return QAbstractSocket::receivers(signal);
         } else if (qabstractsocket_receivers_callback != nullptr) {
-            return qabstractsocket_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qabstractsocket_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QAbstractSocket::receivers(signal);
         }
@@ -907,11 +1057,62 @@ class VirtualQAbstractSocket : public QAbstractSocket {
             qabstractsocket_issignalconnected_isbase = false;
             return QAbstractSocket::isSignalConnected(signal);
         } else if (qabstractsocket_issignalconnected_callback != nullptr) {
-            return qabstractsocket_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qabstractsocket_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QAbstractSocket::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend long long QAbstractSocket_ReadData(QAbstractSocket* self, char* data, long long maxlen);
+    friend long long QAbstractSocket_QBaseReadData(QAbstractSocket* self, char* data, long long maxlen);
+    friend long long QAbstractSocket_ReadLineData(QAbstractSocket* self, char* data, long long maxlen);
+    friend long long QAbstractSocket_QBaseReadLineData(QAbstractSocket* self, char* data, long long maxlen);
+    friend long long QAbstractSocket_SkipData(QAbstractSocket* self, long long maxSize);
+    friend long long QAbstractSocket_QBaseSkipData(QAbstractSocket* self, long long maxSize);
+    friend long long QAbstractSocket_WriteData(QAbstractSocket* self, const char* data, long long lenVal);
+    friend long long QAbstractSocket_QBaseWriteData(QAbstractSocket* self, const char* data, long long lenVal);
+    friend void QAbstractSocket_TimerEvent(QAbstractSocket* self, QTimerEvent* event);
+    friend void QAbstractSocket_QBaseTimerEvent(QAbstractSocket* self, QTimerEvent* event);
+    friend void QAbstractSocket_ChildEvent(QAbstractSocket* self, QChildEvent* event);
+    friend void QAbstractSocket_QBaseChildEvent(QAbstractSocket* self, QChildEvent* event);
+    friend void QAbstractSocket_CustomEvent(QAbstractSocket* self, QEvent* event);
+    friend void QAbstractSocket_QBaseCustomEvent(QAbstractSocket* self, QEvent* event);
+    friend void QAbstractSocket_ConnectNotify(QAbstractSocket* self, const QMetaMethod* signal);
+    friend void QAbstractSocket_QBaseConnectNotify(QAbstractSocket* self, const QMetaMethod* signal);
+    friend void QAbstractSocket_DisconnectNotify(QAbstractSocket* self, const QMetaMethod* signal);
+    friend void QAbstractSocket_QBaseDisconnectNotify(QAbstractSocket* self, const QMetaMethod* signal);
+    friend void QAbstractSocket_SetSocketState(QAbstractSocket* self, int state);
+    friend void QAbstractSocket_QBaseSetSocketState(QAbstractSocket* self, int state);
+    friend void QAbstractSocket_SetSocketError(QAbstractSocket* self, int socketError);
+    friend void QAbstractSocket_QBaseSetSocketError(QAbstractSocket* self, int socketError);
+    friend void QAbstractSocket_SetLocalPort(QAbstractSocket* self, uint16_t port);
+    friend void QAbstractSocket_QBaseSetLocalPort(QAbstractSocket* self, uint16_t port);
+    friend void QAbstractSocket_SetLocalAddress(QAbstractSocket* self, const QHostAddress* address);
+    friend void QAbstractSocket_QBaseSetLocalAddress(QAbstractSocket* self, const QHostAddress* address);
+    friend void QAbstractSocket_SetPeerPort(QAbstractSocket* self, uint16_t port);
+    friend void QAbstractSocket_QBaseSetPeerPort(QAbstractSocket* self, uint16_t port);
+    friend void QAbstractSocket_SetPeerAddress(QAbstractSocket* self, const QHostAddress* address);
+    friend void QAbstractSocket_QBaseSetPeerAddress(QAbstractSocket* self, const QHostAddress* address);
+    friend void QAbstractSocket_SetPeerName(QAbstractSocket* self, const libqt_string name);
+    friend void QAbstractSocket_QBaseSetPeerName(QAbstractSocket* self, const libqt_string name);
+    friend void QAbstractSocket_SetOpenMode(QAbstractSocket* self, int openMode);
+    friend void QAbstractSocket_QBaseSetOpenMode(QAbstractSocket* self, int openMode);
+    friend void QAbstractSocket_SetErrorString(QAbstractSocket* self, const libqt_string errorString);
+    friend void QAbstractSocket_QBaseSetErrorString(QAbstractSocket* self, const libqt_string errorString);
+    friend QObject* QAbstractSocket_Sender(const QAbstractSocket* self);
+    friend QObject* QAbstractSocket_QBaseSender(const QAbstractSocket* self);
+    friend int QAbstractSocket_SenderSignalIndex(const QAbstractSocket* self);
+    friend int QAbstractSocket_QBaseSenderSignalIndex(const QAbstractSocket* self);
+    friend int QAbstractSocket_Receivers(const QAbstractSocket* self, const char* signal);
+    friend int QAbstractSocket_QBaseReceivers(const QAbstractSocket* self, const char* signal);
+    friend bool QAbstractSocket_IsSignalConnected(const QAbstractSocket* self, const QMetaMethod* signal);
+    friend bool QAbstractSocket_QBaseIsSignalConnected(const QAbstractSocket* self, const QMetaMethod* signal);
 };
 
 #endif

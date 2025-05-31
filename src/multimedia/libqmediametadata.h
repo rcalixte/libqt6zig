@@ -28,10 +28,10 @@ typedef int Key;             // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
-QMediaMetaData* QMediaMetaData_new(QMediaMetaData* param1);
+QMediaMetaData* QMediaMetaData_new(const QMediaMetaData* param1);
 QMediaMetaData* QMediaMetaData_new2();
 QVariant* QMediaMetaData_Value(const QMediaMetaData* self, int k);
-void QMediaMetaData_Insert(QMediaMetaData* self, int k, QVariant* value);
+void QMediaMetaData_Insert(QMediaMetaData* self, int k, const QVariant* value);
 void QMediaMetaData_Remove(QMediaMetaData* self, int k);
 libqt_list /* of int */ QMediaMetaData_Keys(const QMediaMetaData* self);
 QVariant* QMediaMetaData_OperatorSubscript(QMediaMetaData* self, int k);

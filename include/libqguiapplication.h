@@ -15,14 +15,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAbstractEventDispatcher QAbstractEventDispatcher;
-typedef struct QAbstractNativeEventFilter QAbstractNativeEventFilter;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QClipboard QClipboard;
 typedef struct QCoreApplication QCoreApplication;
@@ -34,17 +27,13 @@ typedef struct QIcon QIcon;
 typedef struct QInputMethod QInputMethod;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QPalette QPalette;
 typedef struct QPoint QPoint;
 typedef struct QScreen QScreen;
 typedef struct QSessionManager QSessionManager;
 typedef struct QStyleHints QStyleHints;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QTranslator QTranslator;
-typedef struct QVariant QVariant;
 typedef struct QWindow QWindow;
 #endif
 
@@ -56,14 +45,14 @@ int QGuiApplication_Metacall(QGuiApplication* self, int param1, int param2, void
 void QGuiApplication_OnMetacall(QGuiApplication* self, intptr_t slot);
 int QGuiApplication_QBaseMetacall(QGuiApplication* self, int param1, int param2, void** param3);
 libqt_string QGuiApplication_Tr(const char* s);
-void QGuiApplication_SetApplicationDisplayName(libqt_string name);
+void QGuiApplication_SetApplicationDisplayName(const libqt_string name);
 libqt_string QGuiApplication_ApplicationDisplayName();
-void QGuiApplication_SetDesktopFileName(libqt_string name);
+void QGuiApplication_SetDesktopFileName(const libqt_string name);
 libqt_string QGuiApplication_DesktopFileName();
 libqt_list /* of QWindow* */ QGuiApplication_AllWindows();
 libqt_list /* of QWindow* */ QGuiApplication_TopLevelWindows();
-QWindow* QGuiApplication_TopLevelAt(QPoint* pos);
-void QGuiApplication_SetWindowIcon(QIcon* icon);
+QWindow* QGuiApplication_TopLevelAt(const QPoint* pos);
+void QGuiApplication_SetWindowIcon(const QIcon* icon);
 QIcon* QGuiApplication_WindowIcon();
 libqt_string QGuiApplication_PlatformName();
 QWindow* QGuiApplication_ModalWindow();
@@ -71,17 +60,17 @@ QWindow* QGuiApplication_FocusWindow();
 QObject* QGuiApplication_FocusObject();
 QScreen* QGuiApplication_PrimaryScreen();
 libqt_list /* of QScreen* */ QGuiApplication_Screens();
-QScreen* QGuiApplication_ScreenAt(QPoint* point);
+QScreen* QGuiApplication_ScreenAt(const QPoint* point);
 double QGuiApplication_DevicePixelRatio(const QGuiApplication* self);
 QCursor* QGuiApplication_OverrideCursor();
-void QGuiApplication_SetOverrideCursor(QCursor* overrideCursor);
-void QGuiApplication_ChangeOverrideCursor(QCursor* param1);
+void QGuiApplication_SetOverrideCursor(const QCursor* overrideCursor);
+void QGuiApplication_ChangeOverrideCursor(const QCursor* param1);
 void QGuiApplication_RestoreOverrideCursor();
 QFont* QGuiApplication_Font();
-void QGuiApplication_SetFont(QFont* font);
+void QGuiApplication_SetFont(const QFont* font);
 QClipboard* QGuiApplication_Clipboard();
 QPalette* QGuiApplication_Palette();
-void QGuiApplication_SetPalette(QPalette* pal);
+void QGuiApplication_SetPalette(const QPalette* pal);
 int QGuiApplication_KeyboardModifiers();
 int QGuiApplication_QueryKeyboardModifiers();
 int QGuiApplication_MouseButtons();
@@ -131,9 +120,9 @@ void QGuiApplication_SaveStateRequest(QGuiApplication* self, QSessionManager* se
 void QGuiApplication_Connect_SaveStateRequest(QGuiApplication* self, intptr_t slot);
 void QGuiApplication_ApplicationDisplayNameChanged(QGuiApplication* self);
 void QGuiApplication_Connect_ApplicationDisplayNameChanged(QGuiApplication* self, intptr_t slot);
-void QGuiApplication_PaletteChanged(QGuiApplication* self, QPalette* pal);
+void QGuiApplication_PaletteChanged(QGuiApplication* self, const QPalette* pal);
 void QGuiApplication_Connect_PaletteChanged(QGuiApplication* self, intptr_t slot);
-void QGuiApplication_FontChanged(QGuiApplication* self, QFont* font);
+void QGuiApplication_FontChanged(QGuiApplication* self, const QFont* font);
 void QGuiApplication_Connect_FontChanged(QGuiApplication* self, intptr_t slot);
 bool QGuiApplication_Event(QGuiApplication* self, QEvent* param1);
 void QGuiApplication_OnEvent(QGuiApplication* self, intptr_t slot);
@@ -152,12 +141,12 @@ void QGuiApplication_QBaseChildEvent(QGuiApplication* self, QChildEvent* event);
 void QGuiApplication_CustomEvent(QGuiApplication* self, QEvent* event);
 void QGuiApplication_OnCustomEvent(QGuiApplication* self, intptr_t slot);
 void QGuiApplication_QBaseCustomEvent(QGuiApplication* self, QEvent* event);
-void QGuiApplication_ConnectNotify(QGuiApplication* self, QMetaMethod* signal);
+void QGuiApplication_ConnectNotify(QGuiApplication* self, const QMetaMethod* signal);
 void QGuiApplication_OnConnectNotify(QGuiApplication* self, intptr_t slot);
-void QGuiApplication_QBaseConnectNotify(QGuiApplication* self, QMetaMethod* signal);
-void QGuiApplication_DisconnectNotify(QGuiApplication* self, QMetaMethod* signal);
+void QGuiApplication_QBaseConnectNotify(QGuiApplication* self, const QMetaMethod* signal);
+void QGuiApplication_DisconnectNotify(QGuiApplication* self, const QMetaMethod* signal);
 void QGuiApplication_OnDisconnectNotify(QGuiApplication* self, intptr_t slot);
-void QGuiApplication_QBaseDisconnectNotify(QGuiApplication* self, QMetaMethod* signal);
+void QGuiApplication_QBaseDisconnectNotify(QGuiApplication* self, const QMetaMethod* signal);
 void* QGuiApplication_ResolveInterface(const QGuiApplication* self, const char* name, int revision);
 void QGuiApplication_OnResolveInterface(const QGuiApplication* self, intptr_t slot);
 void* QGuiApplication_QBaseResolveInterface(const QGuiApplication* self, const char* name, int revision);
@@ -170,9 +159,9 @@ int QGuiApplication_QBaseSenderSignalIndex(const QGuiApplication* self);
 int QGuiApplication_Receivers(const QGuiApplication* self, const char* signal);
 void QGuiApplication_OnReceivers(const QGuiApplication* self, intptr_t slot);
 int QGuiApplication_QBaseReceivers(const QGuiApplication* self, const char* signal);
-bool QGuiApplication_IsSignalConnected(const QGuiApplication* self, QMetaMethod* signal);
+bool QGuiApplication_IsSignalConnected(const QGuiApplication* self, const QMetaMethod* signal);
 void QGuiApplication_OnIsSignalConnected(const QGuiApplication* self, intptr_t slot);
-bool QGuiApplication_QBaseIsSignalConnected(const QGuiApplication* self, QMetaMethod* signal);
+bool QGuiApplication_QBaseIsSignalConnected(const QGuiApplication* self, const QMetaMethod* signal);
 void QGuiApplication_Delete(QGuiApplication* self);
 
 #ifdef __cplusplus

@@ -15,28 +15,20 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSyntaxHighlighter QSyntaxHighlighter;
 typedef struct QTextBlock QTextBlock;
 typedef struct QTextBlockUserData QTextBlockUserData;
 typedef struct QTextCharFormat QTextCharFormat;
 typedef struct QTextDocument QTextDocument;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QSyntaxHighlighter* QSyntaxHighlighter_new(QObject* parent);
@@ -50,10 +42,10 @@ libqt_string QSyntaxHighlighter_Tr(const char* s);
 void QSyntaxHighlighter_SetDocument(QSyntaxHighlighter* self, QTextDocument* doc);
 QTextDocument* QSyntaxHighlighter_Document(const QSyntaxHighlighter* self);
 void QSyntaxHighlighter_Rehighlight(QSyntaxHighlighter* self);
-void QSyntaxHighlighter_RehighlightBlock(QSyntaxHighlighter* self, QTextBlock* block);
-void QSyntaxHighlighter_HighlightBlock(QSyntaxHighlighter* self, libqt_string text);
+void QSyntaxHighlighter_RehighlightBlock(QSyntaxHighlighter* self, const QTextBlock* block);
+void QSyntaxHighlighter_HighlightBlock(QSyntaxHighlighter* self, const libqt_string text);
 void QSyntaxHighlighter_OnHighlightBlock(QSyntaxHighlighter* self, intptr_t slot);
-void QSyntaxHighlighter_QBaseHighlightBlock(QSyntaxHighlighter* self, libqt_string text);
+void QSyntaxHighlighter_QBaseHighlightBlock(QSyntaxHighlighter* self, const libqt_string text);
 libqt_string QSyntaxHighlighter_Tr2(const char* s, const char* c);
 libqt_string QSyntaxHighlighter_Tr3(const char* s, const char* c, int n);
 bool QSyntaxHighlighter_Event(QSyntaxHighlighter* self, QEvent* event);
@@ -71,21 +63,21 @@ void QSyntaxHighlighter_QBaseChildEvent(QSyntaxHighlighter* self, QChildEvent* e
 void QSyntaxHighlighter_CustomEvent(QSyntaxHighlighter* self, QEvent* event);
 void QSyntaxHighlighter_OnCustomEvent(QSyntaxHighlighter* self, intptr_t slot);
 void QSyntaxHighlighter_QBaseCustomEvent(QSyntaxHighlighter* self, QEvent* event);
-void QSyntaxHighlighter_ConnectNotify(QSyntaxHighlighter* self, QMetaMethod* signal);
+void QSyntaxHighlighter_ConnectNotify(QSyntaxHighlighter* self, const QMetaMethod* signal);
 void QSyntaxHighlighter_OnConnectNotify(QSyntaxHighlighter* self, intptr_t slot);
-void QSyntaxHighlighter_QBaseConnectNotify(QSyntaxHighlighter* self, QMetaMethod* signal);
-void QSyntaxHighlighter_DisconnectNotify(QSyntaxHighlighter* self, QMetaMethod* signal);
+void QSyntaxHighlighter_QBaseConnectNotify(QSyntaxHighlighter* self, const QMetaMethod* signal);
+void QSyntaxHighlighter_DisconnectNotify(QSyntaxHighlighter* self, const QMetaMethod* signal);
 void QSyntaxHighlighter_OnDisconnectNotify(QSyntaxHighlighter* self, intptr_t slot);
-void QSyntaxHighlighter_QBaseDisconnectNotify(QSyntaxHighlighter* self, QMetaMethod* signal);
-void QSyntaxHighlighter_SetFormat(QSyntaxHighlighter* self, int start, int count, QTextCharFormat* format);
+void QSyntaxHighlighter_QBaseDisconnectNotify(QSyntaxHighlighter* self, const QMetaMethod* signal);
+void QSyntaxHighlighter_SetFormat(QSyntaxHighlighter* self, int start, int count, const QTextCharFormat* format);
 void QSyntaxHighlighter_OnSetFormat(QSyntaxHighlighter* self, intptr_t slot);
-void QSyntaxHighlighter_QBaseSetFormat(QSyntaxHighlighter* self, int start, int count, QTextCharFormat* format);
-void QSyntaxHighlighter_SetFormat2(QSyntaxHighlighter* self, int start, int count, QColor* color);
+void QSyntaxHighlighter_QBaseSetFormat(QSyntaxHighlighter* self, int start, int count, const QTextCharFormat* format);
+void QSyntaxHighlighter_SetFormat2(QSyntaxHighlighter* self, int start, int count, const QColor* color);
 void QSyntaxHighlighter_OnSetFormat2(QSyntaxHighlighter* self, intptr_t slot);
-void QSyntaxHighlighter_QBaseSetFormat2(QSyntaxHighlighter* self, int start, int count, QColor* color);
-void QSyntaxHighlighter_SetFormat3(QSyntaxHighlighter* self, int start, int count, QFont* font);
+void QSyntaxHighlighter_QBaseSetFormat2(QSyntaxHighlighter* self, int start, int count, const QColor* color);
+void QSyntaxHighlighter_SetFormat3(QSyntaxHighlighter* self, int start, int count, const QFont* font);
 void QSyntaxHighlighter_OnSetFormat3(QSyntaxHighlighter* self, intptr_t slot);
-void QSyntaxHighlighter_QBaseSetFormat3(QSyntaxHighlighter* self, int start, int count, QFont* font);
+void QSyntaxHighlighter_QBaseSetFormat3(QSyntaxHighlighter* self, int start, int count, const QFont* font);
 QTextCharFormat* QSyntaxHighlighter_Format(const QSyntaxHighlighter* self, int pos);
 void QSyntaxHighlighter_OnFormat(const QSyntaxHighlighter* self, intptr_t slot);
 QTextCharFormat* QSyntaxHighlighter_QBaseFormat(const QSyntaxHighlighter* self, int pos);
@@ -116,9 +108,9 @@ int QSyntaxHighlighter_QBaseSenderSignalIndex(const QSyntaxHighlighter* self);
 int QSyntaxHighlighter_Receivers(const QSyntaxHighlighter* self, const char* signal);
 void QSyntaxHighlighter_OnReceivers(const QSyntaxHighlighter* self, intptr_t slot);
 int QSyntaxHighlighter_QBaseReceivers(const QSyntaxHighlighter* self, const char* signal);
-bool QSyntaxHighlighter_IsSignalConnected(const QSyntaxHighlighter* self, QMetaMethod* signal);
+bool QSyntaxHighlighter_IsSignalConnected(const QSyntaxHighlighter* self, const QMetaMethod* signal);
 void QSyntaxHighlighter_OnIsSignalConnected(const QSyntaxHighlighter* self, intptr_t slot);
-bool QSyntaxHighlighter_QBaseIsSignalConnected(const QSyntaxHighlighter* self, QMetaMethod* signal);
+bool QSyntaxHighlighter_QBaseIsSignalConnected(const QSyntaxHighlighter* self, const QMetaMethod* signal);
 void QSyntaxHighlighter_Delete(QSyntaxHighlighter* self);
 
 #ifdef __cplusplus

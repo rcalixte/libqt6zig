@@ -15,26 +15,18 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QOffscreenSurface QOffscreenSurface;
 typedef struct QScreen QScreen;
 typedef struct QSize QSize;
 typedef struct QSurface QSurface;
 typedef struct QSurfaceFormat QSurfaceFormat;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QOffscreenSurface* QOffscreenSurface_new();
@@ -52,7 +44,7 @@ int QOffscreenSurface_QBaseSurfaceType(const QOffscreenSurface* self);
 void QOffscreenSurface_Create(QOffscreenSurface* self);
 void QOffscreenSurface_Destroy(QOffscreenSurface* self);
 bool QOffscreenSurface_IsValid(const QOffscreenSurface* self);
-void QOffscreenSurface_SetFormat(QOffscreenSurface* self, QSurfaceFormat* format);
+void QOffscreenSurface_SetFormat(QOffscreenSurface* self, const QSurfaceFormat* format);
 QSurfaceFormat* QOffscreenSurface_Format(const QOffscreenSurface* self);
 void QOffscreenSurface_OnFormat(const QOffscreenSurface* self, intptr_t slot);
 QSurfaceFormat* QOffscreenSurface_QBaseFormat(const QOffscreenSurface* self);
@@ -81,12 +73,12 @@ void QOffscreenSurface_QBaseChildEvent(QOffscreenSurface* self, QChildEvent* eve
 void QOffscreenSurface_CustomEvent(QOffscreenSurface* self, QEvent* event);
 void QOffscreenSurface_OnCustomEvent(QOffscreenSurface* self, intptr_t slot);
 void QOffscreenSurface_QBaseCustomEvent(QOffscreenSurface* self, QEvent* event);
-void QOffscreenSurface_ConnectNotify(QOffscreenSurface* self, QMetaMethod* signal);
+void QOffscreenSurface_ConnectNotify(QOffscreenSurface* self, const QMetaMethod* signal);
 void QOffscreenSurface_OnConnectNotify(QOffscreenSurface* self, intptr_t slot);
-void QOffscreenSurface_QBaseConnectNotify(QOffscreenSurface* self, QMetaMethod* signal);
-void QOffscreenSurface_DisconnectNotify(QOffscreenSurface* self, QMetaMethod* signal);
+void QOffscreenSurface_QBaseConnectNotify(QOffscreenSurface* self, const QMetaMethod* signal);
+void QOffscreenSurface_DisconnectNotify(QOffscreenSurface* self, const QMetaMethod* signal);
 void QOffscreenSurface_OnDisconnectNotify(QOffscreenSurface* self, intptr_t slot);
-void QOffscreenSurface_QBaseDisconnectNotify(QOffscreenSurface* self, QMetaMethod* signal);
+void QOffscreenSurface_QBaseDisconnectNotify(QOffscreenSurface* self, const QMetaMethod* signal);
 void* QOffscreenSurface_ResolveInterface(const QOffscreenSurface* self, const char* name, int revision);
 void QOffscreenSurface_OnResolveInterface(const QOffscreenSurface* self, intptr_t slot);
 void* QOffscreenSurface_QBaseResolveInterface(const QOffscreenSurface* self, const char* name, int revision);
@@ -99,9 +91,9 @@ int QOffscreenSurface_QBaseSenderSignalIndex(const QOffscreenSurface* self);
 int QOffscreenSurface_Receivers(const QOffscreenSurface* self, const char* signal);
 void QOffscreenSurface_OnReceivers(const QOffscreenSurface* self, intptr_t slot);
 int QOffscreenSurface_QBaseReceivers(const QOffscreenSurface* self, const char* signal);
-bool QOffscreenSurface_IsSignalConnected(const QOffscreenSurface* self, QMetaMethod* signal);
+bool QOffscreenSurface_IsSignalConnected(const QOffscreenSurface* self, const QMetaMethod* signal);
 void QOffscreenSurface_OnIsSignalConnected(const QOffscreenSurface* self, intptr_t slot);
-bool QOffscreenSurface_QBaseIsSignalConnected(const QOffscreenSurface* self, QMetaMethod* signal);
+bool QOffscreenSurface_QBaseIsSignalConnected(const QOffscreenSurface* self, const QMetaMethod* signal);
 void QOffscreenSurface_Delete(QOffscreenSurface* self);
 
 #ifdef __cplusplus

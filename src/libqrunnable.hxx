@@ -11,9 +11,12 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QRunnable so that we can call protected methods
-class VirtualQRunnable : public QRunnable {
+class VirtualQRunnable final : public QRunnable {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQRunnable = true;
+
     // Virtual class public types (including callbacks)
     using QRunnable_Run_Callback = void (*)();
 
@@ -32,14 +35,16 @@ class VirtualQRunnable : public QRunnable {
     }
 
     // Callback setters
-    void setQRunnable_Run_Callback(QRunnable_Run_Callback cb) { qrunnable_run_callback = cb; }
+    inline void setQRunnable_Run_Callback(QRunnable_Run_Callback cb) { qrunnable_run_callback = cb; }
 
     // Base flag setters
-    void setQRunnable_Run_IsBase(bool value) const { qrunnable_run_isbase = value; }
+    inline void setQRunnable_Run_IsBase(bool value) const { qrunnable_run_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void run() override {
-        qrunnable_run_callback();
+        if (qrunnable_run_callback != nullptr) {
+            qrunnable_run_callback();
+        }
     }
 };
 

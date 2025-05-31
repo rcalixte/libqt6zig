@@ -12,7 +12,7 @@
 #include "libqjsondocument.h"
 #include "libqjsondocument.hxx"
 
-QJsonParseError* QJsonParseError_new(QJsonParseError* other) {
+QJsonParseError* QJsonParseError_new(const QJsonParseError* other) {
     return new QJsonParseError(*other);
 }
 
@@ -48,19 +48,19 @@ QJsonDocument* QJsonDocument_new() {
     return new QJsonDocument();
 }
 
-QJsonDocument* QJsonDocument_new2(QJsonObject* object) {
+QJsonDocument* QJsonDocument_new2(const QJsonObject* object) {
     return new QJsonDocument(*object);
 }
 
-QJsonDocument* QJsonDocument_new3(QJsonArray* array) {
+QJsonDocument* QJsonDocument_new3(const QJsonArray* array) {
     return new QJsonDocument(*array);
 }
 
-QJsonDocument* QJsonDocument_new4(QJsonDocument* other) {
+QJsonDocument* QJsonDocument_new4(const QJsonDocument* other) {
     return new QJsonDocument(*other);
 }
 
-void QJsonDocument_OperatorAssign(QJsonDocument* self, QJsonDocument* other) {
+void QJsonDocument_OperatorAssign(QJsonDocument* self, const QJsonDocument* other) {
     self->operator=(*other);
 }
 
@@ -68,7 +68,7 @@ void QJsonDocument_Swap(QJsonDocument* self, QJsonDocument* other) {
     self->swap(*other);
 }
 
-QJsonDocument* QJsonDocument_FromVariant(QVariant* variant) {
+QJsonDocument* QJsonDocument_FromVariant(const QVariant* variant) {
     return new QJsonDocument(QJsonDocument::fromVariant(*variant));
 }
 
@@ -76,7 +76,7 @@ QVariant* QJsonDocument_ToVariant(const QJsonDocument* self) {
     return new QVariant(self->toVariant());
 }
 
-QJsonDocument* QJsonDocument_FromJson(libqt_string json) {
+QJsonDocument* QJsonDocument_FromJson(const libqt_string json) {
     QByteArray json_QByteArray(json.data, json.len);
     return new QJsonDocument(QJsonDocument::fromJson(json_QByteArray));
 }
@@ -111,15 +111,15 @@ QJsonArray* QJsonDocument_Array(const QJsonDocument* self) {
     return new QJsonArray(self->array());
 }
 
-void QJsonDocument_SetObject(QJsonDocument* self, QJsonObject* object) {
+void QJsonDocument_SetObject(QJsonDocument* self, const QJsonObject* object) {
     self->setObject(*object);
 }
 
-void QJsonDocument_SetArray(QJsonDocument* self, QJsonArray* array) {
+void QJsonDocument_SetArray(QJsonDocument* self, const QJsonArray* array) {
     self->setArray(*array);
 }
 
-QJsonValue* QJsonDocument_OperatorSubscript(const QJsonDocument* self, libqt_string key) {
+QJsonValue* QJsonDocument_OperatorSubscript(const QJsonDocument* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QJsonValue(self->operator[](key_QString));
 }
@@ -128,11 +128,11 @@ QJsonValue* QJsonDocument_OperatorSubscriptWithQsizetype(const QJsonDocument* se
     return new QJsonValue(self->operator[]((qsizetype)(i)));
 }
 
-bool QJsonDocument_OperatorEqual(const QJsonDocument* self, QJsonDocument* other) {
+bool QJsonDocument_OperatorEqual(const QJsonDocument* self, const QJsonDocument* other) {
     return (*self == *other);
 }
 
-bool QJsonDocument_OperatorNotEqual(const QJsonDocument* self, QJsonDocument* other) {
+bool QJsonDocument_OperatorNotEqual(const QJsonDocument* self, const QJsonDocument* other) {
     return (*self != *other);
 }
 
@@ -140,7 +140,7 @@ bool QJsonDocument_IsNull(const QJsonDocument* self) {
     return self->isNull();
 }
 
-QJsonDocument* QJsonDocument_FromJson2(libqt_string json, QJsonParseError* errorVal) {
+QJsonDocument* QJsonDocument_FromJson2(const libqt_string json, QJsonParseError* errorVal) {
     QByteArray json_QByteArray(json.data, json.len);
     return new QJsonDocument(QJsonDocument::fromJson(json_QByteArray, errorVal));
 }

@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qaudiodevice_enums = enums;
 const qaudioformat_enums = @import("libqaudioformat.zig").enums;
 const std = @import("std");
@@ -8,59 +9,59 @@ pub const qaudiodevice = struct {
     /// New constructs a new QAudioDevice object.
     ///
     ///
-    pub fn New() ?*C.QAudioDevice {
-        return C.QAudioDevice_new();
+    pub fn New() QtC.QAudioDevice {
+        return qtc.QAudioDevice_new();
     }
 
     /// New2 constructs a new QAudioDevice object.
     ///
-    /// ``` other: ?*C.QAudioDevice ```
-    pub fn New2(other: ?*anyopaque) ?*C.QAudioDevice {
-        return C.QAudioDevice_new2(@ptrCast(other));
+    /// ``` other: QtC.QAudioDevice ```
+    pub fn New2(other: ?*anyopaque) QtC.QAudioDevice {
+        return qtc.QAudioDevice_new2(@ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#swap)
     ///
-    /// ``` self: ?*C.QAudioDevice, other: ?*C.QAudioDevice ```
+    /// ``` self: QtC.QAudioDevice, other: QtC.QAudioDevice ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QAudioDevice_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QAudioDevice_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#operator=)
     ///
-    /// ``` self: ?*C.QAudioDevice, other: ?*C.QAudioDevice ```
+    /// ``` self: QtC.QAudioDevice, other: QtC.QAudioDevice ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QAudioDevice_OperatorAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QAudioDevice_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#operator==)
     ///
-    /// ``` self: ?*C.QAudioDevice, other: ?*C.QAudioDevice ```
+    /// ``` self: QtC.QAudioDevice, other: QtC.QAudioDevice ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return C.QAudioDevice_OperatorEqual(@ptrCast(self), @ptrCast(other));
+        return qtc.QAudioDevice_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#operator!=)
     ///
-    /// ``` self: ?*C.QAudioDevice, other: ?*C.QAudioDevice ```
+    /// ``` self: QtC.QAudioDevice, other: QtC.QAudioDevice ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return C.QAudioDevice_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
+        return qtc.QAudioDevice_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#isNull)
     ///
-    /// ``` self: ?*C.QAudioDevice ```
+    /// ``` self: QtC.QAudioDevice ```
     pub fn IsNull(self: ?*anyopaque) bool {
-        return C.QAudioDevice_IsNull(@ptrCast(self));
+        return qtc.QAudioDevice_IsNull(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#id)
     ///
-    /// ``` self: ?*C.QAudioDevice, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAudioDevice, allocator: std.mem.Allocator ```
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: C.struct_libqt_string = C.QAudioDevice_Id(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_bytearray));
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Memory allocation failed");
+        const _bytearray: qtc.struct_libqt_string = qtc.QAudioDevice_Id(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qaudiodevice.Id: Memory allocation failed");
         for (0.._bytearray.len) |_i| {
             _ret[_i] = _bytearray.data[_i];
         }
@@ -69,11 +70,11 @@ pub const qaudiodevice = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#description)
     ///
-    /// ``` self: ?*C.QAudioDevice, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAudioDevice, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QAudioDevice_Description(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QAudioDevice_Description(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaudiodevice.Description: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -82,67 +83,67 @@ pub const qaudiodevice = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#isDefault)
     ///
-    /// ``` self: ?*C.QAudioDevice ```
+    /// ``` self: QtC.QAudioDevice ```
     pub fn IsDefault(self: ?*anyopaque) bool {
-        return C.QAudioDevice_IsDefault(@ptrCast(self));
+        return qtc.QAudioDevice_IsDefault(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#mode)
     ///
-    /// ``` self: ?*C.QAudioDevice ```
+    /// ``` self: QtC.QAudioDevice ```
     pub fn Mode(self: ?*anyopaque) i64 {
-        return C.QAudioDevice_Mode(@ptrCast(self));
+        return qtc.QAudioDevice_Mode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#isFormatSupported)
     ///
-    /// ``` self: ?*C.QAudioDevice, format: ?*C.QAudioFormat ```
+    /// ``` self: QtC.QAudioDevice, format: QtC.QAudioFormat ```
     pub fn IsFormatSupported(self: ?*anyopaque, format: ?*anyopaque) bool {
-        return C.QAudioDevice_IsFormatSupported(@ptrCast(self), @ptrCast(format));
+        return qtc.QAudioDevice_IsFormatSupported(@ptrCast(self), @ptrCast(format));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#preferredFormat)
     ///
-    /// ``` self: ?*C.QAudioDevice ```
-    pub fn PreferredFormat(self: ?*anyopaque) ?*C.QAudioFormat {
-        return C.QAudioDevice_PreferredFormat(@ptrCast(self));
+    /// ``` self: QtC.QAudioDevice ```
+    pub fn PreferredFormat(self: ?*anyopaque) QtC.QAudioFormat {
+        return qtc.QAudioDevice_PreferredFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#minimumSampleRate)
     ///
-    /// ``` self: ?*C.QAudioDevice ```
+    /// ``` self: QtC.QAudioDevice ```
     pub fn MinimumSampleRate(self: ?*anyopaque) i32 {
-        return C.QAudioDevice_MinimumSampleRate(@ptrCast(self));
+        return qtc.QAudioDevice_MinimumSampleRate(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#maximumSampleRate)
     ///
-    /// ``` self: ?*C.QAudioDevice ```
+    /// ``` self: QtC.QAudioDevice ```
     pub fn MaximumSampleRate(self: ?*anyopaque) i32 {
-        return C.QAudioDevice_MaximumSampleRate(@ptrCast(self));
+        return qtc.QAudioDevice_MaximumSampleRate(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#minimumChannelCount)
     ///
-    /// ``` self: ?*C.QAudioDevice ```
+    /// ``` self: QtC.QAudioDevice ```
     pub fn MinimumChannelCount(self: ?*anyopaque) i32 {
-        return C.QAudioDevice_MinimumChannelCount(@ptrCast(self));
+        return qtc.QAudioDevice_MinimumChannelCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#maximumChannelCount)
     ///
-    /// ``` self: ?*C.QAudioDevice ```
+    /// ``` self: QtC.QAudioDevice ```
     pub fn MaximumChannelCount(self: ?*anyopaque) i32 {
-        return C.QAudioDevice_MaximumChannelCount(@ptrCast(self));
+        return qtc.QAudioDevice_MaximumChannelCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#supportedSampleFormats)
     ///
-    /// ``` self: ?*C.QAudioDevice, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAudioDevice, allocator: std.mem.Allocator ```
     pub fn SupportedSampleFormats(self: ?*anyopaque, allocator: std.mem.Allocator) []i64 {
-        const _arr: C.struct_libqt_list = C.QAudioDevice_SupportedSampleFormats(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(qaudioformat_enums.SampleFormat, _arr.len) catch @panic("Memory allocation failed");
+        const _arr: qtc.struct_libqt_list = qtc.QAudioDevice_SupportedSampleFormats(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(qaudioformat_enums.SampleFormat, _arr.len) catch @panic("qaudiodevice.SupportedSampleFormats: Memory allocation failed");
         const _data: [*]qaudioformat_enums.SampleFormat = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
@@ -152,16 +153,18 @@ pub const qaudiodevice = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#channelConfiguration)
     ///
-    /// ``` self: ?*C.QAudioDevice ```
+    /// ``` self: QtC.QAudioDevice ```
     pub fn ChannelConfiguration(self: ?*anyopaque) i64 {
-        return C.QAudioDevice_ChannelConfiguration(@ptrCast(self));
+        return qtc.QAudioDevice_ChannelConfiguration(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#dtor.QAudioDevice)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAudioDevice ```
+    /// ``` self: QtC.QAudioDevice ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAudioDevice_Delete(@ptrCast(self));
+        qtc.QAudioDevice_Delete(@ptrCast(self));
     }
 };
 

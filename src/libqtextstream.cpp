@@ -19,12 +19,12 @@ QTextStream* QTextStream_new2(QIODevice* device) {
     return new QTextStream(device);
 }
 
-QTextStream* QTextStream_new3(libqt_string array) {
+QTextStream* QTextStream_new3(const libqt_string array) {
     QByteArray array_QByteArray(array.data, array.len);
     return new QTextStream(array_QByteArray);
 }
 
-QTextStream* QTextStream_new4(libqt_string array, int openMode) {
+QTextStream* QTextStream_new4(const libqt_string array, int openMode) {
     QByteArray array_QByteArray(array.data, array.len);
     return new QTextStream(array_QByteArray, static_cast<QIODeviceBase::OpenMode>(openMode));
 }
@@ -53,7 +53,7 @@ bool QTextStream_GenerateByteOrderMark(const QTextStream* self) {
     return self->generateByteOrderMark();
 }
 
-void QTextStream_SetLocale(QTextStream* self, QLocale* locale) {
+void QTextStream_SetLocale(QTextStream* self, const QLocale* locale) {
     self->setLocale(*locale);
 }
 
@@ -373,14 +373,14 @@ QTextStream* QTextStream_OperatorShiftLeftWithDouble(QTextStream* self, double f
     return &_ret;
 }
 
-QTextStream* QTextStream_OperatorShiftLeftWithQString(QTextStream* self, libqt_string s) {
+QTextStream* QTextStream_OperatorShiftLeftWithQString(QTextStream* self, const libqt_string s) {
     QString s_QString = QString::fromUtf8(s.data, s.len);
     QTextStream& _ret = self->operator<<(s_QString);
     // Cast returned reference into pointer
     return &_ret;
 }
 
-QTextStream* QTextStream_OperatorShiftLeftWithArray(QTextStream* self, libqt_string array) {
+QTextStream* QTextStream_OperatorShiftLeftWithArray(QTextStream* self, const libqt_string array) {
     QByteArray array_QByteArray(array.data, array.len);
     QTextStream& _ret = self->operator<<(array_QByteArray);
     // Cast returned reference into pointer

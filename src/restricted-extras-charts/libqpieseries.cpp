@@ -1,24 +1,16 @@
-#include <QAbstractAxis>
 #include <QAbstractSeries>
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
-#include <QChart>
 #include <QChildEvent>
 #include <QEvent>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QPieSeries>
 #include <QPieSlice>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <qpieseries.h>
 #include "libqpieseries.h"
 #include "libqpieseries.hxx"
@@ -40,27 +32,30 @@ void* QPieSeries_Metacast(QPieSeries* self, const char* param1) {
 }
 
 int QPieSeries_Metacall(QPieSeries* self, int param1, int param2, void** param3) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQPieSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QPieSeries_OnMetacall(QPieSeries* self, intptr_t slot) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_Metacall_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QPieSeries_QBaseMetacall(QPieSeries* self, int param1, int param2, void** param3) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_Metacall_IsBase(true);
         return vqpieseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQPieSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -80,7 +75,7 @@ bool QPieSeries_Append(QPieSeries* self, QPieSlice* slice) {
     return self->append(slice);
 }
 
-bool QPieSeries_AppendWithSlices(QPieSeries* self, libqt_list /* of QPieSlice* */ slices) {
+bool QPieSeries_AppendWithSlices(QPieSeries* self, const libqt_list /* of QPieSlice* */ slices) {
     QList<QPieSlice*> slices_QList;
     slices_QList.reserve(slices.len);
     QPieSlice** slices_arr = static_cast<QPieSlice**>(slices.data);
@@ -96,7 +91,7 @@ QPieSeries* QPieSeries_OperatorShiftLeft(QPieSeries* self, QPieSlice* slice) {
     return &_ret;
 }
 
-QPieSlice* QPieSeries_Append2(QPieSeries* self, libqt_string label, double value) {
+QPieSlice* QPieSeries_Append2(QPieSeries* self, const libqt_string label, double value) {
     QString label_QString = QString::fromUtf8(label.data, label.len);
     return self->append(label_QString, static_cast<qreal>(value));
 }
@@ -198,7 +193,7 @@ void QPieSeries_SetLabelsPosition(QPieSeries* self, int position) {
     self->setLabelsPosition(static_cast<QPieSlice::LabelPosition>(position));
 }
 
-void QPieSeries_Added(QPieSeries* self, libqt_list /* of QPieSlice* */ slices) {
+void QPieSeries_Added(QPieSeries* self, const libqt_list /* of QPieSlice* */ slices) {
     QList<QPieSlice*> slices_QList;
     slices_QList.reserve(slices.len);
     QPieSlice** slices_arr = static_cast<QPieSlice**>(slices.data);
@@ -225,7 +220,7 @@ void QPieSeries_Connect_Added(QPieSeries* self, intptr_t slot) {
     });
 }
 
-void QPieSeries_Removed(QPieSeries* self, libqt_list /* of QPieSlice* */ slices) {
+void QPieSeries_Removed(QPieSeries* self, const libqt_list /* of QPieSlice* */ slices) {
     QList<QPieSlice*> slices_QList;
     slices_QList.reserve(slices.len);
     QPieSlice** slices_arr = static_cast<QPieSlice**>(slices.data);
@@ -365,312 +360,348 @@ void QPieSeries_SetLabelsVisible1(QPieSeries* self, bool visible) {
 
 // Derived class handler implementation
 int QPieSeries_Type(const QPieSeries* self) {
-    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         return static_cast<int>(vqpieseries->type());
     } else {
-        return static_cast<int>(vqpieseries->type());
+        return static_cast<int>(self->QPieSeries::type());
     }
 }
 
 // Base class handler implementation
 int QPieSeries_QBaseType(const QPieSeries* self) {
-    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_Type_IsBase(true);
         return static_cast<int>(vqpieseries->type());
     } else {
-        return static_cast<int>(vqpieseries->type());
+        return static_cast<int>(self->QPieSeries::type());
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnType(const QPieSeries* self, intptr_t slot) {
-    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_Type_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Type_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QPieSeries_Event(QPieSeries* self, QEvent* event) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         return vqpieseries->event(event);
     } else {
-        return vqpieseries->event(event);
+        return self->QPieSeries::event(event);
     }
 }
 
 // Base class handler implementation
 bool QPieSeries_QBaseEvent(QPieSeries* self, QEvent* event) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_Event_IsBase(true);
         return vqpieseries->event(event);
     } else {
-        return vqpieseries->event(event);
+        return self->QPieSeries::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnEvent(QPieSeries* self, intptr_t slot) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_Event_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QPieSeries_EventFilter(QPieSeries* self, QObject* watched, QEvent* event) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         return vqpieseries->eventFilter(watched, event);
     } else {
-        return vqpieseries->eventFilter(watched, event);
+        return self->QPieSeries::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QPieSeries_QBaseEventFilter(QPieSeries* self, QObject* watched, QEvent* event) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_EventFilter_IsBase(true);
         return vqpieseries->eventFilter(watched, event);
     } else {
-        return vqpieseries->eventFilter(watched, event);
+        return self->QPieSeries::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnEventFilter(QPieSeries* self, intptr_t slot) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_EventFilter_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QPieSeries_TimerEvent(QPieSeries* self, QTimerEvent* event) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->timerEvent(event);
     } else {
-        vqpieseries->timerEvent(event);
+        ((VirtualQPieSeries*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QPieSeries_QBaseTimerEvent(QPieSeries* self, QTimerEvent* event) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_TimerEvent_IsBase(true);
         vqpieseries->timerEvent(event);
     } else {
-        vqpieseries->timerEvent(event);
+        ((VirtualQPieSeries*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnTimerEvent(QPieSeries* self, intptr_t slot) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_TimerEvent_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QPieSeries_ChildEvent(QPieSeries* self, QChildEvent* event) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->childEvent(event);
     } else {
-        vqpieseries->childEvent(event);
+        ((VirtualQPieSeries*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QPieSeries_QBaseChildEvent(QPieSeries* self, QChildEvent* event) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_ChildEvent_IsBase(true);
         vqpieseries->childEvent(event);
     } else {
-        vqpieseries->childEvent(event);
+        ((VirtualQPieSeries*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnChildEvent(QPieSeries* self, intptr_t slot) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_ChildEvent_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QPieSeries_CustomEvent(QPieSeries* self, QEvent* event) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->customEvent(event);
     } else {
-        vqpieseries->customEvent(event);
+        ((VirtualQPieSeries*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QPieSeries_QBaseCustomEvent(QPieSeries* self, QEvent* event) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_CustomEvent_IsBase(true);
         vqpieseries->customEvent(event);
     } else {
-        vqpieseries->customEvent(event);
+        ((VirtualQPieSeries*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnCustomEvent(QPieSeries* self, intptr_t slot) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_CustomEvent_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QPieSeries_ConnectNotify(QPieSeries* self, QMetaMethod* signal) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+void QPieSeries_ConnectNotify(QPieSeries* self, const QMetaMethod* signal) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->connectNotify(*signal);
     } else {
-        vqpieseries->connectNotify(*signal);
+        ((VirtualQPieSeries*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QPieSeries_QBaseConnectNotify(QPieSeries* self, QMetaMethod* signal) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+void QPieSeries_QBaseConnectNotify(QPieSeries* self, const QMetaMethod* signal) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_ConnectNotify_IsBase(true);
         vqpieseries->connectNotify(*signal);
     } else {
-        vqpieseries->connectNotify(*signal);
+        ((VirtualQPieSeries*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnConnectNotify(QPieSeries* self, intptr_t slot) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_ConnectNotify_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QPieSeries_DisconnectNotify(QPieSeries* self, QMetaMethod* signal) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+void QPieSeries_DisconnectNotify(QPieSeries* self, const QMetaMethod* signal) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->disconnectNotify(*signal);
     } else {
-        vqpieseries->disconnectNotify(*signal);
+        ((VirtualQPieSeries*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QPieSeries_QBaseDisconnectNotify(QPieSeries* self, QMetaMethod* signal) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+void QPieSeries_QBaseDisconnectNotify(QPieSeries* self, const QMetaMethod* signal) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_DisconnectNotify_IsBase(true);
         vqpieseries->disconnectNotify(*signal);
     } else {
-        vqpieseries->disconnectNotify(*signal);
+        ((VirtualQPieSeries*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnDisconnectNotify(QPieSeries* self, intptr_t slot) {
-    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_DisconnectNotify_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QPieSeries_Sender(const QPieSeries* self) {
-    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         return vqpieseries->sender();
     } else {
-        return vqpieseries->sender();
+        return ((VirtualQPieSeries*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QPieSeries_QBaseSender(const QPieSeries* self) {
-    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_Sender_IsBase(true);
         return vqpieseries->sender();
     } else {
-        return vqpieseries->sender();
+        return ((VirtualQPieSeries*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnSender(const QPieSeries* self, intptr_t slot) {
-    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_Sender_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QPieSeries_SenderSignalIndex(const QPieSeries* self) {
-    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         return vqpieseries->senderSignalIndex();
     } else {
-        return vqpieseries->senderSignalIndex();
+        return ((VirtualQPieSeries*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QPieSeries_QBaseSenderSignalIndex(const QPieSeries* self) {
-    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_SenderSignalIndex_IsBase(true);
         return vqpieseries->senderSignalIndex();
     } else {
-        return vqpieseries->senderSignalIndex();
+        return ((VirtualQPieSeries*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnSenderSignalIndex(const QPieSeries* self, intptr_t slot) {
-    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QPieSeries_Receivers(const QPieSeries* self, const char* signal) {
-    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         return vqpieseries->receivers(signal);
     } else {
-        return vqpieseries->receivers(signal);
+        return ((VirtualQPieSeries*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QPieSeries_QBaseReceivers(const QPieSeries* self, const char* signal) {
-    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_Receivers_IsBase(true);
         return vqpieseries->receivers(signal);
     } else {
-        return vqpieseries->receivers(signal);
+        return ((VirtualQPieSeries*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnReceivers(const QPieSeries* self, intptr_t slot) {
-    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_Receivers_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QPieSeries_IsSignalConnected(const QPieSeries* self, QMetaMethod* signal) {
-    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+bool QPieSeries_IsSignalConnected(const QPieSeries* self, const QMetaMethod* signal) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         return vqpieseries->isSignalConnected(*signal);
     } else {
-        return vqpieseries->isSignalConnected(*signal);
+        return ((VirtualQPieSeries*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QPieSeries_QBaseIsSignalConnected(const QPieSeries* self, QMetaMethod* signal) {
-    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+bool QPieSeries_QBaseIsSignalConnected(const QPieSeries* self, const QMetaMethod* signal) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_IsSignalConnected_IsBase(true);
         return vqpieseries->isSignalConnected(*signal);
     } else {
-        return vqpieseries->isSignalConnected(*signal);
+        return ((VirtualQPieSeries*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnIsSignalConnected(const QPieSeries* self, intptr_t slot) {
-    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_IsSignalConnected_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_IsSignalConnected_Callback>(slot));
     }
 }

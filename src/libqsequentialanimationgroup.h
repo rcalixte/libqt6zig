@@ -15,25 +15,17 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractAnimation QAbstractAnimation;
 typedef struct QAnimationGroup QAnimationGroup;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QPauseAnimation QPauseAnimation;
 typedef struct QSequentialAnimationGroup QSequentialAnimationGroup;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QSequentialAnimationGroup* QSequentialAnimationGroup_new();
@@ -78,12 +70,12 @@ void QSequentialAnimationGroup_QBaseChildEvent(QSequentialAnimationGroup* self, 
 void QSequentialAnimationGroup_CustomEvent(QSequentialAnimationGroup* self, QEvent* event);
 void QSequentialAnimationGroup_OnCustomEvent(QSequentialAnimationGroup* self, intptr_t slot);
 void QSequentialAnimationGroup_QBaseCustomEvent(QSequentialAnimationGroup* self, QEvent* event);
-void QSequentialAnimationGroup_ConnectNotify(QSequentialAnimationGroup* self, QMetaMethod* signal);
+void QSequentialAnimationGroup_ConnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal);
 void QSequentialAnimationGroup_OnConnectNotify(QSequentialAnimationGroup* self, intptr_t slot);
-void QSequentialAnimationGroup_QBaseConnectNotify(QSequentialAnimationGroup* self, QMetaMethod* signal);
-void QSequentialAnimationGroup_DisconnectNotify(QSequentialAnimationGroup* self, QMetaMethod* signal);
+void QSequentialAnimationGroup_QBaseConnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal);
+void QSequentialAnimationGroup_DisconnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal);
 void QSequentialAnimationGroup_OnDisconnectNotify(QSequentialAnimationGroup* self, intptr_t slot);
-void QSequentialAnimationGroup_QBaseDisconnectNotify(QSequentialAnimationGroup* self, QMetaMethod* signal);
+void QSequentialAnimationGroup_QBaseDisconnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal);
 QObject* QSequentialAnimationGroup_Sender(const QSequentialAnimationGroup* self);
 void QSequentialAnimationGroup_OnSender(const QSequentialAnimationGroup* self, intptr_t slot);
 QObject* QSequentialAnimationGroup_QBaseSender(const QSequentialAnimationGroup* self);
@@ -93,9 +85,9 @@ int QSequentialAnimationGroup_QBaseSenderSignalIndex(const QSequentialAnimationG
 int QSequentialAnimationGroup_Receivers(const QSequentialAnimationGroup* self, const char* signal);
 void QSequentialAnimationGroup_OnReceivers(const QSequentialAnimationGroup* self, intptr_t slot);
 int QSequentialAnimationGroup_QBaseReceivers(const QSequentialAnimationGroup* self, const char* signal);
-bool QSequentialAnimationGroup_IsSignalConnected(const QSequentialAnimationGroup* self, QMetaMethod* signal);
+bool QSequentialAnimationGroup_IsSignalConnected(const QSequentialAnimationGroup* self, const QMetaMethod* signal);
 void QSequentialAnimationGroup_OnIsSignalConnected(const QSequentialAnimationGroup* self, intptr_t slot);
-bool QSequentialAnimationGroup_QBaseIsSignalConnected(const QSequentialAnimationGroup* self, QMetaMethod* signal);
+bool QSequentialAnimationGroup_QBaseIsSignalConnected(const QSequentialAnimationGroup* self, const QMetaMethod* signal);
 void QSequentialAnimationGroup_Delete(QSequentialAnimationGroup* self);
 
 #ifdef __cplusplus

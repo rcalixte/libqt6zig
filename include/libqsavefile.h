@@ -15,31 +15,22 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
-typedef struct QDateTime QDateTime;
 typedef struct QEvent QEvent;
 typedef struct QFileDevice QFileDevice;
 typedef struct QIODevice QIODevice;
 typedef struct QIODeviceBase QIODeviceBase;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSaveFile QSaveFile;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
-QSaveFile* QSaveFile_new(libqt_string name);
+QSaveFile* QSaveFile_new(const libqt_string name);
 QSaveFile* QSaveFile_new2();
-QSaveFile* QSaveFile_new3(libqt_string name, QObject* parent);
+QSaveFile* QSaveFile_new3(const libqt_string name, QObject* parent);
 QSaveFile* QSaveFile_new4(QObject* parent);
 QMetaObject* QSaveFile_MetaObject(const QSaveFile* self);
 void* QSaveFile_Metacast(QSaveFile* self, const char* param1);
@@ -50,7 +41,7 @@ libqt_string QSaveFile_Tr(const char* s);
 libqt_string QSaveFile_FileName(const QSaveFile* self);
 void QSaveFile_OnFileName(const QSaveFile* self, intptr_t slot);
 libqt_string QSaveFile_QBaseFileName(const QSaveFile* self);
-void QSaveFile_SetFileName(QSaveFile* self, libqt_string name);
+void QSaveFile_SetFileName(QSaveFile* self, const libqt_string name);
 bool QSaveFile_Open(QSaveFile* self, int flags);
 void QSaveFile_OnOpen(QSaveFile* self, intptr_t slot);
 bool QSaveFile_QBaseOpen(QSaveFile* self, int flags);
@@ -129,18 +120,18 @@ void QSaveFile_QBaseChildEvent(QSaveFile* self, QChildEvent* event);
 void QSaveFile_CustomEvent(QSaveFile* self, QEvent* event);
 void QSaveFile_OnCustomEvent(QSaveFile* self, intptr_t slot);
 void QSaveFile_QBaseCustomEvent(QSaveFile* self, QEvent* event);
-void QSaveFile_ConnectNotify(QSaveFile* self, QMetaMethod* signal);
+void QSaveFile_ConnectNotify(QSaveFile* self, const QMetaMethod* signal);
 void QSaveFile_OnConnectNotify(QSaveFile* self, intptr_t slot);
-void QSaveFile_QBaseConnectNotify(QSaveFile* self, QMetaMethod* signal);
-void QSaveFile_DisconnectNotify(QSaveFile* self, QMetaMethod* signal);
+void QSaveFile_QBaseConnectNotify(QSaveFile* self, const QMetaMethod* signal);
+void QSaveFile_DisconnectNotify(QSaveFile* self, const QMetaMethod* signal);
 void QSaveFile_OnDisconnectNotify(QSaveFile* self, intptr_t slot);
-void QSaveFile_QBaseDisconnectNotify(QSaveFile* self, QMetaMethod* signal);
+void QSaveFile_QBaseDisconnectNotify(QSaveFile* self, const QMetaMethod* signal);
 void QSaveFile_SetOpenMode(QSaveFile* self, int openMode);
 void QSaveFile_OnSetOpenMode(QSaveFile* self, intptr_t slot);
 void QSaveFile_QBaseSetOpenMode(QSaveFile* self, int openMode);
-void QSaveFile_SetErrorString(QSaveFile* self, libqt_string errorString);
+void QSaveFile_SetErrorString(QSaveFile* self, const libqt_string errorString);
 void QSaveFile_OnSetErrorString(QSaveFile* self, intptr_t slot);
-void QSaveFile_QBaseSetErrorString(QSaveFile* self, libqt_string errorString);
+void QSaveFile_QBaseSetErrorString(QSaveFile* self, const libqt_string errorString);
 QObject* QSaveFile_Sender(const QSaveFile* self);
 void QSaveFile_OnSender(const QSaveFile* self, intptr_t slot);
 QObject* QSaveFile_QBaseSender(const QSaveFile* self);
@@ -150,9 +141,9 @@ int QSaveFile_QBaseSenderSignalIndex(const QSaveFile* self);
 int QSaveFile_Receivers(const QSaveFile* self, const char* signal);
 void QSaveFile_OnReceivers(const QSaveFile* self, intptr_t slot);
 int QSaveFile_QBaseReceivers(const QSaveFile* self, const char* signal);
-bool QSaveFile_IsSignalConnected(const QSaveFile* self, QMetaMethod* signal);
+bool QSaveFile_IsSignalConnected(const QSaveFile* self, const QMetaMethod* signal);
 void QSaveFile_OnIsSignalConnected(const QSaveFile* self, intptr_t slot);
-bool QSaveFile_QBaseIsSignalConnected(const QSaveFile* self, QMetaMethod* signal);
+bool QSaveFile_QBaseIsSignalConnected(const QSaveFile* self, const QMetaMethod* signal);
 void QSaveFile_Delete(QSaveFile* self);
 
 #ifdef __cplusplus

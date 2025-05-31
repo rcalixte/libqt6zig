@@ -15,24 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QAudioDevice QAudioDevice;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSoundEffect QSoundEffect;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QUrl QUrl;
-typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
@@ -44,9 +36,9 @@ typedef int Status; // C ABI enum
 #endif
 
 QSoundEffect* QSoundEffect_new();
-QSoundEffect* QSoundEffect_new2(QAudioDevice* audioDevice);
+QSoundEffect* QSoundEffect_new2(const QAudioDevice* audioDevice);
 QSoundEffect* QSoundEffect_new3(QObject* parent);
-QSoundEffect* QSoundEffect_new4(QAudioDevice* audioDevice, QObject* parent);
+QSoundEffect* QSoundEffect_new4(const QAudioDevice* audioDevice, QObject* parent);
 QMetaObject* QSoundEffect_MetaObject(const QSoundEffect* self);
 void* QSoundEffect_Metacast(QSoundEffect* self, const char* param1);
 int QSoundEffect_Metacall(QSoundEffect* self, int param1, int param2, void** param3);
@@ -55,12 +47,12 @@ int QSoundEffect_QBaseMetacall(QSoundEffect* self, int param1, int param2, void*
 libqt_string QSoundEffect_Tr(const char* s);
 libqt_list /* of libqt_string */ QSoundEffect_SupportedMimeTypes();
 QUrl* QSoundEffect_Source(const QSoundEffect* self);
-void QSoundEffect_SetSource(QSoundEffect* self, QUrl* url);
+void QSoundEffect_SetSource(QSoundEffect* self, const QUrl* url);
 int QSoundEffect_LoopCount(const QSoundEffect* self);
 int QSoundEffect_LoopsRemaining(const QSoundEffect* self);
 void QSoundEffect_SetLoopCount(QSoundEffect* self, int loopCount);
 QAudioDevice* QSoundEffect_AudioDevice(QSoundEffect* self);
-void QSoundEffect_SetAudioDevice(QSoundEffect* self, QAudioDevice* device);
+void QSoundEffect_SetAudioDevice(QSoundEffect* self, const QAudioDevice* device);
 float QSoundEffect_Volume(const QSoundEffect* self);
 void QSoundEffect_SetVolume(QSoundEffect* self, float volume);
 bool QSoundEffect_IsMuted(const QSoundEffect* self);
@@ -105,12 +97,12 @@ void QSoundEffect_QBaseChildEvent(QSoundEffect* self, QChildEvent* event);
 void QSoundEffect_CustomEvent(QSoundEffect* self, QEvent* event);
 void QSoundEffect_OnCustomEvent(QSoundEffect* self, intptr_t slot);
 void QSoundEffect_QBaseCustomEvent(QSoundEffect* self, QEvent* event);
-void QSoundEffect_ConnectNotify(QSoundEffect* self, QMetaMethod* signal);
+void QSoundEffect_ConnectNotify(QSoundEffect* self, const QMetaMethod* signal);
 void QSoundEffect_OnConnectNotify(QSoundEffect* self, intptr_t slot);
-void QSoundEffect_QBaseConnectNotify(QSoundEffect* self, QMetaMethod* signal);
-void QSoundEffect_DisconnectNotify(QSoundEffect* self, QMetaMethod* signal);
+void QSoundEffect_QBaseConnectNotify(QSoundEffect* self, const QMetaMethod* signal);
+void QSoundEffect_DisconnectNotify(QSoundEffect* self, const QMetaMethod* signal);
 void QSoundEffect_OnDisconnectNotify(QSoundEffect* self, intptr_t slot);
-void QSoundEffect_QBaseDisconnectNotify(QSoundEffect* self, QMetaMethod* signal);
+void QSoundEffect_QBaseDisconnectNotify(QSoundEffect* self, const QMetaMethod* signal);
 QObject* QSoundEffect_Sender(const QSoundEffect* self);
 void QSoundEffect_OnSender(const QSoundEffect* self, intptr_t slot);
 QObject* QSoundEffect_QBaseSender(const QSoundEffect* self);
@@ -120,9 +112,9 @@ int QSoundEffect_QBaseSenderSignalIndex(const QSoundEffect* self);
 int QSoundEffect_Receivers(const QSoundEffect* self, const char* signal);
 void QSoundEffect_OnReceivers(const QSoundEffect* self, intptr_t slot);
 int QSoundEffect_QBaseReceivers(const QSoundEffect* self, const char* signal);
-bool QSoundEffect_IsSignalConnected(const QSoundEffect* self, QMetaMethod* signal);
+bool QSoundEffect_IsSignalConnected(const QSoundEffect* self, const QMetaMethod* signal);
 void QSoundEffect_OnIsSignalConnected(const QSoundEffect* self, intptr_t slot);
-bool QSoundEffect_QBaseIsSignalConnected(const QSoundEffect* self, QMetaMethod* signal);
+bool QSoundEffect_QBaseIsSignalConnected(const QSoundEffect* self, const QMetaMethod* signal);
 void QSoundEffect_Delete(QSoundEffect* self);
 
 #ifdef __cplusplus

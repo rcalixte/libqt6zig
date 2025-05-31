@@ -15,29 +15,17 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAbstractSeries QAbstractSeries;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QBoxPlotLegendMarker QBoxPlotLegendMarker;
 typedef struct QBoxPlotSeries QBoxPlotSeries;
-typedef struct QBrush QBrush;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
-typedef struct QFont QFont;
 typedef struct QLegend QLegend;
 typedef struct QLegendMarker QLegendMarker;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QPen QPen;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QBoxPlotLegendMarker* QBoxPlotLegendMarker_new(QBoxPlotSeries* series, QLegend* legend);
@@ -71,12 +59,12 @@ void QBoxPlotLegendMarker_QBaseChildEvent(QBoxPlotLegendMarker* self, QChildEven
 void QBoxPlotLegendMarker_CustomEvent(QBoxPlotLegendMarker* self, QEvent* event);
 void QBoxPlotLegendMarker_OnCustomEvent(QBoxPlotLegendMarker* self, intptr_t slot);
 void QBoxPlotLegendMarker_QBaseCustomEvent(QBoxPlotLegendMarker* self, QEvent* event);
-void QBoxPlotLegendMarker_ConnectNotify(QBoxPlotLegendMarker* self, QMetaMethod* signal);
+void QBoxPlotLegendMarker_ConnectNotify(QBoxPlotLegendMarker* self, const QMetaMethod* signal);
 void QBoxPlotLegendMarker_OnConnectNotify(QBoxPlotLegendMarker* self, intptr_t slot);
-void QBoxPlotLegendMarker_QBaseConnectNotify(QBoxPlotLegendMarker* self, QMetaMethod* signal);
-void QBoxPlotLegendMarker_DisconnectNotify(QBoxPlotLegendMarker* self, QMetaMethod* signal);
+void QBoxPlotLegendMarker_QBaseConnectNotify(QBoxPlotLegendMarker* self, const QMetaMethod* signal);
+void QBoxPlotLegendMarker_DisconnectNotify(QBoxPlotLegendMarker* self, const QMetaMethod* signal);
 void QBoxPlotLegendMarker_OnDisconnectNotify(QBoxPlotLegendMarker* self, intptr_t slot);
-void QBoxPlotLegendMarker_QBaseDisconnectNotify(QBoxPlotLegendMarker* self, QMetaMethod* signal);
+void QBoxPlotLegendMarker_QBaseDisconnectNotify(QBoxPlotLegendMarker* self, const QMetaMethod* signal);
 QObject* QBoxPlotLegendMarker_Sender(const QBoxPlotLegendMarker* self);
 void QBoxPlotLegendMarker_OnSender(const QBoxPlotLegendMarker* self, intptr_t slot);
 QObject* QBoxPlotLegendMarker_QBaseSender(const QBoxPlotLegendMarker* self);
@@ -86,9 +74,9 @@ int QBoxPlotLegendMarker_QBaseSenderSignalIndex(const QBoxPlotLegendMarker* self
 int QBoxPlotLegendMarker_Receivers(const QBoxPlotLegendMarker* self, const char* signal);
 void QBoxPlotLegendMarker_OnReceivers(const QBoxPlotLegendMarker* self, intptr_t slot);
 int QBoxPlotLegendMarker_QBaseReceivers(const QBoxPlotLegendMarker* self, const char* signal);
-bool QBoxPlotLegendMarker_IsSignalConnected(const QBoxPlotLegendMarker* self, QMetaMethod* signal);
+bool QBoxPlotLegendMarker_IsSignalConnected(const QBoxPlotLegendMarker* self, const QMetaMethod* signal);
 void QBoxPlotLegendMarker_OnIsSignalConnected(const QBoxPlotLegendMarker* self, intptr_t slot);
-bool QBoxPlotLegendMarker_QBaseIsSignalConnected(const QBoxPlotLegendMarker* self, QMetaMethod* signal);
+bool QBoxPlotLegendMarker_QBaseIsSignalConnected(const QBoxPlotLegendMarker* self, const QMetaMethod* signal);
 void QBoxPlotLegendMarker_Delete(QBoxPlotLegendMarker* self);
 
 #ifdef __cplusplus

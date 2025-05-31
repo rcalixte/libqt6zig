@@ -12,7 +12,7 @@ QOperatingSystemVersionBase* QOperatingSystemVersionBase_new(int osType, int vma
     return new QOperatingSystemVersionBase(static_cast<QOperatingSystemVersionBase::OSType>(osType), static_cast<int>(vmajor));
 }
 
-QOperatingSystemVersionBase* QOperatingSystemVersionBase_new2(QOperatingSystemVersionBase* param1) {
+QOperatingSystemVersionBase* QOperatingSystemVersionBase_new2(const QOperatingSystemVersionBase* param1) {
     return new QOperatingSystemVersionBase(*param1);
 }
 
@@ -84,7 +84,7 @@ void QOperatingSystemVersionBase_Delete(QOperatingSystemVersionBase* self) {
     delete self;
 }
 
-QOperatingSystemVersion* QOperatingSystemVersion_new(QOperatingSystemVersionBase* osversion) {
+QOperatingSystemVersion* QOperatingSystemVersion_new(const QOperatingSystemVersionBase* osversion) {
     return new QOperatingSystemVersion(*osversion);
 }
 
@@ -92,7 +92,7 @@ QOperatingSystemVersion* QOperatingSystemVersion_new2(int osType, int vmajor) {
     return new QOperatingSystemVersion(static_cast<QOperatingSystemVersion::OSType>(osType), static_cast<int>(vmajor));
 }
 
-QOperatingSystemVersion* QOperatingSystemVersion_new3(QOperatingSystemVersion* param1) {
+QOperatingSystemVersion* QOperatingSystemVersion_new3(const QOperatingSystemVersion* param1) {
     return new QOperatingSystemVersion(*param1);
 }
 

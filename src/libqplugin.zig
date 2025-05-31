@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 
 /// https://doc.qt.io/qt-6/qpluginmetadata.html
 pub const qpluginmetadata = struct {
@@ -6,14 +7,16 @@ pub const qpluginmetadata = struct {
     ///
     ///
     pub fn ArchRequirements() u8 {
-        return C.QPluginMetaData_ArchRequirements();
+        return qtc.QPluginMetaData_ArchRequirements();
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata.html#dtor.QPluginMetaData)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QPluginMetaData ```
+    /// ``` self: QtC.QPluginMetaData ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QPluginMetaData_Delete(@ptrCast(self));
+        qtc.QPluginMetaData_Delete(@ptrCast(self));
     }
 };
 
@@ -21,44 +24,46 @@ pub const qpluginmetadata = struct {
 pub const qstaticplugin = struct {
     /// New constructs a new QStaticPlugin object.
     ///
-    /// ``` other: ?*C.QStaticPlugin ```
-    pub fn New(other: ?*anyopaque) ?*C.QStaticPlugin {
-        return C.QStaticPlugin_new(@ptrCast(other));
+    /// ``` other: QtC.QStaticPlugin ```
+    pub fn New(other: ?*anyopaque) QtC.QStaticPlugin {
+        return qtc.QStaticPlugin_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QStaticPlugin object and invalidates the source QStaticPlugin object.
     ///
-    /// ``` other: ?*C.QStaticPlugin ```
-    pub fn New2(other: ?*anyopaque) ?*C.QStaticPlugin {
-        return C.QStaticPlugin_new2(@ptrCast(other));
+    /// ``` other: QtC.QStaticPlugin ```
+    pub fn New2(other: ?*anyopaque) QtC.QStaticPlugin {
+        return qtc.QStaticPlugin_new2(@ptrCast(other));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QStaticPlugin, other: ?*QStaticPlugin ```
+    /// ``` self: QtC.QStaticPlugin, other: QtC.QStaticPlugin ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStaticPlugin_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStaticPlugin_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QStaticPlugin, other: ?*QStaticPlugin ```
+    /// ``` self: QtC.QStaticPlugin, other: QtC.QStaticPlugin ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QStaticPlugin_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QStaticPlugin_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstaticplugin.html#metaData)
     ///
-    /// ``` self: ?*C.QStaticPlugin ```
-    pub fn MetaData(self: ?*anyopaque) ?*C.QJsonObject {
-        return C.QStaticPlugin_MetaData(@ptrCast(self));
+    /// ``` self: QtC.QStaticPlugin ```
+    pub fn MetaData(self: ?*anyopaque) QtC.QJsonObject {
+        return qtc.QStaticPlugin_MetaData(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstaticplugin.html#dtor.QStaticPlugin)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QStaticPlugin ```
+    /// ``` self: QtC.QStaticPlugin ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QStaticPlugin_Delete(@ptrCast(self));
+        qtc.QStaticPlugin_Delete(@ptrCast(self));
     }
 };
 
@@ -66,44 +71,44 @@ pub const qstaticplugin = struct {
 pub const qpluginmetadata__header = struct {
     /// New constructs a new QPluginMetaData::Header object.
     ///
-    /// ``` other: ?*C.QPluginMetaData__Header ```
-    pub fn New(other: ?*anyopaque) ?*C.QPluginMetaData__Header {
-        return C.QPluginMetaData__Header_new(@ptrCast(other));
+    /// ``` other: QtC.QPluginMetaData__Header ```
+    pub fn New(other: ?*anyopaque) QtC.QPluginMetaData__Header {
+        return qtc.QPluginMetaData__Header_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QPluginMetaData::Header object and invalidates the source QPluginMetaData::Header object.
     ///
-    /// ``` other: ?*C.QPluginMetaData__Header ```
-    pub fn New2(other: ?*anyopaque) ?*C.QPluginMetaData__Header {
-        return C.QPluginMetaData__Header_new2(@ptrCast(other));
+    /// ``` other: QtC.QPluginMetaData__Header ```
+    pub fn New2(other: ?*anyopaque) QtC.QPluginMetaData__Header {
+        return qtc.QPluginMetaData__Header_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QPluginMetaData::Header object.
     ///
-    /// ``` param1: ?*C.QPluginMetaData__Header ```
-    pub fn New3(param1: ?*anyopaque) ?*C.QPluginMetaData__Header {
-        return C.QPluginMetaData__Header_new3(@ptrCast(param1));
+    /// ``` param1: QtC.QPluginMetaData__Header ```
+    pub fn New3(param1: ?*anyopaque) QtC.QPluginMetaData__Header {
+        return qtc.QPluginMetaData__Header_new3(@ptrCast(param1));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QPluginMetaData__Header, other: ?*QPluginMetaData__Header ```
+    /// ``` self: QtC.QPluginMetaData__Header, other: QtC.QPluginMetaData__Header ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QPluginMetaData__Header_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QPluginMetaData__Header_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QPluginMetaData__Header, other: ?*QPluginMetaData__Header ```
+    /// ``` self: QtC.QPluginMetaData__Header, other: QtC.QPluginMetaData__Header ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QPluginMetaData__Header_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QPluginMetaData__Header_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QPluginMetaData__Header ```
+    /// ``` self: QtC.QPluginMetaData__Header ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QPluginMetaData__Header_Delete(@ptrCast(self));
+        qtc.QPluginMetaData__Header_Delete(@ptrCast(self));
     }
 };
 
@@ -111,44 +116,44 @@ pub const qpluginmetadata__header = struct {
 pub const qpluginmetadata__magicheader = struct {
     /// New constructs a new QPluginMetaData::MagicHeader object.
     ///
-    /// ``` other: ?*C.QPluginMetaData__MagicHeader ```
-    pub fn New(other: ?*anyopaque) ?*C.QPluginMetaData__MagicHeader {
-        return C.QPluginMetaData__MagicHeader_new(@ptrCast(other));
+    /// ``` other: QtC.QPluginMetaData__MagicHeader ```
+    pub fn New(other: ?*anyopaque) QtC.QPluginMetaData__MagicHeader {
+        return qtc.QPluginMetaData__MagicHeader_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QPluginMetaData::MagicHeader object and invalidates the source QPluginMetaData::MagicHeader object.
     ///
-    /// ``` other: ?*C.QPluginMetaData__MagicHeader ```
-    pub fn New2(other: ?*anyopaque) ?*C.QPluginMetaData__MagicHeader {
-        return C.QPluginMetaData__MagicHeader_new2(@ptrCast(other));
+    /// ``` other: QtC.QPluginMetaData__MagicHeader ```
+    pub fn New2(other: ?*anyopaque) QtC.QPluginMetaData__MagicHeader {
+        return qtc.QPluginMetaData__MagicHeader_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QPluginMetaData::MagicHeader object.
     ///
     ///
-    pub fn New3() ?*C.QPluginMetaData__MagicHeader {
-        return C.QPluginMetaData__MagicHeader_new3();
+    pub fn New3() QtC.QPluginMetaData__MagicHeader {
+        return qtc.QPluginMetaData__MagicHeader_new3();
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QPluginMetaData__MagicHeader, other: ?*QPluginMetaData__MagicHeader ```
+    /// ``` self: QtC.QPluginMetaData__MagicHeader, other: QtC.QPluginMetaData__MagicHeader ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QPluginMetaData__MagicHeader_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QPluginMetaData__MagicHeader_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QPluginMetaData__MagicHeader, other: ?*QPluginMetaData__MagicHeader ```
+    /// ``` self: QtC.QPluginMetaData__MagicHeader, other: QtC.QPluginMetaData__MagicHeader ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QPluginMetaData__MagicHeader_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QPluginMetaData__MagicHeader_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QPluginMetaData__MagicHeader ```
+    /// ``` self: QtC.QPluginMetaData__MagicHeader ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QPluginMetaData__MagicHeader_Delete(@ptrCast(self));
+        qtc.QPluginMetaData__MagicHeader_Delete(@ptrCast(self));
     }
 };
 
@@ -156,50 +161,50 @@ pub const qpluginmetadata__magicheader = struct {
 pub const qpluginmetadata__elfnoteheader = struct {
     /// New constructs a new QPluginMetaData::ElfNoteHeader object.
     ///
-    /// ``` other: ?*C.QPluginMetaData__ElfNoteHeader ```
-    pub fn New(other: ?*anyopaque) ?*C.QPluginMetaData__ElfNoteHeader {
-        return C.QPluginMetaData__ElfNoteHeader_new(@ptrCast(other));
+    /// ``` other: QtC.QPluginMetaData__ElfNoteHeader ```
+    pub fn New(other: ?*anyopaque) QtC.QPluginMetaData__ElfNoteHeader {
+        return qtc.QPluginMetaData__ElfNoteHeader_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QPluginMetaData::ElfNoteHeader object and invalidates the source QPluginMetaData::ElfNoteHeader object.
     ///
-    /// ``` other: ?*C.QPluginMetaData__ElfNoteHeader ```
-    pub fn New2(other: ?*anyopaque) ?*C.QPluginMetaData__ElfNoteHeader {
-        return C.QPluginMetaData__ElfNoteHeader_new2(@ptrCast(other));
+    /// ``` other: QtC.QPluginMetaData__ElfNoteHeader ```
+    pub fn New2(other: ?*anyopaque) QtC.QPluginMetaData__ElfNoteHeader {
+        return qtc.QPluginMetaData__ElfNoteHeader_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QPluginMetaData::ElfNoteHeader object.
     ///
     /// ``` payloadSize: u32 ```
-    pub fn New3(payloadSize: u32) ?*C.QPluginMetaData__ElfNoteHeader {
-        return C.QPluginMetaData__ElfNoteHeader_new3(@intCast(payloadSize));
+    pub fn New3(payloadSize: u32) QtC.QPluginMetaData__ElfNoteHeader {
+        return qtc.QPluginMetaData__ElfNoteHeader_new3(@intCast(payloadSize));
     }
 
     /// New4 constructs a new QPluginMetaData::ElfNoteHeader object.
     ///
-    /// ``` param1: ?*C.QPluginMetaData__ElfNoteHeader ```
-    pub fn New4(param1: ?*anyopaque) ?*C.QPluginMetaData__ElfNoteHeader {
-        return C.QPluginMetaData__ElfNoteHeader_new4(@ptrCast(param1));
+    /// ``` param1: QtC.QPluginMetaData__ElfNoteHeader ```
+    pub fn New4(param1: ?*anyopaque) QtC.QPluginMetaData__ElfNoteHeader {
+        return qtc.QPluginMetaData__ElfNoteHeader_new4(@ptrCast(param1));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QPluginMetaData__ElfNoteHeader, other: ?*QPluginMetaData__ElfNoteHeader ```
+    /// ``` self: QtC.QPluginMetaData__ElfNoteHeader, other: QtC.QPluginMetaData__ElfNoteHeader ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QPluginMetaData__ElfNoteHeader_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QPluginMetaData__ElfNoteHeader_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QPluginMetaData__ElfNoteHeader, other: ?*QPluginMetaData__ElfNoteHeader ```
+    /// ``` self: QtC.QPluginMetaData__ElfNoteHeader, other: QtC.QPluginMetaData__ElfNoteHeader ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QPluginMetaData__ElfNoteHeader_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QPluginMetaData__ElfNoteHeader_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QPluginMetaData__ElfNoteHeader ```
+    /// ``` self: QtC.QPluginMetaData__ElfNoteHeader ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QPluginMetaData__ElfNoteHeader_Delete(@ptrCast(self));
+        qtc.QPluginMetaData__ElfNoteHeader_Delete(@ptrCast(self));
     }
 };

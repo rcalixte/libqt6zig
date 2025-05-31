@@ -5,7 +5,7 @@
 #include "libqbindingstorage.h"
 #include "libqbindingstorage.hxx"
 
-QBindingStatus* QBindingStatus_new(QBindingStatus* other) {
+QBindingStatus* QBindingStatus_new(const QBindingStatus* other) {
     return new QBindingStatus(*other);
 }
 
@@ -37,7 +37,7 @@ bool QBindingStorage_IsValid(const QBindingStorage* self) {
     return self->isValid();
 }
 
-void QBindingStorage_RegisterDependency(const QBindingStorage* self, QUntypedPropertyData* data) {
+void QBindingStorage_RegisterDependency(const QBindingStorage* self, const QUntypedPropertyData* data) {
     self->registerDependency(data);
 }
 

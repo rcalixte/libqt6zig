@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qcolormap_enums = enums;
 const std = @import("std");
 
@@ -6,82 +7,82 @@ const std = @import("std");
 pub const qcolormap = struct {
     /// New constructs a new QColormap object.
     ///
-    /// ``` colormap: ?*C.QColormap ```
-    pub fn New(colormap: ?*anyopaque) ?*C.QColormap {
-        return C.QColormap_new(@ptrCast(colormap));
+    /// ``` colormap: QtC.QColormap ```
+    pub fn New(colormap: ?*anyopaque) QtC.QColormap {
+        return qtc.QColormap_new(@ptrCast(colormap));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#initialize)
     ///
     ///
     pub fn Initialize() void {
-        C.QColormap_Initialize();
+        qtc.QColormap_Initialize();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#cleanup)
     ///
     ///
     pub fn Cleanup() void {
-        C.QColormap_Cleanup();
+        qtc.QColormap_Cleanup();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#instance)
     ///
     ///
-    pub fn Instance() ?*C.QColormap {
-        return C.QColormap_Instance();
+    pub fn Instance() QtC.QColormap {
+        return qtc.QColormap_Instance();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#operator=)
     ///
-    /// ``` self: ?*C.QColormap, colormap: ?*C.QColormap ```
+    /// ``` self: QtC.QColormap, colormap: QtC.QColormap ```
     pub fn OperatorAssign(self: ?*anyopaque, colormap: ?*anyopaque) void {
-        C.QColormap_OperatorAssign(@ptrCast(self), @ptrCast(colormap));
+        qtc.QColormap_OperatorAssign(@ptrCast(self), @ptrCast(colormap));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#mode)
     ///
-    /// ``` self: ?*C.QColormap ```
+    /// ``` self: QtC.QColormap ```
     pub fn Mode(self: ?*anyopaque) i64 {
-        return C.QColormap_Mode(@ptrCast(self));
+        return qtc.QColormap_Mode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#depth)
     ///
-    /// ``` self: ?*C.QColormap ```
+    /// ``` self: QtC.QColormap ```
     pub fn Depth(self: ?*anyopaque) i32 {
-        return C.QColormap_Depth(@ptrCast(self));
+        return qtc.QColormap_Depth(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#size)
     ///
-    /// ``` self: ?*C.QColormap ```
+    /// ``` self: QtC.QColormap ```
     pub fn Size(self: ?*anyopaque) i32 {
-        return C.QColormap_Size(@ptrCast(self));
+        return qtc.QColormap_Size(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#pixel)
     ///
-    /// ``` self: ?*C.QColormap, color: ?*C.QColor ```
+    /// ``` self: QtC.QColormap, color: QtC.QColor ```
     pub fn Pixel(self: ?*anyopaque, color: ?*anyopaque) u32 {
-        return C.QColormap_Pixel(@ptrCast(self), @ptrCast(color));
+        return qtc.QColormap_Pixel(@ptrCast(self), @ptrCast(color));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#colorAt)
     ///
-    /// ``` self: ?*C.QColormap, pixel: u32 ```
-    pub fn ColorAt(self: ?*anyopaque, pixel: u32) ?*C.QColor {
-        return C.QColormap_ColorAt(@ptrCast(self), @intCast(pixel));
+    /// ``` self: QtC.QColormap, pixel: u32 ```
+    pub fn ColorAt(self: ?*anyopaque, pixel: u32) QtC.QColor {
+        return qtc.QColormap_ColorAt(@ptrCast(self), @intCast(pixel));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#colormap)
     ///
-    /// ``` self: ?*C.QColormap, allocator: std.mem.Allocator ```
-    pub fn Colormap(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QColor {
-        const _arr: C.struct_libqt_list = C.QColormap_Colormap(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QColor, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QColor = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QColormap, allocator: std.mem.Allocator ```
+    pub fn Colormap(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QColor {
+        const _arr: qtc.struct_libqt_list = qtc.QColormap_Colormap(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QColor, _arr.len) catch @panic("qcolormap.Colormap: Memory allocation failed");
+        const _data: [*]QtC.QColor = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -91,15 +92,17 @@ pub const qcolormap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#instance)
     ///
     /// ``` screen: i32 ```
-    pub fn Instance1(screen: i32) ?*C.QColormap {
-        return C.QColormap_Instance1(@intCast(screen));
+    pub fn Instance1(screen: i32) QtC.QColormap {
+        return qtc.QColormap_Instance1(@intCast(screen));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#dtor.QColormap)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QColormap ```
+    /// ``` self: QtC.QColormap ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QColormap_Delete(@ptrCast(self));
+        qtc.QColormap_Delete(@ptrCast(self));
     }
 };
 

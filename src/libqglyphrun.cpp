@@ -11,11 +11,11 @@ QGlyphRun* QGlyphRun_new() {
     return new QGlyphRun();
 }
 
-QGlyphRun* QGlyphRun_new2(QGlyphRun* other) {
+QGlyphRun* QGlyphRun_new2(const QGlyphRun* other) {
     return new QGlyphRun(*other);
 }
 
-void QGlyphRun_OperatorAssign(QGlyphRun* self, QGlyphRun* other) {
+void QGlyphRun_OperatorAssign(QGlyphRun* self, const QGlyphRun* other) {
     self->operator=(*other);
 }
 
@@ -27,11 +27,11 @@ QRawFont* QGlyphRun_RawFont(const QGlyphRun* self) {
     return new QRawFont(self->rawFont());
 }
 
-void QGlyphRun_SetRawFont(QGlyphRun* self, QRawFont* rawFont) {
+void QGlyphRun_SetRawFont(QGlyphRun* self, const QRawFont* rawFont) {
     self->setRawFont(*rawFont);
 }
 
-void QGlyphRun_SetRawData(QGlyphRun* self, const unsigned int* glyphIndexArray, QPointF* glyphPositionArray, int size) {
+void QGlyphRun_SetRawData(QGlyphRun* self, const unsigned int* glyphIndexArray, const QPointF* glyphPositionArray, int size) {
     self->setRawData(static_cast<const quint32*>(glyphIndexArray), glyphPositionArray, static_cast<int>(size));
 }
 
@@ -48,7 +48,7 @@ libqt_list /* of unsigned int */ QGlyphRun_GlyphIndexes(const QGlyphRun* self) {
     return _out;
 }
 
-void QGlyphRun_SetGlyphIndexes(QGlyphRun* self, libqt_list /* of unsigned int */ glyphIndexes) {
+void QGlyphRun_SetGlyphIndexes(QGlyphRun* self, const libqt_list /* of unsigned int */ glyphIndexes) {
     QList<quint32> glyphIndexes_QList;
     glyphIndexes_QList.reserve(glyphIndexes.len);
     unsigned int* glyphIndexes_arr = static_cast<unsigned int*>(glyphIndexes.data);
@@ -71,7 +71,7 @@ libqt_list /* of QPointF* */ QGlyphRun_Positions(const QGlyphRun* self) {
     return _out;
 }
 
-void QGlyphRun_SetPositions(QGlyphRun* self, libqt_list /* of QPointF* */ positions) {
+void QGlyphRun_SetPositions(QGlyphRun* self, const libqt_list /* of QPointF* */ positions) {
     QList<QPointF> positions_QList;
     positions_QList.reserve(positions.len);
     QPointF** positions_arr = static_cast<QPointF**>(positions.data);
@@ -85,11 +85,11 @@ void QGlyphRun_Clear(QGlyphRun* self) {
     self->clear();
 }
 
-bool QGlyphRun_OperatorEqual(const QGlyphRun* self, QGlyphRun* other) {
+bool QGlyphRun_OperatorEqual(const QGlyphRun* self, const QGlyphRun* other) {
     return (*self == *other);
 }
 
-bool QGlyphRun_OperatorNotEqual(const QGlyphRun* self, QGlyphRun* other) {
+bool QGlyphRun_OperatorNotEqual(const QGlyphRun* self, const QGlyphRun* other) {
     return (*self != *other);
 }
 
@@ -137,7 +137,7 @@ int QGlyphRun_Flags(const QGlyphRun* self) {
     return static_cast<int>(self->flags());
 }
 
-void QGlyphRun_SetBoundingRect(QGlyphRun* self, QRectF* boundingRect) {
+void QGlyphRun_SetBoundingRect(QGlyphRun* self, const QRectF* boundingRect) {
     self->setBoundingRect(*boundingRect);
 }
 

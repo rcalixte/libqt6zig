@@ -15,25 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSettings QSettings;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
-typedef struct QsciAbstractAPIs QsciAbstractAPIs;
 typedef struct QsciLexer QsciLexer;
 typedef struct QsciLexerAVS QsciLexerAVS;
 typedef struct QsciScintilla QsciScintilla;
@@ -129,21 +120,24 @@ int QsciLexerAVS_QBaseStyleBitsNeeded(const QsciLexerAVS* self);
 void QsciLexerAVS_SetAutoIndentStyle(QsciLexerAVS* self, int autoindentstyle);
 void QsciLexerAVS_OnSetAutoIndentStyle(QsciLexerAVS* self, intptr_t slot);
 void QsciLexerAVS_QBaseSetAutoIndentStyle(QsciLexerAVS* self, int autoindentstyle);
-void QsciLexerAVS_SetColor(QsciLexerAVS* self, QColor* c, int style);
+void QsciLexerAVS_SetColor(QsciLexerAVS* self, const QColor* c, int style);
 void QsciLexerAVS_OnSetColor(QsciLexerAVS* self, intptr_t slot);
-void QsciLexerAVS_QBaseSetColor(QsciLexerAVS* self, QColor* c, int style);
+void QsciLexerAVS_QBaseSetColor(QsciLexerAVS* self, const QColor* c, int style);
 void QsciLexerAVS_SetEolFill(QsciLexerAVS* self, bool eoffill, int style);
 void QsciLexerAVS_OnSetEolFill(QsciLexerAVS* self, intptr_t slot);
 void QsciLexerAVS_QBaseSetEolFill(QsciLexerAVS* self, bool eoffill, int style);
-void QsciLexerAVS_SetFont(QsciLexerAVS* self, QFont* f, int style);
+void QsciLexerAVS_SetFont(QsciLexerAVS* self, const QFont* f, int style);
 void QsciLexerAVS_OnSetFont(QsciLexerAVS* self, intptr_t slot);
-void QsciLexerAVS_QBaseSetFont(QsciLexerAVS* self, QFont* f, int style);
-void QsciLexerAVS_SetPaper(QsciLexerAVS* self, QColor* c, int style);
+void QsciLexerAVS_QBaseSetFont(QsciLexerAVS* self, const QFont* f, int style);
+void QsciLexerAVS_SetPaper(QsciLexerAVS* self, const QColor* c, int style);
 void QsciLexerAVS_OnSetPaper(QsciLexerAVS* self, intptr_t slot);
-void QsciLexerAVS_QBaseSetPaper(QsciLexerAVS* self, QColor* c, int style);
-bool QsciLexerAVS_ReadProperties(QsciLexerAVS* self, QSettings* qs, libqt_string prefix);
+void QsciLexerAVS_QBaseSetPaper(QsciLexerAVS* self, const QColor* c, int style);
+bool QsciLexerAVS_ReadProperties(QsciLexerAVS* self, QSettings* qs, const libqt_string prefix);
 void QsciLexerAVS_OnReadProperties(QsciLexerAVS* self, intptr_t slot);
-bool QsciLexerAVS_QBaseReadProperties(QsciLexerAVS* self, QSettings* qs, libqt_string prefix);
+bool QsciLexerAVS_QBaseReadProperties(QsciLexerAVS* self, QSettings* qs, const libqt_string prefix);
+bool QsciLexerAVS_WriteProperties(const QsciLexerAVS* self, QSettings* qs, const libqt_string prefix);
+void QsciLexerAVS_OnWriteProperties(const QsciLexerAVS* self, intptr_t slot);
+bool QsciLexerAVS_QBaseWriteProperties(const QsciLexerAVS* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexerAVS_Event(QsciLexerAVS* self, QEvent* event);
 void QsciLexerAVS_OnEvent(QsciLexerAVS* self, intptr_t slot);
 bool QsciLexerAVS_QBaseEvent(QsciLexerAVS* self, QEvent* event);
@@ -159,15 +153,12 @@ void QsciLexerAVS_QBaseChildEvent(QsciLexerAVS* self, QChildEvent* event);
 void QsciLexerAVS_CustomEvent(QsciLexerAVS* self, QEvent* event);
 void QsciLexerAVS_OnCustomEvent(QsciLexerAVS* self, intptr_t slot);
 void QsciLexerAVS_QBaseCustomEvent(QsciLexerAVS* self, QEvent* event);
-void QsciLexerAVS_ConnectNotify(QsciLexerAVS* self, QMetaMethod* signal);
+void QsciLexerAVS_ConnectNotify(QsciLexerAVS* self, const QMetaMethod* signal);
 void QsciLexerAVS_OnConnectNotify(QsciLexerAVS* self, intptr_t slot);
-void QsciLexerAVS_QBaseConnectNotify(QsciLexerAVS* self, QMetaMethod* signal);
-void QsciLexerAVS_DisconnectNotify(QsciLexerAVS* self, QMetaMethod* signal);
+void QsciLexerAVS_QBaseConnectNotify(QsciLexerAVS* self, const QMetaMethod* signal);
+void QsciLexerAVS_DisconnectNotify(QsciLexerAVS* self, const QMetaMethod* signal);
 void QsciLexerAVS_OnDisconnectNotify(QsciLexerAVS* self, intptr_t slot);
-void QsciLexerAVS_QBaseDisconnectNotify(QsciLexerAVS* self, QMetaMethod* signal);
-bool QsciLexerAVS_WriteProperties(const QsciLexerAVS* self, QSettings* qs, libqt_string prefix);
-void QsciLexerAVS_OnWriteProperties(const QsciLexerAVS* self, intptr_t slot);
-bool QsciLexerAVS_QBaseWriteProperties(const QsciLexerAVS* self, QSettings* qs, libqt_string prefix);
+void QsciLexerAVS_QBaseDisconnectNotify(QsciLexerAVS* self, const QMetaMethod* signal);
 QObject* QsciLexerAVS_Sender(const QsciLexerAVS* self);
 void QsciLexerAVS_OnSender(const QsciLexerAVS* self, intptr_t slot);
 QObject* QsciLexerAVS_QBaseSender(const QsciLexerAVS* self);
@@ -177,9 +168,9 @@ int QsciLexerAVS_QBaseSenderSignalIndex(const QsciLexerAVS* self);
 int QsciLexerAVS_Receivers(const QsciLexerAVS* self, const char* signal);
 void QsciLexerAVS_OnReceivers(const QsciLexerAVS* self, intptr_t slot);
 int QsciLexerAVS_QBaseReceivers(const QsciLexerAVS* self, const char* signal);
-bool QsciLexerAVS_IsSignalConnected(const QsciLexerAVS* self, QMetaMethod* signal);
+bool QsciLexerAVS_IsSignalConnected(const QsciLexerAVS* self, const QMetaMethod* signal);
 void QsciLexerAVS_OnIsSignalConnected(const QsciLexerAVS* self, intptr_t slot);
-bool QsciLexerAVS_QBaseIsSignalConnected(const QsciLexerAVS* self, QMetaMethod* signal);
+bool QsciLexerAVS_QBaseIsSignalConnected(const QsciLexerAVS* self, const QMetaMethod* signal);
 void QsciLexerAVS_Delete(QsciLexerAVS* self);
 
 #ifdef __cplusplus

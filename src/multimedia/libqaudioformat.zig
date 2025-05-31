@@ -1,195 +1,198 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qaudioformat_enums = enums;
 
 /// https://doc.qt.io/qt-6/qaudioformat.html
 pub const qaudioformat = struct {
     /// New constructs a new QAudioFormat object.
     ///
-    /// ``` other: ?*C.QAudioFormat ```
-    pub fn New(other: ?*anyopaque) ?*C.QAudioFormat {
-        return C.QAudioFormat_new(@ptrCast(other));
+    /// ``` other: QtC.QAudioFormat ```
+    pub fn New(other: ?*anyopaque) QtC.QAudioFormat {
+        return qtc.QAudioFormat_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QAudioFormat object and invalidates the source QAudioFormat object.
     ///
-    /// ``` other: ?*C.QAudioFormat ```
-    pub fn New2(other: ?*anyopaque) ?*C.QAudioFormat {
-        return C.QAudioFormat_new2(@ptrCast(other));
+    /// ``` other: QtC.QAudioFormat ```
+    pub fn New2(other: ?*anyopaque) QtC.QAudioFormat {
+        return qtc.QAudioFormat_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QAudioFormat object.
     ///
     ///
-    pub fn New3() ?*C.QAudioFormat {
-        return C.QAudioFormat_new3();
+    pub fn New3() QtC.QAudioFormat {
+        return qtc.QAudioFormat_new3();
     }
 
     /// New4 constructs a new QAudioFormat object.
     ///
-    /// ``` param1: ?*C.QAudioFormat ```
-    pub fn New4(param1: ?*anyopaque) ?*C.QAudioFormat {
-        return C.QAudioFormat_new4(@ptrCast(param1));
+    /// ``` param1: QtC.QAudioFormat ```
+    pub fn New4(param1: ?*anyopaque) QtC.QAudioFormat {
+        return qtc.QAudioFormat_new4(@ptrCast(param1));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QAudioFormat, other: ?*QAudioFormat ```
+    /// ``` self: QtC.QAudioFormat, other: QtC.QAudioFormat ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QAudioFormat_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QAudioFormat_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QAudioFormat, other: ?*QAudioFormat ```
+    /// ``` self: QtC.QAudioFormat, other: QtC.QAudioFormat ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QAudioFormat_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QAudioFormat_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#isValid)
     ///
-    /// ``` self: ?*C.QAudioFormat ```
+    /// ``` self: QtC.QAudioFormat ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QAudioFormat_IsValid(@ptrCast(self));
+        return qtc.QAudioFormat_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#setSampleRate)
     ///
-    /// ``` self: ?*C.QAudioFormat, sampleRate: i32 ```
+    /// ``` self: QtC.QAudioFormat, sampleRate: i32 ```
     pub fn SetSampleRate(self: ?*anyopaque, sampleRate: i32) void {
-        C.QAudioFormat_SetSampleRate(@ptrCast(self), @intCast(sampleRate));
+        qtc.QAudioFormat_SetSampleRate(@ptrCast(self), @intCast(sampleRate));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#sampleRate)
     ///
-    /// ``` self: ?*C.QAudioFormat ```
+    /// ``` self: QtC.QAudioFormat ```
     pub fn SampleRate(self: ?*anyopaque) i32 {
-        return C.QAudioFormat_SampleRate(@ptrCast(self));
+        return qtc.QAudioFormat_SampleRate(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#setChannelConfig)
     ///
-    /// ``` self: ?*C.QAudioFormat, config: qaudioformat_enums.ChannelConfig ```
+    /// ``` self: QtC.QAudioFormat, config: qaudioformat_enums.ChannelConfig ```
     pub fn SetChannelConfig(self: ?*anyopaque, config: i64) void {
-        C.QAudioFormat_SetChannelConfig(@ptrCast(self), @intCast(config));
+        qtc.QAudioFormat_SetChannelConfig(@ptrCast(self), @intCast(config));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#channelConfig)
     ///
-    /// ``` self: ?*C.QAudioFormat ```
+    /// ``` self: QtC.QAudioFormat ```
     pub fn ChannelConfig(self: ?*anyopaque) i64 {
-        return C.QAudioFormat_ChannelConfig(@ptrCast(self));
+        return qtc.QAudioFormat_ChannelConfig(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#setChannelCount)
     ///
-    /// ``` self: ?*C.QAudioFormat, channelCount: i32 ```
+    /// ``` self: QtC.QAudioFormat, channelCount: i32 ```
     pub fn SetChannelCount(self: ?*anyopaque, channelCount: i32) void {
-        C.QAudioFormat_SetChannelCount(@ptrCast(self), @intCast(channelCount));
+        qtc.QAudioFormat_SetChannelCount(@ptrCast(self), @intCast(channelCount));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#channelCount)
     ///
-    /// ``` self: ?*C.QAudioFormat ```
+    /// ``` self: QtC.QAudioFormat ```
     pub fn ChannelCount(self: ?*anyopaque) i32 {
-        return C.QAudioFormat_ChannelCount(@ptrCast(self));
+        return qtc.QAudioFormat_ChannelCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#channelOffset)
     ///
-    /// ``` self: ?*C.QAudioFormat, channel: qaudioformat_enums.AudioChannelPosition ```
+    /// ``` self: QtC.QAudioFormat, channel: qaudioformat_enums.AudioChannelPosition ```
     pub fn ChannelOffset(self: ?*anyopaque, channel: i64) i32 {
-        return C.QAudioFormat_ChannelOffset(@ptrCast(self), @intCast(channel));
+        return qtc.QAudioFormat_ChannelOffset(@ptrCast(self), @intCast(channel));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#setSampleFormat)
     ///
-    /// ``` self: ?*C.QAudioFormat, f: qaudioformat_enums.SampleFormat ```
+    /// ``` self: QtC.QAudioFormat, f: qaudioformat_enums.SampleFormat ```
     pub fn SetSampleFormat(self: ?*anyopaque, f: i64) void {
-        C.QAudioFormat_SetSampleFormat(@ptrCast(self), @intCast(f));
+        qtc.QAudioFormat_SetSampleFormat(@ptrCast(self), @intCast(f));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#sampleFormat)
     ///
-    /// ``` self: ?*C.QAudioFormat ```
+    /// ``` self: QtC.QAudioFormat ```
     pub fn SampleFormat(self: ?*anyopaque) i64 {
-        return C.QAudioFormat_SampleFormat(@ptrCast(self));
+        return qtc.QAudioFormat_SampleFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#bytesForDuration)
     ///
-    /// ``` self: ?*C.QAudioFormat, microseconds: i64 ```
+    /// ``` self: QtC.QAudioFormat, microseconds: i64 ```
     pub fn BytesForDuration(self: ?*anyopaque, microseconds: i64) i32 {
-        return C.QAudioFormat_BytesForDuration(@ptrCast(self), @intCast(microseconds));
+        return qtc.QAudioFormat_BytesForDuration(@ptrCast(self), @intCast(microseconds));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#durationForBytes)
     ///
-    /// ``` self: ?*C.QAudioFormat, byteCount: i32 ```
+    /// ``` self: QtC.QAudioFormat, byteCount: i32 ```
     pub fn DurationForBytes(self: ?*anyopaque, byteCount: i32) i64 {
-        return C.QAudioFormat_DurationForBytes(@ptrCast(self), @intCast(byteCount));
+        return qtc.QAudioFormat_DurationForBytes(@ptrCast(self), @intCast(byteCount));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#bytesForFrames)
     ///
-    /// ``` self: ?*C.QAudioFormat, frameCount: i32 ```
+    /// ``` self: QtC.QAudioFormat, frameCount: i32 ```
     pub fn BytesForFrames(self: ?*anyopaque, frameCount: i32) i32 {
-        return C.QAudioFormat_BytesForFrames(@ptrCast(self), @intCast(frameCount));
+        return qtc.QAudioFormat_BytesForFrames(@ptrCast(self), @intCast(frameCount));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#framesForBytes)
     ///
-    /// ``` self: ?*C.QAudioFormat, byteCount: i32 ```
+    /// ``` self: QtC.QAudioFormat, byteCount: i32 ```
     pub fn FramesForBytes(self: ?*anyopaque, byteCount: i32) i32 {
-        return C.QAudioFormat_FramesForBytes(@ptrCast(self), @intCast(byteCount));
+        return qtc.QAudioFormat_FramesForBytes(@ptrCast(self), @intCast(byteCount));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#framesForDuration)
     ///
-    /// ``` self: ?*C.QAudioFormat, microseconds: i64 ```
+    /// ``` self: QtC.QAudioFormat, microseconds: i64 ```
     pub fn FramesForDuration(self: ?*anyopaque, microseconds: i64) i32 {
-        return C.QAudioFormat_FramesForDuration(@ptrCast(self), @intCast(microseconds));
+        return qtc.QAudioFormat_FramesForDuration(@ptrCast(self), @intCast(microseconds));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#durationForFrames)
     ///
-    /// ``` self: ?*C.QAudioFormat, frameCount: i32 ```
+    /// ``` self: QtC.QAudioFormat, frameCount: i32 ```
     pub fn DurationForFrames(self: ?*anyopaque, frameCount: i32) i64 {
-        return C.QAudioFormat_DurationForFrames(@ptrCast(self), @intCast(frameCount));
+        return qtc.QAudioFormat_DurationForFrames(@ptrCast(self), @intCast(frameCount));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#bytesPerFrame)
     ///
-    /// ``` self: ?*C.QAudioFormat ```
+    /// ``` self: QtC.QAudioFormat ```
     pub fn BytesPerFrame(self: ?*anyopaque) i32 {
-        return C.QAudioFormat_BytesPerFrame(@ptrCast(self));
+        return qtc.QAudioFormat_BytesPerFrame(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#bytesPerSample)
     ///
-    /// ``` self: ?*C.QAudioFormat ```
+    /// ``` self: QtC.QAudioFormat ```
     pub fn BytesPerSample(self: ?*anyopaque) i32 {
-        return C.QAudioFormat_BytesPerSample(@ptrCast(self));
+        return qtc.QAudioFormat_BytesPerSample(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#normalizedSampleValue)
     ///
-    /// ``` self: ?*C.QAudioFormat, sample: ?*anyopaque ```
+    /// ``` self: QtC.QAudioFormat, sample: ?*anyopaque ```
     pub fn NormalizedSampleValue(self: ?*anyopaque, sample: ?*anyopaque) f32 {
-        return C.QAudioFormat_NormalizedSampleValue(@ptrCast(self), sample);
+        return qtc.QAudioFormat_NormalizedSampleValue(@ptrCast(self), sample);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#defaultChannelConfigForChannelCount)
     ///
     /// ``` channelCount: i32 ```
     pub fn DefaultChannelConfigForChannelCount(channelCount: i32) i64 {
-        return C.QAudioFormat_DefaultChannelConfigForChannelCount(@intCast(channelCount));
+        return qtc.QAudioFormat_DefaultChannelConfigForChannelCount(@intCast(channelCount));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#dtor.QAudioFormat)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAudioFormat ```
+    /// ``` self: QtC.QAudioFormat ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAudioFormat_Delete(@ptrCast(self));
+        qtc.QAudioFormat_Delete(@ptrCast(self));
     }
 };
 

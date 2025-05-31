@@ -6,17 +6,17 @@
 #include "libqsystemsemaphore.h"
 #include "libqsystemsemaphore.hxx"
 
-QSystemSemaphore* QSystemSemaphore_new(libqt_string key) {
+QSystemSemaphore* QSystemSemaphore_new(const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QSystemSemaphore(key_QString);
 }
 
-QSystemSemaphore* QSystemSemaphore_new2(libqt_string key, int initialValue) {
+QSystemSemaphore* QSystemSemaphore_new2(const libqt_string key, int initialValue) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QSystemSemaphore(key_QString, static_cast<int>(initialValue));
 }
 
-QSystemSemaphore* QSystemSemaphore_new3(libqt_string key, int initialValue, int mode) {
+QSystemSemaphore* QSystemSemaphore_new3(const libqt_string key, int initialValue, int mode) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QSystemSemaphore(key_QString, static_cast<int>(initialValue), static_cast<QSystemSemaphore::AccessMode>(mode));
 }
@@ -33,7 +33,7 @@ libqt_string QSystemSemaphore_Tr(const char* sourceText) {
     return _str;
 }
 
-void QSystemSemaphore_SetKey(QSystemSemaphore* self, libqt_string key) {
+void QSystemSemaphore_SetKey(QSystemSemaphore* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     self->setKey(key_QString);
 }
@@ -98,12 +98,12 @@ libqt_string QSystemSemaphore_Tr3(const char* sourceText, const char* disambigua
     return _str;
 }
 
-void QSystemSemaphore_SetKey2(QSystemSemaphore* self, libqt_string key, int initialValue) {
+void QSystemSemaphore_SetKey2(QSystemSemaphore* self, const libqt_string key, int initialValue) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     self->setKey(key_QString, static_cast<int>(initialValue));
 }
 
-void QSystemSemaphore_SetKey3(QSystemSemaphore* self, libqt_string key, int initialValue, int mode) {
+void QSystemSemaphore_SetKey3(QSystemSemaphore* self, const libqt_string key, int initialValue, int mode) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     self->setKey(key_QString, static_cast<int>(initialValue), static_cast<QSystemSemaphore::AccessMode>(mode));
 }

@@ -11,14 +11,17 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QCommandLinkButton so that we can call protected methods
-class VirtualQCommandLinkButton : public QCommandLinkButton {
+class VirtualQCommandLinkButton final : public QCommandLinkButton {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQCommandLinkButton = true;
+
     // Virtual class public types (including callbacks)
-    using QCommandLinkButton_Metacall_Callback = int (*)(QCommandLinkButton*, QMetaObject::Call, int, void**);
-    using QCommandLinkButton_SizeHint_Callback = QSize (*)();
+    using QCommandLinkButton_Metacall_Callback = int (*)(QCommandLinkButton*, int, int, void**);
+    using QCommandLinkButton_SizeHint_Callback = QSize* (*)();
     using QCommandLinkButton_HeightForWidth_Callback = int (*)(const QCommandLinkButton*, int);
-    using QCommandLinkButton_MinimumSizeHint_Callback = QSize (*)();
+    using QCommandLinkButton_MinimumSizeHint_Callback = QSize* (*)();
     using QCommandLinkButton_InitStyleOption_Callback = void (*)(const QCommandLinkButton*, QStyleOptionButton*);
     using QCommandLinkButton_Event_Callback = bool (*)(QCommandLinkButton*, QEvent*);
     using QCommandLinkButton_PaintEvent_Callback = void (*)(QCommandLinkButton*, QPaintEvent*);
@@ -26,7 +29,7 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
     using QCommandLinkButton_FocusInEvent_Callback = void (*)(QCommandLinkButton*, QFocusEvent*);
     using QCommandLinkButton_FocusOutEvent_Callback = void (*)(QCommandLinkButton*, QFocusEvent*);
     using QCommandLinkButton_MouseMoveEvent_Callback = void (*)(QCommandLinkButton*, QMouseEvent*);
-    using QCommandLinkButton_HitButton_Callback = bool (*)(const QCommandLinkButton*, const QPoint&);
+    using QCommandLinkButton_HitButton_Callback = bool (*)(const QCommandLinkButton*, QPoint*);
     using QCommandLinkButton_CheckStateSet_Callback = void (*)();
     using QCommandLinkButton_NextCheckState_Callback = void (*)();
     using QCommandLinkButton_KeyReleaseEvent_Callback = void (*)(QCommandLinkButton*, QKeyEvent*);
@@ -54,19 +57,19 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
     using QCommandLinkButton_DropEvent_Callback = void (*)(QCommandLinkButton*, QDropEvent*);
     using QCommandLinkButton_ShowEvent_Callback = void (*)(QCommandLinkButton*, QShowEvent*);
     using QCommandLinkButton_HideEvent_Callback = void (*)(QCommandLinkButton*, QHideEvent*);
-    using QCommandLinkButton_NativeEvent_Callback = bool (*)(QCommandLinkButton*, const QByteArray&, void*, qintptr*);
-    using QCommandLinkButton_Metric_Callback = int (*)(const QCommandLinkButton*, QPaintDevice::PaintDeviceMetric);
+    using QCommandLinkButton_NativeEvent_Callback = bool (*)(QCommandLinkButton*, libqt_string, void*, intptr_t*);
+    using QCommandLinkButton_Metric_Callback = int (*)(const QCommandLinkButton*, int);
     using QCommandLinkButton_InitPainter_Callback = void (*)(const QCommandLinkButton*, QPainter*);
     using QCommandLinkButton_Redirected_Callback = QPaintDevice* (*)(const QCommandLinkButton*, QPoint*);
     using QCommandLinkButton_SharedPainter_Callback = QPainter* (*)();
     using QCommandLinkButton_InputMethodEvent_Callback = void (*)(QCommandLinkButton*, QInputMethodEvent*);
-    using QCommandLinkButton_InputMethodQuery_Callback = QVariant (*)(const QCommandLinkButton*, Qt::InputMethodQuery);
+    using QCommandLinkButton_InputMethodQuery_Callback = QVariant* (*)(const QCommandLinkButton*, int);
     using QCommandLinkButton_FocusNextPrevChild_Callback = bool (*)(QCommandLinkButton*, bool);
     using QCommandLinkButton_EventFilter_Callback = bool (*)(QCommandLinkButton*, QObject*, QEvent*);
     using QCommandLinkButton_ChildEvent_Callback = void (*)(QCommandLinkButton*, QChildEvent*);
     using QCommandLinkButton_CustomEvent_Callback = void (*)(QCommandLinkButton*, QEvent*);
-    using QCommandLinkButton_ConnectNotify_Callback = void (*)(QCommandLinkButton*, const QMetaMethod&);
-    using QCommandLinkButton_DisconnectNotify_Callback = void (*)(QCommandLinkButton*, const QMetaMethod&);
+    using QCommandLinkButton_ConnectNotify_Callback = void (*)(QCommandLinkButton*, QMetaMethod*);
+    using QCommandLinkButton_DisconnectNotify_Callback = void (*)(QCommandLinkButton*, QMetaMethod*);
     using QCommandLinkButton_UpdateMicroFocus_Callback = void (*)();
     using QCommandLinkButton_Create_Callback = void (*)();
     using QCommandLinkButton_Destroy_Callback = void (*)();
@@ -75,7 +78,7 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
     using QCommandLinkButton_Sender_Callback = QObject* (*)();
     using QCommandLinkButton_SenderSignalIndex_Callback = int (*)();
     using QCommandLinkButton_Receivers_Callback = int (*)(const QCommandLinkButton*, const char*);
-    using QCommandLinkButton_IsSignalConnected_Callback = bool (*)(const QCommandLinkButton*, const QMetaMethod&);
+    using QCommandLinkButton_IsSignalConnected_Callback = bool (*)(const QCommandLinkButton*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -277,130 +280,130 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
     }
 
     // Callback setters
-    void setQCommandLinkButton_Metacall_Callback(QCommandLinkButton_Metacall_Callback cb) { qcommandlinkbutton_metacall_callback = cb; }
-    void setQCommandLinkButton_SizeHint_Callback(QCommandLinkButton_SizeHint_Callback cb) { qcommandlinkbutton_sizehint_callback = cb; }
-    void setQCommandLinkButton_HeightForWidth_Callback(QCommandLinkButton_HeightForWidth_Callback cb) { qcommandlinkbutton_heightforwidth_callback = cb; }
-    void setQCommandLinkButton_MinimumSizeHint_Callback(QCommandLinkButton_MinimumSizeHint_Callback cb) { qcommandlinkbutton_minimumsizehint_callback = cb; }
-    void setQCommandLinkButton_InitStyleOption_Callback(QCommandLinkButton_InitStyleOption_Callback cb) { qcommandlinkbutton_initstyleoption_callback = cb; }
-    void setQCommandLinkButton_Event_Callback(QCommandLinkButton_Event_Callback cb) { qcommandlinkbutton_event_callback = cb; }
-    void setQCommandLinkButton_PaintEvent_Callback(QCommandLinkButton_PaintEvent_Callback cb) { qcommandlinkbutton_paintevent_callback = cb; }
-    void setQCommandLinkButton_KeyPressEvent_Callback(QCommandLinkButton_KeyPressEvent_Callback cb) { qcommandlinkbutton_keypressevent_callback = cb; }
-    void setQCommandLinkButton_FocusInEvent_Callback(QCommandLinkButton_FocusInEvent_Callback cb) { qcommandlinkbutton_focusinevent_callback = cb; }
-    void setQCommandLinkButton_FocusOutEvent_Callback(QCommandLinkButton_FocusOutEvent_Callback cb) { qcommandlinkbutton_focusoutevent_callback = cb; }
-    void setQCommandLinkButton_MouseMoveEvent_Callback(QCommandLinkButton_MouseMoveEvent_Callback cb) { qcommandlinkbutton_mousemoveevent_callback = cb; }
-    void setQCommandLinkButton_HitButton_Callback(QCommandLinkButton_HitButton_Callback cb) { qcommandlinkbutton_hitbutton_callback = cb; }
-    void setQCommandLinkButton_CheckStateSet_Callback(QCommandLinkButton_CheckStateSet_Callback cb) { qcommandlinkbutton_checkstateset_callback = cb; }
-    void setQCommandLinkButton_NextCheckState_Callback(QCommandLinkButton_NextCheckState_Callback cb) { qcommandlinkbutton_nextcheckstate_callback = cb; }
-    void setQCommandLinkButton_KeyReleaseEvent_Callback(QCommandLinkButton_KeyReleaseEvent_Callback cb) { qcommandlinkbutton_keyreleaseevent_callback = cb; }
-    void setQCommandLinkButton_MousePressEvent_Callback(QCommandLinkButton_MousePressEvent_Callback cb) { qcommandlinkbutton_mousepressevent_callback = cb; }
-    void setQCommandLinkButton_MouseReleaseEvent_Callback(QCommandLinkButton_MouseReleaseEvent_Callback cb) { qcommandlinkbutton_mousereleaseevent_callback = cb; }
-    void setQCommandLinkButton_ChangeEvent_Callback(QCommandLinkButton_ChangeEvent_Callback cb) { qcommandlinkbutton_changeevent_callback = cb; }
-    void setQCommandLinkButton_TimerEvent_Callback(QCommandLinkButton_TimerEvent_Callback cb) { qcommandlinkbutton_timerevent_callback = cb; }
-    void setQCommandLinkButton_DevType_Callback(QCommandLinkButton_DevType_Callback cb) { qcommandlinkbutton_devtype_callback = cb; }
-    void setQCommandLinkButton_SetVisible_Callback(QCommandLinkButton_SetVisible_Callback cb) { qcommandlinkbutton_setvisible_callback = cb; }
-    void setQCommandLinkButton_HasHeightForWidth_Callback(QCommandLinkButton_HasHeightForWidth_Callback cb) { qcommandlinkbutton_hasheightforwidth_callback = cb; }
-    void setQCommandLinkButton_PaintEngine_Callback(QCommandLinkButton_PaintEngine_Callback cb) { qcommandlinkbutton_paintengine_callback = cb; }
-    void setQCommandLinkButton_MouseDoubleClickEvent_Callback(QCommandLinkButton_MouseDoubleClickEvent_Callback cb) { qcommandlinkbutton_mousedoubleclickevent_callback = cb; }
-    void setQCommandLinkButton_WheelEvent_Callback(QCommandLinkButton_WheelEvent_Callback cb) { qcommandlinkbutton_wheelevent_callback = cb; }
-    void setQCommandLinkButton_EnterEvent_Callback(QCommandLinkButton_EnterEvent_Callback cb) { qcommandlinkbutton_enterevent_callback = cb; }
-    void setQCommandLinkButton_LeaveEvent_Callback(QCommandLinkButton_LeaveEvent_Callback cb) { qcommandlinkbutton_leaveevent_callback = cb; }
-    void setQCommandLinkButton_MoveEvent_Callback(QCommandLinkButton_MoveEvent_Callback cb) { qcommandlinkbutton_moveevent_callback = cb; }
-    void setQCommandLinkButton_ResizeEvent_Callback(QCommandLinkButton_ResizeEvent_Callback cb) { qcommandlinkbutton_resizeevent_callback = cb; }
-    void setQCommandLinkButton_CloseEvent_Callback(QCommandLinkButton_CloseEvent_Callback cb) { qcommandlinkbutton_closeevent_callback = cb; }
-    void setQCommandLinkButton_ContextMenuEvent_Callback(QCommandLinkButton_ContextMenuEvent_Callback cb) { qcommandlinkbutton_contextmenuevent_callback = cb; }
-    void setQCommandLinkButton_TabletEvent_Callback(QCommandLinkButton_TabletEvent_Callback cb) { qcommandlinkbutton_tabletevent_callback = cb; }
-    void setQCommandLinkButton_ActionEvent_Callback(QCommandLinkButton_ActionEvent_Callback cb) { qcommandlinkbutton_actionevent_callback = cb; }
-    void setQCommandLinkButton_DragEnterEvent_Callback(QCommandLinkButton_DragEnterEvent_Callback cb) { qcommandlinkbutton_dragenterevent_callback = cb; }
-    void setQCommandLinkButton_DragMoveEvent_Callback(QCommandLinkButton_DragMoveEvent_Callback cb) { qcommandlinkbutton_dragmoveevent_callback = cb; }
-    void setQCommandLinkButton_DragLeaveEvent_Callback(QCommandLinkButton_DragLeaveEvent_Callback cb) { qcommandlinkbutton_dragleaveevent_callback = cb; }
-    void setQCommandLinkButton_DropEvent_Callback(QCommandLinkButton_DropEvent_Callback cb) { qcommandlinkbutton_dropevent_callback = cb; }
-    void setQCommandLinkButton_ShowEvent_Callback(QCommandLinkButton_ShowEvent_Callback cb) { qcommandlinkbutton_showevent_callback = cb; }
-    void setQCommandLinkButton_HideEvent_Callback(QCommandLinkButton_HideEvent_Callback cb) { qcommandlinkbutton_hideevent_callback = cb; }
-    void setQCommandLinkButton_NativeEvent_Callback(QCommandLinkButton_NativeEvent_Callback cb) { qcommandlinkbutton_nativeevent_callback = cb; }
-    void setQCommandLinkButton_Metric_Callback(QCommandLinkButton_Metric_Callback cb) { qcommandlinkbutton_metric_callback = cb; }
-    void setQCommandLinkButton_InitPainter_Callback(QCommandLinkButton_InitPainter_Callback cb) { qcommandlinkbutton_initpainter_callback = cb; }
-    void setQCommandLinkButton_Redirected_Callback(QCommandLinkButton_Redirected_Callback cb) { qcommandlinkbutton_redirected_callback = cb; }
-    void setQCommandLinkButton_SharedPainter_Callback(QCommandLinkButton_SharedPainter_Callback cb) { qcommandlinkbutton_sharedpainter_callback = cb; }
-    void setQCommandLinkButton_InputMethodEvent_Callback(QCommandLinkButton_InputMethodEvent_Callback cb) { qcommandlinkbutton_inputmethodevent_callback = cb; }
-    void setQCommandLinkButton_InputMethodQuery_Callback(QCommandLinkButton_InputMethodQuery_Callback cb) { qcommandlinkbutton_inputmethodquery_callback = cb; }
-    void setQCommandLinkButton_FocusNextPrevChild_Callback(QCommandLinkButton_FocusNextPrevChild_Callback cb) { qcommandlinkbutton_focusnextprevchild_callback = cb; }
-    void setQCommandLinkButton_EventFilter_Callback(QCommandLinkButton_EventFilter_Callback cb) { qcommandlinkbutton_eventfilter_callback = cb; }
-    void setQCommandLinkButton_ChildEvent_Callback(QCommandLinkButton_ChildEvent_Callback cb) { qcommandlinkbutton_childevent_callback = cb; }
-    void setQCommandLinkButton_CustomEvent_Callback(QCommandLinkButton_CustomEvent_Callback cb) { qcommandlinkbutton_customevent_callback = cb; }
-    void setQCommandLinkButton_ConnectNotify_Callback(QCommandLinkButton_ConnectNotify_Callback cb) { qcommandlinkbutton_connectnotify_callback = cb; }
-    void setQCommandLinkButton_DisconnectNotify_Callback(QCommandLinkButton_DisconnectNotify_Callback cb) { qcommandlinkbutton_disconnectnotify_callback = cb; }
-    void setQCommandLinkButton_UpdateMicroFocus_Callback(QCommandLinkButton_UpdateMicroFocus_Callback cb) { qcommandlinkbutton_updatemicrofocus_callback = cb; }
-    void setQCommandLinkButton_Create_Callback(QCommandLinkButton_Create_Callback cb) { qcommandlinkbutton_create_callback = cb; }
-    void setQCommandLinkButton_Destroy_Callback(QCommandLinkButton_Destroy_Callback cb) { qcommandlinkbutton_destroy_callback = cb; }
-    void setQCommandLinkButton_FocusNextChild_Callback(QCommandLinkButton_FocusNextChild_Callback cb) { qcommandlinkbutton_focusnextchild_callback = cb; }
-    void setQCommandLinkButton_FocusPreviousChild_Callback(QCommandLinkButton_FocusPreviousChild_Callback cb) { qcommandlinkbutton_focuspreviouschild_callback = cb; }
-    void setQCommandLinkButton_Sender_Callback(QCommandLinkButton_Sender_Callback cb) { qcommandlinkbutton_sender_callback = cb; }
-    void setQCommandLinkButton_SenderSignalIndex_Callback(QCommandLinkButton_SenderSignalIndex_Callback cb) { qcommandlinkbutton_sendersignalindex_callback = cb; }
-    void setQCommandLinkButton_Receivers_Callback(QCommandLinkButton_Receivers_Callback cb) { qcommandlinkbutton_receivers_callback = cb; }
-    void setQCommandLinkButton_IsSignalConnected_Callback(QCommandLinkButton_IsSignalConnected_Callback cb) { qcommandlinkbutton_issignalconnected_callback = cb; }
+    inline void setQCommandLinkButton_Metacall_Callback(QCommandLinkButton_Metacall_Callback cb) { qcommandlinkbutton_metacall_callback = cb; }
+    inline void setQCommandLinkButton_SizeHint_Callback(QCommandLinkButton_SizeHint_Callback cb) { qcommandlinkbutton_sizehint_callback = cb; }
+    inline void setQCommandLinkButton_HeightForWidth_Callback(QCommandLinkButton_HeightForWidth_Callback cb) { qcommandlinkbutton_heightforwidth_callback = cb; }
+    inline void setQCommandLinkButton_MinimumSizeHint_Callback(QCommandLinkButton_MinimumSizeHint_Callback cb) { qcommandlinkbutton_minimumsizehint_callback = cb; }
+    inline void setQCommandLinkButton_InitStyleOption_Callback(QCommandLinkButton_InitStyleOption_Callback cb) { qcommandlinkbutton_initstyleoption_callback = cb; }
+    inline void setQCommandLinkButton_Event_Callback(QCommandLinkButton_Event_Callback cb) { qcommandlinkbutton_event_callback = cb; }
+    inline void setQCommandLinkButton_PaintEvent_Callback(QCommandLinkButton_PaintEvent_Callback cb) { qcommandlinkbutton_paintevent_callback = cb; }
+    inline void setQCommandLinkButton_KeyPressEvent_Callback(QCommandLinkButton_KeyPressEvent_Callback cb) { qcommandlinkbutton_keypressevent_callback = cb; }
+    inline void setQCommandLinkButton_FocusInEvent_Callback(QCommandLinkButton_FocusInEvent_Callback cb) { qcommandlinkbutton_focusinevent_callback = cb; }
+    inline void setQCommandLinkButton_FocusOutEvent_Callback(QCommandLinkButton_FocusOutEvent_Callback cb) { qcommandlinkbutton_focusoutevent_callback = cb; }
+    inline void setQCommandLinkButton_MouseMoveEvent_Callback(QCommandLinkButton_MouseMoveEvent_Callback cb) { qcommandlinkbutton_mousemoveevent_callback = cb; }
+    inline void setQCommandLinkButton_HitButton_Callback(QCommandLinkButton_HitButton_Callback cb) { qcommandlinkbutton_hitbutton_callback = cb; }
+    inline void setQCommandLinkButton_CheckStateSet_Callback(QCommandLinkButton_CheckStateSet_Callback cb) { qcommandlinkbutton_checkstateset_callback = cb; }
+    inline void setQCommandLinkButton_NextCheckState_Callback(QCommandLinkButton_NextCheckState_Callback cb) { qcommandlinkbutton_nextcheckstate_callback = cb; }
+    inline void setQCommandLinkButton_KeyReleaseEvent_Callback(QCommandLinkButton_KeyReleaseEvent_Callback cb) { qcommandlinkbutton_keyreleaseevent_callback = cb; }
+    inline void setQCommandLinkButton_MousePressEvent_Callback(QCommandLinkButton_MousePressEvent_Callback cb) { qcommandlinkbutton_mousepressevent_callback = cb; }
+    inline void setQCommandLinkButton_MouseReleaseEvent_Callback(QCommandLinkButton_MouseReleaseEvent_Callback cb) { qcommandlinkbutton_mousereleaseevent_callback = cb; }
+    inline void setQCommandLinkButton_ChangeEvent_Callback(QCommandLinkButton_ChangeEvent_Callback cb) { qcommandlinkbutton_changeevent_callback = cb; }
+    inline void setQCommandLinkButton_TimerEvent_Callback(QCommandLinkButton_TimerEvent_Callback cb) { qcommandlinkbutton_timerevent_callback = cb; }
+    inline void setQCommandLinkButton_DevType_Callback(QCommandLinkButton_DevType_Callback cb) { qcommandlinkbutton_devtype_callback = cb; }
+    inline void setQCommandLinkButton_SetVisible_Callback(QCommandLinkButton_SetVisible_Callback cb) { qcommandlinkbutton_setvisible_callback = cb; }
+    inline void setQCommandLinkButton_HasHeightForWidth_Callback(QCommandLinkButton_HasHeightForWidth_Callback cb) { qcommandlinkbutton_hasheightforwidth_callback = cb; }
+    inline void setQCommandLinkButton_PaintEngine_Callback(QCommandLinkButton_PaintEngine_Callback cb) { qcommandlinkbutton_paintengine_callback = cb; }
+    inline void setQCommandLinkButton_MouseDoubleClickEvent_Callback(QCommandLinkButton_MouseDoubleClickEvent_Callback cb) { qcommandlinkbutton_mousedoubleclickevent_callback = cb; }
+    inline void setQCommandLinkButton_WheelEvent_Callback(QCommandLinkButton_WheelEvent_Callback cb) { qcommandlinkbutton_wheelevent_callback = cb; }
+    inline void setQCommandLinkButton_EnterEvent_Callback(QCommandLinkButton_EnterEvent_Callback cb) { qcommandlinkbutton_enterevent_callback = cb; }
+    inline void setQCommandLinkButton_LeaveEvent_Callback(QCommandLinkButton_LeaveEvent_Callback cb) { qcommandlinkbutton_leaveevent_callback = cb; }
+    inline void setQCommandLinkButton_MoveEvent_Callback(QCommandLinkButton_MoveEvent_Callback cb) { qcommandlinkbutton_moveevent_callback = cb; }
+    inline void setQCommandLinkButton_ResizeEvent_Callback(QCommandLinkButton_ResizeEvent_Callback cb) { qcommandlinkbutton_resizeevent_callback = cb; }
+    inline void setQCommandLinkButton_CloseEvent_Callback(QCommandLinkButton_CloseEvent_Callback cb) { qcommandlinkbutton_closeevent_callback = cb; }
+    inline void setQCommandLinkButton_ContextMenuEvent_Callback(QCommandLinkButton_ContextMenuEvent_Callback cb) { qcommandlinkbutton_contextmenuevent_callback = cb; }
+    inline void setQCommandLinkButton_TabletEvent_Callback(QCommandLinkButton_TabletEvent_Callback cb) { qcommandlinkbutton_tabletevent_callback = cb; }
+    inline void setQCommandLinkButton_ActionEvent_Callback(QCommandLinkButton_ActionEvent_Callback cb) { qcommandlinkbutton_actionevent_callback = cb; }
+    inline void setQCommandLinkButton_DragEnterEvent_Callback(QCommandLinkButton_DragEnterEvent_Callback cb) { qcommandlinkbutton_dragenterevent_callback = cb; }
+    inline void setQCommandLinkButton_DragMoveEvent_Callback(QCommandLinkButton_DragMoveEvent_Callback cb) { qcommandlinkbutton_dragmoveevent_callback = cb; }
+    inline void setQCommandLinkButton_DragLeaveEvent_Callback(QCommandLinkButton_DragLeaveEvent_Callback cb) { qcommandlinkbutton_dragleaveevent_callback = cb; }
+    inline void setQCommandLinkButton_DropEvent_Callback(QCommandLinkButton_DropEvent_Callback cb) { qcommandlinkbutton_dropevent_callback = cb; }
+    inline void setQCommandLinkButton_ShowEvent_Callback(QCommandLinkButton_ShowEvent_Callback cb) { qcommandlinkbutton_showevent_callback = cb; }
+    inline void setQCommandLinkButton_HideEvent_Callback(QCommandLinkButton_HideEvent_Callback cb) { qcommandlinkbutton_hideevent_callback = cb; }
+    inline void setQCommandLinkButton_NativeEvent_Callback(QCommandLinkButton_NativeEvent_Callback cb) { qcommandlinkbutton_nativeevent_callback = cb; }
+    inline void setQCommandLinkButton_Metric_Callback(QCommandLinkButton_Metric_Callback cb) { qcommandlinkbutton_metric_callback = cb; }
+    inline void setQCommandLinkButton_InitPainter_Callback(QCommandLinkButton_InitPainter_Callback cb) { qcommandlinkbutton_initpainter_callback = cb; }
+    inline void setQCommandLinkButton_Redirected_Callback(QCommandLinkButton_Redirected_Callback cb) { qcommandlinkbutton_redirected_callback = cb; }
+    inline void setQCommandLinkButton_SharedPainter_Callback(QCommandLinkButton_SharedPainter_Callback cb) { qcommandlinkbutton_sharedpainter_callback = cb; }
+    inline void setQCommandLinkButton_InputMethodEvent_Callback(QCommandLinkButton_InputMethodEvent_Callback cb) { qcommandlinkbutton_inputmethodevent_callback = cb; }
+    inline void setQCommandLinkButton_InputMethodQuery_Callback(QCommandLinkButton_InputMethodQuery_Callback cb) { qcommandlinkbutton_inputmethodquery_callback = cb; }
+    inline void setQCommandLinkButton_FocusNextPrevChild_Callback(QCommandLinkButton_FocusNextPrevChild_Callback cb) { qcommandlinkbutton_focusnextprevchild_callback = cb; }
+    inline void setQCommandLinkButton_EventFilter_Callback(QCommandLinkButton_EventFilter_Callback cb) { qcommandlinkbutton_eventfilter_callback = cb; }
+    inline void setQCommandLinkButton_ChildEvent_Callback(QCommandLinkButton_ChildEvent_Callback cb) { qcommandlinkbutton_childevent_callback = cb; }
+    inline void setQCommandLinkButton_CustomEvent_Callback(QCommandLinkButton_CustomEvent_Callback cb) { qcommandlinkbutton_customevent_callback = cb; }
+    inline void setQCommandLinkButton_ConnectNotify_Callback(QCommandLinkButton_ConnectNotify_Callback cb) { qcommandlinkbutton_connectnotify_callback = cb; }
+    inline void setQCommandLinkButton_DisconnectNotify_Callback(QCommandLinkButton_DisconnectNotify_Callback cb) { qcommandlinkbutton_disconnectnotify_callback = cb; }
+    inline void setQCommandLinkButton_UpdateMicroFocus_Callback(QCommandLinkButton_UpdateMicroFocus_Callback cb) { qcommandlinkbutton_updatemicrofocus_callback = cb; }
+    inline void setQCommandLinkButton_Create_Callback(QCommandLinkButton_Create_Callback cb) { qcommandlinkbutton_create_callback = cb; }
+    inline void setQCommandLinkButton_Destroy_Callback(QCommandLinkButton_Destroy_Callback cb) { qcommandlinkbutton_destroy_callback = cb; }
+    inline void setQCommandLinkButton_FocusNextChild_Callback(QCommandLinkButton_FocusNextChild_Callback cb) { qcommandlinkbutton_focusnextchild_callback = cb; }
+    inline void setQCommandLinkButton_FocusPreviousChild_Callback(QCommandLinkButton_FocusPreviousChild_Callback cb) { qcommandlinkbutton_focuspreviouschild_callback = cb; }
+    inline void setQCommandLinkButton_Sender_Callback(QCommandLinkButton_Sender_Callback cb) { qcommandlinkbutton_sender_callback = cb; }
+    inline void setQCommandLinkButton_SenderSignalIndex_Callback(QCommandLinkButton_SenderSignalIndex_Callback cb) { qcommandlinkbutton_sendersignalindex_callback = cb; }
+    inline void setQCommandLinkButton_Receivers_Callback(QCommandLinkButton_Receivers_Callback cb) { qcommandlinkbutton_receivers_callback = cb; }
+    inline void setQCommandLinkButton_IsSignalConnected_Callback(QCommandLinkButton_IsSignalConnected_Callback cb) { qcommandlinkbutton_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQCommandLinkButton_Metacall_IsBase(bool value) const { qcommandlinkbutton_metacall_isbase = value; }
-    void setQCommandLinkButton_SizeHint_IsBase(bool value) const { qcommandlinkbutton_sizehint_isbase = value; }
-    void setQCommandLinkButton_HeightForWidth_IsBase(bool value) const { qcommandlinkbutton_heightforwidth_isbase = value; }
-    void setQCommandLinkButton_MinimumSizeHint_IsBase(bool value) const { qcommandlinkbutton_minimumsizehint_isbase = value; }
-    void setQCommandLinkButton_InitStyleOption_IsBase(bool value) const { qcommandlinkbutton_initstyleoption_isbase = value; }
-    void setQCommandLinkButton_Event_IsBase(bool value) const { qcommandlinkbutton_event_isbase = value; }
-    void setQCommandLinkButton_PaintEvent_IsBase(bool value) const { qcommandlinkbutton_paintevent_isbase = value; }
-    void setQCommandLinkButton_KeyPressEvent_IsBase(bool value) const { qcommandlinkbutton_keypressevent_isbase = value; }
-    void setQCommandLinkButton_FocusInEvent_IsBase(bool value) const { qcommandlinkbutton_focusinevent_isbase = value; }
-    void setQCommandLinkButton_FocusOutEvent_IsBase(bool value) const { qcommandlinkbutton_focusoutevent_isbase = value; }
-    void setQCommandLinkButton_MouseMoveEvent_IsBase(bool value) const { qcommandlinkbutton_mousemoveevent_isbase = value; }
-    void setQCommandLinkButton_HitButton_IsBase(bool value) const { qcommandlinkbutton_hitbutton_isbase = value; }
-    void setQCommandLinkButton_CheckStateSet_IsBase(bool value) const { qcommandlinkbutton_checkstateset_isbase = value; }
-    void setQCommandLinkButton_NextCheckState_IsBase(bool value) const { qcommandlinkbutton_nextcheckstate_isbase = value; }
-    void setQCommandLinkButton_KeyReleaseEvent_IsBase(bool value) const { qcommandlinkbutton_keyreleaseevent_isbase = value; }
-    void setQCommandLinkButton_MousePressEvent_IsBase(bool value) const { qcommandlinkbutton_mousepressevent_isbase = value; }
-    void setQCommandLinkButton_MouseReleaseEvent_IsBase(bool value) const { qcommandlinkbutton_mousereleaseevent_isbase = value; }
-    void setQCommandLinkButton_ChangeEvent_IsBase(bool value) const { qcommandlinkbutton_changeevent_isbase = value; }
-    void setQCommandLinkButton_TimerEvent_IsBase(bool value) const { qcommandlinkbutton_timerevent_isbase = value; }
-    void setQCommandLinkButton_DevType_IsBase(bool value) const { qcommandlinkbutton_devtype_isbase = value; }
-    void setQCommandLinkButton_SetVisible_IsBase(bool value) const { qcommandlinkbutton_setvisible_isbase = value; }
-    void setQCommandLinkButton_HasHeightForWidth_IsBase(bool value) const { qcommandlinkbutton_hasheightforwidth_isbase = value; }
-    void setQCommandLinkButton_PaintEngine_IsBase(bool value) const { qcommandlinkbutton_paintengine_isbase = value; }
-    void setQCommandLinkButton_MouseDoubleClickEvent_IsBase(bool value) const { qcommandlinkbutton_mousedoubleclickevent_isbase = value; }
-    void setQCommandLinkButton_WheelEvent_IsBase(bool value) const { qcommandlinkbutton_wheelevent_isbase = value; }
-    void setQCommandLinkButton_EnterEvent_IsBase(bool value) const { qcommandlinkbutton_enterevent_isbase = value; }
-    void setQCommandLinkButton_LeaveEvent_IsBase(bool value) const { qcommandlinkbutton_leaveevent_isbase = value; }
-    void setQCommandLinkButton_MoveEvent_IsBase(bool value) const { qcommandlinkbutton_moveevent_isbase = value; }
-    void setQCommandLinkButton_ResizeEvent_IsBase(bool value) const { qcommandlinkbutton_resizeevent_isbase = value; }
-    void setQCommandLinkButton_CloseEvent_IsBase(bool value) const { qcommandlinkbutton_closeevent_isbase = value; }
-    void setQCommandLinkButton_ContextMenuEvent_IsBase(bool value) const { qcommandlinkbutton_contextmenuevent_isbase = value; }
-    void setQCommandLinkButton_TabletEvent_IsBase(bool value) const { qcommandlinkbutton_tabletevent_isbase = value; }
-    void setQCommandLinkButton_ActionEvent_IsBase(bool value) const { qcommandlinkbutton_actionevent_isbase = value; }
-    void setQCommandLinkButton_DragEnterEvent_IsBase(bool value) const { qcommandlinkbutton_dragenterevent_isbase = value; }
-    void setQCommandLinkButton_DragMoveEvent_IsBase(bool value) const { qcommandlinkbutton_dragmoveevent_isbase = value; }
-    void setQCommandLinkButton_DragLeaveEvent_IsBase(bool value) const { qcommandlinkbutton_dragleaveevent_isbase = value; }
-    void setQCommandLinkButton_DropEvent_IsBase(bool value) const { qcommandlinkbutton_dropevent_isbase = value; }
-    void setQCommandLinkButton_ShowEvent_IsBase(bool value) const { qcommandlinkbutton_showevent_isbase = value; }
-    void setQCommandLinkButton_HideEvent_IsBase(bool value) const { qcommandlinkbutton_hideevent_isbase = value; }
-    void setQCommandLinkButton_NativeEvent_IsBase(bool value) const { qcommandlinkbutton_nativeevent_isbase = value; }
-    void setQCommandLinkButton_Metric_IsBase(bool value) const { qcommandlinkbutton_metric_isbase = value; }
-    void setQCommandLinkButton_InitPainter_IsBase(bool value) const { qcommandlinkbutton_initpainter_isbase = value; }
-    void setQCommandLinkButton_Redirected_IsBase(bool value) const { qcommandlinkbutton_redirected_isbase = value; }
-    void setQCommandLinkButton_SharedPainter_IsBase(bool value) const { qcommandlinkbutton_sharedpainter_isbase = value; }
-    void setQCommandLinkButton_InputMethodEvent_IsBase(bool value) const { qcommandlinkbutton_inputmethodevent_isbase = value; }
-    void setQCommandLinkButton_InputMethodQuery_IsBase(bool value) const { qcommandlinkbutton_inputmethodquery_isbase = value; }
-    void setQCommandLinkButton_FocusNextPrevChild_IsBase(bool value) const { qcommandlinkbutton_focusnextprevchild_isbase = value; }
-    void setQCommandLinkButton_EventFilter_IsBase(bool value) const { qcommandlinkbutton_eventfilter_isbase = value; }
-    void setQCommandLinkButton_ChildEvent_IsBase(bool value) const { qcommandlinkbutton_childevent_isbase = value; }
-    void setQCommandLinkButton_CustomEvent_IsBase(bool value) const { qcommandlinkbutton_customevent_isbase = value; }
-    void setQCommandLinkButton_ConnectNotify_IsBase(bool value) const { qcommandlinkbutton_connectnotify_isbase = value; }
-    void setQCommandLinkButton_DisconnectNotify_IsBase(bool value) const { qcommandlinkbutton_disconnectnotify_isbase = value; }
-    void setQCommandLinkButton_UpdateMicroFocus_IsBase(bool value) const { qcommandlinkbutton_updatemicrofocus_isbase = value; }
-    void setQCommandLinkButton_Create_IsBase(bool value) const { qcommandlinkbutton_create_isbase = value; }
-    void setQCommandLinkButton_Destroy_IsBase(bool value) const { qcommandlinkbutton_destroy_isbase = value; }
-    void setQCommandLinkButton_FocusNextChild_IsBase(bool value) const { qcommandlinkbutton_focusnextchild_isbase = value; }
-    void setQCommandLinkButton_FocusPreviousChild_IsBase(bool value) const { qcommandlinkbutton_focuspreviouschild_isbase = value; }
-    void setQCommandLinkButton_Sender_IsBase(bool value) const { qcommandlinkbutton_sender_isbase = value; }
-    void setQCommandLinkButton_SenderSignalIndex_IsBase(bool value) const { qcommandlinkbutton_sendersignalindex_isbase = value; }
-    void setQCommandLinkButton_Receivers_IsBase(bool value) const { qcommandlinkbutton_receivers_isbase = value; }
-    void setQCommandLinkButton_IsSignalConnected_IsBase(bool value) const { qcommandlinkbutton_issignalconnected_isbase = value; }
+    inline void setQCommandLinkButton_Metacall_IsBase(bool value) const { qcommandlinkbutton_metacall_isbase = value; }
+    inline void setQCommandLinkButton_SizeHint_IsBase(bool value) const { qcommandlinkbutton_sizehint_isbase = value; }
+    inline void setQCommandLinkButton_HeightForWidth_IsBase(bool value) const { qcommandlinkbutton_heightforwidth_isbase = value; }
+    inline void setQCommandLinkButton_MinimumSizeHint_IsBase(bool value) const { qcommandlinkbutton_minimumsizehint_isbase = value; }
+    inline void setQCommandLinkButton_InitStyleOption_IsBase(bool value) const { qcommandlinkbutton_initstyleoption_isbase = value; }
+    inline void setQCommandLinkButton_Event_IsBase(bool value) const { qcommandlinkbutton_event_isbase = value; }
+    inline void setQCommandLinkButton_PaintEvent_IsBase(bool value) const { qcommandlinkbutton_paintevent_isbase = value; }
+    inline void setQCommandLinkButton_KeyPressEvent_IsBase(bool value) const { qcommandlinkbutton_keypressevent_isbase = value; }
+    inline void setQCommandLinkButton_FocusInEvent_IsBase(bool value) const { qcommandlinkbutton_focusinevent_isbase = value; }
+    inline void setQCommandLinkButton_FocusOutEvent_IsBase(bool value) const { qcommandlinkbutton_focusoutevent_isbase = value; }
+    inline void setQCommandLinkButton_MouseMoveEvent_IsBase(bool value) const { qcommandlinkbutton_mousemoveevent_isbase = value; }
+    inline void setQCommandLinkButton_HitButton_IsBase(bool value) const { qcommandlinkbutton_hitbutton_isbase = value; }
+    inline void setQCommandLinkButton_CheckStateSet_IsBase(bool value) const { qcommandlinkbutton_checkstateset_isbase = value; }
+    inline void setQCommandLinkButton_NextCheckState_IsBase(bool value) const { qcommandlinkbutton_nextcheckstate_isbase = value; }
+    inline void setQCommandLinkButton_KeyReleaseEvent_IsBase(bool value) const { qcommandlinkbutton_keyreleaseevent_isbase = value; }
+    inline void setQCommandLinkButton_MousePressEvent_IsBase(bool value) const { qcommandlinkbutton_mousepressevent_isbase = value; }
+    inline void setQCommandLinkButton_MouseReleaseEvent_IsBase(bool value) const { qcommandlinkbutton_mousereleaseevent_isbase = value; }
+    inline void setQCommandLinkButton_ChangeEvent_IsBase(bool value) const { qcommandlinkbutton_changeevent_isbase = value; }
+    inline void setQCommandLinkButton_TimerEvent_IsBase(bool value) const { qcommandlinkbutton_timerevent_isbase = value; }
+    inline void setQCommandLinkButton_DevType_IsBase(bool value) const { qcommandlinkbutton_devtype_isbase = value; }
+    inline void setQCommandLinkButton_SetVisible_IsBase(bool value) const { qcommandlinkbutton_setvisible_isbase = value; }
+    inline void setQCommandLinkButton_HasHeightForWidth_IsBase(bool value) const { qcommandlinkbutton_hasheightforwidth_isbase = value; }
+    inline void setQCommandLinkButton_PaintEngine_IsBase(bool value) const { qcommandlinkbutton_paintengine_isbase = value; }
+    inline void setQCommandLinkButton_MouseDoubleClickEvent_IsBase(bool value) const { qcommandlinkbutton_mousedoubleclickevent_isbase = value; }
+    inline void setQCommandLinkButton_WheelEvent_IsBase(bool value) const { qcommandlinkbutton_wheelevent_isbase = value; }
+    inline void setQCommandLinkButton_EnterEvent_IsBase(bool value) const { qcommandlinkbutton_enterevent_isbase = value; }
+    inline void setQCommandLinkButton_LeaveEvent_IsBase(bool value) const { qcommandlinkbutton_leaveevent_isbase = value; }
+    inline void setQCommandLinkButton_MoveEvent_IsBase(bool value) const { qcommandlinkbutton_moveevent_isbase = value; }
+    inline void setQCommandLinkButton_ResizeEvent_IsBase(bool value) const { qcommandlinkbutton_resizeevent_isbase = value; }
+    inline void setQCommandLinkButton_CloseEvent_IsBase(bool value) const { qcommandlinkbutton_closeevent_isbase = value; }
+    inline void setQCommandLinkButton_ContextMenuEvent_IsBase(bool value) const { qcommandlinkbutton_contextmenuevent_isbase = value; }
+    inline void setQCommandLinkButton_TabletEvent_IsBase(bool value) const { qcommandlinkbutton_tabletevent_isbase = value; }
+    inline void setQCommandLinkButton_ActionEvent_IsBase(bool value) const { qcommandlinkbutton_actionevent_isbase = value; }
+    inline void setQCommandLinkButton_DragEnterEvent_IsBase(bool value) const { qcommandlinkbutton_dragenterevent_isbase = value; }
+    inline void setQCommandLinkButton_DragMoveEvent_IsBase(bool value) const { qcommandlinkbutton_dragmoveevent_isbase = value; }
+    inline void setQCommandLinkButton_DragLeaveEvent_IsBase(bool value) const { qcommandlinkbutton_dragleaveevent_isbase = value; }
+    inline void setQCommandLinkButton_DropEvent_IsBase(bool value) const { qcommandlinkbutton_dropevent_isbase = value; }
+    inline void setQCommandLinkButton_ShowEvent_IsBase(bool value) const { qcommandlinkbutton_showevent_isbase = value; }
+    inline void setQCommandLinkButton_HideEvent_IsBase(bool value) const { qcommandlinkbutton_hideevent_isbase = value; }
+    inline void setQCommandLinkButton_NativeEvent_IsBase(bool value) const { qcommandlinkbutton_nativeevent_isbase = value; }
+    inline void setQCommandLinkButton_Metric_IsBase(bool value) const { qcommandlinkbutton_metric_isbase = value; }
+    inline void setQCommandLinkButton_InitPainter_IsBase(bool value) const { qcommandlinkbutton_initpainter_isbase = value; }
+    inline void setQCommandLinkButton_Redirected_IsBase(bool value) const { qcommandlinkbutton_redirected_isbase = value; }
+    inline void setQCommandLinkButton_SharedPainter_IsBase(bool value) const { qcommandlinkbutton_sharedpainter_isbase = value; }
+    inline void setQCommandLinkButton_InputMethodEvent_IsBase(bool value) const { qcommandlinkbutton_inputmethodevent_isbase = value; }
+    inline void setQCommandLinkButton_InputMethodQuery_IsBase(bool value) const { qcommandlinkbutton_inputmethodquery_isbase = value; }
+    inline void setQCommandLinkButton_FocusNextPrevChild_IsBase(bool value) const { qcommandlinkbutton_focusnextprevchild_isbase = value; }
+    inline void setQCommandLinkButton_EventFilter_IsBase(bool value) const { qcommandlinkbutton_eventfilter_isbase = value; }
+    inline void setQCommandLinkButton_ChildEvent_IsBase(bool value) const { qcommandlinkbutton_childevent_isbase = value; }
+    inline void setQCommandLinkButton_CustomEvent_IsBase(bool value) const { qcommandlinkbutton_customevent_isbase = value; }
+    inline void setQCommandLinkButton_ConnectNotify_IsBase(bool value) const { qcommandlinkbutton_connectnotify_isbase = value; }
+    inline void setQCommandLinkButton_DisconnectNotify_IsBase(bool value) const { qcommandlinkbutton_disconnectnotify_isbase = value; }
+    inline void setQCommandLinkButton_UpdateMicroFocus_IsBase(bool value) const { qcommandlinkbutton_updatemicrofocus_isbase = value; }
+    inline void setQCommandLinkButton_Create_IsBase(bool value) const { qcommandlinkbutton_create_isbase = value; }
+    inline void setQCommandLinkButton_Destroy_IsBase(bool value) const { qcommandlinkbutton_destroy_isbase = value; }
+    inline void setQCommandLinkButton_FocusNextChild_IsBase(bool value) const { qcommandlinkbutton_focusnextchild_isbase = value; }
+    inline void setQCommandLinkButton_FocusPreviousChild_IsBase(bool value) const { qcommandlinkbutton_focuspreviouschild_isbase = value; }
+    inline void setQCommandLinkButton_Sender_IsBase(bool value) const { qcommandlinkbutton_sender_isbase = value; }
+    inline void setQCommandLinkButton_SenderSignalIndex_IsBase(bool value) const { qcommandlinkbutton_sendersignalindex_isbase = value; }
+    inline void setQCommandLinkButton_Receivers_IsBase(bool value) const { qcommandlinkbutton_receivers_isbase = value; }
+    inline void setQCommandLinkButton_IsSignalConnected_IsBase(bool value) const { qcommandlinkbutton_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -408,7 +411,12 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_metacall_isbase = false;
             return QCommandLinkButton::qt_metacall(param1, param2, param3);
         } else if (qcommandlinkbutton_metacall_callback != nullptr) {
-            return qcommandlinkbutton_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qcommandlinkbutton_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QCommandLinkButton::qt_metacall(param1, param2, param3);
         }
@@ -420,7 +428,8 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_sizehint_isbase = false;
             return QCommandLinkButton::sizeHint();
         } else if (qcommandlinkbutton_sizehint_callback != nullptr) {
-            return qcommandlinkbutton_sizehint_callback();
+            QSize* callback_ret = qcommandlinkbutton_sizehint_callback();
+            return *callback_ret;
         } else {
             return QCommandLinkButton::sizeHint();
         }
@@ -432,7 +441,10 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_heightforwidth_isbase = false;
             return QCommandLinkButton::heightForWidth(param1);
         } else if (qcommandlinkbutton_heightforwidth_callback != nullptr) {
-            return qcommandlinkbutton_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qcommandlinkbutton_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QCommandLinkButton::heightForWidth(param1);
         }
@@ -444,7 +456,8 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_minimumsizehint_isbase = false;
             return QCommandLinkButton::minimumSizeHint();
         } else if (qcommandlinkbutton_minimumsizehint_callback != nullptr) {
-            return qcommandlinkbutton_minimumsizehint_callback();
+            QSize* callback_ret = qcommandlinkbutton_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QCommandLinkButton::minimumSizeHint();
         }
@@ -456,7 +469,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_initstyleoption_isbase = false;
             QCommandLinkButton::initStyleOption(option);
         } else if (qcommandlinkbutton_initstyleoption_callback != nullptr) {
-            qcommandlinkbutton_initstyleoption_callback(this, option);
+            QStyleOptionButton* cbval1 = option;
+
+            qcommandlinkbutton_initstyleoption_callback(this, cbval1);
         } else {
             QCommandLinkButton::initStyleOption(option);
         }
@@ -468,7 +483,10 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_event_isbase = false;
             return QCommandLinkButton::event(e);
         } else if (qcommandlinkbutton_event_callback != nullptr) {
-            return qcommandlinkbutton_event_callback(this, e);
+            QEvent* cbval1 = e;
+
+            bool callback_ret = qcommandlinkbutton_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QCommandLinkButton::event(e);
         }
@@ -480,7 +498,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_paintevent_isbase = false;
             QCommandLinkButton::paintEvent(param1);
         } else if (qcommandlinkbutton_paintevent_callback != nullptr) {
-            qcommandlinkbutton_paintevent_callback(this, param1);
+            QPaintEvent* cbval1 = param1;
+
+            qcommandlinkbutton_paintevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::paintEvent(param1);
         }
@@ -492,7 +512,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_keypressevent_isbase = false;
             QCommandLinkButton::keyPressEvent(param1);
         } else if (qcommandlinkbutton_keypressevent_callback != nullptr) {
-            qcommandlinkbutton_keypressevent_callback(this, param1);
+            QKeyEvent* cbval1 = param1;
+
+            qcommandlinkbutton_keypressevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::keyPressEvent(param1);
         }
@@ -504,7 +526,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_focusinevent_isbase = false;
             QCommandLinkButton::focusInEvent(param1);
         } else if (qcommandlinkbutton_focusinevent_callback != nullptr) {
-            qcommandlinkbutton_focusinevent_callback(this, param1);
+            QFocusEvent* cbval1 = param1;
+
+            qcommandlinkbutton_focusinevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::focusInEvent(param1);
         }
@@ -516,7 +540,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_focusoutevent_isbase = false;
             QCommandLinkButton::focusOutEvent(param1);
         } else if (qcommandlinkbutton_focusoutevent_callback != nullptr) {
-            qcommandlinkbutton_focusoutevent_callback(this, param1);
+            QFocusEvent* cbval1 = param1;
+
+            qcommandlinkbutton_focusoutevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::focusOutEvent(param1);
         }
@@ -528,7 +554,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_mousemoveevent_isbase = false;
             QCommandLinkButton::mouseMoveEvent(param1);
         } else if (qcommandlinkbutton_mousemoveevent_callback != nullptr) {
-            qcommandlinkbutton_mousemoveevent_callback(this, param1);
+            QMouseEvent* cbval1 = param1;
+
+            qcommandlinkbutton_mousemoveevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::mouseMoveEvent(param1);
         }
@@ -540,7 +568,12 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_hitbutton_isbase = false;
             return QCommandLinkButton::hitButton(pos);
         } else if (qcommandlinkbutton_hitbutton_callback != nullptr) {
-            return qcommandlinkbutton_hitbutton_callback(this, pos);
+            const QPoint& pos_ret = pos;
+            // Cast returned reference into pointer
+            QPoint* cbval1 = const_cast<QPoint*>(&pos_ret);
+
+            bool callback_ret = qcommandlinkbutton_hitbutton_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QCommandLinkButton::hitButton(pos);
         }
@@ -576,7 +609,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_keyreleaseevent_isbase = false;
             QCommandLinkButton::keyReleaseEvent(e);
         } else if (qcommandlinkbutton_keyreleaseevent_callback != nullptr) {
-            qcommandlinkbutton_keyreleaseevent_callback(this, e);
+            QKeyEvent* cbval1 = e;
+
+            qcommandlinkbutton_keyreleaseevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::keyReleaseEvent(e);
         }
@@ -588,7 +623,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_mousepressevent_isbase = false;
             QCommandLinkButton::mousePressEvent(e);
         } else if (qcommandlinkbutton_mousepressevent_callback != nullptr) {
-            qcommandlinkbutton_mousepressevent_callback(this, e);
+            QMouseEvent* cbval1 = e;
+
+            qcommandlinkbutton_mousepressevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::mousePressEvent(e);
         }
@@ -600,7 +637,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_mousereleaseevent_isbase = false;
             QCommandLinkButton::mouseReleaseEvent(e);
         } else if (qcommandlinkbutton_mousereleaseevent_callback != nullptr) {
-            qcommandlinkbutton_mousereleaseevent_callback(this, e);
+            QMouseEvent* cbval1 = e;
+
+            qcommandlinkbutton_mousereleaseevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::mouseReleaseEvent(e);
         }
@@ -612,7 +651,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_changeevent_isbase = false;
             QCommandLinkButton::changeEvent(e);
         } else if (qcommandlinkbutton_changeevent_callback != nullptr) {
-            qcommandlinkbutton_changeevent_callback(this, e);
+            QEvent* cbval1 = e;
+
+            qcommandlinkbutton_changeevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::changeEvent(e);
         }
@@ -624,7 +665,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_timerevent_isbase = false;
             QCommandLinkButton::timerEvent(e);
         } else if (qcommandlinkbutton_timerevent_callback != nullptr) {
-            qcommandlinkbutton_timerevent_callback(this, e);
+            QTimerEvent* cbval1 = e;
+
+            qcommandlinkbutton_timerevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::timerEvent(e);
         }
@@ -636,7 +679,8 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_devtype_isbase = false;
             return QCommandLinkButton::devType();
         } else if (qcommandlinkbutton_devtype_callback != nullptr) {
-            return qcommandlinkbutton_devtype_callback();
+            int callback_ret = qcommandlinkbutton_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QCommandLinkButton::devType();
         }
@@ -648,7 +692,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_setvisible_isbase = false;
             QCommandLinkButton::setVisible(visible);
         } else if (qcommandlinkbutton_setvisible_callback != nullptr) {
-            qcommandlinkbutton_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qcommandlinkbutton_setvisible_callback(this, cbval1);
         } else {
             QCommandLinkButton::setVisible(visible);
         }
@@ -660,7 +706,8 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_hasheightforwidth_isbase = false;
             return QCommandLinkButton::hasHeightForWidth();
         } else if (qcommandlinkbutton_hasheightforwidth_callback != nullptr) {
-            return qcommandlinkbutton_hasheightforwidth_callback();
+            bool callback_ret = qcommandlinkbutton_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QCommandLinkButton::hasHeightForWidth();
         }
@@ -672,7 +719,8 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_paintengine_isbase = false;
             return QCommandLinkButton::paintEngine();
         } else if (qcommandlinkbutton_paintengine_callback != nullptr) {
-            return qcommandlinkbutton_paintengine_callback();
+            QPaintEngine* callback_ret = qcommandlinkbutton_paintengine_callback();
+            return callback_ret;
         } else {
             return QCommandLinkButton::paintEngine();
         }
@@ -684,7 +732,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_mousedoubleclickevent_isbase = false;
             QCommandLinkButton::mouseDoubleClickEvent(event);
         } else if (qcommandlinkbutton_mousedoubleclickevent_callback != nullptr) {
-            qcommandlinkbutton_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qcommandlinkbutton_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::mouseDoubleClickEvent(event);
         }
@@ -696,7 +746,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_wheelevent_isbase = false;
             QCommandLinkButton::wheelEvent(event);
         } else if (qcommandlinkbutton_wheelevent_callback != nullptr) {
-            qcommandlinkbutton_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qcommandlinkbutton_wheelevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::wheelEvent(event);
         }
@@ -708,7 +760,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_enterevent_isbase = false;
             QCommandLinkButton::enterEvent(event);
         } else if (qcommandlinkbutton_enterevent_callback != nullptr) {
-            qcommandlinkbutton_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qcommandlinkbutton_enterevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::enterEvent(event);
         }
@@ -720,7 +774,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_leaveevent_isbase = false;
             QCommandLinkButton::leaveEvent(event);
         } else if (qcommandlinkbutton_leaveevent_callback != nullptr) {
-            qcommandlinkbutton_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qcommandlinkbutton_leaveevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::leaveEvent(event);
         }
@@ -732,7 +788,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_moveevent_isbase = false;
             QCommandLinkButton::moveEvent(event);
         } else if (qcommandlinkbutton_moveevent_callback != nullptr) {
-            qcommandlinkbutton_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qcommandlinkbutton_moveevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::moveEvent(event);
         }
@@ -744,7 +802,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_resizeevent_isbase = false;
             QCommandLinkButton::resizeEvent(event);
         } else if (qcommandlinkbutton_resizeevent_callback != nullptr) {
-            qcommandlinkbutton_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qcommandlinkbutton_resizeevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::resizeEvent(event);
         }
@@ -756,7 +816,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_closeevent_isbase = false;
             QCommandLinkButton::closeEvent(event);
         } else if (qcommandlinkbutton_closeevent_callback != nullptr) {
-            qcommandlinkbutton_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qcommandlinkbutton_closeevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::closeEvent(event);
         }
@@ -768,7 +830,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_contextmenuevent_isbase = false;
             QCommandLinkButton::contextMenuEvent(event);
         } else if (qcommandlinkbutton_contextmenuevent_callback != nullptr) {
-            qcommandlinkbutton_contextmenuevent_callback(this, event);
+            QContextMenuEvent* cbval1 = event;
+
+            qcommandlinkbutton_contextmenuevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::contextMenuEvent(event);
         }
@@ -780,7 +844,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_tabletevent_isbase = false;
             QCommandLinkButton::tabletEvent(event);
         } else if (qcommandlinkbutton_tabletevent_callback != nullptr) {
-            qcommandlinkbutton_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qcommandlinkbutton_tabletevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::tabletEvent(event);
         }
@@ -792,7 +858,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_actionevent_isbase = false;
             QCommandLinkButton::actionEvent(event);
         } else if (qcommandlinkbutton_actionevent_callback != nullptr) {
-            qcommandlinkbutton_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qcommandlinkbutton_actionevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::actionEvent(event);
         }
@@ -804,7 +872,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_dragenterevent_isbase = false;
             QCommandLinkButton::dragEnterEvent(event);
         } else if (qcommandlinkbutton_dragenterevent_callback != nullptr) {
-            qcommandlinkbutton_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qcommandlinkbutton_dragenterevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::dragEnterEvent(event);
         }
@@ -816,7 +886,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_dragmoveevent_isbase = false;
             QCommandLinkButton::dragMoveEvent(event);
         } else if (qcommandlinkbutton_dragmoveevent_callback != nullptr) {
-            qcommandlinkbutton_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qcommandlinkbutton_dragmoveevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::dragMoveEvent(event);
         }
@@ -828,7 +900,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_dragleaveevent_isbase = false;
             QCommandLinkButton::dragLeaveEvent(event);
         } else if (qcommandlinkbutton_dragleaveevent_callback != nullptr) {
-            qcommandlinkbutton_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qcommandlinkbutton_dragleaveevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::dragLeaveEvent(event);
         }
@@ -840,7 +914,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_dropevent_isbase = false;
             QCommandLinkButton::dropEvent(event);
         } else if (qcommandlinkbutton_dropevent_callback != nullptr) {
-            qcommandlinkbutton_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qcommandlinkbutton_dropevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::dropEvent(event);
         }
@@ -852,7 +928,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_showevent_isbase = false;
             QCommandLinkButton::showEvent(event);
         } else if (qcommandlinkbutton_showevent_callback != nullptr) {
-            qcommandlinkbutton_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qcommandlinkbutton_showevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::showEvent(event);
         }
@@ -864,7 +942,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_hideevent_isbase = false;
             QCommandLinkButton::hideEvent(event);
         } else if (qcommandlinkbutton_hideevent_callback != nullptr) {
-            qcommandlinkbutton_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qcommandlinkbutton_hideevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::hideEvent(event);
         }
@@ -876,7 +956,19 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_nativeevent_isbase = false;
             return QCommandLinkButton::nativeEvent(eventType, message, result);
         } else if (qcommandlinkbutton_nativeevent_callback != nullptr) {
-            return qcommandlinkbutton_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qcommandlinkbutton_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QCommandLinkButton::nativeEvent(eventType, message, result);
         }
@@ -888,7 +980,10 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_metric_isbase = false;
             return QCommandLinkButton::metric(param1);
         } else if (qcommandlinkbutton_metric_callback != nullptr) {
-            return qcommandlinkbutton_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qcommandlinkbutton_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QCommandLinkButton::metric(param1);
         }
@@ -900,7 +995,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_initpainter_isbase = false;
             QCommandLinkButton::initPainter(painter);
         } else if (qcommandlinkbutton_initpainter_callback != nullptr) {
-            qcommandlinkbutton_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qcommandlinkbutton_initpainter_callback(this, cbval1);
         } else {
             QCommandLinkButton::initPainter(painter);
         }
@@ -912,7 +1009,10 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_redirected_isbase = false;
             return QCommandLinkButton::redirected(offset);
         } else if (qcommandlinkbutton_redirected_callback != nullptr) {
-            return qcommandlinkbutton_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qcommandlinkbutton_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QCommandLinkButton::redirected(offset);
         }
@@ -924,7 +1024,8 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_sharedpainter_isbase = false;
             return QCommandLinkButton::sharedPainter();
         } else if (qcommandlinkbutton_sharedpainter_callback != nullptr) {
-            return qcommandlinkbutton_sharedpainter_callback();
+            QPainter* callback_ret = qcommandlinkbutton_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QCommandLinkButton::sharedPainter();
         }
@@ -936,7 +1037,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_inputmethodevent_isbase = false;
             QCommandLinkButton::inputMethodEvent(param1);
         } else if (qcommandlinkbutton_inputmethodevent_callback != nullptr) {
-            qcommandlinkbutton_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qcommandlinkbutton_inputmethodevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::inputMethodEvent(param1);
         }
@@ -948,7 +1051,10 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_inputmethodquery_isbase = false;
             return QCommandLinkButton::inputMethodQuery(param1);
         } else if (qcommandlinkbutton_inputmethodquery_callback != nullptr) {
-            return qcommandlinkbutton_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qcommandlinkbutton_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QCommandLinkButton::inputMethodQuery(param1);
         }
@@ -960,7 +1066,10 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_focusnextprevchild_isbase = false;
             return QCommandLinkButton::focusNextPrevChild(next);
         } else if (qcommandlinkbutton_focusnextprevchild_callback != nullptr) {
-            return qcommandlinkbutton_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qcommandlinkbutton_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QCommandLinkButton::focusNextPrevChild(next);
         }
@@ -972,7 +1081,11 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_eventfilter_isbase = false;
             return QCommandLinkButton::eventFilter(watched, event);
         } else if (qcommandlinkbutton_eventfilter_callback != nullptr) {
-            return qcommandlinkbutton_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qcommandlinkbutton_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QCommandLinkButton::eventFilter(watched, event);
         }
@@ -984,7 +1097,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_childevent_isbase = false;
             QCommandLinkButton::childEvent(event);
         } else if (qcommandlinkbutton_childevent_callback != nullptr) {
-            qcommandlinkbutton_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qcommandlinkbutton_childevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::childEvent(event);
         }
@@ -996,7 +1111,9 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_customevent_isbase = false;
             QCommandLinkButton::customEvent(event);
         } else if (qcommandlinkbutton_customevent_callback != nullptr) {
-            qcommandlinkbutton_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qcommandlinkbutton_customevent_callback(this, cbval1);
         } else {
             QCommandLinkButton::customEvent(event);
         }
@@ -1008,7 +1125,11 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_connectnotify_isbase = false;
             QCommandLinkButton::connectNotify(signal);
         } else if (qcommandlinkbutton_connectnotify_callback != nullptr) {
-            qcommandlinkbutton_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qcommandlinkbutton_connectnotify_callback(this, cbval1);
         } else {
             QCommandLinkButton::connectNotify(signal);
         }
@@ -1020,7 +1141,11 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_disconnectnotify_isbase = false;
             QCommandLinkButton::disconnectNotify(signal);
         } else if (qcommandlinkbutton_disconnectnotify_callback != nullptr) {
-            qcommandlinkbutton_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qcommandlinkbutton_disconnectnotify_callback(this, cbval1);
         } else {
             QCommandLinkButton::disconnectNotify(signal);
         }
@@ -1068,7 +1193,8 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_focusnextchild_isbase = false;
             return QCommandLinkButton::focusNextChild();
         } else if (qcommandlinkbutton_focusnextchild_callback != nullptr) {
-            return qcommandlinkbutton_focusnextchild_callback();
+            bool callback_ret = qcommandlinkbutton_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QCommandLinkButton::focusNextChild();
         }
@@ -1080,7 +1206,8 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_focuspreviouschild_isbase = false;
             return QCommandLinkButton::focusPreviousChild();
         } else if (qcommandlinkbutton_focuspreviouschild_callback != nullptr) {
-            return qcommandlinkbutton_focuspreviouschild_callback();
+            bool callback_ret = qcommandlinkbutton_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QCommandLinkButton::focusPreviousChild();
         }
@@ -1092,7 +1219,8 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_sender_isbase = false;
             return QCommandLinkButton::sender();
         } else if (qcommandlinkbutton_sender_callback != nullptr) {
-            return qcommandlinkbutton_sender_callback();
+            QObject* callback_ret = qcommandlinkbutton_sender_callback();
+            return callback_ret;
         } else {
             return QCommandLinkButton::sender();
         }
@@ -1104,7 +1232,8 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_sendersignalindex_isbase = false;
             return QCommandLinkButton::senderSignalIndex();
         } else if (qcommandlinkbutton_sendersignalindex_callback != nullptr) {
-            return qcommandlinkbutton_sendersignalindex_callback();
+            int callback_ret = qcommandlinkbutton_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QCommandLinkButton::senderSignalIndex();
         }
@@ -1116,7 +1245,10 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_receivers_isbase = false;
             return QCommandLinkButton::receivers(signal);
         } else if (qcommandlinkbutton_receivers_callback != nullptr) {
-            return qcommandlinkbutton_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qcommandlinkbutton_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QCommandLinkButton::receivers(signal);
         }
@@ -1128,11 +1260,118 @@ class VirtualQCommandLinkButton : public QCommandLinkButton {
             qcommandlinkbutton_issignalconnected_isbase = false;
             return QCommandLinkButton::isSignalConnected(signal);
         } else if (qcommandlinkbutton_issignalconnected_callback != nullptr) {
-            return qcommandlinkbutton_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qcommandlinkbutton_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QCommandLinkButton::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QCommandLinkButton_Event(QCommandLinkButton* self, QEvent* e);
+    friend bool QCommandLinkButton_QBaseEvent(QCommandLinkButton* self, QEvent* e);
+    friend void QCommandLinkButton_PaintEvent(QCommandLinkButton* self, QPaintEvent* param1);
+    friend void QCommandLinkButton_QBasePaintEvent(QCommandLinkButton* self, QPaintEvent* param1);
+    friend void QCommandLinkButton_KeyPressEvent(QCommandLinkButton* self, QKeyEvent* param1);
+    friend void QCommandLinkButton_QBaseKeyPressEvent(QCommandLinkButton* self, QKeyEvent* param1);
+    friend void QCommandLinkButton_FocusInEvent(QCommandLinkButton* self, QFocusEvent* param1);
+    friend void QCommandLinkButton_QBaseFocusInEvent(QCommandLinkButton* self, QFocusEvent* param1);
+    friend void QCommandLinkButton_FocusOutEvent(QCommandLinkButton* self, QFocusEvent* param1);
+    friend void QCommandLinkButton_QBaseFocusOutEvent(QCommandLinkButton* self, QFocusEvent* param1);
+    friend void QCommandLinkButton_MouseMoveEvent(QCommandLinkButton* self, QMouseEvent* param1);
+    friend void QCommandLinkButton_QBaseMouseMoveEvent(QCommandLinkButton* self, QMouseEvent* param1);
+    friend bool QCommandLinkButton_HitButton(const QCommandLinkButton* self, const QPoint* pos);
+    friend bool QCommandLinkButton_QBaseHitButton(const QCommandLinkButton* self, const QPoint* pos);
+    friend void QCommandLinkButton_CheckStateSet(QCommandLinkButton* self);
+    friend void QCommandLinkButton_QBaseCheckStateSet(QCommandLinkButton* self);
+    friend void QCommandLinkButton_NextCheckState(QCommandLinkButton* self);
+    friend void QCommandLinkButton_QBaseNextCheckState(QCommandLinkButton* self);
+    friend void QCommandLinkButton_KeyReleaseEvent(QCommandLinkButton* self, QKeyEvent* e);
+    friend void QCommandLinkButton_QBaseKeyReleaseEvent(QCommandLinkButton* self, QKeyEvent* e);
+    friend void QCommandLinkButton_MousePressEvent(QCommandLinkButton* self, QMouseEvent* e);
+    friend void QCommandLinkButton_QBaseMousePressEvent(QCommandLinkButton* self, QMouseEvent* e);
+    friend void QCommandLinkButton_MouseReleaseEvent(QCommandLinkButton* self, QMouseEvent* e);
+    friend void QCommandLinkButton_QBaseMouseReleaseEvent(QCommandLinkButton* self, QMouseEvent* e);
+    friend void QCommandLinkButton_ChangeEvent(QCommandLinkButton* self, QEvent* e);
+    friend void QCommandLinkButton_QBaseChangeEvent(QCommandLinkButton* self, QEvent* e);
+    friend void QCommandLinkButton_TimerEvent(QCommandLinkButton* self, QTimerEvent* e);
+    friend void QCommandLinkButton_QBaseTimerEvent(QCommandLinkButton* self, QTimerEvent* e);
+    friend void QCommandLinkButton_MouseDoubleClickEvent(QCommandLinkButton* self, QMouseEvent* event);
+    friend void QCommandLinkButton_QBaseMouseDoubleClickEvent(QCommandLinkButton* self, QMouseEvent* event);
+    friend void QCommandLinkButton_WheelEvent(QCommandLinkButton* self, QWheelEvent* event);
+    friend void QCommandLinkButton_QBaseWheelEvent(QCommandLinkButton* self, QWheelEvent* event);
+    friend void QCommandLinkButton_EnterEvent(QCommandLinkButton* self, QEnterEvent* event);
+    friend void QCommandLinkButton_QBaseEnterEvent(QCommandLinkButton* self, QEnterEvent* event);
+    friend void QCommandLinkButton_LeaveEvent(QCommandLinkButton* self, QEvent* event);
+    friend void QCommandLinkButton_QBaseLeaveEvent(QCommandLinkButton* self, QEvent* event);
+    friend void QCommandLinkButton_MoveEvent(QCommandLinkButton* self, QMoveEvent* event);
+    friend void QCommandLinkButton_QBaseMoveEvent(QCommandLinkButton* self, QMoveEvent* event);
+    friend void QCommandLinkButton_ResizeEvent(QCommandLinkButton* self, QResizeEvent* event);
+    friend void QCommandLinkButton_QBaseResizeEvent(QCommandLinkButton* self, QResizeEvent* event);
+    friend void QCommandLinkButton_CloseEvent(QCommandLinkButton* self, QCloseEvent* event);
+    friend void QCommandLinkButton_QBaseCloseEvent(QCommandLinkButton* self, QCloseEvent* event);
+    friend void QCommandLinkButton_ContextMenuEvent(QCommandLinkButton* self, QContextMenuEvent* event);
+    friend void QCommandLinkButton_QBaseContextMenuEvent(QCommandLinkButton* self, QContextMenuEvent* event);
+    friend void QCommandLinkButton_TabletEvent(QCommandLinkButton* self, QTabletEvent* event);
+    friend void QCommandLinkButton_QBaseTabletEvent(QCommandLinkButton* self, QTabletEvent* event);
+    friend void QCommandLinkButton_ActionEvent(QCommandLinkButton* self, QActionEvent* event);
+    friend void QCommandLinkButton_QBaseActionEvent(QCommandLinkButton* self, QActionEvent* event);
+    friend void QCommandLinkButton_DragEnterEvent(QCommandLinkButton* self, QDragEnterEvent* event);
+    friend void QCommandLinkButton_QBaseDragEnterEvent(QCommandLinkButton* self, QDragEnterEvent* event);
+    friend void QCommandLinkButton_DragMoveEvent(QCommandLinkButton* self, QDragMoveEvent* event);
+    friend void QCommandLinkButton_QBaseDragMoveEvent(QCommandLinkButton* self, QDragMoveEvent* event);
+    friend void QCommandLinkButton_DragLeaveEvent(QCommandLinkButton* self, QDragLeaveEvent* event);
+    friend void QCommandLinkButton_QBaseDragLeaveEvent(QCommandLinkButton* self, QDragLeaveEvent* event);
+    friend void QCommandLinkButton_DropEvent(QCommandLinkButton* self, QDropEvent* event);
+    friend void QCommandLinkButton_QBaseDropEvent(QCommandLinkButton* self, QDropEvent* event);
+    friend void QCommandLinkButton_ShowEvent(QCommandLinkButton* self, QShowEvent* event);
+    friend void QCommandLinkButton_QBaseShowEvent(QCommandLinkButton* self, QShowEvent* event);
+    friend void QCommandLinkButton_HideEvent(QCommandLinkButton* self, QHideEvent* event);
+    friend void QCommandLinkButton_QBaseHideEvent(QCommandLinkButton* self, QHideEvent* event);
+    friend bool QCommandLinkButton_NativeEvent(QCommandLinkButton* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QCommandLinkButton_QBaseNativeEvent(QCommandLinkButton* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QCommandLinkButton_Metric(const QCommandLinkButton* self, int param1);
+    friend int QCommandLinkButton_QBaseMetric(const QCommandLinkButton* self, int param1);
+    friend void QCommandLinkButton_InitPainter(const QCommandLinkButton* self, QPainter* painter);
+    friend void QCommandLinkButton_QBaseInitPainter(const QCommandLinkButton* self, QPainter* painter);
+    friend QPaintDevice* QCommandLinkButton_Redirected(const QCommandLinkButton* self, QPoint* offset);
+    friend QPaintDevice* QCommandLinkButton_QBaseRedirected(const QCommandLinkButton* self, QPoint* offset);
+    friend QPainter* QCommandLinkButton_SharedPainter(const QCommandLinkButton* self);
+    friend QPainter* QCommandLinkButton_QBaseSharedPainter(const QCommandLinkButton* self);
+    friend void QCommandLinkButton_InputMethodEvent(QCommandLinkButton* self, QInputMethodEvent* param1);
+    friend void QCommandLinkButton_QBaseInputMethodEvent(QCommandLinkButton* self, QInputMethodEvent* param1);
+    friend bool QCommandLinkButton_FocusNextPrevChild(QCommandLinkButton* self, bool next);
+    friend bool QCommandLinkButton_QBaseFocusNextPrevChild(QCommandLinkButton* self, bool next);
+    friend void QCommandLinkButton_ChildEvent(QCommandLinkButton* self, QChildEvent* event);
+    friend void QCommandLinkButton_QBaseChildEvent(QCommandLinkButton* self, QChildEvent* event);
+    friend void QCommandLinkButton_CustomEvent(QCommandLinkButton* self, QEvent* event);
+    friend void QCommandLinkButton_QBaseCustomEvent(QCommandLinkButton* self, QEvent* event);
+    friend void QCommandLinkButton_ConnectNotify(QCommandLinkButton* self, const QMetaMethod* signal);
+    friend void QCommandLinkButton_QBaseConnectNotify(QCommandLinkButton* self, const QMetaMethod* signal);
+    friend void QCommandLinkButton_DisconnectNotify(QCommandLinkButton* self, const QMetaMethod* signal);
+    friend void QCommandLinkButton_QBaseDisconnectNotify(QCommandLinkButton* self, const QMetaMethod* signal);
+    friend void QCommandLinkButton_UpdateMicroFocus(QCommandLinkButton* self);
+    friend void QCommandLinkButton_QBaseUpdateMicroFocus(QCommandLinkButton* self);
+    friend void QCommandLinkButton_Create(QCommandLinkButton* self);
+    friend void QCommandLinkButton_QBaseCreate(QCommandLinkButton* self);
+    friend void QCommandLinkButton_Destroy(QCommandLinkButton* self);
+    friend void QCommandLinkButton_QBaseDestroy(QCommandLinkButton* self);
+    friend bool QCommandLinkButton_FocusNextChild(QCommandLinkButton* self);
+    friend bool QCommandLinkButton_QBaseFocusNextChild(QCommandLinkButton* self);
+    friend bool QCommandLinkButton_FocusPreviousChild(QCommandLinkButton* self);
+    friend bool QCommandLinkButton_QBaseFocusPreviousChild(QCommandLinkButton* self);
+    friend QObject* QCommandLinkButton_Sender(const QCommandLinkButton* self);
+    friend QObject* QCommandLinkButton_QBaseSender(const QCommandLinkButton* self);
+    friend int QCommandLinkButton_SenderSignalIndex(const QCommandLinkButton* self);
+    friend int QCommandLinkButton_QBaseSenderSignalIndex(const QCommandLinkButton* self);
+    friend int QCommandLinkButton_Receivers(const QCommandLinkButton* self, const char* signal);
+    friend int QCommandLinkButton_QBaseReceivers(const QCommandLinkButton* self, const char* signal);
+    friend bool QCommandLinkButton_IsSignalConnected(const QCommandLinkButton* self, const QMetaMethod* signal);
+    friend bool QCommandLinkButton_QBaseIsSignalConnected(const QCommandLinkButton* self, const QMetaMethod* signal);
 };
 
 #endif

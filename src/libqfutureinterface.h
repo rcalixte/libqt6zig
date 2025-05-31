@@ -30,9 +30,9 @@ typedef int State;      // C ABI enum
 #endif
 
 QFutureInterfaceBase* QFutureInterfaceBase_new();
-QFutureInterfaceBase* QFutureInterfaceBase_new2(QFutureInterfaceBase* other);
+QFutureInterfaceBase* QFutureInterfaceBase_new2(const QFutureInterfaceBase* other);
 QFutureInterfaceBase* QFutureInterfaceBase_new3(int initialState);
-void QFutureInterfaceBase_OperatorAssign(QFutureInterfaceBase* self, QFutureInterfaceBase* other);
+void QFutureInterfaceBase_OperatorAssign(QFutureInterfaceBase* self, const QFutureInterfaceBase* other);
 void QFutureInterfaceBase_ReportStarted(QFutureInterfaceBase* self);
 void QFutureInterfaceBase_ReportFinished(QFutureInterfaceBase* self);
 void QFutureInterfaceBase_ReportCanceled(QFutureInterfaceBase* self);
@@ -47,7 +47,7 @@ int QFutureInterfaceBase_ProgressMaximum(const QFutureInterfaceBase* self);
 bool QFutureInterfaceBase_IsProgressUpdateNeeded(const QFutureInterfaceBase* self);
 void QFutureInterfaceBase_SetProgressValue(QFutureInterfaceBase* self, int progressValue);
 int QFutureInterfaceBase_ProgressValue(const QFutureInterfaceBase* self);
-void QFutureInterfaceBase_SetProgressValueAndText(QFutureInterfaceBase* self, int progressValue, libqt_string progressText);
+void QFutureInterfaceBase_SetProgressValueAndText(QFutureInterfaceBase* self, int progressValue, const libqt_string progressText);
 libqt_string QFutureInterfaceBase_ProgressText(const QFutureInterfaceBase* self);
 void QFutureInterfaceBase_SetExpectedResultCount(QFutureInterfaceBase* self, int resultCount);
 int QFutureInterfaceBase_ExpectedResultCount(QFutureInterfaceBase* self);
@@ -79,8 +79,8 @@ void QFutureInterfaceBase_WaitForResume(QFutureInterfaceBase* self);
 void QFutureInterfaceBase_SuspendIfRequested(QFutureInterfaceBase* self);
 QMutex* QFutureInterfaceBase_Mutex(const QFutureInterfaceBase* self);
 bool QFutureInterfaceBase_HasException(const QFutureInterfaceBase* self);
-bool QFutureInterfaceBase_OperatorEqual(const QFutureInterfaceBase* self, QFutureInterfaceBase* other);
-bool QFutureInterfaceBase_OperatorNotEqual(const QFutureInterfaceBase* self, QFutureInterfaceBase* other);
+bool QFutureInterfaceBase_OperatorEqual(const QFutureInterfaceBase* self, const QFutureInterfaceBase* other);
+bool QFutureInterfaceBase_OperatorNotEqual(const QFutureInterfaceBase* self, const QFutureInterfaceBase* other);
 void QFutureInterfaceBase_Swap(QFutureInterfaceBase* self, QFutureInterfaceBase* other);
 bool QFutureInterfaceBase_IsChainCanceled(const QFutureInterfaceBase* self);
 void QFutureInterfaceBase_Delete(QFutureInterfaceBase* self);

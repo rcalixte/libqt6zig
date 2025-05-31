@@ -11,19 +11,22 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QStandardItem so that we can call protected methods
-class VirtualQStandardItem : public QStandardItem {
+class VirtualQStandardItem final : public QStandardItem {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQStandardItem = true;
+
     // Virtual class public types (including callbacks)
-    using QStandardItem_Data_Callback = QVariant (*)(const QStandardItem*, int);
-    using QStandardItem_MultiData_Callback = void (*)(const QStandardItem*, QModelRoleDataSpan);
-    using QStandardItem_SetData_Callback = void (*)(QStandardItem*, const QVariant&, int);
+    using QStandardItem_Data_Callback = QVariant* (*)(const QStandardItem*, int);
+    using QStandardItem_MultiData_Callback = void (*)(const QStandardItem*, QModelRoleDataSpan*);
+    using QStandardItem_SetData_Callback = void (*)(QStandardItem*, QVariant*, int);
     using QStandardItem_Clone_Callback = QStandardItem* (*)();
     using QStandardItem_Type_Callback = int (*)();
-    using QStandardItem_Read_Callback = void (*)(QStandardItem*, QDataStream&);
-    using QStandardItem_Write_Callback = void (*)(const QStandardItem*, QDataStream&);
-    using QStandardItem_OperatorLesser_Callback = bool (*)(const QStandardItem*, const QStandardItem&);
-    using QStandardItem_OperatorAssign_Callback = void (*)(QStandardItem*, const QStandardItem&);
+    using QStandardItem_Read_Callback = void (*)(QStandardItem*, QDataStream*);
+    using QStandardItem_Write_Callback = void (*)(const QStandardItem*, QDataStream*);
+    using QStandardItem_OperatorLesser_Callback = bool (*)(const QStandardItem*, QStandardItem*);
+    using QStandardItem_OperatorAssign_Callback = void (*)(QStandardItem*, QStandardItem*);
     using QStandardItem_EmitDataChanged_Callback = void (*)();
 
   protected:
@@ -72,28 +75,28 @@ class VirtualQStandardItem : public QStandardItem {
     }
 
     // Callback setters
-    void setQStandardItem_Data_Callback(QStandardItem_Data_Callback cb) { qstandarditem_data_callback = cb; }
-    void setQStandardItem_MultiData_Callback(QStandardItem_MultiData_Callback cb) { qstandarditem_multidata_callback = cb; }
-    void setQStandardItem_SetData_Callback(QStandardItem_SetData_Callback cb) { qstandarditem_setdata_callback = cb; }
-    void setQStandardItem_Clone_Callback(QStandardItem_Clone_Callback cb) { qstandarditem_clone_callback = cb; }
-    void setQStandardItem_Type_Callback(QStandardItem_Type_Callback cb) { qstandarditem_type_callback = cb; }
-    void setQStandardItem_Read_Callback(QStandardItem_Read_Callback cb) { qstandarditem_read_callback = cb; }
-    void setQStandardItem_Write_Callback(QStandardItem_Write_Callback cb) { qstandarditem_write_callback = cb; }
-    void setQStandardItem_OperatorLesser_Callback(QStandardItem_OperatorLesser_Callback cb) { qstandarditem_operatorlesser_callback = cb; }
-    void setQStandardItem_OperatorAssign_Callback(QStandardItem_OperatorAssign_Callback cb) { qstandarditem_operatorassign_callback = cb; }
-    void setQStandardItem_EmitDataChanged_Callback(QStandardItem_EmitDataChanged_Callback cb) { qstandarditem_emitdatachanged_callback = cb; }
+    inline void setQStandardItem_Data_Callback(QStandardItem_Data_Callback cb) { qstandarditem_data_callback = cb; }
+    inline void setQStandardItem_MultiData_Callback(QStandardItem_MultiData_Callback cb) { qstandarditem_multidata_callback = cb; }
+    inline void setQStandardItem_SetData_Callback(QStandardItem_SetData_Callback cb) { qstandarditem_setdata_callback = cb; }
+    inline void setQStandardItem_Clone_Callback(QStandardItem_Clone_Callback cb) { qstandarditem_clone_callback = cb; }
+    inline void setQStandardItem_Type_Callback(QStandardItem_Type_Callback cb) { qstandarditem_type_callback = cb; }
+    inline void setQStandardItem_Read_Callback(QStandardItem_Read_Callback cb) { qstandarditem_read_callback = cb; }
+    inline void setQStandardItem_Write_Callback(QStandardItem_Write_Callback cb) { qstandarditem_write_callback = cb; }
+    inline void setQStandardItem_OperatorLesser_Callback(QStandardItem_OperatorLesser_Callback cb) { qstandarditem_operatorlesser_callback = cb; }
+    inline void setQStandardItem_OperatorAssign_Callback(QStandardItem_OperatorAssign_Callback cb) { qstandarditem_operatorassign_callback = cb; }
+    inline void setQStandardItem_EmitDataChanged_Callback(QStandardItem_EmitDataChanged_Callback cb) { qstandarditem_emitdatachanged_callback = cb; }
 
     // Base flag setters
-    void setQStandardItem_Data_IsBase(bool value) const { qstandarditem_data_isbase = value; }
-    void setQStandardItem_MultiData_IsBase(bool value) const { qstandarditem_multidata_isbase = value; }
-    void setQStandardItem_SetData_IsBase(bool value) const { qstandarditem_setdata_isbase = value; }
-    void setQStandardItem_Clone_IsBase(bool value) const { qstandarditem_clone_isbase = value; }
-    void setQStandardItem_Type_IsBase(bool value) const { qstandarditem_type_isbase = value; }
-    void setQStandardItem_Read_IsBase(bool value) const { qstandarditem_read_isbase = value; }
-    void setQStandardItem_Write_IsBase(bool value) const { qstandarditem_write_isbase = value; }
-    void setQStandardItem_OperatorLesser_IsBase(bool value) const { qstandarditem_operatorlesser_isbase = value; }
-    void setQStandardItem_OperatorAssign_IsBase(bool value) const { qstandarditem_operatorassign_isbase = value; }
-    void setQStandardItem_EmitDataChanged_IsBase(bool value) const { qstandarditem_emitdatachanged_isbase = value; }
+    inline void setQStandardItem_Data_IsBase(bool value) const { qstandarditem_data_isbase = value; }
+    inline void setQStandardItem_MultiData_IsBase(bool value) const { qstandarditem_multidata_isbase = value; }
+    inline void setQStandardItem_SetData_IsBase(bool value) const { qstandarditem_setdata_isbase = value; }
+    inline void setQStandardItem_Clone_IsBase(bool value) const { qstandarditem_clone_isbase = value; }
+    inline void setQStandardItem_Type_IsBase(bool value) const { qstandarditem_type_isbase = value; }
+    inline void setQStandardItem_Read_IsBase(bool value) const { qstandarditem_read_isbase = value; }
+    inline void setQStandardItem_Write_IsBase(bool value) const { qstandarditem_write_isbase = value; }
+    inline void setQStandardItem_OperatorLesser_IsBase(bool value) const { qstandarditem_operatorlesser_isbase = value; }
+    inline void setQStandardItem_OperatorAssign_IsBase(bool value) const { qstandarditem_operatorassign_isbase = value; }
+    inline void setQStandardItem_EmitDataChanged_IsBase(bool value) const { qstandarditem_emitdatachanged_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant data(int role) const override {
@@ -101,7 +104,10 @@ class VirtualQStandardItem : public QStandardItem {
             qstandarditem_data_isbase = false;
             return QStandardItem::data(role);
         } else if (qstandarditem_data_callback != nullptr) {
-            return qstandarditem_data_callback(this, role);
+            int cbval1 = role;
+
+            QVariant* callback_ret = qstandarditem_data_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QStandardItem::data(role);
         }
@@ -113,7 +119,9 @@ class VirtualQStandardItem : public QStandardItem {
             qstandarditem_multidata_isbase = false;
             QStandardItem::multiData(roleDataSpan);
         } else if (qstandarditem_multidata_callback != nullptr) {
-            qstandarditem_multidata_callback(this, roleDataSpan);
+            QModelRoleDataSpan* cbval1 = new QModelRoleDataSpan(roleDataSpan);
+
+            qstandarditem_multidata_callback(this, cbval1);
         } else {
             QStandardItem::multiData(roleDataSpan);
         }
@@ -125,7 +133,12 @@ class VirtualQStandardItem : public QStandardItem {
             qstandarditem_setdata_isbase = false;
             QStandardItem::setData(value, role);
         } else if (qstandarditem_setdata_callback != nullptr) {
-            qstandarditem_setdata_callback(this, value, role);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&value_ret);
+            int cbval2 = role;
+
+            qstandarditem_setdata_callback(this, cbval1, cbval2);
         } else {
             QStandardItem::setData(value, role);
         }
@@ -137,7 +150,8 @@ class VirtualQStandardItem : public QStandardItem {
             qstandarditem_clone_isbase = false;
             return QStandardItem::clone();
         } else if (qstandarditem_clone_callback != nullptr) {
-            return qstandarditem_clone_callback();
+            QStandardItem* callback_ret = qstandarditem_clone_callback();
+            return callback_ret;
         } else {
             return QStandardItem::clone();
         }
@@ -149,7 +163,8 @@ class VirtualQStandardItem : public QStandardItem {
             qstandarditem_type_isbase = false;
             return QStandardItem::type();
         } else if (qstandarditem_type_callback != nullptr) {
-            return qstandarditem_type_callback();
+            int callback_ret = qstandarditem_type_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QStandardItem::type();
         }
@@ -161,7 +176,11 @@ class VirtualQStandardItem : public QStandardItem {
             qstandarditem_read_isbase = false;
             QStandardItem::read(in);
         } else if (qstandarditem_read_callback != nullptr) {
-            qstandarditem_read_callback(this, in);
+            QDataStream& in_ret = in;
+            // Cast returned reference into pointer
+            QDataStream* cbval1 = &in_ret;
+
+            qstandarditem_read_callback(this, cbval1);
         } else {
             QStandardItem::read(in);
         }
@@ -173,7 +192,11 @@ class VirtualQStandardItem : public QStandardItem {
             qstandarditem_write_isbase = false;
             QStandardItem::write(out);
         } else if (qstandarditem_write_callback != nullptr) {
-            qstandarditem_write_callback(this, out);
+            QDataStream& out_ret = out;
+            // Cast returned reference into pointer
+            QDataStream* cbval1 = &out_ret;
+
+            qstandarditem_write_callback(this, cbval1);
         } else {
             QStandardItem::write(out);
         }
@@ -185,7 +208,12 @@ class VirtualQStandardItem : public QStandardItem {
             qstandarditem_operatorlesser_isbase = false;
             return QStandardItem::operator<(other);
         } else if (qstandarditem_operatorlesser_callback != nullptr) {
-            return qstandarditem_operatorlesser_callback(this, other);
+            const QStandardItem& other_ret = other;
+            // Cast returned reference into pointer
+            QStandardItem* cbval1 = const_cast<QStandardItem*>(&other_ret);
+
+            bool callback_ret = qstandarditem_operatorlesser_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QStandardItem::operator<(other);
         }
@@ -197,7 +225,11 @@ class VirtualQStandardItem : public QStandardItem {
             qstandarditem_operatorassign_isbase = false;
             QStandardItem::operator=(other);
         } else if (qstandarditem_operatorassign_callback != nullptr) {
-            qstandarditem_operatorassign_callback(this, other);
+            const QStandardItem& other_ret = other;
+            // Cast returned reference into pointer
+            QStandardItem* cbval1 = const_cast<QStandardItem*>(&other_ret);
+
+            qstandarditem_operatorassign_callback(this, cbval1);
         } else {
             QStandardItem::operator=(other);
         }
@@ -214,48 +246,57 @@ class VirtualQStandardItem : public QStandardItem {
             QStandardItem::emitDataChanged();
         }
     }
+
+    // Friend functions
+    friend void QStandardItem_OperatorAssign(QStandardItem* self, const QStandardItem* other);
+    friend void QStandardItem_QBaseOperatorAssign(QStandardItem* self, const QStandardItem* other);
+    friend void QStandardItem_EmitDataChanged(QStandardItem* self);
+    friend void QStandardItem_QBaseEmitDataChanged(QStandardItem* self);
 };
 
 // This class is a subclass of QStandardItemModel so that we can call protected methods
-class VirtualQStandardItemModel : public QStandardItemModel {
+class VirtualQStandardItemModel final : public QStandardItemModel {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQStandardItemModel = true;
+
     // Virtual class public types (including callbacks)
-    using QStandardItemModel_Metacall_Callback = int (*)(QStandardItemModel*, QMetaObject::Call, int, void**);
-    using QStandardItemModel_RoleNames_Callback = QHash<int, QByteArray> (*)();
-    using QStandardItemModel_Index_Callback = QModelIndex (*)(const QStandardItemModel*, int, int, const QModelIndex&);
-    using QStandardItemModel_Parent_Callback = QModelIndex (*)(const QStandardItemModel*, const QModelIndex&);
-    using QStandardItemModel_RowCount_Callback = int (*)(const QStandardItemModel*, const QModelIndex&);
-    using QStandardItemModel_ColumnCount_Callback = int (*)(const QStandardItemModel*, const QModelIndex&);
-    using QStandardItemModel_HasChildren_Callback = bool (*)(const QStandardItemModel*, const QModelIndex&);
-    using QStandardItemModel_Data_Callback = QVariant (*)(const QStandardItemModel*, const QModelIndex&, int);
-    using QStandardItemModel_MultiData_Callback = void (*)(const QStandardItemModel*, const QModelIndex&, QModelRoleDataSpan);
-    using QStandardItemModel_SetData_Callback = bool (*)(QStandardItemModel*, const QModelIndex&, const QVariant&, int);
-    using QStandardItemModel_ClearItemData_Callback = bool (*)(QStandardItemModel*, const QModelIndex&);
-    using QStandardItemModel_HeaderData_Callback = QVariant (*)(const QStandardItemModel*, int, Qt::Orientation, int);
-    using QStandardItemModel_SetHeaderData_Callback = bool (*)(QStandardItemModel*, int, Qt::Orientation, const QVariant&, int);
-    using QStandardItemModel_InsertRows_Callback = bool (*)(QStandardItemModel*, int, int, const QModelIndex&);
-    using QStandardItemModel_InsertColumns_Callback = bool (*)(QStandardItemModel*, int, int, const QModelIndex&);
-    using QStandardItemModel_RemoveRows_Callback = bool (*)(QStandardItemModel*, int, int, const QModelIndex&);
-    using QStandardItemModel_RemoveColumns_Callback = bool (*)(QStandardItemModel*, int, int, const QModelIndex&);
-    using QStandardItemModel_Flags_Callback = Qt::ItemFlags (*)(const QStandardItemModel*, const QModelIndex&);
-    using QStandardItemModel_SupportedDropActions_Callback = Qt::DropActions (*)();
-    using QStandardItemModel_ItemData_Callback = QMap<int, QVariant> (*)(const QStandardItemModel*, const QModelIndex&);
-    using QStandardItemModel_SetItemData_Callback = bool (*)(QStandardItemModel*, const QModelIndex&, const QMap<int, QVariant>&);
-    using QStandardItemModel_Sort_Callback = void (*)(QStandardItemModel*, int, Qt::SortOrder);
-    using QStandardItemModel_MimeTypes_Callback = QStringList (*)();
-    using QStandardItemModel_MimeData_Callback = QMimeData* (*)(const QStandardItemModel*, const QModelIndexList&);
-    using QStandardItemModel_DropMimeData_Callback = bool (*)(QStandardItemModel*, const QMimeData*, Qt::DropAction, int, int, const QModelIndex&);
-    using QStandardItemModel_Sibling_Callback = QModelIndex (*)(const QStandardItemModel*, int, int, const QModelIndex&);
-    using QStandardItemModel_CanDropMimeData_Callback = bool (*)(const QStandardItemModel*, const QMimeData*, Qt::DropAction, int, int, const QModelIndex&);
-    using QStandardItemModel_SupportedDragActions_Callback = Qt::DropActions (*)();
-    using QStandardItemModel_MoveRows_Callback = bool (*)(QStandardItemModel*, const QModelIndex&, int, int, const QModelIndex&, int);
-    using QStandardItemModel_MoveColumns_Callback = bool (*)(QStandardItemModel*, const QModelIndex&, int, int, const QModelIndex&, int);
-    using QStandardItemModel_FetchMore_Callback = void (*)(QStandardItemModel*, const QModelIndex&);
-    using QStandardItemModel_CanFetchMore_Callback = bool (*)(const QStandardItemModel*, const QModelIndex&);
-    using QStandardItemModel_Buddy_Callback = QModelIndex (*)(const QStandardItemModel*, const QModelIndex&);
-    using QStandardItemModel_Match_Callback = QModelIndexList (*)(const QStandardItemModel*, const QModelIndex&, int, const QVariant&, int, Qt::MatchFlags);
-    using QStandardItemModel_Span_Callback = QSize (*)(const QStandardItemModel*, const QModelIndex&);
+    using QStandardItemModel_Metacall_Callback = int (*)(QStandardItemModel*, int, int, void**);
+    using QStandardItemModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)();
+    using QStandardItemModel_Index_Callback = QModelIndex* (*)(const QStandardItemModel*, int, int, QModelIndex*);
+    using QStandardItemModel_Parent_Callback = QModelIndex* (*)(const QStandardItemModel*, QModelIndex*);
+    using QStandardItemModel_RowCount_Callback = int (*)(const QStandardItemModel*, QModelIndex*);
+    using QStandardItemModel_ColumnCount_Callback = int (*)(const QStandardItemModel*, QModelIndex*);
+    using QStandardItemModel_HasChildren_Callback = bool (*)(const QStandardItemModel*, QModelIndex*);
+    using QStandardItemModel_Data_Callback = QVariant* (*)(const QStandardItemModel*, QModelIndex*, int);
+    using QStandardItemModel_MultiData_Callback = void (*)(const QStandardItemModel*, QModelIndex*, QModelRoleDataSpan*);
+    using QStandardItemModel_SetData_Callback = bool (*)(QStandardItemModel*, QModelIndex*, QVariant*, int);
+    using QStandardItemModel_ClearItemData_Callback = bool (*)(QStandardItemModel*, QModelIndex*);
+    using QStandardItemModel_HeaderData_Callback = QVariant* (*)(const QStandardItemModel*, int, int, int);
+    using QStandardItemModel_SetHeaderData_Callback = bool (*)(QStandardItemModel*, int, int, QVariant*, int);
+    using QStandardItemModel_InsertRows_Callback = bool (*)(QStandardItemModel*, int, int, QModelIndex*);
+    using QStandardItemModel_InsertColumns_Callback = bool (*)(QStandardItemModel*, int, int, QModelIndex*);
+    using QStandardItemModel_RemoveRows_Callback = bool (*)(QStandardItemModel*, int, int, QModelIndex*);
+    using QStandardItemModel_RemoveColumns_Callback = bool (*)(QStandardItemModel*, int, int, QModelIndex*);
+    using QStandardItemModel_Flags_Callback = int (*)(const QStandardItemModel*, QModelIndex*);
+    using QStandardItemModel_SupportedDropActions_Callback = int (*)();
+    using QStandardItemModel_ItemData_Callback = libqt_map /* of int to QVariant* */ (*)(const QStandardItemModel*, QModelIndex*);
+    using QStandardItemModel_SetItemData_Callback = bool (*)(QStandardItemModel*, QModelIndex*, libqt_map /* of int to QVariant* */);
+    using QStandardItemModel_Sort_Callback = void (*)(QStandardItemModel*, int, int);
+    using QStandardItemModel_MimeTypes_Callback = libqt_list /* of libqt_string */ (*)();
+    using QStandardItemModel_MimeData_Callback = QMimeData* (*)(const QStandardItemModel*, libqt_list /* of QModelIndex* */);
+    using QStandardItemModel_DropMimeData_Callback = bool (*)(QStandardItemModel*, QMimeData*, int, int, int, QModelIndex*);
+    using QStandardItemModel_Sibling_Callback = QModelIndex* (*)(const QStandardItemModel*, int, int, QModelIndex*);
+    using QStandardItemModel_CanDropMimeData_Callback = bool (*)(const QStandardItemModel*, QMimeData*, int, int, int, QModelIndex*);
+    using QStandardItemModel_SupportedDragActions_Callback = int (*)();
+    using QStandardItemModel_MoveRows_Callback = bool (*)(QStandardItemModel*, QModelIndex*, int, int, QModelIndex*, int);
+    using QStandardItemModel_MoveColumns_Callback = bool (*)(QStandardItemModel*, QModelIndex*, int, int, QModelIndex*, int);
+    using QStandardItemModel_FetchMore_Callback = void (*)(QStandardItemModel*, QModelIndex*);
+    using QStandardItemModel_CanFetchMore_Callback = bool (*)(const QStandardItemModel*, QModelIndex*);
+    using QStandardItemModel_Buddy_Callback = QModelIndex* (*)(const QStandardItemModel*, QModelIndex*);
+    using QStandardItemModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const QStandardItemModel*, QModelIndex*, int, QVariant*, int, int);
+    using QStandardItemModel_Span_Callback = QSize* (*)(const QStandardItemModel*, QModelIndex*);
     using QStandardItemModel_Submit_Callback = bool (*)();
     using QStandardItemModel_Revert_Callback = void (*)();
     using QStandardItemModel_ResetInternalData_Callback = void (*)();
@@ -264,32 +305,32 @@ class VirtualQStandardItemModel : public QStandardItemModel {
     using QStandardItemModel_TimerEvent_Callback = void (*)(QStandardItemModel*, QTimerEvent*);
     using QStandardItemModel_ChildEvent_Callback = void (*)(QStandardItemModel*, QChildEvent*);
     using QStandardItemModel_CustomEvent_Callback = void (*)(QStandardItemModel*, QEvent*);
-    using QStandardItemModel_ConnectNotify_Callback = void (*)(QStandardItemModel*, const QMetaMethod&);
-    using QStandardItemModel_DisconnectNotify_Callback = void (*)(QStandardItemModel*, const QMetaMethod&);
-    using QStandardItemModel_CreateIndex_Callback = QModelIndex (*)(const QStandardItemModel*, int, int);
-    using QStandardItemModel_EncodeData_Callback = void (*)(const QStandardItemModel*, const QModelIndexList&, QDataStream&);
-    using QStandardItemModel_DecodeData_Callback = bool (*)(QStandardItemModel*, int, int, const QModelIndex&, QDataStream&);
-    using QStandardItemModel_BeginInsertRows_Callback = void (*)(QStandardItemModel*, const QModelIndex&, int, int);
+    using QStandardItemModel_ConnectNotify_Callback = void (*)(QStandardItemModel*, QMetaMethod*);
+    using QStandardItemModel_DisconnectNotify_Callback = void (*)(QStandardItemModel*, QMetaMethod*);
+    using QStandardItemModel_CreateIndex_Callback = QModelIndex* (*)(const QStandardItemModel*, int, int);
+    using QStandardItemModel_EncodeData_Callback = void (*)(const QStandardItemModel*, libqt_list /* of QModelIndex* */, QDataStream*);
+    using QStandardItemModel_DecodeData_Callback = bool (*)(QStandardItemModel*, int, int, QModelIndex*, QDataStream*);
+    using QStandardItemModel_BeginInsertRows_Callback = void (*)(QStandardItemModel*, QModelIndex*, int, int);
     using QStandardItemModel_EndInsertRows_Callback = void (*)();
-    using QStandardItemModel_BeginRemoveRows_Callback = void (*)(QStandardItemModel*, const QModelIndex&, int, int);
+    using QStandardItemModel_BeginRemoveRows_Callback = void (*)(QStandardItemModel*, QModelIndex*, int, int);
     using QStandardItemModel_EndRemoveRows_Callback = void (*)();
-    using QStandardItemModel_BeginMoveRows_Callback = bool (*)(QStandardItemModel*, const QModelIndex&, int, int, const QModelIndex&, int);
+    using QStandardItemModel_BeginMoveRows_Callback = bool (*)(QStandardItemModel*, QModelIndex*, int, int, QModelIndex*, int);
     using QStandardItemModel_EndMoveRows_Callback = void (*)();
-    using QStandardItemModel_BeginInsertColumns_Callback = void (*)(QStandardItemModel*, const QModelIndex&, int, int);
+    using QStandardItemModel_BeginInsertColumns_Callback = void (*)(QStandardItemModel*, QModelIndex*, int, int);
     using QStandardItemModel_EndInsertColumns_Callback = void (*)();
-    using QStandardItemModel_BeginRemoveColumns_Callback = void (*)(QStandardItemModel*, const QModelIndex&, int, int);
+    using QStandardItemModel_BeginRemoveColumns_Callback = void (*)(QStandardItemModel*, QModelIndex*, int, int);
     using QStandardItemModel_EndRemoveColumns_Callback = void (*)();
-    using QStandardItemModel_BeginMoveColumns_Callback = bool (*)(QStandardItemModel*, const QModelIndex&, int, int, const QModelIndex&, int);
+    using QStandardItemModel_BeginMoveColumns_Callback = bool (*)(QStandardItemModel*, QModelIndex*, int, int, QModelIndex*, int);
     using QStandardItemModel_EndMoveColumns_Callback = void (*)();
     using QStandardItemModel_BeginResetModel_Callback = void (*)();
     using QStandardItemModel_EndResetModel_Callback = void (*)();
-    using QStandardItemModel_ChangePersistentIndex_Callback = void (*)(QStandardItemModel*, const QModelIndex&, const QModelIndex&);
-    using QStandardItemModel_ChangePersistentIndexList_Callback = void (*)(QStandardItemModel*, const QModelIndexList&, const QModelIndexList&);
-    using QStandardItemModel_PersistentIndexList_Callback = QModelIndexList (*)();
+    using QStandardItemModel_ChangePersistentIndex_Callback = void (*)(QStandardItemModel*, QModelIndex*, QModelIndex*);
+    using QStandardItemModel_ChangePersistentIndexList_Callback = void (*)(QStandardItemModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
+    using QStandardItemModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QStandardItemModel_Sender_Callback = QObject* (*)();
     using QStandardItemModel_SenderSignalIndex_Callback = int (*)();
     using QStandardItemModel_Receivers_Callback = int (*)(const QStandardItemModel*, const char*);
-    using QStandardItemModel_IsSignalConnected_Callback = bool (*)(const QStandardItemModel*, const QMetaMethod&);
+    using QStandardItemModel_IsSignalConnected_Callback = bool (*)(const QStandardItemModel*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -513,146 +554,146 @@ class VirtualQStandardItemModel : public QStandardItemModel {
     }
 
     // Callback setters
-    void setQStandardItemModel_Metacall_Callback(QStandardItemModel_Metacall_Callback cb) { qstandarditemmodel_metacall_callback = cb; }
-    void setQStandardItemModel_RoleNames_Callback(QStandardItemModel_RoleNames_Callback cb) { qstandarditemmodel_rolenames_callback = cb; }
-    void setQStandardItemModel_Index_Callback(QStandardItemModel_Index_Callback cb) { qstandarditemmodel_index_callback = cb; }
-    void setQStandardItemModel_Parent_Callback(QStandardItemModel_Parent_Callback cb) { qstandarditemmodel_parent_callback = cb; }
-    void setQStandardItemModel_RowCount_Callback(QStandardItemModel_RowCount_Callback cb) { qstandarditemmodel_rowcount_callback = cb; }
-    void setQStandardItemModel_ColumnCount_Callback(QStandardItemModel_ColumnCount_Callback cb) { qstandarditemmodel_columncount_callback = cb; }
-    void setQStandardItemModel_HasChildren_Callback(QStandardItemModel_HasChildren_Callback cb) { qstandarditemmodel_haschildren_callback = cb; }
-    void setQStandardItemModel_Data_Callback(QStandardItemModel_Data_Callback cb) { qstandarditemmodel_data_callback = cb; }
-    void setQStandardItemModel_MultiData_Callback(QStandardItemModel_MultiData_Callback cb) { qstandarditemmodel_multidata_callback = cb; }
-    void setQStandardItemModel_SetData_Callback(QStandardItemModel_SetData_Callback cb) { qstandarditemmodel_setdata_callback = cb; }
-    void setQStandardItemModel_ClearItemData_Callback(QStandardItemModel_ClearItemData_Callback cb) { qstandarditemmodel_clearitemdata_callback = cb; }
-    void setQStandardItemModel_HeaderData_Callback(QStandardItemModel_HeaderData_Callback cb) { qstandarditemmodel_headerdata_callback = cb; }
-    void setQStandardItemModel_SetHeaderData_Callback(QStandardItemModel_SetHeaderData_Callback cb) { qstandarditemmodel_setheaderdata_callback = cb; }
-    void setQStandardItemModel_InsertRows_Callback(QStandardItemModel_InsertRows_Callback cb) { qstandarditemmodel_insertrows_callback = cb; }
-    void setQStandardItemModel_InsertColumns_Callback(QStandardItemModel_InsertColumns_Callback cb) { qstandarditemmodel_insertcolumns_callback = cb; }
-    void setQStandardItemModel_RemoveRows_Callback(QStandardItemModel_RemoveRows_Callback cb) { qstandarditemmodel_removerows_callback = cb; }
-    void setQStandardItemModel_RemoveColumns_Callback(QStandardItemModel_RemoveColumns_Callback cb) { qstandarditemmodel_removecolumns_callback = cb; }
-    void setQStandardItemModel_Flags_Callback(QStandardItemModel_Flags_Callback cb) { qstandarditemmodel_flags_callback = cb; }
-    void setQStandardItemModel_SupportedDropActions_Callback(QStandardItemModel_SupportedDropActions_Callback cb) { qstandarditemmodel_supporteddropactions_callback = cb; }
-    void setQStandardItemModel_ItemData_Callback(QStandardItemModel_ItemData_Callback cb) { qstandarditemmodel_itemdata_callback = cb; }
-    void setQStandardItemModel_SetItemData_Callback(QStandardItemModel_SetItemData_Callback cb) { qstandarditemmodel_setitemdata_callback = cb; }
-    void setQStandardItemModel_Sort_Callback(QStandardItemModel_Sort_Callback cb) { qstandarditemmodel_sort_callback = cb; }
-    void setQStandardItemModel_MimeTypes_Callback(QStandardItemModel_MimeTypes_Callback cb) { qstandarditemmodel_mimetypes_callback = cb; }
-    void setQStandardItemModel_MimeData_Callback(QStandardItemModel_MimeData_Callback cb) { qstandarditemmodel_mimedata_callback = cb; }
-    void setQStandardItemModel_DropMimeData_Callback(QStandardItemModel_DropMimeData_Callback cb) { qstandarditemmodel_dropmimedata_callback = cb; }
-    void setQStandardItemModel_Sibling_Callback(QStandardItemModel_Sibling_Callback cb) { qstandarditemmodel_sibling_callback = cb; }
-    void setQStandardItemModel_CanDropMimeData_Callback(QStandardItemModel_CanDropMimeData_Callback cb) { qstandarditemmodel_candropmimedata_callback = cb; }
-    void setQStandardItemModel_SupportedDragActions_Callback(QStandardItemModel_SupportedDragActions_Callback cb) { qstandarditemmodel_supporteddragactions_callback = cb; }
-    void setQStandardItemModel_MoveRows_Callback(QStandardItemModel_MoveRows_Callback cb) { qstandarditemmodel_moverows_callback = cb; }
-    void setQStandardItemModel_MoveColumns_Callback(QStandardItemModel_MoveColumns_Callback cb) { qstandarditemmodel_movecolumns_callback = cb; }
-    void setQStandardItemModel_FetchMore_Callback(QStandardItemModel_FetchMore_Callback cb) { qstandarditemmodel_fetchmore_callback = cb; }
-    void setQStandardItemModel_CanFetchMore_Callback(QStandardItemModel_CanFetchMore_Callback cb) { qstandarditemmodel_canfetchmore_callback = cb; }
-    void setQStandardItemModel_Buddy_Callback(QStandardItemModel_Buddy_Callback cb) { qstandarditemmodel_buddy_callback = cb; }
-    void setQStandardItemModel_Match_Callback(QStandardItemModel_Match_Callback cb) { qstandarditemmodel_match_callback = cb; }
-    void setQStandardItemModel_Span_Callback(QStandardItemModel_Span_Callback cb) { qstandarditemmodel_span_callback = cb; }
-    void setQStandardItemModel_Submit_Callback(QStandardItemModel_Submit_Callback cb) { qstandarditemmodel_submit_callback = cb; }
-    void setQStandardItemModel_Revert_Callback(QStandardItemModel_Revert_Callback cb) { qstandarditemmodel_revert_callback = cb; }
-    void setQStandardItemModel_ResetInternalData_Callback(QStandardItemModel_ResetInternalData_Callback cb) { qstandarditemmodel_resetinternaldata_callback = cb; }
-    void setQStandardItemModel_Event_Callback(QStandardItemModel_Event_Callback cb) { qstandarditemmodel_event_callback = cb; }
-    void setQStandardItemModel_EventFilter_Callback(QStandardItemModel_EventFilter_Callback cb) { qstandarditemmodel_eventfilter_callback = cb; }
-    void setQStandardItemModel_TimerEvent_Callback(QStandardItemModel_TimerEvent_Callback cb) { qstandarditemmodel_timerevent_callback = cb; }
-    void setQStandardItemModel_ChildEvent_Callback(QStandardItemModel_ChildEvent_Callback cb) { qstandarditemmodel_childevent_callback = cb; }
-    void setQStandardItemModel_CustomEvent_Callback(QStandardItemModel_CustomEvent_Callback cb) { qstandarditemmodel_customevent_callback = cb; }
-    void setQStandardItemModel_ConnectNotify_Callback(QStandardItemModel_ConnectNotify_Callback cb) { qstandarditemmodel_connectnotify_callback = cb; }
-    void setQStandardItemModel_DisconnectNotify_Callback(QStandardItemModel_DisconnectNotify_Callback cb) { qstandarditemmodel_disconnectnotify_callback = cb; }
-    void setQStandardItemModel_CreateIndex_Callback(QStandardItemModel_CreateIndex_Callback cb) { qstandarditemmodel_createindex_callback = cb; }
-    void setQStandardItemModel_EncodeData_Callback(QStandardItemModel_EncodeData_Callback cb) { qstandarditemmodel_encodedata_callback = cb; }
-    void setQStandardItemModel_DecodeData_Callback(QStandardItemModel_DecodeData_Callback cb) { qstandarditemmodel_decodedata_callback = cb; }
-    void setQStandardItemModel_BeginInsertRows_Callback(QStandardItemModel_BeginInsertRows_Callback cb) { qstandarditemmodel_begininsertrows_callback = cb; }
-    void setQStandardItemModel_EndInsertRows_Callback(QStandardItemModel_EndInsertRows_Callback cb) { qstandarditemmodel_endinsertrows_callback = cb; }
-    void setQStandardItemModel_BeginRemoveRows_Callback(QStandardItemModel_BeginRemoveRows_Callback cb) { qstandarditemmodel_beginremoverows_callback = cb; }
-    void setQStandardItemModel_EndRemoveRows_Callback(QStandardItemModel_EndRemoveRows_Callback cb) { qstandarditemmodel_endremoverows_callback = cb; }
-    void setQStandardItemModel_BeginMoveRows_Callback(QStandardItemModel_BeginMoveRows_Callback cb) { qstandarditemmodel_beginmoverows_callback = cb; }
-    void setQStandardItemModel_EndMoveRows_Callback(QStandardItemModel_EndMoveRows_Callback cb) { qstandarditemmodel_endmoverows_callback = cb; }
-    void setQStandardItemModel_BeginInsertColumns_Callback(QStandardItemModel_BeginInsertColumns_Callback cb) { qstandarditemmodel_begininsertcolumns_callback = cb; }
-    void setQStandardItemModel_EndInsertColumns_Callback(QStandardItemModel_EndInsertColumns_Callback cb) { qstandarditemmodel_endinsertcolumns_callback = cb; }
-    void setQStandardItemModel_BeginRemoveColumns_Callback(QStandardItemModel_BeginRemoveColumns_Callback cb) { qstandarditemmodel_beginremovecolumns_callback = cb; }
-    void setQStandardItemModel_EndRemoveColumns_Callback(QStandardItemModel_EndRemoveColumns_Callback cb) { qstandarditemmodel_endremovecolumns_callback = cb; }
-    void setQStandardItemModel_BeginMoveColumns_Callback(QStandardItemModel_BeginMoveColumns_Callback cb) { qstandarditemmodel_beginmovecolumns_callback = cb; }
-    void setQStandardItemModel_EndMoveColumns_Callback(QStandardItemModel_EndMoveColumns_Callback cb) { qstandarditemmodel_endmovecolumns_callback = cb; }
-    void setQStandardItemModel_BeginResetModel_Callback(QStandardItemModel_BeginResetModel_Callback cb) { qstandarditemmodel_beginresetmodel_callback = cb; }
-    void setQStandardItemModel_EndResetModel_Callback(QStandardItemModel_EndResetModel_Callback cb) { qstandarditemmodel_endresetmodel_callback = cb; }
-    void setQStandardItemModel_ChangePersistentIndex_Callback(QStandardItemModel_ChangePersistentIndex_Callback cb) { qstandarditemmodel_changepersistentindex_callback = cb; }
-    void setQStandardItemModel_ChangePersistentIndexList_Callback(QStandardItemModel_ChangePersistentIndexList_Callback cb) { qstandarditemmodel_changepersistentindexlist_callback = cb; }
-    void setQStandardItemModel_PersistentIndexList_Callback(QStandardItemModel_PersistentIndexList_Callback cb) { qstandarditemmodel_persistentindexlist_callback = cb; }
-    void setQStandardItemModel_Sender_Callback(QStandardItemModel_Sender_Callback cb) { qstandarditemmodel_sender_callback = cb; }
-    void setQStandardItemModel_SenderSignalIndex_Callback(QStandardItemModel_SenderSignalIndex_Callback cb) { qstandarditemmodel_sendersignalindex_callback = cb; }
-    void setQStandardItemModel_Receivers_Callback(QStandardItemModel_Receivers_Callback cb) { qstandarditemmodel_receivers_callback = cb; }
-    void setQStandardItemModel_IsSignalConnected_Callback(QStandardItemModel_IsSignalConnected_Callback cb) { qstandarditemmodel_issignalconnected_callback = cb; }
+    inline void setQStandardItemModel_Metacall_Callback(QStandardItemModel_Metacall_Callback cb) { qstandarditemmodel_metacall_callback = cb; }
+    inline void setQStandardItemModel_RoleNames_Callback(QStandardItemModel_RoleNames_Callback cb) { qstandarditemmodel_rolenames_callback = cb; }
+    inline void setQStandardItemModel_Index_Callback(QStandardItemModel_Index_Callback cb) { qstandarditemmodel_index_callback = cb; }
+    inline void setQStandardItemModel_Parent_Callback(QStandardItemModel_Parent_Callback cb) { qstandarditemmodel_parent_callback = cb; }
+    inline void setQStandardItemModel_RowCount_Callback(QStandardItemModel_RowCount_Callback cb) { qstandarditemmodel_rowcount_callback = cb; }
+    inline void setQStandardItemModel_ColumnCount_Callback(QStandardItemModel_ColumnCount_Callback cb) { qstandarditemmodel_columncount_callback = cb; }
+    inline void setQStandardItemModel_HasChildren_Callback(QStandardItemModel_HasChildren_Callback cb) { qstandarditemmodel_haschildren_callback = cb; }
+    inline void setQStandardItemModel_Data_Callback(QStandardItemModel_Data_Callback cb) { qstandarditemmodel_data_callback = cb; }
+    inline void setQStandardItemModel_MultiData_Callback(QStandardItemModel_MultiData_Callback cb) { qstandarditemmodel_multidata_callback = cb; }
+    inline void setQStandardItemModel_SetData_Callback(QStandardItemModel_SetData_Callback cb) { qstandarditemmodel_setdata_callback = cb; }
+    inline void setQStandardItemModel_ClearItemData_Callback(QStandardItemModel_ClearItemData_Callback cb) { qstandarditemmodel_clearitemdata_callback = cb; }
+    inline void setQStandardItemModel_HeaderData_Callback(QStandardItemModel_HeaderData_Callback cb) { qstandarditemmodel_headerdata_callback = cb; }
+    inline void setQStandardItemModel_SetHeaderData_Callback(QStandardItemModel_SetHeaderData_Callback cb) { qstandarditemmodel_setheaderdata_callback = cb; }
+    inline void setQStandardItemModel_InsertRows_Callback(QStandardItemModel_InsertRows_Callback cb) { qstandarditemmodel_insertrows_callback = cb; }
+    inline void setQStandardItemModel_InsertColumns_Callback(QStandardItemModel_InsertColumns_Callback cb) { qstandarditemmodel_insertcolumns_callback = cb; }
+    inline void setQStandardItemModel_RemoveRows_Callback(QStandardItemModel_RemoveRows_Callback cb) { qstandarditemmodel_removerows_callback = cb; }
+    inline void setQStandardItemModel_RemoveColumns_Callback(QStandardItemModel_RemoveColumns_Callback cb) { qstandarditemmodel_removecolumns_callback = cb; }
+    inline void setQStandardItemModel_Flags_Callback(QStandardItemModel_Flags_Callback cb) { qstandarditemmodel_flags_callback = cb; }
+    inline void setQStandardItemModel_SupportedDropActions_Callback(QStandardItemModel_SupportedDropActions_Callback cb) { qstandarditemmodel_supporteddropactions_callback = cb; }
+    inline void setQStandardItemModel_ItemData_Callback(QStandardItemModel_ItemData_Callback cb) { qstandarditemmodel_itemdata_callback = cb; }
+    inline void setQStandardItemModel_SetItemData_Callback(QStandardItemModel_SetItemData_Callback cb) { qstandarditemmodel_setitemdata_callback = cb; }
+    inline void setQStandardItemModel_Sort_Callback(QStandardItemModel_Sort_Callback cb) { qstandarditemmodel_sort_callback = cb; }
+    inline void setQStandardItemModel_MimeTypes_Callback(QStandardItemModel_MimeTypes_Callback cb) { qstandarditemmodel_mimetypes_callback = cb; }
+    inline void setQStandardItemModel_MimeData_Callback(QStandardItemModel_MimeData_Callback cb) { qstandarditemmodel_mimedata_callback = cb; }
+    inline void setQStandardItemModel_DropMimeData_Callback(QStandardItemModel_DropMimeData_Callback cb) { qstandarditemmodel_dropmimedata_callback = cb; }
+    inline void setQStandardItemModel_Sibling_Callback(QStandardItemModel_Sibling_Callback cb) { qstandarditemmodel_sibling_callback = cb; }
+    inline void setQStandardItemModel_CanDropMimeData_Callback(QStandardItemModel_CanDropMimeData_Callback cb) { qstandarditemmodel_candropmimedata_callback = cb; }
+    inline void setQStandardItemModel_SupportedDragActions_Callback(QStandardItemModel_SupportedDragActions_Callback cb) { qstandarditemmodel_supporteddragactions_callback = cb; }
+    inline void setQStandardItemModel_MoveRows_Callback(QStandardItemModel_MoveRows_Callback cb) { qstandarditemmodel_moverows_callback = cb; }
+    inline void setQStandardItemModel_MoveColumns_Callback(QStandardItemModel_MoveColumns_Callback cb) { qstandarditemmodel_movecolumns_callback = cb; }
+    inline void setQStandardItemModel_FetchMore_Callback(QStandardItemModel_FetchMore_Callback cb) { qstandarditemmodel_fetchmore_callback = cb; }
+    inline void setQStandardItemModel_CanFetchMore_Callback(QStandardItemModel_CanFetchMore_Callback cb) { qstandarditemmodel_canfetchmore_callback = cb; }
+    inline void setQStandardItemModel_Buddy_Callback(QStandardItemModel_Buddy_Callback cb) { qstandarditemmodel_buddy_callback = cb; }
+    inline void setQStandardItemModel_Match_Callback(QStandardItemModel_Match_Callback cb) { qstandarditemmodel_match_callback = cb; }
+    inline void setQStandardItemModel_Span_Callback(QStandardItemModel_Span_Callback cb) { qstandarditemmodel_span_callback = cb; }
+    inline void setQStandardItemModel_Submit_Callback(QStandardItemModel_Submit_Callback cb) { qstandarditemmodel_submit_callback = cb; }
+    inline void setQStandardItemModel_Revert_Callback(QStandardItemModel_Revert_Callback cb) { qstandarditemmodel_revert_callback = cb; }
+    inline void setQStandardItemModel_ResetInternalData_Callback(QStandardItemModel_ResetInternalData_Callback cb) { qstandarditemmodel_resetinternaldata_callback = cb; }
+    inline void setQStandardItemModel_Event_Callback(QStandardItemModel_Event_Callback cb) { qstandarditemmodel_event_callback = cb; }
+    inline void setQStandardItemModel_EventFilter_Callback(QStandardItemModel_EventFilter_Callback cb) { qstandarditemmodel_eventfilter_callback = cb; }
+    inline void setQStandardItemModel_TimerEvent_Callback(QStandardItemModel_TimerEvent_Callback cb) { qstandarditemmodel_timerevent_callback = cb; }
+    inline void setQStandardItemModel_ChildEvent_Callback(QStandardItemModel_ChildEvent_Callback cb) { qstandarditemmodel_childevent_callback = cb; }
+    inline void setQStandardItemModel_CustomEvent_Callback(QStandardItemModel_CustomEvent_Callback cb) { qstandarditemmodel_customevent_callback = cb; }
+    inline void setQStandardItemModel_ConnectNotify_Callback(QStandardItemModel_ConnectNotify_Callback cb) { qstandarditemmodel_connectnotify_callback = cb; }
+    inline void setQStandardItemModel_DisconnectNotify_Callback(QStandardItemModel_DisconnectNotify_Callback cb) { qstandarditemmodel_disconnectnotify_callback = cb; }
+    inline void setQStandardItemModel_CreateIndex_Callback(QStandardItemModel_CreateIndex_Callback cb) { qstandarditemmodel_createindex_callback = cb; }
+    inline void setQStandardItemModel_EncodeData_Callback(QStandardItemModel_EncodeData_Callback cb) { qstandarditemmodel_encodedata_callback = cb; }
+    inline void setQStandardItemModel_DecodeData_Callback(QStandardItemModel_DecodeData_Callback cb) { qstandarditemmodel_decodedata_callback = cb; }
+    inline void setQStandardItemModel_BeginInsertRows_Callback(QStandardItemModel_BeginInsertRows_Callback cb) { qstandarditemmodel_begininsertrows_callback = cb; }
+    inline void setQStandardItemModel_EndInsertRows_Callback(QStandardItemModel_EndInsertRows_Callback cb) { qstandarditemmodel_endinsertrows_callback = cb; }
+    inline void setQStandardItemModel_BeginRemoveRows_Callback(QStandardItemModel_BeginRemoveRows_Callback cb) { qstandarditemmodel_beginremoverows_callback = cb; }
+    inline void setQStandardItemModel_EndRemoveRows_Callback(QStandardItemModel_EndRemoveRows_Callback cb) { qstandarditemmodel_endremoverows_callback = cb; }
+    inline void setQStandardItemModel_BeginMoveRows_Callback(QStandardItemModel_BeginMoveRows_Callback cb) { qstandarditemmodel_beginmoverows_callback = cb; }
+    inline void setQStandardItemModel_EndMoveRows_Callback(QStandardItemModel_EndMoveRows_Callback cb) { qstandarditemmodel_endmoverows_callback = cb; }
+    inline void setQStandardItemModel_BeginInsertColumns_Callback(QStandardItemModel_BeginInsertColumns_Callback cb) { qstandarditemmodel_begininsertcolumns_callback = cb; }
+    inline void setQStandardItemModel_EndInsertColumns_Callback(QStandardItemModel_EndInsertColumns_Callback cb) { qstandarditemmodel_endinsertcolumns_callback = cb; }
+    inline void setQStandardItemModel_BeginRemoveColumns_Callback(QStandardItemModel_BeginRemoveColumns_Callback cb) { qstandarditemmodel_beginremovecolumns_callback = cb; }
+    inline void setQStandardItemModel_EndRemoveColumns_Callback(QStandardItemModel_EndRemoveColumns_Callback cb) { qstandarditemmodel_endremovecolumns_callback = cb; }
+    inline void setQStandardItemModel_BeginMoveColumns_Callback(QStandardItemModel_BeginMoveColumns_Callback cb) { qstandarditemmodel_beginmovecolumns_callback = cb; }
+    inline void setQStandardItemModel_EndMoveColumns_Callback(QStandardItemModel_EndMoveColumns_Callback cb) { qstandarditemmodel_endmovecolumns_callback = cb; }
+    inline void setQStandardItemModel_BeginResetModel_Callback(QStandardItemModel_BeginResetModel_Callback cb) { qstandarditemmodel_beginresetmodel_callback = cb; }
+    inline void setQStandardItemModel_EndResetModel_Callback(QStandardItemModel_EndResetModel_Callback cb) { qstandarditemmodel_endresetmodel_callback = cb; }
+    inline void setQStandardItemModel_ChangePersistentIndex_Callback(QStandardItemModel_ChangePersistentIndex_Callback cb) { qstandarditemmodel_changepersistentindex_callback = cb; }
+    inline void setQStandardItemModel_ChangePersistentIndexList_Callback(QStandardItemModel_ChangePersistentIndexList_Callback cb) { qstandarditemmodel_changepersistentindexlist_callback = cb; }
+    inline void setQStandardItemModel_PersistentIndexList_Callback(QStandardItemModel_PersistentIndexList_Callback cb) { qstandarditemmodel_persistentindexlist_callback = cb; }
+    inline void setQStandardItemModel_Sender_Callback(QStandardItemModel_Sender_Callback cb) { qstandarditemmodel_sender_callback = cb; }
+    inline void setQStandardItemModel_SenderSignalIndex_Callback(QStandardItemModel_SenderSignalIndex_Callback cb) { qstandarditemmodel_sendersignalindex_callback = cb; }
+    inline void setQStandardItemModel_Receivers_Callback(QStandardItemModel_Receivers_Callback cb) { qstandarditemmodel_receivers_callback = cb; }
+    inline void setQStandardItemModel_IsSignalConnected_Callback(QStandardItemModel_IsSignalConnected_Callback cb) { qstandarditemmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQStandardItemModel_Metacall_IsBase(bool value) const { qstandarditemmodel_metacall_isbase = value; }
-    void setQStandardItemModel_RoleNames_IsBase(bool value) const { qstandarditemmodel_rolenames_isbase = value; }
-    void setQStandardItemModel_Index_IsBase(bool value) const { qstandarditemmodel_index_isbase = value; }
-    void setQStandardItemModel_Parent_IsBase(bool value) const { qstandarditemmodel_parent_isbase = value; }
-    void setQStandardItemModel_RowCount_IsBase(bool value) const { qstandarditemmodel_rowcount_isbase = value; }
-    void setQStandardItemModel_ColumnCount_IsBase(bool value) const { qstandarditemmodel_columncount_isbase = value; }
-    void setQStandardItemModel_HasChildren_IsBase(bool value) const { qstandarditemmodel_haschildren_isbase = value; }
-    void setQStandardItemModel_Data_IsBase(bool value) const { qstandarditemmodel_data_isbase = value; }
-    void setQStandardItemModel_MultiData_IsBase(bool value) const { qstandarditemmodel_multidata_isbase = value; }
-    void setQStandardItemModel_SetData_IsBase(bool value) const { qstandarditemmodel_setdata_isbase = value; }
-    void setQStandardItemModel_ClearItemData_IsBase(bool value) const { qstandarditemmodel_clearitemdata_isbase = value; }
-    void setQStandardItemModel_HeaderData_IsBase(bool value) const { qstandarditemmodel_headerdata_isbase = value; }
-    void setQStandardItemModel_SetHeaderData_IsBase(bool value) const { qstandarditemmodel_setheaderdata_isbase = value; }
-    void setQStandardItemModel_InsertRows_IsBase(bool value) const { qstandarditemmodel_insertrows_isbase = value; }
-    void setQStandardItemModel_InsertColumns_IsBase(bool value) const { qstandarditemmodel_insertcolumns_isbase = value; }
-    void setQStandardItemModel_RemoveRows_IsBase(bool value) const { qstandarditemmodel_removerows_isbase = value; }
-    void setQStandardItemModel_RemoveColumns_IsBase(bool value) const { qstandarditemmodel_removecolumns_isbase = value; }
-    void setQStandardItemModel_Flags_IsBase(bool value) const { qstandarditemmodel_flags_isbase = value; }
-    void setQStandardItemModel_SupportedDropActions_IsBase(bool value) const { qstandarditemmodel_supporteddropactions_isbase = value; }
-    void setQStandardItemModel_ItemData_IsBase(bool value) const { qstandarditemmodel_itemdata_isbase = value; }
-    void setQStandardItemModel_SetItemData_IsBase(bool value) const { qstandarditemmodel_setitemdata_isbase = value; }
-    void setQStandardItemModel_Sort_IsBase(bool value) const { qstandarditemmodel_sort_isbase = value; }
-    void setQStandardItemModel_MimeTypes_IsBase(bool value) const { qstandarditemmodel_mimetypes_isbase = value; }
-    void setQStandardItemModel_MimeData_IsBase(bool value) const { qstandarditemmodel_mimedata_isbase = value; }
-    void setQStandardItemModel_DropMimeData_IsBase(bool value) const { qstandarditemmodel_dropmimedata_isbase = value; }
-    void setQStandardItemModel_Sibling_IsBase(bool value) const { qstandarditemmodel_sibling_isbase = value; }
-    void setQStandardItemModel_CanDropMimeData_IsBase(bool value) const { qstandarditemmodel_candropmimedata_isbase = value; }
-    void setQStandardItemModel_SupportedDragActions_IsBase(bool value) const { qstandarditemmodel_supporteddragactions_isbase = value; }
-    void setQStandardItemModel_MoveRows_IsBase(bool value) const { qstandarditemmodel_moverows_isbase = value; }
-    void setQStandardItemModel_MoveColumns_IsBase(bool value) const { qstandarditemmodel_movecolumns_isbase = value; }
-    void setQStandardItemModel_FetchMore_IsBase(bool value) const { qstandarditemmodel_fetchmore_isbase = value; }
-    void setQStandardItemModel_CanFetchMore_IsBase(bool value) const { qstandarditemmodel_canfetchmore_isbase = value; }
-    void setQStandardItemModel_Buddy_IsBase(bool value) const { qstandarditemmodel_buddy_isbase = value; }
-    void setQStandardItemModel_Match_IsBase(bool value) const { qstandarditemmodel_match_isbase = value; }
-    void setQStandardItemModel_Span_IsBase(bool value) const { qstandarditemmodel_span_isbase = value; }
-    void setQStandardItemModel_Submit_IsBase(bool value) const { qstandarditemmodel_submit_isbase = value; }
-    void setQStandardItemModel_Revert_IsBase(bool value) const { qstandarditemmodel_revert_isbase = value; }
-    void setQStandardItemModel_ResetInternalData_IsBase(bool value) const { qstandarditemmodel_resetinternaldata_isbase = value; }
-    void setQStandardItemModel_Event_IsBase(bool value) const { qstandarditemmodel_event_isbase = value; }
-    void setQStandardItemModel_EventFilter_IsBase(bool value) const { qstandarditemmodel_eventfilter_isbase = value; }
-    void setQStandardItemModel_TimerEvent_IsBase(bool value) const { qstandarditemmodel_timerevent_isbase = value; }
-    void setQStandardItemModel_ChildEvent_IsBase(bool value) const { qstandarditemmodel_childevent_isbase = value; }
-    void setQStandardItemModel_CustomEvent_IsBase(bool value) const { qstandarditemmodel_customevent_isbase = value; }
-    void setQStandardItemModel_ConnectNotify_IsBase(bool value) const { qstandarditemmodel_connectnotify_isbase = value; }
-    void setQStandardItemModel_DisconnectNotify_IsBase(bool value) const { qstandarditemmodel_disconnectnotify_isbase = value; }
-    void setQStandardItemModel_CreateIndex_IsBase(bool value) const { qstandarditemmodel_createindex_isbase = value; }
-    void setQStandardItemModel_EncodeData_IsBase(bool value) const { qstandarditemmodel_encodedata_isbase = value; }
-    void setQStandardItemModel_DecodeData_IsBase(bool value) const { qstandarditemmodel_decodedata_isbase = value; }
-    void setQStandardItemModel_BeginInsertRows_IsBase(bool value) const { qstandarditemmodel_begininsertrows_isbase = value; }
-    void setQStandardItemModel_EndInsertRows_IsBase(bool value) const { qstandarditemmodel_endinsertrows_isbase = value; }
-    void setQStandardItemModel_BeginRemoveRows_IsBase(bool value) const { qstandarditemmodel_beginremoverows_isbase = value; }
-    void setQStandardItemModel_EndRemoveRows_IsBase(bool value) const { qstandarditemmodel_endremoverows_isbase = value; }
-    void setQStandardItemModel_BeginMoveRows_IsBase(bool value) const { qstandarditemmodel_beginmoverows_isbase = value; }
-    void setQStandardItemModel_EndMoveRows_IsBase(bool value) const { qstandarditemmodel_endmoverows_isbase = value; }
-    void setQStandardItemModel_BeginInsertColumns_IsBase(bool value) const { qstandarditemmodel_begininsertcolumns_isbase = value; }
-    void setQStandardItemModel_EndInsertColumns_IsBase(bool value) const { qstandarditemmodel_endinsertcolumns_isbase = value; }
-    void setQStandardItemModel_BeginRemoveColumns_IsBase(bool value) const { qstandarditemmodel_beginremovecolumns_isbase = value; }
-    void setQStandardItemModel_EndRemoveColumns_IsBase(bool value) const { qstandarditemmodel_endremovecolumns_isbase = value; }
-    void setQStandardItemModel_BeginMoveColumns_IsBase(bool value) const { qstandarditemmodel_beginmovecolumns_isbase = value; }
-    void setQStandardItemModel_EndMoveColumns_IsBase(bool value) const { qstandarditemmodel_endmovecolumns_isbase = value; }
-    void setQStandardItemModel_BeginResetModel_IsBase(bool value) const { qstandarditemmodel_beginresetmodel_isbase = value; }
-    void setQStandardItemModel_EndResetModel_IsBase(bool value) const { qstandarditemmodel_endresetmodel_isbase = value; }
-    void setQStandardItemModel_ChangePersistentIndex_IsBase(bool value) const { qstandarditemmodel_changepersistentindex_isbase = value; }
-    void setQStandardItemModel_ChangePersistentIndexList_IsBase(bool value) const { qstandarditemmodel_changepersistentindexlist_isbase = value; }
-    void setQStandardItemModel_PersistentIndexList_IsBase(bool value) const { qstandarditemmodel_persistentindexlist_isbase = value; }
-    void setQStandardItemModel_Sender_IsBase(bool value) const { qstandarditemmodel_sender_isbase = value; }
-    void setQStandardItemModel_SenderSignalIndex_IsBase(bool value) const { qstandarditemmodel_sendersignalindex_isbase = value; }
-    void setQStandardItemModel_Receivers_IsBase(bool value) const { qstandarditemmodel_receivers_isbase = value; }
-    void setQStandardItemModel_IsSignalConnected_IsBase(bool value) const { qstandarditemmodel_issignalconnected_isbase = value; }
+    inline void setQStandardItemModel_Metacall_IsBase(bool value) const { qstandarditemmodel_metacall_isbase = value; }
+    inline void setQStandardItemModel_RoleNames_IsBase(bool value) const { qstandarditemmodel_rolenames_isbase = value; }
+    inline void setQStandardItemModel_Index_IsBase(bool value) const { qstandarditemmodel_index_isbase = value; }
+    inline void setQStandardItemModel_Parent_IsBase(bool value) const { qstandarditemmodel_parent_isbase = value; }
+    inline void setQStandardItemModel_RowCount_IsBase(bool value) const { qstandarditemmodel_rowcount_isbase = value; }
+    inline void setQStandardItemModel_ColumnCount_IsBase(bool value) const { qstandarditemmodel_columncount_isbase = value; }
+    inline void setQStandardItemModel_HasChildren_IsBase(bool value) const { qstandarditemmodel_haschildren_isbase = value; }
+    inline void setQStandardItemModel_Data_IsBase(bool value) const { qstandarditemmodel_data_isbase = value; }
+    inline void setQStandardItemModel_MultiData_IsBase(bool value) const { qstandarditemmodel_multidata_isbase = value; }
+    inline void setQStandardItemModel_SetData_IsBase(bool value) const { qstandarditemmodel_setdata_isbase = value; }
+    inline void setQStandardItemModel_ClearItemData_IsBase(bool value) const { qstandarditemmodel_clearitemdata_isbase = value; }
+    inline void setQStandardItemModel_HeaderData_IsBase(bool value) const { qstandarditemmodel_headerdata_isbase = value; }
+    inline void setQStandardItemModel_SetHeaderData_IsBase(bool value) const { qstandarditemmodel_setheaderdata_isbase = value; }
+    inline void setQStandardItemModel_InsertRows_IsBase(bool value) const { qstandarditemmodel_insertrows_isbase = value; }
+    inline void setQStandardItemModel_InsertColumns_IsBase(bool value) const { qstandarditemmodel_insertcolumns_isbase = value; }
+    inline void setQStandardItemModel_RemoveRows_IsBase(bool value) const { qstandarditemmodel_removerows_isbase = value; }
+    inline void setQStandardItemModel_RemoveColumns_IsBase(bool value) const { qstandarditemmodel_removecolumns_isbase = value; }
+    inline void setQStandardItemModel_Flags_IsBase(bool value) const { qstandarditemmodel_flags_isbase = value; }
+    inline void setQStandardItemModel_SupportedDropActions_IsBase(bool value) const { qstandarditemmodel_supporteddropactions_isbase = value; }
+    inline void setQStandardItemModel_ItemData_IsBase(bool value) const { qstandarditemmodel_itemdata_isbase = value; }
+    inline void setQStandardItemModel_SetItemData_IsBase(bool value) const { qstandarditemmodel_setitemdata_isbase = value; }
+    inline void setQStandardItemModel_Sort_IsBase(bool value) const { qstandarditemmodel_sort_isbase = value; }
+    inline void setQStandardItemModel_MimeTypes_IsBase(bool value) const { qstandarditemmodel_mimetypes_isbase = value; }
+    inline void setQStandardItemModel_MimeData_IsBase(bool value) const { qstandarditemmodel_mimedata_isbase = value; }
+    inline void setQStandardItemModel_DropMimeData_IsBase(bool value) const { qstandarditemmodel_dropmimedata_isbase = value; }
+    inline void setQStandardItemModel_Sibling_IsBase(bool value) const { qstandarditemmodel_sibling_isbase = value; }
+    inline void setQStandardItemModel_CanDropMimeData_IsBase(bool value) const { qstandarditemmodel_candropmimedata_isbase = value; }
+    inline void setQStandardItemModel_SupportedDragActions_IsBase(bool value) const { qstandarditemmodel_supporteddragactions_isbase = value; }
+    inline void setQStandardItemModel_MoveRows_IsBase(bool value) const { qstandarditemmodel_moverows_isbase = value; }
+    inline void setQStandardItemModel_MoveColumns_IsBase(bool value) const { qstandarditemmodel_movecolumns_isbase = value; }
+    inline void setQStandardItemModel_FetchMore_IsBase(bool value) const { qstandarditemmodel_fetchmore_isbase = value; }
+    inline void setQStandardItemModel_CanFetchMore_IsBase(bool value) const { qstandarditemmodel_canfetchmore_isbase = value; }
+    inline void setQStandardItemModel_Buddy_IsBase(bool value) const { qstandarditemmodel_buddy_isbase = value; }
+    inline void setQStandardItemModel_Match_IsBase(bool value) const { qstandarditemmodel_match_isbase = value; }
+    inline void setQStandardItemModel_Span_IsBase(bool value) const { qstandarditemmodel_span_isbase = value; }
+    inline void setQStandardItemModel_Submit_IsBase(bool value) const { qstandarditemmodel_submit_isbase = value; }
+    inline void setQStandardItemModel_Revert_IsBase(bool value) const { qstandarditemmodel_revert_isbase = value; }
+    inline void setQStandardItemModel_ResetInternalData_IsBase(bool value) const { qstandarditemmodel_resetinternaldata_isbase = value; }
+    inline void setQStandardItemModel_Event_IsBase(bool value) const { qstandarditemmodel_event_isbase = value; }
+    inline void setQStandardItemModel_EventFilter_IsBase(bool value) const { qstandarditemmodel_eventfilter_isbase = value; }
+    inline void setQStandardItemModel_TimerEvent_IsBase(bool value) const { qstandarditemmodel_timerevent_isbase = value; }
+    inline void setQStandardItemModel_ChildEvent_IsBase(bool value) const { qstandarditemmodel_childevent_isbase = value; }
+    inline void setQStandardItemModel_CustomEvent_IsBase(bool value) const { qstandarditemmodel_customevent_isbase = value; }
+    inline void setQStandardItemModel_ConnectNotify_IsBase(bool value) const { qstandarditemmodel_connectnotify_isbase = value; }
+    inline void setQStandardItemModel_DisconnectNotify_IsBase(bool value) const { qstandarditemmodel_disconnectnotify_isbase = value; }
+    inline void setQStandardItemModel_CreateIndex_IsBase(bool value) const { qstandarditemmodel_createindex_isbase = value; }
+    inline void setQStandardItemModel_EncodeData_IsBase(bool value) const { qstandarditemmodel_encodedata_isbase = value; }
+    inline void setQStandardItemModel_DecodeData_IsBase(bool value) const { qstandarditemmodel_decodedata_isbase = value; }
+    inline void setQStandardItemModel_BeginInsertRows_IsBase(bool value) const { qstandarditemmodel_begininsertrows_isbase = value; }
+    inline void setQStandardItemModel_EndInsertRows_IsBase(bool value) const { qstandarditemmodel_endinsertrows_isbase = value; }
+    inline void setQStandardItemModel_BeginRemoveRows_IsBase(bool value) const { qstandarditemmodel_beginremoverows_isbase = value; }
+    inline void setQStandardItemModel_EndRemoveRows_IsBase(bool value) const { qstandarditemmodel_endremoverows_isbase = value; }
+    inline void setQStandardItemModel_BeginMoveRows_IsBase(bool value) const { qstandarditemmodel_beginmoverows_isbase = value; }
+    inline void setQStandardItemModel_EndMoveRows_IsBase(bool value) const { qstandarditemmodel_endmoverows_isbase = value; }
+    inline void setQStandardItemModel_BeginInsertColumns_IsBase(bool value) const { qstandarditemmodel_begininsertcolumns_isbase = value; }
+    inline void setQStandardItemModel_EndInsertColumns_IsBase(bool value) const { qstandarditemmodel_endinsertcolumns_isbase = value; }
+    inline void setQStandardItemModel_BeginRemoveColumns_IsBase(bool value) const { qstandarditemmodel_beginremovecolumns_isbase = value; }
+    inline void setQStandardItemModel_EndRemoveColumns_IsBase(bool value) const { qstandarditemmodel_endremovecolumns_isbase = value; }
+    inline void setQStandardItemModel_BeginMoveColumns_IsBase(bool value) const { qstandarditemmodel_beginmovecolumns_isbase = value; }
+    inline void setQStandardItemModel_EndMoveColumns_IsBase(bool value) const { qstandarditemmodel_endmovecolumns_isbase = value; }
+    inline void setQStandardItemModel_BeginResetModel_IsBase(bool value) const { qstandarditemmodel_beginresetmodel_isbase = value; }
+    inline void setQStandardItemModel_EndResetModel_IsBase(bool value) const { qstandarditemmodel_endresetmodel_isbase = value; }
+    inline void setQStandardItemModel_ChangePersistentIndex_IsBase(bool value) const { qstandarditemmodel_changepersistentindex_isbase = value; }
+    inline void setQStandardItemModel_ChangePersistentIndexList_IsBase(bool value) const { qstandarditemmodel_changepersistentindexlist_isbase = value; }
+    inline void setQStandardItemModel_PersistentIndexList_IsBase(bool value) const { qstandarditemmodel_persistentindexlist_isbase = value; }
+    inline void setQStandardItemModel_Sender_IsBase(bool value) const { qstandarditemmodel_sender_isbase = value; }
+    inline void setQStandardItemModel_SenderSignalIndex_IsBase(bool value) const { qstandarditemmodel_sendersignalindex_isbase = value; }
+    inline void setQStandardItemModel_Receivers_IsBase(bool value) const { qstandarditemmodel_receivers_isbase = value; }
+    inline void setQStandardItemModel_IsSignalConnected_IsBase(bool value) const { qstandarditemmodel_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -660,7 +701,12 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_metacall_isbase = false;
             return QStandardItemModel::qt_metacall(param1, param2, param3);
         } else if (qstandarditemmodel_metacall_callback != nullptr) {
-            return qstandarditemmodel_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qstandarditemmodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QStandardItemModel::qt_metacall(param1, param2, param3);
         }
@@ -672,7 +718,16 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_rolenames_isbase = false;
             return QStandardItemModel::roleNames();
         } else if (qstandarditemmodel_rolenames_callback != nullptr) {
-            return qstandarditemmodel_rolenames_callback();
+            libqt_map /* of int to libqt_string */ callback_ret = qstandarditemmodel_rolenames_callback();
+            QHash<int, QByteArray> callback_ret_QMap;
+            callback_ret_QMap.reserve(callback_ret.len);
+            int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
+            libqt_string* callback_ret_varr = static_cast<libqt_string*>(callback_ret.values);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                QByteArray callback_ret_varr_i_QByteArray(callback_ret_varr[i].data, callback_ret_varr[i].len);
+                callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
+            }
+            return callback_ret_QMap;
         } else {
             return QStandardItemModel::roleNames();
         }
@@ -684,7 +739,14 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_index_isbase = false;
             return QStandardItemModel::index(row, column, parent);
         } else if (qstandarditemmodel_index_callback != nullptr) {
-            return qstandarditemmodel_index_callback(this, row, column, parent);
+            int cbval1 = row;
+            int cbval2 = column;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            QModelIndex* callback_ret = qstandarditemmodel_index_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QStandardItemModel::index(row, column, parent);
         }
@@ -696,7 +758,12 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_parent_isbase = false;
             return QStandardItemModel::parent(child);
         } else if (qstandarditemmodel_parent_callback != nullptr) {
-            return qstandarditemmodel_parent_callback(this, child);
+            const QModelIndex& child_ret = child;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&child_ret);
+
+            QModelIndex* callback_ret = qstandarditemmodel_parent_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QStandardItemModel::parent(child);
         }
@@ -708,7 +775,12 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_rowcount_isbase = false;
             return QStandardItemModel::rowCount(parent);
         } else if (qstandarditemmodel_rowcount_callback != nullptr) {
-            return qstandarditemmodel_rowcount_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            int callback_ret = qstandarditemmodel_rowcount_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QStandardItemModel::rowCount(parent);
         }
@@ -720,7 +792,12 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_columncount_isbase = false;
             return QStandardItemModel::columnCount(parent);
         } else if (qstandarditemmodel_columncount_callback != nullptr) {
-            return qstandarditemmodel_columncount_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            int callback_ret = qstandarditemmodel_columncount_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QStandardItemModel::columnCount(parent);
         }
@@ -732,7 +809,12 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_haschildren_isbase = false;
             return QStandardItemModel::hasChildren(parent);
         } else if (qstandarditemmodel_haschildren_callback != nullptr) {
-            return qstandarditemmodel_haschildren_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qstandarditemmodel_haschildren_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QStandardItemModel::hasChildren(parent);
         }
@@ -744,7 +826,13 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_data_isbase = false;
             return QStandardItemModel::data(index, role);
         } else if (qstandarditemmodel_data_callback != nullptr) {
-            return qstandarditemmodel_data_callback(this, index, role);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            int cbval2 = role;
+
+            QVariant* callback_ret = qstandarditemmodel_data_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QStandardItemModel::data(index, role);
         }
@@ -756,7 +844,12 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_multidata_isbase = false;
             QStandardItemModel::multiData(index, roleDataSpan);
         } else if (qstandarditemmodel_multidata_callback != nullptr) {
-            qstandarditemmodel_multidata_callback(this, index, roleDataSpan);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
+
+            qstandarditemmodel_multidata_callback(this, cbval1, cbval2);
         } else {
             QStandardItemModel::multiData(index, roleDataSpan);
         }
@@ -768,7 +861,16 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_setdata_isbase = false;
             return QStandardItemModel::setData(index, value, role);
         } else if (qstandarditemmodel_setdata_callback != nullptr) {
-            return qstandarditemmodel_setdata_callback(this, index, value, role);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+            int cbval3 = role;
+
+            bool callback_ret = qstandarditemmodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QStandardItemModel::setData(index, value, role);
         }
@@ -780,7 +882,12 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_clearitemdata_isbase = false;
             return QStandardItemModel::clearItemData(index);
         } else if (qstandarditemmodel_clearitemdata_callback != nullptr) {
-            return qstandarditemmodel_clearitemdata_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            bool callback_ret = qstandarditemmodel_clearitemdata_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QStandardItemModel::clearItemData(index);
         }
@@ -792,7 +899,12 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_headerdata_isbase = false;
             return QStandardItemModel::headerData(section, orientation, role);
         } else if (qstandarditemmodel_headerdata_callback != nullptr) {
-            return qstandarditemmodel_headerdata_callback(this, section, orientation, role);
+            int cbval1 = section;
+            int cbval2 = static_cast<int>(orientation);
+            int cbval3 = role;
+
+            QVariant* callback_ret = qstandarditemmodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QStandardItemModel::headerData(section, orientation, role);
         }
@@ -804,7 +916,15 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_setheaderdata_isbase = false;
             return QStandardItemModel::setHeaderData(section, orientation, value, role);
         } else if (qstandarditemmodel_setheaderdata_callback != nullptr) {
-            return qstandarditemmodel_setheaderdata_callback(this, section, orientation, value, role);
+            int cbval1 = section;
+            int cbval2 = static_cast<int>(orientation);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
+            int cbval4 = role;
+
+            bool callback_ret = qstandarditemmodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            return callback_ret;
         } else {
             return QStandardItemModel::setHeaderData(section, orientation, value, role);
         }
@@ -816,7 +936,14 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_insertrows_isbase = false;
             return QStandardItemModel::insertRows(row, count, parent);
         } else if (qstandarditemmodel_insertrows_callback != nullptr) {
-            return qstandarditemmodel_insertrows_callback(this, row, count, parent);
+            int cbval1 = row;
+            int cbval2 = count;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qstandarditemmodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QStandardItemModel::insertRows(row, count, parent);
         }
@@ -828,7 +955,14 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_insertcolumns_isbase = false;
             return QStandardItemModel::insertColumns(column, count, parent);
         } else if (qstandarditemmodel_insertcolumns_callback != nullptr) {
-            return qstandarditemmodel_insertcolumns_callback(this, column, count, parent);
+            int cbval1 = column;
+            int cbval2 = count;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qstandarditemmodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QStandardItemModel::insertColumns(column, count, parent);
         }
@@ -840,7 +974,14 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_removerows_isbase = false;
             return QStandardItemModel::removeRows(row, count, parent);
         } else if (qstandarditemmodel_removerows_callback != nullptr) {
-            return qstandarditemmodel_removerows_callback(this, row, count, parent);
+            int cbval1 = row;
+            int cbval2 = count;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qstandarditemmodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QStandardItemModel::removeRows(row, count, parent);
         }
@@ -852,7 +993,14 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_removecolumns_isbase = false;
             return QStandardItemModel::removeColumns(column, count, parent);
         } else if (qstandarditemmodel_removecolumns_callback != nullptr) {
-            return qstandarditemmodel_removecolumns_callback(this, column, count, parent);
+            int cbval1 = column;
+            int cbval2 = count;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qstandarditemmodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QStandardItemModel::removeColumns(column, count, parent);
         }
@@ -864,7 +1012,12 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_flags_isbase = false;
             return QStandardItemModel::flags(index);
         } else if (qstandarditemmodel_flags_callback != nullptr) {
-            return qstandarditemmodel_flags_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            int callback_ret = qstandarditemmodel_flags_callback(this, cbval1);
+            return static_cast<Qt::ItemFlags>(callback_ret);
         } else {
             return QStandardItemModel::flags(index);
         }
@@ -876,7 +1029,8 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_supporteddropactions_isbase = false;
             return QStandardItemModel::supportedDropActions();
         } else if (qstandarditemmodel_supporteddropactions_callback != nullptr) {
-            return qstandarditemmodel_supporteddropactions_callback();
+            int callback_ret = qstandarditemmodel_supporteddropactions_callback();
+            return static_cast<Qt::DropActions>(callback_ret);
         } else {
             return QStandardItemModel::supportedDropActions();
         }
@@ -888,7 +1042,18 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_itemdata_isbase = false;
             return QStandardItemModel::itemData(index);
         } else if (qstandarditemmodel_itemdata_callback != nullptr) {
-            return qstandarditemmodel_itemdata_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            libqt_map /* of int to QVariant* */ callback_ret = qstandarditemmodel_itemdata_callback(this, cbval1);
+            QMap<int, QVariant> callback_ret_QMap;
+            int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
+            QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
+            }
+            return callback_ret_QMap;
         } else {
             return QStandardItemModel::itemData(index);
         }
@@ -900,7 +1065,27 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_setitemdata_isbase = false;
             return QStandardItemModel::setItemData(index, roles);
         } else if (qstandarditemmodel_setitemdata_callback != nullptr) {
-            return qstandarditemmodel_setitemdata_callback(this, index, roles);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            const QMap<int, QVariant>& roles_ret = roles;
+            // Convert QMap<> from C++ memory to manually-managed C memory
+            int* roles_karr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
+            QVariant** roles_varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * roles_ret.size()));
+            int roles_ctr = 0;
+            for (auto roles_itr = roles_ret.keyValueBegin(); roles_itr != roles_ret.keyValueEnd(); ++roles_itr) {
+                roles_karr[roles_ctr] = roles_itr->first;
+                roles_varr[roles_ctr] = new QVariant(roles_itr->second);
+                roles_ctr++;
+            }
+            libqt_map roles_out;
+            roles_out.len = roles_ret.size();
+            roles_out.keys = static_cast<void*>(roles_karr);
+            roles_out.values = static_cast<void*>(roles_varr);
+            libqt_map /* of int to QVariant* */ cbval2 = roles_out;
+
+            bool callback_ret = qstandarditemmodel_setitemdata_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QStandardItemModel::setItemData(index, roles);
         }
@@ -912,7 +1097,10 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_sort_isbase = false;
             QStandardItemModel::sort(column, order);
         } else if (qstandarditemmodel_sort_callback != nullptr) {
-            qstandarditemmodel_sort_callback(this, column, order);
+            int cbval1 = column;
+            int cbval2 = static_cast<int>(order);
+
+            qstandarditemmodel_sort_callback(this, cbval1, cbval2);
         } else {
             QStandardItemModel::sort(column, order);
         }
@@ -924,7 +1112,15 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_mimetypes_isbase = false;
             return QStandardItemModel::mimeTypes();
         } else if (qstandarditemmodel_mimetypes_callback != nullptr) {
-            return qstandarditemmodel_mimetypes_callback();
+            libqt_list /* of libqt_string */ callback_ret = qstandarditemmodel_mimetypes_callback();
+            QStringList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+                callback_ret_QList.push_back(callback_ret_arr_i_QString);
+            }
+            return callback_ret_QList;
         } else {
             return QStandardItemModel::mimeTypes();
         }
@@ -936,7 +1132,19 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_mimedata_isbase = false;
             return QStandardItemModel::mimeData(indexes);
         } else if (qstandarditemmodel_mimedata_callback != nullptr) {
-            return qstandarditemmodel_mimedata_callback(this, indexes);
+            const QModelIndexList& indexes_ret = indexes;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.length()));
+            for (size_t i = 0; i < indexes_ret.length(); ++i) {
+                indexes_arr[i] = new QModelIndex(indexes_ret[i]);
+            }
+            libqt_list indexes_out;
+            indexes_out.len = indexes_ret.length();
+            indexes_out.data = static_cast<void*>(indexes_arr);
+            libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
+
+            QMimeData* callback_ret = qstandarditemmodel_mimedata_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QStandardItemModel::mimeData(indexes);
         }
@@ -948,7 +1156,16 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_dropmimedata_isbase = false;
             return QStandardItemModel::dropMimeData(data, action, row, column, parent);
         } else if (qstandarditemmodel_dropmimedata_callback != nullptr) {
-            return qstandarditemmodel_dropmimedata_callback(this, data, action, row, column, parent);
+            QMimeData* cbval1 = (QMimeData*)data;
+            int cbval2 = static_cast<int>(action);
+            int cbval3 = row;
+            int cbval4 = column;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qstandarditemmodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QStandardItemModel::dropMimeData(data, action, row, column, parent);
         }
@@ -960,7 +1177,14 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_sibling_isbase = false;
             return QStandardItemModel::sibling(row, column, idx);
         } else if (qstandarditemmodel_sibling_callback != nullptr) {
-            return qstandarditemmodel_sibling_callback(this, row, column, idx);
+            int cbval1 = row;
+            int cbval2 = column;
+            const QModelIndex& idx_ret = idx;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
+
+            QModelIndex* callback_ret = qstandarditemmodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QStandardItemModel::sibling(row, column, idx);
         }
@@ -972,7 +1196,16 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_candropmimedata_isbase = false;
             return QStandardItemModel::canDropMimeData(data, action, row, column, parent);
         } else if (qstandarditemmodel_candropmimedata_callback != nullptr) {
-            return qstandarditemmodel_candropmimedata_callback(this, data, action, row, column, parent);
+            QMimeData* cbval1 = (QMimeData*)data;
+            int cbval2 = static_cast<int>(action);
+            int cbval3 = row;
+            int cbval4 = column;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qstandarditemmodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QStandardItemModel::canDropMimeData(data, action, row, column, parent);
         }
@@ -984,7 +1217,8 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_supporteddragactions_isbase = false;
             return QStandardItemModel::supportedDragActions();
         } else if (qstandarditemmodel_supporteddragactions_callback != nullptr) {
-            return qstandarditemmodel_supporteddragactions_callback();
+            int callback_ret = qstandarditemmodel_supporteddragactions_callback();
+            return static_cast<Qt::DropActions>(callback_ret);
         } else {
             return QStandardItemModel::supportedDragActions();
         }
@@ -996,7 +1230,18 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_moverows_isbase = false;
             return QStandardItemModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         } else if (qstandarditemmodel_moverows_callback != nullptr) {
-            return qstandarditemmodel_moverows_callback(this, sourceParent, sourceRow, count, destinationParent, destinationChild);
+            const QModelIndex& sourceParent_ret = sourceParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
+            int cbval2 = sourceRow;
+            int cbval3 = count;
+            const QModelIndex& destinationParent_ret = destinationParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
+            int cbval5 = destinationChild;
+
+            bool callback_ret = qstandarditemmodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QStandardItemModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
@@ -1008,7 +1253,18 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_movecolumns_isbase = false;
             return QStandardItemModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         } else if (qstandarditemmodel_movecolumns_callback != nullptr) {
-            return qstandarditemmodel_movecolumns_callback(this, sourceParent, sourceColumn, count, destinationParent, destinationChild);
+            const QModelIndex& sourceParent_ret = sourceParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
+            int cbval2 = sourceColumn;
+            int cbval3 = count;
+            const QModelIndex& destinationParent_ret = destinationParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
+            int cbval5 = destinationChild;
+
+            bool callback_ret = qstandarditemmodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QStandardItemModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
@@ -1020,7 +1276,11 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_fetchmore_isbase = false;
             QStandardItemModel::fetchMore(parent);
         } else if (qstandarditemmodel_fetchmore_callback != nullptr) {
-            qstandarditemmodel_fetchmore_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            qstandarditemmodel_fetchmore_callback(this, cbval1);
         } else {
             QStandardItemModel::fetchMore(parent);
         }
@@ -1032,7 +1292,12 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_canfetchmore_isbase = false;
             return QStandardItemModel::canFetchMore(parent);
         } else if (qstandarditemmodel_canfetchmore_callback != nullptr) {
-            return qstandarditemmodel_canfetchmore_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qstandarditemmodel_canfetchmore_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QStandardItemModel::canFetchMore(parent);
         }
@@ -1044,7 +1309,12 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_buddy_isbase = false;
             return QStandardItemModel::buddy(index);
         } else if (qstandarditemmodel_buddy_callback != nullptr) {
-            return qstandarditemmodel_buddy_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QModelIndex* callback_ret = qstandarditemmodel_buddy_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QStandardItemModel::buddy(index);
         }
@@ -1056,7 +1326,24 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_match_isbase = false;
             return QStandardItemModel::match(start, role, value, hits, flags);
         } else if (qstandarditemmodel_match_callback != nullptr) {
-            return qstandarditemmodel_match_callback(this, start, role, value, hits, flags);
+            const QModelIndex& start_ret = start;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
+            int cbval2 = role;
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
+            int cbval4 = hits;
+            int cbval5 = static_cast<int>(flags);
+
+            libqt_list /* of QModelIndex* */ callback_ret = qstandarditemmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            QModelIndexList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            }
+            return callback_ret_QList;
         } else {
             return QStandardItemModel::match(start, role, value, hits, flags);
         }
@@ -1068,7 +1355,12 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_span_isbase = false;
             return QStandardItemModel::span(index);
         } else if (qstandarditemmodel_span_callback != nullptr) {
-            return qstandarditemmodel_span_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QSize* callback_ret = qstandarditemmodel_span_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QStandardItemModel::span(index);
         }
@@ -1080,7 +1372,8 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_submit_isbase = false;
             return QStandardItemModel::submit();
         } else if (qstandarditemmodel_submit_callback != nullptr) {
-            return qstandarditemmodel_submit_callback();
+            bool callback_ret = qstandarditemmodel_submit_callback();
+            return callback_ret;
         } else {
             return QStandardItemModel::submit();
         }
@@ -1116,7 +1409,10 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_event_isbase = false;
             return QStandardItemModel::event(event);
         } else if (qstandarditemmodel_event_callback != nullptr) {
-            return qstandarditemmodel_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qstandarditemmodel_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QStandardItemModel::event(event);
         }
@@ -1128,7 +1424,11 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_eventfilter_isbase = false;
             return QStandardItemModel::eventFilter(watched, event);
         } else if (qstandarditemmodel_eventfilter_callback != nullptr) {
-            return qstandarditemmodel_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qstandarditemmodel_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QStandardItemModel::eventFilter(watched, event);
         }
@@ -1140,7 +1440,9 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_timerevent_isbase = false;
             QStandardItemModel::timerEvent(event);
         } else if (qstandarditemmodel_timerevent_callback != nullptr) {
-            qstandarditemmodel_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qstandarditemmodel_timerevent_callback(this, cbval1);
         } else {
             QStandardItemModel::timerEvent(event);
         }
@@ -1152,7 +1454,9 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_childevent_isbase = false;
             QStandardItemModel::childEvent(event);
         } else if (qstandarditemmodel_childevent_callback != nullptr) {
-            qstandarditemmodel_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qstandarditemmodel_childevent_callback(this, cbval1);
         } else {
             QStandardItemModel::childEvent(event);
         }
@@ -1164,7 +1468,9 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_customevent_isbase = false;
             QStandardItemModel::customEvent(event);
         } else if (qstandarditemmodel_customevent_callback != nullptr) {
-            qstandarditemmodel_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qstandarditemmodel_customevent_callback(this, cbval1);
         } else {
             QStandardItemModel::customEvent(event);
         }
@@ -1176,7 +1482,11 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_connectnotify_isbase = false;
             QStandardItemModel::connectNotify(signal);
         } else if (qstandarditemmodel_connectnotify_callback != nullptr) {
-            qstandarditemmodel_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qstandarditemmodel_connectnotify_callback(this, cbval1);
         } else {
             QStandardItemModel::connectNotify(signal);
         }
@@ -1188,7 +1498,11 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_disconnectnotify_isbase = false;
             QStandardItemModel::disconnectNotify(signal);
         } else if (qstandarditemmodel_disconnectnotify_callback != nullptr) {
-            qstandarditemmodel_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qstandarditemmodel_disconnectnotify_callback(this, cbval1);
         } else {
             QStandardItemModel::disconnectNotify(signal);
         }
@@ -1200,7 +1514,11 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_createindex_isbase = false;
             return QStandardItemModel::createIndex(row, column);
         } else if (qstandarditemmodel_createindex_callback != nullptr) {
-            return qstandarditemmodel_createindex_callback(this, row, column);
+            int cbval1 = row;
+            int cbval2 = column;
+
+            QModelIndex* callback_ret = qstandarditemmodel_createindex_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QStandardItemModel::createIndex(row, column);
         }
@@ -1212,7 +1530,21 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_encodedata_isbase = false;
             QStandardItemModel::encodeData(indexes, stream);
         } else if (qstandarditemmodel_encodedata_callback != nullptr) {
-            qstandarditemmodel_encodedata_callback(this, indexes, stream);
+            const QModelIndexList& indexes_ret = indexes;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.length()));
+            for (size_t i = 0; i < indexes_ret.length(); ++i) {
+                indexes_arr[i] = new QModelIndex(indexes_ret[i]);
+            }
+            libqt_list indexes_out;
+            indexes_out.len = indexes_ret.length();
+            indexes_out.data = static_cast<void*>(indexes_arr);
+            libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
+            QDataStream& stream_ret = stream;
+            // Cast returned reference into pointer
+            QDataStream* cbval2 = &stream_ret;
+
+            qstandarditemmodel_encodedata_callback(this, cbval1, cbval2);
         } else {
             QStandardItemModel::encodeData(indexes, stream);
         }
@@ -1224,7 +1556,17 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_decodedata_isbase = false;
             return QStandardItemModel::decodeData(row, column, parent, stream);
         } else if (qstandarditemmodel_decodedata_callback != nullptr) {
-            return qstandarditemmodel_decodedata_callback(this, row, column, parent, stream);
+            int cbval1 = row;
+            int cbval2 = column;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+            QDataStream& stream_ret = stream;
+            // Cast returned reference into pointer
+            QDataStream* cbval4 = &stream_ret;
+
+            bool callback_ret = qstandarditemmodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            return callback_ret;
         } else {
             return QStandardItemModel::decodeData(row, column, parent, stream);
         }
@@ -1236,7 +1578,13 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_begininsertrows_isbase = false;
             QStandardItemModel::beginInsertRows(parent, first, last);
         } else if (qstandarditemmodel_begininsertrows_callback != nullptr) {
-            qstandarditemmodel_begininsertrows_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qstandarditemmodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
         } else {
             QStandardItemModel::beginInsertRows(parent, first, last);
         }
@@ -1260,7 +1608,13 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_beginremoverows_isbase = false;
             QStandardItemModel::beginRemoveRows(parent, first, last);
         } else if (qstandarditemmodel_beginremoverows_callback != nullptr) {
-            qstandarditemmodel_beginremoverows_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qstandarditemmodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
         } else {
             QStandardItemModel::beginRemoveRows(parent, first, last);
         }
@@ -1284,7 +1638,18 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_beginmoverows_isbase = false;
             return QStandardItemModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         } else if (qstandarditemmodel_beginmoverows_callback != nullptr) {
-            return qstandarditemmodel_beginmoverows_callback(this, sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
+            const QModelIndex& sourceParent_ret = sourceParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
+            int cbval2 = sourceFirst;
+            int cbval3 = sourceLast;
+            const QModelIndex& destinationParent_ret = destinationParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
+            int cbval5 = destinationRow;
+
+            bool callback_ret = qstandarditemmodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QStandardItemModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
@@ -1308,7 +1673,13 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_begininsertcolumns_isbase = false;
             QStandardItemModel::beginInsertColumns(parent, first, last);
         } else if (qstandarditemmodel_begininsertcolumns_callback != nullptr) {
-            qstandarditemmodel_begininsertcolumns_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qstandarditemmodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
         } else {
             QStandardItemModel::beginInsertColumns(parent, first, last);
         }
@@ -1332,7 +1703,13 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_beginremovecolumns_isbase = false;
             QStandardItemModel::beginRemoveColumns(parent, first, last);
         } else if (qstandarditemmodel_beginremovecolumns_callback != nullptr) {
-            qstandarditemmodel_beginremovecolumns_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qstandarditemmodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
         } else {
             QStandardItemModel::beginRemoveColumns(parent, first, last);
         }
@@ -1356,7 +1733,18 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_beginmovecolumns_isbase = false;
             return QStandardItemModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         } else if (qstandarditemmodel_beginmovecolumns_callback != nullptr) {
-            return qstandarditemmodel_beginmovecolumns_callback(this, sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
+            const QModelIndex& sourceParent_ret = sourceParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
+            int cbval2 = sourceFirst;
+            int cbval3 = sourceLast;
+            const QModelIndex& destinationParent_ret = destinationParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
+            int cbval5 = destinationColumn;
+
+            bool callback_ret = qstandarditemmodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QStandardItemModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
@@ -1404,7 +1792,14 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_changepersistentindex_isbase = false;
             QStandardItemModel::changePersistentIndex(from, to);
         } else if (qstandarditemmodel_changepersistentindex_callback != nullptr) {
-            qstandarditemmodel_changepersistentindex_callback(this, from, to);
+            const QModelIndex& from_ret = from;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
+            const QModelIndex& to_ret = to;
+            // Cast returned reference into pointer
+            QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
+
+            qstandarditemmodel_changepersistentindex_callback(this, cbval1, cbval2);
         } else {
             QStandardItemModel::changePersistentIndex(from, to);
         }
@@ -1416,7 +1811,28 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_changepersistentindexlist_isbase = false;
             QStandardItemModel::changePersistentIndexList(from, to);
         } else if (qstandarditemmodel_changepersistentindexlist_callback != nullptr) {
-            qstandarditemmodel_changepersistentindexlist_callback(this, from, to);
+            const QModelIndexList& from_ret = from;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * from_ret.length()));
+            for (size_t i = 0; i < from_ret.length(); ++i) {
+                from_arr[i] = new QModelIndex(from_ret[i]);
+            }
+            libqt_list from_out;
+            from_out.len = from_ret.length();
+            from_out.data = static_cast<void*>(from_arr);
+            libqt_list /* of QModelIndex* */ cbval1 = from_out;
+            const QModelIndexList& to_ret = to;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * to_ret.length()));
+            for (size_t i = 0; i < to_ret.length(); ++i) {
+                to_arr[i] = new QModelIndex(to_ret[i]);
+            }
+            libqt_list to_out;
+            to_out.len = to_ret.length();
+            to_out.data = static_cast<void*>(to_arr);
+            libqt_list /* of QModelIndex* */ cbval2 = to_out;
+
+            qstandarditemmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
         } else {
             QStandardItemModel::changePersistentIndexList(from, to);
         }
@@ -1428,7 +1844,14 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_persistentindexlist_isbase = false;
             return QStandardItemModel::persistentIndexList();
         } else if (qstandarditemmodel_persistentindexlist_callback != nullptr) {
-            return qstandarditemmodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qstandarditemmodel_persistentindexlist_callback();
+            QModelIndexList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            }
+            return callback_ret_QList;
         } else {
             return QStandardItemModel::persistentIndexList();
         }
@@ -1440,7 +1863,8 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_sender_isbase = false;
             return QStandardItemModel::sender();
         } else if (qstandarditemmodel_sender_callback != nullptr) {
-            return qstandarditemmodel_sender_callback();
+            QObject* callback_ret = qstandarditemmodel_sender_callback();
+            return callback_ret;
         } else {
             return QStandardItemModel::sender();
         }
@@ -1452,7 +1876,8 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_sendersignalindex_isbase = false;
             return QStandardItemModel::senderSignalIndex();
         } else if (qstandarditemmodel_sendersignalindex_callback != nullptr) {
-            return qstandarditemmodel_sendersignalindex_callback();
+            int callback_ret = qstandarditemmodel_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QStandardItemModel::senderSignalIndex();
         }
@@ -1464,7 +1889,10 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_receivers_isbase = false;
             return QStandardItemModel::receivers(signal);
         } else if (qstandarditemmodel_receivers_callback != nullptr) {
-            return qstandarditemmodel_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qstandarditemmodel_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QStandardItemModel::receivers(signal);
         }
@@ -1476,11 +1904,78 @@ class VirtualQStandardItemModel : public QStandardItemModel {
             qstandarditemmodel_issignalconnected_isbase = false;
             return QStandardItemModel::isSignalConnected(signal);
         } else if (qstandarditemmodel_issignalconnected_callback != nullptr) {
-            return qstandarditemmodel_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qstandarditemmodel_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QStandardItemModel::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QStandardItemModel_ResetInternalData(QStandardItemModel* self);
+    friend void QStandardItemModel_QBaseResetInternalData(QStandardItemModel* self);
+    friend void QStandardItemModel_TimerEvent(QStandardItemModel* self, QTimerEvent* event);
+    friend void QStandardItemModel_QBaseTimerEvent(QStandardItemModel* self, QTimerEvent* event);
+    friend void QStandardItemModel_ChildEvent(QStandardItemModel* self, QChildEvent* event);
+    friend void QStandardItemModel_QBaseChildEvent(QStandardItemModel* self, QChildEvent* event);
+    friend void QStandardItemModel_CustomEvent(QStandardItemModel* self, QEvent* event);
+    friend void QStandardItemModel_QBaseCustomEvent(QStandardItemModel* self, QEvent* event);
+    friend void QStandardItemModel_ConnectNotify(QStandardItemModel* self, const QMetaMethod* signal);
+    friend void QStandardItemModel_QBaseConnectNotify(QStandardItemModel* self, const QMetaMethod* signal);
+    friend void QStandardItemModel_DisconnectNotify(QStandardItemModel* self, const QMetaMethod* signal);
+    friend void QStandardItemModel_QBaseDisconnectNotify(QStandardItemModel* self, const QMetaMethod* signal);
+    friend QModelIndex* QStandardItemModel_CreateIndex(const QStandardItemModel* self, int row, int column);
+    friend QModelIndex* QStandardItemModel_QBaseCreateIndex(const QStandardItemModel* self, int row, int column);
+    friend void QStandardItemModel_EncodeData(const QStandardItemModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
+    friend void QStandardItemModel_QBaseEncodeData(const QStandardItemModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
+    friend bool QStandardItemModel_DecodeData(QStandardItemModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
+    friend bool QStandardItemModel_QBaseDecodeData(QStandardItemModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
+    friend void QStandardItemModel_BeginInsertRows(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QStandardItemModel_QBaseBeginInsertRows(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QStandardItemModel_EndInsertRows(QStandardItemModel* self);
+    friend void QStandardItemModel_QBaseEndInsertRows(QStandardItemModel* self);
+    friend void QStandardItemModel_BeginRemoveRows(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QStandardItemModel_QBaseBeginRemoveRows(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QStandardItemModel_EndRemoveRows(QStandardItemModel* self);
+    friend void QStandardItemModel_QBaseEndRemoveRows(QStandardItemModel* self);
+    friend bool QStandardItemModel_BeginMoveRows(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
+    friend bool QStandardItemModel_QBaseBeginMoveRows(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
+    friend void QStandardItemModel_EndMoveRows(QStandardItemModel* self);
+    friend void QStandardItemModel_QBaseEndMoveRows(QStandardItemModel* self);
+    friend void QStandardItemModel_BeginInsertColumns(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QStandardItemModel_QBaseBeginInsertColumns(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QStandardItemModel_EndInsertColumns(QStandardItemModel* self);
+    friend void QStandardItemModel_QBaseEndInsertColumns(QStandardItemModel* self);
+    friend void QStandardItemModel_BeginRemoveColumns(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QStandardItemModel_QBaseBeginRemoveColumns(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QStandardItemModel_EndRemoveColumns(QStandardItemModel* self);
+    friend void QStandardItemModel_QBaseEndRemoveColumns(QStandardItemModel* self);
+    friend bool QStandardItemModel_BeginMoveColumns(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
+    friend bool QStandardItemModel_QBaseBeginMoveColumns(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
+    friend void QStandardItemModel_EndMoveColumns(QStandardItemModel* self);
+    friend void QStandardItemModel_QBaseEndMoveColumns(QStandardItemModel* self);
+    friend void QStandardItemModel_BeginResetModel(QStandardItemModel* self);
+    friend void QStandardItemModel_QBaseBeginResetModel(QStandardItemModel* self);
+    friend void QStandardItemModel_EndResetModel(QStandardItemModel* self);
+    friend void QStandardItemModel_QBaseEndResetModel(QStandardItemModel* self);
+    friend void QStandardItemModel_ChangePersistentIndex(QStandardItemModel* self, const QModelIndex* from, const QModelIndex* to);
+    friend void QStandardItemModel_QBaseChangePersistentIndex(QStandardItemModel* self, const QModelIndex* from, const QModelIndex* to);
+    friend void QStandardItemModel_ChangePersistentIndexList(QStandardItemModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
+    friend void QStandardItemModel_QBaseChangePersistentIndexList(QStandardItemModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
+    friend libqt_list /* of QModelIndex* */ QStandardItemModel_PersistentIndexList(const QStandardItemModel* self);
+    friend libqt_list /* of QModelIndex* */ QStandardItemModel_QBasePersistentIndexList(const QStandardItemModel* self);
+    friend QObject* QStandardItemModel_Sender(const QStandardItemModel* self);
+    friend QObject* QStandardItemModel_QBaseSender(const QStandardItemModel* self);
+    friend int QStandardItemModel_SenderSignalIndex(const QStandardItemModel* self);
+    friend int QStandardItemModel_QBaseSenderSignalIndex(const QStandardItemModel* self);
+    friend int QStandardItemModel_Receivers(const QStandardItemModel* self, const char* signal);
+    friend int QStandardItemModel_QBaseReceivers(const QStandardItemModel* self, const char* signal);
+    friend bool QStandardItemModel_IsSignalConnected(const QStandardItemModel* self, const QMetaMethod* signal);
+    friend bool QStandardItemModel_QBaseIsSignalConnected(const QStandardItemModel* self, const QMetaMethod* signal);
 };
 
 #endif

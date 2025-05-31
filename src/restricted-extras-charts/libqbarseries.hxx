@@ -11,23 +11,26 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QBarSeries so that we can call protected methods
-class VirtualQBarSeries : public QBarSeries {
+class VirtualQBarSeries final : public QBarSeries {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQBarSeries = true;
+
     // Virtual class public types (including callbacks)
-    using QBarSeries_Metacall_Callback = int (*)(QBarSeries*, QMetaObject::Call, int, void**);
-    using QBarSeries_Type_Callback = QAbstractSeries::SeriesType (*)();
+    using QBarSeries_Metacall_Callback = int (*)(QBarSeries*, int, int, void**);
+    using QBarSeries_Type_Callback = int (*)();
     using QBarSeries_Event_Callback = bool (*)(QBarSeries*, QEvent*);
     using QBarSeries_EventFilter_Callback = bool (*)(QBarSeries*, QObject*, QEvent*);
     using QBarSeries_TimerEvent_Callback = void (*)(QBarSeries*, QTimerEvent*);
     using QBarSeries_ChildEvent_Callback = void (*)(QBarSeries*, QChildEvent*);
     using QBarSeries_CustomEvent_Callback = void (*)(QBarSeries*, QEvent*);
-    using QBarSeries_ConnectNotify_Callback = void (*)(QBarSeries*, const QMetaMethod&);
-    using QBarSeries_DisconnectNotify_Callback = void (*)(QBarSeries*, const QMetaMethod&);
+    using QBarSeries_ConnectNotify_Callback = void (*)(QBarSeries*, QMetaMethod*);
+    using QBarSeries_DisconnectNotify_Callback = void (*)(QBarSeries*, QMetaMethod*);
     using QBarSeries_Sender_Callback = QObject* (*)();
     using QBarSeries_SenderSignalIndex_Callback = int (*)();
     using QBarSeries_Receivers_Callback = int (*)(const QBarSeries*, const char*);
-    using QBarSeries_IsSignalConnected_Callback = bool (*)(const QBarSeries*, const QMetaMethod&);
+    using QBarSeries_IsSignalConnected_Callback = bool (*)(const QBarSeries*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -81,34 +84,34 @@ class VirtualQBarSeries : public QBarSeries {
     }
 
     // Callback setters
-    void setQBarSeries_Metacall_Callback(QBarSeries_Metacall_Callback cb) { qbarseries_metacall_callback = cb; }
-    void setQBarSeries_Type_Callback(QBarSeries_Type_Callback cb) { qbarseries_type_callback = cb; }
-    void setQBarSeries_Event_Callback(QBarSeries_Event_Callback cb) { qbarseries_event_callback = cb; }
-    void setQBarSeries_EventFilter_Callback(QBarSeries_EventFilter_Callback cb) { qbarseries_eventfilter_callback = cb; }
-    void setQBarSeries_TimerEvent_Callback(QBarSeries_TimerEvent_Callback cb) { qbarseries_timerevent_callback = cb; }
-    void setQBarSeries_ChildEvent_Callback(QBarSeries_ChildEvent_Callback cb) { qbarseries_childevent_callback = cb; }
-    void setQBarSeries_CustomEvent_Callback(QBarSeries_CustomEvent_Callback cb) { qbarseries_customevent_callback = cb; }
-    void setQBarSeries_ConnectNotify_Callback(QBarSeries_ConnectNotify_Callback cb) { qbarseries_connectnotify_callback = cb; }
-    void setQBarSeries_DisconnectNotify_Callback(QBarSeries_DisconnectNotify_Callback cb) { qbarseries_disconnectnotify_callback = cb; }
-    void setQBarSeries_Sender_Callback(QBarSeries_Sender_Callback cb) { qbarseries_sender_callback = cb; }
-    void setQBarSeries_SenderSignalIndex_Callback(QBarSeries_SenderSignalIndex_Callback cb) { qbarseries_sendersignalindex_callback = cb; }
-    void setQBarSeries_Receivers_Callback(QBarSeries_Receivers_Callback cb) { qbarseries_receivers_callback = cb; }
-    void setQBarSeries_IsSignalConnected_Callback(QBarSeries_IsSignalConnected_Callback cb) { qbarseries_issignalconnected_callback = cb; }
+    inline void setQBarSeries_Metacall_Callback(QBarSeries_Metacall_Callback cb) { qbarseries_metacall_callback = cb; }
+    inline void setQBarSeries_Type_Callback(QBarSeries_Type_Callback cb) { qbarseries_type_callback = cb; }
+    inline void setQBarSeries_Event_Callback(QBarSeries_Event_Callback cb) { qbarseries_event_callback = cb; }
+    inline void setQBarSeries_EventFilter_Callback(QBarSeries_EventFilter_Callback cb) { qbarseries_eventfilter_callback = cb; }
+    inline void setQBarSeries_TimerEvent_Callback(QBarSeries_TimerEvent_Callback cb) { qbarseries_timerevent_callback = cb; }
+    inline void setQBarSeries_ChildEvent_Callback(QBarSeries_ChildEvent_Callback cb) { qbarseries_childevent_callback = cb; }
+    inline void setQBarSeries_CustomEvent_Callback(QBarSeries_CustomEvent_Callback cb) { qbarseries_customevent_callback = cb; }
+    inline void setQBarSeries_ConnectNotify_Callback(QBarSeries_ConnectNotify_Callback cb) { qbarseries_connectnotify_callback = cb; }
+    inline void setQBarSeries_DisconnectNotify_Callback(QBarSeries_DisconnectNotify_Callback cb) { qbarseries_disconnectnotify_callback = cb; }
+    inline void setQBarSeries_Sender_Callback(QBarSeries_Sender_Callback cb) { qbarseries_sender_callback = cb; }
+    inline void setQBarSeries_SenderSignalIndex_Callback(QBarSeries_SenderSignalIndex_Callback cb) { qbarseries_sendersignalindex_callback = cb; }
+    inline void setQBarSeries_Receivers_Callback(QBarSeries_Receivers_Callback cb) { qbarseries_receivers_callback = cb; }
+    inline void setQBarSeries_IsSignalConnected_Callback(QBarSeries_IsSignalConnected_Callback cb) { qbarseries_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQBarSeries_Metacall_IsBase(bool value) const { qbarseries_metacall_isbase = value; }
-    void setQBarSeries_Type_IsBase(bool value) const { qbarseries_type_isbase = value; }
-    void setQBarSeries_Event_IsBase(bool value) const { qbarseries_event_isbase = value; }
-    void setQBarSeries_EventFilter_IsBase(bool value) const { qbarseries_eventfilter_isbase = value; }
-    void setQBarSeries_TimerEvent_IsBase(bool value) const { qbarseries_timerevent_isbase = value; }
-    void setQBarSeries_ChildEvent_IsBase(bool value) const { qbarseries_childevent_isbase = value; }
-    void setQBarSeries_CustomEvent_IsBase(bool value) const { qbarseries_customevent_isbase = value; }
-    void setQBarSeries_ConnectNotify_IsBase(bool value) const { qbarseries_connectnotify_isbase = value; }
-    void setQBarSeries_DisconnectNotify_IsBase(bool value) const { qbarseries_disconnectnotify_isbase = value; }
-    void setQBarSeries_Sender_IsBase(bool value) const { qbarseries_sender_isbase = value; }
-    void setQBarSeries_SenderSignalIndex_IsBase(bool value) const { qbarseries_sendersignalindex_isbase = value; }
-    void setQBarSeries_Receivers_IsBase(bool value) const { qbarseries_receivers_isbase = value; }
-    void setQBarSeries_IsSignalConnected_IsBase(bool value) const { qbarseries_issignalconnected_isbase = value; }
+    inline void setQBarSeries_Metacall_IsBase(bool value) const { qbarseries_metacall_isbase = value; }
+    inline void setQBarSeries_Type_IsBase(bool value) const { qbarseries_type_isbase = value; }
+    inline void setQBarSeries_Event_IsBase(bool value) const { qbarseries_event_isbase = value; }
+    inline void setQBarSeries_EventFilter_IsBase(bool value) const { qbarseries_eventfilter_isbase = value; }
+    inline void setQBarSeries_TimerEvent_IsBase(bool value) const { qbarseries_timerevent_isbase = value; }
+    inline void setQBarSeries_ChildEvent_IsBase(bool value) const { qbarseries_childevent_isbase = value; }
+    inline void setQBarSeries_CustomEvent_IsBase(bool value) const { qbarseries_customevent_isbase = value; }
+    inline void setQBarSeries_ConnectNotify_IsBase(bool value) const { qbarseries_connectnotify_isbase = value; }
+    inline void setQBarSeries_DisconnectNotify_IsBase(bool value) const { qbarseries_disconnectnotify_isbase = value; }
+    inline void setQBarSeries_Sender_IsBase(bool value) const { qbarseries_sender_isbase = value; }
+    inline void setQBarSeries_SenderSignalIndex_IsBase(bool value) const { qbarseries_sendersignalindex_isbase = value; }
+    inline void setQBarSeries_Receivers_IsBase(bool value) const { qbarseries_receivers_isbase = value; }
+    inline void setQBarSeries_IsSignalConnected_IsBase(bool value) const { qbarseries_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -116,7 +119,12 @@ class VirtualQBarSeries : public QBarSeries {
             qbarseries_metacall_isbase = false;
             return QBarSeries::qt_metacall(param1, param2, param3);
         } else if (qbarseries_metacall_callback != nullptr) {
-            return qbarseries_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qbarseries_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QBarSeries::qt_metacall(param1, param2, param3);
         }
@@ -128,7 +136,8 @@ class VirtualQBarSeries : public QBarSeries {
             qbarseries_type_isbase = false;
             return QBarSeries::type();
         } else if (qbarseries_type_callback != nullptr) {
-            return qbarseries_type_callback();
+            int callback_ret = qbarseries_type_callback();
+            return static_cast<QAbstractSeries::SeriesType>(callback_ret);
         } else {
             return QBarSeries::type();
         }
@@ -140,7 +149,10 @@ class VirtualQBarSeries : public QBarSeries {
             qbarseries_event_isbase = false;
             return QBarSeries::event(event);
         } else if (qbarseries_event_callback != nullptr) {
-            return qbarseries_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qbarseries_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QBarSeries::event(event);
         }
@@ -152,7 +164,11 @@ class VirtualQBarSeries : public QBarSeries {
             qbarseries_eventfilter_isbase = false;
             return QBarSeries::eventFilter(watched, event);
         } else if (qbarseries_eventfilter_callback != nullptr) {
-            return qbarseries_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qbarseries_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QBarSeries::eventFilter(watched, event);
         }
@@ -164,7 +180,9 @@ class VirtualQBarSeries : public QBarSeries {
             qbarseries_timerevent_isbase = false;
             QBarSeries::timerEvent(event);
         } else if (qbarseries_timerevent_callback != nullptr) {
-            qbarseries_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qbarseries_timerevent_callback(this, cbval1);
         } else {
             QBarSeries::timerEvent(event);
         }
@@ -176,7 +194,9 @@ class VirtualQBarSeries : public QBarSeries {
             qbarseries_childevent_isbase = false;
             QBarSeries::childEvent(event);
         } else if (qbarseries_childevent_callback != nullptr) {
-            qbarseries_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qbarseries_childevent_callback(this, cbval1);
         } else {
             QBarSeries::childEvent(event);
         }
@@ -188,7 +208,9 @@ class VirtualQBarSeries : public QBarSeries {
             qbarseries_customevent_isbase = false;
             QBarSeries::customEvent(event);
         } else if (qbarseries_customevent_callback != nullptr) {
-            qbarseries_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qbarseries_customevent_callback(this, cbval1);
         } else {
             QBarSeries::customEvent(event);
         }
@@ -200,7 +222,11 @@ class VirtualQBarSeries : public QBarSeries {
             qbarseries_connectnotify_isbase = false;
             QBarSeries::connectNotify(signal);
         } else if (qbarseries_connectnotify_callback != nullptr) {
-            qbarseries_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qbarseries_connectnotify_callback(this, cbval1);
         } else {
             QBarSeries::connectNotify(signal);
         }
@@ -212,7 +238,11 @@ class VirtualQBarSeries : public QBarSeries {
             qbarseries_disconnectnotify_isbase = false;
             QBarSeries::disconnectNotify(signal);
         } else if (qbarseries_disconnectnotify_callback != nullptr) {
-            qbarseries_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qbarseries_disconnectnotify_callback(this, cbval1);
         } else {
             QBarSeries::disconnectNotify(signal);
         }
@@ -224,7 +254,8 @@ class VirtualQBarSeries : public QBarSeries {
             qbarseries_sender_isbase = false;
             return QBarSeries::sender();
         } else if (qbarseries_sender_callback != nullptr) {
-            return qbarseries_sender_callback();
+            QObject* callback_ret = qbarseries_sender_callback();
+            return callback_ret;
         } else {
             return QBarSeries::sender();
         }
@@ -236,7 +267,8 @@ class VirtualQBarSeries : public QBarSeries {
             qbarseries_sendersignalindex_isbase = false;
             return QBarSeries::senderSignalIndex();
         } else if (qbarseries_sendersignalindex_callback != nullptr) {
-            return qbarseries_sendersignalindex_callback();
+            int callback_ret = qbarseries_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QBarSeries::senderSignalIndex();
         }
@@ -248,7 +280,10 @@ class VirtualQBarSeries : public QBarSeries {
             qbarseries_receivers_isbase = false;
             return QBarSeries::receivers(signal);
         } else if (qbarseries_receivers_callback != nullptr) {
-            return qbarseries_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qbarseries_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QBarSeries::receivers(signal);
         }
@@ -260,11 +295,36 @@ class VirtualQBarSeries : public QBarSeries {
             qbarseries_issignalconnected_isbase = false;
             return QBarSeries::isSignalConnected(signal);
         } else if (qbarseries_issignalconnected_callback != nullptr) {
-            return qbarseries_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qbarseries_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QBarSeries::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QBarSeries_TimerEvent(QBarSeries* self, QTimerEvent* event);
+    friend void QBarSeries_QBaseTimerEvent(QBarSeries* self, QTimerEvent* event);
+    friend void QBarSeries_ChildEvent(QBarSeries* self, QChildEvent* event);
+    friend void QBarSeries_QBaseChildEvent(QBarSeries* self, QChildEvent* event);
+    friend void QBarSeries_CustomEvent(QBarSeries* self, QEvent* event);
+    friend void QBarSeries_QBaseCustomEvent(QBarSeries* self, QEvent* event);
+    friend void QBarSeries_ConnectNotify(QBarSeries* self, const QMetaMethod* signal);
+    friend void QBarSeries_QBaseConnectNotify(QBarSeries* self, const QMetaMethod* signal);
+    friend void QBarSeries_DisconnectNotify(QBarSeries* self, const QMetaMethod* signal);
+    friend void QBarSeries_QBaseDisconnectNotify(QBarSeries* self, const QMetaMethod* signal);
+    friend QObject* QBarSeries_Sender(const QBarSeries* self);
+    friend QObject* QBarSeries_QBaseSender(const QBarSeries* self);
+    friend int QBarSeries_SenderSignalIndex(const QBarSeries* self);
+    friend int QBarSeries_QBaseSenderSignalIndex(const QBarSeries* self);
+    friend int QBarSeries_Receivers(const QBarSeries* self, const char* signal);
+    friend int QBarSeries_QBaseReceivers(const QBarSeries* self, const char* signal);
+    friend bool QBarSeries_IsSignalConnected(const QBarSeries* self, const QMetaMethod* signal);
+    friend bool QBarSeries_QBaseIsSignalConnected(const QBarSeries* self, const QMetaMethod* signal);
 };
 
 #endif

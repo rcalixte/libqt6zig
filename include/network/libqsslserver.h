@@ -15,19 +15,11 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
-typedef struct QHostAddress QHostAddress;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
-typedef struct QNetworkProxy QNetworkProxy;
 typedef struct QObject QObject;
 typedef struct QSslConfiguration QSslConfiguration;
 typedef struct QSslError QSslError;
@@ -36,9 +28,7 @@ typedef struct QSslServer QSslServer;
 typedef struct QSslSocket QSslSocket;
 typedef struct QTcpServer QTcpServer;
 typedef struct QTcpSocket QTcpSocket;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QSslServer* QSslServer_new();
@@ -49,23 +39,23 @@ int QSslServer_Metacall(QSslServer* self, int param1, int param2, void** param3)
 void QSslServer_OnMetacall(QSslServer* self, intptr_t slot);
 int QSslServer_QBaseMetacall(QSslServer* self, int param1, int param2, void** param3);
 libqt_string QSslServer_Tr(const char* s);
-void QSslServer_SetSslConfiguration(QSslServer* self, QSslConfiguration* sslConfiguration);
+void QSslServer_SetSslConfiguration(QSslServer* self, const QSslConfiguration* sslConfiguration);
 QSslConfiguration* QSslServer_SslConfiguration(const QSslServer* self);
 void QSslServer_SetHandshakeTimeout(QSslServer* self, int timeout);
 int QSslServer_HandshakeTimeout(const QSslServer* self);
-void QSslServer_SslErrors(QSslServer* self, QSslSocket* socket, libqt_list /* of QSslError* */ errors);
+void QSslServer_SslErrors(QSslServer* self, QSslSocket* socket, const libqt_list /* of QSslError* */ errors);
 void QSslServer_Connect_SslErrors(QSslServer* self, intptr_t slot);
-void QSslServer_PeerVerifyError(QSslServer* self, QSslSocket* socket, QSslError* errorVal);
+void QSslServer_PeerVerifyError(QSslServer* self, QSslSocket* socket, const QSslError* errorVal);
 void QSslServer_Connect_PeerVerifyError(QSslServer* self, intptr_t slot);
 void QSslServer_ErrorOccurred(QSslServer* self, QSslSocket* socket, int errorVal);
 void QSslServer_Connect_ErrorOccurred(QSslServer* self, intptr_t slot);
 void QSslServer_PreSharedKeyAuthenticationRequired(QSslServer* self, QSslSocket* socket, QSslPreSharedKeyAuthenticator* authenticator);
 void QSslServer_Connect_PreSharedKeyAuthenticationRequired(QSslServer* self, intptr_t slot);
-void QSslServer_AlertSent(QSslServer* self, QSslSocket* socket, int level, int typeVal, libqt_string description);
+void QSslServer_AlertSent(QSslServer* self, QSslSocket* socket, int level, int typeVal, const libqt_string description);
 void QSslServer_Connect_AlertSent(QSslServer* self, intptr_t slot);
-void QSslServer_AlertReceived(QSslServer* self, QSslSocket* socket, int level, int typeVal, libqt_string description);
+void QSslServer_AlertReceived(QSslServer* self, QSslSocket* socket, int level, int typeVal, const libqt_string description);
 void QSslServer_Connect_AlertReceived(QSslServer* self, intptr_t slot);
-void QSslServer_HandshakeInterruptedOnError(QSslServer* self, QSslSocket* socket, QSslError* errorVal);
+void QSslServer_HandshakeInterruptedOnError(QSslServer* self, QSslSocket* socket, const QSslError* errorVal);
 void QSslServer_Connect_HandshakeInterruptedOnError(QSslServer* self, intptr_t slot);
 void QSslServer_StartedEncryptionHandshake(QSslServer* self, QSslSocket* socket);
 void QSslServer_Connect_StartedEncryptionHandshake(QSslServer* self, intptr_t slot);
@@ -95,12 +85,12 @@ void QSslServer_QBaseChildEvent(QSslServer* self, QChildEvent* event);
 void QSslServer_CustomEvent(QSslServer* self, QEvent* event);
 void QSslServer_OnCustomEvent(QSslServer* self, intptr_t slot);
 void QSslServer_QBaseCustomEvent(QSslServer* self, QEvent* event);
-void QSslServer_ConnectNotify(QSslServer* self, QMetaMethod* signal);
+void QSslServer_ConnectNotify(QSslServer* self, const QMetaMethod* signal);
 void QSslServer_OnConnectNotify(QSslServer* self, intptr_t slot);
-void QSslServer_QBaseConnectNotify(QSslServer* self, QMetaMethod* signal);
-void QSslServer_DisconnectNotify(QSslServer* self, QMetaMethod* signal);
+void QSslServer_QBaseConnectNotify(QSslServer* self, const QMetaMethod* signal);
+void QSslServer_DisconnectNotify(QSslServer* self, const QMetaMethod* signal);
 void QSslServer_OnDisconnectNotify(QSslServer* self, intptr_t slot);
-void QSslServer_QBaseDisconnectNotify(QSslServer* self, QMetaMethod* signal);
+void QSslServer_QBaseDisconnectNotify(QSslServer* self, const QMetaMethod* signal);
 void QSslServer_AddPendingConnection(QSslServer* self, QTcpSocket* socket);
 void QSslServer_OnAddPendingConnection(QSslServer* self, intptr_t slot);
 void QSslServer_QBaseAddPendingConnection(QSslServer* self, QTcpSocket* socket);
@@ -113,9 +103,9 @@ int QSslServer_QBaseSenderSignalIndex(const QSslServer* self);
 int QSslServer_Receivers(const QSslServer* self, const char* signal);
 void QSslServer_OnReceivers(const QSslServer* self, intptr_t slot);
 int QSslServer_QBaseReceivers(const QSslServer* self, const char* signal);
-bool QSslServer_IsSignalConnected(const QSslServer* self, QMetaMethod* signal);
+bool QSslServer_IsSignalConnected(const QSslServer* self, const QMetaMethod* signal);
 void QSslServer_OnIsSignalConnected(const QSslServer* self, intptr_t slot);
-bool QSslServer_QBaseIsSignalConnected(const QSslServer* self, QMetaMethod* signal);
+bool QSslServer_QBaseIsSignalConnected(const QSslServer* self, const QMetaMethod* signal);
 void QSslServer_Delete(QSslServer* self);
 
 #ifdef __cplusplus

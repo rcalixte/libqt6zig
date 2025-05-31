@@ -1,80 +1,82 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qscicommand_enums = enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qscicommand.html
+/// https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html
 pub const qscicommand = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscicommand.html#command)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
-    /// ``` self: ?*C.QsciCommand ```
+    /// ``` self: QtC.QsciCommand ```
     pub fn Command(self: ?*anyopaque) i64 {
-        return C.QsciCommand_Command(@ptrCast(self));
+        return qtc.QsciCommand_Command(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscicommand.html#execute)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
-    /// ``` self: ?*C.QsciCommand ```
+    /// ``` self: QtC.QsciCommand ```
     pub fn Execute(self: ?*anyopaque) void {
-        C.QsciCommand_Execute(@ptrCast(self));
+        qtc.QsciCommand_Execute(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscicommand.html#setKey)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
-    /// ``` self: ?*C.QsciCommand, key: i32 ```
+    /// ``` self: QtC.QsciCommand, key: i32 ```
     pub fn SetKey(self: ?*anyopaque, key: i32) void {
-        C.QsciCommand_SetKey(@ptrCast(self), @intCast(key));
+        qtc.QsciCommand_SetKey(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscicommand.html#setAlternateKey)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
-    /// ``` self: ?*C.QsciCommand, altkey: i32 ```
+    /// ``` self: QtC.QsciCommand, altkey: i32 ```
     pub fn SetAlternateKey(self: ?*anyopaque, altkey: i32) void {
-        C.QsciCommand_SetAlternateKey(@ptrCast(self), @intCast(altkey));
+        qtc.QsciCommand_SetAlternateKey(@ptrCast(self), @intCast(altkey));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscicommand.html#key)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
-    /// ``` self: ?*C.QsciCommand ```
+    /// ``` self: QtC.QsciCommand ```
     pub fn Key(self: ?*anyopaque) i32 {
-        return C.QsciCommand_Key(@ptrCast(self));
+        return qtc.QsciCommand_Key(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscicommand.html#alternateKey)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
-    /// ``` self: ?*C.QsciCommand ```
+    /// ``` self: QtC.QsciCommand ```
     pub fn AlternateKey(self: ?*anyopaque) i32 {
-        return C.QsciCommand_AlternateKey(@ptrCast(self));
+        return qtc.QsciCommand_AlternateKey(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscicommand.html#validKey)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ``` key: i32 ```
     pub fn ValidKey(key: i32) bool {
-        return C.QsciCommand_ValidKey(@intCast(key));
+        return qtc.QsciCommand_ValidKey(@intCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscicommand.html#description)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
-    /// ``` self: ?*C.QsciCommand, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QsciCommand, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QsciCommand_Description(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QsciCommand_Description(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qscicommand.Description: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
         return _ret;
     }
 
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QsciCommand ```
+    /// ``` self: QtC.QsciCommand ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QsciCommand_Delete(@ptrCast(self));
+        qtc.QsciCommand_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qscicommand.html#types
 pub const enums = struct {
     pub const Command = enum {
         pub const LineDown: i32 = 2300;

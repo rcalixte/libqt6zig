@@ -45,7 +45,7 @@ QVariant* QVariant_new2(QMetaType* typeVal) {
     return new QVariant(*typeVal);
 }
 
-QVariant* QVariant_new3(QVariant* other) {
+QVariant* QVariant_new3(const QVariant* other) {
     return new QVariant(*other);
 }
 
@@ -81,21 +81,21 @@ QVariant* QVariant_new11(const char* str) {
     return new QVariant(str);
 }
 
-QVariant* QVariant_new12(libqt_string bytearray) {
+QVariant* QVariant_new12(const libqt_string bytearray) {
     QByteArray bytearray_QByteArray(bytearray.data, bytearray.len);
     return new QVariant(bytearray_QByteArray);
 }
 
-QVariant* QVariant_new13(QBitArray* bitarray) {
+QVariant* QVariant_new13(const QBitArray* bitarray) {
     return new QVariant(*bitarray);
 }
 
-QVariant* QVariant_new14(libqt_string stringVal) {
+QVariant* QVariant_new14(const libqt_string stringVal) {
     QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
     return new QVariant(stringVal_QString);
 }
 
-QVariant* QVariant_new15(libqt_list /* of libqt_string */ stringlist) {
+QVariant* QVariant_new15(const libqt_list /* of libqt_string */ stringlist) {
     QStringList stringlist_QList;
     stringlist_QList.reserve(stringlist.len);
     libqt_string* stringlist_arr = static_cast<libqt_string*>(stringlist.data);
@@ -118,11 +118,11 @@ QVariant* QVariant_new18(QTime* time) {
     return new QVariant(*time);
 }
 
-QVariant* QVariant_new19(QDateTime* datetime) {
+QVariant* QVariant_new19(const QDateTime* datetime) {
     return new QVariant(*datetime);
 }
 
-QVariant* QVariant_new20(libqt_map /* of libqt_string to QVariant* */ mapVal) {
+QVariant* QVariant_new20(const libqt_map /* of libqt_string to QVariant* */ mapVal) {
     QMap<QString, QVariant> mapVal_QMap;
     libqt_string* mapVal_karr = static_cast<libqt_string*>(mapVal.keys);
     QVariant** mapVal_varr = static_cast<QVariant**>(mapVal.values);
@@ -133,7 +133,7 @@ QVariant* QVariant_new20(libqt_map /* of libqt_string to QVariant* */ mapVal) {
     return new QVariant(mapVal_QMap);
 }
 
-QVariant* QVariant_new21(libqt_map /* of libqt_string to QVariant* */ hash) {
+QVariant* QVariant_new21(const libqt_map /* of libqt_string to QVariant* */ hash) {
     QHash<QString, QVariant> hash_QMap;
     hash_QMap.reserve(hash.len);
     libqt_string* hash_karr = static_cast<libqt_string*>(hash.keys);
@@ -145,79 +145,79 @@ QVariant* QVariant_new21(libqt_map /* of libqt_string to QVariant* */ hash) {
     return new QVariant(hash_QMap);
 }
 
-QVariant* QVariant_new22(QSize* size) {
+QVariant* QVariant_new22(const QSize* size) {
     return new QVariant(*size);
 }
 
-QVariant* QVariant_new23(QSizeF* size) {
+QVariant* QVariant_new23(const QSizeF* size) {
     return new QVariant(*size);
 }
 
-QVariant* QVariant_new24(QPoint* pt) {
+QVariant* QVariant_new24(const QPoint* pt) {
     return new QVariant(*pt);
 }
 
-QVariant* QVariant_new25(QPointF* pt) {
+QVariant* QVariant_new25(const QPointF* pt) {
     return new QVariant(*pt);
 }
 
-QVariant* QVariant_new26(QLine* line) {
+QVariant* QVariant_new26(const QLine* line) {
     return new QVariant(*line);
 }
 
-QVariant* QVariant_new27(QLineF* line) {
+QVariant* QVariant_new27(const QLineF* line) {
     return new QVariant(*line);
 }
 
-QVariant* QVariant_new28(QRect* rect) {
+QVariant* QVariant_new28(const QRect* rect) {
     return new QVariant(*rect);
 }
 
-QVariant* QVariant_new29(QRectF* rect) {
+QVariant* QVariant_new29(const QRectF* rect) {
     return new QVariant(*rect);
 }
 
-QVariant* QVariant_new30(QLocale* locale) {
+QVariant* QVariant_new30(const QLocale* locale) {
     return new QVariant(*locale);
 }
 
-QVariant* QVariant_new31(QRegularExpression* re) {
+QVariant* QVariant_new31(const QRegularExpression* re) {
     return new QVariant(*re);
 }
 
-QVariant* QVariant_new32(QEasingCurve* easing) {
+QVariant* QVariant_new32(const QEasingCurve* easing) {
     return new QVariant(*easing);
 }
 
-QVariant* QVariant_new33(QUuid* uuid) {
+QVariant* QVariant_new33(const QUuid* uuid) {
     return new QVariant(*uuid);
 }
 
-QVariant* QVariant_new34(QUrl* url) {
+QVariant* QVariant_new34(const QUrl* url) {
     return new QVariant(*url);
 }
 
-QVariant* QVariant_new35(QJsonValue* jsonValue) {
+QVariant* QVariant_new35(const QJsonValue* jsonValue) {
     return new QVariant(*jsonValue);
 }
 
-QVariant* QVariant_new36(QJsonObject* jsonObject) {
+QVariant* QVariant_new36(const QJsonObject* jsonObject) {
     return new QVariant(*jsonObject);
 }
 
-QVariant* QVariant_new37(QJsonArray* jsonArray) {
+QVariant* QVariant_new37(const QJsonArray* jsonArray) {
     return new QVariant(*jsonArray);
 }
 
-QVariant* QVariant_new38(QJsonDocument* jsonDocument) {
+QVariant* QVariant_new38(const QJsonDocument* jsonDocument) {
     return new QVariant(*jsonDocument);
 }
 
-QVariant* QVariant_new39(QModelIndex* modelIndex) {
+QVariant* QVariant_new39(const QModelIndex* modelIndex) {
     return new QVariant(*modelIndex);
 }
 
-QVariant* QVariant_new40(QPersistentModelIndex* modelIndex) {
+QVariant* QVariant_new40(const QPersistentModelIndex* modelIndex) {
     return new QVariant(*modelIndex);
 }
 
@@ -229,7 +229,7 @@ QVariant* QVariant_new42(QMetaType* typeVal, const void* copyVal) {
     return new QVariant(*typeVal, copyVal);
 }
 
-void QVariant_OperatorAssign(QVariant* self, QVariant* other) {
+void QVariant_OperatorAssign(QVariant* self, const QVariant* other) {
     self->operator=(*other);
 }
 
@@ -548,11 +548,11 @@ const void* QVariant_Data2(const QVariant* self) {
     return (const void*)self->data();
 }
 
-void QVariant_SetValue(QVariant* self, QVariant* avalue) {
+void QVariant_SetValue(QVariant* self, const QVariant* avalue) {
     self->setValue(*avalue);
 }
 
-QPartialOrdering* QVariant_Compare(QVariant* lhs, QVariant* rhs) {
+QPartialOrdering* QVariant_Compare(const QVariant* lhs, const QVariant* rhs) {
     return new QPartialOrdering(QVariant::compare(*lhs, *rhs));
 }
 
@@ -592,7 +592,7 @@ QVariantConstPointer* QVariantConstPointer_new(QVariant* variant) {
     return new QVariantConstPointer(*variant);
 }
 
-QVariantConstPointer* QVariantConstPointer_new2(QVariantConstPointer* param1) {
+QVariantConstPointer* QVariantConstPointer_new2(const QVariantConstPointer* param1) {
     return new QVariantConstPointer(*param1);
 }
 
@@ -604,7 +604,7 @@ QVariant* QVariantConstPointer_OperatorMinusGreater(const QVariantConstPointer* 
     return (QVariant*)self->operator->();
 }
 
-void QVariantConstPointer_OperatorAssign(QVariantConstPointer* self, QVariantConstPointer* param1) {
+void QVariantConstPointer_OperatorAssign(QVariantConstPointer* self, const QVariantConstPointer* param1) {
     self->operator=(*param1);
 }
 

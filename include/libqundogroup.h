@@ -15,24 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAction QAction;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QUndoGroup QUndoGroup;
 typedef struct QUndoStack QUndoStack;
-typedef struct QVariant QVariant;
 #endif
 
 QUndoGroup* QUndoGroup_new();
@@ -67,14 +59,14 @@ void QUndoGroup_CanUndoChanged(QUndoGroup* self, bool canUndo);
 void QUndoGroup_Connect_CanUndoChanged(QUndoGroup* self, intptr_t slot);
 void QUndoGroup_CanRedoChanged(QUndoGroup* self, bool canRedo);
 void QUndoGroup_Connect_CanRedoChanged(QUndoGroup* self, intptr_t slot);
-void QUndoGroup_UndoTextChanged(QUndoGroup* self, libqt_string undoText);
+void QUndoGroup_UndoTextChanged(QUndoGroup* self, const libqt_string undoText);
 void QUndoGroup_Connect_UndoTextChanged(QUndoGroup* self, intptr_t slot);
-void QUndoGroup_RedoTextChanged(QUndoGroup* self, libqt_string redoText);
+void QUndoGroup_RedoTextChanged(QUndoGroup* self, const libqt_string redoText);
 void QUndoGroup_Connect_RedoTextChanged(QUndoGroup* self, intptr_t slot);
 libqt_string QUndoGroup_Tr2(const char* s, const char* c);
 libqt_string QUndoGroup_Tr3(const char* s, const char* c, int n);
-QAction* QUndoGroup_CreateUndoAction2(const QUndoGroup* self, QObject* parent, libqt_string prefix);
-QAction* QUndoGroup_CreateRedoAction2(const QUndoGroup* self, QObject* parent, libqt_string prefix);
+QAction* QUndoGroup_CreateUndoAction2(const QUndoGroup* self, QObject* parent, const libqt_string prefix);
+QAction* QUndoGroup_CreateRedoAction2(const QUndoGroup* self, QObject* parent, const libqt_string prefix);
 bool QUndoGroup_Event(QUndoGroup* self, QEvent* event);
 void QUndoGroup_OnEvent(QUndoGroup* self, intptr_t slot);
 bool QUndoGroup_QBaseEvent(QUndoGroup* self, QEvent* event);
@@ -90,12 +82,12 @@ void QUndoGroup_QBaseChildEvent(QUndoGroup* self, QChildEvent* event);
 void QUndoGroup_CustomEvent(QUndoGroup* self, QEvent* event);
 void QUndoGroup_OnCustomEvent(QUndoGroup* self, intptr_t slot);
 void QUndoGroup_QBaseCustomEvent(QUndoGroup* self, QEvent* event);
-void QUndoGroup_ConnectNotify(QUndoGroup* self, QMetaMethod* signal);
+void QUndoGroup_ConnectNotify(QUndoGroup* self, const QMetaMethod* signal);
 void QUndoGroup_OnConnectNotify(QUndoGroup* self, intptr_t slot);
-void QUndoGroup_QBaseConnectNotify(QUndoGroup* self, QMetaMethod* signal);
-void QUndoGroup_DisconnectNotify(QUndoGroup* self, QMetaMethod* signal);
+void QUndoGroup_QBaseConnectNotify(QUndoGroup* self, const QMetaMethod* signal);
+void QUndoGroup_DisconnectNotify(QUndoGroup* self, const QMetaMethod* signal);
 void QUndoGroup_OnDisconnectNotify(QUndoGroup* self, intptr_t slot);
-void QUndoGroup_QBaseDisconnectNotify(QUndoGroup* self, QMetaMethod* signal);
+void QUndoGroup_QBaseDisconnectNotify(QUndoGroup* self, const QMetaMethod* signal);
 QObject* QUndoGroup_Sender(const QUndoGroup* self);
 void QUndoGroup_OnSender(const QUndoGroup* self, intptr_t slot);
 QObject* QUndoGroup_QBaseSender(const QUndoGroup* self);
@@ -105,9 +97,9 @@ int QUndoGroup_QBaseSenderSignalIndex(const QUndoGroup* self);
 int QUndoGroup_Receivers(const QUndoGroup* self, const char* signal);
 void QUndoGroup_OnReceivers(const QUndoGroup* self, intptr_t slot);
 int QUndoGroup_QBaseReceivers(const QUndoGroup* self, const char* signal);
-bool QUndoGroup_IsSignalConnected(const QUndoGroup* self, QMetaMethod* signal);
+bool QUndoGroup_IsSignalConnected(const QUndoGroup* self, const QMetaMethod* signal);
 void QUndoGroup_OnIsSignalConnected(const QUndoGroup* self, intptr_t slot);
-bool QUndoGroup_QBaseIsSignalConnected(const QUndoGroup* self, QMetaMethod* signal);
+bool QUndoGroup_QBaseIsSignalConnected(const QUndoGroup* self, const QMetaMethod* signal);
 void QUndoGroup_Delete(QUndoGroup* self);
 
 #ifdef __cplusplus

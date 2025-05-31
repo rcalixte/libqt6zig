@@ -15,23 +15,15 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAccessibleInterface QAccessibleInterface;
 typedef struct QAccessiblePlugin QAccessiblePlugin;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QAccessiblePlugin* QAccessiblePlugin_new();
@@ -42,9 +34,9 @@ int QAccessiblePlugin_Metacall(QAccessiblePlugin* self, int param1, int param2, 
 void QAccessiblePlugin_OnMetacall(QAccessiblePlugin* self, intptr_t slot);
 int QAccessiblePlugin_QBaseMetacall(QAccessiblePlugin* self, int param1, int param2, void** param3);
 libqt_string QAccessiblePlugin_Tr(const char* s);
-QAccessibleInterface* QAccessiblePlugin_Create(QAccessiblePlugin* self, libqt_string key, QObject* object);
+QAccessibleInterface* QAccessiblePlugin_Create(QAccessiblePlugin* self, const libqt_string key, QObject* object);
 void QAccessiblePlugin_OnCreate(QAccessiblePlugin* self, intptr_t slot);
-QAccessibleInterface* QAccessiblePlugin_QBaseCreate(QAccessiblePlugin* self, libqt_string key, QObject* object);
+QAccessibleInterface* QAccessiblePlugin_QBaseCreate(QAccessiblePlugin* self, const libqt_string key, QObject* object);
 libqt_string QAccessiblePlugin_Tr2(const char* s, const char* c);
 libqt_string QAccessiblePlugin_Tr3(const char* s, const char* c, int n);
 bool QAccessiblePlugin_Event(QAccessiblePlugin* self, QEvent* event);
@@ -62,12 +54,12 @@ void QAccessiblePlugin_QBaseChildEvent(QAccessiblePlugin* self, QChildEvent* eve
 void QAccessiblePlugin_CustomEvent(QAccessiblePlugin* self, QEvent* event);
 void QAccessiblePlugin_OnCustomEvent(QAccessiblePlugin* self, intptr_t slot);
 void QAccessiblePlugin_QBaseCustomEvent(QAccessiblePlugin* self, QEvent* event);
-void QAccessiblePlugin_ConnectNotify(QAccessiblePlugin* self, QMetaMethod* signal);
+void QAccessiblePlugin_ConnectNotify(QAccessiblePlugin* self, const QMetaMethod* signal);
 void QAccessiblePlugin_OnConnectNotify(QAccessiblePlugin* self, intptr_t slot);
-void QAccessiblePlugin_QBaseConnectNotify(QAccessiblePlugin* self, QMetaMethod* signal);
-void QAccessiblePlugin_DisconnectNotify(QAccessiblePlugin* self, QMetaMethod* signal);
+void QAccessiblePlugin_QBaseConnectNotify(QAccessiblePlugin* self, const QMetaMethod* signal);
+void QAccessiblePlugin_DisconnectNotify(QAccessiblePlugin* self, const QMetaMethod* signal);
 void QAccessiblePlugin_OnDisconnectNotify(QAccessiblePlugin* self, intptr_t slot);
-void QAccessiblePlugin_QBaseDisconnectNotify(QAccessiblePlugin* self, QMetaMethod* signal);
+void QAccessiblePlugin_QBaseDisconnectNotify(QAccessiblePlugin* self, const QMetaMethod* signal);
 QObject* QAccessiblePlugin_Sender(const QAccessiblePlugin* self);
 void QAccessiblePlugin_OnSender(const QAccessiblePlugin* self, intptr_t slot);
 QObject* QAccessiblePlugin_QBaseSender(const QAccessiblePlugin* self);
@@ -77,9 +69,9 @@ int QAccessiblePlugin_QBaseSenderSignalIndex(const QAccessiblePlugin* self);
 int QAccessiblePlugin_Receivers(const QAccessiblePlugin* self, const char* signal);
 void QAccessiblePlugin_OnReceivers(const QAccessiblePlugin* self, intptr_t slot);
 int QAccessiblePlugin_QBaseReceivers(const QAccessiblePlugin* self, const char* signal);
-bool QAccessiblePlugin_IsSignalConnected(const QAccessiblePlugin* self, QMetaMethod* signal);
+bool QAccessiblePlugin_IsSignalConnected(const QAccessiblePlugin* self, const QMetaMethod* signal);
 void QAccessiblePlugin_OnIsSignalConnected(const QAccessiblePlugin* self, intptr_t slot);
-bool QAccessiblePlugin_QBaseIsSignalConnected(const QAccessiblePlugin* self, QMetaMethod* signal);
+bool QAccessiblePlugin_QBaseIsSignalConnected(const QAccessiblePlugin* self, const QMetaMethod* signal);
 void QAccessiblePlugin_Delete(QAccessiblePlugin* self);
 
 #ifdef __cplusplus

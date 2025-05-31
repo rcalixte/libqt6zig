@@ -1,39 +1,42 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 
 /// https://doc.qt.io/qt-6/qabstractconcatenable.html
 pub const qabstractconcatenable = struct {
     /// New constructs a new QAbstractConcatenable object.
     ///
-    /// ``` other: ?*C.QAbstractConcatenable ```
-    pub fn New(other: ?*anyopaque) ?*C.QAbstractConcatenable {
-        return C.QAbstractConcatenable_new(@ptrCast(other));
+    /// ``` other: QtC.QAbstractConcatenable ```
+    pub fn New(other: ?*anyopaque) QtC.QAbstractConcatenable {
+        return qtc.QAbstractConcatenable_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QAbstractConcatenable object and invalidates the source QAbstractConcatenable object.
     ///
-    /// ``` other: ?*C.QAbstractConcatenable ```
-    pub fn New2(other: ?*anyopaque) ?*C.QAbstractConcatenable {
-        return C.QAbstractConcatenable_new2(@ptrCast(other));
+    /// ``` other: QtC.QAbstractConcatenable ```
+    pub fn New2(other: ?*anyopaque) QtC.QAbstractConcatenable {
+        return qtc.QAbstractConcatenable_new2(@ptrCast(other));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QAbstractConcatenable, other: ?*QAbstractConcatenable ```
+    /// ``` self: QtC.QAbstractConcatenable, other: QtC.QAbstractConcatenable ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QAbstractConcatenable_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QAbstractConcatenable_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QAbstractConcatenable, other: ?*QAbstractConcatenable ```
+    /// ``` self: QtC.QAbstractConcatenable, other: QtC.QAbstractConcatenable ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QAbstractConcatenable_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QAbstractConcatenable_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractconcatenable.html#dtor.QAbstractConcatenable)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAbstractConcatenable ```
+    /// ``` self: QtC.QAbstractConcatenable ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAbstractConcatenable_Delete(@ptrCast(self));
+        qtc.QAbstractConcatenable_Delete(@ptrCast(self));
     }
 };

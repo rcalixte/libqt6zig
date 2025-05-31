@@ -10,7 +10,7 @@
 #include "libqwhatsthis.h"
 #include "libqwhatsthis.hxx"
 
-QWhatsThis* QWhatsThis_new(QWhatsThis* other) {
+QWhatsThis* QWhatsThis_new(const QWhatsThis* other) {
     return new QWhatsThis(*other);
 }
 
@@ -38,7 +38,7 @@ void QWhatsThis_LeaveWhatsThisMode() {
     QWhatsThis::leaveWhatsThisMode();
 }
 
-void QWhatsThis_ShowText(QPoint* pos, libqt_string text) {
+void QWhatsThis_ShowText(const QPoint* pos, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     QWhatsThis::showText(*pos, text_QString);
 }
@@ -51,7 +51,7 @@ QAction* QWhatsThis_CreateAction() {
     return QWhatsThis::createAction();
 }
 
-void QWhatsThis_ShowText3(QPoint* pos, libqt_string text, QWidget* w) {
+void QWhatsThis_ShowText3(const QPoint* pos, const libqt_string text, QWidget* w) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     QWhatsThis::showText(*pos, text_QString, w);
 }

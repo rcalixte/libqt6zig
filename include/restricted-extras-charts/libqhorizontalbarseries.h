@@ -15,27 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAbstractAxis QAbstractAxis;
 typedef struct QAbstractBarSeries QAbstractBarSeries;
 typedef struct QAbstractSeries QAbstractSeries;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBarSet QBarSet;
-typedef struct QBindingStorage QBindingStorage;
-typedef struct QChart QChart;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QHorizontalBarSeries QHorizontalBarSeries;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QHorizontalBarSeries* QHorizontalBarSeries_new();
@@ -66,12 +55,12 @@ void QHorizontalBarSeries_QBaseChildEvent(QHorizontalBarSeries* self, QChildEven
 void QHorizontalBarSeries_CustomEvent(QHorizontalBarSeries* self, QEvent* event);
 void QHorizontalBarSeries_OnCustomEvent(QHorizontalBarSeries* self, intptr_t slot);
 void QHorizontalBarSeries_QBaseCustomEvent(QHorizontalBarSeries* self, QEvent* event);
-void QHorizontalBarSeries_ConnectNotify(QHorizontalBarSeries* self, QMetaMethod* signal);
+void QHorizontalBarSeries_ConnectNotify(QHorizontalBarSeries* self, const QMetaMethod* signal);
 void QHorizontalBarSeries_OnConnectNotify(QHorizontalBarSeries* self, intptr_t slot);
-void QHorizontalBarSeries_QBaseConnectNotify(QHorizontalBarSeries* self, QMetaMethod* signal);
-void QHorizontalBarSeries_DisconnectNotify(QHorizontalBarSeries* self, QMetaMethod* signal);
+void QHorizontalBarSeries_QBaseConnectNotify(QHorizontalBarSeries* self, const QMetaMethod* signal);
+void QHorizontalBarSeries_DisconnectNotify(QHorizontalBarSeries* self, const QMetaMethod* signal);
 void QHorizontalBarSeries_OnDisconnectNotify(QHorizontalBarSeries* self, intptr_t slot);
-void QHorizontalBarSeries_QBaseDisconnectNotify(QHorizontalBarSeries* self, QMetaMethod* signal);
+void QHorizontalBarSeries_QBaseDisconnectNotify(QHorizontalBarSeries* self, const QMetaMethod* signal);
 QObject* QHorizontalBarSeries_Sender(const QHorizontalBarSeries* self);
 void QHorizontalBarSeries_OnSender(const QHorizontalBarSeries* self, intptr_t slot);
 QObject* QHorizontalBarSeries_QBaseSender(const QHorizontalBarSeries* self);
@@ -81,9 +70,9 @@ int QHorizontalBarSeries_QBaseSenderSignalIndex(const QHorizontalBarSeries* self
 int QHorizontalBarSeries_Receivers(const QHorizontalBarSeries* self, const char* signal);
 void QHorizontalBarSeries_OnReceivers(const QHorizontalBarSeries* self, intptr_t slot);
 int QHorizontalBarSeries_QBaseReceivers(const QHorizontalBarSeries* self, const char* signal);
-bool QHorizontalBarSeries_IsSignalConnected(const QHorizontalBarSeries* self, QMetaMethod* signal);
+bool QHorizontalBarSeries_IsSignalConnected(const QHorizontalBarSeries* self, const QMetaMethod* signal);
 void QHorizontalBarSeries_OnIsSignalConnected(const QHorizontalBarSeries* self, intptr_t slot);
-bool QHorizontalBarSeries_QBaseIsSignalConnected(const QHorizontalBarSeries* self, QMetaMethod* signal);
+bool QHorizontalBarSeries_QBaseIsSignalConnected(const QHorizontalBarSeries* self, const QMetaMethod* signal);
 void QHorizontalBarSeries_Delete(QHorizontalBarSeries* self);
 
 #ifdef __cplusplus

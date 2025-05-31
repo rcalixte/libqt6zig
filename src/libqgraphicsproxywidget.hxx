@@ -11,16 +11,19 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QGraphicsProxyWidget so that we can call protected methods
-class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
+class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQGraphicsProxyWidget = true;
+
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
-    using QGraphicsProxyWidget_Metacall_Callback = int (*)(QGraphicsProxyWidget*, QMetaObject::Call, int, void**);
-    using QGraphicsProxyWidget_SetGeometry_Callback = void (*)(QGraphicsProxyWidget*, const QRectF&);
-    using QGraphicsProxyWidget_Paint_Callback = void (*)(QGraphicsProxyWidget*, QPainter*, const QStyleOptionGraphicsItem*, QWidget*);
+    using QGraphicsProxyWidget_Metacall_Callback = int (*)(QGraphicsProxyWidget*, int, int, void**);
+    using QGraphicsProxyWidget_SetGeometry_Callback = void (*)(QGraphicsProxyWidget*, QRectF*);
+    using QGraphicsProxyWidget_Paint_Callback = void (*)(QGraphicsProxyWidget*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
     using QGraphicsProxyWidget_Type_Callback = int (*)();
-    using QGraphicsProxyWidget_ItemChange_Callback = QVariant (*)(QGraphicsProxyWidget*, QGraphicsItem::GraphicsItemChange, const QVariant&);
+    using QGraphicsProxyWidget_ItemChange_Callback = QVariant* (*)(QGraphicsProxyWidget*, int, QVariant*);
     using QGraphicsProxyWidget_Event_Callback = bool (*)(QGraphicsProxyWidget*, QEvent*);
     using QGraphicsProxyWidget_EventFilter_Callback = bool (*)(QGraphicsProxyWidget*, QObject*, QEvent*);
     using QGraphicsProxyWidget_ShowEvent_Callback = void (*)(QGraphicsProxyWidget*, QShowEvent*);
@@ -45,20 +48,20 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
     using QGraphicsProxyWidget_FocusInEvent_Callback = void (*)(QGraphicsProxyWidget*, QFocusEvent*);
     using QGraphicsProxyWidget_FocusOutEvent_Callback = void (*)(QGraphicsProxyWidget*, QFocusEvent*);
     using QGraphicsProxyWidget_FocusNextPrevChild_Callback = bool (*)(QGraphicsProxyWidget*, bool);
-    using QGraphicsProxyWidget_InputMethodQuery_Callback = QVariant (*)(const QGraphicsProxyWidget*, Qt::InputMethodQuery);
+    using QGraphicsProxyWidget_InputMethodQuery_Callback = QVariant* (*)(const QGraphicsProxyWidget*, int);
     using QGraphicsProxyWidget_InputMethodEvent_Callback = void (*)(QGraphicsProxyWidget*, QInputMethodEvent*);
-    using QGraphicsProxyWidget_SizeHint_Callback = QSizeF (*)(const QGraphicsProxyWidget*, Qt::SizeHint, const QSizeF&);
+    using QGraphicsProxyWidget_SizeHint_Callback = QSizeF* (*)(const QGraphicsProxyWidget*, int, QSizeF*);
     using QGraphicsProxyWidget_ResizeEvent_Callback = void (*)(QGraphicsProxyWidget*, QGraphicsSceneResizeEvent*);
-    using QGraphicsProxyWidget_GetContentsMargins_Callback = void (*)(const QGraphicsProxyWidget*, qreal*, qreal*, qreal*, qreal*);
-    using QGraphicsProxyWidget_PaintWindowFrame_Callback = void (*)(QGraphicsProxyWidget*, QPainter*, const QStyleOptionGraphicsItem*, QWidget*);
-    using QGraphicsProxyWidget_BoundingRect_Callback = QRectF (*)();
-    using QGraphicsProxyWidget_Shape_Callback = QPainterPath (*)();
+    using QGraphicsProxyWidget_GetContentsMargins_Callback = void (*)(const QGraphicsProxyWidget*, double*, double*, double*, double*);
+    using QGraphicsProxyWidget_PaintWindowFrame_Callback = void (*)(QGraphicsProxyWidget*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
+    using QGraphicsProxyWidget_BoundingRect_Callback = QRectF* (*)();
+    using QGraphicsProxyWidget_Shape_Callback = QPainterPath* (*)();
     using QGraphicsProxyWidget_InitStyleOption_Callback = void (*)(const QGraphicsProxyWidget*, QStyleOption*);
     using QGraphicsProxyWidget_UpdateGeometry_Callback = void (*)();
-    using QGraphicsProxyWidget_PropertyChange_Callback = QVariant (*)(QGraphicsProxyWidget*, const QString&, const QVariant&);
+    using QGraphicsProxyWidget_PropertyChange_Callback = QVariant* (*)(QGraphicsProxyWidget*, libqt_string, QVariant*);
     using QGraphicsProxyWidget_SceneEvent_Callback = bool (*)(QGraphicsProxyWidget*, QEvent*);
     using QGraphicsProxyWidget_WindowFrameEvent_Callback = bool (*)(QGraphicsProxyWidget*, QEvent*);
-    using QGraphicsProxyWidget_WindowFrameSectionAt_Callback = Qt::WindowFrameSection (*)(const QGraphicsProxyWidget*, const QPointF&);
+    using QGraphicsProxyWidget_WindowFrameSectionAt_Callback = int (*)(const QGraphicsProxyWidget*, QPointF*);
     using QGraphicsProxyWidget_ChangeEvent_Callback = void (*)(QGraphicsProxyWidget*, QEvent*);
     using QGraphicsProxyWidget_CloseEvent_Callback = void (*)(QGraphicsProxyWidget*, QCloseEvent*);
     using QGraphicsProxyWidget_MoveEvent_Callback = void (*)(QGraphicsProxyWidget*, QGraphicsSceneMoveEvent*);
@@ -68,25 +71,25 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
     using QGraphicsProxyWidget_TimerEvent_Callback = void (*)(QGraphicsProxyWidget*, QTimerEvent*);
     using QGraphicsProxyWidget_ChildEvent_Callback = void (*)(QGraphicsProxyWidget*, QChildEvent*);
     using QGraphicsProxyWidget_CustomEvent_Callback = void (*)(QGraphicsProxyWidget*, QEvent*);
-    using QGraphicsProxyWidget_ConnectNotify_Callback = void (*)(QGraphicsProxyWidget*, const QMetaMethod&);
-    using QGraphicsProxyWidget_DisconnectNotify_Callback = void (*)(QGraphicsProxyWidget*, const QMetaMethod&);
+    using QGraphicsProxyWidget_ConnectNotify_Callback = void (*)(QGraphicsProxyWidget*, QMetaMethod*);
+    using QGraphicsProxyWidget_DisconnectNotify_Callback = void (*)(QGraphicsProxyWidget*, QMetaMethod*);
     using QGraphicsProxyWidget_Advance_Callback = void (*)(QGraphicsProxyWidget*, int);
-    using QGraphicsProxyWidget_Contains_Callback = bool (*)(const QGraphicsProxyWidget*, const QPointF&);
-    using QGraphicsProxyWidget_CollidesWithItem_Callback = bool (*)(const QGraphicsProxyWidget*, const QGraphicsItem*, Qt::ItemSelectionMode);
-    using QGraphicsProxyWidget_CollidesWithPath_Callback = bool (*)(const QGraphicsProxyWidget*, const QPainterPath&, Qt::ItemSelectionMode);
-    using QGraphicsProxyWidget_IsObscuredBy_Callback = bool (*)(const QGraphicsProxyWidget*, const QGraphicsItem*);
-    using QGraphicsProxyWidget_OpaqueArea_Callback = QPainterPath (*)();
+    using QGraphicsProxyWidget_Contains_Callback = bool (*)(const QGraphicsProxyWidget*, QPointF*);
+    using QGraphicsProxyWidget_CollidesWithItem_Callback = bool (*)(const QGraphicsProxyWidget*, QGraphicsItem*, int);
+    using QGraphicsProxyWidget_CollidesWithPath_Callback = bool (*)(const QGraphicsProxyWidget*, QPainterPath*, int);
+    using QGraphicsProxyWidget_IsObscuredBy_Callback = bool (*)(const QGraphicsProxyWidget*, QGraphicsItem*);
+    using QGraphicsProxyWidget_OpaqueArea_Callback = QPainterPath* (*)();
     using QGraphicsProxyWidget_SceneEventFilter_Callback = bool (*)(QGraphicsProxyWidget*, QGraphicsItem*, QEvent*);
     using QGraphicsProxyWidget_SupportsExtension_Callback = bool (*)(const QGraphicsProxyWidget*, int);
-    using QGraphicsProxyWidget_SetExtension_Callback = void (*)(QGraphicsProxyWidget*, int, const QVariant&);
-    using QGraphicsProxyWidget_Extension_Callback = QVariant (*)(const QGraphicsProxyWidget*, const QVariant&);
+    using QGraphicsProxyWidget_SetExtension_Callback = void (*)(QGraphicsProxyWidget*, int, QVariant*);
+    using QGraphicsProxyWidget_Extension_Callback = QVariant* (*)(const QGraphicsProxyWidget*, QVariant*);
     using QGraphicsProxyWidget_IsEmpty_Callback = bool (*)();
-    using QGraphicsProxyWidget_NewProxyWidget_Callback = QGraphicsProxyWidget* (*)(QGraphicsProxyWidget*, const QWidget*);
+    using QGraphicsProxyWidget_NewProxyWidget_Callback = QGraphicsProxyWidget* (*)(QGraphicsProxyWidget*, QWidget*);
     using QGraphicsProxyWidget_UpdateMicroFocus_Callback = void (*)();
     using QGraphicsProxyWidget_Sender_Callback = QObject* (*)();
     using QGraphicsProxyWidget_SenderSignalIndex_Callback = int (*)();
     using QGraphicsProxyWidget_Receivers_Callback = int (*)(const QGraphicsProxyWidget*, const char*);
-    using QGraphicsProxyWidget_IsSignalConnected_Callback = bool (*)(const QGraphicsProxyWidget*, const QMetaMethod&);
+    using QGraphicsProxyWidget_IsSignalConnected_Callback = bool (*)(const QGraphicsProxyWidget*, QMetaMethod*);
     using QGraphicsProxyWidget_AddToIndex_Callback = void (*)();
     using QGraphicsProxyWidget_RemoveFromIndex_Callback = void (*)();
     using QGraphicsProxyWidget_PrepareGeometryChange_Callback = void (*)();
@@ -335,160 +338,160 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
     }
 
     // Callback setters
-    void setQGraphicsProxyWidget_Metacall_Callback(QGraphicsProxyWidget_Metacall_Callback cb) { qgraphicsproxywidget_metacall_callback = cb; }
-    void setQGraphicsProxyWidget_SetGeometry_Callback(QGraphicsProxyWidget_SetGeometry_Callback cb) { qgraphicsproxywidget_setgeometry_callback = cb; }
-    void setQGraphicsProxyWidget_Paint_Callback(QGraphicsProxyWidget_Paint_Callback cb) { qgraphicsproxywidget_paint_callback = cb; }
-    void setQGraphicsProxyWidget_Type_Callback(QGraphicsProxyWidget_Type_Callback cb) { qgraphicsproxywidget_type_callback = cb; }
-    void setQGraphicsProxyWidget_ItemChange_Callback(QGraphicsProxyWidget_ItemChange_Callback cb) { qgraphicsproxywidget_itemchange_callback = cb; }
-    void setQGraphicsProxyWidget_Event_Callback(QGraphicsProxyWidget_Event_Callback cb) { qgraphicsproxywidget_event_callback = cb; }
-    void setQGraphicsProxyWidget_EventFilter_Callback(QGraphicsProxyWidget_EventFilter_Callback cb) { qgraphicsproxywidget_eventfilter_callback = cb; }
-    void setQGraphicsProxyWidget_ShowEvent_Callback(QGraphicsProxyWidget_ShowEvent_Callback cb) { qgraphicsproxywidget_showevent_callback = cb; }
-    void setQGraphicsProxyWidget_HideEvent_Callback(QGraphicsProxyWidget_HideEvent_Callback cb) { qgraphicsproxywidget_hideevent_callback = cb; }
-    void setQGraphicsProxyWidget_ContextMenuEvent_Callback(QGraphicsProxyWidget_ContextMenuEvent_Callback cb) { qgraphicsproxywidget_contextmenuevent_callback = cb; }
-    void setQGraphicsProxyWidget_DragEnterEvent_Callback(QGraphicsProxyWidget_DragEnterEvent_Callback cb) { qgraphicsproxywidget_dragenterevent_callback = cb; }
-    void setQGraphicsProxyWidget_DragLeaveEvent_Callback(QGraphicsProxyWidget_DragLeaveEvent_Callback cb) { qgraphicsproxywidget_dragleaveevent_callback = cb; }
-    void setQGraphicsProxyWidget_DragMoveEvent_Callback(QGraphicsProxyWidget_DragMoveEvent_Callback cb) { qgraphicsproxywidget_dragmoveevent_callback = cb; }
-    void setQGraphicsProxyWidget_DropEvent_Callback(QGraphicsProxyWidget_DropEvent_Callback cb) { qgraphicsproxywidget_dropevent_callback = cb; }
-    void setQGraphicsProxyWidget_HoverEnterEvent_Callback(QGraphicsProxyWidget_HoverEnterEvent_Callback cb) { qgraphicsproxywidget_hoverenterevent_callback = cb; }
-    void setQGraphicsProxyWidget_HoverLeaveEvent_Callback(QGraphicsProxyWidget_HoverLeaveEvent_Callback cb) { qgraphicsproxywidget_hoverleaveevent_callback = cb; }
-    void setQGraphicsProxyWidget_HoverMoveEvent_Callback(QGraphicsProxyWidget_HoverMoveEvent_Callback cb) { qgraphicsproxywidget_hovermoveevent_callback = cb; }
-    void setQGraphicsProxyWidget_GrabMouseEvent_Callback(QGraphicsProxyWidget_GrabMouseEvent_Callback cb) { qgraphicsproxywidget_grabmouseevent_callback = cb; }
-    void setQGraphicsProxyWidget_UngrabMouseEvent_Callback(QGraphicsProxyWidget_UngrabMouseEvent_Callback cb) { qgraphicsproxywidget_ungrabmouseevent_callback = cb; }
-    void setQGraphicsProxyWidget_MouseMoveEvent_Callback(QGraphicsProxyWidget_MouseMoveEvent_Callback cb) { qgraphicsproxywidget_mousemoveevent_callback = cb; }
-    void setQGraphicsProxyWidget_MousePressEvent_Callback(QGraphicsProxyWidget_MousePressEvent_Callback cb) { qgraphicsproxywidget_mousepressevent_callback = cb; }
-    void setQGraphicsProxyWidget_MouseReleaseEvent_Callback(QGraphicsProxyWidget_MouseReleaseEvent_Callback cb) { qgraphicsproxywidget_mousereleaseevent_callback = cb; }
-    void setQGraphicsProxyWidget_MouseDoubleClickEvent_Callback(QGraphicsProxyWidget_MouseDoubleClickEvent_Callback cb) { qgraphicsproxywidget_mousedoubleclickevent_callback = cb; }
-    void setQGraphicsProxyWidget_WheelEvent_Callback(QGraphicsProxyWidget_WheelEvent_Callback cb) { qgraphicsproxywidget_wheelevent_callback = cb; }
-    void setQGraphicsProxyWidget_KeyPressEvent_Callback(QGraphicsProxyWidget_KeyPressEvent_Callback cb) { qgraphicsproxywidget_keypressevent_callback = cb; }
-    void setQGraphicsProxyWidget_KeyReleaseEvent_Callback(QGraphicsProxyWidget_KeyReleaseEvent_Callback cb) { qgraphicsproxywidget_keyreleaseevent_callback = cb; }
-    void setQGraphicsProxyWidget_FocusInEvent_Callback(QGraphicsProxyWidget_FocusInEvent_Callback cb) { qgraphicsproxywidget_focusinevent_callback = cb; }
-    void setQGraphicsProxyWidget_FocusOutEvent_Callback(QGraphicsProxyWidget_FocusOutEvent_Callback cb) { qgraphicsproxywidget_focusoutevent_callback = cb; }
-    void setQGraphicsProxyWidget_FocusNextPrevChild_Callback(QGraphicsProxyWidget_FocusNextPrevChild_Callback cb) { qgraphicsproxywidget_focusnextprevchild_callback = cb; }
-    void setQGraphicsProxyWidget_InputMethodQuery_Callback(QGraphicsProxyWidget_InputMethodQuery_Callback cb) { qgraphicsproxywidget_inputmethodquery_callback = cb; }
-    void setQGraphicsProxyWidget_InputMethodEvent_Callback(QGraphicsProxyWidget_InputMethodEvent_Callback cb) { qgraphicsproxywidget_inputmethodevent_callback = cb; }
-    void setQGraphicsProxyWidget_SizeHint_Callback(QGraphicsProxyWidget_SizeHint_Callback cb) { qgraphicsproxywidget_sizehint_callback = cb; }
-    void setQGraphicsProxyWidget_ResizeEvent_Callback(QGraphicsProxyWidget_ResizeEvent_Callback cb) { qgraphicsproxywidget_resizeevent_callback = cb; }
-    void setQGraphicsProxyWidget_GetContentsMargins_Callback(QGraphicsProxyWidget_GetContentsMargins_Callback cb) { qgraphicsproxywidget_getcontentsmargins_callback = cb; }
-    void setQGraphicsProxyWidget_PaintWindowFrame_Callback(QGraphicsProxyWidget_PaintWindowFrame_Callback cb) { qgraphicsproxywidget_paintwindowframe_callback = cb; }
-    void setQGraphicsProxyWidget_BoundingRect_Callback(QGraphicsProxyWidget_BoundingRect_Callback cb) { qgraphicsproxywidget_boundingrect_callback = cb; }
-    void setQGraphicsProxyWidget_Shape_Callback(QGraphicsProxyWidget_Shape_Callback cb) { qgraphicsproxywidget_shape_callback = cb; }
-    void setQGraphicsProxyWidget_InitStyleOption_Callback(QGraphicsProxyWidget_InitStyleOption_Callback cb) { qgraphicsproxywidget_initstyleoption_callback = cb; }
-    void setQGraphicsProxyWidget_UpdateGeometry_Callback(QGraphicsProxyWidget_UpdateGeometry_Callback cb) { qgraphicsproxywidget_updategeometry_callback = cb; }
-    void setQGraphicsProxyWidget_PropertyChange_Callback(QGraphicsProxyWidget_PropertyChange_Callback cb) { qgraphicsproxywidget_propertychange_callback = cb; }
-    void setQGraphicsProxyWidget_SceneEvent_Callback(QGraphicsProxyWidget_SceneEvent_Callback cb) { qgraphicsproxywidget_sceneevent_callback = cb; }
-    void setQGraphicsProxyWidget_WindowFrameEvent_Callback(QGraphicsProxyWidget_WindowFrameEvent_Callback cb) { qgraphicsproxywidget_windowframeevent_callback = cb; }
-    void setQGraphicsProxyWidget_WindowFrameSectionAt_Callback(QGraphicsProxyWidget_WindowFrameSectionAt_Callback cb) { qgraphicsproxywidget_windowframesectionat_callback = cb; }
-    void setQGraphicsProxyWidget_ChangeEvent_Callback(QGraphicsProxyWidget_ChangeEvent_Callback cb) { qgraphicsproxywidget_changeevent_callback = cb; }
-    void setQGraphicsProxyWidget_CloseEvent_Callback(QGraphicsProxyWidget_CloseEvent_Callback cb) { qgraphicsproxywidget_closeevent_callback = cb; }
-    void setQGraphicsProxyWidget_MoveEvent_Callback(QGraphicsProxyWidget_MoveEvent_Callback cb) { qgraphicsproxywidget_moveevent_callback = cb; }
-    void setQGraphicsProxyWidget_PolishEvent_Callback(QGraphicsProxyWidget_PolishEvent_Callback cb) { qgraphicsproxywidget_polishevent_callback = cb; }
-    void setQGraphicsProxyWidget_GrabKeyboardEvent_Callback(QGraphicsProxyWidget_GrabKeyboardEvent_Callback cb) { qgraphicsproxywidget_grabkeyboardevent_callback = cb; }
-    void setQGraphicsProxyWidget_UngrabKeyboardEvent_Callback(QGraphicsProxyWidget_UngrabKeyboardEvent_Callback cb) { qgraphicsproxywidget_ungrabkeyboardevent_callback = cb; }
-    void setQGraphicsProxyWidget_TimerEvent_Callback(QGraphicsProxyWidget_TimerEvent_Callback cb) { qgraphicsproxywidget_timerevent_callback = cb; }
-    void setQGraphicsProxyWidget_ChildEvent_Callback(QGraphicsProxyWidget_ChildEvent_Callback cb) { qgraphicsproxywidget_childevent_callback = cb; }
-    void setQGraphicsProxyWidget_CustomEvent_Callback(QGraphicsProxyWidget_CustomEvent_Callback cb) { qgraphicsproxywidget_customevent_callback = cb; }
-    void setQGraphicsProxyWidget_ConnectNotify_Callback(QGraphicsProxyWidget_ConnectNotify_Callback cb) { qgraphicsproxywidget_connectnotify_callback = cb; }
-    void setQGraphicsProxyWidget_DisconnectNotify_Callback(QGraphicsProxyWidget_DisconnectNotify_Callback cb) { qgraphicsproxywidget_disconnectnotify_callback = cb; }
-    void setQGraphicsProxyWidget_Advance_Callback(QGraphicsProxyWidget_Advance_Callback cb) { qgraphicsproxywidget_advance_callback = cb; }
-    void setQGraphicsProxyWidget_Contains_Callback(QGraphicsProxyWidget_Contains_Callback cb) { qgraphicsproxywidget_contains_callback = cb; }
-    void setQGraphicsProxyWidget_CollidesWithItem_Callback(QGraphicsProxyWidget_CollidesWithItem_Callback cb) { qgraphicsproxywidget_collideswithitem_callback = cb; }
-    void setQGraphicsProxyWidget_CollidesWithPath_Callback(QGraphicsProxyWidget_CollidesWithPath_Callback cb) { qgraphicsproxywidget_collideswithpath_callback = cb; }
-    void setQGraphicsProxyWidget_IsObscuredBy_Callback(QGraphicsProxyWidget_IsObscuredBy_Callback cb) { qgraphicsproxywidget_isobscuredby_callback = cb; }
-    void setQGraphicsProxyWidget_OpaqueArea_Callback(QGraphicsProxyWidget_OpaqueArea_Callback cb) { qgraphicsproxywidget_opaquearea_callback = cb; }
-    void setQGraphicsProxyWidget_SceneEventFilter_Callback(QGraphicsProxyWidget_SceneEventFilter_Callback cb) { qgraphicsproxywidget_sceneeventfilter_callback = cb; }
-    void setQGraphicsProxyWidget_SupportsExtension_Callback(QGraphicsProxyWidget_SupportsExtension_Callback cb) { qgraphicsproxywidget_supportsextension_callback = cb; }
-    void setQGraphicsProxyWidget_SetExtension_Callback(QGraphicsProxyWidget_SetExtension_Callback cb) { qgraphicsproxywidget_setextension_callback = cb; }
-    void setQGraphicsProxyWidget_Extension_Callback(QGraphicsProxyWidget_Extension_Callback cb) { qgraphicsproxywidget_extension_callback = cb; }
-    void setQGraphicsProxyWidget_IsEmpty_Callback(QGraphicsProxyWidget_IsEmpty_Callback cb) { qgraphicsproxywidget_isempty_callback = cb; }
-    void setQGraphicsProxyWidget_NewProxyWidget_Callback(QGraphicsProxyWidget_NewProxyWidget_Callback cb) { qgraphicsproxywidget_newproxywidget_callback = cb; }
-    void setQGraphicsProxyWidget_UpdateMicroFocus_Callback(QGraphicsProxyWidget_UpdateMicroFocus_Callback cb) { qgraphicsproxywidget_updatemicrofocus_callback = cb; }
-    void setQGraphicsProxyWidget_Sender_Callback(QGraphicsProxyWidget_Sender_Callback cb) { qgraphicsproxywidget_sender_callback = cb; }
-    void setQGraphicsProxyWidget_SenderSignalIndex_Callback(QGraphicsProxyWidget_SenderSignalIndex_Callback cb) { qgraphicsproxywidget_sendersignalindex_callback = cb; }
-    void setQGraphicsProxyWidget_Receivers_Callback(QGraphicsProxyWidget_Receivers_Callback cb) { qgraphicsproxywidget_receivers_callback = cb; }
-    void setQGraphicsProxyWidget_IsSignalConnected_Callback(QGraphicsProxyWidget_IsSignalConnected_Callback cb) { qgraphicsproxywidget_issignalconnected_callback = cb; }
-    void setQGraphicsProxyWidget_AddToIndex_Callback(QGraphicsProxyWidget_AddToIndex_Callback cb) { qgraphicsproxywidget_addtoindex_callback = cb; }
-    void setQGraphicsProxyWidget_RemoveFromIndex_Callback(QGraphicsProxyWidget_RemoveFromIndex_Callback cb) { qgraphicsproxywidget_removefromindex_callback = cb; }
-    void setQGraphicsProxyWidget_PrepareGeometryChange_Callback(QGraphicsProxyWidget_PrepareGeometryChange_Callback cb) { qgraphicsproxywidget_preparegeometrychange_callback = cb; }
-    void setQGraphicsProxyWidget_SetGraphicsItem_Callback(QGraphicsProxyWidget_SetGraphicsItem_Callback cb) { qgraphicsproxywidget_setgraphicsitem_callback = cb; }
-    void setQGraphicsProxyWidget_SetOwnedByLayout_Callback(QGraphicsProxyWidget_SetOwnedByLayout_Callback cb) { qgraphicsproxywidget_setownedbylayout_callback = cb; }
+    inline void setQGraphicsProxyWidget_Metacall_Callback(QGraphicsProxyWidget_Metacall_Callback cb) { qgraphicsproxywidget_metacall_callback = cb; }
+    inline void setQGraphicsProxyWidget_SetGeometry_Callback(QGraphicsProxyWidget_SetGeometry_Callback cb) { qgraphicsproxywidget_setgeometry_callback = cb; }
+    inline void setQGraphicsProxyWidget_Paint_Callback(QGraphicsProxyWidget_Paint_Callback cb) { qgraphicsproxywidget_paint_callback = cb; }
+    inline void setQGraphicsProxyWidget_Type_Callback(QGraphicsProxyWidget_Type_Callback cb) { qgraphicsproxywidget_type_callback = cb; }
+    inline void setQGraphicsProxyWidget_ItemChange_Callback(QGraphicsProxyWidget_ItemChange_Callback cb) { qgraphicsproxywidget_itemchange_callback = cb; }
+    inline void setQGraphicsProxyWidget_Event_Callback(QGraphicsProxyWidget_Event_Callback cb) { qgraphicsproxywidget_event_callback = cb; }
+    inline void setQGraphicsProxyWidget_EventFilter_Callback(QGraphicsProxyWidget_EventFilter_Callback cb) { qgraphicsproxywidget_eventfilter_callback = cb; }
+    inline void setQGraphicsProxyWidget_ShowEvent_Callback(QGraphicsProxyWidget_ShowEvent_Callback cb) { qgraphicsproxywidget_showevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_HideEvent_Callback(QGraphicsProxyWidget_HideEvent_Callback cb) { qgraphicsproxywidget_hideevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_ContextMenuEvent_Callback(QGraphicsProxyWidget_ContextMenuEvent_Callback cb) { qgraphicsproxywidget_contextmenuevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_DragEnterEvent_Callback(QGraphicsProxyWidget_DragEnterEvent_Callback cb) { qgraphicsproxywidget_dragenterevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_DragLeaveEvent_Callback(QGraphicsProxyWidget_DragLeaveEvent_Callback cb) { qgraphicsproxywidget_dragleaveevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_DragMoveEvent_Callback(QGraphicsProxyWidget_DragMoveEvent_Callback cb) { qgraphicsproxywidget_dragmoveevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_DropEvent_Callback(QGraphicsProxyWidget_DropEvent_Callback cb) { qgraphicsproxywidget_dropevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_HoverEnterEvent_Callback(QGraphicsProxyWidget_HoverEnterEvent_Callback cb) { qgraphicsproxywidget_hoverenterevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_HoverLeaveEvent_Callback(QGraphicsProxyWidget_HoverLeaveEvent_Callback cb) { qgraphicsproxywidget_hoverleaveevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_HoverMoveEvent_Callback(QGraphicsProxyWidget_HoverMoveEvent_Callback cb) { qgraphicsproxywidget_hovermoveevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_GrabMouseEvent_Callback(QGraphicsProxyWidget_GrabMouseEvent_Callback cb) { qgraphicsproxywidget_grabmouseevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_UngrabMouseEvent_Callback(QGraphicsProxyWidget_UngrabMouseEvent_Callback cb) { qgraphicsproxywidget_ungrabmouseevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_MouseMoveEvent_Callback(QGraphicsProxyWidget_MouseMoveEvent_Callback cb) { qgraphicsproxywidget_mousemoveevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_MousePressEvent_Callback(QGraphicsProxyWidget_MousePressEvent_Callback cb) { qgraphicsproxywidget_mousepressevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_MouseReleaseEvent_Callback(QGraphicsProxyWidget_MouseReleaseEvent_Callback cb) { qgraphicsproxywidget_mousereleaseevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_MouseDoubleClickEvent_Callback(QGraphicsProxyWidget_MouseDoubleClickEvent_Callback cb) { qgraphicsproxywidget_mousedoubleclickevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_WheelEvent_Callback(QGraphicsProxyWidget_WheelEvent_Callback cb) { qgraphicsproxywidget_wheelevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_KeyPressEvent_Callback(QGraphicsProxyWidget_KeyPressEvent_Callback cb) { qgraphicsproxywidget_keypressevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_KeyReleaseEvent_Callback(QGraphicsProxyWidget_KeyReleaseEvent_Callback cb) { qgraphicsproxywidget_keyreleaseevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_FocusInEvent_Callback(QGraphicsProxyWidget_FocusInEvent_Callback cb) { qgraphicsproxywidget_focusinevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_FocusOutEvent_Callback(QGraphicsProxyWidget_FocusOutEvent_Callback cb) { qgraphicsproxywidget_focusoutevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_FocusNextPrevChild_Callback(QGraphicsProxyWidget_FocusNextPrevChild_Callback cb) { qgraphicsproxywidget_focusnextprevchild_callback = cb; }
+    inline void setQGraphicsProxyWidget_InputMethodQuery_Callback(QGraphicsProxyWidget_InputMethodQuery_Callback cb) { qgraphicsproxywidget_inputmethodquery_callback = cb; }
+    inline void setQGraphicsProxyWidget_InputMethodEvent_Callback(QGraphicsProxyWidget_InputMethodEvent_Callback cb) { qgraphicsproxywidget_inputmethodevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_SizeHint_Callback(QGraphicsProxyWidget_SizeHint_Callback cb) { qgraphicsproxywidget_sizehint_callback = cb; }
+    inline void setQGraphicsProxyWidget_ResizeEvent_Callback(QGraphicsProxyWidget_ResizeEvent_Callback cb) { qgraphicsproxywidget_resizeevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_GetContentsMargins_Callback(QGraphicsProxyWidget_GetContentsMargins_Callback cb) { qgraphicsproxywidget_getcontentsmargins_callback = cb; }
+    inline void setQGraphicsProxyWidget_PaintWindowFrame_Callback(QGraphicsProxyWidget_PaintWindowFrame_Callback cb) { qgraphicsproxywidget_paintwindowframe_callback = cb; }
+    inline void setQGraphicsProxyWidget_BoundingRect_Callback(QGraphicsProxyWidget_BoundingRect_Callback cb) { qgraphicsproxywidget_boundingrect_callback = cb; }
+    inline void setQGraphicsProxyWidget_Shape_Callback(QGraphicsProxyWidget_Shape_Callback cb) { qgraphicsproxywidget_shape_callback = cb; }
+    inline void setQGraphicsProxyWidget_InitStyleOption_Callback(QGraphicsProxyWidget_InitStyleOption_Callback cb) { qgraphicsproxywidget_initstyleoption_callback = cb; }
+    inline void setQGraphicsProxyWidget_UpdateGeometry_Callback(QGraphicsProxyWidget_UpdateGeometry_Callback cb) { qgraphicsproxywidget_updategeometry_callback = cb; }
+    inline void setQGraphicsProxyWidget_PropertyChange_Callback(QGraphicsProxyWidget_PropertyChange_Callback cb) { qgraphicsproxywidget_propertychange_callback = cb; }
+    inline void setQGraphicsProxyWidget_SceneEvent_Callback(QGraphicsProxyWidget_SceneEvent_Callback cb) { qgraphicsproxywidget_sceneevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_WindowFrameEvent_Callback(QGraphicsProxyWidget_WindowFrameEvent_Callback cb) { qgraphicsproxywidget_windowframeevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_WindowFrameSectionAt_Callback(QGraphicsProxyWidget_WindowFrameSectionAt_Callback cb) { qgraphicsproxywidget_windowframesectionat_callback = cb; }
+    inline void setQGraphicsProxyWidget_ChangeEvent_Callback(QGraphicsProxyWidget_ChangeEvent_Callback cb) { qgraphicsproxywidget_changeevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_CloseEvent_Callback(QGraphicsProxyWidget_CloseEvent_Callback cb) { qgraphicsproxywidget_closeevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_MoveEvent_Callback(QGraphicsProxyWidget_MoveEvent_Callback cb) { qgraphicsproxywidget_moveevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_PolishEvent_Callback(QGraphicsProxyWidget_PolishEvent_Callback cb) { qgraphicsproxywidget_polishevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_GrabKeyboardEvent_Callback(QGraphicsProxyWidget_GrabKeyboardEvent_Callback cb) { qgraphicsproxywidget_grabkeyboardevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_UngrabKeyboardEvent_Callback(QGraphicsProxyWidget_UngrabKeyboardEvent_Callback cb) { qgraphicsproxywidget_ungrabkeyboardevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_TimerEvent_Callback(QGraphicsProxyWidget_TimerEvent_Callback cb) { qgraphicsproxywidget_timerevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_ChildEvent_Callback(QGraphicsProxyWidget_ChildEvent_Callback cb) { qgraphicsproxywidget_childevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_CustomEvent_Callback(QGraphicsProxyWidget_CustomEvent_Callback cb) { qgraphicsproxywidget_customevent_callback = cb; }
+    inline void setQGraphicsProxyWidget_ConnectNotify_Callback(QGraphicsProxyWidget_ConnectNotify_Callback cb) { qgraphicsproxywidget_connectnotify_callback = cb; }
+    inline void setQGraphicsProxyWidget_DisconnectNotify_Callback(QGraphicsProxyWidget_DisconnectNotify_Callback cb) { qgraphicsproxywidget_disconnectnotify_callback = cb; }
+    inline void setQGraphicsProxyWidget_Advance_Callback(QGraphicsProxyWidget_Advance_Callback cb) { qgraphicsproxywidget_advance_callback = cb; }
+    inline void setQGraphicsProxyWidget_Contains_Callback(QGraphicsProxyWidget_Contains_Callback cb) { qgraphicsproxywidget_contains_callback = cb; }
+    inline void setQGraphicsProxyWidget_CollidesWithItem_Callback(QGraphicsProxyWidget_CollidesWithItem_Callback cb) { qgraphicsproxywidget_collideswithitem_callback = cb; }
+    inline void setQGraphicsProxyWidget_CollidesWithPath_Callback(QGraphicsProxyWidget_CollidesWithPath_Callback cb) { qgraphicsproxywidget_collideswithpath_callback = cb; }
+    inline void setQGraphicsProxyWidget_IsObscuredBy_Callback(QGraphicsProxyWidget_IsObscuredBy_Callback cb) { qgraphicsproxywidget_isobscuredby_callback = cb; }
+    inline void setQGraphicsProxyWidget_OpaqueArea_Callback(QGraphicsProxyWidget_OpaqueArea_Callback cb) { qgraphicsproxywidget_opaquearea_callback = cb; }
+    inline void setQGraphicsProxyWidget_SceneEventFilter_Callback(QGraphicsProxyWidget_SceneEventFilter_Callback cb) { qgraphicsproxywidget_sceneeventfilter_callback = cb; }
+    inline void setQGraphicsProxyWidget_SupportsExtension_Callback(QGraphicsProxyWidget_SupportsExtension_Callback cb) { qgraphicsproxywidget_supportsextension_callback = cb; }
+    inline void setQGraphicsProxyWidget_SetExtension_Callback(QGraphicsProxyWidget_SetExtension_Callback cb) { qgraphicsproxywidget_setextension_callback = cb; }
+    inline void setQGraphicsProxyWidget_Extension_Callback(QGraphicsProxyWidget_Extension_Callback cb) { qgraphicsproxywidget_extension_callback = cb; }
+    inline void setQGraphicsProxyWidget_IsEmpty_Callback(QGraphicsProxyWidget_IsEmpty_Callback cb) { qgraphicsproxywidget_isempty_callback = cb; }
+    inline void setQGraphicsProxyWidget_NewProxyWidget_Callback(QGraphicsProxyWidget_NewProxyWidget_Callback cb) { qgraphicsproxywidget_newproxywidget_callback = cb; }
+    inline void setQGraphicsProxyWidget_UpdateMicroFocus_Callback(QGraphicsProxyWidget_UpdateMicroFocus_Callback cb) { qgraphicsproxywidget_updatemicrofocus_callback = cb; }
+    inline void setQGraphicsProxyWidget_Sender_Callback(QGraphicsProxyWidget_Sender_Callback cb) { qgraphicsproxywidget_sender_callback = cb; }
+    inline void setQGraphicsProxyWidget_SenderSignalIndex_Callback(QGraphicsProxyWidget_SenderSignalIndex_Callback cb) { qgraphicsproxywidget_sendersignalindex_callback = cb; }
+    inline void setQGraphicsProxyWidget_Receivers_Callback(QGraphicsProxyWidget_Receivers_Callback cb) { qgraphicsproxywidget_receivers_callback = cb; }
+    inline void setQGraphicsProxyWidget_IsSignalConnected_Callback(QGraphicsProxyWidget_IsSignalConnected_Callback cb) { qgraphicsproxywidget_issignalconnected_callback = cb; }
+    inline void setQGraphicsProxyWidget_AddToIndex_Callback(QGraphicsProxyWidget_AddToIndex_Callback cb) { qgraphicsproxywidget_addtoindex_callback = cb; }
+    inline void setQGraphicsProxyWidget_RemoveFromIndex_Callback(QGraphicsProxyWidget_RemoveFromIndex_Callback cb) { qgraphicsproxywidget_removefromindex_callback = cb; }
+    inline void setQGraphicsProxyWidget_PrepareGeometryChange_Callback(QGraphicsProxyWidget_PrepareGeometryChange_Callback cb) { qgraphicsproxywidget_preparegeometrychange_callback = cb; }
+    inline void setQGraphicsProxyWidget_SetGraphicsItem_Callback(QGraphicsProxyWidget_SetGraphicsItem_Callback cb) { qgraphicsproxywidget_setgraphicsitem_callback = cb; }
+    inline void setQGraphicsProxyWidget_SetOwnedByLayout_Callback(QGraphicsProxyWidget_SetOwnedByLayout_Callback cb) { qgraphicsproxywidget_setownedbylayout_callback = cb; }
 
     // Base flag setters
-    void setQGraphicsProxyWidget_Metacall_IsBase(bool value) const { qgraphicsproxywidget_metacall_isbase = value; }
-    void setQGraphicsProxyWidget_SetGeometry_IsBase(bool value) const { qgraphicsproxywidget_setgeometry_isbase = value; }
-    void setQGraphicsProxyWidget_Paint_IsBase(bool value) const { qgraphicsproxywidget_paint_isbase = value; }
-    void setQGraphicsProxyWidget_Type_IsBase(bool value) const { qgraphicsproxywidget_type_isbase = value; }
-    void setQGraphicsProxyWidget_ItemChange_IsBase(bool value) const { qgraphicsproxywidget_itemchange_isbase = value; }
-    void setQGraphicsProxyWidget_Event_IsBase(bool value) const { qgraphicsproxywidget_event_isbase = value; }
-    void setQGraphicsProxyWidget_EventFilter_IsBase(bool value) const { qgraphicsproxywidget_eventfilter_isbase = value; }
-    void setQGraphicsProxyWidget_ShowEvent_IsBase(bool value) const { qgraphicsproxywidget_showevent_isbase = value; }
-    void setQGraphicsProxyWidget_HideEvent_IsBase(bool value) const { qgraphicsproxywidget_hideevent_isbase = value; }
-    void setQGraphicsProxyWidget_ContextMenuEvent_IsBase(bool value) const { qgraphicsproxywidget_contextmenuevent_isbase = value; }
-    void setQGraphicsProxyWidget_DragEnterEvent_IsBase(bool value) const { qgraphicsproxywidget_dragenterevent_isbase = value; }
-    void setQGraphicsProxyWidget_DragLeaveEvent_IsBase(bool value) const { qgraphicsproxywidget_dragleaveevent_isbase = value; }
-    void setQGraphicsProxyWidget_DragMoveEvent_IsBase(bool value) const { qgraphicsproxywidget_dragmoveevent_isbase = value; }
-    void setQGraphicsProxyWidget_DropEvent_IsBase(bool value) const { qgraphicsproxywidget_dropevent_isbase = value; }
-    void setQGraphicsProxyWidget_HoverEnterEvent_IsBase(bool value) const { qgraphicsproxywidget_hoverenterevent_isbase = value; }
-    void setQGraphicsProxyWidget_HoverLeaveEvent_IsBase(bool value) const { qgraphicsproxywidget_hoverleaveevent_isbase = value; }
-    void setQGraphicsProxyWidget_HoverMoveEvent_IsBase(bool value) const { qgraphicsproxywidget_hovermoveevent_isbase = value; }
-    void setQGraphicsProxyWidget_GrabMouseEvent_IsBase(bool value) const { qgraphicsproxywidget_grabmouseevent_isbase = value; }
-    void setQGraphicsProxyWidget_UngrabMouseEvent_IsBase(bool value) const { qgraphicsproxywidget_ungrabmouseevent_isbase = value; }
-    void setQGraphicsProxyWidget_MouseMoveEvent_IsBase(bool value) const { qgraphicsproxywidget_mousemoveevent_isbase = value; }
-    void setQGraphicsProxyWidget_MousePressEvent_IsBase(bool value) const { qgraphicsproxywidget_mousepressevent_isbase = value; }
-    void setQGraphicsProxyWidget_MouseReleaseEvent_IsBase(bool value) const { qgraphicsproxywidget_mousereleaseevent_isbase = value; }
-    void setQGraphicsProxyWidget_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicsproxywidget_mousedoubleclickevent_isbase = value; }
-    void setQGraphicsProxyWidget_WheelEvent_IsBase(bool value) const { qgraphicsproxywidget_wheelevent_isbase = value; }
-    void setQGraphicsProxyWidget_KeyPressEvent_IsBase(bool value) const { qgraphicsproxywidget_keypressevent_isbase = value; }
-    void setQGraphicsProxyWidget_KeyReleaseEvent_IsBase(bool value) const { qgraphicsproxywidget_keyreleaseevent_isbase = value; }
-    void setQGraphicsProxyWidget_FocusInEvent_IsBase(bool value) const { qgraphicsproxywidget_focusinevent_isbase = value; }
-    void setQGraphicsProxyWidget_FocusOutEvent_IsBase(bool value) const { qgraphicsproxywidget_focusoutevent_isbase = value; }
-    void setQGraphicsProxyWidget_FocusNextPrevChild_IsBase(bool value) const { qgraphicsproxywidget_focusnextprevchild_isbase = value; }
-    void setQGraphicsProxyWidget_InputMethodQuery_IsBase(bool value) const { qgraphicsproxywidget_inputmethodquery_isbase = value; }
-    void setQGraphicsProxyWidget_InputMethodEvent_IsBase(bool value) const { qgraphicsproxywidget_inputmethodevent_isbase = value; }
-    void setQGraphicsProxyWidget_SizeHint_IsBase(bool value) const { qgraphicsproxywidget_sizehint_isbase = value; }
-    void setQGraphicsProxyWidget_ResizeEvent_IsBase(bool value) const { qgraphicsproxywidget_resizeevent_isbase = value; }
-    void setQGraphicsProxyWidget_GetContentsMargins_IsBase(bool value) const { qgraphicsproxywidget_getcontentsmargins_isbase = value; }
-    void setQGraphicsProxyWidget_PaintWindowFrame_IsBase(bool value) const { qgraphicsproxywidget_paintwindowframe_isbase = value; }
-    void setQGraphicsProxyWidget_BoundingRect_IsBase(bool value) const { qgraphicsproxywidget_boundingrect_isbase = value; }
-    void setQGraphicsProxyWidget_Shape_IsBase(bool value) const { qgraphicsproxywidget_shape_isbase = value; }
-    void setQGraphicsProxyWidget_InitStyleOption_IsBase(bool value) const { qgraphicsproxywidget_initstyleoption_isbase = value; }
-    void setQGraphicsProxyWidget_UpdateGeometry_IsBase(bool value) const { qgraphicsproxywidget_updategeometry_isbase = value; }
-    void setQGraphicsProxyWidget_PropertyChange_IsBase(bool value) const { qgraphicsproxywidget_propertychange_isbase = value; }
-    void setQGraphicsProxyWidget_SceneEvent_IsBase(bool value) const { qgraphicsproxywidget_sceneevent_isbase = value; }
-    void setQGraphicsProxyWidget_WindowFrameEvent_IsBase(bool value) const { qgraphicsproxywidget_windowframeevent_isbase = value; }
-    void setQGraphicsProxyWidget_WindowFrameSectionAt_IsBase(bool value) const { qgraphicsproxywidget_windowframesectionat_isbase = value; }
-    void setQGraphicsProxyWidget_ChangeEvent_IsBase(bool value) const { qgraphicsproxywidget_changeevent_isbase = value; }
-    void setQGraphicsProxyWidget_CloseEvent_IsBase(bool value) const { qgraphicsproxywidget_closeevent_isbase = value; }
-    void setQGraphicsProxyWidget_MoveEvent_IsBase(bool value) const { qgraphicsproxywidget_moveevent_isbase = value; }
-    void setQGraphicsProxyWidget_PolishEvent_IsBase(bool value) const { qgraphicsproxywidget_polishevent_isbase = value; }
-    void setQGraphicsProxyWidget_GrabKeyboardEvent_IsBase(bool value) const { qgraphicsproxywidget_grabkeyboardevent_isbase = value; }
-    void setQGraphicsProxyWidget_UngrabKeyboardEvent_IsBase(bool value) const { qgraphicsproxywidget_ungrabkeyboardevent_isbase = value; }
-    void setQGraphicsProxyWidget_TimerEvent_IsBase(bool value) const { qgraphicsproxywidget_timerevent_isbase = value; }
-    void setQGraphicsProxyWidget_ChildEvent_IsBase(bool value) const { qgraphicsproxywidget_childevent_isbase = value; }
-    void setQGraphicsProxyWidget_CustomEvent_IsBase(bool value) const { qgraphicsproxywidget_customevent_isbase = value; }
-    void setQGraphicsProxyWidget_ConnectNotify_IsBase(bool value) const { qgraphicsproxywidget_connectnotify_isbase = value; }
-    void setQGraphicsProxyWidget_DisconnectNotify_IsBase(bool value) const { qgraphicsproxywidget_disconnectnotify_isbase = value; }
-    void setQGraphicsProxyWidget_Advance_IsBase(bool value) const { qgraphicsproxywidget_advance_isbase = value; }
-    void setQGraphicsProxyWidget_Contains_IsBase(bool value) const { qgraphicsproxywidget_contains_isbase = value; }
-    void setQGraphicsProxyWidget_CollidesWithItem_IsBase(bool value) const { qgraphicsproxywidget_collideswithitem_isbase = value; }
-    void setQGraphicsProxyWidget_CollidesWithPath_IsBase(bool value) const { qgraphicsproxywidget_collideswithpath_isbase = value; }
-    void setQGraphicsProxyWidget_IsObscuredBy_IsBase(bool value) const { qgraphicsproxywidget_isobscuredby_isbase = value; }
-    void setQGraphicsProxyWidget_OpaqueArea_IsBase(bool value) const { qgraphicsproxywidget_opaquearea_isbase = value; }
-    void setQGraphicsProxyWidget_SceneEventFilter_IsBase(bool value) const { qgraphicsproxywidget_sceneeventfilter_isbase = value; }
-    void setQGraphicsProxyWidget_SupportsExtension_IsBase(bool value) const { qgraphicsproxywidget_supportsextension_isbase = value; }
-    void setQGraphicsProxyWidget_SetExtension_IsBase(bool value) const { qgraphicsproxywidget_setextension_isbase = value; }
-    void setQGraphicsProxyWidget_Extension_IsBase(bool value) const { qgraphicsproxywidget_extension_isbase = value; }
-    void setQGraphicsProxyWidget_IsEmpty_IsBase(bool value) const { qgraphicsproxywidget_isempty_isbase = value; }
-    void setQGraphicsProxyWidget_NewProxyWidget_IsBase(bool value) const { qgraphicsproxywidget_newproxywidget_isbase = value; }
-    void setQGraphicsProxyWidget_UpdateMicroFocus_IsBase(bool value) const { qgraphicsproxywidget_updatemicrofocus_isbase = value; }
-    void setQGraphicsProxyWidget_Sender_IsBase(bool value) const { qgraphicsproxywidget_sender_isbase = value; }
-    void setQGraphicsProxyWidget_SenderSignalIndex_IsBase(bool value) const { qgraphicsproxywidget_sendersignalindex_isbase = value; }
-    void setQGraphicsProxyWidget_Receivers_IsBase(bool value) const { qgraphicsproxywidget_receivers_isbase = value; }
-    void setQGraphicsProxyWidget_IsSignalConnected_IsBase(bool value) const { qgraphicsproxywidget_issignalconnected_isbase = value; }
-    void setQGraphicsProxyWidget_AddToIndex_IsBase(bool value) const { qgraphicsproxywidget_addtoindex_isbase = value; }
-    void setQGraphicsProxyWidget_RemoveFromIndex_IsBase(bool value) const { qgraphicsproxywidget_removefromindex_isbase = value; }
-    void setQGraphicsProxyWidget_PrepareGeometryChange_IsBase(bool value) const { qgraphicsproxywidget_preparegeometrychange_isbase = value; }
-    void setQGraphicsProxyWidget_SetGraphicsItem_IsBase(bool value) const { qgraphicsproxywidget_setgraphicsitem_isbase = value; }
-    void setQGraphicsProxyWidget_SetOwnedByLayout_IsBase(bool value) const { qgraphicsproxywidget_setownedbylayout_isbase = value; }
+    inline void setQGraphicsProxyWidget_Metacall_IsBase(bool value) const { qgraphicsproxywidget_metacall_isbase = value; }
+    inline void setQGraphicsProxyWidget_SetGeometry_IsBase(bool value) const { qgraphicsproxywidget_setgeometry_isbase = value; }
+    inline void setQGraphicsProxyWidget_Paint_IsBase(bool value) const { qgraphicsproxywidget_paint_isbase = value; }
+    inline void setQGraphicsProxyWidget_Type_IsBase(bool value) const { qgraphicsproxywidget_type_isbase = value; }
+    inline void setQGraphicsProxyWidget_ItemChange_IsBase(bool value) const { qgraphicsproxywidget_itemchange_isbase = value; }
+    inline void setQGraphicsProxyWidget_Event_IsBase(bool value) const { qgraphicsproxywidget_event_isbase = value; }
+    inline void setQGraphicsProxyWidget_EventFilter_IsBase(bool value) const { qgraphicsproxywidget_eventfilter_isbase = value; }
+    inline void setQGraphicsProxyWidget_ShowEvent_IsBase(bool value) const { qgraphicsproxywidget_showevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_HideEvent_IsBase(bool value) const { qgraphicsproxywidget_hideevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_ContextMenuEvent_IsBase(bool value) const { qgraphicsproxywidget_contextmenuevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_DragEnterEvent_IsBase(bool value) const { qgraphicsproxywidget_dragenterevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_DragLeaveEvent_IsBase(bool value) const { qgraphicsproxywidget_dragleaveevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_DragMoveEvent_IsBase(bool value) const { qgraphicsproxywidget_dragmoveevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_DropEvent_IsBase(bool value) const { qgraphicsproxywidget_dropevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_HoverEnterEvent_IsBase(bool value) const { qgraphicsproxywidget_hoverenterevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_HoverLeaveEvent_IsBase(bool value) const { qgraphicsproxywidget_hoverleaveevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_HoverMoveEvent_IsBase(bool value) const { qgraphicsproxywidget_hovermoveevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_GrabMouseEvent_IsBase(bool value) const { qgraphicsproxywidget_grabmouseevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_UngrabMouseEvent_IsBase(bool value) const { qgraphicsproxywidget_ungrabmouseevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_MouseMoveEvent_IsBase(bool value) const { qgraphicsproxywidget_mousemoveevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_MousePressEvent_IsBase(bool value) const { qgraphicsproxywidget_mousepressevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_MouseReleaseEvent_IsBase(bool value) const { qgraphicsproxywidget_mousereleaseevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicsproxywidget_mousedoubleclickevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_WheelEvent_IsBase(bool value) const { qgraphicsproxywidget_wheelevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_KeyPressEvent_IsBase(bool value) const { qgraphicsproxywidget_keypressevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_KeyReleaseEvent_IsBase(bool value) const { qgraphicsproxywidget_keyreleaseevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_FocusInEvent_IsBase(bool value) const { qgraphicsproxywidget_focusinevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_FocusOutEvent_IsBase(bool value) const { qgraphicsproxywidget_focusoutevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_FocusNextPrevChild_IsBase(bool value) const { qgraphicsproxywidget_focusnextprevchild_isbase = value; }
+    inline void setQGraphicsProxyWidget_InputMethodQuery_IsBase(bool value) const { qgraphicsproxywidget_inputmethodquery_isbase = value; }
+    inline void setQGraphicsProxyWidget_InputMethodEvent_IsBase(bool value) const { qgraphicsproxywidget_inputmethodevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_SizeHint_IsBase(bool value) const { qgraphicsproxywidget_sizehint_isbase = value; }
+    inline void setQGraphicsProxyWidget_ResizeEvent_IsBase(bool value) const { qgraphicsproxywidget_resizeevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_GetContentsMargins_IsBase(bool value) const { qgraphicsproxywidget_getcontentsmargins_isbase = value; }
+    inline void setQGraphicsProxyWidget_PaintWindowFrame_IsBase(bool value) const { qgraphicsproxywidget_paintwindowframe_isbase = value; }
+    inline void setQGraphicsProxyWidget_BoundingRect_IsBase(bool value) const { qgraphicsproxywidget_boundingrect_isbase = value; }
+    inline void setQGraphicsProxyWidget_Shape_IsBase(bool value) const { qgraphicsproxywidget_shape_isbase = value; }
+    inline void setQGraphicsProxyWidget_InitStyleOption_IsBase(bool value) const { qgraphicsproxywidget_initstyleoption_isbase = value; }
+    inline void setQGraphicsProxyWidget_UpdateGeometry_IsBase(bool value) const { qgraphicsproxywidget_updategeometry_isbase = value; }
+    inline void setQGraphicsProxyWidget_PropertyChange_IsBase(bool value) const { qgraphicsproxywidget_propertychange_isbase = value; }
+    inline void setQGraphicsProxyWidget_SceneEvent_IsBase(bool value) const { qgraphicsproxywidget_sceneevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_WindowFrameEvent_IsBase(bool value) const { qgraphicsproxywidget_windowframeevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_WindowFrameSectionAt_IsBase(bool value) const { qgraphicsproxywidget_windowframesectionat_isbase = value; }
+    inline void setQGraphicsProxyWidget_ChangeEvent_IsBase(bool value) const { qgraphicsproxywidget_changeevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_CloseEvent_IsBase(bool value) const { qgraphicsproxywidget_closeevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_MoveEvent_IsBase(bool value) const { qgraphicsproxywidget_moveevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_PolishEvent_IsBase(bool value) const { qgraphicsproxywidget_polishevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_GrabKeyboardEvent_IsBase(bool value) const { qgraphicsproxywidget_grabkeyboardevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_UngrabKeyboardEvent_IsBase(bool value) const { qgraphicsproxywidget_ungrabkeyboardevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_TimerEvent_IsBase(bool value) const { qgraphicsproxywidget_timerevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_ChildEvent_IsBase(bool value) const { qgraphicsproxywidget_childevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_CustomEvent_IsBase(bool value) const { qgraphicsproxywidget_customevent_isbase = value; }
+    inline void setQGraphicsProxyWidget_ConnectNotify_IsBase(bool value) const { qgraphicsproxywidget_connectnotify_isbase = value; }
+    inline void setQGraphicsProxyWidget_DisconnectNotify_IsBase(bool value) const { qgraphicsproxywidget_disconnectnotify_isbase = value; }
+    inline void setQGraphicsProxyWidget_Advance_IsBase(bool value) const { qgraphicsproxywidget_advance_isbase = value; }
+    inline void setQGraphicsProxyWidget_Contains_IsBase(bool value) const { qgraphicsproxywidget_contains_isbase = value; }
+    inline void setQGraphicsProxyWidget_CollidesWithItem_IsBase(bool value) const { qgraphicsproxywidget_collideswithitem_isbase = value; }
+    inline void setQGraphicsProxyWidget_CollidesWithPath_IsBase(bool value) const { qgraphicsproxywidget_collideswithpath_isbase = value; }
+    inline void setQGraphicsProxyWidget_IsObscuredBy_IsBase(bool value) const { qgraphicsproxywidget_isobscuredby_isbase = value; }
+    inline void setQGraphicsProxyWidget_OpaqueArea_IsBase(bool value) const { qgraphicsproxywidget_opaquearea_isbase = value; }
+    inline void setQGraphicsProxyWidget_SceneEventFilter_IsBase(bool value) const { qgraphicsproxywidget_sceneeventfilter_isbase = value; }
+    inline void setQGraphicsProxyWidget_SupportsExtension_IsBase(bool value) const { qgraphicsproxywidget_supportsextension_isbase = value; }
+    inline void setQGraphicsProxyWidget_SetExtension_IsBase(bool value) const { qgraphicsproxywidget_setextension_isbase = value; }
+    inline void setQGraphicsProxyWidget_Extension_IsBase(bool value) const { qgraphicsproxywidget_extension_isbase = value; }
+    inline void setQGraphicsProxyWidget_IsEmpty_IsBase(bool value) const { qgraphicsproxywidget_isempty_isbase = value; }
+    inline void setQGraphicsProxyWidget_NewProxyWidget_IsBase(bool value) const { qgraphicsproxywidget_newproxywidget_isbase = value; }
+    inline void setQGraphicsProxyWidget_UpdateMicroFocus_IsBase(bool value) const { qgraphicsproxywidget_updatemicrofocus_isbase = value; }
+    inline void setQGraphicsProxyWidget_Sender_IsBase(bool value) const { qgraphicsproxywidget_sender_isbase = value; }
+    inline void setQGraphicsProxyWidget_SenderSignalIndex_IsBase(bool value) const { qgraphicsproxywidget_sendersignalindex_isbase = value; }
+    inline void setQGraphicsProxyWidget_Receivers_IsBase(bool value) const { qgraphicsproxywidget_receivers_isbase = value; }
+    inline void setQGraphicsProxyWidget_IsSignalConnected_IsBase(bool value) const { qgraphicsproxywidget_issignalconnected_isbase = value; }
+    inline void setQGraphicsProxyWidget_AddToIndex_IsBase(bool value) const { qgraphicsproxywidget_addtoindex_isbase = value; }
+    inline void setQGraphicsProxyWidget_RemoveFromIndex_IsBase(bool value) const { qgraphicsproxywidget_removefromindex_isbase = value; }
+    inline void setQGraphicsProxyWidget_PrepareGeometryChange_IsBase(bool value) const { qgraphicsproxywidget_preparegeometrychange_isbase = value; }
+    inline void setQGraphicsProxyWidget_SetGraphicsItem_IsBase(bool value) const { qgraphicsproxywidget_setgraphicsitem_isbase = value; }
+    inline void setQGraphicsProxyWidget_SetOwnedByLayout_IsBase(bool value) const { qgraphicsproxywidget_setownedbylayout_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -496,7 +499,12 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_metacall_isbase = false;
             return QGraphicsProxyWidget::qt_metacall(param1, param2, param3);
         } else if (qgraphicsproxywidget_metacall_callback != nullptr) {
-            return qgraphicsproxywidget_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qgraphicsproxywidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsProxyWidget::qt_metacall(param1, param2, param3);
         }
@@ -508,7 +516,11 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_setgeometry_isbase = false;
             QGraphicsProxyWidget::setGeometry(rect);
         } else if (qgraphicsproxywidget_setgeometry_callback != nullptr) {
-            qgraphicsproxywidget_setgeometry_callback(this, rect);
+            const QRectF& rect_ret = rect;
+            // Cast returned reference into pointer
+            QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
+
+            qgraphicsproxywidget_setgeometry_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::setGeometry(rect);
         }
@@ -520,7 +532,11 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_paint_isbase = false;
             QGraphicsProxyWidget::paint(painter, option, widget);
         } else if (qgraphicsproxywidget_paint_callback != nullptr) {
-            qgraphicsproxywidget_paint_callback(this, painter, option, widget);
+            QPainter* cbval1 = painter;
+            QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
+            QWidget* cbval3 = widget;
+
+            qgraphicsproxywidget_paint_callback(this, cbval1, cbval2, cbval3);
         } else {
             QGraphicsProxyWidget::paint(painter, option, widget);
         }
@@ -532,7 +548,8 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_type_isbase = false;
             return QGraphicsProxyWidget::type();
         } else if (qgraphicsproxywidget_type_callback != nullptr) {
-            return qgraphicsproxywidget_type_callback();
+            int callback_ret = qgraphicsproxywidget_type_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsProxyWidget::type();
         }
@@ -544,7 +561,13 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_itemchange_isbase = false;
             return QGraphicsProxyWidget::itemChange(change, value);
         } else if (qgraphicsproxywidget_itemchange_callback != nullptr) {
-            return qgraphicsproxywidget_itemchange_callback(this, change, value);
+            int cbval1 = static_cast<int>(change);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            QVariant* callback_ret = qgraphicsproxywidget_itemchange_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QGraphicsProxyWidget::itemChange(change, value);
         }
@@ -556,7 +579,10 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_event_isbase = false;
             return QGraphicsProxyWidget::event(event);
         } else if (qgraphicsproxywidget_event_callback != nullptr) {
-            return qgraphicsproxywidget_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgraphicsproxywidget_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsProxyWidget::event(event);
         }
@@ -568,7 +594,11 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_eventfilter_isbase = false;
             return QGraphicsProxyWidget::eventFilter(object, event);
         } else if (qgraphicsproxywidget_eventfilter_callback != nullptr) {
-            return qgraphicsproxywidget_eventfilter_callback(this, object, event);
+            QObject* cbval1 = object;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicsproxywidget_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsProxyWidget::eventFilter(object, event);
         }
@@ -580,7 +610,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_showevent_isbase = false;
             QGraphicsProxyWidget::showEvent(event);
         } else if (qgraphicsproxywidget_showevent_callback != nullptr) {
-            qgraphicsproxywidget_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qgraphicsproxywidget_showevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::showEvent(event);
         }
@@ -592,7 +624,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_hideevent_isbase = false;
             QGraphicsProxyWidget::hideEvent(event);
         } else if (qgraphicsproxywidget_hideevent_callback != nullptr) {
-            qgraphicsproxywidget_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qgraphicsproxywidget_hideevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::hideEvent(event);
         }
@@ -604,7 +638,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_contextmenuevent_isbase = false;
             QGraphicsProxyWidget::contextMenuEvent(event);
         } else if (qgraphicsproxywidget_contextmenuevent_callback != nullptr) {
-            qgraphicsproxywidget_contextmenuevent_callback(this, event);
+            QGraphicsSceneContextMenuEvent* cbval1 = event;
+
+            qgraphicsproxywidget_contextmenuevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::contextMenuEvent(event);
         }
@@ -616,7 +652,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_dragenterevent_isbase = false;
             QGraphicsProxyWidget::dragEnterEvent(event);
         } else if (qgraphicsproxywidget_dragenterevent_callback != nullptr) {
-            qgraphicsproxywidget_dragenterevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsproxywidget_dragenterevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::dragEnterEvent(event);
         }
@@ -628,7 +666,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_dragleaveevent_isbase = false;
             QGraphicsProxyWidget::dragLeaveEvent(event);
         } else if (qgraphicsproxywidget_dragleaveevent_callback != nullptr) {
-            qgraphicsproxywidget_dragleaveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsproxywidget_dragleaveevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::dragLeaveEvent(event);
         }
@@ -640,7 +680,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_dragmoveevent_isbase = false;
             QGraphicsProxyWidget::dragMoveEvent(event);
         } else if (qgraphicsproxywidget_dragmoveevent_callback != nullptr) {
-            qgraphicsproxywidget_dragmoveevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsproxywidget_dragmoveevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::dragMoveEvent(event);
         }
@@ -652,7 +694,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_dropevent_isbase = false;
             QGraphicsProxyWidget::dropEvent(event);
         } else if (qgraphicsproxywidget_dropevent_callback != nullptr) {
-            qgraphicsproxywidget_dropevent_callback(this, event);
+            QGraphicsSceneDragDropEvent* cbval1 = event;
+
+            qgraphicsproxywidget_dropevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::dropEvent(event);
         }
@@ -664,7 +708,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_hoverenterevent_isbase = false;
             QGraphicsProxyWidget::hoverEnterEvent(event);
         } else if (qgraphicsproxywidget_hoverenterevent_callback != nullptr) {
-            qgraphicsproxywidget_hoverenterevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsproxywidget_hoverenterevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::hoverEnterEvent(event);
         }
@@ -676,7 +722,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_hoverleaveevent_isbase = false;
             QGraphicsProxyWidget::hoverLeaveEvent(event);
         } else if (qgraphicsproxywidget_hoverleaveevent_callback != nullptr) {
-            qgraphicsproxywidget_hoverleaveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsproxywidget_hoverleaveevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::hoverLeaveEvent(event);
         }
@@ -688,7 +736,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_hovermoveevent_isbase = false;
             QGraphicsProxyWidget::hoverMoveEvent(event);
         } else if (qgraphicsproxywidget_hovermoveevent_callback != nullptr) {
-            qgraphicsproxywidget_hovermoveevent_callback(this, event);
+            QGraphicsSceneHoverEvent* cbval1 = event;
+
+            qgraphicsproxywidget_hovermoveevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::hoverMoveEvent(event);
         }
@@ -700,7 +750,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_grabmouseevent_isbase = false;
             QGraphicsProxyWidget::grabMouseEvent(event);
         } else if (qgraphicsproxywidget_grabmouseevent_callback != nullptr) {
-            qgraphicsproxywidget_grabmouseevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qgraphicsproxywidget_grabmouseevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::grabMouseEvent(event);
         }
@@ -712,7 +764,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_ungrabmouseevent_isbase = false;
             QGraphicsProxyWidget::ungrabMouseEvent(event);
         } else if (qgraphicsproxywidget_ungrabmouseevent_callback != nullptr) {
-            qgraphicsproxywidget_ungrabmouseevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qgraphicsproxywidget_ungrabmouseevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::ungrabMouseEvent(event);
         }
@@ -724,7 +778,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_mousemoveevent_isbase = false;
             QGraphicsProxyWidget::mouseMoveEvent(event);
         } else if (qgraphicsproxywidget_mousemoveevent_callback != nullptr) {
-            qgraphicsproxywidget_mousemoveevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsproxywidget_mousemoveevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::mouseMoveEvent(event);
         }
@@ -736,7 +792,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_mousepressevent_isbase = false;
             QGraphicsProxyWidget::mousePressEvent(event);
         } else if (qgraphicsproxywidget_mousepressevent_callback != nullptr) {
-            qgraphicsproxywidget_mousepressevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsproxywidget_mousepressevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::mousePressEvent(event);
         }
@@ -748,7 +806,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_mousereleaseevent_isbase = false;
             QGraphicsProxyWidget::mouseReleaseEvent(event);
         } else if (qgraphicsproxywidget_mousereleaseevent_callback != nullptr) {
-            qgraphicsproxywidget_mousereleaseevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsproxywidget_mousereleaseevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::mouseReleaseEvent(event);
         }
@@ -760,7 +820,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_mousedoubleclickevent_isbase = false;
             QGraphicsProxyWidget::mouseDoubleClickEvent(event);
         } else if (qgraphicsproxywidget_mousedoubleclickevent_callback != nullptr) {
-            qgraphicsproxywidget_mousedoubleclickevent_callback(this, event);
+            QGraphicsSceneMouseEvent* cbval1 = event;
+
+            qgraphicsproxywidget_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::mouseDoubleClickEvent(event);
         }
@@ -772,7 +834,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_wheelevent_isbase = false;
             QGraphicsProxyWidget::wheelEvent(event);
         } else if (qgraphicsproxywidget_wheelevent_callback != nullptr) {
-            qgraphicsproxywidget_wheelevent_callback(this, event);
+            QGraphicsSceneWheelEvent* cbval1 = event;
+
+            qgraphicsproxywidget_wheelevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::wheelEvent(event);
         }
@@ -784,7 +848,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_keypressevent_isbase = false;
             QGraphicsProxyWidget::keyPressEvent(event);
         } else if (qgraphicsproxywidget_keypressevent_callback != nullptr) {
-            qgraphicsproxywidget_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicsproxywidget_keypressevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::keyPressEvent(event);
         }
@@ -796,7 +862,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_keyreleaseevent_isbase = false;
             QGraphicsProxyWidget::keyReleaseEvent(event);
         } else if (qgraphicsproxywidget_keyreleaseevent_callback != nullptr) {
-            qgraphicsproxywidget_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qgraphicsproxywidget_keyreleaseevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::keyReleaseEvent(event);
         }
@@ -808,7 +876,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_focusinevent_isbase = false;
             QGraphicsProxyWidget::focusInEvent(event);
         } else if (qgraphicsproxywidget_focusinevent_callback != nullptr) {
-            qgraphicsproxywidget_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicsproxywidget_focusinevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::focusInEvent(event);
         }
@@ -820,7 +890,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_focusoutevent_isbase = false;
             QGraphicsProxyWidget::focusOutEvent(event);
         } else if (qgraphicsproxywidget_focusoutevent_callback != nullptr) {
-            qgraphicsproxywidget_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qgraphicsproxywidget_focusoutevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::focusOutEvent(event);
         }
@@ -832,7 +904,10 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_focusnextprevchild_isbase = false;
             return QGraphicsProxyWidget::focusNextPrevChild(next);
         } else if (qgraphicsproxywidget_focusnextprevchild_callback != nullptr) {
-            return qgraphicsproxywidget_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qgraphicsproxywidget_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsProxyWidget::focusNextPrevChild(next);
         }
@@ -844,7 +919,10 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_inputmethodquery_isbase = false;
             return QGraphicsProxyWidget::inputMethodQuery(query);
         } else if (qgraphicsproxywidget_inputmethodquery_callback != nullptr) {
-            return qgraphicsproxywidget_inputmethodquery_callback(this, query);
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qgraphicsproxywidget_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsProxyWidget::inputMethodQuery(query);
         }
@@ -856,7 +934,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_inputmethodevent_isbase = false;
             QGraphicsProxyWidget::inputMethodEvent(event);
         } else if (qgraphicsproxywidget_inputmethodevent_callback != nullptr) {
-            qgraphicsproxywidget_inputmethodevent_callback(this, event);
+            QInputMethodEvent* cbval1 = event;
+
+            qgraphicsproxywidget_inputmethodevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::inputMethodEvent(event);
         }
@@ -868,7 +948,13 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_sizehint_isbase = false;
             return QGraphicsProxyWidget::sizeHint(which, constraint);
         } else if (qgraphicsproxywidget_sizehint_callback != nullptr) {
-            return qgraphicsproxywidget_sizehint_callback(this, which, constraint);
+            int cbval1 = static_cast<int>(which);
+            const QSizeF& constraint_ret = constraint;
+            // Cast returned reference into pointer
+            QSizeF* cbval2 = const_cast<QSizeF*>(&constraint_ret);
+
+            QSizeF* callback_ret = qgraphicsproxywidget_sizehint_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QGraphicsProxyWidget::sizeHint(which, constraint);
         }
@@ -880,7 +966,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_resizeevent_isbase = false;
             QGraphicsProxyWidget::resizeEvent(event);
         } else if (qgraphicsproxywidget_resizeevent_callback != nullptr) {
-            qgraphicsproxywidget_resizeevent_callback(this, event);
+            QGraphicsSceneResizeEvent* cbval1 = event;
+
+            qgraphicsproxywidget_resizeevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::resizeEvent(event);
         }
@@ -892,7 +980,12 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_getcontentsmargins_isbase = false;
             QGraphicsProxyWidget::getContentsMargins(left, top, right, bottom);
         } else if (qgraphicsproxywidget_getcontentsmargins_callback != nullptr) {
-            qgraphicsproxywidget_getcontentsmargins_callback(this, left, top, right, bottom);
+            double* cbval1 = static_cast<double*>(left);
+            double* cbval2 = static_cast<double*>(top);
+            double* cbval3 = static_cast<double*>(right);
+            double* cbval4 = static_cast<double*>(bottom);
+
+            qgraphicsproxywidget_getcontentsmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QGraphicsProxyWidget::getContentsMargins(left, top, right, bottom);
         }
@@ -904,7 +997,11 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_paintwindowframe_isbase = false;
             QGraphicsProxyWidget::paintWindowFrame(painter, option, widget);
         } else if (qgraphicsproxywidget_paintwindowframe_callback != nullptr) {
-            qgraphicsproxywidget_paintwindowframe_callback(this, painter, option, widget);
+            QPainter* cbval1 = painter;
+            QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
+            QWidget* cbval3 = widget;
+
+            qgraphicsproxywidget_paintwindowframe_callback(this, cbval1, cbval2, cbval3);
         } else {
             QGraphicsProxyWidget::paintWindowFrame(painter, option, widget);
         }
@@ -916,7 +1013,8 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_boundingrect_isbase = false;
             return QGraphicsProxyWidget::boundingRect();
         } else if (qgraphicsproxywidget_boundingrect_callback != nullptr) {
-            return qgraphicsproxywidget_boundingrect_callback();
+            QRectF* callback_ret = qgraphicsproxywidget_boundingrect_callback();
+            return *callback_ret;
         } else {
             return QGraphicsProxyWidget::boundingRect();
         }
@@ -928,7 +1026,8 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_shape_isbase = false;
             return QGraphicsProxyWidget::shape();
         } else if (qgraphicsproxywidget_shape_callback != nullptr) {
-            return qgraphicsproxywidget_shape_callback();
+            QPainterPath* callback_ret = qgraphicsproxywidget_shape_callback();
+            return *callback_ret;
         } else {
             return QGraphicsProxyWidget::shape();
         }
@@ -940,7 +1039,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_initstyleoption_isbase = false;
             QGraphicsProxyWidget::initStyleOption(option);
         } else if (qgraphicsproxywidget_initstyleoption_callback != nullptr) {
-            qgraphicsproxywidget_initstyleoption_callback(this, option);
+            QStyleOption* cbval1 = option;
+
+            qgraphicsproxywidget_initstyleoption_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::initStyleOption(option);
         }
@@ -964,7 +1065,21 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_propertychange_isbase = false;
             return QGraphicsProxyWidget::propertyChange(propertyName, value);
         } else if (qgraphicsproxywidget_propertychange_callback != nullptr) {
-            return qgraphicsproxywidget_propertychange_callback(this, propertyName, value);
+            const QString propertyName_ret = propertyName;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray propertyName_b = propertyName_ret.toUtf8();
+            libqt_string propertyName_str;
+            propertyName_str.len = propertyName_b.length();
+            propertyName_str.data = static_cast<char*>(malloc((propertyName_str.len + 1) * sizeof(char)));
+            memcpy(propertyName_str.data, propertyName_b.data(), propertyName_str.len);
+            propertyName_str.data[propertyName_str.len] = '\0';
+            libqt_string cbval1 = propertyName_str;
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            QVariant* callback_ret = qgraphicsproxywidget_propertychange_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QGraphicsProxyWidget::propertyChange(propertyName, value);
         }
@@ -976,7 +1091,10 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_sceneevent_isbase = false;
             return QGraphicsProxyWidget::sceneEvent(event);
         } else if (qgraphicsproxywidget_sceneevent_callback != nullptr) {
-            return qgraphicsproxywidget_sceneevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qgraphicsproxywidget_sceneevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsProxyWidget::sceneEvent(event);
         }
@@ -988,7 +1106,10 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_windowframeevent_isbase = false;
             return QGraphicsProxyWidget::windowFrameEvent(e);
         } else if (qgraphicsproxywidget_windowframeevent_callback != nullptr) {
-            return qgraphicsproxywidget_windowframeevent_callback(this, e);
+            QEvent* cbval1 = e;
+
+            bool callback_ret = qgraphicsproxywidget_windowframeevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsProxyWidget::windowFrameEvent(e);
         }
@@ -1000,7 +1121,12 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_windowframesectionat_isbase = false;
             return QGraphicsProxyWidget::windowFrameSectionAt(pos);
         } else if (qgraphicsproxywidget_windowframesectionat_callback != nullptr) {
-            return qgraphicsproxywidget_windowframesectionat_callback(this, pos);
+            const QPointF& pos_ret = pos;
+            // Cast returned reference into pointer
+            QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
+
+            int callback_ret = qgraphicsproxywidget_windowframesectionat_callback(this, cbval1);
+            return static_cast<Qt::WindowFrameSection>(callback_ret);
         } else {
             return QGraphicsProxyWidget::windowFrameSectionAt(pos);
         }
@@ -1012,7 +1138,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_changeevent_isbase = false;
             QGraphicsProxyWidget::changeEvent(event);
         } else if (qgraphicsproxywidget_changeevent_callback != nullptr) {
-            qgraphicsproxywidget_changeevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qgraphicsproxywidget_changeevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::changeEvent(event);
         }
@@ -1024,7 +1152,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_closeevent_isbase = false;
             QGraphicsProxyWidget::closeEvent(event);
         } else if (qgraphicsproxywidget_closeevent_callback != nullptr) {
-            qgraphicsproxywidget_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qgraphicsproxywidget_closeevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::closeEvent(event);
         }
@@ -1036,7 +1166,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_moveevent_isbase = false;
             QGraphicsProxyWidget::moveEvent(event);
         } else if (qgraphicsproxywidget_moveevent_callback != nullptr) {
-            qgraphicsproxywidget_moveevent_callback(this, event);
+            QGraphicsSceneMoveEvent* cbval1 = event;
+
+            qgraphicsproxywidget_moveevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::moveEvent(event);
         }
@@ -1060,7 +1192,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_grabkeyboardevent_isbase = false;
             QGraphicsProxyWidget::grabKeyboardEvent(event);
         } else if (qgraphicsproxywidget_grabkeyboardevent_callback != nullptr) {
-            qgraphicsproxywidget_grabkeyboardevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qgraphicsproxywidget_grabkeyboardevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::grabKeyboardEvent(event);
         }
@@ -1072,7 +1206,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_ungrabkeyboardevent_isbase = false;
             QGraphicsProxyWidget::ungrabKeyboardEvent(event);
         } else if (qgraphicsproxywidget_ungrabkeyboardevent_callback != nullptr) {
-            qgraphicsproxywidget_ungrabkeyboardevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qgraphicsproxywidget_ungrabkeyboardevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::ungrabKeyboardEvent(event);
         }
@@ -1084,7 +1220,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_timerevent_isbase = false;
             QGraphicsProxyWidget::timerEvent(event);
         } else if (qgraphicsproxywidget_timerevent_callback != nullptr) {
-            qgraphicsproxywidget_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qgraphicsproxywidget_timerevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::timerEvent(event);
         }
@@ -1096,7 +1234,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_childevent_isbase = false;
             QGraphicsProxyWidget::childEvent(event);
         } else if (qgraphicsproxywidget_childevent_callback != nullptr) {
-            qgraphicsproxywidget_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qgraphicsproxywidget_childevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::childEvent(event);
         }
@@ -1108,7 +1248,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_customevent_isbase = false;
             QGraphicsProxyWidget::customEvent(event);
         } else if (qgraphicsproxywidget_customevent_callback != nullptr) {
-            qgraphicsproxywidget_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qgraphicsproxywidget_customevent_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::customEvent(event);
         }
@@ -1120,7 +1262,11 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_connectnotify_isbase = false;
             QGraphicsProxyWidget::connectNotify(signal);
         } else if (qgraphicsproxywidget_connectnotify_callback != nullptr) {
-            qgraphicsproxywidget_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qgraphicsproxywidget_connectnotify_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::connectNotify(signal);
         }
@@ -1132,7 +1278,11 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_disconnectnotify_isbase = false;
             QGraphicsProxyWidget::disconnectNotify(signal);
         } else if (qgraphicsproxywidget_disconnectnotify_callback != nullptr) {
-            qgraphicsproxywidget_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qgraphicsproxywidget_disconnectnotify_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::disconnectNotify(signal);
         }
@@ -1144,7 +1294,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_advance_isbase = false;
             QGraphicsProxyWidget::advance(phase);
         } else if (qgraphicsproxywidget_advance_callback != nullptr) {
-            qgraphicsproxywidget_advance_callback(this, phase);
+            int cbval1 = phase;
+
+            qgraphicsproxywidget_advance_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::advance(phase);
         }
@@ -1156,7 +1308,12 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_contains_isbase = false;
             return QGraphicsProxyWidget::contains(point);
         } else if (qgraphicsproxywidget_contains_callback != nullptr) {
-            return qgraphicsproxywidget_contains_callback(this, point);
+            const QPointF& point_ret = point;
+            // Cast returned reference into pointer
+            QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
+
+            bool callback_ret = qgraphicsproxywidget_contains_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsProxyWidget::contains(point);
         }
@@ -1168,7 +1325,11 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_collideswithitem_isbase = false;
             return QGraphicsProxyWidget::collidesWithItem(other, mode);
         } else if (qgraphicsproxywidget_collideswithitem_callback != nullptr) {
-            return qgraphicsproxywidget_collideswithitem_callback(this, other, mode);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)other;
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicsproxywidget_collideswithitem_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsProxyWidget::collidesWithItem(other, mode);
         }
@@ -1180,7 +1341,13 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_collideswithpath_isbase = false;
             return QGraphicsProxyWidget::collidesWithPath(path, mode);
         } else if (qgraphicsproxywidget_collideswithpath_callback != nullptr) {
-            return qgraphicsproxywidget_collideswithpath_callback(this, path, mode);
+            const QPainterPath& path_ret = path;
+            // Cast returned reference into pointer
+            QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
+            int cbval2 = static_cast<int>(mode);
+
+            bool callback_ret = qgraphicsproxywidget_collideswithpath_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsProxyWidget::collidesWithPath(path, mode);
         }
@@ -1192,7 +1359,10 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_isobscuredby_isbase = false;
             return QGraphicsProxyWidget::isObscuredBy(item);
         } else if (qgraphicsproxywidget_isobscuredby_callback != nullptr) {
-            return qgraphicsproxywidget_isobscuredby_callback(this, item);
+            QGraphicsItem* cbval1 = (QGraphicsItem*)item;
+
+            bool callback_ret = qgraphicsproxywidget_isobscuredby_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsProxyWidget::isObscuredBy(item);
         }
@@ -1204,7 +1374,8 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_opaquearea_isbase = false;
             return QGraphicsProxyWidget::opaqueArea();
         } else if (qgraphicsproxywidget_opaquearea_callback != nullptr) {
-            return qgraphicsproxywidget_opaquearea_callback();
+            QPainterPath* callback_ret = qgraphicsproxywidget_opaquearea_callback();
+            return *callback_ret;
         } else {
             return QGraphicsProxyWidget::opaqueArea();
         }
@@ -1216,7 +1387,11 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_sceneeventfilter_isbase = false;
             return QGraphicsProxyWidget::sceneEventFilter(watched, event);
         } else if (qgraphicsproxywidget_sceneeventfilter_callback != nullptr) {
-            return qgraphicsproxywidget_sceneeventfilter_callback(this, watched, event);
+            QGraphicsItem* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qgraphicsproxywidget_sceneeventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QGraphicsProxyWidget::sceneEventFilter(watched, event);
         }
@@ -1228,7 +1403,10 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_supportsextension_isbase = false;
             return QGraphicsProxyWidget::supportsExtension(extension);
         } else if (qgraphicsproxywidget_supportsextension_callback != nullptr) {
-            return qgraphicsproxywidget_supportsextension_callback(this, extension);
+            int cbval1 = static_cast<int>(extension);
+
+            bool callback_ret = qgraphicsproxywidget_supportsextension_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsProxyWidget::supportsExtension(extension);
         }
@@ -1240,7 +1418,12 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_setextension_isbase = false;
             QGraphicsProxyWidget::setExtension(extension, variant);
         } else if (qgraphicsproxywidget_setextension_callback != nullptr) {
-            qgraphicsproxywidget_setextension_callback(this, extension, variant);
+            int cbval1 = static_cast<int>(extension);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
+
+            qgraphicsproxywidget_setextension_callback(this, cbval1, cbval2);
         } else {
             QGraphicsProxyWidget::setExtension(extension, variant);
         }
@@ -1252,7 +1435,12 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_extension_isbase = false;
             return QGraphicsProxyWidget::extension(variant);
         } else if (qgraphicsproxywidget_extension_callback != nullptr) {
-            return qgraphicsproxywidget_extension_callback(this, variant);
+            const QVariant& variant_ret = variant;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
+
+            QVariant* callback_ret = qgraphicsproxywidget_extension_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QGraphicsProxyWidget::extension(variant);
         }
@@ -1264,7 +1452,8 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_isempty_isbase = false;
             return QGraphicsProxyWidget::isEmpty();
         } else if (qgraphicsproxywidget_isempty_callback != nullptr) {
-            return qgraphicsproxywidget_isempty_callback();
+            bool callback_ret = qgraphicsproxywidget_isempty_callback();
+            return callback_ret;
         } else {
             return QGraphicsProxyWidget::isEmpty();
         }
@@ -1276,7 +1465,10 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_newproxywidget_isbase = false;
             return QGraphicsProxyWidget::newProxyWidget(param1);
         } else if (qgraphicsproxywidget_newproxywidget_callback != nullptr) {
-            return qgraphicsproxywidget_newproxywidget_callback(this, param1);
+            QWidget* cbval1 = (QWidget*)param1;
+
+            QGraphicsProxyWidget* callback_ret = qgraphicsproxywidget_newproxywidget_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsProxyWidget::newProxyWidget(param1);
         }
@@ -1300,7 +1492,8 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_sender_isbase = false;
             return QGraphicsProxyWidget::sender();
         } else if (qgraphicsproxywidget_sender_callback != nullptr) {
-            return qgraphicsproxywidget_sender_callback();
+            QObject* callback_ret = qgraphicsproxywidget_sender_callback();
+            return callback_ret;
         } else {
             return QGraphicsProxyWidget::sender();
         }
@@ -1312,7 +1505,8 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_sendersignalindex_isbase = false;
             return QGraphicsProxyWidget::senderSignalIndex();
         } else if (qgraphicsproxywidget_sendersignalindex_callback != nullptr) {
-            return qgraphicsproxywidget_sendersignalindex_callback();
+            int callback_ret = qgraphicsproxywidget_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsProxyWidget::senderSignalIndex();
         }
@@ -1324,7 +1518,10 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_receivers_isbase = false;
             return QGraphicsProxyWidget::receivers(signal);
         } else if (qgraphicsproxywidget_receivers_callback != nullptr) {
-            return qgraphicsproxywidget_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qgraphicsproxywidget_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QGraphicsProxyWidget::receivers(signal);
         }
@@ -1336,7 +1533,12 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_issignalconnected_isbase = false;
             return QGraphicsProxyWidget::isSignalConnected(signal);
         } else if (qgraphicsproxywidget_issignalconnected_callback != nullptr) {
-            return qgraphicsproxywidget_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qgraphicsproxywidget_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QGraphicsProxyWidget::isSignalConnected(signal);
         }
@@ -1384,7 +1586,9 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_setgraphicsitem_isbase = false;
             QGraphicsProxyWidget::setGraphicsItem(item);
         } else if (qgraphicsproxywidget_setgraphicsitem_callback != nullptr) {
-            qgraphicsproxywidget_setgraphicsitem_callback(this, item);
+            QGraphicsItem* cbval1 = item;
+
+            qgraphicsproxywidget_setgraphicsitem_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::setGraphicsItem(item);
         }
@@ -1396,11 +1600,137 @@ class VirtualQGraphicsProxyWidget : public QGraphicsProxyWidget {
             qgraphicsproxywidget_setownedbylayout_isbase = false;
             QGraphicsProxyWidget::setOwnedByLayout(ownedByLayout);
         } else if (qgraphicsproxywidget_setownedbylayout_callback != nullptr) {
-            qgraphicsproxywidget_setownedbylayout_callback(this, ownedByLayout);
+            bool cbval1 = ownedByLayout;
+
+            qgraphicsproxywidget_setownedbylayout_callback(this, cbval1);
         } else {
             QGraphicsProxyWidget::setOwnedByLayout(ownedByLayout);
         }
     }
+
+    // Friend functions
+    friend QVariant* QGraphicsProxyWidget_ItemChange(QGraphicsProxyWidget* self, int change, const QVariant* value);
+    friend QVariant* QGraphicsProxyWidget_QBaseItemChange(QGraphicsProxyWidget* self, int change, const QVariant* value);
+    friend bool QGraphicsProxyWidget_Event(QGraphicsProxyWidget* self, QEvent* event);
+    friend bool QGraphicsProxyWidget_QBaseEvent(QGraphicsProxyWidget* self, QEvent* event);
+    friend bool QGraphicsProxyWidget_EventFilter(QGraphicsProxyWidget* self, QObject* object, QEvent* event);
+    friend bool QGraphicsProxyWidget_QBaseEventFilter(QGraphicsProxyWidget* self, QObject* object, QEvent* event);
+    friend void QGraphicsProxyWidget_ShowEvent(QGraphicsProxyWidget* self, QShowEvent* event);
+    friend void QGraphicsProxyWidget_QBaseShowEvent(QGraphicsProxyWidget* self, QShowEvent* event);
+    friend void QGraphicsProxyWidget_HideEvent(QGraphicsProxyWidget* self, QHideEvent* event);
+    friend void QGraphicsProxyWidget_QBaseHideEvent(QGraphicsProxyWidget* self, QHideEvent* event);
+    friend void QGraphicsProxyWidget_ContextMenuEvent(QGraphicsProxyWidget* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsProxyWidget_QBaseContextMenuEvent(QGraphicsProxyWidget* self, QGraphicsSceneContextMenuEvent* event);
+    friend void QGraphicsProxyWidget_DragEnterEvent(QGraphicsProxyWidget* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsProxyWidget_QBaseDragEnterEvent(QGraphicsProxyWidget* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsProxyWidget_DragLeaveEvent(QGraphicsProxyWidget* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsProxyWidget_QBaseDragLeaveEvent(QGraphicsProxyWidget* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsProxyWidget_DragMoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsProxyWidget_QBaseDragMoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsProxyWidget_DropEvent(QGraphicsProxyWidget* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsProxyWidget_QBaseDropEvent(QGraphicsProxyWidget* self, QGraphicsSceneDragDropEvent* event);
+    friend void QGraphicsProxyWidget_HoverEnterEvent(QGraphicsProxyWidget* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsProxyWidget_QBaseHoverEnterEvent(QGraphicsProxyWidget* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsProxyWidget_HoverLeaveEvent(QGraphicsProxyWidget* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsProxyWidget_QBaseHoverLeaveEvent(QGraphicsProxyWidget* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsProxyWidget_HoverMoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsProxyWidget_QBaseHoverMoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneHoverEvent* event);
+    friend void QGraphicsProxyWidget_GrabMouseEvent(QGraphicsProxyWidget* self, QEvent* event);
+    friend void QGraphicsProxyWidget_QBaseGrabMouseEvent(QGraphicsProxyWidget* self, QEvent* event);
+    friend void QGraphicsProxyWidget_UngrabMouseEvent(QGraphicsProxyWidget* self, QEvent* event);
+    friend void QGraphicsProxyWidget_QBaseUngrabMouseEvent(QGraphicsProxyWidget* self, QEvent* event);
+    friend void QGraphicsProxyWidget_MouseMoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsProxyWidget_QBaseMouseMoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsProxyWidget_MousePressEvent(QGraphicsProxyWidget* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsProxyWidget_QBaseMousePressEvent(QGraphicsProxyWidget* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsProxyWidget_MouseReleaseEvent(QGraphicsProxyWidget* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsProxyWidget_QBaseMouseReleaseEvent(QGraphicsProxyWidget* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsProxyWidget_MouseDoubleClickEvent(QGraphicsProxyWidget* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsProxyWidget_QBaseMouseDoubleClickEvent(QGraphicsProxyWidget* self, QGraphicsSceneMouseEvent* event);
+    friend void QGraphicsProxyWidget_WheelEvent(QGraphicsProxyWidget* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsProxyWidget_QBaseWheelEvent(QGraphicsProxyWidget* self, QGraphicsSceneWheelEvent* event);
+    friend void QGraphicsProxyWidget_KeyPressEvent(QGraphicsProxyWidget* self, QKeyEvent* event);
+    friend void QGraphicsProxyWidget_QBaseKeyPressEvent(QGraphicsProxyWidget* self, QKeyEvent* event);
+    friend void QGraphicsProxyWidget_KeyReleaseEvent(QGraphicsProxyWidget* self, QKeyEvent* event);
+    friend void QGraphicsProxyWidget_QBaseKeyReleaseEvent(QGraphicsProxyWidget* self, QKeyEvent* event);
+    friend void QGraphicsProxyWidget_FocusInEvent(QGraphicsProxyWidget* self, QFocusEvent* event);
+    friend void QGraphicsProxyWidget_QBaseFocusInEvent(QGraphicsProxyWidget* self, QFocusEvent* event);
+    friend void QGraphicsProxyWidget_FocusOutEvent(QGraphicsProxyWidget* self, QFocusEvent* event);
+    friend void QGraphicsProxyWidget_QBaseFocusOutEvent(QGraphicsProxyWidget* self, QFocusEvent* event);
+    friend bool QGraphicsProxyWidget_FocusNextPrevChild(QGraphicsProxyWidget* self, bool next);
+    friend bool QGraphicsProxyWidget_QBaseFocusNextPrevChild(QGraphicsProxyWidget* self, bool next);
+    friend QVariant* QGraphicsProxyWidget_InputMethodQuery(const QGraphicsProxyWidget* self, int query);
+    friend QVariant* QGraphicsProxyWidget_QBaseInputMethodQuery(const QGraphicsProxyWidget* self, int query);
+    friend void QGraphicsProxyWidget_InputMethodEvent(QGraphicsProxyWidget* self, QInputMethodEvent* event);
+    friend void QGraphicsProxyWidget_QBaseInputMethodEvent(QGraphicsProxyWidget* self, QInputMethodEvent* event);
+    friend QSizeF* QGraphicsProxyWidget_SizeHint(const QGraphicsProxyWidget* self, int which, const QSizeF* constraint);
+    friend QSizeF* QGraphicsProxyWidget_QBaseSizeHint(const QGraphicsProxyWidget* self, int which, const QSizeF* constraint);
+    friend void QGraphicsProxyWidget_ResizeEvent(QGraphicsProxyWidget* self, QGraphicsSceneResizeEvent* event);
+    friend void QGraphicsProxyWidget_QBaseResizeEvent(QGraphicsProxyWidget* self, QGraphicsSceneResizeEvent* event);
+    friend void QGraphicsProxyWidget_InitStyleOption(const QGraphicsProxyWidget* self, QStyleOption* option);
+    friend void QGraphicsProxyWidget_QBaseInitStyleOption(const QGraphicsProxyWidget* self, QStyleOption* option);
+    friend void QGraphicsProxyWidget_UpdateGeometry(QGraphicsProxyWidget* self);
+    friend void QGraphicsProxyWidget_QBaseUpdateGeometry(QGraphicsProxyWidget* self);
+    friend QVariant* QGraphicsProxyWidget_PropertyChange(QGraphicsProxyWidget* self, const libqt_string propertyName, const QVariant* value);
+    friend QVariant* QGraphicsProxyWidget_QBasePropertyChange(QGraphicsProxyWidget* self, const libqt_string propertyName, const QVariant* value);
+    friend bool QGraphicsProxyWidget_SceneEvent(QGraphicsProxyWidget* self, QEvent* event);
+    friend bool QGraphicsProxyWidget_QBaseSceneEvent(QGraphicsProxyWidget* self, QEvent* event);
+    friend bool QGraphicsProxyWidget_WindowFrameEvent(QGraphicsProxyWidget* self, QEvent* e);
+    friend bool QGraphicsProxyWidget_QBaseWindowFrameEvent(QGraphicsProxyWidget* self, QEvent* e);
+    friend int QGraphicsProxyWidget_WindowFrameSectionAt(const QGraphicsProxyWidget* self, const QPointF* pos);
+    friend int QGraphicsProxyWidget_QBaseWindowFrameSectionAt(const QGraphicsProxyWidget* self, const QPointF* pos);
+    friend void QGraphicsProxyWidget_ChangeEvent(QGraphicsProxyWidget* self, QEvent* event);
+    friend void QGraphicsProxyWidget_QBaseChangeEvent(QGraphicsProxyWidget* self, QEvent* event);
+    friend void QGraphicsProxyWidget_CloseEvent(QGraphicsProxyWidget* self, QCloseEvent* event);
+    friend void QGraphicsProxyWidget_QBaseCloseEvent(QGraphicsProxyWidget* self, QCloseEvent* event);
+    friend void QGraphicsProxyWidget_MoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneMoveEvent* event);
+    friend void QGraphicsProxyWidget_QBaseMoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneMoveEvent* event);
+    friend void QGraphicsProxyWidget_PolishEvent(QGraphicsProxyWidget* self);
+    friend void QGraphicsProxyWidget_QBasePolishEvent(QGraphicsProxyWidget* self);
+    friend void QGraphicsProxyWidget_GrabKeyboardEvent(QGraphicsProxyWidget* self, QEvent* event);
+    friend void QGraphicsProxyWidget_QBaseGrabKeyboardEvent(QGraphicsProxyWidget* self, QEvent* event);
+    friend void QGraphicsProxyWidget_UngrabKeyboardEvent(QGraphicsProxyWidget* self, QEvent* event);
+    friend void QGraphicsProxyWidget_QBaseUngrabKeyboardEvent(QGraphicsProxyWidget* self, QEvent* event);
+    friend void QGraphicsProxyWidget_TimerEvent(QGraphicsProxyWidget* self, QTimerEvent* event);
+    friend void QGraphicsProxyWidget_QBaseTimerEvent(QGraphicsProxyWidget* self, QTimerEvent* event);
+    friend void QGraphicsProxyWidget_ChildEvent(QGraphicsProxyWidget* self, QChildEvent* event);
+    friend void QGraphicsProxyWidget_QBaseChildEvent(QGraphicsProxyWidget* self, QChildEvent* event);
+    friend void QGraphicsProxyWidget_CustomEvent(QGraphicsProxyWidget* self, QEvent* event);
+    friend void QGraphicsProxyWidget_QBaseCustomEvent(QGraphicsProxyWidget* self, QEvent* event);
+    friend void QGraphicsProxyWidget_ConnectNotify(QGraphicsProxyWidget* self, const QMetaMethod* signal);
+    friend void QGraphicsProxyWidget_QBaseConnectNotify(QGraphicsProxyWidget* self, const QMetaMethod* signal);
+    friend void QGraphicsProxyWidget_DisconnectNotify(QGraphicsProxyWidget* self, const QMetaMethod* signal);
+    friend void QGraphicsProxyWidget_QBaseDisconnectNotify(QGraphicsProxyWidget* self, const QMetaMethod* signal);
+    friend bool QGraphicsProxyWidget_SceneEventFilter(QGraphicsProxyWidget* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsProxyWidget_QBaseSceneEventFilter(QGraphicsProxyWidget* self, QGraphicsItem* watched, QEvent* event);
+    friend bool QGraphicsProxyWidget_SupportsExtension(const QGraphicsProxyWidget* self, int extension);
+    friend bool QGraphicsProxyWidget_QBaseSupportsExtension(const QGraphicsProxyWidget* self, int extension);
+    friend void QGraphicsProxyWidget_SetExtension(QGraphicsProxyWidget* self, int extension, const QVariant* variant);
+    friend void QGraphicsProxyWidget_QBaseSetExtension(QGraphicsProxyWidget* self, int extension, const QVariant* variant);
+    friend QVariant* QGraphicsProxyWidget_Extension(const QGraphicsProxyWidget* self, const QVariant* variant);
+    friend QVariant* QGraphicsProxyWidget_QBaseExtension(const QGraphicsProxyWidget* self, const QVariant* variant);
+    friend QGraphicsProxyWidget* QGraphicsProxyWidget_NewProxyWidget(QGraphicsProxyWidget* self, const QWidget* param1);
+    friend QGraphicsProxyWidget* QGraphicsProxyWidget_QBaseNewProxyWidget(QGraphicsProxyWidget* self, const QWidget* param1);
+    friend void QGraphicsProxyWidget_UpdateMicroFocus(QGraphicsProxyWidget* self);
+    friend void QGraphicsProxyWidget_QBaseUpdateMicroFocus(QGraphicsProxyWidget* self);
+    friend QObject* QGraphicsProxyWidget_Sender(const QGraphicsProxyWidget* self);
+    friend QObject* QGraphicsProxyWidget_QBaseSender(const QGraphicsProxyWidget* self);
+    friend int QGraphicsProxyWidget_SenderSignalIndex(const QGraphicsProxyWidget* self);
+    friend int QGraphicsProxyWidget_QBaseSenderSignalIndex(const QGraphicsProxyWidget* self);
+    friend int QGraphicsProxyWidget_Receivers(const QGraphicsProxyWidget* self, const char* signal);
+    friend int QGraphicsProxyWidget_QBaseReceivers(const QGraphicsProxyWidget* self, const char* signal);
+    friend bool QGraphicsProxyWidget_IsSignalConnected(const QGraphicsProxyWidget* self, const QMetaMethod* signal);
+    friend bool QGraphicsProxyWidget_QBaseIsSignalConnected(const QGraphicsProxyWidget* self, const QMetaMethod* signal);
+    friend void QGraphicsProxyWidget_AddToIndex(QGraphicsProxyWidget* self);
+    friend void QGraphicsProxyWidget_QBaseAddToIndex(QGraphicsProxyWidget* self);
+    friend void QGraphicsProxyWidget_RemoveFromIndex(QGraphicsProxyWidget* self);
+    friend void QGraphicsProxyWidget_QBaseRemoveFromIndex(QGraphicsProxyWidget* self);
+    friend void QGraphicsProxyWidget_PrepareGeometryChange(QGraphicsProxyWidget* self);
+    friend void QGraphicsProxyWidget_QBasePrepareGeometryChange(QGraphicsProxyWidget* self);
+    friend void QGraphicsProxyWidget_SetGraphicsItem(QGraphicsProxyWidget* self, QGraphicsItem* item);
+    friend void QGraphicsProxyWidget_QBaseSetGraphicsItem(QGraphicsProxyWidget* self, QGraphicsItem* item);
+    friend void QGraphicsProxyWidget_SetOwnedByLayout(QGraphicsProxyWidget* self, bool ownedByLayout);
+    friend void QGraphicsProxyWidget_QBaseSetOwnedByLayout(QGraphicsProxyWidget* self, bool ownedByLayout);
 };
 
 #endif

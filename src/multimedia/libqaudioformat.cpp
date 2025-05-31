@@ -3,7 +3,7 @@
 #include "libqaudioformat.h"
 #include "libqaudioformat.hxx"
 
-QAudioFormat* QAudioFormat_new(QAudioFormat* other) {
+QAudioFormat* QAudioFormat_new(const QAudioFormat* other) {
     return new QAudioFormat(*other);
 }
 
@@ -15,7 +15,7 @@ QAudioFormat* QAudioFormat_new3() {
     return new QAudioFormat();
 }
 
-QAudioFormat* QAudioFormat_new4(QAudioFormat* param1) {
+QAudioFormat* QAudioFormat_new4(const QAudioFormat* param1) {
     return new QAudioFormat(*param1);
 }
 

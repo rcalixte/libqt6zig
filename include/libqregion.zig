@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qregion_enums = enums;
 
 /// https://doc.qt.io/qt-6/qregion.html
@@ -6,351 +7,353 @@ pub const qregion = struct {
     /// New constructs a new QRegion object.
     ///
     ///
-    pub fn New() ?*C.QRegion {
-        return C.QRegion_new();
+    pub fn New() QtC.QRegion {
+        return qtc.QRegion_new();
     }
 
     /// New2 constructs a new QRegion object.
     ///
     /// ``` x: i32, y: i32, w: i32, h: i32 ```
-    pub fn New2(x: i32, y: i32, w: i32, h: i32) ?*C.QRegion {
-        return C.QRegion_new2(@intCast(x), @intCast(y), @intCast(w), @intCast(h));
+    pub fn New2(x: i32, y: i32, w: i32, h: i32) QtC.QRegion {
+        return qtc.QRegion_new2(@intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// New3 constructs a new QRegion object.
     ///
-    /// ``` r: ?*C.QRect ```
-    pub fn New3(r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_new3(@ptrCast(r));
+    /// ``` r: QtC.QRect ```
+    pub fn New3(r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_new3(@ptrCast(r));
     }
 
     /// New4 constructs a new QRegion object.
     ///
-    /// ``` region: ?*C.QRegion ```
-    pub fn New4(region: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_new4(@ptrCast(region));
+    /// ``` region: QtC.QRegion ```
+    pub fn New4(region: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_new4(@ptrCast(region));
     }
 
     /// New5 constructs a new QRegion object.
     ///
-    /// ``` bitmap: ?*C.QBitmap ```
-    pub fn New5(bitmap: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_new5(@ptrCast(bitmap));
+    /// ``` bitmap: QtC.QBitmap ```
+    pub fn New5(bitmap: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_new5(@ptrCast(bitmap));
     }
 
     /// New6 constructs a new QRegion object.
     ///
     /// ``` x: i32, y: i32, w: i32, h: i32, t: qregion_enums.RegionType ```
-    pub fn New6(x: i32, y: i32, w: i32, h: i32, t: i64) ?*C.QRegion {
-        return C.QRegion_new6(@intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(t));
+    pub fn New6(x: i32, y: i32, w: i32, h: i32, t: i64) QtC.QRegion {
+        return qtc.QRegion_new6(@intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(t));
     }
 
     /// New7 constructs a new QRegion object.
     ///
-    /// ``` r: ?*C.QRect, t: qregion_enums.RegionType ```
-    pub fn New7(r: ?*anyopaque, t: i64) ?*C.QRegion {
-        return C.QRegion_new7(@ptrCast(r), @intCast(t));
+    /// ``` r: QtC.QRect, t: qregion_enums.RegionType ```
+    pub fn New7(r: ?*anyopaque, t: i64) QtC.QRegion {
+        return qtc.QRegion_new7(@ptrCast(r), @intCast(t));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator=)
     ///
-    /// ``` self: ?*C.QRegion, param1: ?*C.QRegion ```
+    /// ``` self: QtC.QRegion, param1: QtC.QRegion ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QRegion_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+        qtc.QRegion_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#swap)
     ///
-    /// ``` self: ?*C.QRegion, other: ?*C.QRegion ```
+    /// ``` self: QtC.QRegion, other: QtC.QRegion ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QRegion_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QRegion_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#isEmpty)
     ///
-    /// ``` self: ?*C.QRegion ```
+    /// ``` self: QtC.QRegion ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
-        return C.QRegion_IsEmpty(@ptrCast(self));
+        return qtc.QRegion_IsEmpty(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#isNull)
     ///
-    /// ``` self: ?*C.QRegion ```
+    /// ``` self: QtC.QRegion ```
     pub fn IsNull(self: ?*anyopaque) bool {
-        return C.QRegion_IsNull(@ptrCast(self));
+        return qtc.QRegion_IsNull(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#begin)
     ///
-    /// ``` self: ?*C.QRegion ```
-    pub fn Begin(self: ?*anyopaque) ?*C.QRect {
-        return C.QRegion_Begin(@ptrCast(self));
+    /// ``` self: QtC.QRegion ```
+    pub fn Begin(self: ?*anyopaque) QtC.QRect {
+        return qtc.QRegion_Begin(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#cbegin)
     ///
-    /// ``` self: ?*C.QRegion ```
-    pub fn Cbegin(self: ?*anyopaque) ?*C.QRect {
-        return C.QRegion_Cbegin(@ptrCast(self));
+    /// ``` self: QtC.QRegion ```
+    pub fn Cbegin(self: ?*anyopaque) QtC.QRect {
+        return qtc.QRegion_Cbegin(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#end)
     ///
-    /// ``` self: ?*C.QRegion ```
-    pub fn End(self: ?*anyopaque) ?*C.QRect {
-        return C.QRegion_End(@ptrCast(self));
+    /// ``` self: QtC.QRegion ```
+    pub fn End(self: ?*anyopaque) QtC.QRect {
+        return qtc.QRegion_End(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#cend)
     ///
-    /// ``` self: ?*C.QRegion ```
-    pub fn Cend(self: ?*anyopaque) ?*C.QRect {
-        return C.QRegion_Cend(@ptrCast(self));
+    /// ``` self: QtC.QRegion ```
+    pub fn Cend(self: ?*anyopaque) QtC.QRect {
+        return qtc.QRegion_Cend(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#contains)
     ///
-    /// ``` self: ?*C.QRegion, p: ?*C.QPoint ```
+    /// ``` self: QtC.QRegion, p: QtC.QPoint ```
     pub fn Contains(self: ?*anyopaque, p: ?*anyopaque) bool {
-        return C.QRegion_Contains(@ptrCast(self), @ptrCast(p));
+        return qtc.QRegion_Contains(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#contains)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRect ```
+    /// ``` self: QtC.QRegion, r: QtC.QRect ```
     pub fn ContainsWithQRect(self: ?*anyopaque, r: ?*anyopaque) bool {
-        return C.QRegion_ContainsWithQRect(@ptrCast(self), @ptrCast(r));
+        return qtc.QRegion_ContainsWithQRect(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#translate)
     ///
-    /// ``` self: ?*C.QRegion, dx: i32, dy: i32 ```
+    /// ``` self: QtC.QRegion, dx: i32, dy: i32 ```
     pub fn Translate(self: ?*anyopaque, dx: i32, dy: i32) void {
-        C.QRegion_Translate(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QRegion_Translate(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#translate)
     ///
-    /// ``` self: ?*C.QRegion, p: ?*C.QPoint ```
+    /// ``` self: QtC.QRegion, p: QtC.QPoint ```
     pub fn TranslateWithQPoint(self: ?*anyopaque, p: ?*anyopaque) void {
-        C.QRegion_TranslateWithQPoint(@ptrCast(self), @ptrCast(p));
+        qtc.QRegion_TranslateWithQPoint(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#translated)
     ///
-    /// ``` self: ?*C.QRegion, dx: i32, dy: i32 ```
-    pub fn Translated(self: ?*anyopaque, dx: i32, dy: i32) ?*C.QRegion {
-        return C.QRegion_Translated(@ptrCast(self), @intCast(dx), @intCast(dy));
+    /// ``` self: QtC.QRegion, dx: i32, dy: i32 ```
+    pub fn Translated(self: ?*anyopaque, dx: i32, dy: i32) QtC.QRegion {
+        return qtc.QRegion_Translated(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#translated)
     ///
-    /// ``` self: ?*C.QRegion, p: ?*C.QPoint ```
-    pub fn TranslatedWithQPoint(self: ?*anyopaque, p: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_TranslatedWithQPoint(@ptrCast(self), @ptrCast(p));
+    /// ``` self: QtC.QRegion, p: QtC.QPoint ```
+    pub fn TranslatedWithQPoint(self: ?*anyopaque, p: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_TranslatedWithQPoint(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#united)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
-    pub fn United(self: ?*anyopaque, r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_United(@ptrCast(self), @ptrCast(r));
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
+    pub fn United(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_United(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#united)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRect ```
-    pub fn UnitedWithQRect(self: ?*anyopaque, r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_UnitedWithQRect(@ptrCast(self), @ptrCast(r));
+    /// ``` self: QtC.QRegion, r: QtC.QRect ```
+    pub fn UnitedWithQRect(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_UnitedWithQRect(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#intersected)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
-    pub fn Intersected(self: ?*anyopaque, r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_Intersected(@ptrCast(self), @ptrCast(r));
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
+    pub fn Intersected(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_Intersected(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#intersected)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRect ```
-    pub fn IntersectedWithQRect(self: ?*anyopaque, r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_IntersectedWithQRect(@ptrCast(self), @ptrCast(r));
+    /// ``` self: QtC.QRegion, r: QtC.QRect ```
+    pub fn IntersectedWithQRect(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_IntersectedWithQRect(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#subtracted)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
-    pub fn Subtracted(self: ?*anyopaque, r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_Subtracted(@ptrCast(self), @ptrCast(r));
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
+    pub fn Subtracted(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_Subtracted(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#xored)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
-    pub fn Xored(self: ?*anyopaque, r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_Xored(@ptrCast(self), @ptrCast(r));
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
+    pub fn Xored(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_Xored(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#intersects)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn Intersects(self: ?*anyopaque, r: ?*anyopaque) bool {
-        return C.QRegion_Intersects(@ptrCast(self), @ptrCast(r));
+        return qtc.QRegion_Intersects(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#intersects)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRect ```
+    /// ``` self: QtC.QRegion, r: QtC.QRect ```
     pub fn IntersectsWithQRect(self: ?*anyopaque, r: ?*anyopaque) bool {
-        return C.QRegion_IntersectsWithQRect(@ptrCast(self), @ptrCast(r));
+        return qtc.QRegion_IntersectsWithQRect(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#boundingRect)
     ///
-    /// ``` self: ?*C.QRegion ```
-    pub fn BoundingRect(self: ?*anyopaque) ?*C.QRect {
-        return C.QRegion_BoundingRect(@ptrCast(self));
+    /// ``` self: QtC.QRegion ```
+    pub fn BoundingRect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QRegion_BoundingRect(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#setRects)
     ///
-    /// ``` self: ?*C.QRegion, rect: ?*C.QRect, num: i32 ```
+    /// ``` self: QtC.QRegion, rect: QtC.QRect, num: i32 ```
     pub fn SetRects(self: ?*anyopaque, rect: ?*anyopaque, num: i32) void {
-        C.QRegion_SetRects(@ptrCast(self), @ptrCast(rect), @intCast(num));
+        qtc.QRegion_SetRects(@ptrCast(self), @ptrCast(rect), @intCast(num));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#rectCount)
     ///
-    /// ``` self: ?*C.QRegion ```
+    /// ``` self: QtC.QRegion ```
     pub fn RectCount(self: ?*anyopaque) i32 {
-        return C.QRegion_RectCount(@ptrCast(self));
+        return qtc.QRegion_RectCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator|)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
-    pub fn OperatorBitwiseOr(self: ?*anyopaque, r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_OperatorBitwiseOr(@ptrCast(self), @ptrCast(r));
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
+    pub fn OperatorBitwiseOr(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_OperatorBitwiseOr(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator+)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
-    pub fn OperatorPlus(self: ?*anyopaque, r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_OperatorPlus(@ptrCast(self), @ptrCast(r));
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
+    pub fn OperatorPlus(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_OperatorPlus(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator+)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRect ```
-    pub fn OperatorPlusWithQRect(self: ?*anyopaque, r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_OperatorPlusWithQRect(@ptrCast(self), @ptrCast(r));
+    /// ``` self: QtC.QRegion, r: QtC.QRect ```
+    pub fn OperatorPlusWithQRect(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_OperatorPlusWithQRect(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator&)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
-    pub fn OperatorBitwiseAnd(self: ?*anyopaque, r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_OperatorBitwiseAnd(@ptrCast(self), @ptrCast(r));
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
+    pub fn OperatorBitwiseAnd(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_OperatorBitwiseAnd(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator&)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRect ```
-    pub fn OperatorBitwiseAndWithQRect(self: ?*anyopaque, r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_OperatorBitwiseAndWithQRect(@ptrCast(self), @ptrCast(r));
+    /// ``` self: QtC.QRegion, r: QtC.QRect ```
+    pub fn OperatorBitwiseAndWithQRect(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_OperatorBitwiseAndWithQRect(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
-    pub fn OperatorMinus(self: ?*anyopaque, r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_OperatorMinus(@ptrCast(self), @ptrCast(r));
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
+    pub fn OperatorMinus(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_OperatorMinus(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator^)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
-    pub fn OperatorBitwiseNot(self: ?*anyopaque, r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_OperatorBitwiseNot(@ptrCast(self), @ptrCast(r));
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
+    pub fn OperatorBitwiseNot(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_OperatorBitwiseNot(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator|=)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn OperatorBitwiseOrAssign(self: ?*anyopaque, r: ?*anyopaque) void {
-        C.QRegion_OperatorBitwiseOrAssign(@ptrCast(self), @ptrCast(r));
+        qtc.QRegion_OperatorBitwiseOrAssign(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator+=)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
-    pub fn OperatorPlusAssign(self: ?*anyopaque, r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_OperatorPlusAssign(@ptrCast(self), @ptrCast(r));
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
+    pub fn OperatorPlusAssign(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_OperatorPlusAssign(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator+=)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRect ```
-    pub fn OperatorPlusAssignWithQRect(self: ?*anyopaque, r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_OperatorPlusAssignWithQRect(@ptrCast(self), @ptrCast(r));
+    /// ``` self: QtC.QRegion, r: QtC.QRect ```
+    pub fn OperatorPlusAssignWithQRect(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_OperatorPlusAssignWithQRect(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator&=)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn OperatorBitwiseAndAssign(self: ?*anyopaque, r: ?*anyopaque) void {
-        C.QRegion_OperatorBitwiseAndAssign(@ptrCast(self), @ptrCast(r));
+        qtc.QRegion_OperatorBitwiseAndAssign(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator&=)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRect ```
+    /// ``` self: QtC.QRegion, r: QtC.QRect ```
     pub fn OperatorBitwiseAndAssignWithQRect(self: ?*anyopaque, r: ?*anyopaque) void {
-        C.QRegion_OperatorBitwiseAndAssignWithQRect(@ptrCast(self), @ptrCast(r));
+        qtc.QRegion_OperatorBitwiseAndAssignWithQRect(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-=)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
-    pub fn OperatorMinusAssign(self: ?*anyopaque, r: ?*anyopaque) ?*C.QRegion {
-        return C.QRegion_OperatorMinusAssign(@ptrCast(self), @ptrCast(r));
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
+    pub fn OperatorMinusAssign(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QRegion_OperatorMinusAssign(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator^=)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn OperatorBitwiseNotAssign(self: ?*anyopaque, r: ?*anyopaque) void {
-        C.QRegion_OperatorBitwiseNotAssign(@ptrCast(self), @ptrCast(r));
+        qtc.QRegion_OperatorBitwiseNotAssign(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator==)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn OperatorEqual(self: ?*anyopaque, r: ?*anyopaque) bool {
-        return C.QRegion_OperatorEqual(@ptrCast(self), @ptrCast(r));
+        return qtc.QRegion_OperatorEqual(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator!=)
     ///
-    /// ``` self: ?*C.QRegion, r: ?*C.QRegion ```
+    /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn OperatorNotEqual(self: ?*anyopaque, r: ?*anyopaque) bool {
-        return C.QRegion_OperatorNotEqual(@ptrCast(self), @ptrCast(r));
+        return qtc.QRegion_OperatorNotEqual(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator QVariant)
     ///
-    /// ``` self: ?*C.QRegion ```
-    pub fn ToQVariant(self: ?*anyopaque) ?*C.QVariant {
-        return C.QRegion_ToQVariant(@ptrCast(self));
+    /// ``` self: QtC.QRegion ```
+    pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QRegion_ToQVariant(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#dtor.QRegion)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QRegion ```
+    /// ``` self: QtC.QRegion ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QRegion_Delete(@ptrCast(self));
+        qtc.QRegion_Delete(@ptrCast(self));
     }
 };
 

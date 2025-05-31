@@ -1,23 +1,16 @@
 #include <QAbstractEventDispatcher>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QAbstractEventDispatcher__TimerInfo
 #include <QAbstractNativeEventFilter>
-#include <QAnyStringView>
-#include <QBindingStorage>
 #include <QByteArray>
-#include <QChildEvent>
-#include <QEvent>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QSocketNotifier>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
 #include <QThread>
-#include <QTimerEvent>
-#include <QVariant>
 #include <qabstracteventdispatcher.h>
 #include "libqabstracteventdispatcher.h"
 #include "libqabstracteventdispatcher.hxx"
@@ -119,7 +112,7 @@ void QAbstractEventDispatcher_RemoveNativeEventFilter(QAbstractEventDispatcher* 
     self->removeNativeEventFilter(filterObj);
 }
 
-bool QAbstractEventDispatcher_FilterNativeEvent(QAbstractEventDispatcher* self, libqt_string eventType, void* message, intptr_t* result) {
+bool QAbstractEventDispatcher_FilterNativeEvent(QAbstractEventDispatcher* self, const libqt_string eventType, void* message, intptr_t* result) {
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     return self->filterNativeEvent(eventType_QByteArray, message, (qintptr*)(result));
 }
@@ -174,19 +167,11 @@ QAbstractEventDispatcher* QAbstractEventDispatcher_Instance1(QThread* thread) {
     return QAbstractEventDispatcher::instance(thread);
 }
 
-bool QAbstractEventDispatcher_Event(QAbstractEventDispatcher* self, QEvent* event) {
-    return self->event(event);
-}
-
-bool QAbstractEventDispatcher_EventFilter(QAbstractEventDispatcher* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
-}
-
 void QAbstractEventDispatcher_Delete(QAbstractEventDispatcher* self) {
     delete self;
 }
 
-QAbstractEventDispatcher__TimerInfo* QAbstractEventDispatcher__TimerInfo_new(QAbstractEventDispatcher__TimerInfo* other) {
+QAbstractEventDispatcher__TimerInfo* QAbstractEventDispatcher__TimerInfo_new(const QAbstractEventDispatcher__TimerInfo* other) {
     return new QAbstractEventDispatcher::TimerInfo(*other);
 }
 

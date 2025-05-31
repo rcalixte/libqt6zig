@@ -15,24 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QPdfLink QPdfLink;
 typedef struct QPdfPageNavigator QPdfPageNavigator;
 typedef struct QPointF QPointF;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QPdfPageNavigator* QPdfPageNavigator_new();
@@ -50,8 +42,8 @@ bool QPdfPageNavigator_BackAvailable(const QPdfPageNavigator* self);
 bool QPdfPageNavigator_ForwardAvailable(const QPdfPageNavigator* self);
 void QPdfPageNavigator_Clear(QPdfPageNavigator* self);
 void QPdfPageNavigator_Jump(QPdfPageNavigator* self, QPdfLink* destination);
-void QPdfPageNavigator_Jump2(QPdfPageNavigator* self, int page, QPointF* location);
-void QPdfPageNavigator_Update(QPdfPageNavigator* self, int page, QPointF* location, double zoom);
+void QPdfPageNavigator_Jump2(QPdfPageNavigator* self, int page, const QPointF* location);
+void QPdfPageNavigator_Update(QPdfPageNavigator* self, int page, const QPointF* location, double zoom);
 void QPdfPageNavigator_Forward(QPdfPageNavigator* self);
 void QPdfPageNavigator_Back(QPdfPageNavigator* self);
 void QPdfPageNavigator_CurrentPageChanged(QPdfPageNavigator* self, int page);
@@ -68,7 +60,7 @@ void QPdfPageNavigator_Jumped(QPdfPageNavigator* self, QPdfLink* current);
 void QPdfPageNavigator_Connect_Jumped(QPdfPageNavigator* self, intptr_t slot);
 libqt_string QPdfPageNavigator_Tr2(const char* s, const char* c);
 libqt_string QPdfPageNavigator_Tr3(const char* s, const char* c, int n);
-void QPdfPageNavigator_Jump3(QPdfPageNavigator* self, int page, QPointF* location, double zoom);
+void QPdfPageNavigator_Jump3(QPdfPageNavigator* self, int page, const QPointF* location, double zoom);
 bool QPdfPageNavigator_Event(QPdfPageNavigator* self, QEvent* event);
 void QPdfPageNavigator_OnEvent(QPdfPageNavigator* self, intptr_t slot);
 bool QPdfPageNavigator_QBaseEvent(QPdfPageNavigator* self, QEvent* event);
@@ -84,12 +76,12 @@ void QPdfPageNavigator_QBaseChildEvent(QPdfPageNavigator* self, QChildEvent* eve
 void QPdfPageNavigator_CustomEvent(QPdfPageNavigator* self, QEvent* event);
 void QPdfPageNavigator_OnCustomEvent(QPdfPageNavigator* self, intptr_t slot);
 void QPdfPageNavigator_QBaseCustomEvent(QPdfPageNavigator* self, QEvent* event);
-void QPdfPageNavigator_ConnectNotify(QPdfPageNavigator* self, QMetaMethod* signal);
+void QPdfPageNavigator_ConnectNotify(QPdfPageNavigator* self, const QMetaMethod* signal);
 void QPdfPageNavigator_OnConnectNotify(QPdfPageNavigator* self, intptr_t slot);
-void QPdfPageNavigator_QBaseConnectNotify(QPdfPageNavigator* self, QMetaMethod* signal);
-void QPdfPageNavigator_DisconnectNotify(QPdfPageNavigator* self, QMetaMethod* signal);
+void QPdfPageNavigator_QBaseConnectNotify(QPdfPageNavigator* self, const QMetaMethod* signal);
+void QPdfPageNavigator_DisconnectNotify(QPdfPageNavigator* self, const QMetaMethod* signal);
 void QPdfPageNavigator_OnDisconnectNotify(QPdfPageNavigator* self, intptr_t slot);
-void QPdfPageNavigator_QBaseDisconnectNotify(QPdfPageNavigator* self, QMetaMethod* signal);
+void QPdfPageNavigator_QBaseDisconnectNotify(QPdfPageNavigator* self, const QMetaMethod* signal);
 QPdfLink* QPdfPageNavigator_CurrentLink(const QPdfPageNavigator* self);
 void QPdfPageNavigator_OnCurrentLink(const QPdfPageNavigator* self, intptr_t slot);
 QPdfLink* QPdfPageNavigator_QBaseCurrentLink(const QPdfPageNavigator* self);
@@ -102,9 +94,9 @@ int QPdfPageNavigator_QBaseSenderSignalIndex(const QPdfPageNavigator* self);
 int QPdfPageNavigator_Receivers(const QPdfPageNavigator* self, const char* signal);
 void QPdfPageNavigator_OnReceivers(const QPdfPageNavigator* self, intptr_t slot);
 int QPdfPageNavigator_QBaseReceivers(const QPdfPageNavigator* self, const char* signal);
-bool QPdfPageNavigator_IsSignalConnected(const QPdfPageNavigator* self, QMetaMethod* signal);
+bool QPdfPageNavigator_IsSignalConnected(const QPdfPageNavigator* self, const QMetaMethod* signal);
 void QPdfPageNavigator_OnIsSignalConnected(const QPdfPageNavigator* self, intptr_t slot);
-bool QPdfPageNavigator_QBaseIsSignalConnected(const QPdfPageNavigator* self, QMetaMethod* signal);
+bool QPdfPageNavigator_QBaseIsSignalConnected(const QPdfPageNavigator* self, const QMetaMethod* signal);
 void QPdfPageNavigator_Delete(QPdfPageNavigator* self);
 
 #ifdef __cplusplus

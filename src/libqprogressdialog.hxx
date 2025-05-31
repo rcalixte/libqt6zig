@@ -11,18 +11,21 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QProgressDialog so that we can call protected methods
-class VirtualQProgressDialog : public QProgressDialog {
+class VirtualQProgressDialog final : public QProgressDialog {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQProgressDialog = true;
+
     // Virtual class public types (including callbacks)
-    using QProgressDialog_Metacall_Callback = int (*)(QProgressDialog*, QMetaObject::Call, int, void**);
-    using QProgressDialog_SizeHint_Callback = QSize (*)();
+    using QProgressDialog_Metacall_Callback = int (*)(QProgressDialog*, int, int, void**);
+    using QProgressDialog_SizeHint_Callback = QSize* (*)();
     using QProgressDialog_ResizeEvent_Callback = void (*)(QProgressDialog*, QResizeEvent*);
     using QProgressDialog_CloseEvent_Callback = void (*)(QProgressDialog*, QCloseEvent*);
     using QProgressDialog_ChangeEvent_Callback = void (*)(QProgressDialog*, QEvent*);
     using QProgressDialog_ShowEvent_Callback = void (*)(QProgressDialog*, QShowEvent*);
     using QProgressDialog_SetVisible_Callback = void (*)(QProgressDialog*, bool);
-    using QProgressDialog_MinimumSizeHint_Callback = QSize (*)();
+    using QProgressDialog_MinimumSizeHint_Callback = QSize* (*)();
     using QProgressDialog_Open_Callback = void (*)();
     using QProgressDialog_Exec_Callback = int (*)();
     using QProgressDialog_Done_Callback = void (*)(QProgressDialog*, int);
@@ -55,19 +58,19 @@ class VirtualQProgressDialog : public QProgressDialog {
     using QProgressDialog_DragLeaveEvent_Callback = void (*)(QProgressDialog*, QDragLeaveEvent*);
     using QProgressDialog_DropEvent_Callback = void (*)(QProgressDialog*, QDropEvent*);
     using QProgressDialog_HideEvent_Callback = void (*)(QProgressDialog*, QHideEvent*);
-    using QProgressDialog_NativeEvent_Callback = bool (*)(QProgressDialog*, const QByteArray&, void*, qintptr*);
-    using QProgressDialog_Metric_Callback = int (*)(const QProgressDialog*, QPaintDevice::PaintDeviceMetric);
+    using QProgressDialog_NativeEvent_Callback = bool (*)(QProgressDialog*, libqt_string, void*, intptr_t*);
+    using QProgressDialog_Metric_Callback = int (*)(const QProgressDialog*, int);
     using QProgressDialog_InitPainter_Callback = void (*)(const QProgressDialog*, QPainter*);
     using QProgressDialog_Redirected_Callback = QPaintDevice* (*)(const QProgressDialog*, QPoint*);
     using QProgressDialog_SharedPainter_Callback = QPainter* (*)();
     using QProgressDialog_InputMethodEvent_Callback = void (*)(QProgressDialog*, QInputMethodEvent*);
-    using QProgressDialog_InputMethodQuery_Callback = QVariant (*)(const QProgressDialog*, Qt::InputMethodQuery);
+    using QProgressDialog_InputMethodQuery_Callback = QVariant* (*)(const QProgressDialog*, int);
     using QProgressDialog_FocusNextPrevChild_Callback = bool (*)(QProgressDialog*, bool);
     using QProgressDialog_TimerEvent_Callback = void (*)(QProgressDialog*, QTimerEvent*);
     using QProgressDialog_ChildEvent_Callback = void (*)(QProgressDialog*, QChildEvent*);
     using QProgressDialog_CustomEvent_Callback = void (*)(QProgressDialog*, QEvent*);
-    using QProgressDialog_ConnectNotify_Callback = void (*)(QProgressDialog*, const QMetaMethod&);
-    using QProgressDialog_DisconnectNotify_Callback = void (*)(QProgressDialog*, const QMetaMethod&);
+    using QProgressDialog_ConnectNotify_Callback = void (*)(QProgressDialog*, QMetaMethod*);
+    using QProgressDialog_DisconnectNotify_Callback = void (*)(QProgressDialog*, QMetaMethod*);
     using QProgressDialog_ForceShow_Callback = void (*)();
     using QProgressDialog_AdjustPosition_Callback = void (*)(QProgressDialog*, QWidget*);
     using QProgressDialog_UpdateMicroFocus_Callback = void (*)();
@@ -78,7 +81,7 @@ class VirtualQProgressDialog : public QProgressDialog {
     using QProgressDialog_Sender_Callback = QObject* (*)();
     using QProgressDialog_SenderSignalIndex_Callback = int (*)();
     using QProgressDialog_Receivers_Callback = int (*)(const QProgressDialog*, const char*);
-    using QProgressDialog_IsSignalConnected_Callback = bool (*)(const QProgressDialog*, const QMetaMethod&);
+    using QProgressDialog_IsSignalConnected_Callback = bool (*)(const QProgressDialog*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -289,136 +292,136 @@ class VirtualQProgressDialog : public QProgressDialog {
     }
 
     // Callback setters
-    void setQProgressDialog_Metacall_Callback(QProgressDialog_Metacall_Callback cb) { qprogressdialog_metacall_callback = cb; }
-    void setQProgressDialog_SizeHint_Callback(QProgressDialog_SizeHint_Callback cb) { qprogressdialog_sizehint_callback = cb; }
-    void setQProgressDialog_ResizeEvent_Callback(QProgressDialog_ResizeEvent_Callback cb) { qprogressdialog_resizeevent_callback = cb; }
-    void setQProgressDialog_CloseEvent_Callback(QProgressDialog_CloseEvent_Callback cb) { qprogressdialog_closeevent_callback = cb; }
-    void setQProgressDialog_ChangeEvent_Callback(QProgressDialog_ChangeEvent_Callback cb) { qprogressdialog_changeevent_callback = cb; }
-    void setQProgressDialog_ShowEvent_Callback(QProgressDialog_ShowEvent_Callback cb) { qprogressdialog_showevent_callback = cb; }
-    void setQProgressDialog_SetVisible_Callback(QProgressDialog_SetVisible_Callback cb) { qprogressdialog_setvisible_callback = cb; }
-    void setQProgressDialog_MinimumSizeHint_Callback(QProgressDialog_MinimumSizeHint_Callback cb) { qprogressdialog_minimumsizehint_callback = cb; }
-    void setQProgressDialog_Open_Callback(QProgressDialog_Open_Callback cb) { qprogressdialog_open_callback = cb; }
-    void setQProgressDialog_Exec_Callback(QProgressDialog_Exec_Callback cb) { qprogressdialog_exec_callback = cb; }
-    void setQProgressDialog_Done_Callback(QProgressDialog_Done_Callback cb) { qprogressdialog_done_callback = cb; }
-    void setQProgressDialog_Accept_Callback(QProgressDialog_Accept_Callback cb) { qprogressdialog_accept_callback = cb; }
-    void setQProgressDialog_Reject_Callback(QProgressDialog_Reject_Callback cb) { qprogressdialog_reject_callback = cb; }
-    void setQProgressDialog_KeyPressEvent_Callback(QProgressDialog_KeyPressEvent_Callback cb) { qprogressdialog_keypressevent_callback = cb; }
-    void setQProgressDialog_ContextMenuEvent_Callback(QProgressDialog_ContextMenuEvent_Callback cb) { qprogressdialog_contextmenuevent_callback = cb; }
-    void setQProgressDialog_EventFilter_Callback(QProgressDialog_EventFilter_Callback cb) { qprogressdialog_eventfilter_callback = cb; }
-    void setQProgressDialog_DevType_Callback(QProgressDialog_DevType_Callback cb) { qprogressdialog_devtype_callback = cb; }
-    void setQProgressDialog_HeightForWidth_Callback(QProgressDialog_HeightForWidth_Callback cb) { qprogressdialog_heightforwidth_callback = cb; }
-    void setQProgressDialog_HasHeightForWidth_Callback(QProgressDialog_HasHeightForWidth_Callback cb) { qprogressdialog_hasheightforwidth_callback = cb; }
-    void setQProgressDialog_PaintEngine_Callback(QProgressDialog_PaintEngine_Callback cb) { qprogressdialog_paintengine_callback = cb; }
-    void setQProgressDialog_Event_Callback(QProgressDialog_Event_Callback cb) { qprogressdialog_event_callback = cb; }
-    void setQProgressDialog_MousePressEvent_Callback(QProgressDialog_MousePressEvent_Callback cb) { qprogressdialog_mousepressevent_callback = cb; }
-    void setQProgressDialog_MouseReleaseEvent_Callback(QProgressDialog_MouseReleaseEvent_Callback cb) { qprogressdialog_mousereleaseevent_callback = cb; }
-    void setQProgressDialog_MouseDoubleClickEvent_Callback(QProgressDialog_MouseDoubleClickEvent_Callback cb) { qprogressdialog_mousedoubleclickevent_callback = cb; }
-    void setQProgressDialog_MouseMoveEvent_Callback(QProgressDialog_MouseMoveEvent_Callback cb) { qprogressdialog_mousemoveevent_callback = cb; }
-    void setQProgressDialog_WheelEvent_Callback(QProgressDialog_WheelEvent_Callback cb) { qprogressdialog_wheelevent_callback = cb; }
-    void setQProgressDialog_KeyReleaseEvent_Callback(QProgressDialog_KeyReleaseEvent_Callback cb) { qprogressdialog_keyreleaseevent_callback = cb; }
-    void setQProgressDialog_FocusInEvent_Callback(QProgressDialog_FocusInEvent_Callback cb) { qprogressdialog_focusinevent_callback = cb; }
-    void setQProgressDialog_FocusOutEvent_Callback(QProgressDialog_FocusOutEvent_Callback cb) { qprogressdialog_focusoutevent_callback = cb; }
-    void setQProgressDialog_EnterEvent_Callback(QProgressDialog_EnterEvent_Callback cb) { qprogressdialog_enterevent_callback = cb; }
-    void setQProgressDialog_LeaveEvent_Callback(QProgressDialog_LeaveEvent_Callback cb) { qprogressdialog_leaveevent_callback = cb; }
-    void setQProgressDialog_PaintEvent_Callback(QProgressDialog_PaintEvent_Callback cb) { qprogressdialog_paintevent_callback = cb; }
-    void setQProgressDialog_MoveEvent_Callback(QProgressDialog_MoveEvent_Callback cb) { qprogressdialog_moveevent_callback = cb; }
-    void setQProgressDialog_TabletEvent_Callback(QProgressDialog_TabletEvent_Callback cb) { qprogressdialog_tabletevent_callback = cb; }
-    void setQProgressDialog_ActionEvent_Callback(QProgressDialog_ActionEvent_Callback cb) { qprogressdialog_actionevent_callback = cb; }
-    void setQProgressDialog_DragEnterEvent_Callback(QProgressDialog_DragEnterEvent_Callback cb) { qprogressdialog_dragenterevent_callback = cb; }
-    void setQProgressDialog_DragMoveEvent_Callback(QProgressDialog_DragMoveEvent_Callback cb) { qprogressdialog_dragmoveevent_callback = cb; }
-    void setQProgressDialog_DragLeaveEvent_Callback(QProgressDialog_DragLeaveEvent_Callback cb) { qprogressdialog_dragleaveevent_callback = cb; }
-    void setQProgressDialog_DropEvent_Callback(QProgressDialog_DropEvent_Callback cb) { qprogressdialog_dropevent_callback = cb; }
-    void setQProgressDialog_HideEvent_Callback(QProgressDialog_HideEvent_Callback cb) { qprogressdialog_hideevent_callback = cb; }
-    void setQProgressDialog_NativeEvent_Callback(QProgressDialog_NativeEvent_Callback cb) { qprogressdialog_nativeevent_callback = cb; }
-    void setQProgressDialog_Metric_Callback(QProgressDialog_Metric_Callback cb) { qprogressdialog_metric_callback = cb; }
-    void setQProgressDialog_InitPainter_Callback(QProgressDialog_InitPainter_Callback cb) { qprogressdialog_initpainter_callback = cb; }
-    void setQProgressDialog_Redirected_Callback(QProgressDialog_Redirected_Callback cb) { qprogressdialog_redirected_callback = cb; }
-    void setQProgressDialog_SharedPainter_Callback(QProgressDialog_SharedPainter_Callback cb) { qprogressdialog_sharedpainter_callback = cb; }
-    void setQProgressDialog_InputMethodEvent_Callback(QProgressDialog_InputMethodEvent_Callback cb) { qprogressdialog_inputmethodevent_callback = cb; }
-    void setQProgressDialog_InputMethodQuery_Callback(QProgressDialog_InputMethodQuery_Callback cb) { qprogressdialog_inputmethodquery_callback = cb; }
-    void setQProgressDialog_FocusNextPrevChild_Callback(QProgressDialog_FocusNextPrevChild_Callback cb) { qprogressdialog_focusnextprevchild_callback = cb; }
-    void setQProgressDialog_TimerEvent_Callback(QProgressDialog_TimerEvent_Callback cb) { qprogressdialog_timerevent_callback = cb; }
-    void setQProgressDialog_ChildEvent_Callback(QProgressDialog_ChildEvent_Callback cb) { qprogressdialog_childevent_callback = cb; }
-    void setQProgressDialog_CustomEvent_Callback(QProgressDialog_CustomEvent_Callback cb) { qprogressdialog_customevent_callback = cb; }
-    void setQProgressDialog_ConnectNotify_Callback(QProgressDialog_ConnectNotify_Callback cb) { qprogressdialog_connectnotify_callback = cb; }
-    void setQProgressDialog_DisconnectNotify_Callback(QProgressDialog_DisconnectNotify_Callback cb) { qprogressdialog_disconnectnotify_callback = cb; }
-    void setQProgressDialog_ForceShow_Callback(QProgressDialog_ForceShow_Callback cb) { qprogressdialog_forceshow_callback = cb; }
-    void setQProgressDialog_AdjustPosition_Callback(QProgressDialog_AdjustPosition_Callback cb) { qprogressdialog_adjustposition_callback = cb; }
-    void setQProgressDialog_UpdateMicroFocus_Callback(QProgressDialog_UpdateMicroFocus_Callback cb) { qprogressdialog_updatemicrofocus_callback = cb; }
-    void setQProgressDialog_Create_Callback(QProgressDialog_Create_Callback cb) { qprogressdialog_create_callback = cb; }
-    void setQProgressDialog_Destroy_Callback(QProgressDialog_Destroy_Callback cb) { qprogressdialog_destroy_callback = cb; }
-    void setQProgressDialog_FocusNextChild_Callback(QProgressDialog_FocusNextChild_Callback cb) { qprogressdialog_focusnextchild_callback = cb; }
-    void setQProgressDialog_FocusPreviousChild_Callback(QProgressDialog_FocusPreviousChild_Callback cb) { qprogressdialog_focuspreviouschild_callback = cb; }
-    void setQProgressDialog_Sender_Callback(QProgressDialog_Sender_Callback cb) { qprogressdialog_sender_callback = cb; }
-    void setQProgressDialog_SenderSignalIndex_Callback(QProgressDialog_SenderSignalIndex_Callback cb) { qprogressdialog_sendersignalindex_callback = cb; }
-    void setQProgressDialog_Receivers_Callback(QProgressDialog_Receivers_Callback cb) { qprogressdialog_receivers_callback = cb; }
-    void setQProgressDialog_IsSignalConnected_Callback(QProgressDialog_IsSignalConnected_Callback cb) { qprogressdialog_issignalconnected_callback = cb; }
+    inline void setQProgressDialog_Metacall_Callback(QProgressDialog_Metacall_Callback cb) { qprogressdialog_metacall_callback = cb; }
+    inline void setQProgressDialog_SizeHint_Callback(QProgressDialog_SizeHint_Callback cb) { qprogressdialog_sizehint_callback = cb; }
+    inline void setQProgressDialog_ResizeEvent_Callback(QProgressDialog_ResizeEvent_Callback cb) { qprogressdialog_resizeevent_callback = cb; }
+    inline void setQProgressDialog_CloseEvent_Callback(QProgressDialog_CloseEvent_Callback cb) { qprogressdialog_closeevent_callback = cb; }
+    inline void setQProgressDialog_ChangeEvent_Callback(QProgressDialog_ChangeEvent_Callback cb) { qprogressdialog_changeevent_callback = cb; }
+    inline void setQProgressDialog_ShowEvent_Callback(QProgressDialog_ShowEvent_Callback cb) { qprogressdialog_showevent_callback = cb; }
+    inline void setQProgressDialog_SetVisible_Callback(QProgressDialog_SetVisible_Callback cb) { qprogressdialog_setvisible_callback = cb; }
+    inline void setQProgressDialog_MinimumSizeHint_Callback(QProgressDialog_MinimumSizeHint_Callback cb) { qprogressdialog_minimumsizehint_callback = cb; }
+    inline void setQProgressDialog_Open_Callback(QProgressDialog_Open_Callback cb) { qprogressdialog_open_callback = cb; }
+    inline void setQProgressDialog_Exec_Callback(QProgressDialog_Exec_Callback cb) { qprogressdialog_exec_callback = cb; }
+    inline void setQProgressDialog_Done_Callback(QProgressDialog_Done_Callback cb) { qprogressdialog_done_callback = cb; }
+    inline void setQProgressDialog_Accept_Callback(QProgressDialog_Accept_Callback cb) { qprogressdialog_accept_callback = cb; }
+    inline void setQProgressDialog_Reject_Callback(QProgressDialog_Reject_Callback cb) { qprogressdialog_reject_callback = cb; }
+    inline void setQProgressDialog_KeyPressEvent_Callback(QProgressDialog_KeyPressEvent_Callback cb) { qprogressdialog_keypressevent_callback = cb; }
+    inline void setQProgressDialog_ContextMenuEvent_Callback(QProgressDialog_ContextMenuEvent_Callback cb) { qprogressdialog_contextmenuevent_callback = cb; }
+    inline void setQProgressDialog_EventFilter_Callback(QProgressDialog_EventFilter_Callback cb) { qprogressdialog_eventfilter_callback = cb; }
+    inline void setQProgressDialog_DevType_Callback(QProgressDialog_DevType_Callback cb) { qprogressdialog_devtype_callback = cb; }
+    inline void setQProgressDialog_HeightForWidth_Callback(QProgressDialog_HeightForWidth_Callback cb) { qprogressdialog_heightforwidth_callback = cb; }
+    inline void setQProgressDialog_HasHeightForWidth_Callback(QProgressDialog_HasHeightForWidth_Callback cb) { qprogressdialog_hasheightforwidth_callback = cb; }
+    inline void setQProgressDialog_PaintEngine_Callback(QProgressDialog_PaintEngine_Callback cb) { qprogressdialog_paintengine_callback = cb; }
+    inline void setQProgressDialog_Event_Callback(QProgressDialog_Event_Callback cb) { qprogressdialog_event_callback = cb; }
+    inline void setQProgressDialog_MousePressEvent_Callback(QProgressDialog_MousePressEvent_Callback cb) { qprogressdialog_mousepressevent_callback = cb; }
+    inline void setQProgressDialog_MouseReleaseEvent_Callback(QProgressDialog_MouseReleaseEvent_Callback cb) { qprogressdialog_mousereleaseevent_callback = cb; }
+    inline void setQProgressDialog_MouseDoubleClickEvent_Callback(QProgressDialog_MouseDoubleClickEvent_Callback cb) { qprogressdialog_mousedoubleclickevent_callback = cb; }
+    inline void setQProgressDialog_MouseMoveEvent_Callback(QProgressDialog_MouseMoveEvent_Callback cb) { qprogressdialog_mousemoveevent_callback = cb; }
+    inline void setQProgressDialog_WheelEvent_Callback(QProgressDialog_WheelEvent_Callback cb) { qprogressdialog_wheelevent_callback = cb; }
+    inline void setQProgressDialog_KeyReleaseEvent_Callback(QProgressDialog_KeyReleaseEvent_Callback cb) { qprogressdialog_keyreleaseevent_callback = cb; }
+    inline void setQProgressDialog_FocusInEvent_Callback(QProgressDialog_FocusInEvent_Callback cb) { qprogressdialog_focusinevent_callback = cb; }
+    inline void setQProgressDialog_FocusOutEvent_Callback(QProgressDialog_FocusOutEvent_Callback cb) { qprogressdialog_focusoutevent_callback = cb; }
+    inline void setQProgressDialog_EnterEvent_Callback(QProgressDialog_EnterEvent_Callback cb) { qprogressdialog_enterevent_callback = cb; }
+    inline void setQProgressDialog_LeaveEvent_Callback(QProgressDialog_LeaveEvent_Callback cb) { qprogressdialog_leaveevent_callback = cb; }
+    inline void setQProgressDialog_PaintEvent_Callback(QProgressDialog_PaintEvent_Callback cb) { qprogressdialog_paintevent_callback = cb; }
+    inline void setQProgressDialog_MoveEvent_Callback(QProgressDialog_MoveEvent_Callback cb) { qprogressdialog_moveevent_callback = cb; }
+    inline void setQProgressDialog_TabletEvent_Callback(QProgressDialog_TabletEvent_Callback cb) { qprogressdialog_tabletevent_callback = cb; }
+    inline void setQProgressDialog_ActionEvent_Callback(QProgressDialog_ActionEvent_Callback cb) { qprogressdialog_actionevent_callback = cb; }
+    inline void setQProgressDialog_DragEnterEvent_Callback(QProgressDialog_DragEnterEvent_Callback cb) { qprogressdialog_dragenterevent_callback = cb; }
+    inline void setQProgressDialog_DragMoveEvent_Callback(QProgressDialog_DragMoveEvent_Callback cb) { qprogressdialog_dragmoveevent_callback = cb; }
+    inline void setQProgressDialog_DragLeaveEvent_Callback(QProgressDialog_DragLeaveEvent_Callback cb) { qprogressdialog_dragleaveevent_callback = cb; }
+    inline void setQProgressDialog_DropEvent_Callback(QProgressDialog_DropEvent_Callback cb) { qprogressdialog_dropevent_callback = cb; }
+    inline void setQProgressDialog_HideEvent_Callback(QProgressDialog_HideEvent_Callback cb) { qprogressdialog_hideevent_callback = cb; }
+    inline void setQProgressDialog_NativeEvent_Callback(QProgressDialog_NativeEvent_Callback cb) { qprogressdialog_nativeevent_callback = cb; }
+    inline void setQProgressDialog_Metric_Callback(QProgressDialog_Metric_Callback cb) { qprogressdialog_metric_callback = cb; }
+    inline void setQProgressDialog_InitPainter_Callback(QProgressDialog_InitPainter_Callback cb) { qprogressdialog_initpainter_callback = cb; }
+    inline void setQProgressDialog_Redirected_Callback(QProgressDialog_Redirected_Callback cb) { qprogressdialog_redirected_callback = cb; }
+    inline void setQProgressDialog_SharedPainter_Callback(QProgressDialog_SharedPainter_Callback cb) { qprogressdialog_sharedpainter_callback = cb; }
+    inline void setQProgressDialog_InputMethodEvent_Callback(QProgressDialog_InputMethodEvent_Callback cb) { qprogressdialog_inputmethodevent_callback = cb; }
+    inline void setQProgressDialog_InputMethodQuery_Callback(QProgressDialog_InputMethodQuery_Callback cb) { qprogressdialog_inputmethodquery_callback = cb; }
+    inline void setQProgressDialog_FocusNextPrevChild_Callback(QProgressDialog_FocusNextPrevChild_Callback cb) { qprogressdialog_focusnextprevchild_callback = cb; }
+    inline void setQProgressDialog_TimerEvent_Callback(QProgressDialog_TimerEvent_Callback cb) { qprogressdialog_timerevent_callback = cb; }
+    inline void setQProgressDialog_ChildEvent_Callback(QProgressDialog_ChildEvent_Callback cb) { qprogressdialog_childevent_callback = cb; }
+    inline void setQProgressDialog_CustomEvent_Callback(QProgressDialog_CustomEvent_Callback cb) { qprogressdialog_customevent_callback = cb; }
+    inline void setQProgressDialog_ConnectNotify_Callback(QProgressDialog_ConnectNotify_Callback cb) { qprogressdialog_connectnotify_callback = cb; }
+    inline void setQProgressDialog_DisconnectNotify_Callback(QProgressDialog_DisconnectNotify_Callback cb) { qprogressdialog_disconnectnotify_callback = cb; }
+    inline void setQProgressDialog_ForceShow_Callback(QProgressDialog_ForceShow_Callback cb) { qprogressdialog_forceshow_callback = cb; }
+    inline void setQProgressDialog_AdjustPosition_Callback(QProgressDialog_AdjustPosition_Callback cb) { qprogressdialog_adjustposition_callback = cb; }
+    inline void setQProgressDialog_UpdateMicroFocus_Callback(QProgressDialog_UpdateMicroFocus_Callback cb) { qprogressdialog_updatemicrofocus_callback = cb; }
+    inline void setQProgressDialog_Create_Callback(QProgressDialog_Create_Callback cb) { qprogressdialog_create_callback = cb; }
+    inline void setQProgressDialog_Destroy_Callback(QProgressDialog_Destroy_Callback cb) { qprogressdialog_destroy_callback = cb; }
+    inline void setQProgressDialog_FocusNextChild_Callback(QProgressDialog_FocusNextChild_Callback cb) { qprogressdialog_focusnextchild_callback = cb; }
+    inline void setQProgressDialog_FocusPreviousChild_Callback(QProgressDialog_FocusPreviousChild_Callback cb) { qprogressdialog_focuspreviouschild_callback = cb; }
+    inline void setQProgressDialog_Sender_Callback(QProgressDialog_Sender_Callback cb) { qprogressdialog_sender_callback = cb; }
+    inline void setQProgressDialog_SenderSignalIndex_Callback(QProgressDialog_SenderSignalIndex_Callback cb) { qprogressdialog_sendersignalindex_callback = cb; }
+    inline void setQProgressDialog_Receivers_Callback(QProgressDialog_Receivers_Callback cb) { qprogressdialog_receivers_callback = cb; }
+    inline void setQProgressDialog_IsSignalConnected_Callback(QProgressDialog_IsSignalConnected_Callback cb) { qprogressdialog_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQProgressDialog_Metacall_IsBase(bool value) const { qprogressdialog_metacall_isbase = value; }
-    void setQProgressDialog_SizeHint_IsBase(bool value) const { qprogressdialog_sizehint_isbase = value; }
-    void setQProgressDialog_ResizeEvent_IsBase(bool value) const { qprogressdialog_resizeevent_isbase = value; }
-    void setQProgressDialog_CloseEvent_IsBase(bool value) const { qprogressdialog_closeevent_isbase = value; }
-    void setQProgressDialog_ChangeEvent_IsBase(bool value) const { qprogressdialog_changeevent_isbase = value; }
-    void setQProgressDialog_ShowEvent_IsBase(bool value) const { qprogressdialog_showevent_isbase = value; }
-    void setQProgressDialog_SetVisible_IsBase(bool value) const { qprogressdialog_setvisible_isbase = value; }
-    void setQProgressDialog_MinimumSizeHint_IsBase(bool value) const { qprogressdialog_minimumsizehint_isbase = value; }
-    void setQProgressDialog_Open_IsBase(bool value) const { qprogressdialog_open_isbase = value; }
-    void setQProgressDialog_Exec_IsBase(bool value) const { qprogressdialog_exec_isbase = value; }
-    void setQProgressDialog_Done_IsBase(bool value) const { qprogressdialog_done_isbase = value; }
-    void setQProgressDialog_Accept_IsBase(bool value) const { qprogressdialog_accept_isbase = value; }
-    void setQProgressDialog_Reject_IsBase(bool value) const { qprogressdialog_reject_isbase = value; }
-    void setQProgressDialog_KeyPressEvent_IsBase(bool value) const { qprogressdialog_keypressevent_isbase = value; }
-    void setQProgressDialog_ContextMenuEvent_IsBase(bool value) const { qprogressdialog_contextmenuevent_isbase = value; }
-    void setQProgressDialog_EventFilter_IsBase(bool value) const { qprogressdialog_eventfilter_isbase = value; }
-    void setQProgressDialog_DevType_IsBase(bool value) const { qprogressdialog_devtype_isbase = value; }
-    void setQProgressDialog_HeightForWidth_IsBase(bool value) const { qprogressdialog_heightforwidth_isbase = value; }
-    void setQProgressDialog_HasHeightForWidth_IsBase(bool value) const { qprogressdialog_hasheightforwidth_isbase = value; }
-    void setQProgressDialog_PaintEngine_IsBase(bool value) const { qprogressdialog_paintengine_isbase = value; }
-    void setQProgressDialog_Event_IsBase(bool value) const { qprogressdialog_event_isbase = value; }
-    void setQProgressDialog_MousePressEvent_IsBase(bool value) const { qprogressdialog_mousepressevent_isbase = value; }
-    void setQProgressDialog_MouseReleaseEvent_IsBase(bool value) const { qprogressdialog_mousereleaseevent_isbase = value; }
-    void setQProgressDialog_MouseDoubleClickEvent_IsBase(bool value) const { qprogressdialog_mousedoubleclickevent_isbase = value; }
-    void setQProgressDialog_MouseMoveEvent_IsBase(bool value) const { qprogressdialog_mousemoveevent_isbase = value; }
-    void setQProgressDialog_WheelEvent_IsBase(bool value) const { qprogressdialog_wheelevent_isbase = value; }
-    void setQProgressDialog_KeyReleaseEvent_IsBase(bool value) const { qprogressdialog_keyreleaseevent_isbase = value; }
-    void setQProgressDialog_FocusInEvent_IsBase(bool value) const { qprogressdialog_focusinevent_isbase = value; }
-    void setQProgressDialog_FocusOutEvent_IsBase(bool value) const { qprogressdialog_focusoutevent_isbase = value; }
-    void setQProgressDialog_EnterEvent_IsBase(bool value) const { qprogressdialog_enterevent_isbase = value; }
-    void setQProgressDialog_LeaveEvent_IsBase(bool value) const { qprogressdialog_leaveevent_isbase = value; }
-    void setQProgressDialog_PaintEvent_IsBase(bool value) const { qprogressdialog_paintevent_isbase = value; }
-    void setQProgressDialog_MoveEvent_IsBase(bool value) const { qprogressdialog_moveevent_isbase = value; }
-    void setQProgressDialog_TabletEvent_IsBase(bool value) const { qprogressdialog_tabletevent_isbase = value; }
-    void setQProgressDialog_ActionEvent_IsBase(bool value) const { qprogressdialog_actionevent_isbase = value; }
-    void setQProgressDialog_DragEnterEvent_IsBase(bool value) const { qprogressdialog_dragenterevent_isbase = value; }
-    void setQProgressDialog_DragMoveEvent_IsBase(bool value) const { qprogressdialog_dragmoveevent_isbase = value; }
-    void setQProgressDialog_DragLeaveEvent_IsBase(bool value) const { qprogressdialog_dragleaveevent_isbase = value; }
-    void setQProgressDialog_DropEvent_IsBase(bool value) const { qprogressdialog_dropevent_isbase = value; }
-    void setQProgressDialog_HideEvent_IsBase(bool value) const { qprogressdialog_hideevent_isbase = value; }
-    void setQProgressDialog_NativeEvent_IsBase(bool value) const { qprogressdialog_nativeevent_isbase = value; }
-    void setQProgressDialog_Metric_IsBase(bool value) const { qprogressdialog_metric_isbase = value; }
-    void setQProgressDialog_InitPainter_IsBase(bool value) const { qprogressdialog_initpainter_isbase = value; }
-    void setQProgressDialog_Redirected_IsBase(bool value) const { qprogressdialog_redirected_isbase = value; }
-    void setQProgressDialog_SharedPainter_IsBase(bool value) const { qprogressdialog_sharedpainter_isbase = value; }
-    void setQProgressDialog_InputMethodEvent_IsBase(bool value) const { qprogressdialog_inputmethodevent_isbase = value; }
-    void setQProgressDialog_InputMethodQuery_IsBase(bool value) const { qprogressdialog_inputmethodquery_isbase = value; }
-    void setQProgressDialog_FocusNextPrevChild_IsBase(bool value) const { qprogressdialog_focusnextprevchild_isbase = value; }
-    void setQProgressDialog_TimerEvent_IsBase(bool value) const { qprogressdialog_timerevent_isbase = value; }
-    void setQProgressDialog_ChildEvent_IsBase(bool value) const { qprogressdialog_childevent_isbase = value; }
-    void setQProgressDialog_CustomEvent_IsBase(bool value) const { qprogressdialog_customevent_isbase = value; }
-    void setQProgressDialog_ConnectNotify_IsBase(bool value) const { qprogressdialog_connectnotify_isbase = value; }
-    void setQProgressDialog_DisconnectNotify_IsBase(bool value) const { qprogressdialog_disconnectnotify_isbase = value; }
-    void setQProgressDialog_ForceShow_IsBase(bool value) const { qprogressdialog_forceshow_isbase = value; }
-    void setQProgressDialog_AdjustPosition_IsBase(bool value) const { qprogressdialog_adjustposition_isbase = value; }
-    void setQProgressDialog_UpdateMicroFocus_IsBase(bool value) const { qprogressdialog_updatemicrofocus_isbase = value; }
-    void setQProgressDialog_Create_IsBase(bool value) const { qprogressdialog_create_isbase = value; }
-    void setQProgressDialog_Destroy_IsBase(bool value) const { qprogressdialog_destroy_isbase = value; }
-    void setQProgressDialog_FocusNextChild_IsBase(bool value) const { qprogressdialog_focusnextchild_isbase = value; }
-    void setQProgressDialog_FocusPreviousChild_IsBase(bool value) const { qprogressdialog_focuspreviouschild_isbase = value; }
-    void setQProgressDialog_Sender_IsBase(bool value) const { qprogressdialog_sender_isbase = value; }
-    void setQProgressDialog_SenderSignalIndex_IsBase(bool value) const { qprogressdialog_sendersignalindex_isbase = value; }
-    void setQProgressDialog_Receivers_IsBase(bool value) const { qprogressdialog_receivers_isbase = value; }
-    void setQProgressDialog_IsSignalConnected_IsBase(bool value) const { qprogressdialog_issignalconnected_isbase = value; }
+    inline void setQProgressDialog_Metacall_IsBase(bool value) const { qprogressdialog_metacall_isbase = value; }
+    inline void setQProgressDialog_SizeHint_IsBase(bool value) const { qprogressdialog_sizehint_isbase = value; }
+    inline void setQProgressDialog_ResizeEvent_IsBase(bool value) const { qprogressdialog_resizeevent_isbase = value; }
+    inline void setQProgressDialog_CloseEvent_IsBase(bool value) const { qprogressdialog_closeevent_isbase = value; }
+    inline void setQProgressDialog_ChangeEvent_IsBase(bool value) const { qprogressdialog_changeevent_isbase = value; }
+    inline void setQProgressDialog_ShowEvent_IsBase(bool value) const { qprogressdialog_showevent_isbase = value; }
+    inline void setQProgressDialog_SetVisible_IsBase(bool value) const { qprogressdialog_setvisible_isbase = value; }
+    inline void setQProgressDialog_MinimumSizeHint_IsBase(bool value) const { qprogressdialog_minimumsizehint_isbase = value; }
+    inline void setQProgressDialog_Open_IsBase(bool value) const { qprogressdialog_open_isbase = value; }
+    inline void setQProgressDialog_Exec_IsBase(bool value) const { qprogressdialog_exec_isbase = value; }
+    inline void setQProgressDialog_Done_IsBase(bool value) const { qprogressdialog_done_isbase = value; }
+    inline void setQProgressDialog_Accept_IsBase(bool value) const { qprogressdialog_accept_isbase = value; }
+    inline void setQProgressDialog_Reject_IsBase(bool value) const { qprogressdialog_reject_isbase = value; }
+    inline void setQProgressDialog_KeyPressEvent_IsBase(bool value) const { qprogressdialog_keypressevent_isbase = value; }
+    inline void setQProgressDialog_ContextMenuEvent_IsBase(bool value) const { qprogressdialog_contextmenuevent_isbase = value; }
+    inline void setQProgressDialog_EventFilter_IsBase(bool value) const { qprogressdialog_eventfilter_isbase = value; }
+    inline void setQProgressDialog_DevType_IsBase(bool value) const { qprogressdialog_devtype_isbase = value; }
+    inline void setQProgressDialog_HeightForWidth_IsBase(bool value) const { qprogressdialog_heightforwidth_isbase = value; }
+    inline void setQProgressDialog_HasHeightForWidth_IsBase(bool value) const { qprogressdialog_hasheightforwidth_isbase = value; }
+    inline void setQProgressDialog_PaintEngine_IsBase(bool value) const { qprogressdialog_paintengine_isbase = value; }
+    inline void setQProgressDialog_Event_IsBase(bool value) const { qprogressdialog_event_isbase = value; }
+    inline void setQProgressDialog_MousePressEvent_IsBase(bool value) const { qprogressdialog_mousepressevent_isbase = value; }
+    inline void setQProgressDialog_MouseReleaseEvent_IsBase(bool value) const { qprogressdialog_mousereleaseevent_isbase = value; }
+    inline void setQProgressDialog_MouseDoubleClickEvent_IsBase(bool value) const { qprogressdialog_mousedoubleclickevent_isbase = value; }
+    inline void setQProgressDialog_MouseMoveEvent_IsBase(bool value) const { qprogressdialog_mousemoveevent_isbase = value; }
+    inline void setQProgressDialog_WheelEvent_IsBase(bool value) const { qprogressdialog_wheelevent_isbase = value; }
+    inline void setQProgressDialog_KeyReleaseEvent_IsBase(bool value) const { qprogressdialog_keyreleaseevent_isbase = value; }
+    inline void setQProgressDialog_FocusInEvent_IsBase(bool value) const { qprogressdialog_focusinevent_isbase = value; }
+    inline void setQProgressDialog_FocusOutEvent_IsBase(bool value) const { qprogressdialog_focusoutevent_isbase = value; }
+    inline void setQProgressDialog_EnterEvent_IsBase(bool value) const { qprogressdialog_enterevent_isbase = value; }
+    inline void setQProgressDialog_LeaveEvent_IsBase(bool value) const { qprogressdialog_leaveevent_isbase = value; }
+    inline void setQProgressDialog_PaintEvent_IsBase(bool value) const { qprogressdialog_paintevent_isbase = value; }
+    inline void setQProgressDialog_MoveEvent_IsBase(bool value) const { qprogressdialog_moveevent_isbase = value; }
+    inline void setQProgressDialog_TabletEvent_IsBase(bool value) const { qprogressdialog_tabletevent_isbase = value; }
+    inline void setQProgressDialog_ActionEvent_IsBase(bool value) const { qprogressdialog_actionevent_isbase = value; }
+    inline void setQProgressDialog_DragEnterEvent_IsBase(bool value) const { qprogressdialog_dragenterevent_isbase = value; }
+    inline void setQProgressDialog_DragMoveEvent_IsBase(bool value) const { qprogressdialog_dragmoveevent_isbase = value; }
+    inline void setQProgressDialog_DragLeaveEvent_IsBase(bool value) const { qprogressdialog_dragleaveevent_isbase = value; }
+    inline void setQProgressDialog_DropEvent_IsBase(bool value) const { qprogressdialog_dropevent_isbase = value; }
+    inline void setQProgressDialog_HideEvent_IsBase(bool value) const { qprogressdialog_hideevent_isbase = value; }
+    inline void setQProgressDialog_NativeEvent_IsBase(bool value) const { qprogressdialog_nativeevent_isbase = value; }
+    inline void setQProgressDialog_Metric_IsBase(bool value) const { qprogressdialog_metric_isbase = value; }
+    inline void setQProgressDialog_InitPainter_IsBase(bool value) const { qprogressdialog_initpainter_isbase = value; }
+    inline void setQProgressDialog_Redirected_IsBase(bool value) const { qprogressdialog_redirected_isbase = value; }
+    inline void setQProgressDialog_SharedPainter_IsBase(bool value) const { qprogressdialog_sharedpainter_isbase = value; }
+    inline void setQProgressDialog_InputMethodEvent_IsBase(bool value) const { qprogressdialog_inputmethodevent_isbase = value; }
+    inline void setQProgressDialog_InputMethodQuery_IsBase(bool value) const { qprogressdialog_inputmethodquery_isbase = value; }
+    inline void setQProgressDialog_FocusNextPrevChild_IsBase(bool value) const { qprogressdialog_focusnextprevchild_isbase = value; }
+    inline void setQProgressDialog_TimerEvent_IsBase(bool value) const { qprogressdialog_timerevent_isbase = value; }
+    inline void setQProgressDialog_ChildEvent_IsBase(bool value) const { qprogressdialog_childevent_isbase = value; }
+    inline void setQProgressDialog_CustomEvent_IsBase(bool value) const { qprogressdialog_customevent_isbase = value; }
+    inline void setQProgressDialog_ConnectNotify_IsBase(bool value) const { qprogressdialog_connectnotify_isbase = value; }
+    inline void setQProgressDialog_DisconnectNotify_IsBase(bool value) const { qprogressdialog_disconnectnotify_isbase = value; }
+    inline void setQProgressDialog_ForceShow_IsBase(bool value) const { qprogressdialog_forceshow_isbase = value; }
+    inline void setQProgressDialog_AdjustPosition_IsBase(bool value) const { qprogressdialog_adjustposition_isbase = value; }
+    inline void setQProgressDialog_UpdateMicroFocus_IsBase(bool value) const { qprogressdialog_updatemicrofocus_isbase = value; }
+    inline void setQProgressDialog_Create_IsBase(bool value) const { qprogressdialog_create_isbase = value; }
+    inline void setQProgressDialog_Destroy_IsBase(bool value) const { qprogressdialog_destroy_isbase = value; }
+    inline void setQProgressDialog_FocusNextChild_IsBase(bool value) const { qprogressdialog_focusnextchild_isbase = value; }
+    inline void setQProgressDialog_FocusPreviousChild_IsBase(bool value) const { qprogressdialog_focuspreviouschild_isbase = value; }
+    inline void setQProgressDialog_Sender_IsBase(bool value) const { qprogressdialog_sender_isbase = value; }
+    inline void setQProgressDialog_SenderSignalIndex_IsBase(bool value) const { qprogressdialog_sendersignalindex_isbase = value; }
+    inline void setQProgressDialog_Receivers_IsBase(bool value) const { qprogressdialog_receivers_isbase = value; }
+    inline void setQProgressDialog_IsSignalConnected_IsBase(bool value) const { qprogressdialog_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -426,7 +429,12 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_metacall_isbase = false;
             return QProgressDialog::qt_metacall(param1, param2, param3);
         } else if (qprogressdialog_metacall_callback != nullptr) {
-            return qprogressdialog_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qprogressdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QProgressDialog::qt_metacall(param1, param2, param3);
         }
@@ -438,7 +446,8 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_sizehint_isbase = false;
             return QProgressDialog::sizeHint();
         } else if (qprogressdialog_sizehint_callback != nullptr) {
-            return qprogressdialog_sizehint_callback();
+            QSize* callback_ret = qprogressdialog_sizehint_callback();
+            return *callback_ret;
         } else {
             return QProgressDialog::sizeHint();
         }
@@ -450,7 +459,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_resizeevent_isbase = false;
             QProgressDialog::resizeEvent(event);
         } else if (qprogressdialog_resizeevent_callback != nullptr) {
-            qprogressdialog_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qprogressdialog_resizeevent_callback(this, cbval1);
         } else {
             QProgressDialog::resizeEvent(event);
         }
@@ -462,7 +473,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_closeevent_isbase = false;
             QProgressDialog::closeEvent(event);
         } else if (qprogressdialog_closeevent_callback != nullptr) {
-            qprogressdialog_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qprogressdialog_closeevent_callback(this, cbval1);
         } else {
             QProgressDialog::closeEvent(event);
         }
@@ -474,7 +487,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_changeevent_isbase = false;
             QProgressDialog::changeEvent(event);
         } else if (qprogressdialog_changeevent_callback != nullptr) {
-            qprogressdialog_changeevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qprogressdialog_changeevent_callback(this, cbval1);
         } else {
             QProgressDialog::changeEvent(event);
         }
@@ -486,7 +501,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_showevent_isbase = false;
             QProgressDialog::showEvent(event);
         } else if (qprogressdialog_showevent_callback != nullptr) {
-            qprogressdialog_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qprogressdialog_showevent_callback(this, cbval1);
         } else {
             QProgressDialog::showEvent(event);
         }
@@ -498,7 +515,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_setvisible_isbase = false;
             QProgressDialog::setVisible(visible);
         } else if (qprogressdialog_setvisible_callback != nullptr) {
-            qprogressdialog_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qprogressdialog_setvisible_callback(this, cbval1);
         } else {
             QProgressDialog::setVisible(visible);
         }
@@ -510,7 +529,8 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_minimumsizehint_isbase = false;
             return QProgressDialog::minimumSizeHint();
         } else if (qprogressdialog_minimumsizehint_callback != nullptr) {
-            return qprogressdialog_minimumsizehint_callback();
+            QSize* callback_ret = qprogressdialog_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QProgressDialog::minimumSizeHint();
         }
@@ -534,7 +554,8 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_exec_isbase = false;
             return QProgressDialog::exec();
         } else if (qprogressdialog_exec_callback != nullptr) {
-            return qprogressdialog_exec_callback();
+            int callback_ret = qprogressdialog_exec_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QProgressDialog::exec();
         }
@@ -546,7 +567,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_done_isbase = false;
             QProgressDialog::done(param1);
         } else if (qprogressdialog_done_callback != nullptr) {
-            qprogressdialog_done_callback(this, param1);
+            int cbval1 = param1;
+
+            qprogressdialog_done_callback(this, cbval1);
         } else {
             QProgressDialog::done(param1);
         }
@@ -582,7 +605,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_keypressevent_isbase = false;
             QProgressDialog::keyPressEvent(param1);
         } else if (qprogressdialog_keypressevent_callback != nullptr) {
-            qprogressdialog_keypressevent_callback(this, param1);
+            QKeyEvent* cbval1 = param1;
+
+            qprogressdialog_keypressevent_callback(this, cbval1);
         } else {
             QProgressDialog::keyPressEvent(param1);
         }
@@ -594,7 +619,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_contextmenuevent_isbase = false;
             QProgressDialog::contextMenuEvent(param1);
         } else if (qprogressdialog_contextmenuevent_callback != nullptr) {
-            qprogressdialog_contextmenuevent_callback(this, param1);
+            QContextMenuEvent* cbval1 = param1;
+
+            qprogressdialog_contextmenuevent_callback(this, cbval1);
         } else {
             QProgressDialog::contextMenuEvent(param1);
         }
@@ -606,7 +633,11 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_eventfilter_isbase = false;
             return QProgressDialog::eventFilter(param1, param2);
         } else if (qprogressdialog_eventfilter_callback != nullptr) {
-            return qprogressdialog_eventfilter_callback(this, param1, param2);
+            QObject* cbval1 = param1;
+            QEvent* cbval2 = param2;
+
+            bool callback_ret = qprogressdialog_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QProgressDialog::eventFilter(param1, param2);
         }
@@ -618,7 +649,8 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_devtype_isbase = false;
             return QProgressDialog::devType();
         } else if (qprogressdialog_devtype_callback != nullptr) {
-            return qprogressdialog_devtype_callback();
+            int callback_ret = qprogressdialog_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QProgressDialog::devType();
         }
@@ -630,7 +662,10 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_heightforwidth_isbase = false;
             return QProgressDialog::heightForWidth(param1);
         } else if (qprogressdialog_heightforwidth_callback != nullptr) {
-            return qprogressdialog_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qprogressdialog_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QProgressDialog::heightForWidth(param1);
         }
@@ -642,7 +677,8 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_hasheightforwidth_isbase = false;
             return QProgressDialog::hasHeightForWidth();
         } else if (qprogressdialog_hasheightforwidth_callback != nullptr) {
-            return qprogressdialog_hasheightforwidth_callback();
+            bool callback_ret = qprogressdialog_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QProgressDialog::hasHeightForWidth();
         }
@@ -654,7 +690,8 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_paintengine_isbase = false;
             return QProgressDialog::paintEngine();
         } else if (qprogressdialog_paintengine_callback != nullptr) {
-            return qprogressdialog_paintengine_callback();
+            QPaintEngine* callback_ret = qprogressdialog_paintengine_callback();
+            return callback_ret;
         } else {
             return QProgressDialog::paintEngine();
         }
@@ -666,7 +703,10 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_event_isbase = false;
             return QProgressDialog::event(event);
         } else if (qprogressdialog_event_callback != nullptr) {
-            return qprogressdialog_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qprogressdialog_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QProgressDialog::event(event);
         }
@@ -678,7 +718,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_mousepressevent_isbase = false;
             QProgressDialog::mousePressEvent(event);
         } else if (qprogressdialog_mousepressevent_callback != nullptr) {
-            qprogressdialog_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qprogressdialog_mousepressevent_callback(this, cbval1);
         } else {
             QProgressDialog::mousePressEvent(event);
         }
@@ -690,7 +732,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_mousereleaseevent_isbase = false;
             QProgressDialog::mouseReleaseEvent(event);
         } else if (qprogressdialog_mousereleaseevent_callback != nullptr) {
-            qprogressdialog_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qprogressdialog_mousereleaseevent_callback(this, cbval1);
         } else {
             QProgressDialog::mouseReleaseEvent(event);
         }
@@ -702,7 +746,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_mousedoubleclickevent_isbase = false;
             QProgressDialog::mouseDoubleClickEvent(event);
         } else if (qprogressdialog_mousedoubleclickevent_callback != nullptr) {
-            qprogressdialog_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qprogressdialog_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QProgressDialog::mouseDoubleClickEvent(event);
         }
@@ -714,7 +760,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_mousemoveevent_isbase = false;
             QProgressDialog::mouseMoveEvent(event);
         } else if (qprogressdialog_mousemoveevent_callback != nullptr) {
-            qprogressdialog_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qprogressdialog_mousemoveevent_callback(this, cbval1);
         } else {
             QProgressDialog::mouseMoveEvent(event);
         }
@@ -726,7 +774,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_wheelevent_isbase = false;
             QProgressDialog::wheelEvent(event);
         } else if (qprogressdialog_wheelevent_callback != nullptr) {
-            qprogressdialog_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qprogressdialog_wheelevent_callback(this, cbval1);
         } else {
             QProgressDialog::wheelEvent(event);
         }
@@ -738,7 +788,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_keyreleaseevent_isbase = false;
             QProgressDialog::keyReleaseEvent(event);
         } else if (qprogressdialog_keyreleaseevent_callback != nullptr) {
-            qprogressdialog_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qprogressdialog_keyreleaseevent_callback(this, cbval1);
         } else {
             QProgressDialog::keyReleaseEvent(event);
         }
@@ -750,7 +802,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_focusinevent_isbase = false;
             QProgressDialog::focusInEvent(event);
         } else if (qprogressdialog_focusinevent_callback != nullptr) {
-            qprogressdialog_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qprogressdialog_focusinevent_callback(this, cbval1);
         } else {
             QProgressDialog::focusInEvent(event);
         }
@@ -762,7 +816,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_focusoutevent_isbase = false;
             QProgressDialog::focusOutEvent(event);
         } else if (qprogressdialog_focusoutevent_callback != nullptr) {
-            qprogressdialog_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qprogressdialog_focusoutevent_callback(this, cbval1);
         } else {
             QProgressDialog::focusOutEvent(event);
         }
@@ -774,7 +830,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_enterevent_isbase = false;
             QProgressDialog::enterEvent(event);
         } else if (qprogressdialog_enterevent_callback != nullptr) {
-            qprogressdialog_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qprogressdialog_enterevent_callback(this, cbval1);
         } else {
             QProgressDialog::enterEvent(event);
         }
@@ -786,7 +844,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_leaveevent_isbase = false;
             QProgressDialog::leaveEvent(event);
         } else if (qprogressdialog_leaveevent_callback != nullptr) {
-            qprogressdialog_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qprogressdialog_leaveevent_callback(this, cbval1);
         } else {
             QProgressDialog::leaveEvent(event);
         }
@@ -798,7 +858,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_paintevent_isbase = false;
             QProgressDialog::paintEvent(event);
         } else if (qprogressdialog_paintevent_callback != nullptr) {
-            qprogressdialog_paintevent_callback(this, event);
+            QPaintEvent* cbval1 = event;
+
+            qprogressdialog_paintevent_callback(this, cbval1);
         } else {
             QProgressDialog::paintEvent(event);
         }
@@ -810,7 +872,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_moveevent_isbase = false;
             QProgressDialog::moveEvent(event);
         } else if (qprogressdialog_moveevent_callback != nullptr) {
-            qprogressdialog_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qprogressdialog_moveevent_callback(this, cbval1);
         } else {
             QProgressDialog::moveEvent(event);
         }
@@ -822,7 +886,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_tabletevent_isbase = false;
             QProgressDialog::tabletEvent(event);
         } else if (qprogressdialog_tabletevent_callback != nullptr) {
-            qprogressdialog_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qprogressdialog_tabletevent_callback(this, cbval1);
         } else {
             QProgressDialog::tabletEvent(event);
         }
@@ -834,7 +900,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_actionevent_isbase = false;
             QProgressDialog::actionEvent(event);
         } else if (qprogressdialog_actionevent_callback != nullptr) {
-            qprogressdialog_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qprogressdialog_actionevent_callback(this, cbval1);
         } else {
             QProgressDialog::actionEvent(event);
         }
@@ -846,7 +914,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_dragenterevent_isbase = false;
             QProgressDialog::dragEnterEvent(event);
         } else if (qprogressdialog_dragenterevent_callback != nullptr) {
-            qprogressdialog_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qprogressdialog_dragenterevent_callback(this, cbval1);
         } else {
             QProgressDialog::dragEnterEvent(event);
         }
@@ -858,7 +928,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_dragmoveevent_isbase = false;
             QProgressDialog::dragMoveEvent(event);
         } else if (qprogressdialog_dragmoveevent_callback != nullptr) {
-            qprogressdialog_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qprogressdialog_dragmoveevent_callback(this, cbval1);
         } else {
             QProgressDialog::dragMoveEvent(event);
         }
@@ -870,7 +942,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_dragleaveevent_isbase = false;
             QProgressDialog::dragLeaveEvent(event);
         } else if (qprogressdialog_dragleaveevent_callback != nullptr) {
-            qprogressdialog_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qprogressdialog_dragleaveevent_callback(this, cbval1);
         } else {
             QProgressDialog::dragLeaveEvent(event);
         }
@@ -882,7 +956,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_dropevent_isbase = false;
             QProgressDialog::dropEvent(event);
         } else if (qprogressdialog_dropevent_callback != nullptr) {
-            qprogressdialog_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qprogressdialog_dropevent_callback(this, cbval1);
         } else {
             QProgressDialog::dropEvent(event);
         }
@@ -894,7 +970,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_hideevent_isbase = false;
             QProgressDialog::hideEvent(event);
         } else if (qprogressdialog_hideevent_callback != nullptr) {
-            qprogressdialog_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qprogressdialog_hideevent_callback(this, cbval1);
         } else {
             QProgressDialog::hideEvent(event);
         }
@@ -906,7 +984,19 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_nativeevent_isbase = false;
             return QProgressDialog::nativeEvent(eventType, message, result);
         } else if (qprogressdialog_nativeevent_callback != nullptr) {
-            return qprogressdialog_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qprogressdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QProgressDialog::nativeEvent(eventType, message, result);
         }
@@ -918,7 +1008,10 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_metric_isbase = false;
             return QProgressDialog::metric(param1);
         } else if (qprogressdialog_metric_callback != nullptr) {
-            return qprogressdialog_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qprogressdialog_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QProgressDialog::metric(param1);
         }
@@ -930,7 +1023,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_initpainter_isbase = false;
             QProgressDialog::initPainter(painter);
         } else if (qprogressdialog_initpainter_callback != nullptr) {
-            qprogressdialog_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qprogressdialog_initpainter_callback(this, cbval1);
         } else {
             QProgressDialog::initPainter(painter);
         }
@@ -942,7 +1037,10 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_redirected_isbase = false;
             return QProgressDialog::redirected(offset);
         } else if (qprogressdialog_redirected_callback != nullptr) {
-            return qprogressdialog_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qprogressdialog_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QProgressDialog::redirected(offset);
         }
@@ -954,7 +1052,8 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_sharedpainter_isbase = false;
             return QProgressDialog::sharedPainter();
         } else if (qprogressdialog_sharedpainter_callback != nullptr) {
-            return qprogressdialog_sharedpainter_callback();
+            QPainter* callback_ret = qprogressdialog_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QProgressDialog::sharedPainter();
         }
@@ -966,7 +1065,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_inputmethodevent_isbase = false;
             QProgressDialog::inputMethodEvent(param1);
         } else if (qprogressdialog_inputmethodevent_callback != nullptr) {
-            qprogressdialog_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qprogressdialog_inputmethodevent_callback(this, cbval1);
         } else {
             QProgressDialog::inputMethodEvent(param1);
         }
@@ -978,7 +1079,10 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_inputmethodquery_isbase = false;
             return QProgressDialog::inputMethodQuery(param1);
         } else if (qprogressdialog_inputmethodquery_callback != nullptr) {
-            return qprogressdialog_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qprogressdialog_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QProgressDialog::inputMethodQuery(param1);
         }
@@ -990,7 +1094,10 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_focusnextprevchild_isbase = false;
             return QProgressDialog::focusNextPrevChild(next);
         } else if (qprogressdialog_focusnextprevchild_callback != nullptr) {
-            return qprogressdialog_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qprogressdialog_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QProgressDialog::focusNextPrevChild(next);
         }
@@ -1002,7 +1109,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_timerevent_isbase = false;
             QProgressDialog::timerEvent(event);
         } else if (qprogressdialog_timerevent_callback != nullptr) {
-            qprogressdialog_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qprogressdialog_timerevent_callback(this, cbval1);
         } else {
             QProgressDialog::timerEvent(event);
         }
@@ -1014,7 +1123,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_childevent_isbase = false;
             QProgressDialog::childEvent(event);
         } else if (qprogressdialog_childevent_callback != nullptr) {
-            qprogressdialog_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qprogressdialog_childevent_callback(this, cbval1);
         } else {
             QProgressDialog::childEvent(event);
         }
@@ -1026,7 +1137,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_customevent_isbase = false;
             QProgressDialog::customEvent(event);
         } else if (qprogressdialog_customevent_callback != nullptr) {
-            qprogressdialog_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qprogressdialog_customevent_callback(this, cbval1);
         } else {
             QProgressDialog::customEvent(event);
         }
@@ -1038,7 +1151,11 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_connectnotify_isbase = false;
             QProgressDialog::connectNotify(signal);
         } else if (qprogressdialog_connectnotify_callback != nullptr) {
-            qprogressdialog_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qprogressdialog_connectnotify_callback(this, cbval1);
         } else {
             QProgressDialog::connectNotify(signal);
         }
@@ -1050,7 +1167,11 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_disconnectnotify_isbase = false;
             QProgressDialog::disconnectNotify(signal);
         } else if (qprogressdialog_disconnectnotify_callback != nullptr) {
-            qprogressdialog_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qprogressdialog_disconnectnotify_callback(this, cbval1);
         } else {
             QProgressDialog::disconnectNotify(signal);
         }
@@ -1074,7 +1195,9 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_adjustposition_isbase = false;
             QProgressDialog::adjustPosition(param1);
         } else if (qprogressdialog_adjustposition_callback != nullptr) {
-            qprogressdialog_adjustposition_callback(this, param1);
+            QWidget* cbval1 = param1;
+
+            qprogressdialog_adjustposition_callback(this, cbval1);
         } else {
             QProgressDialog::adjustPosition(param1);
         }
@@ -1122,7 +1245,8 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_focusnextchild_isbase = false;
             return QProgressDialog::focusNextChild();
         } else if (qprogressdialog_focusnextchild_callback != nullptr) {
-            return qprogressdialog_focusnextchild_callback();
+            bool callback_ret = qprogressdialog_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QProgressDialog::focusNextChild();
         }
@@ -1134,7 +1258,8 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_focuspreviouschild_isbase = false;
             return QProgressDialog::focusPreviousChild();
         } else if (qprogressdialog_focuspreviouschild_callback != nullptr) {
-            return qprogressdialog_focuspreviouschild_callback();
+            bool callback_ret = qprogressdialog_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QProgressDialog::focusPreviousChild();
         }
@@ -1146,7 +1271,8 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_sender_isbase = false;
             return QProgressDialog::sender();
         } else if (qprogressdialog_sender_callback != nullptr) {
-            return qprogressdialog_sender_callback();
+            QObject* callback_ret = qprogressdialog_sender_callback();
+            return callback_ret;
         } else {
             return QProgressDialog::sender();
         }
@@ -1158,7 +1284,8 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_sendersignalindex_isbase = false;
             return QProgressDialog::senderSignalIndex();
         } else if (qprogressdialog_sendersignalindex_callback != nullptr) {
-            return qprogressdialog_sendersignalindex_callback();
+            int callback_ret = qprogressdialog_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QProgressDialog::senderSignalIndex();
         }
@@ -1170,7 +1297,10 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_receivers_isbase = false;
             return QProgressDialog::receivers(signal);
         } else if (qprogressdialog_receivers_callback != nullptr) {
-            return qprogressdialog_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qprogressdialog_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QProgressDialog::receivers(signal);
         }
@@ -1182,11 +1312,118 @@ class VirtualQProgressDialog : public QProgressDialog {
             qprogressdialog_issignalconnected_isbase = false;
             return QProgressDialog::isSignalConnected(signal);
         } else if (qprogressdialog_issignalconnected_callback != nullptr) {
-            return qprogressdialog_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qprogressdialog_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QProgressDialog::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QProgressDialog_ResizeEvent(QProgressDialog* self, QResizeEvent* event);
+    friend void QProgressDialog_QBaseResizeEvent(QProgressDialog* self, QResizeEvent* event);
+    friend void QProgressDialog_CloseEvent(QProgressDialog* self, QCloseEvent* event);
+    friend void QProgressDialog_QBaseCloseEvent(QProgressDialog* self, QCloseEvent* event);
+    friend void QProgressDialog_ChangeEvent(QProgressDialog* self, QEvent* event);
+    friend void QProgressDialog_QBaseChangeEvent(QProgressDialog* self, QEvent* event);
+    friend void QProgressDialog_ShowEvent(QProgressDialog* self, QShowEvent* event);
+    friend void QProgressDialog_QBaseShowEvent(QProgressDialog* self, QShowEvent* event);
+    friend void QProgressDialog_KeyPressEvent(QProgressDialog* self, QKeyEvent* param1);
+    friend void QProgressDialog_QBaseKeyPressEvent(QProgressDialog* self, QKeyEvent* param1);
+    friend void QProgressDialog_ContextMenuEvent(QProgressDialog* self, QContextMenuEvent* param1);
+    friend void QProgressDialog_QBaseContextMenuEvent(QProgressDialog* self, QContextMenuEvent* param1);
+    friend bool QProgressDialog_EventFilter(QProgressDialog* self, QObject* param1, QEvent* param2);
+    friend bool QProgressDialog_QBaseEventFilter(QProgressDialog* self, QObject* param1, QEvent* param2);
+    friend bool QProgressDialog_Event(QProgressDialog* self, QEvent* event);
+    friend bool QProgressDialog_QBaseEvent(QProgressDialog* self, QEvent* event);
+    friend void QProgressDialog_MousePressEvent(QProgressDialog* self, QMouseEvent* event);
+    friend void QProgressDialog_QBaseMousePressEvent(QProgressDialog* self, QMouseEvent* event);
+    friend void QProgressDialog_MouseReleaseEvent(QProgressDialog* self, QMouseEvent* event);
+    friend void QProgressDialog_QBaseMouseReleaseEvent(QProgressDialog* self, QMouseEvent* event);
+    friend void QProgressDialog_MouseDoubleClickEvent(QProgressDialog* self, QMouseEvent* event);
+    friend void QProgressDialog_QBaseMouseDoubleClickEvent(QProgressDialog* self, QMouseEvent* event);
+    friend void QProgressDialog_MouseMoveEvent(QProgressDialog* self, QMouseEvent* event);
+    friend void QProgressDialog_QBaseMouseMoveEvent(QProgressDialog* self, QMouseEvent* event);
+    friend void QProgressDialog_WheelEvent(QProgressDialog* self, QWheelEvent* event);
+    friend void QProgressDialog_QBaseWheelEvent(QProgressDialog* self, QWheelEvent* event);
+    friend void QProgressDialog_KeyReleaseEvent(QProgressDialog* self, QKeyEvent* event);
+    friend void QProgressDialog_QBaseKeyReleaseEvent(QProgressDialog* self, QKeyEvent* event);
+    friend void QProgressDialog_FocusInEvent(QProgressDialog* self, QFocusEvent* event);
+    friend void QProgressDialog_QBaseFocusInEvent(QProgressDialog* self, QFocusEvent* event);
+    friend void QProgressDialog_FocusOutEvent(QProgressDialog* self, QFocusEvent* event);
+    friend void QProgressDialog_QBaseFocusOutEvent(QProgressDialog* self, QFocusEvent* event);
+    friend void QProgressDialog_EnterEvent(QProgressDialog* self, QEnterEvent* event);
+    friend void QProgressDialog_QBaseEnterEvent(QProgressDialog* self, QEnterEvent* event);
+    friend void QProgressDialog_LeaveEvent(QProgressDialog* self, QEvent* event);
+    friend void QProgressDialog_QBaseLeaveEvent(QProgressDialog* self, QEvent* event);
+    friend void QProgressDialog_PaintEvent(QProgressDialog* self, QPaintEvent* event);
+    friend void QProgressDialog_QBasePaintEvent(QProgressDialog* self, QPaintEvent* event);
+    friend void QProgressDialog_MoveEvent(QProgressDialog* self, QMoveEvent* event);
+    friend void QProgressDialog_QBaseMoveEvent(QProgressDialog* self, QMoveEvent* event);
+    friend void QProgressDialog_TabletEvent(QProgressDialog* self, QTabletEvent* event);
+    friend void QProgressDialog_QBaseTabletEvent(QProgressDialog* self, QTabletEvent* event);
+    friend void QProgressDialog_ActionEvent(QProgressDialog* self, QActionEvent* event);
+    friend void QProgressDialog_QBaseActionEvent(QProgressDialog* self, QActionEvent* event);
+    friend void QProgressDialog_DragEnterEvent(QProgressDialog* self, QDragEnterEvent* event);
+    friend void QProgressDialog_QBaseDragEnterEvent(QProgressDialog* self, QDragEnterEvent* event);
+    friend void QProgressDialog_DragMoveEvent(QProgressDialog* self, QDragMoveEvent* event);
+    friend void QProgressDialog_QBaseDragMoveEvent(QProgressDialog* self, QDragMoveEvent* event);
+    friend void QProgressDialog_DragLeaveEvent(QProgressDialog* self, QDragLeaveEvent* event);
+    friend void QProgressDialog_QBaseDragLeaveEvent(QProgressDialog* self, QDragLeaveEvent* event);
+    friend void QProgressDialog_DropEvent(QProgressDialog* self, QDropEvent* event);
+    friend void QProgressDialog_QBaseDropEvent(QProgressDialog* self, QDropEvent* event);
+    friend void QProgressDialog_HideEvent(QProgressDialog* self, QHideEvent* event);
+    friend void QProgressDialog_QBaseHideEvent(QProgressDialog* self, QHideEvent* event);
+    friend bool QProgressDialog_NativeEvent(QProgressDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QProgressDialog_QBaseNativeEvent(QProgressDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QProgressDialog_Metric(const QProgressDialog* self, int param1);
+    friend int QProgressDialog_QBaseMetric(const QProgressDialog* self, int param1);
+    friend void QProgressDialog_InitPainter(const QProgressDialog* self, QPainter* painter);
+    friend void QProgressDialog_QBaseInitPainter(const QProgressDialog* self, QPainter* painter);
+    friend QPaintDevice* QProgressDialog_Redirected(const QProgressDialog* self, QPoint* offset);
+    friend QPaintDevice* QProgressDialog_QBaseRedirected(const QProgressDialog* self, QPoint* offset);
+    friend QPainter* QProgressDialog_SharedPainter(const QProgressDialog* self);
+    friend QPainter* QProgressDialog_QBaseSharedPainter(const QProgressDialog* self);
+    friend void QProgressDialog_InputMethodEvent(QProgressDialog* self, QInputMethodEvent* param1);
+    friend void QProgressDialog_QBaseInputMethodEvent(QProgressDialog* self, QInputMethodEvent* param1);
+    friend bool QProgressDialog_FocusNextPrevChild(QProgressDialog* self, bool next);
+    friend bool QProgressDialog_QBaseFocusNextPrevChild(QProgressDialog* self, bool next);
+    friend void QProgressDialog_TimerEvent(QProgressDialog* self, QTimerEvent* event);
+    friend void QProgressDialog_QBaseTimerEvent(QProgressDialog* self, QTimerEvent* event);
+    friend void QProgressDialog_ChildEvent(QProgressDialog* self, QChildEvent* event);
+    friend void QProgressDialog_QBaseChildEvent(QProgressDialog* self, QChildEvent* event);
+    friend void QProgressDialog_CustomEvent(QProgressDialog* self, QEvent* event);
+    friend void QProgressDialog_QBaseCustomEvent(QProgressDialog* self, QEvent* event);
+    friend void QProgressDialog_ConnectNotify(QProgressDialog* self, const QMetaMethod* signal);
+    friend void QProgressDialog_QBaseConnectNotify(QProgressDialog* self, const QMetaMethod* signal);
+    friend void QProgressDialog_DisconnectNotify(QProgressDialog* self, const QMetaMethod* signal);
+    friend void QProgressDialog_QBaseDisconnectNotify(QProgressDialog* self, const QMetaMethod* signal);
+    friend void QProgressDialog_ForceShow(QProgressDialog* self);
+    friend void QProgressDialog_QBaseForceShow(QProgressDialog* self);
+    friend void QProgressDialog_AdjustPosition(QProgressDialog* self, QWidget* param1);
+    friend void QProgressDialog_QBaseAdjustPosition(QProgressDialog* self, QWidget* param1);
+    friend void QProgressDialog_UpdateMicroFocus(QProgressDialog* self);
+    friend void QProgressDialog_QBaseUpdateMicroFocus(QProgressDialog* self);
+    friend void QProgressDialog_Create(QProgressDialog* self);
+    friend void QProgressDialog_QBaseCreate(QProgressDialog* self);
+    friend void QProgressDialog_Destroy(QProgressDialog* self);
+    friend void QProgressDialog_QBaseDestroy(QProgressDialog* self);
+    friend bool QProgressDialog_FocusNextChild(QProgressDialog* self);
+    friend bool QProgressDialog_QBaseFocusNextChild(QProgressDialog* self);
+    friend bool QProgressDialog_FocusPreviousChild(QProgressDialog* self);
+    friend bool QProgressDialog_QBaseFocusPreviousChild(QProgressDialog* self);
+    friend QObject* QProgressDialog_Sender(const QProgressDialog* self);
+    friend QObject* QProgressDialog_QBaseSender(const QProgressDialog* self);
+    friend int QProgressDialog_SenderSignalIndex(const QProgressDialog* self);
+    friend int QProgressDialog_QBaseSenderSignalIndex(const QProgressDialog* self);
+    friend int QProgressDialog_Receivers(const QProgressDialog* self, const char* signal);
+    friend int QProgressDialog_QBaseReceivers(const QProgressDialog* self, const char* signal);
+    friend bool QProgressDialog_IsSignalConnected(const QProgressDialog* self, const QMetaMethod* signal);
+    friend bool QProgressDialog_QBaseIsSignalConnected(const QProgressDialog* self, const QMetaMethod* signal);
 };
 
 #endif

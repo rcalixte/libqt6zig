@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qcborcommon_enums = enums;
 const std = @import("std");
 
@@ -6,29 +7,31 @@ const std = @import("std");
 pub const qcborerror = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborerror.html#operator QCborError::Code)
     ///
-    /// ``` self: ?*C.QCborError ```
+    /// ``` self: QtC.QCborError ```
     pub fn ToQCborError__Code(self: ?*anyopaque) i64 {
-        return C.QCborError_ToQCborError__Code(@ptrCast(self));
+        return qtc.QCborError_ToQCborError__Code(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborerror.html#toString)
     ///
-    /// ``` self: ?*C.QCborError, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QCborError, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QCborError_ToString(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QCborError_ToString(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborerror.ToString: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborerror.html#dtor.QCborError)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QCborError ```
+    /// ``` self: QtC.QCborError ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QCborError_Delete(@ptrCast(self));
+        qtc.QCborError_Delete(@ptrCast(self));
     }
 };
 

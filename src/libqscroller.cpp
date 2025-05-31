@@ -1,12 +1,6 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
-#include <QChildEvent>
-#include <QEvent>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QPointF>
 #include <QRectF>
@@ -15,9 +9,6 @@
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
-#include <QVariant>
 #include <qscroller.h>
 #include "libqscroller.h"
 #include "libqscroller.hxx"
@@ -54,7 +45,7 @@ QScroller* QScroller_Scroller(QObject* target) {
     return QScroller::scroller(target);
 }
 
-QScroller* QScroller_ScrollerWithTarget(QObject* target) {
+QScroller* QScroller_ScrollerWithTarget(const QObject* target) {
     return (QScroller*)QScroller::scroller(target);
 }
 
@@ -91,7 +82,7 @@ int QScroller_State(const QScroller* self) {
     return static_cast<int>(self->state());
 }
 
-bool QScroller_HandleInput(QScroller* self, int input, QPointF* position) {
+bool QScroller_HandleInput(QScroller* self, int input, const QPointF* position) {
     return self->handleInput(static_cast<QScroller::Input>(input), *position);
 }
 
@@ -115,7 +106,7 @@ QScrollerProperties* QScroller_ScrollerProperties(const QScroller* self) {
     return new QScrollerProperties(self->scrollerProperties());
 }
 
-void QScroller_SetSnapPositionsX(QScroller* self, libqt_list /* of double */ positions) {
+void QScroller_SetSnapPositionsX(QScroller* self, const libqt_list /* of double */ positions) {
     QList<qreal> positions_QList;
     positions_QList.reserve(positions.len);
     double* positions_arr = static_cast<double*>(positions.data);
@@ -129,7 +120,7 @@ void QScroller_SetSnapPositionsX2(QScroller* self, double first, double interval
     self->setSnapPositionsX(static_cast<qreal>(first), static_cast<qreal>(interval));
 }
 
-void QScroller_SetSnapPositionsY(QScroller* self, libqt_list /* of double */ positions) {
+void QScroller_SetSnapPositionsY(QScroller* self, const libqt_list /* of double */ positions) {
     QList<qreal> positions_QList;
     positions_QList.reserve(positions.len);
     double* positions_arr = static_cast<double*>(positions.data);
@@ -143,23 +134,23 @@ void QScroller_SetSnapPositionsY2(QScroller* self, double first, double interval
     self->setSnapPositionsY(static_cast<qreal>(first), static_cast<qreal>(interval));
 }
 
-void QScroller_SetScrollerProperties(QScroller* self, QScrollerProperties* prop) {
+void QScroller_SetScrollerProperties(QScroller* self, const QScrollerProperties* prop) {
     self->setScrollerProperties(*prop);
 }
 
-void QScroller_ScrollTo(QScroller* self, QPointF* pos) {
+void QScroller_ScrollTo(QScroller* self, const QPointF* pos) {
     self->scrollTo(*pos);
 }
 
-void QScroller_ScrollTo2(QScroller* self, QPointF* pos, int scrollTime) {
+void QScroller_ScrollTo2(QScroller* self, const QPointF* pos, int scrollTime) {
     self->scrollTo(*pos, static_cast<int>(scrollTime));
 }
 
-void QScroller_EnsureVisible(QScroller* self, QRectF* rect, double xmargin, double ymargin) {
+void QScroller_EnsureVisible(QScroller* self, const QRectF* rect, double xmargin, double ymargin) {
     self->ensureVisible(*rect, static_cast<qreal>(xmargin), static_cast<qreal>(ymargin));
 }
 
-void QScroller_EnsureVisible2(QScroller* self, QRectF* rect, double xmargin, double ymargin, int scrollTime) {
+void QScroller_EnsureVisible2(QScroller* self, const QRectF* rect, double xmargin, double ymargin, int scrollTime) {
     self->ensureVisible(*rect, static_cast<qreal>(xmargin), static_cast<qreal>(ymargin), static_cast<int>(scrollTime));
 }
 
@@ -179,7 +170,7 @@ void QScroller_Connect_StateChanged(QScroller* self, intptr_t slot) {
     });
 }
 
-void QScroller_ScrollerPropertiesChanged(QScroller* self, QScrollerProperties* param1) {
+void QScroller_ScrollerPropertiesChanged(QScroller* self, const QScrollerProperties* param1) {
     self->scrollerPropertiesChanged(*param1);
 }
 
@@ -221,6 +212,6 @@ int QScroller_GrabGesture2(QObject* target, int gestureType) {
     return static_cast<int>(QScroller::grabGesture(target, static_cast<QScroller::ScrollerGestureType>(gestureType)));
 }
 
-bool QScroller_HandleInput3(QScroller* self, int input, QPointF* position, long long timestamp) {
+bool QScroller_HandleInput3(QScroller* self, int input, const QPointF* position, long long timestamp) {
     return self->handleInput(static_cast<QScroller::Input>(input), *position, static_cast<qint64>(timestamp));
 }

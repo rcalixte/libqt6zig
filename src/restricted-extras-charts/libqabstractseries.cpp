@@ -1,22 +1,13 @@
 #include <QAbstractAxis>
 #include <QAbstractSeries>
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChart>
-#include <QChildEvent>
-#include <QEvent>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
-#include <QVariant>
 #include <qabstractseries.h>
 #include "libqabstractseries.h"
 #include "libqabstractseries.hxx"
@@ -49,7 +40,7 @@ int QAbstractSeries_Type(const QAbstractSeries* self) {
     return static_cast<int>(self->type());
 }
 
-void QAbstractSeries_SetName(QAbstractSeries* self, libqt_string name) {
+void QAbstractSeries_SetName(QAbstractSeries* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     self->setName(name_QString);
 }
@@ -197,14 +188,6 @@ void QAbstractSeries_SetVisible1(QAbstractSeries* self, bool visible) {
 
 void QAbstractSeries_SetUseOpenGL1(QAbstractSeries* self, bool enable) {
     self->setUseOpenGL(enable);
-}
-
-bool QAbstractSeries_Event(QAbstractSeries* self, QEvent* event) {
-    return self->event(event);
-}
-
-bool QAbstractSeries_EventFilter(QAbstractSeries* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
 }
 
 void QAbstractSeries_Delete(QAbstractSeries* self) {

@@ -15,25 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSettings QSettings;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
-typedef struct QsciAbstractAPIs QsciAbstractAPIs;
 typedef struct QsciLexer QsciLexer;
 typedef struct QsciLexerRuby QsciLexerRuby;
 typedef struct QsciScintilla QsciScintilla;
@@ -123,21 +114,24 @@ const char* QsciLexerRuby_QBaseWordCharacters(const QsciLexerRuby* self);
 void QsciLexerRuby_SetAutoIndentStyle(QsciLexerRuby* self, int autoindentstyle);
 void QsciLexerRuby_OnSetAutoIndentStyle(QsciLexerRuby* self, intptr_t slot);
 void QsciLexerRuby_QBaseSetAutoIndentStyle(QsciLexerRuby* self, int autoindentstyle);
-void QsciLexerRuby_SetColor(QsciLexerRuby* self, QColor* c, int style);
+void QsciLexerRuby_SetColor(QsciLexerRuby* self, const QColor* c, int style);
 void QsciLexerRuby_OnSetColor(QsciLexerRuby* self, intptr_t slot);
-void QsciLexerRuby_QBaseSetColor(QsciLexerRuby* self, QColor* c, int style);
+void QsciLexerRuby_QBaseSetColor(QsciLexerRuby* self, const QColor* c, int style);
 void QsciLexerRuby_SetEolFill(QsciLexerRuby* self, bool eoffill, int style);
 void QsciLexerRuby_OnSetEolFill(QsciLexerRuby* self, intptr_t slot);
 void QsciLexerRuby_QBaseSetEolFill(QsciLexerRuby* self, bool eoffill, int style);
-void QsciLexerRuby_SetFont(QsciLexerRuby* self, QFont* f, int style);
+void QsciLexerRuby_SetFont(QsciLexerRuby* self, const QFont* f, int style);
 void QsciLexerRuby_OnSetFont(QsciLexerRuby* self, intptr_t slot);
-void QsciLexerRuby_QBaseSetFont(QsciLexerRuby* self, QFont* f, int style);
-void QsciLexerRuby_SetPaper(QsciLexerRuby* self, QColor* c, int style);
+void QsciLexerRuby_QBaseSetFont(QsciLexerRuby* self, const QFont* f, int style);
+void QsciLexerRuby_SetPaper(QsciLexerRuby* self, const QColor* c, int style);
 void QsciLexerRuby_OnSetPaper(QsciLexerRuby* self, intptr_t slot);
-void QsciLexerRuby_QBaseSetPaper(QsciLexerRuby* self, QColor* c, int style);
-bool QsciLexerRuby_ReadProperties(QsciLexerRuby* self, QSettings* qs, libqt_string prefix);
+void QsciLexerRuby_QBaseSetPaper(QsciLexerRuby* self, const QColor* c, int style);
+bool QsciLexerRuby_ReadProperties(QsciLexerRuby* self, QSettings* qs, const libqt_string prefix);
 void QsciLexerRuby_OnReadProperties(QsciLexerRuby* self, intptr_t slot);
-bool QsciLexerRuby_QBaseReadProperties(QsciLexerRuby* self, QSettings* qs, libqt_string prefix);
+bool QsciLexerRuby_QBaseReadProperties(QsciLexerRuby* self, QSettings* qs, const libqt_string prefix);
+bool QsciLexerRuby_WriteProperties(const QsciLexerRuby* self, QSettings* qs, const libqt_string prefix);
+void QsciLexerRuby_OnWriteProperties(const QsciLexerRuby* self, intptr_t slot);
+bool QsciLexerRuby_QBaseWriteProperties(const QsciLexerRuby* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexerRuby_Event(QsciLexerRuby* self, QEvent* event);
 void QsciLexerRuby_OnEvent(QsciLexerRuby* self, intptr_t slot);
 bool QsciLexerRuby_QBaseEvent(QsciLexerRuby* self, QEvent* event);
@@ -153,15 +147,12 @@ void QsciLexerRuby_QBaseChildEvent(QsciLexerRuby* self, QChildEvent* event);
 void QsciLexerRuby_CustomEvent(QsciLexerRuby* self, QEvent* event);
 void QsciLexerRuby_OnCustomEvent(QsciLexerRuby* self, intptr_t slot);
 void QsciLexerRuby_QBaseCustomEvent(QsciLexerRuby* self, QEvent* event);
-void QsciLexerRuby_ConnectNotify(QsciLexerRuby* self, QMetaMethod* signal);
+void QsciLexerRuby_ConnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
 void QsciLexerRuby_OnConnectNotify(QsciLexerRuby* self, intptr_t slot);
-void QsciLexerRuby_QBaseConnectNotify(QsciLexerRuby* self, QMetaMethod* signal);
-void QsciLexerRuby_DisconnectNotify(QsciLexerRuby* self, QMetaMethod* signal);
+void QsciLexerRuby_QBaseConnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
+void QsciLexerRuby_DisconnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
 void QsciLexerRuby_OnDisconnectNotify(QsciLexerRuby* self, intptr_t slot);
-void QsciLexerRuby_QBaseDisconnectNotify(QsciLexerRuby* self, QMetaMethod* signal);
-bool QsciLexerRuby_WriteProperties(const QsciLexerRuby* self, QSettings* qs, libqt_string prefix);
-void QsciLexerRuby_OnWriteProperties(const QsciLexerRuby* self, intptr_t slot);
-bool QsciLexerRuby_QBaseWriteProperties(const QsciLexerRuby* self, QSettings* qs, libqt_string prefix);
+void QsciLexerRuby_QBaseDisconnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
 QObject* QsciLexerRuby_Sender(const QsciLexerRuby* self);
 void QsciLexerRuby_OnSender(const QsciLexerRuby* self, intptr_t slot);
 QObject* QsciLexerRuby_QBaseSender(const QsciLexerRuby* self);
@@ -171,9 +162,9 @@ int QsciLexerRuby_QBaseSenderSignalIndex(const QsciLexerRuby* self);
 int QsciLexerRuby_Receivers(const QsciLexerRuby* self, const char* signal);
 void QsciLexerRuby_OnReceivers(const QsciLexerRuby* self, intptr_t slot);
 int QsciLexerRuby_QBaseReceivers(const QsciLexerRuby* self, const char* signal);
-bool QsciLexerRuby_IsSignalConnected(const QsciLexerRuby* self, QMetaMethod* signal);
+bool QsciLexerRuby_IsSignalConnected(const QsciLexerRuby* self, const QMetaMethod* signal);
 void QsciLexerRuby_OnIsSignalConnected(const QsciLexerRuby* self, intptr_t slot);
-bool QsciLexerRuby_QBaseIsSignalConnected(const QsciLexerRuby* self, QMetaMethod* signal);
+bool QsciLexerRuby_QBaseIsSignalConnected(const QsciLexerRuby* self, const QMetaMethod* signal);
 void QsciLexerRuby_Delete(QsciLexerRuby* self);
 
 #ifdef __cplusplus

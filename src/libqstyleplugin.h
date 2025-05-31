@@ -15,23 +15,15 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QStyle QStyle;
 typedef struct QStylePlugin QStylePlugin;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QStylePlugin* QStylePlugin_new();
@@ -42,9 +34,9 @@ int QStylePlugin_Metacall(QStylePlugin* self, int param1, int param2, void** par
 void QStylePlugin_OnMetacall(QStylePlugin* self, intptr_t slot);
 int QStylePlugin_QBaseMetacall(QStylePlugin* self, int param1, int param2, void** param3);
 libqt_string QStylePlugin_Tr(const char* s);
-QStyle* QStylePlugin_Create(QStylePlugin* self, libqt_string key);
+QStyle* QStylePlugin_Create(QStylePlugin* self, const libqt_string key);
 void QStylePlugin_OnCreate(QStylePlugin* self, intptr_t slot);
-QStyle* QStylePlugin_QBaseCreate(QStylePlugin* self, libqt_string key);
+QStyle* QStylePlugin_QBaseCreate(QStylePlugin* self, const libqt_string key);
 libqt_string QStylePlugin_Tr2(const char* s, const char* c);
 libqt_string QStylePlugin_Tr3(const char* s, const char* c, int n);
 bool QStylePlugin_Event(QStylePlugin* self, QEvent* event);
@@ -62,12 +54,12 @@ void QStylePlugin_QBaseChildEvent(QStylePlugin* self, QChildEvent* event);
 void QStylePlugin_CustomEvent(QStylePlugin* self, QEvent* event);
 void QStylePlugin_OnCustomEvent(QStylePlugin* self, intptr_t slot);
 void QStylePlugin_QBaseCustomEvent(QStylePlugin* self, QEvent* event);
-void QStylePlugin_ConnectNotify(QStylePlugin* self, QMetaMethod* signal);
+void QStylePlugin_ConnectNotify(QStylePlugin* self, const QMetaMethod* signal);
 void QStylePlugin_OnConnectNotify(QStylePlugin* self, intptr_t slot);
-void QStylePlugin_QBaseConnectNotify(QStylePlugin* self, QMetaMethod* signal);
-void QStylePlugin_DisconnectNotify(QStylePlugin* self, QMetaMethod* signal);
+void QStylePlugin_QBaseConnectNotify(QStylePlugin* self, const QMetaMethod* signal);
+void QStylePlugin_DisconnectNotify(QStylePlugin* self, const QMetaMethod* signal);
 void QStylePlugin_OnDisconnectNotify(QStylePlugin* self, intptr_t slot);
-void QStylePlugin_QBaseDisconnectNotify(QStylePlugin* self, QMetaMethod* signal);
+void QStylePlugin_QBaseDisconnectNotify(QStylePlugin* self, const QMetaMethod* signal);
 QObject* QStylePlugin_Sender(const QStylePlugin* self);
 void QStylePlugin_OnSender(const QStylePlugin* self, intptr_t slot);
 QObject* QStylePlugin_QBaseSender(const QStylePlugin* self);
@@ -77,9 +69,9 @@ int QStylePlugin_QBaseSenderSignalIndex(const QStylePlugin* self);
 int QStylePlugin_Receivers(const QStylePlugin* self, const char* signal);
 void QStylePlugin_OnReceivers(const QStylePlugin* self, intptr_t slot);
 int QStylePlugin_QBaseReceivers(const QStylePlugin* self, const char* signal);
-bool QStylePlugin_IsSignalConnected(const QStylePlugin* self, QMetaMethod* signal);
+bool QStylePlugin_IsSignalConnected(const QStylePlugin* self, const QMetaMethod* signal);
 void QStylePlugin_OnIsSignalConnected(const QStylePlugin* self, intptr_t slot);
-bool QStylePlugin_QBaseIsSignalConnected(const QStylePlugin* self, QMetaMethod* signal);
+bool QStylePlugin_QBaseIsSignalConnected(const QStylePlugin* self, const QMetaMethod* signal);
 void QStylePlugin_Delete(QStylePlugin* self);
 
 #ifdef __cplusplus

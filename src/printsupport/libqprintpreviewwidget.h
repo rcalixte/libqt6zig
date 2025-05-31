@@ -15,20 +15,11 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAction QAction;
 typedef struct QActionEvent QActionEvent;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBackingStore QBackingStore;
-typedef struct QBindingStorage QBindingStorage;
-typedef struct QBitmap QBitmap;
 typedef struct QChildEvent QChildEvent;
 typedef struct QCloseEvent QCloseEvent;
 typedef struct QContextMenuEvent QContextMenuEvent;
-typedef struct QCursor QCursor;
 typedef struct QDragEnterEvent QDragEnterEvent;
 typedef struct QDragLeaveEvent QDragLeaveEvent;
 typedef struct QDragMoveEvent QDragMoveEvent;
@@ -36,22 +27,11 @@ typedef struct QDropEvent QDropEvent;
 typedef struct QEnterEvent QEnterEvent;
 typedef struct QEvent QEvent;
 typedef struct QFocusEvent QFocusEvent;
-typedef struct QFont QFont;
-typedef struct QFontInfo QFontInfo;
-typedef struct QFontMetrics QFontMetrics;
-typedef struct QGraphicsEffect QGraphicsEffect;
-typedef struct QGraphicsProxyWidget QGraphicsProxyWidget;
 typedef struct QHideEvent QHideEvent;
-typedef struct QIcon QIcon;
 typedef struct QInputMethodEvent QInputMethodEvent;
 typedef struct QKeyEvent QKeyEvent;
-typedef struct QKeySequence QKeySequence;
-typedef struct QLayout QLayout;
-typedef struct QLocale QLocale;
-typedef struct QMargins QMargins;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QMouseEvent QMouseEvent;
 typedef struct QMoveEvent QMoveEvent;
 typedef struct QObject QObject;
@@ -59,27 +39,17 @@ typedef struct QPaintDevice QPaintDevice;
 typedef struct QPaintEngine QPaintEngine;
 typedef struct QPaintEvent QPaintEvent;
 typedef struct QPainter QPainter;
-typedef struct QPalette QPalette;
-typedef struct QPixmap QPixmap;
 typedef struct QPoint QPoint;
-typedef struct QPointF QPointF;
 typedef struct QPrintPreviewWidget QPrintPreviewWidget;
 typedef struct QPrinter QPrinter;
-typedef struct QRect QRect;
-typedef struct QRegion QRegion;
 typedef struct QResizeEvent QResizeEvent;
-typedef struct QScreen QScreen;
 typedef struct QShowEvent QShowEvent;
 typedef struct QSize QSize;
-typedef struct QSizePolicy QSizePolicy;
-typedef struct QStyle QStyle;
 typedef struct QTabletEvent QTabletEvent;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
-typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
@@ -228,12 +198,24 @@ void QPrintPreviewWidget_QBaseShowEvent(QPrintPreviewWidget* self, QShowEvent* e
 void QPrintPreviewWidget_HideEvent(QPrintPreviewWidget* self, QHideEvent* event);
 void QPrintPreviewWidget_OnHideEvent(QPrintPreviewWidget* self, intptr_t slot);
 void QPrintPreviewWidget_QBaseHideEvent(QPrintPreviewWidget* self, QHideEvent* event);
-bool QPrintPreviewWidget_NativeEvent(QPrintPreviewWidget* self, libqt_string eventType, void* message, intptr_t* result);
+bool QPrintPreviewWidget_NativeEvent(QPrintPreviewWidget* self, const libqt_string eventType, void* message, intptr_t* result);
 void QPrintPreviewWidget_OnNativeEvent(QPrintPreviewWidget* self, intptr_t slot);
-bool QPrintPreviewWidget_QBaseNativeEvent(QPrintPreviewWidget* self, libqt_string eventType, void* message, intptr_t* result);
+bool QPrintPreviewWidget_QBaseNativeEvent(QPrintPreviewWidget* self, const libqt_string eventType, void* message, intptr_t* result);
 void QPrintPreviewWidget_ChangeEvent(QPrintPreviewWidget* self, QEvent* param1);
 void QPrintPreviewWidget_OnChangeEvent(QPrintPreviewWidget* self, intptr_t slot);
 void QPrintPreviewWidget_QBaseChangeEvent(QPrintPreviewWidget* self, QEvent* param1);
+int QPrintPreviewWidget_Metric(const QPrintPreviewWidget* self, int param1);
+void QPrintPreviewWidget_OnMetric(const QPrintPreviewWidget* self, intptr_t slot);
+int QPrintPreviewWidget_QBaseMetric(const QPrintPreviewWidget* self, int param1);
+void QPrintPreviewWidget_InitPainter(const QPrintPreviewWidget* self, QPainter* painter);
+void QPrintPreviewWidget_OnInitPainter(const QPrintPreviewWidget* self, intptr_t slot);
+void QPrintPreviewWidget_QBaseInitPainter(const QPrintPreviewWidget* self, QPainter* painter);
+QPaintDevice* QPrintPreviewWidget_Redirected(const QPrintPreviewWidget* self, QPoint* offset);
+void QPrintPreviewWidget_OnRedirected(const QPrintPreviewWidget* self, intptr_t slot);
+QPaintDevice* QPrintPreviewWidget_QBaseRedirected(const QPrintPreviewWidget* self, QPoint* offset);
+QPainter* QPrintPreviewWidget_SharedPainter(const QPrintPreviewWidget* self);
+void QPrintPreviewWidget_OnSharedPainter(const QPrintPreviewWidget* self, intptr_t slot);
+QPainter* QPrintPreviewWidget_QBaseSharedPainter(const QPrintPreviewWidget* self);
 void QPrintPreviewWidget_InputMethodEvent(QPrintPreviewWidget* self, QInputMethodEvent* param1);
 void QPrintPreviewWidget_OnInputMethodEvent(QPrintPreviewWidget* self, intptr_t slot);
 void QPrintPreviewWidget_QBaseInputMethodEvent(QPrintPreviewWidget* self, QInputMethodEvent* param1);
@@ -255,24 +237,12 @@ void QPrintPreviewWidget_QBaseChildEvent(QPrintPreviewWidget* self, QChildEvent*
 void QPrintPreviewWidget_CustomEvent(QPrintPreviewWidget* self, QEvent* event);
 void QPrintPreviewWidget_OnCustomEvent(QPrintPreviewWidget* self, intptr_t slot);
 void QPrintPreviewWidget_QBaseCustomEvent(QPrintPreviewWidget* self, QEvent* event);
-void QPrintPreviewWidget_ConnectNotify(QPrintPreviewWidget* self, QMetaMethod* signal);
+void QPrintPreviewWidget_ConnectNotify(QPrintPreviewWidget* self, const QMetaMethod* signal);
 void QPrintPreviewWidget_OnConnectNotify(QPrintPreviewWidget* self, intptr_t slot);
-void QPrintPreviewWidget_QBaseConnectNotify(QPrintPreviewWidget* self, QMetaMethod* signal);
-void QPrintPreviewWidget_DisconnectNotify(QPrintPreviewWidget* self, QMetaMethod* signal);
+void QPrintPreviewWidget_QBaseConnectNotify(QPrintPreviewWidget* self, const QMetaMethod* signal);
+void QPrintPreviewWidget_DisconnectNotify(QPrintPreviewWidget* self, const QMetaMethod* signal);
 void QPrintPreviewWidget_OnDisconnectNotify(QPrintPreviewWidget* self, intptr_t slot);
-void QPrintPreviewWidget_QBaseDisconnectNotify(QPrintPreviewWidget* self, QMetaMethod* signal);
-int QPrintPreviewWidget_Metric(const QPrintPreviewWidget* self, int param1);
-void QPrintPreviewWidget_OnMetric(const QPrintPreviewWidget* self, intptr_t slot);
-int QPrintPreviewWidget_QBaseMetric(const QPrintPreviewWidget* self, int param1);
-void QPrintPreviewWidget_InitPainter(const QPrintPreviewWidget* self, QPainter* painter);
-void QPrintPreviewWidget_OnInitPainter(const QPrintPreviewWidget* self, intptr_t slot);
-void QPrintPreviewWidget_QBaseInitPainter(const QPrintPreviewWidget* self, QPainter* painter);
-QPaintDevice* QPrintPreviewWidget_Redirected(const QPrintPreviewWidget* self, QPoint* offset);
-void QPrintPreviewWidget_OnRedirected(const QPrintPreviewWidget* self, intptr_t slot);
-QPaintDevice* QPrintPreviewWidget_QBaseRedirected(const QPrintPreviewWidget* self, QPoint* offset);
-QPainter* QPrintPreviewWidget_SharedPainter(const QPrintPreviewWidget* self);
-void QPrintPreviewWidget_OnSharedPainter(const QPrintPreviewWidget* self, intptr_t slot);
-QPainter* QPrintPreviewWidget_QBaseSharedPainter(const QPrintPreviewWidget* self);
+void QPrintPreviewWidget_QBaseDisconnectNotify(QPrintPreviewWidget* self, const QMetaMethod* signal);
 void QPrintPreviewWidget_UpdateMicroFocus(QPrintPreviewWidget* self);
 void QPrintPreviewWidget_OnUpdateMicroFocus(QPrintPreviewWidget* self, intptr_t slot);
 void QPrintPreviewWidget_QBaseUpdateMicroFocus(QPrintPreviewWidget* self);
@@ -297,9 +267,9 @@ int QPrintPreviewWidget_QBaseSenderSignalIndex(const QPrintPreviewWidget* self);
 int QPrintPreviewWidget_Receivers(const QPrintPreviewWidget* self, const char* signal);
 void QPrintPreviewWidget_OnReceivers(const QPrintPreviewWidget* self, intptr_t slot);
 int QPrintPreviewWidget_QBaseReceivers(const QPrintPreviewWidget* self, const char* signal);
-bool QPrintPreviewWidget_IsSignalConnected(const QPrintPreviewWidget* self, QMetaMethod* signal);
+bool QPrintPreviewWidget_IsSignalConnected(const QPrintPreviewWidget* self, const QMetaMethod* signal);
 void QPrintPreviewWidget_OnIsSignalConnected(const QPrintPreviewWidget* self, intptr_t slot);
-bool QPrintPreviewWidget_QBaseIsSignalConnected(const QPrintPreviewWidget* self, QMetaMethod* signal);
+bool QPrintPreviewWidget_QBaseIsSignalConnected(const QPrintPreviewWidget* self, const QMetaMethod* signal);
 void QPrintPreviewWidget_Delete(QPrintPreviewWidget* self);
 
 #ifdef __cplusplus

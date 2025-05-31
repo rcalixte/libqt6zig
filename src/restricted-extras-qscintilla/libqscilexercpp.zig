@@ -1,61 +1,62 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qscilexercpp.html
+/// https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html
 pub const qscilexercpp = struct {
     /// New constructs a new QsciLexerCPP object.
     ///
     ///
-    pub fn New() ?*C.QsciLexerCPP {
-        return C.QsciLexerCPP_new();
+    pub fn New() QtC.QsciLexerCPP {
+        return qtc.QsciLexerCPP_new();
     }
 
     /// New2 constructs a new QsciLexerCPP object.
     ///
-    /// ``` parent: ?*C.QObject ```
-    pub fn New2(parent: ?*anyopaque) ?*C.QsciLexerCPP {
-        return C.QsciLexerCPP_new2(@ptrCast(parent));
+    /// ``` parent: QtC.QObject ```
+    pub fn New2(parent: ?*anyopaque) QtC.QsciLexerCPP {
+        return qtc.QsciLexerCPP_new2(@ptrCast(parent));
     }
 
     /// New3 constructs a new QsciLexerCPP object.
     ///
-    /// ``` parent: ?*C.QObject, caseInsensitiveKeywords: bool ```
-    pub fn New3(parent: ?*anyopaque, caseInsensitiveKeywords: bool) ?*C.QsciLexerCPP {
-        return C.QsciLexerCPP_new3(@ptrCast(parent), caseInsensitiveKeywords);
+    /// ``` parent: QtC.QObject, caseInsensitiveKeywords: bool ```
+    pub fn New3(parent: ?*anyopaque, caseInsensitiveKeywords: bool) QtC.QsciLexerCPP {
+        return qtc.QsciLexerCPP_new3(@ptrCast(parent), caseInsensitiveKeywords);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
-    pub fn MetaObject(self: ?*anyopaque) ?*C.QMetaObject {
-        return C.QsciLexerCPP_MetaObject(@ptrCast(self));
+    /// ``` self: QtC.QsciLexerCPP ```
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QsciLexerCPP_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QsciLexerCPP, param1: []const u8 ```
+    /// ``` self: QtC.QsciLexerCPP, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = @constCast(param1.ptr);
-        return C.QsciLexerCPP_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QsciLexerCPP_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: ?*C.QsciLexerCPP, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QsciLexerCPP, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QsciLexerCPP_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QsciLexerCPP_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, qobjectdefs_enums.Call, i32, ?*anyopaque) callconv(.c) i32 ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
     pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
-        C.QsciLexerCPP_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QsciLexerCPP, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QsciLexerCPP, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QsciLexerCPP_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QsciLexerCPP_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -63,428 +64,456 @@ pub const qscilexercpp = struct {
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
-        const _str = C.QsciLexerCPP_Tr(s_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QsciLexerCPP_Tr(s_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexercpp.Tr: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#language)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn Language(self: ?*anyopaque) []const u8 {
-        const _ret = C.QsciLexerCPP_Language(@ptrCast(self));
+        const _ret = qtc.QsciLexerCPP_Language(@ptrCast(self));
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#lexer)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn Lexer(self: ?*anyopaque) []const u8 {
-        const _ret = C.QsciLexerCPP_Lexer(@ptrCast(self));
+        const _ret = qtc.QsciLexerCPP_Lexer(@ptrCast(self));
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#autoCompletionWordSeparators)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QsciLexerCPP, allocator: std.mem.Allocator ```
     pub fn AutoCompletionWordSeparators(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: C.struct_libqt_list = C.QsciLexerCPP_AutoCompletionWordSeparators(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QsciLexerCPP_AutoCompletionWordSeparators(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qscilexercpp.AutoCompletionWordSeparators: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qscilexercpp.AutoCompletionWordSeparators: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#blockEnd)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn BlockEnd(self: ?*anyopaque) []const u8 {
-        const _ret = C.QsciLexerCPP_BlockEnd(@ptrCast(self));
+        const _ret = qtc.QsciLexerCPP_BlockEnd(@ptrCast(self));
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#blockStart)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn BlockStart(self: ?*anyopaque) []const u8 {
-        const _ret = C.QsciLexerCPP_BlockStart(@ptrCast(self));
+        const _ret = qtc.QsciLexerCPP_BlockStart(@ptrCast(self));
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#blockStartKeyword)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn BlockStartKeyword(self: ?*anyopaque) []const u8 {
-        const _ret = C.QsciLexerCPP_BlockStartKeyword(@ptrCast(self));
+        const _ret = qtc.QsciLexerCPP_BlockStartKeyword(@ptrCast(self));
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#braceStyle)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn BraceStyle(self: ?*anyopaque) i32 {
-        return C.QsciLexerCPP_BraceStyle(@ptrCast(self));
+        return qtc.QsciLexerCPP_BraceStyle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#wordCharacters)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn WordCharacters(self: ?*anyopaque) []const u8 {
-        const _ret = C.QsciLexerCPP_WordCharacters(@ptrCast(self));
+        const _ret = qtc.QsciLexerCPP_WordCharacters(@ptrCast(self));
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#defaultColor)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
-    pub fn DefaultColor(self: ?*anyopaque, style: i32) ?*C.QColor {
-        return C.QsciLexerCPP_DefaultColor(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
+    pub fn DefaultColor(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerCPP_DefaultColor(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#defaultEolFill)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
     pub fn DefaultEolFill(self: ?*anyopaque, style: i32) bool {
-        return C.QsciLexerCPP_DefaultEolFill(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerCPP_DefaultEolFill(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#defaultFont)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
-    pub fn DefaultFont(self: ?*anyopaque, style: i32) ?*C.QFont {
-        return C.QsciLexerCPP_DefaultFont(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
+    pub fn DefaultFont(self: ?*anyopaque, style: i32) QtC.QFont {
+        return qtc.QsciLexerCPP_DefaultFont(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#defaultPaper)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
-    pub fn DefaultPaper(self: ?*anyopaque, style: i32) ?*C.QColor {
-        return C.QsciLexerCPP_DefaultPaper(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
+    pub fn DefaultPaper(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerCPP_DefaultPaper(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#keywords)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, set: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, set: i32 ```
     pub fn Keywords(self: ?*anyopaque, set: i32) []const u8 {
-        const _ret = C.QsciLexerCPP_Keywords(@ptrCast(self), @intCast(set));
+        const _ret = qtc.QsciLexerCPP_Keywords(@ptrCast(self), @intCast(set));
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#description)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QsciLexerCPP, style: i32, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, style: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QsciLexerCPP_Description(@ptrCast(self), @intCast(style));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QsciLexerCPP_Description(@ptrCast(self), @intCast(style));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexercpp.Description: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#refreshProperties)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn RefreshProperties(self: ?*anyopaque) void {
-        C.QsciLexerCPP_RefreshProperties(@ptrCast(self));
+        qtc.QsciLexerCPP_RefreshProperties(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#foldAtElse)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn FoldAtElse(self: ?*anyopaque) bool {
-        return C.QsciLexerCPP_FoldAtElse(@ptrCast(self));
+        return qtc.QsciLexerCPP_FoldAtElse(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#foldComments)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn FoldComments(self: ?*anyopaque) bool {
-        return C.QsciLexerCPP_FoldComments(@ptrCast(self));
+        return qtc.QsciLexerCPP_FoldComments(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#foldCompact)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn FoldCompact(self: ?*anyopaque) bool {
-        return C.QsciLexerCPP_FoldCompact(@ptrCast(self));
+        return qtc.QsciLexerCPP_FoldCompact(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#foldPreprocessor)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn FoldPreprocessor(self: ?*anyopaque) bool {
-        return C.QsciLexerCPP_FoldPreprocessor(@ptrCast(self));
+        return qtc.QsciLexerCPP_FoldPreprocessor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#stylePreprocessor)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn StylePreprocessor(self: ?*anyopaque) bool {
-        return C.QsciLexerCPP_StylePreprocessor(@ptrCast(self));
+        return qtc.QsciLexerCPP_StylePreprocessor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#setDollarsAllowed)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, allowed: bool ```
+    /// ``` self: QtC.QsciLexerCPP, allowed: bool ```
     pub fn SetDollarsAllowed(self: ?*anyopaque, allowed: bool) void {
-        C.QsciLexerCPP_SetDollarsAllowed(@ptrCast(self), allowed);
+        qtc.QsciLexerCPP_SetDollarsAllowed(@ptrCast(self), allowed);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#dollarsAllowed)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn DollarsAllowed(self: ?*anyopaque) bool {
-        return C.QsciLexerCPP_DollarsAllowed(@ptrCast(self));
+        return qtc.QsciLexerCPP_DollarsAllowed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#setHighlightTripleQuotedStrings)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, enabled: bool ```
+    /// ``` self: QtC.QsciLexerCPP, enabled: bool ```
     pub fn SetHighlightTripleQuotedStrings(self: ?*anyopaque, enabled: bool) void {
-        C.QsciLexerCPP_SetHighlightTripleQuotedStrings(@ptrCast(self), enabled);
+        qtc.QsciLexerCPP_SetHighlightTripleQuotedStrings(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#highlightTripleQuotedStrings)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn HighlightTripleQuotedStrings(self: ?*anyopaque) bool {
-        return C.QsciLexerCPP_HighlightTripleQuotedStrings(@ptrCast(self));
+        return qtc.QsciLexerCPP_HighlightTripleQuotedStrings(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#setHighlightHashQuotedStrings)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, enabled: bool ```
+    /// ``` self: QtC.QsciLexerCPP, enabled: bool ```
     pub fn SetHighlightHashQuotedStrings(self: ?*anyopaque, enabled: bool) void {
-        C.QsciLexerCPP_SetHighlightHashQuotedStrings(@ptrCast(self), enabled);
+        qtc.QsciLexerCPP_SetHighlightHashQuotedStrings(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#highlightHashQuotedStrings)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn HighlightHashQuotedStrings(self: ?*anyopaque) bool {
-        return C.QsciLexerCPP_HighlightHashQuotedStrings(@ptrCast(self));
+        return qtc.QsciLexerCPP_HighlightHashQuotedStrings(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#setHighlightBackQuotedStrings)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, enabled: bool ```
+    /// ``` self: QtC.QsciLexerCPP, enabled: bool ```
     pub fn SetHighlightBackQuotedStrings(self: ?*anyopaque, enabled: bool) void {
-        C.QsciLexerCPP_SetHighlightBackQuotedStrings(@ptrCast(self), enabled);
+        qtc.QsciLexerCPP_SetHighlightBackQuotedStrings(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#highlightBackQuotedStrings)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn HighlightBackQuotedStrings(self: ?*anyopaque) bool {
-        return C.QsciLexerCPP_HighlightBackQuotedStrings(@ptrCast(self));
+        return qtc.QsciLexerCPP_HighlightBackQuotedStrings(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#setHighlightEscapeSequences)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, enabled: bool ```
+    /// ``` self: QtC.QsciLexerCPP, enabled: bool ```
     pub fn SetHighlightEscapeSequences(self: ?*anyopaque, enabled: bool) void {
-        C.QsciLexerCPP_SetHighlightEscapeSequences(@ptrCast(self), enabled);
+        qtc.QsciLexerCPP_SetHighlightEscapeSequences(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#highlightEscapeSequences)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn HighlightEscapeSequences(self: ?*anyopaque) bool {
-        return C.QsciLexerCPP_HighlightEscapeSequences(@ptrCast(self));
+        return qtc.QsciLexerCPP_HighlightEscapeSequences(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#setVerbatimStringEscapeSequencesAllowed)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, allowed: bool ```
+    /// ``` self: QtC.QsciLexerCPP, allowed: bool ```
     pub fn SetVerbatimStringEscapeSequencesAllowed(self: ?*anyopaque, allowed: bool) void {
-        C.QsciLexerCPP_SetVerbatimStringEscapeSequencesAllowed(@ptrCast(self), allowed);
+        qtc.QsciLexerCPP_SetVerbatimStringEscapeSequencesAllowed(@ptrCast(self), allowed);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#verbatimStringEscapeSequencesAllowed)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn VerbatimStringEscapeSequencesAllowed(self: ?*anyopaque) bool {
-        return C.QsciLexerCPP_VerbatimStringEscapeSequencesAllowed(@ptrCast(self));
+        return qtc.QsciLexerCPP_VerbatimStringEscapeSequencesAllowed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#setFoldAtElse)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, fold: bool ```
+    /// ``` self: QtC.QsciLexerCPP, fold: bool ```
     pub fn SetFoldAtElse(self: ?*anyopaque, fold: bool) void {
-        C.QsciLexerCPP_SetFoldAtElse(@ptrCast(self), fold);
+        qtc.QsciLexerCPP_SetFoldAtElse(@ptrCast(self), fold);
     }
 
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, bool) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, fold: bool) callconv(.c) void ```
     pub fn OnSetFoldAtElse(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QsciLexerCPP_OnSetFoldAtElse(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnSetFoldAtElse(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QsciLexerCPP, fold: bool ```
+    /// ``` self: QtC.QsciLexerCPP, fold: bool ```
     pub fn QBaseSetFoldAtElse(self: ?*anyopaque, fold: bool) void {
-        C.QsciLexerCPP_QBaseSetFoldAtElse(@ptrCast(self), fold);
+        qtc.QsciLexerCPP_QBaseSetFoldAtElse(@ptrCast(self), fold);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#setFoldComments)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, fold: bool ```
+    /// ``` self: QtC.QsciLexerCPP, fold: bool ```
     pub fn SetFoldComments(self: ?*anyopaque, fold: bool) void {
-        C.QsciLexerCPP_SetFoldComments(@ptrCast(self), fold);
+        qtc.QsciLexerCPP_SetFoldComments(@ptrCast(self), fold);
     }
 
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, bool) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, fold: bool) callconv(.c) void ```
     pub fn OnSetFoldComments(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QsciLexerCPP_OnSetFoldComments(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnSetFoldComments(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QsciLexerCPP, fold: bool ```
+    /// ``` self: QtC.QsciLexerCPP, fold: bool ```
     pub fn QBaseSetFoldComments(self: ?*anyopaque, fold: bool) void {
-        C.QsciLexerCPP_QBaseSetFoldComments(@ptrCast(self), fold);
+        qtc.QsciLexerCPP_QBaseSetFoldComments(@ptrCast(self), fold);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#setFoldCompact)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, fold: bool ```
+    /// ``` self: QtC.QsciLexerCPP, fold: bool ```
     pub fn SetFoldCompact(self: ?*anyopaque, fold: bool) void {
-        C.QsciLexerCPP_SetFoldCompact(@ptrCast(self), fold);
+        qtc.QsciLexerCPP_SetFoldCompact(@ptrCast(self), fold);
     }
 
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, bool) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, fold: bool) callconv(.c) void ```
     pub fn OnSetFoldCompact(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QsciLexerCPP_OnSetFoldCompact(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnSetFoldCompact(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QsciLexerCPP, fold: bool ```
+    /// ``` self: QtC.QsciLexerCPP, fold: bool ```
     pub fn QBaseSetFoldCompact(self: ?*anyopaque, fold: bool) void {
-        C.QsciLexerCPP_QBaseSetFoldCompact(@ptrCast(self), fold);
+        qtc.QsciLexerCPP_QBaseSetFoldCompact(@ptrCast(self), fold);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#setFoldPreprocessor)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, fold: bool ```
+    /// ``` self: QtC.QsciLexerCPP, fold: bool ```
     pub fn SetFoldPreprocessor(self: ?*anyopaque, fold: bool) void {
-        C.QsciLexerCPP_SetFoldPreprocessor(@ptrCast(self), fold);
+        qtc.QsciLexerCPP_SetFoldPreprocessor(@ptrCast(self), fold);
     }
 
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, bool) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, fold: bool) callconv(.c) void ```
     pub fn OnSetFoldPreprocessor(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QsciLexerCPP_OnSetFoldPreprocessor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnSetFoldPreprocessor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QsciLexerCPP, fold: bool ```
+    /// ``` self: QtC.QsciLexerCPP, fold: bool ```
     pub fn QBaseSetFoldPreprocessor(self: ?*anyopaque, fold: bool) void {
-        C.QsciLexerCPP_QBaseSetFoldPreprocessor(@ptrCast(self), fold);
+        qtc.QsciLexerCPP_QBaseSetFoldPreprocessor(@ptrCast(self), fold);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#setStylePreprocessor)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: bool ```
+    /// ``` self: QtC.QsciLexerCPP, style: bool ```
     pub fn SetStylePreprocessor(self: ?*anyopaque, style: bool) void {
-        C.QsciLexerCPP_SetStylePreprocessor(@ptrCast(self), style);
+        qtc.QsciLexerCPP_SetStylePreprocessor(@ptrCast(self), style);
     }
 
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, bool) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, style: bool) callconv(.c) void ```
     pub fn OnSetStylePreprocessor(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QsciLexerCPP_OnSetStylePreprocessor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnSetStylePreprocessor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: bool ```
+    /// ``` self: QtC.QsciLexerCPP, style: bool ```
     pub fn QBaseSetStylePreprocessor(self: ?*anyopaque, style: bool) void {
-        C.QsciLexerCPP_QBaseSetStylePreprocessor(@ptrCast(self), style);
+        qtc.QsciLexerCPP_QBaseSetStylePreprocessor(@ptrCast(self), style);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#readProperties)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, qs: ?*C.QSettings, prefix: []const u8 ```
+    /// ``` self: QtC.QsciLexerCPP, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn ReadProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
-        const prefix_str = C.struct_libqt_string{
+        const prefix_str = qtc.struct_libqt_string{
             .len = prefix.len,
             .data = @constCast(prefix.ptr),
         };
-        return C.QsciLexerCPP_ReadProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
+        return qtc.QsciLexerCPP_ReadProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
 
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, ?*C.QSettings, []const u8) callconv(.c) bool ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, qs: QtC.QSettings, prefix: []const u8) callconv(.c) bool ```
     pub fn OnReadProperties(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, []const u8) callconv(.c) bool) void {
-        C.QsciLexerCPP_OnReadProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnReadProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QsciLexerCPP, qs: ?*C.QSettings, prefix: []const u8 ```
+    /// ``` self: QtC.QsciLexerCPP, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn QBaseReadProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
-        const prefix_str = C.struct_libqt_string{
+        const prefix_str = qtc.struct_libqt_string{
             .len = prefix.len,
             .data = @constCast(prefix.ptr),
         };
-        return C.QsciLexerCPP_QBaseReadProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
+        return qtc.QsciLexerCPP_QBaseReadProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#writeProperties)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, qs: ?*C.QSettings, prefix: []const u8 ```
+    /// ``` self: QtC.QsciLexerCPP, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn WriteProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
-        const prefix_str = C.struct_libqt_string{
+        const prefix_str = qtc.struct_libqt_string{
             .len = prefix.len,
             .data = @constCast(prefix.ptr),
         };
-        return C.QsciLexerCPP_WriteProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
+        return qtc.QsciLexerCPP_WriteProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
 
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, ?*C.QSettings, []const u8) callconv(.c) bool ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, qs: QtC.QSettings, prefix: []const u8) callconv(.c) bool ```
     pub fn OnWriteProperties(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, []const u8) callconv(.c) bool) void {
-        C.QsciLexerCPP_OnWriteProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnWriteProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QsciLexerCPP, qs: ?*C.QSettings, prefix: []const u8 ```
+    /// ``` self: QtC.QsciLexerCPP, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn QBaseWriteProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
-        const prefix_str = C.struct_libqt_string{
+        const prefix_str = qtc.struct_libqt_string{
             .len = prefix.len,
             .data = @constCast(prefix.ptr),
         };
-        return C.QsciLexerCPP_QBaseWriteProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
+        return qtc.QsciLexerCPP_QBaseWriteProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -493,9 +522,9 @@ pub const qscilexercpp = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QsciLexerCPP_Tr2(s_Cstring, c_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QsciLexerCPP_Tr2(s_Cstring, c_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexercpp.Tr2: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -508,231 +537,241 @@ pub const qscilexercpp = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QsciLexerCPP_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QsciLexerCPP_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexercpp.Tr3: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#blockEnd)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: ?*i32 ```
+    /// ``` self: QtC.QsciLexerCPP, style: ?*i32 ```
     pub fn BlockEnd1(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = C.QsciLexerCPP_BlockEnd1(@ptrCast(self), @intCast(style));
+        const _ret = qtc.QsciLexerCPP_BlockEnd1(@ptrCast(self), @intCast(style));
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#blockStart)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: ?*i32 ```
+    /// ``` self: QtC.QsciLexerCPP, style: ?*i32 ```
     pub fn BlockStart1(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = C.QsciLexerCPP_BlockStart1(@ptrCast(self), @intCast(style));
+        const _ret = qtc.QsciLexerCPP_BlockStart1(@ptrCast(self), @intCast(style));
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexercpp.html#blockStartKeyword)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: ?*i32 ```
+    /// ``` self: QtC.QsciLexerCPP, style: ?*i32 ```
     pub fn BlockStartKeyword1(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = C.QsciLexerCPP_BlockStartKeyword1(@ptrCast(self), @intCast(style));
+        const _ret = qtc.QsciLexerCPP_BlockStartKeyword1(@ptrCast(self), @intCast(style));
         return std.mem.span(_ret);
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#apis)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
-    pub fn Apis(self: ?*anyopaque) ?*C.QsciAbstractAPIs {
-        return C.QsciLexer_Apis(@ptrCast(self));
+    /// ``` self: QtC.QsciLexerCPP ```
+    pub fn Apis(self: ?*anyopaque) QtC.QsciAbstractAPIs {
+        return qtc.QsciLexer_Apis(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#autoIndentStyle)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn AutoIndentStyle(self: ?*anyopaque) i32 {
-        return C.QsciLexer_AutoIndentStyle(@ptrCast(self));
+        return qtc.QsciLexer_AutoIndentStyle(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#editor)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
-    pub fn Editor(self: ?*anyopaque) ?*C.QsciScintilla {
-        return C.QsciLexer_Editor(@ptrCast(self));
+    /// ``` self: QtC.QsciLexerCPP ```
+    pub fn Editor(self: ?*anyopaque) QtC.QsciScintilla {
+        return qtc.QsciLexer_Editor(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#setAPIs)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, apis: ?*C.QsciAbstractAPIs ```
+    /// ``` self: QtC.QsciLexerCPP, apis: QtC.QsciAbstractAPIs ```
     pub fn SetAPIs(self: ?*anyopaque, apis: ?*anyopaque) void {
-        C.QsciLexer_SetAPIs(@ptrCast(self), @ptrCast(apis));
+        qtc.QsciLexer_SetAPIs(@ptrCast(self), @ptrCast(apis));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#setDefaultColor)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, c: ?*C.QColor ```
+    /// ``` self: QtC.QsciLexerCPP, c: QtC.QColor ```
     pub fn SetDefaultColor(self: ?*anyopaque, c: ?*anyopaque) void {
-        C.QsciLexer_SetDefaultColor(@ptrCast(self), @ptrCast(c));
+        qtc.QsciLexer_SetDefaultColor(@ptrCast(self), @ptrCast(c));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#setDefaultFont)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, f: ?*C.QFont ```
+    /// ``` self: QtC.QsciLexerCPP, f: QtC.QFont ```
     pub fn SetDefaultFont(self: ?*anyopaque, f: ?*anyopaque) void {
-        C.QsciLexer_SetDefaultFont(@ptrCast(self), @ptrCast(f));
+        qtc.QsciLexer_SetDefaultFont(@ptrCast(self), @ptrCast(f));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#setDefaultPaper)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, c: ?*C.QColor ```
+    /// ``` self: QtC.QsciLexerCPP, c: QtC.QColor ```
     pub fn SetDefaultPaper(self: ?*anyopaque, c: ?*anyopaque) void {
-        C.QsciLexer_SetDefaultPaper(@ptrCast(self), @ptrCast(c));
+        qtc.QsciLexer_SetDefaultPaper(@ptrCast(self), @ptrCast(c));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#readSettings)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, qs: ?*C.QSettings ```
+    /// ``` self: QtC.QsciLexerCPP, qs: QtC.QSettings ```
     pub fn ReadSettings(self: ?*anyopaque, qs: ?*anyopaque) bool {
-        return C.QsciLexer_ReadSettings(@ptrCast(self), @ptrCast(qs));
+        return qtc.QsciLexer_ReadSettings(@ptrCast(self), @ptrCast(qs));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#writeSettings)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, qs: ?*C.QSettings ```
+    /// ``` self: QtC.QsciLexerCPP, qs: QtC.QSettings ```
     pub fn WriteSettings(self: ?*anyopaque, qs: ?*anyopaque) bool {
-        return C.QsciLexer_WriteSettings(@ptrCast(self), @ptrCast(qs));
+        return qtc.QsciLexer_WriteSettings(@ptrCast(self), @ptrCast(qs));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#colorChanged)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, c: ?*C.QColor, style: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, c: QtC.QColor, style: i32 ```
     pub fn ColorChanged(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        C.QsciLexer_ColorChanged(@ptrCast(self), @ptrCast(c), @intCast(style));
+        qtc.QsciLexer_ColorChanged(@ptrCast(self), @ptrCast(c), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// ``` self: ?*C.QsciLexer, slot: fn (?*C.QsciLexer, ?*C.QColor, i32) callconv(.c) void ```
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, c: QtC.QColor, style: i32) callconv(.c) void ```
     pub fn OnColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        C.QsciLexer_Connect_ColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexer_Connect_ColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#eolFillChanged)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, eolfilled: bool, style: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, eolfilled: bool, style: i32 ```
     pub fn EolFillChanged(self: ?*anyopaque, eolfilled: bool, style: i32) void {
-        C.QsciLexer_EolFillChanged(@ptrCast(self), eolfilled, @intCast(style));
+        qtc.QsciLexer_EolFillChanged(@ptrCast(self), eolfilled, @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// ``` self: ?*C.QsciLexer, slot: fn (?*C.QsciLexer, bool, i32) callconv(.c) void ```
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, eolfilled: bool, style: i32) callconv(.c) void ```
     pub fn OnEolFillChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool, i32) callconv(.c) void) void {
-        C.QsciLexer_Connect_EolFillChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexer_Connect_EolFillChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#fontChanged)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, f: ?*C.QFont, style: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, f: QtC.QFont, style: i32 ```
     pub fn FontChanged(self: ?*anyopaque, f: ?*anyopaque, style: i32) void {
-        C.QsciLexer_FontChanged(@ptrCast(self), @ptrCast(f), @intCast(style));
+        qtc.QsciLexer_FontChanged(@ptrCast(self), @ptrCast(f), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// ``` self: ?*C.QsciLexer, slot: fn (?*C.QsciLexer, ?*C.QFont, i32) callconv(.c) void ```
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, f: QtC.QFont, style: i32) callconv(.c) void ```
     pub fn OnFontChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        C.QsciLexer_Connect_FontChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexer_Connect_FontChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#paperChanged)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, c: ?*C.QColor, style: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, c: QtC.QColor, style: i32 ```
     pub fn PaperChanged(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        C.QsciLexer_PaperChanged(@ptrCast(self), @ptrCast(c), @intCast(style));
+        qtc.QsciLexer_PaperChanged(@ptrCast(self), @ptrCast(c), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// ``` self: ?*C.QsciLexer, slot: fn (?*C.QsciLexer, ?*C.QColor, i32) callconv(.c) void ```
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, c: QtC.QColor, style: i32) callconv(.c) void ```
     pub fn OnPaperChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        C.QsciLexer_Connect_PaperChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexer_Connect_PaperChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#propertyChanged)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, prop: []const u8, val: []const u8 ```
+    /// ``` self: QtC.QsciLexerCPP, prop: []const u8, val: []const u8 ```
     pub fn PropertyChanged(self: ?*anyopaque, prop: []const u8, val: []const u8) void {
         const prop_Cstring = @constCast(prop.ptr);
         const val_Cstring = @constCast(val.ptr);
-        C.QsciLexer_PropertyChanged(@ptrCast(self), prop_Cstring, val_Cstring);
+        qtc.QsciLexer_PropertyChanged(@ptrCast(self), prop_Cstring, val_Cstring);
     }
 
     /// Inherited from QsciLexer
     ///
-    /// ``` self: ?*C.QsciLexer, slot: fn (?*C.QsciLexer, []const u8, []const u8) callconv(.c) void ```
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, prop: []const u8, val: []const u8) callconv(.c) void ```
     pub fn OnPropertyChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, []const u8) callconv(.c) void) void {
-        C.QsciLexer_Connect_PropertyChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexer_Connect_PropertyChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#readSettings)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, qs: ?*C.QSettings, prefix: []const u8 ```
+    /// ``` self: QtC.QsciLexerCPP, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn ReadSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
         const prefix_Cstring = @constCast(prefix.ptr);
-        return C.QsciLexer_ReadSettings2(@ptrCast(self), @ptrCast(qs), prefix_Cstring);
+        return qtc.QsciLexer_ReadSettings2(@ptrCast(self), @ptrCast(qs), prefix_Cstring);
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#writeSettings)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, qs: ?*C.QSettings, prefix: []const u8 ```
+    /// ``` self: QtC.QsciLexerCPP, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn WriteSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
         const prefix_Cstring = @constCast(prefix.ptr);
-        return C.QsciLexer_WriteSettings2(@ptrCast(self), @ptrCast(qs), prefix_Cstring);
+        return qtc.QsciLexer_WriteSettings2(@ptrCast(self), @ptrCast(qs), prefix_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QsciLexerCPP, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QObject_ObjectName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexercpp.ObjectName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -743,102 +782,102 @@ pub const qscilexercpp = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, name: []const u8 ```
+    /// ``` self: QtC.QsciLexerCPP, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return C.QObject_IsWidgetType(@ptrCast(self));
+        return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
-        return C.QObject_IsWindowType(@ptrCast(self));
+        return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return C.QObject_IsQuickItemType(@ptrCast(self));
+        return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return C.QObject_SignalsBlocked(@ptrCast(self));
+        return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, b: bool ```
+    /// ``` self: QtC.QsciLexerCPP, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return C.QObject_BlockSignals(@ptrCast(self), b);
+        return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
-    pub fn Thread(self: ?*anyopaque) ?*C.QThread {
-        return C.QObject_Thread(@ptrCast(self));
+    /// ``` self: QtC.QsciLexerCPP ```
+    pub fn Thread(self: ?*anyopaque) QtC.QThread {
+        return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, thread: ?*C.QThread ```
+    /// ``` self: QtC.QsciLexerCPP, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        C.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, interval: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return C.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, id: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        C.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, allocator: std.mem.Allocator ```
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QObject {
-        const _arr: C.struct_libqt_list = C.QObject_Children(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QObject, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QObject = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QsciLexerCPP, allocator: std.mem.Allocator ```
+    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
+        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qscilexercpp.Children: Memory allocation failed");
+        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -849,123 +888,123 @@ pub const qscilexercpp = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, parent: ?*C.QObject ```
+    /// ``` self: QtC.QsciLexerCPP, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        C.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, filterObj: ?*C.QObject ```
+    /// ``` self: QtC.QsciLexerCPP, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        C.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, obj: ?*C.QObject ```
+    /// ``` self: QtC.QsciLexerCPP, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        C.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod ```
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, sender: ?*C.QObject, signal: []const u8, member: []const u8 ```
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QsciLexerCPP, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, member: ?*C.QMetaMethod ```
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return C.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: ?*C.QMetaObject__Connection ```
+    /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return C.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
-        C.QObject_DumpObjectTree(@ptrCast(self));
+        qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        C.QObject_DumpObjectInfo(@ptrCast(self));
+        qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, name: []const u8, value: ?*C.QVariant ```
+    /// ``` self: QtC.QsciLexerCPP, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, name: []const u8 ```
-    pub fn Property(self: ?*anyopaque, name: []const u8) ?*C.QVariant {
+    /// ``` self: QtC.QsciLexerCPP, name: []const u8 ```
+    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_Property(@ptrCast(self), name_Cstring);
+        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QsciLexerCPP, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: C.struct_libqt_list = C.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qscilexercpp.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qscilexercpp.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -976,689 +1015,773 @@ pub const qscilexercpp = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
-    pub fn BindingStorage(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage(@ptrCast(self));
+    /// ``` self: QtC.QsciLexerCPP ```
+    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
-    pub fn BindingStorage2(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage2(@ptrCast(self));
+    /// ``` self: QtC.QsciLexerCPP ```
+    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn Destroyed(self: ?*anyopaque) void {
-        C.QObject_Destroyed(@ptrCast(self));
+        qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
-    pub fn Parent(self: ?*anyopaque) ?*C.QObject {
-        return C.QObject_Parent(@ptrCast(self));
+    /// ``` self: QtC.QsciLexerCPP ```
+    pub fn Parent(self: ?*anyopaque) QtC.QObject {
+        return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, classname: []const u8 ```
+    /// ``` self: QtC.QsciLexerCPP, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = @constCast(classname.ptr);
-        return C.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn DeleteLater(self: ?*anyopaque) void {
-        C.QObject_DeleteLater(@ptrCast(self));
+        qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ``` self: QtC.QsciLexerCPP, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return C.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, sender: ?*C.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QsciLexerCPP, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QsciLexerCPP, param1: ?*C.QObject ```
+    /// ``` self: QtC.QsciLexerCPP, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject, ?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#lexerId)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn LexerId(self: ?*anyopaque) i32 {
-        return C.QsciLexerCPP_LexerId(@ptrCast(self));
+        return qtc.QsciLexerCPP_LexerId(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn QBaseLexerId(self: ?*anyopaque) i32 {
-        return C.QsciLexerCPP_QBaseLexerId(@ptrCast(self));
+        return qtc.QsciLexerCPP_QBaseLexerId(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn () callconv(.c) i32 ```
     pub fn OnLexerId(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QsciLexerCPP_OnLexerId(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnLexerId(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#autoCompletionFillups)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn AutoCompletionFillups(self: ?*anyopaque) []const u8 {
-        const _ret = C.QsciLexerCPP_AutoCompletionFillups(@ptrCast(self));
+        const _ret = qtc.QsciLexerCPP_AutoCompletionFillups(@ptrCast(self));
         return std.mem.span(_ret);
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn QBaseAutoCompletionFillups(self: ?*anyopaque) []const u8 {
-        const _ret = C.QsciLexerCPP_QBaseAutoCompletionFillups(@ptrCast(self));
+        const _ret = qtc.QsciLexerCPP_QBaseAutoCompletionFillups(@ptrCast(self));
         return std.mem.span(_ret);
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn () callconv(.c) []const u8 ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn () callconv(.c) []const u8 ```
     pub fn OnAutoCompletionFillups(self: ?*anyopaque, slot: fn () callconv(.c) []const u8) void {
-        C.QsciLexerCPP_OnAutoCompletionFillups(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnAutoCompletionFillups(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#blockLookback)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn BlockLookback(self: ?*anyopaque) i32 {
-        return C.QsciLexerCPP_BlockLookback(@ptrCast(self));
+        return qtc.QsciLexerCPP_BlockLookback(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn QBaseBlockLookback(self: ?*anyopaque) i32 {
-        return C.QsciLexerCPP_QBaseBlockLookback(@ptrCast(self));
+        return qtc.QsciLexerCPP_QBaseBlockLookback(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn () callconv(.c) i32 ```
     pub fn OnBlockLookback(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QsciLexerCPP_OnBlockLookback(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnBlockLookback(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#caseSensitive)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn CaseSensitive(self: ?*anyopaque) bool {
-        return C.QsciLexerCPP_CaseSensitive(@ptrCast(self));
+        return qtc.QsciLexerCPP_CaseSensitive(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn QBaseCaseSensitive(self: ?*anyopaque) bool {
-        return C.QsciLexerCPP_QBaseCaseSensitive(@ptrCast(self));
+        return qtc.QsciLexerCPP_QBaseCaseSensitive(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn () callconv(.c) bool ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn () callconv(.c) bool ```
     pub fn OnCaseSensitive(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        C.QsciLexerCPP_OnCaseSensitive(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnCaseSensitive(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#color)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
-    pub fn Color(self: ?*anyopaque, style: i32) ?*C.QColor {
-        return C.QsciLexerCPP_Color(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
+    pub fn Color(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerCPP_Color(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
-    pub fn QBaseColor(self: ?*anyopaque, style: i32) ?*C.QColor {
-        return C.QsciLexerCPP_QBaseColor(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
+    pub fn QBaseColor(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerCPP_QBaseColor(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, i32) callconv(.c) ?*C.QColor ```
-    pub fn OnColor(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) ?*C.QColor) void {
-        C.QsciLexerCPP_OnColor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, style: i32) callconv(.c) QtC.QColor ```
+    pub fn OnColor(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
+        qtc.QsciLexerCPP_OnColor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#eolFill)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
     pub fn EolFill(self: ?*anyopaque, style: i32) bool {
-        return C.QsciLexerCPP_EolFill(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerCPP_EolFill(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
     pub fn QBaseEolFill(self: ?*anyopaque, style: i32) bool {
-        return C.QsciLexerCPP_QBaseEolFill(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerCPP_QBaseEolFill(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, i32) callconv(.c) bool ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, style: i32) callconv(.c) bool ```
     pub fn OnEolFill(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        C.QsciLexerCPP_OnEolFill(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnEolFill(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#font)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
-    pub fn Font(self: ?*anyopaque, style: i32) ?*C.QFont {
-        return C.QsciLexerCPP_Font(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
+    pub fn Font(self: ?*anyopaque, style: i32) QtC.QFont {
+        return qtc.QsciLexerCPP_Font(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
-    pub fn QBaseFont(self: ?*anyopaque, style: i32) ?*C.QFont {
-        return C.QsciLexerCPP_QBaseFont(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
+    pub fn QBaseFont(self: ?*anyopaque, style: i32) QtC.QFont {
+        return qtc.QsciLexerCPP_QBaseFont(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, i32) callconv(.c) ?*C.QFont ```
-    pub fn OnFont(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) ?*C.QFont) void {
-        C.QsciLexerCPP_OnFont(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, style: i32) callconv(.c) QtC.QFont ```
+    pub fn OnFont(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QFont) void {
+        qtc.QsciLexerCPP_OnFont(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#indentationGuideView)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn IndentationGuideView(self: ?*anyopaque) i32 {
-        return C.QsciLexerCPP_IndentationGuideView(@ptrCast(self));
+        return qtc.QsciLexerCPP_IndentationGuideView(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn QBaseIndentationGuideView(self: ?*anyopaque) i32 {
-        return C.QsciLexerCPP_QBaseIndentationGuideView(@ptrCast(self));
+        return qtc.QsciLexerCPP_QBaseIndentationGuideView(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn () callconv(.c) i32 ```
     pub fn OnIndentationGuideView(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QsciLexerCPP_OnIndentationGuideView(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnIndentationGuideView(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#defaultStyle)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn DefaultStyle(self: ?*anyopaque) i32 {
-        return C.QsciLexerCPP_DefaultStyle(@ptrCast(self));
+        return qtc.QsciLexerCPP_DefaultStyle(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn QBaseDefaultStyle(self: ?*anyopaque) i32 {
-        return C.QsciLexerCPP_QBaseDefaultStyle(@ptrCast(self));
+        return qtc.QsciLexerCPP_QBaseDefaultStyle(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn () callconv(.c) i32 ```
     pub fn OnDefaultStyle(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QsciLexerCPP_OnDefaultStyle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnDefaultStyle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#paper)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
-    pub fn Paper(self: ?*anyopaque, style: i32) ?*C.QColor {
-        return C.QsciLexerCPP_Paper(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
+    pub fn Paper(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerCPP_Paper(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
-    pub fn QBasePaper(self: ?*anyopaque, style: i32) ?*C.QColor {
-        return C.QsciLexerCPP_QBasePaper(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
+    pub fn QBasePaper(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerCPP_QBasePaper(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, i32) callconv(.c) ?*C.QColor ```
-    pub fn OnPaper(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) ?*C.QColor) void {
-        C.QsciLexerCPP_OnPaper(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, style: i32) callconv(.c) QtC.QColor ```
+    pub fn OnPaper(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
+        qtc.QsciLexerCPP_OnPaper(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#defaultColor)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
-    pub fn DefaultColorWithStyle(self: ?*anyopaque, style: i32) ?*C.QColor {
-        return C.QsciLexerCPP_DefaultColorWithStyle(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
+    pub fn DefaultColorWithStyle(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerCPP_DefaultColorWithStyle(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
-    pub fn QBaseDefaultColorWithStyle(self: ?*anyopaque, style: i32) ?*C.QColor {
-        return C.QsciLexerCPP_QBaseDefaultColorWithStyle(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
+    pub fn QBaseDefaultColorWithStyle(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerCPP_QBaseDefaultColorWithStyle(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, i32) callconv(.c) ?*C.QColor ```
-    pub fn OnDefaultColorWithStyle(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) ?*C.QColor) void {
-        C.QsciLexerCPP_OnDefaultColorWithStyle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, style: i32) callconv(.c) QtC.QColor ```
+    pub fn OnDefaultColorWithStyle(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
+        qtc.QsciLexerCPP_OnDefaultColorWithStyle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#defaultFont)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
-    pub fn DefaultFontWithStyle(self: ?*anyopaque, style: i32) ?*C.QFont {
-        return C.QsciLexerCPP_DefaultFontWithStyle(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
+    pub fn DefaultFontWithStyle(self: ?*anyopaque, style: i32) QtC.QFont {
+        return qtc.QsciLexerCPP_DefaultFontWithStyle(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
-    pub fn QBaseDefaultFontWithStyle(self: ?*anyopaque, style: i32) ?*C.QFont {
-        return C.QsciLexerCPP_QBaseDefaultFontWithStyle(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
+    pub fn QBaseDefaultFontWithStyle(self: ?*anyopaque, style: i32) QtC.QFont {
+        return qtc.QsciLexerCPP_QBaseDefaultFontWithStyle(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, i32) callconv(.c) ?*C.QFont ```
-    pub fn OnDefaultFontWithStyle(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) ?*C.QFont) void {
-        C.QsciLexerCPP_OnDefaultFontWithStyle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, style: i32) callconv(.c) QtC.QFont ```
+    pub fn OnDefaultFontWithStyle(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QFont) void {
+        qtc.QsciLexerCPP_OnDefaultFontWithStyle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#defaultPaper)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
-    pub fn DefaultPaperWithStyle(self: ?*anyopaque, style: i32) ?*C.QColor {
-        return C.QsciLexerCPP_DefaultPaperWithStyle(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
+    pub fn DefaultPaperWithStyle(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerCPP_DefaultPaperWithStyle(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, style: i32 ```
-    pub fn QBaseDefaultPaperWithStyle(self: ?*anyopaque, style: i32) ?*C.QColor {
-        return C.QsciLexerCPP_QBaseDefaultPaperWithStyle(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCPP, style: i32 ```
+    pub fn QBaseDefaultPaperWithStyle(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerCPP_QBaseDefaultPaperWithStyle(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, i32) callconv(.c) ?*C.QColor ```
-    pub fn OnDefaultPaperWithStyle(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) ?*C.QColor) void {
-        C.QsciLexerCPP_OnDefaultPaperWithStyle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, style: i32) callconv(.c) QtC.QColor ```
+    pub fn OnDefaultPaperWithStyle(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
+        qtc.QsciLexerCPP_OnDefaultPaperWithStyle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#setEditor)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, editor: ?*C.QsciScintilla ```
+    /// ``` self: QtC.QsciLexerCPP, editor: QtC.QsciScintilla ```
     pub fn SetEditor(self: ?*anyopaque, editor: ?*anyopaque) void {
-        C.QsciLexerCPP_SetEditor(@ptrCast(self), @ptrCast(editor));
+        qtc.QsciLexerCPP_SetEditor(@ptrCast(self), @ptrCast(editor));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, editor: ?*C.QsciScintilla ```
+    /// ``` self: QtC.QsciLexerCPP, editor: QtC.QsciScintilla ```
     pub fn QBaseSetEditor(self: ?*anyopaque, editor: ?*anyopaque) void {
-        C.QsciLexerCPP_QBaseSetEditor(@ptrCast(self), @ptrCast(editor));
+        qtc.QsciLexerCPP_QBaseSetEditor(@ptrCast(self), @ptrCast(editor));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, ?*C.QsciScintilla) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, editor: QtC.QsciScintilla) callconv(.c) void ```
     pub fn OnSetEditor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QsciLexerCPP_OnSetEditor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnSetEditor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#styleBitsNeeded)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn StyleBitsNeeded(self: ?*anyopaque) i32 {
-        return C.QsciLexerCPP_StyleBitsNeeded(@ptrCast(self));
+        return qtc.QsciLexerCPP_StyleBitsNeeded(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn QBaseStyleBitsNeeded(self: ?*anyopaque) i32 {
-        return C.QsciLexerCPP_QBaseStyleBitsNeeded(@ptrCast(self));
+        return qtc.QsciLexerCPP_QBaseStyleBitsNeeded(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn () callconv(.c) i32 ```
     pub fn OnStyleBitsNeeded(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QsciLexerCPP_OnStyleBitsNeeded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnStyleBitsNeeded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#setAutoIndentStyle)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, autoindentstyle: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, autoindentstyle: i32 ```
     pub fn SetAutoIndentStyle(self: ?*anyopaque, autoindentstyle: i32) void {
-        C.QsciLexerCPP_SetAutoIndentStyle(@ptrCast(self), @intCast(autoindentstyle));
+        qtc.QsciLexerCPP_SetAutoIndentStyle(@ptrCast(self), @intCast(autoindentstyle));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, autoindentstyle: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, autoindentstyle: i32 ```
     pub fn QBaseSetAutoIndentStyle(self: ?*anyopaque, autoindentstyle: i32) void {
-        C.QsciLexerCPP_QBaseSetAutoIndentStyle(@ptrCast(self), @intCast(autoindentstyle));
+        qtc.QsciLexerCPP_QBaseSetAutoIndentStyle(@ptrCast(self), @intCast(autoindentstyle));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, i32) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, autoindentstyle: i32) callconv(.c) void ```
     pub fn OnSetAutoIndentStyle(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QsciLexerCPP_OnSetAutoIndentStyle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnSetAutoIndentStyle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#setColor)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, c: ?*C.QColor, style: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, c: QtC.QColor, style: i32 ```
     pub fn SetColor(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        C.QsciLexerCPP_SetColor(@ptrCast(self), @ptrCast(c), @intCast(style));
+        qtc.QsciLexerCPP_SetColor(@ptrCast(self), @ptrCast(c), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, c: ?*C.QColor, style: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, c: QtC.QColor, style: i32 ```
     pub fn QBaseSetColor(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        C.QsciLexerCPP_QBaseSetColor(@ptrCast(self), @ptrCast(c), @intCast(style));
+        qtc.QsciLexerCPP_QBaseSetColor(@ptrCast(self), @ptrCast(c), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, ?*C.QColor, i32) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, c: QtC.QColor, style: i32) callconv(.c) void ```
     pub fn OnSetColor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        C.QsciLexerCPP_OnSetColor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnSetColor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#setEolFill)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, eoffill: bool, style: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, eoffill: bool, style: i32 ```
     pub fn SetEolFill(self: ?*anyopaque, eoffill: bool, style: i32) void {
-        C.QsciLexerCPP_SetEolFill(@ptrCast(self), eoffill, @intCast(style));
+        qtc.QsciLexerCPP_SetEolFill(@ptrCast(self), eoffill, @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, eoffill: bool, style: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, eoffill: bool, style: i32 ```
     pub fn QBaseSetEolFill(self: ?*anyopaque, eoffill: bool, style: i32) void {
-        C.QsciLexerCPP_QBaseSetEolFill(@ptrCast(self), eoffill, @intCast(style));
+        qtc.QsciLexerCPP_QBaseSetEolFill(@ptrCast(self), eoffill, @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, bool, i32) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, eoffill: bool, style: i32) callconv(.c) void ```
     pub fn OnSetEolFill(self: ?*anyopaque, slot: fn (?*anyopaque, bool, i32) callconv(.c) void) void {
-        C.QsciLexerCPP_OnSetEolFill(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnSetEolFill(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#setFont)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, f: ?*C.QFont, style: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, f: QtC.QFont, style: i32 ```
     pub fn SetFont(self: ?*anyopaque, f: ?*anyopaque, style: i32) void {
-        C.QsciLexerCPP_SetFont(@ptrCast(self), @ptrCast(f), @intCast(style));
+        qtc.QsciLexerCPP_SetFont(@ptrCast(self), @ptrCast(f), @intCast(style));
     }
 
     /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, f: ?*C.QFont, style: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, f: QtC.QFont, style: i32 ```
     pub fn QBaseSetFont(self: ?*anyopaque, f: ?*anyopaque, style: i32) void {
-        C.QsciLexerCPP_QBaseSetFont(@ptrCast(self), @ptrCast(f), @intCast(style));
+        qtc.QsciLexerCPP_QBaseSetFont(@ptrCast(self), @ptrCast(f), @intCast(style));
     }
 
     /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, ?*C.QFont, i32) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, f: QtC.QFont, style: i32) callconv(.c) void ```
     pub fn OnSetFont(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        C.QsciLexerCPP_OnSetFont(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnSetFont(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscilexer.html#setPaper)
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, c: ?*C.QColor, style: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, c: QtC.QColor, style: i32 ```
     pub fn SetPaper(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        C.QsciLexerCPP_SetPaper(@ptrCast(self), @ptrCast(c), @intCast(style));
+        qtc.QsciLexerCPP_SetPaper(@ptrCast(self), @ptrCast(c), @intCast(style));
     }
 
     /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, c: ?*C.QColor, style: i32 ```
+    /// ``` self: QtC.QsciLexerCPP, c: QtC.QColor, style: i32 ```
     pub fn QBaseSetPaper(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        C.QsciLexerCPP_QBaseSetPaper(@ptrCast(self), @ptrCast(c), @intCast(style));
+        qtc.QsciLexerCPP_QBaseSetPaper(@ptrCast(self), @ptrCast(c), @intCast(style));
     }
 
     /// Inherited from QsciLexer
     ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, ?*C.QColor, i32) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, c: QtC.QColor, style: i32) callconv(.c) void ```
     pub fn OnSetPaper(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        C.QsciLexerCPP_OnSetPaper(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnSetPaper(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1667,27 +1790,31 @@ pub const qscilexercpp = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, event: ?*C.QEvent ```
+    /// ``` self: QtC.QsciLexerCPP, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QsciLexerCPP_Event(@ptrCast(self), @ptrCast(event));
+        return qtc.QsciLexerCPP_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, event: ?*C.QEvent ```
+    /// ``` self: QtC.QsciLexerCPP, event: QtC.QEvent ```
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QsciLexerCPP_QBaseEvent(@ptrCast(self), @ptrCast(event));
+        return qtc.QsciLexerCPP_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QsciLexerCPP_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1696,27 +1823,31 @@ pub const qscilexercpp = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QsciLexerCPP, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QsciLexerCPP_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QsciLexerCPP_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QsciLexerCPP, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QsciLexerCPP_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QsciLexerCPP_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, ?*C.QObject, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QsciLexerCPP_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1725,27 +1856,31 @@ pub const qscilexercpp = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QsciLexerCPP, event: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QsciLexerCPP_TimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QsciLexerCPP_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QsciLexerCPP, event: QtC.QTimerEvent ```
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QsciLexerCPP_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QsciLexerCPP_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, ?*C.QTimerEvent) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, event: QtC.QTimerEvent) callconv(.c) void ```
     pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QsciLexerCPP_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1754,27 +1889,31 @@ pub const qscilexercpp = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QsciLexerCPP, event: QtC.QChildEvent ```
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QsciLexerCPP_ChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QsciLexerCPP_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QsciLexerCPP, event: QtC.QChildEvent ```
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QsciLexerCPP_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QsciLexerCPP_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, ?*C.QChildEvent) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, event: QtC.QChildEvent) callconv(.c) void ```
     pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QsciLexerCPP_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1783,27 +1922,31 @@ pub const qscilexercpp = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, event: ?*C.QEvent ```
+    /// ``` self: QtC.QsciLexerCPP, event: QtC.QEvent ```
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QsciLexerCPP_CustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QsciLexerCPP_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, event: ?*C.QEvent ```
+    /// ``` self: QtC.QsciLexerCPP, event: QtC.QEvent ```
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QsciLexerCPP_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QsciLexerCPP_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, event: QtC.QEvent) callconv(.c) void ```
     pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QsciLexerCPP_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1812,27 +1955,31 @@ pub const qscilexercpp = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QsciLexerCPP, signal: QtC.QMetaMethod ```
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QsciLexerCPP_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QsciLexerCPP_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QsciLexerCPP, signal: QtC.QMetaMethod ```
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QsciLexerCPP_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QsciLexerCPP_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QsciLexerCPP_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1841,27 +1988,31 @@ pub const qscilexercpp = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QsciLexerCPP, signal: QtC.QMetaMethod ```
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QsciLexerCPP_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QsciLexerCPP_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QsciLexerCPP, signal: QtC.QMetaMethod ```
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QsciLexerCPP_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QsciLexerCPP_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QsciLexerCPP_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1870,27 +2021,31 @@ pub const qscilexercpp = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
-    pub fn Sender(self: ?*anyopaque) ?*C.QObject {
-        return C.QsciLexerCPP_Sender(@ptrCast(self));
+    /// ``` self: QtC.QsciLexerCPP ```
+    pub fn Sender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QsciLexerCPP_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
-    pub fn QBaseSender(self: ?*anyopaque) ?*C.QObject {
-        return C.QsciLexerCPP_QBaseSender(@ptrCast(self));
+    /// ``` self: QtC.QsciLexerCPP ```
+    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QsciLexerCPP_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn () callconv(.c) ?*C.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QObject) void {
-        C.QsciLexerCPP_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerCPP, slot: fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
+        qtc.QsciLexerCPP_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1899,27 +2054,31 @@ pub const qscilexercpp = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QsciLexerCPP_SenderSignalIndex(@ptrCast(self));
+        return qtc.QsciLexerCPP_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QsciLexerCPP_QBaseSenderSignalIndex(@ptrCast(self));
+        return qtc.QsciLexerCPP_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn () callconv(.c) i32 ```
     pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QsciLexerCPP_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1928,29 +2087,33 @@ pub const qscilexercpp = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, signal: []const u8 ```
+    /// ``` self: QtC.QsciLexerCPP, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QsciLexerCPP_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QsciLexerCPP_Receivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, signal: []const u8 ```
+    /// ``` self: QtC.QsciLexerCPP, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QsciLexerCPP_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QsciLexerCPP_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, []const u8) callconv(.c) i32 ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, signal: []const u8) callconv(.c) i32 ```
     pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
-        C.QsciLexerCPP_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1959,38 +2122,54 @@ pub const qscilexercpp = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QsciLexerCPP, signal: QtC.QMetaMethod ```
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QsciLexerCPP_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QsciLexerCPP_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QsciLexerCPP, signal: QtC.QMetaMethod ```
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QsciLexerCPP_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QsciLexerCPP_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QsciLexerCPP, slot: fn (?*C.QsciLexerCPP, ?*C.QMetaMethod) callconv(.c) bool ```
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QsciLexerCPP, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QsciLexerCPP_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QsciLexerCPP_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    ///
+    /// Wrapper to allow calling private signal
+    ///
+    /// ``` self: QtC.QsciLexerCPP, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QsciLexerCPP ```
+    /// ``` self: QtC.QsciLexerCPP ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QsciLexerCPP_Delete(@ptrCast(self));
+        qtc.QsciLexerCPP_Delete(@ptrCast(self));
     }
 };
 
-/// https://doc.qt.io/qt-6/qscilexercpp.html#types
 pub const enums = struct {
     pub const QsciLexerCPP = enum {
         pub const Default: i32 = 0;

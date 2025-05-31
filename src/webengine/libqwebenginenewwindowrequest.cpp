@@ -1,21 +1,11 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
-#include <QChildEvent>
-#include <QEvent>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QRect>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
 #include <QUrl>
-#include <QVariant>
 #include <QWebEngineNewWindowRequest>
 #include <QWebEnginePage>
 #include <qwebenginenewwindowrequest.h>
@@ -88,14 +78,6 @@ libqt_string QWebEngineNewWindowRequest_Tr3(const char* s, const char* c, int n)
     memcpy(_str.data, _b.data(), _str.len);
     _str.data[_str.len] = '\0';
     return _str;
-}
-
-bool QWebEngineNewWindowRequest_Event(QWebEngineNewWindowRequest* self, QEvent* event) {
-    return self->event(event);
-}
-
-bool QWebEngineNewWindowRequest_EventFilter(QWebEngineNewWindowRequest* self, QObject* watched, QEvent* event) {
-    return self->eventFilter(watched, event);
 }
 
 void QWebEngineNewWindowRequest_Delete(QWebEngineNewWindowRequest* self) {

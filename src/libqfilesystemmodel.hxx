@@ -11,79 +11,82 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QFileSystemModel so that we can call protected methods
-class VirtualQFileSystemModel : public QFileSystemModel {
+class VirtualQFileSystemModel final : public QFileSystemModel {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQFileSystemModel = true;
+
     // Virtual class public types (including callbacks)
-    using QFileSystemModel_Metacall_Callback = int (*)(QFileSystemModel*, QMetaObject::Call, int, void**);
-    using QFileSystemModel_Index_Callback = QModelIndex (*)(const QFileSystemModel*, int, int, const QModelIndex&);
-    using QFileSystemModel_Parent_Callback = QModelIndex (*)(const QFileSystemModel*, const QModelIndex&);
-    using QFileSystemModel_Sibling_Callback = QModelIndex (*)(const QFileSystemModel*, int, int, const QModelIndex&);
-    using QFileSystemModel_HasChildren_Callback = bool (*)(const QFileSystemModel*, const QModelIndex&);
-    using QFileSystemModel_CanFetchMore_Callback = bool (*)(const QFileSystemModel*, const QModelIndex&);
-    using QFileSystemModel_FetchMore_Callback = void (*)(QFileSystemModel*, const QModelIndex&);
-    using QFileSystemModel_RowCount_Callback = int (*)(const QFileSystemModel*, const QModelIndex&);
-    using QFileSystemModel_ColumnCount_Callback = int (*)(const QFileSystemModel*, const QModelIndex&);
-    using QFileSystemModel_Data_Callback = QVariant (*)(const QFileSystemModel*, const QModelIndex&, int);
-    using QFileSystemModel_SetData_Callback = bool (*)(QFileSystemModel*, const QModelIndex&, const QVariant&, int);
-    using QFileSystemModel_HeaderData_Callback = QVariant (*)(const QFileSystemModel*, int, Qt::Orientation, int);
-    using QFileSystemModel_Flags_Callback = Qt::ItemFlags (*)(const QFileSystemModel*, const QModelIndex&);
-    using QFileSystemModel_Sort_Callback = void (*)(QFileSystemModel*, int, Qt::SortOrder);
-    using QFileSystemModel_MimeTypes_Callback = QStringList (*)();
-    using QFileSystemModel_MimeData_Callback = QMimeData* (*)(const QFileSystemModel*, const QModelIndexList&);
-    using QFileSystemModel_DropMimeData_Callback = bool (*)(QFileSystemModel*, const QMimeData*, Qt::DropAction, int, int, const QModelIndex&);
-    using QFileSystemModel_SupportedDropActions_Callback = Qt::DropActions (*)();
-    using QFileSystemModel_RoleNames_Callback = QHash<int, QByteArray> (*)();
+    using QFileSystemModel_Metacall_Callback = int (*)(QFileSystemModel*, int, int, void**);
+    using QFileSystemModel_Index_Callback = QModelIndex* (*)(const QFileSystemModel*, int, int, QModelIndex*);
+    using QFileSystemModel_Parent_Callback = QModelIndex* (*)(const QFileSystemModel*, QModelIndex*);
+    using QFileSystemModel_Sibling_Callback = QModelIndex* (*)(const QFileSystemModel*, int, int, QModelIndex*);
+    using QFileSystemModel_HasChildren_Callback = bool (*)(const QFileSystemModel*, QModelIndex*);
+    using QFileSystemModel_CanFetchMore_Callback = bool (*)(const QFileSystemModel*, QModelIndex*);
+    using QFileSystemModel_FetchMore_Callback = void (*)(QFileSystemModel*, QModelIndex*);
+    using QFileSystemModel_RowCount_Callback = int (*)(const QFileSystemModel*, QModelIndex*);
+    using QFileSystemModel_ColumnCount_Callback = int (*)(const QFileSystemModel*, QModelIndex*);
+    using QFileSystemModel_Data_Callback = QVariant* (*)(const QFileSystemModel*, QModelIndex*, int);
+    using QFileSystemModel_SetData_Callback = bool (*)(QFileSystemModel*, QModelIndex*, QVariant*, int);
+    using QFileSystemModel_HeaderData_Callback = QVariant* (*)(const QFileSystemModel*, int, int, int);
+    using QFileSystemModel_Flags_Callback = int (*)(const QFileSystemModel*, QModelIndex*);
+    using QFileSystemModel_Sort_Callback = void (*)(QFileSystemModel*, int, int);
+    using QFileSystemModel_MimeTypes_Callback = libqt_list /* of libqt_string */ (*)();
+    using QFileSystemModel_MimeData_Callback = QMimeData* (*)(const QFileSystemModel*, libqt_list /* of QModelIndex* */);
+    using QFileSystemModel_DropMimeData_Callback = bool (*)(QFileSystemModel*, QMimeData*, int, int, int, QModelIndex*);
+    using QFileSystemModel_SupportedDropActions_Callback = int (*)();
+    using QFileSystemModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)();
     using QFileSystemModel_TimerEvent_Callback = void (*)(QFileSystemModel*, QTimerEvent*);
     using QFileSystemModel_Event_Callback = bool (*)(QFileSystemModel*, QEvent*);
-    using QFileSystemModel_SetHeaderData_Callback = bool (*)(QFileSystemModel*, int, Qt::Orientation, const QVariant&, int);
-    using QFileSystemModel_ItemData_Callback = QMap<int, QVariant> (*)(const QFileSystemModel*, const QModelIndex&);
-    using QFileSystemModel_SetItemData_Callback = bool (*)(QFileSystemModel*, const QModelIndex&, const QMap<int, QVariant>&);
-    using QFileSystemModel_ClearItemData_Callback = bool (*)(QFileSystemModel*, const QModelIndex&);
-    using QFileSystemModel_CanDropMimeData_Callback = bool (*)(const QFileSystemModel*, const QMimeData*, Qt::DropAction, int, int, const QModelIndex&);
-    using QFileSystemModel_SupportedDragActions_Callback = Qt::DropActions (*)();
-    using QFileSystemModel_InsertRows_Callback = bool (*)(QFileSystemModel*, int, int, const QModelIndex&);
-    using QFileSystemModel_InsertColumns_Callback = bool (*)(QFileSystemModel*, int, int, const QModelIndex&);
-    using QFileSystemModel_RemoveRows_Callback = bool (*)(QFileSystemModel*, int, int, const QModelIndex&);
-    using QFileSystemModel_RemoveColumns_Callback = bool (*)(QFileSystemModel*, int, int, const QModelIndex&);
-    using QFileSystemModel_MoveRows_Callback = bool (*)(QFileSystemModel*, const QModelIndex&, int, int, const QModelIndex&, int);
-    using QFileSystemModel_MoveColumns_Callback = bool (*)(QFileSystemModel*, const QModelIndex&, int, int, const QModelIndex&, int);
-    using QFileSystemModel_Buddy_Callback = QModelIndex (*)(const QFileSystemModel*, const QModelIndex&);
-    using QFileSystemModel_Match_Callback = QModelIndexList (*)(const QFileSystemModel*, const QModelIndex&, int, const QVariant&, int, Qt::MatchFlags);
-    using QFileSystemModel_Span_Callback = QSize (*)(const QFileSystemModel*, const QModelIndex&);
-    using QFileSystemModel_MultiData_Callback = void (*)(const QFileSystemModel*, const QModelIndex&, QModelRoleDataSpan);
+    using QFileSystemModel_SetHeaderData_Callback = bool (*)(QFileSystemModel*, int, int, QVariant*, int);
+    using QFileSystemModel_ItemData_Callback = libqt_map /* of int to QVariant* */ (*)(const QFileSystemModel*, QModelIndex*);
+    using QFileSystemModel_SetItemData_Callback = bool (*)(QFileSystemModel*, QModelIndex*, libqt_map /* of int to QVariant* */);
+    using QFileSystemModel_ClearItemData_Callback = bool (*)(QFileSystemModel*, QModelIndex*);
+    using QFileSystemModel_CanDropMimeData_Callback = bool (*)(const QFileSystemModel*, QMimeData*, int, int, int, QModelIndex*);
+    using QFileSystemModel_SupportedDragActions_Callback = int (*)();
+    using QFileSystemModel_InsertRows_Callback = bool (*)(QFileSystemModel*, int, int, QModelIndex*);
+    using QFileSystemModel_InsertColumns_Callback = bool (*)(QFileSystemModel*, int, int, QModelIndex*);
+    using QFileSystemModel_RemoveRows_Callback = bool (*)(QFileSystemModel*, int, int, QModelIndex*);
+    using QFileSystemModel_RemoveColumns_Callback = bool (*)(QFileSystemModel*, int, int, QModelIndex*);
+    using QFileSystemModel_MoveRows_Callback = bool (*)(QFileSystemModel*, QModelIndex*, int, int, QModelIndex*, int);
+    using QFileSystemModel_MoveColumns_Callback = bool (*)(QFileSystemModel*, QModelIndex*, int, int, QModelIndex*, int);
+    using QFileSystemModel_Buddy_Callback = QModelIndex* (*)(const QFileSystemModel*, QModelIndex*);
+    using QFileSystemModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const QFileSystemModel*, QModelIndex*, int, QVariant*, int, int);
+    using QFileSystemModel_Span_Callback = QSize* (*)(const QFileSystemModel*, QModelIndex*);
+    using QFileSystemModel_MultiData_Callback = void (*)(const QFileSystemModel*, QModelIndex*, QModelRoleDataSpan*);
     using QFileSystemModel_Submit_Callback = bool (*)();
     using QFileSystemModel_Revert_Callback = void (*)();
     using QFileSystemModel_ResetInternalData_Callback = void (*)();
     using QFileSystemModel_EventFilter_Callback = bool (*)(QFileSystemModel*, QObject*, QEvent*);
     using QFileSystemModel_ChildEvent_Callback = void (*)(QFileSystemModel*, QChildEvent*);
     using QFileSystemModel_CustomEvent_Callback = void (*)(QFileSystemModel*, QEvent*);
-    using QFileSystemModel_ConnectNotify_Callback = void (*)(QFileSystemModel*, const QMetaMethod&);
-    using QFileSystemModel_DisconnectNotify_Callback = void (*)(QFileSystemModel*, const QMetaMethod&);
-    using QFileSystemModel_CreateIndex_Callback = QModelIndex (*)(const QFileSystemModel*, int, int);
-    using QFileSystemModel_EncodeData_Callback = void (*)(const QFileSystemModel*, const QModelIndexList&, QDataStream&);
-    using QFileSystemModel_DecodeData_Callback = bool (*)(QFileSystemModel*, int, int, const QModelIndex&, QDataStream&);
-    using QFileSystemModel_BeginInsertRows_Callback = void (*)(QFileSystemModel*, const QModelIndex&, int, int);
+    using QFileSystemModel_ConnectNotify_Callback = void (*)(QFileSystemModel*, QMetaMethod*);
+    using QFileSystemModel_DisconnectNotify_Callback = void (*)(QFileSystemModel*, QMetaMethod*);
+    using QFileSystemModel_CreateIndex_Callback = QModelIndex* (*)(const QFileSystemModel*, int, int);
+    using QFileSystemModel_EncodeData_Callback = void (*)(const QFileSystemModel*, libqt_list /* of QModelIndex* */, QDataStream*);
+    using QFileSystemModel_DecodeData_Callback = bool (*)(QFileSystemModel*, int, int, QModelIndex*, QDataStream*);
+    using QFileSystemModel_BeginInsertRows_Callback = void (*)(QFileSystemModel*, QModelIndex*, int, int);
     using QFileSystemModel_EndInsertRows_Callback = void (*)();
-    using QFileSystemModel_BeginRemoveRows_Callback = void (*)(QFileSystemModel*, const QModelIndex&, int, int);
+    using QFileSystemModel_BeginRemoveRows_Callback = void (*)(QFileSystemModel*, QModelIndex*, int, int);
     using QFileSystemModel_EndRemoveRows_Callback = void (*)();
-    using QFileSystemModel_BeginMoveRows_Callback = bool (*)(QFileSystemModel*, const QModelIndex&, int, int, const QModelIndex&, int);
+    using QFileSystemModel_BeginMoveRows_Callback = bool (*)(QFileSystemModel*, QModelIndex*, int, int, QModelIndex*, int);
     using QFileSystemModel_EndMoveRows_Callback = void (*)();
-    using QFileSystemModel_BeginInsertColumns_Callback = void (*)(QFileSystemModel*, const QModelIndex&, int, int);
+    using QFileSystemModel_BeginInsertColumns_Callback = void (*)(QFileSystemModel*, QModelIndex*, int, int);
     using QFileSystemModel_EndInsertColumns_Callback = void (*)();
-    using QFileSystemModel_BeginRemoveColumns_Callback = void (*)(QFileSystemModel*, const QModelIndex&, int, int);
+    using QFileSystemModel_BeginRemoveColumns_Callback = void (*)(QFileSystemModel*, QModelIndex*, int, int);
     using QFileSystemModel_EndRemoveColumns_Callback = void (*)();
-    using QFileSystemModel_BeginMoveColumns_Callback = bool (*)(QFileSystemModel*, const QModelIndex&, int, int, const QModelIndex&, int);
+    using QFileSystemModel_BeginMoveColumns_Callback = bool (*)(QFileSystemModel*, QModelIndex*, int, int, QModelIndex*, int);
     using QFileSystemModel_EndMoveColumns_Callback = void (*)();
     using QFileSystemModel_BeginResetModel_Callback = void (*)();
     using QFileSystemModel_EndResetModel_Callback = void (*)();
-    using QFileSystemModel_ChangePersistentIndex_Callback = void (*)(QFileSystemModel*, const QModelIndex&, const QModelIndex&);
-    using QFileSystemModel_ChangePersistentIndexList_Callback = void (*)(QFileSystemModel*, const QModelIndexList&, const QModelIndexList&);
-    using QFileSystemModel_PersistentIndexList_Callback = QModelIndexList (*)();
+    using QFileSystemModel_ChangePersistentIndex_Callback = void (*)(QFileSystemModel*, QModelIndex*, QModelIndex*);
+    using QFileSystemModel_ChangePersistentIndexList_Callback = void (*)(QFileSystemModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
+    using QFileSystemModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QFileSystemModel_Sender_Callback = QObject* (*)();
     using QFileSystemModel_SenderSignalIndex_Callback = int (*)();
     using QFileSystemModel_Receivers_Callback = int (*)(const QFileSystemModel*, const char*);
-    using QFileSystemModel_IsSignalConnected_Callback = bool (*)(const QFileSystemModel*, const QMetaMethod&);
+    using QFileSystemModel_IsSignalConnected_Callback = bool (*)(const QFileSystemModel*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -305,146 +308,146 @@ class VirtualQFileSystemModel : public QFileSystemModel {
     }
 
     // Callback setters
-    void setQFileSystemModel_Metacall_Callback(QFileSystemModel_Metacall_Callback cb) { qfilesystemmodel_metacall_callback = cb; }
-    void setQFileSystemModel_Index_Callback(QFileSystemModel_Index_Callback cb) { qfilesystemmodel_index_callback = cb; }
-    void setQFileSystemModel_Parent_Callback(QFileSystemModel_Parent_Callback cb) { qfilesystemmodel_parent_callback = cb; }
-    void setQFileSystemModel_Sibling_Callback(QFileSystemModel_Sibling_Callback cb) { qfilesystemmodel_sibling_callback = cb; }
-    void setQFileSystemModel_HasChildren_Callback(QFileSystemModel_HasChildren_Callback cb) { qfilesystemmodel_haschildren_callback = cb; }
-    void setQFileSystemModel_CanFetchMore_Callback(QFileSystemModel_CanFetchMore_Callback cb) { qfilesystemmodel_canfetchmore_callback = cb; }
-    void setQFileSystemModel_FetchMore_Callback(QFileSystemModel_FetchMore_Callback cb) { qfilesystemmodel_fetchmore_callback = cb; }
-    void setQFileSystemModel_RowCount_Callback(QFileSystemModel_RowCount_Callback cb) { qfilesystemmodel_rowcount_callback = cb; }
-    void setQFileSystemModel_ColumnCount_Callback(QFileSystemModel_ColumnCount_Callback cb) { qfilesystemmodel_columncount_callback = cb; }
-    void setQFileSystemModel_Data_Callback(QFileSystemModel_Data_Callback cb) { qfilesystemmodel_data_callback = cb; }
-    void setQFileSystemModel_SetData_Callback(QFileSystemModel_SetData_Callback cb) { qfilesystemmodel_setdata_callback = cb; }
-    void setQFileSystemModel_HeaderData_Callback(QFileSystemModel_HeaderData_Callback cb) { qfilesystemmodel_headerdata_callback = cb; }
-    void setQFileSystemModel_Flags_Callback(QFileSystemModel_Flags_Callback cb) { qfilesystemmodel_flags_callback = cb; }
-    void setQFileSystemModel_Sort_Callback(QFileSystemModel_Sort_Callback cb) { qfilesystemmodel_sort_callback = cb; }
-    void setQFileSystemModel_MimeTypes_Callback(QFileSystemModel_MimeTypes_Callback cb) { qfilesystemmodel_mimetypes_callback = cb; }
-    void setQFileSystemModel_MimeData_Callback(QFileSystemModel_MimeData_Callback cb) { qfilesystemmodel_mimedata_callback = cb; }
-    void setQFileSystemModel_DropMimeData_Callback(QFileSystemModel_DropMimeData_Callback cb) { qfilesystemmodel_dropmimedata_callback = cb; }
-    void setQFileSystemModel_SupportedDropActions_Callback(QFileSystemModel_SupportedDropActions_Callback cb) { qfilesystemmodel_supporteddropactions_callback = cb; }
-    void setQFileSystemModel_RoleNames_Callback(QFileSystemModel_RoleNames_Callback cb) { qfilesystemmodel_rolenames_callback = cb; }
-    void setQFileSystemModel_TimerEvent_Callback(QFileSystemModel_TimerEvent_Callback cb) { qfilesystemmodel_timerevent_callback = cb; }
-    void setQFileSystemModel_Event_Callback(QFileSystemModel_Event_Callback cb) { qfilesystemmodel_event_callback = cb; }
-    void setQFileSystemModel_SetHeaderData_Callback(QFileSystemModel_SetHeaderData_Callback cb) { qfilesystemmodel_setheaderdata_callback = cb; }
-    void setQFileSystemModel_ItemData_Callback(QFileSystemModel_ItemData_Callback cb) { qfilesystemmodel_itemdata_callback = cb; }
-    void setQFileSystemModel_SetItemData_Callback(QFileSystemModel_SetItemData_Callback cb) { qfilesystemmodel_setitemdata_callback = cb; }
-    void setQFileSystemModel_ClearItemData_Callback(QFileSystemModel_ClearItemData_Callback cb) { qfilesystemmodel_clearitemdata_callback = cb; }
-    void setQFileSystemModel_CanDropMimeData_Callback(QFileSystemModel_CanDropMimeData_Callback cb) { qfilesystemmodel_candropmimedata_callback = cb; }
-    void setQFileSystemModel_SupportedDragActions_Callback(QFileSystemModel_SupportedDragActions_Callback cb) { qfilesystemmodel_supporteddragactions_callback = cb; }
-    void setQFileSystemModel_InsertRows_Callback(QFileSystemModel_InsertRows_Callback cb) { qfilesystemmodel_insertrows_callback = cb; }
-    void setQFileSystemModel_InsertColumns_Callback(QFileSystemModel_InsertColumns_Callback cb) { qfilesystemmodel_insertcolumns_callback = cb; }
-    void setQFileSystemModel_RemoveRows_Callback(QFileSystemModel_RemoveRows_Callback cb) { qfilesystemmodel_removerows_callback = cb; }
-    void setQFileSystemModel_RemoveColumns_Callback(QFileSystemModel_RemoveColumns_Callback cb) { qfilesystemmodel_removecolumns_callback = cb; }
-    void setQFileSystemModel_MoveRows_Callback(QFileSystemModel_MoveRows_Callback cb) { qfilesystemmodel_moverows_callback = cb; }
-    void setQFileSystemModel_MoveColumns_Callback(QFileSystemModel_MoveColumns_Callback cb) { qfilesystemmodel_movecolumns_callback = cb; }
-    void setQFileSystemModel_Buddy_Callback(QFileSystemModel_Buddy_Callback cb) { qfilesystemmodel_buddy_callback = cb; }
-    void setQFileSystemModel_Match_Callback(QFileSystemModel_Match_Callback cb) { qfilesystemmodel_match_callback = cb; }
-    void setQFileSystemModel_Span_Callback(QFileSystemModel_Span_Callback cb) { qfilesystemmodel_span_callback = cb; }
-    void setQFileSystemModel_MultiData_Callback(QFileSystemModel_MultiData_Callback cb) { qfilesystemmodel_multidata_callback = cb; }
-    void setQFileSystemModel_Submit_Callback(QFileSystemModel_Submit_Callback cb) { qfilesystemmodel_submit_callback = cb; }
-    void setQFileSystemModel_Revert_Callback(QFileSystemModel_Revert_Callback cb) { qfilesystemmodel_revert_callback = cb; }
-    void setQFileSystemModel_ResetInternalData_Callback(QFileSystemModel_ResetInternalData_Callback cb) { qfilesystemmodel_resetinternaldata_callback = cb; }
-    void setQFileSystemModel_EventFilter_Callback(QFileSystemModel_EventFilter_Callback cb) { qfilesystemmodel_eventfilter_callback = cb; }
-    void setQFileSystemModel_ChildEvent_Callback(QFileSystemModel_ChildEvent_Callback cb) { qfilesystemmodel_childevent_callback = cb; }
-    void setQFileSystemModel_CustomEvent_Callback(QFileSystemModel_CustomEvent_Callback cb) { qfilesystemmodel_customevent_callback = cb; }
-    void setQFileSystemModel_ConnectNotify_Callback(QFileSystemModel_ConnectNotify_Callback cb) { qfilesystemmodel_connectnotify_callback = cb; }
-    void setQFileSystemModel_DisconnectNotify_Callback(QFileSystemModel_DisconnectNotify_Callback cb) { qfilesystemmodel_disconnectnotify_callback = cb; }
-    void setQFileSystemModel_CreateIndex_Callback(QFileSystemModel_CreateIndex_Callback cb) { qfilesystemmodel_createindex_callback = cb; }
-    void setQFileSystemModel_EncodeData_Callback(QFileSystemModel_EncodeData_Callback cb) { qfilesystemmodel_encodedata_callback = cb; }
-    void setQFileSystemModel_DecodeData_Callback(QFileSystemModel_DecodeData_Callback cb) { qfilesystemmodel_decodedata_callback = cb; }
-    void setQFileSystemModel_BeginInsertRows_Callback(QFileSystemModel_BeginInsertRows_Callback cb) { qfilesystemmodel_begininsertrows_callback = cb; }
-    void setQFileSystemModel_EndInsertRows_Callback(QFileSystemModel_EndInsertRows_Callback cb) { qfilesystemmodel_endinsertrows_callback = cb; }
-    void setQFileSystemModel_BeginRemoveRows_Callback(QFileSystemModel_BeginRemoveRows_Callback cb) { qfilesystemmodel_beginremoverows_callback = cb; }
-    void setQFileSystemModel_EndRemoveRows_Callback(QFileSystemModel_EndRemoveRows_Callback cb) { qfilesystemmodel_endremoverows_callback = cb; }
-    void setQFileSystemModel_BeginMoveRows_Callback(QFileSystemModel_BeginMoveRows_Callback cb) { qfilesystemmodel_beginmoverows_callback = cb; }
-    void setQFileSystemModel_EndMoveRows_Callback(QFileSystemModel_EndMoveRows_Callback cb) { qfilesystemmodel_endmoverows_callback = cb; }
-    void setQFileSystemModel_BeginInsertColumns_Callback(QFileSystemModel_BeginInsertColumns_Callback cb) { qfilesystemmodel_begininsertcolumns_callback = cb; }
-    void setQFileSystemModel_EndInsertColumns_Callback(QFileSystemModel_EndInsertColumns_Callback cb) { qfilesystemmodel_endinsertcolumns_callback = cb; }
-    void setQFileSystemModel_BeginRemoveColumns_Callback(QFileSystemModel_BeginRemoveColumns_Callback cb) { qfilesystemmodel_beginremovecolumns_callback = cb; }
-    void setQFileSystemModel_EndRemoveColumns_Callback(QFileSystemModel_EndRemoveColumns_Callback cb) { qfilesystemmodel_endremovecolumns_callback = cb; }
-    void setQFileSystemModel_BeginMoveColumns_Callback(QFileSystemModel_BeginMoveColumns_Callback cb) { qfilesystemmodel_beginmovecolumns_callback = cb; }
-    void setQFileSystemModel_EndMoveColumns_Callback(QFileSystemModel_EndMoveColumns_Callback cb) { qfilesystemmodel_endmovecolumns_callback = cb; }
-    void setQFileSystemModel_BeginResetModel_Callback(QFileSystemModel_BeginResetModel_Callback cb) { qfilesystemmodel_beginresetmodel_callback = cb; }
-    void setQFileSystemModel_EndResetModel_Callback(QFileSystemModel_EndResetModel_Callback cb) { qfilesystemmodel_endresetmodel_callback = cb; }
-    void setQFileSystemModel_ChangePersistentIndex_Callback(QFileSystemModel_ChangePersistentIndex_Callback cb) { qfilesystemmodel_changepersistentindex_callback = cb; }
-    void setQFileSystemModel_ChangePersistentIndexList_Callback(QFileSystemModel_ChangePersistentIndexList_Callback cb) { qfilesystemmodel_changepersistentindexlist_callback = cb; }
-    void setQFileSystemModel_PersistentIndexList_Callback(QFileSystemModel_PersistentIndexList_Callback cb) { qfilesystemmodel_persistentindexlist_callback = cb; }
-    void setQFileSystemModel_Sender_Callback(QFileSystemModel_Sender_Callback cb) { qfilesystemmodel_sender_callback = cb; }
-    void setQFileSystemModel_SenderSignalIndex_Callback(QFileSystemModel_SenderSignalIndex_Callback cb) { qfilesystemmodel_sendersignalindex_callback = cb; }
-    void setQFileSystemModel_Receivers_Callback(QFileSystemModel_Receivers_Callback cb) { qfilesystemmodel_receivers_callback = cb; }
-    void setQFileSystemModel_IsSignalConnected_Callback(QFileSystemModel_IsSignalConnected_Callback cb) { qfilesystemmodel_issignalconnected_callback = cb; }
+    inline void setQFileSystemModel_Metacall_Callback(QFileSystemModel_Metacall_Callback cb) { qfilesystemmodel_metacall_callback = cb; }
+    inline void setQFileSystemModel_Index_Callback(QFileSystemModel_Index_Callback cb) { qfilesystemmodel_index_callback = cb; }
+    inline void setQFileSystemModel_Parent_Callback(QFileSystemModel_Parent_Callback cb) { qfilesystemmodel_parent_callback = cb; }
+    inline void setQFileSystemModel_Sibling_Callback(QFileSystemModel_Sibling_Callback cb) { qfilesystemmodel_sibling_callback = cb; }
+    inline void setQFileSystemModel_HasChildren_Callback(QFileSystemModel_HasChildren_Callback cb) { qfilesystemmodel_haschildren_callback = cb; }
+    inline void setQFileSystemModel_CanFetchMore_Callback(QFileSystemModel_CanFetchMore_Callback cb) { qfilesystemmodel_canfetchmore_callback = cb; }
+    inline void setQFileSystemModel_FetchMore_Callback(QFileSystemModel_FetchMore_Callback cb) { qfilesystemmodel_fetchmore_callback = cb; }
+    inline void setQFileSystemModel_RowCount_Callback(QFileSystemModel_RowCount_Callback cb) { qfilesystemmodel_rowcount_callback = cb; }
+    inline void setQFileSystemModel_ColumnCount_Callback(QFileSystemModel_ColumnCount_Callback cb) { qfilesystemmodel_columncount_callback = cb; }
+    inline void setQFileSystemModel_Data_Callback(QFileSystemModel_Data_Callback cb) { qfilesystemmodel_data_callback = cb; }
+    inline void setQFileSystemModel_SetData_Callback(QFileSystemModel_SetData_Callback cb) { qfilesystemmodel_setdata_callback = cb; }
+    inline void setQFileSystemModel_HeaderData_Callback(QFileSystemModel_HeaderData_Callback cb) { qfilesystemmodel_headerdata_callback = cb; }
+    inline void setQFileSystemModel_Flags_Callback(QFileSystemModel_Flags_Callback cb) { qfilesystemmodel_flags_callback = cb; }
+    inline void setQFileSystemModel_Sort_Callback(QFileSystemModel_Sort_Callback cb) { qfilesystemmodel_sort_callback = cb; }
+    inline void setQFileSystemModel_MimeTypes_Callback(QFileSystemModel_MimeTypes_Callback cb) { qfilesystemmodel_mimetypes_callback = cb; }
+    inline void setQFileSystemModel_MimeData_Callback(QFileSystemModel_MimeData_Callback cb) { qfilesystemmodel_mimedata_callback = cb; }
+    inline void setQFileSystemModel_DropMimeData_Callback(QFileSystemModel_DropMimeData_Callback cb) { qfilesystemmodel_dropmimedata_callback = cb; }
+    inline void setQFileSystemModel_SupportedDropActions_Callback(QFileSystemModel_SupportedDropActions_Callback cb) { qfilesystemmodel_supporteddropactions_callback = cb; }
+    inline void setQFileSystemModel_RoleNames_Callback(QFileSystemModel_RoleNames_Callback cb) { qfilesystemmodel_rolenames_callback = cb; }
+    inline void setQFileSystemModel_TimerEvent_Callback(QFileSystemModel_TimerEvent_Callback cb) { qfilesystemmodel_timerevent_callback = cb; }
+    inline void setQFileSystemModel_Event_Callback(QFileSystemModel_Event_Callback cb) { qfilesystemmodel_event_callback = cb; }
+    inline void setQFileSystemModel_SetHeaderData_Callback(QFileSystemModel_SetHeaderData_Callback cb) { qfilesystemmodel_setheaderdata_callback = cb; }
+    inline void setQFileSystemModel_ItemData_Callback(QFileSystemModel_ItemData_Callback cb) { qfilesystemmodel_itemdata_callback = cb; }
+    inline void setQFileSystemModel_SetItemData_Callback(QFileSystemModel_SetItemData_Callback cb) { qfilesystemmodel_setitemdata_callback = cb; }
+    inline void setQFileSystemModel_ClearItemData_Callback(QFileSystemModel_ClearItemData_Callback cb) { qfilesystemmodel_clearitemdata_callback = cb; }
+    inline void setQFileSystemModel_CanDropMimeData_Callback(QFileSystemModel_CanDropMimeData_Callback cb) { qfilesystemmodel_candropmimedata_callback = cb; }
+    inline void setQFileSystemModel_SupportedDragActions_Callback(QFileSystemModel_SupportedDragActions_Callback cb) { qfilesystemmodel_supporteddragactions_callback = cb; }
+    inline void setQFileSystemModel_InsertRows_Callback(QFileSystemModel_InsertRows_Callback cb) { qfilesystemmodel_insertrows_callback = cb; }
+    inline void setQFileSystemModel_InsertColumns_Callback(QFileSystemModel_InsertColumns_Callback cb) { qfilesystemmodel_insertcolumns_callback = cb; }
+    inline void setQFileSystemModel_RemoveRows_Callback(QFileSystemModel_RemoveRows_Callback cb) { qfilesystemmodel_removerows_callback = cb; }
+    inline void setQFileSystemModel_RemoveColumns_Callback(QFileSystemModel_RemoveColumns_Callback cb) { qfilesystemmodel_removecolumns_callback = cb; }
+    inline void setQFileSystemModel_MoveRows_Callback(QFileSystemModel_MoveRows_Callback cb) { qfilesystemmodel_moverows_callback = cb; }
+    inline void setQFileSystemModel_MoveColumns_Callback(QFileSystemModel_MoveColumns_Callback cb) { qfilesystemmodel_movecolumns_callback = cb; }
+    inline void setQFileSystemModel_Buddy_Callback(QFileSystemModel_Buddy_Callback cb) { qfilesystemmodel_buddy_callback = cb; }
+    inline void setQFileSystemModel_Match_Callback(QFileSystemModel_Match_Callback cb) { qfilesystemmodel_match_callback = cb; }
+    inline void setQFileSystemModel_Span_Callback(QFileSystemModel_Span_Callback cb) { qfilesystemmodel_span_callback = cb; }
+    inline void setQFileSystemModel_MultiData_Callback(QFileSystemModel_MultiData_Callback cb) { qfilesystemmodel_multidata_callback = cb; }
+    inline void setQFileSystemModel_Submit_Callback(QFileSystemModel_Submit_Callback cb) { qfilesystemmodel_submit_callback = cb; }
+    inline void setQFileSystemModel_Revert_Callback(QFileSystemModel_Revert_Callback cb) { qfilesystemmodel_revert_callback = cb; }
+    inline void setQFileSystemModel_ResetInternalData_Callback(QFileSystemModel_ResetInternalData_Callback cb) { qfilesystemmodel_resetinternaldata_callback = cb; }
+    inline void setQFileSystemModel_EventFilter_Callback(QFileSystemModel_EventFilter_Callback cb) { qfilesystemmodel_eventfilter_callback = cb; }
+    inline void setQFileSystemModel_ChildEvent_Callback(QFileSystemModel_ChildEvent_Callback cb) { qfilesystemmodel_childevent_callback = cb; }
+    inline void setQFileSystemModel_CustomEvent_Callback(QFileSystemModel_CustomEvent_Callback cb) { qfilesystemmodel_customevent_callback = cb; }
+    inline void setQFileSystemModel_ConnectNotify_Callback(QFileSystemModel_ConnectNotify_Callback cb) { qfilesystemmodel_connectnotify_callback = cb; }
+    inline void setQFileSystemModel_DisconnectNotify_Callback(QFileSystemModel_DisconnectNotify_Callback cb) { qfilesystemmodel_disconnectnotify_callback = cb; }
+    inline void setQFileSystemModel_CreateIndex_Callback(QFileSystemModel_CreateIndex_Callback cb) { qfilesystemmodel_createindex_callback = cb; }
+    inline void setQFileSystemModel_EncodeData_Callback(QFileSystemModel_EncodeData_Callback cb) { qfilesystemmodel_encodedata_callback = cb; }
+    inline void setQFileSystemModel_DecodeData_Callback(QFileSystemModel_DecodeData_Callback cb) { qfilesystemmodel_decodedata_callback = cb; }
+    inline void setQFileSystemModel_BeginInsertRows_Callback(QFileSystemModel_BeginInsertRows_Callback cb) { qfilesystemmodel_begininsertrows_callback = cb; }
+    inline void setQFileSystemModel_EndInsertRows_Callback(QFileSystemModel_EndInsertRows_Callback cb) { qfilesystemmodel_endinsertrows_callback = cb; }
+    inline void setQFileSystemModel_BeginRemoveRows_Callback(QFileSystemModel_BeginRemoveRows_Callback cb) { qfilesystemmodel_beginremoverows_callback = cb; }
+    inline void setQFileSystemModel_EndRemoveRows_Callback(QFileSystemModel_EndRemoveRows_Callback cb) { qfilesystemmodel_endremoverows_callback = cb; }
+    inline void setQFileSystemModel_BeginMoveRows_Callback(QFileSystemModel_BeginMoveRows_Callback cb) { qfilesystemmodel_beginmoverows_callback = cb; }
+    inline void setQFileSystemModel_EndMoveRows_Callback(QFileSystemModel_EndMoveRows_Callback cb) { qfilesystemmodel_endmoverows_callback = cb; }
+    inline void setQFileSystemModel_BeginInsertColumns_Callback(QFileSystemModel_BeginInsertColumns_Callback cb) { qfilesystemmodel_begininsertcolumns_callback = cb; }
+    inline void setQFileSystemModel_EndInsertColumns_Callback(QFileSystemModel_EndInsertColumns_Callback cb) { qfilesystemmodel_endinsertcolumns_callback = cb; }
+    inline void setQFileSystemModel_BeginRemoveColumns_Callback(QFileSystemModel_BeginRemoveColumns_Callback cb) { qfilesystemmodel_beginremovecolumns_callback = cb; }
+    inline void setQFileSystemModel_EndRemoveColumns_Callback(QFileSystemModel_EndRemoveColumns_Callback cb) { qfilesystemmodel_endremovecolumns_callback = cb; }
+    inline void setQFileSystemModel_BeginMoveColumns_Callback(QFileSystemModel_BeginMoveColumns_Callback cb) { qfilesystemmodel_beginmovecolumns_callback = cb; }
+    inline void setQFileSystemModel_EndMoveColumns_Callback(QFileSystemModel_EndMoveColumns_Callback cb) { qfilesystemmodel_endmovecolumns_callback = cb; }
+    inline void setQFileSystemModel_BeginResetModel_Callback(QFileSystemModel_BeginResetModel_Callback cb) { qfilesystemmodel_beginresetmodel_callback = cb; }
+    inline void setQFileSystemModel_EndResetModel_Callback(QFileSystemModel_EndResetModel_Callback cb) { qfilesystemmodel_endresetmodel_callback = cb; }
+    inline void setQFileSystemModel_ChangePersistentIndex_Callback(QFileSystemModel_ChangePersistentIndex_Callback cb) { qfilesystemmodel_changepersistentindex_callback = cb; }
+    inline void setQFileSystemModel_ChangePersistentIndexList_Callback(QFileSystemModel_ChangePersistentIndexList_Callback cb) { qfilesystemmodel_changepersistentindexlist_callback = cb; }
+    inline void setQFileSystemModel_PersistentIndexList_Callback(QFileSystemModel_PersistentIndexList_Callback cb) { qfilesystemmodel_persistentindexlist_callback = cb; }
+    inline void setQFileSystemModel_Sender_Callback(QFileSystemModel_Sender_Callback cb) { qfilesystemmodel_sender_callback = cb; }
+    inline void setQFileSystemModel_SenderSignalIndex_Callback(QFileSystemModel_SenderSignalIndex_Callback cb) { qfilesystemmodel_sendersignalindex_callback = cb; }
+    inline void setQFileSystemModel_Receivers_Callback(QFileSystemModel_Receivers_Callback cb) { qfilesystemmodel_receivers_callback = cb; }
+    inline void setQFileSystemModel_IsSignalConnected_Callback(QFileSystemModel_IsSignalConnected_Callback cb) { qfilesystemmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQFileSystemModel_Metacall_IsBase(bool value) const { qfilesystemmodel_metacall_isbase = value; }
-    void setQFileSystemModel_Index_IsBase(bool value) const { qfilesystemmodel_index_isbase = value; }
-    void setQFileSystemModel_Parent_IsBase(bool value) const { qfilesystemmodel_parent_isbase = value; }
-    void setQFileSystemModel_Sibling_IsBase(bool value) const { qfilesystemmodel_sibling_isbase = value; }
-    void setQFileSystemModel_HasChildren_IsBase(bool value) const { qfilesystemmodel_haschildren_isbase = value; }
-    void setQFileSystemModel_CanFetchMore_IsBase(bool value) const { qfilesystemmodel_canfetchmore_isbase = value; }
-    void setQFileSystemModel_FetchMore_IsBase(bool value) const { qfilesystemmodel_fetchmore_isbase = value; }
-    void setQFileSystemModel_RowCount_IsBase(bool value) const { qfilesystemmodel_rowcount_isbase = value; }
-    void setQFileSystemModel_ColumnCount_IsBase(bool value) const { qfilesystemmodel_columncount_isbase = value; }
-    void setQFileSystemModel_Data_IsBase(bool value) const { qfilesystemmodel_data_isbase = value; }
-    void setQFileSystemModel_SetData_IsBase(bool value) const { qfilesystemmodel_setdata_isbase = value; }
-    void setQFileSystemModel_HeaderData_IsBase(bool value) const { qfilesystemmodel_headerdata_isbase = value; }
-    void setQFileSystemModel_Flags_IsBase(bool value) const { qfilesystemmodel_flags_isbase = value; }
-    void setQFileSystemModel_Sort_IsBase(bool value) const { qfilesystemmodel_sort_isbase = value; }
-    void setQFileSystemModel_MimeTypes_IsBase(bool value) const { qfilesystemmodel_mimetypes_isbase = value; }
-    void setQFileSystemModel_MimeData_IsBase(bool value) const { qfilesystemmodel_mimedata_isbase = value; }
-    void setQFileSystemModel_DropMimeData_IsBase(bool value) const { qfilesystemmodel_dropmimedata_isbase = value; }
-    void setQFileSystemModel_SupportedDropActions_IsBase(bool value) const { qfilesystemmodel_supporteddropactions_isbase = value; }
-    void setQFileSystemModel_RoleNames_IsBase(bool value) const { qfilesystemmodel_rolenames_isbase = value; }
-    void setQFileSystemModel_TimerEvent_IsBase(bool value) const { qfilesystemmodel_timerevent_isbase = value; }
-    void setQFileSystemModel_Event_IsBase(bool value) const { qfilesystemmodel_event_isbase = value; }
-    void setQFileSystemModel_SetHeaderData_IsBase(bool value) const { qfilesystemmodel_setheaderdata_isbase = value; }
-    void setQFileSystemModel_ItemData_IsBase(bool value) const { qfilesystemmodel_itemdata_isbase = value; }
-    void setQFileSystemModel_SetItemData_IsBase(bool value) const { qfilesystemmodel_setitemdata_isbase = value; }
-    void setQFileSystemModel_ClearItemData_IsBase(bool value) const { qfilesystemmodel_clearitemdata_isbase = value; }
-    void setQFileSystemModel_CanDropMimeData_IsBase(bool value) const { qfilesystemmodel_candropmimedata_isbase = value; }
-    void setQFileSystemModel_SupportedDragActions_IsBase(bool value) const { qfilesystemmodel_supporteddragactions_isbase = value; }
-    void setQFileSystemModel_InsertRows_IsBase(bool value) const { qfilesystemmodel_insertrows_isbase = value; }
-    void setQFileSystemModel_InsertColumns_IsBase(bool value) const { qfilesystemmodel_insertcolumns_isbase = value; }
-    void setQFileSystemModel_RemoveRows_IsBase(bool value) const { qfilesystemmodel_removerows_isbase = value; }
-    void setQFileSystemModel_RemoveColumns_IsBase(bool value) const { qfilesystemmodel_removecolumns_isbase = value; }
-    void setQFileSystemModel_MoveRows_IsBase(bool value) const { qfilesystemmodel_moverows_isbase = value; }
-    void setQFileSystemModel_MoveColumns_IsBase(bool value) const { qfilesystemmodel_movecolumns_isbase = value; }
-    void setQFileSystemModel_Buddy_IsBase(bool value) const { qfilesystemmodel_buddy_isbase = value; }
-    void setQFileSystemModel_Match_IsBase(bool value) const { qfilesystemmodel_match_isbase = value; }
-    void setQFileSystemModel_Span_IsBase(bool value) const { qfilesystemmodel_span_isbase = value; }
-    void setQFileSystemModel_MultiData_IsBase(bool value) const { qfilesystemmodel_multidata_isbase = value; }
-    void setQFileSystemModel_Submit_IsBase(bool value) const { qfilesystemmodel_submit_isbase = value; }
-    void setQFileSystemModel_Revert_IsBase(bool value) const { qfilesystemmodel_revert_isbase = value; }
-    void setQFileSystemModel_ResetInternalData_IsBase(bool value) const { qfilesystemmodel_resetinternaldata_isbase = value; }
-    void setQFileSystemModel_EventFilter_IsBase(bool value) const { qfilesystemmodel_eventfilter_isbase = value; }
-    void setQFileSystemModel_ChildEvent_IsBase(bool value) const { qfilesystemmodel_childevent_isbase = value; }
-    void setQFileSystemModel_CustomEvent_IsBase(bool value) const { qfilesystemmodel_customevent_isbase = value; }
-    void setQFileSystemModel_ConnectNotify_IsBase(bool value) const { qfilesystemmodel_connectnotify_isbase = value; }
-    void setQFileSystemModel_DisconnectNotify_IsBase(bool value) const { qfilesystemmodel_disconnectnotify_isbase = value; }
-    void setQFileSystemModel_CreateIndex_IsBase(bool value) const { qfilesystemmodel_createindex_isbase = value; }
-    void setQFileSystemModel_EncodeData_IsBase(bool value) const { qfilesystemmodel_encodedata_isbase = value; }
-    void setQFileSystemModel_DecodeData_IsBase(bool value) const { qfilesystemmodel_decodedata_isbase = value; }
-    void setQFileSystemModel_BeginInsertRows_IsBase(bool value) const { qfilesystemmodel_begininsertrows_isbase = value; }
-    void setQFileSystemModel_EndInsertRows_IsBase(bool value) const { qfilesystemmodel_endinsertrows_isbase = value; }
-    void setQFileSystemModel_BeginRemoveRows_IsBase(bool value) const { qfilesystemmodel_beginremoverows_isbase = value; }
-    void setQFileSystemModel_EndRemoveRows_IsBase(bool value) const { qfilesystemmodel_endremoverows_isbase = value; }
-    void setQFileSystemModel_BeginMoveRows_IsBase(bool value) const { qfilesystemmodel_beginmoverows_isbase = value; }
-    void setQFileSystemModel_EndMoveRows_IsBase(bool value) const { qfilesystemmodel_endmoverows_isbase = value; }
-    void setQFileSystemModel_BeginInsertColumns_IsBase(bool value) const { qfilesystemmodel_begininsertcolumns_isbase = value; }
-    void setQFileSystemModel_EndInsertColumns_IsBase(bool value) const { qfilesystemmodel_endinsertcolumns_isbase = value; }
-    void setQFileSystemModel_BeginRemoveColumns_IsBase(bool value) const { qfilesystemmodel_beginremovecolumns_isbase = value; }
-    void setQFileSystemModel_EndRemoveColumns_IsBase(bool value) const { qfilesystemmodel_endremovecolumns_isbase = value; }
-    void setQFileSystemModel_BeginMoveColumns_IsBase(bool value) const { qfilesystemmodel_beginmovecolumns_isbase = value; }
-    void setQFileSystemModel_EndMoveColumns_IsBase(bool value) const { qfilesystemmodel_endmovecolumns_isbase = value; }
-    void setQFileSystemModel_BeginResetModel_IsBase(bool value) const { qfilesystemmodel_beginresetmodel_isbase = value; }
-    void setQFileSystemModel_EndResetModel_IsBase(bool value) const { qfilesystemmodel_endresetmodel_isbase = value; }
-    void setQFileSystemModel_ChangePersistentIndex_IsBase(bool value) const { qfilesystemmodel_changepersistentindex_isbase = value; }
-    void setQFileSystemModel_ChangePersistentIndexList_IsBase(bool value) const { qfilesystemmodel_changepersistentindexlist_isbase = value; }
-    void setQFileSystemModel_PersistentIndexList_IsBase(bool value) const { qfilesystemmodel_persistentindexlist_isbase = value; }
-    void setQFileSystemModel_Sender_IsBase(bool value) const { qfilesystemmodel_sender_isbase = value; }
-    void setQFileSystemModel_SenderSignalIndex_IsBase(bool value) const { qfilesystemmodel_sendersignalindex_isbase = value; }
-    void setQFileSystemModel_Receivers_IsBase(bool value) const { qfilesystemmodel_receivers_isbase = value; }
-    void setQFileSystemModel_IsSignalConnected_IsBase(bool value) const { qfilesystemmodel_issignalconnected_isbase = value; }
+    inline void setQFileSystemModel_Metacall_IsBase(bool value) const { qfilesystemmodel_metacall_isbase = value; }
+    inline void setQFileSystemModel_Index_IsBase(bool value) const { qfilesystemmodel_index_isbase = value; }
+    inline void setQFileSystemModel_Parent_IsBase(bool value) const { qfilesystemmodel_parent_isbase = value; }
+    inline void setQFileSystemModel_Sibling_IsBase(bool value) const { qfilesystemmodel_sibling_isbase = value; }
+    inline void setQFileSystemModel_HasChildren_IsBase(bool value) const { qfilesystemmodel_haschildren_isbase = value; }
+    inline void setQFileSystemModel_CanFetchMore_IsBase(bool value) const { qfilesystemmodel_canfetchmore_isbase = value; }
+    inline void setQFileSystemModel_FetchMore_IsBase(bool value) const { qfilesystemmodel_fetchmore_isbase = value; }
+    inline void setQFileSystemModel_RowCount_IsBase(bool value) const { qfilesystemmodel_rowcount_isbase = value; }
+    inline void setQFileSystemModel_ColumnCount_IsBase(bool value) const { qfilesystemmodel_columncount_isbase = value; }
+    inline void setQFileSystemModel_Data_IsBase(bool value) const { qfilesystemmodel_data_isbase = value; }
+    inline void setQFileSystemModel_SetData_IsBase(bool value) const { qfilesystemmodel_setdata_isbase = value; }
+    inline void setQFileSystemModel_HeaderData_IsBase(bool value) const { qfilesystemmodel_headerdata_isbase = value; }
+    inline void setQFileSystemModel_Flags_IsBase(bool value) const { qfilesystemmodel_flags_isbase = value; }
+    inline void setQFileSystemModel_Sort_IsBase(bool value) const { qfilesystemmodel_sort_isbase = value; }
+    inline void setQFileSystemModel_MimeTypes_IsBase(bool value) const { qfilesystemmodel_mimetypes_isbase = value; }
+    inline void setQFileSystemModel_MimeData_IsBase(bool value) const { qfilesystemmodel_mimedata_isbase = value; }
+    inline void setQFileSystemModel_DropMimeData_IsBase(bool value) const { qfilesystemmodel_dropmimedata_isbase = value; }
+    inline void setQFileSystemModel_SupportedDropActions_IsBase(bool value) const { qfilesystemmodel_supporteddropactions_isbase = value; }
+    inline void setQFileSystemModel_RoleNames_IsBase(bool value) const { qfilesystemmodel_rolenames_isbase = value; }
+    inline void setQFileSystemModel_TimerEvent_IsBase(bool value) const { qfilesystemmodel_timerevent_isbase = value; }
+    inline void setQFileSystemModel_Event_IsBase(bool value) const { qfilesystemmodel_event_isbase = value; }
+    inline void setQFileSystemModel_SetHeaderData_IsBase(bool value) const { qfilesystemmodel_setheaderdata_isbase = value; }
+    inline void setQFileSystemModel_ItemData_IsBase(bool value) const { qfilesystemmodel_itemdata_isbase = value; }
+    inline void setQFileSystemModel_SetItemData_IsBase(bool value) const { qfilesystemmodel_setitemdata_isbase = value; }
+    inline void setQFileSystemModel_ClearItemData_IsBase(bool value) const { qfilesystemmodel_clearitemdata_isbase = value; }
+    inline void setQFileSystemModel_CanDropMimeData_IsBase(bool value) const { qfilesystemmodel_candropmimedata_isbase = value; }
+    inline void setQFileSystemModel_SupportedDragActions_IsBase(bool value) const { qfilesystemmodel_supporteddragactions_isbase = value; }
+    inline void setQFileSystemModel_InsertRows_IsBase(bool value) const { qfilesystemmodel_insertrows_isbase = value; }
+    inline void setQFileSystemModel_InsertColumns_IsBase(bool value) const { qfilesystemmodel_insertcolumns_isbase = value; }
+    inline void setQFileSystemModel_RemoveRows_IsBase(bool value) const { qfilesystemmodel_removerows_isbase = value; }
+    inline void setQFileSystemModel_RemoveColumns_IsBase(bool value) const { qfilesystemmodel_removecolumns_isbase = value; }
+    inline void setQFileSystemModel_MoveRows_IsBase(bool value) const { qfilesystemmodel_moverows_isbase = value; }
+    inline void setQFileSystemModel_MoveColumns_IsBase(bool value) const { qfilesystemmodel_movecolumns_isbase = value; }
+    inline void setQFileSystemModel_Buddy_IsBase(bool value) const { qfilesystemmodel_buddy_isbase = value; }
+    inline void setQFileSystemModel_Match_IsBase(bool value) const { qfilesystemmodel_match_isbase = value; }
+    inline void setQFileSystemModel_Span_IsBase(bool value) const { qfilesystemmodel_span_isbase = value; }
+    inline void setQFileSystemModel_MultiData_IsBase(bool value) const { qfilesystemmodel_multidata_isbase = value; }
+    inline void setQFileSystemModel_Submit_IsBase(bool value) const { qfilesystemmodel_submit_isbase = value; }
+    inline void setQFileSystemModel_Revert_IsBase(bool value) const { qfilesystemmodel_revert_isbase = value; }
+    inline void setQFileSystemModel_ResetInternalData_IsBase(bool value) const { qfilesystemmodel_resetinternaldata_isbase = value; }
+    inline void setQFileSystemModel_EventFilter_IsBase(bool value) const { qfilesystemmodel_eventfilter_isbase = value; }
+    inline void setQFileSystemModel_ChildEvent_IsBase(bool value) const { qfilesystemmodel_childevent_isbase = value; }
+    inline void setQFileSystemModel_CustomEvent_IsBase(bool value) const { qfilesystemmodel_customevent_isbase = value; }
+    inline void setQFileSystemModel_ConnectNotify_IsBase(bool value) const { qfilesystemmodel_connectnotify_isbase = value; }
+    inline void setQFileSystemModel_DisconnectNotify_IsBase(bool value) const { qfilesystemmodel_disconnectnotify_isbase = value; }
+    inline void setQFileSystemModel_CreateIndex_IsBase(bool value) const { qfilesystemmodel_createindex_isbase = value; }
+    inline void setQFileSystemModel_EncodeData_IsBase(bool value) const { qfilesystemmodel_encodedata_isbase = value; }
+    inline void setQFileSystemModel_DecodeData_IsBase(bool value) const { qfilesystemmodel_decodedata_isbase = value; }
+    inline void setQFileSystemModel_BeginInsertRows_IsBase(bool value) const { qfilesystemmodel_begininsertrows_isbase = value; }
+    inline void setQFileSystemModel_EndInsertRows_IsBase(bool value) const { qfilesystemmodel_endinsertrows_isbase = value; }
+    inline void setQFileSystemModel_BeginRemoveRows_IsBase(bool value) const { qfilesystemmodel_beginremoverows_isbase = value; }
+    inline void setQFileSystemModel_EndRemoveRows_IsBase(bool value) const { qfilesystemmodel_endremoverows_isbase = value; }
+    inline void setQFileSystemModel_BeginMoveRows_IsBase(bool value) const { qfilesystemmodel_beginmoverows_isbase = value; }
+    inline void setQFileSystemModel_EndMoveRows_IsBase(bool value) const { qfilesystemmodel_endmoverows_isbase = value; }
+    inline void setQFileSystemModel_BeginInsertColumns_IsBase(bool value) const { qfilesystemmodel_begininsertcolumns_isbase = value; }
+    inline void setQFileSystemModel_EndInsertColumns_IsBase(bool value) const { qfilesystemmodel_endinsertcolumns_isbase = value; }
+    inline void setQFileSystemModel_BeginRemoveColumns_IsBase(bool value) const { qfilesystemmodel_beginremovecolumns_isbase = value; }
+    inline void setQFileSystemModel_EndRemoveColumns_IsBase(bool value) const { qfilesystemmodel_endremovecolumns_isbase = value; }
+    inline void setQFileSystemModel_BeginMoveColumns_IsBase(bool value) const { qfilesystemmodel_beginmovecolumns_isbase = value; }
+    inline void setQFileSystemModel_EndMoveColumns_IsBase(bool value) const { qfilesystemmodel_endmovecolumns_isbase = value; }
+    inline void setQFileSystemModel_BeginResetModel_IsBase(bool value) const { qfilesystemmodel_beginresetmodel_isbase = value; }
+    inline void setQFileSystemModel_EndResetModel_IsBase(bool value) const { qfilesystemmodel_endresetmodel_isbase = value; }
+    inline void setQFileSystemModel_ChangePersistentIndex_IsBase(bool value) const { qfilesystemmodel_changepersistentindex_isbase = value; }
+    inline void setQFileSystemModel_ChangePersistentIndexList_IsBase(bool value) const { qfilesystemmodel_changepersistentindexlist_isbase = value; }
+    inline void setQFileSystemModel_PersistentIndexList_IsBase(bool value) const { qfilesystemmodel_persistentindexlist_isbase = value; }
+    inline void setQFileSystemModel_Sender_IsBase(bool value) const { qfilesystemmodel_sender_isbase = value; }
+    inline void setQFileSystemModel_SenderSignalIndex_IsBase(bool value) const { qfilesystemmodel_sendersignalindex_isbase = value; }
+    inline void setQFileSystemModel_Receivers_IsBase(bool value) const { qfilesystemmodel_receivers_isbase = value; }
+    inline void setQFileSystemModel_IsSignalConnected_IsBase(bool value) const { qfilesystemmodel_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -452,7 +455,12 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_metacall_isbase = false;
             return QFileSystemModel::qt_metacall(param1, param2, param3);
         } else if (qfilesystemmodel_metacall_callback != nullptr) {
-            return qfilesystemmodel_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qfilesystemmodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QFileSystemModel::qt_metacall(param1, param2, param3);
         }
@@ -464,7 +472,14 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_index_isbase = false;
             return QFileSystemModel::index(row, column, parent);
         } else if (qfilesystemmodel_index_callback != nullptr) {
-            return qfilesystemmodel_index_callback(this, row, column, parent);
+            int cbval1 = row;
+            int cbval2 = column;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            QModelIndex* callback_ret = qfilesystemmodel_index_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QFileSystemModel::index(row, column, parent);
         }
@@ -476,7 +491,12 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_parent_isbase = false;
             return QFileSystemModel::parent(child);
         } else if (qfilesystemmodel_parent_callback != nullptr) {
-            return qfilesystemmodel_parent_callback(this, child);
+            const QModelIndex& child_ret = child;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&child_ret);
+
+            QModelIndex* callback_ret = qfilesystemmodel_parent_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QFileSystemModel::parent(child);
         }
@@ -488,7 +508,14 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_sibling_isbase = false;
             return QFileSystemModel::sibling(row, column, idx);
         } else if (qfilesystemmodel_sibling_callback != nullptr) {
-            return qfilesystemmodel_sibling_callback(this, row, column, idx);
+            int cbval1 = row;
+            int cbval2 = column;
+            const QModelIndex& idx_ret = idx;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
+
+            QModelIndex* callback_ret = qfilesystemmodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QFileSystemModel::sibling(row, column, idx);
         }
@@ -500,7 +527,12 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_haschildren_isbase = false;
             return QFileSystemModel::hasChildren(parent);
         } else if (qfilesystemmodel_haschildren_callback != nullptr) {
-            return qfilesystemmodel_haschildren_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qfilesystemmodel_haschildren_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFileSystemModel::hasChildren(parent);
         }
@@ -512,7 +544,12 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_canfetchmore_isbase = false;
             return QFileSystemModel::canFetchMore(parent);
         } else if (qfilesystemmodel_canfetchmore_callback != nullptr) {
-            return qfilesystemmodel_canfetchmore_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qfilesystemmodel_canfetchmore_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFileSystemModel::canFetchMore(parent);
         }
@@ -524,7 +561,11 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_fetchmore_isbase = false;
             QFileSystemModel::fetchMore(parent);
         } else if (qfilesystemmodel_fetchmore_callback != nullptr) {
-            qfilesystemmodel_fetchmore_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            qfilesystemmodel_fetchmore_callback(this, cbval1);
         } else {
             QFileSystemModel::fetchMore(parent);
         }
@@ -536,7 +577,12 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_rowcount_isbase = false;
             return QFileSystemModel::rowCount(parent);
         } else if (qfilesystemmodel_rowcount_callback != nullptr) {
-            return qfilesystemmodel_rowcount_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            int callback_ret = qfilesystemmodel_rowcount_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QFileSystemModel::rowCount(parent);
         }
@@ -548,7 +594,12 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_columncount_isbase = false;
             return QFileSystemModel::columnCount(parent);
         } else if (qfilesystemmodel_columncount_callback != nullptr) {
-            return qfilesystemmodel_columncount_callback(this, parent);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+
+            int callback_ret = qfilesystemmodel_columncount_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QFileSystemModel::columnCount(parent);
         }
@@ -560,7 +611,13 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_data_isbase = false;
             return QFileSystemModel::data(index, role);
         } else if (qfilesystemmodel_data_callback != nullptr) {
-            return qfilesystemmodel_data_callback(this, index, role);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            int cbval2 = role;
+
+            QVariant* callback_ret = qfilesystemmodel_data_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QFileSystemModel::data(index, role);
         }
@@ -572,7 +629,16 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_setdata_isbase = false;
             return QFileSystemModel::setData(index, value, role);
         } else if (qfilesystemmodel_setdata_callback != nullptr) {
-            return qfilesystemmodel_setdata_callback(this, index, value, role);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+            int cbval3 = role;
+
+            bool callback_ret = qfilesystemmodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QFileSystemModel::setData(index, value, role);
         }
@@ -584,7 +650,12 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_headerdata_isbase = false;
             return QFileSystemModel::headerData(section, orientation, role);
         } else if (qfilesystemmodel_headerdata_callback != nullptr) {
-            return qfilesystemmodel_headerdata_callback(this, section, orientation, role);
+            int cbval1 = section;
+            int cbval2 = static_cast<int>(orientation);
+            int cbval3 = role;
+
+            QVariant* callback_ret = qfilesystemmodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            return *callback_ret;
         } else {
             return QFileSystemModel::headerData(section, orientation, role);
         }
@@ -596,7 +667,12 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_flags_isbase = false;
             return QFileSystemModel::flags(index);
         } else if (qfilesystemmodel_flags_callback != nullptr) {
-            return qfilesystemmodel_flags_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            int callback_ret = qfilesystemmodel_flags_callback(this, cbval1);
+            return static_cast<Qt::ItemFlags>(callback_ret);
         } else {
             return QFileSystemModel::flags(index);
         }
@@ -608,7 +684,10 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_sort_isbase = false;
             QFileSystemModel::sort(column, order);
         } else if (qfilesystemmodel_sort_callback != nullptr) {
-            qfilesystemmodel_sort_callback(this, column, order);
+            int cbval1 = column;
+            int cbval2 = static_cast<int>(order);
+
+            qfilesystemmodel_sort_callback(this, cbval1, cbval2);
         } else {
             QFileSystemModel::sort(column, order);
         }
@@ -620,7 +699,15 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_mimetypes_isbase = false;
             return QFileSystemModel::mimeTypes();
         } else if (qfilesystemmodel_mimetypes_callback != nullptr) {
-            return qfilesystemmodel_mimetypes_callback();
+            libqt_list /* of libqt_string */ callback_ret = qfilesystemmodel_mimetypes_callback();
+            QStringList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+                callback_ret_QList.push_back(callback_ret_arr_i_QString);
+            }
+            return callback_ret_QList;
         } else {
             return QFileSystemModel::mimeTypes();
         }
@@ -632,7 +719,19 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_mimedata_isbase = false;
             return QFileSystemModel::mimeData(indexes);
         } else if (qfilesystemmodel_mimedata_callback != nullptr) {
-            return qfilesystemmodel_mimedata_callback(this, indexes);
+            const QModelIndexList& indexes_ret = indexes;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.length()));
+            for (size_t i = 0; i < indexes_ret.length(); ++i) {
+                indexes_arr[i] = new QModelIndex(indexes_ret[i]);
+            }
+            libqt_list indexes_out;
+            indexes_out.len = indexes_ret.length();
+            indexes_out.data = static_cast<void*>(indexes_arr);
+            libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
+
+            QMimeData* callback_ret = qfilesystemmodel_mimedata_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFileSystemModel::mimeData(indexes);
         }
@@ -644,7 +743,16 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_dropmimedata_isbase = false;
             return QFileSystemModel::dropMimeData(data, action, row, column, parent);
         } else if (qfilesystemmodel_dropmimedata_callback != nullptr) {
-            return qfilesystemmodel_dropmimedata_callback(this, data, action, row, column, parent);
+            QMimeData* cbval1 = (QMimeData*)data;
+            int cbval2 = static_cast<int>(action);
+            int cbval3 = row;
+            int cbval4 = column;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qfilesystemmodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QFileSystemModel::dropMimeData(data, action, row, column, parent);
         }
@@ -656,7 +764,8 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_supporteddropactions_isbase = false;
             return QFileSystemModel::supportedDropActions();
         } else if (qfilesystemmodel_supporteddropactions_callback != nullptr) {
-            return qfilesystemmodel_supporteddropactions_callback();
+            int callback_ret = qfilesystemmodel_supporteddropactions_callback();
+            return static_cast<Qt::DropActions>(callback_ret);
         } else {
             return QFileSystemModel::supportedDropActions();
         }
@@ -668,7 +777,16 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_rolenames_isbase = false;
             return QFileSystemModel::roleNames();
         } else if (qfilesystemmodel_rolenames_callback != nullptr) {
-            return qfilesystemmodel_rolenames_callback();
+            libqt_map /* of int to libqt_string */ callback_ret = qfilesystemmodel_rolenames_callback();
+            QHash<int, QByteArray> callback_ret_QMap;
+            callback_ret_QMap.reserve(callback_ret.len);
+            int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
+            libqt_string* callback_ret_varr = static_cast<libqt_string*>(callback_ret.values);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                QByteArray callback_ret_varr_i_QByteArray(callback_ret_varr[i].data, callback_ret_varr[i].len);
+                callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
+            }
+            return callback_ret_QMap;
         } else {
             return QFileSystemModel::roleNames();
         }
@@ -680,7 +798,9 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_timerevent_isbase = false;
             QFileSystemModel::timerEvent(event);
         } else if (qfilesystemmodel_timerevent_callback != nullptr) {
-            qfilesystemmodel_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qfilesystemmodel_timerevent_callback(this, cbval1);
         } else {
             QFileSystemModel::timerEvent(event);
         }
@@ -692,7 +812,10 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_event_isbase = false;
             return QFileSystemModel::event(event);
         } else if (qfilesystemmodel_event_callback != nullptr) {
-            return qfilesystemmodel_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qfilesystemmodel_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFileSystemModel::event(event);
         }
@@ -704,7 +827,15 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_setheaderdata_isbase = false;
             return QFileSystemModel::setHeaderData(section, orientation, value, role);
         } else if (qfilesystemmodel_setheaderdata_callback != nullptr) {
-            return qfilesystemmodel_setheaderdata_callback(this, section, orientation, value, role);
+            int cbval1 = section;
+            int cbval2 = static_cast<int>(orientation);
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
+            int cbval4 = role;
+
+            bool callback_ret = qfilesystemmodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            return callback_ret;
         } else {
             return QFileSystemModel::setHeaderData(section, orientation, value, role);
         }
@@ -716,7 +847,18 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_itemdata_isbase = false;
             return QFileSystemModel::itemData(index);
         } else if (qfilesystemmodel_itemdata_callback != nullptr) {
-            return qfilesystemmodel_itemdata_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            libqt_map /* of int to QVariant* */ callback_ret = qfilesystemmodel_itemdata_callback(this, cbval1);
+            QMap<int, QVariant> callback_ret_QMap;
+            int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
+            QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
+            }
+            return callback_ret_QMap;
         } else {
             return QFileSystemModel::itemData(index);
         }
@@ -728,7 +870,27 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_setitemdata_isbase = false;
             return QFileSystemModel::setItemData(index, roles);
         } else if (qfilesystemmodel_setitemdata_callback != nullptr) {
-            return qfilesystemmodel_setitemdata_callback(this, index, roles);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            const QMap<int, QVariant>& roles_ret = roles;
+            // Convert QMap<> from C++ memory to manually-managed C memory
+            int* roles_karr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
+            QVariant** roles_varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * roles_ret.size()));
+            int roles_ctr = 0;
+            for (auto roles_itr = roles_ret.keyValueBegin(); roles_itr != roles_ret.keyValueEnd(); ++roles_itr) {
+                roles_karr[roles_ctr] = roles_itr->first;
+                roles_varr[roles_ctr] = new QVariant(roles_itr->second);
+                roles_ctr++;
+            }
+            libqt_map roles_out;
+            roles_out.len = roles_ret.size();
+            roles_out.keys = static_cast<void*>(roles_karr);
+            roles_out.values = static_cast<void*>(roles_varr);
+            libqt_map /* of int to QVariant* */ cbval2 = roles_out;
+
+            bool callback_ret = qfilesystemmodel_setitemdata_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QFileSystemModel::setItemData(index, roles);
         }
@@ -740,7 +902,12 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_clearitemdata_isbase = false;
             return QFileSystemModel::clearItemData(index);
         } else if (qfilesystemmodel_clearitemdata_callback != nullptr) {
-            return qfilesystemmodel_clearitemdata_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            bool callback_ret = qfilesystemmodel_clearitemdata_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFileSystemModel::clearItemData(index);
         }
@@ -752,7 +919,16 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_candropmimedata_isbase = false;
             return QFileSystemModel::canDropMimeData(data, action, row, column, parent);
         } else if (qfilesystemmodel_candropmimedata_callback != nullptr) {
-            return qfilesystemmodel_candropmimedata_callback(this, data, action, row, column, parent);
+            QMimeData* cbval1 = (QMimeData*)data;
+            int cbval2 = static_cast<int>(action);
+            int cbval3 = row;
+            int cbval4 = column;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qfilesystemmodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QFileSystemModel::canDropMimeData(data, action, row, column, parent);
         }
@@ -764,7 +940,8 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_supporteddragactions_isbase = false;
             return QFileSystemModel::supportedDragActions();
         } else if (qfilesystemmodel_supporteddragactions_callback != nullptr) {
-            return qfilesystemmodel_supporteddragactions_callback();
+            int callback_ret = qfilesystemmodel_supporteddragactions_callback();
+            return static_cast<Qt::DropActions>(callback_ret);
         } else {
             return QFileSystemModel::supportedDragActions();
         }
@@ -776,7 +953,14 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_insertrows_isbase = false;
             return QFileSystemModel::insertRows(row, count, parent);
         } else if (qfilesystemmodel_insertrows_callback != nullptr) {
-            return qfilesystemmodel_insertrows_callback(this, row, count, parent);
+            int cbval1 = row;
+            int cbval2 = count;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qfilesystemmodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QFileSystemModel::insertRows(row, count, parent);
         }
@@ -788,7 +972,14 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_insertcolumns_isbase = false;
             return QFileSystemModel::insertColumns(column, count, parent);
         } else if (qfilesystemmodel_insertcolumns_callback != nullptr) {
-            return qfilesystemmodel_insertcolumns_callback(this, column, count, parent);
+            int cbval1 = column;
+            int cbval2 = count;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qfilesystemmodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QFileSystemModel::insertColumns(column, count, parent);
         }
@@ -800,7 +991,14 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_removerows_isbase = false;
             return QFileSystemModel::removeRows(row, count, parent);
         } else if (qfilesystemmodel_removerows_callback != nullptr) {
-            return qfilesystemmodel_removerows_callback(this, row, count, parent);
+            int cbval1 = row;
+            int cbval2 = count;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qfilesystemmodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QFileSystemModel::removeRows(row, count, parent);
         }
@@ -812,7 +1010,14 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_removecolumns_isbase = false;
             return QFileSystemModel::removeColumns(column, count, parent);
         } else if (qfilesystemmodel_removecolumns_callback != nullptr) {
-            return qfilesystemmodel_removecolumns_callback(this, column, count, parent);
+            int cbval1 = column;
+            int cbval2 = count;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+
+            bool callback_ret = qfilesystemmodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QFileSystemModel::removeColumns(column, count, parent);
         }
@@ -824,7 +1029,18 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_moverows_isbase = false;
             return QFileSystemModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         } else if (qfilesystemmodel_moverows_callback != nullptr) {
-            return qfilesystemmodel_moverows_callback(this, sourceParent, sourceRow, count, destinationParent, destinationChild);
+            const QModelIndex& sourceParent_ret = sourceParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
+            int cbval2 = sourceRow;
+            int cbval3 = count;
+            const QModelIndex& destinationParent_ret = destinationParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
+            int cbval5 = destinationChild;
+
+            bool callback_ret = qfilesystemmodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QFileSystemModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
@@ -836,7 +1052,18 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_movecolumns_isbase = false;
             return QFileSystemModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         } else if (qfilesystemmodel_movecolumns_callback != nullptr) {
-            return qfilesystemmodel_movecolumns_callback(this, sourceParent, sourceColumn, count, destinationParent, destinationChild);
+            const QModelIndex& sourceParent_ret = sourceParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
+            int cbval2 = sourceColumn;
+            int cbval3 = count;
+            const QModelIndex& destinationParent_ret = destinationParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
+            int cbval5 = destinationChild;
+
+            bool callback_ret = qfilesystemmodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QFileSystemModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
@@ -848,7 +1075,12 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_buddy_isbase = false;
             return QFileSystemModel::buddy(index);
         } else if (qfilesystemmodel_buddy_callback != nullptr) {
-            return qfilesystemmodel_buddy_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QModelIndex* callback_ret = qfilesystemmodel_buddy_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QFileSystemModel::buddy(index);
         }
@@ -860,7 +1092,24 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_match_isbase = false;
             return QFileSystemModel::match(start, role, value, hits, flags);
         } else if (qfilesystemmodel_match_callback != nullptr) {
-            return qfilesystemmodel_match_callback(this, start, role, value, hits, flags);
+            const QModelIndex& start_ret = start;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
+            int cbval2 = role;
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
+            int cbval4 = hits;
+            int cbval5 = static_cast<int>(flags);
+
+            libqt_list /* of QModelIndex* */ callback_ret = qfilesystemmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            QModelIndexList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            }
+            return callback_ret_QList;
         } else {
             return QFileSystemModel::match(start, role, value, hits, flags);
         }
@@ -872,7 +1121,12 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_span_isbase = false;
             return QFileSystemModel::span(index);
         } else if (qfilesystemmodel_span_callback != nullptr) {
-            return qfilesystemmodel_span_callback(this, index);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+
+            QSize* callback_ret = qfilesystemmodel_span_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QFileSystemModel::span(index);
         }
@@ -884,7 +1138,12 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_multidata_isbase = false;
             QFileSystemModel::multiData(index, roleDataSpan);
         } else if (qfilesystemmodel_multidata_callback != nullptr) {
-            qfilesystemmodel_multidata_callback(this, index, roleDataSpan);
+            const QModelIndex& index_ret = index;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
+            QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
+
+            qfilesystemmodel_multidata_callback(this, cbval1, cbval2);
         } else {
             QFileSystemModel::multiData(index, roleDataSpan);
         }
@@ -896,7 +1155,8 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_submit_isbase = false;
             return QFileSystemModel::submit();
         } else if (qfilesystemmodel_submit_callback != nullptr) {
-            return qfilesystemmodel_submit_callback();
+            bool callback_ret = qfilesystemmodel_submit_callback();
+            return callback_ret;
         } else {
             return QFileSystemModel::submit();
         }
@@ -932,7 +1192,11 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_eventfilter_isbase = false;
             return QFileSystemModel::eventFilter(watched, event);
         } else if (qfilesystemmodel_eventfilter_callback != nullptr) {
-            return qfilesystemmodel_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qfilesystemmodel_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QFileSystemModel::eventFilter(watched, event);
         }
@@ -944,7 +1208,9 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_childevent_isbase = false;
             QFileSystemModel::childEvent(event);
         } else if (qfilesystemmodel_childevent_callback != nullptr) {
-            qfilesystemmodel_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qfilesystemmodel_childevent_callback(this, cbval1);
         } else {
             QFileSystemModel::childEvent(event);
         }
@@ -956,7 +1222,9 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_customevent_isbase = false;
             QFileSystemModel::customEvent(event);
         } else if (qfilesystemmodel_customevent_callback != nullptr) {
-            qfilesystemmodel_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qfilesystemmodel_customevent_callback(this, cbval1);
         } else {
             QFileSystemModel::customEvent(event);
         }
@@ -968,7 +1236,11 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_connectnotify_isbase = false;
             QFileSystemModel::connectNotify(signal);
         } else if (qfilesystemmodel_connectnotify_callback != nullptr) {
-            qfilesystemmodel_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qfilesystemmodel_connectnotify_callback(this, cbval1);
         } else {
             QFileSystemModel::connectNotify(signal);
         }
@@ -980,7 +1252,11 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_disconnectnotify_isbase = false;
             QFileSystemModel::disconnectNotify(signal);
         } else if (qfilesystemmodel_disconnectnotify_callback != nullptr) {
-            qfilesystemmodel_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qfilesystemmodel_disconnectnotify_callback(this, cbval1);
         } else {
             QFileSystemModel::disconnectNotify(signal);
         }
@@ -992,7 +1268,11 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_createindex_isbase = false;
             return QFileSystemModel::createIndex(row, column);
         } else if (qfilesystemmodel_createindex_callback != nullptr) {
-            return qfilesystemmodel_createindex_callback(this, row, column);
+            int cbval1 = row;
+            int cbval2 = column;
+
+            QModelIndex* callback_ret = qfilesystemmodel_createindex_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QFileSystemModel::createIndex(row, column);
         }
@@ -1004,7 +1284,21 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_encodedata_isbase = false;
             QFileSystemModel::encodeData(indexes, stream);
         } else if (qfilesystemmodel_encodedata_callback != nullptr) {
-            qfilesystemmodel_encodedata_callback(this, indexes, stream);
+            const QModelIndexList& indexes_ret = indexes;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.length()));
+            for (size_t i = 0; i < indexes_ret.length(); ++i) {
+                indexes_arr[i] = new QModelIndex(indexes_ret[i]);
+            }
+            libqt_list indexes_out;
+            indexes_out.len = indexes_ret.length();
+            indexes_out.data = static_cast<void*>(indexes_arr);
+            libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
+            QDataStream& stream_ret = stream;
+            // Cast returned reference into pointer
+            QDataStream* cbval2 = &stream_ret;
+
+            qfilesystemmodel_encodedata_callback(this, cbval1, cbval2);
         } else {
             QFileSystemModel::encodeData(indexes, stream);
         }
@@ -1016,7 +1310,17 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_decodedata_isbase = false;
             return QFileSystemModel::decodeData(row, column, parent, stream);
         } else if (qfilesystemmodel_decodedata_callback != nullptr) {
-            return qfilesystemmodel_decodedata_callback(this, row, column, parent, stream);
+            int cbval1 = row;
+            int cbval2 = column;
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
+            QDataStream& stream_ret = stream;
+            // Cast returned reference into pointer
+            QDataStream* cbval4 = &stream_ret;
+
+            bool callback_ret = qfilesystemmodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            return callback_ret;
         } else {
             return QFileSystemModel::decodeData(row, column, parent, stream);
         }
@@ -1028,7 +1332,13 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_begininsertrows_isbase = false;
             QFileSystemModel::beginInsertRows(parent, first, last);
         } else if (qfilesystemmodel_begininsertrows_callback != nullptr) {
-            qfilesystemmodel_begininsertrows_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qfilesystemmodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
         } else {
             QFileSystemModel::beginInsertRows(parent, first, last);
         }
@@ -1052,7 +1362,13 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_beginremoverows_isbase = false;
             QFileSystemModel::beginRemoveRows(parent, first, last);
         } else if (qfilesystemmodel_beginremoverows_callback != nullptr) {
-            qfilesystemmodel_beginremoverows_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qfilesystemmodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
         } else {
             QFileSystemModel::beginRemoveRows(parent, first, last);
         }
@@ -1076,7 +1392,18 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_beginmoverows_isbase = false;
             return QFileSystemModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         } else if (qfilesystemmodel_beginmoverows_callback != nullptr) {
-            return qfilesystemmodel_beginmoverows_callback(this, sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
+            const QModelIndex& sourceParent_ret = sourceParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
+            int cbval2 = sourceFirst;
+            int cbval3 = sourceLast;
+            const QModelIndex& destinationParent_ret = destinationParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
+            int cbval5 = destinationRow;
+
+            bool callback_ret = qfilesystemmodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QFileSystemModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
@@ -1100,7 +1427,13 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_begininsertcolumns_isbase = false;
             QFileSystemModel::beginInsertColumns(parent, first, last);
         } else if (qfilesystemmodel_begininsertcolumns_callback != nullptr) {
-            qfilesystemmodel_begininsertcolumns_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qfilesystemmodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
         } else {
             QFileSystemModel::beginInsertColumns(parent, first, last);
         }
@@ -1124,7 +1457,13 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_beginremovecolumns_isbase = false;
             QFileSystemModel::beginRemoveColumns(parent, first, last);
         } else if (qfilesystemmodel_beginremovecolumns_callback != nullptr) {
-            qfilesystemmodel_beginremovecolumns_callback(this, parent, first, last);
+            const QModelIndex& parent_ret = parent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
+            int cbval2 = first;
+            int cbval3 = last;
+
+            qfilesystemmodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
         } else {
             QFileSystemModel::beginRemoveColumns(parent, first, last);
         }
@@ -1148,7 +1487,18 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_beginmovecolumns_isbase = false;
             return QFileSystemModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         } else if (qfilesystemmodel_beginmovecolumns_callback != nullptr) {
-            return qfilesystemmodel_beginmovecolumns_callback(this, sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
+            const QModelIndex& sourceParent_ret = sourceParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
+            int cbval2 = sourceFirst;
+            int cbval3 = sourceLast;
+            const QModelIndex& destinationParent_ret = destinationParent;
+            // Cast returned reference into pointer
+            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
+            int cbval5 = destinationColumn;
+
+            bool callback_ret = qfilesystemmodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return callback_ret;
         } else {
             return QFileSystemModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
@@ -1196,7 +1546,14 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_changepersistentindex_isbase = false;
             QFileSystemModel::changePersistentIndex(from, to);
         } else if (qfilesystemmodel_changepersistentindex_callback != nullptr) {
-            qfilesystemmodel_changepersistentindex_callback(this, from, to);
+            const QModelIndex& from_ret = from;
+            // Cast returned reference into pointer
+            QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
+            const QModelIndex& to_ret = to;
+            // Cast returned reference into pointer
+            QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
+
+            qfilesystemmodel_changepersistentindex_callback(this, cbval1, cbval2);
         } else {
             QFileSystemModel::changePersistentIndex(from, to);
         }
@@ -1208,7 +1565,28 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_changepersistentindexlist_isbase = false;
             QFileSystemModel::changePersistentIndexList(from, to);
         } else if (qfilesystemmodel_changepersistentindexlist_callback != nullptr) {
-            qfilesystemmodel_changepersistentindexlist_callback(this, from, to);
+            const QModelIndexList& from_ret = from;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * from_ret.length()));
+            for (size_t i = 0; i < from_ret.length(); ++i) {
+                from_arr[i] = new QModelIndex(from_ret[i]);
+            }
+            libqt_list from_out;
+            from_out.len = from_ret.length();
+            from_out.data = static_cast<void*>(from_arr);
+            libqt_list /* of QModelIndex* */ cbval1 = from_out;
+            const QModelIndexList& to_ret = to;
+            // Convert QList<> from C++ memory to manually-managed C memory
+            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * to_ret.length()));
+            for (size_t i = 0; i < to_ret.length(); ++i) {
+                to_arr[i] = new QModelIndex(to_ret[i]);
+            }
+            libqt_list to_out;
+            to_out.len = to_ret.length();
+            to_out.data = static_cast<void*>(to_arr);
+            libqt_list /* of QModelIndex* */ cbval2 = to_out;
+
+            qfilesystemmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
         } else {
             QFileSystemModel::changePersistentIndexList(from, to);
         }
@@ -1220,7 +1598,14 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_persistentindexlist_isbase = false;
             return QFileSystemModel::persistentIndexList();
         } else if (qfilesystemmodel_persistentindexlist_callback != nullptr) {
-            return qfilesystemmodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qfilesystemmodel_persistentindexlist_callback();
+            QModelIndexList callback_ret_QList;
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            }
+            return callback_ret_QList;
         } else {
             return QFileSystemModel::persistentIndexList();
         }
@@ -1232,7 +1617,8 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_sender_isbase = false;
             return QFileSystemModel::sender();
         } else if (qfilesystemmodel_sender_callback != nullptr) {
-            return qfilesystemmodel_sender_callback();
+            QObject* callback_ret = qfilesystemmodel_sender_callback();
+            return callback_ret;
         } else {
             return QFileSystemModel::sender();
         }
@@ -1244,7 +1630,8 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_sendersignalindex_isbase = false;
             return QFileSystemModel::senderSignalIndex();
         } else if (qfilesystemmodel_sendersignalindex_callback != nullptr) {
-            return qfilesystemmodel_sendersignalindex_callback();
+            int callback_ret = qfilesystemmodel_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QFileSystemModel::senderSignalIndex();
         }
@@ -1256,7 +1643,10 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_receivers_isbase = false;
             return QFileSystemModel::receivers(signal);
         } else if (qfilesystemmodel_receivers_callback != nullptr) {
-            return qfilesystemmodel_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qfilesystemmodel_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QFileSystemModel::receivers(signal);
         }
@@ -1268,11 +1658,80 @@ class VirtualQFileSystemModel : public QFileSystemModel {
             qfilesystemmodel_issignalconnected_isbase = false;
             return QFileSystemModel::isSignalConnected(signal);
         } else if (qfilesystemmodel_issignalconnected_callback != nullptr) {
-            return qfilesystemmodel_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qfilesystemmodel_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QFileSystemModel::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QFileSystemModel_TimerEvent(QFileSystemModel* self, QTimerEvent* event);
+    friend void QFileSystemModel_QBaseTimerEvent(QFileSystemModel* self, QTimerEvent* event);
+    friend bool QFileSystemModel_Event(QFileSystemModel* self, QEvent* event);
+    friend bool QFileSystemModel_QBaseEvent(QFileSystemModel* self, QEvent* event);
+    friend void QFileSystemModel_ResetInternalData(QFileSystemModel* self);
+    friend void QFileSystemModel_QBaseResetInternalData(QFileSystemModel* self);
+    friend void QFileSystemModel_ChildEvent(QFileSystemModel* self, QChildEvent* event);
+    friend void QFileSystemModel_QBaseChildEvent(QFileSystemModel* self, QChildEvent* event);
+    friend void QFileSystemModel_CustomEvent(QFileSystemModel* self, QEvent* event);
+    friend void QFileSystemModel_QBaseCustomEvent(QFileSystemModel* self, QEvent* event);
+    friend void QFileSystemModel_ConnectNotify(QFileSystemModel* self, const QMetaMethod* signal);
+    friend void QFileSystemModel_QBaseConnectNotify(QFileSystemModel* self, const QMetaMethod* signal);
+    friend void QFileSystemModel_DisconnectNotify(QFileSystemModel* self, const QMetaMethod* signal);
+    friend void QFileSystemModel_QBaseDisconnectNotify(QFileSystemModel* self, const QMetaMethod* signal);
+    friend QModelIndex* QFileSystemModel_CreateIndex(const QFileSystemModel* self, int row, int column);
+    friend QModelIndex* QFileSystemModel_QBaseCreateIndex(const QFileSystemModel* self, int row, int column);
+    friend void QFileSystemModel_EncodeData(const QFileSystemModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
+    friend void QFileSystemModel_QBaseEncodeData(const QFileSystemModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
+    friend bool QFileSystemModel_DecodeData(QFileSystemModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
+    friend bool QFileSystemModel_QBaseDecodeData(QFileSystemModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
+    friend void QFileSystemModel_BeginInsertRows(QFileSystemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QFileSystemModel_QBaseBeginInsertRows(QFileSystemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QFileSystemModel_EndInsertRows(QFileSystemModel* self);
+    friend void QFileSystemModel_QBaseEndInsertRows(QFileSystemModel* self);
+    friend void QFileSystemModel_BeginRemoveRows(QFileSystemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QFileSystemModel_QBaseBeginRemoveRows(QFileSystemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QFileSystemModel_EndRemoveRows(QFileSystemModel* self);
+    friend void QFileSystemModel_QBaseEndRemoveRows(QFileSystemModel* self);
+    friend bool QFileSystemModel_BeginMoveRows(QFileSystemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
+    friend bool QFileSystemModel_QBaseBeginMoveRows(QFileSystemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
+    friend void QFileSystemModel_EndMoveRows(QFileSystemModel* self);
+    friend void QFileSystemModel_QBaseEndMoveRows(QFileSystemModel* self);
+    friend void QFileSystemModel_BeginInsertColumns(QFileSystemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QFileSystemModel_QBaseBeginInsertColumns(QFileSystemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QFileSystemModel_EndInsertColumns(QFileSystemModel* self);
+    friend void QFileSystemModel_QBaseEndInsertColumns(QFileSystemModel* self);
+    friend void QFileSystemModel_BeginRemoveColumns(QFileSystemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QFileSystemModel_QBaseBeginRemoveColumns(QFileSystemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QFileSystemModel_EndRemoveColumns(QFileSystemModel* self);
+    friend void QFileSystemModel_QBaseEndRemoveColumns(QFileSystemModel* self);
+    friend bool QFileSystemModel_BeginMoveColumns(QFileSystemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
+    friend bool QFileSystemModel_QBaseBeginMoveColumns(QFileSystemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
+    friend void QFileSystemModel_EndMoveColumns(QFileSystemModel* self);
+    friend void QFileSystemModel_QBaseEndMoveColumns(QFileSystemModel* self);
+    friend void QFileSystemModel_BeginResetModel(QFileSystemModel* self);
+    friend void QFileSystemModel_QBaseBeginResetModel(QFileSystemModel* self);
+    friend void QFileSystemModel_EndResetModel(QFileSystemModel* self);
+    friend void QFileSystemModel_QBaseEndResetModel(QFileSystemModel* self);
+    friend void QFileSystemModel_ChangePersistentIndex(QFileSystemModel* self, const QModelIndex* from, const QModelIndex* to);
+    friend void QFileSystemModel_QBaseChangePersistentIndex(QFileSystemModel* self, const QModelIndex* from, const QModelIndex* to);
+    friend void QFileSystemModel_ChangePersistentIndexList(QFileSystemModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
+    friend void QFileSystemModel_QBaseChangePersistentIndexList(QFileSystemModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
+    friend libqt_list /* of QModelIndex* */ QFileSystemModel_PersistentIndexList(const QFileSystemModel* self);
+    friend libqt_list /* of QModelIndex* */ QFileSystemModel_QBasePersistentIndexList(const QFileSystemModel* self);
+    friend QObject* QFileSystemModel_Sender(const QFileSystemModel* self);
+    friend QObject* QFileSystemModel_QBaseSender(const QFileSystemModel* self);
+    friend int QFileSystemModel_SenderSignalIndex(const QFileSystemModel* self);
+    friend int QFileSystemModel_QBaseSenderSignalIndex(const QFileSystemModel* self);
+    friend int QFileSystemModel_Receivers(const QFileSystemModel* self, const char* signal);
+    friend int QFileSystemModel_QBaseReceivers(const QFileSystemModel* self, const char* signal);
+    friend bool QFileSystemModel_IsSignalConnected(const QFileSystemModel* self, const QMetaMethod* signal);
+    friend bool QFileSystemModel_QBaseIsSignalConnected(const QFileSystemModel* self, const QMetaMethod* signal);
 };
 
 #endif

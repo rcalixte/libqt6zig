@@ -23,7 +23,6 @@ typedef struct QGraphicsLayout QGraphicsLayout;
 typedef struct QGraphicsLayoutItem QGraphicsLayoutItem;
 typedef struct QRectF QRectF;
 typedef struct QSizeF QSizeF;
-typedef struct QSizePolicy QSizePolicy;
 #endif
 
 QGraphicsGridLayout* QGraphicsGridLayout_new();
@@ -79,12 +78,12 @@ void QGraphicsGridLayout_RemoveItem(QGraphicsGridLayout* self, QGraphicsLayoutIt
 void QGraphicsGridLayout_Invalidate(QGraphicsGridLayout* self);
 void QGraphicsGridLayout_OnInvalidate(QGraphicsGridLayout* self, intptr_t slot);
 void QGraphicsGridLayout_QBaseInvalidate(QGraphicsGridLayout* self);
-void QGraphicsGridLayout_SetGeometry(QGraphicsGridLayout* self, QRectF* rect);
+void QGraphicsGridLayout_SetGeometry(QGraphicsGridLayout* self, const QRectF* rect);
 void QGraphicsGridLayout_OnSetGeometry(QGraphicsGridLayout* self, intptr_t slot);
-void QGraphicsGridLayout_QBaseSetGeometry(QGraphicsGridLayout* self, QRectF* rect);
-QSizeF* QGraphicsGridLayout_SizeHint(const QGraphicsGridLayout* self, int which, QSizeF* constraint);
+void QGraphicsGridLayout_QBaseSetGeometry(QGraphicsGridLayout* self, const QRectF* rect);
+QSizeF* QGraphicsGridLayout_SizeHint(const QGraphicsGridLayout* self, int which, const QSizeF* constraint);
 void QGraphicsGridLayout_OnSizeHint(const QGraphicsGridLayout* self, intptr_t slot);
-QSizeF* QGraphicsGridLayout_QBaseSizeHint(const QGraphicsGridLayout* self, int which, QSizeF* constraint);
+QSizeF* QGraphicsGridLayout_QBaseSizeHint(const QGraphicsGridLayout* self, int which, const QSizeF* constraint);
 void QGraphicsGridLayout_AddItem6(QGraphicsGridLayout* self, QGraphicsLayoutItem* item, int row, int column, int rowSpan, int columnSpan, int alignment);
 void QGraphicsGridLayout_AddItem4(QGraphicsGridLayout* self, QGraphicsLayoutItem* item, int row, int column, int alignment);
 void QGraphicsGridLayout_GetContentsMargins(const QGraphicsGridLayout* self, double* left, double* top, double* right, double* bottom);

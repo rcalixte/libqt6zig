@@ -15,22 +15,14 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QObjectCleanupHandler QObjectCleanupHandler;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QObjectCleanupHandler* QObjectCleanupHandler_new();
@@ -61,12 +53,12 @@ void QObjectCleanupHandler_QBaseChildEvent(QObjectCleanupHandler* self, QChildEv
 void QObjectCleanupHandler_CustomEvent(QObjectCleanupHandler* self, QEvent* event);
 void QObjectCleanupHandler_OnCustomEvent(QObjectCleanupHandler* self, intptr_t slot);
 void QObjectCleanupHandler_QBaseCustomEvent(QObjectCleanupHandler* self, QEvent* event);
-void QObjectCleanupHandler_ConnectNotify(QObjectCleanupHandler* self, QMetaMethod* signal);
+void QObjectCleanupHandler_ConnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal);
 void QObjectCleanupHandler_OnConnectNotify(QObjectCleanupHandler* self, intptr_t slot);
-void QObjectCleanupHandler_QBaseConnectNotify(QObjectCleanupHandler* self, QMetaMethod* signal);
-void QObjectCleanupHandler_DisconnectNotify(QObjectCleanupHandler* self, QMetaMethod* signal);
+void QObjectCleanupHandler_QBaseConnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal);
+void QObjectCleanupHandler_DisconnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal);
 void QObjectCleanupHandler_OnDisconnectNotify(QObjectCleanupHandler* self, intptr_t slot);
-void QObjectCleanupHandler_QBaseDisconnectNotify(QObjectCleanupHandler* self, QMetaMethod* signal);
+void QObjectCleanupHandler_QBaseDisconnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal);
 QObject* QObjectCleanupHandler_Sender(const QObjectCleanupHandler* self);
 void QObjectCleanupHandler_OnSender(const QObjectCleanupHandler* self, intptr_t slot);
 QObject* QObjectCleanupHandler_QBaseSender(const QObjectCleanupHandler* self);
@@ -76,9 +68,9 @@ int QObjectCleanupHandler_QBaseSenderSignalIndex(const QObjectCleanupHandler* se
 int QObjectCleanupHandler_Receivers(const QObjectCleanupHandler* self, const char* signal);
 void QObjectCleanupHandler_OnReceivers(const QObjectCleanupHandler* self, intptr_t slot);
 int QObjectCleanupHandler_QBaseReceivers(const QObjectCleanupHandler* self, const char* signal);
-bool QObjectCleanupHandler_IsSignalConnected(const QObjectCleanupHandler* self, QMetaMethod* signal);
+bool QObjectCleanupHandler_IsSignalConnected(const QObjectCleanupHandler* self, const QMetaMethod* signal);
 void QObjectCleanupHandler_OnIsSignalConnected(const QObjectCleanupHandler* self, intptr_t slot);
-bool QObjectCleanupHandler_QBaseIsSignalConnected(const QObjectCleanupHandler* self, QMetaMethod* signal);
+bool QObjectCleanupHandler_QBaseIsSignalConnected(const QObjectCleanupHandler* self, const QMetaMethod* signal);
 void QObjectCleanupHandler_Delete(QObjectCleanupHandler* self);
 
 #ifdef __cplusplus

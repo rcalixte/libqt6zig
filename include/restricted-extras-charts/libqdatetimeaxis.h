@@ -15,28 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractAxis QAbstractAxis;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
-typedef struct QBrush QBrush;
 typedef struct QChildEvent QChildEvent;
-typedef struct QColor QColor;
 typedef struct QDateTime QDateTime;
 typedef struct QDateTimeAxis QDateTimeAxis;
 typedef struct QEvent QEvent;
-typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QPen QPen;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QDateTimeAxis* QDateTimeAxis_new();
@@ -86,12 +74,12 @@ void QDateTimeAxis_QBaseChildEvent(QDateTimeAxis* self, QChildEvent* event);
 void QDateTimeAxis_CustomEvent(QDateTimeAxis* self, QEvent* event);
 void QDateTimeAxis_OnCustomEvent(QDateTimeAxis* self, intptr_t slot);
 void QDateTimeAxis_QBaseCustomEvent(QDateTimeAxis* self, QEvent* event);
-void QDateTimeAxis_ConnectNotify(QDateTimeAxis* self, QMetaMethod* signal);
+void QDateTimeAxis_ConnectNotify(QDateTimeAxis* self, const QMetaMethod* signal);
 void QDateTimeAxis_OnConnectNotify(QDateTimeAxis* self, intptr_t slot);
-void QDateTimeAxis_QBaseConnectNotify(QDateTimeAxis* self, QMetaMethod* signal);
-void QDateTimeAxis_DisconnectNotify(QDateTimeAxis* self, QMetaMethod* signal);
+void QDateTimeAxis_QBaseConnectNotify(QDateTimeAxis* self, const QMetaMethod* signal);
+void QDateTimeAxis_DisconnectNotify(QDateTimeAxis* self, const QMetaMethod* signal);
 void QDateTimeAxis_OnDisconnectNotify(QDateTimeAxis* self, intptr_t slot);
-void QDateTimeAxis_QBaseDisconnectNotify(QDateTimeAxis* self, QMetaMethod* signal);
+void QDateTimeAxis_QBaseDisconnectNotify(QDateTimeAxis* self, const QMetaMethod* signal);
 QObject* QDateTimeAxis_Sender(const QDateTimeAxis* self);
 void QDateTimeAxis_OnSender(const QDateTimeAxis* self, intptr_t slot);
 QObject* QDateTimeAxis_QBaseSender(const QDateTimeAxis* self);
@@ -101,9 +89,9 @@ int QDateTimeAxis_QBaseSenderSignalIndex(const QDateTimeAxis* self);
 int QDateTimeAxis_Receivers(const QDateTimeAxis* self, const char* signal);
 void QDateTimeAxis_OnReceivers(const QDateTimeAxis* self, intptr_t slot);
 int QDateTimeAxis_QBaseReceivers(const QDateTimeAxis* self, const char* signal);
-bool QDateTimeAxis_IsSignalConnected(const QDateTimeAxis* self, QMetaMethod* signal);
+bool QDateTimeAxis_IsSignalConnected(const QDateTimeAxis* self, const QMetaMethod* signal);
 void QDateTimeAxis_OnIsSignalConnected(const QDateTimeAxis* self, intptr_t slot);
-bool QDateTimeAxis_QBaseIsSignalConnected(const QDateTimeAxis* self, QMetaMethod* signal);
+bool QDateTimeAxis_QBaseIsSignalConnected(const QDateTimeAxis* self, const QMetaMethod* signal);
 void QDateTimeAxis_Delete(QDateTimeAxis* self);
 
 #ifdef __cplusplus

@@ -11,12 +11,15 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QSvgGenerator so that we can call protected methods
-class VirtualQSvgGenerator : public QSvgGenerator {
+class VirtualQSvgGenerator final : public QSvgGenerator {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQSvgGenerator = true;
+
     // Virtual class public types (including callbacks)
     using QSvgGenerator_PaintEngine_Callback = QPaintEngine* (*)();
-    using QSvgGenerator_Metric_Callback = int (*)(const QSvgGenerator*, QPaintDevice::PaintDeviceMetric);
+    using QSvgGenerator_Metric_Callback = int (*)(const QSvgGenerator*, int);
     using QSvgGenerator_DevType_Callback = int (*)();
     using QSvgGenerator_InitPainter_Callback = void (*)(const QSvgGenerator*, QPainter*);
     using QSvgGenerator_Redirected_Callback = QPaintDevice* (*)(const QSvgGenerator*, QPoint*);
@@ -52,20 +55,20 @@ class VirtualQSvgGenerator : public QSvgGenerator {
     }
 
     // Callback setters
-    void setQSvgGenerator_PaintEngine_Callback(QSvgGenerator_PaintEngine_Callback cb) { qsvggenerator_paintengine_callback = cb; }
-    void setQSvgGenerator_Metric_Callback(QSvgGenerator_Metric_Callback cb) { qsvggenerator_metric_callback = cb; }
-    void setQSvgGenerator_DevType_Callback(QSvgGenerator_DevType_Callback cb) { qsvggenerator_devtype_callback = cb; }
-    void setQSvgGenerator_InitPainter_Callback(QSvgGenerator_InitPainter_Callback cb) { qsvggenerator_initpainter_callback = cb; }
-    void setQSvgGenerator_Redirected_Callback(QSvgGenerator_Redirected_Callback cb) { qsvggenerator_redirected_callback = cb; }
-    void setQSvgGenerator_SharedPainter_Callback(QSvgGenerator_SharedPainter_Callback cb) { qsvggenerator_sharedpainter_callback = cb; }
+    inline void setQSvgGenerator_PaintEngine_Callback(QSvgGenerator_PaintEngine_Callback cb) { qsvggenerator_paintengine_callback = cb; }
+    inline void setQSvgGenerator_Metric_Callback(QSvgGenerator_Metric_Callback cb) { qsvggenerator_metric_callback = cb; }
+    inline void setQSvgGenerator_DevType_Callback(QSvgGenerator_DevType_Callback cb) { qsvggenerator_devtype_callback = cb; }
+    inline void setQSvgGenerator_InitPainter_Callback(QSvgGenerator_InitPainter_Callback cb) { qsvggenerator_initpainter_callback = cb; }
+    inline void setQSvgGenerator_Redirected_Callback(QSvgGenerator_Redirected_Callback cb) { qsvggenerator_redirected_callback = cb; }
+    inline void setQSvgGenerator_SharedPainter_Callback(QSvgGenerator_SharedPainter_Callback cb) { qsvggenerator_sharedpainter_callback = cb; }
 
     // Base flag setters
-    void setQSvgGenerator_PaintEngine_IsBase(bool value) const { qsvggenerator_paintengine_isbase = value; }
-    void setQSvgGenerator_Metric_IsBase(bool value) const { qsvggenerator_metric_isbase = value; }
-    void setQSvgGenerator_DevType_IsBase(bool value) const { qsvggenerator_devtype_isbase = value; }
-    void setQSvgGenerator_InitPainter_IsBase(bool value) const { qsvggenerator_initpainter_isbase = value; }
-    void setQSvgGenerator_Redirected_IsBase(bool value) const { qsvggenerator_redirected_isbase = value; }
-    void setQSvgGenerator_SharedPainter_IsBase(bool value) const { qsvggenerator_sharedpainter_isbase = value; }
+    inline void setQSvgGenerator_PaintEngine_IsBase(bool value) const { qsvggenerator_paintengine_isbase = value; }
+    inline void setQSvgGenerator_Metric_IsBase(bool value) const { qsvggenerator_metric_isbase = value; }
+    inline void setQSvgGenerator_DevType_IsBase(bool value) const { qsvggenerator_devtype_isbase = value; }
+    inline void setQSvgGenerator_InitPainter_IsBase(bool value) const { qsvggenerator_initpainter_isbase = value; }
+    inline void setQSvgGenerator_Redirected_IsBase(bool value) const { qsvggenerator_redirected_isbase = value; }
+    inline void setQSvgGenerator_SharedPainter_IsBase(bool value) const { qsvggenerator_sharedpainter_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
@@ -73,7 +76,8 @@ class VirtualQSvgGenerator : public QSvgGenerator {
             qsvggenerator_paintengine_isbase = false;
             return QSvgGenerator::paintEngine();
         } else if (qsvggenerator_paintengine_callback != nullptr) {
-            return qsvggenerator_paintengine_callback();
+            QPaintEngine* callback_ret = qsvggenerator_paintengine_callback();
+            return callback_ret;
         } else {
             return QSvgGenerator::paintEngine();
         }
@@ -85,7 +89,10 @@ class VirtualQSvgGenerator : public QSvgGenerator {
             qsvggenerator_metric_isbase = false;
             return QSvgGenerator::metric(metric);
         } else if (qsvggenerator_metric_callback != nullptr) {
-            return qsvggenerator_metric_callback(this, metric);
+            int cbval1 = static_cast<int>(metric);
+
+            int callback_ret = qsvggenerator_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QSvgGenerator::metric(metric);
         }
@@ -97,7 +104,8 @@ class VirtualQSvgGenerator : public QSvgGenerator {
             qsvggenerator_devtype_isbase = false;
             return QSvgGenerator::devType();
         } else if (qsvggenerator_devtype_callback != nullptr) {
-            return qsvggenerator_devtype_callback();
+            int callback_ret = qsvggenerator_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QSvgGenerator::devType();
         }
@@ -109,7 +117,9 @@ class VirtualQSvgGenerator : public QSvgGenerator {
             qsvggenerator_initpainter_isbase = false;
             QSvgGenerator::initPainter(painter);
         } else if (qsvggenerator_initpainter_callback != nullptr) {
-            qsvggenerator_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qsvggenerator_initpainter_callback(this, cbval1);
         } else {
             QSvgGenerator::initPainter(painter);
         }
@@ -121,7 +131,10 @@ class VirtualQSvgGenerator : public QSvgGenerator {
             qsvggenerator_redirected_isbase = false;
             return QSvgGenerator::redirected(offset);
         } else if (qsvggenerator_redirected_callback != nullptr) {
-            return qsvggenerator_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qsvggenerator_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QSvgGenerator::redirected(offset);
         }
@@ -133,11 +146,24 @@ class VirtualQSvgGenerator : public QSvgGenerator {
             qsvggenerator_sharedpainter_isbase = false;
             return QSvgGenerator::sharedPainter();
         } else if (qsvggenerator_sharedpainter_callback != nullptr) {
-            return qsvggenerator_sharedpainter_callback();
+            QPainter* callback_ret = qsvggenerator_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QSvgGenerator::sharedPainter();
         }
     }
+
+    // Friend functions
+    friend QPaintEngine* QSvgGenerator_PaintEngine(const QSvgGenerator* self);
+    friend QPaintEngine* QSvgGenerator_QBasePaintEngine(const QSvgGenerator* self);
+    friend int QSvgGenerator_Metric(const QSvgGenerator* self, int metric);
+    friend int QSvgGenerator_QBaseMetric(const QSvgGenerator* self, int metric);
+    friend void QSvgGenerator_InitPainter(const QSvgGenerator* self, QPainter* painter);
+    friend void QSvgGenerator_QBaseInitPainter(const QSvgGenerator* self, QPainter* painter);
+    friend QPaintDevice* QSvgGenerator_Redirected(const QSvgGenerator* self, QPoint* offset);
+    friend QPaintDevice* QSvgGenerator_QBaseRedirected(const QSvgGenerator* self, QPoint* offset);
+    friend QPainter* QSvgGenerator_SharedPainter(const QSvgGenerator* self);
+    friend QPainter* QSvgGenerator_QBaseSharedPainter(const QSvgGenerator* self);
 };
 
 #endif

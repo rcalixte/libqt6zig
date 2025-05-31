@@ -1,64 +1,65 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://doc.qt.io/qt-6/qbarset.html
+/// https://doc.qt.io/qt-6/qbarset-qtcharts.html
 pub const qbarset = struct {
     /// New constructs a new QBarSet object.
     ///
     /// ``` label: []const u8 ```
-    pub fn New(label: []const u8) ?*C.QBarSet {
-        const label_str = C.struct_libqt_string{
+    pub fn New(label: []const u8) QtC.QBarSet {
+        const label_str = qtc.struct_libqt_string{
             .len = label.len,
             .data = @constCast(label.ptr),
         };
 
-        return C.QBarSet_new(label_str);
+        return qtc.QBarSet_new(label_str);
     }
 
     /// New2 constructs a new QBarSet object.
     ///
-    /// ``` label: []const u8, parent: ?*C.QObject ```
-    pub fn New2(label: []const u8, parent: ?*anyopaque) ?*C.QBarSet {
-        const label_str = C.struct_libqt_string{
+    /// ``` label: []const u8, parent: QtC.QObject ```
+    pub fn New2(label: []const u8, parent: ?*anyopaque) QtC.QBarSet {
+        const label_str = qtc.struct_libqt_string{
             .len = label.len,
             .data = @constCast(label.ptr),
         };
 
-        return C.QBarSet_new2(label_str, @ptrCast(parent));
+        return qtc.QBarSet_new2(label_str, @ptrCast(parent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: ?*C.QBarSet ```
-    pub fn MetaObject(self: ?*anyopaque) ?*C.QMetaObject {
-        return C.QBarSet_MetaObject(@ptrCast(self));
+    /// ``` self: QtC.QBarSet ```
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QBarSet_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QBarSet, param1: []const u8 ```
+    /// ``` self: QtC.QBarSet, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = @constCast(param1.ptr);
-        return C.QBarSet_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QBarSet_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: ?*C.QBarSet, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QBarSet, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QBarSet_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QBarSet_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, qobjectdefs_enums.Call, i32, ?*anyopaque) callconv(.c) i32 ```
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
     pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
-        C.QBarSet_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QBarSet, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QBarSet, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QBarSet_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QBarSet_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -66,307 +67,307 @@ pub const qbarset = struct {
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
-        const _str = C.QBarSet_Tr(s_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QBarSet_Tr(s_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbarset.Tr: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#setLabel)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setLabel)
     ///
-    /// ``` self: ?*C.QBarSet, label: []const u8 ```
+    /// ``` self: QtC.QBarSet, label: []const u8 ```
     pub fn SetLabel(self: ?*anyopaque, label: []const u8) void {
-        const label_str = C.struct_libqt_string{
+        const label_str = qtc.struct_libqt_string{
             .len = label.len,
             .data = @constCast(label.ptr),
         };
-        C.QBarSet_SetLabel(@ptrCast(self), label_str);
+        qtc.QBarSet_SetLabel(@ptrCast(self), label_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#label)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#label)
     ///
-    /// ``` self: ?*C.QBarSet, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QBarSet, allocator: std.mem.Allocator ```
     pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QBarSet_Label(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QBarSet_Label(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbarset.Label: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#append)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#append)
     ///
-    /// ``` self: ?*C.QBarSet, value: f64 ```
+    /// ``` self: QtC.QBarSet, value: f64 ```
     pub fn Append(self: ?*anyopaque, value: f64) void {
-        C.QBarSet_Append(@ptrCast(self), @floatCast(value));
+        qtc.QBarSet_Append(@ptrCast(self), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#append)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#append)
     ///
-    /// ``` self: ?*C.QBarSet, values: []f64 ```
+    /// ``` self: QtC.QBarSet, values: []f64 ```
     pub fn AppendWithValues(self: ?*anyopaque, values: []f64) void {
-        const values_list = C.struct_libqt_list{
+        const values_list = qtc.struct_libqt_list{
             .len = values.len,
             .data = values.ptr,
         };
-        C.QBarSet_AppendWithValues(@ptrCast(self), values_list);
+        qtc.QBarSet_AppendWithValues(@ptrCast(self), values_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#operator<<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#operator<<)
     ///
-    /// ``` self: ?*C.QBarSet, value: ?*f64 ```
-    pub fn OperatorShiftLeft(self: ?*anyopaque, value: ?*anyopaque) ?*C.QBarSet {
-        return C.QBarSet_OperatorShiftLeft(@ptrCast(self), @floatCast(value));
+    /// ``` self: QtC.QBarSet, value: ?*f64 ```
+    pub fn OperatorShiftLeft(self: ?*anyopaque, value: ?*anyopaque) QtC.QBarSet {
+        return qtc.QBarSet_OperatorShiftLeft(@ptrCast(self), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#insert)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#insert)
     ///
-    /// ``` self: ?*C.QBarSet, index: i32, value: f64 ```
+    /// ``` self: QtC.QBarSet, index: i32, value: f64 ```
     pub fn Insert(self: ?*anyopaque, index: i32, value: f64) void {
-        C.QBarSet_Insert(@ptrCast(self), @intCast(index), @floatCast(value));
+        qtc.QBarSet_Insert(@ptrCast(self), @intCast(index), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#remove)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#remove)
     ///
-    /// ``` self: ?*C.QBarSet, index: i32 ```
+    /// ``` self: QtC.QBarSet, index: i32 ```
     pub fn Remove(self: ?*anyopaque, index: i32) void {
-        C.QBarSet_Remove(@ptrCast(self), @intCast(index));
+        qtc.QBarSet_Remove(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#replace)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#replace)
     ///
-    /// ``` self: ?*C.QBarSet, index: i32, value: f64 ```
+    /// ``` self: QtC.QBarSet, index: i32, value: f64 ```
     pub fn Replace(self: ?*anyopaque, index: i32, value: f64) void {
-        C.QBarSet_Replace(@ptrCast(self), @intCast(index), @floatCast(value));
+        qtc.QBarSet_Replace(@ptrCast(self), @intCast(index), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#at)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#at)
     ///
-    /// ``` self: ?*C.QBarSet, index: i32 ```
+    /// ``` self: QtC.QBarSet, index: i32 ```
     pub fn At(self: ?*anyopaque, index: i32) f64 {
-        return C.QBarSet_At(@ptrCast(self), @intCast(index));
+        return qtc.QBarSet_At(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#operator[])
     ///
-    /// ``` self: ?*C.QBarSet, index: i32 ```
+    /// ``` self: QtC.QBarSet, index: i32 ```
     pub fn OperatorSubscript(self: ?*anyopaque, index: i32) f64 {
-        return C.QBarSet_OperatorSubscript(@ptrCast(self), @intCast(index));
+        return qtc.QBarSet_OperatorSubscript(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#count)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#count)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn Count(self: ?*anyopaque) i32 {
-        return C.QBarSet_Count(@ptrCast(self));
+        return qtc.QBarSet_Count(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#sum)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#sum)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn Sum(self: ?*anyopaque) f64 {
-        return C.QBarSet_Sum(@ptrCast(self));
+        return qtc.QBarSet_Sum(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#setPen)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setPen)
     ///
-    /// ``` self: ?*C.QBarSet, pen: ?*C.QPen ```
+    /// ``` self: QtC.QBarSet, pen: QtC.QPen ```
     pub fn SetPen(self: ?*anyopaque, pen: ?*anyopaque) void {
-        C.QBarSet_SetPen(@ptrCast(self), @ptrCast(pen));
+        qtc.QBarSet_SetPen(@ptrCast(self), @ptrCast(pen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#pen)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#pen)
     ///
-    /// ``` self: ?*C.QBarSet ```
-    pub fn Pen(self: ?*anyopaque) ?*C.QPen {
-        return C.QBarSet_Pen(@ptrCast(self));
+    /// ``` self: QtC.QBarSet ```
+    pub fn Pen(self: ?*anyopaque) QtC.QPen {
+        return qtc.QBarSet_Pen(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#setBrush)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setBrush)
     ///
-    /// ``` self: ?*C.QBarSet, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QBarSet, brush: QtC.QBrush ```
     pub fn SetBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QBarSet_SetBrush(@ptrCast(self), @ptrCast(brush));
+        qtc.QBarSet_SetBrush(@ptrCast(self), @ptrCast(brush));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#brush)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#brush)
     ///
-    /// ``` self: ?*C.QBarSet ```
-    pub fn Brush(self: ?*anyopaque) ?*C.QBrush {
-        return C.QBarSet_Brush(@ptrCast(self));
+    /// ``` self: QtC.QBarSet ```
+    pub fn Brush(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QBarSet_Brush(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#setLabelBrush)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setLabelBrush)
     ///
-    /// ``` self: ?*C.QBarSet, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QBarSet, brush: QtC.QBrush ```
     pub fn SetLabelBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QBarSet_SetLabelBrush(@ptrCast(self), @ptrCast(brush));
+        qtc.QBarSet_SetLabelBrush(@ptrCast(self), @ptrCast(brush));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#labelBrush)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelBrush)
     ///
-    /// ``` self: ?*C.QBarSet ```
-    pub fn LabelBrush(self: ?*anyopaque) ?*C.QBrush {
-        return C.QBarSet_LabelBrush(@ptrCast(self));
+    /// ``` self: QtC.QBarSet ```
+    pub fn LabelBrush(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QBarSet_LabelBrush(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#setLabelFont)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setLabelFont)
     ///
-    /// ``` self: ?*C.QBarSet, font: ?*C.QFont ```
+    /// ``` self: QtC.QBarSet, font: QtC.QFont ```
     pub fn SetLabelFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        C.QBarSet_SetLabelFont(@ptrCast(self), @ptrCast(font));
+        qtc.QBarSet_SetLabelFont(@ptrCast(self), @ptrCast(font));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#labelFont)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelFont)
     ///
-    /// ``` self: ?*C.QBarSet ```
-    pub fn LabelFont(self: ?*anyopaque) ?*C.QFont {
-        return C.QBarSet_LabelFont(@ptrCast(self));
+    /// ``` self: QtC.QBarSet ```
+    pub fn LabelFont(self: ?*anyopaque) QtC.QFont {
+        return qtc.QBarSet_LabelFont(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#color)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#color)
     ///
-    /// ``` self: ?*C.QBarSet ```
-    pub fn Color(self: ?*anyopaque) ?*C.QColor {
-        return C.QBarSet_Color(@ptrCast(self));
+    /// ``` self: QtC.QBarSet ```
+    pub fn Color(self: ?*anyopaque) QtC.QColor {
+        return qtc.QBarSet_Color(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#setColor)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setColor)
     ///
-    /// ``` self: ?*C.QBarSet, color: C.QColor ```
-    pub fn SetColor(self: ?*anyopaque, color: C.QColor) void {
-        C.QBarSet_SetColor(@ptrCast(self), @ptrCast(color));
+    /// ``` self: QtC.QBarSet, color: QtC.QColor ```
+    pub fn SetColor(self: ?*anyopaque, color: QtC.QColor) void {
+        qtc.QBarSet_SetColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#borderColor)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#borderColor)
     ///
-    /// ``` self: ?*C.QBarSet ```
-    pub fn BorderColor(self: ?*anyopaque) ?*C.QColor {
-        return C.QBarSet_BorderColor(@ptrCast(self));
+    /// ``` self: QtC.QBarSet ```
+    pub fn BorderColor(self: ?*anyopaque) QtC.QColor {
+        return qtc.QBarSet_BorderColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#setBorderColor)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setBorderColor)
     ///
-    /// ``` self: ?*C.QBarSet, color: C.QColor ```
-    pub fn SetBorderColor(self: ?*anyopaque, color: C.QColor) void {
-        C.QBarSet_SetBorderColor(@ptrCast(self), @ptrCast(color));
+    /// ``` self: QtC.QBarSet, color: QtC.QColor ```
+    pub fn SetBorderColor(self: ?*anyopaque, color: QtC.QColor) void {
+        qtc.QBarSet_SetBorderColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#labelColor)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelColor)
     ///
-    /// ``` self: ?*C.QBarSet ```
-    pub fn LabelColor(self: ?*anyopaque) ?*C.QColor {
-        return C.QBarSet_LabelColor(@ptrCast(self));
+    /// ``` self: QtC.QBarSet ```
+    pub fn LabelColor(self: ?*anyopaque) QtC.QColor {
+        return qtc.QBarSet_LabelColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#setLabelColor)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setLabelColor)
     ///
-    /// ``` self: ?*C.QBarSet, color: C.QColor ```
-    pub fn SetLabelColor(self: ?*anyopaque, color: C.QColor) void {
-        C.QBarSet_SetLabelColor(@ptrCast(self), @ptrCast(color));
+    /// ``` self: QtC.QBarSet, color: QtC.QColor ```
+    pub fn SetLabelColor(self: ?*anyopaque, color: QtC.QColor) void {
+        qtc.QBarSet_SetLabelColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#selectedColor)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedColor)
     ///
-    /// ``` self: ?*C.QBarSet ```
-    pub fn SelectedColor(self: ?*anyopaque) ?*C.QColor {
-        return C.QBarSet_SelectedColor(@ptrCast(self));
+    /// ``` self: QtC.QBarSet ```
+    pub fn SelectedColor(self: ?*anyopaque) QtC.QColor {
+        return qtc.QBarSet_SelectedColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#setSelectedColor)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setSelectedColor)
     ///
-    /// ``` self: ?*C.QBarSet, color: ?*C.QColor ```
+    /// ``` self: QtC.QBarSet, color: QtC.QColor ```
     pub fn SetSelectedColor(self: ?*anyopaque, color: ?*anyopaque) void {
-        C.QBarSet_SetSelectedColor(@ptrCast(self), @ptrCast(color));
+        qtc.QBarSet_SetSelectedColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#isBarSelected)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#isBarSelected)
     ///
-    /// ``` self: ?*C.QBarSet, index: i32 ```
+    /// ``` self: QtC.QBarSet, index: i32 ```
     pub fn IsBarSelected(self: ?*anyopaque, index: i32) bool {
-        return C.QBarSet_IsBarSelected(@ptrCast(self), @intCast(index));
+        return qtc.QBarSet_IsBarSelected(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#selectBar)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectBar)
     ///
-    /// ``` self: ?*C.QBarSet, index: i32 ```
+    /// ``` self: QtC.QBarSet, index: i32 ```
     pub fn SelectBar(self: ?*anyopaque, index: i32) void {
-        C.QBarSet_SelectBar(@ptrCast(self), @intCast(index));
+        qtc.QBarSet_SelectBar(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#deselectBar)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#deselectBar)
     ///
-    /// ``` self: ?*C.QBarSet, index: i32 ```
+    /// ``` self: QtC.QBarSet, index: i32 ```
     pub fn DeselectBar(self: ?*anyopaque, index: i32) void {
-        C.QBarSet_DeselectBar(@ptrCast(self), @intCast(index));
+        qtc.QBarSet_DeselectBar(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#setBarSelected)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setBarSelected)
     ///
-    /// ``` self: ?*C.QBarSet, index: i32, selected: bool ```
+    /// ``` self: QtC.QBarSet, index: i32, selected: bool ```
     pub fn SetBarSelected(self: ?*anyopaque, index: i32, selected: bool) void {
-        C.QBarSet_SetBarSelected(@ptrCast(self), @intCast(index), selected);
+        qtc.QBarSet_SetBarSelected(@ptrCast(self), @intCast(index), selected);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#selectAllBars)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectAllBars)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn SelectAllBars(self: ?*anyopaque) void {
-        C.QBarSet_SelectAllBars(@ptrCast(self));
+        qtc.QBarSet_SelectAllBars(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#deselectAllBars)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#deselectAllBars)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn DeselectAllBars(self: ?*anyopaque) void {
-        C.QBarSet_DeselectAllBars(@ptrCast(self));
+        qtc.QBarSet_DeselectAllBars(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#selectBars)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectBars)
     ///
-    /// ``` self: ?*C.QBarSet, indexes: []i32 ```
+    /// ``` self: QtC.QBarSet, indexes: []i32 ```
     pub fn SelectBars(self: ?*anyopaque, indexes: []i32) void {
-        const indexes_list = C.struct_libqt_list{
+        const indexes_list = qtc.struct_libqt_list{
             .len = indexes.len,
             .data = indexes.ptr,
         };
-        C.QBarSet_SelectBars(@ptrCast(self), indexes_list);
+        qtc.QBarSet_SelectBars(@ptrCast(self), indexes_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#deselectBars)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#deselectBars)
     ///
-    /// ``` self: ?*C.QBarSet, indexes: []i32 ```
+    /// ``` self: QtC.QBarSet, indexes: []i32 ```
     pub fn DeselectBars(self: ?*anyopaque, indexes: []i32) void {
-        const indexes_list = C.struct_libqt_list{
+        const indexes_list = qtc.struct_libqt_list{
             .len = indexes.len,
             .data = indexes.ptr,
         };
-        C.QBarSet_DeselectBars(@ptrCast(self), indexes_list);
+        qtc.QBarSet_DeselectBars(@ptrCast(self), indexes_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#toggleSelection)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#toggleSelection)
     ///
-    /// ``` self: ?*C.QBarSet, indexes: []i32 ```
+    /// ``` self: QtC.QBarSet, indexes: []i32 ```
     pub fn ToggleSelection(self: ?*anyopaque, indexes: []i32) void {
-        const indexes_list = C.struct_libqt_list{
+        const indexes_list = qtc.struct_libqt_list{
             .len = indexes.len,
             .data = indexes.ptr,
         };
-        C.QBarSet_ToggleSelection(@ptrCast(self), indexes_list);
+        qtc.QBarSet_ToggleSelection(@ptrCast(self), indexes_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#selectedBars)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedBars)
     ///
-    /// ``` self: ?*C.QBarSet, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QBarSet, allocator: std.mem.Allocator ```
     pub fn SelectedBars(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: C.struct_libqt_list = C.QBarSet_SelectedBars(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("Memory allocation failed");
+        const _arr: qtc.struct_libqt_list = qtc.QBarSet_SelectedBars(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qbarset.SelectedBars: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
@@ -374,224 +375,260 @@ pub const qbarset = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#clicked)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#clicked)
     ///
-    /// ``` self: ?*C.QBarSet, index: i32 ```
+    /// ``` self: QtC.QBarSet, index: i32 ```
     pub fn Clicked(self: ?*anyopaque, index: i32) void {
-        C.QBarSet_Clicked(@ptrCast(self), @intCast(index));
+        qtc.QBarSet_Clicked(@ptrCast(self), @intCast(index));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#clicked)
+    ///
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, index: i32) callconv(.c) void ```
     pub fn OnClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QBarSet_Connect_Clicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_Connect_Clicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#hovered)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#hovered)
     ///
-    /// ``` self: ?*C.QBarSet, status: bool, index: i32 ```
+    /// ``` self: QtC.QBarSet, status: bool, index: i32 ```
     pub fn Hovered(self: ?*anyopaque, status: bool, index: i32) void {
-        C.QBarSet_Hovered(@ptrCast(self), status, @intCast(index));
+        qtc.QBarSet_Hovered(@ptrCast(self), status, @intCast(index));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, bool, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#hovered)
+    ///
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, status: bool, index: i32) callconv(.c) void ```
     pub fn OnHovered(self: ?*anyopaque, slot: fn (?*anyopaque, bool, i32) callconv(.c) void) void {
-        C.QBarSet_Connect_Hovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_Connect_Hovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#pressed)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#pressed)
     ///
-    /// ``` self: ?*C.QBarSet, index: i32 ```
+    /// ``` self: QtC.QBarSet, index: i32 ```
     pub fn Pressed(self: ?*anyopaque, index: i32) void {
-        C.QBarSet_Pressed(@ptrCast(self), @intCast(index));
+        qtc.QBarSet_Pressed(@ptrCast(self), @intCast(index));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#pressed)
+    ///
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, index: i32) callconv(.c) void ```
     pub fn OnPressed(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QBarSet_Connect_Pressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_Connect_Pressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#released)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#released)
     ///
-    /// ``` self: ?*C.QBarSet, index: i32 ```
+    /// ``` self: QtC.QBarSet, index: i32 ```
     pub fn Released(self: ?*anyopaque, index: i32) void {
-        C.QBarSet_Released(@ptrCast(self), @intCast(index));
+        qtc.QBarSet_Released(@ptrCast(self), @intCast(index));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#released)
+    ///
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, index: i32) callconv(.c) void ```
     pub fn OnReleased(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QBarSet_Connect_Released(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_Connect_Released(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#doubleClicked)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#doubleClicked)
     ///
-    /// ``` self: ?*C.QBarSet, index: i32 ```
+    /// ``` self: QtC.QBarSet, index: i32 ```
     pub fn DoubleClicked(self: ?*anyopaque, index: i32) void {
-        C.QBarSet_DoubleClicked(@ptrCast(self), @intCast(index));
+        qtc.QBarSet_DoubleClicked(@ptrCast(self), @intCast(index));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#doubleClicked)
+    ///
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, index: i32) callconv(.c) void ```
     pub fn OnDoubleClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QBarSet_Connect_DoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_Connect_DoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#penChanged)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#penChanged)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn PenChanged(self: ?*anyopaque) void {
-        C.QBarSet_PenChanged(@ptrCast(self));
+        qtc.QBarSet_PenChanged(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#penChanged)
+    ///
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet) callconv(.c) void ```
     pub fn OnPenChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QBarSet_Connect_PenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_Connect_PenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#brushChanged)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#brushChanged)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn BrushChanged(self: ?*anyopaque) void {
-        C.QBarSet_BrushChanged(@ptrCast(self));
+        qtc.QBarSet_BrushChanged(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#brushChanged)
+    ///
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet) callconv(.c) void ```
     pub fn OnBrushChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QBarSet_Connect_BrushChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_Connect_BrushChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#labelChanged)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelChanged)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn LabelChanged(self: ?*anyopaque) void {
-        C.QBarSet_LabelChanged(@ptrCast(self));
+        qtc.QBarSet_LabelChanged(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelChanged)
+    ///
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet) callconv(.c) void ```
     pub fn OnLabelChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QBarSet_Connect_LabelChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_Connect_LabelChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#labelBrushChanged)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelBrushChanged)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn LabelBrushChanged(self: ?*anyopaque) void {
-        C.QBarSet_LabelBrushChanged(@ptrCast(self));
+        qtc.QBarSet_LabelBrushChanged(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelBrushChanged)
+    ///
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet) callconv(.c) void ```
     pub fn OnLabelBrushChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QBarSet_Connect_LabelBrushChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_Connect_LabelBrushChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#labelFontChanged)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelFontChanged)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn LabelFontChanged(self: ?*anyopaque) void {
-        C.QBarSet_LabelFontChanged(@ptrCast(self));
+        qtc.QBarSet_LabelFontChanged(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelFontChanged)
+    ///
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet) callconv(.c) void ```
     pub fn OnLabelFontChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QBarSet_Connect_LabelFontChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_Connect_LabelFontChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#colorChanged)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#colorChanged)
     ///
-    /// ``` self: ?*C.QBarSet, color: C.QColor ```
-    pub fn ColorChanged(self: ?*anyopaque, color: C.QColor) void {
-        C.QBarSet_ColorChanged(@ptrCast(self), @ptrCast(color));
+    /// ``` self: QtC.QBarSet, color: QtC.QColor ```
+    pub fn ColorChanged(self: ?*anyopaque, color: QtC.QColor) void {
+        qtc.QBarSet_ColorChanged(@ptrCast(self), @ptrCast(color));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, C.QColor) callconv(.c) void ```
-    pub fn OnColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, C.QColor) callconv(.c) void) void {
-        C.QBarSet_Connect_ColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#borderColorChanged)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#colorChanged)
     ///
-    /// ``` self: ?*C.QBarSet, color: C.QColor ```
-    pub fn BorderColorChanged(self: ?*anyopaque, color: C.QColor) void {
-        C.QBarSet_BorderColorChanged(@ptrCast(self), @ptrCast(color));
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
+        qtc.QBarSet_Connect_ColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, C.QColor) callconv(.c) void ```
-    pub fn OnBorderColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, C.QColor) callconv(.c) void) void {
-        C.QBarSet_Connect_BorderColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#labelColorChanged)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#borderColorChanged)
     ///
-    /// ``` self: ?*C.QBarSet, color: C.QColor ```
-    pub fn LabelColorChanged(self: ?*anyopaque, color: C.QColor) void {
-        C.QBarSet_LabelColorChanged(@ptrCast(self), @ptrCast(color));
+    /// ``` self: QtC.QBarSet, color: QtC.QColor ```
+    pub fn BorderColorChanged(self: ?*anyopaque, color: QtC.QColor) void {
+        qtc.QBarSet_BorderColorChanged(@ptrCast(self), @ptrCast(color));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, C.QColor) callconv(.c) void ```
-    pub fn OnLabelColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, C.QColor) callconv(.c) void) void {
-        C.QBarSet_Connect_LabelColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#selectedColorChanged)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#borderColorChanged)
     ///
-    /// ``` self: ?*C.QBarSet, color: ?*C.QColor ```
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnBorderColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
+        qtc.QBarSet_Connect_BorderColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelColorChanged)
+    ///
+    /// ``` self: QtC.QBarSet, color: QtC.QColor ```
+    pub fn LabelColorChanged(self: ?*anyopaque, color: QtC.QColor) void {
+        qtc.QBarSet_LabelColorChanged(@ptrCast(self), @ptrCast(color));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelColorChanged)
+    ///
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnLabelColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
+        qtc.QBarSet_Connect_LabelColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedColorChanged)
+    ///
+    /// ``` self: QtC.QBarSet, color: QtC.QColor ```
     pub fn SelectedColorChanged(self: ?*anyopaque, color: ?*anyopaque) void {
-        C.QBarSet_SelectedColorChanged(@ptrCast(self), @ptrCast(color));
+        qtc.QBarSet_SelectedColorChanged(@ptrCast(self), @ptrCast(color));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, ?*C.QColor) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedColorChanged)
+    ///
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, color: QtC.QColor) callconv(.c) void ```
     pub fn OnSelectedColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QBarSet_Connect_SelectedColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_Connect_SelectedColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#valuesAdded)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valuesAdded)
     ///
-    /// ``` self: ?*C.QBarSet, index: i32, count: i32 ```
+    /// ``` self: QtC.QBarSet, index: i32, count: i32 ```
     pub fn ValuesAdded(self: ?*anyopaque, index: i32, count: i32) void {
-        C.QBarSet_ValuesAdded(@ptrCast(self), @intCast(index), @intCast(count));
+        qtc.QBarSet_ValuesAdded(@ptrCast(self), @intCast(index), @intCast(count));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, i32, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valuesAdded)
+    ///
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, index: i32, count: i32) callconv(.c) void ```
     pub fn OnValuesAdded(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        C.QBarSet_Connect_ValuesAdded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_Connect_ValuesAdded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#valuesRemoved)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valuesRemoved)
     ///
-    /// ``` self: ?*C.QBarSet, index: i32, count: i32 ```
+    /// ``` self: QtC.QBarSet, index: i32, count: i32 ```
     pub fn ValuesRemoved(self: ?*anyopaque, index: i32, count: i32) void {
-        C.QBarSet_ValuesRemoved(@ptrCast(self), @intCast(index), @intCast(count));
+        qtc.QBarSet_ValuesRemoved(@ptrCast(self), @intCast(index), @intCast(count));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, i32, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valuesRemoved)
+    ///
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, index: i32, count: i32) callconv(.c) void ```
     pub fn OnValuesRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        C.QBarSet_Connect_ValuesRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_Connect_ValuesRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#valueChanged)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valueChanged)
     ///
-    /// ``` self: ?*C.QBarSet, index: i32 ```
+    /// ``` self: QtC.QBarSet, index: i32 ```
     pub fn ValueChanged(self: ?*anyopaque, index: i32) void {
-        C.QBarSet_ValueChanged(@ptrCast(self), @intCast(index));
+        qtc.QBarSet_ValueChanged(@ptrCast(self), @intCast(index));
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, i32) callconv(.c) void ```
-    pub fn OnValueChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QBarSet_Connect_ValueChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#selectedBarsChanged)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valueChanged)
     ///
-    /// ``` self: ?*C.QBarSet, indexes: []i32 ```
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, index: i32) callconv(.c) void ```
+    pub fn OnValueChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QBarSet_Connect_ValueChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedBarsChanged)
+    ///
+    /// ``` self: QtC.QBarSet, indexes: []i32 ```
     pub fn SelectedBarsChanged(self: ?*anyopaque, indexes: []i32) void {
-        const indexes_list = C.struct_libqt_list{
+        const indexes_list = qtc.struct_libqt_list{
             .len = indexes.len,
             .data = indexes.ptr,
         };
-        C.QBarSet_SelectedBarsChanged(@ptrCast(self), indexes_list);
+        qtc.QBarSet_SelectedBarsChanged(@ptrCast(self), indexes_list);
     }
 
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, []i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedBarsChanged)
+    ///
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, indexes: []i32) callconv(.c) void ```
     pub fn OnSelectedBarsChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []i32) callconv(.c) void) void {
-        C.QBarSet_Connect_SelectedBarsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_Connect_SelectedBarsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -600,9 +637,9 @@ pub const qbarset = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QBarSet_Tr2(s_Cstring, c_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QBarSet_Tr2(s_Cstring, c_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbarset.Tr2: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -615,31 +652,31 @@ pub const qbarset = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QBarSet_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QBarSet_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbarset.Tr3: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset.html#remove)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#remove)
     ///
-    /// ``` self: ?*C.QBarSet, index: i32, count: i32 ```
+    /// ``` self: QtC.QBarSet, index: i32, count: i32 ```
     pub fn Remove2(self: ?*anyopaque, index: i32, count: i32) void {
-        C.QBarSet_Remove2(@ptrCast(self), @intCast(index), @intCast(count));
+        qtc.QBarSet_Remove2(@ptrCast(self), @intCast(index), @intCast(count));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: ?*C.QBarSet, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QBarSet, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QObject_ObjectName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbarset.ObjectName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -650,102 +687,102 @@ pub const qbarset = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: ?*C.QBarSet, name: []const u8 ```
+    /// ``` self: QtC.QBarSet, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return C.QObject_IsWidgetType(@ptrCast(self));
+        return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
-        return C.QObject_IsWindowType(@ptrCast(self));
+        return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return C.QObject_IsQuickItemType(@ptrCast(self));
+        return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return C.QObject_SignalsBlocked(@ptrCast(self));
+        return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: ?*C.QBarSet, b: bool ```
+    /// ``` self: QtC.QBarSet, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return C.QObject_BlockSignals(@ptrCast(self), b);
+        return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: ?*C.QBarSet ```
-    pub fn Thread(self: ?*anyopaque) ?*C.QThread {
-        return C.QObject_Thread(@ptrCast(self));
+    /// ``` self: QtC.QBarSet ```
+    pub fn Thread(self: ?*anyopaque) QtC.QThread {
+        return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: ?*C.QBarSet, thread: ?*C.QThread ```
+    /// ``` self: QtC.QBarSet, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        C.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QBarSet, interval: i32 ```
+    /// ``` self: QtC.QBarSet, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return C.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: ?*C.QBarSet, id: i32 ```
+    /// ``` self: QtC.QBarSet, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        C.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: ?*C.QBarSet, allocator: std.mem.Allocator ```
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QObject {
-        const _arr: C.struct_libqt_list = C.QObject_Children(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QObject, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QObject = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QBarSet, allocator: std.mem.Allocator ```
+    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
+        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qbarset.Children: Memory allocation failed");
+        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -756,123 +793,123 @@ pub const qbarset = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
-    /// ``` self: ?*C.QBarSet, parent: ?*C.QObject ```
+    /// ``` self: QtC.QBarSet, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        C.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: ?*C.QBarSet, filterObj: ?*C.QObject ```
+    /// ``` self: QtC.QBarSet, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        C.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: ?*C.QBarSet, obj: ?*C.QObject ```
+    /// ``` self: QtC.QBarSet, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        C.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod ```
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QBarSet, sender: ?*C.QObject, signal: []const u8, member: []const u8 ```
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QBarSet, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, member: ?*C.QMetaMethod ```
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return C.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: ?*C.QMetaObject__Connection ```
+    /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return C.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
-        C.QObject_DumpObjectTree(@ptrCast(self));
+        qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        C.QObject_DumpObjectInfo(@ptrCast(self));
+        qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: ?*C.QBarSet, name: []const u8, value: ?*C.QVariant ```
+    /// ``` self: QtC.QBarSet, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: ?*C.QBarSet, name: []const u8 ```
-    pub fn Property(self: ?*anyopaque, name: []const u8) ?*C.QVariant {
+    /// ``` self: QtC.QBarSet, name: []const u8 ```
+    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_Property(@ptrCast(self), name_Cstring);
+        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: ?*C.QBarSet, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QBarSet, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: C.struct_libqt_list = C.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qbarset.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qbarset.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -883,107 +920,111 @@ pub const qbarset = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QBarSet ```
-    pub fn BindingStorage(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage(@ptrCast(self));
+    /// ``` self: QtC.QBarSet ```
+    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QBarSet ```
-    pub fn BindingStorage2(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage2(@ptrCast(self));
+    /// ``` self: QtC.QBarSet ```
+    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn Destroyed(self: ?*anyopaque) void {
-        C.QObject_Destroyed(@ptrCast(self));
+        qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: ?*C.QBarSet ```
-    pub fn Parent(self: ?*anyopaque) ?*C.QObject {
-        return C.QObject_Parent(@ptrCast(self));
+    /// ``` self: QtC.QBarSet ```
+    pub fn Parent(self: ?*anyopaque) QtC.QObject {
+        return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: ?*C.QBarSet, classname: []const u8 ```
+    /// ``` self: QtC.QBarSet, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = @constCast(classname.ptr);
-        return C.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn DeleteLater(self: ?*anyopaque) void {
-        C.QObject_DeleteLater(@ptrCast(self));
+        qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QBarSet, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ``` self: QtC.QBarSet, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return C.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QBarSet, sender: ?*C.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QBarSet, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QBarSet, param1: ?*C.QObject ```
+    /// ``` self: QtC.QBarSet, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject, ?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -992,27 +1033,31 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, event: ?*C.QEvent ```
+    /// ``` self: QtC.QBarSet, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QBarSet_Event(@ptrCast(self), @ptrCast(event));
+        return qtc.QBarSet_Event(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, event: ?*C.QEvent ```
+    /// ``` self: QtC.QBarSet, event: QtC.QEvent ```
     pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QBarSet_QBaseEvent(@ptrCast(self), @ptrCast(event));
+        return qtc.QBarSet_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QBarSet_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1021,27 +1066,31 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QBarSet, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QBarSet_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QBarSet_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, watched: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QBarSet, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QBarSet_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QBarSet_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, ?*C.QObject, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QBarSet_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1050,27 +1099,31 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QBarSet, event: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QBarSet_TimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QBarSet_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QBarSet, event: QtC.QTimerEvent ```
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QBarSet_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QBarSet_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, ?*C.QTimerEvent) callconv(.c) void ```
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, event: QtC.QTimerEvent) callconv(.c) void ```
     pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QBarSet_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1079,27 +1132,31 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QBarSet, event: QtC.QChildEvent ```
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QBarSet_ChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QBarSet_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QBarSet, event: QtC.QChildEvent ```
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QBarSet_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QBarSet_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, ?*C.QChildEvent) callconv(.c) void ```
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, event: QtC.QChildEvent) callconv(.c) void ```
     pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QBarSet_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1108,27 +1165,31 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, event: ?*C.QEvent ```
+    /// ``` self: QtC.QBarSet, event: QtC.QEvent ```
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QBarSet_CustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QBarSet_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, event: ?*C.QEvent ```
+    /// ``` self: QtC.QBarSet, event: QtC.QEvent ```
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QBarSet_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QBarSet_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, event: QtC.QEvent) callconv(.c) void ```
     pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QBarSet_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1137,27 +1198,31 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QBarSet, signal: QtC.QMetaMethod ```
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QBarSet_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QBarSet_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QBarSet, signal: QtC.QMetaMethod ```
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QBarSet_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QBarSet_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QBarSet_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1166,27 +1231,31 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QBarSet, signal: QtC.QMetaMethod ```
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QBarSet_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QBarSet_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QBarSet, signal: QtC.QMetaMethod ```
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QBarSet_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QBarSet_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QBarSet_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1195,27 +1264,31 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet ```
-    pub fn Sender(self: ?*anyopaque) ?*C.QObject {
-        return C.QBarSet_Sender(@ptrCast(self));
+    /// ``` self: QtC.QBarSet ```
+    pub fn Sender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QBarSet_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet ```
-    pub fn QBaseSender(self: ?*anyopaque) ?*C.QObject {
-        return C.QBarSet_QBaseSender(@ptrCast(self));
+    /// ``` self: QtC.QBarSet ```
+    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QBarSet_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, slot: fn () callconv(.c) ?*C.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QObject) void {
-        C.QBarSet_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, slot: fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
+        qtc.QBarSet_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1224,27 +1297,31 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QBarSet_SenderSignalIndex(@ptrCast(self));
+        return qtc.QBarSet_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QBarSet_QBaseSenderSignalIndex(@ptrCast(self));
+        return qtc.QBarSet_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QBarSet, slot: fn () callconv(.c) i32 ```
     pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QBarSet_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1253,29 +1330,33 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, signal: []const u8 ```
+    /// ``` self: QtC.QBarSet, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QBarSet_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QBarSet_Receivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, signal: []const u8 ```
+    /// ``` self: QtC.QBarSet, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QBarSet_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QBarSet_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, []const u8) callconv(.c) i32 ```
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, signal: []const u8) callconv(.c) i32 ```
     pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
-        C.QBarSet_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -1284,33 +1365,50 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QBarSet, signal: QtC.QMetaMethod ```
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QBarSet_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QBarSet_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QBarSet, signal: QtC.QMetaMethod ```
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QBarSet_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QBarSet_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QBarSet, slot: fn (?*C.QBarSet, ?*C.QMetaMethod) callconv(.c) bool ```
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QBarSet_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QBarSet_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    ///
+    /// Wrapper to allow calling private signal
+    ///
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#dtor.QBarSet)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QBarSet ```
+    /// ``` self: QtC.QBarSet ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QBarSet_Delete(@ptrCast(self));
+        qtc.QBarSet_Delete(@ptrCast(self));
     }
 };

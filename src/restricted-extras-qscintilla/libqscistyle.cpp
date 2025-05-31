@@ -11,12 +11,12 @@ QsciStyle* QsciStyle_new() {
     return new QsciStyle();
 }
 
-QsciStyle* QsciStyle_new2(int style, libqt_string description, QColor* color, QColor* paper, QFont* font) {
+QsciStyle* QsciStyle_new2(int style, const libqt_string description, const QColor* color, const QColor* paper, const QFont* font) {
     QString description_QString = QString::fromUtf8(description.data, description.len);
     return new QsciStyle(static_cast<int>(style), description_QString, *color, *paper, *font);
 }
 
-QsciStyle* QsciStyle_new3(QsciStyle* param1) {
+QsciStyle* QsciStyle_new3(const QsciStyle* param1) {
     return new QsciStyle(*param1);
 }
 
@@ -24,7 +24,7 @@ QsciStyle* QsciStyle_new4(int style) {
     return new QsciStyle(static_cast<int>(style));
 }
 
-QsciStyle* QsciStyle_new5(int style, libqt_string description, QColor* color, QColor* paper, QFont* font, bool eolFill) {
+QsciStyle* QsciStyle_new5(int style, const libqt_string description, const QColor* color, const QColor* paper, const QFont* font, bool eolFill) {
     QString description_QString = QString::fromUtf8(description.data, description.len);
     return new QsciStyle(static_cast<int>(style), description_QString, *color, *paper, *font, eolFill);
 }
@@ -41,7 +41,7 @@ int QsciStyle_Style(const QsciStyle* self) {
     return self->style();
 }
 
-void QsciStyle_SetDescription(QsciStyle* self, libqt_string description) {
+void QsciStyle_SetDescription(QsciStyle* self, const libqt_string description) {
     QString description_QString = QString::fromUtf8(description.data, description.len);
     self->setDescription(description_QString);
 }
@@ -58,7 +58,7 @@ libqt_string QsciStyle_Description(const QsciStyle* self) {
     return _str;
 }
 
-void QsciStyle_SetColor(QsciStyle* self, QColor* color) {
+void QsciStyle_SetColor(QsciStyle* self, const QColor* color) {
     self->setColor(*color);
 }
 
@@ -66,7 +66,7 @@ QColor* QsciStyle_Color(const QsciStyle* self) {
     return new QColor(self->color());
 }
 
-void QsciStyle_SetPaper(QsciStyle* self, QColor* paper) {
+void QsciStyle_SetPaper(QsciStyle* self, const QColor* paper) {
     self->setPaper(*paper);
 }
 
@@ -74,7 +74,7 @@ QColor* QsciStyle_Paper(const QsciStyle* self) {
     return new QColor(self->paper());
 }
 
-void QsciStyle_SetFont(QsciStyle* self, QFont* font) {
+void QsciStyle_SetFont(QsciStyle* self, const QFont* font) {
     self->setFont(*font);
 }
 

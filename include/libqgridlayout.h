@@ -15,28 +15,19 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QGridLayout QGridLayout;
 typedef struct QLayout QLayout;
 typedef struct QLayoutItem QLayoutItem;
-typedef struct QMargins QMargins;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QRect QRect;
 typedef struct QSize QSize;
 typedef struct QSpacerItem QSpacerItem;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 typedef struct QWidget QWidget;
 #endif
 
@@ -110,9 +101,9 @@ QLayoutItem* QGridLayout_QBaseTakeAt(QGridLayout* self, int index);
 int QGridLayout_Count(const QGridLayout* self);
 void QGridLayout_OnCount(const QGridLayout* self, intptr_t slot);
 int QGridLayout_QBaseCount(const QGridLayout* self);
-void QGridLayout_SetGeometry(QGridLayout* self, QRect* geometry);
+void QGridLayout_SetGeometry(QGridLayout* self, const QRect* geometry);
 void QGridLayout_OnSetGeometry(QGridLayout* self, intptr_t slot);
-void QGridLayout_QBaseSetGeometry(QGridLayout* self, QRect* geometry);
+void QGridLayout_QBaseSetGeometry(QGridLayout* self, const QRect* geometry);
 void QGridLayout_AddItem(QGridLayout* self, QLayoutItem* item, int row, int column);
 void QGridLayout_SetDefaultPositioning(QGridLayout* self, int n, int orient);
 void QGridLayout_GetItemPosition(const QGridLayout* self, int idx, int* row, int* column, int* rowSpan, int* columnSpan);
@@ -131,10 +122,9 @@ void QGridLayout_AddItem6(QGridLayout* self, QLayoutItem* item, int row, int col
 QRect* QGridLayout_Geometry(const QGridLayout* self);
 void QGridLayout_OnGeometry(const QGridLayout* self, intptr_t slot);
 QRect* QGridLayout_QBaseGeometry(const QGridLayout* self);
-int QGridLayout_IndexOf(const QGridLayout* self, QWidget* param1);
+int QGridLayout_IndexOf(const QGridLayout* self, const QWidget* param1);
 void QGridLayout_OnIndexOf(const QGridLayout* self, intptr_t slot);
-int QGridLayout_QBaseIndexOf(const QGridLayout* self, QWidget* param1);
-int QGridLayout_IndexOfWithQLayoutItem(const QGridLayout* self, QLayoutItem* param1);
+int QGridLayout_QBaseIndexOf(const QGridLayout* self, const QWidget* param1);
 bool QGridLayout_IsEmpty(const QGridLayout* self);
 void QGridLayout_OnIsEmpty(const QGridLayout* self, intptr_t slot);
 bool QGridLayout_QBaseIsEmpty(const QGridLayout* self);
@@ -162,12 +152,12 @@ void QGridLayout_QBaseTimerEvent(QGridLayout* self, QTimerEvent* event);
 void QGridLayout_CustomEvent(QGridLayout* self, QEvent* event);
 void QGridLayout_OnCustomEvent(QGridLayout* self, intptr_t slot);
 void QGridLayout_QBaseCustomEvent(QGridLayout* self, QEvent* event);
-void QGridLayout_ConnectNotify(QGridLayout* self, QMetaMethod* signal);
+void QGridLayout_ConnectNotify(QGridLayout* self, const QMetaMethod* signal);
 void QGridLayout_OnConnectNotify(QGridLayout* self, intptr_t slot);
-void QGridLayout_QBaseConnectNotify(QGridLayout* self, QMetaMethod* signal);
-void QGridLayout_DisconnectNotify(QGridLayout* self, QMetaMethod* signal);
+void QGridLayout_QBaseConnectNotify(QGridLayout* self, const QMetaMethod* signal);
+void QGridLayout_DisconnectNotify(QGridLayout* self, const QMetaMethod* signal);
 void QGridLayout_OnDisconnectNotify(QGridLayout* self, intptr_t slot);
-void QGridLayout_QBaseDisconnectNotify(QGridLayout* self, QMetaMethod* signal);
+void QGridLayout_QBaseDisconnectNotify(QGridLayout* self, const QMetaMethod* signal);
 QWidget* QGridLayout_Widget(const QGridLayout* self);
 void QGridLayout_OnWidget(const QGridLayout* self, intptr_t slot);
 QWidget* QGridLayout_QBaseWidget(const QGridLayout* self);
@@ -186,9 +176,9 @@ void QGridLayout_QBaseAddChildWidget(QGridLayout* self, QWidget* w);
 bool QGridLayout_AdoptLayout(QGridLayout* self, QLayout* layout);
 void QGridLayout_OnAdoptLayout(QGridLayout* self, intptr_t slot);
 bool QGridLayout_QBaseAdoptLayout(QGridLayout* self, QLayout* layout);
-QRect* QGridLayout_AlignmentRect(const QGridLayout* self, QRect* param1);
+QRect* QGridLayout_AlignmentRect(const QGridLayout* self, const QRect* param1);
 void QGridLayout_OnAlignmentRect(const QGridLayout* self, intptr_t slot);
-QRect* QGridLayout_QBaseAlignmentRect(const QGridLayout* self, QRect* param1);
+QRect* QGridLayout_QBaseAlignmentRect(const QGridLayout* self, const QRect* param1);
 QObject* QGridLayout_Sender(const QGridLayout* self);
 void QGridLayout_OnSender(const QGridLayout* self, intptr_t slot);
 QObject* QGridLayout_QBaseSender(const QGridLayout* self);
@@ -198,9 +188,9 @@ int QGridLayout_QBaseSenderSignalIndex(const QGridLayout* self);
 int QGridLayout_Receivers(const QGridLayout* self, const char* signal);
 void QGridLayout_OnReceivers(const QGridLayout* self, intptr_t slot);
 int QGridLayout_QBaseReceivers(const QGridLayout* self, const char* signal);
-bool QGridLayout_IsSignalConnected(const QGridLayout* self, QMetaMethod* signal);
+bool QGridLayout_IsSignalConnected(const QGridLayout* self, const QMetaMethod* signal);
 void QGridLayout_OnIsSignalConnected(const QGridLayout* self, intptr_t slot);
-bool QGridLayout_QBaseIsSignalConnected(const QGridLayout* self, QMetaMethod* signal);
+bool QGridLayout_QBaseIsSignalConnected(const QGridLayout* self, const QMetaMethod* signal);
 void QGridLayout_Delete(QGridLayout* self);
 
 #ifdef __cplusplus

@@ -4,7 +4,7 @@
 #include "libqprintengine.h"
 #include "libqprintengine.hxx"
 
-void QPrintEngine_SetProperty(QPrintEngine* self, int key, QVariant* value) {
+void QPrintEngine_SetProperty(QPrintEngine* self, int key, const QVariant* value) {
     self->setProperty(static_cast<QPrintEngine::PrintEnginePropertyKey>(key), *value);
 }
 
@@ -28,7 +28,7 @@ int QPrintEngine_PrinterState(const QPrintEngine* self) {
     return static_cast<int>(self->printerState());
 }
 
-void QPrintEngine_OperatorAssign(QPrintEngine* self, QPrintEngine* param1) {
+void QPrintEngine_OperatorAssign(QPrintEngine* self, const QPrintEngine* param1) {
     self->operator=(*param1);
 }
 

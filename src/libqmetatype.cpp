@@ -9,7 +9,7 @@
 #include "libqmetatype.h"
 #include "libqmetatype.hxx"
 
-QMetaType* QMetaType_new(QMetaType* other) {
+QMetaType* QMetaType_new(const QMetaType* other) {
     return new QMetaType(*other);
 }
 
@@ -25,7 +25,7 @@ QMetaType* QMetaType_new4() {
     return new QMetaType();
 }
 
-QMetaType* QMetaType_new5(QMetaType* param1) {
+QMetaType* QMetaType_new5(const QMetaType* param1) {
     return new QMetaType(*param1);
 }
 
@@ -37,7 +37,7 @@ void QMetaType_MoveAssign(QMetaType* self, QMetaType* other) {
     *self = std::move(*other);
 }
 
-void QMetaType_RegisterNormalizedTypedef(libqt_string normalizedTypeName, QMetaType* typeVal) {
+void QMetaType_RegisterNormalizedTypedef(const libqt_string normalizedTypeName, QMetaType* typeVal) {
     QByteArray normalizedTypeName_QByteArray(normalizedTypeName.data, normalizedTypeName.len);
     QMetaType::registerNormalizedTypedef(normalizedTypeName_QByteArray, *typeVal);
 }
@@ -46,7 +46,7 @@ int QMetaType_Type(const char* typeName) {
     return QMetaType::type(typeName);
 }
 
-int QMetaType_TypeWithTypeName(libqt_string typeName) {
+int QMetaType_TypeWithTypeName(const libqt_string typeName) {
     QByteArray typeName_QByteArray(typeName.data, typeName.len);
     return QMetaType::type(typeName_QByteArray);
 }

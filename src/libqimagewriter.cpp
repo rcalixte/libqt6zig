@@ -14,17 +14,17 @@ QImageWriter* QImageWriter_new() {
     return new QImageWriter();
 }
 
-QImageWriter* QImageWriter_new2(QIODevice* device, libqt_string format) {
+QImageWriter* QImageWriter_new2(QIODevice* device, const libqt_string format) {
     QByteArray format_QByteArray(format.data, format.len);
     return new QImageWriter(device, format_QByteArray);
 }
 
-QImageWriter* QImageWriter_new3(libqt_string fileName) {
+QImageWriter* QImageWriter_new3(const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return new QImageWriter(fileName_QString);
 }
 
-QImageWriter* QImageWriter_new4(libqt_string fileName, libqt_string format) {
+QImageWriter* QImageWriter_new4(const libqt_string fileName, const libqt_string format) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     QByteArray format_QByteArray(format.data, format.len);
     return new QImageWriter(fileName_QString, format_QByteArray);
@@ -42,7 +42,7 @@ libqt_string QImageWriter_Tr(const char* sourceText) {
     return _str;
 }
 
-void QImageWriter_SetFormat(QImageWriter* self, libqt_string format) {
+void QImageWriter_SetFormat(QImageWriter* self, const libqt_string format) {
     QByteArray format_QByteArray(format.data, format.len);
     self->setFormat(format_QByteArray);
 }
@@ -65,7 +65,7 @@ QIODevice* QImageWriter_Device(const QImageWriter* self) {
     return self->device();
 }
 
-void QImageWriter_SetFileName(QImageWriter* self, libqt_string fileName) {
+void QImageWriter_SetFileName(QImageWriter* self, const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     self->setFileName(fileName_QString);
 }
@@ -98,7 +98,7 @@ int QImageWriter_Compression(const QImageWriter* self) {
     return self->compression();
 }
 
-void QImageWriter_SetSubType(QImageWriter* self, libqt_string typeVal) {
+void QImageWriter_SetSubType(QImageWriter* self, const libqt_string typeVal) {
     QByteArray typeVal_QByteArray(typeVal.data, typeVal.len);
     self->setSubType(typeVal_QByteArray);
 }
@@ -156,7 +156,7 @@ void QImageWriter_SetTransformation(QImageWriter* self, int orientation) {
     self->setTransformation(static_cast<QImageIOHandler::Transformations>(orientation));
 }
 
-void QImageWriter_SetText(QImageWriter* self, libqt_string key, libqt_string text) {
+void QImageWriter_SetText(QImageWriter* self, const libqt_string key, const libqt_string text) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->setText(key_QString, text_QString);
@@ -166,7 +166,7 @@ bool QImageWriter_CanWrite(const QImageWriter* self) {
     return self->canWrite();
 }
 
-bool QImageWriter_Write(QImageWriter* self, QImage* image) {
+bool QImageWriter_Write(QImageWriter* self, const QImage* image) {
     return self->write(*image);
 }
 
@@ -228,7 +228,7 @@ libqt_list /* of libqt_string */ QImageWriter_SupportedMimeTypes() {
     return _out;
 }
 
-libqt_list /* of libqt_string */ QImageWriter_ImageFormatsForMimeType(libqt_string mimeType) {
+libqt_list /* of libqt_string */ QImageWriter_ImageFormatsForMimeType(const libqt_string mimeType) {
     QByteArray mimeType_QByteArray(mimeType.data, mimeType.len);
     QList<QByteArray> _ret = QImageWriter::imageFormatsForMimeType(mimeType_QByteArray);
     // Convert QList<> from C++ memory to manually-managed C memory

@@ -15,26 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAbstractAxis QAbstractAxis;
 typedef struct QAbstractSeries QAbstractSeries;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
-typedef struct QChart QChart;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QPieSeries QPieSeries;
 typedef struct QPieSlice QPieSlice;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QPieSeries* QPieSeries_new();
@@ -49,9 +39,9 @@ int QPieSeries_Type(const QPieSeries* self);
 void QPieSeries_OnType(const QPieSeries* self, intptr_t slot);
 int QPieSeries_QBaseType(const QPieSeries* self);
 bool QPieSeries_Append(QPieSeries* self, QPieSlice* slice);
-bool QPieSeries_AppendWithSlices(QPieSeries* self, libqt_list /* of QPieSlice* */ slices);
+bool QPieSeries_AppendWithSlices(QPieSeries* self, const libqt_list /* of QPieSlice* */ slices);
 QPieSeries* QPieSeries_OperatorShiftLeft(QPieSeries* self, QPieSlice* slice);
-QPieSlice* QPieSeries_Append2(QPieSeries* self, libqt_string label, double value);
+QPieSlice* QPieSeries_Append2(QPieSeries* self, const libqt_string label, double value);
 bool QPieSeries_Insert(QPieSeries* self, int index, QPieSlice* slice);
 bool QPieSeries_Remove(QPieSeries* self, QPieSlice* slice);
 bool QPieSeries_Take(QPieSeries* self, QPieSlice* slice);
@@ -74,9 +64,9 @@ void QPieSeries_SetPieEndAngle(QPieSeries* self, double endAngle);
 double QPieSeries_PieEndAngle(const QPieSeries* self);
 void QPieSeries_SetLabelsVisible(QPieSeries* self);
 void QPieSeries_SetLabelsPosition(QPieSeries* self, int position);
-void QPieSeries_Added(QPieSeries* self, libqt_list /* of QPieSlice* */ slices);
+void QPieSeries_Added(QPieSeries* self, const libqt_list /* of QPieSlice* */ slices);
 void QPieSeries_Connect_Added(QPieSeries* self, intptr_t slot);
-void QPieSeries_Removed(QPieSeries* self, libqt_list /* of QPieSlice* */ slices);
+void QPieSeries_Removed(QPieSeries* self, const libqt_list /* of QPieSlice* */ slices);
 void QPieSeries_Connect_Removed(QPieSeries* self, intptr_t slot);
 void QPieSeries_Clicked(QPieSeries* self, QPieSlice* slice);
 void QPieSeries_Connect_Clicked(QPieSeries* self, intptr_t slot);
@@ -110,12 +100,12 @@ void QPieSeries_QBaseChildEvent(QPieSeries* self, QChildEvent* event);
 void QPieSeries_CustomEvent(QPieSeries* self, QEvent* event);
 void QPieSeries_OnCustomEvent(QPieSeries* self, intptr_t slot);
 void QPieSeries_QBaseCustomEvent(QPieSeries* self, QEvent* event);
-void QPieSeries_ConnectNotify(QPieSeries* self, QMetaMethod* signal);
+void QPieSeries_ConnectNotify(QPieSeries* self, const QMetaMethod* signal);
 void QPieSeries_OnConnectNotify(QPieSeries* self, intptr_t slot);
-void QPieSeries_QBaseConnectNotify(QPieSeries* self, QMetaMethod* signal);
-void QPieSeries_DisconnectNotify(QPieSeries* self, QMetaMethod* signal);
+void QPieSeries_QBaseConnectNotify(QPieSeries* self, const QMetaMethod* signal);
+void QPieSeries_DisconnectNotify(QPieSeries* self, const QMetaMethod* signal);
 void QPieSeries_OnDisconnectNotify(QPieSeries* self, intptr_t slot);
-void QPieSeries_QBaseDisconnectNotify(QPieSeries* self, QMetaMethod* signal);
+void QPieSeries_QBaseDisconnectNotify(QPieSeries* self, const QMetaMethod* signal);
 QObject* QPieSeries_Sender(const QPieSeries* self);
 void QPieSeries_OnSender(const QPieSeries* self, intptr_t slot);
 QObject* QPieSeries_QBaseSender(const QPieSeries* self);
@@ -125,9 +115,9 @@ int QPieSeries_QBaseSenderSignalIndex(const QPieSeries* self);
 int QPieSeries_Receivers(const QPieSeries* self, const char* signal);
 void QPieSeries_OnReceivers(const QPieSeries* self, intptr_t slot);
 int QPieSeries_QBaseReceivers(const QPieSeries* self, const char* signal);
-bool QPieSeries_IsSignalConnected(const QPieSeries* self, QMetaMethod* signal);
+bool QPieSeries_IsSignalConnected(const QPieSeries* self, const QMetaMethod* signal);
 void QPieSeries_OnIsSignalConnected(const QPieSeries* self, intptr_t slot);
-bool QPieSeries_QBaseIsSignalConnected(const QPieSeries* self, QMetaMethod* signal);
+bool QPieSeries_QBaseIsSignalConnected(const QPieSeries* self, const QMetaMethod* signal);
 void QPieSeries_Delete(QPieSeries* self);
 
 #ifdef __cplusplus

@@ -1,22 +1,16 @@
 #include <QAction>
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
 #include <QUndoGroup>
 #include <QUndoStack>
-#include <QVariant>
 #include <qundogroup.h>
 #include "libqundogroup.h"
 #include "libqundogroup.hxx"
@@ -38,27 +32,30 @@ void* QUndoGroup_Metacast(QUndoGroup* self, const char* param1) {
 }
 
 int QUndoGroup_Metacall(QUndoGroup* self, int param1, int param2, void** param3) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQUndoGroup*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QUndoGroup_OnMetacall(QUndoGroup* self, intptr_t slot) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_Metacall_Callback(reinterpret_cast<VirtualQUndoGroup::QUndoGroup_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QUndoGroup_QBaseMetacall(QUndoGroup* self, int param1, int param2, void** param3) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_Metacall_IsBase(true);
         return vqundogroup->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQUndoGroup*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -215,7 +212,7 @@ void QUndoGroup_Connect_CanRedoChanged(QUndoGroup* self, intptr_t slot) {
     });
 }
 
-void QUndoGroup_UndoTextChanged(QUndoGroup* self, libqt_string undoText) {
+void QUndoGroup_UndoTextChanged(QUndoGroup* self, const libqt_string undoText) {
     QString undoText_QString = QString::fromUtf8(undoText.data, undoText.len);
     self->undoTextChanged(undoText_QString);
 }
@@ -236,7 +233,7 @@ void QUndoGroup_Connect_UndoTextChanged(QUndoGroup* self, intptr_t slot) {
     });
 }
 
-void QUndoGroup_RedoTextChanged(QUndoGroup* self, libqt_string redoText) {
+void QUndoGroup_RedoTextChanged(QUndoGroup* self, const libqt_string redoText) {
     QString redoText_QString = QString::fromUtf8(redoText.data, redoText.len);
     self->redoTextChanged(redoText_QString);
 }
@@ -281,298 +278,331 @@ libqt_string QUndoGroup_Tr3(const char* s, const char* c, int n) {
     return _str;
 }
 
-QAction* QUndoGroup_CreateUndoAction2(const QUndoGroup* self, QObject* parent, libqt_string prefix) {
+QAction* QUndoGroup_CreateUndoAction2(const QUndoGroup* self, QObject* parent, const libqt_string prefix) {
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     return self->createUndoAction(parent, prefix_QString);
 }
 
-QAction* QUndoGroup_CreateRedoAction2(const QUndoGroup* self, QObject* parent, libqt_string prefix) {
+QAction* QUndoGroup_CreateRedoAction2(const QUndoGroup* self, QObject* parent, const libqt_string prefix) {
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     return self->createRedoAction(parent, prefix_QString);
 }
 
 // Derived class handler implementation
 bool QUndoGroup_Event(QUndoGroup* self, QEvent* event) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         return vqundogroup->event(event);
     } else {
-        return vqundogroup->event(event);
+        return self->QUndoGroup::event(event);
     }
 }
 
 // Base class handler implementation
 bool QUndoGroup_QBaseEvent(QUndoGroup* self, QEvent* event) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_Event_IsBase(true);
         return vqundogroup->event(event);
     } else {
-        return vqundogroup->event(event);
+        return self->QUndoGroup::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoGroup_OnEvent(QUndoGroup* self, intptr_t slot) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_Event_Callback(reinterpret_cast<VirtualQUndoGroup::QUndoGroup_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QUndoGroup_EventFilter(QUndoGroup* self, QObject* watched, QEvent* event) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         return vqundogroup->eventFilter(watched, event);
     } else {
-        return vqundogroup->eventFilter(watched, event);
+        return self->QUndoGroup::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QUndoGroup_QBaseEventFilter(QUndoGroup* self, QObject* watched, QEvent* event) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_EventFilter_IsBase(true);
         return vqundogroup->eventFilter(watched, event);
     } else {
-        return vqundogroup->eventFilter(watched, event);
+        return self->QUndoGroup::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoGroup_OnEventFilter(QUndoGroup* self, intptr_t slot) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_EventFilter_Callback(reinterpret_cast<VirtualQUndoGroup::QUndoGroup_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QUndoGroup_TimerEvent(QUndoGroup* self, QTimerEvent* event) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->timerEvent(event);
     } else {
-        vqundogroup->timerEvent(event);
+        ((VirtualQUndoGroup*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QUndoGroup_QBaseTimerEvent(QUndoGroup* self, QTimerEvent* event) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_TimerEvent_IsBase(true);
         vqundogroup->timerEvent(event);
     } else {
-        vqundogroup->timerEvent(event);
+        ((VirtualQUndoGroup*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoGroup_OnTimerEvent(QUndoGroup* self, intptr_t slot) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_TimerEvent_Callback(reinterpret_cast<VirtualQUndoGroup::QUndoGroup_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QUndoGroup_ChildEvent(QUndoGroup* self, QChildEvent* event) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->childEvent(event);
     } else {
-        vqundogroup->childEvent(event);
+        ((VirtualQUndoGroup*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QUndoGroup_QBaseChildEvent(QUndoGroup* self, QChildEvent* event) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_ChildEvent_IsBase(true);
         vqundogroup->childEvent(event);
     } else {
-        vqundogroup->childEvent(event);
+        ((VirtualQUndoGroup*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoGroup_OnChildEvent(QUndoGroup* self, intptr_t slot) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_ChildEvent_Callback(reinterpret_cast<VirtualQUndoGroup::QUndoGroup_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QUndoGroup_CustomEvent(QUndoGroup* self, QEvent* event) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->customEvent(event);
     } else {
-        vqundogroup->customEvent(event);
+        ((VirtualQUndoGroup*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QUndoGroup_QBaseCustomEvent(QUndoGroup* self, QEvent* event) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_CustomEvent_IsBase(true);
         vqundogroup->customEvent(event);
     } else {
-        vqundogroup->customEvent(event);
+        ((VirtualQUndoGroup*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoGroup_OnCustomEvent(QUndoGroup* self, intptr_t slot) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_CustomEvent_Callback(reinterpret_cast<VirtualQUndoGroup::QUndoGroup_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QUndoGroup_ConnectNotify(QUndoGroup* self, QMetaMethod* signal) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+void QUndoGroup_ConnectNotify(QUndoGroup* self, const QMetaMethod* signal) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->connectNotify(*signal);
     } else {
-        vqundogroup->connectNotify(*signal);
+        ((VirtualQUndoGroup*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QUndoGroup_QBaseConnectNotify(QUndoGroup* self, QMetaMethod* signal) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+void QUndoGroup_QBaseConnectNotify(QUndoGroup* self, const QMetaMethod* signal) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_ConnectNotify_IsBase(true);
         vqundogroup->connectNotify(*signal);
     } else {
-        vqundogroup->connectNotify(*signal);
+        ((VirtualQUndoGroup*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoGroup_OnConnectNotify(QUndoGroup* self, intptr_t slot) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_ConnectNotify_Callback(reinterpret_cast<VirtualQUndoGroup::QUndoGroup_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QUndoGroup_DisconnectNotify(QUndoGroup* self, QMetaMethod* signal) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+void QUndoGroup_DisconnectNotify(QUndoGroup* self, const QMetaMethod* signal) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->disconnectNotify(*signal);
     } else {
-        vqundogroup->disconnectNotify(*signal);
+        ((VirtualQUndoGroup*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QUndoGroup_QBaseDisconnectNotify(QUndoGroup* self, QMetaMethod* signal) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+void QUndoGroup_QBaseDisconnectNotify(QUndoGroup* self, const QMetaMethod* signal) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_DisconnectNotify_IsBase(true);
         vqundogroup->disconnectNotify(*signal);
     } else {
-        vqundogroup->disconnectNotify(*signal);
+        ((VirtualQUndoGroup*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoGroup_OnDisconnectNotify(QUndoGroup* self, intptr_t slot) {
-    if (auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self)) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_DisconnectNotify_Callback(reinterpret_cast<VirtualQUndoGroup::QUndoGroup_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QUndoGroup_Sender(const QUndoGroup* self) {
-    if (auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self))) {
+    auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         return vqundogroup->sender();
     } else {
-        return vqundogroup->sender();
+        return ((VirtualQUndoGroup*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QUndoGroup_QBaseSender(const QUndoGroup* self) {
-    if (auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self))) {
+    auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_Sender_IsBase(true);
         return vqundogroup->sender();
     } else {
-        return vqundogroup->sender();
+        return ((VirtualQUndoGroup*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoGroup_OnSender(const QUndoGroup* self, intptr_t slot) {
-    if (auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self))) {
+    auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_Sender_Callback(reinterpret_cast<VirtualQUndoGroup::QUndoGroup_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QUndoGroup_SenderSignalIndex(const QUndoGroup* self) {
-    if (auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self))) {
+    auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         return vqundogroup->senderSignalIndex();
     } else {
-        return vqundogroup->senderSignalIndex();
+        return ((VirtualQUndoGroup*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QUndoGroup_QBaseSenderSignalIndex(const QUndoGroup* self) {
-    if (auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self))) {
+    auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_SenderSignalIndex_IsBase(true);
         return vqundogroup->senderSignalIndex();
     } else {
-        return vqundogroup->senderSignalIndex();
+        return ((VirtualQUndoGroup*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoGroup_OnSenderSignalIndex(const QUndoGroup* self, intptr_t slot) {
-    if (auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self))) {
+    auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_SenderSignalIndex_Callback(reinterpret_cast<VirtualQUndoGroup::QUndoGroup_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QUndoGroup_Receivers(const QUndoGroup* self, const char* signal) {
-    if (auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self))) {
+    auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         return vqundogroup->receivers(signal);
     } else {
-        return vqundogroup->receivers(signal);
+        return ((VirtualQUndoGroup*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QUndoGroup_QBaseReceivers(const QUndoGroup* self, const char* signal) {
-    if (auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self))) {
+    auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_Receivers_IsBase(true);
         return vqundogroup->receivers(signal);
     } else {
-        return vqundogroup->receivers(signal);
+        return ((VirtualQUndoGroup*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoGroup_OnReceivers(const QUndoGroup* self, intptr_t slot) {
-    if (auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self))) {
+    auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_Receivers_Callback(reinterpret_cast<VirtualQUndoGroup::QUndoGroup_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QUndoGroup_IsSignalConnected(const QUndoGroup* self, QMetaMethod* signal) {
-    if (auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self))) {
+bool QUndoGroup_IsSignalConnected(const QUndoGroup* self, const QMetaMethod* signal) {
+    auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         return vqundogroup->isSignalConnected(*signal);
     } else {
-        return vqundogroup->isSignalConnected(*signal);
+        return ((VirtualQUndoGroup*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QUndoGroup_QBaseIsSignalConnected(const QUndoGroup* self, QMetaMethod* signal) {
-    if (auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self))) {
+bool QUndoGroup_QBaseIsSignalConnected(const QUndoGroup* self, const QMetaMethod* signal) {
+    auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_IsSignalConnected_IsBase(true);
         return vqundogroup->isSignalConnected(*signal);
     } else {
-        return vqundogroup->isSignalConnected(*signal);
+        return ((VirtualQUndoGroup*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoGroup_OnIsSignalConnected(const QUndoGroup* self, intptr_t slot) {
-    if (auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self))) {
+    auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_IsSignalConnected_Callback(reinterpret_cast<VirtualQUndoGroup::QUndoGroup_IsSignalConnected_Callback>(slot));
     }
 }

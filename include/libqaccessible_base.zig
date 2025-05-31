@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qaccessible_base_enums = enums;
 pub const struct_i32_i32 = struct { first: i32, second: i32 };
 
@@ -6,129 +7,131 @@ pub const struct_i32_i32 = struct { first: i32, second: i32 };
 pub const qaccessible = struct {
     /// New constructs a new QAccessible object.
     ///
-    /// ``` other: ?*C.QAccessible ```
-    pub fn New(other: ?*anyopaque) ?*C.QAccessible {
-        return C.QAccessible_new(@ptrCast(other));
+    /// ``` other: QtC.QAccessible ```
+    pub fn New(other: ?*anyopaque) QtC.QAccessible {
+        return qtc.QAccessible_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QAccessible object and invalidates the source QAccessible object.
     ///
-    /// ``` other: ?*C.QAccessible ```
-    pub fn New2(other: ?*anyopaque) ?*C.QAccessible {
-        return C.QAccessible_new2(@ptrCast(other));
+    /// ``` other: QtC.QAccessible ```
+    pub fn New2(other: ?*anyopaque) QtC.QAccessible {
+        return qtc.QAccessible_new2(@ptrCast(other));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QAccessible, other: ?*QAccessible ```
+    /// ``` self: QtC.QAccessible, other: QtC.QAccessible ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QAccessible_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QAccessible_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QAccessible, other: ?*QAccessible ```
+    /// ``` self: QtC.QAccessible, other: QtC.QAccessible ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QAccessible_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QAccessible_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible.html#installActivationObserver)
     ///
-    /// ``` param1: ?*C.QAccessible__ActivationObserver ```
+    /// ``` param1: QtC.QAccessible__ActivationObserver ```
     pub fn InstallActivationObserver(param1: ?*anyopaque) void {
-        C.QAccessible_InstallActivationObserver(@ptrCast(param1));
+        qtc.QAccessible_InstallActivationObserver(@ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible.html#removeActivationObserver)
     ///
-    /// ``` param1: ?*C.QAccessible__ActivationObserver ```
+    /// ``` param1: QtC.QAccessible__ActivationObserver ```
     pub fn RemoveActivationObserver(param1: ?*anyopaque) void {
-        C.QAccessible_RemoveActivationObserver(@ptrCast(param1));
+        qtc.QAccessible_RemoveActivationObserver(@ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible.html#queryAccessibleInterface)
     ///
-    /// ``` param1: ?*C.QObject ```
-    pub fn QueryAccessibleInterface(param1: ?*anyopaque) ?*C.QAccessibleInterface {
-        return C.QAccessible_QueryAccessibleInterface(@ptrCast(param1));
+    /// ``` param1: QtC.QObject ```
+    pub fn QueryAccessibleInterface(param1: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessible_QueryAccessibleInterface(@ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible.html#uniqueId)
     ///
-    /// ``` iface: ?*C.QAccessibleInterface ```
+    /// ``` iface: QtC.QAccessibleInterface ```
     pub fn UniqueId(iface: ?*anyopaque) u32 {
-        return C.QAccessible_UniqueId(@ptrCast(iface));
+        return qtc.QAccessible_UniqueId(@ptrCast(iface));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible.html#accessibleInterface)
     ///
     /// ``` uniqueId: u32 ```
-    pub fn AccessibleInterface(uniqueId: u32) ?*C.QAccessibleInterface {
-        return C.QAccessible_AccessibleInterface(@intCast(uniqueId));
+    pub fn AccessibleInterface(uniqueId: u32) QtC.QAccessibleInterface {
+        return qtc.QAccessible_AccessibleInterface(@intCast(uniqueId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible.html#registerAccessibleInterface)
     ///
-    /// ``` iface: ?*C.QAccessibleInterface ```
+    /// ``` iface: QtC.QAccessibleInterface ```
     pub fn RegisterAccessibleInterface(iface: ?*anyopaque) u32 {
-        return C.QAccessible_RegisterAccessibleInterface(@ptrCast(iface));
+        return qtc.QAccessible_RegisterAccessibleInterface(@ptrCast(iface));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible.html#deleteAccessibleInterface)
     ///
     /// ``` uniqueId: u32 ```
     pub fn DeleteAccessibleInterface(uniqueId: u32) void {
-        C.QAccessible_DeleteAccessibleInterface(@intCast(uniqueId));
+        qtc.QAccessible_DeleteAccessibleInterface(@intCast(uniqueId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible.html#updateAccessibility)
     ///
-    /// ``` event: ?*C.QAccessibleEvent ```
+    /// ``` event: QtC.QAccessibleEvent ```
     pub fn UpdateAccessibility(event: ?*anyopaque) void {
-        C.QAccessible_UpdateAccessibility(@ptrCast(event));
+        qtc.QAccessible_UpdateAccessibility(@ptrCast(event));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible.html#isActive)
     ///
     ///
     pub fn IsActive() bool {
-        return C.QAccessible_IsActive();
+        return qtc.QAccessible_IsActive();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible.html#setActive)
     ///
     /// ``` active: bool ```
     pub fn SetActive(active: bool) void {
-        C.QAccessible_SetActive(active);
+        qtc.QAccessible_SetActive(active);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible.html#setRootObject)
     ///
-    /// ``` object: ?*C.QObject ```
+    /// ``` object: QtC.QObject ```
     pub fn SetRootObject(object: ?*anyopaque) void {
-        C.QAccessible_SetRootObject(@ptrCast(object));
+        qtc.QAccessible_SetRootObject(@ptrCast(object));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible.html#cleanup)
     ///
     ///
     pub fn Cleanup() void {
-        C.QAccessible_Cleanup();
+        qtc.QAccessible_Cleanup();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible.html#qAccessibleTextBoundaryHelper)
     ///
-    /// ``` cursor: ?*C.QTextCursor, boundaryType: qaccessible_base_enums.TextBoundaryType ```
+    /// ``` cursor: QtC.QTextCursor, boundaryType: qaccessible_base_enums.TextBoundaryType ```
     pub fn QAccessibleTextBoundaryHelper(cursor: ?*anyopaque, boundaryType: i64) struct_i32_i32 {
-        const _pair: C.struct_libqt_pair = C.QAccessible_QAccessibleTextBoundaryHelper(@ptrCast(cursor), @intCast(boundaryType));
+        const _pair: qtc.struct_libqt_pair = qtc.QAccessible_QAccessibleTextBoundaryHelper(@ptrCast(cursor), @intCast(boundaryType));
         return struct_i32_i32{ .first = @intCast(@intFromPtr(_pair.first)), .second = @intCast(@intFromPtr(_pair.second)) };
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible.html#dtor.QAccessible)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessible ```
+    /// ``` self: QtC.QAccessible ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessible_Delete(@ptrCast(self));
+        qtc.QAccessible_Delete(@ptrCast(self));
     }
 };
 
@@ -136,44 +139,44 @@ pub const qaccessible = struct {
 pub const qaccessible__state = struct {
     /// New constructs a new QAccessible::State object.
     ///
-    /// ``` other: ?*C.QAccessible__State ```
-    pub fn New(other: ?*anyopaque) ?*C.QAccessible__State {
-        return C.QAccessible__State_new(@ptrCast(other));
+    /// ``` other: QtC.QAccessible__State ```
+    pub fn New(other: ?*anyopaque) QtC.QAccessible__State {
+        return qtc.QAccessible__State_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QAccessible::State object and invalidates the source QAccessible::State object.
     ///
-    /// ``` other: ?*C.QAccessible__State ```
-    pub fn New2(other: ?*anyopaque) ?*C.QAccessible__State {
-        return C.QAccessible__State_new2(@ptrCast(other));
+    /// ``` other: QtC.QAccessible__State ```
+    pub fn New2(other: ?*anyopaque) QtC.QAccessible__State {
+        return qtc.QAccessible__State_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QAccessible::State object.
     ///
     ///
-    pub fn New3() ?*C.QAccessible__State {
-        return C.QAccessible__State_new3();
+    pub fn New3() QtC.QAccessible__State {
+        return qtc.QAccessible__State_new3();
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QAccessible__State, other: ?*QAccessible__State ```
+    /// ``` self: QtC.QAccessible__State, other: QtC.QAccessible__State ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QAccessible__State_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QAccessible__State_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QAccessible__State, other: ?*QAccessible__State ```
+    /// ``` self: QtC.QAccessible__State, other: QtC.QAccessible__State ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QAccessible__State_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QAccessible__State_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessible__State ```
+    /// ``` self: QtC.QAccessible__State ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessible__State_Delete(@ptrCast(self));
+        qtc.QAccessible__State_Delete(@ptrCast(self));
     }
 };
 
@@ -181,23 +184,23 @@ pub const qaccessible__state = struct {
 pub const qaccessible__activationobserver = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible__activationobserver.html#accessibilityActiveChanged)
     ///
-    /// ``` self: ?*C.QAccessible__ActivationObserver, active: bool ```
+    /// ``` self: QtC.QAccessible__ActivationObserver, active: bool ```
     pub fn AccessibilityActiveChanged(self: ?*anyopaque, active: bool) void {
-        C.QAccessible__ActivationObserver_AccessibilityActiveChanged(@ptrCast(self), active);
+        qtc.QAccessible__ActivationObserver_AccessibilityActiveChanged(@ptrCast(self), active);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible__activationobserver.html#operator=)
     ///
-    /// ``` self: ?*C.QAccessible__ActivationObserver, param1: ?*C.QAccessible__ActivationObserver ```
+    /// ``` self: QtC.QAccessible__ActivationObserver, param1: QtC.QAccessible__ActivationObserver ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QAccessible__ActivationObserver_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+        qtc.QAccessible__ActivationObserver_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QAccessible__ActivationObserver ```
+    /// ``` self: QtC.QAccessible__ActivationObserver ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QAccessible__ActivationObserver_Delete(@ptrCast(self));
+        qtc.QAccessible__ActivationObserver_Delete(@ptrCast(self));
     }
 };
 

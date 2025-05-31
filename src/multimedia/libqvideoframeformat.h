@@ -38,23 +38,23 @@ typedef int YCbCrColorSpace; // C ABI enum
 #endif
 
 QVideoFrameFormat* QVideoFrameFormat_new();
-QVideoFrameFormat* QVideoFrameFormat_new2(QSize* size, int pixelFormat);
-QVideoFrameFormat* QVideoFrameFormat_new3(QVideoFrameFormat* format);
+QVideoFrameFormat* QVideoFrameFormat_new2(const QSize* size, int pixelFormat);
+QVideoFrameFormat* QVideoFrameFormat_new3(const QVideoFrameFormat* format);
 void QVideoFrameFormat_Swap(QVideoFrameFormat* self, QVideoFrameFormat* other);
 void QVideoFrameFormat_Detach(QVideoFrameFormat* self);
-void QVideoFrameFormat_OperatorAssign(QVideoFrameFormat* self, QVideoFrameFormat* format);
-bool QVideoFrameFormat_OperatorEqual(const QVideoFrameFormat* self, QVideoFrameFormat* format);
-bool QVideoFrameFormat_OperatorNotEqual(const QVideoFrameFormat* self, QVideoFrameFormat* format);
+void QVideoFrameFormat_OperatorAssign(QVideoFrameFormat* self, const QVideoFrameFormat* format);
+bool QVideoFrameFormat_OperatorEqual(const QVideoFrameFormat* self, const QVideoFrameFormat* format);
+bool QVideoFrameFormat_OperatorNotEqual(const QVideoFrameFormat* self, const QVideoFrameFormat* format);
 bool QVideoFrameFormat_IsValid(const QVideoFrameFormat* self);
 int QVideoFrameFormat_PixelFormat(const QVideoFrameFormat* self);
 QSize* QVideoFrameFormat_FrameSize(const QVideoFrameFormat* self);
-void QVideoFrameFormat_SetFrameSize(QVideoFrameFormat* self, QSize* size);
+void QVideoFrameFormat_SetFrameSize(QVideoFrameFormat* self, const QSize* size);
 void QVideoFrameFormat_SetFrameSize2(QVideoFrameFormat* self, int width, int height);
 int QVideoFrameFormat_FrameWidth(const QVideoFrameFormat* self);
 int QVideoFrameFormat_FrameHeight(const QVideoFrameFormat* self);
 int QVideoFrameFormat_PlaneCount(const QVideoFrameFormat* self);
 QRect* QVideoFrameFormat_Viewport(const QVideoFrameFormat* self);
-void QVideoFrameFormat_SetViewport(QVideoFrameFormat* self, QRect* viewport);
+void QVideoFrameFormat_SetViewport(QVideoFrameFormat* self, const QRect* viewport);
 int QVideoFrameFormat_ScanLineDirection(const QVideoFrameFormat* self);
 void QVideoFrameFormat_SetScanLineDirection(QVideoFrameFormat* self, int direction);
 double QVideoFrameFormat_FrameRate(const QVideoFrameFormat* self);

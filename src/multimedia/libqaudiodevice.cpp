@@ -13,7 +13,7 @@ QAudioDevice* QAudioDevice_new() {
     return new QAudioDevice();
 }
 
-QAudioDevice* QAudioDevice_new2(QAudioDevice* other) {
+QAudioDevice* QAudioDevice_new2(const QAudioDevice* other) {
     return new QAudioDevice(*other);
 }
 
@@ -21,15 +21,15 @@ void QAudioDevice_Swap(QAudioDevice* self, QAudioDevice* other) {
     self->swap(*other);
 }
 
-void QAudioDevice_OperatorAssign(QAudioDevice* self, QAudioDevice* other) {
+void QAudioDevice_OperatorAssign(QAudioDevice* self, const QAudioDevice* other) {
     self->operator=(*other);
 }
 
-bool QAudioDevice_OperatorEqual(const QAudioDevice* self, QAudioDevice* other) {
+bool QAudioDevice_OperatorEqual(const QAudioDevice* self, const QAudioDevice* other) {
     return (*self == *other);
 }
 
-bool QAudioDevice_OperatorNotEqual(const QAudioDevice* self, QAudioDevice* other) {
+bool QAudioDevice_OperatorNotEqual(const QAudioDevice* self, const QAudioDevice* other) {
     return (*self != *other);
 }
 
@@ -67,7 +67,7 @@ int QAudioDevice_Mode(const QAudioDevice* self) {
     return static_cast<int>(self->mode());
 }
 
-bool QAudioDevice_IsFormatSupported(const QAudioDevice* self, QAudioFormat* format) {
+bool QAudioDevice_IsFormatSupported(const QAudioDevice* self, const QAudioFormat* format) {
     return self->isFormatSupported(*format);
 }
 

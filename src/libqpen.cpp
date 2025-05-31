@@ -15,31 +15,31 @@ QPen* QPen_new2(int param1) {
     return new QPen(static_cast<Qt::PenStyle>(param1));
 }
 
-QPen* QPen_new3(QColor* color) {
+QPen* QPen_new3(const QColor* color) {
     return new QPen(*color);
 }
 
-QPen* QPen_new4(QBrush* brush, double width) {
+QPen* QPen_new4(const QBrush* brush, double width) {
     return new QPen(*brush, static_cast<qreal>(width));
 }
 
-QPen* QPen_new5(QPen* pen) {
+QPen* QPen_new5(const QPen* pen) {
     return new QPen(*pen);
 }
 
-QPen* QPen_new6(QBrush* brush, double width, int s) {
+QPen* QPen_new6(const QBrush* brush, double width, int s) {
     return new QPen(*brush, static_cast<qreal>(width), static_cast<Qt::PenStyle>(s));
 }
 
-QPen* QPen_new7(QBrush* brush, double width, int s, int c) {
+QPen* QPen_new7(const QBrush* brush, double width, int s, int c) {
     return new QPen(*brush, static_cast<qreal>(width), static_cast<Qt::PenStyle>(s), static_cast<Qt::PenCapStyle>(c));
 }
 
-QPen* QPen_new8(QBrush* brush, double width, int s, int c, int j) {
+QPen* QPen_new8(const QBrush* brush, double width, int s, int c, int j) {
     return new QPen(*brush, static_cast<qreal>(width), static_cast<Qt::PenStyle>(s), static_cast<Qt::PenCapStyle>(c), static_cast<Qt::PenJoinStyle>(j));
 }
 
-void QPen_OperatorAssign(QPen* self, QPen* pen) {
+void QPen_OperatorAssign(QPen* self, const QPen* pen) {
     self->operator=(*pen);
 }
 
@@ -68,7 +68,7 @@ libqt_list /* of double */ QPen_DashPattern(const QPen* self) {
     return _out;
 }
 
-void QPen_SetDashPattern(QPen* self, libqt_list /* of double */ pattern) {
+void QPen_SetDashPattern(QPen* self, const libqt_list /* of double */ pattern) {
     QList<qreal> pattern_QList;
     pattern_QList.reserve(pattern.len);
     double* pattern_arr = static_cast<double*>(pattern.data);
@@ -114,7 +114,7 @@ QColor* QPen_Color(const QPen* self) {
     return new QColor(self->color());
 }
 
-void QPen_SetColor(QPen* self, QColor* color) {
+void QPen_SetColor(QPen* self, const QColor* color) {
     self->setColor(*color);
 }
 
@@ -122,7 +122,7 @@ QBrush* QPen_Brush(const QPen* self) {
     return new QBrush(self->brush());
 }
 
-void QPen_SetBrush(QPen* self, QBrush* brush) {
+void QPen_SetBrush(QPen* self, const QBrush* brush) {
     self->setBrush(*brush);
 }
 
@@ -154,11 +154,11 @@ void QPen_SetCosmetic(QPen* self, bool cosmetic) {
     self->setCosmetic(cosmetic);
 }
 
-bool QPen_OperatorEqual(const QPen* self, QPen* p) {
+bool QPen_OperatorEqual(const QPen* self, const QPen* p) {
     return (*self == *p);
 }
 
-bool QPen_OperatorNotEqual(const QPen* self, QPen* p) {
+bool QPen_OperatorNotEqual(const QPen* self, const QPen* p) {
     return (*self != *p);
 }
 

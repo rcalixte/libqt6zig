@@ -9,29 +9,29 @@ QAudioBuffer* QAudioBuffer_new() {
     return new QAudioBuffer();
 }
 
-QAudioBuffer* QAudioBuffer_new2(QAudioBuffer* other) {
+QAudioBuffer* QAudioBuffer_new2(const QAudioBuffer* other) {
     return new QAudioBuffer(*other);
 }
 
-QAudioBuffer* QAudioBuffer_new3(libqt_string data, QAudioFormat* format) {
+QAudioBuffer* QAudioBuffer_new3(const libqt_string data, const QAudioFormat* format) {
     QByteArray data_QByteArray(data.data, data.len);
     return new QAudioBuffer(data_QByteArray, *format);
 }
 
-QAudioBuffer* QAudioBuffer_new4(int numFrames, QAudioFormat* format) {
+QAudioBuffer* QAudioBuffer_new4(int numFrames, const QAudioFormat* format) {
     return new QAudioBuffer(static_cast<int>(numFrames), *format);
 }
 
-QAudioBuffer* QAudioBuffer_new5(libqt_string data, QAudioFormat* format, long long startTime) {
+QAudioBuffer* QAudioBuffer_new5(const libqt_string data, const QAudioFormat* format, long long startTime) {
     QByteArray data_QByteArray(data.data, data.len);
     return new QAudioBuffer(data_QByteArray, *format, static_cast<qint64>(startTime));
 }
 
-QAudioBuffer* QAudioBuffer_new6(int numFrames, QAudioFormat* format, long long startTime) {
+QAudioBuffer* QAudioBuffer_new6(int numFrames, const QAudioFormat* format, long long startTime) {
     return new QAudioBuffer(static_cast<int>(numFrames), *format, static_cast<qint64>(startTime));
 }
 
-void QAudioBuffer_OperatorAssign(QAudioBuffer* self, QAudioBuffer* other) {
+void QAudioBuffer_OperatorAssign(QAudioBuffer* self, const QAudioBuffer* other) {
     self->operator=(*other);
 }
 

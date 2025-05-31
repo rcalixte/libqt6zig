@@ -9,7 +9,7 @@ QEasingCurve* QEasingCurve_new() {
     return new QEasingCurve();
 }
 
-QEasingCurve* QEasingCurve_new2(QEasingCurve* other) {
+QEasingCurve* QEasingCurve_new2(const QEasingCurve* other) {
     return new QEasingCurve(*other);
 }
 
@@ -17,7 +17,7 @@ QEasingCurve* QEasingCurve_new3(int typeVal) {
     return new QEasingCurve(static_cast<QEasingCurve::Type>(typeVal));
 }
 
-void QEasingCurve_OperatorAssign(QEasingCurve* self, QEasingCurve* other) {
+void QEasingCurve_OperatorAssign(QEasingCurve* self, const QEasingCurve* other) {
     self->operator=(*other);
 }
 
@@ -25,11 +25,11 @@ void QEasingCurve_Swap(QEasingCurve* self, QEasingCurve* other) {
     self->swap(*other);
 }
 
-bool QEasingCurve_OperatorEqual(const QEasingCurve* self, QEasingCurve* other) {
+bool QEasingCurve_OperatorEqual(const QEasingCurve* self, const QEasingCurve* other) {
     return (*self == *other);
 }
 
-bool QEasingCurve_OperatorNotEqual(const QEasingCurve* self, QEasingCurve* other) {
+bool QEasingCurve_OperatorNotEqual(const QEasingCurve* self, const QEasingCurve* other) {
     return (*self != *other);
 }
 
@@ -57,11 +57,11 @@ void QEasingCurve_SetOvershoot(QEasingCurve* self, double overshoot) {
     self->setOvershoot(static_cast<qreal>(overshoot));
 }
 
-void QEasingCurve_AddCubicBezierSegment(QEasingCurve* self, QPointF* c1, QPointF* c2, QPointF* endPoint) {
+void QEasingCurve_AddCubicBezierSegment(QEasingCurve* self, const QPointF* c1, const QPointF* c2, const QPointF* endPoint) {
     self->addCubicBezierSegment(*c1, *c2, *endPoint);
 }
 
-void QEasingCurve_AddTCBSegment(QEasingCurve* self, QPointF* nextPoint, double t, double c, double b) {
+void QEasingCurve_AddTCBSegment(QEasingCurve* self, const QPointF* nextPoint, double t, double c, double b) {
     self->addTCBSegment(*nextPoint, static_cast<qreal>(t), static_cast<qreal>(c), static_cast<qreal>(b));
 }
 

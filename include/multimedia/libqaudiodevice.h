@@ -29,17 +29,17 @@ typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
 QAudioDevice* QAudioDevice_new();
-QAudioDevice* QAudioDevice_new2(QAudioDevice* other);
+QAudioDevice* QAudioDevice_new2(const QAudioDevice* other);
 void QAudioDevice_Swap(QAudioDevice* self, QAudioDevice* other);
-void QAudioDevice_OperatorAssign(QAudioDevice* self, QAudioDevice* other);
-bool QAudioDevice_OperatorEqual(const QAudioDevice* self, QAudioDevice* other);
-bool QAudioDevice_OperatorNotEqual(const QAudioDevice* self, QAudioDevice* other);
+void QAudioDevice_OperatorAssign(QAudioDevice* self, const QAudioDevice* other);
+bool QAudioDevice_OperatorEqual(const QAudioDevice* self, const QAudioDevice* other);
+bool QAudioDevice_OperatorNotEqual(const QAudioDevice* self, const QAudioDevice* other);
 bool QAudioDevice_IsNull(const QAudioDevice* self);
 libqt_string QAudioDevice_Id(const QAudioDevice* self);
 libqt_string QAudioDevice_Description(const QAudioDevice* self);
 bool QAudioDevice_IsDefault(const QAudioDevice* self);
 int QAudioDevice_Mode(const QAudioDevice* self);
-bool QAudioDevice_IsFormatSupported(const QAudioDevice* self, QAudioFormat* format);
+bool QAudioDevice_IsFormatSupported(const QAudioDevice* self, const QAudioFormat* format);
 QAudioFormat* QAudioDevice_PreferredFormat(const QAudioDevice* self);
 int QAudioDevice_MinimumSampleRate(const QAudioDevice* self);
 int QAudioDevice_MaximumSampleRate(const QAudioDevice* self);

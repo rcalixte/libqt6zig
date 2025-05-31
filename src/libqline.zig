@@ -1,216 +1,219 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qline_enums = enums;
 
 /// https://doc.qt.io/qt-6/qline.html
 pub const qline = struct {
     /// New constructs a new QLine object.
     ///
-    /// ``` other: ?*C.QLine ```
-    pub fn New(other: ?*anyopaque) ?*C.QLine {
-        return C.QLine_new(@ptrCast(other));
+    /// ``` other: QtC.QLine ```
+    pub fn New(other: ?*anyopaque) QtC.QLine {
+        return qtc.QLine_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QLine object and invalidates the source QLine object.
     ///
-    /// ``` other: ?*C.QLine ```
-    pub fn New2(other: ?*anyopaque) ?*C.QLine {
-        return C.QLine_new2(@ptrCast(other));
+    /// ``` other: QtC.QLine ```
+    pub fn New2(other: ?*anyopaque) QtC.QLine {
+        return qtc.QLine_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QLine object.
     ///
     ///
-    pub fn New3() ?*C.QLine {
-        return C.QLine_new3();
+    pub fn New3() QtC.QLine {
+        return qtc.QLine_new3();
     }
 
     /// New4 constructs a new QLine object.
     ///
-    /// ``` pt1: ?*C.QPoint, pt2: ?*C.QPoint ```
-    pub fn New4(pt1: ?*anyopaque, pt2: ?*anyopaque) ?*C.QLine {
-        return C.QLine_new4(@ptrCast(pt1), @ptrCast(pt2));
+    /// ``` pt1: QtC.QPoint, pt2: QtC.QPoint ```
+    pub fn New4(pt1: ?*anyopaque, pt2: ?*anyopaque) QtC.QLine {
+        return qtc.QLine_new4(@ptrCast(pt1), @ptrCast(pt2));
     }
 
     /// New5 constructs a new QLine object.
     ///
     /// ``` x1: i32, y1: i32, x2: i32, y2: i32 ```
-    pub fn New5(x1: i32, y1: i32, x2: i32, y2: i32) ?*C.QLine {
-        return C.QLine_new5(@intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
+    pub fn New5(x1: i32, y1: i32, x2: i32, y2: i32) QtC.QLine {
+        return qtc.QLine_new5(@intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
     }
 
     /// New6 constructs a new QLine object.
     ///
-    /// ``` param1: ?*C.QLine ```
-    pub fn New6(param1: ?*anyopaque) ?*C.QLine {
-        return C.QLine_new6(@ptrCast(param1));
+    /// ``` param1: QtC.QLine ```
+    pub fn New6(param1: ?*anyopaque) QtC.QLine {
+        return qtc.QLine_new6(@ptrCast(param1));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QLine, other: ?*QLine ```
+    /// ``` self: QtC.QLine, other: QtC.QLine ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QLine_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QLine_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QLine, other: ?*QLine ```
+    /// ``` self: QtC.QLine, other: QtC.QLine ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QLine_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QLine_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#isNull)
     ///
-    /// ``` self: ?*C.QLine ```
+    /// ``` self: QtC.QLine ```
     pub fn IsNull(self: ?*anyopaque) bool {
-        return C.QLine_IsNull(@ptrCast(self));
+        return qtc.QLine_IsNull(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#p1)
     ///
-    /// ``` self: ?*C.QLine ```
-    pub fn P1(self: ?*anyopaque) ?*C.QPoint {
-        return C.QLine_P1(@ptrCast(self));
+    /// ``` self: QtC.QLine ```
+    pub fn P1(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QLine_P1(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#p2)
     ///
-    /// ``` self: ?*C.QLine ```
-    pub fn P2(self: ?*anyopaque) ?*C.QPoint {
-        return C.QLine_P2(@ptrCast(self));
+    /// ``` self: QtC.QLine ```
+    pub fn P2(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QLine_P2(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#x1)
     ///
-    /// ``` self: ?*C.QLine ```
+    /// ``` self: QtC.QLine ```
     pub fn X1(self: ?*anyopaque) i32 {
-        return C.QLine_X1(@ptrCast(self));
+        return qtc.QLine_X1(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#y1)
     ///
-    /// ``` self: ?*C.QLine ```
+    /// ``` self: QtC.QLine ```
     pub fn Y1(self: ?*anyopaque) i32 {
-        return C.QLine_Y1(@ptrCast(self));
+        return qtc.QLine_Y1(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#x2)
     ///
-    /// ``` self: ?*C.QLine ```
+    /// ``` self: QtC.QLine ```
     pub fn X2(self: ?*anyopaque) i32 {
-        return C.QLine_X2(@ptrCast(self));
+        return qtc.QLine_X2(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#y2)
     ///
-    /// ``` self: ?*C.QLine ```
+    /// ``` self: QtC.QLine ```
     pub fn Y2(self: ?*anyopaque) i32 {
-        return C.QLine_Y2(@ptrCast(self));
+        return qtc.QLine_Y2(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#dx)
     ///
-    /// ``` self: ?*C.QLine ```
+    /// ``` self: QtC.QLine ```
     pub fn Dx(self: ?*anyopaque) i32 {
-        return C.QLine_Dx(@ptrCast(self));
+        return qtc.QLine_Dx(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#dy)
     ///
-    /// ``` self: ?*C.QLine ```
+    /// ``` self: QtC.QLine ```
     pub fn Dy(self: ?*anyopaque) i32 {
-        return C.QLine_Dy(@ptrCast(self));
+        return qtc.QLine_Dy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#translate)
     ///
-    /// ``` self: ?*C.QLine, p: ?*C.QPoint ```
+    /// ``` self: QtC.QLine, p: QtC.QPoint ```
     pub fn Translate(self: ?*anyopaque, p: ?*anyopaque) void {
-        C.QLine_Translate(@ptrCast(self), @ptrCast(p));
+        qtc.QLine_Translate(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#translate)
     ///
-    /// ``` self: ?*C.QLine, dx: i32, dy: i32 ```
+    /// ``` self: QtC.QLine, dx: i32, dy: i32 ```
     pub fn Translate2(self: ?*anyopaque, dx: i32, dy: i32) void {
-        C.QLine_Translate2(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QLine_Translate2(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#translated)
     ///
-    /// ``` self: ?*C.QLine, p: ?*C.QPoint ```
-    pub fn Translated(self: ?*anyopaque, p: ?*anyopaque) ?*C.QLine {
-        return C.QLine_Translated(@ptrCast(self), @ptrCast(p));
+    /// ``` self: QtC.QLine, p: QtC.QPoint ```
+    pub fn Translated(self: ?*anyopaque, p: ?*anyopaque) QtC.QLine {
+        return qtc.QLine_Translated(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#translated)
     ///
-    /// ``` self: ?*C.QLine, dx: i32, dy: i32 ```
-    pub fn Translated2(self: ?*anyopaque, dx: i32, dy: i32) ?*C.QLine {
-        return C.QLine_Translated2(@ptrCast(self), @intCast(dx), @intCast(dy));
+    /// ``` self: QtC.QLine, dx: i32, dy: i32 ```
+    pub fn Translated2(self: ?*anyopaque, dx: i32, dy: i32) QtC.QLine {
+        return qtc.QLine_Translated2(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#center)
     ///
-    /// ``` self: ?*C.QLine ```
-    pub fn Center(self: ?*anyopaque) ?*C.QPoint {
-        return C.QLine_Center(@ptrCast(self));
+    /// ``` self: QtC.QLine ```
+    pub fn Center(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QLine_Center(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#setP1)
     ///
-    /// ``` self: ?*C.QLine, p1: ?*C.QPoint ```
+    /// ``` self: QtC.QLine, p1: QtC.QPoint ```
     pub fn SetP1(self: ?*anyopaque, p1: ?*anyopaque) void {
-        C.QLine_SetP1(@ptrCast(self), @ptrCast(p1));
+        qtc.QLine_SetP1(@ptrCast(self), @ptrCast(p1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#setP2)
     ///
-    /// ``` self: ?*C.QLine, p2: ?*C.QPoint ```
+    /// ``` self: QtC.QLine, p2: QtC.QPoint ```
     pub fn SetP2(self: ?*anyopaque, p2: ?*anyopaque) void {
-        C.QLine_SetP2(@ptrCast(self), @ptrCast(p2));
+        qtc.QLine_SetP2(@ptrCast(self), @ptrCast(p2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#setPoints)
     ///
-    /// ``` self: ?*C.QLine, p1: ?*C.QPoint, p2: ?*C.QPoint ```
+    /// ``` self: QtC.QLine, p1: QtC.QPoint, p2: QtC.QPoint ```
     pub fn SetPoints(self: ?*anyopaque, p1: ?*anyopaque, p2: ?*anyopaque) void {
-        C.QLine_SetPoints(@ptrCast(self), @ptrCast(p1), @ptrCast(p2));
+        qtc.QLine_SetPoints(@ptrCast(self), @ptrCast(p1), @ptrCast(p2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#setLine)
     ///
-    /// ``` self: ?*C.QLine, x1: i32, y1: i32, x2: i32, y2: i32 ```
+    /// ``` self: QtC.QLine, x1: i32, y1: i32, x2: i32, y2: i32 ```
     pub fn SetLine(self: ?*anyopaque, x1: i32, y1: i32, x2: i32, y2: i32) void {
-        C.QLine_SetLine(@ptrCast(self), @intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
+        qtc.QLine_SetLine(@ptrCast(self), @intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#operator==)
     ///
-    /// ``` self: ?*C.QLine, d: ?*C.QLine ```
+    /// ``` self: QtC.QLine, d: QtC.QLine ```
     pub fn OperatorEqual(self: ?*anyopaque, d: ?*anyopaque) bool {
-        return C.QLine_OperatorEqual(@ptrCast(self), @ptrCast(d));
+        return qtc.QLine_OperatorEqual(@ptrCast(self), @ptrCast(d));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#operator!=)
     ///
-    /// ``` self: ?*C.QLine, d: ?*C.QLine ```
+    /// ``` self: QtC.QLine, d: QtC.QLine ```
     pub fn OperatorNotEqual(self: ?*anyopaque, d: ?*anyopaque) bool {
-        return C.QLine_OperatorNotEqual(@ptrCast(self), @ptrCast(d));
+        return qtc.QLine_OperatorNotEqual(@ptrCast(self), @ptrCast(d));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#toLineF)
     ///
-    /// ``` self: ?*C.QLine ```
-    pub fn ToLineF(self: ?*anyopaque) ?*C.QLineF {
-        return C.QLine_ToLineF(@ptrCast(self));
+    /// ``` self: QtC.QLine ```
+    pub fn ToLineF(self: ?*anyopaque) QtC.QLineF {
+        return qtc.QLine_ToLineF(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#dtor.QLine)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QLine ```
+    /// ``` self: QtC.QLine ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QLine_Delete(@ptrCast(self));
+        qtc.QLine_Delete(@ptrCast(self));
     }
 };
 
@@ -218,296 +221,298 @@ pub const qline = struct {
 pub const qlinef = struct {
     /// New constructs a new QLineF object.
     ///
-    /// ``` other: ?*C.QLineF ```
-    pub fn New(other: ?*anyopaque) ?*C.QLineF {
-        return C.QLineF_new(@ptrCast(other));
+    /// ``` other: QtC.QLineF ```
+    pub fn New(other: ?*anyopaque) QtC.QLineF {
+        return qtc.QLineF_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QLineF object and invalidates the source QLineF object.
     ///
-    /// ``` other: ?*C.QLineF ```
-    pub fn New2(other: ?*anyopaque) ?*C.QLineF {
-        return C.QLineF_new2(@ptrCast(other));
+    /// ``` other: QtC.QLineF ```
+    pub fn New2(other: ?*anyopaque) QtC.QLineF {
+        return qtc.QLineF_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QLineF object.
     ///
     ///
-    pub fn New3() ?*C.QLineF {
-        return C.QLineF_new3();
+    pub fn New3() QtC.QLineF {
+        return qtc.QLineF_new3();
     }
 
     /// New4 constructs a new QLineF object.
     ///
-    /// ``` pt1: ?*C.QPointF, pt2: ?*C.QPointF ```
-    pub fn New4(pt1: ?*anyopaque, pt2: ?*anyopaque) ?*C.QLineF {
-        return C.QLineF_new4(@ptrCast(pt1), @ptrCast(pt2));
+    /// ``` pt1: QtC.QPointF, pt2: QtC.QPointF ```
+    pub fn New4(pt1: ?*anyopaque, pt2: ?*anyopaque) QtC.QLineF {
+        return qtc.QLineF_new4(@ptrCast(pt1), @ptrCast(pt2));
     }
 
     /// New5 constructs a new QLineF object.
     ///
     /// ``` x1: f64, y1: f64, x2: f64, y2: f64 ```
-    pub fn New5(x1: f64, y1: f64, x2: f64, y2: f64) ?*C.QLineF {
-        return C.QLineF_new5(@floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
+    pub fn New5(x1: f64, y1: f64, x2: f64, y2: f64) QtC.QLineF {
+        return qtc.QLineF_new5(@floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
     }
 
     /// New6 constructs a new QLineF object.
     ///
-    /// ``` line: ?*C.QLine ```
-    pub fn New6(line: ?*anyopaque) ?*C.QLineF {
-        return C.QLineF_new6(@ptrCast(line));
+    /// ``` line: QtC.QLine ```
+    pub fn New6(line: ?*anyopaque) QtC.QLineF {
+        return qtc.QLineF_new6(@ptrCast(line));
     }
 
     /// New7 constructs a new QLineF object.
     ///
-    /// ``` param1: ?*C.QLineF ```
-    pub fn New7(param1: ?*anyopaque) ?*C.QLineF {
-        return C.QLineF_new7(@ptrCast(param1));
+    /// ``` param1: QtC.QLineF ```
+    pub fn New7(param1: ?*anyopaque) QtC.QLineF {
+        return qtc.QLineF_new7(@ptrCast(param1));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QLineF, other: ?*QLineF ```
+    /// ``` self: QtC.QLineF, other: QtC.QLineF ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QLineF_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QLineF_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QLineF, other: ?*QLineF ```
+    /// ``` self: QtC.QLineF, other: QtC.QLineF ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QLineF_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QLineF_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#fromPolar)
     ///
     /// ``` length: f64, angle: f64 ```
-    pub fn FromPolar(length: f64, angle: f64) ?*C.QLineF {
-        return C.QLineF_FromPolar(@floatCast(length), @floatCast(angle));
+    pub fn FromPolar(length: f64, angle: f64) QtC.QLineF {
+        return qtc.QLineF_FromPolar(@floatCast(length), @floatCast(angle));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#isNull)
     ///
-    /// ``` self: ?*C.QLineF ```
+    /// ``` self: QtC.QLineF ```
     pub fn IsNull(self: ?*anyopaque) bool {
-        return C.QLineF_IsNull(@ptrCast(self));
+        return qtc.QLineF_IsNull(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#p1)
     ///
-    /// ``` self: ?*C.QLineF ```
-    pub fn P1(self: ?*anyopaque) ?*C.QPointF {
-        return C.QLineF_P1(@ptrCast(self));
+    /// ``` self: QtC.QLineF ```
+    pub fn P1(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QLineF_P1(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#p2)
     ///
-    /// ``` self: ?*C.QLineF ```
-    pub fn P2(self: ?*anyopaque) ?*C.QPointF {
-        return C.QLineF_P2(@ptrCast(self));
+    /// ``` self: QtC.QLineF ```
+    pub fn P2(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QLineF_P2(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#x1)
     ///
-    /// ``` self: ?*C.QLineF ```
+    /// ``` self: QtC.QLineF ```
     pub fn X1(self: ?*anyopaque) f64 {
-        return C.QLineF_X1(@ptrCast(self));
+        return qtc.QLineF_X1(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#y1)
     ///
-    /// ``` self: ?*C.QLineF ```
+    /// ``` self: QtC.QLineF ```
     pub fn Y1(self: ?*anyopaque) f64 {
-        return C.QLineF_Y1(@ptrCast(self));
+        return qtc.QLineF_Y1(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#x2)
     ///
-    /// ``` self: ?*C.QLineF ```
+    /// ``` self: QtC.QLineF ```
     pub fn X2(self: ?*anyopaque) f64 {
-        return C.QLineF_X2(@ptrCast(self));
+        return qtc.QLineF_X2(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#y2)
     ///
-    /// ``` self: ?*C.QLineF ```
+    /// ``` self: QtC.QLineF ```
     pub fn Y2(self: ?*anyopaque) f64 {
-        return C.QLineF_Y2(@ptrCast(self));
+        return qtc.QLineF_Y2(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#dx)
     ///
-    /// ``` self: ?*C.QLineF ```
+    /// ``` self: QtC.QLineF ```
     pub fn Dx(self: ?*anyopaque) f64 {
-        return C.QLineF_Dx(@ptrCast(self));
+        return qtc.QLineF_Dx(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#dy)
     ///
-    /// ``` self: ?*C.QLineF ```
+    /// ``` self: QtC.QLineF ```
     pub fn Dy(self: ?*anyopaque) f64 {
-        return C.QLineF_Dy(@ptrCast(self));
+        return qtc.QLineF_Dy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#length)
     ///
-    /// ``` self: ?*C.QLineF ```
+    /// ``` self: QtC.QLineF ```
     pub fn Length(self: ?*anyopaque) f64 {
-        return C.QLineF_Length(@ptrCast(self));
+        return qtc.QLineF_Length(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#setLength)
     ///
-    /// ``` self: ?*C.QLineF, lenVal: f64 ```
+    /// ``` self: QtC.QLineF, lenVal: f64 ```
     pub fn SetLength(self: ?*anyopaque, lenVal: f64) void {
-        C.QLineF_SetLength(@ptrCast(self), @floatCast(lenVal));
+        qtc.QLineF_SetLength(@ptrCast(self), @floatCast(lenVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#angle)
     ///
-    /// ``` self: ?*C.QLineF ```
+    /// ``` self: QtC.QLineF ```
     pub fn Angle(self: ?*anyopaque) f64 {
-        return C.QLineF_Angle(@ptrCast(self));
+        return qtc.QLineF_Angle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#setAngle)
     ///
-    /// ``` self: ?*C.QLineF, angle: f64 ```
+    /// ``` self: QtC.QLineF, angle: f64 ```
     pub fn SetAngle(self: ?*anyopaque, angle: f64) void {
-        C.QLineF_SetAngle(@ptrCast(self), @floatCast(angle));
+        qtc.QLineF_SetAngle(@ptrCast(self), @floatCast(angle));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#angleTo)
     ///
-    /// ``` self: ?*C.QLineF, l: ?*C.QLineF ```
+    /// ``` self: QtC.QLineF, l: QtC.QLineF ```
     pub fn AngleTo(self: ?*anyopaque, l: ?*anyopaque) f64 {
-        return C.QLineF_AngleTo(@ptrCast(self), @ptrCast(l));
+        return qtc.QLineF_AngleTo(@ptrCast(self), @ptrCast(l));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#unitVector)
     ///
-    /// ``` self: ?*C.QLineF ```
-    pub fn UnitVector(self: ?*anyopaque) ?*C.QLineF {
-        return C.QLineF_UnitVector(@ptrCast(self));
+    /// ``` self: QtC.QLineF ```
+    pub fn UnitVector(self: ?*anyopaque) QtC.QLineF {
+        return qtc.QLineF_UnitVector(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#normalVector)
     ///
-    /// ``` self: ?*C.QLineF ```
-    pub fn NormalVector(self: ?*anyopaque) ?*C.QLineF {
-        return C.QLineF_NormalVector(@ptrCast(self));
+    /// ``` self: QtC.QLineF ```
+    pub fn NormalVector(self: ?*anyopaque) QtC.QLineF {
+        return qtc.QLineF_NormalVector(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#intersects)
     ///
-    /// ``` self: ?*C.QLineF, l: ?*C.QLineF ```
+    /// ``` self: QtC.QLineF, l: QtC.QLineF ```
     pub fn Intersects(self: ?*anyopaque, l: ?*anyopaque) i64 {
-        return C.QLineF_Intersects(@ptrCast(self), @ptrCast(l));
+        return qtc.QLineF_Intersects(@ptrCast(self), @ptrCast(l));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#pointAt)
     ///
-    /// ``` self: ?*C.QLineF, t: f64 ```
-    pub fn PointAt(self: ?*anyopaque, t: f64) ?*C.QPointF {
-        return C.QLineF_PointAt(@ptrCast(self), @floatCast(t));
+    /// ``` self: QtC.QLineF, t: f64 ```
+    pub fn PointAt(self: ?*anyopaque, t: f64) QtC.QPointF {
+        return qtc.QLineF_PointAt(@ptrCast(self), @floatCast(t));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#translate)
     ///
-    /// ``` self: ?*C.QLineF, p: ?*C.QPointF ```
+    /// ``` self: QtC.QLineF, p: QtC.QPointF ```
     pub fn Translate(self: ?*anyopaque, p: ?*anyopaque) void {
-        C.QLineF_Translate(@ptrCast(self), @ptrCast(p));
+        qtc.QLineF_Translate(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#translate)
     ///
-    /// ``` self: ?*C.QLineF, dx: f64, dy: f64 ```
+    /// ``` self: QtC.QLineF, dx: f64, dy: f64 ```
     pub fn Translate2(self: ?*anyopaque, dx: f64, dy: f64) void {
-        C.QLineF_Translate2(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QLineF_Translate2(@ptrCast(self), @floatCast(dx), @floatCast(dy));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#translated)
     ///
-    /// ``` self: ?*C.QLineF, p: ?*C.QPointF ```
-    pub fn Translated(self: ?*anyopaque, p: ?*anyopaque) ?*C.QLineF {
-        return C.QLineF_Translated(@ptrCast(self), @ptrCast(p));
+    /// ``` self: QtC.QLineF, p: QtC.QPointF ```
+    pub fn Translated(self: ?*anyopaque, p: ?*anyopaque) QtC.QLineF {
+        return qtc.QLineF_Translated(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#translated)
     ///
-    /// ``` self: ?*C.QLineF, dx: f64, dy: f64 ```
-    pub fn Translated2(self: ?*anyopaque, dx: f64, dy: f64) ?*C.QLineF {
-        return C.QLineF_Translated2(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+    /// ``` self: QtC.QLineF, dx: f64, dy: f64 ```
+    pub fn Translated2(self: ?*anyopaque, dx: f64, dy: f64) QtC.QLineF {
+        return qtc.QLineF_Translated2(@ptrCast(self), @floatCast(dx), @floatCast(dy));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#center)
     ///
-    /// ``` self: ?*C.QLineF ```
-    pub fn Center(self: ?*anyopaque) ?*C.QPointF {
-        return C.QLineF_Center(@ptrCast(self));
+    /// ``` self: QtC.QLineF ```
+    pub fn Center(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QLineF_Center(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#setP1)
     ///
-    /// ``` self: ?*C.QLineF, p1: ?*C.QPointF ```
+    /// ``` self: QtC.QLineF, p1: QtC.QPointF ```
     pub fn SetP1(self: ?*anyopaque, p1: ?*anyopaque) void {
-        C.QLineF_SetP1(@ptrCast(self), @ptrCast(p1));
+        qtc.QLineF_SetP1(@ptrCast(self), @ptrCast(p1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#setP2)
     ///
-    /// ``` self: ?*C.QLineF, p2: ?*C.QPointF ```
+    /// ``` self: QtC.QLineF, p2: QtC.QPointF ```
     pub fn SetP2(self: ?*anyopaque, p2: ?*anyopaque) void {
-        C.QLineF_SetP2(@ptrCast(self), @ptrCast(p2));
+        qtc.QLineF_SetP2(@ptrCast(self), @ptrCast(p2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#setPoints)
     ///
-    /// ``` self: ?*C.QLineF, p1: ?*C.QPointF, p2: ?*C.QPointF ```
+    /// ``` self: QtC.QLineF, p1: QtC.QPointF, p2: QtC.QPointF ```
     pub fn SetPoints(self: ?*anyopaque, p1: ?*anyopaque, p2: ?*anyopaque) void {
-        C.QLineF_SetPoints(@ptrCast(self), @ptrCast(p1), @ptrCast(p2));
+        qtc.QLineF_SetPoints(@ptrCast(self), @ptrCast(p1), @ptrCast(p2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#setLine)
     ///
-    /// ``` self: ?*C.QLineF, x1: f64, y1: f64, x2: f64, y2: f64 ```
+    /// ``` self: QtC.QLineF, x1: f64, y1: f64, x2: f64, y2: f64 ```
     pub fn SetLine(self: ?*anyopaque, x1: f64, y1: f64, x2: f64, y2: f64) void {
-        C.QLineF_SetLine(@ptrCast(self), @floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
+        qtc.QLineF_SetLine(@ptrCast(self), @floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#operator==)
     ///
-    /// ``` self: ?*C.QLineF, d: ?*C.QLineF ```
+    /// ``` self: QtC.QLineF, d: QtC.QLineF ```
     pub fn OperatorEqual(self: ?*anyopaque, d: ?*anyopaque) bool {
-        return C.QLineF_OperatorEqual(@ptrCast(self), @ptrCast(d));
+        return qtc.QLineF_OperatorEqual(@ptrCast(self), @ptrCast(d));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#operator!=)
     ///
-    /// ``` self: ?*C.QLineF, d: ?*C.QLineF ```
+    /// ``` self: QtC.QLineF, d: QtC.QLineF ```
     pub fn OperatorNotEqual(self: ?*anyopaque, d: ?*anyopaque) bool {
-        return C.QLineF_OperatorNotEqual(@ptrCast(self), @ptrCast(d));
+        return qtc.QLineF_OperatorNotEqual(@ptrCast(self), @ptrCast(d));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#toLine)
     ///
-    /// ``` self: ?*C.QLineF ```
-    pub fn ToLine(self: ?*anyopaque) ?*C.QLine {
-        return C.QLineF_ToLine(@ptrCast(self));
+    /// ``` self: QtC.QLineF ```
+    pub fn ToLine(self: ?*anyopaque) QtC.QLine {
+        return qtc.QLineF_ToLine(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#intersects)
     ///
-    /// ``` self: ?*C.QLineF, l: ?*C.QLineF, intersectionPoint: ?*C.QPointF ```
+    /// ``` self: QtC.QLineF, l: QtC.QLineF, intersectionPoint: QtC.QPointF ```
     pub fn Intersects2(self: ?*anyopaque, l: ?*anyopaque, intersectionPoint: ?*anyopaque) i64 {
-        return C.QLineF_Intersects2(@ptrCast(self), @ptrCast(l), @ptrCast(intersectionPoint));
+        return qtc.QLineF_Intersects2(@ptrCast(self), @ptrCast(l), @ptrCast(intersectionPoint));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#dtor.QLineF)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QLineF ```
+    /// ``` self: QtC.QLineF ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QLineF_Delete(@ptrCast(self));
+        qtc.QLineF_Delete(@ptrCast(self));
     }
 };
 

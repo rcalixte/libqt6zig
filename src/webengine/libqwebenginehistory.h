@@ -15,29 +15,15 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractItemModel QAbstractItemModel;
 typedef struct QAbstractListModel QAbstractListModel;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
-typedef struct QChildEvent QChildEvent;
 typedef struct QDataStream QDataStream;
 typedef struct QDateTime QDateTime;
-typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
-typedef struct QMimeData QMimeData;
 typedef struct QModelIndex QModelIndex;
-typedef struct QModelRoleDataSpan QModelRoleDataSpan;
 typedef struct QObject QObject;
-typedef struct QPersistentModelIndex QPersistentModelIndex;
-typedef struct QSize QSize;
-typedef struct QThread QThread;
-typedef struct QTimerEvent QTimerEvent;
 typedef struct QUrl QUrl;
 typedef struct QVariant QVariant;
 typedef struct QWebEngineHistory QWebEngineHistory;
@@ -51,8 +37,8 @@ typedef QWebEngineHistoryModel::Roles Roles; // C++ enum
 typedef int Roles; // C ABI enum
 #endif
 
-QWebEngineHistoryItem* QWebEngineHistoryItem_new(QWebEngineHistoryItem* other);
-void QWebEngineHistoryItem_OperatorAssign(QWebEngineHistoryItem* self, QWebEngineHistoryItem* other);
+QWebEngineHistoryItem* QWebEngineHistoryItem_new(const QWebEngineHistoryItem* other);
+void QWebEngineHistoryItem_OperatorAssign(QWebEngineHistoryItem* self, const QWebEngineHistoryItem* other);
 QUrl* QWebEngineHistoryItem_OriginalUrl(const QWebEngineHistoryItem* self);
 QUrl* QWebEngineHistoryItem_Url(const QWebEngineHistoryItem* self);
 libqt_string QWebEngineHistoryItem_Title(const QWebEngineHistoryItem* self);
@@ -66,8 +52,8 @@ QMetaObject* QWebEngineHistoryModel_MetaObject(const QWebEngineHistoryModel* sel
 void* QWebEngineHistoryModel_Metacast(QWebEngineHistoryModel* self, const char* param1);
 int QWebEngineHistoryModel_Metacall(QWebEngineHistoryModel* self, int param1, int param2, void** param3);
 libqt_string QWebEngineHistoryModel_Tr(const char* s);
-int QWebEngineHistoryModel_RowCount(const QWebEngineHistoryModel* self, QModelIndex* parent);
-QVariant* QWebEngineHistoryModel_Data(const QWebEngineHistoryModel* self, QModelIndex* index, int role);
+int QWebEngineHistoryModel_RowCount(const QWebEngineHistoryModel* self, const QModelIndex* parent);
+QVariant* QWebEngineHistoryModel_Data(const QWebEngineHistoryModel* self, const QModelIndex* index, int role);
 libqt_map /* of int to libqt_string */ QWebEngineHistoryModel_RoleNames(const QWebEngineHistoryModel* self);
 void QWebEngineHistoryModel_Reset(QWebEngineHistoryModel* self);
 libqt_string QWebEngineHistoryModel_Tr2(const char* s, const char* c);
@@ -85,7 +71,7 @@ bool QWebEngineHistory_CanGoBack(const QWebEngineHistory* self);
 bool QWebEngineHistory_CanGoForward(const QWebEngineHistory* self);
 void QWebEngineHistory_Back(QWebEngineHistory* self);
 void QWebEngineHistory_Forward(QWebEngineHistory* self);
-void QWebEngineHistory_GoToItem(QWebEngineHistory* self, QWebEngineHistoryItem* item);
+void QWebEngineHistory_GoToItem(QWebEngineHistory* self, const QWebEngineHistoryItem* item);
 QWebEngineHistoryItem* QWebEngineHistory_BackItem(const QWebEngineHistory* self);
 QWebEngineHistoryItem* QWebEngineHistory_CurrentItem(const QWebEngineHistory* self);
 QWebEngineHistoryItem* QWebEngineHistory_ForwardItem(const QWebEngineHistory* self);

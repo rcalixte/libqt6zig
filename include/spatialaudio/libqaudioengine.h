@@ -15,23 +15,15 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QAudioDevice QAudioDevice;
 typedef struct QAudioEngine QAudioEngine;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
@@ -53,7 +45,7 @@ libqt_string QAudioEngine_Tr(const char* s);
 void QAudioEngine_SetOutputMode(QAudioEngine* self, int mode);
 int QAudioEngine_OutputMode(const QAudioEngine* self);
 int QAudioEngine_SampleRate(const QAudioEngine* self);
-void QAudioEngine_SetOutputDevice(QAudioEngine* self, QAudioDevice* device);
+void QAudioEngine_SetOutputDevice(QAudioEngine* self, const QAudioDevice* device);
 QAudioDevice* QAudioEngine_OutputDevice(const QAudioEngine* self);
 void QAudioEngine_SetMasterVolume(QAudioEngine* self, float volume);
 float QAudioEngine_MasterVolume(const QAudioEngine* self);
@@ -94,12 +86,12 @@ void QAudioEngine_QBaseChildEvent(QAudioEngine* self, QChildEvent* event);
 void QAudioEngine_CustomEvent(QAudioEngine* self, QEvent* event);
 void QAudioEngine_OnCustomEvent(QAudioEngine* self, intptr_t slot);
 void QAudioEngine_QBaseCustomEvent(QAudioEngine* self, QEvent* event);
-void QAudioEngine_ConnectNotify(QAudioEngine* self, QMetaMethod* signal);
+void QAudioEngine_ConnectNotify(QAudioEngine* self, const QMetaMethod* signal);
 void QAudioEngine_OnConnectNotify(QAudioEngine* self, intptr_t slot);
-void QAudioEngine_QBaseConnectNotify(QAudioEngine* self, QMetaMethod* signal);
-void QAudioEngine_DisconnectNotify(QAudioEngine* self, QMetaMethod* signal);
+void QAudioEngine_QBaseConnectNotify(QAudioEngine* self, const QMetaMethod* signal);
+void QAudioEngine_DisconnectNotify(QAudioEngine* self, const QMetaMethod* signal);
 void QAudioEngine_OnDisconnectNotify(QAudioEngine* self, intptr_t slot);
-void QAudioEngine_QBaseDisconnectNotify(QAudioEngine* self, QMetaMethod* signal);
+void QAudioEngine_QBaseDisconnectNotify(QAudioEngine* self, const QMetaMethod* signal);
 QObject* QAudioEngine_Sender(const QAudioEngine* self);
 void QAudioEngine_OnSender(const QAudioEngine* self, intptr_t slot);
 QObject* QAudioEngine_QBaseSender(const QAudioEngine* self);
@@ -109,9 +101,9 @@ int QAudioEngine_QBaseSenderSignalIndex(const QAudioEngine* self);
 int QAudioEngine_Receivers(const QAudioEngine* self, const char* signal);
 void QAudioEngine_OnReceivers(const QAudioEngine* self, intptr_t slot);
 int QAudioEngine_QBaseReceivers(const QAudioEngine* self, const char* signal);
-bool QAudioEngine_IsSignalConnected(const QAudioEngine* self, QMetaMethod* signal);
+bool QAudioEngine_IsSignalConnected(const QAudioEngine* self, const QMetaMethod* signal);
 void QAudioEngine_OnIsSignalConnected(const QAudioEngine* self, intptr_t slot);
-bool QAudioEngine_QBaseIsSignalConnected(const QAudioEngine* self, QMetaMethod* signal);
+bool QAudioEngine_QBaseIsSignalConnected(const QAudioEngine* self, const QMetaMethod* signal);
 void QAudioEngine_Delete(QAudioEngine* self);
 
 #ifdef __cplusplus

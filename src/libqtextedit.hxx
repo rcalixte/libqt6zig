@@ -11,13 +11,16 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QTextEdit so that we can call protected methods
-class VirtualQTextEdit : public QTextEdit {
+class VirtualQTextEdit final : public QTextEdit {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQTextEdit = true;
+
     // Virtual class public types (including callbacks)
-    using QTextEdit_Metacall_Callback = int (*)(QTextEdit*, QMetaObject::Call, int, void**);
-    using QTextEdit_LoadResource_Callback = QVariant (*)(QTextEdit*, int, const QUrl&);
-    using QTextEdit_InputMethodQuery_Callback = QVariant (*)(const QTextEdit*, Qt::InputMethodQuery);
+    using QTextEdit_Metacall_Callback = int (*)(QTextEdit*, int, int, void**);
+    using QTextEdit_LoadResource_Callback = QVariant* (*)(QTextEdit*, int, QUrl*);
+    using QTextEdit_InputMethodQuery_Callback = QVariant* (*)(const QTextEdit*, int);
     using QTextEdit_Event_Callback = bool (*)(QTextEdit*, QEvent*);
     using QTextEdit_TimerEvent_Callback = void (*)(QTextEdit*, QTimerEvent*);
     using QTextEdit_KeyPressEvent_Callback = void (*)(QTextEdit*, QKeyEvent*);
@@ -40,17 +43,17 @@ class VirtualQTextEdit : public QTextEdit {
     using QTextEdit_ChangeEvent_Callback = void (*)(QTextEdit*, QEvent*);
     using QTextEdit_WheelEvent_Callback = void (*)(QTextEdit*, QWheelEvent*);
     using QTextEdit_CreateMimeDataFromSelection_Callback = QMimeData* (*)();
-    using QTextEdit_CanInsertFromMimeData_Callback = bool (*)(const QTextEdit*, const QMimeData*);
-    using QTextEdit_InsertFromMimeData_Callback = void (*)(QTextEdit*, const QMimeData*);
+    using QTextEdit_CanInsertFromMimeData_Callback = bool (*)(const QTextEdit*, QMimeData*);
+    using QTextEdit_InsertFromMimeData_Callback = void (*)(QTextEdit*, QMimeData*);
     using QTextEdit_InputMethodEvent_Callback = void (*)(QTextEdit*, QInputMethodEvent*);
     using QTextEdit_ScrollContentsBy_Callback = void (*)(QTextEdit*, int, int);
-    using QTextEdit_DoSetTextCursor_Callback = void (*)(QTextEdit*, const QTextCursor&);
-    using QTextEdit_MinimumSizeHint_Callback = QSize (*)();
-    using QTextEdit_SizeHint_Callback = QSize (*)();
+    using QTextEdit_DoSetTextCursor_Callback = void (*)(QTextEdit*, QTextCursor*);
+    using QTextEdit_MinimumSizeHint_Callback = QSize* (*)();
+    using QTextEdit_SizeHint_Callback = QSize* (*)();
     using QTextEdit_SetupViewport_Callback = void (*)(QTextEdit*, QWidget*);
     using QTextEdit_EventFilter_Callback = bool (*)(QTextEdit*, QObject*, QEvent*);
     using QTextEdit_ViewportEvent_Callback = bool (*)(QTextEdit*, QEvent*);
-    using QTextEdit_ViewportSizeHint_Callback = QSize (*)();
+    using QTextEdit_ViewportSizeHint_Callback = QSize* (*)();
     using QTextEdit_InitStyleOption_Callback = void (*)(const QTextEdit*, QStyleOptionFrame*);
     using QTextEdit_DevType_Callback = int (*)();
     using QTextEdit_SetVisible_Callback = void (*)(QTextEdit*, bool);
@@ -64,18 +67,18 @@ class VirtualQTextEdit : public QTextEdit {
     using QTextEdit_TabletEvent_Callback = void (*)(QTextEdit*, QTabletEvent*);
     using QTextEdit_ActionEvent_Callback = void (*)(QTextEdit*, QActionEvent*);
     using QTextEdit_HideEvent_Callback = void (*)(QTextEdit*, QHideEvent*);
-    using QTextEdit_NativeEvent_Callback = bool (*)(QTextEdit*, const QByteArray&, void*, qintptr*);
-    using QTextEdit_Metric_Callback = int (*)(const QTextEdit*, QPaintDevice::PaintDeviceMetric);
+    using QTextEdit_NativeEvent_Callback = bool (*)(QTextEdit*, libqt_string, void*, intptr_t*);
+    using QTextEdit_Metric_Callback = int (*)(const QTextEdit*, int);
     using QTextEdit_InitPainter_Callback = void (*)(const QTextEdit*, QPainter*);
     using QTextEdit_Redirected_Callback = QPaintDevice* (*)(const QTextEdit*, QPoint*);
     using QTextEdit_SharedPainter_Callback = QPainter* (*)();
     using QTextEdit_ChildEvent_Callback = void (*)(QTextEdit*, QChildEvent*);
     using QTextEdit_CustomEvent_Callback = void (*)(QTextEdit*, QEvent*);
-    using QTextEdit_ConnectNotify_Callback = void (*)(QTextEdit*, const QMetaMethod&);
-    using QTextEdit_DisconnectNotify_Callback = void (*)(QTextEdit*, const QMetaMethod&);
+    using QTextEdit_ConnectNotify_Callback = void (*)(QTextEdit*, QMetaMethod*);
+    using QTextEdit_DisconnectNotify_Callback = void (*)(QTextEdit*, QMetaMethod*);
     using QTextEdit_ZoomInF_Callback = void (*)(QTextEdit*, float);
     using QTextEdit_SetViewportMargins_Callback = void (*)(QTextEdit*, int, int, int, int);
-    using QTextEdit_ViewportMargins_Callback = QMargins (*)();
+    using QTextEdit_ViewportMargins_Callback = QMargins* (*)();
     using QTextEdit_DrawFrame_Callback = void (*)(QTextEdit*, QPainter*);
     using QTextEdit_UpdateMicroFocus_Callback = void (*)();
     using QTextEdit_Create_Callback = void (*)();
@@ -85,7 +88,7 @@ class VirtualQTextEdit : public QTextEdit {
     using QTextEdit_Sender_Callback = QObject* (*)();
     using QTextEdit_SenderSignalIndex_Callback = int (*)();
     using QTextEdit_Receivers_Callback = int (*)(const QTextEdit*, const char*);
-    using QTextEdit_IsSignalConnected_Callback = bool (*)(const QTextEdit*, const QMetaMethod&);
+    using QTextEdit_IsSignalConnected_Callback = bool (*)(const QTextEdit*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -315,150 +318,150 @@ class VirtualQTextEdit : public QTextEdit {
     }
 
     // Callback setters
-    void setQTextEdit_Metacall_Callback(QTextEdit_Metacall_Callback cb) { qtextedit_metacall_callback = cb; }
-    void setQTextEdit_LoadResource_Callback(QTextEdit_LoadResource_Callback cb) { qtextedit_loadresource_callback = cb; }
-    void setQTextEdit_InputMethodQuery_Callback(QTextEdit_InputMethodQuery_Callback cb) { qtextedit_inputmethodquery_callback = cb; }
-    void setQTextEdit_Event_Callback(QTextEdit_Event_Callback cb) { qtextedit_event_callback = cb; }
-    void setQTextEdit_TimerEvent_Callback(QTextEdit_TimerEvent_Callback cb) { qtextedit_timerevent_callback = cb; }
-    void setQTextEdit_KeyPressEvent_Callback(QTextEdit_KeyPressEvent_Callback cb) { qtextedit_keypressevent_callback = cb; }
-    void setQTextEdit_KeyReleaseEvent_Callback(QTextEdit_KeyReleaseEvent_Callback cb) { qtextedit_keyreleaseevent_callback = cb; }
-    void setQTextEdit_ResizeEvent_Callback(QTextEdit_ResizeEvent_Callback cb) { qtextedit_resizeevent_callback = cb; }
-    void setQTextEdit_PaintEvent_Callback(QTextEdit_PaintEvent_Callback cb) { qtextedit_paintevent_callback = cb; }
-    void setQTextEdit_MousePressEvent_Callback(QTextEdit_MousePressEvent_Callback cb) { qtextedit_mousepressevent_callback = cb; }
-    void setQTextEdit_MouseMoveEvent_Callback(QTextEdit_MouseMoveEvent_Callback cb) { qtextedit_mousemoveevent_callback = cb; }
-    void setQTextEdit_MouseReleaseEvent_Callback(QTextEdit_MouseReleaseEvent_Callback cb) { qtextedit_mousereleaseevent_callback = cb; }
-    void setQTextEdit_MouseDoubleClickEvent_Callback(QTextEdit_MouseDoubleClickEvent_Callback cb) { qtextedit_mousedoubleclickevent_callback = cb; }
-    void setQTextEdit_FocusNextPrevChild_Callback(QTextEdit_FocusNextPrevChild_Callback cb) { qtextedit_focusnextprevchild_callback = cb; }
-    void setQTextEdit_ContextMenuEvent_Callback(QTextEdit_ContextMenuEvent_Callback cb) { qtextedit_contextmenuevent_callback = cb; }
-    void setQTextEdit_DragEnterEvent_Callback(QTextEdit_DragEnterEvent_Callback cb) { qtextedit_dragenterevent_callback = cb; }
-    void setQTextEdit_DragLeaveEvent_Callback(QTextEdit_DragLeaveEvent_Callback cb) { qtextedit_dragleaveevent_callback = cb; }
-    void setQTextEdit_DragMoveEvent_Callback(QTextEdit_DragMoveEvent_Callback cb) { qtextedit_dragmoveevent_callback = cb; }
-    void setQTextEdit_DropEvent_Callback(QTextEdit_DropEvent_Callback cb) { qtextedit_dropevent_callback = cb; }
-    void setQTextEdit_FocusInEvent_Callback(QTextEdit_FocusInEvent_Callback cb) { qtextedit_focusinevent_callback = cb; }
-    void setQTextEdit_FocusOutEvent_Callback(QTextEdit_FocusOutEvent_Callback cb) { qtextedit_focusoutevent_callback = cb; }
-    void setQTextEdit_ShowEvent_Callback(QTextEdit_ShowEvent_Callback cb) { qtextedit_showevent_callback = cb; }
-    void setQTextEdit_ChangeEvent_Callback(QTextEdit_ChangeEvent_Callback cb) { qtextedit_changeevent_callback = cb; }
-    void setQTextEdit_WheelEvent_Callback(QTextEdit_WheelEvent_Callback cb) { qtextedit_wheelevent_callback = cb; }
-    void setQTextEdit_CreateMimeDataFromSelection_Callback(QTextEdit_CreateMimeDataFromSelection_Callback cb) { qtextedit_createmimedatafromselection_callback = cb; }
-    void setQTextEdit_CanInsertFromMimeData_Callback(QTextEdit_CanInsertFromMimeData_Callback cb) { qtextedit_caninsertfrommimedata_callback = cb; }
-    void setQTextEdit_InsertFromMimeData_Callback(QTextEdit_InsertFromMimeData_Callback cb) { qtextedit_insertfrommimedata_callback = cb; }
-    void setQTextEdit_InputMethodEvent_Callback(QTextEdit_InputMethodEvent_Callback cb) { qtextedit_inputmethodevent_callback = cb; }
-    void setQTextEdit_ScrollContentsBy_Callback(QTextEdit_ScrollContentsBy_Callback cb) { qtextedit_scrollcontentsby_callback = cb; }
-    void setQTextEdit_DoSetTextCursor_Callback(QTextEdit_DoSetTextCursor_Callback cb) { qtextedit_dosettextcursor_callback = cb; }
-    void setQTextEdit_MinimumSizeHint_Callback(QTextEdit_MinimumSizeHint_Callback cb) { qtextedit_minimumsizehint_callback = cb; }
-    void setQTextEdit_SizeHint_Callback(QTextEdit_SizeHint_Callback cb) { qtextedit_sizehint_callback = cb; }
-    void setQTextEdit_SetupViewport_Callback(QTextEdit_SetupViewport_Callback cb) { qtextedit_setupviewport_callback = cb; }
-    void setQTextEdit_EventFilter_Callback(QTextEdit_EventFilter_Callback cb) { qtextedit_eventfilter_callback = cb; }
-    void setQTextEdit_ViewportEvent_Callback(QTextEdit_ViewportEvent_Callback cb) { qtextedit_viewportevent_callback = cb; }
-    void setQTextEdit_ViewportSizeHint_Callback(QTextEdit_ViewportSizeHint_Callback cb) { qtextedit_viewportsizehint_callback = cb; }
-    void setQTextEdit_InitStyleOption_Callback(QTextEdit_InitStyleOption_Callback cb) { qtextedit_initstyleoption_callback = cb; }
-    void setQTextEdit_DevType_Callback(QTextEdit_DevType_Callback cb) { qtextedit_devtype_callback = cb; }
-    void setQTextEdit_SetVisible_Callback(QTextEdit_SetVisible_Callback cb) { qtextedit_setvisible_callback = cb; }
-    void setQTextEdit_HeightForWidth_Callback(QTextEdit_HeightForWidth_Callback cb) { qtextedit_heightforwidth_callback = cb; }
-    void setQTextEdit_HasHeightForWidth_Callback(QTextEdit_HasHeightForWidth_Callback cb) { qtextedit_hasheightforwidth_callback = cb; }
-    void setQTextEdit_PaintEngine_Callback(QTextEdit_PaintEngine_Callback cb) { qtextedit_paintengine_callback = cb; }
-    void setQTextEdit_EnterEvent_Callback(QTextEdit_EnterEvent_Callback cb) { qtextedit_enterevent_callback = cb; }
-    void setQTextEdit_LeaveEvent_Callback(QTextEdit_LeaveEvent_Callback cb) { qtextedit_leaveevent_callback = cb; }
-    void setQTextEdit_MoveEvent_Callback(QTextEdit_MoveEvent_Callback cb) { qtextedit_moveevent_callback = cb; }
-    void setQTextEdit_CloseEvent_Callback(QTextEdit_CloseEvent_Callback cb) { qtextedit_closeevent_callback = cb; }
-    void setQTextEdit_TabletEvent_Callback(QTextEdit_TabletEvent_Callback cb) { qtextedit_tabletevent_callback = cb; }
-    void setQTextEdit_ActionEvent_Callback(QTextEdit_ActionEvent_Callback cb) { qtextedit_actionevent_callback = cb; }
-    void setQTextEdit_HideEvent_Callback(QTextEdit_HideEvent_Callback cb) { qtextedit_hideevent_callback = cb; }
-    void setQTextEdit_NativeEvent_Callback(QTextEdit_NativeEvent_Callback cb) { qtextedit_nativeevent_callback = cb; }
-    void setQTextEdit_Metric_Callback(QTextEdit_Metric_Callback cb) { qtextedit_metric_callback = cb; }
-    void setQTextEdit_InitPainter_Callback(QTextEdit_InitPainter_Callback cb) { qtextedit_initpainter_callback = cb; }
-    void setQTextEdit_Redirected_Callback(QTextEdit_Redirected_Callback cb) { qtextedit_redirected_callback = cb; }
-    void setQTextEdit_SharedPainter_Callback(QTextEdit_SharedPainter_Callback cb) { qtextedit_sharedpainter_callback = cb; }
-    void setQTextEdit_ChildEvent_Callback(QTextEdit_ChildEvent_Callback cb) { qtextedit_childevent_callback = cb; }
-    void setQTextEdit_CustomEvent_Callback(QTextEdit_CustomEvent_Callback cb) { qtextedit_customevent_callback = cb; }
-    void setQTextEdit_ConnectNotify_Callback(QTextEdit_ConnectNotify_Callback cb) { qtextedit_connectnotify_callback = cb; }
-    void setQTextEdit_DisconnectNotify_Callback(QTextEdit_DisconnectNotify_Callback cb) { qtextedit_disconnectnotify_callback = cb; }
-    void setQTextEdit_ZoomInF_Callback(QTextEdit_ZoomInF_Callback cb) { qtextedit_zoominf_callback = cb; }
-    void setQTextEdit_SetViewportMargins_Callback(QTextEdit_SetViewportMargins_Callback cb) { qtextedit_setviewportmargins_callback = cb; }
-    void setQTextEdit_ViewportMargins_Callback(QTextEdit_ViewportMargins_Callback cb) { qtextedit_viewportmargins_callback = cb; }
-    void setQTextEdit_DrawFrame_Callback(QTextEdit_DrawFrame_Callback cb) { qtextedit_drawframe_callback = cb; }
-    void setQTextEdit_UpdateMicroFocus_Callback(QTextEdit_UpdateMicroFocus_Callback cb) { qtextedit_updatemicrofocus_callback = cb; }
-    void setQTextEdit_Create_Callback(QTextEdit_Create_Callback cb) { qtextedit_create_callback = cb; }
-    void setQTextEdit_Destroy_Callback(QTextEdit_Destroy_Callback cb) { qtextedit_destroy_callback = cb; }
-    void setQTextEdit_FocusNextChild_Callback(QTextEdit_FocusNextChild_Callback cb) { qtextedit_focusnextchild_callback = cb; }
-    void setQTextEdit_FocusPreviousChild_Callback(QTextEdit_FocusPreviousChild_Callback cb) { qtextedit_focuspreviouschild_callback = cb; }
-    void setQTextEdit_Sender_Callback(QTextEdit_Sender_Callback cb) { qtextedit_sender_callback = cb; }
-    void setQTextEdit_SenderSignalIndex_Callback(QTextEdit_SenderSignalIndex_Callback cb) { qtextedit_sendersignalindex_callback = cb; }
-    void setQTextEdit_Receivers_Callback(QTextEdit_Receivers_Callback cb) { qtextedit_receivers_callback = cb; }
-    void setQTextEdit_IsSignalConnected_Callback(QTextEdit_IsSignalConnected_Callback cb) { qtextedit_issignalconnected_callback = cb; }
+    inline void setQTextEdit_Metacall_Callback(QTextEdit_Metacall_Callback cb) { qtextedit_metacall_callback = cb; }
+    inline void setQTextEdit_LoadResource_Callback(QTextEdit_LoadResource_Callback cb) { qtextedit_loadresource_callback = cb; }
+    inline void setQTextEdit_InputMethodQuery_Callback(QTextEdit_InputMethodQuery_Callback cb) { qtextedit_inputmethodquery_callback = cb; }
+    inline void setQTextEdit_Event_Callback(QTextEdit_Event_Callback cb) { qtextedit_event_callback = cb; }
+    inline void setQTextEdit_TimerEvent_Callback(QTextEdit_TimerEvent_Callback cb) { qtextedit_timerevent_callback = cb; }
+    inline void setQTextEdit_KeyPressEvent_Callback(QTextEdit_KeyPressEvent_Callback cb) { qtextedit_keypressevent_callback = cb; }
+    inline void setQTextEdit_KeyReleaseEvent_Callback(QTextEdit_KeyReleaseEvent_Callback cb) { qtextedit_keyreleaseevent_callback = cb; }
+    inline void setQTextEdit_ResizeEvent_Callback(QTextEdit_ResizeEvent_Callback cb) { qtextedit_resizeevent_callback = cb; }
+    inline void setQTextEdit_PaintEvent_Callback(QTextEdit_PaintEvent_Callback cb) { qtextedit_paintevent_callback = cb; }
+    inline void setQTextEdit_MousePressEvent_Callback(QTextEdit_MousePressEvent_Callback cb) { qtextedit_mousepressevent_callback = cb; }
+    inline void setQTextEdit_MouseMoveEvent_Callback(QTextEdit_MouseMoveEvent_Callback cb) { qtextedit_mousemoveevent_callback = cb; }
+    inline void setQTextEdit_MouseReleaseEvent_Callback(QTextEdit_MouseReleaseEvent_Callback cb) { qtextedit_mousereleaseevent_callback = cb; }
+    inline void setQTextEdit_MouseDoubleClickEvent_Callback(QTextEdit_MouseDoubleClickEvent_Callback cb) { qtextedit_mousedoubleclickevent_callback = cb; }
+    inline void setQTextEdit_FocusNextPrevChild_Callback(QTextEdit_FocusNextPrevChild_Callback cb) { qtextedit_focusnextprevchild_callback = cb; }
+    inline void setQTextEdit_ContextMenuEvent_Callback(QTextEdit_ContextMenuEvent_Callback cb) { qtextedit_contextmenuevent_callback = cb; }
+    inline void setQTextEdit_DragEnterEvent_Callback(QTextEdit_DragEnterEvent_Callback cb) { qtextedit_dragenterevent_callback = cb; }
+    inline void setQTextEdit_DragLeaveEvent_Callback(QTextEdit_DragLeaveEvent_Callback cb) { qtextedit_dragleaveevent_callback = cb; }
+    inline void setQTextEdit_DragMoveEvent_Callback(QTextEdit_DragMoveEvent_Callback cb) { qtextedit_dragmoveevent_callback = cb; }
+    inline void setQTextEdit_DropEvent_Callback(QTextEdit_DropEvent_Callback cb) { qtextedit_dropevent_callback = cb; }
+    inline void setQTextEdit_FocusInEvent_Callback(QTextEdit_FocusInEvent_Callback cb) { qtextedit_focusinevent_callback = cb; }
+    inline void setQTextEdit_FocusOutEvent_Callback(QTextEdit_FocusOutEvent_Callback cb) { qtextedit_focusoutevent_callback = cb; }
+    inline void setQTextEdit_ShowEvent_Callback(QTextEdit_ShowEvent_Callback cb) { qtextedit_showevent_callback = cb; }
+    inline void setQTextEdit_ChangeEvent_Callback(QTextEdit_ChangeEvent_Callback cb) { qtextedit_changeevent_callback = cb; }
+    inline void setQTextEdit_WheelEvent_Callback(QTextEdit_WheelEvent_Callback cb) { qtextedit_wheelevent_callback = cb; }
+    inline void setQTextEdit_CreateMimeDataFromSelection_Callback(QTextEdit_CreateMimeDataFromSelection_Callback cb) { qtextedit_createmimedatafromselection_callback = cb; }
+    inline void setQTextEdit_CanInsertFromMimeData_Callback(QTextEdit_CanInsertFromMimeData_Callback cb) { qtextedit_caninsertfrommimedata_callback = cb; }
+    inline void setQTextEdit_InsertFromMimeData_Callback(QTextEdit_InsertFromMimeData_Callback cb) { qtextedit_insertfrommimedata_callback = cb; }
+    inline void setQTextEdit_InputMethodEvent_Callback(QTextEdit_InputMethodEvent_Callback cb) { qtextedit_inputmethodevent_callback = cb; }
+    inline void setQTextEdit_ScrollContentsBy_Callback(QTextEdit_ScrollContentsBy_Callback cb) { qtextedit_scrollcontentsby_callback = cb; }
+    inline void setQTextEdit_DoSetTextCursor_Callback(QTextEdit_DoSetTextCursor_Callback cb) { qtextedit_dosettextcursor_callback = cb; }
+    inline void setQTextEdit_MinimumSizeHint_Callback(QTextEdit_MinimumSizeHint_Callback cb) { qtextedit_minimumsizehint_callback = cb; }
+    inline void setQTextEdit_SizeHint_Callback(QTextEdit_SizeHint_Callback cb) { qtextedit_sizehint_callback = cb; }
+    inline void setQTextEdit_SetupViewport_Callback(QTextEdit_SetupViewport_Callback cb) { qtextedit_setupviewport_callback = cb; }
+    inline void setQTextEdit_EventFilter_Callback(QTextEdit_EventFilter_Callback cb) { qtextedit_eventfilter_callback = cb; }
+    inline void setQTextEdit_ViewportEvent_Callback(QTextEdit_ViewportEvent_Callback cb) { qtextedit_viewportevent_callback = cb; }
+    inline void setQTextEdit_ViewportSizeHint_Callback(QTextEdit_ViewportSizeHint_Callback cb) { qtextedit_viewportsizehint_callback = cb; }
+    inline void setQTextEdit_InitStyleOption_Callback(QTextEdit_InitStyleOption_Callback cb) { qtextedit_initstyleoption_callback = cb; }
+    inline void setQTextEdit_DevType_Callback(QTextEdit_DevType_Callback cb) { qtextedit_devtype_callback = cb; }
+    inline void setQTextEdit_SetVisible_Callback(QTextEdit_SetVisible_Callback cb) { qtextedit_setvisible_callback = cb; }
+    inline void setQTextEdit_HeightForWidth_Callback(QTextEdit_HeightForWidth_Callback cb) { qtextedit_heightforwidth_callback = cb; }
+    inline void setQTextEdit_HasHeightForWidth_Callback(QTextEdit_HasHeightForWidth_Callback cb) { qtextedit_hasheightforwidth_callback = cb; }
+    inline void setQTextEdit_PaintEngine_Callback(QTextEdit_PaintEngine_Callback cb) { qtextedit_paintengine_callback = cb; }
+    inline void setQTextEdit_EnterEvent_Callback(QTextEdit_EnterEvent_Callback cb) { qtextedit_enterevent_callback = cb; }
+    inline void setQTextEdit_LeaveEvent_Callback(QTextEdit_LeaveEvent_Callback cb) { qtextedit_leaveevent_callback = cb; }
+    inline void setQTextEdit_MoveEvent_Callback(QTextEdit_MoveEvent_Callback cb) { qtextedit_moveevent_callback = cb; }
+    inline void setQTextEdit_CloseEvent_Callback(QTextEdit_CloseEvent_Callback cb) { qtextedit_closeevent_callback = cb; }
+    inline void setQTextEdit_TabletEvent_Callback(QTextEdit_TabletEvent_Callback cb) { qtextedit_tabletevent_callback = cb; }
+    inline void setQTextEdit_ActionEvent_Callback(QTextEdit_ActionEvent_Callback cb) { qtextedit_actionevent_callback = cb; }
+    inline void setQTextEdit_HideEvent_Callback(QTextEdit_HideEvent_Callback cb) { qtextedit_hideevent_callback = cb; }
+    inline void setQTextEdit_NativeEvent_Callback(QTextEdit_NativeEvent_Callback cb) { qtextedit_nativeevent_callback = cb; }
+    inline void setQTextEdit_Metric_Callback(QTextEdit_Metric_Callback cb) { qtextedit_metric_callback = cb; }
+    inline void setQTextEdit_InitPainter_Callback(QTextEdit_InitPainter_Callback cb) { qtextedit_initpainter_callback = cb; }
+    inline void setQTextEdit_Redirected_Callback(QTextEdit_Redirected_Callback cb) { qtextedit_redirected_callback = cb; }
+    inline void setQTextEdit_SharedPainter_Callback(QTextEdit_SharedPainter_Callback cb) { qtextedit_sharedpainter_callback = cb; }
+    inline void setQTextEdit_ChildEvent_Callback(QTextEdit_ChildEvent_Callback cb) { qtextedit_childevent_callback = cb; }
+    inline void setQTextEdit_CustomEvent_Callback(QTextEdit_CustomEvent_Callback cb) { qtextedit_customevent_callback = cb; }
+    inline void setQTextEdit_ConnectNotify_Callback(QTextEdit_ConnectNotify_Callback cb) { qtextedit_connectnotify_callback = cb; }
+    inline void setQTextEdit_DisconnectNotify_Callback(QTextEdit_DisconnectNotify_Callback cb) { qtextedit_disconnectnotify_callback = cb; }
+    inline void setQTextEdit_ZoomInF_Callback(QTextEdit_ZoomInF_Callback cb) { qtextedit_zoominf_callback = cb; }
+    inline void setQTextEdit_SetViewportMargins_Callback(QTextEdit_SetViewportMargins_Callback cb) { qtextedit_setviewportmargins_callback = cb; }
+    inline void setQTextEdit_ViewportMargins_Callback(QTextEdit_ViewportMargins_Callback cb) { qtextedit_viewportmargins_callback = cb; }
+    inline void setQTextEdit_DrawFrame_Callback(QTextEdit_DrawFrame_Callback cb) { qtextedit_drawframe_callback = cb; }
+    inline void setQTextEdit_UpdateMicroFocus_Callback(QTextEdit_UpdateMicroFocus_Callback cb) { qtextedit_updatemicrofocus_callback = cb; }
+    inline void setQTextEdit_Create_Callback(QTextEdit_Create_Callback cb) { qtextedit_create_callback = cb; }
+    inline void setQTextEdit_Destroy_Callback(QTextEdit_Destroy_Callback cb) { qtextedit_destroy_callback = cb; }
+    inline void setQTextEdit_FocusNextChild_Callback(QTextEdit_FocusNextChild_Callback cb) { qtextedit_focusnextchild_callback = cb; }
+    inline void setQTextEdit_FocusPreviousChild_Callback(QTextEdit_FocusPreviousChild_Callback cb) { qtextedit_focuspreviouschild_callback = cb; }
+    inline void setQTextEdit_Sender_Callback(QTextEdit_Sender_Callback cb) { qtextedit_sender_callback = cb; }
+    inline void setQTextEdit_SenderSignalIndex_Callback(QTextEdit_SenderSignalIndex_Callback cb) { qtextedit_sendersignalindex_callback = cb; }
+    inline void setQTextEdit_Receivers_Callback(QTextEdit_Receivers_Callback cb) { qtextedit_receivers_callback = cb; }
+    inline void setQTextEdit_IsSignalConnected_Callback(QTextEdit_IsSignalConnected_Callback cb) { qtextedit_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQTextEdit_Metacall_IsBase(bool value) const { qtextedit_metacall_isbase = value; }
-    void setQTextEdit_LoadResource_IsBase(bool value) const { qtextedit_loadresource_isbase = value; }
-    void setQTextEdit_InputMethodQuery_IsBase(bool value) const { qtextedit_inputmethodquery_isbase = value; }
-    void setQTextEdit_Event_IsBase(bool value) const { qtextedit_event_isbase = value; }
-    void setQTextEdit_TimerEvent_IsBase(bool value) const { qtextedit_timerevent_isbase = value; }
-    void setQTextEdit_KeyPressEvent_IsBase(bool value) const { qtextedit_keypressevent_isbase = value; }
-    void setQTextEdit_KeyReleaseEvent_IsBase(bool value) const { qtextedit_keyreleaseevent_isbase = value; }
-    void setQTextEdit_ResizeEvent_IsBase(bool value) const { qtextedit_resizeevent_isbase = value; }
-    void setQTextEdit_PaintEvent_IsBase(bool value) const { qtextedit_paintevent_isbase = value; }
-    void setQTextEdit_MousePressEvent_IsBase(bool value) const { qtextedit_mousepressevent_isbase = value; }
-    void setQTextEdit_MouseMoveEvent_IsBase(bool value) const { qtextedit_mousemoveevent_isbase = value; }
-    void setQTextEdit_MouseReleaseEvent_IsBase(bool value) const { qtextedit_mousereleaseevent_isbase = value; }
-    void setQTextEdit_MouseDoubleClickEvent_IsBase(bool value) const { qtextedit_mousedoubleclickevent_isbase = value; }
-    void setQTextEdit_FocusNextPrevChild_IsBase(bool value) const { qtextedit_focusnextprevchild_isbase = value; }
-    void setQTextEdit_ContextMenuEvent_IsBase(bool value) const { qtextedit_contextmenuevent_isbase = value; }
-    void setQTextEdit_DragEnterEvent_IsBase(bool value) const { qtextedit_dragenterevent_isbase = value; }
-    void setQTextEdit_DragLeaveEvent_IsBase(bool value) const { qtextedit_dragleaveevent_isbase = value; }
-    void setQTextEdit_DragMoveEvent_IsBase(bool value) const { qtextedit_dragmoveevent_isbase = value; }
-    void setQTextEdit_DropEvent_IsBase(bool value) const { qtextedit_dropevent_isbase = value; }
-    void setQTextEdit_FocusInEvent_IsBase(bool value) const { qtextedit_focusinevent_isbase = value; }
-    void setQTextEdit_FocusOutEvent_IsBase(bool value) const { qtextedit_focusoutevent_isbase = value; }
-    void setQTextEdit_ShowEvent_IsBase(bool value) const { qtextedit_showevent_isbase = value; }
-    void setQTextEdit_ChangeEvent_IsBase(bool value) const { qtextedit_changeevent_isbase = value; }
-    void setQTextEdit_WheelEvent_IsBase(bool value) const { qtextedit_wheelevent_isbase = value; }
-    void setQTextEdit_CreateMimeDataFromSelection_IsBase(bool value) const { qtextedit_createmimedatafromselection_isbase = value; }
-    void setQTextEdit_CanInsertFromMimeData_IsBase(bool value) const { qtextedit_caninsertfrommimedata_isbase = value; }
-    void setQTextEdit_InsertFromMimeData_IsBase(bool value) const { qtextedit_insertfrommimedata_isbase = value; }
-    void setQTextEdit_InputMethodEvent_IsBase(bool value) const { qtextedit_inputmethodevent_isbase = value; }
-    void setQTextEdit_ScrollContentsBy_IsBase(bool value) const { qtextedit_scrollcontentsby_isbase = value; }
-    void setQTextEdit_DoSetTextCursor_IsBase(bool value) const { qtextedit_dosettextcursor_isbase = value; }
-    void setQTextEdit_MinimumSizeHint_IsBase(bool value) const { qtextedit_minimumsizehint_isbase = value; }
-    void setQTextEdit_SizeHint_IsBase(bool value) const { qtextedit_sizehint_isbase = value; }
-    void setQTextEdit_SetupViewport_IsBase(bool value) const { qtextedit_setupviewport_isbase = value; }
-    void setQTextEdit_EventFilter_IsBase(bool value) const { qtextedit_eventfilter_isbase = value; }
-    void setQTextEdit_ViewportEvent_IsBase(bool value) const { qtextedit_viewportevent_isbase = value; }
-    void setQTextEdit_ViewportSizeHint_IsBase(bool value) const { qtextedit_viewportsizehint_isbase = value; }
-    void setQTextEdit_InitStyleOption_IsBase(bool value) const { qtextedit_initstyleoption_isbase = value; }
-    void setQTextEdit_DevType_IsBase(bool value) const { qtextedit_devtype_isbase = value; }
-    void setQTextEdit_SetVisible_IsBase(bool value) const { qtextedit_setvisible_isbase = value; }
-    void setQTextEdit_HeightForWidth_IsBase(bool value) const { qtextedit_heightforwidth_isbase = value; }
-    void setQTextEdit_HasHeightForWidth_IsBase(bool value) const { qtextedit_hasheightforwidth_isbase = value; }
-    void setQTextEdit_PaintEngine_IsBase(bool value) const { qtextedit_paintengine_isbase = value; }
-    void setQTextEdit_EnterEvent_IsBase(bool value) const { qtextedit_enterevent_isbase = value; }
-    void setQTextEdit_LeaveEvent_IsBase(bool value) const { qtextedit_leaveevent_isbase = value; }
-    void setQTextEdit_MoveEvent_IsBase(bool value) const { qtextedit_moveevent_isbase = value; }
-    void setQTextEdit_CloseEvent_IsBase(bool value) const { qtextedit_closeevent_isbase = value; }
-    void setQTextEdit_TabletEvent_IsBase(bool value) const { qtextedit_tabletevent_isbase = value; }
-    void setQTextEdit_ActionEvent_IsBase(bool value) const { qtextedit_actionevent_isbase = value; }
-    void setQTextEdit_HideEvent_IsBase(bool value) const { qtextedit_hideevent_isbase = value; }
-    void setQTextEdit_NativeEvent_IsBase(bool value) const { qtextedit_nativeevent_isbase = value; }
-    void setQTextEdit_Metric_IsBase(bool value) const { qtextedit_metric_isbase = value; }
-    void setQTextEdit_InitPainter_IsBase(bool value) const { qtextedit_initpainter_isbase = value; }
-    void setQTextEdit_Redirected_IsBase(bool value) const { qtextedit_redirected_isbase = value; }
-    void setQTextEdit_SharedPainter_IsBase(bool value) const { qtextedit_sharedpainter_isbase = value; }
-    void setQTextEdit_ChildEvent_IsBase(bool value) const { qtextedit_childevent_isbase = value; }
-    void setQTextEdit_CustomEvent_IsBase(bool value) const { qtextedit_customevent_isbase = value; }
-    void setQTextEdit_ConnectNotify_IsBase(bool value) const { qtextedit_connectnotify_isbase = value; }
-    void setQTextEdit_DisconnectNotify_IsBase(bool value) const { qtextedit_disconnectnotify_isbase = value; }
-    void setQTextEdit_ZoomInF_IsBase(bool value) const { qtextedit_zoominf_isbase = value; }
-    void setQTextEdit_SetViewportMargins_IsBase(bool value) const { qtextedit_setviewportmargins_isbase = value; }
-    void setQTextEdit_ViewportMargins_IsBase(bool value) const { qtextedit_viewportmargins_isbase = value; }
-    void setQTextEdit_DrawFrame_IsBase(bool value) const { qtextedit_drawframe_isbase = value; }
-    void setQTextEdit_UpdateMicroFocus_IsBase(bool value) const { qtextedit_updatemicrofocus_isbase = value; }
-    void setQTextEdit_Create_IsBase(bool value) const { qtextedit_create_isbase = value; }
-    void setQTextEdit_Destroy_IsBase(bool value) const { qtextedit_destroy_isbase = value; }
-    void setQTextEdit_FocusNextChild_IsBase(bool value) const { qtextedit_focusnextchild_isbase = value; }
-    void setQTextEdit_FocusPreviousChild_IsBase(bool value) const { qtextedit_focuspreviouschild_isbase = value; }
-    void setQTextEdit_Sender_IsBase(bool value) const { qtextedit_sender_isbase = value; }
-    void setQTextEdit_SenderSignalIndex_IsBase(bool value) const { qtextedit_sendersignalindex_isbase = value; }
-    void setQTextEdit_Receivers_IsBase(bool value) const { qtextedit_receivers_isbase = value; }
-    void setQTextEdit_IsSignalConnected_IsBase(bool value) const { qtextedit_issignalconnected_isbase = value; }
+    inline void setQTextEdit_Metacall_IsBase(bool value) const { qtextedit_metacall_isbase = value; }
+    inline void setQTextEdit_LoadResource_IsBase(bool value) const { qtextedit_loadresource_isbase = value; }
+    inline void setQTextEdit_InputMethodQuery_IsBase(bool value) const { qtextedit_inputmethodquery_isbase = value; }
+    inline void setQTextEdit_Event_IsBase(bool value) const { qtextedit_event_isbase = value; }
+    inline void setQTextEdit_TimerEvent_IsBase(bool value) const { qtextedit_timerevent_isbase = value; }
+    inline void setQTextEdit_KeyPressEvent_IsBase(bool value) const { qtextedit_keypressevent_isbase = value; }
+    inline void setQTextEdit_KeyReleaseEvent_IsBase(bool value) const { qtextedit_keyreleaseevent_isbase = value; }
+    inline void setQTextEdit_ResizeEvent_IsBase(bool value) const { qtextedit_resizeevent_isbase = value; }
+    inline void setQTextEdit_PaintEvent_IsBase(bool value) const { qtextedit_paintevent_isbase = value; }
+    inline void setQTextEdit_MousePressEvent_IsBase(bool value) const { qtextedit_mousepressevent_isbase = value; }
+    inline void setQTextEdit_MouseMoveEvent_IsBase(bool value) const { qtextedit_mousemoveevent_isbase = value; }
+    inline void setQTextEdit_MouseReleaseEvent_IsBase(bool value) const { qtextedit_mousereleaseevent_isbase = value; }
+    inline void setQTextEdit_MouseDoubleClickEvent_IsBase(bool value) const { qtextedit_mousedoubleclickevent_isbase = value; }
+    inline void setQTextEdit_FocusNextPrevChild_IsBase(bool value) const { qtextedit_focusnextprevchild_isbase = value; }
+    inline void setQTextEdit_ContextMenuEvent_IsBase(bool value) const { qtextedit_contextmenuevent_isbase = value; }
+    inline void setQTextEdit_DragEnterEvent_IsBase(bool value) const { qtextedit_dragenterevent_isbase = value; }
+    inline void setQTextEdit_DragLeaveEvent_IsBase(bool value) const { qtextedit_dragleaveevent_isbase = value; }
+    inline void setQTextEdit_DragMoveEvent_IsBase(bool value) const { qtextedit_dragmoveevent_isbase = value; }
+    inline void setQTextEdit_DropEvent_IsBase(bool value) const { qtextedit_dropevent_isbase = value; }
+    inline void setQTextEdit_FocusInEvent_IsBase(bool value) const { qtextedit_focusinevent_isbase = value; }
+    inline void setQTextEdit_FocusOutEvent_IsBase(bool value) const { qtextedit_focusoutevent_isbase = value; }
+    inline void setQTextEdit_ShowEvent_IsBase(bool value) const { qtextedit_showevent_isbase = value; }
+    inline void setQTextEdit_ChangeEvent_IsBase(bool value) const { qtextedit_changeevent_isbase = value; }
+    inline void setQTextEdit_WheelEvent_IsBase(bool value) const { qtextedit_wheelevent_isbase = value; }
+    inline void setQTextEdit_CreateMimeDataFromSelection_IsBase(bool value) const { qtextedit_createmimedatafromselection_isbase = value; }
+    inline void setQTextEdit_CanInsertFromMimeData_IsBase(bool value) const { qtextedit_caninsertfrommimedata_isbase = value; }
+    inline void setQTextEdit_InsertFromMimeData_IsBase(bool value) const { qtextedit_insertfrommimedata_isbase = value; }
+    inline void setQTextEdit_InputMethodEvent_IsBase(bool value) const { qtextedit_inputmethodevent_isbase = value; }
+    inline void setQTextEdit_ScrollContentsBy_IsBase(bool value) const { qtextedit_scrollcontentsby_isbase = value; }
+    inline void setQTextEdit_DoSetTextCursor_IsBase(bool value) const { qtextedit_dosettextcursor_isbase = value; }
+    inline void setQTextEdit_MinimumSizeHint_IsBase(bool value) const { qtextedit_minimumsizehint_isbase = value; }
+    inline void setQTextEdit_SizeHint_IsBase(bool value) const { qtextedit_sizehint_isbase = value; }
+    inline void setQTextEdit_SetupViewport_IsBase(bool value) const { qtextedit_setupviewport_isbase = value; }
+    inline void setQTextEdit_EventFilter_IsBase(bool value) const { qtextedit_eventfilter_isbase = value; }
+    inline void setQTextEdit_ViewportEvent_IsBase(bool value) const { qtextedit_viewportevent_isbase = value; }
+    inline void setQTextEdit_ViewportSizeHint_IsBase(bool value) const { qtextedit_viewportsizehint_isbase = value; }
+    inline void setQTextEdit_InitStyleOption_IsBase(bool value) const { qtextedit_initstyleoption_isbase = value; }
+    inline void setQTextEdit_DevType_IsBase(bool value) const { qtextedit_devtype_isbase = value; }
+    inline void setQTextEdit_SetVisible_IsBase(bool value) const { qtextedit_setvisible_isbase = value; }
+    inline void setQTextEdit_HeightForWidth_IsBase(bool value) const { qtextedit_heightforwidth_isbase = value; }
+    inline void setQTextEdit_HasHeightForWidth_IsBase(bool value) const { qtextedit_hasheightforwidth_isbase = value; }
+    inline void setQTextEdit_PaintEngine_IsBase(bool value) const { qtextedit_paintengine_isbase = value; }
+    inline void setQTextEdit_EnterEvent_IsBase(bool value) const { qtextedit_enterevent_isbase = value; }
+    inline void setQTextEdit_LeaveEvent_IsBase(bool value) const { qtextedit_leaveevent_isbase = value; }
+    inline void setQTextEdit_MoveEvent_IsBase(bool value) const { qtextedit_moveevent_isbase = value; }
+    inline void setQTextEdit_CloseEvent_IsBase(bool value) const { qtextedit_closeevent_isbase = value; }
+    inline void setQTextEdit_TabletEvent_IsBase(bool value) const { qtextedit_tabletevent_isbase = value; }
+    inline void setQTextEdit_ActionEvent_IsBase(bool value) const { qtextedit_actionevent_isbase = value; }
+    inline void setQTextEdit_HideEvent_IsBase(bool value) const { qtextedit_hideevent_isbase = value; }
+    inline void setQTextEdit_NativeEvent_IsBase(bool value) const { qtextedit_nativeevent_isbase = value; }
+    inline void setQTextEdit_Metric_IsBase(bool value) const { qtextedit_metric_isbase = value; }
+    inline void setQTextEdit_InitPainter_IsBase(bool value) const { qtextedit_initpainter_isbase = value; }
+    inline void setQTextEdit_Redirected_IsBase(bool value) const { qtextedit_redirected_isbase = value; }
+    inline void setQTextEdit_SharedPainter_IsBase(bool value) const { qtextedit_sharedpainter_isbase = value; }
+    inline void setQTextEdit_ChildEvent_IsBase(bool value) const { qtextedit_childevent_isbase = value; }
+    inline void setQTextEdit_CustomEvent_IsBase(bool value) const { qtextedit_customevent_isbase = value; }
+    inline void setQTextEdit_ConnectNotify_IsBase(bool value) const { qtextedit_connectnotify_isbase = value; }
+    inline void setQTextEdit_DisconnectNotify_IsBase(bool value) const { qtextedit_disconnectnotify_isbase = value; }
+    inline void setQTextEdit_ZoomInF_IsBase(bool value) const { qtextedit_zoominf_isbase = value; }
+    inline void setQTextEdit_SetViewportMargins_IsBase(bool value) const { qtextedit_setviewportmargins_isbase = value; }
+    inline void setQTextEdit_ViewportMargins_IsBase(bool value) const { qtextedit_viewportmargins_isbase = value; }
+    inline void setQTextEdit_DrawFrame_IsBase(bool value) const { qtextedit_drawframe_isbase = value; }
+    inline void setQTextEdit_UpdateMicroFocus_IsBase(bool value) const { qtextedit_updatemicrofocus_isbase = value; }
+    inline void setQTextEdit_Create_IsBase(bool value) const { qtextedit_create_isbase = value; }
+    inline void setQTextEdit_Destroy_IsBase(bool value) const { qtextedit_destroy_isbase = value; }
+    inline void setQTextEdit_FocusNextChild_IsBase(bool value) const { qtextedit_focusnextchild_isbase = value; }
+    inline void setQTextEdit_FocusPreviousChild_IsBase(bool value) const { qtextedit_focuspreviouschild_isbase = value; }
+    inline void setQTextEdit_Sender_IsBase(bool value) const { qtextedit_sender_isbase = value; }
+    inline void setQTextEdit_SenderSignalIndex_IsBase(bool value) const { qtextedit_sendersignalindex_isbase = value; }
+    inline void setQTextEdit_Receivers_IsBase(bool value) const { qtextedit_receivers_isbase = value; }
+    inline void setQTextEdit_IsSignalConnected_IsBase(bool value) const { qtextedit_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -466,7 +469,12 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_metacall_isbase = false;
             return QTextEdit::qt_metacall(param1, param2, param3);
         } else if (qtextedit_metacall_callback != nullptr) {
-            return qtextedit_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qtextedit_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QTextEdit::qt_metacall(param1, param2, param3);
         }
@@ -478,7 +486,13 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_loadresource_isbase = false;
             return QTextEdit::loadResource(typeVal, name);
         } else if (qtextedit_loadresource_callback != nullptr) {
-            return qtextedit_loadresource_callback(this, typeVal, name);
+            int cbval1 = typeVal;
+            const QUrl& name_ret = name;
+            // Cast returned reference into pointer
+            QUrl* cbval2 = const_cast<QUrl*>(&name_ret);
+
+            QVariant* callback_ret = qtextedit_loadresource_callback(this, cbval1, cbval2);
+            return *callback_ret;
         } else {
             return QTextEdit::loadResource(typeVal, name);
         }
@@ -490,7 +504,10 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_inputmethodquery_isbase = false;
             return QTextEdit::inputMethodQuery(property);
         } else if (qtextedit_inputmethodquery_callback != nullptr) {
-            return qtextedit_inputmethodquery_callback(this, property);
+            int cbval1 = static_cast<int>(property);
+
+            QVariant* callback_ret = qtextedit_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QTextEdit::inputMethodQuery(property);
         }
@@ -502,7 +519,10 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_event_isbase = false;
             return QTextEdit::event(e);
         } else if (qtextedit_event_callback != nullptr) {
-            return qtextedit_event_callback(this, e);
+            QEvent* cbval1 = e;
+
+            bool callback_ret = qtextedit_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTextEdit::event(e);
         }
@@ -514,7 +534,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_timerevent_isbase = false;
             QTextEdit::timerEvent(e);
         } else if (qtextedit_timerevent_callback != nullptr) {
-            qtextedit_timerevent_callback(this, e);
+            QTimerEvent* cbval1 = e;
+
+            qtextedit_timerevent_callback(this, cbval1);
         } else {
             QTextEdit::timerEvent(e);
         }
@@ -526,7 +548,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_keypressevent_isbase = false;
             QTextEdit::keyPressEvent(e);
         } else if (qtextedit_keypressevent_callback != nullptr) {
-            qtextedit_keypressevent_callback(this, e);
+            QKeyEvent* cbval1 = e;
+
+            qtextedit_keypressevent_callback(this, cbval1);
         } else {
             QTextEdit::keyPressEvent(e);
         }
@@ -538,7 +562,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_keyreleaseevent_isbase = false;
             QTextEdit::keyReleaseEvent(e);
         } else if (qtextedit_keyreleaseevent_callback != nullptr) {
-            qtextedit_keyreleaseevent_callback(this, e);
+            QKeyEvent* cbval1 = e;
+
+            qtextedit_keyreleaseevent_callback(this, cbval1);
         } else {
             QTextEdit::keyReleaseEvent(e);
         }
@@ -550,7 +576,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_resizeevent_isbase = false;
             QTextEdit::resizeEvent(e);
         } else if (qtextedit_resizeevent_callback != nullptr) {
-            qtextedit_resizeevent_callback(this, e);
+            QResizeEvent* cbval1 = e;
+
+            qtextedit_resizeevent_callback(this, cbval1);
         } else {
             QTextEdit::resizeEvent(e);
         }
@@ -562,7 +590,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_paintevent_isbase = false;
             QTextEdit::paintEvent(e);
         } else if (qtextedit_paintevent_callback != nullptr) {
-            qtextedit_paintevent_callback(this, e);
+            QPaintEvent* cbval1 = e;
+
+            qtextedit_paintevent_callback(this, cbval1);
         } else {
             QTextEdit::paintEvent(e);
         }
@@ -574,7 +604,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_mousepressevent_isbase = false;
             QTextEdit::mousePressEvent(e);
         } else if (qtextedit_mousepressevent_callback != nullptr) {
-            qtextedit_mousepressevent_callback(this, e);
+            QMouseEvent* cbval1 = e;
+
+            qtextedit_mousepressevent_callback(this, cbval1);
         } else {
             QTextEdit::mousePressEvent(e);
         }
@@ -586,7 +618,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_mousemoveevent_isbase = false;
             QTextEdit::mouseMoveEvent(e);
         } else if (qtextedit_mousemoveevent_callback != nullptr) {
-            qtextedit_mousemoveevent_callback(this, e);
+            QMouseEvent* cbval1 = e;
+
+            qtextedit_mousemoveevent_callback(this, cbval1);
         } else {
             QTextEdit::mouseMoveEvent(e);
         }
@@ -598,7 +632,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_mousereleaseevent_isbase = false;
             QTextEdit::mouseReleaseEvent(e);
         } else if (qtextedit_mousereleaseevent_callback != nullptr) {
-            qtextedit_mousereleaseevent_callback(this, e);
+            QMouseEvent* cbval1 = e;
+
+            qtextedit_mousereleaseevent_callback(this, cbval1);
         } else {
             QTextEdit::mouseReleaseEvent(e);
         }
@@ -610,7 +646,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_mousedoubleclickevent_isbase = false;
             QTextEdit::mouseDoubleClickEvent(e);
         } else if (qtextedit_mousedoubleclickevent_callback != nullptr) {
-            qtextedit_mousedoubleclickevent_callback(this, e);
+            QMouseEvent* cbval1 = e;
+
+            qtextedit_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QTextEdit::mouseDoubleClickEvent(e);
         }
@@ -622,7 +660,10 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_focusnextprevchild_isbase = false;
             return QTextEdit::focusNextPrevChild(next);
         } else if (qtextedit_focusnextprevchild_callback != nullptr) {
-            return qtextedit_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qtextedit_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTextEdit::focusNextPrevChild(next);
         }
@@ -634,7 +675,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_contextmenuevent_isbase = false;
             QTextEdit::contextMenuEvent(e);
         } else if (qtextedit_contextmenuevent_callback != nullptr) {
-            qtextedit_contextmenuevent_callback(this, e);
+            QContextMenuEvent* cbval1 = e;
+
+            qtextedit_contextmenuevent_callback(this, cbval1);
         } else {
             QTextEdit::contextMenuEvent(e);
         }
@@ -646,7 +689,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_dragenterevent_isbase = false;
             QTextEdit::dragEnterEvent(e);
         } else if (qtextedit_dragenterevent_callback != nullptr) {
-            qtextedit_dragenterevent_callback(this, e);
+            QDragEnterEvent* cbval1 = e;
+
+            qtextedit_dragenterevent_callback(this, cbval1);
         } else {
             QTextEdit::dragEnterEvent(e);
         }
@@ -658,7 +703,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_dragleaveevent_isbase = false;
             QTextEdit::dragLeaveEvent(e);
         } else if (qtextedit_dragleaveevent_callback != nullptr) {
-            qtextedit_dragleaveevent_callback(this, e);
+            QDragLeaveEvent* cbval1 = e;
+
+            qtextedit_dragleaveevent_callback(this, cbval1);
         } else {
             QTextEdit::dragLeaveEvent(e);
         }
@@ -670,7 +717,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_dragmoveevent_isbase = false;
             QTextEdit::dragMoveEvent(e);
         } else if (qtextedit_dragmoveevent_callback != nullptr) {
-            qtextedit_dragmoveevent_callback(this, e);
+            QDragMoveEvent* cbval1 = e;
+
+            qtextedit_dragmoveevent_callback(this, cbval1);
         } else {
             QTextEdit::dragMoveEvent(e);
         }
@@ -682,7 +731,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_dropevent_isbase = false;
             QTextEdit::dropEvent(e);
         } else if (qtextedit_dropevent_callback != nullptr) {
-            qtextedit_dropevent_callback(this, e);
+            QDropEvent* cbval1 = e;
+
+            qtextedit_dropevent_callback(this, cbval1);
         } else {
             QTextEdit::dropEvent(e);
         }
@@ -694,7 +745,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_focusinevent_isbase = false;
             QTextEdit::focusInEvent(e);
         } else if (qtextedit_focusinevent_callback != nullptr) {
-            qtextedit_focusinevent_callback(this, e);
+            QFocusEvent* cbval1 = e;
+
+            qtextedit_focusinevent_callback(this, cbval1);
         } else {
             QTextEdit::focusInEvent(e);
         }
@@ -706,7 +759,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_focusoutevent_isbase = false;
             QTextEdit::focusOutEvent(e);
         } else if (qtextedit_focusoutevent_callback != nullptr) {
-            qtextedit_focusoutevent_callback(this, e);
+            QFocusEvent* cbval1 = e;
+
+            qtextedit_focusoutevent_callback(this, cbval1);
         } else {
             QTextEdit::focusOutEvent(e);
         }
@@ -718,7 +773,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_showevent_isbase = false;
             QTextEdit::showEvent(param1);
         } else if (qtextedit_showevent_callback != nullptr) {
-            qtextedit_showevent_callback(this, param1);
+            QShowEvent* cbval1 = param1;
+
+            qtextedit_showevent_callback(this, cbval1);
         } else {
             QTextEdit::showEvent(param1);
         }
@@ -730,7 +787,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_changeevent_isbase = false;
             QTextEdit::changeEvent(e);
         } else if (qtextedit_changeevent_callback != nullptr) {
-            qtextedit_changeevent_callback(this, e);
+            QEvent* cbval1 = e;
+
+            qtextedit_changeevent_callback(this, cbval1);
         } else {
             QTextEdit::changeEvent(e);
         }
@@ -742,7 +801,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_wheelevent_isbase = false;
             QTextEdit::wheelEvent(e);
         } else if (qtextedit_wheelevent_callback != nullptr) {
-            qtextedit_wheelevent_callback(this, e);
+            QWheelEvent* cbval1 = e;
+
+            qtextedit_wheelevent_callback(this, cbval1);
         } else {
             QTextEdit::wheelEvent(e);
         }
@@ -754,7 +815,8 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_createmimedatafromselection_isbase = false;
             return QTextEdit::createMimeDataFromSelection();
         } else if (qtextedit_createmimedatafromselection_callback != nullptr) {
-            return qtextedit_createmimedatafromselection_callback();
+            QMimeData* callback_ret = qtextedit_createmimedatafromselection_callback();
+            return callback_ret;
         } else {
             return QTextEdit::createMimeDataFromSelection();
         }
@@ -766,7 +828,10 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_caninsertfrommimedata_isbase = false;
             return QTextEdit::canInsertFromMimeData(source);
         } else if (qtextedit_caninsertfrommimedata_callback != nullptr) {
-            return qtextedit_caninsertfrommimedata_callback(this, source);
+            QMimeData* cbval1 = (QMimeData*)source;
+
+            bool callback_ret = qtextedit_caninsertfrommimedata_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTextEdit::canInsertFromMimeData(source);
         }
@@ -778,7 +843,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_insertfrommimedata_isbase = false;
             QTextEdit::insertFromMimeData(source);
         } else if (qtextedit_insertfrommimedata_callback != nullptr) {
-            qtextedit_insertfrommimedata_callback(this, source);
+            QMimeData* cbval1 = (QMimeData*)source;
+
+            qtextedit_insertfrommimedata_callback(this, cbval1);
         } else {
             QTextEdit::insertFromMimeData(source);
         }
@@ -790,7 +857,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_inputmethodevent_isbase = false;
             QTextEdit::inputMethodEvent(param1);
         } else if (qtextedit_inputmethodevent_callback != nullptr) {
-            qtextedit_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qtextedit_inputmethodevent_callback(this, cbval1);
         } else {
             QTextEdit::inputMethodEvent(param1);
         }
@@ -802,7 +871,10 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_scrollcontentsby_isbase = false;
             QTextEdit::scrollContentsBy(dx, dy);
         } else if (qtextedit_scrollcontentsby_callback != nullptr) {
-            qtextedit_scrollcontentsby_callback(this, dx, dy);
+            int cbval1 = dx;
+            int cbval2 = dy;
+
+            qtextedit_scrollcontentsby_callback(this, cbval1, cbval2);
         } else {
             QTextEdit::scrollContentsBy(dx, dy);
         }
@@ -814,7 +886,11 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_dosettextcursor_isbase = false;
             QTextEdit::doSetTextCursor(cursor);
         } else if (qtextedit_dosettextcursor_callback != nullptr) {
-            qtextedit_dosettextcursor_callback(this, cursor);
+            const QTextCursor& cursor_ret = cursor;
+            // Cast returned reference into pointer
+            QTextCursor* cbval1 = const_cast<QTextCursor*>(&cursor_ret);
+
+            qtextedit_dosettextcursor_callback(this, cbval1);
         } else {
             QTextEdit::doSetTextCursor(cursor);
         }
@@ -826,7 +902,8 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_minimumsizehint_isbase = false;
             return QTextEdit::minimumSizeHint();
         } else if (qtextedit_minimumsizehint_callback != nullptr) {
-            return qtextedit_minimumsizehint_callback();
+            QSize* callback_ret = qtextedit_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QTextEdit::minimumSizeHint();
         }
@@ -838,7 +915,8 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_sizehint_isbase = false;
             return QTextEdit::sizeHint();
         } else if (qtextedit_sizehint_callback != nullptr) {
-            return qtextedit_sizehint_callback();
+            QSize* callback_ret = qtextedit_sizehint_callback();
+            return *callback_ret;
         } else {
             return QTextEdit::sizeHint();
         }
@@ -850,7 +928,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_setupviewport_isbase = false;
             QTextEdit::setupViewport(viewport);
         } else if (qtextedit_setupviewport_callback != nullptr) {
-            qtextedit_setupviewport_callback(this, viewport);
+            QWidget* cbval1 = viewport;
+
+            qtextedit_setupviewport_callback(this, cbval1);
         } else {
             QTextEdit::setupViewport(viewport);
         }
@@ -862,7 +942,11 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_eventfilter_isbase = false;
             return QTextEdit::eventFilter(param1, param2);
         } else if (qtextedit_eventfilter_callback != nullptr) {
-            return qtextedit_eventfilter_callback(this, param1, param2);
+            QObject* cbval1 = param1;
+            QEvent* cbval2 = param2;
+
+            bool callback_ret = qtextedit_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QTextEdit::eventFilter(param1, param2);
         }
@@ -874,7 +958,10 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_viewportevent_isbase = false;
             return QTextEdit::viewportEvent(param1);
         } else if (qtextedit_viewportevent_callback != nullptr) {
-            return qtextedit_viewportevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            bool callback_ret = qtextedit_viewportevent_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTextEdit::viewportEvent(param1);
         }
@@ -886,7 +973,8 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_viewportsizehint_isbase = false;
             return QTextEdit::viewportSizeHint();
         } else if (qtextedit_viewportsizehint_callback != nullptr) {
-            return qtextedit_viewportsizehint_callback();
+            QSize* callback_ret = qtextedit_viewportsizehint_callback();
+            return *callback_ret;
         } else {
             return QTextEdit::viewportSizeHint();
         }
@@ -898,7 +986,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_initstyleoption_isbase = false;
             QTextEdit::initStyleOption(option);
         } else if (qtextedit_initstyleoption_callback != nullptr) {
-            qtextedit_initstyleoption_callback(this, option);
+            QStyleOptionFrame* cbval1 = option;
+
+            qtextedit_initstyleoption_callback(this, cbval1);
         } else {
             QTextEdit::initStyleOption(option);
         }
@@ -910,7 +1000,8 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_devtype_isbase = false;
             return QTextEdit::devType();
         } else if (qtextedit_devtype_callback != nullptr) {
-            return qtextedit_devtype_callback();
+            int callback_ret = qtextedit_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QTextEdit::devType();
         }
@@ -922,7 +1013,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_setvisible_isbase = false;
             QTextEdit::setVisible(visible);
         } else if (qtextedit_setvisible_callback != nullptr) {
-            qtextedit_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qtextedit_setvisible_callback(this, cbval1);
         } else {
             QTextEdit::setVisible(visible);
         }
@@ -934,7 +1027,10 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_heightforwidth_isbase = false;
             return QTextEdit::heightForWidth(param1);
         } else if (qtextedit_heightforwidth_callback != nullptr) {
-            return qtextedit_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qtextedit_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTextEdit::heightForWidth(param1);
         }
@@ -946,7 +1042,8 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_hasheightforwidth_isbase = false;
             return QTextEdit::hasHeightForWidth();
         } else if (qtextedit_hasheightforwidth_callback != nullptr) {
-            return qtextedit_hasheightforwidth_callback();
+            bool callback_ret = qtextedit_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QTextEdit::hasHeightForWidth();
         }
@@ -958,7 +1055,8 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_paintengine_isbase = false;
             return QTextEdit::paintEngine();
         } else if (qtextedit_paintengine_callback != nullptr) {
-            return qtextedit_paintengine_callback();
+            QPaintEngine* callback_ret = qtextedit_paintengine_callback();
+            return callback_ret;
         } else {
             return QTextEdit::paintEngine();
         }
@@ -970,7 +1068,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_enterevent_isbase = false;
             QTextEdit::enterEvent(event);
         } else if (qtextedit_enterevent_callback != nullptr) {
-            qtextedit_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qtextedit_enterevent_callback(this, cbval1);
         } else {
             QTextEdit::enterEvent(event);
         }
@@ -982,7 +1082,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_leaveevent_isbase = false;
             QTextEdit::leaveEvent(event);
         } else if (qtextedit_leaveevent_callback != nullptr) {
-            qtextedit_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qtextedit_leaveevent_callback(this, cbval1);
         } else {
             QTextEdit::leaveEvent(event);
         }
@@ -994,7 +1096,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_moveevent_isbase = false;
             QTextEdit::moveEvent(event);
         } else if (qtextedit_moveevent_callback != nullptr) {
-            qtextedit_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qtextedit_moveevent_callback(this, cbval1);
         } else {
             QTextEdit::moveEvent(event);
         }
@@ -1006,7 +1110,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_closeevent_isbase = false;
             QTextEdit::closeEvent(event);
         } else if (qtextedit_closeevent_callback != nullptr) {
-            qtextedit_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qtextedit_closeevent_callback(this, cbval1);
         } else {
             QTextEdit::closeEvent(event);
         }
@@ -1018,7 +1124,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_tabletevent_isbase = false;
             QTextEdit::tabletEvent(event);
         } else if (qtextedit_tabletevent_callback != nullptr) {
-            qtextedit_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qtextedit_tabletevent_callback(this, cbval1);
         } else {
             QTextEdit::tabletEvent(event);
         }
@@ -1030,7 +1138,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_actionevent_isbase = false;
             QTextEdit::actionEvent(event);
         } else if (qtextedit_actionevent_callback != nullptr) {
-            qtextedit_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qtextedit_actionevent_callback(this, cbval1);
         } else {
             QTextEdit::actionEvent(event);
         }
@@ -1042,7 +1152,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_hideevent_isbase = false;
             QTextEdit::hideEvent(event);
         } else if (qtextedit_hideevent_callback != nullptr) {
-            qtextedit_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qtextedit_hideevent_callback(this, cbval1);
         } else {
             QTextEdit::hideEvent(event);
         }
@@ -1054,7 +1166,19 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_nativeevent_isbase = false;
             return QTextEdit::nativeEvent(eventType, message, result);
         } else if (qtextedit_nativeevent_callback != nullptr) {
-            return qtextedit_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qtextedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QTextEdit::nativeEvent(eventType, message, result);
         }
@@ -1066,7 +1190,10 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_metric_isbase = false;
             return QTextEdit::metric(param1);
         } else if (qtextedit_metric_callback != nullptr) {
-            return qtextedit_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qtextedit_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTextEdit::metric(param1);
         }
@@ -1078,7 +1205,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_initpainter_isbase = false;
             QTextEdit::initPainter(painter);
         } else if (qtextedit_initpainter_callback != nullptr) {
-            qtextedit_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qtextedit_initpainter_callback(this, cbval1);
         } else {
             QTextEdit::initPainter(painter);
         }
@@ -1090,7 +1219,10 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_redirected_isbase = false;
             return QTextEdit::redirected(offset);
         } else if (qtextedit_redirected_callback != nullptr) {
-            return qtextedit_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qtextedit_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTextEdit::redirected(offset);
         }
@@ -1102,7 +1234,8 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_sharedpainter_isbase = false;
             return QTextEdit::sharedPainter();
         } else if (qtextedit_sharedpainter_callback != nullptr) {
-            return qtextedit_sharedpainter_callback();
+            QPainter* callback_ret = qtextedit_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QTextEdit::sharedPainter();
         }
@@ -1114,7 +1247,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_childevent_isbase = false;
             QTextEdit::childEvent(event);
         } else if (qtextedit_childevent_callback != nullptr) {
-            qtextedit_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qtextedit_childevent_callback(this, cbval1);
         } else {
             QTextEdit::childEvent(event);
         }
@@ -1126,7 +1261,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_customevent_isbase = false;
             QTextEdit::customEvent(event);
         } else if (qtextedit_customevent_callback != nullptr) {
-            qtextedit_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qtextedit_customevent_callback(this, cbval1);
         } else {
             QTextEdit::customEvent(event);
         }
@@ -1138,7 +1275,11 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_connectnotify_isbase = false;
             QTextEdit::connectNotify(signal);
         } else if (qtextedit_connectnotify_callback != nullptr) {
-            qtextedit_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtextedit_connectnotify_callback(this, cbval1);
         } else {
             QTextEdit::connectNotify(signal);
         }
@@ -1150,7 +1291,11 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_disconnectnotify_isbase = false;
             QTextEdit::disconnectNotify(signal);
         } else if (qtextedit_disconnectnotify_callback != nullptr) {
-            qtextedit_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtextedit_disconnectnotify_callback(this, cbval1);
         } else {
             QTextEdit::disconnectNotify(signal);
         }
@@ -1162,7 +1307,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_zoominf_isbase = false;
             QTextEdit::zoomInF(range);
         } else if (qtextedit_zoominf_callback != nullptr) {
-            qtextedit_zoominf_callback(this, range);
+            float cbval1 = range;
+
+            qtextedit_zoominf_callback(this, cbval1);
         } else {
             QTextEdit::zoomInF(range);
         }
@@ -1174,7 +1321,12 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_setviewportmargins_isbase = false;
             QTextEdit::setViewportMargins(left, top, right, bottom);
         } else if (qtextedit_setviewportmargins_callback != nullptr) {
-            qtextedit_setviewportmargins_callback(this, left, top, right, bottom);
+            int cbval1 = left;
+            int cbval2 = top;
+            int cbval3 = right;
+            int cbval4 = bottom;
+
+            qtextedit_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QTextEdit::setViewportMargins(left, top, right, bottom);
         }
@@ -1186,7 +1338,8 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_viewportmargins_isbase = false;
             return QTextEdit::viewportMargins();
         } else if (qtextedit_viewportmargins_callback != nullptr) {
-            return qtextedit_viewportmargins_callback();
+            QMargins* callback_ret = qtextedit_viewportmargins_callback();
+            return *callback_ret;
         } else {
             return QTextEdit::viewportMargins();
         }
@@ -1198,7 +1351,9 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_drawframe_isbase = false;
             QTextEdit::drawFrame(param1);
         } else if (qtextedit_drawframe_callback != nullptr) {
-            qtextedit_drawframe_callback(this, param1);
+            QPainter* cbval1 = param1;
+
+            qtextedit_drawframe_callback(this, cbval1);
         } else {
             QTextEdit::drawFrame(param1);
         }
@@ -1246,7 +1401,8 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_focusnextchild_isbase = false;
             return QTextEdit::focusNextChild();
         } else if (qtextedit_focusnextchild_callback != nullptr) {
-            return qtextedit_focusnextchild_callback();
+            bool callback_ret = qtextedit_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QTextEdit::focusNextChild();
         }
@@ -1258,7 +1414,8 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_focuspreviouschild_isbase = false;
             return QTextEdit::focusPreviousChild();
         } else if (qtextedit_focuspreviouschild_callback != nullptr) {
-            return qtextedit_focuspreviouschild_callback();
+            bool callback_ret = qtextedit_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QTextEdit::focusPreviousChild();
         }
@@ -1270,7 +1427,8 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_sender_isbase = false;
             return QTextEdit::sender();
         } else if (qtextedit_sender_callback != nullptr) {
-            return qtextedit_sender_callback();
+            QObject* callback_ret = qtextedit_sender_callback();
+            return callback_ret;
         } else {
             return QTextEdit::sender();
         }
@@ -1282,7 +1440,8 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_sendersignalindex_isbase = false;
             return QTextEdit::senderSignalIndex();
         } else if (qtextedit_sendersignalindex_callback != nullptr) {
-            return qtextedit_sendersignalindex_callback();
+            int callback_ret = qtextedit_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QTextEdit::senderSignalIndex();
         }
@@ -1294,7 +1453,10 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_receivers_isbase = false;
             return QTextEdit::receivers(signal);
         } else if (qtextedit_receivers_callback != nullptr) {
-            return qtextedit_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qtextedit_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QTextEdit::receivers(signal);
         }
@@ -1306,11 +1468,138 @@ class VirtualQTextEdit : public QTextEdit {
             qtextedit_issignalconnected_isbase = false;
             return QTextEdit::isSignalConnected(signal);
         } else if (qtextedit_issignalconnected_callback != nullptr) {
-            return qtextedit_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qtextedit_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QTextEdit::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QTextEdit_Event(QTextEdit* self, QEvent* e);
+    friend bool QTextEdit_QBaseEvent(QTextEdit* self, QEvent* e);
+    friend void QTextEdit_TimerEvent(QTextEdit* self, QTimerEvent* e);
+    friend void QTextEdit_QBaseTimerEvent(QTextEdit* self, QTimerEvent* e);
+    friend void QTextEdit_KeyPressEvent(QTextEdit* self, QKeyEvent* e);
+    friend void QTextEdit_QBaseKeyPressEvent(QTextEdit* self, QKeyEvent* e);
+    friend void QTextEdit_KeyReleaseEvent(QTextEdit* self, QKeyEvent* e);
+    friend void QTextEdit_QBaseKeyReleaseEvent(QTextEdit* self, QKeyEvent* e);
+    friend void QTextEdit_ResizeEvent(QTextEdit* self, QResizeEvent* e);
+    friend void QTextEdit_QBaseResizeEvent(QTextEdit* self, QResizeEvent* e);
+    friend void QTextEdit_PaintEvent(QTextEdit* self, QPaintEvent* e);
+    friend void QTextEdit_QBasePaintEvent(QTextEdit* self, QPaintEvent* e);
+    friend void QTextEdit_MousePressEvent(QTextEdit* self, QMouseEvent* e);
+    friend void QTextEdit_QBaseMousePressEvent(QTextEdit* self, QMouseEvent* e);
+    friend void QTextEdit_MouseMoveEvent(QTextEdit* self, QMouseEvent* e);
+    friend void QTextEdit_QBaseMouseMoveEvent(QTextEdit* self, QMouseEvent* e);
+    friend void QTextEdit_MouseReleaseEvent(QTextEdit* self, QMouseEvent* e);
+    friend void QTextEdit_QBaseMouseReleaseEvent(QTextEdit* self, QMouseEvent* e);
+    friend void QTextEdit_MouseDoubleClickEvent(QTextEdit* self, QMouseEvent* e);
+    friend void QTextEdit_QBaseMouseDoubleClickEvent(QTextEdit* self, QMouseEvent* e);
+    friend bool QTextEdit_FocusNextPrevChild(QTextEdit* self, bool next);
+    friend bool QTextEdit_QBaseFocusNextPrevChild(QTextEdit* self, bool next);
+    friend void QTextEdit_ContextMenuEvent(QTextEdit* self, QContextMenuEvent* e);
+    friend void QTextEdit_QBaseContextMenuEvent(QTextEdit* self, QContextMenuEvent* e);
+    friend void QTextEdit_DragEnterEvent(QTextEdit* self, QDragEnterEvent* e);
+    friend void QTextEdit_QBaseDragEnterEvent(QTextEdit* self, QDragEnterEvent* e);
+    friend void QTextEdit_DragLeaveEvent(QTextEdit* self, QDragLeaveEvent* e);
+    friend void QTextEdit_QBaseDragLeaveEvent(QTextEdit* self, QDragLeaveEvent* e);
+    friend void QTextEdit_DragMoveEvent(QTextEdit* self, QDragMoveEvent* e);
+    friend void QTextEdit_QBaseDragMoveEvent(QTextEdit* self, QDragMoveEvent* e);
+    friend void QTextEdit_DropEvent(QTextEdit* self, QDropEvent* e);
+    friend void QTextEdit_QBaseDropEvent(QTextEdit* self, QDropEvent* e);
+    friend void QTextEdit_FocusInEvent(QTextEdit* self, QFocusEvent* e);
+    friend void QTextEdit_QBaseFocusInEvent(QTextEdit* self, QFocusEvent* e);
+    friend void QTextEdit_FocusOutEvent(QTextEdit* self, QFocusEvent* e);
+    friend void QTextEdit_QBaseFocusOutEvent(QTextEdit* self, QFocusEvent* e);
+    friend void QTextEdit_ShowEvent(QTextEdit* self, QShowEvent* param1);
+    friend void QTextEdit_QBaseShowEvent(QTextEdit* self, QShowEvent* param1);
+    friend void QTextEdit_ChangeEvent(QTextEdit* self, QEvent* e);
+    friend void QTextEdit_QBaseChangeEvent(QTextEdit* self, QEvent* e);
+    friend void QTextEdit_WheelEvent(QTextEdit* self, QWheelEvent* e);
+    friend void QTextEdit_QBaseWheelEvent(QTextEdit* self, QWheelEvent* e);
+    friend QMimeData* QTextEdit_CreateMimeDataFromSelection(const QTextEdit* self);
+    friend QMimeData* QTextEdit_QBaseCreateMimeDataFromSelection(const QTextEdit* self);
+    friend bool QTextEdit_CanInsertFromMimeData(const QTextEdit* self, const QMimeData* source);
+    friend bool QTextEdit_QBaseCanInsertFromMimeData(const QTextEdit* self, const QMimeData* source);
+    friend void QTextEdit_InsertFromMimeData(QTextEdit* self, const QMimeData* source);
+    friend void QTextEdit_QBaseInsertFromMimeData(QTextEdit* self, const QMimeData* source);
+    friend void QTextEdit_InputMethodEvent(QTextEdit* self, QInputMethodEvent* param1);
+    friend void QTextEdit_QBaseInputMethodEvent(QTextEdit* self, QInputMethodEvent* param1);
+    friend void QTextEdit_ScrollContentsBy(QTextEdit* self, int dx, int dy);
+    friend void QTextEdit_QBaseScrollContentsBy(QTextEdit* self, int dx, int dy);
+    friend void QTextEdit_DoSetTextCursor(QTextEdit* self, const QTextCursor* cursor);
+    friend void QTextEdit_QBaseDoSetTextCursor(QTextEdit* self, const QTextCursor* cursor);
+    friend bool QTextEdit_EventFilter(QTextEdit* self, QObject* param1, QEvent* param2);
+    friend bool QTextEdit_QBaseEventFilter(QTextEdit* self, QObject* param1, QEvent* param2);
+    friend bool QTextEdit_ViewportEvent(QTextEdit* self, QEvent* param1);
+    friend bool QTextEdit_QBaseViewportEvent(QTextEdit* self, QEvent* param1);
+    friend QSize* QTextEdit_ViewportSizeHint(const QTextEdit* self);
+    friend QSize* QTextEdit_QBaseViewportSizeHint(const QTextEdit* self);
+    friend void QTextEdit_InitStyleOption(const QTextEdit* self, QStyleOptionFrame* option);
+    friend void QTextEdit_QBaseInitStyleOption(const QTextEdit* self, QStyleOptionFrame* option);
+    friend void QTextEdit_EnterEvent(QTextEdit* self, QEnterEvent* event);
+    friend void QTextEdit_QBaseEnterEvent(QTextEdit* self, QEnterEvent* event);
+    friend void QTextEdit_LeaveEvent(QTextEdit* self, QEvent* event);
+    friend void QTextEdit_QBaseLeaveEvent(QTextEdit* self, QEvent* event);
+    friend void QTextEdit_MoveEvent(QTextEdit* self, QMoveEvent* event);
+    friend void QTextEdit_QBaseMoveEvent(QTextEdit* self, QMoveEvent* event);
+    friend void QTextEdit_CloseEvent(QTextEdit* self, QCloseEvent* event);
+    friend void QTextEdit_QBaseCloseEvent(QTextEdit* self, QCloseEvent* event);
+    friend void QTextEdit_TabletEvent(QTextEdit* self, QTabletEvent* event);
+    friend void QTextEdit_QBaseTabletEvent(QTextEdit* self, QTabletEvent* event);
+    friend void QTextEdit_ActionEvent(QTextEdit* self, QActionEvent* event);
+    friend void QTextEdit_QBaseActionEvent(QTextEdit* self, QActionEvent* event);
+    friend void QTextEdit_HideEvent(QTextEdit* self, QHideEvent* event);
+    friend void QTextEdit_QBaseHideEvent(QTextEdit* self, QHideEvent* event);
+    friend bool QTextEdit_NativeEvent(QTextEdit* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QTextEdit_QBaseNativeEvent(QTextEdit* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QTextEdit_Metric(const QTextEdit* self, int param1);
+    friend int QTextEdit_QBaseMetric(const QTextEdit* self, int param1);
+    friend void QTextEdit_InitPainter(const QTextEdit* self, QPainter* painter);
+    friend void QTextEdit_QBaseInitPainter(const QTextEdit* self, QPainter* painter);
+    friend QPaintDevice* QTextEdit_Redirected(const QTextEdit* self, QPoint* offset);
+    friend QPaintDevice* QTextEdit_QBaseRedirected(const QTextEdit* self, QPoint* offset);
+    friend QPainter* QTextEdit_SharedPainter(const QTextEdit* self);
+    friend QPainter* QTextEdit_QBaseSharedPainter(const QTextEdit* self);
+    friend void QTextEdit_ChildEvent(QTextEdit* self, QChildEvent* event);
+    friend void QTextEdit_QBaseChildEvent(QTextEdit* self, QChildEvent* event);
+    friend void QTextEdit_CustomEvent(QTextEdit* self, QEvent* event);
+    friend void QTextEdit_QBaseCustomEvent(QTextEdit* self, QEvent* event);
+    friend void QTextEdit_ConnectNotify(QTextEdit* self, const QMetaMethod* signal);
+    friend void QTextEdit_QBaseConnectNotify(QTextEdit* self, const QMetaMethod* signal);
+    friend void QTextEdit_DisconnectNotify(QTextEdit* self, const QMetaMethod* signal);
+    friend void QTextEdit_QBaseDisconnectNotify(QTextEdit* self, const QMetaMethod* signal);
+    friend void QTextEdit_ZoomInF(QTextEdit* self, float range);
+    friend void QTextEdit_QBaseZoomInF(QTextEdit* self, float range);
+    friend void QTextEdit_SetViewportMargins(QTextEdit* self, int left, int top, int right, int bottom);
+    friend void QTextEdit_QBaseSetViewportMargins(QTextEdit* self, int left, int top, int right, int bottom);
+    friend QMargins* QTextEdit_ViewportMargins(const QTextEdit* self);
+    friend QMargins* QTextEdit_QBaseViewportMargins(const QTextEdit* self);
+    friend void QTextEdit_DrawFrame(QTextEdit* self, QPainter* param1);
+    friend void QTextEdit_QBaseDrawFrame(QTextEdit* self, QPainter* param1);
+    friend void QTextEdit_UpdateMicroFocus(QTextEdit* self);
+    friend void QTextEdit_QBaseUpdateMicroFocus(QTextEdit* self);
+    friend void QTextEdit_Create(QTextEdit* self);
+    friend void QTextEdit_QBaseCreate(QTextEdit* self);
+    friend void QTextEdit_Destroy(QTextEdit* self);
+    friend void QTextEdit_QBaseDestroy(QTextEdit* self);
+    friend bool QTextEdit_FocusNextChild(QTextEdit* self);
+    friend bool QTextEdit_QBaseFocusNextChild(QTextEdit* self);
+    friend bool QTextEdit_FocusPreviousChild(QTextEdit* self);
+    friend bool QTextEdit_QBaseFocusPreviousChild(QTextEdit* self);
+    friend QObject* QTextEdit_Sender(const QTextEdit* self);
+    friend QObject* QTextEdit_QBaseSender(const QTextEdit* self);
+    friend int QTextEdit_SenderSignalIndex(const QTextEdit* self);
+    friend int QTextEdit_QBaseSenderSignalIndex(const QTextEdit* self);
+    friend int QTextEdit_Receivers(const QTextEdit* self, const char* signal);
+    friend int QTextEdit_QBaseReceivers(const QTextEdit* self, const char* signal);
+    friend bool QTextEdit_IsSignalConnected(const QTextEdit* self, const QMetaMethod* signal);
+    friend bool QTextEdit_QBaseIsSignalConnected(const QTextEdit* self, const QMetaMethod* signal);
 };
 
 #endif

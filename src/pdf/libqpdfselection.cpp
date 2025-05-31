@@ -7,11 +7,11 @@
 #include "libqpdfselection.h"
 #include "libqpdfselection.hxx"
 
-QPdfSelection* QPdfSelection_new(QPdfSelection* other) {
+QPdfSelection* QPdfSelection_new(const QPdfSelection* other) {
     return new QPdfSelection(*other);
 }
 
-void QPdfSelection_OperatorAssign(QPdfSelection* self, QPdfSelection* other) {
+void QPdfSelection_OperatorAssign(QPdfSelection* self, const QPdfSelection* other) {
     self->operator=(*other);
 }
 

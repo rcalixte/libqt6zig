@@ -11,22 +11,25 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QWizard so that we can call protected methods
-class VirtualQWizard : public QWizard {
+class VirtualQWizard final : public QWizard {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQWizard = true;
+
     // Virtual class public types (including callbacks)
-    using QWizard_Metacall_Callback = int (*)(QWizard*, QMetaObject::Call, int, void**);
+    using QWizard_Metacall_Callback = int (*)(QWizard*, int, int, void**);
     using QWizard_ValidateCurrentPage_Callback = bool (*)();
     using QWizard_NextId_Callback = int (*)();
     using QWizard_SetVisible_Callback = void (*)(QWizard*, bool);
-    using QWizard_SizeHint_Callback = QSize (*)();
+    using QWizard_SizeHint_Callback = QSize* (*)();
     using QWizard_Event_Callback = bool (*)(QWizard*, QEvent*);
     using QWizard_ResizeEvent_Callback = void (*)(QWizard*, QResizeEvent*);
     using QWizard_PaintEvent_Callback = void (*)(QWizard*, QPaintEvent*);
     using QWizard_Done_Callback = void (*)(QWizard*, int);
     using QWizard_InitializePage_Callback = void (*)(QWizard*, int);
     using QWizard_CleanupPage_Callback = void (*)(QWizard*, int);
-    using QWizard_MinimumSizeHint_Callback = QSize (*)();
+    using QWizard_MinimumSizeHint_Callback = QSize* (*)();
     using QWizard_Open_Callback = void (*)();
     using QWizard_Exec_Callback = int (*)();
     using QWizard_Accept_Callback = void (*)();
@@ -58,20 +61,20 @@ class VirtualQWizard : public QWizard {
     using QWizard_DragLeaveEvent_Callback = void (*)(QWizard*, QDragLeaveEvent*);
     using QWizard_DropEvent_Callback = void (*)(QWizard*, QDropEvent*);
     using QWizard_HideEvent_Callback = void (*)(QWizard*, QHideEvent*);
-    using QWizard_NativeEvent_Callback = bool (*)(QWizard*, const QByteArray&, void*, qintptr*);
+    using QWizard_NativeEvent_Callback = bool (*)(QWizard*, libqt_string, void*, intptr_t*);
     using QWizard_ChangeEvent_Callback = void (*)(QWizard*, QEvent*);
-    using QWizard_Metric_Callback = int (*)(const QWizard*, QPaintDevice::PaintDeviceMetric);
+    using QWizard_Metric_Callback = int (*)(const QWizard*, int);
     using QWizard_InitPainter_Callback = void (*)(const QWizard*, QPainter*);
     using QWizard_Redirected_Callback = QPaintDevice* (*)(const QWizard*, QPoint*);
     using QWizard_SharedPainter_Callback = QPainter* (*)();
     using QWizard_InputMethodEvent_Callback = void (*)(QWizard*, QInputMethodEvent*);
-    using QWizard_InputMethodQuery_Callback = QVariant (*)(const QWizard*, Qt::InputMethodQuery);
+    using QWizard_InputMethodQuery_Callback = QVariant* (*)(const QWizard*, int);
     using QWizard_FocusNextPrevChild_Callback = bool (*)(QWizard*, bool);
     using QWizard_TimerEvent_Callback = void (*)(QWizard*, QTimerEvent*);
     using QWizard_ChildEvent_Callback = void (*)(QWizard*, QChildEvent*);
     using QWizard_CustomEvent_Callback = void (*)(QWizard*, QEvent*);
-    using QWizard_ConnectNotify_Callback = void (*)(QWizard*, const QMetaMethod&);
-    using QWizard_DisconnectNotify_Callback = void (*)(QWizard*, const QMetaMethod&);
+    using QWizard_ConnectNotify_Callback = void (*)(QWizard*, QMetaMethod*);
+    using QWizard_DisconnectNotify_Callback = void (*)(QWizard*, QMetaMethod*);
     using QWizard_AdjustPosition_Callback = void (*)(QWizard*, QWidget*);
     using QWizard_UpdateMicroFocus_Callback = void (*)();
     using QWizard_Create_Callback = void (*)();
@@ -81,7 +84,7 @@ class VirtualQWizard : public QWizard {
     using QWizard_Sender_Callback = QObject* (*)();
     using QWizard_SenderSignalIndex_Callback = int (*)();
     using QWizard_Receivers_Callback = int (*)(const QWizard*, const char*);
-    using QWizard_IsSignalConnected_Callback = bool (*)(const QWizard*, const QMetaMethod&);
+    using QWizard_IsSignalConnected_Callback = bool (*)(const QWizard*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -298,142 +301,142 @@ class VirtualQWizard : public QWizard {
     }
 
     // Callback setters
-    void setQWizard_Metacall_Callback(QWizard_Metacall_Callback cb) { qwizard_metacall_callback = cb; }
-    void setQWizard_ValidateCurrentPage_Callback(QWizard_ValidateCurrentPage_Callback cb) { qwizard_validatecurrentpage_callback = cb; }
-    void setQWizard_NextId_Callback(QWizard_NextId_Callback cb) { qwizard_nextid_callback = cb; }
-    void setQWizard_SetVisible_Callback(QWizard_SetVisible_Callback cb) { qwizard_setvisible_callback = cb; }
-    void setQWizard_SizeHint_Callback(QWizard_SizeHint_Callback cb) { qwizard_sizehint_callback = cb; }
-    void setQWizard_Event_Callback(QWizard_Event_Callback cb) { qwizard_event_callback = cb; }
-    void setQWizard_ResizeEvent_Callback(QWizard_ResizeEvent_Callback cb) { qwizard_resizeevent_callback = cb; }
-    void setQWizard_PaintEvent_Callback(QWizard_PaintEvent_Callback cb) { qwizard_paintevent_callback = cb; }
-    void setQWizard_Done_Callback(QWizard_Done_Callback cb) { qwizard_done_callback = cb; }
-    void setQWizard_InitializePage_Callback(QWizard_InitializePage_Callback cb) { qwizard_initializepage_callback = cb; }
-    void setQWizard_CleanupPage_Callback(QWizard_CleanupPage_Callback cb) { qwizard_cleanuppage_callback = cb; }
-    void setQWizard_MinimumSizeHint_Callback(QWizard_MinimumSizeHint_Callback cb) { qwizard_minimumsizehint_callback = cb; }
-    void setQWizard_Open_Callback(QWizard_Open_Callback cb) { qwizard_open_callback = cb; }
-    void setQWizard_Exec_Callback(QWizard_Exec_Callback cb) { qwizard_exec_callback = cb; }
-    void setQWizard_Accept_Callback(QWizard_Accept_Callback cb) { qwizard_accept_callback = cb; }
-    void setQWizard_Reject_Callback(QWizard_Reject_Callback cb) { qwizard_reject_callback = cb; }
-    void setQWizard_KeyPressEvent_Callback(QWizard_KeyPressEvent_Callback cb) { qwizard_keypressevent_callback = cb; }
-    void setQWizard_CloseEvent_Callback(QWizard_CloseEvent_Callback cb) { qwizard_closeevent_callback = cb; }
-    void setQWizard_ShowEvent_Callback(QWizard_ShowEvent_Callback cb) { qwizard_showevent_callback = cb; }
-    void setQWizard_ContextMenuEvent_Callback(QWizard_ContextMenuEvent_Callback cb) { qwizard_contextmenuevent_callback = cb; }
-    void setQWizard_EventFilter_Callback(QWizard_EventFilter_Callback cb) { qwizard_eventfilter_callback = cb; }
-    void setQWizard_DevType_Callback(QWizard_DevType_Callback cb) { qwizard_devtype_callback = cb; }
-    void setQWizard_HeightForWidth_Callback(QWizard_HeightForWidth_Callback cb) { qwizard_heightforwidth_callback = cb; }
-    void setQWizard_HasHeightForWidth_Callback(QWizard_HasHeightForWidth_Callback cb) { qwizard_hasheightforwidth_callback = cb; }
-    void setQWizard_PaintEngine_Callback(QWizard_PaintEngine_Callback cb) { qwizard_paintengine_callback = cb; }
-    void setQWizard_MousePressEvent_Callback(QWizard_MousePressEvent_Callback cb) { qwizard_mousepressevent_callback = cb; }
-    void setQWizard_MouseReleaseEvent_Callback(QWizard_MouseReleaseEvent_Callback cb) { qwizard_mousereleaseevent_callback = cb; }
-    void setQWizard_MouseDoubleClickEvent_Callback(QWizard_MouseDoubleClickEvent_Callback cb) { qwizard_mousedoubleclickevent_callback = cb; }
-    void setQWizard_MouseMoveEvent_Callback(QWizard_MouseMoveEvent_Callback cb) { qwizard_mousemoveevent_callback = cb; }
-    void setQWizard_WheelEvent_Callback(QWizard_WheelEvent_Callback cb) { qwizard_wheelevent_callback = cb; }
-    void setQWizard_KeyReleaseEvent_Callback(QWizard_KeyReleaseEvent_Callback cb) { qwizard_keyreleaseevent_callback = cb; }
-    void setQWizard_FocusInEvent_Callback(QWizard_FocusInEvent_Callback cb) { qwizard_focusinevent_callback = cb; }
-    void setQWizard_FocusOutEvent_Callback(QWizard_FocusOutEvent_Callback cb) { qwizard_focusoutevent_callback = cb; }
-    void setQWizard_EnterEvent_Callback(QWizard_EnterEvent_Callback cb) { qwizard_enterevent_callback = cb; }
-    void setQWizard_LeaveEvent_Callback(QWizard_LeaveEvent_Callback cb) { qwizard_leaveevent_callback = cb; }
-    void setQWizard_MoveEvent_Callback(QWizard_MoveEvent_Callback cb) { qwizard_moveevent_callback = cb; }
-    void setQWizard_TabletEvent_Callback(QWizard_TabletEvent_Callback cb) { qwizard_tabletevent_callback = cb; }
-    void setQWizard_ActionEvent_Callback(QWizard_ActionEvent_Callback cb) { qwizard_actionevent_callback = cb; }
-    void setQWizard_DragEnterEvent_Callback(QWizard_DragEnterEvent_Callback cb) { qwizard_dragenterevent_callback = cb; }
-    void setQWizard_DragMoveEvent_Callback(QWizard_DragMoveEvent_Callback cb) { qwizard_dragmoveevent_callback = cb; }
-    void setQWizard_DragLeaveEvent_Callback(QWizard_DragLeaveEvent_Callback cb) { qwizard_dragleaveevent_callback = cb; }
-    void setQWizard_DropEvent_Callback(QWizard_DropEvent_Callback cb) { qwizard_dropevent_callback = cb; }
-    void setQWizard_HideEvent_Callback(QWizard_HideEvent_Callback cb) { qwizard_hideevent_callback = cb; }
-    void setQWizard_NativeEvent_Callback(QWizard_NativeEvent_Callback cb) { qwizard_nativeevent_callback = cb; }
-    void setQWizard_ChangeEvent_Callback(QWizard_ChangeEvent_Callback cb) { qwizard_changeevent_callback = cb; }
-    void setQWizard_Metric_Callback(QWizard_Metric_Callback cb) { qwizard_metric_callback = cb; }
-    void setQWizard_InitPainter_Callback(QWizard_InitPainter_Callback cb) { qwizard_initpainter_callback = cb; }
-    void setQWizard_Redirected_Callback(QWizard_Redirected_Callback cb) { qwizard_redirected_callback = cb; }
-    void setQWizard_SharedPainter_Callback(QWizard_SharedPainter_Callback cb) { qwizard_sharedpainter_callback = cb; }
-    void setQWizard_InputMethodEvent_Callback(QWizard_InputMethodEvent_Callback cb) { qwizard_inputmethodevent_callback = cb; }
-    void setQWizard_InputMethodQuery_Callback(QWizard_InputMethodQuery_Callback cb) { qwizard_inputmethodquery_callback = cb; }
-    void setQWizard_FocusNextPrevChild_Callback(QWizard_FocusNextPrevChild_Callback cb) { qwizard_focusnextprevchild_callback = cb; }
-    void setQWizard_TimerEvent_Callback(QWizard_TimerEvent_Callback cb) { qwizard_timerevent_callback = cb; }
-    void setQWizard_ChildEvent_Callback(QWizard_ChildEvent_Callback cb) { qwizard_childevent_callback = cb; }
-    void setQWizard_CustomEvent_Callback(QWizard_CustomEvent_Callback cb) { qwizard_customevent_callback = cb; }
-    void setQWizard_ConnectNotify_Callback(QWizard_ConnectNotify_Callback cb) { qwizard_connectnotify_callback = cb; }
-    void setQWizard_DisconnectNotify_Callback(QWizard_DisconnectNotify_Callback cb) { qwizard_disconnectnotify_callback = cb; }
-    void setQWizard_AdjustPosition_Callback(QWizard_AdjustPosition_Callback cb) { qwizard_adjustposition_callback = cb; }
-    void setQWizard_UpdateMicroFocus_Callback(QWizard_UpdateMicroFocus_Callback cb) { qwizard_updatemicrofocus_callback = cb; }
-    void setQWizard_Create_Callback(QWizard_Create_Callback cb) { qwizard_create_callback = cb; }
-    void setQWizard_Destroy_Callback(QWizard_Destroy_Callback cb) { qwizard_destroy_callback = cb; }
-    void setQWizard_FocusNextChild_Callback(QWizard_FocusNextChild_Callback cb) { qwizard_focusnextchild_callback = cb; }
-    void setQWizard_FocusPreviousChild_Callback(QWizard_FocusPreviousChild_Callback cb) { qwizard_focuspreviouschild_callback = cb; }
-    void setQWizard_Sender_Callback(QWizard_Sender_Callback cb) { qwizard_sender_callback = cb; }
-    void setQWizard_SenderSignalIndex_Callback(QWizard_SenderSignalIndex_Callback cb) { qwizard_sendersignalindex_callback = cb; }
-    void setQWizard_Receivers_Callback(QWizard_Receivers_Callback cb) { qwizard_receivers_callback = cb; }
-    void setQWizard_IsSignalConnected_Callback(QWizard_IsSignalConnected_Callback cb) { qwizard_issignalconnected_callback = cb; }
+    inline void setQWizard_Metacall_Callback(QWizard_Metacall_Callback cb) { qwizard_metacall_callback = cb; }
+    inline void setQWizard_ValidateCurrentPage_Callback(QWizard_ValidateCurrentPage_Callback cb) { qwizard_validatecurrentpage_callback = cb; }
+    inline void setQWizard_NextId_Callback(QWizard_NextId_Callback cb) { qwizard_nextid_callback = cb; }
+    inline void setQWizard_SetVisible_Callback(QWizard_SetVisible_Callback cb) { qwizard_setvisible_callback = cb; }
+    inline void setQWizard_SizeHint_Callback(QWizard_SizeHint_Callback cb) { qwizard_sizehint_callback = cb; }
+    inline void setQWizard_Event_Callback(QWizard_Event_Callback cb) { qwizard_event_callback = cb; }
+    inline void setQWizard_ResizeEvent_Callback(QWizard_ResizeEvent_Callback cb) { qwizard_resizeevent_callback = cb; }
+    inline void setQWizard_PaintEvent_Callback(QWizard_PaintEvent_Callback cb) { qwizard_paintevent_callback = cb; }
+    inline void setQWizard_Done_Callback(QWizard_Done_Callback cb) { qwizard_done_callback = cb; }
+    inline void setQWizard_InitializePage_Callback(QWizard_InitializePage_Callback cb) { qwizard_initializepage_callback = cb; }
+    inline void setQWizard_CleanupPage_Callback(QWizard_CleanupPage_Callback cb) { qwizard_cleanuppage_callback = cb; }
+    inline void setQWizard_MinimumSizeHint_Callback(QWizard_MinimumSizeHint_Callback cb) { qwizard_minimumsizehint_callback = cb; }
+    inline void setQWizard_Open_Callback(QWizard_Open_Callback cb) { qwizard_open_callback = cb; }
+    inline void setQWizard_Exec_Callback(QWizard_Exec_Callback cb) { qwizard_exec_callback = cb; }
+    inline void setQWizard_Accept_Callback(QWizard_Accept_Callback cb) { qwizard_accept_callback = cb; }
+    inline void setQWizard_Reject_Callback(QWizard_Reject_Callback cb) { qwizard_reject_callback = cb; }
+    inline void setQWizard_KeyPressEvent_Callback(QWizard_KeyPressEvent_Callback cb) { qwizard_keypressevent_callback = cb; }
+    inline void setQWizard_CloseEvent_Callback(QWizard_CloseEvent_Callback cb) { qwizard_closeevent_callback = cb; }
+    inline void setQWizard_ShowEvent_Callback(QWizard_ShowEvent_Callback cb) { qwizard_showevent_callback = cb; }
+    inline void setQWizard_ContextMenuEvent_Callback(QWizard_ContextMenuEvent_Callback cb) { qwizard_contextmenuevent_callback = cb; }
+    inline void setQWizard_EventFilter_Callback(QWizard_EventFilter_Callback cb) { qwizard_eventfilter_callback = cb; }
+    inline void setQWizard_DevType_Callback(QWizard_DevType_Callback cb) { qwizard_devtype_callback = cb; }
+    inline void setQWizard_HeightForWidth_Callback(QWizard_HeightForWidth_Callback cb) { qwizard_heightforwidth_callback = cb; }
+    inline void setQWizard_HasHeightForWidth_Callback(QWizard_HasHeightForWidth_Callback cb) { qwizard_hasheightforwidth_callback = cb; }
+    inline void setQWizard_PaintEngine_Callback(QWizard_PaintEngine_Callback cb) { qwizard_paintengine_callback = cb; }
+    inline void setQWizard_MousePressEvent_Callback(QWizard_MousePressEvent_Callback cb) { qwizard_mousepressevent_callback = cb; }
+    inline void setQWizard_MouseReleaseEvent_Callback(QWizard_MouseReleaseEvent_Callback cb) { qwizard_mousereleaseevent_callback = cb; }
+    inline void setQWizard_MouseDoubleClickEvent_Callback(QWizard_MouseDoubleClickEvent_Callback cb) { qwizard_mousedoubleclickevent_callback = cb; }
+    inline void setQWizard_MouseMoveEvent_Callback(QWizard_MouseMoveEvent_Callback cb) { qwizard_mousemoveevent_callback = cb; }
+    inline void setQWizard_WheelEvent_Callback(QWizard_WheelEvent_Callback cb) { qwizard_wheelevent_callback = cb; }
+    inline void setQWizard_KeyReleaseEvent_Callback(QWizard_KeyReleaseEvent_Callback cb) { qwizard_keyreleaseevent_callback = cb; }
+    inline void setQWizard_FocusInEvent_Callback(QWizard_FocusInEvent_Callback cb) { qwizard_focusinevent_callback = cb; }
+    inline void setQWizard_FocusOutEvent_Callback(QWizard_FocusOutEvent_Callback cb) { qwizard_focusoutevent_callback = cb; }
+    inline void setQWizard_EnterEvent_Callback(QWizard_EnterEvent_Callback cb) { qwizard_enterevent_callback = cb; }
+    inline void setQWizard_LeaveEvent_Callback(QWizard_LeaveEvent_Callback cb) { qwizard_leaveevent_callback = cb; }
+    inline void setQWizard_MoveEvent_Callback(QWizard_MoveEvent_Callback cb) { qwizard_moveevent_callback = cb; }
+    inline void setQWizard_TabletEvent_Callback(QWizard_TabletEvent_Callback cb) { qwizard_tabletevent_callback = cb; }
+    inline void setQWizard_ActionEvent_Callback(QWizard_ActionEvent_Callback cb) { qwizard_actionevent_callback = cb; }
+    inline void setQWizard_DragEnterEvent_Callback(QWizard_DragEnterEvent_Callback cb) { qwizard_dragenterevent_callback = cb; }
+    inline void setQWizard_DragMoveEvent_Callback(QWizard_DragMoveEvent_Callback cb) { qwizard_dragmoveevent_callback = cb; }
+    inline void setQWizard_DragLeaveEvent_Callback(QWizard_DragLeaveEvent_Callback cb) { qwizard_dragleaveevent_callback = cb; }
+    inline void setQWizard_DropEvent_Callback(QWizard_DropEvent_Callback cb) { qwizard_dropevent_callback = cb; }
+    inline void setQWizard_HideEvent_Callback(QWizard_HideEvent_Callback cb) { qwizard_hideevent_callback = cb; }
+    inline void setQWizard_NativeEvent_Callback(QWizard_NativeEvent_Callback cb) { qwizard_nativeevent_callback = cb; }
+    inline void setQWizard_ChangeEvent_Callback(QWizard_ChangeEvent_Callback cb) { qwizard_changeevent_callback = cb; }
+    inline void setQWizard_Metric_Callback(QWizard_Metric_Callback cb) { qwizard_metric_callback = cb; }
+    inline void setQWizard_InitPainter_Callback(QWizard_InitPainter_Callback cb) { qwizard_initpainter_callback = cb; }
+    inline void setQWizard_Redirected_Callback(QWizard_Redirected_Callback cb) { qwizard_redirected_callback = cb; }
+    inline void setQWizard_SharedPainter_Callback(QWizard_SharedPainter_Callback cb) { qwizard_sharedpainter_callback = cb; }
+    inline void setQWizard_InputMethodEvent_Callback(QWizard_InputMethodEvent_Callback cb) { qwizard_inputmethodevent_callback = cb; }
+    inline void setQWizard_InputMethodQuery_Callback(QWizard_InputMethodQuery_Callback cb) { qwizard_inputmethodquery_callback = cb; }
+    inline void setQWizard_FocusNextPrevChild_Callback(QWizard_FocusNextPrevChild_Callback cb) { qwizard_focusnextprevchild_callback = cb; }
+    inline void setQWizard_TimerEvent_Callback(QWizard_TimerEvent_Callback cb) { qwizard_timerevent_callback = cb; }
+    inline void setQWizard_ChildEvent_Callback(QWizard_ChildEvent_Callback cb) { qwizard_childevent_callback = cb; }
+    inline void setQWizard_CustomEvent_Callback(QWizard_CustomEvent_Callback cb) { qwizard_customevent_callback = cb; }
+    inline void setQWizard_ConnectNotify_Callback(QWizard_ConnectNotify_Callback cb) { qwizard_connectnotify_callback = cb; }
+    inline void setQWizard_DisconnectNotify_Callback(QWizard_DisconnectNotify_Callback cb) { qwizard_disconnectnotify_callback = cb; }
+    inline void setQWizard_AdjustPosition_Callback(QWizard_AdjustPosition_Callback cb) { qwizard_adjustposition_callback = cb; }
+    inline void setQWizard_UpdateMicroFocus_Callback(QWizard_UpdateMicroFocus_Callback cb) { qwizard_updatemicrofocus_callback = cb; }
+    inline void setQWizard_Create_Callback(QWizard_Create_Callback cb) { qwizard_create_callback = cb; }
+    inline void setQWizard_Destroy_Callback(QWizard_Destroy_Callback cb) { qwizard_destroy_callback = cb; }
+    inline void setQWizard_FocusNextChild_Callback(QWizard_FocusNextChild_Callback cb) { qwizard_focusnextchild_callback = cb; }
+    inline void setQWizard_FocusPreviousChild_Callback(QWizard_FocusPreviousChild_Callback cb) { qwizard_focuspreviouschild_callback = cb; }
+    inline void setQWizard_Sender_Callback(QWizard_Sender_Callback cb) { qwizard_sender_callback = cb; }
+    inline void setQWizard_SenderSignalIndex_Callback(QWizard_SenderSignalIndex_Callback cb) { qwizard_sendersignalindex_callback = cb; }
+    inline void setQWizard_Receivers_Callback(QWizard_Receivers_Callback cb) { qwizard_receivers_callback = cb; }
+    inline void setQWizard_IsSignalConnected_Callback(QWizard_IsSignalConnected_Callback cb) { qwizard_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQWizard_Metacall_IsBase(bool value) const { qwizard_metacall_isbase = value; }
-    void setQWizard_ValidateCurrentPage_IsBase(bool value) const { qwizard_validatecurrentpage_isbase = value; }
-    void setQWizard_NextId_IsBase(bool value) const { qwizard_nextid_isbase = value; }
-    void setQWizard_SetVisible_IsBase(bool value) const { qwizard_setvisible_isbase = value; }
-    void setQWizard_SizeHint_IsBase(bool value) const { qwizard_sizehint_isbase = value; }
-    void setQWizard_Event_IsBase(bool value) const { qwizard_event_isbase = value; }
-    void setQWizard_ResizeEvent_IsBase(bool value) const { qwizard_resizeevent_isbase = value; }
-    void setQWizard_PaintEvent_IsBase(bool value) const { qwizard_paintevent_isbase = value; }
-    void setQWizard_Done_IsBase(bool value) const { qwizard_done_isbase = value; }
-    void setQWizard_InitializePage_IsBase(bool value) const { qwizard_initializepage_isbase = value; }
-    void setQWizard_CleanupPage_IsBase(bool value) const { qwizard_cleanuppage_isbase = value; }
-    void setQWizard_MinimumSizeHint_IsBase(bool value) const { qwizard_minimumsizehint_isbase = value; }
-    void setQWizard_Open_IsBase(bool value) const { qwizard_open_isbase = value; }
-    void setQWizard_Exec_IsBase(bool value) const { qwizard_exec_isbase = value; }
-    void setQWizard_Accept_IsBase(bool value) const { qwizard_accept_isbase = value; }
-    void setQWizard_Reject_IsBase(bool value) const { qwizard_reject_isbase = value; }
-    void setQWizard_KeyPressEvent_IsBase(bool value) const { qwizard_keypressevent_isbase = value; }
-    void setQWizard_CloseEvent_IsBase(bool value) const { qwizard_closeevent_isbase = value; }
-    void setQWizard_ShowEvent_IsBase(bool value) const { qwizard_showevent_isbase = value; }
-    void setQWizard_ContextMenuEvent_IsBase(bool value) const { qwizard_contextmenuevent_isbase = value; }
-    void setQWizard_EventFilter_IsBase(bool value) const { qwizard_eventfilter_isbase = value; }
-    void setQWizard_DevType_IsBase(bool value) const { qwizard_devtype_isbase = value; }
-    void setQWizard_HeightForWidth_IsBase(bool value) const { qwizard_heightforwidth_isbase = value; }
-    void setQWizard_HasHeightForWidth_IsBase(bool value) const { qwizard_hasheightforwidth_isbase = value; }
-    void setQWizard_PaintEngine_IsBase(bool value) const { qwizard_paintengine_isbase = value; }
-    void setQWizard_MousePressEvent_IsBase(bool value) const { qwizard_mousepressevent_isbase = value; }
-    void setQWizard_MouseReleaseEvent_IsBase(bool value) const { qwizard_mousereleaseevent_isbase = value; }
-    void setQWizard_MouseDoubleClickEvent_IsBase(bool value) const { qwizard_mousedoubleclickevent_isbase = value; }
-    void setQWizard_MouseMoveEvent_IsBase(bool value) const { qwizard_mousemoveevent_isbase = value; }
-    void setQWizard_WheelEvent_IsBase(bool value) const { qwizard_wheelevent_isbase = value; }
-    void setQWizard_KeyReleaseEvent_IsBase(bool value) const { qwizard_keyreleaseevent_isbase = value; }
-    void setQWizard_FocusInEvent_IsBase(bool value) const { qwizard_focusinevent_isbase = value; }
-    void setQWizard_FocusOutEvent_IsBase(bool value) const { qwizard_focusoutevent_isbase = value; }
-    void setQWizard_EnterEvent_IsBase(bool value) const { qwizard_enterevent_isbase = value; }
-    void setQWizard_LeaveEvent_IsBase(bool value) const { qwizard_leaveevent_isbase = value; }
-    void setQWizard_MoveEvent_IsBase(bool value) const { qwizard_moveevent_isbase = value; }
-    void setQWizard_TabletEvent_IsBase(bool value) const { qwizard_tabletevent_isbase = value; }
-    void setQWizard_ActionEvent_IsBase(bool value) const { qwizard_actionevent_isbase = value; }
-    void setQWizard_DragEnterEvent_IsBase(bool value) const { qwizard_dragenterevent_isbase = value; }
-    void setQWizard_DragMoveEvent_IsBase(bool value) const { qwizard_dragmoveevent_isbase = value; }
-    void setQWizard_DragLeaveEvent_IsBase(bool value) const { qwizard_dragleaveevent_isbase = value; }
-    void setQWizard_DropEvent_IsBase(bool value) const { qwizard_dropevent_isbase = value; }
-    void setQWizard_HideEvent_IsBase(bool value) const { qwizard_hideevent_isbase = value; }
-    void setQWizard_NativeEvent_IsBase(bool value) const { qwizard_nativeevent_isbase = value; }
-    void setQWizard_ChangeEvent_IsBase(bool value) const { qwizard_changeevent_isbase = value; }
-    void setQWizard_Metric_IsBase(bool value) const { qwizard_metric_isbase = value; }
-    void setQWizard_InitPainter_IsBase(bool value) const { qwizard_initpainter_isbase = value; }
-    void setQWizard_Redirected_IsBase(bool value) const { qwizard_redirected_isbase = value; }
-    void setQWizard_SharedPainter_IsBase(bool value) const { qwizard_sharedpainter_isbase = value; }
-    void setQWizard_InputMethodEvent_IsBase(bool value) const { qwizard_inputmethodevent_isbase = value; }
-    void setQWizard_InputMethodQuery_IsBase(bool value) const { qwizard_inputmethodquery_isbase = value; }
-    void setQWizard_FocusNextPrevChild_IsBase(bool value) const { qwizard_focusnextprevchild_isbase = value; }
-    void setQWizard_TimerEvent_IsBase(bool value) const { qwizard_timerevent_isbase = value; }
-    void setQWizard_ChildEvent_IsBase(bool value) const { qwizard_childevent_isbase = value; }
-    void setQWizard_CustomEvent_IsBase(bool value) const { qwizard_customevent_isbase = value; }
-    void setQWizard_ConnectNotify_IsBase(bool value) const { qwizard_connectnotify_isbase = value; }
-    void setQWizard_DisconnectNotify_IsBase(bool value) const { qwizard_disconnectnotify_isbase = value; }
-    void setQWizard_AdjustPosition_IsBase(bool value) const { qwizard_adjustposition_isbase = value; }
-    void setQWizard_UpdateMicroFocus_IsBase(bool value) const { qwizard_updatemicrofocus_isbase = value; }
-    void setQWizard_Create_IsBase(bool value) const { qwizard_create_isbase = value; }
-    void setQWizard_Destroy_IsBase(bool value) const { qwizard_destroy_isbase = value; }
-    void setQWizard_FocusNextChild_IsBase(bool value) const { qwizard_focusnextchild_isbase = value; }
-    void setQWizard_FocusPreviousChild_IsBase(bool value) const { qwizard_focuspreviouschild_isbase = value; }
-    void setQWizard_Sender_IsBase(bool value) const { qwizard_sender_isbase = value; }
-    void setQWizard_SenderSignalIndex_IsBase(bool value) const { qwizard_sendersignalindex_isbase = value; }
-    void setQWizard_Receivers_IsBase(bool value) const { qwizard_receivers_isbase = value; }
-    void setQWizard_IsSignalConnected_IsBase(bool value) const { qwizard_issignalconnected_isbase = value; }
+    inline void setQWizard_Metacall_IsBase(bool value) const { qwizard_metacall_isbase = value; }
+    inline void setQWizard_ValidateCurrentPage_IsBase(bool value) const { qwizard_validatecurrentpage_isbase = value; }
+    inline void setQWizard_NextId_IsBase(bool value) const { qwizard_nextid_isbase = value; }
+    inline void setQWizard_SetVisible_IsBase(bool value) const { qwizard_setvisible_isbase = value; }
+    inline void setQWizard_SizeHint_IsBase(bool value) const { qwizard_sizehint_isbase = value; }
+    inline void setQWizard_Event_IsBase(bool value) const { qwizard_event_isbase = value; }
+    inline void setQWizard_ResizeEvent_IsBase(bool value) const { qwizard_resizeevent_isbase = value; }
+    inline void setQWizard_PaintEvent_IsBase(bool value) const { qwizard_paintevent_isbase = value; }
+    inline void setQWizard_Done_IsBase(bool value) const { qwizard_done_isbase = value; }
+    inline void setQWizard_InitializePage_IsBase(bool value) const { qwizard_initializepage_isbase = value; }
+    inline void setQWizard_CleanupPage_IsBase(bool value) const { qwizard_cleanuppage_isbase = value; }
+    inline void setQWizard_MinimumSizeHint_IsBase(bool value) const { qwizard_minimumsizehint_isbase = value; }
+    inline void setQWizard_Open_IsBase(bool value) const { qwizard_open_isbase = value; }
+    inline void setQWizard_Exec_IsBase(bool value) const { qwizard_exec_isbase = value; }
+    inline void setQWizard_Accept_IsBase(bool value) const { qwizard_accept_isbase = value; }
+    inline void setQWizard_Reject_IsBase(bool value) const { qwizard_reject_isbase = value; }
+    inline void setQWizard_KeyPressEvent_IsBase(bool value) const { qwizard_keypressevent_isbase = value; }
+    inline void setQWizard_CloseEvent_IsBase(bool value) const { qwizard_closeevent_isbase = value; }
+    inline void setQWizard_ShowEvent_IsBase(bool value) const { qwizard_showevent_isbase = value; }
+    inline void setQWizard_ContextMenuEvent_IsBase(bool value) const { qwizard_contextmenuevent_isbase = value; }
+    inline void setQWizard_EventFilter_IsBase(bool value) const { qwizard_eventfilter_isbase = value; }
+    inline void setQWizard_DevType_IsBase(bool value) const { qwizard_devtype_isbase = value; }
+    inline void setQWizard_HeightForWidth_IsBase(bool value) const { qwizard_heightforwidth_isbase = value; }
+    inline void setQWizard_HasHeightForWidth_IsBase(bool value) const { qwizard_hasheightforwidth_isbase = value; }
+    inline void setQWizard_PaintEngine_IsBase(bool value) const { qwizard_paintengine_isbase = value; }
+    inline void setQWizard_MousePressEvent_IsBase(bool value) const { qwizard_mousepressevent_isbase = value; }
+    inline void setQWizard_MouseReleaseEvent_IsBase(bool value) const { qwizard_mousereleaseevent_isbase = value; }
+    inline void setQWizard_MouseDoubleClickEvent_IsBase(bool value) const { qwizard_mousedoubleclickevent_isbase = value; }
+    inline void setQWizard_MouseMoveEvent_IsBase(bool value) const { qwizard_mousemoveevent_isbase = value; }
+    inline void setQWizard_WheelEvent_IsBase(bool value) const { qwizard_wheelevent_isbase = value; }
+    inline void setQWizard_KeyReleaseEvent_IsBase(bool value) const { qwizard_keyreleaseevent_isbase = value; }
+    inline void setQWizard_FocusInEvent_IsBase(bool value) const { qwizard_focusinevent_isbase = value; }
+    inline void setQWizard_FocusOutEvent_IsBase(bool value) const { qwizard_focusoutevent_isbase = value; }
+    inline void setQWizard_EnterEvent_IsBase(bool value) const { qwizard_enterevent_isbase = value; }
+    inline void setQWizard_LeaveEvent_IsBase(bool value) const { qwizard_leaveevent_isbase = value; }
+    inline void setQWizard_MoveEvent_IsBase(bool value) const { qwizard_moveevent_isbase = value; }
+    inline void setQWizard_TabletEvent_IsBase(bool value) const { qwizard_tabletevent_isbase = value; }
+    inline void setQWizard_ActionEvent_IsBase(bool value) const { qwizard_actionevent_isbase = value; }
+    inline void setQWizard_DragEnterEvent_IsBase(bool value) const { qwizard_dragenterevent_isbase = value; }
+    inline void setQWizard_DragMoveEvent_IsBase(bool value) const { qwizard_dragmoveevent_isbase = value; }
+    inline void setQWizard_DragLeaveEvent_IsBase(bool value) const { qwizard_dragleaveevent_isbase = value; }
+    inline void setQWizard_DropEvent_IsBase(bool value) const { qwizard_dropevent_isbase = value; }
+    inline void setQWizard_HideEvent_IsBase(bool value) const { qwizard_hideevent_isbase = value; }
+    inline void setQWizard_NativeEvent_IsBase(bool value) const { qwizard_nativeevent_isbase = value; }
+    inline void setQWizard_ChangeEvent_IsBase(bool value) const { qwizard_changeevent_isbase = value; }
+    inline void setQWizard_Metric_IsBase(bool value) const { qwizard_metric_isbase = value; }
+    inline void setQWizard_InitPainter_IsBase(bool value) const { qwizard_initpainter_isbase = value; }
+    inline void setQWizard_Redirected_IsBase(bool value) const { qwizard_redirected_isbase = value; }
+    inline void setQWizard_SharedPainter_IsBase(bool value) const { qwizard_sharedpainter_isbase = value; }
+    inline void setQWizard_InputMethodEvent_IsBase(bool value) const { qwizard_inputmethodevent_isbase = value; }
+    inline void setQWizard_InputMethodQuery_IsBase(bool value) const { qwizard_inputmethodquery_isbase = value; }
+    inline void setQWizard_FocusNextPrevChild_IsBase(bool value) const { qwizard_focusnextprevchild_isbase = value; }
+    inline void setQWizard_TimerEvent_IsBase(bool value) const { qwizard_timerevent_isbase = value; }
+    inline void setQWizard_ChildEvent_IsBase(bool value) const { qwizard_childevent_isbase = value; }
+    inline void setQWizard_CustomEvent_IsBase(bool value) const { qwizard_customevent_isbase = value; }
+    inline void setQWizard_ConnectNotify_IsBase(bool value) const { qwizard_connectnotify_isbase = value; }
+    inline void setQWizard_DisconnectNotify_IsBase(bool value) const { qwizard_disconnectnotify_isbase = value; }
+    inline void setQWizard_AdjustPosition_IsBase(bool value) const { qwizard_adjustposition_isbase = value; }
+    inline void setQWizard_UpdateMicroFocus_IsBase(bool value) const { qwizard_updatemicrofocus_isbase = value; }
+    inline void setQWizard_Create_IsBase(bool value) const { qwizard_create_isbase = value; }
+    inline void setQWizard_Destroy_IsBase(bool value) const { qwizard_destroy_isbase = value; }
+    inline void setQWizard_FocusNextChild_IsBase(bool value) const { qwizard_focusnextchild_isbase = value; }
+    inline void setQWizard_FocusPreviousChild_IsBase(bool value) const { qwizard_focuspreviouschild_isbase = value; }
+    inline void setQWizard_Sender_IsBase(bool value) const { qwizard_sender_isbase = value; }
+    inline void setQWizard_SenderSignalIndex_IsBase(bool value) const { qwizard_sendersignalindex_isbase = value; }
+    inline void setQWizard_Receivers_IsBase(bool value) const { qwizard_receivers_isbase = value; }
+    inline void setQWizard_IsSignalConnected_IsBase(bool value) const { qwizard_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -441,7 +444,12 @@ class VirtualQWizard : public QWizard {
             qwizard_metacall_isbase = false;
             return QWizard::qt_metacall(param1, param2, param3);
         } else if (qwizard_metacall_callback != nullptr) {
-            return qwizard_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qwizard_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QWizard::qt_metacall(param1, param2, param3);
         }
@@ -453,7 +461,8 @@ class VirtualQWizard : public QWizard {
             qwizard_validatecurrentpage_isbase = false;
             return QWizard::validateCurrentPage();
         } else if (qwizard_validatecurrentpage_callback != nullptr) {
-            return qwizard_validatecurrentpage_callback();
+            bool callback_ret = qwizard_validatecurrentpage_callback();
+            return callback_ret;
         } else {
             return QWizard::validateCurrentPage();
         }
@@ -465,7 +474,8 @@ class VirtualQWizard : public QWizard {
             qwizard_nextid_isbase = false;
             return QWizard::nextId();
         } else if (qwizard_nextid_callback != nullptr) {
-            return qwizard_nextid_callback();
+            int callback_ret = qwizard_nextid_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QWizard::nextId();
         }
@@ -477,7 +487,9 @@ class VirtualQWizard : public QWizard {
             qwizard_setvisible_isbase = false;
             QWizard::setVisible(visible);
         } else if (qwizard_setvisible_callback != nullptr) {
-            qwizard_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qwizard_setvisible_callback(this, cbval1);
         } else {
             QWizard::setVisible(visible);
         }
@@ -489,7 +501,8 @@ class VirtualQWizard : public QWizard {
             qwizard_sizehint_isbase = false;
             return QWizard::sizeHint();
         } else if (qwizard_sizehint_callback != nullptr) {
-            return qwizard_sizehint_callback();
+            QSize* callback_ret = qwizard_sizehint_callback();
+            return *callback_ret;
         } else {
             return QWizard::sizeHint();
         }
@@ -501,7 +514,10 @@ class VirtualQWizard : public QWizard {
             qwizard_event_isbase = false;
             return QWizard::event(event);
         } else if (qwizard_event_callback != nullptr) {
-            return qwizard_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qwizard_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QWizard::event(event);
         }
@@ -513,7 +529,9 @@ class VirtualQWizard : public QWizard {
             qwizard_resizeevent_isbase = false;
             QWizard::resizeEvent(event);
         } else if (qwizard_resizeevent_callback != nullptr) {
-            qwizard_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qwizard_resizeevent_callback(this, cbval1);
         } else {
             QWizard::resizeEvent(event);
         }
@@ -525,7 +543,9 @@ class VirtualQWizard : public QWizard {
             qwizard_paintevent_isbase = false;
             QWizard::paintEvent(event);
         } else if (qwizard_paintevent_callback != nullptr) {
-            qwizard_paintevent_callback(this, event);
+            QPaintEvent* cbval1 = event;
+
+            qwizard_paintevent_callback(this, cbval1);
         } else {
             QWizard::paintEvent(event);
         }
@@ -537,7 +557,9 @@ class VirtualQWizard : public QWizard {
             qwizard_done_isbase = false;
             QWizard::done(result);
         } else if (qwizard_done_callback != nullptr) {
-            qwizard_done_callback(this, result);
+            int cbval1 = result;
+
+            qwizard_done_callback(this, cbval1);
         } else {
             QWizard::done(result);
         }
@@ -549,7 +571,9 @@ class VirtualQWizard : public QWizard {
             qwizard_initializepage_isbase = false;
             QWizard::initializePage(id);
         } else if (qwizard_initializepage_callback != nullptr) {
-            qwizard_initializepage_callback(this, id);
+            int cbval1 = id;
+
+            qwizard_initializepage_callback(this, cbval1);
         } else {
             QWizard::initializePage(id);
         }
@@ -561,7 +585,9 @@ class VirtualQWizard : public QWizard {
             qwizard_cleanuppage_isbase = false;
             QWizard::cleanupPage(id);
         } else if (qwizard_cleanuppage_callback != nullptr) {
-            qwizard_cleanuppage_callback(this, id);
+            int cbval1 = id;
+
+            qwizard_cleanuppage_callback(this, cbval1);
         } else {
             QWizard::cleanupPage(id);
         }
@@ -573,7 +599,8 @@ class VirtualQWizard : public QWizard {
             qwizard_minimumsizehint_isbase = false;
             return QWizard::minimumSizeHint();
         } else if (qwizard_minimumsizehint_callback != nullptr) {
-            return qwizard_minimumsizehint_callback();
+            QSize* callback_ret = qwizard_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QWizard::minimumSizeHint();
         }
@@ -597,7 +624,8 @@ class VirtualQWizard : public QWizard {
             qwizard_exec_isbase = false;
             return QWizard::exec();
         } else if (qwizard_exec_callback != nullptr) {
-            return qwizard_exec_callback();
+            int callback_ret = qwizard_exec_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QWizard::exec();
         }
@@ -633,7 +661,9 @@ class VirtualQWizard : public QWizard {
             qwizard_keypressevent_isbase = false;
             QWizard::keyPressEvent(param1);
         } else if (qwizard_keypressevent_callback != nullptr) {
-            qwizard_keypressevent_callback(this, param1);
+            QKeyEvent* cbval1 = param1;
+
+            qwizard_keypressevent_callback(this, cbval1);
         } else {
             QWizard::keyPressEvent(param1);
         }
@@ -645,7 +675,9 @@ class VirtualQWizard : public QWizard {
             qwizard_closeevent_isbase = false;
             QWizard::closeEvent(param1);
         } else if (qwizard_closeevent_callback != nullptr) {
-            qwizard_closeevent_callback(this, param1);
+            QCloseEvent* cbval1 = param1;
+
+            qwizard_closeevent_callback(this, cbval1);
         } else {
             QWizard::closeEvent(param1);
         }
@@ -657,7 +689,9 @@ class VirtualQWizard : public QWizard {
             qwizard_showevent_isbase = false;
             QWizard::showEvent(param1);
         } else if (qwizard_showevent_callback != nullptr) {
-            qwizard_showevent_callback(this, param1);
+            QShowEvent* cbval1 = param1;
+
+            qwizard_showevent_callback(this, cbval1);
         } else {
             QWizard::showEvent(param1);
         }
@@ -669,7 +703,9 @@ class VirtualQWizard : public QWizard {
             qwizard_contextmenuevent_isbase = false;
             QWizard::contextMenuEvent(param1);
         } else if (qwizard_contextmenuevent_callback != nullptr) {
-            qwizard_contextmenuevent_callback(this, param1);
+            QContextMenuEvent* cbval1 = param1;
+
+            qwizard_contextmenuevent_callback(this, cbval1);
         } else {
             QWizard::contextMenuEvent(param1);
         }
@@ -681,7 +717,11 @@ class VirtualQWizard : public QWizard {
             qwizard_eventfilter_isbase = false;
             return QWizard::eventFilter(param1, param2);
         } else if (qwizard_eventfilter_callback != nullptr) {
-            return qwizard_eventfilter_callback(this, param1, param2);
+            QObject* cbval1 = param1;
+            QEvent* cbval2 = param2;
+
+            bool callback_ret = qwizard_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QWizard::eventFilter(param1, param2);
         }
@@ -693,7 +733,8 @@ class VirtualQWizard : public QWizard {
             qwizard_devtype_isbase = false;
             return QWizard::devType();
         } else if (qwizard_devtype_callback != nullptr) {
-            return qwizard_devtype_callback();
+            int callback_ret = qwizard_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QWizard::devType();
         }
@@ -705,7 +746,10 @@ class VirtualQWizard : public QWizard {
             qwizard_heightforwidth_isbase = false;
             return QWizard::heightForWidth(param1);
         } else if (qwizard_heightforwidth_callback != nullptr) {
-            return qwizard_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qwizard_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QWizard::heightForWidth(param1);
         }
@@ -717,7 +761,8 @@ class VirtualQWizard : public QWizard {
             qwizard_hasheightforwidth_isbase = false;
             return QWizard::hasHeightForWidth();
         } else if (qwizard_hasheightforwidth_callback != nullptr) {
-            return qwizard_hasheightforwidth_callback();
+            bool callback_ret = qwizard_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QWizard::hasHeightForWidth();
         }
@@ -729,7 +774,8 @@ class VirtualQWizard : public QWizard {
             qwizard_paintengine_isbase = false;
             return QWizard::paintEngine();
         } else if (qwizard_paintengine_callback != nullptr) {
-            return qwizard_paintengine_callback();
+            QPaintEngine* callback_ret = qwizard_paintengine_callback();
+            return callback_ret;
         } else {
             return QWizard::paintEngine();
         }
@@ -741,7 +787,9 @@ class VirtualQWizard : public QWizard {
             qwizard_mousepressevent_isbase = false;
             QWizard::mousePressEvent(event);
         } else if (qwizard_mousepressevent_callback != nullptr) {
-            qwizard_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qwizard_mousepressevent_callback(this, cbval1);
         } else {
             QWizard::mousePressEvent(event);
         }
@@ -753,7 +801,9 @@ class VirtualQWizard : public QWizard {
             qwizard_mousereleaseevent_isbase = false;
             QWizard::mouseReleaseEvent(event);
         } else if (qwizard_mousereleaseevent_callback != nullptr) {
-            qwizard_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qwizard_mousereleaseevent_callback(this, cbval1);
         } else {
             QWizard::mouseReleaseEvent(event);
         }
@@ -765,7 +815,9 @@ class VirtualQWizard : public QWizard {
             qwizard_mousedoubleclickevent_isbase = false;
             QWizard::mouseDoubleClickEvent(event);
         } else if (qwizard_mousedoubleclickevent_callback != nullptr) {
-            qwizard_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qwizard_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QWizard::mouseDoubleClickEvent(event);
         }
@@ -777,7 +829,9 @@ class VirtualQWizard : public QWizard {
             qwizard_mousemoveevent_isbase = false;
             QWizard::mouseMoveEvent(event);
         } else if (qwizard_mousemoveevent_callback != nullptr) {
-            qwizard_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qwizard_mousemoveevent_callback(this, cbval1);
         } else {
             QWizard::mouseMoveEvent(event);
         }
@@ -789,7 +843,9 @@ class VirtualQWizard : public QWizard {
             qwizard_wheelevent_isbase = false;
             QWizard::wheelEvent(event);
         } else if (qwizard_wheelevent_callback != nullptr) {
-            qwizard_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qwizard_wheelevent_callback(this, cbval1);
         } else {
             QWizard::wheelEvent(event);
         }
@@ -801,7 +857,9 @@ class VirtualQWizard : public QWizard {
             qwizard_keyreleaseevent_isbase = false;
             QWizard::keyReleaseEvent(event);
         } else if (qwizard_keyreleaseevent_callback != nullptr) {
-            qwizard_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qwizard_keyreleaseevent_callback(this, cbval1);
         } else {
             QWizard::keyReleaseEvent(event);
         }
@@ -813,7 +871,9 @@ class VirtualQWizard : public QWizard {
             qwizard_focusinevent_isbase = false;
             QWizard::focusInEvent(event);
         } else if (qwizard_focusinevent_callback != nullptr) {
-            qwizard_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qwizard_focusinevent_callback(this, cbval1);
         } else {
             QWizard::focusInEvent(event);
         }
@@ -825,7 +885,9 @@ class VirtualQWizard : public QWizard {
             qwizard_focusoutevent_isbase = false;
             QWizard::focusOutEvent(event);
         } else if (qwizard_focusoutevent_callback != nullptr) {
-            qwizard_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qwizard_focusoutevent_callback(this, cbval1);
         } else {
             QWizard::focusOutEvent(event);
         }
@@ -837,7 +899,9 @@ class VirtualQWizard : public QWizard {
             qwizard_enterevent_isbase = false;
             QWizard::enterEvent(event);
         } else if (qwizard_enterevent_callback != nullptr) {
-            qwizard_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qwizard_enterevent_callback(this, cbval1);
         } else {
             QWizard::enterEvent(event);
         }
@@ -849,7 +913,9 @@ class VirtualQWizard : public QWizard {
             qwizard_leaveevent_isbase = false;
             QWizard::leaveEvent(event);
         } else if (qwizard_leaveevent_callback != nullptr) {
-            qwizard_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qwizard_leaveevent_callback(this, cbval1);
         } else {
             QWizard::leaveEvent(event);
         }
@@ -861,7 +927,9 @@ class VirtualQWizard : public QWizard {
             qwizard_moveevent_isbase = false;
             QWizard::moveEvent(event);
         } else if (qwizard_moveevent_callback != nullptr) {
-            qwizard_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qwizard_moveevent_callback(this, cbval1);
         } else {
             QWizard::moveEvent(event);
         }
@@ -873,7 +941,9 @@ class VirtualQWizard : public QWizard {
             qwizard_tabletevent_isbase = false;
             QWizard::tabletEvent(event);
         } else if (qwizard_tabletevent_callback != nullptr) {
-            qwizard_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qwizard_tabletevent_callback(this, cbval1);
         } else {
             QWizard::tabletEvent(event);
         }
@@ -885,7 +955,9 @@ class VirtualQWizard : public QWizard {
             qwizard_actionevent_isbase = false;
             QWizard::actionEvent(event);
         } else if (qwizard_actionevent_callback != nullptr) {
-            qwizard_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qwizard_actionevent_callback(this, cbval1);
         } else {
             QWizard::actionEvent(event);
         }
@@ -897,7 +969,9 @@ class VirtualQWizard : public QWizard {
             qwizard_dragenterevent_isbase = false;
             QWizard::dragEnterEvent(event);
         } else if (qwizard_dragenterevent_callback != nullptr) {
-            qwizard_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qwizard_dragenterevent_callback(this, cbval1);
         } else {
             QWizard::dragEnterEvent(event);
         }
@@ -909,7 +983,9 @@ class VirtualQWizard : public QWizard {
             qwizard_dragmoveevent_isbase = false;
             QWizard::dragMoveEvent(event);
         } else if (qwizard_dragmoveevent_callback != nullptr) {
-            qwizard_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qwizard_dragmoveevent_callback(this, cbval1);
         } else {
             QWizard::dragMoveEvent(event);
         }
@@ -921,7 +997,9 @@ class VirtualQWizard : public QWizard {
             qwizard_dragleaveevent_isbase = false;
             QWizard::dragLeaveEvent(event);
         } else if (qwizard_dragleaveevent_callback != nullptr) {
-            qwizard_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qwizard_dragleaveevent_callback(this, cbval1);
         } else {
             QWizard::dragLeaveEvent(event);
         }
@@ -933,7 +1011,9 @@ class VirtualQWizard : public QWizard {
             qwizard_dropevent_isbase = false;
             QWizard::dropEvent(event);
         } else if (qwizard_dropevent_callback != nullptr) {
-            qwizard_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qwizard_dropevent_callback(this, cbval1);
         } else {
             QWizard::dropEvent(event);
         }
@@ -945,7 +1025,9 @@ class VirtualQWizard : public QWizard {
             qwizard_hideevent_isbase = false;
             QWizard::hideEvent(event);
         } else if (qwizard_hideevent_callback != nullptr) {
-            qwizard_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qwizard_hideevent_callback(this, cbval1);
         } else {
             QWizard::hideEvent(event);
         }
@@ -957,7 +1039,19 @@ class VirtualQWizard : public QWizard {
             qwizard_nativeevent_isbase = false;
             return QWizard::nativeEvent(eventType, message, result);
         } else if (qwizard_nativeevent_callback != nullptr) {
-            return qwizard_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qwizard_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QWizard::nativeEvent(eventType, message, result);
         }
@@ -969,7 +1063,9 @@ class VirtualQWizard : public QWizard {
             qwizard_changeevent_isbase = false;
             QWizard::changeEvent(param1);
         } else if (qwizard_changeevent_callback != nullptr) {
-            qwizard_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qwizard_changeevent_callback(this, cbval1);
         } else {
             QWizard::changeEvent(param1);
         }
@@ -981,7 +1077,10 @@ class VirtualQWizard : public QWizard {
             qwizard_metric_isbase = false;
             return QWizard::metric(param1);
         } else if (qwizard_metric_callback != nullptr) {
-            return qwizard_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qwizard_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QWizard::metric(param1);
         }
@@ -993,7 +1092,9 @@ class VirtualQWizard : public QWizard {
             qwizard_initpainter_isbase = false;
             QWizard::initPainter(painter);
         } else if (qwizard_initpainter_callback != nullptr) {
-            qwizard_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qwizard_initpainter_callback(this, cbval1);
         } else {
             QWizard::initPainter(painter);
         }
@@ -1005,7 +1106,10 @@ class VirtualQWizard : public QWizard {
             qwizard_redirected_isbase = false;
             return QWizard::redirected(offset);
         } else if (qwizard_redirected_callback != nullptr) {
-            return qwizard_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qwizard_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QWizard::redirected(offset);
         }
@@ -1017,7 +1121,8 @@ class VirtualQWizard : public QWizard {
             qwizard_sharedpainter_isbase = false;
             return QWizard::sharedPainter();
         } else if (qwizard_sharedpainter_callback != nullptr) {
-            return qwizard_sharedpainter_callback();
+            QPainter* callback_ret = qwizard_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QWizard::sharedPainter();
         }
@@ -1029,7 +1134,9 @@ class VirtualQWizard : public QWizard {
             qwizard_inputmethodevent_isbase = false;
             QWizard::inputMethodEvent(param1);
         } else if (qwizard_inputmethodevent_callback != nullptr) {
-            qwizard_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qwizard_inputmethodevent_callback(this, cbval1);
         } else {
             QWizard::inputMethodEvent(param1);
         }
@@ -1041,7 +1148,10 @@ class VirtualQWizard : public QWizard {
             qwizard_inputmethodquery_isbase = false;
             return QWizard::inputMethodQuery(param1);
         } else if (qwizard_inputmethodquery_callback != nullptr) {
-            return qwizard_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qwizard_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QWizard::inputMethodQuery(param1);
         }
@@ -1053,7 +1163,10 @@ class VirtualQWizard : public QWizard {
             qwizard_focusnextprevchild_isbase = false;
             return QWizard::focusNextPrevChild(next);
         } else if (qwizard_focusnextprevchild_callback != nullptr) {
-            return qwizard_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qwizard_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QWizard::focusNextPrevChild(next);
         }
@@ -1065,7 +1178,9 @@ class VirtualQWizard : public QWizard {
             qwizard_timerevent_isbase = false;
             QWizard::timerEvent(event);
         } else if (qwizard_timerevent_callback != nullptr) {
-            qwizard_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qwizard_timerevent_callback(this, cbval1);
         } else {
             QWizard::timerEvent(event);
         }
@@ -1077,7 +1192,9 @@ class VirtualQWizard : public QWizard {
             qwizard_childevent_isbase = false;
             QWizard::childEvent(event);
         } else if (qwizard_childevent_callback != nullptr) {
-            qwizard_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qwizard_childevent_callback(this, cbval1);
         } else {
             QWizard::childEvent(event);
         }
@@ -1089,7 +1206,9 @@ class VirtualQWizard : public QWizard {
             qwizard_customevent_isbase = false;
             QWizard::customEvent(event);
         } else if (qwizard_customevent_callback != nullptr) {
-            qwizard_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qwizard_customevent_callback(this, cbval1);
         } else {
             QWizard::customEvent(event);
         }
@@ -1101,7 +1220,11 @@ class VirtualQWizard : public QWizard {
             qwizard_connectnotify_isbase = false;
             QWizard::connectNotify(signal);
         } else if (qwizard_connectnotify_callback != nullptr) {
-            qwizard_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qwizard_connectnotify_callback(this, cbval1);
         } else {
             QWizard::connectNotify(signal);
         }
@@ -1113,7 +1236,11 @@ class VirtualQWizard : public QWizard {
             qwizard_disconnectnotify_isbase = false;
             QWizard::disconnectNotify(signal);
         } else if (qwizard_disconnectnotify_callback != nullptr) {
-            qwizard_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qwizard_disconnectnotify_callback(this, cbval1);
         } else {
             QWizard::disconnectNotify(signal);
         }
@@ -1125,7 +1252,9 @@ class VirtualQWizard : public QWizard {
             qwizard_adjustposition_isbase = false;
             QWizard::adjustPosition(param1);
         } else if (qwizard_adjustposition_callback != nullptr) {
-            qwizard_adjustposition_callback(this, param1);
+            QWidget* cbval1 = param1;
+
+            qwizard_adjustposition_callback(this, cbval1);
         } else {
             QWizard::adjustPosition(param1);
         }
@@ -1173,7 +1302,8 @@ class VirtualQWizard : public QWizard {
             qwizard_focusnextchild_isbase = false;
             return QWizard::focusNextChild();
         } else if (qwizard_focusnextchild_callback != nullptr) {
-            return qwizard_focusnextchild_callback();
+            bool callback_ret = qwizard_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QWizard::focusNextChild();
         }
@@ -1185,7 +1315,8 @@ class VirtualQWizard : public QWizard {
             qwizard_focuspreviouschild_isbase = false;
             return QWizard::focusPreviousChild();
         } else if (qwizard_focuspreviouschild_callback != nullptr) {
-            return qwizard_focuspreviouschild_callback();
+            bool callback_ret = qwizard_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QWizard::focusPreviousChild();
         }
@@ -1197,7 +1328,8 @@ class VirtualQWizard : public QWizard {
             qwizard_sender_isbase = false;
             return QWizard::sender();
         } else if (qwizard_sender_callback != nullptr) {
-            return qwizard_sender_callback();
+            QObject* callback_ret = qwizard_sender_callback();
+            return callback_ret;
         } else {
             return QWizard::sender();
         }
@@ -1209,7 +1341,8 @@ class VirtualQWizard : public QWizard {
             qwizard_sendersignalindex_isbase = false;
             return QWizard::senderSignalIndex();
         } else if (qwizard_sendersignalindex_callback != nullptr) {
-            return qwizard_sendersignalindex_callback();
+            int callback_ret = qwizard_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QWizard::senderSignalIndex();
         }
@@ -1221,7 +1354,10 @@ class VirtualQWizard : public QWizard {
             qwizard_receivers_isbase = false;
             return QWizard::receivers(signal);
         } else if (qwizard_receivers_callback != nullptr) {
-            return qwizard_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qwizard_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QWizard::receivers(signal);
         }
@@ -1233,19 +1369,133 @@ class VirtualQWizard : public QWizard {
             qwizard_issignalconnected_isbase = false;
             return QWizard::isSignalConnected(signal);
         } else if (qwizard_issignalconnected_callback != nullptr) {
-            return qwizard_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qwizard_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QWizard::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QWizard_Event(QWizard* self, QEvent* event);
+    friend bool QWizard_QBaseEvent(QWizard* self, QEvent* event);
+    friend void QWizard_ResizeEvent(QWizard* self, QResizeEvent* event);
+    friend void QWizard_QBaseResizeEvent(QWizard* self, QResizeEvent* event);
+    friend void QWizard_PaintEvent(QWizard* self, QPaintEvent* event);
+    friend void QWizard_QBasePaintEvent(QWizard* self, QPaintEvent* event);
+    friend void QWizard_Done(QWizard* self, int result);
+    friend void QWizard_QBaseDone(QWizard* self, int result);
+    friend void QWizard_InitializePage(QWizard* self, int id);
+    friend void QWizard_QBaseInitializePage(QWizard* self, int id);
+    friend void QWizard_CleanupPage(QWizard* self, int id);
+    friend void QWizard_QBaseCleanupPage(QWizard* self, int id);
+    friend void QWizard_KeyPressEvent(QWizard* self, QKeyEvent* param1);
+    friend void QWizard_QBaseKeyPressEvent(QWizard* self, QKeyEvent* param1);
+    friend void QWizard_CloseEvent(QWizard* self, QCloseEvent* param1);
+    friend void QWizard_QBaseCloseEvent(QWizard* self, QCloseEvent* param1);
+    friend void QWizard_ShowEvent(QWizard* self, QShowEvent* param1);
+    friend void QWizard_QBaseShowEvent(QWizard* self, QShowEvent* param1);
+    friend void QWizard_ContextMenuEvent(QWizard* self, QContextMenuEvent* param1);
+    friend void QWizard_QBaseContextMenuEvent(QWizard* self, QContextMenuEvent* param1);
+    friend bool QWizard_EventFilter(QWizard* self, QObject* param1, QEvent* param2);
+    friend bool QWizard_QBaseEventFilter(QWizard* self, QObject* param1, QEvent* param2);
+    friend void QWizard_MousePressEvent(QWizard* self, QMouseEvent* event);
+    friend void QWizard_QBaseMousePressEvent(QWizard* self, QMouseEvent* event);
+    friend void QWizard_MouseReleaseEvent(QWizard* self, QMouseEvent* event);
+    friend void QWizard_QBaseMouseReleaseEvent(QWizard* self, QMouseEvent* event);
+    friend void QWizard_MouseDoubleClickEvent(QWizard* self, QMouseEvent* event);
+    friend void QWizard_QBaseMouseDoubleClickEvent(QWizard* self, QMouseEvent* event);
+    friend void QWizard_MouseMoveEvent(QWizard* self, QMouseEvent* event);
+    friend void QWizard_QBaseMouseMoveEvent(QWizard* self, QMouseEvent* event);
+    friend void QWizard_WheelEvent(QWizard* self, QWheelEvent* event);
+    friend void QWizard_QBaseWheelEvent(QWizard* self, QWheelEvent* event);
+    friend void QWizard_KeyReleaseEvent(QWizard* self, QKeyEvent* event);
+    friend void QWizard_QBaseKeyReleaseEvent(QWizard* self, QKeyEvent* event);
+    friend void QWizard_FocusInEvent(QWizard* self, QFocusEvent* event);
+    friend void QWizard_QBaseFocusInEvent(QWizard* self, QFocusEvent* event);
+    friend void QWizard_FocusOutEvent(QWizard* self, QFocusEvent* event);
+    friend void QWizard_QBaseFocusOutEvent(QWizard* self, QFocusEvent* event);
+    friend void QWizard_EnterEvent(QWizard* self, QEnterEvent* event);
+    friend void QWizard_QBaseEnterEvent(QWizard* self, QEnterEvent* event);
+    friend void QWizard_LeaveEvent(QWizard* self, QEvent* event);
+    friend void QWizard_QBaseLeaveEvent(QWizard* self, QEvent* event);
+    friend void QWizard_MoveEvent(QWizard* self, QMoveEvent* event);
+    friend void QWizard_QBaseMoveEvent(QWizard* self, QMoveEvent* event);
+    friend void QWizard_TabletEvent(QWizard* self, QTabletEvent* event);
+    friend void QWizard_QBaseTabletEvent(QWizard* self, QTabletEvent* event);
+    friend void QWizard_ActionEvent(QWizard* self, QActionEvent* event);
+    friend void QWizard_QBaseActionEvent(QWizard* self, QActionEvent* event);
+    friend void QWizard_DragEnterEvent(QWizard* self, QDragEnterEvent* event);
+    friend void QWizard_QBaseDragEnterEvent(QWizard* self, QDragEnterEvent* event);
+    friend void QWizard_DragMoveEvent(QWizard* self, QDragMoveEvent* event);
+    friend void QWizard_QBaseDragMoveEvent(QWizard* self, QDragMoveEvent* event);
+    friend void QWizard_DragLeaveEvent(QWizard* self, QDragLeaveEvent* event);
+    friend void QWizard_QBaseDragLeaveEvent(QWizard* self, QDragLeaveEvent* event);
+    friend void QWizard_DropEvent(QWizard* self, QDropEvent* event);
+    friend void QWizard_QBaseDropEvent(QWizard* self, QDropEvent* event);
+    friend void QWizard_HideEvent(QWizard* self, QHideEvent* event);
+    friend void QWizard_QBaseHideEvent(QWizard* self, QHideEvent* event);
+    friend bool QWizard_NativeEvent(QWizard* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QWizard_QBaseNativeEvent(QWizard* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend void QWizard_ChangeEvent(QWizard* self, QEvent* param1);
+    friend void QWizard_QBaseChangeEvent(QWizard* self, QEvent* param1);
+    friend int QWizard_Metric(const QWizard* self, int param1);
+    friend int QWizard_QBaseMetric(const QWizard* self, int param1);
+    friend void QWizard_InitPainter(const QWizard* self, QPainter* painter);
+    friend void QWizard_QBaseInitPainter(const QWizard* self, QPainter* painter);
+    friend QPaintDevice* QWizard_Redirected(const QWizard* self, QPoint* offset);
+    friend QPaintDevice* QWizard_QBaseRedirected(const QWizard* self, QPoint* offset);
+    friend QPainter* QWizard_SharedPainter(const QWizard* self);
+    friend QPainter* QWizard_QBaseSharedPainter(const QWizard* self);
+    friend void QWizard_InputMethodEvent(QWizard* self, QInputMethodEvent* param1);
+    friend void QWizard_QBaseInputMethodEvent(QWizard* self, QInputMethodEvent* param1);
+    friend bool QWizard_FocusNextPrevChild(QWizard* self, bool next);
+    friend bool QWizard_QBaseFocusNextPrevChild(QWizard* self, bool next);
+    friend void QWizard_TimerEvent(QWizard* self, QTimerEvent* event);
+    friend void QWizard_QBaseTimerEvent(QWizard* self, QTimerEvent* event);
+    friend void QWizard_ChildEvent(QWizard* self, QChildEvent* event);
+    friend void QWizard_QBaseChildEvent(QWizard* self, QChildEvent* event);
+    friend void QWizard_CustomEvent(QWizard* self, QEvent* event);
+    friend void QWizard_QBaseCustomEvent(QWizard* self, QEvent* event);
+    friend void QWizard_ConnectNotify(QWizard* self, const QMetaMethod* signal);
+    friend void QWizard_QBaseConnectNotify(QWizard* self, const QMetaMethod* signal);
+    friend void QWizard_DisconnectNotify(QWizard* self, const QMetaMethod* signal);
+    friend void QWizard_QBaseDisconnectNotify(QWizard* self, const QMetaMethod* signal);
+    friend void QWizard_AdjustPosition(QWizard* self, QWidget* param1);
+    friend void QWizard_QBaseAdjustPosition(QWizard* self, QWidget* param1);
+    friend void QWizard_UpdateMicroFocus(QWizard* self);
+    friend void QWizard_QBaseUpdateMicroFocus(QWizard* self);
+    friend void QWizard_Create(QWizard* self);
+    friend void QWizard_QBaseCreate(QWizard* self);
+    friend void QWizard_Destroy(QWizard* self);
+    friend void QWizard_QBaseDestroy(QWizard* self);
+    friend bool QWizard_FocusNextChild(QWizard* self);
+    friend bool QWizard_QBaseFocusNextChild(QWizard* self);
+    friend bool QWizard_FocusPreviousChild(QWizard* self);
+    friend bool QWizard_QBaseFocusPreviousChild(QWizard* self);
+    friend QObject* QWizard_Sender(const QWizard* self);
+    friend QObject* QWizard_QBaseSender(const QWizard* self);
+    friend int QWizard_SenderSignalIndex(const QWizard* self);
+    friend int QWizard_QBaseSenderSignalIndex(const QWizard* self);
+    friend int QWizard_Receivers(const QWizard* self, const char* signal);
+    friend int QWizard_QBaseReceivers(const QWizard* self, const char* signal);
+    friend bool QWizard_IsSignalConnected(const QWizard* self, const QMetaMethod* signal);
+    friend bool QWizard_QBaseIsSignalConnected(const QWizard* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QWizardPage so that we can call protected methods
-class VirtualQWizardPage : public QWizardPage {
+class VirtualQWizardPage final : public QWizardPage {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQWizardPage = true;
+
     // Virtual class public types (including callbacks)
-    using QWizardPage_Metacall_Callback = int (*)(QWizardPage*, QMetaObject::Call, int, void**);
+    using QWizardPage_Metacall_Callback = int (*)(QWizardPage*, int, int, void**);
     using QWizardPage_InitializePage_Callback = void (*)();
     using QWizardPage_CleanupPage_Callback = void (*)();
     using QWizardPage_ValidatePage_Callback = bool (*)();
@@ -1253,8 +1503,8 @@ class VirtualQWizardPage : public QWizardPage {
     using QWizardPage_NextId_Callback = int (*)();
     using QWizardPage_DevType_Callback = int (*)();
     using QWizardPage_SetVisible_Callback = void (*)(QWizardPage*, bool);
-    using QWizardPage_SizeHint_Callback = QSize (*)();
-    using QWizardPage_MinimumSizeHint_Callback = QSize (*)();
+    using QWizardPage_SizeHint_Callback = QSize* (*)();
+    using QWizardPage_MinimumSizeHint_Callback = QSize* (*)();
     using QWizardPage_HeightForWidth_Callback = int (*)(const QWizardPage*, int);
     using QWizardPage_HasHeightForWidth_Callback = bool (*)();
     using QWizardPage_PaintEngine_Callback = QPaintEngine* (*)();
@@ -1283,27 +1533,27 @@ class VirtualQWizardPage : public QWizardPage {
     using QWizardPage_DropEvent_Callback = void (*)(QWizardPage*, QDropEvent*);
     using QWizardPage_ShowEvent_Callback = void (*)(QWizardPage*, QShowEvent*);
     using QWizardPage_HideEvent_Callback = void (*)(QWizardPage*, QHideEvent*);
-    using QWizardPage_NativeEvent_Callback = bool (*)(QWizardPage*, const QByteArray&, void*, qintptr*);
+    using QWizardPage_NativeEvent_Callback = bool (*)(QWizardPage*, libqt_string, void*, intptr_t*);
     using QWizardPage_ChangeEvent_Callback = void (*)(QWizardPage*, QEvent*);
-    using QWizardPage_Metric_Callback = int (*)(const QWizardPage*, QPaintDevice::PaintDeviceMetric);
+    using QWizardPage_Metric_Callback = int (*)(const QWizardPage*, int);
     using QWizardPage_InitPainter_Callback = void (*)(const QWizardPage*, QPainter*);
     using QWizardPage_Redirected_Callback = QPaintDevice* (*)(const QWizardPage*, QPoint*);
     using QWizardPage_SharedPainter_Callback = QPainter* (*)();
     using QWizardPage_InputMethodEvent_Callback = void (*)(QWizardPage*, QInputMethodEvent*);
-    using QWizardPage_InputMethodQuery_Callback = QVariant (*)(const QWizardPage*, Qt::InputMethodQuery);
+    using QWizardPage_InputMethodQuery_Callback = QVariant* (*)(const QWizardPage*, int);
     using QWizardPage_FocusNextPrevChild_Callback = bool (*)(QWizardPage*, bool);
     using QWizardPage_EventFilter_Callback = bool (*)(QWizardPage*, QObject*, QEvent*);
     using QWizardPage_TimerEvent_Callback = void (*)(QWizardPage*, QTimerEvent*);
     using QWizardPage_ChildEvent_Callback = void (*)(QWizardPage*, QChildEvent*);
     using QWizardPage_CustomEvent_Callback = void (*)(QWizardPage*, QEvent*);
-    using QWizardPage_ConnectNotify_Callback = void (*)(QWizardPage*, const QMetaMethod&);
-    using QWizardPage_DisconnectNotify_Callback = void (*)(QWizardPage*, const QMetaMethod&);
-    using QWizardPage_SetField_Callback = void (*)(QWizardPage*, const QString&, const QVariant&);
-    using QWizardPage_Field_Callback = QVariant (*)(const QWizardPage*, const QString&);
-    using QWizardPage_RegisterField_Callback = void (*)(QWizardPage*, const QString&, QWidget*);
+    using QWizardPage_ConnectNotify_Callback = void (*)(QWizardPage*, QMetaMethod*);
+    using QWizardPage_DisconnectNotify_Callback = void (*)(QWizardPage*, QMetaMethod*);
+    using QWizardPage_SetField_Callback = void (*)(QWizardPage*, libqt_string, QVariant*);
+    using QWizardPage_Field_Callback = QVariant* (*)(const QWizardPage*, libqt_string);
+    using QWizardPage_RegisterField_Callback = void (*)(QWizardPage*, libqt_string, QWidget*);
     using QWizardPage_Wizard_Callback = QWizard* (*)();
-    using QWizardPage_RegisterField3_Callback = void (*)(QWizardPage*, const QString&, QWidget*, const char*);
-    using QWizardPage_RegisterField4_Callback = void (*)(QWizardPage*, const QString&, QWidget*, const char*, const char*);
+    using QWizardPage_RegisterField3_Callback = void (*)(QWizardPage*, libqt_string, QWidget*, const char*);
+    using QWizardPage_RegisterField4_Callback = void (*)(QWizardPage*, libqt_string, QWidget*, const char*, const char*);
     using QWizardPage_UpdateMicroFocus_Callback = void (*)();
     using QWizardPage_Create_Callback = void (*)();
     using QWizardPage_Destroy_Callback = void (*)();
@@ -1312,7 +1562,7 @@ class VirtualQWizardPage : public QWizardPage {
     using QWizardPage_Sender_Callback = QObject* (*)();
     using QWizardPage_SenderSignalIndex_Callback = int (*)();
     using QWizardPage_Receivers_Callback = int (*)(const QWizardPage*, const char*);
-    using QWizardPage_IsSignalConnected_Callback = bool (*)(const QWizardPage*, const QMetaMethod&);
+    using QWizardPage_IsSignalConnected_Callback = bool (*)(const QWizardPage*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -1531,144 +1781,144 @@ class VirtualQWizardPage : public QWizardPage {
     }
 
     // Callback setters
-    void setQWizardPage_Metacall_Callback(QWizardPage_Metacall_Callback cb) { qwizardpage_metacall_callback = cb; }
-    void setQWizardPage_InitializePage_Callback(QWizardPage_InitializePage_Callback cb) { qwizardpage_initializepage_callback = cb; }
-    void setQWizardPage_CleanupPage_Callback(QWizardPage_CleanupPage_Callback cb) { qwizardpage_cleanuppage_callback = cb; }
-    void setQWizardPage_ValidatePage_Callback(QWizardPage_ValidatePage_Callback cb) { qwizardpage_validatepage_callback = cb; }
-    void setQWizardPage_IsComplete_Callback(QWizardPage_IsComplete_Callback cb) { qwizardpage_iscomplete_callback = cb; }
-    void setQWizardPage_NextId_Callback(QWizardPage_NextId_Callback cb) { qwizardpage_nextid_callback = cb; }
-    void setQWizardPage_DevType_Callback(QWizardPage_DevType_Callback cb) { qwizardpage_devtype_callback = cb; }
-    void setQWizardPage_SetVisible_Callback(QWizardPage_SetVisible_Callback cb) { qwizardpage_setvisible_callback = cb; }
-    void setQWizardPage_SizeHint_Callback(QWizardPage_SizeHint_Callback cb) { qwizardpage_sizehint_callback = cb; }
-    void setQWizardPage_MinimumSizeHint_Callback(QWizardPage_MinimumSizeHint_Callback cb) { qwizardpage_minimumsizehint_callback = cb; }
-    void setQWizardPage_HeightForWidth_Callback(QWizardPage_HeightForWidth_Callback cb) { qwizardpage_heightforwidth_callback = cb; }
-    void setQWizardPage_HasHeightForWidth_Callback(QWizardPage_HasHeightForWidth_Callback cb) { qwizardpage_hasheightforwidth_callback = cb; }
-    void setQWizardPage_PaintEngine_Callback(QWizardPage_PaintEngine_Callback cb) { qwizardpage_paintengine_callback = cb; }
-    void setQWizardPage_Event_Callback(QWizardPage_Event_Callback cb) { qwizardpage_event_callback = cb; }
-    void setQWizardPage_MousePressEvent_Callback(QWizardPage_MousePressEvent_Callback cb) { qwizardpage_mousepressevent_callback = cb; }
-    void setQWizardPage_MouseReleaseEvent_Callback(QWizardPage_MouseReleaseEvent_Callback cb) { qwizardpage_mousereleaseevent_callback = cb; }
-    void setQWizardPage_MouseDoubleClickEvent_Callback(QWizardPage_MouseDoubleClickEvent_Callback cb) { qwizardpage_mousedoubleclickevent_callback = cb; }
-    void setQWizardPage_MouseMoveEvent_Callback(QWizardPage_MouseMoveEvent_Callback cb) { qwizardpage_mousemoveevent_callback = cb; }
-    void setQWizardPage_WheelEvent_Callback(QWizardPage_WheelEvent_Callback cb) { qwizardpage_wheelevent_callback = cb; }
-    void setQWizardPage_KeyPressEvent_Callback(QWizardPage_KeyPressEvent_Callback cb) { qwizardpage_keypressevent_callback = cb; }
-    void setQWizardPage_KeyReleaseEvent_Callback(QWizardPage_KeyReleaseEvent_Callback cb) { qwizardpage_keyreleaseevent_callback = cb; }
-    void setQWizardPage_FocusInEvent_Callback(QWizardPage_FocusInEvent_Callback cb) { qwizardpage_focusinevent_callback = cb; }
-    void setQWizardPage_FocusOutEvent_Callback(QWizardPage_FocusOutEvent_Callback cb) { qwizardpage_focusoutevent_callback = cb; }
-    void setQWizardPage_EnterEvent_Callback(QWizardPage_EnterEvent_Callback cb) { qwizardpage_enterevent_callback = cb; }
-    void setQWizardPage_LeaveEvent_Callback(QWizardPage_LeaveEvent_Callback cb) { qwizardpage_leaveevent_callback = cb; }
-    void setQWizardPage_PaintEvent_Callback(QWizardPage_PaintEvent_Callback cb) { qwizardpage_paintevent_callback = cb; }
-    void setQWizardPage_MoveEvent_Callback(QWizardPage_MoveEvent_Callback cb) { qwizardpage_moveevent_callback = cb; }
-    void setQWizardPage_ResizeEvent_Callback(QWizardPage_ResizeEvent_Callback cb) { qwizardpage_resizeevent_callback = cb; }
-    void setQWizardPage_CloseEvent_Callback(QWizardPage_CloseEvent_Callback cb) { qwizardpage_closeevent_callback = cb; }
-    void setQWizardPage_ContextMenuEvent_Callback(QWizardPage_ContextMenuEvent_Callback cb) { qwizardpage_contextmenuevent_callback = cb; }
-    void setQWizardPage_TabletEvent_Callback(QWizardPage_TabletEvent_Callback cb) { qwizardpage_tabletevent_callback = cb; }
-    void setQWizardPage_ActionEvent_Callback(QWizardPage_ActionEvent_Callback cb) { qwizardpage_actionevent_callback = cb; }
-    void setQWizardPage_DragEnterEvent_Callback(QWizardPage_DragEnterEvent_Callback cb) { qwizardpage_dragenterevent_callback = cb; }
-    void setQWizardPage_DragMoveEvent_Callback(QWizardPage_DragMoveEvent_Callback cb) { qwizardpage_dragmoveevent_callback = cb; }
-    void setQWizardPage_DragLeaveEvent_Callback(QWizardPage_DragLeaveEvent_Callback cb) { qwizardpage_dragleaveevent_callback = cb; }
-    void setQWizardPage_DropEvent_Callback(QWizardPage_DropEvent_Callback cb) { qwizardpage_dropevent_callback = cb; }
-    void setQWizardPage_ShowEvent_Callback(QWizardPage_ShowEvent_Callback cb) { qwizardpage_showevent_callback = cb; }
-    void setQWizardPage_HideEvent_Callback(QWizardPage_HideEvent_Callback cb) { qwizardpage_hideevent_callback = cb; }
-    void setQWizardPage_NativeEvent_Callback(QWizardPage_NativeEvent_Callback cb) { qwizardpage_nativeevent_callback = cb; }
-    void setQWizardPage_ChangeEvent_Callback(QWizardPage_ChangeEvent_Callback cb) { qwizardpage_changeevent_callback = cb; }
-    void setQWizardPage_Metric_Callback(QWizardPage_Metric_Callback cb) { qwizardpage_metric_callback = cb; }
-    void setQWizardPage_InitPainter_Callback(QWizardPage_InitPainter_Callback cb) { qwizardpage_initpainter_callback = cb; }
-    void setQWizardPage_Redirected_Callback(QWizardPage_Redirected_Callback cb) { qwizardpage_redirected_callback = cb; }
-    void setQWizardPage_SharedPainter_Callback(QWizardPage_SharedPainter_Callback cb) { qwizardpage_sharedpainter_callback = cb; }
-    void setQWizardPage_InputMethodEvent_Callback(QWizardPage_InputMethodEvent_Callback cb) { qwizardpage_inputmethodevent_callback = cb; }
-    void setQWizardPage_InputMethodQuery_Callback(QWizardPage_InputMethodQuery_Callback cb) { qwizardpage_inputmethodquery_callback = cb; }
-    void setQWizardPage_FocusNextPrevChild_Callback(QWizardPage_FocusNextPrevChild_Callback cb) { qwizardpage_focusnextprevchild_callback = cb; }
-    void setQWizardPage_EventFilter_Callback(QWizardPage_EventFilter_Callback cb) { qwizardpage_eventfilter_callback = cb; }
-    void setQWizardPage_TimerEvent_Callback(QWizardPage_TimerEvent_Callback cb) { qwizardpage_timerevent_callback = cb; }
-    void setQWizardPage_ChildEvent_Callback(QWizardPage_ChildEvent_Callback cb) { qwizardpage_childevent_callback = cb; }
-    void setQWizardPage_CustomEvent_Callback(QWizardPage_CustomEvent_Callback cb) { qwizardpage_customevent_callback = cb; }
-    void setQWizardPage_ConnectNotify_Callback(QWizardPage_ConnectNotify_Callback cb) { qwizardpage_connectnotify_callback = cb; }
-    void setQWizardPage_DisconnectNotify_Callback(QWizardPage_DisconnectNotify_Callback cb) { qwizardpage_disconnectnotify_callback = cb; }
-    void setQWizardPage_SetField_Callback(QWizardPage_SetField_Callback cb) { qwizardpage_setfield_callback = cb; }
-    void setQWizardPage_Field_Callback(QWizardPage_Field_Callback cb) { qwizardpage_field_callback = cb; }
-    void setQWizardPage_RegisterField_Callback(QWizardPage_RegisterField_Callback cb) { qwizardpage_registerfield_callback = cb; }
-    void setQWizardPage_Wizard_Callback(QWizardPage_Wizard_Callback cb) { qwizardpage_wizard_callback = cb; }
-    void setQWizardPage_RegisterField3_Callback(QWizardPage_RegisterField3_Callback cb) { qwizardpage_registerfield3_callback = cb; }
-    void setQWizardPage_RegisterField4_Callback(QWizardPage_RegisterField4_Callback cb) { qwizardpage_registerfield4_callback = cb; }
-    void setQWizardPage_UpdateMicroFocus_Callback(QWizardPage_UpdateMicroFocus_Callback cb) { qwizardpage_updatemicrofocus_callback = cb; }
-    void setQWizardPage_Create_Callback(QWizardPage_Create_Callback cb) { qwizardpage_create_callback = cb; }
-    void setQWizardPage_Destroy_Callback(QWizardPage_Destroy_Callback cb) { qwizardpage_destroy_callback = cb; }
-    void setQWizardPage_FocusNextChild_Callback(QWizardPage_FocusNextChild_Callback cb) { qwizardpage_focusnextchild_callback = cb; }
-    void setQWizardPage_FocusPreviousChild_Callback(QWizardPage_FocusPreviousChild_Callback cb) { qwizardpage_focuspreviouschild_callback = cb; }
-    void setQWizardPage_Sender_Callback(QWizardPage_Sender_Callback cb) { qwizardpage_sender_callback = cb; }
-    void setQWizardPage_SenderSignalIndex_Callback(QWizardPage_SenderSignalIndex_Callback cb) { qwizardpage_sendersignalindex_callback = cb; }
-    void setQWizardPage_Receivers_Callback(QWizardPage_Receivers_Callback cb) { qwizardpage_receivers_callback = cb; }
-    void setQWizardPage_IsSignalConnected_Callback(QWizardPage_IsSignalConnected_Callback cb) { qwizardpage_issignalconnected_callback = cb; }
+    inline void setQWizardPage_Metacall_Callback(QWizardPage_Metacall_Callback cb) { qwizardpage_metacall_callback = cb; }
+    inline void setQWizardPage_InitializePage_Callback(QWizardPage_InitializePage_Callback cb) { qwizardpage_initializepage_callback = cb; }
+    inline void setQWizardPage_CleanupPage_Callback(QWizardPage_CleanupPage_Callback cb) { qwizardpage_cleanuppage_callback = cb; }
+    inline void setQWizardPage_ValidatePage_Callback(QWizardPage_ValidatePage_Callback cb) { qwizardpage_validatepage_callback = cb; }
+    inline void setQWizardPage_IsComplete_Callback(QWizardPage_IsComplete_Callback cb) { qwizardpage_iscomplete_callback = cb; }
+    inline void setQWizardPage_NextId_Callback(QWizardPage_NextId_Callback cb) { qwizardpage_nextid_callback = cb; }
+    inline void setQWizardPage_DevType_Callback(QWizardPage_DevType_Callback cb) { qwizardpage_devtype_callback = cb; }
+    inline void setQWizardPage_SetVisible_Callback(QWizardPage_SetVisible_Callback cb) { qwizardpage_setvisible_callback = cb; }
+    inline void setQWizardPage_SizeHint_Callback(QWizardPage_SizeHint_Callback cb) { qwizardpage_sizehint_callback = cb; }
+    inline void setQWizardPage_MinimumSizeHint_Callback(QWizardPage_MinimumSizeHint_Callback cb) { qwizardpage_minimumsizehint_callback = cb; }
+    inline void setQWizardPage_HeightForWidth_Callback(QWizardPage_HeightForWidth_Callback cb) { qwizardpage_heightforwidth_callback = cb; }
+    inline void setQWizardPage_HasHeightForWidth_Callback(QWizardPage_HasHeightForWidth_Callback cb) { qwizardpage_hasheightforwidth_callback = cb; }
+    inline void setQWizardPage_PaintEngine_Callback(QWizardPage_PaintEngine_Callback cb) { qwizardpage_paintengine_callback = cb; }
+    inline void setQWizardPage_Event_Callback(QWizardPage_Event_Callback cb) { qwizardpage_event_callback = cb; }
+    inline void setQWizardPage_MousePressEvent_Callback(QWizardPage_MousePressEvent_Callback cb) { qwizardpage_mousepressevent_callback = cb; }
+    inline void setQWizardPage_MouseReleaseEvent_Callback(QWizardPage_MouseReleaseEvent_Callback cb) { qwizardpage_mousereleaseevent_callback = cb; }
+    inline void setQWizardPage_MouseDoubleClickEvent_Callback(QWizardPage_MouseDoubleClickEvent_Callback cb) { qwizardpage_mousedoubleclickevent_callback = cb; }
+    inline void setQWizardPage_MouseMoveEvent_Callback(QWizardPage_MouseMoveEvent_Callback cb) { qwizardpage_mousemoveevent_callback = cb; }
+    inline void setQWizardPage_WheelEvent_Callback(QWizardPage_WheelEvent_Callback cb) { qwizardpage_wheelevent_callback = cb; }
+    inline void setQWizardPage_KeyPressEvent_Callback(QWizardPage_KeyPressEvent_Callback cb) { qwizardpage_keypressevent_callback = cb; }
+    inline void setQWizardPage_KeyReleaseEvent_Callback(QWizardPage_KeyReleaseEvent_Callback cb) { qwizardpage_keyreleaseevent_callback = cb; }
+    inline void setQWizardPage_FocusInEvent_Callback(QWizardPage_FocusInEvent_Callback cb) { qwizardpage_focusinevent_callback = cb; }
+    inline void setQWizardPage_FocusOutEvent_Callback(QWizardPage_FocusOutEvent_Callback cb) { qwizardpage_focusoutevent_callback = cb; }
+    inline void setQWizardPage_EnterEvent_Callback(QWizardPage_EnterEvent_Callback cb) { qwizardpage_enterevent_callback = cb; }
+    inline void setQWizardPage_LeaveEvent_Callback(QWizardPage_LeaveEvent_Callback cb) { qwizardpage_leaveevent_callback = cb; }
+    inline void setQWizardPage_PaintEvent_Callback(QWizardPage_PaintEvent_Callback cb) { qwizardpage_paintevent_callback = cb; }
+    inline void setQWizardPage_MoveEvent_Callback(QWizardPage_MoveEvent_Callback cb) { qwizardpage_moveevent_callback = cb; }
+    inline void setQWizardPage_ResizeEvent_Callback(QWizardPage_ResizeEvent_Callback cb) { qwizardpage_resizeevent_callback = cb; }
+    inline void setQWizardPage_CloseEvent_Callback(QWizardPage_CloseEvent_Callback cb) { qwizardpage_closeevent_callback = cb; }
+    inline void setQWizardPage_ContextMenuEvent_Callback(QWizardPage_ContextMenuEvent_Callback cb) { qwizardpage_contextmenuevent_callback = cb; }
+    inline void setQWizardPage_TabletEvent_Callback(QWizardPage_TabletEvent_Callback cb) { qwizardpage_tabletevent_callback = cb; }
+    inline void setQWizardPage_ActionEvent_Callback(QWizardPage_ActionEvent_Callback cb) { qwizardpage_actionevent_callback = cb; }
+    inline void setQWizardPage_DragEnterEvent_Callback(QWizardPage_DragEnterEvent_Callback cb) { qwizardpage_dragenterevent_callback = cb; }
+    inline void setQWizardPage_DragMoveEvent_Callback(QWizardPage_DragMoveEvent_Callback cb) { qwizardpage_dragmoveevent_callback = cb; }
+    inline void setQWizardPage_DragLeaveEvent_Callback(QWizardPage_DragLeaveEvent_Callback cb) { qwizardpage_dragleaveevent_callback = cb; }
+    inline void setQWizardPage_DropEvent_Callback(QWizardPage_DropEvent_Callback cb) { qwizardpage_dropevent_callback = cb; }
+    inline void setQWizardPage_ShowEvent_Callback(QWizardPage_ShowEvent_Callback cb) { qwizardpage_showevent_callback = cb; }
+    inline void setQWizardPage_HideEvent_Callback(QWizardPage_HideEvent_Callback cb) { qwizardpage_hideevent_callback = cb; }
+    inline void setQWizardPage_NativeEvent_Callback(QWizardPage_NativeEvent_Callback cb) { qwizardpage_nativeevent_callback = cb; }
+    inline void setQWizardPage_ChangeEvent_Callback(QWizardPage_ChangeEvent_Callback cb) { qwizardpage_changeevent_callback = cb; }
+    inline void setQWizardPage_Metric_Callback(QWizardPage_Metric_Callback cb) { qwizardpage_metric_callback = cb; }
+    inline void setQWizardPage_InitPainter_Callback(QWizardPage_InitPainter_Callback cb) { qwizardpage_initpainter_callback = cb; }
+    inline void setQWizardPage_Redirected_Callback(QWizardPage_Redirected_Callback cb) { qwizardpage_redirected_callback = cb; }
+    inline void setQWizardPage_SharedPainter_Callback(QWizardPage_SharedPainter_Callback cb) { qwizardpage_sharedpainter_callback = cb; }
+    inline void setQWizardPage_InputMethodEvent_Callback(QWizardPage_InputMethodEvent_Callback cb) { qwizardpage_inputmethodevent_callback = cb; }
+    inline void setQWizardPage_InputMethodQuery_Callback(QWizardPage_InputMethodQuery_Callback cb) { qwizardpage_inputmethodquery_callback = cb; }
+    inline void setQWizardPage_FocusNextPrevChild_Callback(QWizardPage_FocusNextPrevChild_Callback cb) { qwizardpage_focusnextprevchild_callback = cb; }
+    inline void setQWizardPage_EventFilter_Callback(QWizardPage_EventFilter_Callback cb) { qwizardpage_eventfilter_callback = cb; }
+    inline void setQWizardPage_TimerEvent_Callback(QWizardPage_TimerEvent_Callback cb) { qwizardpage_timerevent_callback = cb; }
+    inline void setQWizardPage_ChildEvent_Callback(QWizardPage_ChildEvent_Callback cb) { qwizardpage_childevent_callback = cb; }
+    inline void setQWizardPage_CustomEvent_Callback(QWizardPage_CustomEvent_Callback cb) { qwizardpage_customevent_callback = cb; }
+    inline void setQWizardPage_ConnectNotify_Callback(QWizardPage_ConnectNotify_Callback cb) { qwizardpage_connectnotify_callback = cb; }
+    inline void setQWizardPage_DisconnectNotify_Callback(QWizardPage_DisconnectNotify_Callback cb) { qwizardpage_disconnectnotify_callback = cb; }
+    inline void setQWizardPage_SetField_Callback(QWizardPage_SetField_Callback cb) { qwizardpage_setfield_callback = cb; }
+    inline void setQWizardPage_Field_Callback(QWizardPage_Field_Callback cb) { qwizardpage_field_callback = cb; }
+    inline void setQWizardPage_RegisterField_Callback(QWizardPage_RegisterField_Callback cb) { qwizardpage_registerfield_callback = cb; }
+    inline void setQWizardPage_Wizard_Callback(QWizardPage_Wizard_Callback cb) { qwizardpage_wizard_callback = cb; }
+    inline void setQWizardPage_RegisterField3_Callback(QWizardPage_RegisterField3_Callback cb) { qwizardpage_registerfield3_callback = cb; }
+    inline void setQWizardPage_RegisterField4_Callback(QWizardPage_RegisterField4_Callback cb) { qwizardpage_registerfield4_callback = cb; }
+    inline void setQWizardPage_UpdateMicroFocus_Callback(QWizardPage_UpdateMicroFocus_Callback cb) { qwizardpage_updatemicrofocus_callback = cb; }
+    inline void setQWizardPage_Create_Callback(QWizardPage_Create_Callback cb) { qwizardpage_create_callback = cb; }
+    inline void setQWizardPage_Destroy_Callback(QWizardPage_Destroy_Callback cb) { qwizardpage_destroy_callback = cb; }
+    inline void setQWizardPage_FocusNextChild_Callback(QWizardPage_FocusNextChild_Callback cb) { qwizardpage_focusnextchild_callback = cb; }
+    inline void setQWizardPage_FocusPreviousChild_Callback(QWizardPage_FocusPreviousChild_Callback cb) { qwizardpage_focuspreviouschild_callback = cb; }
+    inline void setQWizardPage_Sender_Callback(QWizardPage_Sender_Callback cb) { qwizardpage_sender_callback = cb; }
+    inline void setQWizardPage_SenderSignalIndex_Callback(QWizardPage_SenderSignalIndex_Callback cb) { qwizardpage_sendersignalindex_callback = cb; }
+    inline void setQWizardPage_Receivers_Callback(QWizardPage_Receivers_Callback cb) { qwizardpage_receivers_callback = cb; }
+    inline void setQWizardPage_IsSignalConnected_Callback(QWizardPage_IsSignalConnected_Callback cb) { qwizardpage_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQWizardPage_Metacall_IsBase(bool value) const { qwizardpage_metacall_isbase = value; }
-    void setQWizardPage_InitializePage_IsBase(bool value) const { qwizardpage_initializepage_isbase = value; }
-    void setQWizardPage_CleanupPage_IsBase(bool value) const { qwizardpage_cleanuppage_isbase = value; }
-    void setQWizardPage_ValidatePage_IsBase(bool value) const { qwizardpage_validatepage_isbase = value; }
-    void setQWizardPage_IsComplete_IsBase(bool value) const { qwizardpage_iscomplete_isbase = value; }
-    void setQWizardPage_NextId_IsBase(bool value) const { qwizardpage_nextid_isbase = value; }
-    void setQWizardPage_DevType_IsBase(bool value) const { qwizardpage_devtype_isbase = value; }
-    void setQWizardPage_SetVisible_IsBase(bool value) const { qwizardpage_setvisible_isbase = value; }
-    void setQWizardPage_SizeHint_IsBase(bool value) const { qwizardpage_sizehint_isbase = value; }
-    void setQWizardPage_MinimumSizeHint_IsBase(bool value) const { qwizardpage_minimumsizehint_isbase = value; }
-    void setQWizardPage_HeightForWidth_IsBase(bool value) const { qwizardpage_heightforwidth_isbase = value; }
-    void setQWizardPage_HasHeightForWidth_IsBase(bool value) const { qwizardpage_hasheightforwidth_isbase = value; }
-    void setQWizardPage_PaintEngine_IsBase(bool value) const { qwizardpage_paintengine_isbase = value; }
-    void setQWizardPage_Event_IsBase(bool value) const { qwizardpage_event_isbase = value; }
-    void setQWizardPage_MousePressEvent_IsBase(bool value) const { qwizardpage_mousepressevent_isbase = value; }
-    void setQWizardPage_MouseReleaseEvent_IsBase(bool value) const { qwizardpage_mousereleaseevent_isbase = value; }
-    void setQWizardPage_MouseDoubleClickEvent_IsBase(bool value) const { qwizardpage_mousedoubleclickevent_isbase = value; }
-    void setQWizardPage_MouseMoveEvent_IsBase(bool value) const { qwizardpage_mousemoveevent_isbase = value; }
-    void setQWizardPage_WheelEvent_IsBase(bool value) const { qwizardpage_wheelevent_isbase = value; }
-    void setQWizardPage_KeyPressEvent_IsBase(bool value) const { qwizardpage_keypressevent_isbase = value; }
-    void setQWizardPage_KeyReleaseEvent_IsBase(bool value) const { qwizardpage_keyreleaseevent_isbase = value; }
-    void setQWizardPage_FocusInEvent_IsBase(bool value) const { qwizardpage_focusinevent_isbase = value; }
-    void setQWizardPage_FocusOutEvent_IsBase(bool value) const { qwizardpage_focusoutevent_isbase = value; }
-    void setQWizardPage_EnterEvent_IsBase(bool value) const { qwizardpage_enterevent_isbase = value; }
-    void setQWizardPage_LeaveEvent_IsBase(bool value) const { qwizardpage_leaveevent_isbase = value; }
-    void setQWizardPage_PaintEvent_IsBase(bool value) const { qwizardpage_paintevent_isbase = value; }
-    void setQWizardPage_MoveEvent_IsBase(bool value) const { qwizardpage_moveevent_isbase = value; }
-    void setQWizardPage_ResizeEvent_IsBase(bool value) const { qwizardpage_resizeevent_isbase = value; }
-    void setQWizardPage_CloseEvent_IsBase(bool value) const { qwizardpage_closeevent_isbase = value; }
-    void setQWizardPage_ContextMenuEvent_IsBase(bool value) const { qwizardpage_contextmenuevent_isbase = value; }
-    void setQWizardPage_TabletEvent_IsBase(bool value) const { qwizardpage_tabletevent_isbase = value; }
-    void setQWizardPage_ActionEvent_IsBase(bool value) const { qwizardpage_actionevent_isbase = value; }
-    void setQWizardPage_DragEnterEvent_IsBase(bool value) const { qwizardpage_dragenterevent_isbase = value; }
-    void setQWizardPage_DragMoveEvent_IsBase(bool value) const { qwizardpage_dragmoveevent_isbase = value; }
-    void setQWizardPage_DragLeaveEvent_IsBase(bool value) const { qwizardpage_dragleaveevent_isbase = value; }
-    void setQWizardPage_DropEvent_IsBase(bool value) const { qwizardpage_dropevent_isbase = value; }
-    void setQWizardPage_ShowEvent_IsBase(bool value) const { qwizardpage_showevent_isbase = value; }
-    void setQWizardPage_HideEvent_IsBase(bool value) const { qwizardpage_hideevent_isbase = value; }
-    void setQWizardPage_NativeEvent_IsBase(bool value) const { qwizardpage_nativeevent_isbase = value; }
-    void setQWizardPage_ChangeEvent_IsBase(bool value) const { qwizardpage_changeevent_isbase = value; }
-    void setQWizardPage_Metric_IsBase(bool value) const { qwizardpage_metric_isbase = value; }
-    void setQWizardPage_InitPainter_IsBase(bool value) const { qwizardpage_initpainter_isbase = value; }
-    void setQWizardPage_Redirected_IsBase(bool value) const { qwizardpage_redirected_isbase = value; }
-    void setQWizardPage_SharedPainter_IsBase(bool value) const { qwizardpage_sharedpainter_isbase = value; }
-    void setQWizardPage_InputMethodEvent_IsBase(bool value) const { qwizardpage_inputmethodevent_isbase = value; }
-    void setQWizardPage_InputMethodQuery_IsBase(bool value) const { qwizardpage_inputmethodquery_isbase = value; }
-    void setQWizardPage_FocusNextPrevChild_IsBase(bool value) const { qwizardpage_focusnextprevchild_isbase = value; }
-    void setQWizardPage_EventFilter_IsBase(bool value) const { qwizardpage_eventfilter_isbase = value; }
-    void setQWizardPage_TimerEvent_IsBase(bool value) const { qwizardpage_timerevent_isbase = value; }
-    void setQWizardPage_ChildEvent_IsBase(bool value) const { qwizardpage_childevent_isbase = value; }
-    void setQWizardPage_CustomEvent_IsBase(bool value) const { qwizardpage_customevent_isbase = value; }
-    void setQWizardPage_ConnectNotify_IsBase(bool value) const { qwizardpage_connectnotify_isbase = value; }
-    void setQWizardPage_DisconnectNotify_IsBase(bool value) const { qwizardpage_disconnectnotify_isbase = value; }
-    void setQWizardPage_SetField_IsBase(bool value) const { qwizardpage_setfield_isbase = value; }
-    void setQWizardPage_Field_IsBase(bool value) const { qwizardpage_field_isbase = value; }
-    void setQWizardPage_RegisterField_IsBase(bool value) const { qwizardpage_registerfield_isbase = value; }
-    void setQWizardPage_Wizard_IsBase(bool value) const { qwizardpage_wizard_isbase = value; }
-    void setQWizardPage_RegisterField3_IsBase(bool value) const { qwizardpage_registerfield3_isbase = value; }
-    void setQWizardPage_RegisterField4_IsBase(bool value) const { qwizardpage_registerfield4_isbase = value; }
-    void setQWizardPage_UpdateMicroFocus_IsBase(bool value) const { qwizardpage_updatemicrofocus_isbase = value; }
-    void setQWizardPage_Create_IsBase(bool value) const { qwizardpage_create_isbase = value; }
-    void setQWizardPage_Destroy_IsBase(bool value) const { qwizardpage_destroy_isbase = value; }
-    void setQWizardPage_FocusNextChild_IsBase(bool value) const { qwizardpage_focusnextchild_isbase = value; }
-    void setQWizardPage_FocusPreviousChild_IsBase(bool value) const { qwizardpage_focuspreviouschild_isbase = value; }
-    void setQWizardPage_Sender_IsBase(bool value) const { qwizardpage_sender_isbase = value; }
-    void setQWizardPage_SenderSignalIndex_IsBase(bool value) const { qwizardpage_sendersignalindex_isbase = value; }
-    void setQWizardPage_Receivers_IsBase(bool value) const { qwizardpage_receivers_isbase = value; }
-    void setQWizardPage_IsSignalConnected_IsBase(bool value) const { qwizardpage_issignalconnected_isbase = value; }
+    inline void setQWizardPage_Metacall_IsBase(bool value) const { qwizardpage_metacall_isbase = value; }
+    inline void setQWizardPage_InitializePage_IsBase(bool value) const { qwizardpage_initializepage_isbase = value; }
+    inline void setQWizardPage_CleanupPage_IsBase(bool value) const { qwizardpage_cleanuppage_isbase = value; }
+    inline void setQWizardPage_ValidatePage_IsBase(bool value) const { qwizardpage_validatepage_isbase = value; }
+    inline void setQWizardPage_IsComplete_IsBase(bool value) const { qwizardpage_iscomplete_isbase = value; }
+    inline void setQWizardPage_NextId_IsBase(bool value) const { qwizardpage_nextid_isbase = value; }
+    inline void setQWizardPage_DevType_IsBase(bool value) const { qwizardpage_devtype_isbase = value; }
+    inline void setQWizardPage_SetVisible_IsBase(bool value) const { qwizardpage_setvisible_isbase = value; }
+    inline void setQWizardPage_SizeHint_IsBase(bool value) const { qwizardpage_sizehint_isbase = value; }
+    inline void setQWizardPage_MinimumSizeHint_IsBase(bool value) const { qwizardpage_minimumsizehint_isbase = value; }
+    inline void setQWizardPage_HeightForWidth_IsBase(bool value) const { qwizardpage_heightforwidth_isbase = value; }
+    inline void setQWizardPage_HasHeightForWidth_IsBase(bool value) const { qwizardpage_hasheightforwidth_isbase = value; }
+    inline void setQWizardPage_PaintEngine_IsBase(bool value) const { qwizardpage_paintengine_isbase = value; }
+    inline void setQWizardPage_Event_IsBase(bool value) const { qwizardpage_event_isbase = value; }
+    inline void setQWizardPage_MousePressEvent_IsBase(bool value) const { qwizardpage_mousepressevent_isbase = value; }
+    inline void setQWizardPage_MouseReleaseEvent_IsBase(bool value) const { qwizardpage_mousereleaseevent_isbase = value; }
+    inline void setQWizardPage_MouseDoubleClickEvent_IsBase(bool value) const { qwizardpage_mousedoubleclickevent_isbase = value; }
+    inline void setQWizardPage_MouseMoveEvent_IsBase(bool value) const { qwizardpage_mousemoveevent_isbase = value; }
+    inline void setQWizardPage_WheelEvent_IsBase(bool value) const { qwizardpage_wheelevent_isbase = value; }
+    inline void setQWizardPage_KeyPressEvent_IsBase(bool value) const { qwizardpage_keypressevent_isbase = value; }
+    inline void setQWizardPage_KeyReleaseEvent_IsBase(bool value) const { qwizardpage_keyreleaseevent_isbase = value; }
+    inline void setQWizardPage_FocusInEvent_IsBase(bool value) const { qwizardpage_focusinevent_isbase = value; }
+    inline void setQWizardPage_FocusOutEvent_IsBase(bool value) const { qwizardpage_focusoutevent_isbase = value; }
+    inline void setQWizardPage_EnterEvent_IsBase(bool value) const { qwizardpage_enterevent_isbase = value; }
+    inline void setQWizardPage_LeaveEvent_IsBase(bool value) const { qwizardpage_leaveevent_isbase = value; }
+    inline void setQWizardPage_PaintEvent_IsBase(bool value) const { qwizardpage_paintevent_isbase = value; }
+    inline void setQWizardPage_MoveEvent_IsBase(bool value) const { qwizardpage_moveevent_isbase = value; }
+    inline void setQWizardPage_ResizeEvent_IsBase(bool value) const { qwizardpage_resizeevent_isbase = value; }
+    inline void setQWizardPage_CloseEvent_IsBase(bool value) const { qwizardpage_closeevent_isbase = value; }
+    inline void setQWizardPage_ContextMenuEvent_IsBase(bool value) const { qwizardpage_contextmenuevent_isbase = value; }
+    inline void setQWizardPage_TabletEvent_IsBase(bool value) const { qwizardpage_tabletevent_isbase = value; }
+    inline void setQWizardPage_ActionEvent_IsBase(bool value) const { qwizardpage_actionevent_isbase = value; }
+    inline void setQWizardPage_DragEnterEvent_IsBase(bool value) const { qwizardpage_dragenterevent_isbase = value; }
+    inline void setQWizardPage_DragMoveEvent_IsBase(bool value) const { qwizardpage_dragmoveevent_isbase = value; }
+    inline void setQWizardPage_DragLeaveEvent_IsBase(bool value) const { qwizardpage_dragleaveevent_isbase = value; }
+    inline void setQWizardPage_DropEvent_IsBase(bool value) const { qwizardpage_dropevent_isbase = value; }
+    inline void setQWizardPage_ShowEvent_IsBase(bool value) const { qwizardpage_showevent_isbase = value; }
+    inline void setQWizardPage_HideEvent_IsBase(bool value) const { qwizardpage_hideevent_isbase = value; }
+    inline void setQWizardPage_NativeEvent_IsBase(bool value) const { qwizardpage_nativeevent_isbase = value; }
+    inline void setQWizardPage_ChangeEvent_IsBase(bool value) const { qwizardpage_changeevent_isbase = value; }
+    inline void setQWizardPage_Metric_IsBase(bool value) const { qwizardpage_metric_isbase = value; }
+    inline void setQWizardPage_InitPainter_IsBase(bool value) const { qwizardpage_initpainter_isbase = value; }
+    inline void setQWizardPage_Redirected_IsBase(bool value) const { qwizardpage_redirected_isbase = value; }
+    inline void setQWizardPage_SharedPainter_IsBase(bool value) const { qwizardpage_sharedpainter_isbase = value; }
+    inline void setQWizardPage_InputMethodEvent_IsBase(bool value) const { qwizardpage_inputmethodevent_isbase = value; }
+    inline void setQWizardPage_InputMethodQuery_IsBase(bool value) const { qwizardpage_inputmethodquery_isbase = value; }
+    inline void setQWizardPage_FocusNextPrevChild_IsBase(bool value) const { qwizardpage_focusnextprevchild_isbase = value; }
+    inline void setQWizardPage_EventFilter_IsBase(bool value) const { qwizardpage_eventfilter_isbase = value; }
+    inline void setQWizardPage_TimerEvent_IsBase(bool value) const { qwizardpage_timerevent_isbase = value; }
+    inline void setQWizardPage_ChildEvent_IsBase(bool value) const { qwizardpage_childevent_isbase = value; }
+    inline void setQWizardPage_CustomEvent_IsBase(bool value) const { qwizardpage_customevent_isbase = value; }
+    inline void setQWizardPage_ConnectNotify_IsBase(bool value) const { qwizardpage_connectnotify_isbase = value; }
+    inline void setQWizardPage_DisconnectNotify_IsBase(bool value) const { qwizardpage_disconnectnotify_isbase = value; }
+    inline void setQWizardPage_SetField_IsBase(bool value) const { qwizardpage_setfield_isbase = value; }
+    inline void setQWizardPage_Field_IsBase(bool value) const { qwizardpage_field_isbase = value; }
+    inline void setQWizardPage_RegisterField_IsBase(bool value) const { qwizardpage_registerfield_isbase = value; }
+    inline void setQWizardPage_Wizard_IsBase(bool value) const { qwizardpage_wizard_isbase = value; }
+    inline void setQWizardPage_RegisterField3_IsBase(bool value) const { qwizardpage_registerfield3_isbase = value; }
+    inline void setQWizardPage_RegisterField4_IsBase(bool value) const { qwizardpage_registerfield4_isbase = value; }
+    inline void setQWizardPage_UpdateMicroFocus_IsBase(bool value) const { qwizardpage_updatemicrofocus_isbase = value; }
+    inline void setQWizardPage_Create_IsBase(bool value) const { qwizardpage_create_isbase = value; }
+    inline void setQWizardPage_Destroy_IsBase(bool value) const { qwizardpage_destroy_isbase = value; }
+    inline void setQWizardPage_FocusNextChild_IsBase(bool value) const { qwizardpage_focusnextchild_isbase = value; }
+    inline void setQWizardPage_FocusPreviousChild_IsBase(bool value) const { qwizardpage_focuspreviouschild_isbase = value; }
+    inline void setQWizardPage_Sender_IsBase(bool value) const { qwizardpage_sender_isbase = value; }
+    inline void setQWizardPage_SenderSignalIndex_IsBase(bool value) const { qwizardpage_sendersignalindex_isbase = value; }
+    inline void setQWizardPage_Receivers_IsBase(bool value) const { qwizardpage_receivers_isbase = value; }
+    inline void setQWizardPage_IsSignalConnected_IsBase(bool value) const { qwizardpage_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1676,7 +1926,12 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_metacall_isbase = false;
             return QWizardPage::qt_metacall(param1, param2, param3);
         } else if (qwizardpage_metacall_callback != nullptr) {
-            return qwizardpage_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qwizardpage_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QWizardPage::qt_metacall(param1, param2, param3);
         }
@@ -1712,7 +1967,8 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_validatepage_isbase = false;
             return QWizardPage::validatePage();
         } else if (qwizardpage_validatepage_callback != nullptr) {
-            return qwizardpage_validatepage_callback();
+            bool callback_ret = qwizardpage_validatepage_callback();
+            return callback_ret;
         } else {
             return QWizardPage::validatePage();
         }
@@ -1724,7 +1980,8 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_iscomplete_isbase = false;
             return QWizardPage::isComplete();
         } else if (qwizardpage_iscomplete_callback != nullptr) {
-            return qwizardpage_iscomplete_callback();
+            bool callback_ret = qwizardpage_iscomplete_callback();
+            return callback_ret;
         } else {
             return QWizardPage::isComplete();
         }
@@ -1736,7 +1993,8 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_nextid_isbase = false;
             return QWizardPage::nextId();
         } else if (qwizardpage_nextid_callback != nullptr) {
-            return qwizardpage_nextid_callback();
+            int callback_ret = qwizardpage_nextid_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QWizardPage::nextId();
         }
@@ -1748,7 +2006,8 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_devtype_isbase = false;
             return QWizardPage::devType();
         } else if (qwizardpage_devtype_callback != nullptr) {
-            return qwizardpage_devtype_callback();
+            int callback_ret = qwizardpage_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QWizardPage::devType();
         }
@@ -1760,7 +2019,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_setvisible_isbase = false;
             QWizardPage::setVisible(visible);
         } else if (qwizardpage_setvisible_callback != nullptr) {
-            qwizardpage_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qwizardpage_setvisible_callback(this, cbval1);
         } else {
             QWizardPage::setVisible(visible);
         }
@@ -1772,7 +2033,8 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_sizehint_isbase = false;
             return QWizardPage::sizeHint();
         } else if (qwizardpage_sizehint_callback != nullptr) {
-            return qwizardpage_sizehint_callback();
+            QSize* callback_ret = qwizardpage_sizehint_callback();
+            return *callback_ret;
         } else {
             return QWizardPage::sizeHint();
         }
@@ -1784,7 +2046,8 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_minimumsizehint_isbase = false;
             return QWizardPage::minimumSizeHint();
         } else if (qwizardpage_minimumsizehint_callback != nullptr) {
-            return qwizardpage_minimumsizehint_callback();
+            QSize* callback_ret = qwizardpage_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QWizardPage::minimumSizeHint();
         }
@@ -1796,7 +2059,10 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_heightforwidth_isbase = false;
             return QWizardPage::heightForWidth(param1);
         } else if (qwizardpage_heightforwidth_callback != nullptr) {
-            return qwizardpage_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qwizardpage_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QWizardPage::heightForWidth(param1);
         }
@@ -1808,7 +2074,8 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_hasheightforwidth_isbase = false;
             return QWizardPage::hasHeightForWidth();
         } else if (qwizardpage_hasheightforwidth_callback != nullptr) {
-            return qwizardpage_hasheightforwidth_callback();
+            bool callback_ret = qwizardpage_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QWizardPage::hasHeightForWidth();
         }
@@ -1820,7 +2087,8 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_paintengine_isbase = false;
             return QWizardPage::paintEngine();
         } else if (qwizardpage_paintengine_callback != nullptr) {
-            return qwizardpage_paintengine_callback();
+            QPaintEngine* callback_ret = qwizardpage_paintengine_callback();
+            return callback_ret;
         } else {
             return QWizardPage::paintEngine();
         }
@@ -1832,7 +2100,10 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_event_isbase = false;
             return QWizardPage::event(event);
         } else if (qwizardpage_event_callback != nullptr) {
-            return qwizardpage_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qwizardpage_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QWizardPage::event(event);
         }
@@ -1844,7 +2115,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_mousepressevent_isbase = false;
             QWizardPage::mousePressEvent(event);
         } else if (qwizardpage_mousepressevent_callback != nullptr) {
-            qwizardpage_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qwizardpage_mousepressevent_callback(this, cbval1);
         } else {
             QWizardPage::mousePressEvent(event);
         }
@@ -1856,7 +2129,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_mousereleaseevent_isbase = false;
             QWizardPage::mouseReleaseEvent(event);
         } else if (qwizardpage_mousereleaseevent_callback != nullptr) {
-            qwizardpage_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qwizardpage_mousereleaseevent_callback(this, cbval1);
         } else {
             QWizardPage::mouseReleaseEvent(event);
         }
@@ -1868,7 +2143,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_mousedoubleclickevent_isbase = false;
             QWizardPage::mouseDoubleClickEvent(event);
         } else if (qwizardpage_mousedoubleclickevent_callback != nullptr) {
-            qwizardpage_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qwizardpage_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QWizardPage::mouseDoubleClickEvent(event);
         }
@@ -1880,7 +2157,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_mousemoveevent_isbase = false;
             QWizardPage::mouseMoveEvent(event);
         } else if (qwizardpage_mousemoveevent_callback != nullptr) {
-            qwizardpage_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qwizardpage_mousemoveevent_callback(this, cbval1);
         } else {
             QWizardPage::mouseMoveEvent(event);
         }
@@ -1892,7 +2171,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_wheelevent_isbase = false;
             QWizardPage::wheelEvent(event);
         } else if (qwizardpage_wheelevent_callback != nullptr) {
-            qwizardpage_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qwizardpage_wheelevent_callback(this, cbval1);
         } else {
             QWizardPage::wheelEvent(event);
         }
@@ -1904,7 +2185,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_keypressevent_isbase = false;
             QWizardPage::keyPressEvent(event);
         } else if (qwizardpage_keypressevent_callback != nullptr) {
-            qwizardpage_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qwizardpage_keypressevent_callback(this, cbval1);
         } else {
             QWizardPage::keyPressEvent(event);
         }
@@ -1916,7 +2199,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_keyreleaseevent_isbase = false;
             QWizardPage::keyReleaseEvent(event);
         } else if (qwizardpage_keyreleaseevent_callback != nullptr) {
-            qwizardpage_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qwizardpage_keyreleaseevent_callback(this, cbval1);
         } else {
             QWizardPage::keyReleaseEvent(event);
         }
@@ -1928,7 +2213,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_focusinevent_isbase = false;
             QWizardPage::focusInEvent(event);
         } else if (qwizardpage_focusinevent_callback != nullptr) {
-            qwizardpage_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qwizardpage_focusinevent_callback(this, cbval1);
         } else {
             QWizardPage::focusInEvent(event);
         }
@@ -1940,7 +2227,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_focusoutevent_isbase = false;
             QWizardPage::focusOutEvent(event);
         } else if (qwizardpage_focusoutevent_callback != nullptr) {
-            qwizardpage_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qwizardpage_focusoutevent_callback(this, cbval1);
         } else {
             QWizardPage::focusOutEvent(event);
         }
@@ -1952,7 +2241,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_enterevent_isbase = false;
             QWizardPage::enterEvent(event);
         } else if (qwizardpage_enterevent_callback != nullptr) {
-            qwizardpage_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qwizardpage_enterevent_callback(this, cbval1);
         } else {
             QWizardPage::enterEvent(event);
         }
@@ -1964,7 +2255,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_leaveevent_isbase = false;
             QWizardPage::leaveEvent(event);
         } else if (qwizardpage_leaveevent_callback != nullptr) {
-            qwizardpage_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qwizardpage_leaveevent_callback(this, cbval1);
         } else {
             QWizardPage::leaveEvent(event);
         }
@@ -1976,7 +2269,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_paintevent_isbase = false;
             QWizardPage::paintEvent(event);
         } else if (qwizardpage_paintevent_callback != nullptr) {
-            qwizardpage_paintevent_callback(this, event);
+            QPaintEvent* cbval1 = event;
+
+            qwizardpage_paintevent_callback(this, cbval1);
         } else {
             QWizardPage::paintEvent(event);
         }
@@ -1988,7 +2283,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_moveevent_isbase = false;
             QWizardPage::moveEvent(event);
         } else if (qwizardpage_moveevent_callback != nullptr) {
-            qwizardpage_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qwizardpage_moveevent_callback(this, cbval1);
         } else {
             QWizardPage::moveEvent(event);
         }
@@ -2000,7 +2297,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_resizeevent_isbase = false;
             QWizardPage::resizeEvent(event);
         } else if (qwizardpage_resizeevent_callback != nullptr) {
-            qwizardpage_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qwizardpage_resizeevent_callback(this, cbval1);
         } else {
             QWizardPage::resizeEvent(event);
         }
@@ -2012,7 +2311,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_closeevent_isbase = false;
             QWizardPage::closeEvent(event);
         } else if (qwizardpage_closeevent_callback != nullptr) {
-            qwizardpage_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qwizardpage_closeevent_callback(this, cbval1);
         } else {
             QWizardPage::closeEvent(event);
         }
@@ -2024,7 +2325,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_contextmenuevent_isbase = false;
             QWizardPage::contextMenuEvent(event);
         } else if (qwizardpage_contextmenuevent_callback != nullptr) {
-            qwizardpage_contextmenuevent_callback(this, event);
+            QContextMenuEvent* cbval1 = event;
+
+            qwizardpage_contextmenuevent_callback(this, cbval1);
         } else {
             QWizardPage::contextMenuEvent(event);
         }
@@ -2036,7 +2339,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_tabletevent_isbase = false;
             QWizardPage::tabletEvent(event);
         } else if (qwizardpage_tabletevent_callback != nullptr) {
-            qwizardpage_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qwizardpage_tabletevent_callback(this, cbval1);
         } else {
             QWizardPage::tabletEvent(event);
         }
@@ -2048,7 +2353,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_actionevent_isbase = false;
             QWizardPage::actionEvent(event);
         } else if (qwizardpage_actionevent_callback != nullptr) {
-            qwizardpage_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qwizardpage_actionevent_callback(this, cbval1);
         } else {
             QWizardPage::actionEvent(event);
         }
@@ -2060,7 +2367,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_dragenterevent_isbase = false;
             QWizardPage::dragEnterEvent(event);
         } else if (qwizardpage_dragenterevent_callback != nullptr) {
-            qwizardpage_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qwizardpage_dragenterevent_callback(this, cbval1);
         } else {
             QWizardPage::dragEnterEvent(event);
         }
@@ -2072,7 +2381,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_dragmoveevent_isbase = false;
             QWizardPage::dragMoveEvent(event);
         } else if (qwizardpage_dragmoveevent_callback != nullptr) {
-            qwizardpage_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qwizardpage_dragmoveevent_callback(this, cbval1);
         } else {
             QWizardPage::dragMoveEvent(event);
         }
@@ -2084,7 +2395,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_dragleaveevent_isbase = false;
             QWizardPage::dragLeaveEvent(event);
         } else if (qwizardpage_dragleaveevent_callback != nullptr) {
-            qwizardpage_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qwizardpage_dragleaveevent_callback(this, cbval1);
         } else {
             QWizardPage::dragLeaveEvent(event);
         }
@@ -2096,7 +2409,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_dropevent_isbase = false;
             QWizardPage::dropEvent(event);
         } else if (qwizardpage_dropevent_callback != nullptr) {
-            qwizardpage_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qwizardpage_dropevent_callback(this, cbval1);
         } else {
             QWizardPage::dropEvent(event);
         }
@@ -2108,7 +2423,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_showevent_isbase = false;
             QWizardPage::showEvent(event);
         } else if (qwizardpage_showevent_callback != nullptr) {
-            qwizardpage_showevent_callback(this, event);
+            QShowEvent* cbval1 = event;
+
+            qwizardpage_showevent_callback(this, cbval1);
         } else {
             QWizardPage::showEvent(event);
         }
@@ -2120,7 +2437,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_hideevent_isbase = false;
             QWizardPage::hideEvent(event);
         } else if (qwizardpage_hideevent_callback != nullptr) {
-            qwizardpage_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qwizardpage_hideevent_callback(this, cbval1);
         } else {
             QWizardPage::hideEvent(event);
         }
@@ -2132,7 +2451,19 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_nativeevent_isbase = false;
             return QWizardPage::nativeEvent(eventType, message, result);
         } else if (qwizardpage_nativeevent_callback != nullptr) {
-            return qwizardpage_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qwizardpage_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QWizardPage::nativeEvent(eventType, message, result);
         }
@@ -2144,7 +2475,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_changeevent_isbase = false;
             QWizardPage::changeEvent(param1);
         } else if (qwizardpage_changeevent_callback != nullptr) {
-            qwizardpage_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qwizardpage_changeevent_callback(this, cbval1);
         } else {
             QWizardPage::changeEvent(param1);
         }
@@ -2156,7 +2489,10 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_metric_isbase = false;
             return QWizardPage::metric(param1);
         } else if (qwizardpage_metric_callback != nullptr) {
-            return qwizardpage_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qwizardpage_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QWizardPage::metric(param1);
         }
@@ -2168,7 +2504,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_initpainter_isbase = false;
             QWizardPage::initPainter(painter);
         } else if (qwizardpage_initpainter_callback != nullptr) {
-            qwizardpage_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qwizardpage_initpainter_callback(this, cbval1);
         } else {
             QWizardPage::initPainter(painter);
         }
@@ -2180,7 +2518,10 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_redirected_isbase = false;
             return QWizardPage::redirected(offset);
         } else if (qwizardpage_redirected_callback != nullptr) {
-            return qwizardpage_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qwizardpage_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QWizardPage::redirected(offset);
         }
@@ -2192,7 +2533,8 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_sharedpainter_isbase = false;
             return QWizardPage::sharedPainter();
         } else if (qwizardpage_sharedpainter_callback != nullptr) {
-            return qwizardpage_sharedpainter_callback();
+            QPainter* callback_ret = qwizardpage_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QWizardPage::sharedPainter();
         }
@@ -2204,7 +2546,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_inputmethodevent_isbase = false;
             QWizardPage::inputMethodEvent(param1);
         } else if (qwizardpage_inputmethodevent_callback != nullptr) {
-            qwizardpage_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qwizardpage_inputmethodevent_callback(this, cbval1);
         } else {
             QWizardPage::inputMethodEvent(param1);
         }
@@ -2216,7 +2560,10 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_inputmethodquery_isbase = false;
             return QWizardPage::inputMethodQuery(param1);
         } else if (qwizardpage_inputmethodquery_callback != nullptr) {
-            return qwizardpage_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qwizardpage_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QWizardPage::inputMethodQuery(param1);
         }
@@ -2228,7 +2575,10 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_focusnextprevchild_isbase = false;
             return QWizardPage::focusNextPrevChild(next);
         } else if (qwizardpage_focusnextprevchild_callback != nullptr) {
-            return qwizardpage_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qwizardpage_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QWizardPage::focusNextPrevChild(next);
         }
@@ -2240,7 +2590,11 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_eventfilter_isbase = false;
             return QWizardPage::eventFilter(watched, event);
         } else if (qwizardpage_eventfilter_callback != nullptr) {
-            return qwizardpage_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qwizardpage_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QWizardPage::eventFilter(watched, event);
         }
@@ -2252,7 +2606,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_timerevent_isbase = false;
             QWizardPage::timerEvent(event);
         } else if (qwizardpage_timerevent_callback != nullptr) {
-            qwizardpage_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qwizardpage_timerevent_callback(this, cbval1);
         } else {
             QWizardPage::timerEvent(event);
         }
@@ -2264,7 +2620,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_childevent_isbase = false;
             QWizardPage::childEvent(event);
         } else if (qwizardpage_childevent_callback != nullptr) {
-            qwizardpage_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qwizardpage_childevent_callback(this, cbval1);
         } else {
             QWizardPage::childEvent(event);
         }
@@ -2276,7 +2634,9 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_customevent_isbase = false;
             QWizardPage::customEvent(event);
         } else if (qwizardpage_customevent_callback != nullptr) {
-            qwizardpage_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qwizardpage_customevent_callback(this, cbval1);
         } else {
             QWizardPage::customEvent(event);
         }
@@ -2288,7 +2648,11 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_connectnotify_isbase = false;
             QWizardPage::connectNotify(signal);
         } else if (qwizardpage_connectnotify_callback != nullptr) {
-            qwizardpage_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qwizardpage_connectnotify_callback(this, cbval1);
         } else {
             QWizardPage::connectNotify(signal);
         }
@@ -2300,7 +2664,11 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_disconnectnotify_isbase = false;
             QWizardPage::disconnectNotify(signal);
         } else if (qwizardpage_disconnectnotify_callback != nullptr) {
-            qwizardpage_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qwizardpage_disconnectnotify_callback(this, cbval1);
         } else {
             QWizardPage::disconnectNotify(signal);
         }
@@ -2312,7 +2680,20 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_setfield_isbase = false;
             QWizardPage::setField(name, value);
         } else if (qwizardpage_setfield_callback != nullptr) {
-            qwizardpage_setfield_callback(this, name, value);
+            const QString name_ret = name;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray name_b = name_ret.toUtf8();
+            libqt_string name_str;
+            name_str.len = name_b.length();
+            name_str.data = static_cast<char*>(malloc((name_str.len + 1) * sizeof(char)));
+            memcpy(name_str.data, name_b.data(), name_str.len);
+            name_str.data[name_str.len] = '\0';
+            libqt_string cbval1 = name_str;
+            const QVariant& value_ret = value;
+            // Cast returned reference into pointer
+            QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
+
+            qwizardpage_setfield_callback(this, cbval1, cbval2);
         } else {
             QWizardPage::setField(name, value);
         }
@@ -2324,7 +2705,18 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_field_isbase = false;
             return QWizardPage::field(name);
         } else if (qwizardpage_field_callback != nullptr) {
-            return qwizardpage_field_callback(this, name);
+            const QString name_ret = name;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray name_b = name_ret.toUtf8();
+            libqt_string name_str;
+            name_str.len = name_b.length();
+            name_str.data = static_cast<char*>(malloc((name_str.len + 1) * sizeof(char)));
+            memcpy(name_str.data, name_b.data(), name_str.len);
+            name_str.data[name_str.len] = '\0';
+            libqt_string cbval1 = name_str;
+
+            QVariant* callback_ret = qwizardpage_field_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QWizardPage::field(name);
         }
@@ -2336,7 +2728,18 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_registerfield_isbase = false;
             QWizardPage::registerField(name, widget);
         } else if (qwizardpage_registerfield_callback != nullptr) {
-            qwizardpage_registerfield_callback(this, name, widget);
+            const QString name_ret = name;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray name_b = name_ret.toUtf8();
+            libqt_string name_str;
+            name_str.len = name_b.length();
+            name_str.data = static_cast<char*>(malloc((name_str.len + 1) * sizeof(char)));
+            memcpy(name_str.data, name_b.data(), name_str.len);
+            name_str.data[name_str.len] = '\0';
+            libqt_string cbval1 = name_str;
+            QWidget* cbval2 = widget;
+
+            qwizardpage_registerfield_callback(this, cbval1, cbval2);
         } else {
             QWizardPage::registerField(name, widget);
         }
@@ -2348,7 +2751,8 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_wizard_isbase = false;
             return QWizardPage::wizard();
         } else if (qwizardpage_wizard_callback != nullptr) {
-            return qwizardpage_wizard_callback();
+            QWizard* callback_ret = qwizardpage_wizard_callback();
+            return callback_ret;
         } else {
             return QWizardPage::wizard();
         }
@@ -2360,7 +2764,19 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_registerfield3_isbase = false;
             QWizardPage::registerField(name, widget, property);
         } else if (qwizardpage_registerfield3_callback != nullptr) {
-            qwizardpage_registerfield3_callback(this, name, widget, property);
+            const QString name_ret = name;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray name_b = name_ret.toUtf8();
+            libqt_string name_str;
+            name_str.len = name_b.length();
+            name_str.data = static_cast<char*>(malloc((name_str.len + 1) * sizeof(char)));
+            memcpy(name_str.data, name_b.data(), name_str.len);
+            name_str.data[name_str.len] = '\0';
+            libqt_string cbval1 = name_str;
+            QWidget* cbval2 = widget;
+            const char* cbval3 = (const char*)property;
+
+            qwizardpage_registerfield3_callback(this, cbval1, cbval2, cbval3);
         } else {
             QWizardPage::registerField(name, widget, property);
         }
@@ -2372,7 +2788,20 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_registerfield4_isbase = false;
             QWizardPage::registerField(name, widget, property, changedSignal);
         } else if (qwizardpage_registerfield4_callback != nullptr) {
-            qwizardpage_registerfield4_callback(this, name, widget, property, changedSignal);
+            const QString name_ret = name;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray name_b = name_ret.toUtf8();
+            libqt_string name_str;
+            name_str.len = name_b.length();
+            name_str.data = static_cast<char*>(malloc((name_str.len + 1) * sizeof(char)));
+            memcpy(name_str.data, name_b.data(), name_str.len);
+            name_str.data[name_str.len] = '\0';
+            libqt_string cbval1 = name_str;
+            QWidget* cbval2 = widget;
+            const char* cbval3 = (const char*)property;
+            const char* cbval4 = (const char*)changedSignal;
+
+            qwizardpage_registerfield4_callback(this, cbval1, cbval2, cbval3, cbval4);
         } else {
             QWizardPage::registerField(name, widget, property, changedSignal);
         }
@@ -2420,7 +2849,8 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_focusnextchild_isbase = false;
             return QWizardPage::focusNextChild();
         } else if (qwizardpage_focusnextchild_callback != nullptr) {
-            return qwizardpage_focusnextchild_callback();
+            bool callback_ret = qwizardpage_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QWizardPage::focusNextChild();
         }
@@ -2432,7 +2862,8 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_focuspreviouschild_isbase = false;
             return QWizardPage::focusPreviousChild();
         } else if (qwizardpage_focuspreviouschild_callback != nullptr) {
-            return qwizardpage_focuspreviouschild_callback();
+            bool callback_ret = qwizardpage_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QWizardPage::focusPreviousChild();
         }
@@ -2444,7 +2875,8 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_sender_isbase = false;
             return QWizardPage::sender();
         } else if (qwizardpage_sender_callback != nullptr) {
-            return qwizardpage_sender_callback();
+            QObject* callback_ret = qwizardpage_sender_callback();
+            return callback_ret;
         } else {
             return QWizardPage::sender();
         }
@@ -2456,7 +2888,8 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_sendersignalindex_isbase = false;
             return QWizardPage::senderSignalIndex();
         } else if (qwizardpage_sendersignalindex_callback != nullptr) {
-            return qwizardpage_sendersignalindex_callback();
+            int callback_ret = qwizardpage_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QWizardPage::senderSignalIndex();
         }
@@ -2468,7 +2901,10 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_receivers_isbase = false;
             return QWizardPage::receivers(signal);
         } else if (qwizardpage_receivers_callback != nullptr) {
-            return qwizardpage_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qwizardpage_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QWizardPage::receivers(signal);
         }
@@ -2480,11 +2916,124 @@ class VirtualQWizardPage : public QWizardPage {
             qwizardpage_issignalconnected_isbase = false;
             return QWizardPage::isSignalConnected(signal);
         } else if (qwizardpage_issignalconnected_callback != nullptr) {
-            return qwizardpage_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qwizardpage_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QWizardPage::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QWizardPage_Event(QWizardPage* self, QEvent* event);
+    friend bool QWizardPage_QBaseEvent(QWizardPage* self, QEvent* event);
+    friend void QWizardPage_MousePressEvent(QWizardPage* self, QMouseEvent* event);
+    friend void QWizardPage_QBaseMousePressEvent(QWizardPage* self, QMouseEvent* event);
+    friend void QWizardPage_MouseReleaseEvent(QWizardPage* self, QMouseEvent* event);
+    friend void QWizardPage_QBaseMouseReleaseEvent(QWizardPage* self, QMouseEvent* event);
+    friend void QWizardPage_MouseDoubleClickEvent(QWizardPage* self, QMouseEvent* event);
+    friend void QWizardPage_QBaseMouseDoubleClickEvent(QWizardPage* self, QMouseEvent* event);
+    friend void QWizardPage_MouseMoveEvent(QWizardPage* self, QMouseEvent* event);
+    friend void QWizardPage_QBaseMouseMoveEvent(QWizardPage* self, QMouseEvent* event);
+    friend void QWizardPage_WheelEvent(QWizardPage* self, QWheelEvent* event);
+    friend void QWizardPage_QBaseWheelEvent(QWizardPage* self, QWheelEvent* event);
+    friend void QWizardPage_KeyPressEvent(QWizardPage* self, QKeyEvent* event);
+    friend void QWizardPage_QBaseKeyPressEvent(QWizardPage* self, QKeyEvent* event);
+    friend void QWizardPage_KeyReleaseEvent(QWizardPage* self, QKeyEvent* event);
+    friend void QWizardPage_QBaseKeyReleaseEvent(QWizardPage* self, QKeyEvent* event);
+    friend void QWizardPage_FocusInEvent(QWizardPage* self, QFocusEvent* event);
+    friend void QWizardPage_QBaseFocusInEvent(QWizardPage* self, QFocusEvent* event);
+    friend void QWizardPage_FocusOutEvent(QWizardPage* self, QFocusEvent* event);
+    friend void QWizardPage_QBaseFocusOutEvent(QWizardPage* self, QFocusEvent* event);
+    friend void QWizardPage_EnterEvent(QWizardPage* self, QEnterEvent* event);
+    friend void QWizardPage_QBaseEnterEvent(QWizardPage* self, QEnterEvent* event);
+    friend void QWizardPage_LeaveEvent(QWizardPage* self, QEvent* event);
+    friend void QWizardPage_QBaseLeaveEvent(QWizardPage* self, QEvent* event);
+    friend void QWizardPage_PaintEvent(QWizardPage* self, QPaintEvent* event);
+    friend void QWizardPage_QBasePaintEvent(QWizardPage* self, QPaintEvent* event);
+    friend void QWizardPage_MoveEvent(QWizardPage* self, QMoveEvent* event);
+    friend void QWizardPage_QBaseMoveEvent(QWizardPage* self, QMoveEvent* event);
+    friend void QWizardPage_ResizeEvent(QWizardPage* self, QResizeEvent* event);
+    friend void QWizardPage_QBaseResizeEvent(QWizardPage* self, QResizeEvent* event);
+    friend void QWizardPage_CloseEvent(QWizardPage* self, QCloseEvent* event);
+    friend void QWizardPage_QBaseCloseEvent(QWizardPage* self, QCloseEvent* event);
+    friend void QWizardPage_ContextMenuEvent(QWizardPage* self, QContextMenuEvent* event);
+    friend void QWizardPage_QBaseContextMenuEvent(QWizardPage* self, QContextMenuEvent* event);
+    friend void QWizardPage_TabletEvent(QWizardPage* self, QTabletEvent* event);
+    friend void QWizardPage_QBaseTabletEvent(QWizardPage* self, QTabletEvent* event);
+    friend void QWizardPage_ActionEvent(QWizardPage* self, QActionEvent* event);
+    friend void QWizardPage_QBaseActionEvent(QWizardPage* self, QActionEvent* event);
+    friend void QWizardPage_DragEnterEvent(QWizardPage* self, QDragEnterEvent* event);
+    friend void QWizardPage_QBaseDragEnterEvent(QWizardPage* self, QDragEnterEvent* event);
+    friend void QWizardPage_DragMoveEvent(QWizardPage* self, QDragMoveEvent* event);
+    friend void QWizardPage_QBaseDragMoveEvent(QWizardPage* self, QDragMoveEvent* event);
+    friend void QWizardPage_DragLeaveEvent(QWizardPage* self, QDragLeaveEvent* event);
+    friend void QWizardPage_QBaseDragLeaveEvent(QWizardPage* self, QDragLeaveEvent* event);
+    friend void QWizardPage_DropEvent(QWizardPage* self, QDropEvent* event);
+    friend void QWizardPage_QBaseDropEvent(QWizardPage* self, QDropEvent* event);
+    friend void QWizardPage_ShowEvent(QWizardPage* self, QShowEvent* event);
+    friend void QWizardPage_QBaseShowEvent(QWizardPage* self, QShowEvent* event);
+    friend void QWizardPage_HideEvent(QWizardPage* self, QHideEvent* event);
+    friend void QWizardPage_QBaseHideEvent(QWizardPage* self, QHideEvent* event);
+    friend bool QWizardPage_NativeEvent(QWizardPage* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QWizardPage_QBaseNativeEvent(QWizardPage* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend void QWizardPage_ChangeEvent(QWizardPage* self, QEvent* param1);
+    friend void QWizardPage_QBaseChangeEvent(QWizardPage* self, QEvent* param1);
+    friend int QWizardPage_Metric(const QWizardPage* self, int param1);
+    friend int QWizardPage_QBaseMetric(const QWizardPage* self, int param1);
+    friend void QWizardPage_InitPainter(const QWizardPage* self, QPainter* painter);
+    friend void QWizardPage_QBaseInitPainter(const QWizardPage* self, QPainter* painter);
+    friend QPaintDevice* QWizardPage_Redirected(const QWizardPage* self, QPoint* offset);
+    friend QPaintDevice* QWizardPage_QBaseRedirected(const QWizardPage* self, QPoint* offset);
+    friend QPainter* QWizardPage_SharedPainter(const QWizardPage* self);
+    friend QPainter* QWizardPage_QBaseSharedPainter(const QWizardPage* self);
+    friend void QWizardPage_InputMethodEvent(QWizardPage* self, QInputMethodEvent* param1);
+    friend void QWizardPage_QBaseInputMethodEvent(QWizardPage* self, QInputMethodEvent* param1);
+    friend bool QWizardPage_FocusNextPrevChild(QWizardPage* self, bool next);
+    friend bool QWizardPage_QBaseFocusNextPrevChild(QWizardPage* self, bool next);
+    friend void QWizardPage_TimerEvent(QWizardPage* self, QTimerEvent* event);
+    friend void QWizardPage_QBaseTimerEvent(QWizardPage* self, QTimerEvent* event);
+    friend void QWizardPage_ChildEvent(QWizardPage* self, QChildEvent* event);
+    friend void QWizardPage_QBaseChildEvent(QWizardPage* self, QChildEvent* event);
+    friend void QWizardPage_CustomEvent(QWizardPage* self, QEvent* event);
+    friend void QWizardPage_QBaseCustomEvent(QWizardPage* self, QEvent* event);
+    friend void QWizardPage_ConnectNotify(QWizardPage* self, const QMetaMethod* signal);
+    friend void QWizardPage_QBaseConnectNotify(QWizardPage* self, const QMetaMethod* signal);
+    friend void QWizardPage_DisconnectNotify(QWizardPage* self, const QMetaMethod* signal);
+    friend void QWizardPage_QBaseDisconnectNotify(QWizardPage* self, const QMetaMethod* signal);
+    friend void QWizardPage_SetField(QWizardPage* self, const libqt_string name, const QVariant* value);
+    friend void QWizardPage_QBaseSetField(QWizardPage* self, const libqt_string name, const QVariant* value);
+    friend QVariant* QWizardPage_Field(const QWizardPage* self, const libqt_string name);
+    friend QVariant* QWizardPage_QBaseField(const QWizardPage* self, const libqt_string name);
+    friend void QWizardPage_RegisterField(QWizardPage* self, const libqt_string name, QWidget* widget);
+    friend void QWizardPage_QBaseRegisterField(QWizardPage* self, const libqt_string name, QWidget* widget);
+    friend QWizard* QWizardPage_Wizard(const QWizardPage* self);
+    friend QWizard* QWizardPage_QBaseWizard(const QWizardPage* self);
+    friend void QWizardPage_RegisterField3(QWizardPage* self, const libqt_string name, QWidget* widget, const char* property);
+    friend void QWizardPage_QBaseRegisterField3(QWizardPage* self, const libqt_string name, QWidget* widget, const char* property);
+    friend void QWizardPage_RegisterField4(QWizardPage* self, const libqt_string name, QWidget* widget, const char* property, const char* changedSignal);
+    friend void QWizardPage_QBaseRegisterField4(QWizardPage* self, const libqt_string name, QWidget* widget, const char* property, const char* changedSignal);
+    friend void QWizardPage_UpdateMicroFocus(QWizardPage* self);
+    friend void QWizardPage_QBaseUpdateMicroFocus(QWizardPage* self);
+    friend void QWizardPage_Create(QWizardPage* self);
+    friend void QWizardPage_QBaseCreate(QWizardPage* self);
+    friend void QWizardPage_Destroy(QWizardPage* self);
+    friend void QWizardPage_QBaseDestroy(QWizardPage* self);
+    friend bool QWizardPage_FocusNextChild(QWizardPage* self);
+    friend bool QWizardPage_QBaseFocusNextChild(QWizardPage* self);
+    friend bool QWizardPage_FocusPreviousChild(QWizardPage* self);
+    friend bool QWizardPage_QBaseFocusPreviousChild(QWizardPage* self);
+    friend QObject* QWizardPage_Sender(const QWizardPage* self);
+    friend QObject* QWizardPage_QBaseSender(const QWizardPage* self);
+    friend int QWizardPage_SenderSignalIndex(const QWizardPage* self);
+    friend int QWizardPage_QBaseSenderSignalIndex(const QWizardPage* self);
+    friend int QWizardPage_Receivers(const QWizardPage* self, const char* signal);
+    friend int QWizardPage_QBaseReceivers(const QWizardPage* self, const char* signal);
+    friend bool QWizardPage_IsSignalConnected(const QWizardPage* self, const QMetaMethod* signal);
+    friend bool QWizardPage_QBaseIsSignalConnected(const QWizardPage* self, const QMetaMethod* signal);
 };
 
 #endif

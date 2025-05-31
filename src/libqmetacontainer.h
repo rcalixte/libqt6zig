@@ -32,10 +32,10 @@ typedef unsigned char IteratorCapability;              // C ABI enum
 typedef unsigned char QMetaContainerInterfacePosition; // C ABI enum
 #endif
 
-QMetaContainer* QMetaContainer_new(QMetaContainer* other);
+QMetaContainer* QMetaContainer_new(const QMetaContainer* other);
 QMetaContainer* QMetaContainer_new2(QMetaContainer* other);
 QMetaContainer* QMetaContainer_new3();
-QMetaContainer* QMetaContainer_new4(QMetaContainer* param1);
+QMetaContainer* QMetaContainer_new4(const QMetaContainer* param1);
 void QMetaContainer_CopyAssign(QMetaContainer* self, QMetaContainer* other);
 void QMetaContainer_MoveAssign(QMetaContainer* self, QMetaContainer* other);
 bool QMetaContainer_HasInputIterator(const QMetaContainer* self);
@@ -64,7 +64,7 @@ void QMetaContainer_AdvanceConstIterator(const QMetaContainer* self, void* itera
 ptrdiff_t QMetaContainer_DiffConstIterator(const QMetaContainer* self, const void* i, const void* j);
 void QMetaContainer_Delete(QMetaContainer* self);
 
-QMetaSequence* QMetaSequence_new(QMetaSequence* other);
+QMetaSequence* QMetaSequence_new(const QMetaSequence* other);
 QMetaSequence* QMetaSequence_new2(QMetaSequence* other);
 QMetaSequence* QMetaSequence_new3();
 void QMetaSequence_CopyAssign(QMetaSequence* self, QMetaSequence* other);
@@ -101,7 +101,7 @@ bool QMetaSequence_CanGetValueAtConstIterator(const QMetaSequence* self);
 void QMetaSequence_ValueAtConstIterator(const QMetaSequence* self, const void* iterator, void* result);
 void QMetaSequence_Delete(QMetaSequence* self);
 
-QMetaAssociation* QMetaAssociation_new(QMetaAssociation* other);
+QMetaAssociation* QMetaAssociation_new(const QMetaAssociation* other);
 QMetaAssociation* QMetaAssociation_new2(QMetaAssociation* other);
 QMetaAssociation* QMetaAssociation_new3();
 void QMetaAssociation_CopyAssign(QMetaAssociation* self, QMetaAssociation* other);

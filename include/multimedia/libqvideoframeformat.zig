@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qimage_enums = @import("../libqimage.zig").enums;
 const qvideoframeformat_enums = enums;
 const std = @import("std");
@@ -8,234 +9,234 @@ pub const qvideoframeformat = struct {
     /// New constructs a new QVideoFrameFormat object.
     ///
     ///
-    pub fn New() ?*C.QVideoFrameFormat {
-        return C.QVideoFrameFormat_new();
+    pub fn New() QtC.QVideoFrameFormat {
+        return qtc.QVideoFrameFormat_new();
     }
 
     /// New2 constructs a new QVideoFrameFormat object.
     ///
-    /// ``` size: ?*C.QSize, pixelFormat: qvideoframeformat_enums.PixelFormat ```
-    pub fn New2(size: ?*anyopaque, pixelFormat: i64) ?*C.QVideoFrameFormat {
-        return C.QVideoFrameFormat_new2(@ptrCast(size), @intCast(pixelFormat));
+    /// ``` size: QtC.QSize, pixelFormat: qvideoframeformat_enums.PixelFormat ```
+    pub fn New2(size: ?*anyopaque, pixelFormat: i64) QtC.QVideoFrameFormat {
+        return qtc.QVideoFrameFormat_new2(@ptrCast(size), @intCast(pixelFormat));
     }
 
     /// New3 constructs a new QVideoFrameFormat object.
     ///
-    /// ``` format: ?*C.QVideoFrameFormat ```
-    pub fn New3(format: ?*anyopaque) ?*C.QVideoFrameFormat {
-        return C.QVideoFrameFormat_new3(@ptrCast(format));
+    /// ``` format: QtC.QVideoFrameFormat ```
+    pub fn New3(format: ?*anyopaque) QtC.QVideoFrameFormat {
+        return qtc.QVideoFrameFormat_new3(@ptrCast(format));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#swap)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, other: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat, other: QtC.QVideoFrameFormat ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QVideoFrameFormat_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QVideoFrameFormat_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#detach)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat ```
     pub fn Detach(self: ?*anyopaque) void {
-        C.QVideoFrameFormat_Detach(@ptrCast(self));
+        qtc.QVideoFrameFormat_Detach(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#operator=)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, format: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat, format: QtC.QVideoFrameFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, format: ?*anyopaque) void {
-        C.QVideoFrameFormat_OperatorAssign(@ptrCast(self), @ptrCast(format));
+        qtc.QVideoFrameFormat_OperatorAssign(@ptrCast(self), @ptrCast(format));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#operator==)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, format: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat, format: QtC.QVideoFrameFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, format: ?*anyopaque) bool {
-        return C.QVideoFrameFormat_OperatorEqual(@ptrCast(self), @ptrCast(format));
+        return qtc.QVideoFrameFormat_OperatorEqual(@ptrCast(self), @ptrCast(format));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#operator!=)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, format: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat, format: QtC.QVideoFrameFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, format: ?*anyopaque) bool {
-        return C.QVideoFrameFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(format));
+        return qtc.QVideoFrameFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(format));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#isValid)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QVideoFrameFormat_IsValid(@ptrCast(self));
+        return qtc.QVideoFrameFormat_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#pixelFormat)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat ```
     pub fn PixelFormat(self: ?*anyopaque) i64 {
-        return C.QVideoFrameFormat_PixelFormat(@ptrCast(self));
+        return qtc.QVideoFrameFormat_PixelFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#frameSize)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
-    pub fn FrameSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QVideoFrameFormat_FrameSize(@ptrCast(self));
+    /// ``` self: QtC.QVideoFrameFormat ```
+    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QVideoFrameFormat_FrameSize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#setFrameSize)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, size: ?*C.QSize ```
+    /// ``` self: QtC.QVideoFrameFormat, size: QtC.QSize ```
     pub fn SetFrameSize(self: ?*anyopaque, size: ?*anyopaque) void {
-        C.QVideoFrameFormat_SetFrameSize(@ptrCast(self), @ptrCast(size));
+        qtc.QVideoFrameFormat_SetFrameSize(@ptrCast(self), @ptrCast(size));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#setFrameSize)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, width: i32, height: i32 ```
+    /// ``` self: QtC.QVideoFrameFormat, width: i32, height: i32 ```
     pub fn SetFrameSize2(self: ?*anyopaque, width: i32, height: i32) void {
-        C.QVideoFrameFormat_SetFrameSize2(@ptrCast(self), @intCast(width), @intCast(height));
+        qtc.QVideoFrameFormat_SetFrameSize2(@ptrCast(self), @intCast(width), @intCast(height));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#frameWidth)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat ```
     pub fn FrameWidth(self: ?*anyopaque) i32 {
-        return C.QVideoFrameFormat_FrameWidth(@ptrCast(self));
+        return qtc.QVideoFrameFormat_FrameWidth(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#frameHeight)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat ```
     pub fn FrameHeight(self: ?*anyopaque) i32 {
-        return C.QVideoFrameFormat_FrameHeight(@ptrCast(self));
+        return qtc.QVideoFrameFormat_FrameHeight(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#planeCount)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat ```
     pub fn PlaneCount(self: ?*anyopaque) i32 {
-        return C.QVideoFrameFormat_PlaneCount(@ptrCast(self));
+        return qtc.QVideoFrameFormat_PlaneCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#viewport)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
-    pub fn Viewport(self: ?*anyopaque) ?*C.QRect {
-        return C.QVideoFrameFormat_Viewport(@ptrCast(self));
+    /// ``` self: QtC.QVideoFrameFormat ```
+    pub fn Viewport(self: ?*anyopaque) QtC.QRect {
+        return qtc.QVideoFrameFormat_Viewport(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#setViewport)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, viewport: ?*C.QRect ```
+    /// ``` self: QtC.QVideoFrameFormat, viewport: QtC.QRect ```
     pub fn SetViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        C.QVideoFrameFormat_SetViewport(@ptrCast(self), @ptrCast(viewport));
+        qtc.QVideoFrameFormat_SetViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#scanLineDirection)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat ```
     pub fn ScanLineDirection(self: ?*anyopaque) i64 {
-        return C.QVideoFrameFormat_ScanLineDirection(@ptrCast(self));
+        return qtc.QVideoFrameFormat_ScanLineDirection(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#setScanLineDirection)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, direction: qvideoframeformat_enums.Direction ```
+    /// ``` self: QtC.QVideoFrameFormat, direction: qvideoframeformat_enums.Direction ```
     pub fn SetScanLineDirection(self: ?*anyopaque, direction: i64) void {
-        C.QVideoFrameFormat_SetScanLineDirection(@ptrCast(self), @intCast(direction));
+        qtc.QVideoFrameFormat_SetScanLineDirection(@ptrCast(self), @intCast(direction));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#frameRate)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat ```
     pub fn FrameRate(self: ?*anyopaque) f64 {
-        return C.QVideoFrameFormat_FrameRate(@ptrCast(self));
+        return qtc.QVideoFrameFormat_FrameRate(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#setFrameRate)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, rate: f64 ```
+    /// ``` self: QtC.QVideoFrameFormat, rate: f64 ```
     pub fn SetFrameRate(self: ?*anyopaque, rate: f64) void {
-        C.QVideoFrameFormat_SetFrameRate(@ptrCast(self), @floatCast(rate));
+        qtc.QVideoFrameFormat_SetFrameRate(@ptrCast(self), @floatCast(rate));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#yCbCrColorSpace)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat ```
     pub fn YCbCrColorSpace(self: ?*anyopaque) i64 {
-        return C.QVideoFrameFormat_YCbCrColorSpace(@ptrCast(self));
+        return qtc.QVideoFrameFormat_YCbCrColorSpace(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#setYCbCrColorSpace)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, colorSpace: qvideoframeformat_enums.YCbCrColorSpace ```
+    /// ``` self: QtC.QVideoFrameFormat, colorSpace: qvideoframeformat_enums.YCbCrColorSpace ```
     pub fn SetYCbCrColorSpace(self: ?*anyopaque, colorSpace: i64) void {
-        C.QVideoFrameFormat_SetYCbCrColorSpace(@ptrCast(self), @intCast(colorSpace));
+        qtc.QVideoFrameFormat_SetYCbCrColorSpace(@ptrCast(self), @intCast(colorSpace));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#colorSpace)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat ```
     pub fn ColorSpace(self: ?*anyopaque) i64 {
-        return C.QVideoFrameFormat_ColorSpace(@ptrCast(self));
+        return qtc.QVideoFrameFormat_ColorSpace(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#setColorSpace)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, colorSpace: qvideoframeformat_enums.ColorSpace ```
+    /// ``` self: QtC.QVideoFrameFormat, colorSpace: qvideoframeformat_enums.ColorSpace ```
     pub fn SetColorSpace(self: ?*anyopaque, colorSpace: i64) void {
-        C.QVideoFrameFormat_SetColorSpace(@ptrCast(self), @intCast(colorSpace));
+        qtc.QVideoFrameFormat_SetColorSpace(@ptrCast(self), @intCast(colorSpace));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#colorTransfer)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat ```
     pub fn ColorTransfer(self: ?*anyopaque) i64 {
-        return C.QVideoFrameFormat_ColorTransfer(@ptrCast(self));
+        return qtc.QVideoFrameFormat_ColorTransfer(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#setColorTransfer)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, colorTransfer: qvideoframeformat_enums.ColorTransfer ```
+    /// ``` self: QtC.QVideoFrameFormat, colorTransfer: qvideoframeformat_enums.ColorTransfer ```
     pub fn SetColorTransfer(self: ?*anyopaque, colorTransfer: i64) void {
-        C.QVideoFrameFormat_SetColorTransfer(@ptrCast(self), @intCast(colorTransfer));
+        qtc.QVideoFrameFormat_SetColorTransfer(@ptrCast(self), @intCast(colorTransfer));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#colorRange)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat ```
     pub fn ColorRange(self: ?*anyopaque) i64 {
-        return C.QVideoFrameFormat_ColorRange(@ptrCast(self));
+        return qtc.QVideoFrameFormat_ColorRange(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#setColorRange)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, range: qvideoframeformat_enums.ColorRange ```
+    /// ``` self: QtC.QVideoFrameFormat, range: qvideoframeformat_enums.ColorRange ```
     pub fn SetColorRange(self: ?*anyopaque, range: i64) void {
-        C.QVideoFrameFormat_SetColorRange(@ptrCast(self), @intCast(range));
+        qtc.QVideoFrameFormat_SetColorRange(@ptrCast(self), @intCast(range));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#isMirrored)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat ```
     pub fn IsMirrored(self: ?*anyopaque) bool {
-        return C.QVideoFrameFormat_IsMirrored(@ptrCast(self));
+        return qtc.QVideoFrameFormat_IsMirrored(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#setMirrored)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, mirrored: bool ```
+    /// ``` self: QtC.QVideoFrameFormat, mirrored: bool ```
     pub fn SetMirrored(self: ?*anyopaque, mirrored: bool) void {
-        C.QVideoFrameFormat_SetMirrored(@ptrCast(self), mirrored);
+        qtc.QVideoFrameFormat_SetMirrored(@ptrCast(self), mirrored);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#vertexShaderFileName)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QVideoFrameFormat, allocator: std.mem.Allocator ```
     pub fn VertexShaderFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QVideoFrameFormat_VertexShaderFileName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QVideoFrameFormat_VertexShaderFileName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideoframeformat.VertexShaderFileName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -244,11 +245,11 @@ pub const qvideoframeformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#fragmentShaderFileName)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QVideoFrameFormat, allocator: std.mem.Allocator ```
     pub fn FragmentShaderFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QVideoFrameFormat_FragmentShaderFileName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QVideoFrameFormat_FragmentShaderFileName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideoframeformat.FragmentShaderFileName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -257,50 +258,52 @@ pub const qvideoframeformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#maxLuminance)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat ```
     pub fn MaxLuminance(self: ?*anyopaque) f32 {
-        return C.QVideoFrameFormat_MaxLuminance(@ptrCast(self));
+        return qtc.QVideoFrameFormat_MaxLuminance(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#setMaxLuminance)
     ///
-    /// ``` self: ?*C.QVideoFrameFormat, lum: f32 ```
+    /// ``` self: QtC.QVideoFrameFormat, lum: f32 ```
     pub fn SetMaxLuminance(self: ?*anyopaque, lum: f32) void {
-        C.QVideoFrameFormat_SetMaxLuminance(@ptrCast(self), @floatCast(lum));
+        qtc.QVideoFrameFormat_SetMaxLuminance(@ptrCast(self), @floatCast(lum));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#pixelFormatFromImageFormat)
     ///
     /// ``` format: qimage_enums.Format ```
     pub fn PixelFormatFromImageFormat(format: i64) i64 {
-        return C.QVideoFrameFormat_PixelFormatFromImageFormat(@intCast(format));
+        return qtc.QVideoFrameFormat_PixelFormatFromImageFormat(@intCast(format));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#imageFormatFromPixelFormat)
     ///
     /// ``` format: qvideoframeformat_enums.PixelFormat ```
     pub fn ImageFormatFromPixelFormat(format: i64) i64 {
-        return C.QVideoFrameFormat_ImageFormatFromPixelFormat(@intCast(format));
+        return qtc.QVideoFrameFormat_ImageFormatFromPixelFormat(@intCast(format));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#pixelFormatToString)
     ///
     /// ``` pixelFormat: qvideoframeformat_enums.PixelFormat, allocator: std.mem.Allocator ```
     pub fn PixelFormatToString(pixelFormat: i64, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QVideoFrameFormat_PixelFormatToString(@intCast(pixelFormat));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QVideoFrameFormat_PixelFormatToString(@intCast(pixelFormat));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideoframeformat.PixelFormatToString: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#dtor.QVideoFrameFormat)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QVideoFrameFormat ```
+    /// ``` self: QtC.QVideoFrameFormat ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QVideoFrameFormat_Delete(@ptrCast(self));
+        qtc.QVideoFrameFormat_Delete(@ptrCast(self));
     }
 };
 

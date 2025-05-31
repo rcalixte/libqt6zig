@@ -15,29 +15,21 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
 typedef struct QAbstractItemDelegate QAbstractItemDelegate;
 typedef struct QAbstractItemModel QAbstractItemModel;
 typedef struct QAbstractItemView QAbstractItemView;
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QHelpEvent QHelpEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QModelIndex QModelIndex;
 typedef struct QObject QObject;
 typedef struct QPainter QPainter;
 typedef struct QSize QSize;
 typedef struct QStyleOptionViewItem QStyleOptionViewItem;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 typedef struct QWidget QWidget;
 #endif
 
@@ -55,33 +47,33 @@ int QAbstractItemDelegate_Metacall(QAbstractItemDelegate* self, int param1, int 
 void QAbstractItemDelegate_OnMetacall(QAbstractItemDelegate* self, intptr_t slot);
 int QAbstractItemDelegate_QBaseMetacall(QAbstractItemDelegate* self, int param1, int param2, void** param3);
 libqt_string QAbstractItemDelegate_Tr(const char* s);
-void QAbstractItemDelegate_Paint(const QAbstractItemDelegate* self, QPainter* painter, QStyleOptionViewItem* option, QModelIndex* index);
+void QAbstractItemDelegate_Paint(const QAbstractItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index);
 void QAbstractItemDelegate_OnPaint(const QAbstractItemDelegate* self, intptr_t slot);
-void QAbstractItemDelegate_QBasePaint(const QAbstractItemDelegate* self, QPainter* painter, QStyleOptionViewItem* option, QModelIndex* index);
-QSize* QAbstractItemDelegate_SizeHint(const QAbstractItemDelegate* self, QStyleOptionViewItem* option, QModelIndex* index);
+void QAbstractItemDelegate_QBasePaint(const QAbstractItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index);
+QSize* QAbstractItemDelegate_SizeHint(const QAbstractItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index);
 void QAbstractItemDelegate_OnSizeHint(const QAbstractItemDelegate* self, intptr_t slot);
-QSize* QAbstractItemDelegate_QBaseSizeHint(const QAbstractItemDelegate* self, QStyleOptionViewItem* option, QModelIndex* index);
-QWidget* QAbstractItemDelegate_CreateEditor(const QAbstractItemDelegate* self, QWidget* parent, QStyleOptionViewItem* option, QModelIndex* index);
+QSize* QAbstractItemDelegate_QBaseSizeHint(const QAbstractItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index);
+QWidget* QAbstractItemDelegate_CreateEditor(const QAbstractItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index);
 void QAbstractItemDelegate_OnCreateEditor(const QAbstractItemDelegate* self, intptr_t slot);
-QWidget* QAbstractItemDelegate_QBaseCreateEditor(const QAbstractItemDelegate* self, QWidget* parent, QStyleOptionViewItem* option, QModelIndex* index);
-void QAbstractItemDelegate_DestroyEditor(const QAbstractItemDelegate* self, QWidget* editor, QModelIndex* index);
+QWidget* QAbstractItemDelegate_QBaseCreateEditor(const QAbstractItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index);
+void QAbstractItemDelegate_DestroyEditor(const QAbstractItemDelegate* self, QWidget* editor, const QModelIndex* index);
 void QAbstractItemDelegate_OnDestroyEditor(const QAbstractItemDelegate* self, intptr_t slot);
-void QAbstractItemDelegate_QBaseDestroyEditor(const QAbstractItemDelegate* self, QWidget* editor, QModelIndex* index);
-void QAbstractItemDelegate_SetEditorData(const QAbstractItemDelegate* self, QWidget* editor, QModelIndex* index);
+void QAbstractItemDelegate_QBaseDestroyEditor(const QAbstractItemDelegate* self, QWidget* editor, const QModelIndex* index);
+void QAbstractItemDelegate_SetEditorData(const QAbstractItemDelegate* self, QWidget* editor, const QModelIndex* index);
 void QAbstractItemDelegate_OnSetEditorData(const QAbstractItemDelegate* self, intptr_t slot);
-void QAbstractItemDelegate_QBaseSetEditorData(const QAbstractItemDelegate* self, QWidget* editor, QModelIndex* index);
-void QAbstractItemDelegate_SetModelData(const QAbstractItemDelegate* self, QWidget* editor, QAbstractItemModel* model, QModelIndex* index);
+void QAbstractItemDelegate_QBaseSetEditorData(const QAbstractItemDelegate* self, QWidget* editor, const QModelIndex* index);
+void QAbstractItemDelegate_SetModelData(const QAbstractItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index);
 void QAbstractItemDelegate_OnSetModelData(const QAbstractItemDelegate* self, intptr_t slot);
-void QAbstractItemDelegate_QBaseSetModelData(const QAbstractItemDelegate* self, QWidget* editor, QAbstractItemModel* model, QModelIndex* index);
-void QAbstractItemDelegate_UpdateEditorGeometry(const QAbstractItemDelegate* self, QWidget* editor, QStyleOptionViewItem* option, QModelIndex* index);
+void QAbstractItemDelegate_QBaseSetModelData(const QAbstractItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index);
+void QAbstractItemDelegate_UpdateEditorGeometry(const QAbstractItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index);
 void QAbstractItemDelegate_OnUpdateEditorGeometry(const QAbstractItemDelegate* self, intptr_t slot);
-void QAbstractItemDelegate_QBaseUpdateEditorGeometry(const QAbstractItemDelegate* self, QWidget* editor, QStyleOptionViewItem* option, QModelIndex* index);
-bool QAbstractItemDelegate_EditorEvent(QAbstractItemDelegate* self, QEvent* event, QAbstractItemModel* model, QStyleOptionViewItem* option, QModelIndex* index);
+void QAbstractItemDelegate_QBaseUpdateEditorGeometry(const QAbstractItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index);
+bool QAbstractItemDelegate_EditorEvent(QAbstractItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index);
 void QAbstractItemDelegate_OnEditorEvent(QAbstractItemDelegate* self, intptr_t slot);
-bool QAbstractItemDelegate_QBaseEditorEvent(QAbstractItemDelegate* self, QEvent* event, QAbstractItemModel* model, QStyleOptionViewItem* option, QModelIndex* index);
-bool QAbstractItemDelegate_HelpEvent(QAbstractItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, QStyleOptionViewItem* option, QModelIndex* index);
+bool QAbstractItemDelegate_QBaseEditorEvent(QAbstractItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index);
+bool QAbstractItemDelegate_HelpEvent(QAbstractItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index);
 void QAbstractItemDelegate_OnHelpEvent(QAbstractItemDelegate* self, intptr_t slot);
-bool QAbstractItemDelegate_QBaseHelpEvent(QAbstractItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, QStyleOptionViewItem* option, QModelIndex* index);
+bool QAbstractItemDelegate_QBaseHelpEvent(QAbstractItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index);
 libqt_list /* of int */ QAbstractItemDelegate_PaintingRoles(const QAbstractItemDelegate* self);
 void QAbstractItemDelegate_OnPaintingRoles(const QAbstractItemDelegate* self, intptr_t slot);
 libqt_list /* of int */ QAbstractItemDelegate_QBasePaintingRoles(const QAbstractItemDelegate* self);
@@ -89,7 +81,7 @@ void QAbstractItemDelegate_CommitData(QAbstractItemDelegate* self, QWidget* edit
 void QAbstractItemDelegate_Connect_CommitData(QAbstractItemDelegate* self, intptr_t slot);
 void QAbstractItemDelegate_CloseEditor(QAbstractItemDelegate* self, QWidget* editor);
 void QAbstractItemDelegate_Connect_CloseEditor(QAbstractItemDelegate* self, intptr_t slot);
-void QAbstractItemDelegate_SizeHintChanged(QAbstractItemDelegate* self, QModelIndex* param1);
+void QAbstractItemDelegate_SizeHintChanged(QAbstractItemDelegate* self, const QModelIndex* param1);
 void QAbstractItemDelegate_Connect_SizeHintChanged(QAbstractItemDelegate* self, intptr_t slot);
 libqt_string QAbstractItemDelegate_Tr2(const char* s, const char* c);
 libqt_string QAbstractItemDelegate_Tr3(const char* s, const char* c, int n);
@@ -110,12 +102,12 @@ void QAbstractItemDelegate_QBaseChildEvent(QAbstractItemDelegate* self, QChildEv
 void QAbstractItemDelegate_CustomEvent(QAbstractItemDelegate* self, QEvent* event);
 void QAbstractItemDelegate_OnCustomEvent(QAbstractItemDelegate* self, intptr_t slot);
 void QAbstractItemDelegate_QBaseCustomEvent(QAbstractItemDelegate* self, QEvent* event);
-void QAbstractItemDelegate_ConnectNotify(QAbstractItemDelegate* self, QMetaMethod* signal);
+void QAbstractItemDelegate_ConnectNotify(QAbstractItemDelegate* self, const QMetaMethod* signal);
 void QAbstractItemDelegate_OnConnectNotify(QAbstractItemDelegate* self, intptr_t slot);
-void QAbstractItemDelegate_QBaseConnectNotify(QAbstractItemDelegate* self, QMetaMethod* signal);
-void QAbstractItemDelegate_DisconnectNotify(QAbstractItemDelegate* self, QMetaMethod* signal);
+void QAbstractItemDelegate_QBaseConnectNotify(QAbstractItemDelegate* self, const QMetaMethod* signal);
+void QAbstractItemDelegate_DisconnectNotify(QAbstractItemDelegate* self, const QMetaMethod* signal);
 void QAbstractItemDelegate_OnDisconnectNotify(QAbstractItemDelegate* self, intptr_t slot);
-void QAbstractItemDelegate_QBaseDisconnectNotify(QAbstractItemDelegate* self, QMetaMethod* signal);
+void QAbstractItemDelegate_QBaseDisconnectNotify(QAbstractItemDelegate* self, const QMetaMethod* signal);
 QObject* QAbstractItemDelegate_Sender(const QAbstractItemDelegate* self);
 void QAbstractItemDelegate_OnSender(const QAbstractItemDelegate* self, intptr_t slot);
 QObject* QAbstractItemDelegate_QBaseSender(const QAbstractItemDelegate* self);
@@ -125,9 +117,9 @@ int QAbstractItemDelegate_QBaseSenderSignalIndex(const QAbstractItemDelegate* se
 int QAbstractItemDelegate_Receivers(const QAbstractItemDelegate* self, const char* signal);
 void QAbstractItemDelegate_OnReceivers(const QAbstractItemDelegate* self, intptr_t slot);
 int QAbstractItemDelegate_QBaseReceivers(const QAbstractItemDelegate* self, const char* signal);
-bool QAbstractItemDelegate_IsSignalConnected(const QAbstractItemDelegate* self, QMetaMethod* signal);
+bool QAbstractItemDelegate_IsSignalConnected(const QAbstractItemDelegate* self, const QMetaMethod* signal);
 void QAbstractItemDelegate_OnIsSignalConnected(const QAbstractItemDelegate* self, intptr_t slot);
-bool QAbstractItemDelegate_QBaseIsSignalConnected(const QAbstractItemDelegate* self, QMetaMethod* signal);
+bool QAbstractItemDelegate_QBaseIsSignalConnected(const QAbstractItemDelegate* self, const QMetaMethod* signal);
 void QAbstractItemDelegate_Delete(QAbstractItemDelegate* self);
 
 #ifdef __cplusplus

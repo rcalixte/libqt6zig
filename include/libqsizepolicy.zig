@@ -1,223 +1,226 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qsizepolicy_enums = enums;
 
 /// https://doc.qt.io/qt-6/qsizepolicy.html
 pub const qsizepolicy = struct {
     /// New constructs a new QSizePolicy object.
     ///
-    /// ``` other: ?*C.QSizePolicy ```
-    pub fn New(other: ?*anyopaque) ?*C.QSizePolicy {
-        return C.QSizePolicy_new(@ptrCast(other));
+    /// ``` other: QtC.QSizePolicy ```
+    pub fn New(other: ?*anyopaque) QtC.QSizePolicy {
+        return qtc.QSizePolicy_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QSizePolicy object and invalidates the source QSizePolicy object.
     ///
-    /// ``` other: ?*C.QSizePolicy ```
-    pub fn New2(other: ?*anyopaque) ?*C.QSizePolicy {
-        return C.QSizePolicy_new2(@ptrCast(other));
+    /// ``` other: QtC.QSizePolicy ```
+    pub fn New2(other: ?*anyopaque) QtC.QSizePolicy {
+        return qtc.QSizePolicy_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QSizePolicy object.
     ///
     ///
-    pub fn New3() ?*C.QSizePolicy {
-        return C.QSizePolicy_new3();
+    pub fn New3() QtC.QSizePolicy {
+        return qtc.QSizePolicy_new3();
     }
 
     /// New4 constructs a new QSizePolicy object.
     ///
     /// ``` horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
-    pub fn New4(horizontal: i64, vertical: i64) ?*C.QSizePolicy {
-        return C.QSizePolicy_new4(@intCast(horizontal), @intCast(vertical));
+    pub fn New4(horizontal: i64, vertical: i64) QtC.QSizePolicy {
+        return qtc.QSizePolicy_new4(@intCast(horizontal), @intCast(vertical));
     }
 
     /// New5 constructs a new QSizePolicy object.
     ///
-    /// ``` param1: ?*C.QSizePolicy ```
-    pub fn New5(param1: ?*anyopaque) ?*C.QSizePolicy {
-        return C.QSizePolicy_new5(@ptrCast(param1));
+    /// ``` param1: QtC.QSizePolicy ```
+    pub fn New5(param1: ?*anyopaque) QtC.QSizePolicy {
+        return qtc.QSizePolicy_new5(@ptrCast(param1));
     }
 
     /// New6 constructs a new QSizePolicy object.
     ///
     /// ``` horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy, typeVal: qsizepolicy_enums.ControlType ```
-    pub fn New6(horizontal: i64, vertical: i64, typeVal: i64) ?*C.QSizePolicy {
-        return C.QSizePolicy_new6(@intCast(horizontal), @intCast(vertical), @intCast(typeVal));
+    pub fn New6(horizontal: i64, vertical: i64, typeVal: i64) QtC.QSizePolicy {
+        return qtc.QSizePolicy_new6(@intCast(horizontal), @intCast(vertical), @intCast(typeVal));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QSizePolicy, other: ?*QSizePolicy ```
+    /// ``` self: QtC.QSizePolicy, other: QtC.QSizePolicy ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QSizePolicy_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QSizePolicy_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QSizePolicy, other: ?*QSizePolicy ```
+    /// ``` self: QtC.QSizePolicy, other: QtC.QSizePolicy ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QSizePolicy_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QSizePolicy_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#horizontalPolicy)
     ///
-    /// ``` self: ?*C.QSizePolicy ```
+    /// ``` self: QtC.QSizePolicy ```
     pub fn HorizontalPolicy(self: ?*anyopaque) i64 {
-        return C.QSizePolicy_HorizontalPolicy(@ptrCast(self));
+        return qtc.QSizePolicy_HorizontalPolicy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#verticalPolicy)
     ///
-    /// ``` self: ?*C.QSizePolicy ```
+    /// ``` self: QtC.QSizePolicy ```
     pub fn VerticalPolicy(self: ?*anyopaque) i64 {
-        return C.QSizePolicy_VerticalPolicy(@ptrCast(self));
+        return qtc.QSizePolicy_VerticalPolicy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#controlType)
     ///
-    /// ``` self: ?*C.QSizePolicy ```
+    /// ``` self: QtC.QSizePolicy ```
     pub fn ControlType(self: ?*anyopaque) i64 {
-        return C.QSizePolicy_ControlType(@ptrCast(self));
+        return qtc.QSizePolicy_ControlType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#setHorizontalPolicy)
     ///
-    /// ``` self: ?*C.QSizePolicy, d: qsizepolicy_enums.Policy ```
+    /// ``` self: QtC.QSizePolicy, d: qsizepolicy_enums.Policy ```
     pub fn SetHorizontalPolicy(self: ?*anyopaque, d: i64) void {
-        C.QSizePolicy_SetHorizontalPolicy(@ptrCast(self), @intCast(d));
+        qtc.QSizePolicy_SetHorizontalPolicy(@ptrCast(self), @intCast(d));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#setVerticalPolicy)
     ///
-    /// ``` self: ?*C.QSizePolicy, d: qsizepolicy_enums.Policy ```
+    /// ``` self: QtC.QSizePolicy, d: qsizepolicy_enums.Policy ```
     pub fn SetVerticalPolicy(self: ?*anyopaque, d: i64) void {
-        C.QSizePolicy_SetVerticalPolicy(@ptrCast(self), @intCast(d));
+        qtc.QSizePolicy_SetVerticalPolicy(@ptrCast(self), @intCast(d));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#setControlType)
     ///
-    /// ``` self: ?*C.QSizePolicy, typeVal: qsizepolicy_enums.ControlType ```
+    /// ``` self: QtC.QSizePolicy, typeVal: qsizepolicy_enums.ControlType ```
     pub fn SetControlType(self: ?*anyopaque, typeVal: i64) void {
-        C.QSizePolicy_SetControlType(@ptrCast(self), @intCast(typeVal));
+        qtc.QSizePolicy_SetControlType(@ptrCast(self), @intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#expandingDirections)
     ///
-    /// ``` self: ?*C.QSizePolicy ```
+    /// ``` self: QtC.QSizePolicy ```
     pub fn ExpandingDirections(self: ?*anyopaque) i64 {
-        return C.QSizePolicy_ExpandingDirections(@ptrCast(self));
+        return qtc.QSizePolicy_ExpandingDirections(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#setHeightForWidth)
     ///
-    /// ``` self: ?*C.QSizePolicy, b: bool ```
+    /// ``` self: QtC.QSizePolicy, b: bool ```
     pub fn SetHeightForWidth(self: ?*anyopaque, b: bool) void {
-        C.QSizePolicy_SetHeightForWidth(@ptrCast(self), b);
+        qtc.QSizePolicy_SetHeightForWidth(@ptrCast(self), b);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#hasHeightForWidth)
     ///
-    /// ``` self: ?*C.QSizePolicy ```
+    /// ``` self: QtC.QSizePolicy ```
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return C.QSizePolicy_HasHeightForWidth(@ptrCast(self));
+        return qtc.QSizePolicy_HasHeightForWidth(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#setWidthForHeight)
     ///
-    /// ``` self: ?*C.QSizePolicy, b: bool ```
+    /// ``` self: QtC.QSizePolicy, b: bool ```
     pub fn SetWidthForHeight(self: ?*anyopaque, b: bool) void {
-        C.QSizePolicy_SetWidthForHeight(@ptrCast(self), b);
+        qtc.QSizePolicy_SetWidthForHeight(@ptrCast(self), b);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#hasWidthForHeight)
     ///
-    /// ``` self: ?*C.QSizePolicy ```
+    /// ``` self: QtC.QSizePolicy ```
     pub fn HasWidthForHeight(self: ?*anyopaque) bool {
-        return C.QSizePolicy_HasWidthForHeight(@ptrCast(self));
+        return qtc.QSizePolicy_HasWidthForHeight(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#operator==)
     ///
-    /// ``` self: ?*C.QSizePolicy, s: ?*C.QSizePolicy ```
+    /// ``` self: QtC.QSizePolicy, s: QtC.QSizePolicy ```
     pub fn OperatorEqual(self: ?*anyopaque, s: ?*anyopaque) bool {
-        return C.QSizePolicy_OperatorEqual(@ptrCast(self), @ptrCast(s));
+        return qtc.QSizePolicy_OperatorEqual(@ptrCast(self), @ptrCast(s));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#operator!=)
     ///
-    /// ``` self: ?*C.QSizePolicy, s: ?*C.QSizePolicy ```
+    /// ``` self: QtC.QSizePolicy, s: QtC.QSizePolicy ```
     pub fn OperatorNotEqual(self: ?*anyopaque, s: ?*anyopaque) bool {
-        return C.QSizePolicy_OperatorNotEqual(@ptrCast(self), @ptrCast(s));
+        return qtc.QSizePolicy_OperatorNotEqual(@ptrCast(self), @ptrCast(s));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#operator QVariant)
     ///
-    /// ``` self: ?*C.QSizePolicy ```
-    pub fn ToQVariant(self: ?*anyopaque) ?*C.QVariant {
-        return C.QSizePolicy_ToQVariant(@ptrCast(self));
+    /// ``` self: QtC.QSizePolicy ```
+    pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QSizePolicy_ToQVariant(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#horizontalStretch)
     ///
-    /// ``` self: ?*C.QSizePolicy ```
+    /// ``` self: QtC.QSizePolicy ```
     pub fn HorizontalStretch(self: ?*anyopaque) i32 {
-        return C.QSizePolicy_HorizontalStretch(@ptrCast(self));
+        return qtc.QSizePolicy_HorizontalStretch(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#verticalStretch)
     ///
-    /// ``` self: ?*C.QSizePolicy ```
+    /// ``` self: QtC.QSizePolicy ```
     pub fn VerticalStretch(self: ?*anyopaque) i32 {
-        return C.QSizePolicy_VerticalStretch(@ptrCast(self));
+        return qtc.QSizePolicy_VerticalStretch(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#setHorizontalStretch)
     ///
-    /// ``` self: ?*C.QSizePolicy, stretchFactor: i32 ```
+    /// ``` self: QtC.QSizePolicy, stretchFactor: i32 ```
     pub fn SetHorizontalStretch(self: ?*anyopaque, stretchFactor: i32) void {
-        C.QSizePolicy_SetHorizontalStretch(@ptrCast(self), @intCast(stretchFactor));
+        qtc.QSizePolicy_SetHorizontalStretch(@ptrCast(self), @intCast(stretchFactor));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#setVerticalStretch)
     ///
-    /// ``` self: ?*C.QSizePolicy, stretchFactor: i32 ```
+    /// ``` self: QtC.QSizePolicy, stretchFactor: i32 ```
     pub fn SetVerticalStretch(self: ?*anyopaque, stretchFactor: i32) void {
-        C.QSizePolicy_SetVerticalStretch(@ptrCast(self), @intCast(stretchFactor));
+        qtc.QSizePolicy_SetVerticalStretch(@ptrCast(self), @intCast(stretchFactor));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#retainSizeWhenHidden)
     ///
-    /// ``` self: ?*C.QSizePolicy ```
+    /// ``` self: QtC.QSizePolicy ```
     pub fn RetainSizeWhenHidden(self: ?*anyopaque) bool {
-        return C.QSizePolicy_RetainSizeWhenHidden(@ptrCast(self));
+        return qtc.QSizePolicy_RetainSizeWhenHidden(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#setRetainSizeWhenHidden)
     ///
-    /// ``` self: ?*C.QSizePolicy, retainSize: bool ```
+    /// ``` self: QtC.QSizePolicy, retainSize: bool ```
     pub fn SetRetainSizeWhenHidden(self: ?*anyopaque, retainSize: bool) void {
-        C.QSizePolicy_SetRetainSizeWhenHidden(@ptrCast(self), retainSize);
+        qtc.QSizePolicy_SetRetainSizeWhenHidden(@ptrCast(self), retainSize);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#transpose)
     ///
-    /// ``` self: ?*C.QSizePolicy ```
+    /// ``` self: QtC.QSizePolicy ```
     pub fn Transpose(self: ?*anyopaque) void {
-        C.QSizePolicy_Transpose(@ptrCast(self));
+        qtc.QSizePolicy_Transpose(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#transposed)
     ///
-    /// ``` self: ?*C.QSizePolicy ```
-    pub fn Transposed(self: ?*anyopaque) ?*C.QSizePolicy {
-        return C.QSizePolicy_Transposed(@ptrCast(self));
+    /// ``` self: QtC.QSizePolicy ```
+    pub fn Transposed(self: ?*anyopaque) QtC.QSizePolicy {
+        return qtc.QSizePolicy_Transposed(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#dtor.QSizePolicy)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QSizePolicy ```
+    /// ``` self: QtC.QSizePolicy ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QSizePolicy_Delete(@ptrCast(self));
+        qtc.QSizePolicy_Delete(@ptrCast(self));
     }
 };
 

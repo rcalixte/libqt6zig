@@ -1,23 +1,16 @@
-#include <QAnyStringView>
 #include <QAudioDevice>
 #include <QAudioFormat>
 #include <QAudioSource>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
 #include <QIODevice>
-#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <qaudiosource.h>
 #include "libqaudiosource.h"
 #include "libqaudiosource.hxx"
@@ -26,23 +19,23 @@ QAudioSource* QAudioSource_new() {
     return new VirtualQAudioSource();
 }
 
-QAudioSource* QAudioSource_new2(QAudioDevice* audioDeviceInfo) {
+QAudioSource* QAudioSource_new2(const QAudioDevice* audioDeviceInfo) {
     return new VirtualQAudioSource(*audioDeviceInfo);
 }
 
-QAudioSource* QAudioSource_new3(QAudioFormat* format) {
+QAudioSource* QAudioSource_new3(const QAudioFormat* format) {
     return new VirtualQAudioSource(*format);
 }
 
-QAudioSource* QAudioSource_new4(QAudioFormat* format, QObject* parent) {
+QAudioSource* QAudioSource_new4(const QAudioFormat* format, QObject* parent) {
     return new VirtualQAudioSource(*format, parent);
 }
 
-QAudioSource* QAudioSource_new5(QAudioDevice* audioDeviceInfo, QAudioFormat* format) {
+QAudioSource* QAudioSource_new5(const QAudioDevice* audioDeviceInfo, const QAudioFormat* format) {
     return new VirtualQAudioSource(*audioDeviceInfo, *format);
 }
 
-QAudioSource* QAudioSource_new6(QAudioDevice* audioDeviceInfo, QAudioFormat* format, QObject* parent) {
+QAudioSource* QAudioSource_new6(const QAudioDevice* audioDeviceInfo, const QAudioFormat* format, QObject* parent) {
     return new VirtualQAudioSource(*audioDeviceInfo, *format, parent);
 }
 
@@ -55,27 +48,30 @@ void* QAudioSource_Metacast(QAudioSource* self, const char* param1) {
 }
 
 int QAudioSource_Metacall(QAudioSource* self, int param1, int param2, void** param3) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQAudioSource*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QAudioSource_OnMetacall(QAudioSource* self, intptr_t slot) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_Metacall_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QAudioSource_QBaseMetacall(QAudioSource* self, int param1, int param2, void** param3) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_Metacall_IsBase(true);
         return vqaudiosource->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQAudioSource*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -197,286 +193,319 @@ libqt_string QAudioSource_Tr3(const char* s, const char* c, int n) {
 
 // Derived class handler implementation
 bool QAudioSource_Event(QAudioSource* self, QEvent* event) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         return vqaudiosource->event(event);
     } else {
-        return vqaudiosource->event(event);
+        return self->QAudioSource::event(event);
     }
 }
 
 // Base class handler implementation
 bool QAudioSource_QBaseEvent(QAudioSource* self, QEvent* event) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_Event_IsBase(true);
         return vqaudiosource->event(event);
     } else {
-        return vqaudiosource->event(event);
+        return self->QAudioSource::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnEvent(QAudioSource* self, intptr_t slot) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_Event_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QAudioSource_EventFilter(QAudioSource* self, QObject* watched, QEvent* event) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         return vqaudiosource->eventFilter(watched, event);
     } else {
-        return vqaudiosource->eventFilter(watched, event);
+        return self->QAudioSource::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QAudioSource_QBaseEventFilter(QAudioSource* self, QObject* watched, QEvent* event) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_EventFilter_IsBase(true);
         return vqaudiosource->eventFilter(watched, event);
     } else {
-        return vqaudiosource->eventFilter(watched, event);
+        return self->QAudioSource::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnEventFilter(QAudioSource* self, intptr_t slot) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_EventFilter_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QAudioSource_TimerEvent(QAudioSource* self, QTimerEvent* event) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->timerEvent(event);
     } else {
-        vqaudiosource->timerEvent(event);
+        ((VirtualQAudioSource*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QAudioSource_QBaseTimerEvent(QAudioSource* self, QTimerEvent* event) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_TimerEvent_IsBase(true);
         vqaudiosource->timerEvent(event);
     } else {
-        vqaudiosource->timerEvent(event);
+        ((VirtualQAudioSource*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnTimerEvent(QAudioSource* self, intptr_t slot) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_TimerEvent_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QAudioSource_ChildEvent(QAudioSource* self, QChildEvent* event) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->childEvent(event);
     } else {
-        vqaudiosource->childEvent(event);
+        ((VirtualQAudioSource*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QAudioSource_QBaseChildEvent(QAudioSource* self, QChildEvent* event) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_ChildEvent_IsBase(true);
         vqaudiosource->childEvent(event);
     } else {
-        vqaudiosource->childEvent(event);
+        ((VirtualQAudioSource*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnChildEvent(QAudioSource* self, intptr_t slot) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_ChildEvent_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QAudioSource_CustomEvent(QAudioSource* self, QEvent* event) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->customEvent(event);
     } else {
-        vqaudiosource->customEvent(event);
+        ((VirtualQAudioSource*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QAudioSource_QBaseCustomEvent(QAudioSource* self, QEvent* event) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_CustomEvent_IsBase(true);
         vqaudiosource->customEvent(event);
     } else {
-        vqaudiosource->customEvent(event);
+        ((VirtualQAudioSource*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnCustomEvent(QAudioSource* self, intptr_t slot) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_CustomEvent_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QAudioSource_ConnectNotify(QAudioSource* self, QMetaMethod* signal) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+void QAudioSource_ConnectNotify(QAudioSource* self, const QMetaMethod* signal) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->connectNotify(*signal);
     } else {
-        vqaudiosource->connectNotify(*signal);
+        ((VirtualQAudioSource*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QAudioSource_QBaseConnectNotify(QAudioSource* self, QMetaMethod* signal) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+void QAudioSource_QBaseConnectNotify(QAudioSource* self, const QMetaMethod* signal) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_ConnectNotify_IsBase(true);
         vqaudiosource->connectNotify(*signal);
     } else {
-        vqaudiosource->connectNotify(*signal);
+        ((VirtualQAudioSource*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnConnectNotify(QAudioSource* self, intptr_t slot) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_ConnectNotify_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QAudioSource_DisconnectNotify(QAudioSource* self, QMetaMethod* signal) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+void QAudioSource_DisconnectNotify(QAudioSource* self, const QMetaMethod* signal) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->disconnectNotify(*signal);
     } else {
-        vqaudiosource->disconnectNotify(*signal);
+        ((VirtualQAudioSource*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QAudioSource_QBaseDisconnectNotify(QAudioSource* self, QMetaMethod* signal) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+void QAudioSource_QBaseDisconnectNotify(QAudioSource* self, const QMetaMethod* signal) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_DisconnectNotify_IsBase(true);
         vqaudiosource->disconnectNotify(*signal);
     } else {
-        vqaudiosource->disconnectNotify(*signal);
+        ((VirtualQAudioSource*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnDisconnectNotify(QAudioSource* self, intptr_t slot) {
-    if (auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self)) {
+    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_DisconnectNotify_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QAudioSource_Sender(const QAudioSource* self) {
-    if (auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self))) {
+    auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         return vqaudiosource->sender();
     } else {
-        return vqaudiosource->sender();
+        return ((VirtualQAudioSource*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QAudioSource_QBaseSender(const QAudioSource* self) {
-    if (auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self))) {
+    auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_Sender_IsBase(true);
         return vqaudiosource->sender();
     } else {
-        return vqaudiosource->sender();
+        return ((VirtualQAudioSource*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnSender(const QAudioSource* self, intptr_t slot) {
-    if (auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self))) {
+    auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_Sender_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QAudioSource_SenderSignalIndex(const QAudioSource* self) {
-    if (auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self))) {
+    auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         return vqaudiosource->senderSignalIndex();
     } else {
-        return vqaudiosource->senderSignalIndex();
+        return ((VirtualQAudioSource*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QAudioSource_QBaseSenderSignalIndex(const QAudioSource* self) {
-    if (auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self))) {
+    auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_SenderSignalIndex_IsBase(true);
         return vqaudiosource->senderSignalIndex();
     } else {
-        return vqaudiosource->senderSignalIndex();
+        return ((VirtualQAudioSource*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnSenderSignalIndex(const QAudioSource* self, intptr_t slot) {
-    if (auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self))) {
+    auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QAudioSource_Receivers(const QAudioSource* self, const char* signal) {
-    if (auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self))) {
+    auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         return vqaudiosource->receivers(signal);
     } else {
-        return vqaudiosource->receivers(signal);
+        return ((VirtualQAudioSource*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QAudioSource_QBaseReceivers(const QAudioSource* self, const char* signal) {
-    if (auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self))) {
+    auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_Receivers_IsBase(true);
         return vqaudiosource->receivers(signal);
     } else {
-        return vqaudiosource->receivers(signal);
+        return ((VirtualQAudioSource*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnReceivers(const QAudioSource* self, intptr_t slot) {
-    if (auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self))) {
+    auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_Receivers_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QAudioSource_IsSignalConnected(const QAudioSource* self, QMetaMethod* signal) {
-    if (auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self))) {
+bool QAudioSource_IsSignalConnected(const QAudioSource* self, const QMetaMethod* signal) {
+    auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         return vqaudiosource->isSignalConnected(*signal);
     } else {
-        return vqaudiosource->isSignalConnected(*signal);
+        return ((VirtualQAudioSource*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QAudioSource_QBaseIsSignalConnected(const QAudioSource* self, QMetaMethod* signal) {
-    if (auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self))) {
+bool QAudioSource_QBaseIsSignalConnected(const QAudioSource* self, const QMetaMethod* signal) {
+    auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_IsSignalConnected_IsBase(true);
         return vqaudiosource->isSignalConnected(*signal);
     } else {
-        return vqaudiosource->isSignalConnected(*signal);
+        return ((VirtualQAudioSource*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnIsSignalConnected(const QAudioSource* self, intptr_t slot) {
-    if (auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self))) {
+    auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_IsSignalConnected_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_IsSignalConnected_Callback>(slot));
     }
 }

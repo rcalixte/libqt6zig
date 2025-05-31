@@ -6,7 +6,7 @@
 #include "libqwebengineclientcertificatestore.h"
 #include "libqwebengineclientcertificatestore.hxx"
 
-void QWebEngineClientCertificateStore_Add(QWebEngineClientCertificateStore* self, QSslCertificate* certificate, QSslKey* privateKey) {
+void QWebEngineClientCertificateStore_Add(QWebEngineClientCertificateStore* self, const QSslCertificate* certificate, const QSslKey* privateKey) {
     self->add(*certificate, *privateKey);
 }
 
@@ -23,7 +23,7 @@ libqt_list /* of QSslCertificate* */ QWebEngineClientCertificateStore_Certificat
     return _out;
 }
 
-void QWebEngineClientCertificateStore_Remove(QWebEngineClientCertificateStore* self, QSslCertificate* certificate) {
+void QWebEngineClientCertificateStore_Remove(QWebEngineClientCertificateStore* self, const QSslCertificate* certificate) {
     self->remove(*certificate);
 }
 

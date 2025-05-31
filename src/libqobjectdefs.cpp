@@ -19,7 +19,7 @@
 #include "libqobjectdefs.h"
 #include "libqobjectdefs.hxx"
 
-QGenericArgument* QGenericArgument_new(QGenericArgument* other) {
+QGenericArgument* QGenericArgument_new(const QGenericArgument* other) {
     return new QGenericArgument(*other);
 }
 
@@ -31,7 +31,7 @@ QGenericArgument* QGenericArgument_new3() {
     return new QGenericArgument();
 }
 
-QGenericArgument* QGenericArgument_new4(QGenericArgument* param1) {
+QGenericArgument* QGenericArgument_new4(const QGenericArgument* param1) {
     return new QGenericArgument(*param1);
 }
 
@@ -63,7 +63,7 @@ void QGenericArgument_Delete(QGenericArgument* self) {
     delete self;
 }
 
-QGenericReturnArgument* QGenericReturnArgument_new(QGenericReturnArgument* other) {
+QGenericReturnArgument* QGenericReturnArgument_new(const QGenericReturnArgument* other) {
     return new QGenericReturnArgument(*other);
 }
 
@@ -75,7 +75,7 @@ QGenericReturnArgument* QGenericReturnArgument_new3() {
     return new QGenericReturnArgument();
 }
 
-QGenericReturnArgument* QGenericReturnArgument_new4(QGenericReturnArgument* param1) {
+QGenericReturnArgument* QGenericReturnArgument_new4(const QGenericReturnArgument* param1) {
     return new QGenericReturnArgument(*param1);
 }
 
@@ -103,7 +103,7 @@ QMetaObject* QMetaObject_new() {
     return new QMetaObject();
 }
 
-QMetaObject* QMetaObject_new2(QMetaObject* param1) {
+QMetaObject* QMetaObject_new2(const QMetaObject* param1) {
     return new QMetaObject(*param1);
 }
 
@@ -115,7 +115,7 @@ QMetaObject* QMetaObject_SuperClass(const QMetaObject* self) {
     return (QMetaObject*)self->superClass();
 }
 
-bool QMetaObject_Inherits(const QMetaObject* self, QMetaObject* metaObject) {
+bool QMetaObject_Inherits(const QMetaObject* self, const QMetaObject* metaObject) {
     return self->inherits(metaObject);
 }
 
@@ -123,7 +123,7 @@ QObject* QMetaObject_Cast(const QMetaObject* self, QObject* obj) {
     return self->cast(obj);
 }
 
-QObject* QMetaObject_CastWithObj(const QMetaObject* self, QObject* obj) {
+QObject* QMetaObject_CastWithObj(const QMetaObject* self, const QObject* obj) {
     return (QObject*)self->cast(obj);
 }
 
@@ -235,7 +235,7 @@ bool QMetaObject_CheckConnectArgs(const char* signal, const char* method) {
     return QMetaObject::checkConnectArgs(signal, method);
 }
 
-bool QMetaObject_CheckConnectArgs2(QMetaMethod* signal, QMetaMethod* method) {
+bool QMetaObject_CheckConnectArgs2(const QMetaMethod* signal, const QMetaMethod* method) {
     return QMetaObject::checkConnectArgs(*signal, *method);
 }
 
@@ -259,15 +259,15 @@ libqt_string QMetaObject_NormalizedType(const char* typeVal) {
     return _str;
 }
 
-QMetaObject__Connection* QMetaObject_Connect(QObject* sender, int signal_index, QObject* receiver, int method_index) {
+QMetaObject__Connection* QMetaObject_Connect(const QObject* sender, int signal_index, const QObject* receiver, int method_index) {
     return new QMetaObject::Connection(QMetaObject::connect(sender, static_cast<int>(signal_index), receiver, static_cast<int>(method_index)));
 }
 
-bool QMetaObject_Disconnect(QObject* sender, int signal_index, QObject* receiver, int method_index) {
+bool QMetaObject_Disconnect(const QObject* sender, int signal_index, const QObject* receiver, int method_index) {
     return QMetaObject::disconnect(sender, static_cast<int>(signal_index), receiver, static_cast<int>(method_index));
 }
 
-bool QMetaObject_DisconnectOne(QObject* sender, int signal_index, QObject* receiver, int method_index) {
+bool QMetaObject_DisconnectOne(const QObject* sender, int signal_index, const QObject* receiver, int method_index) {
     return QMetaObject::disconnectOne(sender, static_cast<int>(signal_index), receiver, static_cast<int>(method_index));
 }
 
@@ -279,7 +279,7 @@ void QMetaObject_Activate(QObject* sender, int signal_index, void** argv) {
     QMetaObject::activate(sender, static_cast<int>(signal_index), argv);
 }
 
-void QMetaObject_Activate2(QObject* sender, QMetaObject* param2, int local_signal_index, void** argv) {
+void QMetaObject_Activate2(QObject* sender, const QMetaObject* param2, int local_signal_index, void** argv) {
     QMetaObject::activate(sender, param2, static_cast<int>(local_signal_index), argv);
 }
 
@@ -327,11 +327,11 @@ libqt_string QMetaObject_Tr3(const QMetaObject* self, const char* s, const char*
     return _str;
 }
 
-QMetaObject__Connection* QMetaObject_Connect5(QObject* sender, int signal_index, QObject* receiver, int method_index, int typeVal) {
+QMetaObject__Connection* QMetaObject_Connect5(const QObject* sender, int signal_index, const QObject* receiver, int method_index, int typeVal) {
     return new QMetaObject::Connection(QMetaObject::connect(sender, static_cast<int>(signal_index), receiver, static_cast<int>(method_index), static_cast<int>(typeVal)));
 }
 
-QMetaObject__Connection* QMetaObject_Connect6(QObject* sender, int signal_index, QObject* receiver, int method_index, int typeVal, int* types) {
+QMetaObject__Connection* QMetaObject_Connect6(const QObject* sender, int signal_index, const QObject* receiver, int method_index, int typeVal, int* types) {
     return new QMetaObject::Connection(QMetaObject::connect(sender, static_cast<int>(signal_index), receiver, static_cast<int>(method_index), static_cast<int>(typeVal), static_cast<int*>(types)));
 }
 
@@ -543,11 +543,11 @@ QMetaObject__Connection* QMetaObject__Connection_new() {
     return new QMetaObject::Connection();
 }
 
-QMetaObject__Connection* QMetaObject__Connection_new2(QMetaObject__Connection* other) {
+QMetaObject__Connection* QMetaObject__Connection_new2(const QMetaObject__Connection* other) {
     return new QMetaObject::Connection(*other);
 }
 
-void QMetaObject__Connection_OperatorAssign(QMetaObject__Connection* self, QMetaObject__Connection* other) {
+void QMetaObject__Connection_OperatorAssign(QMetaObject__Connection* self, const QMetaObject__Connection* other) {
     self->operator=(*other);
 }
 
@@ -563,11 +563,11 @@ QMetaObject__SuperData* QMetaObject__SuperData_new() {
     return new QMetaObject::SuperData();
 }
 
-QMetaObject__SuperData* QMetaObject__SuperData_new2(QMetaObject* mo) {
+QMetaObject__SuperData* QMetaObject__SuperData_new2(const QMetaObject* mo) {
     return new QMetaObject::SuperData(mo);
 }
 
-QMetaObject__SuperData* QMetaObject__SuperData_new3(QMetaObject__SuperData* param1) {
+QMetaObject__SuperData* QMetaObject__SuperData_new3(const QMetaObject__SuperData* param1) {
     return new QMetaObject::SuperData(*param1);
 }
 
@@ -579,7 +579,7 @@ QMetaObject* QMetaObject__SuperData_ToConstQMetaObjectMultiply(const QMetaObject
     return (QMetaObject*)self->operator const QMetaObject*();
 }
 
-void QMetaObject__SuperData_OperatorAssign(QMetaObject__SuperData* self, QMetaObject__SuperData* param1) {
+void QMetaObject__SuperData_OperatorAssign(QMetaObject__SuperData* self, const QMetaObject__SuperData* param1) {
     self->operator=(*param1);
 }
 
@@ -591,11 +591,11 @@ QMetaObject__Data* QMetaObject__Data_new() {
     return new QMetaObject::Data();
 }
 
-QMetaObject__Data* QMetaObject__Data_new2(QMetaObject__Data* param1) {
+QMetaObject__Data* QMetaObject__Data_new2(const QMetaObject__Data* param1) {
     return new QMetaObject::Data(*param1);
 }
 
-void QMetaObject__Data_OperatorAssign(QMetaObject__Data* self, QMetaObject__Data* param1) {
+void QMetaObject__Data_OperatorAssign(QMetaObject__Data* self, const QMetaObject__Data* param1) {
     self->operator=(*param1);
 }
 

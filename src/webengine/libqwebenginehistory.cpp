@@ -1,28 +1,17 @@
 #include <QAbstractItemModel>
 #include <QAbstractListModel>
-#include <QAnyStringView>
-#include <QBindingStorage>
 #include <QByteArray>
-#include <QChildEvent>
 #include <QDataStream>
 #include <QDateTime>
-#include <QEvent>
 #include <QList>
 #include <QMap>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
-#include <QMimeData>
 #include <QModelIndex>
-#include <QModelRoleDataSpan>
 #include <QObject>
-#include <QPersistentModelIndex>
-#include <QSize>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
-#include <QTimerEvent>
 #include <QUrl>
 #include <QVariant>
 #include <QWebEngineHistory>
@@ -32,11 +21,11 @@
 #include "libqwebenginehistory.h"
 #include "libqwebenginehistory.hxx"
 
-QWebEngineHistoryItem* QWebEngineHistoryItem_new(QWebEngineHistoryItem* other) {
+QWebEngineHistoryItem* QWebEngineHistoryItem_new(const QWebEngineHistoryItem* other) {
     return new QWebEngineHistoryItem(*other);
 }
 
-void QWebEngineHistoryItem_OperatorAssign(QWebEngineHistoryItem* self, QWebEngineHistoryItem* other) {
+void QWebEngineHistoryItem_OperatorAssign(QWebEngineHistoryItem* self, const QWebEngineHistoryItem* other) {
     self->operator=(*other);
 }
 
@@ -104,11 +93,11 @@ libqt_string QWebEngineHistoryModel_Tr(const char* s) {
     return _str;
 }
 
-int QWebEngineHistoryModel_RowCount(const QWebEngineHistoryModel* self, QModelIndex* parent) {
+int QWebEngineHistoryModel_RowCount(const QWebEngineHistoryModel* self, const QModelIndex* parent) {
     return self->rowCount(*parent);
 }
 
-QVariant* QWebEngineHistoryModel_Data(const QWebEngineHistoryModel* self, QModelIndex* index, int role) {
+QVariant* QWebEngineHistoryModel_Data(const QWebEngineHistoryModel* self, const QModelIndex* index, int role) {
     return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
@@ -247,7 +236,7 @@ void QWebEngineHistory_Forward(QWebEngineHistory* self) {
     self->forward();
 }
 
-void QWebEngineHistory_GoToItem(QWebEngineHistory* self, QWebEngineHistoryItem* item) {
+void QWebEngineHistory_GoToItem(QWebEngineHistory* self, const QWebEngineHistoryItem* item) {
     self->goToItem(*item);
 }
 

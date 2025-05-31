@@ -35,12 +35,12 @@ typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
 QKeySequence* QKeySequence_new();
-QKeySequence* QKeySequence_new2(libqt_string key);
+QKeySequence* QKeySequence_new2(const libqt_string key);
 QKeySequence* QKeySequence_new3(int k1);
 QKeySequence* QKeySequence_new4(QKeyCombination* k1);
-QKeySequence* QKeySequence_new5(QKeySequence* ks);
+QKeySequence* QKeySequence_new5(const QKeySequence* ks);
 QKeySequence* QKeySequence_new6(int key);
-QKeySequence* QKeySequence_new7(libqt_string key, int format);
+QKeySequence* QKeySequence_new7(const libqt_string key, int format);
 QKeySequence* QKeySequence_new8(int k1, int k2);
 QKeySequence* QKeySequence_new9(int k1, int k2, int k3);
 QKeySequence* QKeySequence_new10(int k1, int k2, int k3, int k4);
@@ -50,27 +50,27 @@ QKeySequence* QKeySequence_new13(QKeyCombination* k1, QKeyCombination* k2, QKeyC
 int QKeySequence_Count(const QKeySequence* self);
 bool QKeySequence_IsEmpty(const QKeySequence* self);
 libqt_string QKeySequence_ToString(const QKeySequence* self);
-QKeySequence* QKeySequence_FromString(libqt_string str);
-libqt_list /* of QKeySequence* */ QKeySequence_ListFromString(libqt_string str);
-libqt_string QKeySequence_ListToString(libqt_list /* of QKeySequence* */ list);
-int QKeySequence_Matches(const QKeySequence* self, QKeySequence* seq);
-QKeySequence* QKeySequence_Mnemonic(libqt_string text);
+QKeySequence* QKeySequence_FromString(const libqt_string str);
+libqt_list /* of QKeySequence* */ QKeySequence_ListFromString(const libqt_string str);
+libqt_string QKeySequence_ListToString(const libqt_list /* of QKeySequence* */ list);
+int QKeySequence_Matches(const QKeySequence* self, const QKeySequence* seq);
+QKeySequence* QKeySequence_Mnemonic(const libqt_string text);
 libqt_list /* of QKeySequence* */ QKeySequence_KeyBindings(int key);
 QVariant* QKeySequence_ToQVariant(const QKeySequence* self);
 QKeyCombination* QKeySequence_OperatorSubscript(const QKeySequence* self, unsigned int i);
-void QKeySequence_OperatorAssign(QKeySequence* self, QKeySequence* other);
+void QKeySequence_OperatorAssign(QKeySequence* self, const QKeySequence* other);
 void QKeySequence_Swap(QKeySequence* self, QKeySequence* other);
-bool QKeySequence_OperatorEqual(const QKeySequence* self, QKeySequence* other);
-bool QKeySequence_OperatorNotEqual(const QKeySequence* self, QKeySequence* other);
-bool QKeySequence_OperatorLesser(const QKeySequence* self, QKeySequence* ks);
-bool QKeySequence_OperatorGreater(const QKeySequence* self, QKeySequence* other);
-bool QKeySequence_OperatorLesserOrEqual(const QKeySequence* self, QKeySequence* other);
-bool QKeySequence_OperatorGreaterOrEqual(const QKeySequence* self, QKeySequence* other);
+bool QKeySequence_OperatorEqual(const QKeySequence* self, const QKeySequence* other);
+bool QKeySequence_OperatorNotEqual(const QKeySequence* self, const QKeySequence* other);
+bool QKeySequence_OperatorLesser(const QKeySequence* self, const QKeySequence* ks);
+bool QKeySequence_OperatorGreater(const QKeySequence* self, const QKeySequence* other);
+bool QKeySequence_OperatorLesserOrEqual(const QKeySequence* self, const QKeySequence* other);
+bool QKeySequence_OperatorGreaterOrEqual(const QKeySequence* self, const QKeySequence* other);
 bool QKeySequence_IsDetached(const QKeySequence* self);
 libqt_string QKeySequence_ToString1(const QKeySequence* self, int format);
-QKeySequence* QKeySequence_FromString2(libqt_string str, int format);
-libqt_list /* of QKeySequence* */ QKeySequence_ListFromString2(libqt_string str, int format);
-libqt_string QKeySequence_ListToString2(libqt_list /* of QKeySequence* */ list, int format);
+QKeySequence* QKeySequence_FromString2(const libqt_string str, int format);
+libqt_list /* of QKeySequence* */ QKeySequence_ListFromString2(const libqt_string str, int format);
+libqt_string QKeySequence_ListToString2(const libqt_list /* of QKeySequence* */ list, int format);
 void QKeySequence_Delete(QKeySequence* self);
 
 #ifdef __cplusplus

@@ -32,8 +32,8 @@ typedef int VerbosityLevel; // C ABI enum
 #endif
 
 QDebug* QDebug_new(QIODevice* device);
-QDebug* QDebug_new2(QDebug* o);
-void QDebug_OperatorAssign(QDebug* self, QDebug* other);
+QDebug* QDebug_new2(const QDebug* o);
+void QDebug_OperatorAssign(QDebug* self, const QDebug* other);
 void QDebug_Swap(QDebug* self, QDebug* other);
 QDebug* QDebug_ResetFormat(QDebug* self);
 QDebug* QDebug_Space(QDebug* self);
@@ -61,8 +61,8 @@ QDebug* QDebug_OperatorShiftLeftWithQuint64(QDebug* self, unsigned long long t);
 QDebug* QDebug_OperatorShiftLeftWithFloat(QDebug* self, float t);
 QDebug* QDebug_OperatorShiftLeftWithDouble(QDebug* self, double t);
 QDebug* QDebug_OperatorShiftLeft2(QDebug* self, const char* t);
-QDebug* QDebug_OperatorShiftLeftWithQString(QDebug* self, libqt_string t);
-QDebug* QDebug_OperatorShiftLeftWithQByteArray(QDebug* self, libqt_string t);
+QDebug* QDebug_OperatorShiftLeftWithQString(QDebug* self, const libqt_string t);
+QDebug* QDebug_OperatorShiftLeftWithQByteArray(QDebug* self, const libqt_string t);
 QDebug* QDebug_OperatorShiftLeftWithQByteArrayView(QDebug* self, QByteArrayView* t);
 QDebug* QDebug_OperatorShiftLeftWithVoid(QDebug* self, const void* t);
 QDebug* QDebug_MaybeQuote1(QDebug* self, char c);
@@ -71,7 +71,7 @@ void QDebug_Delete(QDebug* self);
 QDebugStateSaver* QDebugStateSaver_new(QDebug* dbg);
 void QDebugStateSaver_Delete(QDebugStateSaver* self);
 
-QNoDebug* QNoDebug_new(QNoDebug* other);
+QNoDebug* QNoDebug_new(const QNoDebug* other);
 QNoDebug* QNoDebug_new2(QNoDebug* other);
 void QNoDebug_CopyAssign(QNoDebug* self, QNoDebug* other);
 void QNoDebug_MoveAssign(QNoDebug* self, QNoDebug* other);

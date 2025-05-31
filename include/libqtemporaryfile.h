@@ -15,14 +15,8 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
-typedef struct QDateTime QDateTime;
 typedef struct QEvent QEvent;
 typedef struct QFile QFile;
 typedef struct QFileDevice QFileDevice;
@@ -30,18 +24,15 @@ typedef struct QIODevice QIODevice;
 typedef struct QIODeviceBase QIODeviceBase;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QTemporaryFile QTemporaryFile;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QTemporaryFile* QTemporaryFile_new();
-QTemporaryFile* QTemporaryFile_new2(libqt_string templateName);
+QTemporaryFile* QTemporaryFile_new2(const libqt_string templateName);
 QTemporaryFile* QTemporaryFile_new3(QObject* parent);
-QTemporaryFile* QTemporaryFile_new4(libqt_string templateName, QObject* parent);
+QTemporaryFile* QTemporaryFile_new4(const libqt_string templateName, QObject* parent);
 QMetaObject* QTemporaryFile_MetaObject(const QTemporaryFile* self);
 void* QTemporaryFile_Metacast(QTemporaryFile* self, const char* param1);
 int QTemporaryFile_Metacall(QTemporaryFile* self, int param1, int param2, void** param3);
@@ -55,9 +46,9 @@ libqt_string QTemporaryFile_FileName(const QTemporaryFile* self);
 void QTemporaryFile_OnFileName(const QTemporaryFile* self, intptr_t slot);
 libqt_string QTemporaryFile_QBaseFileName(const QTemporaryFile* self);
 libqt_string QTemporaryFile_FileTemplate(const QTemporaryFile* self);
-void QTemporaryFile_SetFileTemplate(QTemporaryFile* self, libqt_string name);
-bool QTemporaryFile_Rename(QTemporaryFile* self, libqt_string newName);
-QTemporaryFile* QTemporaryFile_CreateNativeFile(libqt_string fileName);
+void QTemporaryFile_SetFileTemplate(QTemporaryFile* self, const libqt_string name);
+bool QTemporaryFile_Rename(QTemporaryFile* self, const libqt_string newName);
+QTemporaryFile* QTemporaryFile_CreateNativeFile(const libqt_string fileName);
 QTemporaryFile* QTemporaryFile_CreateNativeFileWithFile(QFile* file);
 bool QTemporaryFile_OpenWithFlags(QTemporaryFile* self, int flags);
 void QTemporaryFile_OnOpenWithFlags(QTemporaryFile* self, intptr_t slot);
@@ -136,18 +127,18 @@ void QTemporaryFile_QBaseChildEvent(QTemporaryFile* self, QChildEvent* event);
 void QTemporaryFile_CustomEvent(QTemporaryFile* self, QEvent* event);
 void QTemporaryFile_OnCustomEvent(QTemporaryFile* self, intptr_t slot);
 void QTemporaryFile_QBaseCustomEvent(QTemporaryFile* self, QEvent* event);
-void QTemporaryFile_ConnectNotify(QTemporaryFile* self, QMetaMethod* signal);
+void QTemporaryFile_ConnectNotify(QTemporaryFile* self, const QMetaMethod* signal);
 void QTemporaryFile_OnConnectNotify(QTemporaryFile* self, intptr_t slot);
-void QTemporaryFile_QBaseConnectNotify(QTemporaryFile* self, QMetaMethod* signal);
-void QTemporaryFile_DisconnectNotify(QTemporaryFile* self, QMetaMethod* signal);
+void QTemporaryFile_QBaseConnectNotify(QTemporaryFile* self, const QMetaMethod* signal);
+void QTemporaryFile_DisconnectNotify(QTemporaryFile* self, const QMetaMethod* signal);
 void QTemporaryFile_OnDisconnectNotify(QTemporaryFile* self, intptr_t slot);
-void QTemporaryFile_QBaseDisconnectNotify(QTemporaryFile* self, QMetaMethod* signal);
+void QTemporaryFile_QBaseDisconnectNotify(QTemporaryFile* self, const QMetaMethod* signal);
 void QTemporaryFile_SetOpenMode(QTemporaryFile* self, int openMode);
 void QTemporaryFile_OnSetOpenMode(QTemporaryFile* self, intptr_t slot);
 void QTemporaryFile_QBaseSetOpenMode(QTemporaryFile* self, int openMode);
-void QTemporaryFile_SetErrorString(QTemporaryFile* self, libqt_string errorString);
+void QTemporaryFile_SetErrorString(QTemporaryFile* self, const libqt_string errorString);
 void QTemporaryFile_OnSetErrorString(QTemporaryFile* self, intptr_t slot);
-void QTemporaryFile_QBaseSetErrorString(QTemporaryFile* self, libqt_string errorString);
+void QTemporaryFile_QBaseSetErrorString(QTemporaryFile* self, const libqt_string errorString);
 QObject* QTemporaryFile_Sender(const QTemporaryFile* self);
 void QTemporaryFile_OnSender(const QTemporaryFile* self, intptr_t slot);
 QObject* QTemporaryFile_QBaseSender(const QTemporaryFile* self);
@@ -157,9 +148,9 @@ int QTemporaryFile_QBaseSenderSignalIndex(const QTemporaryFile* self);
 int QTemporaryFile_Receivers(const QTemporaryFile* self, const char* signal);
 void QTemporaryFile_OnReceivers(const QTemporaryFile* self, intptr_t slot);
 int QTemporaryFile_QBaseReceivers(const QTemporaryFile* self, const char* signal);
-bool QTemporaryFile_IsSignalConnected(const QTemporaryFile* self, QMetaMethod* signal);
+bool QTemporaryFile_IsSignalConnected(const QTemporaryFile* self, const QMetaMethod* signal);
 void QTemporaryFile_OnIsSignalConnected(const QTemporaryFile* self, intptr_t slot);
-bool QTemporaryFile_QBaseIsSignalConnected(const QTemporaryFile* self, QMetaMethod* signal);
+bool QTemporaryFile_QBaseIsSignalConnected(const QTemporaryFile* self, const QMetaMethod* signal);
 void QTemporaryFile_Delete(QTemporaryFile* self);
 
 #ifdef __cplusplus

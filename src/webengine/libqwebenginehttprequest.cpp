@@ -14,23 +14,23 @@ QWebEngineHttpRequest* QWebEngineHttpRequest_new() {
     return new QWebEngineHttpRequest();
 }
 
-QWebEngineHttpRequest* QWebEngineHttpRequest_new2(QWebEngineHttpRequest* other) {
+QWebEngineHttpRequest* QWebEngineHttpRequest_new2(const QWebEngineHttpRequest* other) {
     return new QWebEngineHttpRequest(*other);
 }
 
-QWebEngineHttpRequest* QWebEngineHttpRequest_new3(QUrl* url) {
+QWebEngineHttpRequest* QWebEngineHttpRequest_new3(const QUrl* url) {
     return new QWebEngineHttpRequest(*url);
 }
 
-QWebEngineHttpRequest* QWebEngineHttpRequest_new4(QUrl* url, int* method) {
+QWebEngineHttpRequest* QWebEngineHttpRequest_new4(const QUrl* url, const int* method) {
     return new QWebEngineHttpRequest(*url, (const QWebEngineHttpRequest::Method&)(*method));
 }
 
-void QWebEngineHttpRequest_OperatorAssign(QWebEngineHttpRequest* self, QWebEngineHttpRequest* other) {
+void QWebEngineHttpRequest_OperatorAssign(QWebEngineHttpRequest* self, const QWebEngineHttpRequest* other) {
     self->operator=(*other);
 }
 
-QWebEngineHttpRequest* QWebEngineHttpRequest_PostRequest(QUrl* url, libqt_map /* of libqt_string to libqt_string */ postData) {
+QWebEngineHttpRequest* QWebEngineHttpRequest_PostRequest(const QUrl* url, const libqt_map /* of libqt_string to libqt_string */ postData) {
     QMap<QString, QString> postData_QMap;
     libqt_string* postData_karr = static_cast<libqt_string*>(postData.keys);
     libqt_string* postData_varr = static_cast<libqt_string*>(postData.values);
@@ -46,11 +46,11 @@ void QWebEngineHttpRequest_Swap(QWebEngineHttpRequest* self, QWebEngineHttpReque
     self->swap(*other);
 }
 
-bool QWebEngineHttpRequest_OperatorEqual(const QWebEngineHttpRequest* self, QWebEngineHttpRequest* other) {
+bool QWebEngineHttpRequest_OperatorEqual(const QWebEngineHttpRequest* self, const QWebEngineHttpRequest* other) {
     return (*self == *other);
 }
 
-bool QWebEngineHttpRequest_OperatorNotEqual(const QWebEngineHttpRequest* self, QWebEngineHttpRequest* other) {
+bool QWebEngineHttpRequest_OperatorNotEqual(const QWebEngineHttpRequest* self, const QWebEngineHttpRequest* other) {
     return (*self != *other);
 }
 
@@ -66,7 +66,7 @@ QUrl* QWebEngineHttpRequest_Url(const QWebEngineHttpRequest* self) {
     return new QUrl(self->url());
 }
 
-void QWebEngineHttpRequest_SetUrl(QWebEngineHttpRequest* self, QUrl* url) {
+void QWebEngineHttpRequest_SetUrl(QWebEngineHttpRequest* self, const QUrl* url) {
     self->setUrl(*url);
 }
 
@@ -80,12 +80,12 @@ libqt_string QWebEngineHttpRequest_PostData(const QWebEngineHttpRequest* self) {
     return _str;
 }
 
-void QWebEngineHttpRequest_SetPostData(QWebEngineHttpRequest* self, libqt_string postData) {
+void QWebEngineHttpRequest_SetPostData(QWebEngineHttpRequest* self, const libqt_string postData) {
     QByteArray postData_QByteArray(postData.data, postData.len);
     self->setPostData(postData_QByteArray);
 }
 
-bool QWebEngineHttpRequest_HasHeader(const QWebEngineHttpRequest* self, libqt_string headerName) {
+bool QWebEngineHttpRequest_HasHeader(const QWebEngineHttpRequest* self, const libqt_string headerName) {
     QByteArray headerName_QByteArray(headerName.data, headerName.len);
     return self->hasHeader(headerName_QByteArray);
 }
@@ -109,7 +109,7 @@ libqt_list /* of libqt_string */ QWebEngineHttpRequest_Headers(const QWebEngineH
     return _out;
 }
 
-libqt_string QWebEngineHttpRequest_Header(const QWebEngineHttpRequest* self, libqt_string headerName) {
+libqt_string QWebEngineHttpRequest_Header(const QWebEngineHttpRequest* self, const libqt_string headerName) {
     QByteArray headerName_QByteArray(headerName.data, headerName.len);
     QByteArray _qb = self->header(headerName_QByteArray);
     libqt_string _str;
@@ -120,13 +120,13 @@ libqt_string QWebEngineHttpRequest_Header(const QWebEngineHttpRequest* self, lib
     return _str;
 }
 
-void QWebEngineHttpRequest_SetHeader(QWebEngineHttpRequest* self, libqt_string headerName, libqt_string value) {
+void QWebEngineHttpRequest_SetHeader(QWebEngineHttpRequest* self, const libqt_string headerName, const libqt_string value) {
     QByteArray headerName_QByteArray(headerName.data, headerName.len);
     QByteArray value_QByteArray(value.data, value.len);
     self->setHeader(headerName_QByteArray, value_QByteArray);
 }
 
-void QWebEngineHttpRequest_UnsetHeader(QWebEngineHttpRequest* self, libqt_string headerName) {
+void QWebEngineHttpRequest_UnsetHeader(QWebEngineHttpRequest* self, const libqt_string headerName) {
     QByteArray headerName_QByteArray(headerName.data, headerName.len);
     self->unsetHeader(headerName_QByteArray);
 }

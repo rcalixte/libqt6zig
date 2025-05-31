@@ -26,15 +26,15 @@ typedef QColormap::Mode Mode; // C++ enum
 typedef int Mode; // C ABI enum
 #endif
 
-QColormap* QColormap_new(QColormap* colormap);
+QColormap* QColormap_new(const QColormap* colormap);
 void QColormap_Initialize();
 void QColormap_Cleanup();
 QColormap* QColormap_Instance();
-void QColormap_OperatorAssign(QColormap* self, QColormap* colormap);
+void QColormap_OperatorAssign(QColormap* self, const QColormap* colormap);
 int QColormap_Mode(const QColormap* self);
 int QColormap_Depth(const QColormap* self);
 int QColormap_Size(const QColormap* self);
-unsigned int QColormap_Pixel(const QColormap* self, QColor* color);
+unsigned int QColormap_Pixel(const QColormap* self, const QColor* color);
 QColor* QColormap_ColorAt(const QColormap* self, unsigned int pixel);
 libqt_list /* of QColor* */ QColormap_Colormap(const QColormap* self);
 QColormap* QColormap_Instance1(int screen);

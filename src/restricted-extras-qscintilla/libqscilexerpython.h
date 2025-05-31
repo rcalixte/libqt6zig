@@ -15,25 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSettings QSettings;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
-typedef struct QsciAbstractAPIs QsciAbstractAPIs;
 typedef struct QsciLexer QsciLexer;
 typedef struct QsciLexerPython QsciLexerPython;
 typedef struct QsciScintilla QsciScintilla;
@@ -147,21 +138,24 @@ const char* QsciLexerPython_QBaseWordCharacters(const QsciLexerPython* self);
 void QsciLexerPython_SetAutoIndentStyle(QsciLexerPython* self, int autoindentstyle);
 void QsciLexerPython_OnSetAutoIndentStyle(QsciLexerPython* self, intptr_t slot);
 void QsciLexerPython_QBaseSetAutoIndentStyle(QsciLexerPython* self, int autoindentstyle);
-void QsciLexerPython_SetColor(QsciLexerPython* self, QColor* c, int style);
+void QsciLexerPython_SetColor(QsciLexerPython* self, const QColor* c, int style);
 void QsciLexerPython_OnSetColor(QsciLexerPython* self, intptr_t slot);
-void QsciLexerPython_QBaseSetColor(QsciLexerPython* self, QColor* c, int style);
+void QsciLexerPython_QBaseSetColor(QsciLexerPython* self, const QColor* c, int style);
 void QsciLexerPython_SetEolFill(QsciLexerPython* self, bool eoffill, int style);
 void QsciLexerPython_OnSetEolFill(QsciLexerPython* self, intptr_t slot);
 void QsciLexerPython_QBaseSetEolFill(QsciLexerPython* self, bool eoffill, int style);
-void QsciLexerPython_SetFont(QsciLexerPython* self, QFont* f, int style);
+void QsciLexerPython_SetFont(QsciLexerPython* self, const QFont* f, int style);
 void QsciLexerPython_OnSetFont(QsciLexerPython* self, intptr_t slot);
-void QsciLexerPython_QBaseSetFont(QsciLexerPython* self, QFont* f, int style);
-void QsciLexerPython_SetPaper(QsciLexerPython* self, QColor* c, int style);
+void QsciLexerPython_QBaseSetFont(QsciLexerPython* self, const QFont* f, int style);
+void QsciLexerPython_SetPaper(QsciLexerPython* self, const QColor* c, int style);
 void QsciLexerPython_OnSetPaper(QsciLexerPython* self, intptr_t slot);
-void QsciLexerPython_QBaseSetPaper(QsciLexerPython* self, QColor* c, int style);
-bool QsciLexerPython_ReadProperties(QsciLexerPython* self, QSettings* qs, libqt_string prefix);
+void QsciLexerPython_QBaseSetPaper(QsciLexerPython* self, const QColor* c, int style);
+bool QsciLexerPython_ReadProperties(QsciLexerPython* self, QSettings* qs, const libqt_string prefix);
 void QsciLexerPython_OnReadProperties(QsciLexerPython* self, intptr_t slot);
-bool QsciLexerPython_QBaseReadProperties(QsciLexerPython* self, QSettings* qs, libqt_string prefix);
+bool QsciLexerPython_QBaseReadProperties(QsciLexerPython* self, QSettings* qs, const libqt_string prefix);
+bool QsciLexerPython_WriteProperties(const QsciLexerPython* self, QSettings* qs, const libqt_string prefix);
+void QsciLexerPython_OnWriteProperties(const QsciLexerPython* self, intptr_t slot);
+bool QsciLexerPython_QBaseWriteProperties(const QsciLexerPython* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexerPython_Event(QsciLexerPython* self, QEvent* event);
 void QsciLexerPython_OnEvent(QsciLexerPython* self, intptr_t slot);
 bool QsciLexerPython_QBaseEvent(QsciLexerPython* self, QEvent* event);
@@ -177,15 +171,12 @@ void QsciLexerPython_QBaseChildEvent(QsciLexerPython* self, QChildEvent* event);
 void QsciLexerPython_CustomEvent(QsciLexerPython* self, QEvent* event);
 void QsciLexerPython_OnCustomEvent(QsciLexerPython* self, intptr_t slot);
 void QsciLexerPython_QBaseCustomEvent(QsciLexerPython* self, QEvent* event);
-void QsciLexerPython_ConnectNotify(QsciLexerPython* self, QMetaMethod* signal);
+void QsciLexerPython_ConnectNotify(QsciLexerPython* self, const QMetaMethod* signal);
 void QsciLexerPython_OnConnectNotify(QsciLexerPython* self, intptr_t slot);
-void QsciLexerPython_QBaseConnectNotify(QsciLexerPython* self, QMetaMethod* signal);
-void QsciLexerPython_DisconnectNotify(QsciLexerPython* self, QMetaMethod* signal);
+void QsciLexerPython_QBaseConnectNotify(QsciLexerPython* self, const QMetaMethod* signal);
+void QsciLexerPython_DisconnectNotify(QsciLexerPython* self, const QMetaMethod* signal);
 void QsciLexerPython_OnDisconnectNotify(QsciLexerPython* self, intptr_t slot);
-void QsciLexerPython_QBaseDisconnectNotify(QsciLexerPython* self, QMetaMethod* signal);
-bool QsciLexerPython_WriteProperties(const QsciLexerPython* self, QSettings* qs, libqt_string prefix);
-void QsciLexerPython_OnWriteProperties(const QsciLexerPython* self, intptr_t slot);
-bool QsciLexerPython_QBaseWriteProperties(const QsciLexerPython* self, QSettings* qs, libqt_string prefix);
+void QsciLexerPython_QBaseDisconnectNotify(QsciLexerPython* self, const QMetaMethod* signal);
 QObject* QsciLexerPython_Sender(const QsciLexerPython* self);
 void QsciLexerPython_OnSender(const QsciLexerPython* self, intptr_t slot);
 QObject* QsciLexerPython_QBaseSender(const QsciLexerPython* self);
@@ -195,9 +186,9 @@ int QsciLexerPython_QBaseSenderSignalIndex(const QsciLexerPython* self);
 int QsciLexerPython_Receivers(const QsciLexerPython* self, const char* signal);
 void QsciLexerPython_OnReceivers(const QsciLexerPython* self, intptr_t slot);
 int QsciLexerPython_QBaseReceivers(const QsciLexerPython* self, const char* signal);
-bool QsciLexerPython_IsSignalConnected(const QsciLexerPython* self, QMetaMethod* signal);
+bool QsciLexerPython_IsSignalConnected(const QsciLexerPython* self, const QMetaMethod* signal);
 void QsciLexerPython_OnIsSignalConnected(const QsciLexerPython* self, intptr_t slot);
-bool QsciLexerPython_QBaseIsSignalConnected(const QsciLexerPython* self, QMetaMethod* signal);
+bool QsciLexerPython_QBaseIsSignalConnected(const QsciLexerPython* self, const QMetaMethod* signal);
 void QsciLexerPython_Delete(QsciLexerPython* self);
 
 #ifdef __cplusplus

@@ -7,11 +7,11 @@ QHttp2Configuration* QHttp2Configuration_new() {
     return new QHttp2Configuration();
 }
 
-QHttp2Configuration* QHttp2Configuration_new2(QHttp2Configuration* other) {
+QHttp2Configuration* QHttp2Configuration_new2(const QHttp2Configuration* other) {
     return new QHttp2Configuration(*other);
 }
 
-void QHttp2Configuration_OperatorAssign(QHttp2Configuration* self, QHttp2Configuration* other) {
+void QHttp2Configuration_OperatorAssign(QHttp2Configuration* self, const QHttp2Configuration* other) {
     self->operator=(*other);
 }
 

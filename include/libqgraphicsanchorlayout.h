@@ -15,13 +15,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
-typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QGraphicsAnchor QGraphicsAnchor;
 typedef struct QGraphicsAnchorLayout QGraphicsAnchorLayout;
@@ -30,14 +24,9 @@ typedef struct QGraphicsLayout QGraphicsLayout;
 typedef struct QGraphicsLayoutItem QGraphicsLayoutItem;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QRectF QRectF;
 typedef struct QSizeF QSizeF;
-typedef struct QSizePolicy QSizePolicy;
-typedef struct QThread QThread;
-typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QMetaObject* QGraphicsAnchor_MetaObject(const QGraphicsAnchor* self);
@@ -51,8 +40,6 @@ void QGraphicsAnchor_SetSizePolicy(QGraphicsAnchor* self, int policy);
 int QGraphicsAnchor_SizePolicy(const QGraphicsAnchor* self);
 libqt_string QGraphicsAnchor_Tr2(const char* s, const char* c);
 libqt_string QGraphicsAnchor_Tr3(const char* s, const char* c, int n);
-bool QGraphicsAnchor_Event(QGraphicsAnchor* self, QEvent* event);
-bool QGraphicsAnchor_EventFilter(QGraphicsAnchor* self, QObject* watched, QEvent* event);
 void QGraphicsAnchor_Delete(QGraphicsAnchor* self);
 
 QGraphicsAnchorLayout* QGraphicsAnchorLayout_new();
@@ -69,9 +56,9 @@ double QGraphicsAnchorLayout_VerticalSpacing(const QGraphicsAnchorLayout* self);
 void QGraphicsAnchorLayout_RemoveAt(QGraphicsAnchorLayout* self, int index);
 void QGraphicsAnchorLayout_OnRemoveAt(QGraphicsAnchorLayout* self, intptr_t slot);
 void QGraphicsAnchorLayout_QBaseRemoveAt(QGraphicsAnchorLayout* self, int index);
-void QGraphicsAnchorLayout_SetGeometry(QGraphicsAnchorLayout* self, QRectF* rect);
+void QGraphicsAnchorLayout_SetGeometry(QGraphicsAnchorLayout* self, const QRectF* rect);
 void QGraphicsAnchorLayout_OnSetGeometry(QGraphicsAnchorLayout* self, intptr_t slot);
-void QGraphicsAnchorLayout_QBaseSetGeometry(QGraphicsAnchorLayout* self, QRectF* rect);
+void QGraphicsAnchorLayout_QBaseSetGeometry(QGraphicsAnchorLayout* self, const QRectF* rect);
 int QGraphicsAnchorLayout_Count(const QGraphicsAnchorLayout* self);
 void QGraphicsAnchorLayout_OnCount(const QGraphicsAnchorLayout* self, intptr_t slot);
 int QGraphicsAnchorLayout_QBaseCount(const QGraphicsAnchorLayout* self);
@@ -81,9 +68,9 @@ QGraphicsLayoutItem* QGraphicsAnchorLayout_QBaseItemAt(const QGraphicsAnchorLayo
 void QGraphicsAnchorLayout_Invalidate(QGraphicsAnchorLayout* self);
 void QGraphicsAnchorLayout_OnInvalidate(QGraphicsAnchorLayout* self, intptr_t slot);
 void QGraphicsAnchorLayout_QBaseInvalidate(QGraphicsAnchorLayout* self);
-QSizeF* QGraphicsAnchorLayout_SizeHint(const QGraphicsAnchorLayout* self, int which, QSizeF* constraint);
+QSizeF* QGraphicsAnchorLayout_SizeHint(const QGraphicsAnchorLayout* self, int which, const QSizeF* constraint);
 void QGraphicsAnchorLayout_OnSizeHint(const QGraphicsAnchorLayout* self, intptr_t slot);
-QSizeF* QGraphicsAnchorLayout_QBaseSizeHint(const QGraphicsAnchorLayout* self, int which, QSizeF* constraint);
+QSizeF* QGraphicsAnchorLayout_QBaseSizeHint(const QGraphicsAnchorLayout* self, int which, const QSizeF* constraint);
 void QGraphicsAnchorLayout_AddAnchors3(QGraphicsAnchorLayout* self, QGraphicsLayoutItem* firstItem, QGraphicsLayoutItem* secondItem, int orientations);
 void QGraphicsAnchorLayout_GetContentsMargins(const QGraphicsAnchorLayout* self, double* left, double* top, double* right, double* bottom);
 void QGraphicsAnchorLayout_OnGetContentsMargins(const QGraphicsAnchorLayout* self, intptr_t slot);

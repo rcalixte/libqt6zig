@@ -15,25 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSettings QSettings;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
-typedef struct QsciAbstractAPIs QsciAbstractAPIs;
 typedef struct QsciLexer QsciLexer;
 typedef struct QsciLexerPostScript QsciLexerPostScript;
 typedef struct QsciScintilla QsciScintilla;
@@ -140,21 +131,24 @@ const char* QsciLexerPostScript_QBaseWordCharacters(const QsciLexerPostScript* s
 void QsciLexerPostScript_SetAutoIndentStyle(QsciLexerPostScript* self, int autoindentstyle);
 void QsciLexerPostScript_OnSetAutoIndentStyle(QsciLexerPostScript* self, intptr_t slot);
 void QsciLexerPostScript_QBaseSetAutoIndentStyle(QsciLexerPostScript* self, int autoindentstyle);
-void QsciLexerPostScript_SetColor(QsciLexerPostScript* self, QColor* c, int style);
+void QsciLexerPostScript_SetColor(QsciLexerPostScript* self, const QColor* c, int style);
 void QsciLexerPostScript_OnSetColor(QsciLexerPostScript* self, intptr_t slot);
-void QsciLexerPostScript_QBaseSetColor(QsciLexerPostScript* self, QColor* c, int style);
+void QsciLexerPostScript_QBaseSetColor(QsciLexerPostScript* self, const QColor* c, int style);
 void QsciLexerPostScript_SetEolFill(QsciLexerPostScript* self, bool eoffill, int style);
 void QsciLexerPostScript_OnSetEolFill(QsciLexerPostScript* self, intptr_t slot);
 void QsciLexerPostScript_QBaseSetEolFill(QsciLexerPostScript* self, bool eoffill, int style);
-void QsciLexerPostScript_SetFont(QsciLexerPostScript* self, QFont* f, int style);
+void QsciLexerPostScript_SetFont(QsciLexerPostScript* self, const QFont* f, int style);
 void QsciLexerPostScript_OnSetFont(QsciLexerPostScript* self, intptr_t slot);
-void QsciLexerPostScript_QBaseSetFont(QsciLexerPostScript* self, QFont* f, int style);
-void QsciLexerPostScript_SetPaper(QsciLexerPostScript* self, QColor* c, int style);
+void QsciLexerPostScript_QBaseSetFont(QsciLexerPostScript* self, const QFont* f, int style);
+void QsciLexerPostScript_SetPaper(QsciLexerPostScript* self, const QColor* c, int style);
 void QsciLexerPostScript_OnSetPaper(QsciLexerPostScript* self, intptr_t slot);
-void QsciLexerPostScript_QBaseSetPaper(QsciLexerPostScript* self, QColor* c, int style);
-bool QsciLexerPostScript_ReadProperties(QsciLexerPostScript* self, QSettings* qs, libqt_string prefix);
+void QsciLexerPostScript_QBaseSetPaper(QsciLexerPostScript* self, const QColor* c, int style);
+bool QsciLexerPostScript_ReadProperties(QsciLexerPostScript* self, QSettings* qs, const libqt_string prefix);
 void QsciLexerPostScript_OnReadProperties(QsciLexerPostScript* self, intptr_t slot);
-bool QsciLexerPostScript_QBaseReadProperties(QsciLexerPostScript* self, QSettings* qs, libqt_string prefix);
+bool QsciLexerPostScript_QBaseReadProperties(QsciLexerPostScript* self, QSettings* qs, const libqt_string prefix);
+bool QsciLexerPostScript_WriteProperties(const QsciLexerPostScript* self, QSettings* qs, const libqt_string prefix);
+void QsciLexerPostScript_OnWriteProperties(const QsciLexerPostScript* self, intptr_t slot);
+bool QsciLexerPostScript_QBaseWriteProperties(const QsciLexerPostScript* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexerPostScript_Event(QsciLexerPostScript* self, QEvent* event);
 void QsciLexerPostScript_OnEvent(QsciLexerPostScript* self, intptr_t slot);
 bool QsciLexerPostScript_QBaseEvent(QsciLexerPostScript* self, QEvent* event);
@@ -170,15 +164,12 @@ void QsciLexerPostScript_QBaseChildEvent(QsciLexerPostScript* self, QChildEvent*
 void QsciLexerPostScript_CustomEvent(QsciLexerPostScript* self, QEvent* event);
 void QsciLexerPostScript_OnCustomEvent(QsciLexerPostScript* self, intptr_t slot);
 void QsciLexerPostScript_QBaseCustomEvent(QsciLexerPostScript* self, QEvent* event);
-void QsciLexerPostScript_ConnectNotify(QsciLexerPostScript* self, QMetaMethod* signal);
+void QsciLexerPostScript_ConnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal);
 void QsciLexerPostScript_OnConnectNotify(QsciLexerPostScript* self, intptr_t slot);
-void QsciLexerPostScript_QBaseConnectNotify(QsciLexerPostScript* self, QMetaMethod* signal);
-void QsciLexerPostScript_DisconnectNotify(QsciLexerPostScript* self, QMetaMethod* signal);
+void QsciLexerPostScript_QBaseConnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal);
+void QsciLexerPostScript_DisconnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal);
 void QsciLexerPostScript_OnDisconnectNotify(QsciLexerPostScript* self, intptr_t slot);
-void QsciLexerPostScript_QBaseDisconnectNotify(QsciLexerPostScript* self, QMetaMethod* signal);
-bool QsciLexerPostScript_WriteProperties(const QsciLexerPostScript* self, QSettings* qs, libqt_string prefix);
-void QsciLexerPostScript_OnWriteProperties(const QsciLexerPostScript* self, intptr_t slot);
-bool QsciLexerPostScript_QBaseWriteProperties(const QsciLexerPostScript* self, QSettings* qs, libqt_string prefix);
+void QsciLexerPostScript_QBaseDisconnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal);
 QObject* QsciLexerPostScript_Sender(const QsciLexerPostScript* self);
 void QsciLexerPostScript_OnSender(const QsciLexerPostScript* self, intptr_t slot);
 QObject* QsciLexerPostScript_QBaseSender(const QsciLexerPostScript* self);
@@ -188,9 +179,9 @@ int QsciLexerPostScript_QBaseSenderSignalIndex(const QsciLexerPostScript* self);
 int QsciLexerPostScript_Receivers(const QsciLexerPostScript* self, const char* signal);
 void QsciLexerPostScript_OnReceivers(const QsciLexerPostScript* self, intptr_t slot);
 int QsciLexerPostScript_QBaseReceivers(const QsciLexerPostScript* self, const char* signal);
-bool QsciLexerPostScript_IsSignalConnected(const QsciLexerPostScript* self, QMetaMethod* signal);
+bool QsciLexerPostScript_IsSignalConnected(const QsciLexerPostScript* self, const QMetaMethod* signal);
 void QsciLexerPostScript_OnIsSignalConnected(const QsciLexerPostScript* self, intptr_t slot);
-bool QsciLexerPostScript_QBaseIsSignalConnected(const QsciLexerPostScript* self, QMetaMethod* signal);
+bool QsciLexerPostScript_QBaseIsSignalConnected(const QsciLexerPostScript* self, const QMetaMethod* signal);
 void QsciLexerPostScript_Delete(QsciLexerPostScript* self);
 
 #ifdef __cplusplus

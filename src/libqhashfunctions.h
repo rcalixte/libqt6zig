@@ -19,7 +19,7 @@ extern "C" {
 typedef struct QHashSeed QHashSeed;
 #endif
 
-QHashSeed* QHashSeed_new(QHashSeed* other);
+QHashSeed* QHashSeed_new(const QHashSeed* other);
 QHashSeed* QHashSeed_new2(QHashSeed* other);
 QHashSeed* QHashSeed_new3();
 QHashSeed* QHashSeed_new4(size_t d);

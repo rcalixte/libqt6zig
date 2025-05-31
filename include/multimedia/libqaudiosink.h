@@ -15,33 +15,25 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QAudioDevice QAudioDevice;
 typedef struct QAudioFormat QAudioFormat;
 typedef struct QAudioSink QAudioSink;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QIODevice QIODevice;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QAudioSink* QAudioSink_new();
-QAudioSink* QAudioSink_new2(QAudioDevice* audioDeviceInfo);
-QAudioSink* QAudioSink_new3(QAudioFormat* format);
-QAudioSink* QAudioSink_new4(QAudioFormat* format, QObject* parent);
-QAudioSink* QAudioSink_new5(QAudioDevice* audioDeviceInfo, QAudioFormat* format);
-QAudioSink* QAudioSink_new6(QAudioDevice* audioDeviceInfo, QAudioFormat* format, QObject* parent);
+QAudioSink* QAudioSink_new2(const QAudioDevice* audioDeviceInfo);
+QAudioSink* QAudioSink_new3(const QAudioFormat* format);
+QAudioSink* QAudioSink_new4(const QAudioFormat* format, QObject* parent);
+QAudioSink* QAudioSink_new5(const QAudioDevice* audioDeviceInfo, const QAudioFormat* format);
+QAudioSink* QAudioSink_new6(const QAudioDevice* audioDeviceInfo, const QAudioFormat* format, QObject* parent);
 QMetaObject* QAudioSink_MetaObject(const QAudioSink* self);
 void* QAudioSink_Metacast(QAudioSink* self, const char* param1);
 int QAudioSink_Metacall(QAudioSink* self, int param1, int param2, void** param3);
@@ -84,12 +76,12 @@ void QAudioSink_QBaseChildEvent(QAudioSink* self, QChildEvent* event);
 void QAudioSink_CustomEvent(QAudioSink* self, QEvent* event);
 void QAudioSink_OnCustomEvent(QAudioSink* self, intptr_t slot);
 void QAudioSink_QBaseCustomEvent(QAudioSink* self, QEvent* event);
-void QAudioSink_ConnectNotify(QAudioSink* self, QMetaMethod* signal);
+void QAudioSink_ConnectNotify(QAudioSink* self, const QMetaMethod* signal);
 void QAudioSink_OnConnectNotify(QAudioSink* self, intptr_t slot);
-void QAudioSink_QBaseConnectNotify(QAudioSink* self, QMetaMethod* signal);
-void QAudioSink_DisconnectNotify(QAudioSink* self, QMetaMethod* signal);
+void QAudioSink_QBaseConnectNotify(QAudioSink* self, const QMetaMethod* signal);
+void QAudioSink_DisconnectNotify(QAudioSink* self, const QMetaMethod* signal);
 void QAudioSink_OnDisconnectNotify(QAudioSink* self, intptr_t slot);
-void QAudioSink_QBaseDisconnectNotify(QAudioSink* self, QMetaMethod* signal);
+void QAudioSink_QBaseDisconnectNotify(QAudioSink* self, const QMetaMethod* signal);
 QObject* QAudioSink_Sender(const QAudioSink* self);
 void QAudioSink_OnSender(const QAudioSink* self, intptr_t slot);
 QObject* QAudioSink_QBaseSender(const QAudioSink* self);
@@ -99,9 +91,9 @@ int QAudioSink_QBaseSenderSignalIndex(const QAudioSink* self);
 int QAudioSink_Receivers(const QAudioSink* self, const char* signal);
 void QAudioSink_OnReceivers(const QAudioSink* self, intptr_t slot);
 int QAudioSink_QBaseReceivers(const QAudioSink* self, const char* signal);
-bool QAudioSink_IsSignalConnected(const QAudioSink* self, QMetaMethod* signal);
+bool QAudioSink_IsSignalConnected(const QAudioSink* self, const QMetaMethod* signal);
 void QAudioSink_OnIsSignalConnected(const QAudioSink* self, intptr_t slot);
-bool QAudioSink_QBaseIsSignalConnected(const QAudioSink* self, QMetaMethod* signal);
+bool QAudioSink_QBaseIsSignalConnected(const QAudioSink* self, const QMetaMethod* signal);
 void QAudioSink_Delete(QAudioSink* self);
 
 #ifdef __cplusplus

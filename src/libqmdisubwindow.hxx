@@ -11,13 +11,16 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QMdiSubWindow so that we can call protected methods
-class VirtualQMdiSubWindow : public QMdiSubWindow {
+class VirtualQMdiSubWindow final : public QMdiSubWindow {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQMdiSubWindow = true;
+
     // Virtual class public types (including callbacks)
-    using QMdiSubWindow_Metacall_Callback = int (*)(QMdiSubWindow*, QMetaObject::Call, int, void**);
-    using QMdiSubWindow_SizeHint_Callback = QSize (*)();
-    using QMdiSubWindow_MinimumSizeHint_Callback = QSize (*)();
+    using QMdiSubWindow_Metacall_Callback = int (*)(QMdiSubWindow*, int, int, void**);
+    using QMdiSubWindow_SizeHint_Callback = QSize* (*)();
+    using QMdiSubWindow_MinimumSizeHint_Callback = QSize* (*)();
     using QMdiSubWindow_EventFilter_Callback = bool (*)(QMdiSubWindow*, QObject*, QEvent*);
     using QMdiSubWindow_Event_Callback = bool (*)(QMdiSubWindow*, QEvent*);
     using QMdiSubWindow_ShowEvent_Callback = void (*)(QMdiSubWindow*, QShowEvent*);
@@ -52,17 +55,17 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
     using QMdiSubWindow_DragMoveEvent_Callback = void (*)(QMdiSubWindow*, QDragMoveEvent*);
     using QMdiSubWindow_DragLeaveEvent_Callback = void (*)(QMdiSubWindow*, QDragLeaveEvent*);
     using QMdiSubWindow_DropEvent_Callback = void (*)(QMdiSubWindow*, QDropEvent*);
-    using QMdiSubWindow_NativeEvent_Callback = bool (*)(QMdiSubWindow*, const QByteArray&, void*, qintptr*);
-    using QMdiSubWindow_Metric_Callback = int (*)(const QMdiSubWindow*, QPaintDevice::PaintDeviceMetric);
+    using QMdiSubWindow_NativeEvent_Callback = bool (*)(QMdiSubWindow*, libqt_string, void*, intptr_t*);
+    using QMdiSubWindow_Metric_Callback = int (*)(const QMdiSubWindow*, int);
     using QMdiSubWindow_InitPainter_Callback = void (*)(const QMdiSubWindow*, QPainter*);
     using QMdiSubWindow_Redirected_Callback = QPaintDevice* (*)(const QMdiSubWindow*, QPoint*);
     using QMdiSubWindow_SharedPainter_Callback = QPainter* (*)();
     using QMdiSubWindow_InputMethodEvent_Callback = void (*)(QMdiSubWindow*, QInputMethodEvent*);
-    using QMdiSubWindow_InputMethodQuery_Callback = QVariant (*)(const QMdiSubWindow*, Qt::InputMethodQuery);
+    using QMdiSubWindow_InputMethodQuery_Callback = QVariant* (*)(const QMdiSubWindow*, int);
     using QMdiSubWindow_FocusNextPrevChild_Callback = bool (*)(QMdiSubWindow*, bool);
     using QMdiSubWindow_CustomEvent_Callback = void (*)(QMdiSubWindow*, QEvent*);
-    using QMdiSubWindow_ConnectNotify_Callback = void (*)(QMdiSubWindow*, const QMetaMethod&);
-    using QMdiSubWindow_DisconnectNotify_Callback = void (*)(QMdiSubWindow*, const QMetaMethod&);
+    using QMdiSubWindow_ConnectNotify_Callback = void (*)(QMdiSubWindow*, QMetaMethod*);
+    using QMdiSubWindow_DisconnectNotify_Callback = void (*)(QMdiSubWindow*, QMetaMethod*);
     using QMdiSubWindow_UpdateMicroFocus_Callback = void (*)();
     using QMdiSubWindow_Create_Callback = void (*)();
     using QMdiSubWindow_Destroy_Callback = void (*)();
@@ -71,7 +74,7 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
     using QMdiSubWindow_Sender_Callback = QObject* (*)();
     using QMdiSubWindow_SenderSignalIndex_Callback = int (*)();
     using QMdiSubWindow_Receivers_Callback = int (*)(const QMdiSubWindow*, const char*);
-    using QMdiSubWindow_IsSignalConnected_Callback = bool (*)(const QMdiSubWindow*, const QMetaMethod&);
+    using QMdiSubWindow_IsSignalConnected_Callback = bool (*)(const QMdiSubWindow*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -258,122 +261,122 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
     }
 
     // Callback setters
-    void setQMdiSubWindow_Metacall_Callback(QMdiSubWindow_Metacall_Callback cb) { qmdisubwindow_metacall_callback = cb; }
-    void setQMdiSubWindow_SizeHint_Callback(QMdiSubWindow_SizeHint_Callback cb) { qmdisubwindow_sizehint_callback = cb; }
-    void setQMdiSubWindow_MinimumSizeHint_Callback(QMdiSubWindow_MinimumSizeHint_Callback cb) { qmdisubwindow_minimumsizehint_callback = cb; }
-    void setQMdiSubWindow_EventFilter_Callback(QMdiSubWindow_EventFilter_Callback cb) { qmdisubwindow_eventfilter_callback = cb; }
-    void setQMdiSubWindow_Event_Callback(QMdiSubWindow_Event_Callback cb) { qmdisubwindow_event_callback = cb; }
-    void setQMdiSubWindow_ShowEvent_Callback(QMdiSubWindow_ShowEvent_Callback cb) { qmdisubwindow_showevent_callback = cb; }
-    void setQMdiSubWindow_HideEvent_Callback(QMdiSubWindow_HideEvent_Callback cb) { qmdisubwindow_hideevent_callback = cb; }
-    void setQMdiSubWindow_ChangeEvent_Callback(QMdiSubWindow_ChangeEvent_Callback cb) { qmdisubwindow_changeevent_callback = cb; }
-    void setQMdiSubWindow_CloseEvent_Callback(QMdiSubWindow_CloseEvent_Callback cb) { qmdisubwindow_closeevent_callback = cb; }
-    void setQMdiSubWindow_LeaveEvent_Callback(QMdiSubWindow_LeaveEvent_Callback cb) { qmdisubwindow_leaveevent_callback = cb; }
-    void setQMdiSubWindow_ResizeEvent_Callback(QMdiSubWindow_ResizeEvent_Callback cb) { qmdisubwindow_resizeevent_callback = cb; }
-    void setQMdiSubWindow_TimerEvent_Callback(QMdiSubWindow_TimerEvent_Callback cb) { qmdisubwindow_timerevent_callback = cb; }
-    void setQMdiSubWindow_MoveEvent_Callback(QMdiSubWindow_MoveEvent_Callback cb) { qmdisubwindow_moveevent_callback = cb; }
-    void setQMdiSubWindow_PaintEvent_Callback(QMdiSubWindow_PaintEvent_Callback cb) { qmdisubwindow_paintevent_callback = cb; }
-    void setQMdiSubWindow_MousePressEvent_Callback(QMdiSubWindow_MousePressEvent_Callback cb) { qmdisubwindow_mousepressevent_callback = cb; }
-    void setQMdiSubWindow_MouseDoubleClickEvent_Callback(QMdiSubWindow_MouseDoubleClickEvent_Callback cb) { qmdisubwindow_mousedoubleclickevent_callback = cb; }
-    void setQMdiSubWindow_MouseReleaseEvent_Callback(QMdiSubWindow_MouseReleaseEvent_Callback cb) { qmdisubwindow_mousereleaseevent_callback = cb; }
-    void setQMdiSubWindow_MouseMoveEvent_Callback(QMdiSubWindow_MouseMoveEvent_Callback cb) { qmdisubwindow_mousemoveevent_callback = cb; }
-    void setQMdiSubWindow_KeyPressEvent_Callback(QMdiSubWindow_KeyPressEvent_Callback cb) { qmdisubwindow_keypressevent_callback = cb; }
-    void setQMdiSubWindow_ContextMenuEvent_Callback(QMdiSubWindow_ContextMenuEvent_Callback cb) { qmdisubwindow_contextmenuevent_callback = cb; }
-    void setQMdiSubWindow_FocusInEvent_Callback(QMdiSubWindow_FocusInEvent_Callback cb) { qmdisubwindow_focusinevent_callback = cb; }
-    void setQMdiSubWindow_FocusOutEvent_Callback(QMdiSubWindow_FocusOutEvent_Callback cb) { qmdisubwindow_focusoutevent_callback = cb; }
-    void setQMdiSubWindow_ChildEvent_Callback(QMdiSubWindow_ChildEvent_Callback cb) { qmdisubwindow_childevent_callback = cb; }
-    void setQMdiSubWindow_DevType_Callback(QMdiSubWindow_DevType_Callback cb) { qmdisubwindow_devtype_callback = cb; }
-    void setQMdiSubWindow_SetVisible_Callback(QMdiSubWindow_SetVisible_Callback cb) { qmdisubwindow_setvisible_callback = cb; }
-    void setQMdiSubWindow_HeightForWidth_Callback(QMdiSubWindow_HeightForWidth_Callback cb) { qmdisubwindow_heightforwidth_callback = cb; }
-    void setQMdiSubWindow_HasHeightForWidth_Callback(QMdiSubWindow_HasHeightForWidth_Callback cb) { qmdisubwindow_hasheightforwidth_callback = cb; }
-    void setQMdiSubWindow_PaintEngine_Callback(QMdiSubWindow_PaintEngine_Callback cb) { qmdisubwindow_paintengine_callback = cb; }
-    void setQMdiSubWindow_WheelEvent_Callback(QMdiSubWindow_WheelEvent_Callback cb) { qmdisubwindow_wheelevent_callback = cb; }
-    void setQMdiSubWindow_KeyReleaseEvent_Callback(QMdiSubWindow_KeyReleaseEvent_Callback cb) { qmdisubwindow_keyreleaseevent_callback = cb; }
-    void setQMdiSubWindow_EnterEvent_Callback(QMdiSubWindow_EnterEvent_Callback cb) { qmdisubwindow_enterevent_callback = cb; }
-    void setQMdiSubWindow_TabletEvent_Callback(QMdiSubWindow_TabletEvent_Callback cb) { qmdisubwindow_tabletevent_callback = cb; }
-    void setQMdiSubWindow_ActionEvent_Callback(QMdiSubWindow_ActionEvent_Callback cb) { qmdisubwindow_actionevent_callback = cb; }
-    void setQMdiSubWindow_DragEnterEvent_Callback(QMdiSubWindow_DragEnterEvent_Callback cb) { qmdisubwindow_dragenterevent_callback = cb; }
-    void setQMdiSubWindow_DragMoveEvent_Callback(QMdiSubWindow_DragMoveEvent_Callback cb) { qmdisubwindow_dragmoveevent_callback = cb; }
-    void setQMdiSubWindow_DragLeaveEvent_Callback(QMdiSubWindow_DragLeaveEvent_Callback cb) { qmdisubwindow_dragleaveevent_callback = cb; }
-    void setQMdiSubWindow_DropEvent_Callback(QMdiSubWindow_DropEvent_Callback cb) { qmdisubwindow_dropevent_callback = cb; }
-    void setQMdiSubWindow_NativeEvent_Callback(QMdiSubWindow_NativeEvent_Callback cb) { qmdisubwindow_nativeevent_callback = cb; }
-    void setQMdiSubWindow_Metric_Callback(QMdiSubWindow_Metric_Callback cb) { qmdisubwindow_metric_callback = cb; }
-    void setQMdiSubWindow_InitPainter_Callback(QMdiSubWindow_InitPainter_Callback cb) { qmdisubwindow_initpainter_callback = cb; }
-    void setQMdiSubWindow_Redirected_Callback(QMdiSubWindow_Redirected_Callback cb) { qmdisubwindow_redirected_callback = cb; }
-    void setQMdiSubWindow_SharedPainter_Callback(QMdiSubWindow_SharedPainter_Callback cb) { qmdisubwindow_sharedpainter_callback = cb; }
-    void setQMdiSubWindow_InputMethodEvent_Callback(QMdiSubWindow_InputMethodEvent_Callback cb) { qmdisubwindow_inputmethodevent_callback = cb; }
-    void setQMdiSubWindow_InputMethodQuery_Callback(QMdiSubWindow_InputMethodQuery_Callback cb) { qmdisubwindow_inputmethodquery_callback = cb; }
-    void setQMdiSubWindow_FocusNextPrevChild_Callback(QMdiSubWindow_FocusNextPrevChild_Callback cb) { qmdisubwindow_focusnextprevchild_callback = cb; }
-    void setQMdiSubWindow_CustomEvent_Callback(QMdiSubWindow_CustomEvent_Callback cb) { qmdisubwindow_customevent_callback = cb; }
-    void setQMdiSubWindow_ConnectNotify_Callback(QMdiSubWindow_ConnectNotify_Callback cb) { qmdisubwindow_connectnotify_callback = cb; }
-    void setQMdiSubWindow_DisconnectNotify_Callback(QMdiSubWindow_DisconnectNotify_Callback cb) { qmdisubwindow_disconnectnotify_callback = cb; }
-    void setQMdiSubWindow_UpdateMicroFocus_Callback(QMdiSubWindow_UpdateMicroFocus_Callback cb) { qmdisubwindow_updatemicrofocus_callback = cb; }
-    void setQMdiSubWindow_Create_Callback(QMdiSubWindow_Create_Callback cb) { qmdisubwindow_create_callback = cb; }
-    void setQMdiSubWindow_Destroy_Callback(QMdiSubWindow_Destroy_Callback cb) { qmdisubwindow_destroy_callback = cb; }
-    void setQMdiSubWindow_FocusNextChild_Callback(QMdiSubWindow_FocusNextChild_Callback cb) { qmdisubwindow_focusnextchild_callback = cb; }
-    void setQMdiSubWindow_FocusPreviousChild_Callback(QMdiSubWindow_FocusPreviousChild_Callback cb) { qmdisubwindow_focuspreviouschild_callback = cb; }
-    void setQMdiSubWindow_Sender_Callback(QMdiSubWindow_Sender_Callback cb) { qmdisubwindow_sender_callback = cb; }
-    void setQMdiSubWindow_SenderSignalIndex_Callback(QMdiSubWindow_SenderSignalIndex_Callback cb) { qmdisubwindow_sendersignalindex_callback = cb; }
-    void setQMdiSubWindow_Receivers_Callback(QMdiSubWindow_Receivers_Callback cb) { qmdisubwindow_receivers_callback = cb; }
-    void setQMdiSubWindow_IsSignalConnected_Callback(QMdiSubWindow_IsSignalConnected_Callback cb) { qmdisubwindow_issignalconnected_callback = cb; }
+    inline void setQMdiSubWindow_Metacall_Callback(QMdiSubWindow_Metacall_Callback cb) { qmdisubwindow_metacall_callback = cb; }
+    inline void setQMdiSubWindow_SizeHint_Callback(QMdiSubWindow_SizeHint_Callback cb) { qmdisubwindow_sizehint_callback = cb; }
+    inline void setQMdiSubWindow_MinimumSizeHint_Callback(QMdiSubWindow_MinimumSizeHint_Callback cb) { qmdisubwindow_minimumsizehint_callback = cb; }
+    inline void setQMdiSubWindow_EventFilter_Callback(QMdiSubWindow_EventFilter_Callback cb) { qmdisubwindow_eventfilter_callback = cb; }
+    inline void setQMdiSubWindow_Event_Callback(QMdiSubWindow_Event_Callback cb) { qmdisubwindow_event_callback = cb; }
+    inline void setQMdiSubWindow_ShowEvent_Callback(QMdiSubWindow_ShowEvent_Callback cb) { qmdisubwindow_showevent_callback = cb; }
+    inline void setQMdiSubWindow_HideEvent_Callback(QMdiSubWindow_HideEvent_Callback cb) { qmdisubwindow_hideevent_callback = cb; }
+    inline void setQMdiSubWindow_ChangeEvent_Callback(QMdiSubWindow_ChangeEvent_Callback cb) { qmdisubwindow_changeevent_callback = cb; }
+    inline void setQMdiSubWindow_CloseEvent_Callback(QMdiSubWindow_CloseEvent_Callback cb) { qmdisubwindow_closeevent_callback = cb; }
+    inline void setQMdiSubWindow_LeaveEvent_Callback(QMdiSubWindow_LeaveEvent_Callback cb) { qmdisubwindow_leaveevent_callback = cb; }
+    inline void setQMdiSubWindow_ResizeEvent_Callback(QMdiSubWindow_ResizeEvent_Callback cb) { qmdisubwindow_resizeevent_callback = cb; }
+    inline void setQMdiSubWindow_TimerEvent_Callback(QMdiSubWindow_TimerEvent_Callback cb) { qmdisubwindow_timerevent_callback = cb; }
+    inline void setQMdiSubWindow_MoveEvent_Callback(QMdiSubWindow_MoveEvent_Callback cb) { qmdisubwindow_moveevent_callback = cb; }
+    inline void setQMdiSubWindow_PaintEvent_Callback(QMdiSubWindow_PaintEvent_Callback cb) { qmdisubwindow_paintevent_callback = cb; }
+    inline void setQMdiSubWindow_MousePressEvent_Callback(QMdiSubWindow_MousePressEvent_Callback cb) { qmdisubwindow_mousepressevent_callback = cb; }
+    inline void setQMdiSubWindow_MouseDoubleClickEvent_Callback(QMdiSubWindow_MouseDoubleClickEvent_Callback cb) { qmdisubwindow_mousedoubleclickevent_callback = cb; }
+    inline void setQMdiSubWindow_MouseReleaseEvent_Callback(QMdiSubWindow_MouseReleaseEvent_Callback cb) { qmdisubwindow_mousereleaseevent_callback = cb; }
+    inline void setQMdiSubWindow_MouseMoveEvent_Callback(QMdiSubWindow_MouseMoveEvent_Callback cb) { qmdisubwindow_mousemoveevent_callback = cb; }
+    inline void setQMdiSubWindow_KeyPressEvent_Callback(QMdiSubWindow_KeyPressEvent_Callback cb) { qmdisubwindow_keypressevent_callback = cb; }
+    inline void setQMdiSubWindow_ContextMenuEvent_Callback(QMdiSubWindow_ContextMenuEvent_Callback cb) { qmdisubwindow_contextmenuevent_callback = cb; }
+    inline void setQMdiSubWindow_FocusInEvent_Callback(QMdiSubWindow_FocusInEvent_Callback cb) { qmdisubwindow_focusinevent_callback = cb; }
+    inline void setQMdiSubWindow_FocusOutEvent_Callback(QMdiSubWindow_FocusOutEvent_Callback cb) { qmdisubwindow_focusoutevent_callback = cb; }
+    inline void setQMdiSubWindow_ChildEvent_Callback(QMdiSubWindow_ChildEvent_Callback cb) { qmdisubwindow_childevent_callback = cb; }
+    inline void setQMdiSubWindow_DevType_Callback(QMdiSubWindow_DevType_Callback cb) { qmdisubwindow_devtype_callback = cb; }
+    inline void setQMdiSubWindow_SetVisible_Callback(QMdiSubWindow_SetVisible_Callback cb) { qmdisubwindow_setvisible_callback = cb; }
+    inline void setQMdiSubWindow_HeightForWidth_Callback(QMdiSubWindow_HeightForWidth_Callback cb) { qmdisubwindow_heightforwidth_callback = cb; }
+    inline void setQMdiSubWindow_HasHeightForWidth_Callback(QMdiSubWindow_HasHeightForWidth_Callback cb) { qmdisubwindow_hasheightforwidth_callback = cb; }
+    inline void setQMdiSubWindow_PaintEngine_Callback(QMdiSubWindow_PaintEngine_Callback cb) { qmdisubwindow_paintengine_callback = cb; }
+    inline void setQMdiSubWindow_WheelEvent_Callback(QMdiSubWindow_WheelEvent_Callback cb) { qmdisubwindow_wheelevent_callback = cb; }
+    inline void setQMdiSubWindow_KeyReleaseEvent_Callback(QMdiSubWindow_KeyReleaseEvent_Callback cb) { qmdisubwindow_keyreleaseevent_callback = cb; }
+    inline void setQMdiSubWindow_EnterEvent_Callback(QMdiSubWindow_EnterEvent_Callback cb) { qmdisubwindow_enterevent_callback = cb; }
+    inline void setQMdiSubWindow_TabletEvent_Callback(QMdiSubWindow_TabletEvent_Callback cb) { qmdisubwindow_tabletevent_callback = cb; }
+    inline void setQMdiSubWindow_ActionEvent_Callback(QMdiSubWindow_ActionEvent_Callback cb) { qmdisubwindow_actionevent_callback = cb; }
+    inline void setQMdiSubWindow_DragEnterEvent_Callback(QMdiSubWindow_DragEnterEvent_Callback cb) { qmdisubwindow_dragenterevent_callback = cb; }
+    inline void setQMdiSubWindow_DragMoveEvent_Callback(QMdiSubWindow_DragMoveEvent_Callback cb) { qmdisubwindow_dragmoveevent_callback = cb; }
+    inline void setQMdiSubWindow_DragLeaveEvent_Callback(QMdiSubWindow_DragLeaveEvent_Callback cb) { qmdisubwindow_dragleaveevent_callback = cb; }
+    inline void setQMdiSubWindow_DropEvent_Callback(QMdiSubWindow_DropEvent_Callback cb) { qmdisubwindow_dropevent_callback = cb; }
+    inline void setQMdiSubWindow_NativeEvent_Callback(QMdiSubWindow_NativeEvent_Callback cb) { qmdisubwindow_nativeevent_callback = cb; }
+    inline void setQMdiSubWindow_Metric_Callback(QMdiSubWindow_Metric_Callback cb) { qmdisubwindow_metric_callback = cb; }
+    inline void setQMdiSubWindow_InitPainter_Callback(QMdiSubWindow_InitPainter_Callback cb) { qmdisubwindow_initpainter_callback = cb; }
+    inline void setQMdiSubWindow_Redirected_Callback(QMdiSubWindow_Redirected_Callback cb) { qmdisubwindow_redirected_callback = cb; }
+    inline void setQMdiSubWindow_SharedPainter_Callback(QMdiSubWindow_SharedPainter_Callback cb) { qmdisubwindow_sharedpainter_callback = cb; }
+    inline void setQMdiSubWindow_InputMethodEvent_Callback(QMdiSubWindow_InputMethodEvent_Callback cb) { qmdisubwindow_inputmethodevent_callback = cb; }
+    inline void setQMdiSubWindow_InputMethodQuery_Callback(QMdiSubWindow_InputMethodQuery_Callback cb) { qmdisubwindow_inputmethodquery_callback = cb; }
+    inline void setQMdiSubWindow_FocusNextPrevChild_Callback(QMdiSubWindow_FocusNextPrevChild_Callback cb) { qmdisubwindow_focusnextprevchild_callback = cb; }
+    inline void setQMdiSubWindow_CustomEvent_Callback(QMdiSubWindow_CustomEvent_Callback cb) { qmdisubwindow_customevent_callback = cb; }
+    inline void setQMdiSubWindow_ConnectNotify_Callback(QMdiSubWindow_ConnectNotify_Callback cb) { qmdisubwindow_connectnotify_callback = cb; }
+    inline void setQMdiSubWindow_DisconnectNotify_Callback(QMdiSubWindow_DisconnectNotify_Callback cb) { qmdisubwindow_disconnectnotify_callback = cb; }
+    inline void setQMdiSubWindow_UpdateMicroFocus_Callback(QMdiSubWindow_UpdateMicroFocus_Callback cb) { qmdisubwindow_updatemicrofocus_callback = cb; }
+    inline void setQMdiSubWindow_Create_Callback(QMdiSubWindow_Create_Callback cb) { qmdisubwindow_create_callback = cb; }
+    inline void setQMdiSubWindow_Destroy_Callback(QMdiSubWindow_Destroy_Callback cb) { qmdisubwindow_destroy_callback = cb; }
+    inline void setQMdiSubWindow_FocusNextChild_Callback(QMdiSubWindow_FocusNextChild_Callback cb) { qmdisubwindow_focusnextchild_callback = cb; }
+    inline void setQMdiSubWindow_FocusPreviousChild_Callback(QMdiSubWindow_FocusPreviousChild_Callback cb) { qmdisubwindow_focuspreviouschild_callback = cb; }
+    inline void setQMdiSubWindow_Sender_Callback(QMdiSubWindow_Sender_Callback cb) { qmdisubwindow_sender_callback = cb; }
+    inline void setQMdiSubWindow_SenderSignalIndex_Callback(QMdiSubWindow_SenderSignalIndex_Callback cb) { qmdisubwindow_sendersignalindex_callback = cb; }
+    inline void setQMdiSubWindow_Receivers_Callback(QMdiSubWindow_Receivers_Callback cb) { qmdisubwindow_receivers_callback = cb; }
+    inline void setQMdiSubWindow_IsSignalConnected_Callback(QMdiSubWindow_IsSignalConnected_Callback cb) { qmdisubwindow_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQMdiSubWindow_Metacall_IsBase(bool value) const { qmdisubwindow_metacall_isbase = value; }
-    void setQMdiSubWindow_SizeHint_IsBase(bool value) const { qmdisubwindow_sizehint_isbase = value; }
-    void setQMdiSubWindow_MinimumSizeHint_IsBase(bool value) const { qmdisubwindow_minimumsizehint_isbase = value; }
-    void setQMdiSubWindow_EventFilter_IsBase(bool value) const { qmdisubwindow_eventfilter_isbase = value; }
-    void setQMdiSubWindow_Event_IsBase(bool value) const { qmdisubwindow_event_isbase = value; }
-    void setQMdiSubWindow_ShowEvent_IsBase(bool value) const { qmdisubwindow_showevent_isbase = value; }
-    void setQMdiSubWindow_HideEvent_IsBase(bool value) const { qmdisubwindow_hideevent_isbase = value; }
-    void setQMdiSubWindow_ChangeEvent_IsBase(bool value) const { qmdisubwindow_changeevent_isbase = value; }
-    void setQMdiSubWindow_CloseEvent_IsBase(bool value) const { qmdisubwindow_closeevent_isbase = value; }
-    void setQMdiSubWindow_LeaveEvent_IsBase(bool value) const { qmdisubwindow_leaveevent_isbase = value; }
-    void setQMdiSubWindow_ResizeEvent_IsBase(bool value) const { qmdisubwindow_resizeevent_isbase = value; }
-    void setQMdiSubWindow_TimerEvent_IsBase(bool value) const { qmdisubwindow_timerevent_isbase = value; }
-    void setQMdiSubWindow_MoveEvent_IsBase(bool value) const { qmdisubwindow_moveevent_isbase = value; }
-    void setQMdiSubWindow_PaintEvent_IsBase(bool value) const { qmdisubwindow_paintevent_isbase = value; }
-    void setQMdiSubWindow_MousePressEvent_IsBase(bool value) const { qmdisubwindow_mousepressevent_isbase = value; }
-    void setQMdiSubWindow_MouseDoubleClickEvent_IsBase(bool value) const { qmdisubwindow_mousedoubleclickevent_isbase = value; }
-    void setQMdiSubWindow_MouseReleaseEvent_IsBase(bool value) const { qmdisubwindow_mousereleaseevent_isbase = value; }
-    void setQMdiSubWindow_MouseMoveEvent_IsBase(bool value) const { qmdisubwindow_mousemoveevent_isbase = value; }
-    void setQMdiSubWindow_KeyPressEvent_IsBase(bool value) const { qmdisubwindow_keypressevent_isbase = value; }
-    void setQMdiSubWindow_ContextMenuEvent_IsBase(bool value) const { qmdisubwindow_contextmenuevent_isbase = value; }
-    void setQMdiSubWindow_FocusInEvent_IsBase(bool value) const { qmdisubwindow_focusinevent_isbase = value; }
-    void setQMdiSubWindow_FocusOutEvent_IsBase(bool value) const { qmdisubwindow_focusoutevent_isbase = value; }
-    void setQMdiSubWindow_ChildEvent_IsBase(bool value) const { qmdisubwindow_childevent_isbase = value; }
-    void setQMdiSubWindow_DevType_IsBase(bool value) const { qmdisubwindow_devtype_isbase = value; }
-    void setQMdiSubWindow_SetVisible_IsBase(bool value) const { qmdisubwindow_setvisible_isbase = value; }
-    void setQMdiSubWindow_HeightForWidth_IsBase(bool value) const { qmdisubwindow_heightforwidth_isbase = value; }
-    void setQMdiSubWindow_HasHeightForWidth_IsBase(bool value) const { qmdisubwindow_hasheightforwidth_isbase = value; }
-    void setQMdiSubWindow_PaintEngine_IsBase(bool value) const { qmdisubwindow_paintengine_isbase = value; }
-    void setQMdiSubWindow_WheelEvent_IsBase(bool value) const { qmdisubwindow_wheelevent_isbase = value; }
-    void setQMdiSubWindow_KeyReleaseEvent_IsBase(bool value) const { qmdisubwindow_keyreleaseevent_isbase = value; }
-    void setQMdiSubWindow_EnterEvent_IsBase(bool value) const { qmdisubwindow_enterevent_isbase = value; }
-    void setQMdiSubWindow_TabletEvent_IsBase(bool value) const { qmdisubwindow_tabletevent_isbase = value; }
-    void setQMdiSubWindow_ActionEvent_IsBase(bool value) const { qmdisubwindow_actionevent_isbase = value; }
-    void setQMdiSubWindow_DragEnterEvent_IsBase(bool value) const { qmdisubwindow_dragenterevent_isbase = value; }
-    void setQMdiSubWindow_DragMoveEvent_IsBase(bool value) const { qmdisubwindow_dragmoveevent_isbase = value; }
-    void setQMdiSubWindow_DragLeaveEvent_IsBase(bool value) const { qmdisubwindow_dragleaveevent_isbase = value; }
-    void setQMdiSubWindow_DropEvent_IsBase(bool value) const { qmdisubwindow_dropevent_isbase = value; }
-    void setQMdiSubWindow_NativeEvent_IsBase(bool value) const { qmdisubwindow_nativeevent_isbase = value; }
-    void setQMdiSubWindow_Metric_IsBase(bool value) const { qmdisubwindow_metric_isbase = value; }
-    void setQMdiSubWindow_InitPainter_IsBase(bool value) const { qmdisubwindow_initpainter_isbase = value; }
-    void setQMdiSubWindow_Redirected_IsBase(bool value) const { qmdisubwindow_redirected_isbase = value; }
-    void setQMdiSubWindow_SharedPainter_IsBase(bool value) const { qmdisubwindow_sharedpainter_isbase = value; }
-    void setQMdiSubWindow_InputMethodEvent_IsBase(bool value) const { qmdisubwindow_inputmethodevent_isbase = value; }
-    void setQMdiSubWindow_InputMethodQuery_IsBase(bool value) const { qmdisubwindow_inputmethodquery_isbase = value; }
-    void setQMdiSubWindow_FocusNextPrevChild_IsBase(bool value) const { qmdisubwindow_focusnextprevchild_isbase = value; }
-    void setQMdiSubWindow_CustomEvent_IsBase(bool value) const { qmdisubwindow_customevent_isbase = value; }
-    void setQMdiSubWindow_ConnectNotify_IsBase(bool value) const { qmdisubwindow_connectnotify_isbase = value; }
-    void setQMdiSubWindow_DisconnectNotify_IsBase(bool value) const { qmdisubwindow_disconnectnotify_isbase = value; }
-    void setQMdiSubWindow_UpdateMicroFocus_IsBase(bool value) const { qmdisubwindow_updatemicrofocus_isbase = value; }
-    void setQMdiSubWindow_Create_IsBase(bool value) const { qmdisubwindow_create_isbase = value; }
-    void setQMdiSubWindow_Destroy_IsBase(bool value) const { qmdisubwindow_destroy_isbase = value; }
-    void setQMdiSubWindow_FocusNextChild_IsBase(bool value) const { qmdisubwindow_focusnextchild_isbase = value; }
-    void setQMdiSubWindow_FocusPreviousChild_IsBase(bool value) const { qmdisubwindow_focuspreviouschild_isbase = value; }
-    void setQMdiSubWindow_Sender_IsBase(bool value) const { qmdisubwindow_sender_isbase = value; }
-    void setQMdiSubWindow_SenderSignalIndex_IsBase(bool value) const { qmdisubwindow_sendersignalindex_isbase = value; }
-    void setQMdiSubWindow_Receivers_IsBase(bool value) const { qmdisubwindow_receivers_isbase = value; }
-    void setQMdiSubWindow_IsSignalConnected_IsBase(bool value) const { qmdisubwindow_issignalconnected_isbase = value; }
+    inline void setQMdiSubWindow_Metacall_IsBase(bool value) const { qmdisubwindow_metacall_isbase = value; }
+    inline void setQMdiSubWindow_SizeHint_IsBase(bool value) const { qmdisubwindow_sizehint_isbase = value; }
+    inline void setQMdiSubWindow_MinimumSizeHint_IsBase(bool value) const { qmdisubwindow_minimumsizehint_isbase = value; }
+    inline void setQMdiSubWindow_EventFilter_IsBase(bool value) const { qmdisubwindow_eventfilter_isbase = value; }
+    inline void setQMdiSubWindow_Event_IsBase(bool value) const { qmdisubwindow_event_isbase = value; }
+    inline void setQMdiSubWindow_ShowEvent_IsBase(bool value) const { qmdisubwindow_showevent_isbase = value; }
+    inline void setQMdiSubWindow_HideEvent_IsBase(bool value) const { qmdisubwindow_hideevent_isbase = value; }
+    inline void setQMdiSubWindow_ChangeEvent_IsBase(bool value) const { qmdisubwindow_changeevent_isbase = value; }
+    inline void setQMdiSubWindow_CloseEvent_IsBase(bool value) const { qmdisubwindow_closeevent_isbase = value; }
+    inline void setQMdiSubWindow_LeaveEvent_IsBase(bool value) const { qmdisubwindow_leaveevent_isbase = value; }
+    inline void setQMdiSubWindow_ResizeEvent_IsBase(bool value) const { qmdisubwindow_resizeevent_isbase = value; }
+    inline void setQMdiSubWindow_TimerEvent_IsBase(bool value) const { qmdisubwindow_timerevent_isbase = value; }
+    inline void setQMdiSubWindow_MoveEvent_IsBase(bool value) const { qmdisubwindow_moveevent_isbase = value; }
+    inline void setQMdiSubWindow_PaintEvent_IsBase(bool value) const { qmdisubwindow_paintevent_isbase = value; }
+    inline void setQMdiSubWindow_MousePressEvent_IsBase(bool value) const { qmdisubwindow_mousepressevent_isbase = value; }
+    inline void setQMdiSubWindow_MouseDoubleClickEvent_IsBase(bool value) const { qmdisubwindow_mousedoubleclickevent_isbase = value; }
+    inline void setQMdiSubWindow_MouseReleaseEvent_IsBase(bool value) const { qmdisubwindow_mousereleaseevent_isbase = value; }
+    inline void setQMdiSubWindow_MouseMoveEvent_IsBase(bool value) const { qmdisubwindow_mousemoveevent_isbase = value; }
+    inline void setQMdiSubWindow_KeyPressEvent_IsBase(bool value) const { qmdisubwindow_keypressevent_isbase = value; }
+    inline void setQMdiSubWindow_ContextMenuEvent_IsBase(bool value) const { qmdisubwindow_contextmenuevent_isbase = value; }
+    inline void setQMdiSubWindow_FocusInEvent_IsBase(bool value) const { qmdisubwindow_focusinevent_isbase = value; }
+    inline void setQMdiSubWindow_FocusOutEvent_IsBase(bool value) const { qmdisubwindow_focusoutevent_isbase = value; }
+    inline void setQMdiSubWindow_ChildEvent_IsBase(bool value) const { qmdisubwindow_childevent_isbase = value; }
+    inline void setQMdiSubWindow_DevType_IsBase(bool value) const { qmdisubwindow_devtype_isbase = value; }
+    inline void setQMdiSubWindow_SetVisible_IsBase(bool value) const { qmdisubwindow_setvisible_isbase = value; }
+    inline void setQMdiSubWindow_HeightForWidth_IsBase(bool value) const { qmdisubwindow_heightforwidth_isbase = value; }
+    inline void setQMdiSubWindow_HasHeightForWidth_IsBase(bool value) const { qmdisubwindow_hasheightforwidth_isbase = value; }
+    inline void setQMdiSubWindow_PaintEngine_IsBase(bool value) const { qmdisubwindow_paintengine_isbase = value; }
+    inline void setQMdiSubWindow_WheelEvent_IsBase(bool value) const { qmdisubwindow_wheelevent_isbase = value; }
+    inline void setQMdiSubWindow_KeyReleaseEvent_IsBase(bool value) const { qmdisubwindow_keyreleaseevent_isbase = value; }
+    inline void setQMdiSubWindow_EnterEvent_IsBase(bool value) const { qmdisubwindow_enterevent_isbase = value; }
+    inline void setQMdiSubWindow_TabletEvent_IsBase(bool value) const { qmdisubwindow_tabletevent_isbase = value; }
+    inline void setQMdiSubWindow_ActionEvent_IsBase(bool value) const { qmdisubwindow_actionevent_isbase = value; }
+    inline void setQMdiSubWindow_DragEnterEvent_IsBase(bool value) const { qmdisubwindow_dragenterevent_isbase = value; }
+    inline void setQMdiSubWindow_DragMoveEvent_IsBase(bool value) const { qmdisubwindow_dragmoveevent_isbase = value; }
+    inline void setQMdiSubWindow_DragLeaveEvent_IsBase(bool value) const { qmdisubwindow_dragleaveevent_isbase = value; }
+    inline void setQMdiSubWindow_DropEvent_IsBase(bool value) const { qmdisubwindow_dropevent_isbase = value; }
+    inline void setQMdiSubWindow_NativeEvent_IsBase(bool value) const { qmdisubwindow_nativeevent_isbase = value; }
+    inline void setQMdiSubWindow_Metric_IsBase(bool value) const { qmdisubwindow_metric_isbase = value; }
+    inline void setQMdiSubWindow_InitPainter_IsBase(bool value) const { qmdisubwindow_initpainter_isbase = value; }
+    inline void setQMdiSubWindow_Redirected_IsBase(bool value) const { qmdisubwindow_redirected_isbase = value; }
+    inline void setQMdiSubWindow_SharedPainter_IsBase(bool value) const { qmdisubwindow_sharedpainter_isbase = value; }
+    inline void setQMdiSubWindow_InputMethodEvent_IsBase(bool value) const { qmdisubwindow_inputmethodevent_isbase = value; }
+    inline void setQMdiSubWindow_InputMethodQuery_IsBase(bool value) const { qmdisubwindow_inputmethodquery_isbase = value; }
+    inline void setQMdiSubWindow_FocusNextPrevChild_IsBase(bool value) const { qmdisubwindow_focusnextprevchild_isbase = value; }
+    inline void setQMdiSubWindow_CustomEvent_IsBase(bool value) const { qmdisubwindow_customevent_isbase = value; }
+    inline void setQMdiSubWindow_ConnectNotify_IsBase(bool value) const { qmdisubwindow_connectnotify_isbase = value; }
+    inline void setQMdiSubWindow_DisconnectNotify_IsBase(bool value) const { qmdisubwindow_disconnectnotify_isbase = value; }
+    inline void setQMdiSubWindow_UpdateMicroFocus_IsBase(bool value) const { qmdisubwindow_updatemicrofocus_isbase = value; }
+    inline void setQMdiSubWindow_Create_IsBase(bool value) const { qmdisubwindow_create_isbase = value; }
+    inline void setQMdiSubWindow_Destroy_IsBase(bool value) const { qmdisubwindow_destroy_isbase = value; }
+    inline void setQMdiSubWindow_FocusNextChild_IsBase(bool value) const { qmdisubwindow_focusnextchild_isbase = value; }
+    inline void setQMdiSubWindow_FocusPreviousChild_IsBase(bool value) const { qmdisubwindow_focuspreviouschild_isbase = value; }
+    inline void setQMdiSubWindow_Sender_IsBase(bool value) const { qmdisubwindow_sender_isbase = value; }
+    inline void setQMdiSubWindow_SenderSignalIndex_IsBase(bool value) const { qmdisubwindow_sendersignalindex_isbase = value; }
+    inline void setQMdiSubWindow_Receivers_IsBase(bool value) const { qmdisubwindow_receivers_isbase = value; }
+    inline void setQMdiSubWindow_IsSignalConnected_IsBase(bool value) const { qmdisubwindow_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -381,7 +384,12 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_metacall_isbase = false;
             return QMdiSubWindow::qt_metacall(param1, param2, param3);
         } else if (qmdisubwindow_metacall_callback != nullptr) {
-            return qmdisubwindow_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qmdisubwindow_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QMdiSubWindow::qt_metacall(param1, param2, param3);
         }
@@ -393,7 +401,8 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_sizehint_isbase = false;
             return QMdiSubWindow::sizeHint();
         } else if (qmdisubwindow_sizehint_callback != nullptr) {
-            return qmdisubwindow_sizehint_callback();
+            QSize* callback_ret = qmdisubwindow_sizehint_callback();
+            return *callback_ret;
         } else {
             return QMdiSubWindow::sizeHint();
         }
@@ -405,7 +414,8 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_minimumsizehint_isbase = false;
             return QMdiSubWindow::minimumSizeHint();
         } else if (qmdisubwindow_minimumsizehint_callback != nullptr) {
-            return qmdisubwindow_minimumsizehint_callback();
+            QSize* callback_ret = qmdisubwindow_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QMdiSubWindow::minimumSizeHint();
         }
@@ -417,7 +427,11 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_eventfilter_isbase = false;
             return QMdiSubWindow::eventFilter(object, event);
         } else if (qmdisubwindow_eventfilter_callback != nullptr) {
-            return qmdisubwindow_eventfilter_callback(this, object, event);
+            QObject* cbval1 = object;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qmdisubwindow_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QMdiSubWindow::eventFilter(object, event);
         }
@@ -429,7 +443,10 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_event_isbase = false;
             return QMdiSubWindow::event(event);
         } else if (qmdisubwindow_event_callback != nullptr) {
-            return qmdisubwindow_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qmdisubwindow_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QMdiSubWindow::event(event);
         }
@@ -441,7 +458,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_showevent_isbase = false;
             QMdiSubWindow::showEvent(showEvent);
         } else if (qmdisubwindow_showevent_callback != nullptr) {
-            qmdisubwindow_showevent_callback(this, showEvent);
+            QShowEvent* cbval1 = showEvent;
+
+            qmdisubwindow_showevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::showEvent(showEvent);
         }
@@ -453,7 +472,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_hideevent_isbase = false;
             QMdiSubWindow::hideEvent(hideEvent);
         } else if (qmdisubwindow_hideevent_callback != nullptr) {
-            qmdisubwindow_hideevent_callback(this, hideEvent);
+            QHideEvent* cbval1 = hideEvent;
+
+            qmdisubwindow_hideevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::hideEvent(hideEvent);
         }
@@ -465,7 +486,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_changeevent_isbase = false;
             QMdiSubWindow::changeEvent(changeEvent);
         } else if (qmdisubwindow_changeevent_callback != nullptr) {
-            qmdisubwindow_changeevent_callback(this, changeEvent);
+            QEvent* cbval1 = changeEvent;
+
+            qmdisubwindow_changeevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::changeEvent(changeEvent);
         }
@@ -477,7 +500,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_closeevent_isbase = false;
             QMdiSubWindow::closeEvent(closeEvent);
         } else if (qmdisubwindow_closeevent_callback != nullptr) {
-            qmdisubwindow_closeevent_callback(this, closeEvent);
+            QCloseEvent* cbval1 = closeEvent;
+
+            qmdisubwindow_closeevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::closeEvent(closeEvent);
         }
@@ -489,7 +514,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_leaveevent_isbase = false;
             QMdiSubWindow::leaveEvent(leaveEvent);
         } else if (qmdisubwindow_leaveevent_callback != nullptr) {
-            qmdisubwindow_leaveevent_callback(this, leaveEvent);
+            QEvent* cbval1 = leaveEvent;
+
+            qmdisubwindow_leaveevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::leaveEvent(leaveEvent);
         }
@@ -501,7 +528,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_resizeevent_isbase = false;
             QMdiSubWindow::resizeEvent(resizeEvent);
         } else if (qmdisubwindow_resizeevent_callback != nullptr) {
-            qmdisubwindow_resizeevent_callback(this, resizeEvent);
+            QResizeEvent* cbval1 = resizeEvent;
+
+            qmdisubwindow_resizeevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::resizeEvent(resizeEvent);
         }
@@ -513,7 +542,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_timerevent_isbase = false;
             QMdiSubWindow::timerEvent(timerEvent);
         } else if (qmdisubwindow_timerevent_callback != nullptr) {
-            qmdisubwindow_timerevent_callback(this, timerEvent);
+            QTimerEvent* cbval1 = timerEvent;
+
+            qmdisubwindow_timerevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::timerEvent(timerEvent);
         }
@@ -525,7 +556,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_moveevent_isbase = false;
             QMdiSubWindow::moveEvent(moveEvent);
         } else if (qmdisubwindow_moveevent_callback != nullptr) {
-            qmdisubwindow_moveevent_callback(this, moveEvent);
+            QMoveEvent* cbval1 = moveEvent;
+
+            qmdisubwindow_moveevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::moveEvent(moveEvent);
         }
@@ -537,7 +570,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_paintevent_isbase = false;
             QMdiSubWindow::paintEvent(paintEvent);
         } else if (qmdisubwindow_paintevent_callback != nullptr) {
-            qmdisubwindow_paintevent_callback(this, paintEvent);
+            QPaintEvent* cbval1 = paintEvent;
+
+            qmdisubwindow_paintevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::paintEvent(paintEvent);
         }
@@ -549,7 +584,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_mousepressevent_isbase = false;
             QMdiSubWindow::mousePressEvent(mouseEvent);
         } else if (qmdisubwindow_mousepressevent_callback != nullptr) {
-            qmdisubwindow_mousepressevent_callback(this, mouseEvent);
+            QMouseEvent* cbval1 = mouseEvent;
+
+            qmdisubwindow_mousepressevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::mousePressEvent(mouseEvent);
         }
@@ -561,7 +598,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_mousedoubleclickevent_isbase = false;
             QMdiSubWindow::mouseDoubleClickEvent(mouseEvent);
         } else if (qmdisubwindow_mousedoubleclickevent_callback != nullptr) {
-            qmdisubwindow_mousedoubleclickevent_callback(this, mouseEvent);
+            QMouseEvent* cbval1 = mouseEvent;
+
+            qmdisubwindow_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::mouseDoubleClickEvent(mouseEvent);
         }
@@ -573,7 +612,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_mousereleaseevent_isbase = false;
             QMdiSubWindow::mouseReleaseEvent(mouseEvent);
         } else if (qmdisubwindow_mousereleaseevent_callback != nullptr) {
-            qmdisubwindow_mousereleaseevent_callback(this, mouseEvent);
+            QMouseEvent* cbval1 = mouseEvent;
+
+            qmdisubwindow_mousereleaseevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::mouseReleaseEvent(mouseEvent);
         }
@@ -585,7 +626,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_mousemoveevent_isbase = false;
             QMdiSubWindow::mouseMoveEvent(mouseEvent);
         } else if (qmdisubwindow_mousemoveevent_callback != nullptr) {
-            qmdisubwindow_mousemoveevent_callback(this, mouseEvent);
+            QMouseEvent* cbval1 = mouseEvent;
+
+            qmdisubwindow_mousemoveevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::mouseMoveEvent(mouseEvent);
         }
@@ -597,7 +640,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_keypressevent_isbase = false;
             QMdiSubWindow::keyPressEvent(keyEvent);
         } else if (qmdisubwindow_keypressevent_callback != nullptr) {
-            qmdisubwindow_keypressevent_callback(this, keyEvent);
+            QKeyEvent* cbval1 = keyEvent;
+
+            qmdisubwindow_keypressevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::keyPressEvent(keyEvent);
         }
@@ -609,7 +654,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_contextmenuevent_isbase = false;
             QMdiSubWindow::contextMenuEvent(contextMenuEvent);
         } else if (qmdisubwindow_contextmenuevent_callback != nullptr) {
-            qmdisubwindow_contextmenuevent_callback(this, contextMenuEvent);
+            QContextMenuEvent* cbval1 = contextMenuEvent;
+
+            qmdisubwindow_contextmenuevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::contextMenuEvent(contextMenuEvent);
         }
@@ -621,7 +668,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_focusinevent_isbase = false;
             QMdiSubWindow::focusInEvent(focusInEvent);
         } else if (qmdisubwindow_focusinevent_callback != nullptr) {
-            qmdisubwindow_focusinevent_callback(this, focusInEvent);
+            QFocusEvent* cbval1 = focusInEvent;
+
+            qmdisubwindow_focusinevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::focusInEvent(focusInEvent);
         }
@@ -633,7 +682,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_focusoutevent_isbase = false;
             QMdiSubWindow::focusOutEvent(focusOutEvent);
         } else if (qmdisubwindow_focusoutevent_callback != nullptr) {
-            qmdisubwindow_focusoutevent_callback(this, focusOutEvent);
+            QFocusEvent* cbval1 = focusOutEvent;
+
+            qmdisubwindow_focusoutevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::focusOutEvent(focusOutEvent);
         }
@@ -645,7 +696,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_childevent_isbase = false;
             QMdiSubWindow::childEvent(childEvent);
         } else if (qmdisubwindow_childevent_callback != nullptr) {
-            qmdisubwindow_childevent_callback(this, childEvent);
+            QChildEvent* cbval1 = childEvent;
+
+            qmdisubwindow_childevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::childEvent(childEvent);
         }
@@ -657,7 +710,8 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_devtype_isbase = false;
             return QMdiSubWindow::devType();
         } else if (qmdisubwindow_devtype_callback != nullptr) {
-            return qmdisubwindow_devtype_callback();
+            int callback_ret = qmdisubwindow_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QMdiSubWindow::devType();
         }
@@ -669,7 +723,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_setvisible_isbase = false;
             QMdiSubWindow::setVisible(visible);
         } else if (qmdisubwindow_setvisible_callback != nullptr) {
-            qmdisubwindow_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qmdisubwindow_setvisible_callback(this, cbval1);
         } else {
             QMdiSubWindow::setVisible(visible);
         }
@@ -681,7 +737,10 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_heightforwidth_isbase = false;
             return QMdiSubWindow::heightForWidth(param1);
         } else if (qmdisubwindow_heightforwidth_callback != nullptr) {
-            return qmdisubwindow_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qmdisubwindow_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QMdiSubWindow::heightForWidth(param1);
         }
@@ -693,7 +752,8 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_hasheightforwidth_isbase = false;
             return QMdiSubWindow::hasHeightForWidth();
         } else if (qmdisubwindow_hasheightforwidth_callback != nullptr) {
-            return qmdisubwindow_hasheightforwidth_callback();
+            bool callback_ret = qmdisubwindow_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QMdiSubWindow::hasHeightForWidth();
         }
@@ -705,7 +765,8 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_paintengine_isbase = false;
             return QMdiSubWindow::paintEngine();
         } else if (qmdisubwindow_paintengine_callback != nullptr) {
-            return qmdisubwindow_paintengine_callback();
+            QPaintEngine* callback_ret = qmdisubwindow_paintengine_callback();
+            return callback_ret;
         } else {
             return QMdiSubWindow::paintEngine();
         }
@@ -717,7 +778,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_wheelevent_isbase = false;
             QMdiSubWindow::wheelEvent(event);
         } else if (qmdisubwindow_wheelevent_callback != nullptr) {
-            qmdisubwindow_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qmdisubwindow_wheelevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::wheelEvent(event);
         }
@@ -729,7 +792,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_keyreleaseevent_isbase = false;
             QMdiSubWindow::keyReleaseEvent(event);
         } else if (qmdisubwindow_keyreleaseevent_callback != nullptr) {
-            qmdisubwindow_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qmdisubwindow_keyreleaseevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::keyReleaseEvent(event);
         }
@@ -741,7 +806,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_enterevent_isbase = false;
             QMdiSubWindow::enterEvent(event);
         } else if (qmdisubwindow_enterevent_callback != nullptr) {
-            qmdisubwindow_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qmdisubwindow_enterevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::enterEvent(event);
         }
@@ -753,7 +820,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_tabletevent_isbase = false;
             QMdiSubWindow::tabletEvent(event);
         } else if (qmdisubwindow_tabletevent_callback != nullptr) {
-            qmdisubwindow_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qmdisubwindow_tabletevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::tabletEvent(event);
         }
@@ -765,7 +834,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_actionevent_isbase = false;
             QMdiSubWindow::actionEvent(event);
         } else if (qmdisubwindow_actionevent_callback != nullptr) {
-            qmdisubwindow_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qmdisubwindow_actionevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::actionEvent(event);
         }
@@ -777,7 +848,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_dragenterevent_isbase = false;
             QMdiSubWindow::dragEnterEvent(event);
         } else if (qmdisubwindow_dragenterevent_callback != nullptr) {
-            qmdisubwindow_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qmdisubwindow_dragenterevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::dragEnterEvent(event);
         }
@@ -789,7 +862,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_dragmoveevent_isbase = false;
             QMdiSubWindow::dragMoveEvent(event);
         } else if (qmdisubwindow_dragmoveevent_callback != nullptr) {
-            qmdisubwindow_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qmdisubwindow_dragmoveevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::dragMoveEvent(event);
         }
@@ -801,7 +876,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_dragleaveevent_isbase = false;
             QMdiSubWindow::dragLeaveEvent(event);
         } else if (qmdisubwindow_dragleaveevent_callback != nullptr) {
-            qmdisubwindow_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qmdisubwindow_dragleaveevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::dragLeaveEvent(event);
         }
@@ -813,7 +890,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_dropevent_isbase = false;
             QMdiSubWindow::dropEvent(event);
         } else if (qmdisubwindow_dropevent_callback != nullptr) {
-            qmdisubwindow_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qmdisubwindow_dropevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::dropEvent(event);
         }
@@ -825,7 +904,19 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_nativeevent_isbase = false;
             return QMdiSubWindow::nativeEvent(eventType, message, result);
         } else if (qmdisubwindow_nativeevent_callback != nullptr) {
-            return qmdisubwindow_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qmdisubwindow_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QMdiSubWindow::nativeEvent(eventType, message, result);
         }
@@ -837,7 +928,10 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_metric_isbase = false;
             return QMdiSubWindow::metric(param1);
         } else if (qmdisubwindow_metric_callback != nullptr) {
-            return qmdisubwindow_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qmdisubwindow_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QMdiSubWindow::metric(param1);
         }
@@ -849,7 +943,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_initpainter_isbase = false;
             QMdiSubWindow::initPainter(painter);
         } else if (qmdisubwindow_initpainter_callback != nullptr) {
-            qmdisubwindow_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qmdisubwindow_initpainter_callback(this, cbval1);
         } else {
             QMdiSubWindow::initPainter(painter);
         }
@@ -861,7 +957,10 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_redirected_isbase = false;
             return QMdiSubWindow::redirected(offset);
         } else if (qmdisubwindow_redirected_callback != nullptr) {
-            return qmdisubwindow_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qmdisubwindow_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QMdiSubWindow::redirected(offset);
         }
@@ -873,7 +972,8 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_sharedpainter_isbase = false;
             return QMdiSubWindow::sharedPainter();
         } else if (qmdisubwindow_sharedpainter_callback != nullptr) {
-            return qmdisubwindow_sharedpainter_callback();
+            QPainter* callback_ret = qmdisubwindow_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QMdiSubWindow::sharedPainter();
         }
@@ -885,7 +985,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_inputmethodevent_isbase = false;
             QMdiSubWindow::inputMethodEvent(param1);
         } else if (qmdisubwindow_inputmethodevent_callback != nullptr) {
-            qmdisubwindow_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qmdisubwindow_inputmethodevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::inputMethodEvent(param1);
         }
@@ -897,7 +999,10 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_inputmethodquery_isbase = false;
             return QMdiSubWindow::inputMethodQuery(param1);
         } else if (qmdisubwindow_inputmethodquery_callback != nullptr) {
-            return qmdisubwindow_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qmdisubwindow_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QMdiSubWindow::inputMethodQuery(param1);
         }
@@ -909,7 +1014,10 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_focusnextprevchild_isbase = false;
             return QMdiSubWindow::focusNextPrevChild(next);
         } else if (qmdisubwindow_focusnextprevchild_callback != nullptr) {
-            return qmdisubwindow_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qmdisubwindow_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QMdiSubWindow::focusNextPrevChild(next);
         }
@@ -921,7 +1029,9 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_customevent_isbase = false;
             QMdiSubWindow::customEvent(event);
         } else if (qmdisubwindow_customevent_callback != nullptr) {
-            qmdisubwindow_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qmdisubwindow_customevent_callback(this, cbval1);
         } else {
             QMdiSubWindow::customEvent(event);
         }
@@ -933,7 +1043,11 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_connectnotify_isbase = false;
             QMdiSubWindow::connectNotify(signal);
         } else if (qmdisubwindow_connectnotify_callback != nullptr) {
-            qmdisubwindow_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qmdisubwindow_connectnotify_callback(this, cbval1);
         } else {
             QMdiSubWindow::connectNotify(signal);
         }
@@ -945,7 +1059,11 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_disconnectnotify_isbase = false;
             QMdiSubWindow::disconnectNotify(signal);
         } else if (qmdisubwindow_disconnectnotify_callback != nullptr) {
-            qmdisubwindow_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qmdisubwindow_disconnectnotify_callback(this, cbval1);
         } else {
             QMdiSubWindow::disconnectNotify(signal);
         }
@@ -993,7 +1111,8 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_focusnextchild_isbase = false;
             return QMdiSubWindow::focusNextChild();
         } else if (qmdisubwindow_focusnextchild_callback != nullptr) {
-            return qmdisubwindow_focusnextchild_callback();
+            bool callback_ret = qmdisubwindow_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QMdiSubWindow::focusNextChild();
         }
@@ -1005,7 +1124,8 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_focuspreviouschild_isbase = false;
             return QMdiSubWindow::focusPreviousChild();
         } else if (qmdisubwindow_focuspreviouschild_callback != nullptr) {
-            return qmdisubwindow_focuspreviouschild_callback();
+            bool callback_ret = qmdisubwindow_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QMdiSubWindow::focusPreviousChild();
         }
@@ -1017,7 +1137,8 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_sender_isbase = false;
             return QMdiSubWindow::sender();
         } else if (qmdisubwindow_sender_callback != nullptr) {
-            return qmdisubwindow_sender_callback();
+            QObject* callback_ret = qmdisubwindow_sender_callback();
+            return callback_ret;
         } else {
             return QMdiSubWindow::sender();
         }
@@ -1029,7 +1150,8 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_sendersignalindex_isbase = false;
             return QMdiSubWindow::senderSignalIndex();
         } else if (qmdisubwindow_sendersignalindex_callback != nullptr) {
-            return qmdisubwindow_sendersignalindex_callback();
+            int callback_ret = qmdisubwindow_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QMdiSubWindow::senderSignalIndex();
         }
@@ -1041,7 +1163,10 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_receivers_isbase = false;
             return QMdiSubWindow::receivers(signal);
         } else if (qmdisubwindow_receivers_callback != nullptr) {
-            return qmdisubwindow_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qmdisubwindow_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QMdiSubWindow::receivers(signal);
         }
@@ -1053,11 +1178,114 @@ class VirtualQMdiSubWindow : public QMdiSubWindow {
             qmdisubwindow_issignalconnected_isbase = false;
             return QMdiSubWindow::isSignalConnected(signal);
         } else if (qmdisubwindow_issignalconnected_callback != nullptr) {
-            return qmdisubwindow_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qmdisubwindow_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QMdiSubWindow::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QMdiSubWindow_EventFilter(QMdiSubWindow* self, QObject* object, QEvent* event);
+    friend bool QMdiSubWindow_QBaseEventFilter(QMdiSubWindow* self, QObject* object, QEvent* event);
+    friend bool QMdiSubWindow_Event(QMdiSubWindow* self, QEvent* event);
+    friend bool QMdiSubWindow_QBaseEvent(QMdiSubWindow* self, QEvent* event);
+    friend void QMdiSubWindow_ShowEvent(QMdiSubWindow* self, QShowEvent* showEvent);
+    friend void QMdiSubWindow_QBaseShowEvent(QMdiSubWindow* self, QShowEvent* showEvent);
+    friend void QMdiSubWindow_HideEvent(QMdiSubWindow* self, QHideEvent* hideEvent);
+    friend void QMdiSubWindow_QBaseHideEvent(QMdiSubWindow* self, QHideEvent* hideEvent);
+    friend void QMdiSubWindow_ChangeEvent(QMdiSubWindow* self, QEvent* changeEvent);
+    friend void QMdiSubWindow_QBaseChangeEvent(QMdiSubWindow* self, QEvent* changeEvent);
+    friend void QMdiSubWindow_CloseEvent(QMdiSubWindow* self, QCloseEvent* closeEvent);
+    friend void QMdiSubWindow_QBaseCloseEvent(QMdiSubWindow* self, QCloseEvent* closeEvent);
+    friend void QMdiSubWindow_LeaveEvent(QMdiSubWindow* self, QEvent* leaveEvent);
+    friend void QMdiSubWindow_QBaseLeaveEvent(QMdiSubWindow* self, QEvent* leaveEvent);
+    friend void QMdiSubWindow_ResizeEvent(QMdiSubWindow* self, QResizeEvent* resizeEvent);
+    friend void QMdiSubWindow_QBaseResizeEvent(QMdiSubWindow* self, QResizeEvent* resizeEvent);
+    friend void QMdiSubWindow_TimerEvent(QMdiSubWindow* self, QTimerEvent* timerEvent);
+    friend void QMdiSubWindow_QBaseTimerEvent(QMdiSubWindow* self, QTimerEvent* timerEvent);
+    friend void QMdiSubWindow_MoveEvent(QMdiSubWindow* self, QMoveEvent* moveEvent);
+    friend void QMdiSubWindow_QBaseMoveEvent(QMdiSubWindow* self, QMoveEvent* moveEvent);
+    friend void QMdiSubWindow_PaintEvent(QMdiSubWindow* self, QPaintEvent* paintEvent);
+    friend void QMdiSubWindow_QBasePaintEvent(QMdiSubWindow* self, QPaintEvent* paintEvent);
+    friend void QMdiSubWindow_MousePressEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent);
+    friend void QMdiSubWindow_QBaseMousePressEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent);
+    friend void QMdiSubWindow_MouseDoubleClickEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent);
+    friend void QMdiSubWindow_QBaseMouseDoubleClickEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent);
+    friend void QMdiSubWindow_MouseReleaseEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent);
+    friend void QMdiSubWindow_QBaseMouseReleaseEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent);
+    friend void QMdiSubWindow_MouseMoveEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent);
+    friend void QMdiSubWindow_QBaseMouseMoveEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent);
+    friend void QMdiSubWindow_KeyPressEvent(QMdiSubWindow* self, QKeyEvent* keyEvent);
+    friend void QMdiSubWindow_QBaseKeyPressEvent(QMdiSubWindow* self, QKeyEvent* keyEvent);
+    friend void QMdiSubWindow_ContextMenuEvent(QMdiSubWindow* self, QContextMenuEvent* contextMenuEvent);
+    friend void QMdiSubWindow_QBaseContextMenuEvent(QMdiSubWindow* self, QContextMenuEvent* contextMenuEvent);
+    friend void QMdiSubWindow_FocusInEvent(QMdiSubWindow* self, QFocusEvent* focusInEvent);
+    friend void QMdiSubWindow_QBaseFocusInEvent(QMdiSubWindow* self, QFocusEvent* focusInEvent);
+    friend void QMdiSubWindow_FocusOutEvent(QMdiSubWindow* self, QFocusEvent* focusOutEvent);
+    friend void QMdiSubWindow_QBaseFocusOutEvent(QMdiSubWindow* self, QFocusEvent* focusOutEvent);
+    friend void QMdiSubWindow_ChildEvent(QMdiSubWindow* self, QChildEvent* childEvent);
+    friend void QMdiSubWindow_QBaseChildEvent(QMdiSubWindow* self, QChildEvent* childEvent);
+    friend void QMdiSubWindow_WheelEvent(QMdiSubWindow* self, QWheelEvent* event);
+    friend void QMdiSubWindow_QBaseWheelEvent(QMdiSubWindow* self, QWheelEvent* event);
+    friend void QMdiSubWindow_KeyReleaseEvent(QMdiSubWindow* self, QKeyEvent* event);
+    friend void QMdiSubWindow_QBaseKeyReleaseEvent(QMdiSubWindow* self, QKeyEvent* event);
+    friend void QMdiSubWindow_EnterEvent(QMdiSubWindow* self, QEnterEvent* event);
+    friend void QMdiSubWindow_QBaseEnterEvent(QMdiSubWindow* self, QEnterEvent* event);
+    friend void QMdiSubWindow_TabletEvent(QMdiSubWindow* self, QTabletEvent* event);
+    friend void QMdiSubWindow_QBaseTabletEvent(QMdiSubWindow* self, QTabletEvent* event);
+    friend void QMdiSubWindow_ActionEvent(QMdiSubWindow* self, QActionEvent* event);
+    friend void QMdiSubWindow_QBaseActionEvent(QMdiSubWindow* self, QActionEvent* event);
+    friend void QMdiSubWindow_DragEnterEvent(QMdiSubWindow* self, QDragEnterEvent* event);
+    friend void QMdiSubWindow_QBaseDragEnterEvent(QMdiSubWindow* self, QDragEnterEvent* event);
+    friend void QMdiSubWindow_DragMoveEvent(QMdiSubWindow* self, QDragMoveEvent* event);
+    friend void QMdiSubWindow_QBaseDragMoveEvent(QMdiSubWindow* self, QDragMoveEvent* event);
+    friend void QMdiSubWindow_DragLeaveEvent(QMdiSubWindow* self, QDragLeaveEvent* event);
+    friend void QMdiSubWindow_QBaseDragLeaveEvent(QMdiSubWindow* self, QDragLeaveEvent* event);
+    friend void QMdiSubWindow_DropEvent(QMdiSubWindow* self, QDropEvent* event);
+    friend void QMdiSubWindow_QBaseDropEvent(QMdiSubWindow* self, QDropEvent* event);
+    friend bool QMdiSubWindow_NativeEvent(QMdiSubWindow* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QMdiSubWindow_QBaseNativeEvent(QMdiSubWindow* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QMdiSubWindow_Metric(const QMdiSubWindow* self, int param1);
+    friend int QMdiSubWindow_QBaseMetric(const QMdiSubWindow* self, int param1);
+    friend void QMdiSubWindow_InitPainter(const QMdiSubWindow* self, QPainter* painter);
+    friend void QMdiSubWindow_QBaseInitPainter(const QMdiSubWindow* self, QPainter* painter);
+    friend QPaintDevice* QMdiSubWindow_Redirected(const QMdiSubWindow* self, QPoint* offset);
+    friend QPaintDevice* QMdiSubWindow_QBaseRedirected(const QMdiSubWindow* self, QPoint* offset);
+    friend QPainter* QMdiSubWindow_SharedPainter(const QMdiSubWindow* self);
+    friend QPainter* QMdiSubWindow_QBaseSharedPainter(const QMdiSubWindow* self);
+    friend void QMdiSubWindow_InputMethodEvent(QMdiSubWindow* self, QInputMethodEvent* param1);
+    friend void QMdiSubWindow_QBaseInputMethodEvent(QMdiSubWindow* self, QInputMethodEvent* param1);
+    friend bool QMdiSubWindow_FocusNextPrevChild(QMdiSubWindow* self, bool next);
+    friend bool QMdiSubWindow_QBaseFocusNextPrevChild(QMdiSubWindow* self, bool next);
+    friend void QMdiSubWindow_CustomEvent(QMdiSubWindow* self, QEvent* event);
+    friend void QMdiSubWindow_QBaseCustomEvent(QMdiSubWindow* self, QEvent* event);
+    friend void QMdiSubWindow_ConnectNotify(QMdiSubWindow* self, const QMetaMethod* signal);
+    friend void QMdiSubWindow_QBaseConnectNotify(QMdiSubWindow* self, const QMetaMethod* signal);
+    friend void QMdiSubWindow_DisconnectNotify(QMdiSubWindow* self, const QMetaMethod* signal);
+    friend void QMdiSubWindow_QBaseDisconnectNotify(QMdiSubWindow* self, const QMetaMethod* signal);
+    friend void QMdiSubWindow_UpdateMicroFocus(QMdiSubWindow* self);
+    friend void QMdiSubWindow_QBaseUpdateMicroFocus(QMdiSubWindow* self);
+    friend void QMdiSubWindow_Create(QMdiSubWindow* self);
+    friend void QMdiSubWindow_QBaseCreate(QMdiSubWindow* self);
+    friend void QMdiSubWindow_Destroy(QMdiSubWindow* self);
+    friend void QMdiSubWindow_QBaseDestroy(QMdiSubWindow* self);
+    friend bool QMdiSubWindow_FocusNextChild(QMdiSubWindow* self);
+    friend bool QMdiSubWindow_QBaseFocusNextChild(QMdiSubWindow* self);
+    friend bool QMdiSubWindow_FocusPreviousChild(QMdiSubWindow* self);
+    friend bool QMdiSubWindow_QBaseFocusPreviousChild(QMdiSubWindow* self);
+    friend QObject* QMdiSubWindow_Sender(const QMdiSubWindow* self);
+    friend QObject* QMdiSubWindow_QBaseSender(const QMdiSubWindow* self);
+    friend int QMdiSubWindow_SenderSignalIndex(const QMdiSubWindow* self);
+    friend int QMdiSubWindow_QBaseSenderSignalIndex(const QMdiSubWindow* self);
+    friend int QMdiSubWindow_Receivers(const QMdiSubWindow* self, const char* signal);
+    friend int QMdiSubWindow_QBaseReceivers(const QMdiSubWindow* self, const char* signal);
+    friend bool QMdiSubWindow_IsSignalConnected(const QMdiSubWindow* self, const QMetaMethod* signal);
+    friend bool QMdiSubWindow_QBaseIsSignalConnected(const QMdiSubWindow* self, const QMetaMethod* signal);
 };
 
 #endif

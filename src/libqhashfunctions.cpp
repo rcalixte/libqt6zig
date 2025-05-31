@@ -3,7 +3,7 @@
 #include "libqhashfunctions.h"
 #include "libqhashfunctions.hxx"
 
-QHashSeed* QHashSeed_new(QHashSeed* other) {
+QHashSeed* QHashSeed_new(const QHashSeed* other) {
     return new QHashSeed(*other);
 }
 

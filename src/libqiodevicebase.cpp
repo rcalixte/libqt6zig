@@ -3,7 +3,7 @@
 #include "libqiodevicebase.h"
 #include "libqiodevicebase.hxx"
 
-QIODeviceBase* QIODeviceBase_new(QIODeviceBase* other) {
+QIODeviceBase* QIODeviceBase_new(const QIODeviceBase* other) {
     return new QIODeviceBase(*other);
 }
 

@@ -15,22 +15,14 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSignalMapper QSignalMapper;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QSignalMapper* QSignalMapper_new();
@@ -42,15 +34,15 @@ void QSignalMapper_OnMetacall(QSignalMapper* self, intptr_t slot);
 int QSignalMapper_QBaseMetacall(QSignalMapper* self, int param1, int param2, void** param3);
 libqt_string QSignalMapper_Tr(const char* s);
 void QSignalMapper_SetMapping(QSignalMapper* self, QObject* sender, int id);
-void QSignalMapper_SetMapping2(QSignalMapper* self, QObject* sender, libqt_string text);
+void QSignalMapper_SetMapping2(QSignalMapper* self, QObject* sender, const libqt_string text);
 void QSignalMapper_SetMapping3(QSignalMapper* self, QObject* sender, QObject* object);
 void QSignalMapper_RemoveMappings(QSignalMapper* self, QObject* sender);
 QObject* QSignalMapper_Mapping(const QSignalMapper* self, int id);
-QObject* QSignalMapper_MappingWithText(const QSignalMapper* self, libqt_string text);
+QObject* QSignalMapper_MappingWithText(const QSignalMapper* self, const libqt_string text);
 QObject* QSignalMapper_MappingWithObject(const QSignalMapper* self, QObject* object);
 void QSignalMapper_MappedInt(QSignalMapper* self, int param1);
 void QSignalMapper_Connect_MappedInt(QSignalMapper* self, intptr_t slot);
-void QSignalMapper_MappedString(QSignalMapper* self, libqt_string param1);
+void QSignalMapper_MappedString(QSignalMapper* self, const libqt_string param1);
 void QSignalMapper_Connect_MappedString(QSignalMapper* self, intptr_t slot);
 void QSignalMapper_MappedObject(QSignalMapper* self, QObject* param1);
 void QSignalMapper_Connect_MappedObject(QSignalMapper* self, intptr_t slot);
@@ -73,12 +65,12 @@ void QSignalMapper_QBaseChildEvent(QSignalMapper* self, QChildEvent* event);
 void QSignalMapper_CustomEvent(QSignalMapper* self, QEvent* event);
 void QSignalMapper_OnCustomEvent(QSignalMapper* self, intptr_t slot);
 void QSignalMapper_QBaseCustomEvent(QSignalMapper* self, QEvent* event);
-void QSignalMapper_ConnectNotify(QSignalMapper* self, QMetaMethod* signal);
+void QSignalMapper_ConnectNotify(QSignalMapper* self, const QMetaMethod* signal);
 void QSignalMapper_OnConnectNotify(QSignalMapper* self, intptr_t slot);
-void QSignalMapper_QBaseConnectNotify(QSignalMapper* self, QMetaMethod* signal);
-void QSignalMapper_DisconnectNotify(QSignalMapper* self, QMetaMethod* signal);
+void QSignalMapper_QBaseConnectNotify(QSignalMapper* self, const QMetaMethod* signal);
+void QSignalMapper_DisconnectNotify(QSignalMapper* self, const QMetaMethod* signal);
 void QSignalMapper_OnDisconnectNotify(QSignalMapper* self, intptr_t slot);
-void QSignalMapper_QBaseDisconnectNotify(QSignalMapper* self, QMetaMethod* signal);
+void QSignalMapper_QBaseDisconnectNotify(QSignalMapper* self, const QMetaMethod* signal);
 QObject* QSignalMapper_Sender(const QSignalMapper* self);
 void QSignalMapper_OnSender(const QSignalMapper* self, intptr_t slot);
 QObject* QSignalMapper_QBaseSender(const QSignalMapper* self);
@@ -88,9 +80,9 @@ int QSignalMapper_QBaseSenderSignalIndex(const QSignalMapper* self);
 int QSignalMapper_Receivers(const QSignalMapper* self, const char* signal);
 void QSignalMapper_OnReceivers(const QSignalMapper* self, intptr_t slot);
 int QSignalMapper_QBaseReceivers(const QSignalMapper* self, const char* signal);
-bool QSignalMapper_IsSignalConnected(const QSignalMapper* self, QMetaMethod* signal);
+bool QSignalMapper_IsSignalConnected(const QSignalMapper* self, const QMetaMethod* signal);
 void QSignalMapper_OnIsSignalConnected(const QSignalMapper* self, intptr_t slot);
-bool QSignalMapper_QBaseIsSignalConnected(const QSignalMapper* self, QMetaMethod* signal);
+bool QSignalMapper_QBaseIsSignalConnected(const QSignalMapper* self, const QMetaMethod* signal);
 void QSignalMapper_Delete(QSignalMapper* self);
 
 #ifdef __cplusplus

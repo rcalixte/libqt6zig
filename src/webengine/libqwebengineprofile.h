@@ -15,22 +15,14 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QUrl QUrl;
-typedef struct QVariant QVariant;
 typedef struct QWebEngineClientCertificateStore QWebEngineClientCertificateStore;
 typedef struct QWebEngineCookieStore QWebEngineCookieStore;
 typedef struct QWebEngineDownloadRequest QWebEngineDownloadRequest;
@@ -50,9 +42,9 @@ typedef int PersistentCookiesPolicy; // C ABI enum
 #endif
 
 QWebEngineProfile* QWebEngineProfile_new();
-QWebEngineProfile* QWebEngineProfile_new2(libqt_string name);
+QWebEngineProfile* QWebEngineProfile_new2(const libqt_string name);
 QWebEngineProfile* QWebEngineProfile_new3(QObject* parent);
-QWebEngineProfile* QWebEngineProfile_new4(libqt_string name, QObject* parent);
+QWebEngineProfile* QWebEngineProfile_new4(const libqt_string name, QObject* parent);
 QMetaObject* QWebEngineProfile_MetaObject(const QWebEngineProfile* self);
 void* QWebEngineProfile_Metacast(QWebEngineProfile* self, const char* param1);
 int QWebEngineProfile_Metacall(QWebEngineProfile* self, int param1, int param2, void** param3);
@@ -62,14 +54,14 @@ libqt_string QWebEngineProfile_Tr(const char* s);
 libqt_string QWebEngineProfile_StorageName(const QWebEngineProfile* self);
 bool QWebEngineProfile_IsOffTheRecord(const QWebEngineProfile* self);
 libqt_string QWebEngineProfile_PersistentStoragePath(const QWebEngineProfile* self);
-void QWebEngineProfile_SetPersistentStoragePath(QWebEngineProfile* self, libqt_string path);
+void QWebEngineProfile_SetPersistentStoragePath(QWebEngineProfile* self, const libqt_string path);
 libqt_string QWebEngineProfile_CachePath(const QWebEngineProfile* self);
-void QWebEngineProfile_SetCachePath(QWebEngineProfile* self, libqt_string path);
+void QWebEngineProfile_SetCachePath(QWebEngineProfile* self, const libqt_string path);
 libqt_string QWebEngineProfile_HttpUserAgent(const QWebEngineProfile* self);
-void QWebEngineProfile_SetHttpUserAgent(QWebEngineProfile* self, libqt_string userAgent);
+void QWebEngineProfile_SetHttpUserAgent(QWebEngineProfile* self, const libqt_string userAgent);
 int QWebEngineProfile_HttpCacheType(const QWebEngineProfile* self);
 void QWebEngineProfile_SetHttpCacheType(QWebEngineProfile* self, int httpCacheType);
-void QWebEngineProfile_SetHttpAcceptLanguage(QWebEngineProfile* self, libqt_string httpAcceptLanguage);
+void QWebEngineProfile_SetHttpAcceptLanguage(QWebEngineProfile* self, const libqt_string httpAcceptLanguage);
 libqt_string QWebEngineProfile_HttpAcceptLanguage(const QWebEngineProfile* self);
 int QWebEngineProfile_PersistentCookiesPolicy(const QWebEngineProfile* self);
 void QWebEngineProfile_SetPersistentCookiesPolicy(QWebEngineProfile* self, int persistentCookiesPolicy);
@@ -78,22 +70,22 @@ void QWebEngineProfile_SetHttpCacheMaximumSize(QWebEngineProfile* self, int maxS
 QWebEngineCookieStore* QWebEngineProfile_CookieStore(QWebEngineProfile* self);
 void QWebEngineProfile_SetUrlRequestInterceptor(QWebEngineProfile* self, QWebEngineUrlRequestInterceptor* interceptor);
 void QWebEngineProfile_ClearAllVisitedLinks(QWebEngineProfile* self);
-void QWebEngineProfile_ClearVisitedLinks(QWebEngineProfile* self, libqt_list /* of QUrl* */ urls);
-bool QWebEngineProfile_VisitedLinksContainsUrl(const QWebEngineProfile* self, QUrl* url);
+void QWebEngineProfile_ClearVisitedLinks(QWebEngineProfile* self, const libqt_list /* of QUrl* */ urls);
+bool QWebEngineProfile_VisitedLinksContainsUrl(const QWebEngineProfile* self, const QUrl* url);
 QWebEngineSettings* QWebEngineProfile_Settings(const QWebEngineProfile* self);
 QWebEngineScriptCollection* QWebEngineProfile_Scripts(const QWebEngineProfile* self);
-QWebEngineUrlSchemeHandler* QWebEngineProfile_UrlSchemeHandler(const QWebEngineProfile* self, libqt_string param1);
-void QWebEngineProfile_InstallUrlSchemeHandler(QWebEngineProfile* self, libqt_string scheme, QWebEngineUrlSchemeHandler* param2);
-void QWebEngineProfile_RemoveUrlScheme(QWebEngineProfile* self, libqt_string scheme);
+QWebEngineUrlSchemeHandler* QWebEngineProfile_UrlSchemeHandler(const QWebEngineProfile* self, const libqt_string param1);
+void QWebEngineProfile_InstallUrlSchemeHandler(QWebEngineProfile* self, const libqt_string scheme, QWebEngineUrlSchemeHandler* param2);
+void QWebEngineProfile_RemoveUrlScheme(QWebEngineProfile* self, const libqt_string scheme);
 void QWebEngineProfile_RemoveUrlSchemeHandler(QWebEngineProfile* self, QWebEngineUrlSchemeHandler* param1);
 void QWebEngineProfile_RemoveAllUrlSchemeHandlers(QWebEngineProfile* self);
 void QWebEngineProfile_ClearHttpCache(QWebEngineProfile* self);
-void QWebEngineProfile_SetSpellCheckLanguages(QWebEngineProfile* self, libqt_list /* of libqt_string */ languages);
+void QWebEngineProfile_SetSpellCheckLanguages(QWebEngineProfile* self, const libqt_list /* of libqt_string */ languages);
 libqt_list /* of libqt_string */ QWebEngineProfile_SpellCheckLanguages(const QWebEngineProfile* self);
 void QWebEngineProfile_SetSpellCheckEnabled(QWebEngineProfile* self, bool enabled);
 bool QWebEngineProfile_IsSpellCheckEnabled(const QWebEngineProfile* self);
 libqt_string QWebEngineProfile_DownloadPath(const QWebEngineProfile* self);
-void QWebEngineProfile_SetDownloadPath(QWebEngineProfile* self, libqt_string path);
+void QWebEngineProfile_SetDownloadPath(QWebEngineProfile* self, const libqt_string path);
 QWebEngineClientCertificateStore* QWebEngineProfile_ClientCertificateStore(QWebEngineProfile* self);
 QWebEngineProfile* QWebEngineProfile_DefaultProfile();
 void QWebEngineProfile_DownloadRequested(QWebEngineProfile* self, QWebEngineDownloadRequest* download);
@@ -115,12 +107,12 @@ void QWebEngineProfile_QBaseChildEvent(QWebEngineProfile* self, QChildEvent* eve
 void QWebEngineProfile_CustomEvent(QWebEngineProfile* self, QEvent* event);
 void QWebEngineProfile_OnCustomEvent(QWebEngineProfile* self, intptr_t slot);
 void QWebEngineProfile_QBaseCustomEvent(QWebEngineProfile* self, QEvent* event);
-void QWebEngineProfile_ConnectNotify(QWebEngineProfile* self, QMetaMethod* signal);
+void QWebEngineProfile_ConnectNotify(QWebEngineProfile* self, const QMetaMethod* signal);
 void QWebEngineProfile_OnConnectNotify(QWebEngineProfile* self, intptr_t slot);
-void QWebEngineProfile_QBaseConnectNotify(QWebEngineProfile* self, QMetaMethod* signal);
-void QWebEngineProfile_DisconnectNotify(QWebEngineProfile* self, QMetaMethod* signal);
+void QWebEngineProfile_QBaseConnectNotify(QWebEngineProfile* self, const QMetaMethod* signal);
+void QWebEngineProfile_DisconnectNotify(QWebEngineProfile* self, const QMetaMethod* signal);
 void QWebEngineProfile_OnDisconnectNotify(QWebEngineProfile* self, intptr_t slot);
-void QWebEngineProfile_QBaseDisconnectNotify(QWebEngineProfile* self, QMetaMethod* signal);
+void QWebEngineProfile_QBaseDisconnectNotify(QWebEngineProfile* self, const QMetaMethod* signal);
 QObject* QWebEngineProfile_Sender(const QWebEngineProfile* self);
 void QWebEngineProfile_OnSender(const QWebEngineProfile* self, intptr_t slot);
 QObject* QWebEngineProfile_QBaseSender(const QWebEngineProfile* self);
@@ -130,9 +122,9 @@ int QWebEngineProfile_QBaseSenderSignalIndex(const QWebEngineProfile* self);
 int QWebEngineProfile_Receivers(const QWebEngineProfile* self, const char* signal);
 void QWebEngineProfile_OnReceivers(const QWebEngineProfile* self, intptr_t slot);
 int QWebEngineProfile_QBaseReceivers(const QWebEngineProfile* self, const char* signal);
-bool QWebEngineProfile_IsSignalConnected(const QWebEngineProfile* self, QMetaMethod* signal);
+bool QWebEngineProfile_IsSignalConnected(const QWebEngineProfile* self, const QMetaMethod* signal);
 void QWebEngineProfile_OnIsSignalConnected(const QWebEngineProfile* self, intptr_t slot);
-bool QWebEngineProfile_QBaseIsSignalConnected(const QWebEngineProfile* self, QMetaMethod* signal);
+bool QWebEngineProfile_QBaseIsSignalConnected(const QWebEngineProfile* self, const QMetaMethod* signal);
 void QWebEngineProfile_Delete(QWebEngineProfile* self);
 
 #ifdef __cplusplus

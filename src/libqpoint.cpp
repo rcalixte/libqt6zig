@@ -4,7 +4,7 @@
 #include "libqpoint.h"
 #include "libqpoint.hxx"
 
-QPoint* QPoint_new(QPoint* other) {
+QPoint* QPoint_new(const QPoint* other) {
     return new QPoint(*other);
 }
 
@@ -20,7 +20,7 @@ QPoint* QPoint_new4(int xpos, int ypos) {
     return new QPoint(static_cast<int>(xpos), static_cast<int>(ypos));
 }
 
-QPoint* QPoint_new5(QPoint* param1) {
+QPoint* QPoint_new5(const QPoint* param1) {
     return new QPoint(*param1);
 }
 
@@ -60,13 +60,13 @@ QPoint* QPoint_Transposed(const QPoint* self) {
     return new QPoint(self->transposed());
 }
 
-QPoint* QPoint_OperatorPlusAssign(QPoint* self, QPoint* p) {
+QPoint* QPoint_OperatorPlusAssign(QPoint* self, const QPoint* p) {
     QPoint& _ret = self->operator+=(*p);
     // Cast returned reference into pointer
     return &_ret;
 }
 
-QPoint* QPoint_OperatorMinusAssign(QPoint* self, QPoint* p) {
+QPoint* QPoint_OperatorMinusAssign(QPoint* self, const QPoint* p) {
     QPoint& _ret = self->operator-=(*p);
     // Cast returned reference into pointer
     return &_ret;
@@ -96,7 +96,7 @@ QPoint* QPoint_OperatorDivideAssign(QPoint* self, double divisor) {
     return &_ret;
 }
 
-int QPoint_DotProduct(QPoint* p1, QPoint* p2) {
+int QPoint_DotProduct(const QPoint* p1, const QPoint* p2) {
     return QPoint::dotProduct(*p1, *p2);
 }
 
@@ -108,7 +108,7 @@ void QPoint_Delete(QPoint* self) {
     delete self;
 }
 
-QPointF* QPointF_new(QPointF* other) {
+QPointF* QPointF_new(const QPointF* other) {
     return new QPointF(*other);
 }
 
@@ -120,7 +120,7 @@ QPointF* QPointF_new3() {
     return new QPointF();
 }
 
-QPointF* QPointF_new4(QPoint* p) {
+QPointF* QPointF_new4(const QPoint* p) {
     return new QPointF(*p);
 }
 
@@ -128,7 +128,7 @@ QPointF* QPointF_new5(double xpos, double ypos) {
     return new QPointF(static_cast<qreal>(xpos), static_cast<qreal>(ypos));
 }
 
-QPointF* QPointF_new6(QPointF* param1) {
+QPointF* QPointF_new6(const QPointF* param1) {
     return new QPointF(*param1);
 }
 
@@ -168,13 +168,13 @@ QPointF* QPointF_Transposed(const QPointF* self) {
     return new QPointF(self->transposed());
 }
 
-QPointF* QPointF_OperatorPlusAssign(QPointF* self, QPointF* p) {
+QPointF* QPointF_OperatorPlusAssign(QPointF* self, const QPointF* p) {
     QPointF& _ret = self->operator+=(*p);
     // Cast returned reference into pointer
     return &_ret;
 }
 
-QPointF* QPointF_OperatorMinusAssign(QPointF* self, QPointF* p) {
+QPointF* QPointF_OperatorMinusAssign(QPointF* self, const QPointF* p) {
     QPointF& _ret = self->operator-=(*p);
     // Cast returned reference into pointer
     return &_ret;
@@ -192,7 +192,7 @@ QPointF* QPointF_OperatorDivideAssign(QPointF* self, double c) {
     return &_ret;
 }
 
-double QPointF_DotProduct(QPointF* p1, QPointF* p2) {
+double QPointF_DotProduct(const QPointF* p1, const QPointF* p2) {
     return static_cast<double>(QPointF::dotProduct(*p1, *p2));
 }
 

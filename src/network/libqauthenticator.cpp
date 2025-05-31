@@ -12,19 +12,19 @@ QAuthenticator* QAuthenticator_new() {
     return new QAuthenticator();
 }
 
-QAuthenticator* QAuthenticator_new2(QAuthenticator* other) {
+QAuthenticator* QAuthenticator_new2(const QAuthenticator* other) {
     return new QAuthenticator(*other);
 }
 
-void QAuthenticator_OperatorAssign(QAuthenticator* self, QAuthenticator* other) {
+void QAuthenticator_OperatorAssign(QAuthenticator* self, const QAuthenticator* other) {
     self->operator=(*other);
 }
 
-bool QAuthenticator_OperatorEqual(const QAuthenticator* self, QAuthenticator* other) {
+bool QAuthenticator_OperatorEqual(const QAuthenticator* self, const QAuthenticator* other) {
     return (*self == *other);
 }
 
-bool QAuthenticator_OperatorNotEqual(const QAuthenticator* self, QAuthenticator* other) {
+bool QAuthenticator_OperatorNotEqual(const QAuthenticator* self, const QAuthenticator* other) {
     return (*self != *other);
 }
 
@@ -40,7 +40,7 @@ libqt_string QAuthenticator_User(const QAuthenticator* self) {
     return _str;
 }
 
-void QAuthenticator_SetUser(QAuthenticator* self, libqt_string user) {
+void QAuthenticator_SetUser(QAuthenticator* self, const libqt_string user) {
     QString user_QString = QString::fromUtf8(user.data, user.len);
     self->setUser(user_QString);
 }
@@ -57,7 +57,7 @@ libqt_string QAuthenticator_Password(const QAuthenticator* self) {
     return _str;
 }
 
-void QAuthenticator_SetPassword(QAuthenticator* self, libqt_string password) {
+void QAuthenticator_SetPassword(QAuthenticator* self, const libqt_string password) {
     QString password_QString = QString::fromUtf8(password.data, password.len);
     self->setPassword(password_QString);
 }
@@ -74,12 +74,12 @@ libqt_string QAuthenticator_Realm(const QAuthenticator* self) {
     return _str;
 }
 
-void QAuthenticator_SetRealm(QAuthenticator* self, libqt_string realm) {
+void QAuthenticator_SetRealm(QAuthenticator* self, const libqt_string realm) {
     QString realm_QString = QString::fromUtf8(realm.data, realm.len);
     self->setRealm(realm_QString);
 }
 
-QVariant* QAuthenticator_Option(const QAuthenticator* self, libqt_string opt) {
+QVariant* QAuthenticator_Option(const QAuthenticator* self, const libqt_string opt) {
     QString opt_QString = QString::fromUtf8(opt.data, opt.len);
     return new QVariant(self->option(opt_QString));
 }
@@ -110,7 +110,7 @@ libqt_map /* of libqt_string to QVariant* */ QAuthenticator_Options(const QAuthe
     return _out;
 }
 
-void QAuthenticator_SetOption(QAuthenticator* self, libqt_string opt, QVariant* value) {
+void QAuthenticator_SetOption(QAuthenticator* self, const libqt_string opt, const QVariant* value) {
     QString opt_QString = QString::fromUtf8(opt.data, opt.len);
     self->setOption(opt_QString, *value);
 }

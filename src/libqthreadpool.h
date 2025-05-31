@@ -15,23 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QRunnable QRunnable;
 typedef struct QThread QThread;
 typedef struct QThreadPool QThreadPool;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QThreadPool* QThreadPool_new();
@@ -59,7 +52,7 @@ void QThreadPool_ReserveThread(QThreadPool* self);
 void QThreadPool_ReleaseThread(QThreadPool* self);
 bool QThreadPool_WaitForDone(QThreadPool* self);
 void QThreadPool_Clear(QThreadPool* self);
-bool QThreadPool_Contains(const QThreadPool* self, QThread* thread);
+bool QThreadPool_Contains(const QThreadPool* self, const QThread* thread);
 bool QThreadPool_TryTake(QThreadPool* self, QRunnable* runnable);
 libqt_string QThreadPool_Tr2(const char* s, const char* c);
 libqt_string QThreadPool_Tr3(const char* s, const char* c, int n);
@@ -80,12 +73,12 @@ void QThreadPool_QBaseChildEvent(QThreadPool* self, QChildEvent* event);
 void QThreadPool_CustomEvent(QThreadPool* self, QEvent* event);
 void QThreadPool_OnCustomEvent(QThreadPool* self, intptr_t slot);
 void QThreadPool_QBaseCustomEvent(QThreadPool* self, QEvent* event);
-void QThreadPool_ConnectNotify(QThreadPool* self, QMetaMethod* signal);
+void QThreadPool_ConnectNotify(QThreadPool* self, const QMetaMethod* signal);
 void QThreadPool_OnConnectNotify(QThreadPool* self, intptr_t slot);
-void QThreadPool_QBaseConnectNotify(QThreadPool* self, QMetaMethod* signal);
-void QThreadPool_DisconnectNotify(QThreadPool* self, QMetaMethod* signal);
+void QThreadPool_QBaseConnectNotify(QThreadPool* self, const QMetaMethod* signal);
+void QThreadPool_DisconnectNotify(QThreadPool* self, const QMetaMethod* signal);
 void QThreadPool_OnDisconnectNotify(QThreadPool* self, intptr_t slot);
-void QThreadPool_QBaseDisconnectNotify(QThreadPool* self, QMetaMethod* signal);
+void QThreadPool_QBaseDisconnectNotify(QThreadPool* self, const QMetaMethod* signal);
 QObject* QThreadPool_Sender(const QThreadPool* self);
 void QThreadPool_OnSender(const QThreadPool* self, intptr_t slot);
 QObject* QThreadPool_QBaseSender(const QThreadPool* self);
@@ -95,9 +88,9 @@ int QThreadPool_QBaseSenderSignalIndex(const QThreadPool* self);
 int QThreadPool_Receivers(const QThreadPool* self, const char* signal);
 void QThreadPool_OnReceivers(const QThreadPool* self, intptr_t slot);
 int QThreadPool_QBaseReceivers(const QThreadPool* self, const char* signal);
-bool QThreadPool_IsSignalConnected(const QThreadPool* self, QMetaMethod* signal);
+bool QThreadPool_IsSignalConnected(const QThreadPool* self, const QMetaMethod* signal);
 void QThreadPool_OnIsSignalConnected(const QThreadPool* self, intptr_t slot);
-bool QThreadPool_QBaseIsSignalConnected(const QThreadPool* self, QMetaMethod* signal);
+bool QThreadPool_QBaseIsSignalConnected(const QThreadPool* self, const QMetaMethod* signal);
 void QThreadPool_Delete(QThreadPool* self);
 
 #ifdef __cplusplus

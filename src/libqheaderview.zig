@@ -1,4 +1,5 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qabstractitemdelegate_enums = @import("libqabstractitemdelegate.zig").enums;
 const qabstractitemview_enums = @import("libqabstractitemview.zig").enums;
 const qabstractscrollarea_enums = @import("libqabstractscrollarea.zig").enums;
@@ -16,47 +17,47 @@ pub const qheaderview = struct {
     /// New constructs a new QHeaderView object.
     ///
     /// ``` orientation: qnamespace_enums.Orientation ```
-    pub fn New(orientation: i64) ?*C.QHeaderView {
-        return C.QHeaderView_new(@intCast(orientation));
+    pub fn New(orientation: i64) QtC.QHeaderView {
+        return qtc.QHeaderView_new(@intCast(orientation));
     }
 
     /// New2 constructs a new QHeaderView object.
     ///
-    /// ``` orientation: qnamespace_enums.Orientation, parent: ?*C.QWidget ```
-    pub fn New2(orientation: i64, parent: ?*anyopaque) ?*C.QHeaderView {
-        return C.QHeaderView_new2(@intCast(orientation), @ptrCast(parent));
+    /// ``` orientation: qnamespace_enums.Orientation, parent: QtC.QWidget ```
+    pub fn New2(orientation: i64, parent: ?*anyopaque) QtC.QHeaderView {
+        return qtc.QHeaderView_new2(@intCast(orientation), @ptrCast(parent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn MetaObject(self: ?*anyopaque) ?*C.QMetaObject {
-        return C.QHeaderView_MetaObject(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QHeaderView_MetaObject(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QHeaderView, param1: []const u8 ```
+    /// ``` self: QtC.QHeaderView, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
         const param1_Cstring = @constCast(param1.ptr);
-        return C.QHeaderView_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QHeaderView_Metacast(@ptrCast(self), param1_Cstring);
     }
 
-    /// ``` self: ?*C.QHeaderView, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QHeaderView, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QHeaderView_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QHeaderView_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, qobjectdefs_enums.Call, i32, ?*anyopaque) callconv(.c) i32 ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
     pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
-        C.QHeaderView_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    /// ``` self: QtC.QHeaderView, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
-        return C.QHeaderView_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QHeaderView_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -64,9 +65,9 @@ pub const qheaderview = struct {
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
-        const _str = C.QHeaderView_Tr(s_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QHeaderView_Tr(s_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qheaderview.Tr: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -75,508 +76,524 @@ pub const qheaderview = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setModel)
     ///
-    /// ``` self: ?*C.QHeaderView, model: ?*C.QAbstractItemModel ```
+    /// ``` self: QtC.QHeaderView, model: QtC.QAbstractItemModel ```
     pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
-        C.QHeaderView_SetModel(@ptrCast(self), @ptrCast(model));
+        qtc.QHeaderView_SetModel(@ptrCast(self), @ptrCast(model));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setModel)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QAbstractItemModel) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, model: QtC.QAbstractItemModel) callconv(.c) void ```
     pub fn OnSetModel(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnSetModel(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSetModel(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setModel)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, model: ?*C.QAbstractItemModel ```
+    /// ``` self: QtC.QHeaderView, model: QtC.QAbstractItemModel ```
     pub fn QBaseSetModel(self: ?*anyopaque, model: ?*anyopaque) void {
-        C.QHeaderView_QBaseSetModel(@ptrCast(self), @ptrCast(model));
+        qtc.QHeaderView_QBaseSetModel(@ptrCast(self), @ptrCast(model));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#orientation)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Orientation(self: ?*anyopaque) i64 {
-        return C.QHeaderView_Orientation(@ptrCast(self));
+        return qtc.QHeaderView_Orientation(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#offset)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Offset(self: ?*anyopaque) i32 {
-        return C.QHeaderView_Offset(@ptrCast(self));
+        return qtc.QHeaderView_Offset(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#length)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Length(self: ?*anyopaque) i32 {
-        return C.QHeaderView_Length(@ptrCast(self));
+        return qtc.QHeaderView_Length(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sizeHint)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn SizeHint(self: ?*anyopaque) ?*C.QSize {
-        return C.QHeaderView_SizeHint(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QHeaderView_SizeHint(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sizeHint)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) ?*C.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QSize) void {
-        C.QHeaderView_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
+        qtc.QHeaderView_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sizeHint)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn QBaseSizeHint(self: ?*anyopaque) ?*C.QSize {
-        return C.QHeaderView_QBaseSizeHint(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QHeaderView_QBaseSizeHint(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setVisible)
     ///
-    /// ``` self: ?*C.QHeaderView, v: bool ```
+    /// ``` self: QtC.QHeaderView, v: bool ```
     pub fn SetVisible(self: ?*anyopaque, v: bool) void {
-        C.QHeaderView_SetVisible(@ptrCast(self), v);
+        qtc.QHeaderView_SetVisible(@ptrCast(self), v);
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setVisible)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, bool) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, v: bool) callconv(.c) void ```
     pub fn OnSetVisible(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QHeaderView_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setVisible)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, v: bool ```
+    /// ``` self: QtC.QHeaderView, v: bool ```
     pub fn QBaseSetVisible(self: ?*anyopaque, v: bool) void {
-        C.QHeaderView_QBaseSetVisible(@ptrCast(self), v);
+        qtc.QHeaderView_QBaseSetVisible(@ptrCast(self), v);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeHint)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionSizeHint(self: ?*anyopaque, logicalIndex: i32) i32 {
-        return C.QHeaderView_SectionSizeHint(@ptrCast(self), @intCast(logicalIndex));
+        return qtc.QHeaderView_SectionSizeHint(@ptrCast(self), @intCast(logicalIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#visualIndexAt)
     ///
-    /// ``` self: ?*C.QHeaderView, position: i32 ```
+    /// ``` self: QtC.QHeaderView, position: i32 ```
     pub fn VisualIndexAt(self: ?*anyopaque, position: i32) i32 {
-        return C.QHeaderView_VisualIndexAt(@ptrCast(self), @intCast(position));
+        return qtc.QHeaderView_VisualIndexAt(@ptrCast(self), @intCast(position));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#logicalIndexAt)
     ///
-    /// ``` self: ?*C.QHeaderView, position: i32 ```
+    /// ``` self: QtC.QHeaderView, position: i32 ```
     pub fn LogicalIndexAt(self: ?*anyopaque, position: i32) i32 {
-        return C.QHeaderView_LogicalIndexAt(@ptrCast(self), @intCast(position));
+        return qtc.QHeaderView_LogicalIndexAt(@ptrCast(self), @intCast(position));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#logicalIndexAt)
     ///
-    /// ``` self: ?*C.QHeaderView, x: i32, y: i32 ```
+    /// ``` self: QtC.QHeaderView, x: i32, y: i32 ```
     pub fn LogicalIndexAt2(self: ?*anyopaque, x: i32, y: i32) i32 {
-        return C.QHeaderView_LogicalIndexAt2(@ptrCast(self), @intCast(x), @intCast(y));
+        return qtc.QHeaderView_LogicalIndexAt2(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#logicalIndexAt)
     ///
-    /// ``` self: ?*C.QHeaderView, pos: ?*C.QPoint ```
+    /// ``` self: QtC.QHeaderView, pos: QtC.QPoint ```
     pub fn LogicalIndexAtWithPos(self: ?*anyopaque, pos: ?*anyopaque) i32 {
-        return C.QHeaderView_LogicalIndexAtWithPos(@ptrCast(self), @ptrCast(pos));
+        return qtc.QHeaderView_LogicalIndexAtWithPos(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionSize)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionSize(self: ?*anyopaque, logicalIndex: i32) i32 {
-        return C.QHeaderView_SectionSize(@ptrCast(self), @intCast(logicalIndex));
+        return qtc.QHeaderView_SectionSize(@ptrCast(self), @intCast(logicalIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionPosition)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionPosition(self: ?*anyopaque, logicalIndex: i32) i32 {
-        return C.QHeaderView_SectionPosition(@ptrCast(self), @intCast(logicalIndex));
+        return qtc.QHeaderView_SectionPosition(@ptrCast(self), @intCast(logicalIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionViewportPosition)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionViewportPosition(self: ?*anyopaque, logicalIndex: i32) i32 {
-        return C.QHeaderView_SectionViewportPosition(@ptrCast(self), @intCast(logicalIndex));
+        return qtc.QHeaderView_SectionViewportPosition(@ptrCast(self), @intCast(logicalIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#moveSection)
     ///
-    /// ``` self: ?*C.QHeaderView, from: i32, to: i32 ```
+    /// ``` self: QtC.QHeaderView, from: i32, to: i32 ```
     pub fn MoveSection(self: ?*anyopaque, from: i32, to: i32) void {
-        C.QHeaderView_MoveSection(@ptrCast(self), @intCast(from), @intCast(to));
+        qtc.QHeaderView_MoveSection(@ptrCast(self), @intCast(from), @intCast(to));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#swapSections)
     ///
-    /// ``` self: ?*C.QHeaderView, first: i32, second: i32 ```
+    /// ``` self: QtC.QHeaderView, first: i32, second: i32 ```
     pub fn SwapSections(self: ?*anyopaque, first: i32, second: i32) void {
-        C.QHeaderView_SwapSections(@ptrCast(self), @intCast(first), @intCast(second));
+        qtc.QHeaderView_SwapSections(@ptrCast(self), @intCast(first), @intCast(second));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#resizeSection)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32, size: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32, size: i32 ```
     pub fn ResizeSection(self: ?*anyopaque, logicalIndex: i32, size: i32) void {
-        C.QHeaderView_ResizeSection(@ptrCast(self), @intCast(logicalIndex), @intCast(size));
+        qtc.QHeaderView_ResizeSection(@ptrCast(self), @intCast(logicalIndex), @intCast(size));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
     ///
-    /// ``` self: ?*C.QHeaderView, mode: qheaderview_enums.ResizeMode ```
+    /// ``` self: QtC.QHeaderView, mode: qheaderview_enums.ResizeMode ```
     pub fn ResizeSections(self: ?*anyopaque, mode: i64) void {
-        C.QHeaderView_ResizeSections(@ptrCast(self), @intCast(mode));
+        qtc.QHeaderView_ResizeSections(@ptrCast(self), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#isSectionHidden)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn IsSectionHidden(self: ?*anyopaque, logicalIndex: i32) bool {
-        return C.QHeaderView_IsSectionHidden(@ptrCast(self), @intCast(logicalIndex));
+        return qtc.QHeaderView_IsSectionHidden(@ptrCast(self), @intCast(logicalIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSectionHidden)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32, hide: bool ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32, hide: bool ```
     pub fn SetSectionHidden(self: ?*anyopaque, logicalIndex: i32, hide: bool) void {
-        C.QHeaderView_SetSectionHidden(@ptrCast(self), @intCast(logicalIndex), hide);
+        qtc.QHeaderView_SetSectionHidden(@ptrCast(self), @intCast(logicalIndex), hide);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#hiddenSectionCount)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn HiddenSectionCount(self: ?*anyopaque) i32 {
-        return C.QHeaderView_HiddenSectionCount(@ptrCast(self));
+        return qtc.QHeaderView_HiddenSectionCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#hideSection)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn HideSection(self: ?*anyopaque, logicalIndex: i32) void {
-        C.QHeaderView_HideSection(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_HideSection(@ptrCast(self), @intCast(logicalIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#showSection)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn ShowSection(self: ?*anyopaque, logicalIndex: i32) void {
-        C.QHeaderView_ShowSection(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_ShowSection(@ptrCast(self), @intCast(logicalIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#count)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Count(self: ?*anyopaque) i32 {
-        return C.QHeaderView_Count(@ptrCast(self));
+        return qtc.QHeaderView_Count(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#visualIndex)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn VisualIndex(self: ?*anyopaque, logicalIndex: i32) i32 {
-        return C.QHeaderView_VisualIndex(@ptrCast(self), @intCast(logicalIndex));
+        return qtc.QHeaderView_VisualIndex(@ptrCast(self), @intCast(logicalIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#logicalIndex)
     ///
-    /// ``` self: ?*C.QHeaderView, visualIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, visualIndex: i32 ```
     pub fn LogicalIndex(self: ?*anyopaque, visualIndex: i32) i32 {
-        return C.QHeaderView_LogicalIndex(@ptrCast(self), @intCast(visualIndex));
+        return qtc.QHeaderView_LogicalIndex(@ptrCast(self), @intCast(visualIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSectionsMovable)
     ///
-    /// ``` self: ?*C.QHeaderView, movable: bool ```
+    /// ``` self: QtC.QHeaderView, movable: bool ```
     pub fn SetSectionsMovable(self: ?*anyopaque, movable: bool) void {
-        C.QHeaderView_SetSectionsMovable(@ptrCast(self), movable);
+        qtc.QHeaderView_SetSectionsMovable(@ptrCast(self), movable);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsMovable)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn SectionsMovable(self: ?*anyopaque) bool {
-        return C.QHeaderView_SectionsMovable(@ptrCast(self));
+        return qtc.QHeaderView_SectionsMovable(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setFirstSectionMovable)
     ///
-    /// ``` self: ?*C.QHeaderView, movable: bool ```
+    /// ``` self: QtC.QHeaderView, movable: bool ```
     pub fn SetFirstSectionMovable(self: ?*anyopaque, movable: bool) void {
-        C.QHeaderView_SetFirstSectionMovable(@ptrCast(self), movable);
+        qtc.QHeaderView_SetFirstSectionMovable(@ptrCast(self), movable);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#isFirstSectionMovable)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsFirstSectionMovable(self: ?*anyopaque) bool {
-        return C.QHeaderView_IsFirstSectionMovable(@ptrCast(self));
+        return qtc.QHeaderView_IsFirstSectionMovable(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSectionsClickable)
     ///
-    /// ``` self: ?*C.QHeaderView, clickable: bool ```
+    /// ``` self: QtC.QHeaderView, clickable: bool ```
     pub fn SetSectionsClickable(self: ?*anyopaque, clickable: bool) void {
-        C.QHeaderView_SetSectionsClickable(@ptrCast(self), clickable);
+        qtc.QHeaderView_SetSectionsClickable(@ptrCast(self), clickable);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsClickable)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn SectionsClickable(self: ?*anyopaque) bool {
-        return C.QHeaderView_SectionsClickable(@ptrCast(self));
+        return qtc.QHeaderView_SectionsClickable(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setHighlightSections)
     ///
-    /// ``` self: ?*C.QHeaderView, highlight: bool ```
+    /// ``` self: QtC.QHeaderView, highlight: bool ```
     pub fn SetHighlightSections(self: ?*anyopaque, highlight: bool) void {
-        C.QHeaderView_SetHighlightSections(@ptrCast(self), highlight);
+        qtc.QHeaderView_SetHighlightSections(@ptrCast(self), highlight);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#highlightSections)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn HighlightSections(self: ?*anyopaque) bool {
-        return C.QHeaderView_HighlightSections(@ptrCast(self));
+        return qtc.QHeaderView_HighlightSections(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionResizeMode)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionResizeMode(self: ?*anyopaque, logicalIndex: i32) i64 {
-        return C.QHeaderView_SectionResizeMode(@ptrCast(self), @intCast(logicalIndex));
+        return qtc.QHeaderView_SectionResizeMode(@ptrCast(self), @intCast(logicalIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSectionResizeMode)
     ///
-    /// ``` self: ?*C.QHeaderView, mode: qheaderview_enums.ResizeMode ```
+    /// ``` self: QtC.QHeaderView, mode: qheaderview_enums.ResizeMode ```
     pub fn SetSectionResizeMode(self: ?*anyopaque, mode: i64) void {
-        C.QHeaderView_SetSectionResizeMode(@ptrCast(self), @intCast(mode));
+        qtc.QHeaderView_SetSectionResizeMode(@ptrCast(self), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSectionResizeMode)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32, mode: qheaderview_enums.ResizeMode ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32, mode: qheaderview_enums.ResizeMode ```
     pub fn SetSectionResizeMode2(self: ?*anyopaque, logicalIndex: i32, mode: i64) void {
-        C.QHeaderView_SetSectionResizeMode2(@ptrCast(self), @intCast(logicalIndex), @intCast(mode));
+        qtc.QHeaderView_SetSectionResizeMode2(@ptrCast(self), @intCast(logicalIndex), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setResizeContentsPrecision)
     ///
-    /// ``` self: ?*C.QHeaderView, precision: i32 ```
+    /// ``` self: QtC.QHeaderView, precision: i32 ```
     pub fn SetResizeContentsPrecision(self: ?*anyopaque, precision: i32) void {
-        C.QHeaderView_SetResizeContentsPrecision(@ptrCast(self), @intCast(precision));
+        qtc.QHeaderView_SetResizeContentsPrecision(@ptrCast(self), @intCast(precision));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#resizeContentsPrecision)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ResizeContentsPrecision(self: ?*anyopaque) i32 {
-        return C.QHeaderView_ResizeContentsPrecision(@ptrCast(self));
+        return qtc.QHeaderView_ResizeContentsPrecision(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#stretchSectionCount)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn StretchSectionCount(self: ?*anyopaque) i32 {
-        return C.QHeaderView_StretchSectionCount(@ptrCast(self));
+        return qtc.QHeaderView_StretchSectionCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSortIndicatorShown)
     ///
-    /// ``` self: ?*C.QHeaderView, show: bool ```
+    /// ``` self: QtC.QHeaderView, show: bool ```
     pub fn SetSortIndicatorShown(self: ?*anyopaque, show: bool) void {
-        C.QHeaderView_SetSortIndicatorShown(@ptrCast(self), show);
+        qtc.QHeaderView_SetSortIndicatorShown(@ptrCast(self), show);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#isSortIndicatorShown)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsSortIndicatorShown(self: ?*anyopaque) bool {
-        return C.QHeaderView_IsSortIndicatorShown(@ptrCast(self));
+        return qtc.QHeaderView_IsSortIndicatorShown(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSortIndicator)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32, order: qnamespace_enums.SortOrder ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32, order: qnamespace_enums.SortOrder ```
     pub fn SetSortIndicator(self: ?*anyopaque, logicalIndex: i32, order: i64) void {
-        C.QHeaderView_SetSortIndicator(@ptrCast(self), @intCast(logicalIndex), @intCast(order));
+        qtc.QHeaderView_SetSortIndicator(@ptrCast(self), @intCast(logicalIndex), @intCast(order));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorSection)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn SortIndicatorSection(self: ?*anyopaque) i32 {
-        return C.QHeaderView_SortIndicatorSection(@ptrCast(self));
+        return qtc.QHeaderView_SortIndicatorSection(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorOrder)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn SortIndicatorOrder(self: ?*anyopaque) i64 {
-        return C.QHeaderView_SortIndicatorOrder(@ptrCast(self));
+        return qtc.QHeaderView_SortIndicatorOrder(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSortIndicatorClearable)
     ///
-    /// ``` self: ?*C.QHeaderView, clearable: bool ```
+    /// ``` self: QtC.QHeaderView, clearable: bool ```
     pub fn SetSortIndicatorClearable(self: ?*anyopaque, clearable: bool) void {
-        C.QHeaderView_SetSortIndicatorClearable(@ptrCast(self), clearable);
+        qtc.QHeaderView_SetSortIndicatorClearable(@ptrCast(self), clearable);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#isSortIndicatorClearable)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsSortIndicatorClearable(self: ?*anyopaque) bool {
-        return C.QHeaderView_IsSortIndicatorClearable(@ptrCast(self));
+        return qtc.QHeaderView_IsSortIndicatorClearable(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#stretchLastSection)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn StretchLastSection(self: ?*anyopaque) bool {
-        return C.QHeaderView_StretchLastSection(@ptrCast(self));
+        return qtc.QHeaderView_StretchLastSection(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setStretchLastSection)
     ///
-    /// ``` self: ?*C.QHeaderView, stretch: bool ```
+    /// ``` self: QtC.QHeaderView, stretch: bool ```
     pub fn SetStretchLastSection(self: ?*anyopaque, stretch: bool) void {
-        C.QHeaderView_SetStretchLastSection(@ptrCast(self), stretch);
+        qtc.QHeaderView_SetStretchLastSection(@ptrCast(self), stretch);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#cascadingSectionResizes)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn CascadingSectionResizes(self: ?*anyopaque) bool {
-        return C.QHeaderView_CascadingSectionResizes(@ptrCast(self));
+        return qtc.QHeaderView_CascadingSectionResizes(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setCascadingSectionResizes)
     ///
-    /// ``` self: ?*C.QHeaderView, enable: bool ```
+    /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetCascadingSectionResizes(self: ?*anyopaque, enable: bool) void {
-        C.QHeaderView_SetCascadingSectionResizes(@ptrCast(self), enable);
+        qtc.QHeaderView_SetCascadingSectionResizes(@ptrCast(self), enable);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#defaultSectionSize)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn DefaultSectionSize(self: ?*anyopaque) i32 {
-        return C.QHeaderView_DefaultSectionSize(@ptrCast(self));
+        return qtc.QHeaderView_DefaultSectionSize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setDefaultSectionSize)
     ///
-    /// ``` self: ?*C.QHeaderView, size: i32 ```
+    /// ``` self: QtC.QHeaderView, size: i32 ```
     pub fn SetDefaultSectionSize(self: ?*anyopaque, size: i32) void {
-        C.QHeaderView_SetDefaultSectionSize(@ptrCast(self), @intCast(size));
+        qtc.QHeaderView_SetDefaultSectionSize(@ptrCast(self), @intCast(size));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#resetDefaultSectionSize)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ResetDefaultSectionSize(self: ?*anyopaque) void {
-        C.QHeaderView_ResetDefaultSectionSize(@ptrCast(self));
+        qtc.QHeaderView_ResetDefaultSectionSize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#minimumSectionSize)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn MinimumSectionSize(self: ?*anyopaque) i32 {
-        return C.QHeaderView_MinimumSectionSize(@ptrCast(self));
+        return qtc.QHeaderView_MinimumSectionSize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setMinimumSectionSize)
     ///
-    /// ``` self: ?*C.QHeaderView, size: i32 ```
+    /// ``` self: QtC.QHeaderView, size: i32 ```
     pub fn SetMinimumSectionSize(self: ?*anyopaque, size: i32) void {
-        C.QHeaderView_SetMinimumSectionSize(@ptrCast(self), @intCast(size));
+        qtc.QHeaderView_SetMinimumSectionSize(@ptrCast(self), @intCast(size));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#maximumSectionSize)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn MaximumSectionSize(self: ?*anyopaque) i32 {
-        return C.QHeaderView_MaximumSectionSize(@ptrCast(self));
+        return qtc.QHeaderView_MaximumSectionSize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setMaximumSectionSize)
     ///
-    /// ``` self: ?*C.QHeaderView, size: i32 ```
+    /// ``` self: QtC.QHeaderView, size: i32 ```
     pub fn SetMaximumSectionSize(self: ?*anyopaque, size: i32) void {
-        C.QHeaderView_SetMaximumSectionSize(@ptrCast(self), @intCast(size));
+        qtc.QHeaderView_SetMaximumSectionSize(@ptrCast(self), @intCast(size));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#defaultAlignment)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn DefaultAlignment(self: ?*anyopaque) i64 {
-        return C.QHeaderView_DefaultAlignment(@ptrCast(self));
+        return qtc.QHeaderView_DefaultAlignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setDefaultAlignment)
     ///
-    /// ``` self: ?*C.QHeaderView, alignment: i32 ```
+    /// ``` self: QtC.QHeaderView, alignment: i32 ```
     pub fn SetDefaultAlignment(self: ?*anyopaque, alignment: i64) void {
-        C.QHeaderView_SetDefaultAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QHeaderView_SetDefaultAlignment(@ptrCast(self), @intCast(alignment));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#doItemsLayout)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn DoItemsLayout(self: ?*anyopaque) void {
-        C.QHeaderView_DoItemsLayout(@ptrCast(self));
+        qtc.QHeaderView_DoItemsLayout(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#doItemsLayout)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
     pub fn OnDoItemsLayout(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnDoItemsLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnDoItemsLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#doItemsLayout)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseDoItemsLayout(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseDoItemsLayout(@ptrCast(self));
+        qtc.QHeaderView_QBaseDoItemsLayout(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsMoved)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn SectionsMoved(self: ?*anyopaque) bool {
-        return C.QHeaderView_SectionsMoved(@ptrCast(self));
+        return qtc.QHeaderView_SectionsMoved(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsHidden)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn SectionsHidden(self: ?*anyopaque) bool {
-        return C.QHeaderView_SectionsHidden(@ptrCast(self));
+        return qtc.QHeaderView_SectionsHidden(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#saveState)
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn SaveState(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: C.struct_libqt_string = C.QHeaderView_SaveState(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_bytearray));
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Memory allocation failed");
+        const _bytearray: qtc.struct_libqt_string = qtc.QHeaderView_SaveState(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qheaderview.SaveState: Memory allocation failed");
         for (0.._bytearray.len) |_i| {
             _ret[_i] = _bytearray.data[_i];
         }
@@ -585,874 +602,1028 @@ pub const qheaderview = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#restoreState)
     ///
-    /// ``` self: ?*C.QHeaderView, state: []u8 ```
+    /// ``` self: QtC.QHeaderView, state: []u8 ```
     pub fn RestoreState(self: ?*anyopaque, state: []u8) bool {
-        const state_str = C.struct_libqt_string{
+        const state_str = qtc.struct_libqt_string{
             .len = state.len,
             .data = @constCast(state.ptr),
         };
-        return C.QHeaderView_RestoreState(@ptrCast(self), state_str);
+        return qtc.QHeaderView_RestoreState(@ptrCast(self), state_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#reset)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Reset(self: ?*anyopaque) void {
-        C.QHeaderView_Reset(@ptrCast(self));
+        qtc.QHeaderView_Reset(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#reset)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
     pub fn OnReset(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#reset)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseReset(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseReset(@ptrCast(self));
+        qtc.QHeaderView_QBaseReset(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setOffset)
     ///
-    /// ``` self: ?*C.QHeaderView, offset: i32 ```
+    /// ``` self: QtC.QHeaderView, offset: i32 ```
     pub fn SetOffset(self: ?*anyopaque, offset: i32) void {
-        C.QHeaderView_SetOffset(@ptrCast(self), @intCast(offset));
+        qtc.QHeaderView_SetOffset(@ptrCast(self), @intCast(offset));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setOffsetToSectionPosition)
     ///
-    /// ``` self: ?*C.QHeaderView, visualIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, visualIndex: i32 ```
     pub fn SetOffsetToSectionPosition(self: ?*anyopaque, visualIndex: i32) void {
-        C.QHeaderView_SetOffsetToSectionPosition(@ptrCast(self), @intCast(visualIndex));
+        qtc.QHeaderView_SetOffsetToSectionPosition(@ptrCast(self), @intCast(visualIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setOffsetToLastSection)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn SetOffsetToLastSection(self: ?*anyopaque) void {
-        C.QHeaderView_SetOffsetToLastSection(@ptrCast(self));
+        qtc.QHeaderView_SetOffsetToLastSection(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#headerDataChanged)
     ///
-    /// ``` self: ?*C.QHeaderView, orientation: qnamespace_enums.Orientation, logicalFirst: i32, logicalLast: i32 ```
+    /// ``` self: QtC.QHeaderView, orientation: qnamespace_enums.Orientation, logicalFirst: i32, logicalLast: i32 ```
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i64, logicalFirst: i32, logicalLast: i32) void {
-        C.QHeaderView_HeaderDataChanged(@ptrCast(self), @intCast(orientation), @intCast(logicalFirst), @intCast(logicalLast));
+        qtc.QHeaderView_HeaderDataChanged(@ptrCast(self), @intCast(orientation), @intCast(logicalFirst), @intCast(logicalLast));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionMoved)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32, oldVisualIndex: i32, newVisualIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32, oldVisualIndex: i32, newVisualIndex: i32 ```
     pub fn SectionMoved(self: ?*anyopaque, logicalIndex: i32, oldVisualIndex: i32, newVisualIndex: i32) void {
-        C.QHeaderView_SectionMoved(@ptrCast(self), @intCast(logicalIndex), @intCast(oldVisualIndex), @intCast(newVisualIndex));
+        qtc.QHeaderView_SectionMoved(@ptrCast(self), @intCast(logicalIndex), @intCast(oldVisualIndex), @intCast(newVisualIndex));
     }
 
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32, i32, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionMoved)
+    ///
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, logicalIndex: i32, oldVisualIndex: i32, newVisualIndex: i32) callconv(.c) void ```
     pub fn OnSectionMoved(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        C.QHeaderView_Connect_SectionMoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_Connect_SectionMoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionResized)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32, oldSize: i32, newSize: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32, oldSize: i32, newSize: i32 ```
     pub fn SectionResized(self: ?*anyopaque, logicalIndex: i32, oldSize: i32, newSize: i32) void {
-        C.QHeaderView_SectionResized(@ptrCast(self), @intCast(logicalIndex), @intCast(oldSize), @intCast(newSize));
+        qtc.QHeaderView_SectionResized(@ptrCast(self), @intCast(logicalIndex), @intCast(oldSize), @intCast(newSize));
     }
 
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32, i32, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionResized)
+    ///
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, logicalIndex: i32, oldSize: i32, newSize: i32) callconv(.c) void ```
     pub fn OnSectionResized(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        C.QHeaderView_Connect_SectionResized(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_Connect_SectionResized(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionPressed)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionPressed(self: ?*anyopaque, logicalIndex: i32) void {
-        C.QHeaderView_SectionPressed(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_SectionPressed(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionPressed)
+    ///
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void ```
     pub fn OnSectionPressed(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QHeaderView_Connect_SectionPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_Connect_SectionPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionClicked)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionClicked(self: ?*anyopaque, logicalIndex: i32) void {
-        C.QHeaderView_SectionClicked(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_SectionClicked(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionClicked)
+    ///
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void ```
     pub fn OnSectionClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QHeaderView_Connect_SectionClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_Connect_SectionClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionEntered)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionEntered(self: ?*anyopaque, logicalIndex: i32) void {
-        C.QHeaderView_SectionEntered(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_SectionEntered(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionEntered)
+    ///
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void ```
     pub fn OnSectionEntered(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QHeaderView_Connect_SectionEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_Connect_SectionEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionDoubleClicked)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionDoubleClicked(self: ?*anyopaque, logicalIndex: i32) void {
-        C.QHeaderView_SectionDoubleClicked(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_SectionDoubleClicked(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionDoubleClicked)
+    ///
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void ```
     pub fn OnSectionDoubleClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QHeaderView_Connect_SectionDoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_Connect_SectionDoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionCountChanged)
     ///
-    /// ``` self: ?*C.QHeaderView, oldCount: i32, newCount: i32 ```
+    /// ``` self: QtC.QHeaderView, oldCount: i32, newCount: i32 ```
     pub fn SectionCountChanged(self: ?*anyopaque, oldCount: i32, newCount: i32) void {
-        C.QHeaderView_SectionCountChanged(@ptrCast(self), @intCast(oldCount), @intCast(newCount));
+        qtc.QHeaderView_SectionCountChanged(@ptrCast(self), @intCast(oldCount), @intCast(newCount));
     }
 
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionCountChanged)
+    ///
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, oldCount: i32, newCount: i32) callconv(.c) void ```
     pub fn OnSectionCountChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        C.QHeaderView_Connect_SectionCountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_Connect_SectionCountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionHandleDoubleClicked)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn SectionHandleDoubleClicked(self: ?*anyopaque, logicalIndex: i32) void {
-        C.QHeaderView_SectionHandleDoubleClicked(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_SectionHandleDoubleClicked(@ptrCast(self), @intCast(logicalIndex));
     }
 
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionHandleDoubleClicked)
+    ///
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void ```
     pub fn OnSectionHandleDoubleClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QHeaderView_Connect_SectionHandleDoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_Connect_SectionHandleDoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#geometriesChanged)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn GeometriesChanged(self: ?*anyopaque) void {
-        C.QHeaderView_GeometriesChanged(@ptrCast(self));
+        qtc.QHeaderView_GeometriesChanged(@ptrCast(self));
     }
 
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#geometriesChanged)
+    ///
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView) callconv(.c) void ```
     pub fn OnGeometriesChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_Connect_GeometriesChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_Connect_GeometriesChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorChanged)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32, order: qnamespace_enums.SortOrder ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32, order: qnamespace_enums.SortOrder ```
     pub fn SortIndicatorChanged(self: ?*anyopaque, logicalIndex: i32, order: i64) void {
-        C.QHeaderView_SortIndicatorChanged(@ptrCast(self), @intCast(logicalIndex), @intCast(order));
+        qtc.QHeaderView_SortIndicatorChanged(@ptrCast(self), @intCast(logicalIndex), @intCast(order));
     }
 
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32, qnamespace_enums.SortOrder) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorChanged)
+    ///
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, logicalIndex: i32, order: qnamespace_enums.SortOrder) callconv(.c) void ```
     pub fn OnSortIndicatorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64) callconv(.c) void) void {
-        C.QHeaderView_Connect_SortIndicatorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_Connect_SortIndicatorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorClearableChanged)
     ///
-    /// ``` self: ?*C.QHeaderView, clearable: bool ```
+    /// ``` self: QtC.QHeaderView, clearable: bool ```
     pub fn SortIndicatorClearableChanged(self: ?*anyopaque, clearable: bool) void {
-        C.QHeaderView_SortIndicatorClearableChanged(@ptrCast(self), clearable);
+        qtc.QHeaderView_SortIndicatorClearableChanged(@ptrCast(self), clearable);
     }
 
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, bool) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorClearableChanged)
+    ///
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, clearable: bool) callconv(.c) void ```
     pub fn OnSortIndicatorClearableChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        C.QHeaderView_Connect_SortIndicatorClearableChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_Connect_SortIndicatorClearableChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn UpdateSection(self: ?*anyopaque, logicalIndex: i32) void {
-        C.QHeaderView_UpdateSection(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_UpdateSection(@ptrCast(self), @intCast(logicalIndex));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void ```
     pub fn OnUpdateSection(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QHeaderView_OnUpdateSection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnUpdateSection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
     pub fn QBaseUpdateSection(self: ?*anyopaque, logicalIndex: i32) void {
-        C.QHeaderView_QBaseUpdateSection(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_QBaseUpdateSection(@ptrCast(self), @intCast(logicalIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ResizeSections2(self: ?*anyopaque) void {
-        C.QHeaderView_ResizeSections2(@ptrCast(self));
+        qtc.QHeaderView_ResizeSections2(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
     pub fn OnResizeSections2(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnResizeSections2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnResizeSections2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseResizeSections2(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseResizeSections2(@ptrCast(self));
+        qtc.QHeaderView_QBaseResizeSections2(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsInserted)
     ///
-    /// ``` self: ?*C.QHeaderView, parent: ?*C.QModelIndex, logicalFirst: i32, logicalLast: i32 ```
+    /// ``` self: QtC.QHeaderView, parent: QtC.QModelIndex, logicalFirst: i32, logicalLast: i32 ```
     pub fn SectionsInserted(self: ?*anyopaque, parent: ?*anyopaque, logicalFirst: i32, logicalLast: i32) void {
-        C.QHeaderView_SectionsInserted(@ptrCast(self), @ptrCast(parent), @intCast(logicalFirst), @intCast(logicalLast));
+        qtc.QHeaderView_SectionsInserted(@ptrCast(self), @ptrCast(parent), @intCast(logicalFirst), @intCast(logicalLast));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsInserted)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QModelIndex, i32, i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, parent: QtC.QModelIndex, logicalFirst: i32, logicalLast: i32) callconv(.c) void ```
     pub fn OnSectionsInserted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        C.QHeaderView_OnSectionsInserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSectionsInserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsInserted)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, parent: ?*C.QModelIndex, logicalFirst: i32, logicalLast: i32 ```
+    /// ``` self: QtC.QHeaderView, parent: QtC.QModelIndex, logicalFirst: i32, logicalLast: i32 ```
     pub fn QBaseSectionsInserted(self: ?*anyopaque, parent: ?*anyopaque, logicalFirst: i32, logicalLast: i32) void {
-        C.QHeaderView_QBaseSectionsInserted(@ptrCast(self), @ptrCast(parent), @intCast(logicalFirst), @intCast(logicalLast));
+        qtc.QHeaderView_QBaseSectionsInserted(@ptrCast(self), @ptrCast(parent), @intCast(logicalFirst), @intCast(logicalLast));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
     ///
-    /// ``` self: ?*C.QHeaderView, parent: ?*C.QModelIndex, logicalFirst: i32, logicalLast: i32 ```
+    /// ``` self: QtC.QHeaderView, parent: QtC.QModelIndex, logicalFirst: i32, logicalLast: i32 ```
     pub fn SectionsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, logicalFirst: i32, logicalLast: i32) void {
-        C.QHeaderView_SectionsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(logicalFirst), @intCast(logicalLast));
+        qtc.QHeaderView_SectionsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(logicalFirst), @intCast(logicalLast));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QModelIndex, i32, i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, parent: QtC.QModelIndex, logicalFirst: i32, logicalLast: i32) callconv(.c) void ```
     pub fn OnSectionsAboutToBeRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        C.QHeaderView_OnSectionsAboutToBeRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSectionsAboutToBeRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, parent: ?*C.QModelIndex, logicalFirst: i32, logicalLast: i32 ```
+    /// ``` self: QtC.QHeaderView, parent: QtC.QModelIndex, logicalFirst: i32, logicalLast: i32 ```
     pub fn QBaseSectionsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, logicalFirst: i32, logicalLast: i32) void {
-        C.QHeaderView_QBaseSectionsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(logicalFirst), @intCast(logicalLast));
+        qtc.QHeaderView_QBaseSectionsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(logicalFirst), @intCast(logicalLast));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initialize)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Initialize(self: ?*anyopaque) void {
-        C.QHeaderView_Initialize(@ptrCast(self));
+        qtc.QHeaderView_Initialize(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initialize)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
     pub fn OnInitialize(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnInitialize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnInitialize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initialize)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseInitialize(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseInitialize(@ptrCast(self));
+        qtc.QHeaderView_QBaseInitialize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn InitializeSections(self: ?*anyopaque) void {
-        C.QHeaderView_InitializeSections(@ptrCast(self));
-    }
-
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
-    pub fn OnInitializeSections(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnInitializeSections(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// Base class method implementation
-    ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn QBaseInitializeSections(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseInitializeSections(@ptrCast(self));
+        qtc.QHeaderView_InitializeSections(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
     ///
-    /// ``` self: ?*C.QHeaderView, start: i32, end: i32 ```
-    pub fn InitializeSections2(self: ?*anyopaque, start: i32, end: i32) void {
-        C.QHeaderView_InitializeSections2(@ptrCast(self), @intCast(start), @intCast(end));
-    }
-
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32, i32) callconv(.c) void ```
-    pub fn OnInitializeSections2(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        C.QHeaderView_OnInitializeSections2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
+    pub fn OnInitializeSections(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
+        qtc.QHeaderView_OnInitializeSections(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, start: i32, end: i32 ```
+    /// ``` self: QtC.QHeaderView ```
+    pub fn QBaseInitializeSections(self: ?*anyopaque) void {
+        qtc.QHeaderView_QBaseInitializeSections(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
+    ///
+    /// ``` self: QtC.QHeaderView, start: i32, end: i32 ```
+    pub fn InitializeSections2(self: ?*anyopaque, start: i32, end: i32) void {
+        qtc.QHeaderView_InitializeSections2(@ptrCast(self), @intCast(start), @intCast(end));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, start: i32, end: i32) callconv(.c) void ```
+    pub fn OnInitializeSections2(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QHeaderView_OnInitializeSections2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QHeaderView, start: i32, end: i32 ```
     pub fn QBaseInitializeSections2(self: ?*anyopaque, start: i32, end: i32) void {
-        C.QHeaderView_QBaseInitializeSections2(@ptrCast(self), @intCast(start), @intCast(end));
+        qtc.QHeaderView_QBaseInitializeSections2(@ptrCast(self), @intCast(start), @intCast(end));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#currentChanged)
     ///
-    /// ``` self: ?*C.QHeaderView, current: ?*C.QModelIndex, old: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, current: QtC.QModelIndex, old: QtC.QModelIndex ```
     pub fn CurrentChanged(self: ?*anyopaque, current: ?*anyopaque, old: ?*anyopaque) void {
-        C.QHeaderView_CurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(old));
+        qtc.QHeaderView_CurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(old));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#currentChanged)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QModelIndex, ?*C.QModelIndex) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, current: QtC.QModelIndex, old: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnCurrentChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnCurrentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnCurrentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#currentChanged)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, current: ?*C.QModelIndex, old: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, current: QtC.QModelIndex, old: QtC.QModelIndex ```
     pub fn QBaseCurrentChanged(self: ?*anyopaque, current: ?*anyopaque, old: ?*anyopaque) void {
-        C.QHeaderView_QBaseCurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(old));
+        qtc.QHeaderView_QBaseCurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(old));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#event)
     ///
-    /// ``` self: ?*C.QHeaderView, e: ?*C.QEvent ```
+    /// ``` self: QtC.QHeaderView, e: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return C.QHeaderView_Event(@ptrCast(self), @ptrCast(e));
+        return qtc.QHeaderView_Event(@ptrCast(self), @ptrCast(e));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#event)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, e: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QHeaderView_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#event)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, e: ?*C.QEvent ```
+    /// ``` self: QtC.QHeaderView, e: QtC.QEvent ```
     pub fn QBaseEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return C.QHeaderView_QBaseEvent(@ptrCast(self), @ptrCast(e));
+        return qtc.QHeaderView_QBaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#paintEvent)
     ///
-    /// ``` self: ?*C.QHeaderView, e: ?*C.QPaintEvent ```
+    /// ``` self: QtC.QHeaderView, e: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        C.QHeaderView_PaintEvent(@ptrCast(self), @ptrCast(e));
+        qtc.QHeaderView_PaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#paintEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QPaintEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, e: QtC.QPaintEvent) callconv(.c) void ```
     pub fn OnPaintEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#paintEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, e: ?*C.QPaintEvent ```
+    /// ``` self: QtC.QHeaderView, e: QtC.QPaintEvent ```
     pub fn QBasePaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        C.QHeaderView_QBasePaintEvent(@ptrCast(self), @ptrCast(e));
+        qtc.QHeaderView_QBasePaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mousePressEvent)
     ///
-    /// ``` self: ?*C.QHeaderView, e: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QHeaderView, e: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        C.QHeaderView_MousePressEvent(@ptrCast(self), @ptrCast(e));
+        qtc.QHeaderView_MousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mousePressEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QMouseEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, e: QtC.QMouseEvent) callconv(.c) void ```
     pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mousePressEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, e: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QHeaderView, e: QtC.QMouseEvent ```
     pub fn QBaseMousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        C.QHeaderView_QBaseMousePressEvent(@ptrCast(self), @ptrCast(e));
+        qtc.QHeaderView_QBaseMousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseMoveEvent)
     ///
-    /// ``` self: ?*C.QHeaderView, e: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QHeaderView, e: QtC.QMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        C.QHeaderView_MouseMoveEvent(@ptrCast(self), @ptrCast(e));
+        qtc.QHeaderView_MouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseMoveEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QMouseEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, e: QtC.QMouseEvent) callconv(.c) void ```
     pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseMoveEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, e: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QHeaderView, e: QtC.QMouseEvent ```
     pub fn QBaseMouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        C.QHeaderView_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(e));
+        qtc.QHeaderView_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseReleaseEvent)
     ///
-    /// ``` self: ?*C.QHeaderView, e: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QHeaderView, e: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        C.QHeaderView_MouseReleaseEvent(@ptrCast(self), @ptrCast(e));
+        qtc.QHeaderView_MouseReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseReleaseEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QMouseEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, e: QtC.QMouseEvent) callconv(.c) void ```
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseReleaseEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, e: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QHeaderView, e: QtC.QMouseEvent ```
     pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        C.QHeaderView_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(e));
+        qtc.QHeaderView_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseDoubleClickEvent)
     ///
-    /// ``` self: ?*C.QHeaderView, e: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QHeaderView, e: QtC.QMouseEvent ```
     pub fn MouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        C.QHeaderView_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
+        qtc.QHeaderView_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseDoubleClickEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QMouseEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, e: QtC.QMouseEvent) callconv(.c) void ```
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#mouseDoubleClickEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, e: ?*C.QMouseEvent ```
+    /// ``` self: QtC.QHeaderView, e: QtC.QMouseEvent ```
     pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        C.QHeaderView_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
+        qtc.QHeaderView_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#viewportEvent)
     ///
-    /// ``` self: ?*C.QHeaderView, e: ?*C.QEvent ```
+    /// ``` self: QtC.QHeaderView, e: QtC.QEvent ```
     pub fn ViewportEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return C.QHeaderView_ViewportEvent(@ptrCast(self), @ptrCast(e));
+        return qtc.QHeaderView_ViewportEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#viewportEvent)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, e: QtC.QEvent) callconv(.c) bool ```
     pub fn OnViewportEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QHeaderView_OnViewportEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnViewportEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#viewportEvent)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, e: ?*C.QEvent ```
+    /// ``` self: QtC.QHeaderView, e: QtC.QEvent ```
     pub fn QBaseViewportEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return C.QHeaderView_QBaseViewportEvent(@ptrCast(self), @ptrCast(e));
+        return qtc.QHeaderView_QBaseViewportEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#paintSection)
     ///
-    /// ``` self: ?*C.QHeaderView, painter: ?*C.QPainter, rect: ?*C.QRect, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, painter: QtC.QPainter, rect: QtC.QRect, logicalIndex: i32 ```
     pub fn PaintSection(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, logicalIndex: i32) void {
-        C.QHeaderView_PaintSection(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(logicalIndex));
+        qtc.QHeaderView_PaintSection(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(logicalIndex));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#paintSection)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QPainter, ?*C.QRect, i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, painter: QtC.QPainter, rect: QtC.QRect, logicalIndex: i32) callconv(.c) void ```
     pub fn OnPaintSection(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        C.QHeaderView_OnPaintSection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnPaintSection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#paintSection)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, painter: ?*C.QPainter, rect: ?*C.QRect, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, painter: QtC.QPainter, rect: QtC.QRect, logicalIndex: i32 ```
     pub fn QBasePaintSection(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, logicalIndex: i32) void {
-        C.QHeaderView_QBasePaintSection(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(logicalIndex));
+        qtc.QHeaderView_QBasePaintSection(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(logicalIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeFromContents)
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
-    pub fn SectionSizeFromContents(self: ?*anyopaque, logicalIndex: i32) ?*C.QSize {
-        return C.QHeaderView_SectionSizeFromContents(@ptrCast(self), @intCast(logicalIndex));
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
+    pub fn SectionSizeFromContents(self: ?*anyopaque, logicalIndex: i32) QtC.QSize {
+        return qtc.QHeaderView_SectionSizeFromContents(@ptrCast(self), @intCast(logicalIndex));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeFromContents)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32) callconv(.c) ?*C.QSize ```
-    pub fn OnSectionSizeFromContents(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) ?*C.QSize) void {
-        C.QHeaderView_OnSectionSizeFromContents(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) QtC.QSize ```
+    pub fn OnSectionSizeFromContents(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QSize) void {
+        qtc.QHeaderView_OnSectionSizeFromContents(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeFromContents)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, logicalIndex: i32 ```
-    pub fn QBaseSectionSizeFromContents(self: ?*anyopaque, logicalIndex: i32) ?*C.QSize {
-        return C.QHeaderView_QBaseSectionSizeFromContents(@ptrCast(self), @intCast(logicalIndex));
+    /// ``` self: QtC.QHeaderView, logicalIndex: i32 ```
+    pub fn QBaseSectionSizeFromContents(self: ?*anyopaque, logicalIndex: i32) QtC.QSize {
+        return qtc.QHeaderView_QBaseSectionSizeFromContents(@ptrCast(self), @intCast(logicalIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#horizontalOffset)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn HorizontalOffset(self: ?*anyopaque) i32 {
-        return C.QHeaderView_HorizontalOffset(@ptrCast(self));
+        return qtc.QHeaderView_HorizontalOffset(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#horizontalOffset)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) i32 ```
     pub fn OnHorizontalOffset(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QHeaderView_OnHorizontalOffset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnHorizontalOffset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#horizontalOffset)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseHorizontalOffset(self: ?*anyopaque) i32 {
-        return C.QHeaderView_QBaseHorizontalOffset(@ptrCast(self));
+        return qtc.QHeaderView_QBaseHorizontalOffset(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#verticalOffset)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn VerticalOffset(self: ?*anyopaque) i32 {
-        return C.QHeaderView_VerticalOffset(@ptrCast(self));
+        return qtc.QHeaderView_VerticalOffset(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#verticalOffset)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) i32 ```
     pub fn OnVerticalOffset(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QHeaderView_OnVerticalOffset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnVerticalOffset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#verticalOffset)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseVerticalOffset(self: ?*anyopaque) i32 {
-        return C.QHeaderView_QBaseVerticalOffset(@ptrCast(self));
+        return qtc.QHeaderView_QBaseVerticalOffset(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#updateGeometries)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn UpdateGeometries(self: ?*anyopaque) void {
-        C.QHeaderView_UpdateGeometries(@ptrCast(self));
+        qtc.QHeaderView_UpdateGeometries(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#updateGeometries)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
     pub fn OnUpdateGeometries(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnUpdateGeometries(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnUpdateGeometries(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#updateGeometries)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseUpdateGeometries(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseUpdateGeometries(@ptrCast(self));
+        qtc.QHeaderView_QBaseUpdateGeometries(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#scrollContentsBy)
     ///
-    /// ``` self: ?*C.QHeaderView, dx: i32, dy: i32 ```
+    /// ``` self: QtC.QHeaderView, dx: i32, dy: i32 ```
     pub fn ScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        C.QHeaderView_ScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QHeaderView_ScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#scrollContentsBy)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32, i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, dx: i32, dy: i32) callconv(.c) void ```
     pub fn OnScrollContentsBy(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        C.QHeaderView_OnScrollContentsBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnScrollContentsBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#scrollContentsBy)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, dx: i32, dy: i32 ```
+    /// ``` self: QtC.QHeaderView, dx: i32, dy: i32 ```
     pub fn QBaseScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        C.QHeaderView_QBaseScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QHeaderView_QBaseScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#dataChanged)
     ///
-    /// ``` self: ?*C.QHeaderView, topLeft: ?*C.QModelIndex, bottomRight: ?*C.QModelIndex, roles: []i32 ```
+    /// ``` self: QtC.QHeaderView, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
-        const roles_list = C.struct_libqt_list{
+        const roles_list = qtc.struct_libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        C.QHeaderView_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QHeaderView_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#dataChanged)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QModelIndex, ?*C.QModelIndex, []i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32) callconv(.c) void ```
     pub fn OnDataChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, []i32) callconv(.c) void) void {
-        C.QHeaderView_OnDataChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnDataChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#dataChanged)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, topLeft: ?*C.QModelIndex, bottomRight: ?*C.QModelIndex, roles: []i32 ```
+    /// ``` self: QtC.QHeaderView, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn QBaseDataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
-        const roles_list = C.struct_libqt_list{
+        const roles_list = qtc.struct_libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        C.QHeaderView_QBaseDataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QHeaderView_QBaseDataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#rowsInserted)
     ///
-    /// ``` self: ?*C.QHeaderView, parent: ?*C.QModelIndex, start: i32, end: i32 ```
+    /// ``` self: QtC.QHeaderView, parent: QtC.QModelIndex, start: i32, end: i32 ```
     pub fn RowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        C.QHeaderView_RowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
+        qtc.QHeaderView_RowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#rowsInserted)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QModelIndex, i32, i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void ```
     pub fn OnRowsInserted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        C.QHeaderView_OnRowsInserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnRowsInserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#rowsInserted)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, parent: ?*C.QModelIndex, start: i32, end: i32 ```
+    /// ``` self: QtC.QHeaderView, parent: QtC.QModelIndex, start: i32, end: i32 ```
     pub fn QBaseRowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        C.QHeaderView_QBaseRowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
+        qtc.QHeaderView_QBaseRowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#visualRect)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
-    pub fn VisualRect(self: ?*anyopaque, index: ?*anyopaque) ?*C.QRect {
-        return C.QHeaderView_VisualRect(@ptrCast(self), @ptrCast(index));
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
+    pub fn VisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
+        return qtc.QHeaderView_VisualRect(@ptrCast(self), @ptrCast(index));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#visualRect)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QModelIndex) callconv(.c) ?*C.QRect ```
-    pub fn OnVisualRect(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) ?*C.QRect) void {
-        C.QHeaderView_OnVisualRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) QtC.QRect ```
+    pub fn OnVisualRect(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
+        qtc.QHeaderView_OnVisualRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#visualRect)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
-    pub fn QBaseVisualRect(self: ?*anyopaque, index: ?*anyopaque) ?*C.QRect {
-        return C.QHeaderView_QBaseVisualRect(@ptrCast(self), @ptrCast(index));
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
+    pub fn QBaseVisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
+        return qtc.QHeaderView_QBaseVisualRect(@ptrCast(self), @ptrCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#scrollTo)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex, hint: qabstractitemview_enums.ScrollHint ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint ```
     pub fn ScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i64) void {
-        C.QHeaderView_ScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
+        qtc.QHeaderView_ScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#scrollTo)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QModelIndex, qabstractitemview_enums.ScrollHint) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void ```
     pub fn OnScrollTo(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
-        C.QHeaderView_OnScrollTo(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnScrollTo(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#scrollTo)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex, hint: qabstractitemview_enums.ScrollHint ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint ```
     pub fn QBaseScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i64) void {
-        C.QHeaderView_QBaseScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
+        qtc.QHeaderView_QBaseScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#indexAt)
     ///
-    /// ``` self: ?*C.QHeaderView, p: ?*C.QPoint ```
-    pub fn IndexAt(self: ?*anyopaque, p: ?*anyopaque) ?*C.QModelIndex {
-        return C.QHeaderView_IndexAt(@ptrCast(self), @ptrCast(p));
+    /// ``` self: QtC.QHeaderView, p: QtC.QPoint ```
+    pub fn IndexAt(self: ?*anyopaque, p: ?*anyopaque) QtC.QModelIndex {
+        return qtc.QHeaderView_IndexAt(@ptrCast(self), @ptrCast(p));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#indexAt)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QPoint) callconv(.c) ?*C.QModelIndex ```
-    pub fn OnIndexAt(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) ?*C.QModelIndex) void {
-        C.QHeaderView_OnIndexAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, p: QtC.QPoint) callconv(.c) QtC.QModelIndex ```
+    pub fn OnIndexAt(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
+        qtc.QHeaderView_OnIndexAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#indexAt)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, p: ?*C.QPoint ```
-    pub fn QBaseIndexAt(self: ?*anyopaque, p: ?*anyopaque) ?*C.QModelIndex {
-        return C.QHeaderView_QBaseIndexAt(@ptrCast(self), @ptrCast(p));
+    /// ``` self: QtC.QHeaderView, p: QtC.QPoint ```
+    pub fn QBaseIndexAt(self: ?*anyopaque, p: ?*anyopaque) QtC.QModelIndex {
+        return qtc.QHeaderView_QBaseIndexAt(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#isIndexHidden)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn IsIndexHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return C.QHeaderView_IsIndexHidden(@ptrCast(self), @ptrCast(index));
+        return qtc.QHeaderView_IsIndexHidden(@ptrCast(self), @ptrCast(index));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#isIndexHidden)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QModelIndex) callconv(.c) bool ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) bool ```
     pub fn OnIsIndexHidden(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QHeaderView_OnIsIndexHidden(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnIsIndexHidden(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#isIndexHidden)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn QBaseIsIndexHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return C.QHeaderView_QBaseIsIndexHidden(@ptrCast(self), @ptrCast(index));
+        return qtc.QHeaderView_QBaseIsIndexHidden(@ptrCast(self), @ptrCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#moveCursor)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: qabstractitemview_enums.CursorAction, param2: i32 ```
-    pub fn MoveCursor(self: ?*anyopaque, param1: i64, param2: i64) ?*C.QModelIndex {
-        return C.QHeaderView_MoveCursor(@ptrCast(self), @intCast(param1), @intCast(param2));
+    /// ``` self: QtC.QHeaderView, param1: qabstractitemview_enums.CursorAction, param2: i32 ```
+    pub fn MoveCursor(self: ?*anyopaque, param1: i64, param2: i64) QtC.QModelIndex {
+        return qtc.QHeaderView_MoveCursor(@ptrCast(self), @intCast(param1), @intCast(param2));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#moveCursor)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, qabstractitemview_enums.CursorAction, i32) callconv(.c) ?*C.QModelIndex ```
-    pub fn OnMoveCursor(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) ?*C.QModelIndex) void {
-        C.QHeaderView_OnMoveCursor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, param1: qabstractitemview_enums.CursorAction, param2: i32) callconv(.c) QtC.QModelIndex ```
+    pub fn OnMoveCursor(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) QtC.QModelIndex) void {
+        qtc.QHeaderView_OnMoveCursor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#moveCursor)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, param1: qabstractitemview_enums.CursorAction, param2: i32 ```
-    pub fn QBaseMoveCursor(self: ?*anyopaque, param1: i64, param2: i64) ?*C.QModelIndex {
-        return C.QHeaderView_QBaseMoveCursor(@ptrCast(self), @intCast(param1), @intCast(param2));
+    /// ``` self: QtC.QHeaderView, param1: qabstractitemview_enums.CursorAction, param2: i32 ```
+    pub fn QBaseMoveCursor(self: ?*anyopaque, param1: i64, param2: i64) QtC.QModelIndex {
+        return qtc.QHeaderView_QBaseMoveCursor(@ptrCast(self), @intCast(param1), @intCast(param2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSelection)
     ///
-    /// ``` self: ?*C.QHeaderView, rect: ?*C.QRect, flags: i32 ```
+    /// ``` self: QtC.QHeaderView, rect: QtC.QRect, flags: i32 ```
     pub fn SetSelection(self: ?*anyopaque, rect: ?*anyopaque, flags: i64) void {
-        C.QHeaderView_SetSelection(@ptrCast(self), @ptrCast(rect), @intCast(flags));
+        qtc.QHeaderView_SetSelection(@ptrCast(self), @ptrCast(rect), @intCast(flags));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSelection)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QRect, i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, rect: QtC.QRect, flags: i32) callconv(.c) void ```
     pub fn OnSetSelection(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
-        C.QHeaderView_OnSetSelection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSetSelection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#setSelection)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, rect: ?*C.QRect, flags: i32 ```
+    /// ``` self: QtC.QHeaderView, rect: QtC.QRect, flags: i32 ```
     pub fn QBaseSetSelection(self: ?*anyopaque, rect: ?*anyopaque, flags: i64) void {
-        C.QHeaderView_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @intCast(flags));
+        qtc.QHeaderView_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#visualRegionForSelection)
     ///
-    /// ``` self: ?*C.QHeaderView, selection: ?*C.QItemSelection ```
-    pub fn VisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) ?*C.QRegion {
-        return C.QHeaderView_VisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
+    /// ``` self: QtC.QHeaderView, selection: QtC.QItemSelection ```
+    pub fn VisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) QtC.QRegion {
+        return qtc.QHeaderView_VisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#visualRegionForSelection)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QItemSelection) callconv(.c) ?*C.QRegion ```
-    pub fn OnVisualRegionForSelection(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) ?*C.QRegion) void {
-        C.QHeaderView_OnVisualRegionForSelection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, selection: QtC.QItemSelection) callconv(.c) QtC.QRegion ```
+    pub fn OnVisualRegionForSelection(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRegion) void {
+        qtc.QHeaderView_OnVisualRegionForSelection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#visualRegionForSelection)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, selection: ?*C.QItemSelection ```
-    pub fn QBaseVisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) ?*C.QRegion {
-        return C.QHeaderView_QBaseVisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
+    /// ``` self: QtC.QHeaderView, selection: QtC.QItemSelection ```
+    pub fn QBaseVisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) QtC.QRegion {
+        return qtc.QHeaderView_QBaseVisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initStyleOptionForIndex)
     ///
-    /// ``` self: ?*C.QHeaderView, option: ?*C.QStyleOptionHeader, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, option: QtC.QStyleOptionHeader, logicalIndex: i32 ```
     pub fn InitStyleOptionForIndex(self: ?*anyopaque, option: ?*anyopaque, logicalIndex: i32) void {
-        C.QHeaderView_InitStyleOptionForIndex(@ptrCast(self), @ptrCast(option), @intCast(logicalIndex));
+        qtc.QHeaderView_InitStyleOptionForIndex(@ptrCast(self), @ptrCast(option), @intCast(logicalIndex));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initStyleOptionForIndex)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QStyleOptionHeader, i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, option: QtC.QStyleOptionHeader, logicalIndex: i32) callconv(.c) void ```
     pub fn OnInitStyleOptionForIndex(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        C.QHeaderView_OnInitStyleOptionForIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnInitStyleOptionForIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initStyleOptionForIndex)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, option: ?*C.QStyleOptionHeader, logicalIndex: i32 ```
+    /// ``` self: QtC.QHeaderView, option: QtC.QStyleOptionHeader, logicalIndex: i32 ```
     pub fn QBaseInitStyleOptionForIndex(self: ?*anyopaque, option: ?*anyopaque, logicalIndex: i32) void {
-        C.QHeaderView_QBaseInitStyleOptionForIndex(@ptrCast(self), @ptrCast(option), @intCast(logicalIndex));
+        qtc.QHeaderView_QBaseInitStyleOptionForIndex(@ptrCast(self), @ptrCast(option), @intCast(logicalIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initStyleOption)
     ///
-    /// ``` self: ?*C.QHeaderView, option: ?*C.QStyleOptionHeader ```
+    /// ``` self: QtC.QHeaderView, option: QtC.QStyleOptionHeader ```
     pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        C.QHeaderView_InitStyleOption(@ptrCast(self), @ptrCast(option));
+        qtc.QHeaderView_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initStyleOption)
+    ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QStyleOptionHeader) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, option: QtC.QStyleOptionHeader) callconv(.c) void ```
     pub fn OnInitStyleOption(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnInitStyleOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnInitStyleOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#initStyleOption)
+    ///
     /// Base class method implementation
     ///
-    /// ``` self: ?*C.QHeaderView, option: ?*C.QStyleOptionHeader ```
+    /// ``` self: QtC.QHeaderView, option: QtC.QStyleOptionHeader ```
     pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        C.QHeaderView_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
+        qtc.QHeaderView_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1461,9 +1632,9 @@ pub const qheaderview = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QHeaderView_Tr2(s_Cstring, c_Cstring);
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QHeaderView_Tr2(s_Cstring, c_Cstring);
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qheaderview.Tr2: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1476,9 +1647,9 @@ pub const qheaderview = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = @constCast(s.ptr);
         const c_Cstring = @constCast(c.ptr);
-        const _str = C.QHeaderView_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QHeaderView_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qheaderview.Tr3: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1489,736 +1660,750 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#model)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Model(self: ?*anyopaque) ?*C.QAbstractItemModel {
-        return C.QAbstractItemView_Model(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
+        return qtc.QAbstractItemView_Model(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionModel)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn SelectionModel(self: ?*anyopaque) ?*C.QItemSelectionModel {
-        return C.QAbstractItemView_SelectionModel(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn SelectionModel(self: ?*anyopaque) QtC.QItemSelectionModel {
+        return qtc.QAbstractItemView_SelectionModel(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegate)
     ///
-    /// ``` self: ?*C.QHeaderView, delegate: ?*C.QAbstractItemDelegate ```
+    /// ``` self: QtC.QHeaderView, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
-        C.QAbstractItemView_SetItemDelegate(@ptrCast(self), @ptrCast(delegate));
+        qtc.QAbstractItemView_SetItemDelegate(@ptrCast(self), @ptrCast(delegate));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn ItemDelegate(self: ?*anyopaque) ?*C.QAbstractItemDelegate {
-        return C.QAbstractItemView_ItemDelegate(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn ItemDelegate(self: ?*anyopaque) QtC.QAbstractItemDelegate {
+        return qtc.QAbstractItemView_ItemDelegate(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionMode)
     ///
-    /// ``` self: ?*C.QHeaderView, mode: qabstractitemview_enums.SelectionMode ```
+    /// ``` self: QtC.QHeaderView, mode: qabstractitemview_enums.SelectionMode ```
     pub fn SetSelectionMode(self: ?*anyopaque, mode: i64) void {
-        C.QAbstractItemView_SetSelectionMode(@ptrCast(self), @intCast(mode));
+        qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self), @intCast(mode));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionMode)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn SelectionMode(self: ?*anyopaque) i64 {
-        return C.QAbstractItemView_SelectionMode(@ptrCast(self));
+        return qtc.QAbstractItemView_SelectionMode(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionBehavior)
     ///
-    /// ``` self: ?*C.QHeaderView, behavior: qabstractitemview_enums.SelectionBehavior ```
+    /// ``` self: QtC.QHeaderView, behavior: qabstractitemview_enums.SelectionBehavior ```
     pub fn SetSelectionBehavior(self: ?*anyopaque, behavior: i64) void {
-        C.QAbstractItemView_SetSelectionBehavior(@ptrCast(self), @intCast(behavior));
+        qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self), @intCast(behavior));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionBehavior)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn SelectionBehavior(self: ?*anyopaque) i64 {
-        return C.QAbstractItemView_SelectionBehavior(@ptrCast(self));
+        return qtc.QAbstractItemView_SelectionBehavior(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#currentIndex)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn CurrentIndex(self: ?*anyopaque) ?*C.QModelIndex {
-        return C.QAbstractItemView_CurrentIndex(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn CurrentIndex(self: ?*anyopaque) QtC.QModelIndex {
+        return qtc.QAbstractItemView_CurrentIndex(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rootIndex)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn RootIndex(self: ?*anyopaque) ?*C.QModelIndex {
-        return C.QAbstractItemView_RootIndex(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn RootIndex(self: ?*anyopaque) QtC.QModelIndex {
+        return qtc.QAbstractItemView_RootIndex(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setEditTriggers)
     ///
-    /// ``` self: ?*C.QHeaderView, triggers: i32 ```
+    /// ``` self: QtC.QHeaderView, triggers: i32 ```
     pub fn SetEditTriggers(self: ?*anyopaque, triggers: i64) void {
-        C.QAbstractItemView_SetEditTriggers(@ptrCast(self), @intCast(triggers));
+        qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self), @intCast(triggers));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editTriggers)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn EditTriggers(self: ?*anyopaque) i64 {
-        return C.QAbstractItemView_EditTriggers(@ptrCast(self));
+        return qtc.QAbstractItemView_EditTriggers(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setVerticalScrollMode)
     ///
-    /// ``` self: ?*C.QHeaderView, mode: qabstractitemview_enums.ScrollMode ```
+    /// ``` self: QtC.QHeaderView, mode: qabstractitemview_enums.ScrollMode ```
     pub fn SetVerticalScrollMode(self: ?*anyopaque, mode: i64) void {
-        C.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self), @intCast(mode));
+        qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self), @intCast(mode));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollMode)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn VerticalScrollMode(self: ?*anyopaque) i64 {
-        return C.QAbstractItemView_VerticalScrollMode(@ptrCast(self));
+        return qtc.QAbstractItemView_VerticalScrollMode(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resetVerticalScrollMode)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ResetVerticalScrollMode(self: ?*anyopaque) void {
-        C.QAbstractItemView_ResetVerticalScrollMode(@ptrCast(self));
+        qtc.QAbstractItemView_ResetVerticalScrollMode(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setHorizontalScrollMode)
     ///
-    /// ``` self: ?*C.QHeaderView, mode: qabstractitemview_enums.ScrollMode ```
+    /// ``` self: QtC.QHeaderView, mode: qabstractitemview_enums.ScrollMode ```
     pub fn SetHorizontalScrollMode(self: ?*anyopaque, mode: i64) void {
-        C.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self), @intCast(mode));
+        qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self), @intCast(mode));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollMode)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn HorizontalScrollMode(self: ?*anyopaque) i64 {
-        return C.QAbstractItemView_HorizontalScrollMode(@ptrCast(self));
+        return qtc.QAbstractItemView_HorizontalScrollMode(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resetHorizontalScrollMode)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ResetHorizontalScrollMode(self: ?*anyopaque) void {
-        C.QAbstractItemView_ResetHorizontalScrollMode(@ptrCast(self));
+        qtc.QAbstractItemView_ResetHorizontalScrollMode(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScroll)
     ///
-    /// ``` self: ?*C.QHeaderView, enable: bool ```
+    /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetAutoScroll(self: ?*anyopaque, enable: bool) void {
-        C.QAbstractItemView_SetAutoScroll(@ptrCast(self), enable);
+        qtc.QAbstractItemView_SetAutoScroll(@ptrCast(self), enable);
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#hasAutoScroll)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn HasAutoScroll(self: ?*anyopaque) bool {
-        return C.QAbstractItemView_HasAutoScroll(@ptrCast(self));
+        return qtc.QAbstractItemView_HasAutoScroll(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScrollMargin)
     ///
-    /// ``` self: ?*C.QHeaderView, margin: i32 ```
+    /// ``` self: QtC.QHeaderView, margin: i32 ```
     pub fn SetAutoScrollMargin(self: ?*anyopaque, margin: i32) void {
-        C.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self), @intCast(margin));
+        qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self), @intCast(margin));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#autoScrollMargin)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn AutoScrollMargin(self: ?*anyopaque) i32 {
-        return C.QAbstractItemView_AutoScrollMargin(@ptrCast(self));
+        return qtc.QAbstractItemView_AutoScrollMargin(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setTabKeyNavigation)
     ///
-    /// ``` self: ?*C.QHeaderView, enable: bool ```
+    /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetTabKeyNavigation(self: ?*anyopaque, enable: bool) void {
-        C.QAbstractItemView_SetTabKeyNavigation(@ptrCast(self), enable);
+        qtc.QAbstractItemView_SetTabKeyNavigation(@ptrCast(self), enable);
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#tabKeyNavigation)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn TabKeyNavigation(self: ?*anyopaque) bool {
-        return C.QAbstractItemView_TabKeyNavigation(@ptrCast(self));
+        return qtc.QAbstractItemView_TabKeyNavigation(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDropIndicatorShown)
     ///
-    /// ``` self: ?*C.QHeaderView, enable: bool ```
+    /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetDropIndicatorShown(self: ?*anyopaque, enable: bool) void {
-        C.QAbstractItemView_SetDropIndicatorShown(@ptrCast(self), enable);
+        qtc.QAbstractItemView_SetDropIndicatorShown(@ptrCast(self), enable);
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#showDropIndicator)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ShowDropIndicator(self: ?*anyopaque) bool {
-        return C.QAbstractItemView_ShowDropIndicator(@ptrCast(self));
+        return qtc.QAbstractItemView_ShowDropIndicator(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragEnabled)
     ///
-    /// ``` self: ?*C.QHeaderView, enable: bool ```
+    /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetDragEnabled(self: ?*anyopaque, enable: bool) void {
-        C.QAbstractItemView_SetDragEnabled(@ptrCast(self), enable);
+        qtc.QAbstractItemView_SetDragEnabled(@ptrCast(self), enable);
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnabled)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn DragEnabled(self: ?*anyopaque) bool {
-        return C.QAbstractItemView_DragEnabled(@ptrCast(self));
+        return qtc.QAbstractItemView_DragEnabled(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropOverwriteMode)
     ///
-    /// ``` self: ?*C.QHeaderView, overwrite: bool ```
+    /// ``` self: QtC.QHeaderView, overwrite: bool ```
     pub fn SetDragDropOverwriteMode(self: ?*anyopaque, overwrite: bool) void {
-        C.QAbstractItemView_SetDragDropOverwriteMode(@ptrCast(self), overwrite);
+        qtc.QAbstractItemView_SetDragDropOverwriteMode(@ptrCast(self), overwrite);
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropOverwriteMode)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn DragDropOverwriteMode(self: ?*anyopaque) bool {
-        return C.QAbstractItemView_DragDropOverwriteMode(@ptrCast(self));
+        return qtc.QAbstractItemView_DragDropOverwriteMode(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropMode)
     ///
-    /// ``` self: ?*C.QHeaderView, behavior: qabstractitemview_enums.DragDropMode ```
+    /// ``` self: QtC.QHeaderView, behavior: qabstractitemview_enums.DragDropMode ```
     pub fn SetDragDropMode(self: ?*anyopaque, behavior: i64) void {
-        C.QAbstractItemView_SetDragDropMode(@ptrCast(self), @intCast(behavior));
+        qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self), @intCast(behavior));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropMode)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn DragDropMode(self: ?*anyopaque) i64 {
-        return C.QAbstractItemView_DragDropMode(@ptrCast(self));
+        return qtc.QAbstractItemView_DragDropMode(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDefaultDropAction)
     ///
-    /// ``` self: ?*C.QHeaderView, dropAction: qnamespace_enums.DropAction ```
+    /// ``` self: QtC.QHeaderView, dropAction: qnamespace_enums.DropAction ```
     pub fn SetDefaultDropAction(self: ?*anyopaque, dropAction: i64) void {
-        C.QAbstractItemView_SetDefaultDropAction(@ptrCast(self), @intCast(dropAction));
+        qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self), @intCast(dropAction));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#defaultDropAction)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn DefaultDropAction(self: ?*anyopaque) i64 {
-        return C.QAbstractItemView_DefaultDropAction(@ptrCast(self));
+        return qtc.QAbstractItemView_DefaultDropAction(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAlternatingRowColors)
     ///
-    /// ``` self: ?*C.QHeaderView, enable: bool ```
+    /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetAlternatingRowColors(self: ?*anyopaque, enable: bool) void {
-        C.QAbstractItemView_SetAlternatingRowColors(@ptrCast(self), enable);
+        qtc.QAbstractItemView_SetAlternatingRowColors(@ptrCast(self), enable);
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#alternatingRowColors)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn AlternatingRowColors(self: ?*anyopaque) bool {
-        return C.QAbstractItemView_AlternatingRowColors(@ptrCast(self));
+        return qtc.QAbstractItemView_AlternatingRowColors(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setIconSize)
     ///
-    /// ``` self: ?*C.QHeaderView, size: ?*C.QSize ```
+    /// ``` self: QtC.QHeaderView, size: QtC.QSize ```
     pub fn SetIconSize(self: ?*anyopaque, size: ?*anyopaque) void {
-        C.QAbstractItemView_SetIconSize(@ptrCast(self), @ptrCast(size));
+        qtc.QAbstractItemView_SetIconSize(@ptrCast(self), @ptrCast(size));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSize)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn IconSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QAbstractItemView_IconSize(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn IconSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QAbstractItemView_IconSize(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setTextElideMode)
     ///
-    /// ``` self: ?*C.QHeaderView, mode: qnamespace_enums.TextElideMode ```
+    /// ``` self: QtC.QHeaderView, mode: qnamespace_enums.TextElideMode ```
     pub fn SetTextElideMode(self: ?*anyopaque, mode: i64) void {
-        C.QAbstractItemView_SetTextElideMode(@ptrCast(self), @intCast(mode));
+        qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self), @intCast(mode));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#textElideMode)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn TextElideMode(self: ?*anyopaque) i64 {
-        return C.QAbstractItemView_TextElideMode(@ptrCast(self));
+        return qtc.QAbstractItemView_TextElideMode(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForIndex)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
-    pub fn SizeHintForIndex(self: ?*anyopaque, index: ?*anyopaque) ?*C.QSize {
-        return C.QAbstractItemView_SizeHintForIndex(@ptrCast(self), @ptrCast(index));
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
+    pub fn SizeHintForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
+        return qtc.QAbstractItemView_SizeHintForIndex(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#openPersistentEditor)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn OpenPersistentEditor(self: ?*anyopaque, index: ?*anyopaque) void {
-        C.QAbstractItemView_OpenPersistentEditor(@ptrCast(self), @ptrCast(index));
+        qtc.QAbstractItemView_OpenPersistentEditor(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closePersistentEditor)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn ClosePersistentEditor(self: ?*anyopaque, index: ?*anyopaque) void {
-        C.QAbstractItemView_ClosePersistentEditor(@ptrCast(self), @ptrCast(index));
+        qtc.QAbstractItemView_ClosePersistentEditor(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#isPersistentEditorOpen)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn IsPersistentEditorOpen(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return C.QAbstractItemView_IsPersistentEditorOpen(@ptrCast(self), @ptrCast(index));
+        return qtc.QAbstractItemView_IsPersistentEditorOpen(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setIndexWidget)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex, widget: ?*C.QWidget ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex, widget: QtC.QWidget ```
     pub fn SetIndexWidget(self: ?*anyopaque, index: ?*anyopaque, widget: ?*anyopaque) void {
-        C.QAbstractItemView_SetIndexWidget(@ptrCast(self), @ptrCast(index), @ptrCast(widget));
+        qtc.QAbstractItemView_SetIndexWidget(@ptrCast(self), @ptrCast(index), @ptrCast(widget));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#indexWidget)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
-    pub fn IndexWidget(self: ?*anyopaque, index: ?*anyopaque) ?*C.QWidget {
-        return C.QAbstractItemView_IndexWidget(@ptrCast(self), @ptrCast(index));
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
+    pub fn IndexWidget(self: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
+        return qtc.QAbstractItemView_IndexWidget(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForRow)
     ///
-    /// ``` self: ?*C.QHeaderView, row: i32, delegate: ?*C.QAbstractItemDelegate ```
+    /// ``` self: QtC.QHeaderView, row: i32, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegateForRow(self: ?*anyopaque, row: i32, delegate: ?*anyopaque) void {
-        C.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self), @intCast(row), @ptrCast(delegate));
+        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self), @intCast(row), @ptrCast(delegate));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForRow)
     ///
-    /// ``` self: ?*C.QHeaderView, row: i32 ```
-    pub fn ItemDelegateForRow(self: ?*anyopaque, row: i32) ?*C.QAbstractItemDelegate {
-        return C.QAbstractItemView_ItemDelegateForRow(@ptrCast(self), @intCast(row));
+    /// ``` self: QtC.QHeaderView, row: i32 ```
+    pub fn ItemDelegateForRow(self: ?*anyopaque, row: i32) QtC.QAbstractItemDelegate {
+        return qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self), @intCast(row));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForColumn)
     ///
-    /// ``` self: ?*C.QHeaderView, column: i32, delegate: ?*C.QAbstractItemDelegate ```
+    /// ``` self: QtC.QHeaderView, column: i32, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegateForColumn(self: ?*anyopaque, column: i32, delegate: ?*anyopaque) void {
-        C.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self), @intCast(column), @ptrCast(delegate));
+        qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self), @intCast(column), @ptrCast(delegate));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForColumn)
     ///
-    /// ``` self: ?*C.QHeaderView, column: i32 ```
-    pub fn ItemDelegateForColumn(self: ?*anyopaque, column: i32) ?*C.QAbstractItemDelegate {
-        return C.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self), @intCast(column));
+    /// ``` self: QtC.QHeaderView, column: i32 ```
+    pub fn ItemDelegateForColumn(self: ?*anyopaque, column: i32) QtC.QAbstractItemDelegate {
+        return qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self), @intCast(column));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
-    pub fn ItemDelegateWithIndex(self: ?*anyopaque, index: ?*anyopaque) ?*C.QAbstractItemDelegate {
-        return C.QAbstractItemView_ItemDelegateWithIndex(@ptrCast(self), @ptrCast(index));
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
+    pub fn ItemDelegateWithIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
+        return qtc.QAbstractItemView_ItemDelegateWithIndex(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn Edit(self: ?*anyopaque, index: ?*anyopaque) void {
-        C.QAbstractItemView_Edit(@ptrCast(self), @ptrCast(index));
+        qtc.QAbstractItemView_Edit(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clearSelection)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ClearSelection(self: ?*anyopaque) void {
-        C.QAbstractItemView_ClearSelection(@ptrCast(self));
+        qtc.QAbstractItemView_ClearSelection(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setCurrentIndex)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn SetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque) void {
-        C.QAbstractItemView_SetCurrentIndex(@ptrCast(self), @ptrCast(index));
+        qtc.QAbstractItemView_SetCurrentIndex(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToTop)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ScrollToTop(self: ?*anyopaque) void {
-        C.QAbstractItemView_ScrollToTop(@ptrCast(self));
+        qtc.QAbstractItemView_ScrollToTop(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToBottom)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ScrollToBottom(self: ?*anyopaque) void {
-        C.QAbstractItemView_ScrollToBottom(@ptrCast(self));
+        qtc.QAbstractItemView_ScrollToBottom(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#update)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn Update(self: ?*anyopaque, index: ?*anyopaque) void {
-        C.QAbstractItemView_Update(@ptrCast(self), @ptrCast(index));
+        qtc.QAbstractItemView_Update(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn Pressed(self: ?*anyopaque, index: ?*anyopaque) void {
-        C.QAbstractItemView_Pressed(@ptrCast(self), @ptrCast(index));
+        qtc.QAbstractItemView_Pressed(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
     ///
-    /// ``` self: ?*C.QAbstractItemView, slot: fn (?*C.QAbstractItemView, ?*C.QModelIndex) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
+    ///
+    /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnPressed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QAbstractItemView_Connect_Pressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn Clicked(self: ?*anyopaque, index: ?*anyopaque) void {
-        C.QAbstractItemView_Clicked(@ptrCast(self), @ptrCast(index));
+        qtc.QAbstractItemView_Clicked(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
     ///
-    /// ``` self: ?*C.QAbstractItemView, slot: fn (?*C.QAbstractItemView, ?*C.QModelIndex) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
+    ///
+    /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnClicked(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QAbstractItemView_Connect_Clicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn DoubleClicked(self: ?*anyopaque, index: ?*anyopaque) void {
-        C.QAbstractItemView_DoubleClicked(@ptrCast(self), @ptrCast(index));
+        qtc.QAbstractItemView_DoubleClicked(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
     ///
-    /// ``` self: ?*C.QAbstractItemView, slot: fn (?*C.QAbstractItemView, ?*C.QModelIndex) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
+    ///
+    /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnDoubleClicked(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn Activated(self: ?*anyopaque, index: ?*anyopaque) void {
-        C.QAbstractItemView_Activated(@ptrCast(self), @ptrCast(index));
+        qtc.QAbstractItemView_Activated(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
     ///
-    /// ``` self: ?*C.QAbstractItemView, slot: fn (?*C.QAbstractItemView, ?*C.QModelIndex) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
+    ///
+    /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnActivated(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QAbstractItemView_Connect_Activated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn Entered(self: ?*anyopaque, index: ?*anyopaque) void {
-        C.QAbstractItemView_Entered(@ptrCast(self), @ptrCast(index));
+        qtc.QAbstractItemView_Entered(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
     ///
-    /// ``` self: ?*C.QAbstractItemView, slot: fn (?*C.QAbstractItemView, ?*C.QModelIndex) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
+    ///
+    /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnEntered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QAbstractItemView_Connect_Entered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ViewportEntered(self: ?*anyopaque) void {
-        C.QAbstractItemView_ViewportEntered(@ptrCast(self));
+        qtc.QAbstractItemView_ViewportEntered(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
-    /// ``` self: ?*C.QAbstractItemView, slot: fn (?*C.QAbstractItemView) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
+    ///
+    /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView) callconv(.c) void ```
     pub fn OnViewportEntered(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
     ///
-    /// ``` self: ?*C.QHeaderView, size: ?*C.QSize ```
+    /// ``` self: QtC.QHeaderView, size: QtC.QSize ```
     pub fn IconSizeChanged(self: ?*anyopaque, size: ?*anyopaque) void {
-        C.QAbstractItemView_IconSizeChanged(@ptrCast(self), @ptrCast(size));
+        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self), @ptrCast(size));
     }
 
     /// Inherited from QAbstractItemView
     ///
-    /// ``` self: ?*C.QAbstractItemView, slot: fn (?*C.QAbstractItemView, ?*C.QSize) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
+    ///
+    /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, size: QtC.QSize) callconv(.c) void ```
     pub fn OnIconSizeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i64 {
-        return C.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self));
+        return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
     ///
-    /// ``` self: ?*C.QHeaderView, verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
+    /// ``` self: QtC.QHeaderView, verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i64) void {
-        C.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @intCast(verticalScrollBarPolicy));
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @intCast(verticalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn VerticalScrollBar(self: ?*anyopaque) ?*C.QScrollBar {
-        return C.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
+        return qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
     ///
-    /// ``` self: ?*C.QHeaderView, scrollbar: ?*C.QScrollBar ```
+    /// ``` self: QtC.QHeaderView, scrollbar: QtC.QScrollBar ```
     pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
-        C.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
+        qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i64 {
-        return C.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self));
+        return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
     ///
-    /// ``` self: ?*C.QHeaderView, horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
+    /// ``` self: QtC.QHeaderView, horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i64) void {
-        C.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @intCast(horizontalScrollBarPolicy));
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @intCast(horizontalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn HorizontalScrollBar(self: ?*anyopaque) ?*C.QScrollBar {
-        return C.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
+        return qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
     ///
-    /// ``` self: ?*C.QHeaderView, scrollbar: ?*C.QScrollBar ```
+    /// ``` self: QtC.QHeaderView, scrollbar: QtC.QScrollBar ```
     pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
-        C.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
+        qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn CornerWidget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QAbstractScrollArea_CornerWidget(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
     ///
-    /// ``` self: ?*C.QHeaderView, widget: ?*C.QWidget ```
+    /// ``` self: QtC.QHeaderView, widget: QtC.QWidget ```
     pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        C.QAbstractScrollArea_SetCornerWidget(@ptrCast(self), @ptrCast(widget));
+        qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
-    /// ``` self: ?*C.QHeaderView, widget: ?*C.QWidget, alignment: i32 ```
+    /// ``` self: QtC.QHeaderView, widget: QtC.QWidget, alignment: i32 ```
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i64) void {
-        C.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
+        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
-    /// ``` self: ?*C.QHeaderView, alignment: i32, allocator: std.mem.Allocator ```
-    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i64, allocator: std.mem.Allocator) []?*C.QWidget {
-        const _arr: C.struct_libqt_list = C.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QWidget, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QWidget = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QHeaderView, alignment: i32, allocator: std.mem.Allocator ```
+    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i64, allocator: std.mem.Allocator) []QtC.QWidget {
+        const _arr: qtc.struct_libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qheaderview.ScrollBarWidgets: Memory allocation failed");
+        const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -2229,1072 +2414,1072 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Viewport(self: ?*anyopaque) ?*C.QWidget {
-        return C.QAbstractScrollArea_Viewport(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QAbstractScrollArea_Viewport(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
     ///
-    /// ``` self: ?*C.QHeaderView, widget: ?*C.QWidget ```
+    /// ``` self: QtC.QHeaderView, widget: QtC.QWidget ```
     pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
-        C.QAbstractScrollArea_SetViewport(@ptrCast(self), @ptrCast(widget));
+        qtc.QAbstractScrollArea_SetViewport(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn MaximumViewportSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn SizeAdjustPolicy(self: ?*anyopaque) i64 {
-        return C.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self));
+        return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
     ///
-    /// ``` self: ?*C.QHeaderView, policy: qabstractscrollarea_enums.SizeAdjustPolicy ```
+    /// ``` self: QtC.QHeaderView, policy: qabstractscrollarea_enums.SizeAdjustPolicy ```
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i64) void {
-        C.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QFrame
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameStyle)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn FrameStyle(self: ?*anyopaque) i32 {
-        return C.QFrame_FrameStyle(@ptrCast(self));
+        return qtc.QFrame_FrameStyle(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
     ///
-    /// ``` self: ?*C.QHeaderView, frameStyle: i32 ```
+    /// ``` self: QtC.QHeaderView, frameStyle: i32 ```
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
-        C.QFrame_SetFrameStyle(@ptrCast(self), @intCast(frameStyle));
+        qtc.QFrame_SetFrameStyle(@ptrCast(self), @intCast(frameStyle));
     }
 
     /// Inherited from QFrame
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameWidth)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn FrameWidth(self: ?*anyopaque) i32 {
-        return C.QFrame_FrameWidth(@ptrCast(self));
+        return qtc.QFrame_FrameWidth(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn FrameShape(self: ?*anyopaque) i64 {
-        return C.QFrame_FrameShape(@ptrCast(self));
+        return qtc.QFrame_FrameShape(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
     ///
-    /// ``` self: ?*C.QHeaderView, frameShape: qframe_enums.Shape ```
+    /// ``` self: QtC.QHeaderView, frameShape: qframe_enums.Shape ```
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i64) void {
-        C.QFrame_SetFrameShape(@ptrCast(self), @intCast(frameShape));
+        qtc.QFrame_SetFrameShape(@ptrCast(self), @intCast(frameShape));
     }
 
     /// Inherited from QFrame
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn FrameShadow(self: ?*anyopaque) i64 {
-        return C.QFrame_FrameShadow(@ptrCast(self));
+        return qtc.QFrame_FrameShadow(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
     ///
-    /// ``` self: ?*C.QHeaderView, frameShadow: qframe_enums.Shadow ```
+    /// ``` self: QtC.QHeaderView, frameShadow: qframe_enums.Shadow ```
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i64) void {
-        C.QFrame_SetFrameShadow(@ptrCast(self), @intCast(frameShadow));
+        qtc.QFrame_SetFrameShadow(@ptrCast(self), @intCast(frameShadow));
     }
 
     /// Inherited from QFrame
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#lineWidth)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn LineWidth(self: ?*anyopaque) i32 {
-        return C.QFrame_LineWidth(@ptrCast(self));
+        return qtc.QFrame_LineWidth(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
     ///
-    /// ``` self: ?*C.QHeaderView, lineWidth: i32 ```
+    /// ``` self: QtC.QHeaderView, lineWidth: i32 ```
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        C.QFrame_SetLineWidth(@ptrCast(self), @intCast(lineWidth));
+        qtc.QFrame_SetLineWidth(@ptrCast(self), @intCast(lineWidth));
     }
 
     /// Inherited from QFrame
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn MidLineWidth(self: ?*anyopaque) i32 {
-        return C.QFrame_MidLineWidth(@ptrCast(self));
+        return qtc.QFrame_MidLineWidth(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
     ///
-    /// ``` self: ?*C.QHeaderView, midLineWidth: i32 ```
+    /// ``` self: QtC.QHeaderView, midLineWidth: i32 ```
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        C.QFrame_SetMidLineWidth(@ptrCast(self), @intCast(midLineWidth));
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @intCast(midLineWidth));
     }
 
     /// Inherited from QFrame
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameRect)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn FrameRect(self: ?*anyopaque) ?*C.QRect {
-        return C.QFrame_FrameRect(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QFrame_FrameRect(@ptrCast(self));
     }
 
     /// Inherited from QFrame
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
     ///
-    /// ``` self: ?*C.QHeaderView, frameRect: ?*C.QRect ```
+    /// ``` self: QtC.QHeaderView, frameRect: QtC.QRect ```
     pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
-        C.QFrame_SetFrameRect(@ptrCast(self), @ptrCast(frameRect));
+        qtc.QFrame_SetFrameRect(@ptrCast(self), @ptrCast(frameRect));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn WinId(self: ?*anyopaque) usize {
-        return C.QWidget_WinId(@ptrCast(self));
+        return qtc.QWidget_WinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn CreateWinId(self: ?*anyopaque) void {
-        C.QWidget_CreateWinId(@ptrCast(self));
+        qtc.QWidget_CreateWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
-        return C.QWidget_InternalWinId(@ptrCast(self));
+        return qtc.QWidget_InternalWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return C.QWidget_EffectiveWinId(@ptrCast(self));
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Style(self: ?*anyopaque) ?*C.QStyle {
-        return C.QWidget_Style(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Style(self: ?*anyopaque) QtC.QStyle {
+        return qtc.QWidget_Style(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
-    /// ``` self: ?*C.QHeaderView, style: ?*C.QStyle ```
+    /// ``` self: QtC.QHeaderView, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        C.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return C.QWidget_IsTopLevel(@ptrCast(self));
+        return qtc.QWidget_IsTopLevel(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsWindow(self: ?*anyopaque) bool {
-        return C.QWidget_IsWindow(@ptrCast(self));
+        return qtc.QWidget_IsWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsModal(self: ?*anyopaque) bool {
-        return C.QWidget_IsModal(@ptrCast(self));
+        return qtc.QWidget_IsModal(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn WindowModality(self: ?*anyopaque) i64 {
-        return C.QWidget_WindowModality(@ptrCast(self));
+        return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
-    /// ``` self: ?*C.QHeaderView, windowModality: qnamespace_enums.WindowModality ```
+    /// ``` self: QtC.QHeaderView, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i64) void {
-        C.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
+        qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
-        return C.QWidget_IsEnabled(@ptrCast(self));
+        return qtc.QWidget_IsEnabled(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QWidget ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return C.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
-    /// ``` self: ?*C.QHeaderView, enabled: bool ```
+    /// ``` self: QtC.QHeaderView, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        C.QWidget_SetEnabled(@ptrCast(self), enabled);
+        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
-    /// ``` self: ?*C.QHeaderView, disabled: bool ```
+    /// ``` self: QtC.QHeaderView, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        C.QWidget_SetDisabled(@ptrCast(self), disabled);
+        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
-    /// ``` self: ?*C.QHeaderView, windowModified: bool ```
+    /// ``` self: QtC.QHeaderView, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        C.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn FrameGeometry(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_FrameGeometry(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_FrameGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Geometry(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_Geometry(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_Geometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn NormalGeometry(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_NormalGeometry(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_NormalGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn X(self: ?*anyopaque) i32 {
-        return C.QWidget_X(@ptrCast(self));
+        return qtc.QWidget_X(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Y(self: ?*anyopaque) i32 {
-        return C.QWidget_Y(@ptrCast(self));
+        return qtc.QWidget_Y(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Pos(self: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_Pos(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_Pos(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn FrameSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_FrameSize(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_FrameSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Size(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_Size(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Size(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_Size(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Width(self: ?*anyopaque) i32 {
-        return C.QWidget_Width(@ptrCast(self));
+        return qtc.QWidget_Width(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Height(self: ?*anyopaque) i32 {
-        return C.QWidget_Height(@ptrCast(self));
+        return qtc.QWidget_Height(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Rect(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_Rect(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Rect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_Rect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn ChildrenRect(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_ChildrenRect(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_ChildrenRect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn ChildrenRegion(self: ?*anyopaque) ?*C.QRegion {
-        return C.QWidget_ChildrenRegion(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
+        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn MinimumSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_MinimumSize(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_MinimumSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn MaximumSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_MaximumSize(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_MaximumSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return C.QWidget_MinimumWidth(@ptrCast(self));
+        return qtc.QWidget_MinimumWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return C.QWidget_MinimumHeight(@ptrCast(self));
+        return qtc.QWidget_MinimumHeight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return C.QWidget_MaximumWidth(@ptrCast(self));
+        return qtc.QWidget_MaximumWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return C.QWidget_MaximumHeight(@ptrCast(self));
+        return qtc.QWidget_MaximumHeight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
-    /// ``` self: ?*C.QHeaderView, minimumSize: ?*C.QSize ```
+    /// ``` self: QtC.QHeaderView, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        C.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
-    /// ``` self: ?*C.QHeaderView, minw: i32, minh: i32 ```
+    /// ``` self: QtC.QHeaderView, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        C.QWidget_SetMinimumSize2(@ptrCast(self), @intCast(minw), @intCast(minh));
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @intCast(minw), @intCast(minh));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
-    /// ``` self: ?*C.QHeaderView, maximumSize: ?*C.QSize ```
+    /// ``` self: QtC.QHeaderView, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        C.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
-    /// ``` self: ?*C.QHeaderView, maxw: i32, maxh: i32 ```
+    /// ``` self: QtC.QHeaderView, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        C.QWidget_SetMaximumSize2(@ptrCast(self), @intCast(maxw), @intCast(maxh));
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @intCast(maxw), @intCast(maxh));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
-    /// ``` self: ?*C.QHeaderView, minw: i32 ```
+    /// ``` self: QtC.QHeaderView, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        C.QWidget_SetMinimumWidth(@ptrCast(self), @intCast(minw));
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @intCast(minw));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
-    /// ``` self: ?*C.QHeaderView, minh: i32 ```
+    /// ``` self: QtC.QHeaderView, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        C.QWidget_SetMinimumHeight(@ptrCast(self), @intCast(minh));
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @intCast(minh));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
-    /// ``` self: ?*C.QHeaderView, maxw: i32 ```
+    /// ``` self: QtC.QHeaderView, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        C.QWidget_SetMaximumWidth(@ptrCast(self), @intCast(maxw));
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @intCast(maxw));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
-    /// ``` self: ?*C.QHeaderView, maxh: i32 ```
+    /// ``` self: QtC.QHeaderView, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        C.QWidget_SetMaximumHeight(@ptrCast(self), @intCast(maxh));
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @intCast(maxh));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn SizeIncrement(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_SizeIncrement(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_SizeIncrement(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
-    /// ``` self: ?*C.QHeaderView, sizeIncrement: ?*C.QSize ```
+    /// ``` self: QtC.QHeaderView, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        C.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
-    /// ``` self: ?*C.QHeaderView, w: i32, h: i32 ```
+    /// ``` self: QtC.QHeaderView, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        C.QWidget_SetSizeIncrement2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn BaseSize(self: ?*anyopaque) ?*C.QSize {
-        return C.QWidget_BaseSize(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidget_BaseSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
-    /// ``` self: ?*C.QHeaderView, baseSize: ?*C.QSize ```
+    /// ``` self: QtC.QHeaderView, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        C.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
-    /// ``` self: ?*C.QHeaderView, basew: i32, baseh: i32 ```
+    /// ``` self: QtC.QHeaderView, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        C.QWidget_SetBaseSize2(@ptrCast(self), @intCast(basew), @intCast(baseh));
+        qtc.QWidget_SetBaseSize2(@ptrCast(self), @intCast(basew), @intCast(baseh));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
-    /// ``` self: ?*C.QHeaderView, fixedSize: ?*C.QSize ```
+    /// ``` self: QtC.QHeaderView, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        C.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
-    /// ``` self: ?*C.QHeaderView, w: i32, h: i32 ```
+    /// ``` self: QtC.QHeaderView, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        C.QWidget_SetFixedSize2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetFixedSize2(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
-    /// ``` self: ?*C.QHeaderView, w: i32 ```
+    /// ``` self: QtC.QHeaderView, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        C.QWidget_SetFixedWidth(@ptrCast(self), @intCast(w));
+        qtc.QWidget_SetFixedWidth(@ptrCast(self), @intCast(w));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
-    /// ``` self: ?*C.QHeaderView, h: i32 ```
+    /// ``` self: QtC.QHeaderView, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        C.QWidget_SetFixedHeight(@ptrCast(self), @intCast(h));
+        qtc.QWidget_SetFixedHeight(@ptrCast(self), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QPointF ```
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QHeaderView, param1: QtC.QPointF ```
+    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QPoint ```
-    pub fn MapToGlobalWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapToGlobalWithQPoint(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QHeaderView, param1: QtC.QPoint ```
+    pub fn MapToGlobalWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapToGlobalWithQPoint(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QPointF ```
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QHeaderView, param1: QtC.QPointF ```
+    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QPoint ```
-    pub fn MapFromGlobalWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapFromGlobalWithQPoint(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QHeaderView, param1: QtC.QPoint ```
+    pub fn MapFromGlobalWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapFromGlobalWithQPoint(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QPointF ```
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QHeaderView, param1: QtC.QPointF ```
+    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QPoint ```
-    pub fn MapToParentWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapToParentWithQPoint(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QHeaderView, param1: QtC.QPoint ```
+    pub fn MapToParentWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapToParentWithQPoint(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QPointF ```
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QHeaderView, param1: QtC.QPointF ```
+    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QPoint ```
-    pub fn MapFromParentWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapFromParentWithQPoint(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QHeaderView, param1: QtC.QPoint ```
+    pub fn MapFromParentWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapFromParentWithQPoint(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QWidget, param2: ?*C.QPointF ```
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    /// ``` self: QtC.QHeaderView, param1: QtC.QWidget, param2: QtC.QPointF ```
+    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QWidget, param2: ?*C.QPoint ```
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    /// ``` self: QtC.QHeaderView, param1: QtC.QWidget, param2: QtC.QPoint ```
+    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QWidget, param2: ?*C.QPointF ```
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) ?*C.QPointF {
-        return C.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    /// ``` self: QtC.QHeaderView, param1: QtC.QWidget, param2: QtC.QPointF ```
+    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
+        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QWidget, param2: ?*C.QPoint ```
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) ?*C.QPoint {
-        return C.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    /// ``` self: QtC.QHeaderView, param1: QtC.QWidget, param2: QtC.QPoint ```
+    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Window(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_Window(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Window(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_Window(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn NativeParentWidget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_NativeParentWidget(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn TopLevelWidget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_TopLevelWidget(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Palette(self: ?*anyopaque) ?*C.QPalette {
-        return C.QWidget_Palette(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
+        return qtc.QWidget_Palette(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
-    /// ``` self: ?*C.QHeaderView, palette: ?*C.QPalette ```
+    /// ``` self: QtC.QHeaderView, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        C.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
-    /// ``` self: ?*C.QHeaderView, backgroundRole: qpalette_enums.ColorRole ```
+    /// ``` self: QtC.QHeaderView, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i64) void {
-        C.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn BackgroundRole(self: ?*anyopaque) i64 {
-        return C.QWidget_BackgroundRole(@ptrCast(self));
+        return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
-    /// ``` self: ?*C.QHeaderView, foregroundRole: qpalette_enums.ColorRole ```
+    /// ``` self: QtC.QHeaderView, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i64) void {
-        C.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
+        qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ForegroundRole(self: ?*anyopaque) i64 {
-        return C.QWidget_ForegroundRole(@ptrCast(self));
+        return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Font(self: ?*anyopaque) ?*C.QFont {
-        return C.QWidget_Font(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Font(self: ?*anyopaque) QtC.QFont {
+        return qtc.QWidget_Font(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
-    /// ``` self: ?*C.QHeaderView, font: ?*C.QFont ```
+    /// ``` self: QtC.QHeaderView, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        C.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn FontMetrics(self: ?*anyopaque) ?*C.QFontMetrics {
-        return C.QWidget_FontMetrics(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
+        return qtc.QWidget_FontMetrics(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn FontInfo(self: ?*anyopaque) ?*C.QFontInfo {
-        return C.QWidget_FontInfo(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
+        return qtc.QWidget_FontInfo(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Cursor(self: ?*anyopaque) ?*C.QCursor {
-        return C.QWidget_Cursor(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
+        return qtc.QWidget_Cursor(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
-    /// ``` self: ?*C.QHeaderView, cursor: ?*C.QCursor ```
+    /// ``` self: QtC.QHeaderView, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        C.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
-        C.QWidget_UnsetCursor(@ptrCast(self));
+        qtc.QWidget_UnsetCursor(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
-    /// ``` self: ?*C.QHeaderView, enable: bool ```
+    /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        C.QWidget_SetMouseTracking(@ptrCast(self), enable);
+        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return C.QWidget_HasMouseTracking(@ptrCast(self));
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
-        return C.QWidget_UnderMouse(@ptrCast(self));
+        return qtc.QWidget_UnderMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
-    /// ``` self: ?*C.QHeaderView, enable: bool ```
+    /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        C.QWidget_SetTabletTracking(@ptrCast(self), enable);
+        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return C.QWidget_HasTabletTracking(@ptrCast(self));
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
-    /// ``` self: ?*C.QHeaderView, mask: ?*C.QBitmap ```
+    /// ``` self: QtC.QHeaderView, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        C.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
-    /// ``` self: ?*C.QHeaderView, mask: ?*C.QRegion ```
+    /// ``` self: QtC.QHeaderView, mask: QtC.QRegion ```
     pub fn SetMaskWithMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        C.QWidget_SetMaskWithMask(@ptrCast(self), @ptrCast(mask));
+        qtc.QWidget_SetMaskWithMask(@ptrCast(self), @ptrCast(mask));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Mask(self: ?*anyopaque) ?*C.QRegion {
-        return C.QWidget_Mask(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
+        return qtc.QWidget_Mask(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ClearMask(self: ?*anyopaque) void {
-        C.QWidget_ClearMask(@ptrCast(self));
+        qtc.QWidget_ClearMask(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QHeaderView, target: ?*C.QPaintDevice ```
+    /// ``` self: QtC.QHeaderView, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        C.QWidget_Render(@ptrCast(self), @ptrCast(target));
+        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QHeaderView, painter: ?*C.QPainter ```
+    /// ``` self: QtC.QHeaderView, painter: QtC.QPainter ```
     pub fn RenderWithPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        C.QWidget_RenderWithPainter(@ptrCast(self), @ptrCast(painter));
+        qtc.QWidget_RenderWithPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Grab(self: ?*anyopaque) ?*C.QPixmap {
-        return C.QWidget_Grab(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
+        return qtc.QWidget_Grab(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn GraphicsEffect(self: ?*anyopaque) ?*C.QGraphicsEffect {
-        return C.QWidget_GraphicsEffect(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
+        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
-    /// ``` self: ?*C.QHeaderView, effect: ?*C.QGraphicsEffect ```
+    /// ``` self: QtC.QHeaderView, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        C.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: ?*C.QHeaderView, typeVal: qnamespace_enums.GestureType ```
+    /// ``` self: QtC.QHeaderView, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
-        C.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
-    /// ``` self: ?*C.QHeaderView, typeVal: qnamespace_enums.GestureType ```
+    /// ``` self: QtC.QHeaderView, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
-        C.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
-    /// ``` self: ?*C.QHeaderView, windowTitle: []const u8 ```
+    /// ``` self: QtC.QHeaderView, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
-        const windowTitle_str = C.struct_libqt_string{
+        const windowTitle_str = qtc.struct_libqt_string{
             .len = windowTitle.len,
             .data = @constCast(windowTitle.ptr),
         };
-        C.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
-    /// ``` self: ?*C.QHeaderView, styleSheet: []const u8 ```
+    /// ``` self: QtC.QHeaderView, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
-        const styleSheet_str = C.struct_libqt_string{
+        const styleSheet_str = qtc.struct_libqt_string{
             .len = styleSheet.len,
             .data = @constCast(styleSheet.ptr),
         };
-        C.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_StyleSheet(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qheaderview.StyleSheet: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3305,11 +3490,11 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_WindowTitle(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qheaderview.WindowTitle: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3320,42 +3505,42 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
-    /// ``` self: ?*C.QHeaderView, icon: ?*C.QIcon ```
+    /// ``` self: QtC.QHeaderView, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        C.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn WindowIcon(self: ?*anyopaque) ?*C.QIcon {
-        return C.QWidget_WindowIcon(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
+        return qtc.QWidget_WindowIcon(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
-    /// ``` self: ?*C.QHeaderView, windowIconText: []const u8 ```
+    /// ``` self: QtC.QHeaderView, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
-        const windowIconText_str = C.struct_libqt_string{
+        const windowIconText_str = qtc.struct_libqt_string{
             .len = windowIconText.len,
             .data = @constCast(windowIconText.ptr),
         };
-        C.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_WindowIconText(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qheaderview.WindowIconText: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3366,24 +3551,24 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
-    /// ``` self: ?*C.QHeaderView, windowRole: []const u8 ```
+    /// ``` self: QtC.QHeaderView, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
-        const windowRole_str = C.struct_libqt_string{
+        const windowRole_str = qtc.struct_libqt_string{
             .len = windowRole.len,
             .data = @constCast(windowRole.ptr),
         };
-        C.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_WindowRole(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_WindowRole(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qheaderview.WindowRole: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3394,24 +3579,24 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
-    /// ``` self: ?*C.QHeaderView, filePath: []const u8 ```
+    /// ``` self: QtC.QHeaderView, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
-        const filePath_str = C.struct_libqt_string{
+        const filePath_str = qtc.struct_libqt_string{
             .len = filePath.len,
             .data = @constCast(filePath.ptr),
         };
-        C.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_WindowFilePath(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qheaderview.WindowFilePath: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3422,51 +3607,51 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
-    /// ``` self: ?*C.QHeaderView, level: f64 ```
+    /// ``` self: QtC.QHeaderView, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        C.QWidget_SetWindowOpacity(@ptrCast(self), @floatCast(level));
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @floatCast(level));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return C.QWidget_WindowOpacity(@ptrCast(self));
+        return qtc.QWidget_WindowOpacity(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return C.QWidget_IsWindowModified(@ptrCast(self));
+        return qtc.QWidget_IsWindowModified(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
-    /// ``` self: ?*C.QHeaderView, toolTip: []const u8 ```
+    /// ``` self: QtC.QHeaderView, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
-        const toolTip_str = C.struct_libqt_string{
+        const toolTip_str = qtc.struct_libqt_string{
             .len = toolTip.len,
             .data = @constCast(toolTip.ptr),
         };
-        C.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_ToolTip(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_ToolTip(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qheaderview.ToolTip: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3477,42 +3662,42 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
-    /// ``` self: ?*C.QHeaderView, msec: i32 ```
+    /// ``` self: QtC.QHeaderView, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        C.QWidget_SetToolTipDuration(@ptrCast(self), @intCast(msec));
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @intCast(msec));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return C.QWidget_ToolTipDuration(@ptrCast(self));
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
-    /// ``` self: ?*C.QHeaderView, statusTip: []const u8 ```
+    /// ``` self: QtC.QHeaderView, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
-        const statusTip_str = C.struct_libqt_string{
+        const statusTip_str = qtc.struct_libqt_string{
             .len = statusTip.len,
             .data = @constCast(statusTip.ptr),
         };
-        C.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_StatusTip(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_StatusTip(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qheaderview.StatusTip: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3523,24 +3708,24 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
-    /// ``` self: ?*C.QHeaderView, whatsThis: []const u8 ```
+    /// ``` self: QtC.QHeaderView, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
-        const whatsThis_str = C.struct_libqt_string{
+        const whatsThis_str = qtc.struct_libqt_string{
             .len = whatsThis.len,
             .data = @constCast(whatsThis.ptr),
         };
-        C.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_WhatsThis(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qheaderview.WhatsThis: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3551,11 +3736,11 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_AccessibleName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qheaderview.AccessibleName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3566,24 +3751,24 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
-    /// ``` self: ?*C.QHeaderView, name: []const u8 ```
+    /// ``` self: QtC.QHeaderView, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = C.struct_libqt_string{
+        const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = @constCast(name.ptr),
         };
-        C.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QWidget_AccessibleDescription(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qheaderview.AccessibleDescription: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3594,283 +3779,283 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
-    /// ``` self: ?*C.QHeaderView, description: []const u8 ```
+    /// ``` self: QtC.QHeaderView, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
-        const description_str = C.struct_libqt_string{
+        const description_str = qtc.struct_libqt_string{
             .len = description.len,
             .data = @constCast(description.ptr),
         };
-        C.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
-    /// ``` self: ?*C.QHeaderView, direction: qnamespace_enums.LayoutDirection ```
+    /// ``` self: QtC.QHeaderView, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
-        C.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
-        return C.QWidget_LayoutDirection(@ptrCast(self));
+        return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        C.QWidget_UnsetLayoutDirection(@ptrCast(self));
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
-    /// ``` self: ?*C.QHeaderView, locale: ?*C.QLocale ```
+    /// ``` self: QtC.QHeaderView, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        C.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Locale(self: ?*anyopaque) ?*C.QLocale {
-        return C.QWidget_Locale(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
+        return qtc.QWidget_Locale(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
-        C.QWidget_UnsetLocale(@ptrCast(self));
+        qtc.QWidget_UnsetLocale(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return C.QWidget_IsRightToLeft(@ptrCast(self));
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return C.QWidget_IsLeftToRight(@ptrCast(self));
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn SetFocus(self: ?*anyopaque) void {
-        C.QWidget_SetFocus(@ptrCast(self));
+        qtc.QWidget_SetFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return C.QWidget_IsActiveWindow(@ptrCast(self));
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
-        C.QWidget_ActivateWindow(@ptrCast(self));
+        qtc.QWidget_ActivateWindow(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ClearFocus(self: ?*anyopaque) void {
-        C.QWidget_ClearFocus(@ptrCast(self));
+        qtc.QWidget_ClearFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
-    /// ``` self: ?*C.QHeaderView, reason: qnamespace_enums.FocusReason ```
+    /// ``` self: QtC.QHeaderView, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocusWithReason(self: ?*anyopaque, reason: i64) void {
-        C.QWidget_SetFocusWithReason(@ptrCast(self), @intCast(reason));
+        qtc.QWidget_SetFocusWithReason(@ptrCast(self), @intCast(reason));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn FocusPolicy(self: ?*anyopaque) i64 {
-        return C.QWidget_FocusPolicy(@ptrCast(self));
+        return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
-    /// ``` self: ?*C.QHeaderView, policy: qnamespace_enums.FocusPolicy ```
+    /// ``` self: QtC.QHeaderView, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
-        C.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn HasFocus(self: ?*anyopaque) bool {
-        return C.QWidget_HasFocus(@ptrCast(self));
+        return qtc.QWidget_HasFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
-    /// ``` param1: ?*C.QWidget, param2: ?*C.QWidget ```
+    /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        C.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
-    /// ``` self: ?*C.QHeaderView, focusProxy: ?*C.QWidget ```
+    /// ``` self: QtC.QHeaderView, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        C.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn FocusProxy(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_FocusProxy(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_FocusProxy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
-        return C.QWidget_ContextMenuPolicy(@ptrCast(self));
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
-    /// ``` self: ?*C.QHeaderView, policy: qnamespace_enums.ContextMenuPolicy ```
+    /// ``` self: QtC.QHeaderView, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i64) void {
-        C.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn GrabMouse(self: ?*anyopaque) void {
-        C.QWidget_GrabMouse(@ptrCast(self));
+        qtc.QWidget_GrabMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QCursor ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QCursor ```
     pub fn GrabMouseWithQCursor(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_GrabMouseWithQCursor(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_GrabMouseWithQCursor(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
-        C.QWidget_ReleaseMouse(@ptrCast(self));
+        qtc.QWidget_ReleaseMouse(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
-        C.QWidget_GrabKeyboard(@ptrCast(self));
+        qtc.QWidget_GrabKeyboard(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        C.QWidget_ReleaseKeyboard(@ptrCast(self));
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
-    /// ``` self: ?*C.QHeaderView, key: ?*C.QKeySequence ```
+    /// ``` self: QtC.QHeaderView, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return C.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
-    /// ``` self: ?*C.QHeaderView, id: i32 ```
+    /// ``` self: QtC.QHeaderView, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        C.QWidget_ReleaseShortcut(@ptrCast(self), @intCast(id));
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
-    /// ``` self: ?*C.QHeaderView, id: i32 ```
+    /// ``` self: QtC.QHeaderView, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        C.QWidget_SetShortcutEnabled(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
-    /// ``` self: ?*C.QHeaderView, id: i32 ```
+    /// ``` self: QtC.QHeaderView, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        C.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QWidget
@@ -3878,8 +4063,8 @@ pub const qheaderview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
-    pub fn MouseGrabber() ?*C.QWidget {
-        return C.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QtC.QWidget {
+        return qtc.QWidget_MouseGrabber();
     }
 
     /// Inherited from QWidget
@@ -3887,262 +4072,262 @@ pub const qheaderview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
-    pub fn KeyboardGrabber() ?*C.QWidget {
-        return C.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QtC.QWidget {
+        return qtc.QWidget_KeyboardGrabber();
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return C.QWidget_UpdatesEnabled(@ptrCast(self));
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
-    /// ``` self: ?*C.QHeaderView, enable: bool ```
+    /// ``` self: QtC.QHeaderView, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        C.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) ?*C.QGraphicsProxyWidget {
-        return C.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
+        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Repaint(self: ?*anyopaque) void {
-        C.QWidget_Repaint(@ptrCast(self));
+        qtc.QWidget_Repaint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: ?*C.QHeaderView, x: i32, y: i32, w: i32, h: i32 ```
+    /// ``` self: QtC.QHeaderView, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        C.QWidget_Update2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Update2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QRect ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QRect ```
     pub fn UpdateWithQRect(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_UpdateWithQRect(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_UpdateWithQRect(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QRegion ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QRegion ```
     pub fn UpdateWithQRegion(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_UpdateWithQRegion(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_UpdateWithQRegion(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: ?*C.QHeaderView, x: i32, y: i32, w: i32, h: i32 ```
+    /// ``` self: QtC.QHeaderView, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        C.QWidget_Repaint2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Repaint2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QRect ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QRect ```
     pub fn RepaintWithQRect(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_RepaintWithQRect(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_RepaintWithQRect(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QRegion ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QRegion ```
     pub fn RepaintWithQRegion(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_RepaintWithQRegion(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_RepaintWithQRegion(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
-    /// ``` self: ?*C.QHeaderView, hidden: bool ```
+    /// ``` self: QtC.QHeaderView, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        C.QWidget_SetHidden(@ptrCast(self), hidden);
+        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Show(self: ?*anyopaque) void {
-        C.QWidget_Show(@ptrCast(self));
+        qtc.QWidget_Show(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Hide(self: ?*anyopaque) void {
-        C.QWidget_Hide(@ptrCast(self));
+        qtc.QWidget_Hide(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
-        C.QWidget_ShowMinimized(@ptrCast(self));
+        qtc.QWidget_ShowMinimized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
-        C.QWidget_ShowMaximized(@ptrCast(self));
+        qtc.QWidget_ShowMaximized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
-        C.QWidget_ShowFullScreen(@ptrCast(self));
+        qtc.QWidget_ShowFullScreen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ShowNormal(self: ?*anyopaque) void {
-        C.QWidget_ShowNormal(@ptrCast(self));
+        qtc.QWidget_ShowNormal(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Close(self: ?*anyopaque) bool {
-        return C.QWidget_Close(@ptrCast(self));
+        return qtc.QWidget_Close(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Raise(self: ?*anyopaque) void {
-        C.QWidget_Raise(@ptrCast(self));
+        qtc.QWidget_Raise(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Lower(self: ?*anyopaque) void {
-        C.QWidget_Lower(@ptrCast(self));
+        qtc.QWidget_Lower(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QWidget ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
-    /// ``` self: ?*C.QHeaderView, x: i32, y: i32 ```
+    /// ``` self: QtC.QHeaderView, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        C.QWidget_Move(@ptrCast(self), @intCast(x), @intCast(y));
+        qtc.QWidget_Move(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QPoint ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QPoint ```
     pub fn MoveWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_MoveWithQPoint(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_MoveWithQPoint(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
-    /// ``` self: ?*C.QHeaderView, w: i32, h: i32 ```
+    /// ``` self: QtC.QHeaderView, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        C.QWidget_Resize(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_Resize(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QSize ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QSize ```
     pub fn ResizeWithQSize(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QWidget_ResizeWithQSize(@ptrCast(self), @ptrCast(param1));
+        qtc.QWidget_ResizeWithQSize(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
-    /// ``` self: ?*C.QHeaderView, x: i32, y: i32, w: i32, h: i32 ```
+    /// ``` self: QtC.QHeaderView, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        C.QWidget_SetGeometry(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_SetGeometry(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
-    /// ``` self: ?*C.QHeaderView, geometry: ?*C.QRect ```
+    /// ``` self: QtC.QHeaderView, geometry: QtC.QRect ```
     pub fn SetGeometryWithGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        C.QWidget_SetGeometryWithGeometry(@ptrCast(self), @ptrCast(geometry));
+        qtc.QWidget_SetGeometryWithGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: C.struct_libqt_string = C.QWidget_SaveGeometry(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_bytearray));
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Memory allocation failed");
+        const _bytearray: qtc.struct_libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qheaderview.SaveGeometry: Memory allocation failed");
         for (0.._bytearray.len) |_i| {
             _ret[_i] = _bytearray.data[_i];
         }
@@ -4153,348 +4338,348 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
-    /// ``` self: ?*C.QHeaderView, geometry: []u8 ```
+    /// ``` self: QtC.QHeaderView, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
-        const geometry_str = C.struct_libqt_string{
+        const geometry_str = qtc.struct_libqt_string{
             .len = geometry.len,
             .data = @constCast(geometry.ptr),
         };
-        return C.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn AdjustSize(self: ?*anyopaque) void {
-        C.QWidget_AdjustSize(@ptrCast(self));
+        qtc.QWidget_AdjustSize(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsVisible(self: ?*anyopaque) bool {
-        return C.QWidget_IsVisible(@ptrCast(self));
+        return qtc.QWidget_IsVisible(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QWidget ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return C.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsHidden(self: ?*anyopaque) bool {
-        return C.QWidget_IsHidden(@ptrCast(self));
+        return qtc.QWidget_IsHidden(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
-        return C.QWidget_IsMinimized(@ptrCast(self));
+        return qtc.QWidget_IsMinimized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
-        return C.QWidget_IsMaximized(@ptrCast(self));
+        return qtc.QWidget_IsMaximized(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return C.QWidget_IsFullScreen(@ptrCast(self));
+        return qtc.QWidget_IsFullScreen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn WindowState(self: ?*anyopaque) i64 {
-        return C.QWidget_WindowState(@ptrCast(self));
+        return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
-    /// ``` self: ?*C.QHeaderView, state: i32 ```
+    /// ``` self: QtC.QHeaderView, state: i32 ```
     pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
-        C.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
-    /// ``` self: ?*C.QHeaderView, state: i32 ```
+    /// ``` self: QtC.QHeaderView, state: i32 ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
-        C.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn SizePolicy(self: ?*anyopaque) ?*C.QSizePolicy {
-        return C.QWidget_SizePolicy(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
+        return qtc.QWidget_SizePolicy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
-    /// ``` self: ?*C.QHeaderView, sizePolicy: ?*C.QSizePolicy ```
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: ?*C.QSizePolicy) void {
-        C.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    /// ``` self: QtC.QHeaderView, sizePolicy: QtC.QSizePolicy ```
+    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
+        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
-    /// ``` self: ?*C.QHeaderView, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
+    /// ``` self: QtC.QHeaderView, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i64, vertical: i64) void {
-        C.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn VisibleRegion(self: ?*anyopaque) ?*C.QRegion {
-        return C.QWidget_VisibleRegion(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
+        return qtc.QWidget_VisibleRegion(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
-    /// ``` self: ?*C.QHeaderView, left: i32, top: i32, right: i32, bottom: i32 ```
+    /// ``` self: QtC.QHeaderView, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        C.QWidget_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QWidget_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
-    /// ``` self: ?*C.QHeaderView, margins: ?*C.QMargins ```
+    /// ``` self: QtC.QHeaderView, margins: QtC.QMargins ```
     pub fn SetContentsMarginsWithMargins(self: ?*anyopaque, margins: ?*anyopaque) void {
-        C.QWidget_SetContentsMarginsWithMargins(@ptrCast(self), @ptrCast(margins));
+        qtc.QWidget_SetContentsMarginsWithMargins(@ptrCast(self), @ptrCast(margins));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn ContentsMargins(self: ?*anyopaque) ?*C.QMargins {
-        return C.QWidget_ContentsMargins(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
+        return qtc.QWidget_ContentsMargins(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn ContentsRect(self: ?*anyopaque) ?*C.QRect {
-        return C.QWidget_ContentsRect(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidget_ContentsRect(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Layout(self: ?*anyopaque) ?*C.QLayout {
-        return C.QWidget_Layout(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
+        return qtc.QWidget_Layout(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
-    /// ``` self: ?*C.QHeaderView, layout: ?*C.QLayout ```
+    /// ``` self: QtC.QHeaderView, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        C.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
-        C.QWidget_UpdateGeometry(@ptrCast(self));
+        qtc.QWidget_UpdateGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: ?*C.QHeaderView, parent: ?*C.QWidget ```
+    /// ``` self: QtC.QHeaderView, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        C.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: ?*C.QHeaderView, parent: ?*C.QWidget, f: i32 ```
+    /// ``` self: QtC.QHeaderView, parent: QtC.QWidget, f: i32 ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
-        C.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
+        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
-    /// ``` self: ?*C.QHeaderView, dx: i32, dy: i32 ```
+    /// ``` self: QtC.QHeaderView, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        C.QWidget_Scroll(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QWidget_Scroll(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
-    /// ``` self: ?*C.QHeaderView, dx: i32, dy: i32, param3: ?*C.QRect ```
+    /// ``` self: QtC.QHeaderView, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        C.QWidget_Scroll2(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(param3));
+        qtc.QWidget_Scroll2(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(param3));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn FocusWidget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_FocusWidget(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_FocusWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn NextInFocusChain(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_NextInFocusChain(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn PreviousInFocusChain(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_PreviousInFocusChain(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return C.QWidget_AcceptDrops(@ptrCast(self));
+        return qtc.QWidget_AcceptDrops(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
-    /// ``` self: ?*C.QHeaderView, on: bool ```
+    /// ``` self: QtC.QHeaderView, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        C.QWidget_SetAcceptDrops(@ptrCast(self), on);
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: ?*C.QHeaderView, action: ?*C.QAction ```
+    /// ``` self: QtC.QHeaderView, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        C.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
-    /// ``` self: ?*C.QHeaderView, actions: []?*C.QAction ```
+    /// ``` self: QtC.QHeaderView, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = C.struct_libqt_list{
+        const actions_list = qtc.struct_libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        C.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
-    /// ``` self: ?*C.QHeaderView, before: ?*C.QAction, actions: []?*C.QAction ```
+    /// ``` self: QtC.QHeaderView, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = C.struct_libqt_list{
+        const actions_list = qtc.struct_libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        C.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
-    /// ``` self: ?*C.QHeaderView, before: ?*C.QAction, action: ?*C.QAction ```
+    /// ``` self: QtC.QHeaderView, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        C.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
-    /// ``` self: ?*C.QHeaderView, action: ?*C.QAction ```
+    /// ``` self: QtC.QHeaderView, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        C.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QAction {
-        const _arr: C.struct_libqt_list = C.QWidget_Actions(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QAction, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QAction = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
+    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
+        const _arr: qtc.struct_libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qheaderview.Actions: Memory allocation failed");
+        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -4505,106 +4690,106 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: ?*C.QHeaderView, text: []const u8 ```
-    pub fn AddActionWithText(self: ?*anyopaque, text: []const u8) ?*C.QAction {
-        const text_str = C.struct_libqt_string{
+    /// ``` self: QtC.QHeaderView, text: []const u8 ```
+    pub fn AddActionWithText(self: ?*anyopaque, text: []const u8) QtC.QAction {
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        return C.QWidget_AddActionWithText(@ptrCast(self), text_str);
+        return qtc.QWidget_AddActionWithText(@ptrCast(self), text_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: ?*C.QHeaderView, icon: ?*C.QIcon, text: []const u8 ```
-    pub fn AddAction2(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) ?*C.QAction {
-        const text_str = C.struct_libqt_string{
+    /// ``` self: QtC.QHeaderView, icon: QtC.QIcon, text: []const u8 ```
+    pub fn AddAction2(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        return C.QWidget_AddAction2(@ptrCast(self), @ptrCast(icon), text_str);
+        return qtc.QWidget_AddAction2(@ptrCast(self), @ptrCast(icon), text_str);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: ?*C.QHeaderView, text: []const u8, shortcut: ?*C.QKeySequence ```
-    pub fn AddAction3(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) ?*C.QAction {
-        const text_str = C.struct_libqt_string{
+    /// ``` self: QtC.QHeaderView, text: []const u8, shortcut: QtC.QKeySequence ```
+    pub fn AddAction3(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        return C.QWidget_AddAction3(@ptrCast(self), text_str, @ptrCast(shortcut));
+        return qtc.QWidget_AddAction3(@ptrCast(self), text_str, @ptrCast(shortcut));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
-    /// ``` self: ?*C.QHeaderView, icon: ?*C.QIcon, text: []const u8, shortcut: ?*C.QKeySequence ```
-    pub fn AddAction4(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) ?*C.QAction {
-        const text_str = C.struct_libqt_string{
+    /// ``` self: QtC.QHeaderView, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
+    pub fn AddAction4(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+        const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = @constCast(text.ptr),
         };
-        return C.QWidget_AddAction4(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        return qtc.QWidget_AddAction4(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn ParentWidget(self: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_ParentWidget(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_ParentWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
-    /// ``` self: ?*C.QHeaderView, typeVal: i32 ```
+    /// ``` self: QtC.QHeaderView, typeVal: i32 ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
-        C.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn WindowFlags(self: ?*anyopaque) i64 {
-        return C.QWidget_WindowFlags(@ptrCast(self));
+        return qtc.QWidget_WindowFlags(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: qnamespace_enums.WindowType ```
+    /// ``` self: QtC.QHeaderView, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
-        C.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
-    /// ``` self: ?*C.QHeaderView, typeVal: i32 ```
+    /// ``` self: QtC.QHeaderView, typeVal: i32 ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
-        C.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn WindowType(self: ?*anyopaque) i64 {
-        return C.QWidget_WindowType(@ptrCast(self));
+        return qtc.QWidget_WindowType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -4612,361 +4797,369 @@ pub const qheaderview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
     /// ``` param1: u64 ```
-    pub fn Find(param1: u64) ?*C.QWidget {
-        return C.QWidget_Find(@intCast(param1));
+    pub fn Find(param1: u64) QtC.QWidget {
+        return qtc.QWidget_Find(@intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
-    /// ``` self: ?*C.QHeaderView, x: i32, y: i32 ```
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) ?*C.QWidget {
-        return C.QWidget_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
+    /// ``` self: QtC.QHeaderView, x: i32, y: i32 ```
+    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
+        return qtc.QWidget_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
-    /// ``` self: ?*C.QHeaderView, p: ?*C.QPoint ```
-    pub fn ChildAtWithQPoint(self: ?*anyopaque, p: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_ChildAtWithQPoint(@ptrCast(self), @ptrCast(p));
+    /// ``` self: QtC.QHeaderView, p: QtC.QPoint ```
+    pub fn ChildAtWithQPoint(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_ChildAtWithQPoint(@ptrCast(self), @ptrCast(p));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: qnamespace_enums.WidgetAttribute ```
+    /// ``` self: QtC.QHeaderView, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i64) void {
-        C.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: qnamespace_enums.WidgetAttribute ```
+    /// ``` self: QtC.QHeaderView, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i64) bool {
-        return C.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
+        return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
-        C.QWidget_EnsurePolished(@ptrCast(self));
+        qtc.QWidget_EnsurePolished(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
-    /// ``` self: ?*C.QHeaderView, child: ?*C.QWidget ```
+    /// ``` self: QtC.QHeaderView, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return C.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return C.QWidget_AutoFillBackground(@ptrCast(self));
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
-    /// ``` self: ?*C.QHeaderView, enabled: bool ```
+    /// ``` self: QtC.QHeaderView, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        C.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn BackingStore(self: ?*anyopaque) ?*C.QBackingStore {
-        return C.QWidget_BackingStore(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
+        return qtc.QWidget_BackingStore(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn WindowHandle(self: ?*anyopaque) ?*C.QWindow {
-        return C.QWidget_WindowHandle(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
+        return qtc.QWidget_WindowHandle(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Screen(self: ?*anyopaque) ?*C.QScreen {
-        return C.QWidget_Screen(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
+        return qtc.QWidget_Screen(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
-    /// ``` self: ?*C.QHeaderView, screen: ?*C.QScreen ```
+    /// ``` self: QtC.QHeaderView, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        C.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: ?*C.QWindow ```
-    pub fn CreateWindowContainer(window: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_CreateWindowContainer(@ptrCast(window));
+    /// ``` window: QtC.QWindow ```
+    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: ?*C.QHeaderView, title: []const u8 ```
+    /// ``` self: QtC.QHeaderView, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
-        const title_str = C.struct_libqt_string{
+        const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = @constCast(title.ptr),
         };
-        C.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
     }
 
     /// Inherited from QWidget
     ///
-    /// ``` self: ?*C.QWidget, slot: fn (?*C.QWidget, []const u8) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    ///
+    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, title: []const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
-        C.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: ?*C.QHeaderView, icon: ?*C.QIcon ```
+    /// ``` self: QtC.QHeaderView, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        C.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
     }
 
     /// Inherited from QWidget
     ///
-    /// ``` self: ?*C.QWidget, slot: fn (?*C.QWidget, ?*C.QIcon) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    ///
+    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: ?*C.QHeaderView, iconText: []const u8 ```
+    /// ``` self: QtC.QHeaderView, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
-        const iconText_str = C.struct_libqt_string{
+        const iconText_str = qtc.struct_libqt_string{
             .len = iconText.len,
             .data = @constCast(iconText.ptr),
         };
-        C.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
     }
 
     /// Inherited from QWidget
     ///
-    /// ``` self: ?*C.QWidget, slot: fn (?*C.QWidget, []const u8) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    ///
+    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, iconText: []const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
-        C.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: ?*C.QHeaderView, pos: ?*C.QPoint ```
+    /// ``` self: QtC.QHeaderView, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        C.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
     }
 
     /// Inherited from QWidget
     ///
-    /// ``` self: ?*C.QWidget, slot: fn (?*C.QWidget, ?*C.QPoint) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    ///
+    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn InputMethodHints(self: ?*anyopaque) i64 {
-        return C.QWidget_InputMethodHints(@ptrCast(self));
+        return qtc.QWidget_InputMethodHints(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
-    /// ``` self: ?*C.QHeaderView, hints: i32 ```
+    /// ``` self: QtC.QHeaderView, hints: i32 ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
-        C.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QHeaderView, target: ?*C.QPaintDevice, targetOffset: ?*C.QPoint ```
+    /// ``` self: QtC.QHeaderView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render2(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        C.QWidget_Render2(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QHeaderView, target: ?*C.QPaintDevice, targetOffset: ?*C.QPoint, sourceRegion: ?*C.QRegion ```
+    /// ``` self: QtC.QHeaderView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        C.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QHeaderView, target: ?*C.QPaintDevice, targetOffset: ?*C.QPoint, sourceRegion: ?*C.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QHeaderView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
-        C.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QHeaderView, painter: ?*C.QPainter, targetOffset: ?*C.QPoint ```
+    /// ``` self: QtC.QHeaderView, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        C.QWidget_Render22(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QHeaderView, painter: ?*C.QPainter, targetOffset: ?*C.QPoint, sourceRegion: ?*C.QRegion ```
+    /// ``` self: QtC.QHeaderView, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        C.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: ?*C.QHeaderView, painter: ?*C.QPainter, targetOffset: ?*C.QPoint, sourceRegion: ?*C.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QHeaderView, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
-        C.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
-    /// ``` self: ?*C.QHeaderView, rectangle: ?*C.QRect ```
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) ?*C.QPixmap {
-        return C.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    /// ``` self: QtC.QHeaderView, rectangle: QtC.QRect ```
+    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
+        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: ?*C.QHeaderView, typeVal: qnamespace_enums.GestureType, flags: i32 ```
+    /// ``` self: QtC.QHeaderView, typeVal: qnamespace_enums.GestureType, flags: i32 ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
-        C.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
+        qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
-    /// ``` self: ?*C.QHeaderView, key: ?*C.QKeySequence, context: qnamespace_enums.ShortcutContext ```
+    /// ``` self: QtC.QHeaderView, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i64) i32 {
-        return C.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
-    /// ``` self: ?*C.QHeaderView, id: i32, enable: bool ```
+    /// ``` self: QtC.QHeaderView, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        C.QWidget_SetShortcutEnabled2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @intCast(id), enable);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
-    /// ``` self: ?*C.QHeaderView, id: i32, enable: bool ```
+    /// ``` self: QtC.QHeaderView, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        C.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @intCast(id), enable);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: qnamespace_enums.WindowType, on: bool ```
+    /// ``` self: QtC.QHeaderView, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
-        C.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: qnamespace_enums.WidgetAttribute, on: bool ```
+    /// ``` self: QtC.QHeaderView, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i64, on: bool) void {
-        C.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: ?*C.QWindow, parent: ?*C.QWidget ```
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) ?*C.QWidget {
-        return C.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
+    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
     }
 
     /// Inherited from QWidget
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: ?*C.QWindow, parent: ?*C.QWidget, flags: i32 ```
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) ?*C.QWidget {
-        return C.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
+    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: i32 ```
+    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
+        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QObject_ObjectName(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QObject_ObjectName(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qheaderview.ObjectName: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -4977,102 +5170,102 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
-    /// ``` self: ?*C.QHeaderView, name: []const u8 ```
+    /// ``` self: QtC.QHeaderView, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return C.QObject_IsWidgetType(@ptrCast(self));
+        return qtc.QObject_IsWidgetType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
-        return C.QObject_IsWindowType(@ptrCast(self));
+        return qtc.QObject_IsWindowType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return C.QObject_IsQuickItemType(@ptrCast(self));
+        return qtc.QObject_IsQuickItemType(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return C.QObject_SignalsBlocked(@ptrCast(self));
+        return qtc.QObject_SignalsBlocked(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
-    /// ``` self: ?*C.QHeaderView, b: bool ```
+    /// ``` self: QtC.QHeaderView, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return C.QObject_BlockSignals(@ptrCast(self), b);
+        return qtc.QObject_BlockSignals(@ptrCast(self), b);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Thread(self: ?*anyopaque) ?*C.QThread {
-        return C.QObject_Thread(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Thread(self: ?*anyopaque) QtC.QThread {
+        return qtc.QObject_Thread(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
-    /// ``` self: ?*C.QHeaderView, thread: ?*C.QThread ```
+    /// ``` self: QtC.QHeaderView, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        C.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QHeaderView, interval: i32 ```
+    /// ``` self: QtC.QHeaderView, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return C.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
-    /// ``` self: ?*C.QHeaderView, id: i32 ```
+    /// ``` self: QtC.QHeaderView, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        C.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QObject {
-        const _arr: C.struct_libqt_list = C.QObject_Children(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QObject, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QObject = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
+    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
+        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qheaderview.Children: Memory allocation failed");
+        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -5083,114 +5276,114 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
-    /// ``` self: ?*C.QHeaderView, filterObj: ?*C.QObject ```
+    /// ``` self: QtC.QHeaderView, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        C.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
-    /// ``` self: ?*C.QHeaderView, obj: ?*C.QObject ```
+    /// ``` self: QtC.QHeaderView, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        C.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod ```
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
+    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QHeaderView, sender: ?*C.QObject, signal: []const u8, member: []const u8 ```
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QHeaderView, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, member: ?*C.QMetaMethod ```
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return C.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
-    /// ``` param1: ?*C.QMetaObject__Connection ```
+    /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return C.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
-        C.QObject_DumpObjectTree(@ptrCast(self));
+        qtc.QObject_DumpObjectTree(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        C.QObject_DumpObjectInfo(@ptrCast(self));
+        qtc.QObject_DumpObjectInfo(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
-    /// ``` self: ?*C.QHeaderView, name: []const u8, value: ?*C.QVariant ```
+    /// ``` self: QtC.QHeaderView, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
     ///
-    /// ``` self: ?*C.QHeaderView, name: []const u8 ```
-    pub fn Property(self: ?*anyopaque, name: []const u8) ?*C.QVariant {
+    /// ``` self: QtC.QHeaderView, name: []const u8 ```
+    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_Cstring = @constCast(name.ptr);
-        return C.QObject_Property(@ptrCast(self), name_Cstring);
+        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: C.struct_libqt_list = C.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qheaderview.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qheaderview.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -5201,206 +5394,210 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn BindingStorage(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn BindingStorage2(self: ?*anyopaque) ?*C.QBindingStorage {
-        return C.QObject_BindingStorage2(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObject_BindingStorage2(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Destroyed(self: ?*anyopaque) void {
-        C.QObject_Destroyed(@ptrCast(self));
+        qtc.QObject_Destroyed(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Parent(self: ?*anyopaque) ?*C.QObject {
-        return C.QObject_Parent(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Parent(self: ?*anyopaque) QtC.QObject {
+        return qtc.QObject_Parent(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
-    /// ``` self: ?*C.QHeaderView, classname: []const u8 ```
+    /// ``` self: QtC.QHeaderView, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
         const classname_Cstring = @constCast(classname.ptr);
-        return C.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn DeleteLater(self: ?*anyopaque) void {
-        C.QObject_DeleteLater(@ptrCast(self));
+        qtc.QObject_DeleteLater(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
-    /// ``` self: ?*C.QHeaderView, interval: i32, timerType: qnamespace_enums.TimerType ```
+    /// ``` self: QtC.QHeaderView, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return C.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` sender: ?*C.QObject, signal: ?*C.QMetaMethod, receiver: ?*C.QObject, method: ?*C.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) ?*C.QMetaObject__Connection {
-        return C.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
-    /// ``` self: ?*C.QHeaderView, sender: ?*C.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) ?*C.QMetaObject__Connection {
+    /// ``` self: QtC.QHeaderView, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
         const signal_Cstring = @constCast(signal.ptr);
         const member_Cstring = @constCast(member.ptr);
-        return C.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QObject ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QObject
     ///
-    /// ``` self: ?*C.QObject, slot: fn (?*C.QObject, ?*C.QObject) callconv(.c) void ```
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    ///
+    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
-        return C.QPaintDevice_PaintingActive(@ptrCast(self));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_WidthMM(@ptrCast(self));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_HeightMM(@ptrCast(self));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_LogicalDpiX(@ptrCast(self));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_LogicalDpiY(@ptrCast(self));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return C.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return C.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_ColorCount(@ptrCast(self));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Depth(self: ?*anyopaque) i32 {
-        return C.QPaintDevice_Depth(@ptrCast(self));
+        return qtc.QPaintDevice_Depth(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
@@ -5409,7 +5606,7 @@ pub const qheaderview = struct {
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
-        return C.QPaintDevice_DevicePixelRatioFScale();
+        return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
 
     /// Inherited from QAbstractItemView
@@ -5418,27 +5615,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, selectionModel: ?*C.QItemSelectionModel ```
+    /// ``` self: QtC.QHeaderView, selectionModel: QtC.QItemSelectionModel ```
     pub fn SetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
-        C.QHeaderView_SetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
+        qtc.QHeaderView_SetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, selectionModel: ?*C.QItemSelectionModel ```
+    /// ``` self: QtC.QHeaderView, selectionModel: QtC.QItemSelectionModel ```
     pub fn QBaseSetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
-        C.QHeaderView_QBaseSetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
+        qtc.QHeaderView_QBaseSetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QItemSelectionModel) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, selectionModel: QtC.QItemSelectionModel) callconv(.c) void ```
     pub fn OnSetSelectionModel(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnSetSelectionModel(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSetSelectionModel(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5447,35 +5648,39 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, search: []const u8 ```
+    /// ``` self: QtC.QHeaderView, search: []const u8 ```
     pub fn KeyboardSearch(self: ?*anyopaque, search: []const u8) void {
-        const search_str = C.struct_libqt_string{
+        const search_str = qtc.struct_libqt_string{
             .len = search.len,
             .data = @constCast(search.ptr),
         };
-        C.QHeaderView_KeyboardSearch(@ptrCast(self), search_str);
+        qtc.QHeaderView_KeyboardSearch(@ptrCast(self), search_str);
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, search: []const u8 ```
+    /// ``` self: QtC.QHeaderView, search: []const u8 ```
     pub fn QBaseKeyboardSearch(self: ?*anyopaque, search: []const u8) void {
-        const search_str = C.struct_libqt_string{
+        const search_str = qtc.struct_libqt_string{
             .len = search.len,
             .data = @constCast(search.ptr),
         };
-        C.QHeaderView_QBaseKeyboardSearch(@ptrCast(self), search_str);
+        qtc.QHeaderView_QBaseKeyboardSearch(@ptrCast(self), search_str);
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, search: []const u8) callconv(.c) void ```
     pub fn OnKeyboardSearch(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
-        C.QHeaderView_OnKeyboardSearch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnKeyboardSearch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5484,27 +5689,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, row: i32 ```
+    /// ``` self: QtC.QHeaderView, row: i32 ```
     pub fn SizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return C.QHeaderView_SizeHintForRow(@ptrCast(self), @intCast(row));
+        return qtc.QHeaderView_SizeHintForRow(@ptrCast(self), @intCast(row));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, row: i32 ```
+    /// ``` self: QtC.QHeaderView, row: i32 ```
     pub fn QBaseSizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return C.QHeaderView_QBaseSizeHintForRow(@ptrCast(self), @intCast(row));
+        return qtc.QHeaderView_QBaseSizeHintForRow(@ptrCast(self), @intCast(row));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32) callconv(.c) i32 ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, row: i32) callconv(.c) i32 ```
     pub fn OnSizeHintForRow(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        C.QHeaderView_OnSizeHintForRow(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSizeHintForRow(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5513,27 +5722,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, column: i32 ```
+    /// ``` self: QtC.QHeaderView, column: i32 ```
     pub fn SizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return C.QHeaderView_SizeHintForColumn(@ptrCast(self), @intCast(column));
+        return qtc.QHeaderView_SizeHintForColumn(@ptrCast(self), @intCast(column));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, column: i32 ```
+    /// ``` self: QtC.QHeaderView, column: i32 ```
     pub fn QBaseSizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return C.QHeaderView_QBaseSizeHintForColumn(@ptrCast(self), @intCast(column));
+        return qtc.QHeaderView_QBaseSizeHintForColumn(@ptrCast(self), @intCast(column));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32) callconv(.c) i32 ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, column: i32) callconv(.c) i32 ```
     pub fn OnSizeHintForColumn(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        C.QHeaderView_OnSizeHintForColumn(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSizeHintForColumn(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5542,27 +5755,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
-    pub fn ItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) ?*C.QAbstractItemDelegate {
-        return C.QHeaderView_ItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
+    pub fn ItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
+        return qtc.QHeaderView_ItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
-    pub fn QBaseItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) ?*C.QAbstractItemDelegate {
-        return C.QHeaderView_QBaseItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
+    pub fn QBaseItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
+        return qtc.QHeaderView_QBaseItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QModelIndex) callconv(.c) ?*C.QAbstractItemDelegate ```
-    pub fn OnItemDelegateForIndex(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) ?*C.QAbstractItemDelegate) void {
-        C.QHeaderView_OnItemDelegateForIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) QtC.QAbstractItemDelegate ```
+    pub fn OnItemDelegateForIndex(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAbstractItemDelegate) void {
+        qtc.QHeaderView_OnItemDelegateForIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5571,27 +5788,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, query: qnamespace_enums.InputMethodQuery ```
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) ?*C.QVariant {
-        return C.QHeaderView_InputMethodQuery(@ptrCast(self), @intCast(query));
+    /// ``` self: QtC.QHeaderView, query: qnamespace_enums.InputMethodQuery ```
+    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+        return qtc.QHeaderView_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, query: qnamespace_enums.InputMethodQuery ```
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) ?*C.QVariant {
-        return C.QHeaderView_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+    /// ``` self: QtC.QHeaderView, query: qnamespace_enums.InputMethodQuery ```
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+        return qtc.QHeaderView_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, qnamespace_enums.InputMethodQuery) callconv(.c) ?*C.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) ?*C.QVariant) void {
-        C.QHeaderView_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QHeaderView_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5600,27 +5821,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn SetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
-        C.QHeaderView_SetRootIndex(@ptrCast(self), @ptrCast(index));
+        qtc.QHeaderView_SetRootIndex(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex ```
     pub fn QBaseSetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
-        C.QHeaderView_QBaseSetRootIndex(@ptrCast(self), @ptrCast(index));
+        qtc.QHeaderView_QBaseSetRootIndex(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QModelIndex) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnSetRootIndex(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnSetRootIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSetRootIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5629,27 +5854,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn SelectAll(self: ?*anyopaque) void {
-        C.QHeaderView_SelectAll(@ptrCast(self));
+        qtc.QHeaderView_SelectAll(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseSelectAll(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseSelectAll(@ptrCast(self));
+        qtc.QHeaderView_QBaseSelectAll(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
     pub fn OnSelectAll(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnSelectAll(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSelectAll(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5658,27 +5887,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, parent: ?*C.QModelIndex, start: i32, end: i32 ```
+    /// ``` self: QtC.QHeaderView, parent: QtC.QModelIndex, start: i32, end: i32 ```
     pub fn RowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        C.QHeaderView_RowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
+        qtc.QHeaderView_RowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, parent: ?*C.QModelIndex, start: i32, end: i32 ```
+    /// ``` self: QtC.QHeaderView, parent: QtC.QModelIndex, start: i32, end: i32 ```
     pub fn QBaseRowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        C.QHeaderView_QBaseRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
+        qtc.QHeaderView_QBaseRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QModelIndex, i32, i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void ```
     pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        C.QHeaderView_OnRowsAboutToBeRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnRowsAboutToBeRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5687,27 +5920,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, selected: ?*C.QItemSelection, deselected: ?*C.QItemSelection ```
+    /// ``` self: QtC.QHeaderView, selected: QtC.QItemSelection, deselected: QtC.QItemSelection ```
     pub fn SelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
-        C.QHeaderView_SelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
+        qtc.QHeaderView_SelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, selected: ?*C.QItemSelection, deselected: ?*C.QItemSelection ```
+    /// ``` self: QtC.QHeaderView, selected: QtC.QItemSelection, deselected: QtC.QItemSelection ```
     pub fn QBaseSelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
-        C.QHeaderView_QBaseSelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
+        qtc.QHeaderView_QBaseSelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QItemSelection, ?*C.QItemSelection) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, selected: QtC.QItemSelection, deselected: QtC.QItemSelection) callconv(.c) void ```
     pub fn OnSelectionChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnSelectionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSelectionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5716,27 +5953,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn UpdateEditorData(self: ?*anyopaque) void {
-        C.QHeaderView_UpdateEditorData(@ptrCast(self));
+        qtc.QHeaderView_UpdateEditorData(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseUpdateEditorData(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseUpdateEditorData(@ptrCast(self));
+        qtc.QHeaderView_QBaseUpdateEditorData(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
     pub fn OnUpdateEditorData(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnUpdateEditorData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnUpdateEditorData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5745,27 +5986,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn UpdateEditorGeometries(self: ?*anyopaque) void {
-        C.QHeaderView_UpdateEditorGeometries(@ptrCast(self));
+        qtc.QHeaderView_UpdateEditorGeometries(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseUpdateEditorGeometries(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseUpdateEditorGeometries(@ptrCast(self));
+        qtc.QHeaderView_QBaseUpdateEditorGeometries(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
     pub fn OnUpdateEditorGeometries(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnUpdateEditorGeometries(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnUpdateEditorGeometries(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5774,27 +6019,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, action: i32 ```
+    /// ``` self: QtC.QHeaderView, action: i32 ```
     pub fn VerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        C.QHeaderView_VerticalScrollbarAction(@ptrCast(self), @intCast(action));
+        qtc.QHeaderView_VerticalScrollbarAction(@ptrCast(self), @intCast(action));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, action: i32 ```
+    /// ``` self: QtC.QHeaderView, action: i32 ```
     pub fn QBaseVerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        C.QHeaderView_QBaseVerticalScrollbarAction(@ptrCast(self), @intCast(action));
+        qtc.QHeaderView_QBaseVerticalScrollbarAction(@ptrCast(self), @intCast(action));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, action: i32) callconv(.c) void ```
     pub fn OnVerticalScrollbarAction(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QHeaderView_OnVerticalScrollbarAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnVerticalScrollbarAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5803,27 +6052,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, action: i32 ```
+    /// ``` self: QtC.QHeaderView, action: i32 ```
     pub fn HorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        C.QHeaderView_HorizontalScrollbarAction(@ptrCast(self), @intCast(action));
+        qtc.QHeaderView_HorizontalScrollbarAction(@ptrCast(self), @intCast(action));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, action: i32 ```
+    /// ``` self: QtC.QHeaderView, action: i32 ```
     pub fn QBaseHorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        C.QHeaderView_QBaseHorizontalScrollbarAction(@ptrCast(self), @intCast(action));
+        qtc.QHeaderView_QBaseHorizontalScrollbarAction(@ptrCast(self), @intCast(action));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, action: i32) callconv(.c) void ```
     pub fn OnHorizontalScrollbarAction(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QHeaderView_OnHorizontalScrollbarAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnHorizontalScrollbarAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5832,27 +6085,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, value: i32 ```
+    /// ``` self: QtC.QHeaderView, value: i32 ```
     pub fn VerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        C.QHeaderView_VerticalScrollbarValueChanged(@ptrCast(self), @intCast(value));
+        qtc.QHeaderView_VerticalScrollbarValueChanged(@ptrCast(self), @intCast(value));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, value: i32 ```
+    /// ``` self: QtC.QHeaderView, value: i32 ```
     pub fn QBaseVerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        C.QHeaderView_QBaseVerticalScrollbarValueChanged(@ptrCast(self), @intCast(value));
+        qtc.QHeaderView_QBaseVerticalScrollbarValueChanged(@ptrCast(self), @intCast(value));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, value: i32) callconv(.c) void ```
     pub fn OnVerticalScrollbarValueChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QHeaderView_OnVerticalScrollbarValueChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnVerticalScrollbarValueChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5861,27 +6118,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, value: i32 ```
+    /// ``` self: QtC.QHeaderView, value: i32 ```
     pub fn HorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        C.QHeaderView_HorizontalScrollbarValueChanged(@ptrCast(self), @intCast(value));
+        qtc.QHeaderView_HorizontalScrollbarValueChanged(@ptrCast(self), @intCast(value));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, value: i32 ```
+    /// ``` self: QtC.QHeaderView, value: i32 ```
     pub fn QBaseHorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        C.QHeaderView_QBaseHorizontalScrollbarValueChanged(@ptrCast(self), @intCast(value));
+        qtc.QHeaderView_QBaseHorizontalScrollbarValueChanged(@ptrCast(self), @intCast(value));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, value: i32) callconv(.c) void ```
     pub fn OnHorizontalScrollbarValueChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        C.QHeaderView_OnHorizontalScrollbarValueChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnHorizontalScrollbarValueChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5890,27 +6151,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, editor: ?*C.QWidget, hint: qabstractitemdelegate_enums.EndEditHint ```
+    /// ``` self: QtC.QHeaderView, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint ```
     pub fn CloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i64) void {
-        C.QHeaderView_CloseEditor(@ptrCast(self), @ptrCast(editor), @intCast(hint));
+        qtc.QHeaderView_CloseEditor(@ptrCast(self), @ptrCast(editor), @intCast(hint));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, editor: ?*C.QWidget, hint: qabstractitemdelegate_enums.EndEditHint ```
+    /// ``` self: QtC.QHeaderView, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint ```
     pub fn QBaseCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i64) void {
-        C.QHeaderView_QBaseCloseEditor(@ptrCast(self), @ptrCast(editor), @intCast(hint));
+        qtc.QHeaderView_QBaseCloseEditor(@ptrCast(self), @ptrCast(editor), @intCast(hint));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QWidget, qabstractitemdelegate_enums.EndEditHint) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void ```
     pub fn OnCloseEditor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
-        C.QHeaderView_OnCloseEditor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnCloseEditor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5919,27 +6184,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, editor: ?*C.QWidget ```
+    /// ``` self: QtC.QHeaderView, editor: QtC.QWidget ```
     pub fn CommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
-        C.QHeaderView_CommitData(@ptrCast(self), @ptrCast(editor));
+        qtc.QHeaderView_CommitData(@ptrCast(self), @ptrCast(editor));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, editor: ?*C.QWidget ```
+    /// ``` self: QtC.QHeaderView, editor: QtC.QWidget ```
     pub fn QBaseCommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
-        C.QHeaderView_QBaseCommitData(@ptrCast(self), @ptrCast(editor));
+        qtc.QHeaderView_QBaseCommitData(@ptrCast(self), @ptrCast(editor));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QWidget) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, editor: QtC.QWidget) callconv(.c) void ```
     pub fn OnCommitData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnCommitData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnCommitData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5948,27 +6217,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, editor: ?*C.QObject ```
+    /// ``` self: QtC.QHeaderView, editor: QtC.QObject ```
     pub fn EditorDestroyed(self: ?*anyopaque, editor: ?*anyopaque) void {
-        C.QHeaderView_EditorDestroyed(@ptrCast(self), @ptrCast(editor));
+        qtc.QHeaderView_EditorDestroyed(@ptrCast(self), @ptrCast(editor));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, editor: ?*C.QObject ```
+    /// ``` self: QtC.QHeaderView, editor: QtC.QObject ```
     pub fn QBaseEditorDestroyed(self: ?*anyopaque, editor: ?*anyopaque) void {
-        C.QHeaderView_QBaseEditorDestroyed(@ptrCast(self), @ptrCast(editor));
+        qtc.QHeaderView_QBaseEditorDestroyed(@ptrCast(self), @ptrCast(editor));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, editor: QtC.QObject) callconv(.c) void ```
     pub fn OnEditorDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnEditorDestroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnEditorDestroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -5977,12 +6250,12 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
-    pub fn SelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QModelIndex {
-        const _arr: C.struct_libqt_list = C.QHeaderView_SelectedIndexes(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QModelIndex, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QModelIndex = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
+    pub fn SelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
+        const _arr: qtc.struct_libqt_list = qtc.QHeaderView_SelectedIndexes(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qheaderview.SelectedIndexes: Memory allocation failed");
+        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -5990,15 +6263,17 @@ pub const qheaderview = struct {
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, allocator: std.mem.Allocator ```
-    pub fn QBaseSelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QModelIndex {
-        const _arr: C.struct_libqt_list = C.QHeaderView_QBaseSelectedIndexes(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QModelIndex, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QModelIndex = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QHeaderView, allocator: std.mem.Allocator ```
+    pub fn QBaseSelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
+        const _arr: qtc.struct_libqt_list = qtc.QHeaderView_QBaseSelectedIndexes(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qheaderview.SelectedIndexes: Memory allocation failed");
+        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -6007,11 +6282,13 @@ pub const qheaderview = struct {
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) []?*C.QModelIndex ```
-    pub fn OnSelectedIndexes(self: ?*anyopaque, slot: fn () callconv(.c) []?*C.QModelIndex) void {
-        C.QHeaderView_OnSelectedIndexes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) []QtC.QModelIndex ```
+    pub fn OnSelectedIndexes(self: ?*anyopaque, slot: fn () callconv(.c) []QtC.QModelIndex) void {
+        qtc.QHeaderView_OnSelectedIndexes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6020,27 +6297,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: ?*C.QEvent ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent ```
     pub fn Edit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i64, event: ?*anyopaque) bool {
-        return C.QHeaderView_Edit2(@ptrCast(self), @ptrCast(index), @intCast(trigger), @ptrCast(event));
+        return qtc.QHeaderView_Edit2(@ptrCast(self), @ptrCast(index), @intCast(trigger), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: ?*C.QEvent ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent ```
     pub fn QBaseEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i64, event: ?*anyopaque) bool {
-        return C.QHeaderView_QBaseEdit2(@ptrCast(self), @ptrCast(index), @intCast(trigger), @ptrCast(event));
+        return qtc.QHeaderView_QBaseEdit2(@ptrCast(self), @ptrCast(index), @intCast(trigger), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QModelIndex, qabstractitemview_enums.EditTrigger, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEdit2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64, ?*anyopaque) callconv(.c) bool) void {
-        C.QHeaderView_OnEdit2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnEdit2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6049,27 +6330,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex, event: ?*C.QEvent ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex, event: QtC.QEvent ```
     pub fn SelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i64 {
-        return C.QHeaderView_SelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
+        return qtc.QHeaderView_SelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, index: ?*C.QModelIndex, event: ?*C.QEvent ```
+    /// ``` self: QtC.QHeaderView, index: QtC.QModelIndex, event: QtC.QEvent ```
     pub fn QBaseSelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i64 {
-        return C.QHeaderView_QBaseSelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
+        return qtc.QHeaderView_QBaseSelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QModelIndex, ?*C.QEvent) callconv(.c) i64 ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, index: QtC.QModelIndex, event: QtC.QEvent) callconv(.c) i64 ```
     pub fn OnSelectionCommand(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i64) void {
-        C.QHeaderView_OnSelectionCommand(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSelectionCommand(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6078,27 +6363,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, supportedActions: i32 ```
+    /// ``` self: QtC.QHeaderView, supportedActions: i32 ```
     pub fn StartDrag(self: ?*anyopaque, supportedActions: i64) void {
-        C.QHeaderView_StartDrag(@ptrCast(self), @intCast(supportedActions));
+        qtc.QHeaderView_StartDrag(@ptrCast(self), @intCast(supportedActions));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, supportedActions: i32 ```
+    /// ``` self: QtC.QHeaderView, supportedActions: i32 ```
     pub fn QBaseStartDrag(self: ?*anyopaque, supportedActions: i64) void {
-        C.QHeaderView_QBaseStartDrag(@ptrCast(self), @intCast(supportedActions));
+        qtc.QHeaderView_QBaseStartDrag(@ptrCast(self), @intCast(supportedActions));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, supportedActions: i32) callconv(.c) void ```
     pub fn OnStartDrag(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
-        C.QHeaderView_OnStartDrag(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnStartDrag(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6107,27 +6396,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, option: ?*C.QStyleOptionViewItem ```
+    /// ``` self: QtC.QHeaderView, option: QtC.QStyleOptionViewItem ```
     pub fn InitViewItemOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        C.QHeaderView_InitViewItemOption(@ptrCast(self), @ptrCast(option));
+        qtc.QHeaderView_InitViewItemOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, option: ?*C.QStyleOptionViewItem ```
+    /// ``` self: QtC.QHeaderView, option: QtC.QStyleOptionViewItem ```
     pub fn QBaseInitViewItemOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        C.QHeaderView_QBaseInitViewItemOption(@ptrCast(self), @ptrCast(option));
+        qtc.QHeaderView_QBaseInitViewItemOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QStyleOptionViewItem) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, option: QtC.QStyleOptionViewItem) callconv(.c) void ```
     pub fn OnInitViewItemOption(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnInitViewItemOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnInitViewItemOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6136,27 +6429,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, next: bool ```
+    /// ``` self: QtC.QHeaderView, next: bool ```
     pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return C.QHeaderView_FocusNextPrevChild(@ptrCast(self), next);
+        return qtc.QHeaderView_FocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, next: bool ```
+    /// ``` self: QtC.QHeaderView, next: bool ```
     pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return C.QHeaderView_QBaseFocusNextPrevChild(@ptrCast(self), next);
+        return qtc.QHeaderView_QBaseFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, bool) callconv(.c) bool ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, next: bool) callconv(.c) bool ```
     pub fn OnFocusNextPrevChild(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        C.QHeaderView_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6165,27 +6462,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QDragEnterEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QDragEnterEvent ```
     pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QDragEnterEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QDragEnterEvent ```
     pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QDragEnterEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QDragEnterEvent) callconv(.c) void ```
     pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6194,27 +6495,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QDragMoveEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QDragMoveEvent ```
     pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QDragMoveEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QDragMoveEvent ```
     pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QDragMoveEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QDragMoveEvent) callconv(.c) void ```
     pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6223,27 +6528,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QDragLeaveEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QDragLeaveEvent ```
     pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QDragLeaveEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QDragLeaveEvent ```
     pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QDragLeaveEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QDragLeaveEvent) callconv(.c) void ```
     pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6252,27 +6561,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QDropEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QDropEvent ```
     pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_DropEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QDropEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QDropEvent ```
     pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QDropEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QDropEvent) callconv(.c) void ```
     pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6281,27 +6594,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QFocusEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QFocusEvent ```
     pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_FocusInEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QFocusEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QFocusEvent ```
     pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QFocusEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QFocusEvent) callconv(.c) void ```
     pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6310,27 +6627,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QFocusEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QFocusEvent ```
     pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QFocusEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QFocusEvent ```
     pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QFocusEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QFocusEvent) callconv(.c) void ```
     pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6339,27 +6660,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QKeyEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_KeyPressEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_KeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QKeyEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QKeyEvent ```
     pub fn QBaseKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QKeyEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QKeyEvent) callconv(.c) void ```
     pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6368,27 +6693,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QResizeEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_ResizeEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QResizeEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QResizeEvent ```
     pub fn QBaseResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QResizeEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QResizeEvent) callconv(.c) void ```
     pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6397,27 +6726,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_TimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QTimerEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QTimerEvent ```
     pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QTimerEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QTimerEvent) callconv(.c) void ```
     pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6426,27 +6759,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QInputMethodEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QInputMethodEvent ```
     pub fn InputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_InputMethodEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_InputMethodEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QInputMethodEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QInputMethodEvent ```
     pub fn QBaseInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QInputMethodEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QInputMethodEvent) callconv(.c) void ```
     pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6455,27 +6792,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, object: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QHeaderView, object: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QHeaderView_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
+        return qtc.QHeaderView_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, object: ?*C.QObject, event: ?*C.QEvent ```
+    /// ``` self: QtC.QHeaderView, object: QtC.QObject, event: QtC.QEvent ```
     pub fn QBaseEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
-        return C.QHeaderView_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
+        return qtc.QHeaderView_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QObject, ?*C.QEvent) callconv(.c) bool ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, object: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
     pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QHeaderView_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -6484,27 +6825,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn ViewportSizeHint(self: ?*anyopaque) ?*C.QSize {
-        return C.QHeaderView_ViewportSizeHint(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn ViewportSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QHeaderView_ViewportSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn QBaseViewportSizeHint(self: ?*anyopaque) ?*C.QSize {
-        return C.QHeaderView_QBaseViewportSizeHint(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn QBaseViewportSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QHeaderView_QBaseViewportSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) ?*C.QSize ```
-    pub fn OnViewportSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QSize) void {
-        C.QHeaderView_OnViewportSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) QtC.QSize ```
+    pub fn OnViewportSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
+        qtc.QHeaderView_OnViewportSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6513,27 +6858,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn MinimumSizeHint(self: ?*anyopaque) ?*C.QSize {
-        return C.QHeaderView_MinimumSizeHint(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QHeaderView_MinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) ?*C.QSize {
-        return C.QHeaderView_QBaseMinimumSizeHint(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QHeaderView_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) ?*C.QSize ```
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QSize) void {
-        C.QHeaderView_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
+        qtc.QHeaderView_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6542,27 +6891,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, viewport: ?*C.QWidget ```
+    /// ``` self: QtC.QHeaderView, viewport: QtC.QWidget ```
     pub fn SetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        C.QHeaderView_SetupViewport(@ptrCast(self), @ptrCast(viewport));
+        qtc.QHeaderView_SetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
     /// Inherited from QAbstractScrollArea
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, viewport: ?*C.QWidget ```
+    /// ``` self: QtC.QHeaderView, viewport: QtC.QWidget ```
     pub fn QBaseSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        C.QHeaderView_QBaseSetupViewport(@ptrCast(self), @ptrCast(viewport));
+        qtc.QHeaderView_QBaseSetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QWidget) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, viewport: QtC.QWidget) callconv(.c) void ```
     pub fn OnSetupViewport(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnSetupViewport(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSetupViewport(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6571,27 +6924,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QWheelEvent ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QWheelEvent ```
     pub fn WheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QHeaderView_WheelEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QHeaderView_WheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QWheelEvent ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QWheelEvent ```
     pub fn QBaseWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QHeaderView_QBaseWheelEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QHeaderView_QBaseWheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QWheelEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, param1: QtC.QWheelEvent) callconv(.c) void ```
     pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6600,27 +6957,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QContextMenuEvent ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QContextMenuEvent ```
     pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QHeaderView_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QHeaderView_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QContextMenuEvent ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QContextMenuEvent ```
     pub fn QBaseContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QHeaderView_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QHeaderView_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QContextMenuEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, param1: QtC.QContextMenuEvent) callconv(.c) void ```
     pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QFrame
@@ -6629,27 +6990,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QEvent ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QEvent ```
     pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QHeaderView_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QHeaderView_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QEvent ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QEvent ```
     pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QHeaderView_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
+        qtc.QHeaderView_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, param1: QtC.QEvent) callconv(.c) void ```
     pub fn OnChangeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -6658,27 +7023,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn DevType(self: ?*anyopaque) i32 {
-        return C.QHeaderView_DevType(@ptrCast(self));
+        return qtc.QHeaderView_DevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return C.QHeaderView_QBaseDevType(@ptrCast(self));
+        return qtc.QHeaderView_QBaseDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) i32 ```
     pub fn OnDevType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QHeaderView_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -6687,27 +7056,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, param1: i32 ```
+    /// ``` self: QtC.QHeaderView, param1: i32 ```
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return C.QHeaderView_HeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QHeaderView_HeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, param1: i32 ```
+    /// ``` self: QtC.QHeaderView, param1: i32 ```
     pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return C.QHeaderView_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QHeaderView_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32) callconv(.c) i32 ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, param1: i32) callconv(.c) i32 ```
     pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        C.QHeaderView_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -6716,27 +7089,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return C.QHeaderView_HasHeightForWidth(@ptrCast(self));
+        return qtc.QHeaderView_HasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return C.QHeaderView_QBaseHasHeightForWidth(@ptrCast(self));
+        return qtc.QHeaderView_QBaseHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) bool ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) bool ```
     pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        C.QHeaderView_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -6745,27 +7122,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn PaintEngine(self: ?*anyopaque) ?*C.QPaintEngine {
-        return C.QHeaderView_PaintEngine(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QHeaderView_PaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn QBasePaintEngine(self: ?*anyopaque) ?*C.QPaintEngine {
-        return C.QHeaderView_QBasePaintEngine(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QHeaderView_QBasePaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) ?*C.QPaintEngine ```
-    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QPaintEngine) void {
-        C.QHeaderView_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) QtC.QPaintEngine ```
+    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPaintEngine) void {
+        qtc.QHeaderView_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -6774,27 +7155,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QKeyEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QKeyEvent ```
     pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QKeyEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QKeyEvent ```
     pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QKeyEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QKeyEvent) callconv(.c) void ```
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -6803,27 +7188,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QEnterEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QEnterEvent ```
     pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_EnterEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QEnterEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QEnterEvent ```
     pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QEnterEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QEnterEvent) callconv(.c) void ```
     pub fn OnEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -6832,27 +7221,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QEvent ```
     pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_LeaveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QEvent ```
     pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QEvent) callconv(.c) void ```
     pub fn OnLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -6861,27 +7254,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QMoveEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QMoveEvent ```
     pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_MoveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QMoveEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QMoveEvent ```
     pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QMoveEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QMoveEvent) callconv(.c) void ```
     pub fn OnMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -6890,27 +7287,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QCloseEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QCloseEvent ```
     pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_CloseEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QCloseEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QCloseEvent ```
     pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QCloseEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QCloseEvent) callconv(.c) void ```
     pub fn OnCloseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -6919,27 +7320,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QTabletEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QTabletEvent ```
     pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_TabletEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QTabletEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QTabletEvent ```
     pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QTabletEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QTabletEvent) callconv(.c) void ```
     pub fn OnTabletEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -6948,27 +7353,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QActionEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QActionEvent ```
     pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_ActionEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QActionEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QActionEvent ```
     pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QActionEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QActionEvent) callconv(.c) void ```
     pub fn OnActionEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -6977,27 +7386,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QShowEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_ShowEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QShowEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QShowEvent ```
     pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QShowEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QShowEvent) callconv(.c) void ```
     pub fn OnShowEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -7006,27 +7419,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QHideEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QHideEvent ```
     pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_HideEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QHideEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QHideEvent ```
     pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QHideEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QHideEvent) callconv(.c) void ```
     pub fn OnHideEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -7035,35 +7452,39 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
+    /// ``` self: QtC.QHeaderView, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
-        const eventType_str = C.struct_libqt_string{
+        const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = @constCast(eventType.ptr),
         };
-        return C.QHeaderView_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QHeaderView_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
+    /// ``` self: QtC.QHeaderView, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
-        const eventType_str = C.struct_libqt_string{
+        const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = @constCast(eventType.ptr),
         };
-        return C.QHeaderView_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QHeaderView_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, []u8, ?*anyopaque, ?*isize) callconv(.c) bool ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, eventType: []u8, message: ?*anyopaque, result: ?*isize) callconv(.c) bool ```
     pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QHeaderView_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -7072,27 +7493,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, param1: qpaintdevice_enums.PaintDeviceMetric ```
+    /// ``` self: QtC.QHeaderView, param1: qpaintdevice_enums.PaintDeviceMetric ```
     pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
-        return C.QHeaderView_Metric(@ptrCast(self), @intCast(param1));
+        return qtc.QHeaderView_Metric(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, param1: qpaintdevice_enums.PaintDeviceMetric ```
+    /// ``` self: QtC.QHeaderView, param1: qpaintdevice_enums.PaintDeviceMetric ```
     pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
-        return C.QHeaderView_QBaseMetric(@ptrCast(self), @intCast(param1));
+        return qtc.QHeaderView_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
     pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
-        C.QHeaderView_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -7101,27 +7526,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, painter: ?*C.QPainter ```
+    /// ``` self: QtC.QHeaderView, painter: QtC.QPainter ```
     pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        C.QHeaderView_InitPainter(@ptrCast(self), @ptrCast(painter));
+        qtc.QHeaderView_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, painter: ?*C.QPainter ```
+    /// ``` self: QtC.QHeaderView, painter: QtC.QPainter ```
     pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        C.QHeaderView_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+        qtc.QHeaderView_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QPainter) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, painter: QtC.QPainter) callconv(.c) void ```
     pub fn OnInitPainter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -7130,27 +7559,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, offset: ?*C.QPoint ```
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) ?*C.QPaintDevice {
-        return C.QHeaderView_Redirected(@ptrCast(self), @ptrCast(offset));
+    /// ``` self: QtC.QHeaderView, offset: QtC.QPoint ```
+    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QHeaderView_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, offset: ?*C.QPoint ```
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) ?*C.QPaintDevice {
-        return C.QHeaderView_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    /// ``` self: QtC.QHeaderView, offset: QtC.QPoint ```
+    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QHeaderView_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QPoint) callconv(.c) ?*C.QPaintDevice ```
-    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) ?*C.QPaintDevice) void {
-        C.QHeaderView_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
+        qtc.QHeaderView_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -7159,27 +7592,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn SharedPainter(self: ?*anyopaque) ?*C.QPainter {
-        return C.QHeaderView_SharedPainter(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QHeaderView_SharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn QBaseSharedPainter(self: ?*anyopaque) ?*C.QPainter {
-        return C.QHeaderView_QBaseSharedPainter(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QHeaderView_QBaseSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) ?*C.QPainter ```
-    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QPainter) void {
-        C.QHeaderView_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) QtC.QPainter ```
+    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
+        qtc.QHeaderView_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -7188,27 +7625,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QChildEvent ```
     pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_ChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QChildEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QChildEvent ```
     pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QChildEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QChildEvent) callconv(.c) void ```
     pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -7217,27 +7658,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QEvent ```
     pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_CustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, event: ?*C.QEvent ```
+    /// ``` self: QtC.QHeaderView, event: QtC.QEvent ```
     pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        C.QHeaderView_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+        qtc.QHeaderView_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QEvent) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, event: QtC.QEvent) callconv(.c) void ```
     pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -7246,27 +7691,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QHeaderView, signal: QtC.QMetaMethod ```
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QHeaderView_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QHeaderView_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QHeaderView, signal: QtC.QMetaMethod ```
     pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QHeaderView_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QHeaderView_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -7275,27 +7724,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QHeaderView, signal: QtC.QMetaMethod ```
     pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QHeaderView_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QHeaderView_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QHeaderView, signal: QtC.QMetaMethod ```
     pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        C.QHeaderView_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+        qtc.QHeaderView_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QMetaMethod) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -7304,27 +7757,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn State(self: ?*anyopaque) i64 {
-        return C.QHeaderView_State(@ptrCast(self));
+        return qtc.QHeaderView_State(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseState(self: ?*anyopaque) i64 {
-        return C.QHeaderView_QBaseState(@ptrCast(self));
+        return qtc.QHeaderView_QBaseState(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) i64 ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) i64 ```
     pub fn OnState(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        C.QHeaderView_OnState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -7333,27 +7790,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, state: qabstractitemview_enums.State ```
+    /// ``` self: QtC.QHeaderView, state: qabstractitemview_enums.State ```
     pub fn SetState(self: ?*anyopaque, state: i64) void {
-        C.QHeaderView_SetState(@ptrCast(self), @intCast(state));
+        qtc.QHeaderView_SetState(@ptrCast(self), @intCast(state));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, state: qabstractitemview_enums.State ```
+    /// ``` self: QtC.QHeaderView, state: qabstractitemview_enums.State ```
     pub fn QBaseSetState(self: ?*anyopaque, state: i64) void {
-        C.QHeaderView_QBaseSetState(@ptrCast(self), @intCast(state));
+        qtc.QHeaderView_QBaseSetState(@ptrCast(self), @intCast(state));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, qabstractitemview_enums.State) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, state: qabstractitemview_enums.State) callconv(.c) void ```
     pub fn OnSetState(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
-        C.QHeaderView_OnSetState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSetState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -7362,27 +7823,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ScheduleDelayedItemsLayout(self: ?*anyopaque) void {
-        C.QHeaderView_ScheduleDelayedItemsLayout(@ptrCast(self));
+        qtc.QHeaderView_ScheduleDelayedItemsLayout(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseScheduleDelayedItemsLayout(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseScheduleDelayedItemsLayout(@ptrCast(self));
+        qtc.QHeaderView_QBaseScheduleDelayedItemsLayout(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
     pub fn OnScheduleDelayedItemsLayout(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnScheduleDelayedItemsLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnScheduleDelayedItemsLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -7391,27 +7856,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn ExecuteDelayedItemsLayout(self: ?*anyopaque) void {
-        C.QHeaderView_ExecuteDelayedItemsLayout(@ptrCast(self));
+        qtc.QHeaderView_ExecuteDelayedItemsLayout(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseExecuteDelayedItemsLayout(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseExecuteDelayedItemsLayout(@ptrCast(self));
+        qtc.QHeaderView_QBaseExecuteDelayedItemsLayout(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
     pub fn OnExecuteDelayedItemsLayout(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnExecuteDelayedItemsLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnExecuteDelayedItemsLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -7420,27 +7889,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, region: ?*C.QRegion ```
+    /// ``` self: QtC.QHeaderView, region: QtC.QRegion ```
     pub fn SetDirtyRegion(self: ?*anyopaque, region: ?*anyopaque) void {
-        C.QHeaderView_SetDirtyRegion(@ptrCast(self), @ptrCast(region));
+        qtc.QHeaderView_SetDirtyRegion(@ptrCast(self), @ptrCast(region));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, region: ?*C.QRegion ```
+    /// ``` self: QtC.QHeaderView, region: QtC.QRegion ```
     pub fn QBaseSetDirtyRegion(self: ?*anyopaque, region: ?*anyopaque) void {
-        C.QHeaderView_QBaseSetDirtyRegion(@ptrCast(self), @ptrCast(region));
+        qtc.QHeaderView_QBaseSetDirtyRegion(@ptrCast(self), @ptrCast(region));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QRegion) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, region: QtC.QRegion) callconv(.c) void ```
     pub fn OnSetDirtyRegion(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnSetDirtyRegion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSetDirtyRegion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -7449,27 +7922,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, dx: i32, dy: i32 ```
+    /// ``` self: QtC.QHeaderView, dx: i32, dy: i32 ```
     pub fn ScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        C.QHeaderView_ScrollDirtyRegion(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QHeaderView_ScrollDirtyRegion(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, dx: i32, dy: i32 ```
+    /// ``` self: QtC.QHeaderView, dx: i32, dy: i32 ```
     pub fn QBaseScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        C.QHeaderView_QBaseScrollDirtyRegion(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QHeaderView_QBaseScrollDirtyRegion(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32, i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, dx: i32, dy: i32) callconv(.c) void ```
     pub fn OnScrollDirtyRegion(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        C.QHeaderView_OnScrollDirtyRegion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnScrollDirtyRegion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -7478,27 +7955,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn DirtyRegionOffset(self: ?*anyopaque) ?*C.QPoint {
-        return C.QHeaderView_DirtyRegionOffset(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn DirtyRegionOffset(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QHeaderView_DirtyRegionOffset(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn QBaseDirtyRegionOffset(self: ?*anyopaque) ?*C.QPoint {
-        return C.QHeaderView_QBaseDirtyRegionOffset(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn QBaseDirtyRegionOffset(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QHeaderView_QBaseDirtyRegionOffset(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) ?*C.QPoint ```
-    pub fn OnDirtyRegionOffset(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QPoint) void {
-        C.QHeaderView_OnDirtyRegionOffset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) QtC.QPoint ```
+    pub fn OnDirtyRegionOffset(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPoint) void {
+        qtc.QHeaderView_OnDirtyRegionOffset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -7507,27 +7988,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn StartAutoScroll(self: ?*anyopaque) void {
-        C.QHeaderView_StartAutoScroll(@ptrCast(self));
+        qtc.QHeaderView_StartAutoScroll(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseStartAutoScroll(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseStartAutoScroll(@ptrCast(self));
+        qtc.QHeaderView_QBaseStartAutoScroll(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
     pub fn OnStartAutoScroll(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnStartAutoScroll(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnStartAutoScroll(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -7536,27 +8021,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn StopAutoScroll(self: ?*anyopaque) void {
-        C.QHeaderView_StopAutoScroll(@ptrCast(self));
+        qtc.QHeaderView_StopAutoScroll(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseStopAutoScroll(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseStopAutoScroll(@ptrCast(self));
+        qtc.QHeaderView_QBaseStopAutoScroll(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
     pub fn OnStopAutoScroll(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnStopAutoScroll(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnStopAutoScroll(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -7565,27 +8054,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn DoAutoScroll(self: ?*anyopaque) void {
-        C.QHeaderView_DoAutoScroll(@ptrCast(self));
+        qtc.QHeaderView_DoAutoScroll(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseDoAutoScroll(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseDoAutoScroll(@ptrCast(self));
+        qtc.QHeaderView_QBaseDoAutoScroll(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
     pub fn OnDoAutoScroll(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnDoAutoScroll(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnDoAutoScroll(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -7594,27 +8087,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn DropIndicatorPosition(self: ?*anyopaque) i64 {
-        return C.QHeaderView_DropIndicatorPosition(@ptrCast(self));
+        return qtc.QHeaderView_DropIndicatorPosition(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseDropIndicatorPosition(self: ?*anyopaque) i64 {
-        return C.QHeaderView_QBaseDropIndicatorPosition(@ptrCast(self));
+        return qtc.QHeaderView_QBaseDropIndicatorPosition(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) i64 ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) i64 ```
     pub fn OnDropIndicatorPosition(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        C.QHeaderView_OnDropIndicatorPosition(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnDropIndicatorPosition(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -7623,27 +8120,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, left: i32, top: i32, right: i32, bottom: i32 ```
+    /// ``` self: QtC.QHeaderView, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        C.QHeaderView_SetViewportMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QHeaderView_SetViewportMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, left: i32, top: i32, right: i32, bottom: i32 ```
+    /// ``` self: QtC.QHeaderView, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn QBaseSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        C.QHeaderView_QBaseSetViewportMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QHeaderView_QBaseSetViewportMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, i32, i32, i32, i32) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void ```
     pub fn OnSetViewportMargins(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
-        C.QHeaderView_OnSetViewportMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSetViewportMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -7652,27 +8153,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn ViewportMargins(self: ?*anyopaque) ?*C.QMargins {
-        return C.QHeaderView_ViewportMargins(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn ViewportMargins(self: ?*anyopaque) QtC.QMargins {
+        return qtc.QHeaderView_ViewportMargins(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn QBaseViewportMargins(self: ?*anyopaque) ?*C.QMargins {
-        return C.QHeaderView_QBaseViewportMargins(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn QBaseViewportMargins(self: ?*anyopaque) QtC.QMargins {
+        return qtc.QHeaderView_QBaseViewportMargins(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) ?*C.QMargins ```
-    pub fn OnViewportMargins(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QMargins) void {
-        C.QHeaderView_OnViewportMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) QtC.QMargins ```
+    pub fn OnViewportMargins(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QMargins) void {
+        qtc.QHeaderView_OnViewportMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QFrame
@@ -7681,27 +8186,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QPainter ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QPainter ```
     pub fn DrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QHeaderView_DrawFrame(@ptrCast(self), @ptrCast(param1));
+        qtc.QHeaderView_DrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, param1: ?*C.QPainter ```
+    /// ``` self: QtC.QHeaderView, param1: QtC.QPainter ```
     pub fn QBaseDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        C.QHeaderView_QBaseDrawFrame(@ptrCast(self), @ptrCast(param1));
+        qtc.QHeaderView_QBaseDrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QPainter) callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, param1: QtC.QPainter) callconv(.c) void ```
     pub fn OnDrawFrame(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        C.QHeaderView_OnDrawFrame(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnDrawFrame(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -7710,27 +8219,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        C.QHeaderView_UpdateMicroFocus(@ptrCast(self));
+        qtc.QHeaderView_UpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseUpdateMicroFocus(@ptrCast(self));
+        qtc.QHeaderView_QBaseUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -7739,27 +8252,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Create(self: ?*anyopaque) void {
-        C.QHeaderView_Create(@ptrCast(self));
+        qtc.QHeaderView_Create(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseCreate(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseCreate(@ptrCast(self));
+        qtc.QHeaderView_QBaseCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
     pub fn OnCreate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -7768,27 +8285,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn Destroy(self: ?*anyopaque) void {
-        C.QHeaderView_Destroy(@ptrCast(self));
+        qtc.QHeaderView_Destroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseDestroy(self: ?*anyopaque) void {
-        C.QHeaderView_QBaseDestroy(@ptrCast(self));
+        qtc.QHeaderView_QBaseDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) void ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) void ```
     pub fn OnDestroy(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        C.QHeaderView_OnDestroy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnDestroy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -7797,27 +8318,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return C.QHeaderView_FocusNextChild(@ptrCast(self));
+        return qtc.QHeaderView_FocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return C.QHeaderView_QBaseFocusNextChild(@ptrCast(self));
+        return qtc.QHeaderView_QBaseFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) bool ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) bool ```
     pub fn OnFocusNextChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        C.QHeaderView_OnFocusNextChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnFocusNextChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWidget
@@ -7826,27 +8351,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return C.QHeaderView_FocusPreviousChild(@ptrCast(self));
+        return qtc.QHeaderView_FocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return C.QHeaderView_QBaseFocusPreviousChild(@ptrCast(self));
+        return qtc.QHeaderView_QBaseFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) bool ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) bool ```
     pub fn OnFocusPreviousChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        C.QHeaderView_OnFocusPreviousChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnFocusPreviousChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -7855,27 +8384,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn Sender(self: ?*anyopaque) ?*C.QObject {
-        return C.QHeaderView_Sender(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn Sender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QHeaderView_Sender(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
-    pub fn QBaseSender(self: ?*anyopaque) ?*C.QObject {
-        return C.QHeaderView_QBaseSender(@ptrCast(self));
+    /// ``` self: QtC.QHeaderView ```
+    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QHeaderView_QBaseSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) ?*C.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) ?*C.QObject) void {
-        C.QHeaderView_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
+        qtc.QHeaderView_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -7884,27 +8417,31 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QHeaderView_SenderSignalIndex(@ptrCast(self));
+        return qtc.QHeaderView_SenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return C.QHeaderView_QBaseSenderSignalIndex(@ptrCast(self));
+        return qtc.QHeaderView_QBaseSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn () callconv(.c) i32 ```
+    /// ``` self: QtC.QHeaderView, slot: fn () callconv(.c) i32 ```
     pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        C.QHeaderView_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -7913,29 +8450,33 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, signal: []const u8 ```
+    /// ``` self: QtC.QHeaderView, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QHeaderView_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QHeaderView_Receivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, signal: []const u8 ```
+    /// ``` self: QtC.QHeaderView, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
         const signal_Cstring = @constCast(signal.ptr);
-        return C.QHeaderView_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QHeaderView_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, []const u8) callconv(.c) i32 ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, signal: []const u8) callconv(.c) i32 ```
     pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
-        C.QHeaderView_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -7944,34 +8485,51 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QHeaderView, signal: QtC.QMetaMethod ```
     pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QHeaderView_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QHeaderView_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, signal: ?*C.QMetaMethod ```
+    /// ``` self: QtC.QHeaderView, signal: QtC.QMetaMethod ```
     pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return C.QHeaderView_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+        return qtc.QHeaderView_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: ?*C.QHeaderView, slot: fn (?*C.QHeaderView, ?*C.QMetaMethod) callconv(.c) bool ```
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        C.QHeaderView_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+        qtc.QHeaderView_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    ///
+    /// Wrapper to allow calling private signal
+    ///
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qheaderview.html#dtor.QHeaderView)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QHeaderView ```
+    /// ``` self: QtC.QHeaderView ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QHeaderView_Delete(@ptrCast(self));
+        qtc.QHeaderView_Delete(@ptrCast(self));
     }
 };
 

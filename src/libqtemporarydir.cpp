@@ -10,7 +10,7 @@ QTemporaryDir* QTemporaryDir_new() {
     return new QTemporaryDir();
 }
 
-QTemporaryDir* QTemporaryDir_new2(libqt_string templateName) {
+QTemporaryDir* QTemporaryDir_new2(const libqt_string templateName) {
     QString templateName_QString = QString::fromUtf8(templateName.data, templateName.len);
     return new QTemporaryDir(templateName_QString);
 }
@@ -59,7 +59,7 @@ libqt_string QTemporaryDir_Path(const QTemporaryDir* self) {
     return _str;
 }
 
-libqt_string QTemporaryDir_FilePath(const QTemporaryDir* self, libqt_string fileName) {
+libqt_string QTemporaryDir_FilePath(const QTemporaryDir* self, const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     QString _ret = self->filePath(fileName_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

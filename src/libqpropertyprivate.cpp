@@ -4,7 +4,7 @@
 #include "libqpropertyprivate.h"
 #include "libqpropertyprivate.hxx"
 
-QUntypedPropertyData* QUntypedPropertyData_new(QUntypedPropertyData* other) {
+QUntypedPropertyData* QUntypedPropertyData_new(const QUntypedPropertyData* other) {
     return new QUntypedPropertyData(*other);
 }
 

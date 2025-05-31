@@ -4,11 +4,11 @@
 #include "libqwebenginefilesystemaccessrequest.h"
 #include "libqwebenginefilesystemaccessrequest.hxx"
 
-QWebEngineFileSystemAccessRequest* QWebEngineFileSystemAccessRequest_new(QWebEngineFileSystemAccessRequest* other) {
+QWebEngineFileSystemAccessRequest* QWebEngineFileSystemAccessRequest_new(const QWebEngineFileSystemAccessRequest* other) {
     return new QWebEngineFileSystemAccessRequest(*other);
 }
 
-void QWebEngineFileSystemAccessRequest_OperatorAssign(QWebEngineFileSystemAccessRequest* self, QWebEngineFileSystemAccessRequest* other) {
+void QWebEngineFileSystemAccessRequest_OperatorAssign(QWebEngineFileSystemAccessRequest* self, const QWebEngineFileSystemAccessRequest* other) {
     self->operator=(*other);
 }
 

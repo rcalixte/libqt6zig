@@ -15,24 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QBrush QBrush;
 typedef struct QCandlestickSet QCandlestickSet;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QPen QPen;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QCandlestickSet* QCandlestickSet_new();
@@ -57,9 +49,9 @@ void QCandlestickSet_SetLow(QCandlestickSet* self, double low);
 double QCandlestickSet_Low(const QCandlestickSet* self);
 void QCandlestickSet_SetClose(QCandlestickSet* self, double close);
 double QCandlestickSet_Close(const QCandlestickSet* self);
-void QCandlestickSet_SetBrush(QCandlestickSet* self, QBrush* brush);
+void QCandlestickSet_SetBrush(QCandlestickSet* self, const QBrush* brush);
 QBrush* QCandlestickSet_Brush(const QCandlestickSet* self);
-void QCandlestickSet_SetPen(QCandlestickSet* self, QPen* pen);
+void QCandlestickSet_SetPen(QCandlestickSet* self, const QPen* pen);
 QPen* QCandlestickSet_Pen(const QCandlestickSet* self);
 void QCandlestickSet_Clicked(QCandlestickSet* self);
 void QCandlestickSet_Connect_Clicked(QCandlestickSet* self, intptr_t slot);
@@ -102,12 +94,12 @@ void QCandlestickSet_QBaseChildEvent(QCandlestickSet* self, QChildEvent* event);
 void QCandlestickSet_CustomEvent(QCandlestickSet* self, QEvent* event);
 void QCandlestickSet_OnCustomEvent(QCandlestickSet* self, intptr_t slot);
 void QCandlestickSet_QBaseCustomEvent(QCandlestickSet* self, QEvent* event);
-void QCandlestickSet_ConnectNotify(QCandlestickSet* self, QMetaMethod* signal);
+void QCandlestickSet_ConnectNotify(QCandlestickSet* self, const QMetaMethod* signal);
 void QCandlestickSet_OnConnectNotify(QCandlestickSet* self, intptr_t slot);
-void QCandlestickSet_QBaseConnectNotify(QCandlestickSet* self, QMetaMethod* signal);
-void QCandlestickSet_DisconnectNotify(QCandlestickSet* self, QMetaMethod* signal);
+void QCandlestickSet_QBaseConnectNotify(QCandlestickSet* self, const QMetaMethod* signal);
+void QCandlestickSet_DisconnectNotify(QCandlestickSet* self, const QMetaMethod* signal);
 void QCandlestickSet_OnDisconnectNotify(QCandlestickSet* self, intptr_t slot);
-void QCandlestickSet_QBaseDisconnectNotify(QCandlestickSet* self, QMetaMethod* signal);
+void QCandlestickSet_QBaseDisconnectNotify(QCandlestickSet* self, const QMetaMethod* signal);
 QObject* QCandlestickSet_Sender(const QCandlestickSet* self);
 void QCandlestickSet_OnSender(const QCandlestickSet* self, intptr_t slot);
 QObject* QCandlestickSet_QBaseSender(const QCandlestickSet* self);
@@ -117,9 +109,9 @@ int QCandlestickSet_QBaseSenderSignalIndex(const QCandlestickSet* self);
 int QCandlestickSet_Receivers(const QCandlestickSet* self, const char* signal);
 void QCandlestickSet_OnReceivers(const QCandlestickSet* self, intptr_t slot);
 int QCandlestickSet_QBaseReceivers(const QCandlestickSet* self, const char* signal);
-bool QCandlestickSet_IsSignalConnected(const QCandlestickSet* self, QMetaMethod* signal);
+bool QCandlestickSet_IsSignalConnected(const QCandlestickSet* self, const QMetaMethod* signal);
 void QCandlestickSet_OnIsSignalConnected(const QCandlestickSet* self, intptr_t slot);
-bool QCandlestickSet_QBaseIsSignalConnected(const QCandlestickSet* self, QMetaMethod* signal);
+bool QCandlestickSet_QBaseIsSignalConnected(const QCandlestickSet* self, const QMetaMethod* signal);
 void QCandlestickSet_Delete(QCandlestickSet* self);
 
 #ifdef __cplusplus

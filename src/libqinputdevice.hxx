@@ -11,22 +11,25 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QInputDevice so that we can call protected methods
-class VirtualQInputDevice : public QInputDevice {
+class VirtualQInputDevice final : public QInputDevice {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQInputDevice = true;
+
     // Virtual class public types (including callbacks)
-    using QInputDevice_Metacall_Callback = int (*)(QInputDevice*, QMetaObject::Call, int, void**);
+    using QInputDevice_Metacall_Callback = int (*)(QInputDevice*, int, int, void**);
     using QInputDevice_Event_Callback = bool (*)(QInputDevice*, QEvent*);
     using QInputDevice_EventFilter_Callback = bool (*)(QInputDevice*, QObject*, QEvent*);
     using QInputDevice_TimerEvent_Callback = void (*)(QInputDevice*, QTimerEvent*);
     using QInputDevice_ChildEvent_Callback = void (*)(QInputDevice*, QChildEvent*);
     using QInputDevice_CustomEvent_Callback = void (*)(QInputDevice*, QEvent*);
-    using QInputDevice_ConnectNotify_Callback = void (*)(QInputDevice*, const QMetaMethod&);
-    using QInputDevice_DisconnectNotify_Callback = void (*)(QInputDevice*, const QMetaMethod&);
+    using QInputDevice_ConnectNotify_Callback = void (*)(QInputDevice*, QMetaMethod*);
+    using QInputDevice_DisconnectNotify_Callback = void (*)(QInputDevice*, QMetaMethod*);
     using QInputDevice_Sender_Callback = QObject* (*)();
     using QInputDevice_SenderSignalIndex_Callback = int (*)();
     using QInputDevice_Receivers_Callback = int (*)(const QInputDevice*, const char*);
-    using QInputDevice_IsSignalConnected_Callback = bool (*)(const QInputDevice*, const QMetaMethod&);
+    using QInputDevice_IsSignalConnected_Callback = bool (*)(const QInputDevice*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -80,32 +83,32 @@ class VirtualQInputDevice : public QInputDevice {
     }
 
     // Callback setters
-    void setQInputDevice_Metacall_Callback(QInputDevice_Metacall_Callback cb) { qinputdevice_metacall_callback = cb; }
-    void setQInputDevice_Event_Callback(QInputDevice_Event_Callback cb) { qinputdevice_event_callback = cb; }
-    void setQInputDevice_EventFilter_Callback(QInputDevice_EventFilter_Callback cb) { qinputdevice_eventfilter_callback = cb; }
-    void setQInputDevice_TimerEvent_Callback(QInputDevice_TimerEvent_Callback cb) { qinputdevice_timerevent_callback = cb; }
-    void setQInputDevice_ChildEvent_Callback(QInputDevice_ChildEvent_Callback cb) { qinputdevice_childevent_callback = cb; }
-    void setQInputDevice_CustomEvent_Callback(QInputDevice_CustomEvent_Callback cb) { qinputdevice_customevent_callback = cb; }
-    void setQInputDevice_ConnectNotify_Callback(QInputDevice_ConnectNotify_Callback cb) { qinputdevice_connectnotify_callback = cb; }
-    void setQInputDevice_DisconnectNotify_Callback(QInputDevice_DisconnectNotify_Callback cb) { qinputdevice_disconnectnotify_callback = cb; }
-    void setQInputDevice_Sender_Callback(QInputDevice_Sender_Callback cb) { qinputdevice_sender_callback = cb; }
-    void setQInputDevice_SenderSignalIndex_Callback(QInputDevice_SenderSignalIndex_Callback cb) { qinputdevice_sendersignalindex_callback = cb; }
-    void setQInputDevice_Receivers_Callback(QInputDevice_Receivers_Callback cb) { qinputdevice_receivers_callback = cb; }
-    void setQInputDevice_IsSignalConnected_Callback(QInputDevice_IsSignalConnected_Callback cb) { qinputdevice_issignalconnected_callback = cb; }
+    inline void setQInputDevice_Metacall_Callback(QInputDevice_Metacall_Callback cb) { qinputdevice_metacall_callback = cb; }
+    inline void setQInputDevice_Event_Callback(QInputDevice_Event_Callback cb) { qinputdevice_event_callback = cb; }
+    inline void setQInputDevice_EventFilter_Callback(QInputDevice_EventFilter_Callback cb) { qinputdevice_eventfilter_callback = cb; }
+    inline void setQInputDevice_TimerEvent_Callback(QInputDevice_TimerEvent_Callback cb) { qinputdevice_timerevent_callback = cb; }
+    inline void setQInputDevice_ChildEvent_Callback(QInputDevice_ChildEvent_Callback cb) { qinputdevice_childevent_callback = cb; }
+    inline void setQInputDevice_CustomEvent_Callback(QInputDevice_CustomEvent_Callback cb) { qinputdevice_customevent_callback = cb; }
+    inline void setQInputDevice_ConnectNotify_Callback(QInputDevice_ConnectNotify_Callback cb) { qinputdevice_connectnotify_callback = cb; }
+    inline void setQInputDevice_DisconnectNotify_Callback(QInputDevice_DisconnectNotify_Callback cb) { qinputdevice_disconnectnotify_callback = cb; }
+    inline void setQInputDevice_Sender_Callback(QInputDevice_Sender_Callback cb) { qinputdevice_sender_callback = cb; }
+    inline void setQInputDevice_SenderSignalIndex_Callback(QInputDevice_SenderSignalIndex_Callback cb) { qinputdevice_sendersignalindex_callback = cb; }
+    inline void setQInputDevice_Receivers_Callback(QInputDevice_Receivers_Callback cb) { qinputdevice_receivers_callback = cb; }
+    inline void setQInputDevice_IsSignalConnected_Callback(QInputDevice_IsSignalConnected_Callback cb) { qinputdevice_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQInputDevice_Metacall_IsBase(bool value) const { qinputdevice_metacall_isbase = value; }
-    void setQInputDevice_Event_IsBase(bool value) const { qinputdevice_event_isbase = value; }
-    void setQInputDevice_EventFilter_IsBase(bool value) const { qinputdevice_eventfilter_isbase = value; }
-    void setQInputDevice_TimerEvent_IsBase(bool value) const { qinputdevice_timerevent_isbase = value; }
-    void setQInputDevice_ChildEvent_IsBase(bool value) const { qinputdevice_childevent_isbase = value; }
-    void setQInputDevice_CustomEvent_IsBase(bool value) const { qinputdevice_customevent_isbase = value; }
-    void setQInputDevice_ConnectNotify_IsBase(bool value) const { qinputdevice_connectnotify_isbase = value; }
-    void setQInputDevice_DisconnectNotify_IsBase(bool value) const { qinputdevice_disconnectnotify_isbase = value; }
-    void setQInputDevice_Sender_IsBase(bool value) const { qinputdevice_sender_isbase = value; }
-    void setQInputDevice_SenderSignalIndex_IsBase(bool value) const { qinputdevice_sendersignalindex_isbase = value; }
-    void setQInputDevice_Receivers_IsBase(bool value) const { qinputdevice_receivers_isbase = value; }
-    void setQInputDevice_IsSignalConnected_IsBase(bool value) const { qinputdevice_issignalconnected_isbase = value; }
+    inline void setQInputDevice_Metacall_IsBase(bool value) const { qinputdevice_metacall_isbase = value; }
+    inline void setQInputDevice_Event_IsBase(bool value) const { qinputdevice_event_isbase = value; }
+    inline void setQInputDevice_EventFilter_IsBase(bool value) const { qinputdevice_eventfilter_isbase = value; }
+    inline void setQInputDevice_TimerEvent_IsBase(bool value) const { qinputdevice_timerevent_isbase = value; }
+    inline void setQInputDevice_ChildEvent_IsBase(bool value) const { qinputdevice_childevent_isbase = value; }
+    inline void setQInputDevice_CustomEvent_IsBase(bool value) const { qinputdevice_customevent_isbase = value; }
+    inline void setQInputDevice_ConnectNotify_IsBase(bool value) const { qinputdevice_connectnotify_isbase = value; }
+    inline void setQInputDevice_DisconnectNotify_IsBase(bool value) const { qinputdevice_disconnectnotify_isbase = value; }
+    inline void setQInputDevice_Sender_IsBase(bool value) const { qinputdevice_sender_isbase = value; }
+    inline void setQInputDevice_SenderSignalIndex_IsBase(bool value) const { qinputdevice_sendersignalindex_isbase = value; }
+    inline void setQInputDevice_Receivers_IsBase(bool value) const { qinputdevice_receivers_isbase = value; }
+    inline void setQInputDevice_IsSignalConnected_IsBase(bool value) const { qinputdevice_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -113,7 +116,12 @@ class VirtualQInputDevice : public QInputDevice {
             qinputdevice_metacall_isbase = false;
             return QInputDevice::qt_metacall(param1, param2, param3);
         } else if (qinputdevice_metacall_callback != nullptr) {
-            return qinputdevice_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qinputdevice_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QInputDevice::qt_metacall(param1, param2, param3);
         }
@@ -125,7 +133,10 @@ class VirtualQInputDevice : public QInputDevice {
             qinputdevice_event_isbase = false;
             return QInputDevice::event(event);
         } else if (qinputdevice_event_callback != nullptr) {
-            return qinputdevice_event_callback(this, event);
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qinputdevice_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QInputDevice::event(event);
         }
@@ -137,7 +148,11 @@ class VirtualQInputDevice : public QInputDevice {
             qinputdevice_eventfilter_isbase = false;
             return QInputDevice::eventFilter(watched, event);
         } else if (qinputdevice_eventfilter_callback != nullptr) {
-            return qinputdevice_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qinputdevice_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QInputDevice::eventFilter(watched, event);
         }
@@ -149,7 +164,9 @@ class VirtualQInputDevice : public QInputDevice {
             qinputdevice_timerevent_isbase = false;
             QInputDevice::timerEvent(event);
         } else if (qinputdevice_timerevent_callback != nullptr) {
-            qinputdevice_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qinputdevice_timerevent_callback(this, cbval1);
         } else {
             QInputDevice::timerEvent(event);
         }
@@ -161,7 +178,9 @@ class VirtualQInputDevice : public QInputDevice {
             qinputdevice_childevent_isbase = false;
             QInputDevice::childEvent(event);
         } else if (qinputdevice_childevent_callback != nullptr) {
-            qinputdevice_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qinputdevice_childevent_callback(this, cbval1);
         } else {
             QInputDevice::childEvent(event);
         }
@@ -173,7 +192,9 @@ class VirtualQInputDevice : public QInputDevice {
             qinputdevice_customevent_isbase = false;
             QInputDevice::customEvent(event);
         } else if (qinputdevice_customevent_callback != nullptr) {
-            qinputdevice_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qinputdevice_customevent_callback(this, cbval1);
         } else {
             QInputDevice::customEvent(event);
         }
@@ -185,7 +206,11 @@ class VirtualQInputDevice : public QInputDevice {
             qinputdevice_connectnotify_isbase = false;
             QInputDevice::connectNotify(signal);
         } else if (qinputdevice_connectnotify_callback != nullptr) {
-            qinputdevice_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qinputdevice_connectnotify_callback(this, cbval1);
         } else {
             QInputDevice::connectNotify(signal);
         }
@@ -197,7 +222,11 @@ class VirtualQInputDevice : public QInputDevice {
             qinputdevice_disconnectnotify_isbase = false;
             QInputDevice::disconnectNotify(signal);
         } else if (qinputdevice_disconnectnotify_callback != nullptr) {
-            qinputdevice_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qinputdevice_disconnectnotify_callback(this, cbval1);
         } else {
             QInputDevice::disconnectNotify(signal);
         }
@@ -209,7 +238,8 @@ class VirtualQInputDevice : public QInputDevice {
             qinputdevice_sender_isbase = false;
             return QInputDevice::sender();
         } else if (qinputdevice_sender_callback != nullptr) {
-            return qinputdevice_sender_callback();
+            QObject* callback_ret = qinputdevice_sender_callback();
+            return callback_ret;
         } else {
             return QInputDevice::sender();
         }
@@ -221,7 +251,8 @@ class VirtualQInputDevice : public QInputDevice {
             qinputdevice_sendersignalindex_isbase = false;
             return QInputDevice::senderSignalIndex();
         } else if (qinputdevice_sendersignalindex_callback != nullptr) {
-            return qinputdevice_sendersignalindex_callback();
+            int callback_ret = qinputdevice_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QInputDevice::senderSignalIndex();
         }
@@ -233,7 +264,10 @@ class VirtualQInputDevice : public QInputDevice {
             qinputdevice_receivers_isbase = false;
             return QInputDevice::receivers(signal);
         } else if (qinputdevice_receivers_callback != nullptr) {
-            return qinputdevice_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qinputdevice_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QInputDevice::receivers(signal);
         }
@@ -245,11 +279,36 @@ class VirtualQInputDevice : public QInputDevice {
             qinputdevice_issignalconnected_isbase = false;
             return QInputDevice::isSignalConnected(signal);
         } else if (qinputdevice_issignalconnected_callback != nullptr) {
-            return qinputdevice_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qinputdevice_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QInputDevice::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend void QInputDevice_TimerEvent(QInputDevice* self, QTimerEvent* event);
+    friend void QInputDevice_QBaseTimerEvent(QInputDevice* self, QTimerEvent* event);
+    friend void QInputDevice_ChildEvent(QInputDevice* self, QChildEvent* event);
+    friend void QInputDevice_QBaseChildEvent(QInputDevice* self, QChildEvent* event);
+    friend void QInputDevice_CustomEvent(QInputDevice* self, QEvent* event);
+    friend void QInputDevice_QBaseCustomEvent(QInputDevice* self, QEvent* event);
+    friend void QInputDevice_ConnectNotify(QInputDevice* self, const QMetaMethod* signal);
+    friend void QInputDevice_QBaseConnectNotify(QInputDevice* self, const QMetaMethod* signal);
+    friend void QInputDevice_DisconnectNotify(QInputDevice* self, const QMetaMethod* signal);
+    friend void QInputDevice_QBaseDisconnectNotify(QInputDevice* self, const QMetaMethod* signal);
+    friend QObject* QInputDevice_Sender(const QInputDevice* self);
+    friend QObject* QInputDevice_QBaseSender(const QInputDevice* self);
+    friend int QInputDevice_SenderSignalIndex(const QInputDevice* self);
+    friend int QInputDevice_QBaseSenderSignalIndex(const QInputDevice* self);
+    friend int QInputDevice_Receivers(const QInputDevice* self, const char* signal);
+    friend int QInputDevice_QBaseReceivers(const QInputDevice* self, const char* signal);
+    friend bool QInputDevice_IsSignalConnected(const QInputDevice* self, const QMetaMethod* signal);
+    friend bool QInputDevice_QBaseIsSignalConnected(const QInputDevice* self, const QMetaMethod* signal);
 };
 
 #endif

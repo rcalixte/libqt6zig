@@ -29,20 +29,20 @@ typedef int TextCase; // C ABI enum
 #endif
 
 QsciStyle* QsciStyle_new();
-QsciStyle* QsciStyle_new2(int style, libqt_string description, QColor* color, QColor* paper, QFont* font);
-QsciStyle* QsciStyle_new3(QsciStyle* param1);
+QsciStyle* QsciStyle_new2(int style, const libqt_string description, const QColor* color, const QColor* paper, const QFont* font);
+QsciStyle* QsciStyle_new3(const QsciStyle* param1);
 QsciStyle* QsciStyle_new4(int style);
-QsciStyle* QsciStyle_new5(int style, libqt_string description, QColor* color, QColor* paper, QFont* font, bool eolFill);
+QsciStyle* QsciStyle_new5(int style, const libqt_string description, const QColor* color, const QColor* paper, const QFont* font, bool eolFill);
 void QsciStyle_Apply(const QsciStyle* self, QsciScintillaBase* sci);
 void QsciStyle_SetStyle(QsciStyle* self, int style);
 int QsciStyle_Style(const QsciStyle* self);
-void QsciStyle_SetDescription(QsciStyle* self, libqt_string description);
+void QsciStyle_SetDescription(QsciStyle* self, const libqt_string description);
 libqt_string QsciStyle_Description(const QsciStyle* self);
-void QsciStyle_SetColor(QsciStyle* self, QColor* color);
+void QsciStyle_SetColor(QsciStyle* self, const QColor* color);
 QColor* QsciStyle_Color(const QsciStyle* self);
-void QsciStyle_SetPaper(QsciStyle* self, QColor* paper);
+void QsciStyle_SetPaper(QsciStyle* self, const QColor* paper);
 QColor* QsciStyle_Paper(const QsciStyle* self);
-void QsciStyle_SetFont(QsciStyle* self, QFont* font);
+void QsciStyle_SetFont(QsciStyle* self, const QFont* font);
 QFont* QsciStyle_Font(const QsciStyle* self);
 void QsciStyle_SetEolFill(QsciStyle* self, bool fill);
 bool QsciStyle_EolFill(const QsciStyle* self);

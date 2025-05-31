@@ -15,12 +15,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QBuffer QBuffer;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
@@ -28,11 +23,8 @@ typedef struct QIODevice QIODevice;
 typedef struct QIODeviceBase QIODeviceBase;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QBuffer* QBuffer_new();
@@ -45,7 +37,7 @@ int QBuffer_QBaseMetacall(QBuffer* self, int param1, int param2, void** param3);
 libqt_string QBuffer_Tr(const char* s);
 libqt_string QBuffer_Buffer(QBuffer* self);
 libqt_string QBuffer_Buffer2(const QBuffer* self);
-void QBuffer_SetData(QBuffer* self, libqt_string data);
+void QBuffer_SetData(QBuffer* self, const libqt_string data);
 void QBuffer_SetData2(QBuffer* self, const char* data, int lenVal);
 libqt_string QBuffer_Data(const QBuffer* self);
 bool QBuffer_Open(QBuffer* self, int openMode);
@@ -69,12 +61,12 @@ bool QBuffer_QBaseAtEnd(const QBuffer* self);
 bool QBuffer_CanReadLine(const QBuffer* self);
 void QBuffer_OnCanReadLine(const QBuffer* self, intptr_t slot);
 bool QBuffer_QBaseCanReadLine(const QBuffer* self);
-void QBuffer_ConnectNotify(QBuffer* self, QMetaMethod* param1);
+void QBuffer_ConnectNotify(QBuffer* self, const QMetaMethod* param1);
 void QBuffer_OnConnectNotify(QBuffer* self, intptr_t slot);
-void QBuffer_QBaseConnectNotify(QBuffer* self, QMetaMethod* param1);
-void QBuffer_DisconnectNotify(QBuffer* self, QMetaMethod* param1);
+void QBuffer_QBaseConnectNotify(QBuffer* self, const QMetaMethod* param1);
+void QBuffer_DisconnectNotify(QBuffer* self, const QMetaMethod* param1);
 void QBuffer_OnDisconnectNotify(QBuffer* self, intptr_t slot);
-void QBuffer_QBaseDisconnectNotify(QBuffer* self, QMetaMethod* param1);
+void QBuffer_QBaseDisconnectNotify(QBuffer* self, const QMetaMethod* param1);
 long long QBuffer_ReadData(QBuffer* self, char* data, long long maxlen);
 void QBuffer_OnReadData(QBuffer* self, intptr_t slot);
 long long QBuffer_QBaseReadData(QBuffer* self, char* data, long long maxlen);
@@ -125,9 +117,9 @@ void QBuffer_QBaseCustomEvent(QBuffer* self, QEvent* event);
 void QBuffer_SetOpenMode(QBuffer* self, int openMode);
 void QBuffer_OnSetOpenMode(QBuffer* self, intptr_t slot);
 void QBuffer_QBaseSetOpenMode(QBuffer* self, int openMode);
-void QBuffer_SetErrorString(QBuffer* self, libqt_string errorString);
+void QBuffer_SetErrorString(QBuffer* self, const libqt_string errorString);
 void QBuffer_OnSetErrorString(QBuffer* self, intptr_t slot);
-void QBuffer_QBaseSetErrorString(QBuffer* self, libqt_string errorString);
+void QBuffer_QBaseSetErrorString(QBuffer* self, const libqt_string errorString);
 QObject* QBuffer_Sender(const QBuffer* self);
 void QBuffer_OnSender(const QBuffer* self, intptr_t slot);
 QObject* QBuffer_QBaseSender(const QBuffer* self);
@@ -137,9 +129,9 @@ int QBuffer_QBaseSenderSignalIndex(const QBuffer* self);
 int QBuffer_Receivers(const QBuffer* self, const char* signal);
 void QBuffer_OnReceivers(const QBuffer* self, intptr_t slot);
 int QBuffer_QBaseReceivers(const QBuffer* self, const char* signal);
-bool QBuffer_IsSignalConnected(const QBuffer* self, QMetaMethod* signal);
+bool QBuffer_IsSignalConnected(const QBuffer* self, const QMetaMethod* signal);
 void QBuffer_OnIsSignalConnected(const QBuffer* self, intptr_t slot);
-bool QBuffer_QBaseIsSignalConnected(const QBuffer* self, QMetaMethod* signal);
+bool QBuffer_QBaseIsSignalConnected(const QBuffer* self, const QMetaMethod* signal);
 void QBuffer_Delete(QBuffer* self);
 
 #ifdef __cplusplus

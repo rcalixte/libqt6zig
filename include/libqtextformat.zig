@@ -1,108 +1,111 @@
-const C = @import("qt6c");
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
 const qfont_enums = @import("libqfont.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qtextformat_enums = enums;
 const std = @import("std");
-pub const map_i32_cqvariant = std.AutoHashMapUnmanaged(i32, ?*C.QVariant);
+pub const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
 
 /// https://doc.qt.io/qt-6/qtextlength.html
 pub const qtextlength = struct {
     /// New constructs a new QTextLength object.
     ///
-    /// ``` other: ?*C.QTextLength ```
-    pub fn New(other: ?*anyopaque) ?*C.QTextLength {
-        return C.QTextLength_new(@ptrCast(other));
+    /// ``` other: QtC.QTextLength ```
+    pub fn New(other: ?*anyopaque) QtC.QTextLength {
+        return qtc.QTextLength_new(@ptrCast(other));
     }
 
     /// New2 constructs a new QTextLength object and invalidates the source QTextLength object.
     ///
-    /// ``` other: ?*C.QTextLength ```
-    pub fn New2(other: ?*anyopaque) ?*C.QTextLength {
-        return C.QTextLength_new2(@ptrCast(other));
+    /// ``` other: QtC.QTextLength ```
+    pub fn New2(other: ?*anyopaque) QtC.QTextLength {
+        return qtc.QTextLength_new2(@ptrCast(other));
     }
 
     /// New3 constructs a new QTextLength object.
     ///
     ///
-    pub fn New3() ?*C.QTextLength {
-        return C.QTextLength_new3();
+    pub fn New3() QtC.QTextLength {
+        return qtc.QTextLength_new3();
     }
 
     /// New4 constructs a new QTextLength object.
     ///
     /// ``` typeVal: qtextformat_enums.Type, value: f64 ```
-    pub fn New4(typeVal: i64, value: f64) ?*C.QTextLength {
-        return C.QTextLength_new4(@intCast(typeVal), @floatCast(value));
+    pub fn New4(typeVal: i64, value: f64) QtC.QTextLength {
+        return qtc.QTextLength_new4(@intCast(typeVal), @floatCast(value));
     }
 
     /// New5 constructs a new QTextLength object.
     ///
-    /// ``` param1: ?*C.QTextLength ```
-    pub fn New5(param1: ?*anyopaque) ?*C.QTextLength {
-        return C.QTextLength_new5(@ptrCast(param1));
+    /// ``` param1: QtC.QTextLength ```
+    pub fn New5(param1: ?*anyopaque) QtC.QTextLength {
+        return qtc.QTextLength_new5(@ptrCast(param1));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
-    /// ``` self: ?*QTextLength, other: ?*QTextLength ```
+    /// ``` self: QtC.QTextLength, other: QtC.QTextLength ```
     pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextLength_CopyAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QTextLength_CopyAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
-    /// ``` self: ?*QTextLength, other: ?*QTextLength ```
+    /// ``` self: QtC.QTextLength, other: QtC.QTextLength ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextLength_MoveAssign(@ptrCast(self), @ptrCast(other));
+        qtc.QTextLength_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlength.html#type)
     ///
-    /// ``` self: ?*C.QTextLength ```
+    /// ``` self: QtC.QTextLength ```
     pub fn Type(self: ?*anyopaque) i64 {
-        return C.QTextLength_Type(@ptrCast(self));
+        return qtc.QTextLength_Type(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlength.html#value)
     ///
-    /// ``` self: ?*C.QTextLength, maximumLength: f64 ```
+    /// ``` self: QtC.QTextLength, maximumLength: f64 ```
     pub fn Value(self: ?*anyopaque, maximumLength: f64) f64 {
-        return C.QTextLength_Value(@ptrCast(self), @floatCast(maximumLength));
+        return qtc.QTextLength_Value(@ptrCast(self), @floatCast(maximumLength));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlength.html#rawValue)
     ///
-    /// ``` self: ?*C.QTextLength ```
+    /// ``` self: QtC.QTextLength ```
     pub fn RawValue(self: ?*anyopaque) f64 {
-        return C.QTextLength_RawValue(@ptrCast(self));
+        return qtc.QTextLength_RawValue(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlength.html#operator==)
     ///
-    /// ``` self: ?*C.QTextLength, other: ?*C.QTextLength ```
+    /// ``` self: QtC.QTextLength, other: QtC.QTextLength ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return C.QTextLength_OperatorEqual(@ptrCast(self), @ptrCast(other));
+        return qtc.QTextLength_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlength.html#operator!=)
     ///
-    /// ``` self: ?*C.QTextLength, other: ?*C.QTextLength ```
+    /// ``` self: QtC.QTextLength, other: QtC.QTextLength ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return C.QTextLength_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
+        return qtc.QTextLength_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlength.html#operator QVariant)
     ///
-    /// ``` self: ?*C.QTextLength ```
-    pub fn ToQVariant(self: ?*anyopaque) ?*C.QVariant {
-        return C.QTextLength_ToQVariant(@ptrCast(self));
+    /// ``` self: QtC.QTextLength ```
+    pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QTextLength_ToQVariant(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlength.html#dtor.QTextLength)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QTextLength ```
+    /// ``` self: QtC.QTextLength ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QTextLength_Delete(@ptrCast(self));
+        qtc.QTextLength_Delete(@ptrCast(self));
     }
 };
 
@@ -111,136 +114,136 @@ pub const qtextformat = struct {
     /// New constructs a new QTextFormat object.
     ///
     ///
-    pub fn New() ?*C.QTextFormat {
-        return C.QTextFormat_new();
+    pub fn New() QtC.QTextFormat {
+        return qtc.QTextFormat_new();
     }
 
     /// New2 constructs a new QTextFormat object.
     ///
     /// ``` typeVal: i32 ```
-    pub fn New2(typeVal: i32) ?*C.QTextFormat {
-        return C.QTextFormat_new2(@intCast(typeVal));
+    pub fn New2(typeVal: i32) QtC.QTextFormat {
+        return qtc.QTextFormat_new2(@intCast(typeVal));
     }
 
     /// New3 constructs a new QTextFormat object.
     ///
-    /// ``` rhs: ?*C.QTextFormat ```
-    pub fn New3(rhs: ?*anyopaque) ?*C.QTextFormat {
-        return C.QTextFormat_new3(@ptrCast(rhs));
+    /// ``` rhs: QtC.QTextFormat ```
+    pub fn New3(rhs: ?*anyopaque) QtC.QTextFormat {
+        return qtc.QTextFormat_new3(@ptrCast(rhs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator=)
     ///
-    /// ``` self: ?*C.QTextFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
-        C.QTextFormat_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
+        qtc.QTextFormat_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#swap)
     ///
-    /// ``` self: ?*C.QTextFormat, other: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat, other: QtC.QTextFormat ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextFormat_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QTextFormat_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#merge)
     ///
-    /// ``` self: ?*C.QTextFormat, other: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat, other: QtC.QTextFormat ```
     pub fn Merge(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextFormat_Merge(@ptrCast(self), @ptrCast(other));
+        qtc.QTextFormat_Merge(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isValid)
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsValid(@ptrCast(self));
+        return qtc.QTextFormat_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isEmpty)
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsEmpty(@ptrCast(self));
+        return qtc.QTextFormat_IsEmpty(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#type)
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn Type(self: ?*anyopaque) i32 {
-        return C.QTextFormat_Type(@ptrCast(self));
+        return qtc.QTextFormat_Type(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectIndex)
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn ObjectIndex(self: ?*anyopaque) i32 {
-        return C.QTextFormat_ObjectIndex(@ptrCast(self));
+        return qtc.QTextFormat_ObjectIndex(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectIndex)
     ///
-    /// ``` self: ?*C.QTextFormat, object: i32 ```
+    /// ``` self: QtC.QTextFormat, object: i32 ```
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        C.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#property)
     ///
-    /// ``` self: ?*C.QTextFormat, propertyId: i32 ```
-    pub fn Property(self: ?*anyopaque, propertyId: i32) ?*C.QVariant {
-        return C.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextFormat, propertyId: i32 ```
+    pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
+        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
-    /// ``` self: ?*C.QTextFormat, propertyId: i32, value: ?*C.QVariant ```
+    /// ``` self: QtC.QTextFormat, propertyId: i32, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        C.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearProperty)
     ///
-    /// ``` self: ?*C.QTextFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextFormat, propertyId: i32 ```
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        C.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#hasProperty)
     ///
-    /// ``` self: ?*C.QTextFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextFormat, propertyId: i32 ```
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return C.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#boolProperty)
     ///
-    /// ``` self: ?*C.QTextFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextFormat, propertyId: i32 ```
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return C.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#intProperty)
     ///
-    /// ``` self: ?*C.QTextFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextFormat, propertyId: i32 ```
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return C.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#doubleProperty)
     ///
-    /// ``` self: ?*C.QTextFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextFormat, propertyId: i32 ```
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return C.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#stringProperty)
     ///
-    /// ``` self: ?*C.QTextFormat, propertyId: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextformat.StringProperty: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -249,40 +252,40 @@ pub const qtextformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#colorProperty)
     ///
-    /// ``` self: ?*C.QTextFormat, propertyId: i32 ```
-    pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) ?*C.QColor {
-        return C.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextFormat, propertyId: i32 ```
+    pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#penProperty)
     ///
-    /// ``` self: ?*C.QTextFormat, propertyId: i32 ```
-    pub fn PenProperty(self: ?*anyopaque, propertyId: i32) ?*C.QPen {
-        return C.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextFormat, propertyId: i32 ```
+    pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#brushProperty)
     ///
-    /// ``` self: ?*C.QTextFormat, propertyId: i32 ```
-    pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) ?*C.QBrush {
-        return C.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextFormat, propertyId: i32 ```
+    pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthProperty)
     ///
-    /// ``` self: ?*C.QTextFormat, propertyId: i32 ```
-    pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) ?*C.QTextLength {
-        return C.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextFormat, propertyId: i32 ```
+    pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthVectorProperty)
     ///
-    /// ``` self: ?*C.QTextFormat, propertyId: i32, allocator: std.mem.Allocator ```
-    pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []?*C.QTextLength {
-        const _arr: C.struct_libqt_list = C.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QTextLength, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QTextLength = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QTextFormat, propertyId: i32, allocator: std.mem.Allocator ```
+    pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
+        const _arr: qtc.struct_libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextformat.LengthVectorProperty: Memory allocation failed");
+        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -291,237 +294,239 @@ pub const qtextformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
-    /// ``` self: ?*C.QTextFormat, propertyId: i32, lengths: []?*C.QTextLength ```
-    pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []?*C.QTextLength) void {
-        const lengths_list = C.struct_libqt_list{
+    /// ``` self: QtC.QTextFormat, propertyId: i32, lengths: []QtC.QTextLength ```
+    pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
+        const lengths_list = qtc.struct_libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        C.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#properties)
     ///
-    /// ``` self: ?*C.QTextFormat, allocator: std.mem.Allocator ```
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_cqvariant {
-        const _map: C.struct_libqt_map = C.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_cqvariant = .empty;
+    /// ``` self: QtC.QTextFormat, allocator: std.mem.Allocator ```
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+        const _map: qtc.struct_libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
+        var _ret: map_i32_qtcqvariant = .empty;
         defer {
-            C.libqt_free(_map.keys);
-            C.libqt_free(_map.values);
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]?*C.QVariant = @ptrCast(@alignCast(_map.values));
+        const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
         var _i: usize = 0;
         while (_i < _map.len) : (_i += 1) {
             const _key = _keys[_i];
             const _value = _values[_i];
-            _ret.put(allocator, _key, _value) catch @panic("Memory allocation failed");
+            _ret.put(allocator, _key, _value) catch @panic("qtextformat.Properties: Memory allocation failed");
         }
         return _ret;
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn PropertyCount(self: ?*anyopaque) i32 {
-        return C.QTextFormat_PropertyCount(@ptrCast(self));
+        return qtc.QTextFormat_PropertyCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectType)
     ///
-    /// ``` self: ?*C.QTextFormat, typeVal: i32 ```
+    /// ``` self: QtC.QTextFormat, typeVal: i32 ```
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        C.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectType)
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn ObjectType(self: ?*anyopaque) i32 {
-        return C.QTextFormat_ObjectType(@ptrCast(self));
+        return qtc.QTextFormat_ObjectType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isCharFormat)
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn IsCharFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsCharFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsCharFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isBlockFormat)
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn IsBlockFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsBlockFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsBlockFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isListFormat)
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn IsListFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsListFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsListFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isFrameFormat)
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn IsFrameFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsFrameFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsFrameFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isImageFormat)
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn IsImageFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsImageFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsImageFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableFormat)
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn IsTableFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsTableFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsTableFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableCellFormat)
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn IsTableCellFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsTableCellFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsTableCellFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toBlockFormat)
     ///
-    /// ``` self: ?*C.QTextFormat ```
-    pub fn ToBlockFormat(self: ?*anyopaque) ?*C.QTextBlockFormat {
-        return C.QTextFormat_ToBlockFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextFormat ```
+    pub fn ToBlockFormat(self: ?*anyopaque) QtC.QTextBlockFormat {
+        return qtc.QTextFormat_ToBlockFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toCharFormat)
     ///
-    /// ``` self: ?*C.QTextFormat ```
-    pub fn ToCharFormat(self: ?*anyopaque) ?*C.QTextCharFormat {
-        return C.QTextFormat_ToCharFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextFormat ```
+    pub fn ToCharFormat(self: ?*anyopaque) QtC.QTextCharFormat {
+        return qtc.QTextFormat_ToCharFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toListFormat)
     ///
-    /// ``` self: ?*C.QTextFormat ```
-    pub fn ToListFormat(self: ?*anyopaque) ?*C.QTextListFormat {
-        return C.QTextFormat_ToListFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextFormat ```
+    pub fn ToListFormat(self: ?*anyopaque) QtC.QTextListFormat {
+        return qtc.QTextFormat_ToListFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableFormat)
     ///
-    /// ``` self: ?*C.QTextFormat ```
-    pub fn ToTableFormat(self: ?*anyopaque) ?*C.QTextTableFormat {
-        return C.QTextFormat_ToTableFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextFormat ```
+    pub fn ToTableFormat(self: ?*anyopaque) QtC.QTextTableFormat {
+        return qtc.QTextFormat_ToTableFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toFrameFormat)
     ///
-    /// ``` self: ?*C.QTextFormat ```
-    pub fn ToFrameFormat(self: ?*anyopaque) ?*C.QTextFrameFormat {
-        return C.QTextFormat_ToFrameFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextFormat ```
+    pub fn ToFrameFormat(self: ?*anyopaque) QtC.QTextFrameFormat {
+        return qtc.QTextFormat_ToFrameFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toImageFormat)
     ///
-    /// ``` self: ?*C.QTextFormat ```
-    pub fn ToImageFormat(self: ?*anyopaque) ?*C.QTextImageFormat {
-        return C.QTextFormat_ToImageFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextFormat ```
+    pub fn ToImageFormat(self: ?*anyopaque) QtC.QTextImageFormat {
+        return qtc.QTextFormat_ToImageFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableCellFormat)
     ///
-    /// ``` self: ?*C.QTextFormat ```
-    pub fn ToTableCellFormat(self: ?*anyopaque) ?*C.QTextTableCellFormat {
-        return C.QTextFormat_ToTableCellFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextFormat ```
+    pub fn ToTableCellFormat(self: ?*anyopaque) QtC.QTextTableCellFormat {
+        return qtc.QTextFormat_ToTableCellFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator==)
     ///
-    /// ``` self: ?*C.QTextFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return C.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
+        return qtc.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator!=)
     ///
-    /// ``` self: ?*C.QTextFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return C.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
+        return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator QVariant)
     ///
-    /// ``` self: ?*C.QTextFormat ```
-    pub fn ToQVariant(self: ?*anyopaque) ?*C.QVariant {
-        return C.QTextFormat_ToQVariant(@ptrCast(self));
+    /// ``` self: QtC.QTextFormat ```
+    pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QTextFormat_ToQVariant(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
-    /// ``` self: ?*C.QTextFormat, direction: qnamespace_enums.LayoutDirection ```
+    /// ``` self: QtC.QTextFormat, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
-        C.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
-        return C.QTextFormat_LayoutDirection(@ptrCast(self));
+        return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setBackground)
     ///
-    /// ``` self: ?*C.QTextFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextFormat, brush: QtC.QBrush ```
     pub fn SetBackground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFormat_SetBackground(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFormat_SetBackground(@ptrCast(self), @ptrCast(brush));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#background)
     ///
-    /// ``` self: ?*C.QTextFormat ```
-    pub fn Background(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFormat_Background(@ptrCast(self));
+    /// ``` self: QtC.QTextFormat ```
+    pub fn Background(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFormat_Background(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearBackground)
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn ClearBackground(self: ?*anyopaque) void {
-        C.QTextFormat_ClearBackground(@ptrCast(self));
+        qtc.QTextFormat_ClearBackground(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setForeground)
     ///
-    /// ``` self: ?*C.QTextFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextFormat, brush: QtC.QBrush ```
     pub fn SetForeground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFormat_SetForeground(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFormat_SetForeground(@ptrCast(self), @ptrCast(brush));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#foreground)
     ///
-    /// ``` self: ?*C.QTextFormat ```
-    pub fn Foreground(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFormat_Foreground(@ptrCast(self));
+    /// ``` self: QtC.QTextFormat ```
+    pub fn Foreground(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFormat_Foreground(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearForeground)
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn ClearForeground(self: ?*anyopaque) void {
-        C.QTextFormat_ClearForeground(@ptrCast(self));
+        qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#dtor.QTextFormat)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFormat ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QTextFormat_Delete(@ptrCast(self));
+        qtc.QTextFormat_Delete(@ptrCast(self));
     }
 };
 
@@ -530,56 +535,56 @@ pub const qtextcharformat = struct {
     /// New constructs a new QTextCharFormat object.
     ///
     ///
-    pub fn New() ?*C.QTextCharFormat {
-        return C.QTextCharFormat_new();
+    pub fn New() QtC.QTextCharFormat {
+        return qtc.QTextCharFormat_new();
     }
 
     /// New2 constructs a new QTextCharFormat object.
     ///
-    /// ``` param1: ?*C.QTextCharFormat ```
-    pub fn New2(param1: ?*anyopaque) ?*C.QTextCharFormat {
-        return C.QTextCharFormat_new2(@ptrCast(param1));
+    /// ``` param1: QtC.QTextCharFormat ```
+    pub fn New2(param1: ?*anyopaque) QtC.QTextCharFormat {
+        return qtc.QTextCharFormat_new2(@ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#isValid)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_IsValid(@ptrCast(self));
+        return qtc.QTextCharFormat_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFont)
     ///
-    /// ``` self: ?*C.QTextCharFormat, font: ?*C.QFont ```
+    /// ``` self: QtC.QTextCharFormat, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        C.QTextCharFormat_SetFont(@ptrCast(self), @ptrCast(font));
+        qtc.QTextCharFormat_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#font)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
-    pub fn Font(self: ?*anyopaque) ?*C.QFont {
-        return C.QTextCharFormat_Font(@ptrCast(self));
+    /// ``` self: QtC.QTextCharFormat ```
+    pub fn Font(self: ?*anyopaque) QtC.QFont {
+        return qtc.QTextCharFormat_Font(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFamily)
     ///
-    /// ``` self: ?*C.QTextCharFormat, family: []const u8 ```
+    /// ``` self: QtC.QTextCharFormat, family: []const u8 ```
     pub fn SetFontFamily(self: ?*anyopaque, family: []const u8) void {
-        const family_str = C.struct_libqt_string{
+        const family_str = qtc.struct_libqt_string{
             .len = family.len,
             .data = @constCast(family.ptr),
         };
-        C.QTextCharFormat_SetFontFamily(@ptrCast(self), family_str);
+        qtc.QTextCharFormat_SetFontFamily(@ptrCast(self), family_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontFamily)
     ///
-    /// ``` self: ?*C.QTextCharFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextCharFormat, allocator: std.mem.Allocator ```
     pub fn FontFamily(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextCharFormat_FontFamily(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextCharFormat_FontFamily(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextcharformat.FontFamily: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -588,9 +593,9 @@ pub const qtextcharformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFamilies)
     ///
-    /// ``` self: ?*C.QTextCharFormat, families: [][]const u8, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextCharFormat, families: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetFontFamilies(self: ?*anyopaque, families: [][]const u8, allocator: std.mem.Allocator) void {
-        var families_arr = allocator.alloc(C.struct_libqt_string, families.len) catch @panic("Memory allocation failed");
+        var families_arr = allocator.alloc(qtc.struct_libqt_string, families.len) catch @panic("qtextcharformat.SetFontFamilies: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, _i| {
             families_arr[_i] = .{
@@ -598,336 +603,336 @@ pub const qtextcharformat = struct {
                 .data = @ptrCast(@constCast(item.ptr)),
             };
         }
-        const families_list = C.struct_libqt_list{
+        const families_list = qtc.struct_libqt_list{
             .len = families.len,
             .data = families_arr.ptr,
         };
-        C.QTextCharFormat_SetFontFamilies(@ptrCast(self), families_list);
+        qtc.QTextCharFormat_SetFontFamilies(@ptrCast(self), families_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontFamilies)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
-    pub fn FontFamilies(self: ?*anyopaque) ?*C.QVariant {
-        return C.QTextCharFormat_FontFamilies(@ptrCast(self));
+    /// ``` self: QtC.QTextCharFormat ```
+    pub fn FontFamilies(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QTextCharFormat_FontFamilies(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleName)
     ///
-    /// ``` self: ?*C.QTextCharFormat, styleName: []const u8 ```
+    /// ``` self: QtC.QTextCharFormat, styleName: []const u8 ```
     pub fn SetFontStyleName(self: ?*anyopaque, styleName: []const u8) void {
-        const styleName_str = C.struct_libqt_string{
+        const styleName_str = qtc.struct_libqt_string{
             .len = styleName.len,
             .data = @constCast(styleName.ptr),
         };
-        C.QTextCharFormat_SetFontStyleName(@ptrCast(self), styleName_str);
+        qtc.QTextCharFormat_SetFontStyleName(@ptrCast(self), styleName_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleName)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
-    pub fn FontStyleName(self: ?*anyopaque) ?*C.QVariant {
-        return C.QTextCharFormat_FontStyleName(@ptrCast(self));
+    /// ``` self: QtC.QTextCharFormat ```
+    pub fn FontStyleName(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QTextCharFormat_FontStyleName(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontPointSize)
     ///
-    /// ``` self: ?*C.QTextCharFormat, size: f64 ```
+    /// ``` self: QtC.QTextCharFormat, size: f64 ```
     pub fn SetFontPointSize(self: ?*anyopaque, size: f64) void {
-        C.QTextCharFormat_SetFontPointSize(@ptrCast(self), @floatCast(size));
+        qtc.QTextCharFormat_SetFontPointSize(@ptrCast(self), @floatCast(size));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontPointSize)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn FontPointSize(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_FontPointSize(@ptrCast(self));
+        return qtc.QTextCharFormat_FontPointSize(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontWeight)
     ///
-    /// ``` self: ?*C.QTextCharFormat, weight: i32 ```
+    /// ``` self: QtC.QTextCharFormat, weight: i32 ```
     pub fn SetFontWeight(self: ?*anyopaque, weight: i32) void {
-        C.QTextCharFormat_SetFontWeight(@ptrCast(self), @intCast(weight));
+        qtc.QTextCharFormat_SetFontWeight(@ptrCast(self), @intCast(weight));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontWeight)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn FontWeight(self: ?*anyopaque) i32 {
-        return C.QTextCharFormat_FontWeight(@ptrCast(self));
+        return qtc.QTextCharFormat_FontWeight(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontItalic)
     ///
-    /// ``` self: ?*C.QTextCharFormat, italic: bool ```
+    /// ``` self: QtC.QTextCharFormat, italic: bool ```
     pub fn SetFontItalic(self: ?*anyopaque, italic: bool) void {
-        C.QTextCharFormat_SetFontItalic(@ptrCast(self), italic);
+        qtc.QTextCharFormat_SetFontItalic(@ptrCast(self), italic);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontItalic)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn FontItalic(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontItalic(@ptrCast(self));
+        return qtc.QTextCharFormat_FontItalic(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontCapitalization)
     ///
-    /// ``` self: ?*C.QTextCharFormat, capitalization: qfont_enums.Capitalization ```
+    /// ``` self: QtC.QTextCharFormat, capitalization: qfont_enums.Capitalization ```
     pub fn SetFontCapitalization(self: ?*anyopaque, capitalization: i64) void {
-        C.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @intCast(capitalization));
+        qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @intCast(capitalization));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontCapitalization)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn FontCapitalization(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_FontCapitalization(@ptrCast(self));
+        return qtc.QTextCharFormat_FontCapitalization(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontLetterSpacingType)
     ///
-    /// ``` self: ?*C.QTextCharFormat, letterSpacingType: qfont_enums.SpacingType ```
+    /// ``` self: QtC.QTextCharFormat, letterSpacingType: qfont_enums.SpacingType ```
     pub fn SetFontLetterSpacingType(self: ?*anyopaque, letterSpacingType: i64) void {
-        C.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @intCast(letterSpacingType));
+        qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @intCast(letterSpacingType));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacingType)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn FontLetterSpacingType(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_FontLetterSpacingType(@ptrCast(self));
+        return qtc.QTextCharFormat_FontLetterSpacingType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontLetterSpacing)
     ///
-    /// ``` self: ?*C.QTextCharFormat, spacing: f64 ```
+    /// ``` self: QtC.QTextCharFormat, spacing: f64 ```
     pub fn SetFontLetterSpacing(self: ?*anyopaque, spacing: f64) void {
-        C.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self), @floatCast(spacing));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacing)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn FontLetterSpacing(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_FontLetterSpacing(@ptrCast(self));
+        return qtc.QTextCharFormat_FontLetterSpacing(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontWordSpacing)
     ///
-    /// ``` self: ?*C.QTextCharFormat, spacing: f64 ```
+    /// ``` self: QtC.QTextCharFormat, spacing: f64 ```
     pub fn SetFontWordSpacing(self: ?*anyopaque, spacing: f64) void {
-        C.QTextCharFormat_SetFontWordSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QTextCharFormat_SetFontWordSpacing(@ptrCast(self), @floatCast(spacing));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontWordSpacing)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn FontWordSpacing(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_FontWordSpacing(@ptrCast(self));
+        return qtc.QTextCharFormat_FontWordSpacing(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontUnderline)
     ///
-    /// ``` self: ?*C.QTextCharFormat, underline: bool ```
+    /// ``` self: QtC.QTextCharFormat, underline: bool ```
     pub fn SetFontUnderline(self: ?*anyopaque, underline: bool) void {
-        C.QTextCharFormat_SetFontUnderline(@ptrCast(self), underline);
+        qtc.QTextCharFormat_SetFontUnderline(@ptrCast(self), underline);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontUnderline)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn FontUnderline(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontUnderline(@ptrCast(self));
+        return qtc.QTextCharFormat_FontUnderline(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontOverline)
     ///
-    /// ``` self: ?*C.QTextCharFormat, overline: bool ```
+    /// ``` self: QtC.QTextCharFormat, overline: bool ```
     pub fn SetFontOverline(self: ?*anyopaque, overline: bool) void {
-        C.QTextCharFormat_SetFontOverline(@ptrCast(self), overline);
+        qtc.QTextCharFormat_SetFontOverline(@ptrCast(self), overline);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontOverline)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn FontOverline(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontOverline(@ptrCast(self));
+        return qtc.QTextCharFormat_FontOverline(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStrikeOut)
     ///
-    /// ``` self: ?*C.QTextCharFormat, strikeOut: bool ```
+    /// ``` self: QtC.QTextCharFormat, strikeOut: bool ```
     pub fn SetFontStrikeOut(self: ?*anyopaque, strikeOut: bool) void {
-        C.QTextCharFormat_SetFontStrikeOut(@ptrCast(self), strikeOut);
+        qtc.QTextCharFormat_SetFontStrikeOut(@ptrCast(self), strikeOut);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStrikeOut)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn FontStrikeOut(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontStrikeOut(@ptrCast(self));
+        return qtc.QTextCharFormat_FontStrikeOut(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setUnderlineColor)
     ///
-    /// ``` self: ?*C.QTextCharFormat, color: ?*C.QColor ```
+    /// ``` self: QtC.QTextCharFormat, color: QtC.QColor ```
     pub fn SetUnderlineColor(self: ?*anyopaque, color: ?*anyopaque) void {
-        C.QTextCharFormat_SetUnderlineColor(@ptrCast(self), @ptrCast(color));
+        qtc.QTextCharFormat_SetUnderlineColor(@ptrCast(self), @ptrCast(color));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#underlineColor)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
-    pub fn UnderlineColor(self: ?*anyopaque) ?*C.QColor {
-        return C.QTextCharFormat_UnderlineColor(@ptrCast(self));
+    /// ``` self: QtC.QTextCharFormat ```
+    pub fn UnderlineColor(self: ?*anyopaque) QtC.QColor {
+        return qtc.QTextCharFormat_UnderlineColor(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFixedPitch)
     ///
-    /// ``` self: ?*C.QTextCharFormat, fixedPitch: bool ```
+    /// ``` self: QtC.QTextCharFormat, fixedPitch: bool ```
     pub fn SetFontFixedPitch(self: ?*anyopaque, fixedPitch: bool) void {
-        C.QTextCharFormat_SetFontFixedPitch(@ptrCast(self), fixedPitch);
+        qtc.QTextCharFormat_SetFontFixedPitch(@ptrCast(self), fixedPitch);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontFixedPitch)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn FontFixedPitch(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontFixedPitch(@ptrCast(self));
+        return qtc.QTextCharFormat_FontFixedPitch(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStretch)
     ///
-    /// ``` self: ?*C.QTextCharFormat, factor: i32 ```
+    /// ``` self: QtC.QTextCharFormat, factor: i32 ```
     pub fn SetFontStretch(self: ?*anyopaque, factor: i32) void {
-        C.QTextCharFormat_SetFontStretch(@ptrCast(self), @intCast(factor));
+        qtc.QTextCharFormat_SetFontStretch(@ptrCast(self), @intCast(factor));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStretch)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn FontStretch(self: ?*anyopaque) i32 {
-        return C.QTextCharFormat_FontStretch(@ptrCast(self));
+        return qtc.QTextCharFormat_FontStretch(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
     ///
-    /// ``` self: ?*C.QTextCharFormat, hint: qfont_enums.StyleHint ```
+    /// ``` self: QtC.QTextCharFormat, hint: qfont_enums.StyleHint ```
     pub fn SetFontStyleHint(self: ?*anyopaque, hint: i64) void {
-        C.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @intCast(hint));
+        qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @intCast(hint));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleStrategy)
     ///
-    /// ``` self: ?*C.QTextCharFormat, strategy: qfont_enums.StyleStrategy ```
+    /// ``` self: QtC.QTextCharFormat, strategy: qfont_enums.StyleStrategy ```
     pub fn SetFontStyleStrategy(self: ?*anyopaque, strategy: i64) void {
-        C.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @intCast(strategy));
+        qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @intCast(strategy));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleHint)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn FontStyleHint(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_FontStyleHint(@ptrCast(self));
+        return qtc.QTextCharFormat_FontStyleHint(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleStrategy)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn FontStyleStrategy(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_FontStyleStrategy(@ptrCast(self));
+        return qtc.QTextCharFormat_FontStyleStrategy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontHintingPreference)
     ///
-    /// ``` self: ?*C.QTextCharFormat, hintingPreference: qfont_enums.HintingPreference ```
+    /// ``` self: QtC.QTextCharFormat, hintingPreference: qfont_enums.HintingPreference ```
     pub fn SetFontHintingPreference(self: ?*anyopaque, hintingPreference: i64) void {
-        C.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @intCast(hintingPreference));
+        qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @intCast(hintingPreference));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontHintingPreference)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn FontHintingPreference(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_FontHintingPreference(@ptrCast(self));
+        return qtc.QTextCharFormat_FontHintingPreference(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontKerning)
     ///
-    /// ``` self: ?*C.QTextCharFormat, enable: bool ```
+    /// ``` self: QtC.QTextCharFormat, enable: bool ```
     pub fn SetFontKerning(self: ?*anyopaque, enable: bool) void {
-        C.QTextCharFormat_SetFontKerning(@ptrCast(self), enable);
+        qtc.QTextCharFormat_SetFontKerning(@ptrCast(self), enable);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontKerning)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn FontKerning(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontKerning(@ptrCast(self));
+        return qtc.QTextCharFormat_FontKerning(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setUnderlineStyle)
     ///
-    /// ``` self: ?*C.QTextCharFormat, style: qtextformat_enums.UnderlineStyle ```
+    /// ``` self: QtC.QTextCharFormat, style: qtextformat_enums.UnderlineStyle ```
     pub fn SetUnderlineStyle(self: ?*anyopaque, style: i64) void {
-        C.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @intCast(style));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#underlineStyle)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn UnderlineStyle(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_UnderlineStyle(@ptrCast(self));
+        return qtc.QTextCharFormat_UnderlineStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setVerticalAlignment)
     ///
-    /// ``` self: ?*C.QTextCharFormat, alignment: qtextformat_enums.VerticalAlignment ```
+    /// ``` self: QtC.QTextCharFormat, alignment: qtextformat_enums.VerticalAlignment ```
     pub fn SetVerticalAlignment(self: ?*anyopaque, alignment: i64) void {
-        C.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @intCast(alignment));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#verticalAlignment)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn VerticalAlignment(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_VerticalAlignment(@ptrCast(self));
+        return qtc.QTextCharFormat_VerticalAlignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setTextOutline)
     ///
-    /// ``` self: ?*C.QTextCharFormat, pen: ?*C.QPen ```
+    /// ``` self: QtC.QTextCharFormat, pen: QtC.QPen ```
     pub fn SetTextOutline(self: ?*anyopaque, pen: ?*anyopaque) void {
-        C.QTextCharFormat_SetTextOutline(@ptrCast(self), @ptrCast(pen));
+        qtc.QTextCharFormat_SetTextOutline(@ptrCast(self), @ptrCast(pen));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#textOutline)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
-    pub fn TextOutline(self: ?*anyopaque) ?*C.QPen {
-        return C.QTextCharFormat_TextOutline(@ptrCast(self));
+    /// ``` self: QtC.QTextCharFormat ```
+    pub fn TextOutline(self: ?*anyopaque) QtC.QPen {
+        return qtc.QTextCharFormat_TextOutline(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setToolTip)
     ///
-    /// ``` self: ?*C.QTextCharFormat, tip: []const u8 ```
+    /// ``` self: QtC.QTextCharFormat, tip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
-        const tip_str = C.struct_libqt_string{
+        const tip_str = qtc.struct_libqt_string{
             .len = tip.len,
             .data = @constCast(tip.ptr),
         };
-        C.QTextCharFormat_SetToolTip(@ptrCast(self), tip_str);
+        qtc.QTextCharFormat_SetToolTip(@ptrCast(self), tip_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#toolTip)
     ///
-    /// ``` self: ?*C.QTextCharFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextCharFormat, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextCharFormat_ToolTip(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextCharFormat_ToolTip(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextcharformat.ToolTip: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -936,78 +941,78 @@ pub const qtextcharformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setSuperScriptBaseline)
     ///
-    /// ``` self: ?*C.QTextCharFormat, baseline: f64 ```
+    /// ``` self: QtC.QTextCharFormat, baseline: f64 ```
     pub fn SetSuperScriptBaseline(self: ?*anyopaque, baseline: f64) void {
-        C.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self), @floatCast(baseline));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#superScriptBaseline)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn SuperScriptBaseline(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_SuperScriptBaseline(@ptrCast(self));
+        return qtc.QTextCharFormat_SuperScriptBaseline(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setSubScriptBaseline)
     ///
-    /// ``` self: ?*C.QTextCharFormat, baseline: f64 ```
+    /// ``` self: QtC.QTextCharFormat, baseline: f64 ```
     pub fn SetSubScriptBaseline(self: ?*anyopaque, baseline: f64) void {
-        C.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self), @floatCast(baseline));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#subScriptBaseline)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn SubScriptBaseline(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_SubScriptBaseline(@ptrCast(self));
+        return qtc.QTextCharFormat_SubScriptBaseline(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setBaselineOffset)
     ///
-    /// ``` self: ?*C.QTextCharFormat, baseline: f64 ```
+    /// ``` self: QtC.QTextCharFormat, baseline: f64 ```
     pub fn SetBaselineOffset(self: ?*anyopaque, baseline: f64) void {
-        C.QTextCharFormat_SetBaselineOffset(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetBaselineOffset(@ptrCast(self), @floatCast(baseline));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#baselineOffset)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn BaselineOffset(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_BaselineOffset(@ptrCast(self));
+        return qtc.QTextCharFormat_BaselineOffset(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchor)
     ///
-    /// ``` self: ?*C.QTextCharFormat, anchor: bool ```
+    /// ``` self: QtC.QTextCharFormat, anchor: bool ```
     pub fn SetAnchor(self: ?*anyopaque, anchor: bool) void {
-        C.QTextCharFormat_SetAnchor(@ptrCast(self), anchor);
+        qtc.QTextCharFormat_SetAnchor(@ptrCast(self), anchor);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#isAnchor)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn IsAnchor(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_IsAnchor(@ptrCast(self));
+        return qtc.QTextCharFormat_IsAnchor(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchorHref)
     ///
-    /// ``` self: ?*C.QTextCharFormat, value: []const u8 ```
+    /// ``` self: QtC.QTextCharFormat, value: []const u8 ```
     pub fn SetAnchorHref(self: ?*anyopaque, value: []const u8) void {
-        const value_str = C.struct_libqt_string{
+        const value_str = qtc.struct_libqt_string{
             .len = value.len,
             .data = @constCast(value.ptr),
         };
-        C.QTextCharFormat_SetAnchorHref(@ptrCast(self), value_str);
+        qtc.QTextCharFormat_SetAnchorHref(@ptrCast(self), value_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#anchorHref)
     ///
-    /// ``` self: ?*C.QTextCharFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextCharFormat, allocator: std.mem.Allocator ```
     pub fn AnchorHref(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextCharFormat_AnchorHref(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextCharFormat_AnchorHref(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextcharformat.AnchorHref: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1016,9 +1021,9 @@ pub const qtextcharformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchorNames)
     ///
-    /// ``` self: ?*C.QTextCharFormat, names: [][]const u8, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextCharFormat, names: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetAnchorNames(self: ?*anyopaque, names: [][]const u8, allocator: std.mem.Allocator) void {
-        var names_arr = allocator.alloc(C.struct_libqt_string, names.len) catch @panic("Memory allocation failed");
+        var names_arr = allocator.alloc(qtc.struct_libqt_string, names.len) catch @panic("qtextcharformat.SetAnchorNames: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, _i| {
             names_arr[_i] = .{
@@ -1026,29 +1031,29 @@ pub const qtextcharformat = struct {
                 .data = @ptrCast(@constCast(item.ptr)),
             };
         }
-        const names_list = C.struct_libqt_list{
+        const names_list = qtc.struct_libqt_list{
             .len = names.len,
             .data = names_arr.ptr,
         };
-        C.QTextCharFormat_SetAnchorNames(@ptrCast(self), names_list);
+        qtc.QTextCharFormat_SetAnchorNames(@ptrCast(self), names_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#anchorNames)
     ///
-    /// ``` self: ?*C.QTextCharFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextCharFormat, allocator: std.mem.Allocator ```
     pub fn AnchorNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: C.struct_libqt_list = C.QTextCharFormat_AnchorNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qtextcharformat.AnchorNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtextcharformat.AnchorNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -1057,181 +1062,181 @@ pub const qtextcharformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setTableCellRowSpan)
     ///
-    /// ``` self: ?*C.QTextCharFormat, tableCellRowSpan: i32 ```
+    /// ``` self: QtC.QTextCharFormat, tableCellRowSpan: i32 ```
     pub fn SetTableCellRowSpan(self: ?*anyopaque, tableCellRowSpan: i32) void {
-        C.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self), @intCast(tableCellRowSpan));
+        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self), @intCast(tableCellRowSpan));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#tableCellRowSpan)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn TableCellRowSpan(self: ?*anyopaque) i32 {
-        return C.QTextCharFormat_TableCellRowSpan(@ptrCast(self));
+        return qtc.QTextCharFormat_TableCellRowSpan(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setTableCellColumnSpan)
     ///
-    /// ``` self: ?*C.QTextCharFormat, tableCellColumnSpan: i32 ```
+    /// ``` self: QtC.QTextCharFormat, tableCellColumnSpan: i32 ```
     pub fn SetTableCellColumnSpan(self: ?*anyopaque, tableCellColumnSpan: i32) void {
-        C.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self), @intCast(tableCellColumnSpan));
+        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self), @intCast(tableCellColumnSpan));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#tableCellColumnSpan)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn TableCellColumnSpan(self: ?*anyopaque) i32 {
-        return C.QTextCharFormat_TableCellColumnSpan(@ptrCast(self));
+        return qtc.QTextCharFormat_TableCellColumnSpan(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFont)
     ///
-    /// ``` self: ?*C.QTextCharFormat, font: ?*C.QFont, behavior: qtextformat_enums.FontPropertiesInheritanceBehavior ```
+    /// ``` self: QtC.QTextCharFormat, font: QtC.QFont, behavior: qtextformat_enums.FontPropertiesInheritanceBehavior ```
     pub fn SetFont2(self: ?*anyopaque, font: ?*anyopaque, behavior: i64) void {
-        C.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @intCast(behavior));
+        qtc.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @intCast(behavior));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
     ///
-    /// ``` self: ?*C.QTextCharFormat, hint: qfont_enums.StyleHint, strategy: qfont_enums.StyleStrategy ```
+    /// ``` self: QtC.QTextCharFormat, hint: qfont_enums.StyleHint, strategy: qfont_enums.StyleStrategy ```
     pub fn SetFontStyleHint2(self: ?*anyopaque, hint: i64, strategy: i64) void {
-        C.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @intCast(hint), @intCast(strategy));
+        qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @intCast(hint), @intCast(strategy));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator=)
     ///
-    /// ``` self: ?*C.QTextCharFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextCharFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
-        C.QTextFormat_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
+        qtc.QTextFormat_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#swap)
     ///
-    /// ``` self: ?*C.QTextCharFormat, other: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextCharFormat, other: QtC.QTextFormat ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextFormat_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QTextFormat_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#merge)
     ///
-    /// ``` self: ?*C.QTextCharFormat, other: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextCharFormat, other: QtC.QTextFormat ```
     pub fn Merge(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextFormat_Merge(@ptrCast(self), @ptrCast(other));
+        qtc.QTextFormat_Merge(@ptrCast(self), @ptrCast(other));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isEmpty)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsEmpty(@ptrCast(self));
+        return qtc.QTextFormat_IsEmpty(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#type)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn Type(self: ?*anyopaque) i32 {
-        return C.QTextFormat_Type(@ptrCast(self));
+        return qtc.QTextFormat_Type(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectIndex)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn ObjectIndex(self: ?*anyopaque) i32 {
-        return C.QTextFormat_ObjectIndex(@ptrCast(self));
+        return qtc.QTextFormat_ObjectIndex(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectIndex)
     ///
-    /// ``` self: ?*C.QTextCharFormat, object: i32 ```
+    /// ``` self: QtC.QTextCharFormat, object: i32 ```
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        C.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#property)
     ///
-    /// ``` self: ?*C.QTextCharFormat, propertyId: i32 ```
-    pub fn Property(self: ?*anyopaque, propertyId: i32) ?*C.QVariant {
-        return C.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextCharFormat, propertyId: i32 ```
+    pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
+        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
-    /// ``` self: ?*C.QTextCharFormat, propertyId: i32, value: ?*C.QVariant ```
+    /// ``` self: QtC.QTextCharFormat, propertyId: i32, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        C.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearProperty)
     ///
-    /// ``` self: ?*C.QTextCharFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextCharFormat, propertyId: i32 ```
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        C.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#hasProperty)
     ///
-    /// ``` self: ?*C.QTextCharFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextCharFormat, propertyId: i32 ```
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return C.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#boolProperty)
     ///
-    /// ``` self: ?*C.QTextCharFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextCharFormat, propertyId: i32 ```
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return C.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#intProperty)
     ///
-    /// ``` self: ?*C.QTextCharFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextCharFormat, propertyId: i32 ```
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return C.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#doubleProperty)
     ///
-    /// ``` self: ?*C.QTextCharFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextCharFormat, propertyId: i32 ```
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return C.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#stringProperty)
     ///
-    /// ``` self: ?*C.QTextCharFormat, propertyId: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextCharFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextcharformat.StringProperty: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1242,48 +1247,48 @@ pub const qtextcharformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#colorProperty)
     ///
-    /// ``` self: ?*C.QTextCharFormat, propertyId: i32 ```
-    pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) ?*C.QColor {
-        return C.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextCharFormat, propertyId: i32 ```
+    pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#penProperty)
     ///
-    /// ``` self: ?*C.QTextCharFormat, propertyId: i32 ```
-    pub fn PenProperty(self: ?*anyopaque, propertyId: i32) ?*C.QPen {
-        return C.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextCharFormat, propertyId: i32 ```
+    pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#brushProperty)
     ///
-    /// ``` self: ?*C.QTextCharFormat, propertyId: i32 ```
-    pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) ?*C.QBrush {
-        return C.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextCharFormat, propertyId: i32 ```
+    pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthProperty)
     ///
-    /// ``` self: ?*C.QTextCharFormat, propertyId: i32 ```
-    pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) ?*C.QTextLength {
-        return C.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextCharFormat, propertyId: i32 ```
+    pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthVectorProperty)
     ///
-    /// ``` self: ?*C.QTextCharFormat, propertyId: i32, allocator: std.mem.Allocator ```
-    pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []?*C.QTextLength {
-        const _arr: C.struct_libqt_list = C.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QTextLength, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QTextLength = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QTextCharFormat, propertyId: i32, allocator: std.mem.Allocator ```
+    pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
+        const _arr: qtc.struct_libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextcharformat.LengthVectorProperty: Memory allocation failed");
+        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -1294,34 +1299,34 @@ pub const qtextcharformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
-    /// ``` self: ?*C.QTextCharFormat, propertyId: i32, lengths: []?*C.QTextLength ```
-    pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []?*C.QTextLength) void {
-        const lengths_list = C.struct_libqt_list{
+    /// ``` self: QtC.QTextCharFormat, propertyId: i32, lengths: []QtC.QTextLength ```
+    pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
+        const lengths_list = qtc.struct_libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        C.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#properties)
     ///
-    /// ``` self: ?*C.QTextCharFormat, allocator: std.mem.Allocator ```
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_cqvariant {
-        const _map: C.struct_libqt_map = C.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_cqvariant = .empty;
+    /// ``` self: QtC.QTextCharFormat, allocator: std.mem.Allocator ```
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+        const _map: qtc.struct_libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
+        var _ret: map_i32_qtcqvariant = .empty;
         defer {
-            C.libqt_free(_map.keys);
-            C.libqt_free(_map.values);
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]?*C.QVariant = @ptrCast(@alignCast(_map.values));
+        const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
         var _i: usize = 0;
         while (_i < _map.len) : (_i += 1) {
             const _key = _keys[_i];
             const _value = _values[_i];
-            _ret.put(allocator, _key, _value) catch @panic("Memory allocation failed");
+            _ret.put(allocator, _key, _value) catch @panic("qtextcharformat.Properties: Memory allocation failed");
         }
         return _ret;
     }
@@ -1330,259 +1335,261 @@ pub const qtextcharformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn PropertyCount(self: ?*anyopaque) i32 {
-        return C.QTextFormat_PropertyCount(@ptrCast(self));
+        return qtc.QTextFormat_PropertyCount(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectType)
     ///
-    /// ``` self: ?*C.QTextCharFormat, typeVal: i32 ```
+    /// ``` self: QtC.QTextCharFormat, typeVal: i32 ```
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        C.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectType)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn ObjectType(self: ?*anyopaque) i32 {
-        return C.QTextFormat_ObjectType(@ptrCast(self));
+        return qtc.QTextFormat_ObjectType(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isCharFormat)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn IsCharFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsCharFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsCharFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isBlockFormat)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn IsBlockFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsBlockFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsBlockFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isListFormat)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn IsListFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsListFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsListFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isFrameFormat)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn IsFrameFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsFrameFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsFrameFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isImageFormat)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn IsImageFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsImageFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsImageFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableFormat)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn IsTableFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsTableFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsTableFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableCellFormat)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn IsTableCellFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsTableCellFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsTableCellFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toBlockFormat)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
-    pub fn ToBlockFormat(self: ?*anyopaque) ?*C.QTextBlockFormat {
-        return C.QTextFormat_ToBlockFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextCharFormat ```
+    pub fn ToBlockFormat(self: ?*anyopaque) QtC.QTextBlockFormat {
+        return qtc.QTextFormat_ToBlockFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toCharFormat)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
-    pub fn ToCharFormat(self: ?*anyopaque) ?*C.QTextCharFormat {
-        return C.QTextFormat_ToCharFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextCharFormat ```
+    pub fn ToCharFormat(self: ?*anyopaque) QtC.QTextCharFormat {
+        return qtc.QTextFormat_ToCharFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toListFormat)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
-    pub fn ToListFormat(self: ?*anyopaque) ?*C.QTextListFormat {
-        return C.QTextFormat_ToListFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextCharFormat ```
+    pub fn ToListFormat(self: ?*anyopaque) QtC.QTextListFormat {
+        return qtc.QTextFormat_ToListFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableFormat)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
-    pub fn ToTableFormat(self: ?*anyopaque) ?*C.QTextTableFormat {
-        return C.QTextFormat_ToTableFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextCharFormat ```
+    pub fn ToTableFormat(self: ?*anyopaque) QtC.QTextTableFormat {
+        return qtc.QTextFormat_ToTableFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toFrameFormat)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
-    pub fn ToFrameFormat(self: ?*anyopaque) ?*C.QTextFrameFormat {
-        return C.QTextFormat_ToFrameFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextCharFormat ```
+    pub fn ToFrameFormat(self: ?*anyopaque) QtC.QTextFrameFormat {
+        return qtc.QTextFormat_ToFrameFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toImageFormat)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
-    pub fn ToImageFormat(self: ?*anyopaque) ?*C.QTextImageFormat {
-        return C.QTextFormat_ToImageFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextCharFormat ```
+    pub fn ToImageFormat(self: ?*anyopaque) QtC.QTextImageFormat {
+        return qtc.QTextFormat_ToImageFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableCellFormat)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
-    pub fn ToTableCellFormat(self: ?*anyopaque) ?*C.QTextTableCellFormat {
-        return C.QTextFormat_ToTableCellFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextCharFormat ```
+    pub fn ToTableCellFormat(self: ?*anyopaque) QtC.QTextTableCellFormat {
+        return qtc.QTextFormat_ToTableCellFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator==)
     ///
-    /// ``` self: ?*C.QTextCharFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextCharFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return C.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
+        return qtc.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator!=)
     ///
-    /// ``` self: ?*C.QTextCharFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextCharFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return C.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
+        return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator QVariant)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
-    pub fn ToQVariant(self: ?*anyopaque) ?*C.QVariant {
-        return C.QTextFormat_ToQVariant(@ptrCast(self));
+    /// ``` self: QtC.QTextCharFormat ```
+    pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QTextFormat_ToQVariant(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
-    /// ``` self: ?*C.QTextCharFormat, direction: qnamespace_enums.LayoutDirection ```
+    /// ``` self: QtC.QTextCharFormat, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
-        C.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
-        return C.QTextFormat_LayoutDirection(@ptrCast(self));
+        return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setBackground)
     ///
-    /// ``` self: ?*C.QTextCharFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextCharFormat, brush: QtC.QBrush ```
     pub fn SetBackground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFormat_SetBackground(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFormat_SetBackground(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#background)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
-    pub fn Background(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFormat_Background(@ptrCast(self));
+    /// ``` self: QtC.QTextCharFormat ```
+    pub fn Background(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFormat_Background(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearBackground)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn ClearBackground(self: ?*anyopaque) void {
-        C.QTextFormat_ClearBackground(@ptrCast(self));
+        qtc.QTextFormat_ClearBackground(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setForeground)
     ///
-    /// ``` self: ?*C.QTextCharFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextCharFormat, brush: QtC.QBrush ```
     pub fn SetForeground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFormat_SetForeground(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFormat_SetForeground(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#foreground)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
-    pub fn Foreground(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFormat_Foreground(@ptrCast(self));
+    /// ``` self: QtC.QTextCharFormat ```
+    pub fn Foreground(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFormat_Foreground(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearForeground)
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn ClearForeground(self: ?*anyopaque) void {
-        C.QTextFormat_ClearForeground(@ptrCast(self));
+        qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#dtor.QTextCharFormat)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QTextCharFormat ```
+    /// ``` self: QtC.QTextCharFormat ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QTextCharFormat_Delete(@ptrCast(self));
+        qtc.QTextCharFormat_Delete(@ptrCast(self));
     }
 };
 
@@ -1591,211 +1598,211 @@ pub const qtextblockformat = struct {
     /// New constructs a new QTextBlockFormat object.
     ///
     ///
-    pub fn New() ?*C.QTextBlockFormat {
-        return C.QTextBlockFormat_new();
+    pub fn New() QtC.QTextBlockFormat {
+        return qtc.QTextBlockFormat_new();
     }
 
     /// New2 constructs a new QTextBlockFormat object.
     ///
-    /// ``` param1: ?*C.QTextBlockFormat ```
-    pub fn New2(param1: ?*anyopaque) ?*C.QTextBlockFormat {
-        return C.QTextBlockFormat_new2(@ptrCast(param1));
+    /// ``` param1: QtC.QTextBlockFormat ```
+    pub fn New2(param1: ?*anyopaque) QtC.QTextBlockFormat {
+        return qtc.QTextBlockFormat_new2(@ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#isValid)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QTextBlockFormat_IsValid(@ptrCast(self));
+        return qtc.QTextBlockFormat_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setAlignment)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, alignment: i32 ```
+    /// ``` self: QtC.QTextBlockFormat, alignment: i32 ```
     pub fn SetAlignment(self: ?*anyopaque, alignment: i64) void {
-        C.QTextBlockFormat_SetAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QTextBlockFormat_SetAlignment(@ptrCast(self), @intCast(alignment));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#alignment)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn Alignment(self: ?*anyopaque) i64 {
-        return C.QTextBlockFormat_Alignment(@ptrCast(self));
+        return qtc.QTextBlockFormat_Alignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setTopMargin)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, margin: f64 ```
+    /// ``` self: QtC.QTextBlockFormat, margin: f64 ```
     pub fn SetTopMargin(self: ?*anyopaque, margin: f64) void {
-        C.QTextBlockFormat_SetTopMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextBlockFormat_SetTopMargin(@ptrCast(self), @floatCast(margin));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#topMargin)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn TopMargin(self: ?*anyopaque) f64 {
-        return C.QTextBlockFormat_TopMargin(@ptrCast(self));
+        return qtc.QTextBlockFormat_TopMargin(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setBottomMargin)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, margin: f64 ```
+    /// ``` self: QtC.QTextBlockFormat, margin: f64 ```
     pub fn SetBottomMargin(self: ?*anyopaque, margin: f64) void {
-        C.QTextBlockFormat_SetBottomMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextBlockFormat_SetBottomMargin(@ptrCast(self), @floatCast(margin));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#bottomMargin)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn BottomMargin(self: ?*anyopaque) f64 {
-        return C.QTextBlockFormat_BottomMargin(@ptrCast(self));
+        return qtc.QTextBlockFormat_BottomMargin(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setLeftMargin)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, margin: f64 ```
+    /// ``` self: QtC.QTextBlockFormat, margin: f64 ```
     pub fn SetLeftMargin(self: ?*anyopaque, margin: f64) void {
-        C.QTextBlockFormat_SetLeftMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextBlockFormat_SetLeftMargin(@ptrCast(self), @floatCast(margin));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#leftMargin)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn LeftMargin(self: ?*anyopaque) f64 {
-        return C.QTextBlockFormat_LeftMargin(@ptrCast(self));
+        return qtc.QTextBlockFormat_LeftMargin(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setRightMargin)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, margin: f64 ```
+    /// ``` self: QtC.QTextBlockFormat, margin: f64 ```
     pub fn SetRightMargin(self: ?*anyopaque, margin: f64) void {
-        C.QTextBlockFormat_SetRightMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextBlockFormat_SetRightMargin(@ptrCast(self), @floatCast(margin));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#rightMargin)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn RightMargin(self: ?*anyopaque) f64 {
-        return C.QTextBlockFormat_RightMargin(@ptrCast(self));
+        return qtc.QTextBlockFormat_RightMargin(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setTextIndent)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, aindent: f64 ```
+    /// ``` self: QtC.QTextBlockFormat, aindent: f64 ```
     pub fn SetTextIndent(self: ?*anyopaque, aindent: f64) void {
-        C.QTextBlockFormat_SetTextIndent(@ptrCast(self), @floatCast(aindent));
+        qtc.QTextBlockFormat_SetTextIndent(@ptrCast(self), @floatCast(aindent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#textIndent)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn TextIndent(self: ?*anyopaque) f64 {
-        return C.QTextBlockFormat_TextIndent(@ptrCast(self));
+        return qtc.QTextBlockFormat_TextIndent(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setIndent)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, indent: i32 ```
+    /// ``` self: QtC.QTextBlockFormat, indent: i32 ```
     pub fn SetIndent(self: ?*anyopaque, indent: i32) void {
-        C.QTextBlockFormat_SetIndent(@ptrCast(self), @intCast(indent));
+        qtc.QTextBlockFormat_SetIndent(@ptrCast(self), @intCast(indent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#indent)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn Indent(self: ?*anyopaque) i32 {
-        return C.QTextBlockFormat_Indent(@ptrCast(self));
+        return qtc.QTextBlockFormat_Indent(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setHeadingLevel)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, alevel: i32 ```
+    /// ``` self: QtC.QTextBlockFormat, alevel: i32 ```
     pub fn SetHeadingLevel(self: ?*anyopaque, alevel: i32) void {
-        C.QTextBlockFormat_SetHeadingLevel(@ptrCast(self), @intCast(alevel));
+        qtc.QTextBlockFormat_SetHeadingLevel(@ptrCast(self), @intCast(alevel));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#headingLevel)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn HeadingLevel(self: ?*anyopaque) i32 {
-        return C.QTextBlockFormat_HeadingLevel(@ptrCast(self));
+        return qtc.QTextBlockFormat_HeadingLevel(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setLineHeight)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, height: f64, heightType: i32 ```
+    /// ``` self: QtC.QTextBlockFormat, height: f64, heightType: i32 ```
     pub fn SetLineHeight(self: ?*anyopaque, height: f64, heightType: i32) void {
-        C.QTextBlockFormat_SetLineHeight(@ptrCast(self), @floatCast(height), @intCast(heightType));
+        qtc.QTextBlockFormat_SetLineHeight(@ptrCast(self), @floatCast(height), @intCast(heightType));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#lineHeight)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, scriptLineHeight: f64, scaling: f64 ```
+    /// ``` self: QtC.QTextBlockFormat, scriptLineHeight: f64, scaling: f64 ```
     pub fn LineHeight(self: ?*anyopaque, scriptLineHeight: f64, scaling: f64) f64 {
-        return C.QTextBlockFormat_LineHeight(@ptrCast(self), @floatCast(scriptLineHeight), @floatCast(scaling));
+        return qtc.QTextBlockFormat_LineHeight(@ptrCast(self), @floatCast(scriptLineHeight), @floatCast(scaling));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#lineHeight)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn LineHeight2(self: ?*anyopaque) f64 {
-        return C.QTextBlockFormat_LineHeight2(@ptrCast(self));
+        return qtc.QTextBlockFormat_LineHeight2(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#lineHeightType)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn LineHeightType(self: ?*anyopaque) i32 {
-        return C.QTextBlockFormat_LineHeightType(@ptrCast(self));
+        return qtc.QTextBlockFormat_LineHeightType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setNonBreakableLines)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, b: bool ```
+    /// ``` self: QtC.QTextBlockFormat, b: bool ```
     pub fn SetNonBreakableLines(self: ?*anyopaque, b: bool) void {
-        C.QTextBlockFormat_SetNonBreakableLines(@ptrCast(self), b);
+        qtc.QTextBlockFormat_SetNonBreakableLines(@ptrCast(self), b);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#nonBreakableLines)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn NonBreakableLines(self: ?*anyopaque) bool {
-        return C.QTextBlockFormat_NonBreakableLines(@ptrCast(self));
+        return qtc.QTextBlockFormat_NonBreakableLines(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setPageBreakPolicy)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, flags: i32 ```
+    /// ``` self: QtC.QTextBlockFormat, flags: i32 ```
     pub fn SetPageBreakPolicy(self: ?*anyopaque, flags: i64) void {
-        C.QTextBlockFormat_SetPageBreakPolicy(@ptrCast(self), @intCast(flags));
+        qtc.QTextBlockFormat_SetPageBreakPolicy(@ptrCast(self), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#pageBreakPolicy)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn PageBreakPolicy(self: ?*anyopaque) i64 {
-        return C.QTextBlockFormat_PageBreakPolicy(@ptrCast(self));
+        return qtc.QTextBlockFormat_PageBreakPolicy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setTabPositions)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, tabs: []?*C.QTextOption__Tab ```
-    pub fn SetTabPositions(self: ?*anyopaque, tabs: []?*C.QTextOption__Tab) void {
-        const tabs_list = C.struct_libqt_list{
+    /// ``` self: QtC.QTextBlockFormat, tabs: []QtC.QTextOption__Tab ```
+    pub fn SetTabPositions(self: ?*anyopaque, tabs: []QtC.QTextOption__Tab) void {
+        const tabs_list = qtc.struct_libqt_list{
             .len = tabs.len,
             .data = @ptrCast(tabs.ptr),
         };
-        C.QTextBlockFormat_SetTabPositions(@ptrCast(self), tabs_list);
+        qtc.QTextBlockFormat_SetTabPositions(@ptrCast(self), tabs_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#tabPositions)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, allocator: std.mem.Allocator ```
-    pub fn TabPositions(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QTextOption__Tab {
-        const _arr: C.struct_libqt_list = C.QTextBlockFormat_TabPositions(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QTextOption__Tab, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QTextOption__Tab = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QTextBlockFormat, allocator: std.mem.Allocator ```
+    pub fn TabPositions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextOption__Tab {
+        const _arr: qtc.struct_libqt_list = qtc.QTextBlockFormat_TabPositions(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QTextOption__Tab, _arr.len) catch @panic("qtextblockformat.TabPositions: Memory allocation failed");
+        const _data: [*]QtC.QTextOption__Tab = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -1804,153 +1811,153 @@ pub const qtextblockformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setMarker)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, marker: qtextformat_enums.MarkerType ```
+    /// ``` self: QtC.QTextBlockFormat, marker: qtextformat_enums.MarkerType ```
     pub fn SetMarker(self: ?*anyopaque, marker: i64) void {
-        C.QTextBlockFormat_SetMarker(@ptrCast(self), @intCast(marker));
+        qtc.QTextBlockFormat_SetMarker(@ptrCast(self), @intCast(marker));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#marker)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn Marker(self: ?*anyopaque) i64 {
-        return C.QTextBlockFormat_Marker(@ptrCast(self));
+        return qtc.QTextBlockFormat_Marker(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator=)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextBlockFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
-        C.QTextFormat_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
+        qtc.QTextFormat_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#swap)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, other: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextBlockFormat, other: QtC.QTextFormat ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextFormat_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QTextFormat_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#merge)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, other: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextBlockFormat, other: QtC.QTextFormat ```
     pub fn Merge(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextFormat_Merge(@ptrCast(self), @ptrCast(other));
+        qtc.QTextFormat_Merge(@ptrCast(self), @ptrCast(other));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isEmpty)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsEmpty(@ptrCast(self));
+        return qtc.QTextFormat_IsEmpty(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#type)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn Type(self: ?*anyopaque) i32 {
-        return C.QTextFormat_Type(@ptrCast(self));
+        return qtc.QTextFormat_Type(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectIndex)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn ObjectIndex(self: ?*anyopaque) i32 {
-        return C.QTextFormat_ObjectIndex(@ptrCast(self));
+        return qtc.QTextFormat_ObjectIndex(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectIndex)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, object: i32 ```
+    /// ``` self: QtC.QTextBlockFormat, object: i32 ```
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        C.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#property)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, propertyId: i32 ```
-    pub fn Property(self: ?*anyopaque, propertyId: i32) ?*C.QVariant {
-        return C.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextBlockFormat, propertyId: i32 ```
+    pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
+        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, propertyId: i32, value: ?*C.QVariant ```
+    /// ``` self: QtC.QTextBlockFormat, propertyId: i32, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        C.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearProperty)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextBlockFormat, propertyId: i32 ```
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        C.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#hasProperty)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextBlockFormat, propertyId: i32 ```
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return C.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#boolProperty)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextBlockFormat, propertyId: i32 ```
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return C.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#intProperty)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextBlockFormat, propertyId: i32 ```
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return C.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#doubleProperty)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextBlockFormat, propertyId: i32 ```
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return C.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#stringProperty)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, propertyId: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextBlockFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextblockformat.StringProperty: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -1961,48 +1968,48 @@ pub const qtextblockformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#colorProperty)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, propertyId: i32 ```
-    pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) ?*C.QColor {
-        return C.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextBlockFormat, propertyId: i32 ```
+    pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#penProperty)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, propertyId: i32 ```
-    pub fn PenProperty(self: ?*anyopaque, propertyId: i32) ?*C.QPen {
-        return C.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextBlockFormat, propertyId: i32 ```
+    pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#brushProperty)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, propertyId: i32 ```
-    pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) ?*C.QBrush {
-        return C.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextBlockFormat, propertyId: i32 ```
+    pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthProperty)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, propertyId: i32 ```
-    pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) ?*C.QTextLength {
-        return C.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextBlockFormat, propertyId: i32 ```
+    pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthVectorProperty)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, propertyId: i32, allocator: std.mem.Allocator ```
-    pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []?*C.QTextLength {
-        const _arr: C.struct_libqt_list = C.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QTextLength, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QTextLength = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QTextBlockFormat, propertyId: i32, allocator: std.mem.Allocator ```
+    pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
+        const _arr: qtc.struct_libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextblockformat.LengthVectorProperty: Memory allocation failed");
+        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -2013,34 +2020,34 @@ pub const qtextblockformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, propertyId: i32, lengths: []?*C.QTextLength ```
-    pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []?*C.QTextLength) void {
-        const lengths_list = C.struct_libqt_list{
+    /// ``` self: QtC.QTextBlockFormat, propertyId: i32, lengths: []QtC.QTextLength ```
+    pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
+        const lengths_list = qtc.struct_libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        C.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#properties)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, allocator: std.mem.Allocator ```
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_cqvariant {
-        const _map: C.struct_libqt_map = C.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_cqvariant = .empty;
+    /// ``` self: QtC.QTextBlockFormat, allocator: std.mem.Allocator ```
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+        const _map: qtc.struct_libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
+        var _ret: map_i32_qtcqvariant = .empty;
         defer {
-            C.libqt_free(_map.keys);
-            C.libqt_free(_map.values);
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]?*C.QVariant = @ptrCast(@alignCast(_map.values));
+        const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
         var _i: usize = 0;
         while (_i < _map.len) : (_i += 1) {
             const _key = _keys[_i];
             const _value = _values[_i];
-            _ret.put(allocator, _key, _value) catch @panic("Memory allocation failed");
+            _ret.put(allocator, _key, _value) catch @panic("qtextblockformat.Properties: Memory allocation failed");
         }
         return _ret;
     }
@@ -2049,259 +2056,261 @@ pub const qtextblockformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn PropertyCount(self: ?*anyopaque) i32 {
-        return C.QTextFormat_PropertyCount(@ptrCast(self));
+        return qtc.QTextFormat_PropertyCount(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectType)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, typeVal: i32 ```
+    /// ``` self: QtC.QTextBlockFormat, typeVal: i32 ```
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        C.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectType)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn ObjectType(self: ?*anyopaque) i32 {
-        return C.QTextFormat_ObjectType(@ptrCast(self));
+        return qtc.QTextFormat_ObjectType(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isCharFormat)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn IsCharFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsCharFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsCharFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isBlockFormat)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn IsBlockFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsBlockFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsBlockFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isListFormat)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn IsListFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsListFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsListFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isFrameFormat)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn IsFrameFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsFrameFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsFrameFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isImageFormat)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn IsImageFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsImageFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsImageFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableFormat)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn IsTableFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsTableFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsTableFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableCellFormat)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn IsTableCellFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsTableCellFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsTableCellFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toBlockFormat)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
-    pub fn ToBlockFormat(self: ?*anyopaque) ?*C.QTextBlockFormat {
-        return C.QTextFormat_ToBlockFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextBlockFormat ```
+    pub fn ToBlockFormat(self: ?*anyopaque) QtC.QTextBlockFormat {
+        return qtc.QTextFormat_ToBlockFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toCharFormat)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
-    pub fn ToCharFormat(self: ?*anyopaque) ?*C.QTextCharFormat {
-        return C.QTextFormat_ToCharFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextBlockFormat ```
+    pub fn ToCharFormat(self: ?*anyopaque) QtC.QTextCharFormat {
+        return qtc.QTextFormat_ToCharFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toListFormat)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
-    pub fn ToListFormat(self: ?*anyopaque) ?*C.QTextListFormat {
-        return C.QTextFormat_ToListFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextBlockFormat ```
+    pub fn ToListFormat(self: ?*anyopaque) QtC.QTextListFormat {
+        return qtc.QTextFormat_ToListFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableFormat)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
-    pub fn ToTableFormat(self: ?*anyopaque) ?*C.QTextTableFormat {
-        return C.QTextFormat_ToTableFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextBlockFormat ```
+    pub fn ToTableFormat(self: ?*anyopaque) QtC.QTextTableFormat {
+        return qtc.QTextFormat_ToTableFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toFrameFormat)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
-    pub fn ToFrameFormat(self: ?*anyopaque) ?*C.QTextFrameFormat {
-        return C.QTextFormat_ToFrameFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextBlockFormat ```
+    pub fn ToFrameFormat(self: ?*anyopaque) QtC.QTextFrameFormat {
+        return qtc.QTextFormat_ToFrameFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toImageFormat)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
-    pub fn ToImageFormat(self: ?*anyopaque) ?*C.QTextImageFormat {
-        return C.QTextFormat_ToImageFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextBlockFormat ```
+    pub fn ToImageFormat(self: ?*anyopaque) QtC.QTextImageFormat {
+        return qtc.QTextFormat_ToImageFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableCellFormat)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
-    pub fn ToTableCellFormat(self: ?*anyopaque) ?*C.QTextTableCellFormat {
-        return C.QTextFormat_ToTableCellFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextBlockFormat ```
+    pub fn ToTableCellFormat(self: ?*anyopaque) QtC.QTextTableCellFormat {
+        return qtc.QTextFormat_ToTableCellFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator==)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextBlockFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return C.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
+        return qtc.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator!=)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextBlockFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return C.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
+        return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator QVariant)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
-    pub fn ToQVariant(self: ?*anyopaque) ?*C.QVariant {
-        return C.QTextFormat_ToQVariant(@ptrCast(self));
+    /// ``` self: QtC.QTextBlockFormat ```
+    pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QTextFormat_ToQVariant(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, direction: qnamespace_enums.LayoutDirection ```
+    /// ``` self: QtC.QTextBlockFormat, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
-        C.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
-        return C.QTextFormat_LayoutDirection(@ptrCast(self));
+        return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setBackground)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextBlockFormat, brush: QtC.QBrush ```
     pub fn SetBackground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFormat_SetBackground(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFormat_SetBackground(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#background)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
-    pub fn Background(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFormat_Background(@ptrCast(self));
+    /// ``` self: QtC.QTextBlockFormat ```
+    pub fn Background(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFormat_Background(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearBackground)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn ClearBackground(self: ?*anyopaque) void {
-        C.QTextFormat_ClearBackground(@ptrCast(self));
+        qtc.QTextFormat_ClearBackground(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setForeground)
     ///
-    /// ``` self: ?*C.QTextBlockFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextBlockFormat, brush: QtC.QBrush ```
     pub fn SetForeground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFormat_SetForeground(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFormat_SetForeground(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#foreground)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
-    pub fn Foreground(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFormat_Foreground(@ptrCast(self));
+    /// ``` self: QtC.QTextBlockFormat ```
+    pub fn Foreground(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFormat_Foreground(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearForeground)
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn ClearForeground(self: ?*anyopaque) void {
-        C.QTextFormat_ClearForeground(@ptrCast(self));
+        qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#dtor.QTextBlockFormat)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QTextBlockFormat ```
+    /// ``` self: QtC.QTextBlockFormat ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QTextBlockFormat_Delete(@ptrCast(self));
+        qtc.QTextBlockFormat_Delete(@ptrCast(self));
     }
 };
 
@@ -2310,70 +2319,70 @@ pub const qtextlistformat = struct {
     /// New constructs a new QTextListFormat object.
     ///
     ///
-    pub fn New() ?*C.QTextListFormat {
-        return C.QTextListFormat_new();
+    pub fn New() QtC.QTextListFormat {
+        return qtc.QTextListFormat_new();
     }
 
     /// New2 constructs a new QTextListFormat object.
     ///
-    /// ``` param1: ?*C.QTextListFormat ```
-    pub fn New2(param1: ?*anyopaque) ?*C.QTextListFormat {
-        return C.QTextListFormat_new2(@ptrCast(param1));
+    /// ``` param1: QtC.QTextListFormat ```
+    pub fn New2(param1: ?*anyopaque) QtC.QTextListFormat {
+        return qtc.QTextListFormat_new2(@ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlistformat.html#isValid)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QTextListFormat_IsValid(@ptrCast(self));
+        return qtc.QTextListFormat_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlistformat.html#setStyle)
     ///
-    /// ``` self: ?*C.QTextListFormat, style: qtextformat_enums.Style ```
+    /// ``` self: QtC.QTextListFormat, style: qtextformat_enums.Style ```
     pub fn SetStyle(self: ?*anyopaque, style: i64) void {
-        C.QTextListFormat_SetStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextListFormat_SetStyle(@ptrCast(self), @intCast(style));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlistformat.html#style)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn Style(self: ?*anyopaque) i64 {
-        return C.QTextListFormat_Style(@ptrCast(self));
+        return qtc.QTextListFormat_Style(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlistformat.html#setIndent)
     ///
-    /// ``` self: ?*C.QTextListFormat, indent: i32 ```
+    /// ``` self: QtC.QTextListFormat, indent: i32 ```
     pub fn SetIndent(self: ?*anyopaque, indent: i32) void {
-        C.QTextListFormat_SetIndent(@ptrCast(self), @intCast(indent));
+        qtc.QTextListFormat_SetIndent(@ptrCast(self), @intCast(indent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlistformat.html#indent)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn Indent(self: ?*anyopaque) i32 {
-        return C.QTextListFormat_Indent(@ptrCast(self));
+        return qtc.QTextListFormat_Indent(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlistformat.html#setNumberPrefix)
     ///
-    /// ``` self: ?*C.QTextListFormat, numberPrefix: []const u8 ```
+    /// ``` self: QtC.QTextListFormat, numberPrefix: []const u8 ```
     pub fn SetNumberPrefix(self: ?*anyopaque, numberPrefix: []const u8) void {
-        const numberPrefix_str = C.struct_libqt_string{
+        const numberPrefix_str = qtc.struct_libqt_string{
             .len = numberPrefix.len,
             .data = @constCast(numberPrefix.ptr),
         };
-        C.QTextListFormat_SetNumberPrefix(@ptrCast(self), numberPrefix_str);
+        qtc.QTextListFormat_SetNumberPrefix(@ptrCast(self), numberPrefix_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlistformat.html#numberPrefix)
     ///
-    /// ``` self: ?*C.QTextListFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextListFormat, allocator: std.mem.Allocator ```
     pub fn NumberPrefix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextListFormat_NumberPrefix(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextListFormat_NumberPrefix(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextlistformat.NumberPrefix: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2382,22 +2391,22 @@ pub const qtextlistformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlistformat.html#setNumberSuffix)
     ///
-    /// ``` self: ?*C.QTextListFormat, numberSuffix: []const u8 ```
+    /// ``` self: QtC.QTextListFormat, numberSuffix: []const u8 ```
     pub fn SetNumberSuffix(self: ?*anyopaque, numberSuffix: []const u8) void {
-        const numberSuffix_str = C.struct_libqt_string{
+        const numberSuffix_str = qtc.struct_libqt_string{
             .len = numberSuffix.len,
             .data = @constCast(numberSuffix.ptr),
         };
-        C.QTextListFormat_SetNumberSuffix(@ptrCast(self), numberSuffix_str);
+        qtc.QTextListFormat_SetNumberSuffix(@ptrCast(self), numberSuffix_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlistformat.html#numberSuffix)
     ///
-    /// ``` self: ?*C.QTextListFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextListFormat, allocator: std.mem.Allocator ```
     pub fn NumberSuffix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextListFormat_NumberSuffix(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextListFormat_NumberSuffix(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextlistformat.NumberSuffix: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2408,137 +2417,137 @@ pub const qtextlistformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator=)
     ///
-    /// ``` self: ?*C.QTextListFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextListFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
-        C.QTextFormat_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
+        qtc.QTextFormat_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#swap)
     ///
-    /// ``` self: ?*C.QTextListFormat, other: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextListFormat, other: QtC.QTextFormat ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextFormat_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QTextFormat_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#merge)
     ///
-    /// ``` self: ?*C.QTextListFormat, other: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextListFormat, other: QtC.QTextFormat ```
     pub fn Merge(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextFormat_Merge(@ptrCast(self), @ptrCast(other));
+        qtc.QTextFormat_Merge(@ptrCast(self), @ptrCast(other));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isEmpty)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsEmpty(@ptrCast(self));
+        return qtc.QTextFormat_IsEmpty(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#type)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn Type(self: ?*anyopaque) i32 {
-        return C.QTextFormat_Type(@ptrCast(self));
+        return qtc.QTextFormat_Type(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectIndex)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn ObjectIndex(self: ?*anyopaque) i32 {
-        return C.QTextFormat_ObjectIndex(@ptrCast(self));
+        return qtc.QTextFormat_ObjectIndex(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectIndex)
     ///
-    /// ``` self: ?*C.QTextListFormat, object: i32 ```
+    /// ``` self: QtC.QTextListFormat, object: i32 ```
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        C.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#property)
     ///
-    /// ``` self: ?*C.QTextListFormat, propertyId: i32 ```
-    pub fn Property(self: ?*anyopaque, propertyId: i32) ?*C.QVariant {
-        return C.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextListFormat, propertyId: i32 ```
+    pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
+        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
-    /// ``` self: ?*C.QTextListFormat, propertyId: i32, value: ?*C.QVariant ```
+    /// ``` self: QtC.QTextListFormat, propertyId: i32, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        C.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearProperty)
     ///
-    /// ``` self: ?*C.QTextListFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextListFormat, propertyId: i32 ```
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        C.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#hasProperty)
     ///
-    /// ``` self: ?*C.QTextListFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextListFormat, propertyId: i32 ```
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return C.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#boolProperty)
     ///
-    /// ``` self: ?*C.QTextListFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextListFormat, propertyId: i32 ```
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return C.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#intProperty)
     ///
-    /// ``` self: ?*C.QTextListFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextListFormat, propertyId: i32 ```
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return C.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#doubleProperty)
     ///
-    /// ``` self: ?*C.QTextListFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextListFormat, propertyId: i32 ```
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return C.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#stringProperty)
     ///
-    /// ``` self: ?*C.QTextListFormat, propertyId: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextListFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextlistformat.StringProperty: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2549,48 +2558,48 @@ pub const qtextlistformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#colorProperty)
     ///
-    /// ``` self: ?*C.QTextListFormat, propertyId: i32 ```
-    pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) ?*C.QColor {
-        return C.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextListFormat, propertyId: i32 ```
+    pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#penProperty)
     ///
-    /// ``` self: ?*C.QTextListFormat, propertyId: i32 ```
-    pub fn PenProperty(self: ?*anyopaque, propertyId: i32) ?*C.QPen {
-        return C.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextListFormat, propertyId: i32 ```
+    pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#brushProperty)
     ///
-    /// ``` self: ?*C.QTextListFormat, propertyId: i32 ```
-    pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) ?*C.QBrush {
-        return C.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextListFormat, propertyId: i32 ```
+    pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthProperty)
     ///
-    /// ``` self: ?*C.QTextListFormat, propertyId: i32 ```
-    pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) ?*C.QTextLength {
-        return C.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextListFormat, propertyId: i32 ```
+    pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthVectorProperty)
     ///
-    /// ``` self: ?*C.QTextListFormat, propertyId: i32, allocator: std.mem.Allocator ```
-    pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []?*C.QTextLength {
-        const _arr: C.struct_libqt_list = C.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QTextLength, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QTextLength = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QTextListFormat, propertyId: i32, allocator: std.mem.Allocator ```
+    pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
+        const _arr: qtc.struct_libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextlistformat.LengthVectorProperty: Memory allocation failed");
+        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -2601,34 +2610,34 @@ pub const qtextlistformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
-    /// ``` self: ?*C.QTextListFormat, propertyId: i32, lengths: []?*C.QTextLength ```
-    pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []?*C.QTextLength) void {
-        const lengths_list = C.struct_libqt_list{
+    /// ``` self: QtC.QTextListFormat, propertyId: i32, lengths: []QtC.QTextLength ```
+    pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
+        const lengths_list = qtc.struct_libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        C.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#properties)
     ///
-    /// ``` self: ?*C.QTextListFormat, allocator: std.mem.Allocator ```
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_cqvariant {
-        const _map: C.struct_libqt_map = C.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_cqvariant = .empty;
+    /// ``` self: QtC.QTextListFormat, allocator: std.mem.Allocator ```
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+        const _map: qtc.struct_libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
+        var _ret: map_i32_qtcqvariant = .empty;
         defer {
-            C.libqt_free(_map.keys);
-            C.libqt_free(_map.values);
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]?*C.QVariant = @ptrCast(@alignCast(_map.values));
+        const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
         var _i: usize = 0;
         while (_i < _map.len) : (_i += 1) {
             const _key = _keys[_i];
             const _value = _values[_i];
-            _ret.put(allocator, _key, _value) catch @panic("Memory allocation failed");
+            _ret.put(allocator, _key, _value) catch @panic("qtextlistformat.Properties: Memory allocation failed");
         }
         return _ret;
     }
@@ -2637,259 +2646,261 @@ pub const qtextlistformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn PropertyCount(self: ?*anyopaque) i32 {
-        return C.QTextFormat_PropertyCount(@ptrCast(self));
+        return qtc.QTextFormat_PropertyCount(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectType)
     ///
-    /// ``` self: ?*C.QTextListFormat, typeVal: i32 ```
+    /// ``` self: QtC.QTextListFormat, typeVal: i32 ```
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        C.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectType)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn ObjectType(self: ?*anyopaque) i32 {
-        return C.QTextFormat_ObjectType(@ptrCast(self));
+        return qtc.QTextFormat_ObjectType(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isCharFormat)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn IsCharFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsCharFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsCharFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isBlockFormat)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn IsBlockFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsBlockFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsBlockFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isListFormat)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn IsListFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsListFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsListFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isFrameFormat)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn IsFrameFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsFrameFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsFrameFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isImageFormat)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn IsImageFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsImageFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsImageFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableFormat)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn IsTableFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsTableFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsTableFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableCellFormat)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn IsTableCellFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsTableCellFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsTableCellFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toBlockFormat)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
-    pub fn ToBlockFormat(self: ?*anyopaque) ?*C.QTextBlockFormat {
-        return C.QTextFormat_ToBlockFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextListFormat ```
+    pub fn ToBlockFormat(self: ?*anyopaque) QtC.QTextBlockFormat {
+        return qtc.QTextFormat_ToBlockFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toCharFormat)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
-    pub fn ToCharFormat(self: ?*anyopaque) ?*C.QTextCharFormat {
-        return C.QTextFormat_ToCharFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextListFormat ```
+    pub fn ToCharFormat(self: ?*anyopaque) QtC.QTextCharFormat {
+        return qtc.QTextFormat_ToCharFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toListFormat)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
-    pub fn ToListFormat(self: ?*anyopaque) ?*C.QTextListFormat {
-        return C.QTextFormat_ToListFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextListFormat ```
+    pub fn ToListFormat(self: ?*anyopaque) QtC.QTextListFormat {
+        return qtc.QTextFormat_ToListFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableFormat)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
-    pub fn ToTableFormat(self: ?*anyopaque) ?*C.QTextTableFormat {
-        return C.QTextFormat_ToTableFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextListFormat ```
+    pub fn ToTableFormat(self: ?*anyopaque) QtC.QTextTableFormat {
+        return qtc.QTextFormat_ToTableFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toFrameFormat)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
-    pub fn ToFrameFormat(self: ?*anyopaque) ?*C.QTextFrameFormat {
-        return C.QTextFormat_ToFrameFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextListFormat ```
+    pub fn ToFrameFormat(self: ?*anyopaque) QtC.QTextFrameFormat {
+        return qtc.QTextFormat_ToFrameFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toImageFormat)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
-    pub fn ToImageFormat(self: ?*anyopaque) ?*C.QTextImageFormat {
-        return C.QTextFormat_ToImageFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextListFormat ```
+    pub fn ToImageFormat(self: ?*anyopaque) QtC.QTextImageFormat {
+        return qtc.QTextFormat_ToImageFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableCellFormat)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
-    pub fn ToTableCellFormat(self: ?*anyopaque) ?*C.QTextTableCellFormat {
-        return C.QTextFormat_ToTableCellFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextListFormat ```
+    pub fn ToTableCellFormat(self: ?*anyopaque) QtC.QTextTableCellFormat {
+        return qtc.QTextFormat_ToTableCellFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator==)
     ///
-    /// ``` self: ?*C.QTextListFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextListFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return C.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
+        return qtc.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator!=)
     ///
-    /// ``` self: ?*C.QTextListFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextListFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return C.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
+        return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator QVariant)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
-    pub fn ToQVariant(self: ?*anyopaque) ?*C.QVariant {
-        return C.QTextFormat_ToQVariant(@ptrCast(self));
+    /// ``` self: QtC.QTextListFormat ```
+    pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QTextFormat_ToQVariant(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
-    /// ``` self: ?*C.QTextListFormat, direction: qnamespace_enums.LayoutDirection ```
+    /// ``` self: QtC.QTextListFormat, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
-        C.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
-        return C.QTextFormat_LayoutDirection(@ptrCast(self));
+        return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setBackground)
     ///
-    /// ``` self: ?*C.QTextListFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextListFormat, brush: QtC.QBrush ```
     pub fn SetBackground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFormat_SetBackground(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFormat_SetBackground(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#background)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
-    pub fn Background(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFormat_Background(@ptrCast(self));
+    /// ``` self: QtC.QTextListFormat ```
+    pub fn Background(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFormat_Background(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearBackground)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn ClearBackground(self: ?*anyopaque) void {
-        C.QTextFormat_ClearBackground(@ptrCast(self));
+        qtc.QTextFormat_ClearBackground(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setForeground)
     ///
-    /// ``` self: ?*C.QTextListFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextListFormat, brush: QtC.QBrush ```
     pub fn SetForeground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFormat_SetForeground(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFormat_SetForeground(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#foreground)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
-    pub fn Foreground(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFormat_Foreground(@ptrCast(self));
+    /// ``` self: QtC.QTextListFormat ```
+    pub fn Foreground(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFormat_Foreground(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearForeground)
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn ClearForeground(self: ?*anyopaque) void {
-        C.QTextFormat_ClearForeground(@ptrCast(self));
+        qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlistformat.html#dtor.QTextListFormat)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QTextListFormat ```
+    /// ``` self: QtC.QTextListFormat ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QTextListFormat_Delete(@ptrCast(self));
+        qtc.QTextListFormat_Delete(@ptrCast(self));
     }
 };
 
@@ -2898,35 +2909,35 @@ pub const qtextimageformat = struct {
     /// New constructs a new QTextImageFormat object.
     ///
     ///
-    pub fn New() ?*C.QTextImageFormat {
-        return C.QTextImageFormat_new();
+    pub fn New() QtC.QTextImageFormat {
+        return qtc.QTextImageFormat_new();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextimageformat.html#isValid)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QTextImageFormat_IsValid(@ptrCast(self));
+        return qtc.QTextImageFormat_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextimageformat.html#setName)
     ///
-    /// ``` self: ?*C.QTextImageFormat, name: []const u8 ```
+    /// ``` self: QtC.QTextImageFormat, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = C.struct_libqt_string{
+        const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = @constCast(name.ptr),
         };
-        C.QTextImageFormat_SetName(@ptrCast(self), name_str);
+        qtc.QTextImageFormat_SetName(@ptrCast(self), name_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextimageformat.html#name)
     ///
-    /// ``` self: ?*C.QTextImageFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextImageFormat, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextImageFormat_Name(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextImageFormat_Name(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextimageformat.Name: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -2935,93 +2946,93 @@ pub const qtextimageformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextimageformat.html#setWidth)
     ///
-    /// ``` self: ?*C.QTextImageFormat, width: f64 ```
+    /// ``` self: QtC.QTextImageFormat, width: f64 ```
     pub fn SetWidth(self: ?*anyopaque, width: f64) void {
-        C.QTextImageFormat_SetWidth(@ptrCast(self), @floatCast(width));
+        qtc.QTextImageFormat_SetWidth(@ptrCast(self), @floatCast(width));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextimageformat.html#width)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn Width(self: ?*anyopaque) f64 {
-        return C.QTextImageFormat_Width(@ptrCast(self));
+        return qtc.QTextImageFormat_Width(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextimageformat.html#setHeight)
     ///
-    /// ``` self: ?*C.QTextImageFormat, height: f64 ```
+    /// ``` self: QtC.QTextImageFormat, height: f64 ```
     pub fn SetHeight(self: ?*anyopaque, height: f64) void {
-        C.QTextImageFormat_SetHeight(@ptrCast(self), @floatCast(height));
+        qtc.QTextImageFormat_SetHeight(@ptrCast(self), @floatCast(height));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextimageformat.html#height)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn Height(self: ?*anyopaque) f64 {
-        return C.QTextImageFormat_Height(@ptrCast(self));
+        return qtc.QTextImageFormat_Height(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextimageformat.html#setQuality)
     ///
-    /// ``` self: ?*C.QTextImageFormat, quality: i32 ```
+    /// ``` self: QtC.QTextImageFormat, quality: i32 ```
     pub fn SetQuality(self: ?*anyopaque, quality: i32) void {
-        C.QTextImageFormat_SetQuality(@ptrCast(self), @intCast(quality));
+        qtc.QTextImageFormat_SetQuality(@ptrCast(self), @intCast(quality));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextimageformat.html#setQuality)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn SetQuality2(self: ?*anyopaque) void {
-        C.QTextImageFormat_SetQuality2(@ptrCast(self));
+        qtc.QTextImageFormat_SetQuality2(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextimageformat.html#quality)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn Quality(self: ?*anyopaque) i32 {
-        return C.QTextImageFormat_Quality(@ptrCast(self));
+        return qtc.QTextImageFormat_Quality(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFont)
     ///
-    /// ``` self: ?*C.QTextImageFormat, font: ?*C.QFont ```
+    /// ``` self: QtC.QTextImageFormat, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        C.QTextCharFormat_SetFont(@ptrCast(self), @ptrCast(font));
+        qtc.QTextCharFormat_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#font)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
-    pub fn Font(self: ?*anyopaque) ?*C.QFont {
-        return C.QTextCharFormat_Font(@ptrCast(self));
+    /// ``` self: QtC.QTextImageFormat ```
+    pub fn Font(self: ?*anyopaque) QtC.QFont {
+        return qtc.QTextCharFormat_Font(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFamily)
     ///
-    /// ``` self: ?*C.QTextImageFormat, family: []const u8 ```
+    /// ``` self: QtC.QTextImageFormat, family: []const u8 ```
     pub fn SetFontFamily(self: ?*anyopaque, family: []const u8) void {
-        const family_str = C.struct_libqt_string{
+        const family_str = qtc.struct_libqt_string{
             .len = family.len,
             .data = @constCast(family.ptr),
         };
-        C.QTextCharFormat_SetFontFamily(@ptrCast(self), family_str);
+        qtc.QTextCharFormat_SetFontFamily(@ptrCast(self), family_str);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontFamily)
     ///
-    /// ``` self: ?*C.QTextImageFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextImageFormat, allocator: std.mem.Allocator ```
     pub fn FontFamily(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextCharFormat_FontFamily(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextCharFormat_FontFamily(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextimageformat.FontFamily: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3032,9 +3043,9 @@ pub const qtextimageformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFamilies)
     ///
-    /// ``` self: ?*C.QTextImageFormat, families: [][]const u8, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextImageFormat, families: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetFontFamilies(self: ?*anyopaque, families: [][]const u8, allocator: std.mem.Allocator) void {
-        var families_arr = allocator.alloc(C.struct_libqt_string, families.len) catch @panic("Memory allocation failed");
+        var families_arr = allocator.alloc(qtc.struct_libqt_string, families.len) catch @panic("qtextimageformat.SetFontFamilies: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, _i| {
             families_arr[_i] = .{
@@ -3042,426 +3053,426 @@ pub const qtextimageformat = struct {
                 .data = @ptrCast(@constCast(item.ptr)),
             };
         }
-        const families_list = C.struct_libqt_list{
+        const families_list = qtc.struct_libqt_list{
             .len = families.len,
             .data = families_arr.ptr,
         };
-        C.QTextCharFormat_SetFontFamilies(@ptrCast(self), families_list);
+        qtc.QTextCharFormat_SetFontFamilies(@ptrCast(self), families_list);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontFamilies)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
-    pub fn FontFamilies(self: ?*anyopaque) ?*C.QVariant {
-        return C.QTextCharFormat_FontFamilies(@ptrCast(self));
+    /// ``` self: QtC.QTextImageFormat ```
+    pub fn FontFamilies(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QTextCharFormat_FontFamilies(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleName)
     ///
-    /// ``` self: ?*C.QTextImageFormat, styleName: []const u8 ```
+    /// ``` self: QtC.QTextImageFormat, styleName: []const u8 ```
     pub fn SetFontStyleName(self: ?*anyopaque, styleName: []const u8) void {
-        const styleName_str = C.struct_libqt_string{
+        const styleName_str = qtc.struct_libqt_string{
             .len = styleName.len,
             .data = @constCast(styleName.ptr),
         };
-        C.QTextCharFormat_SetFontStyleName(@ptrCast(self), styleName_str);
+        qtc.QTextCharFormat_SetFontStyleName(@ptrCast(self), styleName_str);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleName)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
-    pub fn FontStyleName(self: ?*anyopaque) ?*C.QVariant {
-        return C.QTextCharFormat_FontStyleName(@ptrCast(self));
+    /// ``` self: QtC.QTextImageFormat ```
+    pub fn FontStyleName(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QTextCharFormat_FontStyleName(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontPointSize)
     ///
-    /// ``` self: ?*C.QTextImageFormat, size: f64 ```
+    /// ``` self: QtC.QTextImageFormat, size: f64 ```
     pub fn SetFontPointSize(self: ?*anyopaque, size: f64) void {
-        C.QTextCharFormat_SetFontPointSize(@ptrCast(self), @floatCast(size));
+        qtc.QTextCharFormat_SetFontPointSize(@ptrCast(self), @floatCast(size));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontPointSize)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn FontPointSize(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_FontPointSize(@ptrCast(self));
+        return qtc.QTextCharFormat_FontPointSize(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontWeight)
     ///
-    /// ``` self: ?*C.QTextImageFormat, weight: i32 ```
+    /// ``` self: QtC.QTextImageFormat, weight: i32 ```
     pub fn SetFontWeight(self: ?*anyopaque, weight: i32) void {
-        C.QTextCharFormat_SetFontWeight(@ptrCast(self), @intCast(weight));
+        qtc.QTextCharFormat_SetFontWeight(@ptrCast(self), @intCast(weight));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontWeight)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn FontWeight(self: ?*anyopaque) i32 {
-        return C.QTextCharFormat_FontWeight(@ptrCast(self));
+        return qtc.QTextCharFormat_FontWeight(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontItalic)
     ///
-    /// ``` self: ?*C.QTextImageFormat, italic: bool ```
+    /// ``` self: QtC.QTextImageFormat, italic: bool ```
     pub fn SetFontItalic(self: ?*anyopaque, italic: bool) void {
-        C.QTextCharFormat_SetFontItalic(@ptrCast(self), italic);
+        qtc.QTextCharFormat_SetFontItalic(@ptrCast(self), italic);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontItalic)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn FontItalic(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontItalic(@ptrCast(self));
+        return qtc.QTextCharFormat_FontItalic(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontCapitalization)
     ///
-    /// ``` self: ?*C.QTextImageFormat, capitalization: qfont_enums.Capitalization ```
+    /// ``` self: QtC.QTextImageFormat, capitalization: qfont_enums.Capitalization ```
     pub fn SetFontCapitalization(self: ?*anyopaque, capitalization: i64) void {
-        C.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @intCast(capitalization));
+        qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @intCast(capitalization));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontCapitalization)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn FontCapitalization(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_FontCapitalization(@ptrCast(self));
+        return qtc.QTextCharFormat_FontCapitalization(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontLetterSpacingType)
     ///
-    /// ``` self: ?*C.QTextImageFormat, letterSpacingType: qfont_enums.SpacingType ```
+    /// ``` self: QtC.QTextImageFormat, letterSpacingType: qfont_enums.SpacingType ```
     pub fn SetFontLetterSpacingType(self: ?*anyopaque, letterSpacingType: i64) void {
-        C.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @intCast(letterSpacingType));
+        qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @intCast(letterSpacingType));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacingType)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn FontLetterSpacingType(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_FontLetterSpacingType(@ptrCast(self));
+        return qtc.QTextCharFormat_FontLetterSpacingType(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontLetterSpacing)
     ///
-    /// ``` self: ?*C.QTextImageFormat, spacing: f64 ```
+    /// ``` self: QtC.QTextImageFormat, spacing: f64 ```
     pub fn SetFontLetterSpacing(self: ?*anyopaque, spacing: f64) void {
-        C.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self), @floatCast(spacing));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacing)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn FontLetterSpacing(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_FontLetterSpacing(@ptrCast(self));
+        return qtc.QTextCharFormat_FontLetterSpacing(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontWordSpacing)
     ///
-    /// ``` self: ?*C.QTextImageFormat, spacing: f64 ```
+    /// ``` self: QtC.QTextImageFormat, spacing: f64 ```
     pub fn SetFontWordSpacing(self: ?*anyopaque, spacing: f64) void {
-        C.QTextCharFormat_SetFontWordSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QTextCharFormat_SetFontWordSpacing(@ptrCast(self), @floatCast(spacing));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontWordSpacing)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn FontWordSpacing(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_FontWordSpacing(@ptrCast(self));
+        return qtc.QTextCharFormat_FontWordSpacing(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontUnderline)
     ///
-    /// ``` self: ?*C.QTextImageFormat, underline: bool ```
+    /// ``` self: QtC.QTextImageFormat, underline: bool ```
     pub fn SetFontUnderline(self: ?*anyopaque, underline: bool) void {
-        C.QTextCharFormat_SetFontUnderline(@ptrCast(self), underline);
+        qtc.QTextCharFormat_SetFontUnderline(@ptrCast(self), underline);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontUnderline)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn FontUnderline(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontUnderline(@ptrCast(self));
+        return qtc.QTextCharFormat_FontUnderline(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontOverline)
     ///
-    /// ``` self: ?*C.QTextImageFormat, overline: bool ```
+    /// ``` self: QtC.QTextImageFormat, overline: bool ```
     pub fn SetFontOverline(self: ?*anyopaque, overline: bool) void {
-        C.QTextCharFormat_SetFontOverline(@ptrCast(self), overline);
+        qtc.QTextCharFormat_SetFontOverline(@ptrCast(self), overline);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontOverline)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn FontOverline(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontOverline(@ptrCast(self));
+        return qtc.QTextCharFormat_FontOverline(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStrikeOut)
     ///
-    /// ``` self: ?*C.QTextImageFormat, strikeOut: bool ```
+    /// ``` self: QtC.QTextImageFormat, strikeOut: bool ```
     pub fn SetFontStrikeOut(self: ?*anyopaque, strikeOut: bool) void {
-        C.QTextCharFormat_SetFontStrikeOut(@ptrCast(self), strikeOut);
+        qtc.QTextCharFormat_SetFontStrikeOut(@ptrCast(self), strikeOut);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStrikeOut)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn FontStrikeOut(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontStrikeOut(@ptrCast(self));
+        return qtc.QTextCharFormat_FontStrikeOut(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setUnderlineColor)
     ///
-    /// ``` self: ?*C.QTextImageFormat, color: ?*C.QColor ```
+    /// ``` self: QtC.QTextImageFormat, color: QtC.QColor ```
     pub fn SetUnderlineColor(self: ?*anyopaque, color: ?*anyopaque) void {
-        C.QTextCharFormat_SetUnderlineColor(@ptrCast(self), @ptrCast(color));
+        qtc.QTextCharFormat_SetUnderlineColor(@ptrCast(self), @ptrCast(color));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#underlineColor)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
-    pub fn UnderlineColor(self: ?*anyopaque) ?*C.QColor {
-        return C.QTextCharFormat_UnderlineColor(@ptrCast(self));
+    /// ``` self: QtC.QTextImageFormat ```
+    pub fn UnderlineColor(self: ?*anyopaque) QtC.QColor {
+        return qtc.QTextCharFormat_UnderlineColor(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFixedPitch)
     ///
-    /// ``` self: ?*C.QTextImageFormat, fixedPitch: bool ```
+    /// ``` self: QtC.QTextImageFormat, fixedPitch: bool ```
     pub fn SetFontFixedPitch(self: ?*anyopaque, fixedPitch: bool) void {
-        C.QTextCharFormat_SetFontFixedPitch(@ptrCast(self), fixedPitch);
+        qtc.QTextCharFormat_SetFontFixedPitch(@ptrCast(self), fixedPitch);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontFixedPitch)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn FontFixedPitch(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontFixedPitch(@ptrCast(self));
+        return qtc.QTextCharFormat_FontFixedPitch(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStretch)
     ///
-    /// ``` self: ?*C.QTextImageFormat, factor: i32 ```
+    /// ``` self: QtC.QTextImageFormat, factor: i32 ```
     pub fn SetFontStretch(self: ?*anyopaque, factor: i32) void {
-        C.QTextCharFormat_SetFontStretch(@ptrCast(self), @intCast(factor));
+        qtc.QTextCharFormat_SetFontStretch(@ptrCast(self), @intCast(factor));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStretch)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn FontStretch(self: ?*anyopaque) i32 {
-        return C.QTextCharFormat_FontStretch(@ptrCast(self));
+        return qtc.QTextCharFormat_FontStretch(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
     ///
-    /// ``` self: ?*C.QTextImageFormat, hint: qfont_enums.StyleHint ```
+    /// ``` self: QtC.QTextImageFormat, hint: qfont_enums.StyleHint ```
     pub fn SetFontStyleHint(self: ?*anyopaque, hint: i64) void {
-        C.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @intCast(hint));
+        qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @intCast(hint));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleStrategy)
     ///
-    /// ``` self: ?*C.QTextImageFormat, strategy: qfont_enums.StyleStrategy ```
+    /// ``` self: QtC.QTextImageFormat, strategy: qfont_enums.StyleStrategy ```
     pub fn SetFontStyleStrategy(self: ?*anyopaque, strategy: i64) void {
-        C.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @intCast(strategy));
+        qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @intCast(strategy));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleHint)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn FontStyleHint(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_FontStyleHint(@ptrCast(self));
+        return qtc.QTextCharFormat_FontStyleHint(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleStrategy)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn FontStyleStrategy(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_FontStyleStrategy(@ptrCast(self));
+        return qtc.QTextCharFormat_FontStyleStrategy(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontHintingPreference)
     ///
-    /// ``` self: ?*C.QTextImageFormat, hintingPreference: qfont_enums.HintingPreference ```
+    /// ``` self: QtC.QTextImageFormat, hintingPreference: qfont_enums.HintingPreference ```
     pub fn SetFontHintingPreference(self: ?*anyopaque, hintingPreference: i64) void {
-        C.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @intCast(hintingPreference));
+        qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @intCast(hintingPreference));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontHintingPreference)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn FontHintingPreference(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_FontHintingPreference(@ptrCast(self));
+        return qtc.QTextCharFormat_FontHintingPreference(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontKerning)
     ///
-    /// ``` self: ?*C.QTextImageFormat, enable: bool ```
+    /// ``` self: QtC.QTextImageFormat, enable: bool ```
     pub fn SetFontKerning(self: ?*anyopaque, enable: bool) void {
-        C.QTextCharFormat_SetFontKerning(@ptrCast(self), enable);
+        qtc.QTextCharFormat_SetFontKerning(@ptrCast(self), enable);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontKerning)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn FontKerning(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontKerning(@ptrCast(self));
+        return qtc.QTextCharFormat_FontKerning(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setUnderlineStyle)
     ///
-    /// ``` self: ?*C.QTextImageFormat, style: qtextformat_enums.UnderlineStyle ```
+    /// ``` self: QtC.QTextImageFormat, style: qtextformat_enums.UnderlineStyle ```
     pub fn SetUnderlineStyle(self: ?*anyopaque, style: i64) void {
-        C.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#underlineStyle)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn UnderlineStyle(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_UnderlineStyle(@ptrCast(self));
+        return qtc.QTextCharFormat_UnderlineStyle(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setVerticalAlignment)
     ///
-    /// ``` self: ?*C.QTextImageFormat, alignment: qtextformat_enums.VerticalAlignment ```
+    /// ``` self: QtC.QTextImageFormat, alignment: qtextformat_enums.VerticalAlignment ```
     pub fn SetVerticalAlignment(self: ?*anyopaque, alignment: i64) void {
-        C.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @intCast(alignment));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#verticalAlignment)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn VerticalAlignment(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_VerticalAlignment(@ptrCast(self));
+        return qtc.QTextCharFormat_VerticalAlignment(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setTextOutline)
     ///
-    /// ``` self: ?*C.QTextImageFormat, pen: ?*C.QPen ```
+    /// ``` self: QtC.QTextImageFormat, pen: QtC.QPen ```
     pub fn SetTextOutline(self: ?*anyopaque, pen: ?*anyopaque) void {
-        C.QTextCharFormat_SetTextOutline(@ptrCast(self), @ptrCast(pen));
+        qtc.QTextCharFormat_SetTextOutline(@ptrCast(self), @ptrCast(pen));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#textOutline)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
-    pub fn TextOutline(self: ?*anyopaque) ?*C.QPen {
-        return C.QTextCharFormat_TextOutline(@ptrCast(self));
+    /// ``` self: QtC.QTextImageFormat ```
+    pub fn TextOutline(self: ?*anyopaque) QtC.QPen {
+        return qtc.QTextCharFormat_TextOutline(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setToolTip)
     ///
-    /// ``` self: ?*C.QTextImageFormat, tip: []const u8 ```
+    /// ``` self: QtC.QTextImageFormat, tip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
-        const tip_str = C.struct_libqt_string{
+        const tip_str = qtc.struct_libqt_string{
             .len = tip.len,
             .data = @constCast(tip.ptr),
         };
-        C.QTextCharFormat_SetToolTip(@ptrCast(self), tip_str);
+        qtc.QTextCharFormat_SetToolTip(@ptrCast(self), tip_str);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#toolTip)
     ///
-    /// ``` self: ?*C.QTextImageFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextImageFormat, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextCharFormat_ToolTip(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextCharFormat_ToolTip(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextimageformat.ToolTip: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3472,96 +3483,96 @@ pub const qtextimageformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setSuperScriptBaseline)
     ///
-    /// ``` self: ?*C.QTextImageFormat, baseline: f64 ```
+    /// ``` self: QtC.QTextImageFormat, baseline: f64 ```
     pub fn SetSuperScriptBaseline(self: ?*anyopaque, baseline: f64) void {
-        C.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self), @floatCast(baseline));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#superScriptBaseline)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn SuperScriptBaseline(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_SuperScriptBaseline(@ptrCast(self));
+        return qtc.QTextCharFormat_SuperScriptBaseline(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setSubScriptBaseline)
     ///
-    /// ``` self: ?*C.QTextImageFormat, baseline: f64 ```
+    /// ``` self: QtC.QTextImageFormat, baseline: f64 ```
     pub fn SetSubScriptBaseline(self: ?*anyopaque, baseline: f64) void {
-        C.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self), @floatCast(baseline));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#subScriptBaseline)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn SubScriptBaseline(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_SubScriptBaseline(@ptrCast(self));
+        return qtc.QTextCharFormat_SubScriptBaseline(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setBaselineOffset)
     ///
-    /// ``` self: ?*C.QTextImageFormat, baseline: f64 ```
+    /// ``` self: QtC.QTextImageFormat, baseline: f64 ```
     pub fn SetBaselineOffset(self: ?*anyopaque, baseline: f64) void {
-        C.QTextCharFormat_SetBaselineOffset(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetBaselineOffset(@ptrCast(self), @floatCast(baseline));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#baselineOffset)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn BaselineOffset(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_BaselineOffset(@ptrCast(self));
+        return qtc.QTextCharFormat_BaselineOffset(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchor)
     ///
-    /// ``` self: ?*C.QTextImageFormat, anchor: bool ```
+    /// ``` self: QtC.QTextImageFormat, anchor: bool ```
     pub fn SetAnchor(self: ?*anyopaque, anchor: bool) void {
-        C.QTextCharFormat_SetAnchor(@ptrCast(self), anchor);
+        qtc.QTextCharFormat_SetAnchor(@ptrCast(self), anchor);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#isAnchor)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn IsAnchor(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_IsAnchor(@ptrCast(self));
+        return qtc.QTextCharFormat_IsAnchor(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchorHref)
     ///
-    /// ``` self: ?*C.QTextImageFormat, value: []const u8 ```
+    /// ``` self: QtC.QTextImageFormat, value: []const u8 ```
     pub fn SetAnchorHref(self: ?*anyopaque, value: []const u8) void {
-        const value_str = C.struct_libqt_string{
+        const value_str = qtc.struct_libqt_string{
             .len = value.len,
             .data = @constCast(value.ptr),
         };
-        C.QTextCharFormat_SetAnchorHref(@ptrCast(self), value_str);
+        qtc.QTextCharFormat_SetAnchorHref(@ptrCast(self), value_str);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#anchorHref)
     ///
-    /// ``` self: ?*C.QTextImageFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextImageFormat, allocator: std.mem.Allocator ```
     pub fn AnchorHref(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextCharFormat_AnchorHref(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextCharFormat_AnchorHref(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextimageformat.AnchorHref: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3572,9 +3583,9 @@ pub const qtextimageformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchorNames)
     ///
-    /// ``` self: ?*C.QTextImageFormat, names: [][]const u8, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextImageFormat, names: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetAnchorNames(self: ?*anyopaque, names: [][]const u8, allocator: std.mem.Allocator) void {
-        var names_arr = allocator.alloc(C.struct_libqt_string, names.len) catch @panic("Memory allocation failed");
+        var names_arr = allocator.alloc(qtc.struct_libqt_string, names.len) catch @panic("qtextimageformat.SetAnchorNames: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, _i| {
             names_arr[_i] = .{
@@ -3582,31 +3593,31 @@ pub const qtextimageformat = struct {
                 .data = @ptrCast(@constCast(item.ptr)),
             };
         }
-        const names_list = C.struct_libqt_list{
+        const names_list = qtc.struct_libqt_list{
             .len = names.len,
             .data = names_arr.ptr,
         };
-        C.QTextCharFormat_SetAnchorNames(@ptrCast(self), names_list);
+        qtc.QTextCharFormat_SetAnchorNames(@ptrCast(self), names_list);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#anchorNames)
     ///
-    /// ``` self: ?*C.QTextImageFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextImageFormat, allocator: std.mem.Allocator ```
     pub fn AnchorNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: C.struct_libqt_list = C.QTextCharFormat_AnchorNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qtextimageformat.AnchorNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtextimageformat.AnchorNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -3617,191 +3628,191 @@ pub const qtextimageformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setTableCellRowSpan)
     ///
-    /// ``` self: ?*C.QTextImageFormat, tableCellRowSpan: i32 ```
+    /// ``` self: QtC.QTextImageFormat, tableCellRowSpan: i32 ```
     pub fn SetTableCellRowSpan(self: ?*anyopaque, tableCellRowSpan: i32) void {
-        C.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self), @intCast(tableCellRowSpan));
+        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self), @intCast(tableCellRowSpan));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#tableCellRowSpan)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn TableCellRowSpan(self: ?*anyopaque) i32 {
-        return C.QTextCharFormat_TableCellRowSpan(@ptrCast(self));
+        return qtc.QTextCharFormat_TableCellRowSpan(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setTableCellColumnSpan)
     ///
-    /// ``` self: ?*C.QTextImageFormat, tableCellColumnSpan: i32 ```
+    /// ``` self: QtC.QTextImageFormat, tableCellColumnSpan: i32 ```
     pub fn SetTableCellColumnSpan(self: ?*anyopaque, tableCellColumnSpan: i32) void {
-        C.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self), @intCast(tableCellColumnSpan));
+        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self), @intCast(tableCellColumnSpan));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#tableCellColumnSpan)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn TableCellColumnSpan(self: ?*anyopaque) i32 {
-        return C.QTextCharFormat_TableCellColumnSpan(@ptrCast(self));
+        return qtc.QTextCharFormat_TableCellColumnSpan(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFont)
     ///
-    /// ``` self: ?*C.QTextImageFormat, font: ?*C.QFont, behavior: qtextformat_enums.FontPropertiesInheritanceBehavior ```
+    /// ``` self: QtC.QTextImageFormat, font: QtC.QFont, behavior: qtextformat_enums.FontPropertiesInheritanceBehavior ```
     pub fn SetFont2(self: ?*anyopaque, font: ?*anyopaque, behavior: i64) void {
-        C.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @intCast(behavior));
+        qtc.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @intCast(behavior));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
     ///
-    /// ``` self: ?*C.QTextImageFormat, hint: qfont_enums.StyleHint, strategy: qfont_enums.StyleStrategy ```
+    /// ``` self: QtC.QTextImageFormat, hint: qfont_enums.StyleHint, strategy: qfont_enums.StyleStrategy ```
     pub fn SetFontStyleHint2(self: ?*anyopaque, hint: i64, strategy: i64) void {
-        C.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @intCast(hint), @intCast(strategy));
+        qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @intCast(hint), @intCast(strategy));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator=)
     ///
-    /// ``` self: ?*C.QTextImageFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextImageFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
-        C.QTextFormat_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
+        qtc.QTextFormat_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#swap)
     ///
-    /// ``` self: ?*C.QTextImageFormat, other: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextImageFormat, other: QtC.QTextFormat ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextFormat_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QTextFormat_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#merge)
     ///
-    /// ``` self: ?*C.QTextImageFormat, other: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextImageFormat, other: QtC.QTextFormat ```
     pub fn Merge(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextFormat_Merge(@ptrCast(self), @ptrCast(other));
+        qtc.QTextFormat_Merge(@ptrCast(self), @ptrCast(other));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isEmpty)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsEmpty(@ptrCast(self));
+        return qtc.QTextFormat_IsEmpty(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#type)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn Type(self: ?*anyopaque) i32 {
-        return C.QTextFormat_Type(@ptrCast(self));
+        return qtc.QTextFormat_Type(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectIndex)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn ObjectIndex(self: ?*anyopaque) i32 {
-        return C.QTextFormat_ObjectIndex(@ptrCast(self));
+        return qtc.QTextFormat_ObjectIndex(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectIndex)
     ///
-    /// ``` self: ?*C.QTextImageFormat, object: i32 ```
+    /// ``` self: QtC.QTextImageFormat, object: i32 ```
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        C.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#property)
     ///
-    /// ``` self: ?*C.QTextImageFormat, propertyId: i32 ```
-    pub fn Property(self: ?*anyopaque, propertyId: i32) ?*C.QVariant {
-        return C.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextImageFormat, propertyId: i32 ```
+    pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
+        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
-    /// ``` self: ?*C.QTextImageFormat, propertyId: i32, value: ?*C.QVariant ```
+    /// ``` self: QtC.QTextImageFormat, propertyId: i32, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        C.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearProperty)
     ///
-    /// ``` self: ?*C.QTextImageFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextImageFormat, propertyId: i32 ```
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        C.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#hasProperty)
     ///
-    /// ``` self: ?*C.QTextImageFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextImageFormat, propertyId: i32 ```
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return C.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#boolProperty)
     ///
-    /// ``` self: ?*C.QTextImageFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextImageFormat, propertyId: i32 ```
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return C.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#intProperty)
     ///
-    /// ``` self: ?*C.QTextImageFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextImageFormat, propertyId: i32 ```
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return C.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#doubleProperty)
     ///
-    /// ``` self: ?*C.QTextImageFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextImageFormat, propertyId: i32 ```
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return C.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#stringProperty)
     ///
-    /// ``` self: ?*C.QTextImageFormat, propertyId: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextImageFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextimageformat.StringProperty: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -3812,48 +3823,48 @@ pub const qtextimageformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#colorProperty)
     ///
-    /// ``` self: ?*C.QTextImageFormat, propertyId: i32 ```
-    pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) ?*C.QColor {
-        return C.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextImageFormat, propertyId: i32 ```
+    pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#penProperty)
     ///
-    /// ``` self: ?*C.QTextImageFormat, propertyId: i32 ```
-    pub fn PenProperty(self: ?*anyopaque, propertyId: i32) ?*C.QPen {
-        return C.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextImageFormat, propertyId: i32 ```
+    pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#brushProperty)
     ///
-    /// ``` self: ?*C.QTextImageFormat, propertyId: i32 ```
-    pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) ?*C.QBrush {
-        return C.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextImageFormat, propertyId: i32 ```
+    pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthProperty)
     ///
-    /// ``` self: ?*C.QTextImageFormat, propertyId: i32 ```
-    pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) ?*C.QTextLength {
-        return C.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextImageFormat, propertyId: i32 ```
+    pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthVectorProperty)
     ///
-    /// ``` self: ?*C.QTextImageFormat, propertyId: i32, allocator: std.mem.Allocator ```
-    pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []?*C.QTextLength {
-        const _arr: C.struct_libqt_list = C.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QTextLength, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QTextLength = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QTextImageFormat, propertyId: i32, allocator: std.mem.Allocator ```
+    pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
+        const _arr: qtc.struct_libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextimageformat.LengthVectorProperty: Memory allocation failed");
+        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -3864,34 +3875,34 @@ pub const qtextimageformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
-    /// ``` self: ?*C.QTextImageFormat, propertyId: i32, lengths: []?*C.QTextLength ```
-    pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []?*C.QTextLength) void {
-        const lengths_list = C.struct_libqt_list{
+    /// ``` self: QtC.QTextImageFormat, propertyId: i32, lengths: []QtC.QTextLength ```
+    pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
+        const lengths_list = qtc.struct_libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        C.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#properties)
     ///
-    /// ``` self: ?*C.QTextImageFormat, allocator: std.mem.Allocator ```
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_cqvariant {
-        const _map: C.struct_libqt_map = C.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_cqvariant = .empty;
+    /// ``` self: QtC.QTextImageFormat, allocator: std.mem.Allocator ```
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+        const _map: qtc.struct_libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
+        var _ret: map_i32_qtcqvariant = .empty;
         defer {
-            C.libqt_free(_map.keys);
-            C.libqt_free(_map.values);
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]?*C.QVariant = @ptrCast(@alignCast(_map.values));
+        const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
         var _i: usize = 0;
         while (_i < _map.len) : (_i += 1) {
             const _key = _keys[_i];
             const _value = _values[_i];
-            _ret.put(allocator, _key, _value) catch @panic("Memory allocation failed");
+            _ret.put(allocator, _key, _value) catch @panic("qtextimageformat.Properties: Memory allocation failed");
         }
         return _ret;
     }
@@ -3900,259 +3911,261 @@ pub const qtextimageformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn PropertyCount(self: ?*anyopaque) i32 {
-        return C.QTextFormat_PropertyCount(@ptrCast(self));
+        return qtc.QTextFormat_PropertyCount(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectType)
     ///
-    /// ``` self: ?*C.QTextImageFormat, typeVal: i32 ```
+    /// ``` self: QtC.QTextImageFormat, typeVal: i32 ```
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        C.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectType)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn ObjectType(self: ?*anyopaque) i32 {
-        return C.QTextFormat_ObjectType(@ptrCast(self));
+        return qtc.QTextFormat_ObjectType(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isCharFormat)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn IsCharFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsCharFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsCharFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isBlockFormat)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn IsBlockFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsBlockFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsBlockFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isListFormat)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn IsListFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsListFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsListFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isFrameFormat)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn IsFrameFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsFrameFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsFrameFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isImageFormat)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn IsImageFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsImageFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsImageFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableFormat)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn IsTableFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsTableFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsTableFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableCellFormat)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn IsTableCellFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsTableCellFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsTableCellFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toBlockFormat)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
-    pub fn ToBlockFormat(self: ?*anyopaque) ?*C.QTextBlockFormat {
-        return C.QTextFormat_ToBlockFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextImageFormat ```
+    pub fn ToBlockFormat(self: ?*anyopaque) QtC.QTextBlockFormat {
+        return qtc.QTextFormat_ToBlockFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toCharFormat)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
-    pub fn ToCharFormat(self: ?*anyopaque) ?*C.QTextCharFormat {
-        return C.QTextFormat_ToCharFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextImageFormat ```
+    pub fn ToCharFormat(self: ?*anyopaque) QtC.QTextCharFormat {
+        return qtc.QTextFormat_ToCharFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toListFormat)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
-    pub fn ToListFormat(self: ?*anyopaque) ?*C.QTextListFormat {
-        return C.QTextFormat_ToListFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextImageFormat ```
+    pub fn ToListFormat(self: ?*anyopaque) QtC.QTextListFormat {
+        return qtc.QTextFormat_ToListFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableFormat)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
-    pub fn ToTableFormat(self: ?*anyopaque) ?*C.QTextTableFormat {
-        return C.QTextFormat_ToTableFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextImageFormat ```
+    pub fn ToTableFormat(self: ?*anyopaque) QtC.QTextTableFormat {
+        return qtc.QTextFormat_ToTableFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toFrameFormat)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
-    pub fn ToFrameFormat(self: ?*anyopaque) ?*C.QTextFrameFormat {
-        return C.QTextFormat_ToFrameFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextImageFormat ```
+    pub fn ToFrameFormat(self: ?*anyopaque) QtC.QTextFrameFormat {
+        return qtc.QTextFormat_ToFrameFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toImageFormat)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
-    pub fn ToImageFormat(self: ?*anyopaque) ?*C.QTextImageFormat {
-        return C.QTextFormat_ToImageFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextImageFormat ```
+    pub fn ToImageFormat(self: ?*anyopaque) QtC.QTextImageFormat {
+        return qtc.QTextFormat_ToImageFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableCellFormat)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
-    pub fn ToTableCellFormat(self: ?*anyopaque) ?*C.QTextTableCellFormat {
-        return C.QTextFormat_ToTableCellFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextImageFormat ```
+    pub fn ToTableCellFormat(self: ?*anyopaque) QtC.QTextTableCellFormat {
+        return qtc.QTextFormat_ToTableCellFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator==)
     ///
-    /// ``` self: ?*C.QTextImageFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextImageFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return C.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
+        return qtc.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator!=)
     ///
-    /// ``` self: ?*C.QTextImageFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextImageFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return C.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
+        return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator QVariant)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
-    pub fn ToQVariant(self: ?*anyopaque) ?*C.QVariant {
-        return C.QTextFormat_ToQVariant(@ptrCast(self));
+    /// ``` self: QtC.QTextImageFormat ```
+    pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QTextFormat_ToQVariant(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
-    /// ``` self: ?*C.QTextImageFormat, direction: qnamespace_enums.LayoutDirection ```
+    /// ``` self: QtC.QTextImageFormat, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
-        C.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
-        return C.QTextFormat_LayoutDirection(@ptrCast(self));
+        return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setBackground)
     ///
-    /// ``` self: ?*C.QTextImageFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextImageFormat, brush: QtC.QBrush ```
     pub fn SetBackground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFormat_SetBackground(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFormat_SetBackground(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#background)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
-    pub fn Background(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFormat_Background(@ptrCast(self));
+    /// ``` self: QtC.QTextImageFormat ```
+    pub fn Background(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFormat_Background(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearBackground)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn ClearBackground(self: ?*anyopaque) void {
-        C.QTextFormat_ClearBackground(@ptrCast(self));
+        qtc.QTextFormat_ClearBackground(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setForeground)
     ///
-    /// ``` self: ?*C.QTextImageFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextImageFormat, brush: QtC.QBrush ```
     pub fn SetForeground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFormat_SetForeground(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFormat_SetForeground(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#foreground)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
-    pub fn Foreground(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFormat_Foreground(@ptrCast(self));
+    /// ``` self: QtC.QTextImageFormat ```
+    pub fn Foreground(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFormat_Foreground(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearForeground)
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn ClearForeground(self: ?*anyopaque) void {
-        C.QTextFormat_ClearForeground(@ptrCast(self));
+        qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextimageformat.html#dtor.QTextImageFormat)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QTextImageFormat ```
+    /// ``` self: QtC.QTextImageFormat ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QTextImageFormat_Delete(@ptrCast(self));
+        qtc.QTextImageFormat_Delete(@ptrCast(self));
     }
 };
 
@@ -4161,355 +4174,355 @@ pub const qtextframeformat = struct {
     /// New constructs a new QTextFrameFormat object.
     ///
     ///
-    pub fn New() ?*C.QTextFrameFormat {
-        return C.QTextFrameFormat_new();
+    pub fn New() QtC.QTextFrameFormat {
+        return qtc.QTextFrameFormat_new();
     }
 
     /// New2 constructs a new QTextFrameFormat object.
     ///
-    /// ``` param1: ?*C.QTextFrameFormat ```
-    pub fn New2(param1: ?*anyopaque) ?*C.QTextFrameFormat {
-        return C.QTextFrameFormat_new2(@ptrCast(param1));
+    /// ``` param1: QtC.QTextFrameFormat ```
+    pub fn New2(param1: ?*anyopaque) QtC.QTextFrameFormat {
+        return qtc.QTextFrameFormat_new2(@ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#isValid)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QTextFrameFormat_IsValid(@ptrCast(self));
+        return qtc.QTextFrameFormat_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setPosition)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, f: qtextformat_enums.Position ```
+    /// ``` self: QtC.QTextFrameFormat, f: qtextformat_enums.Position ```
     pub fn SetPosition(self: ?*anyopaque, f: i64) void {
-        C.QTextFrameFormat_SetPosition(@ptrCast(self), @intCast(f));
+        qtc.QTextFrameFormat_SetPosition(@ptrCast(self), @intCast(f));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#position)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn Position(self: ?*anyopaque) i64 {
-        return C.QTextFrameFormat_Position(@ptrCast(self));
+        return qtc.QTextFrameFormat_Position(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setBorder)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, border: f64 ```
+    /// ``` self: QtC.QTextFrameFormat, border: f64 ```
     pub fn SetBorder(self: ?*anyopaque, border: f64) void {
-        C.QTextFrameFormat_SetBorder(@ptrCast(self), @floatCast(border));
+        qtc.QTextFrameFormat_SetBorder(@ptrCast(self), @floatCast(border));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#border)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn Border(self: ?*anyopaque) f64 {
-        return C.QTextFrameFormat_Border(@ptrCast(self));
+        return qtc.QTextFrameFormat_Border(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setBorderBrush)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextFrameFormat, brush: QtC.QBrush ```
     pub fn SetBorderBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFrameFormat_SetBorderBrush(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFrameFormat_SetBorderBrush(@ptrCast(self), @ptrCast(brush));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#borderBrush)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
-    pub fn BorderBrush(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFrameFormat_BorderBrush(@ptrCast(self));
+    /// ``` self: QtC.QTextFrameFormat ```
+    pub fn BorderBrush(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFrameFormat_BorderBrush(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setBorderStyle)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, style: qtextformat_enums.BorderStyle ```
+    /// ``` self: QtC.QTextFrameFormat, style: qtextformat_enums.BorderStyle ```
     pub fn SetBorderStyle(self: ?*anyopaque, style: i64) void {
-        C.QTextFrameFormat_SetBorderStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextFrameFormat_SetBorderStyle(@ptrCast(self), @intCast(style));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#borderStyle)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn BorderStyle(self: ?*anyopaque) i64 {
-        return C.QTextFrameFormat_BorderStyle(@ptrCast(self));
+        return qtc.QTextFrameFormat_BorderStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setMargin)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, margin: f64 ```
+    /// ``` self: QtC.QTextFrameFormat, margin: f64 ```
     pub fn SetMargin(self: ?*anyopaque, margin: f64) void {
-        C.QTextFrameFormat_SetMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetMargin(@ptrCast(self), @floatCast(margin));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#margin)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn Margin(self: ?*anyopaque) f64 {
-        return C.QTextFrameFormat_Margin(@ptrCast(self));
+        return qtc.QTextFrameFormat_Margin(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setTopMargin)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, margin: f64 ```
+    /// ``` self: QtC.QTextFrameFormat, margin: f64 ```
     pub fn SetTopMargin(self: ?*anyopaque, margin: f64) void {
-        C.QTextFrameFormat_SetTopMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetTopMargin(@ptrCast(self), @floatCast(margin));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#topMargin)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn TopMargin(self: ?*anyopaque) f64 {
-        return C.QTextFrameFormat_TopMargin(@ptrCast(self));
+        return qtc.QTextFrameFormat_TopMargin(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setBottomMargin)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, margin: f64 ```
+    /// ``` self: QtC.QTextFrameFormat, margin: f64 ```
     pub fn SetBottomMargin(self: ?*anyopaque, margin: f64) void {
-        C.QTextFrameFormat_SetBottomMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetBottomMargin(@ptrCast(self), @floatCast(margin));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#bottomMargin)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn BottomMargin(self: ?*anyopaque) f64 {
-        return C.QTextFrameFormat_BottomMargin(@ptrCast(self));
+        return qtc.QTextFrameFormat_BottomMargin(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setLeftMargin)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, margin: f64 ```
+    /// ``` self: QtC.QTextFrameFormat, margin: f64 ```
     pub fn SetLeftMargin(self: ?*anyopaque, margin: f64) void {
-        C.QTextFrameFormat_SetLeftMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetLeftMargin(@ptrCast(self), @floatCast(margin));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#leftMargin)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn LeftMargin(self: ?*anyopaque) f64 {
-        return C.QTextFrameFormat_LeftMargin(@ptrCast(self));
+        return qtc.QTextFrameFormat_LeftMargin(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setRightMargin)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, margin: f64 ```
+    /// ``` self: QtC.QTextFrameFormat, margin: f64 ```
     pub fn SetRightMargin(self: ?*anyopaque, margin: f64) void {
-        C.QTextFrameFormat_SetRightMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetRightMargin(@ptrCast(self), @floatCast(margin));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#rightMargin)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn RightMargin(self: ?*anyopaque) f64 {
-        return C.QTextFrameFormat_RightMargin(@ptrCast(self));
+        return qtc.QTextFrameFormat_RightMargin(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setPadding)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, padding: f64 ```
+    /// ``` self: QtC.QTextFrameFormat, padding: f64 ```
     pub fn SetPadding(self: ?*anyopaque, padding: f64) void {
-        C.QTextFrameFormat_SetPadding(@ptrCast(self), @floatCast(padding));
+        qtc.QTextFrameFormat_SetPadding(@ptrCast(self), @floatCast(padding));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#padding)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn Padding(self: ?*anyopaque) f64 {
-        return C.QTextFrameFormat_Padding(@ptrCast(self));
+        return qtc.QTextFrameFormat_Padding(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setWidth)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, width: f64 ```
+    /// ``` self: QtC.QTextFrameFormat, width: f64 ```
     pub fn SetWidth(self: ?*anyopaque, width: f64) void {
-        C.QTextFrameFormat_SetWidth(@ptrCast(self), @floatCast(width));
+        qtc.QTextFrameFormat_SetWidth(@ptrCast(self), @floatCast(width));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setWidth)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, length: ?*C.QTextLength ```
+    /// ``` self: QtC.QTextFrameFormat, length: QtC.QTextLength ```
     pub fn SetWidthWithLength(self: ?*anyopaque, length: ?*anyopaque) void {
-        C.QTextFrameFormat_SetWidthWithLength(@ptrCast(self), @ptrCast(length));
+        qtc.QTextFrameFormat_SetWidthWithLength(@ptrCast(self), @ptrCast(length));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#width)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
-    pub fn Width(self: ?*anyopaque) ?*C.QTextLength {
-        return C.QTextFrameFormat_Width(@ptrCast(self));
+    /// ``` self: QtC.QTextFrameFormat ```
+    pub fn Width(self: ?*anyopaque) QtC.QTextLength {
+        return qtc.QTextFrameFormat_Width(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setHeight)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, height: f64 ```
+    /// ``` self: QtC.QTextFrameFormat, height: f64 ```
     pub fn SetHeight(self: ?*anyopaque, height: f64) void {
-        C.QTextFrameFormat_SetHeight(@ptrCast(self), @floatCast(height));
+        qtc.QTextFrameFormat_SetHeight(@ptrCast(self), @floatCast(height));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setHeight)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, height: ?*C.QTextLength ```
+    /// ``` self: QtC.QTextFrameFormat, height: QtC.QTextLength ```
     pub fn SetHeightWithHeight(self: ?*anyopaque, height: ?*anyopaque) void {
-        C.QTextFrameFormat_SetHeightWithHeight(@ptrCast(self), @ptrCast(height));
+        qtc.QTextFrameFormat_SetHeightWithHeight(@ptrCast(self), @ptrCast(height));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#height)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
-    pub fn Height(self: ?*anyopaque) ?*C.QTextLength {
-        return C.QTextFrameFormat_Height(@ptrCast(self));
+    /// ``` self: QtC.QTextFrameFormat ```
+    pub fn Height(self: ?*anyopaque) QtC.QTextLength {
+        return qtc.QTextFrameFormat_Height(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setPageBreakPolicy)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, flags: i32 ```
+    /// ``` self: QtC.QTextFrameFormat, flags: i32 ```
     pub fn SetPageBreakPolicy(self: ?*anyopaque, flags: i64) void {
-        C.QTextFrameFormat_SetPageBreakPolicy(@ptrCast(self), @intCast(flags));
+        qtc.QTextFrameFormat_SetPageBreakPolicy(@ptrCast(self), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#pageBreakPolicy)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn PageBreakPolicy(self: ?*anyopaque) i64 {
-        return C.QTextFrameFormat_PageBreakPolicy(@ptrCast(self));
+        return qtc.QTextFrameFormat_PageBreakPolicy(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator=)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFrameFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
-        C.QTextFormat_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
+        qtc.QTextFormat_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#swap)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, other: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFrameFormat, other: QtC.QTextFormat ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextFormat_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QTextFormat_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#merge)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, other: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFrameFormat, other: QtC.QTextFormat ```
     pub fn Merge(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextFormat_Merge(@ptrCast(self), @ptrCast(other));
+        qtc.QTextFormat_Merge(@ptrCast(self), @ptrCast(other));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isEmpty)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsEmpty(@ptrCast(self));
+        return qtc.QTextFormat_IsEmpty(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#type)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn Type(self: ?*anyopaque) i32 {
-        return C.QTextFormat_Type(@ptrCast(self));
+        return qtc.QTextFormat_Type(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectIndex)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn ObjectIndex(self: ?*anyopaque) i32 {
-        return C.QTextFormat_ObjectIndex(@ptrCast(self));
+        return qtc.QTextFormat_ObjectIndex(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectIndex)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, object: i32 ```
+    /// ``` self: QtC.QTextFrameFormat, object: i32 ```
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        C.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#property)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, propertyId: i32 ```
-    pub fn Property(self: ?*anyopaque, propertyId: i32) ?*C.QVariant {
-        return C.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextFrameFormat, propertyId: i32 ```
+    pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
+        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, propertyId: i32, value: ?*C.QVariant ```
+    /// ``` self: QtC.QTextFrameFormat, propertyId: i32, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        C.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearProperty)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextFrameFormat, propertyId: i32 ```
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        C.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#hasProperty)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextFrameFormat, propertyId: i32 ```
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return C.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#boolProperty)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextFrameFormat, propertyId: i32 ```
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return C.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#intProperty)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextFrameFormat, propertyId: i32 ```
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return C.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#doubleProperty)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextFrameFormat, propertyId: i32 ```
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return C.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#stringProperty)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, propertyId: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextFrameFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextframeformat.StringProperty: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -4520,48 +4533,48 @@ pub const qtextframeformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#colorProperty)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, propertyId: i32 ```
-    pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) ?*C.QColor {
-        return C.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextFrameFormat, propertyId: i32 ```
+    pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#penProperty)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, propertyId: i32 ```
-    pub fn PenProperty(self: ?*anyopaque, propertyId: i32) ?*C.QPen {
-        return C.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextFrameFormat, propertyId: i32 ```
+    pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#brushProperty)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, propertyId: i32 ```
-    pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) ?*C.QBrush {
-        return C.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextFrameFormat, propertyId: i32 ```
+    pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthProperty)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, propertyId: i32 ```
-    pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) ?*C.QTextLength {
-        return C.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextFrameFormat, propertyId: i32 ```
+    pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthVectorProperty)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, propertyId: i32, allocator: std.mem.Allocator ```
-    pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []?*C.QTextLength {
-        const _arr: C.struct_libqt_list = C.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QTextLength, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QTextLength = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QTextFrameFormat, propertyId: i32, allocator: std.mem.Allocator ```
+    pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
+        const _arr: qtc.struct_libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextframeformat.LengthVectorProperty: Memory allocation failed");
+        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -4572,34 +4585,34 @@ pub const qtextframeformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, propertyId: i32, lengths: []?*C.QTextLength ```
-    pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []?*C.QTextLength) void {
-        const lengths_list = C.struct_libqt_list{
+    /// ``` self: QtC.QTextFrameFormat, propertyId: i32, lengths: []QtC.QTextLength ```
+    pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
+        const lengths_list = qtc.struct_libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        C.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#properties)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, allocator: std.mem.Allocator ```
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_cqvariant {
-        const _map: C.struct_libqt_map = C.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_cqvariant = .empty;
+    /// ``` self: QtC.QTextFrameFormat, allocator: std.mem.Allocator ```
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+        const _map: qtc.struct_libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
+        var _ret: map_i32_qtcqvariant = .empty;
         defer {
-            C.libqt_free(_map.keys);
-            C.libqt_free(_map.values);
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]?*C.QVariant = @ptrCast(@alignCast(_map.values));
+        const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
         var _i: usize = 0;
         while (_i < _map.len) : (_i += 1) {
             const _key = _keys[_i];
             const _value = _values[_i];
-            _ret.put(allocator, _key, _value) catch @panic("Memory allocation failed");
+            _ret.put(allocator, _key, _value) catch @panic("qtextframeformat.Properties: Memory allocation failed");
         }
         return _ret;
     }
@@ -4608,259 +4621,261 @@ pub const qtextframeformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn PropertyCount(self: ?*anyopaque) i32 {
-        return C.QTextFormat_PropertyCount(@ptrCast(self));
+        return qtc.QTextFormat_PropertyCount(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectType)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, typeVal: i32 ```
+    /// ``` self: QtC.QTextFrameFormat, typeVal: i32 ```
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        C.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectType)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn ObjectType(self: ?*anyopaque) i32 {
-        return C.QTextFormat_ObjectType(@ptrCast(self));
+        return qtc.QTextFormat_ObjectType(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isCharFormat)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn IsCharFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsCharFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsCharFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isBlockFormat)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn IsBlockFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsBlockFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsBlockFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isListFormat)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn IsListFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsListFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsListFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isFrameFormat)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn IsFrameFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsFrameFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsFrameFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isImageFormat)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn IsImageFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsImageFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsImageFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableFormat)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn IsTableFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsTableFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsTableFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableCellFormat)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn IsTableCellFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsTableCellFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsTableCellFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toBlockFormat)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
-    pub fn ToBlockFormat(self: ?*anyopaque) ?*C.QTextBlockFormat {
-        return C.QTextFormat_ToBlockFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextFrameFormat ```
+    pub fn ToBlockFormat(self: ?*anyopaque) QtC.QTextBlockFormat {
+        return qtc.QTextFormat_ToBlockFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toCharFormat)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
-    pub fn ToCharFormat(self: ?*anyopaque) ?*C.QTextCharFormat {
-        return C.QTextFormat_ToCharFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextFrameFormat ```
+    pub fn ToCharFormat(self: ?*anyopaque) QtC.QTextCharFormat {
+        return qtc.QTextFormat_ToCharFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toListFormat)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
-    pub fn ToListFormat(self: ?*anyopaque) ?*C.QTextListFormat {
-        return C.QTextFormat_ToListFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextFrameFormat ```
+    pub fn ToListFormat(self: ?*anyopaque) QtC.QTextListFormat {
+        return qtc.QTextFormat_ToListFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableFormat)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
-    pub fn ToTableFormat(self: ?*anyopaque) ?*C.QTextTableFormat {
-        return C.QTextFormat_ToTableFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextFrameFormat ```
+    pub fn ToTableFormat(self: ?*anyopaque) QtC.QTextTableFormat {
+        return qtc.QTextFormat_ToTableFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toFrameFormat)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
-    pub fn ToFrameFormat(self: ?*anyopaque) ?*C.QTextFrameFormat {
-        return C.QTextFormat_ToFrameFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextFrameFormat ```
+    pub fn ToFrameFormat(self: ?*anyopaque) QtC.QTextFrameFormat {
+        return qtc.QTextFormat_ToFrameFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toImageFormat)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
-    pub fn ToImageFormat(self: ?*anyopaque) ?*C.QTextImageFormat {
-        return C.QTextFormat_ToImageFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextFrameFormat ```
+    pub fn ToImageFormat(self: ?*anyopaque) QtC.QTextImageFormat {
+        return qtc.QTextFormat_ToImageFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableCellFormat)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
-    pub fn ToTableCellFormat(self: ?*anyopaque) ?*C.QTextTableCellFormat {
-        return C.QTextFormat_ToTableCellFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextFrameFormat ```
+    pub fn ToTableCellFormat(self: ?*anyopaque) QtC.QTextTableCellFormat {
+        return qtc.QTextFormat_ToTableCellFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator==)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFrameFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return C.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
+        return qtc.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator!=)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextFrameFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return C.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
+        return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator QVariant)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
-    pub fn ToQVariant(self: ?*anyopaque) ?*C.QVariant {
-        return C.QTextFormat_ToQVariant(@ptrCast(self));
+    /// ``` self: QtC.QTextFrameFormat ```
+    pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QTextFormat_ToQVariant(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, direction: qnamespace_enums.LayoutDirection ```
+    /// ``` self: QtC.QTextFrameFormat, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
-        C.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
-        return C.QTextFormat_LayoutDirection(@ptrCast(self));
+        return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setBackground)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextFrameFormat, brush: QtC.QBrush ```
     pub fn SetBackground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFormat_SetBackground(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFormat_SetBackground(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#background)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
-    pub fn Background(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFormat_Background(@ptrCast(self));
+    /// ``` self: QtC.QTextFrameFormat ```
+    pub fn Background(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFormat_Background(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearBackground)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn ClearBackground(self: ?*anyopaque) void {
-        C.QTextFormat_ClearBackground(@ptrCast(self));
+        qtc.QTextFormat_ClearBackground(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setForeground)
     ///
-    /// ``` self: ?*C.QTextFrameFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextFrameFormat, brush: QtC.QBrush ```
     pub fn SetForeground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFormat_SetForeground(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFormat_SetForeground(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#foreground)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
-    pub fn Foreground(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFormat_Foreground(@ptrCast(self));
+    /// ``` self: QtC.QTextFrameFormat ```
+    pub fn Foreground(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFormat_Foreground(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearForeground)
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn ClearForeground(self: ?*anyopaque) void {
-        C.QTextFormat_ClearForeground(@ptrCast(self));
+        qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#dtor.QTextFrameFormat)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QTextFrameFormat ```
+    /// ``` self: QtC.QTextFrameFormat ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QTextFrameFormat_Delete(@ptrCast(self));
+        qtc.QTextFrameFormat_Delete(@ptrCast(self));
     }
 };
 
@@ -4869,50 +4884,50 @@ pub const qtexttableformat = struct {
     /// New constructs a new QTextTableFormat object.
     ///
     ///
-    pub fn New() ?*C.QTextTableFormat {
-        return C.QTextTableFormat_new();
+    pub fn New() QtC.QTextTableFormat {
+        return qtc.QTextTableFormat_new();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#isValid)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QTextTableFormat_IsValid(@ptrCast(self));
+        return qtc.QTextTableFormat_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#columns)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn Columns(self: ?*anyopaque) i32 {
-        return C.QTextTableFormat_Columns(@ptrCast(self));
+        return qtc.QTextTableFormat_Columns(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#setColumns)
     ///
-    /// ``` self: ?*C.QTextTableFormat, columns: i32 ```
+    /// ``` self: QtC.QTextTableFormat, columns: i32 ```
     pub fn SetColumns(self: ?*anyopaque, columns: i32) void {
-        C.QTextTableFormat_SetColumns(@ptrCast(self), @intCast(columns));
+        qtc.QTextTableFormat_SetColumns(@ptrCast(self), @intCast(columns));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#setColumnWidthConstraints)
     ///
-    /// ``` self: ?*C.QTextTableFormat, constraints: []?*C.QTextLength ```
-    pub fn SetColumnWidthConstraints(self: ?*anyopaque, constraints: []?*C.QTextLength) void {
-        const constraints_list = C.struct_libqt_list{
+    /// ``` self: QtC.QTextTableFormat, constraints: []QtC.QTextLength ```
+    pub fn SetColumnWidthConstraints(self: ?*anyopaque, constraints: []QtC.QTextLength) void {
+        const constraints_list = qtc.struct_libqt_list{
             .len = constraints.len,
             .data = @ptrCast(constraints.ptr),
         };
-        C.QTextTableFormat_SetColumnWidthConstraints(@ptrCast(self), constraints_list);
+        qtc.QTextTableFormat_SetColumnWidthConstraints(@ptrCast(self), constraints_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#columnWidthConstraints)
     ///
-    /// ``` self: ?*C.QTextTableFormat, allocator: std.mem.Allocator ```
-    pub fn ColumnWidthConstraints(self: ?*anyopaque, allocator: std.mem.Allocator) []?*C.QTextLength {
-        const _arr: C.struct_libqt_list = C.QTextTableFormat_ColumnWidthConstraints(@ptrCast(self));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QTextLength, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QTextLength = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QTextTableFormat, allocator: std.mem.Allocator ```
+    pub fn ColumnWidthConstraints(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextLength {
+        const _arr: qtc.struct_libqt_list = qtc.QTextTableFormat_ColumnWidthConstraints(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtexttableformat.ColumnWidthConstraints: Memory allocation failed");
+        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -4921,468 +4936,468 @@ pub const qtexttableformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#clearColumnWidthConstraints)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn ClearColumnWidthConstraints(self: ?*anyopaque) void {
-        C.QTextTableFormat_ClearColumnWidthConstraints(@ptrCast(self));
+        qtc.QTextTableFormat_ClearColumnWidthConstraints(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#cellSpacing)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn CellSpacing(self: ?*anyopaque) f64 {
-        return C.QTextTableFormat_CellSpacing(@ptrCast(self));
+        return qtc.QTextTableFormat_CellSpacing(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#setCellSpacing)
     ///
-    /// ``` self: ?*C.QTextTableFormat, spacing: f64 ```
+    /// ``` self: QtC.QTextTableFormat, spacing: f64 ```
     pub fn SetCellSpacing(self: ?*anyopaque, spacing: f64) void {
-        C.QTextTableFormat_SetCellSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QTextTableFormat_SetCellSpacing(@ptrCast(self), @floatCast(spacing));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#cellPadding)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn CellPadding(self: ?*anyopaque) f64 {
-        return C.QTextTableFormat_CellPadding(@ptrCast(self));
+        return qtc.QTextTableFormat_CellPadding(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#setCellPadding)
     ///
-    /// ``` self: ?*C.QTextTableFormat, padding: f64 ```
+    /// ``` self: QtC.QTextTableFormat, padding: f64 ```
     pub fn SetCellPadding(self: ?*anyopaque, padding: f64) void {
-        C.QTextTableFormat_SetCellPadding(@ptrCast(self), @floatCast(padding));
+        qtc.QTextTableFormat_SetCellPadding(@ptrCast(self), @floatCast(padding));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#setAlignment)
     ///
-    /// ``` self: ?*C.QTextTableFormat, alignment: i32 ```
+    /// ``` self: QtC.QTextTableFormat, alignment: i32 ```
     pub fn SetAlignment(self: ?*anyopaque, alignment: i64) void {
-        C.QTextTableFormat_SetAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QTextTableFormat_SetAlignment(@ptrCast(self), @intCast(alignment));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#alignment)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn Alignment(self: ?*anyopaque) i64 {
-        return C.QTextTableFormat_Alignment(@ptrCast(self));
+        return qtc.QTextTableFormat_Alignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#setHeaderRowCount)
     ///
-    /// ``` self: ?*C.QTextTableFormat, count: i32 ```
+    /// ``` self: QtC.QTextTableFormat, count: i32 ```
     pub fn SetHeaderRowCount(self: ?*anyopaque, count: i32) void {
-        C.QTextTableFormat_SetHeaderRowCount(@ptrCast(self), @intCast(count));
+        qtc.QTextTableFormat_SetHeaderRowCount(@ptrCast(self), @intCast(count));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#headerRowCount)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn HeaderRowCount(self: ?*anyopaque) i32 {
-        return C.QTextTableFormat_HeaderRowCount(@ptrCast(self));
+        return qtc.QTextTableFormat_HeaderRowCount(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#setBorderCollapse)
     ///
-    /// ``` self: ?*C.QTextTableFormat, borderCollapse: bool ```
+    /// ``` self: QtC.QTextTableFormat, borderCollapse: bool ```
     pub fn SetBorderCollapse(self: ?*anyopaque, borderCollapse: bool) void {
-        C.QTextTableFormat_SetBorderCollapse(@ptrCast(self), borderCollapse);
+        qtc.QTextTableFormat_SetBorderCollapse(@ptrCast(self), borderCollapse);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#borderCollapse)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn BorderCollapse(self: ?*anyopaque) bool {
-        return C.QTextTableFormat_BorderCollapse(@ptrCast(self));
+        return qtc.QTextTableFormat_BorderCollapse(@ptrCast(self));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setPosition)
     ///
-    /// ``` self: ?*C.QTextTableFormat, f: qtextformat_enums.Position ```
+    /// ``` self: QtC.QTextTableFormat, f: qtextformat_enums.Position ```
     pub fn SetPosition(self: ?*anyopaque, f: i64) void {
-        C.QTextFrameFormat_SetPosition(@ptrCast(self), @intCast(f));
+        qtc.QTextFrameFormat_SetPosition(@ptrCast(self), @intCast(f));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#position)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn Position(self: ?*anyopaque) i64 {
-        return C.QTextFrameFormat_Position(@ptrCast(self));
+        return qtc.QTextFrameFormat_Position(@ptrCast(self));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setBorder)
     ///
-    /// ``` self: ?*C.QTextTableFormat, border: f64 ```
+    /// ``` self: QtC.QTextTableFormat, border: f64 ```
     pub fn SetBorder(self: ?*anyopaque, border: f64) void {
-        C.QTextFrameFormat_SetBorder(@ptrCast(self), @floatCast(border));
+        qtc.QTextFrameFormat_SetBorder(@ptrCast(self), @floatCast(border));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#border)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn Border(self: ?*anyopaque) f64 {
-        return C.QTextFrameFormat_Border(@ptrCast(self));
+        return qtc.QTextFrameFormat_Border(@ptrCast(self));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setBorderBrush)
     ///
-    /// ``` self: ?*C.QTextTableFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextTableFormat, brush: QtC.QBrush ```
     pub fn SetBorderBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFrameFormat_SetBorderBrush(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFrameFormat_SetBorderBrush(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#borderBrush)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
-    pub fn BorderBrush(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFrameFormat_BorderBrush(@ptrCast(self));
+    /// ``` self: QtC.QTextTableFormat ```
+    pub fn BorderBrush(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFrameFormat_BorderBrush(@ptrCast(self));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setBorderStyle)
     ///
-    /// ``` self: ?*C.QTextTableFormat, style: qtextformat_enums.BorderStyle ```
+    /// ``` self: QtC.QTextTableFormat, style: qtextformat_enums.BorderStyle ```
     pub fn SetBorderStyle(self: ?*anyopaque, style: i64) void {
-        C.QTextFrameFormat_SetBorderStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextFrameFormat_SetBorderStyle(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#borderStyle)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn BorderStyle(self: ?*anyopaque) i64 {
-        return C.QTextFrameFormat_BorderStyle(@ptrCast(self));
+        return qtc.QTextFrameFormat_BorderStyle(@ptrCast(self));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setMargin)
     ///
-    /// ``` self: ?*C.QTextTableFormat, margin: f64 ```
+    /// ``` self: QtC.QTextTableFormat, margin: f64 ```
     pub fn SetMargin(self: ?*anyopaque, margin: f64) void {
-        C.QTextFrameFormat_SetMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetMargin(@ptrCast(self), @floatCast(margin));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#margin)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn Margin(self: ?*anyopaque) f64 {
-        return C.QTextFrameFormat_Margin(@ptrCast(self));
+        return qtc.QTextFrameFormat_Margin(@ptrCast(self));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setTopMargin)
     ///
-    /// ``` self: ?*C.QTextTableFormat, margin: f64 ```
+    /// ``` self: QtC.QTextTableFormat, margin: f64 ```
     pub fn SetTopMargin(self: ?*anyopaque, margin: f64) void {
-        C.QTextFrameFormat_SetTopMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetTopMargin(@ptrCast(self), @floatCast(margin));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#topMargin)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn TopMargin(self: ?*anyopaque) f64 {
-        return C.QTextFrameFormat_TopMargin(@ptrCast(self));
+        return qtc.QTextFrameFormat_TopMargin(@ptrCast(self));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setBottomMargin)
     ///
-    /// ``` self: ?*C.QTextTableFormat, margin: f64 ```
+    /// ``` self: QtC.QTextTableFormat, margin: f64 ```
     pub fn SetBottomMargin(self: ?*anyopaque, margin: f64) void {
-        C.QTextFrameFormat_SetBottomMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetBottomMargin(@ptrCast(self), @floatCast(margin));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#bottomMargin)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn BottomMargin(self: ?*anyopaque) f64 {
-        return C.QTextFrameFormat_BottomMargin(@ptrCast(self));
+        return qtc.QTextFrameFormat_BottomMargin(@ptrCast(self));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setLeftMargin)
     ///
-    /// ``` self: ?*C.QTextTableFormat, margin: f64 ```
+    /// ``` self: QtC.QTextTableFormat, margin: f64 ```
     pub fn SetLeftMargin(self: ?*anyopaque, margin: f64) void {
-        C.QTextFrameFormat_SetLeftMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetLeftMargin(@ptrCast(self), @floatCast(margin));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#leftMargin)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn LeftMargin(self: ?*anyopaque) f64 {
-        return C.QTextFrameFormat_LeftMargin(@ptrCast(self));
+        return qtc.QTextFrameFormat_LeftMargin(@ptrCast(self));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setRightMargin)
     ///
-    /// ``` self: ?*C.QTextTableFormat, margin: f64 ```
+    /// ``` self: QtC.QTextTableFormat, margin: f64 ```
     pub fn SetRightMargin(self: ?*anyopaque, margin: f64) void {
-        C.QTextFrameFormat_SetRightMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetRightMargin(@ptrCast(self), @floatCast(margin));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#rightMargin)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn RightMargin(self: ?*anyopaque) f64 {
-        return C.QTextFrameFormat_RightMargin(@ptrCast(self));
+        return qtc.QTextFrameFormat_RightMargin(@ptrCast(self));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setPadding)
     ///
-    /// ``` self: ?*C.QTextTableFormat, padding: f64 ```
+    /// ``` self: QtC.QTextTableFormat, padding: f64 ```
     pub fn SetPadding(self: ?*anyopaque, padding: f64) void {
-        C.QTextFrameFormat_SetPadding(@ptrCast(self), @floatCast(padding));
+        qtc.QTextFrameFormat_SetPadding(@ptrCast(self), @floatCast(padding));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#padding)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn Padding(self: ?*anyopaque) f64 {
-        return C.QTextFrameFormat_Padding(@ptrCast(self));
+        return qtc.QTextFrameFormat_Padding(@ptrCast(self));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setWidth)
     ///
-    /// ``` self: ?*C.QTextTableFormat, width: f64 ```
+    /// ``` self: QtC.QTextTableFormat, width: f64 ```
     pub fn SetWidth(self: ?*anyopaque, width: f64) void {
-        C.QTextFrameFormat_SetWidth(@ptrCast(self), @floatCast(width));
+        qtc.QTextFrameFormat_SetWidth(@ptrCast(self), @floatCast(width));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setWidth)
     ///
-    /// ``` self: ?*C.QTextTableFormat, length: ?*C.QTextLength ```
+    /// ``` self: QtC.QTextTableFormat, length: QtC.QTextLength ```
     pub fn SetWidthWithLength(self: ?*anyopaque, length: ?*anyopaque) void {
-        C.QTextFrameFormat_SetWidthWithLength(@ptrCast(self), @ptrCast(length));
+        qtc.QTextFrameFormat_SetWidthWithLength(@ptrCast(self), @ptrCast(length));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#width)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
-    pub fn Width(self: ?*anyopaque) ?*C.QTextLength {
-        return C.QTextFrameFormat_Width(@ptrCast(self));
+    /// ``` self: QtC.QTextTableFormat ```
+    pub fn Width(self: ?*anyopaque) QtC.QTextLength {
+        return qtc.QTextFrameFormat_Width(@ptrCast(self));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setHeight)
     ///
-    /// ``` self: ?*C.QTextTableFormat, height: f64 ```
+    /// ``` self: QtC.QTextTableFormat, height: f64 ```
     pub fn SetHeight(self: ?*anyopaque, height: f64) void {
-        C.QTextFrameFormat_SetHeight(@ptrCast(self), @floatCast(height));
+        qtc.QTextFrameFormat_SetHeight(@ptrCast(self), @floatCast(height));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setHeight)
     ///
-    /// ``` self: ?*C.QTextTableFormat, height: ?*C.QTextLength ```
+    /// ``` self: QtC.QTextTableFormat, height: QtC.QTextLength ```
     pub fn SetHeightWithHeight(self: ?*anyopaque, height: ?*anyopaque) void {
-        C.QTextFrameFormat_SetHeightWithHeight(@ptrCast(self), @ptrCast(height));
+        qtc.QTextFrameFormat_SetHeightWithHeight(@ptrCast(self), @ptrCast(height));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#height)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
-    pub fn Height(self: ?*anyopaque) ?*C.QTextLength {
-        return C.QTextFrameFormat_Height(@ptrCast(self));
+    /// ``` self: QtC.QTextTableFormat ```
+    pub fn Height(self: ?*anyopaque) QtC.QTextLength {
+        return qtc.QTextFrameFormat_Height(@ptrCast(self));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setPageBreakPolicy)
     ///
-    /// ``` self: ?*C.QTextTableFormat, flags: i32 ```
+    /// ``` self: QtC.QTextTableFormat, flags: i32 ```
     pub fn SetPageBreakPolicy(self: ?*anyopaque, flags: i64) void {
-        C.QTextFrameFormat_SetPageBreakPolicy(@ptrCast(self), @intCast(flags));
+        qtc.QTextFrameFormat_SetPageBreakPolicy(@ptrCast(self), @intCast(flags));
     }
 
     /// Inherited from QTextFrameFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#pageBreakPolicy)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn PageBreakPolicy(self: ?*anyopaque) i64 {
-        return C.QTextFrameFormat_PageBreakPolicy(@ptrCast(self));
+        return qtc.QTextFrameFormat_PageBreakPolicy(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator=)
     ///
-    /// ``` self: ?*C.QTextTableFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextTableFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
-        C.QTextFormat_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
+        qtc.QTextFormat_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#swap)
     ///
-    /// ``` self: ?*C.QTextTableFormat, other: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextTableFormat, other: QtC.QTextFormat ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextFormat_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QTextFormat_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#merge)
     ///
-    /// ``` self: ?*C.QTextTableFormat, other: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextTableFormat, other: QtC.QTextFormat ```
     pub fn Merge(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextFormat_Merge(@ptrCast(self), @ptrCast(other));
+        qtc.QTextFormat_Merge(@ptrCast(self), @ptrCast(other));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isEmpty)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsEmpty(@ptrCast(self));
+        return qtc.QTextFormat_IsEmpty(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#type)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn Type(self: ?*anyopaque) i32 {
-        return C.QTextFormat_Type(@ptrCast(self));
+        return qtc.QTextFormat_Type(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectIndex)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn ObjectIndex(self: ?*anyopaque) i32 {
-        return C.QTextFormat_ObjectIndex(@ptrCast(self));
+        return qtc.QTextFormat_ObjectIndex(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectIndex)
     ///
-    /// ``` self: ?*C.QTextTableFormat, object: i32 ```
+    /// ``` self: QtC.QTextTableFormat, object: i32 ```
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        C.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#property)
     ///
-    /// ``` self: ?*C.QTextTableFormat, propertyId: i32 ```
-    pub fn Property(self: ?*anyopaque, propertyId: i32) ?*C.QVariant {
-        return C.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextTableFormat, propertyId: i32 ```
+    pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
+        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
-    /// ``` self: ?*C.QTextTableFormat, propertyId: i32, value: ?*C.QVariant ```
+    /// ``` self: QtC.QTextTableFormat, propertyId: i32, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        C.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearProperty)
     ///
-    /// ``` self: ?*C.QTextTableFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextTableFormat, propertyId: i32 ```
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        C.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#hasProperty)
     ///
-    /// ``` self: ?*C.QTextTableFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextTableFormat, propertyId: i32 ```
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return C.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#boolProperty)
     ///
-    /// ``` self: ?*C.QTextTableFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextTableFormat, propertyId: i32 ```
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return C.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#intProperty)
     ///
-    /// ``` self: ?*C.QTextTableFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextTableFormat, propertyId: i32 ```
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return C.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#doubleProperty)
     ///
-    /// ``` self: ?*C.QTextTableFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextTableFormat, propertyId: i32 ```
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return C.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#stringProperty)
     ///
-    /// ``` self: ?*C.QTextTableFormat, propertyId: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextTableFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttableformat.StringProperty: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -5393,48 +5408,48 @@ pub const qtexttableformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#colorProperty)
     ///
-    /// ``` self: ?*C.QTextTableFormat, propertyId: i32 ```
-    pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) ?*C.QColor {
-        return C.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextTableFormat, propertyId: i32 ```
+    pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#penProperty)
     ///
-    /// ``` self: ?*C.QTextTableFormat, propertyId: i32 ```
-    pub fn PenProperty(self: ?*anyopaque, propertyId: i32) ?*C.QPen {
-        return C.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextTableFormat, propertyId: i32 ```
+    pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#brushProperty)
     ///
-    /// ``` self: ?*C.QTextTableFormat, propertyId: i32 ```
-    pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) ?*C.QBrush {
-        return C.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextTableFormat, propertyId: i32 ```
+    pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthProperty)
     ///
-    /// ``` self: ?*C.QTextTableFormat, propertyId: i32 ```
-    pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) ?*C.QTextLength {
-        return C.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextTableFormat, propertyId: i32 ```
+    pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthVectorProperty)
     ///
-    /// ``` self: ?*C.QTextTableFormat, propertyId: i32, allocator: std.mem.Allocator ```
-    pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []?*C.QTextLength {
-        const _arr: C.struct_libqt_list = C.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QTextLength, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QTextLength = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QTextTableFormat, propertyId: i32, allocator: std.mem.Allocator ```
+    pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
+        const _arr: qtc.struct_libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtexttableformat.LengthVectorProperty: Memory allocation failed");
+        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -5445,34 +5460,34 @@ pub const qtexttableformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
-    /// ``` self: ?*C.QTextTableFormat, propertyId: i32, lengths: []?*C.QTextLength ```
-    pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []?*C.QTextLength) void {
-        const lengths_list = C.struct_libqt_list{
+    /// ``` self: QtC.QTextTableFormat, propertyId: i32, lengths: []QtC.QTextLength ```
+    pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
+        const lengths_list = qtc.struct_libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        C.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#properties)
     ///
-    /// ``` self: ?*C.QTextTableFormat, allocator: std.mem.Allocator ```
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_cqvariant {
-        const _map: C.struct_libqt_map = C.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_cqvariant = .empty;
+    /// ``` self: QtC.QTextTableFormat, allocator: std.mem.Allocator ```
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+        const _map: qtc.struct_libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
+        var _ret: map_i32_qtcqvariant = .empty;
         defer {
-            C.libqt_free(_map.keys);
-            C.libqt_free(_map.values);
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]?*C.QVariant = @ptrCast(@alignCast(_map.values));
+        const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
         var _i: usize = 0;
         while (_i < _map.len) : (_i += 1) {
             const _key = _keys[_i];
             const _value = _values[_i];
-            _ret.put(allocator, _key, _value) catch @panic("Memory allocation failed");
+            _ret.put(allocator, _key, _value) catch @panic("qtexttableformat.Properties: Memory allocation failed");
         }
         return _ret;
     }
@@ -5481,259 +5496,261 @@ pub const qtexttableformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn PropertyCount(self: ?*anyopaque) i32 {
-        return C.QTextFormat_PropertyCount(@ptrCast(self));
+        return qtc.QTextFormat_PropertyCount(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectType)
     ///
-    /// ``` self: ?*C.QTextTableFormat, typeVal: i32 ```
+    /// ``` self: QtC.QTextTableFormat, typeVal: i32 ```
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        C.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectType)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn ObjectType(self: ?*anyopaque) i32 {
-        return C.QTextFormat_ObjectType(@ptrCast(self));
+        return qtc.QTextFormat_ObjectType(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isCharFormat)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn IsCharFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsCharFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsCharFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isBlockFormat)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn IsBlockFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsBlockFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsBlockFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isListFormat)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn IsListFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsListFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsListFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isFrameFormat)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn IsFrameFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsFrameFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsFrameFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isImageFormat)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn IsImageFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsImageFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsImageFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableFormat)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn IsTableFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsTableFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsTableFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableCellFormat)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn IsTableCellFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsTableCellFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsTableCellFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toBlockFormat)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
-    pub fn ToBlockFormat(self: ?*anyopaque) ?*C.QTextBlockFormat {
-        return C.QTextFormat_ToBlockFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextTableFormat ```
+    pub fn ToBlockFormat(self: ?*anyopaque) QtC.QTextBlockFormat {
+        return qtc.QTextFormat_ToBlockFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toCharFormat)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
-    pub fn ToCharFormat(self: ?*anyopaque) ?*C.QTextCharFormat {
-        return C.QTextFormat_ToCharFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextTableFormat ```
+    pub fn ToCharFormat(self: ?*anyopaque) QtC.QTextCharFormat {
+        return qtc.QTextFormat_ToCharFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toListFormat)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
-    pub fn ToListFormat(self: ?*anyopaque) ?*C.QTextListFormat {
-        return C.QTextFormat_ToListFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextTableFormat ```
+    pub fn ToListFormat(self: ?*anyopaque) QtC.QTextListFormat {
+        return qtc.QTextFormat_ToListFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableFormat)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
-    pub fn ToTableFormat(self: ?*anyopaque) ?*C.QTextTableFormat {
-        return C.QTextFormat_ToTableFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextTableFormat ```
+    pub fn ToTableFormat(self: ?*anyopaque) QtC.QTextTableFormat {
+        return qtc.QTextFormat_ToTableFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toFrameFormat)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
-    pub fn ToFrameFormat(self: ?*anyopaque) ?*C.QTextFrameFormat {
-        return C.QTextFormat_ToFrameFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextTableFormat ```
+    pub fn ToFrameFormat(self: ?*anyopaque) QtC.QTextFrameFormat {
+        return qtc.QTextFormat_ToFrameFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toImageFormat)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
-    pub fn ToImageFormat(self: ?*anyopaque) ?*C.QTextImageFormat {
-        return C.QTextFormat_ToImageFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextTableFormat ```
+    pub fn ToImageFormat(self: ?*anyopaque) QtC.QTextImageFormat {
+        return qtc.QTextFormat_ToImageFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableCellFormat)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
-    pub fn ToTableCellFormat(self: ?*anyopaque) ?*C.QTextTableCellFormat {
-        return C.QTextFormat_ToTableCellFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextTableFormat ```
+    pub fn ToTableCellFormat(self: ?*anyopaque) QtC.QTextTableCellFormat {
+        return qtc.QTextFormat_ToTableCellFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator==)
     ///
-    /// ``` self: ?*C.QTextTableFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextTableFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return C.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
+        return qtc.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator!=)
     ///
-    /// ``` self: ?*C.QTextTableFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextTableFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return C.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
+        return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator QVariant)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
-    pub fn ToQVariant(self: ?*anyopaque) ?*C.QVariant {
-        return C.QTextFormat_ToQVariant(@ptrCast(self));
+    /// ``` self: QtC.QTextTableFormat ```
+    pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QTextFormat_ToQVariant(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
-    /// ``` self: ?*C.QTextTableFormat, direction: qnamespace_enums.LayoutDirection ```
+    /// ``` self: QtC.QTextTableFormat, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
-        C.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
-        return C.QTextFormat_LayoutDirection(@ptrCast(self));
+        return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setBackground)
     ///
-    /// ``` self: ?*C.QTextTableFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextTableFormat, brush: QtC.QBrush ```
     pub fn SetBackground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFormat_SetBackground(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFormat_SetBackground(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#background)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
-    pub fn Background(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFormat_Background(@ptrCast(self));
+    /// ``` self: QtC.QTextTableFormat ```
+    pub fn Background(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFormat_Background(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearBackground)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn ClearBackground(self: ?*anyopaque) void {
-        C.QTextFormat_ClearBackground(@ptrCast(self));
+        qtc.QTextFormat_ClearBackground(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setForeground)
     ///
-    /// ``` self: ?*C.QTextTableFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextTableFormat, brush: QtC.QBrush ```
     pub fn SetForeground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFormat_SetForeground(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFormat_SetForeground(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#foreground)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
-    pub fn Foreground(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFormat_Foreground(@ptrCast(self));
+    /// ``` self: QtC.QTextTableFormat ```
+    pub fn Foreground(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFormat_Foreground(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearForeground)
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn ClearForeground(self: ?*anyopaque) void {
-        C.QTextFormat_ClearForeground(@ptrCast(self));
+        qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#dtor.QTextTableFormat)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QTextTableFormat ```
+    /// ``` self: QtC.QTextTableFormat ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QTextTableFormat_Delete(@ptrCast(self));
+        qtc.QTextTableFormat_Delete(@ptrCast(self));
     }
 };
 
@@ -5742,309 +5759,309 @@ pub const qtexttablecellformat = struct {
     /// New constructs a new QTextTableCellFormat object.
     ///
     ///
-    pub fn New() ?*C.QTextTableCellFormat {
-        return C.QTextTableCellFormat_new();
+    pub fn New() QtC.QTextTableCellFormat {
+        return qtc.QTextTableCellFormat_new();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#isValid)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn IsValid(self: ?*anyopaque) bool {
-        return C.QTextTableCellFormat_IsValid(@ptrCast(self));
+        return qtc.QTextTableCellFormat_IsValid(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setTopPadding)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, padding: f64 ```
+    /// ``` self: QtC.QTextTableCellFormat, padding: f64 ```
     pub fn SetTopPadding(self: ?*anyopaque, padding: f64) void {
-        C.QTextTableCellFormat_SetTopPadding(@ptrCast(self), @floatCast(padding));
+        qtc.QTextTableCellFormat_SetTopPadding(@ptrCast(self), @floatCast(padding));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#topPadding)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn TopPadding(self: ?*anyopaque) f64 {
-        return C.QTextTableCellFormat_TopPadding(@ptrCast(self));
+        return qtc.QTextTableCellFormat_TopPadding(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setBottomPadding)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, padding: f64 ```
+    /// ``` self: QtC.QTextTableCellFormat, padding: f64 ```
     pub fn SetBottomPadding(self: ?*anyopaque, padding: f64) void {
-        C.QTextTableCellFormat_SetBottomPadding(@ptrCast(self), @floatCast(padding));
+        qtc.QTextTableCellFormat_SetBottomPadding(@ptrCast(self), @floatCast(padding));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#bottomPadding)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn BottomPadding(self: ?*anyopaque) f64 {
-        return C.QTextTableCellFormat_BottomPadding(@ptrCast(self));
+        return qtc.QTextTableCellFormat_BottomPadding(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setLeftPadding)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, padding: f64 ```
+    /// ``` self: QtC.QTextTableCellFormat, padding: f64 ```
     pub fn SetLeftPadding(self: ?*anyopaque, padding: f64) void {
-        C.QTextTableCellFormat_SetLeftPadding(@ptrCast(self), @floatCast(padding));
+        qtc.QTextTableCellFormat_SetLeftPadding(@ptrCast(self), @floatCast(padding));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#leftPadding)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn LeftPadding(self: ?*anyopaque) f64 {
-        return C.QTextTableCellFormat_LeftPadding(@ptrCast(self));
+        return qtc.QTextTableCellFormat_LeftPadding(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setRightPadding)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, padding: f64 ```
+    /// ``` self: QtC.QTextTableCellFormat, padding: f64 ```
     pub fn SetRightPadding(self: ?*anyopaque, padding: f64) void {
-        C.QTextTableCellFormat_SetRightPadding(@ptrCast(self), @floatCast(padding));
+        qtc.QTextTableCellFormat_SetRightPadding(@ptrCast(self), @floatCast(padding));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#rightPadding)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn RightPadding(self: ?*anyopaque) f64 {
-        return C.QTextTableCellFormat_RightPadding(@ptrCast(self));
+        return qtc.QTextTableCellFormat_RightPadding(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setPadding)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, padding: f64 ```
+    /// ``` self: QtC.QTextTableCellFormat, padding: f64 ```
     pub fn SetPadding(self: ?*anyopaque, padding: f64) void {
-        C.QTextTableCellFormat_SetPadding(@ptrCast(self), @floatCast(padding));
+        qtc.QTextTableCellFormat_SetPadding(@ptrCast(self), @floatCast(padding));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setTopBorder)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, width: f64 ```
+    /// ``` self: QtC.QTextTableCellFormat, width: f64 ```
     pub fn SetTopBorder(self: ?*anyopaque, width: f64) void {
-        C.QTextTableCellFormat_SetTopBorder(@ptrCast(self), @floatCast(width));
+        qtc.QTextTableCellFormat_SetTopBorder(@ptrCast(self), @floatCast(width));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#topBorder)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn TopBorder(self: ?*anyopaque) f64 {
-        return C.QTextTableCellFormat_TopBorder(@ptrCast(self));
+        return qtc.QTextTableCellFormat_TopBorder(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setBottomBorder)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, width: f64 ```
+    /// ``` self: QtC.QTextTableCellFormat, width: f64 ```
     pub fn SetBottomBorder(self: ?*anyopaque, width: f64) void {
-        C.QTextTableCellFormat_SetBottomBorder(@ptrCast(self), @floatCast(width));
+        qtc.QTextTableCellFormat_SetBottomBorder(@ptrCast(self), @floatCast(width));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#bottomBorder)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn BottomBorder(self: ?*anyopaque) f64 {
-        return C.QTextTableCellFormat_BottomBorder(@ptrCast(self));
+        return qtc.QTextTableCellFormat_BottomBorder(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setLeftBorder)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, width: f64 ```
+    /// ``` self: QtC.QTextTableCellFormat, width: f64 ```
     pub fn SetLeftBorder(self: ?*anyopaque, width: f64) void {
-        C.QTextTableCellFormat_SetLeftBorder(@ptrCast(self), @floatCast(width));
+        qtc.QTextTableCellFormat_SetLeftBorder(@ptrCast(self), @floatCast(width));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#leftBorder)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn LeftBorder(self: ?*anyopaque) f64 {
-        return C.QTextTableCellFormat_LeftBorder(@ptrCast(self));
+        return qtc.QTextTableCellFormat_LeftBorder(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setRightBorder)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, width: f64 ```
+    /// ``` self: QtC.QTextTableCellFormat, width: f64 ```
     pub fn SetRightBorder(self: ?*anyopaque, width: f64) void {
-        C.QTextTableCellFormat_SetRightBorder(@ptrCast(self), @floatCast(width));
+        qtc.QTextTableCellFormat_SetRightBorder(@ptrCast(self), @floatCast(width));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#rightBorder)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn RightBorder(self: ?*anyopaque) f64 {
-        return C.QTextTableCellFormat_RightBorder(@ptrCast(self));
+        return qtc.QTextTableCellFormat_RightBorder(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setBorder)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, width: f64 ```
+    /// ``` self: QtC.QTextTableCellFormat, width: f64 ```
     pub fn SetBorder(self: ?*anyopaque, width: f64) void {
-        C.QTextTableCellFormat_SetBorder(@ptrCast(self), @floatCast(width));
+        qtc.QTextTableCellFormat_SetBorder(@ptrCast(self), @floatCast(width));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setTopBorderStyle)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, style: qtextformat_enums.BorderStyle ```
+    /// ``` self: QtC.QTextTableCellFormat, style: qtextformat_enums.BorderStyle ```
     pub fn SetTopBorderStyle(self: ?*anyopaque, style: i64) void {
-        C.QTextTableCellFormat_SetTopBorderStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextTableCellFormat_SetTopBorderStyle(@ptrCast(self), @intCast(style));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#topBorderStyle)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn TopBorderStyle(self: ?*anyopaque) i64 {
-        return C.QTextTableCellFormat_TopBorderStyle(@ptrCast(self));
+        return qtc.QTextTableCellFormat_TopBorderStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setBottomBorderStyle)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, style: qtextformat_enums.BorderStyle ```
+    /// ``` self: QtC.QTextTableCellFormat, style: qtextformat_enums.BorderStyle ```
     pub fn SetBottomBorderStyle(self: ?*anyopaque, style: i64) void {
-        C.QTextTableCellFormat_SetBottomBorderStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextTableCellFormat_SetBottomBorderStyle(@ptrCast(self), @intCast(style));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#bottomBorderStyle)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn BottomBorderStyle(self: ?*anyopaque) i64 {
-        return C.QTextTableCellFormat_BottomBorderStyle(@ptrCast(self));
+        return qtc.QTextTableCellFormat_BottomBorderStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setLeftBorderStyle)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, style: qtextformat_enums.BorderStyle ```
+    /// ``` self: QtC.QTextTableCellFormat, style: qtextformat_enums.BorderStyle ```
     pub fn SetLeftBorderStyle(self: ?*anyopaque, style: i64) void {
-        C.QTextTableCellFormat_SetLeftBorderStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextTableCellFormat_SetLeftBorderStyle(@ptrCast(self), @intCast(style));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#leftBorderStyle)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn LeftBorderStyle(self: ?*anyopaque) i64 {
-        return C.QTextTableCellFormat_LeftBorderStyle(@ptrCast(self));
+        return qtc.QTextTableCellFormat_LeftBorderStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setRightBorderStyle)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, style: qtextformat_enums.BorderStyle ```
+    /// ``` self: QtC.QTextTableCellFormat, style: qtextformat_enums.BorderStyle ```
     pub fn SetRightBorderStyle(self: ?*anyopaque, style: i64) void {
-        C.QTextTableCellFormat_SetRightBorderStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextTableCellFormat_SetRightBorderStyle(@ptrCast(self), @intCast(style));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#rightBorderStyle)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn RightBorderStyle(self: ?*anyopaque) i64 {
-        return C.QTextTableCellFormat_RightBorderStyle(@ptrCast(self));
+        return qtc.QTextTableCellFormat_RightBorderStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setBorderStyle)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, style: qtextformat_enums.BorderStyle ```
+    /// ``` self: QtC.QTextTableCellFormat, style: qtextformat_enums.BorderStyle ```
     pub fn SetBorderStyle(self: ?*anyopaque, style: i64) void {
-        C.QTextTableCellFormat_SetBorderStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextTableCellFormat_SetBorderStyle(@ptrCast(self), @intCast(style));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setTopBorderBrush)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextTableCellFormat, brush: QtC.QBrush ```
     pub fn SetTopBorderBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextTableCellFormat_SetTopBorderBrush(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextTableCellFormat_SetTopBorderBrush(@ptrCast(self), @ptrCast(brush));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#topBorderBrush)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn TopBorderBrush(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextTableCellFormat_TopBorderBrush(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn TopBorderBrush(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextTableCellFormat_TopBorderBrush(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setBottomBorderBrush)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextTableCellFormat, brush: QtC.QBrush ```
     pub fn SetBottomBorderBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextTableCellFormat_SetBottomBorderBrush(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextTableCellFormat_SetBottomBorderBrush(@ptrCast(self), @ptrCast(brush));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#bottomBorderBrush)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn BottomBorderBrush(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextTableCellFormat_BottomBorderBrush(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn BottomBorderBrush(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextTableCellFormat_BottomBorderBrush(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setLeftBorderBrush)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextTableCellFormat, brush: QtC.QBrush ```
     pub fn SetLeftBorderBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextTableCellFormat_SetLeftBorderBrush(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextTableCellFormat_SetLeftBorderBrush(@ptrCast(self), @ptrCast(brush));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#leftBorderBrush)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn LeftBorderBrush(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextTableCellFormat_LeftBorderBrush(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn LeftBorderBrush(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextTableCellFormat_LeftBorderBrush(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setRightBorderBrush)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextTableCellFormat, brush: QtC.QBrush ```
     pub fn SetRightBorderBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextTableCellFormat_SetRightBorderBrush(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextTableCellFormat_SetRightBorderBrush(@ptrCast(self), @ptrCast(brush));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#rightBorderBrush)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn RightBorderBrush(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextTableCellFormat_RightBorderBrush(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn RightBorderBrush(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextTableCellFormat_RightBorderBrush(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setBorderBrush)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextTableCellFormat, brush: QtC.QBrush ```
     pub fn SetBorderBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextTableCellFormat_SetBorderBrush(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextTableCellFormat_SetBorderBrush(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFont)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, font: ?*C.QFont ```
+    /// ``` self: QtC.QTextTableCellFormat, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        C.QTextCharFormat_SetFont(@ptrCast(self), @ptrCast(font));
+        qtc.QTextCharFormat_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#font)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn Font(self: ?*anyopaque) ?*C.QFont {
-        return C.QTextCharFormat_Font(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn Font(self: ?*anyopaque) QtC.QFont {
+        return qtc.QTextCharFormat_Font(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFamily)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, family: []const u8 ```
+    /// ``` self: QtC.QTextTableCellFormat, family: []const u8 ```
     pub fn SetFontFamily(self: ?*anyopaque, family: []const u8) void {
-        const family_str = C.struct_libqt_string{
+        const family_str = qtc.struct_libqt_string{
             .len = family.len,
             .data = @constCast(family.ptr),
         };
-        C.QTextCharFormat_SetFontFamily(@ptrCast(self), family_str);
+        qtc.QTextCharFormat_SetFontFamily(@ptrCast(self), family_str);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontFamily)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextTableCellFormat, allocator: std.mem.Allocator ```
     pub fn FontFamily(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextCharFormat_FontFamily(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextCharFormat_FontFamily(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttablecellformat.FontFamily: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -6055,9 +6072,9 @@ pub const qtexttablecellformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFamilies)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, families: [][]const u8, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextTableCellFormat, families: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetFontFamilies(self: ?*anyopaque, families: [][]const u8, allocator: std.mem.Allocator) void {
-        var families_arr = allocator.alloc(C.struct_libqt_string, families.len) catch @panic("Memory allocation failed");
+        var families_arr = allocator.alloc(qtc.struct_libqt_string, families.len) catch @panic("qtexttablecellformat.SetFontFamilies: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, _i| {
             families_arr[_i] = .{
@@ -6065,426 +6082,426 @@ pub const qtexttablecellformat = struct {
                 .data = @ptrCast(@constCast(item.ptr)),
             };
         }
-        const families_list = C.struct_libqt_list{
+        const families_list = qtc.struct_libqt_list{
             .len = families.len,
             .data = families_arr.ptr,
         };
-        C.QTextCharFormat_SetFontFamilies(@ptrCast(self), families_list);
+        qtc.QTextCharFormat_SetFontFamilies(@ptrCast(self), families_list);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontFamilies)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn FontFamilies(self: ?*anyopaque) ?*C.QVariant {
-        return C.QTextCharFormat_FontFamilies(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn FontFamilies(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QTextCharFormat_FontFamilies(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleName)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, styleName: []const u8 ```
+    /// ``` self: QtC.QTextTableCellFormat, styleName: []const u8 ```
     pub fn SetFontStyleName(self: ?*anyopaque, styleName: []const u8) void {
-        const styleName_str = C.struct_libqt_string{
+        const styleName_str = qtc.struct_libqt_string{
             .len = styleName.len,
             .data = @constCast(styleName.ptr),
         };
-        C.QTextCharFormat_SetFontStyleName(@ptrCast(self), styleName_str);
+        qtc.QTextCharFormat_SetFontStyleName(@ptrCast(self), styleName_str);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleName)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn FontStyleName(self: ?*anyopaque) ?*C.QVariant {
-        return C.QTextCharFormat_FontStyleName(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn FontStyleName(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QTextCharFormat_FontStyleName(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontPointSize)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, size: f64 ```
+    /// ``` self: QtC.QTextTableCellFormat, size: f64 ```
     pub fn SetFontPointSize(self: ?*anyopaque, size: f64) void {
-        C.QTextCharFormat_SetFontPointSize(@ptrCast(self), @floatCast(size));
+        qtc.QTextCharFormat_SetFontPointSize(@ptrCast(self), @floatCast(size));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontPointSize)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn FontPointSize(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_FontPointSize(@ptrCast(self));
+        return qtc.QTextCharFormat_FontPointSize(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontWeight)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, weight: i32 ```
+    /// ``` self: QtC.QTextTableCellFormat, weight: i32 ```
     pub fn SetFontWeight(self: ?*anyopaque, weight: i32) void {
-        C.QTextCharFormat_SetFontWeight(@ptrCast(self), @intCast(weight));
+        qtc.QTextCharFormat_SetFontWeight(@ptrCast(self), @intCast(weight));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontWeight)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn FontWeight(self: ?*anyopaque) i32 {
-        return C.QTextCharFormat_FontWeight(@ptrCast(self));
+        return qtc.QTextCharFormat_FontWeight(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontItalic)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, italic: bool ```
+    /// ``` self: QtC.QTextTableCellFormat, italic: bool ```
     pub fn SetFontItalic(self: ?*anyopaque, italic: bool) void {
-        C.QTextCharFormat_SetFontItalic(@ptrCast(self), italic);
+        qtc.QTextCharFormat_SetFontItalic(@ptrCast(self), italic);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontItalic)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn FontItalic(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontItalic(@ptrCast(self));
+        return qtc.QTextCharFormat_FontItalic(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontCapitalization)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, capitalization: qfont_enums.Capitalization ```
+    /// ``` self: QtC.QTextTableCellFormat, capitalization: qfont_enums.Capitalization ```
     pub fn SetFontCapitalization(self: ?*anyopaque, capitalization: i64) void {
-        C.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @intCast(capitalization));
+        qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @intCast(capitalization));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontCapitalization)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn FontCapitalization(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_FontCapitalization(@ptrCast(self));
+        return qtc.QTextCharFormat_FontCapitalization(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontLetterSpacingType)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, letterSpacingType: qfont_enums.SpacingType ```
+    /// ``` self: QtC.QTextTableCellFormat, letterSpacingType: qfont_enums.SpacingType ```
     pub fn SetFontLetterSpacingType(self: ?*anyopaque, letterSpacingType: i64) void {
-        C.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @intCast(letterSpacingType));
+        qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @intCast(letterSpacingType));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacingType)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn FontLetterSpacingType(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_FontLetterSpacingType(@ptrCast(self));
+        return qtc.QTextCharFormat_FontLetterSpacingType(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontLetterSpacing)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, spacing: f64 ```
+    /// ``` self: QtC.QTextTableCellFormat, spacing: f64 ```
     pub fn SetFontLetterSpacing(self: ?*anyopaque, spacing: f64) void {
-        C.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self), @floatCast(spacing));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacing)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn FontLetterSpacing(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_FontLetterSpacing(@ptrCast(self));
+        return qtc.QTextCharFormat_FontLetterSpacing(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontWordSpacing)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, spacing: f64 ```
+    /// ``` self: QtC.QTextTableCellFormat, spacing: f64 ```
     pub fn SetFontWordSpacing(self: ?*anyopaque, spacing: f64) void {
-        C.QTextCharFormat_SetFontWordSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QTextCharFormat_SetFontWordSpacing(@ptrCast(self), @floatCast(spacing));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontWordSpacing)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn FontWordSpacing(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_FontWordSpacing(@ptrCast(self));
+        return qtc.QTextCharFormat_FontWordSpacing(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontUnderline)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, underline: bool ```
+    /// ``` self: QtC.QTextTableCellFormat, underline: bool ```
     pub fn SetFontUnderline(self: ?*anyopaque, underline: bool) void {
-        C.QTextCharFormat_SetFontUnderline(@ptrCast(self), underline);
+        qtc.QTextCharFormat_SetFontUnderline(@ptrCast(self), underline);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontUnderline)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn FontUnderline(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontUnderline(@ptrCast(self));
+        return qtc.QTextCharFormat_FontUnderline(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontOverline)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, overline: bool ```
+    /// ``` self: QtC.QTextTableCellFormat, overline: bool ```
     pub fn SetFontOverline(self: ?*anyopaque, overline: bool) void {
-        C.QTextCharFormat_SetFontOverline(@ptrCast(self), overline);
+        qtc.QTextCharFormat_SetFontOverline(@ptrCast(self), overline);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontOverline)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn FontOverline(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontOverline(@ptrCast(self));
+        return qtc.QTextCharFormat_FontOverline(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStrikeOut)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, strikeOut: bool ```
+    /// ``` self: QtC.QTextTableCellFormat, strikeOut: bool ```
     pub fn SetFontStrikeOut(self: ?*anyopaque, strikeOut: bool) void {
-        C.QTextCharFormat_SetFontStrikeOut(@ptrCast(self), strikeOut);
+        qtc.QTextCharFormat_SetFontStrikeOut(@ptrCast(self), strikeOut);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStrikeOut)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn FontStrikeOut(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontStrikeOut(@ptrCast(self));
+        return qtc.QTextCharFormat_FontStrikeOut(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setUnderlineColor)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, color: ?*C.QColor ```
+    /// ``` self: QtC.QTextTableCellFormat, color: QtC.QColor ```
     pub fn SetUnderlineColor(self: ?*anyopaque, color: ?*anyopaque) void {
-        C.QTextCharFormat_SetUnderlineColor(@ptrCast(self), @ptrCast(color));
+        qtc.QTextCharFormat_SetUnderlineColor(@ptrCast(self), @ptrCast(color));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#underlineColor)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn UnderlineColor(self: ?*anyopaque) ?*C.QColor {
-        return C.QTextCharFormat_UnderlineColor(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn UnderlineColor(self: ?*anyopaque) QtC.QColor {
+        return qtc.QTextCharFormat_UnderlineColor(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFixedPitch)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, fixedPitch: bool ```
+    /// ``` self: QtC.QTextTableCellFormat, fixedPitch: bool ```
     pub fn SetFontFixedPitch(self: ?*anyopaque, fixedPitch: bool) void {
-        C.QTextCharFormat_SetFontFixedPitch(@ptrCast(self), fixedPitch);
+        qtc.QTextCharFormat_SetFontFixedPitch(@ptrCast(self), fixedPitch);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontFixedPitch)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn FontFixedPitch(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontFixedPitch(@ptrCast(self));
+        return qtc.QTextCharFormat_FontFixedPitch(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStretch)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, factor: i32 ```
+    /// ``` self: QtC.QTextTableCellFormat, factor: i32 ```
     pub fn SetFontStretch(self: ?*anyopaque, factor: i32) void {
-        C.QTextCharFormat_SetFontStretch(@ptrCast(self), @intCast(factor));
+        qtc.QTextCharFormat_SetFontStretch(@ptrCast(self), @intCast(factor));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStretch)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn FontStretch(self: ?*anyopaque) i32 {
-        return C.QTextCharFormat_FontStretch(@ptrCast(self));
+        return qtc.QTextCharFormat_FontStretch(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, hint: qfont_enums.StyleHint ```
+    /// ``` self: QtC.QTextTableCellFormat, hint: qfont_enums.StyleHint ```
     pub fn SetFontStyleHint(self: ?*anyopaque, hint: i64) void {
-        C.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @intCast(hint));
+        qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @intCast(hint));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleStrategy)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, strategy: qfont_enums.StyleStrategy ```
+    /// ``` self: QtC.QTextTableCellFormat, strategy: qfont_enums.StyleStrategy ```
     pub fn SetFontStyleStrategy(self: ?*anyopaque, strategy: i64) void {
-        C.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @intCast(strategy));
+        qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @intCast(strategy));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleHint)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn FontStyleHint(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_FontStyleHint(@ptrCast(self));
+        return qtc.QTextCharFormat_FontStyleHint(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleStrategy)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn FontStyleStrategy(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_FontStyleStrategy(@ptrCast(self));
+        return qtc.QTextCharFormat_FontStyleStrategy(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontHintingPreference)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, hintingPreference: qfont_enums.HintingPreference ```
+    /// ``` self: QtC.QTextTableCellFormat, hintingPreference: qfont_enums.HintingPreference ```
     pub fn SetFontHintingPreference(self: ?*anyopaque, hintingPreference: i64) void {
-        C.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @intCast(hintingPreference));
+        qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @intCast(hintingPreference));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontHintingPreference)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn FontHintingPreference(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_FontHintingPreference(@ptrCast(self));
+        return qtc.QTextCharFormat_FontHintingPreference(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontKerning)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, enable: bool ```
+    /// ``` self: QtC.QTextTableCellFormat, enable: bool ```
     pub fn SetFontKerning(self: ?*anyopaque, enable: bool) void {
-        C.QTextCharFormat_SetFontKerning(@ptrCast(self), enable);
+        qtc.QTextCharFormat_SetFontKerning(@ptrCast(self), enable);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontKerning)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn FontKerning(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_FontKerning(@ptrCast(self));
+        return qtc.QTextCharFormat_FontKerning(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setUnderlineStyle)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, style: qtextformat_enums.UnderlineStyle ```
+    /// ``` self: QtC.QTextTableCellFormat, style: qtextformat_enums.UnderlineStyle ```
     pub fn SetUnderlineStyle(self: ?*anyopaque, style: i64) void {
-        C.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#underlineStyle)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn UnderlineStyle(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_UnderlineStyle(@ptrCast(self));
+        return qtc.QTextCharFormat_UnderlineStyle(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setVerticalAlignment)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, alignment: qtextformat_enums.VerticalAlignment ```
+    /// ``` self: QtC.QTextTableCellFormat, alignment: qtextformat_enums.VerticalAlignment ```
     pub fn SetVerticalAlignment(self: ?*anyopaque, alignment: i64) void {
-        C.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @intCast(alignment));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#verticalAlignment)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn VerticalAlignment(self: ?*anyopaque) i64 {
-        return C.QTextCharFormat_VerticalAlignment(@ptrCast(self));
+        return qtc.QTextCharFormat_VerticalAlignment(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setTextOutline)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, pen: ?*C.QPen ```
+    /// ``` self: QtC.QTextTableCellFormat, pen: QtC.QPen ```
     pub fn SetTextOutline(self: ?*anyopaque, pen: ?*anyopaque) void {
-        C.QTextCharFormat_SetTextOutline(@ptrCast(self), @ptrCast(pen));
+        qtc.QTextCharFormat_SetTextOutline(@ptrCast(self), @ptrCast(pen));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#textOutline)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn TextOutline(self: ?*anyopaque) ?*C.QPen {
-        return C.QTextCharFormat_TextOutline(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn TextOutline(self: ?*anyopaque) QtC.QPen {
+        return qtc.QTextCharFormat_TextOutline(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setToolTip)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, tip: []const u8 ```
+    /// ``` self: QtC.QTextTableCellFormat, tip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
-        const tip_str = C.struct_libqt_string{
+        const tip_str = qtc.struct_libqt_string{
             .len = tip.len,
             .data = @constCast(tip.ptr),
         };
-        C.QTextCharFormat_SetToolTip(@ptrCast(self), tip_str);
+        qtc.QTextCharFormat_SetToolTip(@ptrCast(self), tip_str);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#toolTip)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextTableCellFormat, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextCharFormat_ToolTip(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextCharFormat_ToolTip(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttablecellformat.ToolTip: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -6495,96 +6512,96 @@ pub const qtexttablecellformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setSuperScriptBaseline)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, baseline: f64 ```
+    /// ``` self: QtC.QTextTableCellFormat, baseline: f64 ```
     pub fn SetSuperScriptBaseline(self: ?*anyopaque, baseline: f64) void {
-        C.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self), @floatCast(baseline));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#superScriptBaseline)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn SuperScriptBaseline(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_SuperScriptBaseline(@ptrCast(self));
+        return qtc.QTextCharFormat_SuperScriptBaseline(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setSubScriptBaseline)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, baseline: f64 ```
+    /// ``` self: QtC.QTextTableCellFormat, baseline: f64 ```
     pub fn SetSubScriptBaseline(self: ?*anyopaque, baseline: f64) void {
-        C.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self), @floatCast(baseline));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#subScriptBaseline)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn SubScriptBaseline(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_SubScriptBaseline(@ptrCast(self));
+        return qtc.QTextCharFormat_SubScriptBaseline(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setBaselineOffset)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, baseline: f64 ```
+    /// ``` self: QtC.QTextTableCellFormat, baseline: f64 ```
     pub fn SetBaselineOffset(self: ?*anyopaque, baseline: f64) void {
-        C.QTextCharFormat_SetBaselineOffset(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetBaselineOffset(@ptrCast(self), @floatCast(baseline));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#baselineOffset)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn BaselineOffset(self: ?*anyopaque) f64 {
-        return C.QTextCharFormat_BaselineOffset(@ptrCast(self));
+        return qtc.QTextCharFormat_BaselineOffset(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchor)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, anchor: bool ```
+    /// ``` self: QtC.QTextTableCellFormat, anchor: bool ```
     pub fn SetAnchor(self: ?*anyopaque, anchor: bool) void {
-        C.QTextCharFormat_SetAnchor(@ptrCast(self), anchor);
+        qtc.QTextCharFormat_SetAnchor(@ptrCast(self), anchor);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#isAnchor)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn IsAnchor(self: ?*anyopaque) bool {
-        return C.QTextCharFormat_IsAnchor(@ptrCast(self));
+        return qtc.QTextCharFormat_IsAnchor(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchorHref)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, value: []const u8 ```
+    /// ``` self: QtC.QTextTableCellFormat, value: []const u8 ```
     pub fn SetAnchorHref(self: ?*anyopaque, value: []const u8) void {
-        const value_str = C.struct_libqt_string{
+        const value_str = qtc.struct_libqt_string{
             .len = value.len,
             .data = @constCast(value.ptr),
         };
-        C.QTextCharFormat_SetAnchorHref(@ptrCast(self), value_str);
+        qtc.QTextCharFormat_SetAnchorHref(@ptrCast(self), value_str);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#anchorHref)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextTableCellFormat, allocator: std.mem.Allocator ```
     pub fn AnchorHref(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextCharFormat_AnchorHref(@ptrCast(self));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextCharFormat_AnchorHref(@ptrCast(self));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttablecellformat.AnchorHref: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -6595,9 +6612,9 @@ pub const qtexttablecellformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchorNames)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, names: [][]const u8, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextTableCellFormat, names: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetAnchorNames(self: ?*anyopaque, names: [][]const u8, allocator: std.mem.Allocator) void {
-        var names_arr = allocator.alloc(C.struct_libqt_string, names.len) catch @panic("Memory allocation failed");
+        var names_arr = allocator.alloc(qtc.struct_libqt_string, names.len) catch @panic("qtexttablecellformat.SetAnchorNames: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, _i| {
             names_arr[_i] = .{
@@ -6605,31 +6622,31 @@ pub const qtexttablecellformat = struct {
                 .data = @ptrCast(@constCast(item.ptr)),
             };
         }
-        const names_list = C.struct_libqt_list{
+        const names_list = qtc.struct_libqt_list{
             .len = names.len,
             .data = names_arr.ptr,
         };
-        C.QTextCharFormat_SetAnchorNames(@ptrCast(self), names_list);
+        qtc.QTextCharFormat_SetAnchorNames(@ptrCast(self), names_list);
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#anchorNames)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextTableCellFormat, allocator: std.mem.Allocator ```
     pub fn AnchorNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: C.struct_libqt_list = C.QTextCharFormat_AnchorNames(@ptrCast(self));
-        const _str: [*]C.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.struct_libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |_i| {
-                C.libqt_string_free(@ptrCast(&_str[_i]));
+                qtc.libqt_string_free(@ptrCast(&_str[_i]));
             }
-            C.libqt_free(_arr.data);
+            qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qtexttablecellformat.AnchorNames: Memory allocation failed");
         for (0.._arr.len) |_i| {
             const _data = _str[_i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtexttablecellformat.AnchorNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[_i] = _buf;
         }
@@ -6640,191 +6657,191 @@ pub const qtexttablecellformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setTableCellRowSpan)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, tableCellRowSpan: i32 ```
+    /// ``` self: QtC.QTextTableCellFormat, tableCellRowSpan: i32 ```
     pub fn SetTableCellRowSpan(self: ?*anyopaque, tableCellRowSpan: i32) void {
-        C.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self), @intCast(tableCellRowSpan));
+        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self), @intCast(tableCellRowSpan));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#tableCellRowSpan)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn TableCellRowSpan(self: ?*anyopaque) i32 {
-        return C.QTextCharFormat_TableCellRowSpan(@ptrCast(self));
+        return qtc.QTextCharFormat_TableCellRowSpan(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setTableCellColumnSpan)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, tableCellColumnSpan: i32 ```
+    /// ``` self: QtC.QTextTableCellFormat, tableCellColumnSpan: i32 ```
     pub fn SetTableCellColumnSpan(self: ?*anyopaque, tableCellColumnSpan: i32) void {
-        C.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self), @intCast(tableCellColumnSpan));
+        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self), @intCast(tableCellColumnSpan));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#tableCellColumnSpan)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn TableCellColumnSpan(self: ?*anyopaque) i32 {
-        return C.QTextCharFormat_TableCellColumnSpan(@ptrCast(self));
+        return qtc.QTextCharFormat_TableCellColumnSpan(@ptrCast(self));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFont)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, font: ?*C.QFont, behavior: qtextformat_enums.FontPropertiesInheritanceBehavior ```
+    /// ``` self: QtC.QTextTableCellFormat, font: QtC.QFont, behavior: qtextformat_enums.FontPropertiesInheritanceBehavior ```
     pub fn SetFont2(self: ?*anyopaque, font: ?*anyopaque, behavior: i64) void {
-        C.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @intCast(behavior));
+        qtc.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @intCast(behavior));
     }
 
     /// Inherited from QTextCharFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, hint: qfont_enums.StyleHint, strategy: qfont_enums.StyleStrategy ```
+    /// ``` self: QtC.QTextTableCellFormat, hint: qfont_enums.StyleHint, strategy: qfont_enums.StyleStrategy ```
     pub fn SetFontStyleHint2(self: ?*anyopaque, hint: i64, strategy: i64) void {
-        C.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @intCast(hint), @intCast(strategy));
+        qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @intCast(hint), @intCast(strategy));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator=)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextTableCellFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
-        C.QTextFormat_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
+        qtc.QTextFormat_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#swap)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, other: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextTableCellFormat, other: QtC.QTextFormat ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextFormat_Swap(@ptrCast(self), @ptrCast(other));
+        qtc.QTextFormat_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#merge)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, other: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextTableCellFormat, other: QtC.QTextFormat ```
     pub fn Merge(self: ?*anyopaque, other: ?*anyopaque) void {
-        C.QTextFormat_Merge(@ptrCast(self), @ptrCast(other));
+        qtc.QTextFormat_Merge(@ptrCast(self), @ptrCast(other));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isEmpty)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsEmpty(@ptrCast(self));
+        return qtc.QTextFormat_IsEmpty(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#type)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn Type(self: ?*anyopaque) i32 {
-        return C.QTextFormat_Type(@ptrCast(self));
+        return qtc.QTextFormat_Type(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectIndex)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn ObjectIndex(self: ?*anyopaque) i32 {
-        return C.QTextFormat_ObjectIndex(@ptrCast(self));
+        return qtc.QTextFormat_ObjectIndex(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectIndex)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, object: i32 ```
+    /// ``` self: QtC.QTextTableCellFormat, object: i32 ```
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        C.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#property)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, propertyId: i32 ```
-    pub fn Property(self: ?*anyopaque, propertyId: i32) ?*C.QVariant {
-        return C.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextTableCellFormat, propertyId: i32 ```
+    pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
+        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, propertyId: i32, value: ?*C.QVariant ```
+    /// ``` self: QtC.QTextTableCellFormat, propertyId: i32, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        C.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearProperty)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextTableCellFormat, propertyId: i32 ```
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        C.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#hasProperty)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextTableCellFormat, propertyId: i32 ```
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return C.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#boolProperty)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextTableCellFormat, propertyId: i32 ```
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return C.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#intProperty)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextTableCellFormat, propertyId: i32 ```
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return C.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#doubleProperty)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, propertyId: i32 ```
+    /// ``` self: QtC.QTextTableCellFormat, propertyId: i32 ```
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return C.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#stringProperty)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, propertyId: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextTableCellFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        const _str = C.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
-        defer C.libqt_string_free(@constCast(&_str));
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Memory allocation failed");
+        const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        defer qtc.libqt_string_free(@constCast(&_str));
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttablecellformat.StringProperty: Memory allocation failed");
         for (0.._str.len) |_i| {
             _ret[_i] = _str.data[_i];
         }
@@ -6835,48 +6852,48 @@ pub const qtexttablecellformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#colorProperty)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, propertyId: i32 ```
-    pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) ?*C.QColor {
-        return C.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextTableCellFormat, propertyId: i32 ```
+    pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#penProperty)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, propertyId: i32 ```
-    pub fn PenProperty(self: ?*anyopaque, propertyId: i32) ?*C.QPen {
-        return C.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextTableCellFormat, propertyId: i32 ```
+    pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#brushProperty)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, propertyId: i32 ```
-    pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) ?*C.QBrush {
-        return C.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextTableCellFormat, propertyId: i32 ```
+    pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthProperty)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, propertyId: i32 ```
-    pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) ?*C.QTextLength {
-        return C.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+    /// ``` self: QtC.QTextTableCellFormat, propertyId: i32 ```
+    pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthVectorProperty)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, propertyId: i32, allocator: std.mem.Allocator ```
-    pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []?*C.QTextLength {
-        const _arr: C.struct_libqt_list = C.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
-        defer C.libqt_free(_arr.data);
-        const _ret = allocator.alloc(?*C.QTextLength, _arr.len) catch @panic("Memory allocation failed");
-        const _data: [*]?*C.QTextLength = @ptrCast(@alignCast(_arr.data));
+    /// ``` self: QtC.QTextTableCellFormat, propertyId: i32, allocator: std.mem.Allocator ```
+    pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
+        const _arr: qtc.struct_libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtexttablecellformat.LengthVectorProperty: Memory allocation failed");
+        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |_i| {
             _ret[_i] = _data[_i];
         }
@@ -6887,34 +6904,34 @@ pub const qtexttablecellformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, propertyId: i32, lengths: []?*C.QTextLength ```
-    pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []?*C.QTextLength) void {
-        const lengths_list = C.struct_libqt_list{
+    /// ``` self: QtC.QTextTableCellFormat, propertyId: i32, lengths: []QtC.QTextLength ```
+    pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
+        const lengths_list = qtc.struct_libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        C.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#properties)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, allocator: std.mem.Allocator ```
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_cqvariant {
-        const _map: C.struct_libqt_map = C.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_cqvariant = .empty;
+    /// ``` self: QtC.QTextTableCellFormat, allocator: std.mem.Allocator ```
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+        const _map: qtc.struct_libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
+        var _ret: map_i32_qtcqvariant = .empty;
         defer {
-            C.libqt_free(_map.keys);
-            C.libqt_free(_map.values);
+            qtc.libqt_free(_map.keys);
+            qtc.libqt_free(_map.values);
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]?*C.QVariant = @ptrCast(@alignCast(_map.values));
+        const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
         var _i: usize = 0;
         while (_i < _map.len) : (_i += 1) {
             const _key = _keys[_i];
             const _value = _values[_i];
-            _ret.put(allocator, _key, _value) catch @panic("Memory allocation failed");
+            _ret.put(allocator, _key, _value) catch @panic("qtexttablecellformat.Properties: Memory allocation failed");
         }
         return _ret;
     }
@@ -6923,259 +6940,261 @@ pub const qtexttablecellformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn PropertyCount(self: ?*anyopaque) i32 {
-        return C.QTextFormat_PropertyCount(@ptrCast(self));
+        return qtc.QTextFormat_PropertyCount(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectType)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, typeVal: i32 ```
+    /// ``` self: QtC.QTextTableCellFormat, typeVal: i32 ```
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        C.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectType)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn ObjectType(self: ?*anyopaque) i32 {
-        return C.QTextFormat_ObjectType(@ptrCast(self));
+        return qtc.QTextFormat_ObjectType(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isCharFormat)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn IsCharFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsCharFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsCharFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isBlockFormat)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn IsBlockFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsBlockFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsBlockFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isListFormat)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn IsListFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsListFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsListFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isFrameFormat)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn IsFrameFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsFrameFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsFrameFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isImageFormat)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn IsImageFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsImageFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsImageFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableFormat)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn IsTableFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsTableFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsTableFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableCellFormat)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn IsTableCellFormat(self: ?*anyopaque) bool {
-        return C.QTextFormat_IsTableCellFormat(@ptrCast(self));
+        return qtc.QTextFormat_IsTableCellFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toBlockFormat)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn ToBlockFormat(self: ?*anyopaque) ?*C.QTextBlockFormat {
-        return C.QTextFormat_ToBlockFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn ToBlockFormat(self: ?*anyopaque) QtC.QTextBlockFormat {
+        return qtc.QTextFormat_ToBlockFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toCharFormat)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn ToCharFormat(self: ?*anyopaque) ?*C.QTextCharFormat {
-        return C.QTextFormat_ToCharFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn ToCharFormat(self: ?*anyopaque) QtC.QTextCharFormat {
+        return qtc.QTextFormat_ToCharFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toListFormat)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn ToListFormat(self: ?*anyopaque) ?*C.QTextListFormat {
-        return C.QTextFormat_ToListFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn ToListFormat(self: ?*anyopaque) QtC.QTextListFormat {
+        return qtc.QTextFormat_ToListFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableFormat)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn ToTableFormat(self: ?*anyopaque) ?*C.QTextTableFormat {
-        return C.QTextFormat_ToTableFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn ToTableFormat(self: ?*anyopaque) QtC.QTextTableFormat {
+        return qtc.QTextFormat_ToTableFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toFrameFormat)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn ToFrameFormat(self: ?*anyopaque) ?*C.QTextFrameFormat {
-        return C.QTextFormat_ToFrameFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn ToFrameFormat(self: ?*anyopaque) QtC.QTextFrameFormat {
+        return qtc.QTextFormat_ToFrameFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toImageFormat)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn ToImageFormat(self: ?*anyopaque) ?*C.QTextImageFormat {
-        return C.QTextFormat_ToImageFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn ToImageFormat(self: ?*anyopaque) QtC.QTextImageFormat {
+        return qtc.QTextFormat_ToImageFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableCellFormat)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn ToTableCellFormat(self: ?*anyopaque) ?*C.QTextTableCellFormat {
-        return C.QTextFormat_ToTableCellFormat(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn ToTableCellFormat(self: ?*anyopaque) QtC.QTextTableCellFormat {
+        return qtc.QTextFormat_ToTableCellFormat(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator==)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextTableCellFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return C.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
+        return qtc.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator!=)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, rhs: ?*C.QTextFormat ```
+    /// ``` self: QtC.QTextTableCellFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return C.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
+        return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator QVariant)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn ToQVariant(self: ?*anyopaque) ?*C.QVariant {
-        return C.QTextFormat_ToQVariant(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QTextFormat_ToQVariant(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, direction: qnamespace_enums.LayoutDirection ```
+    /// ``` self: QtC.QTextTableCellFormat, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
-        C.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
-        return C.QTextFormat_LayoutDirection(@ptrCast(self));
+        return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setBackground)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextTableCellFormat, brush: QtC.QBrush ```
     pub fn SetBackground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFormat_SetBackground(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFormat_SetBackground(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#background)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn Background(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFormat_Background(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn Background(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFormat_Background(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearBackground)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn ClearBackground(self: ?*anyopaque) void {
-        C.QTextFormat_ClearBackground(@ptrCast(self));
+        qtc.QTextFormat_ClearBackground(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setForeground)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat, brush: ?*C.QBrush ```
+    /// ``` self: QtC.QTextTableCellFormat, brush: QtC.QBrush ```
     pub fn SetForeground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        C.QTextFormat_SetForeground(@ptrCast(self), @ptrCast(brush));
+        qtc.QTextFormat_SetForeground(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#foreground)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
-    pub fn Foreground(self: ?*anyopaque) ?*C.QBrush {
-        return C.QTextFormat_Foreground(@ptrCast(self));
+    /// ``` self: QtC.QTextTableCellFormat ```
+    pub fn Foreground(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QTextFormat_Foreground(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearForeground)
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn ClearForeground(self: ?*anyopaque) void {
-        C.QTextFormat_ClearForeground(@ptrCast(self));
+        qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#dtor.QTextTableCellFormat)
+    ///
     /// Delete this object from C++ memory.
     ///
-    /// ``` self: ?*C.QTextTableCellFormat ```
+    /// ``` self: QtC.QTextTableCellFormat ```
     pub fn QDelete(self: ?*anyopaque) void {
-        C.QTextTableCellFormat_Delete(@ptrCast(self));
+        qtc.QTextTableCellFormat_Delete(@ptrCast(self));
     }
 };
 

@@ -1,25 +1,18 @@
-#include <QAnyStringView>
 #include <QAudioInput>
 #include <QAudioOutput>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QCamera>
 #include <QChildEvent>
 #include <QEvent>
 #include <QImageCapture>
-#include <QList>
 #include <QMediaCaptureSession>
 #include <QMediaRecorder>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <QVideoSink>
 #include <qmediacapturesession.h>
 #include "libqmediacapturesession.h"
@@ -42,27 +35,30 @@ void* QMediaCaptureSession_Metacast(QMediaCaptureSession* self, const char* para
 }
 
 int QMediaCaptureSession_Metacall(QMediaCaptureSession* self, int param1, int param2, void** param3) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQMediaCaptureSession*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QMediaCaptureSession_OnMetacall(QMediaCaptureSession* self, intptr_t slot) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_Metacall_Callback(reinterpret_cast<VirtualQMediaCaptureSession::QMediaCaptureSession_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QMediaCaptureSession_QBaseMetacall(QMediaCaptureSession* self, int param1, int param2, void** param3) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_Metacall_IsBase(true);
         return vqmediacapturesession->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQMediaCaptureSession*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -226,286 +222,319 @@ libqt_string QMediaCaptureSession_Tr3(const char* s, const char* c, int n) {
 
 // Derived class handler implementation
 bool QMediaCaptureSession_Event(QMediaCaptureSession* self, QEvent* event) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         return vqmediacapturesession->event(event);
     } else {
-        return vqmediacapturesession->event(event);
+        return self->QMediaCaptureSession::event(event);
     }
 }
 
 // Base class handler implementation
 bool QMediaCaptureSession_QBaseEvent(QMediaCaptureSession* self, QEvent* event) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_Event_IsBase(true);
         return vqmediacapturesession->event(event);
     } else {
-        return vqmediacapturesession->event(event);
+        return self->QMediaCaptureSession::event(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaCaptureSession_OnEvent(QMediaCaptureSession* self, intptr_t slot) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_Event_Callback(reinterpret_cast<VirtualQMediaCaptureSession::QMediaCaptureSession_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QMediaCaptureSession_EventFilter(QMediaCaptureSession* self, QObject* watched, QEvent* event) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         return vqmediacapturesession->eventFilter(watched, event);
     } else {
-        return vqmediacapturesession->eventFilter(watched, event);
+        return self->QMediaCaptureSession::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QMediaCaptureSession_QBaseEventFilter(QMediaCaptureSession* self, QObject* watched, QEvent* event) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_EventFilter_IsBase(true);
         return vqmediacapturesession->eventFilter(watched, event);
     } else {
-        return vqmediacapturesession->eventFilter(watched, event);
+        return self->QMediaCaptureSession::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaCaptureSession_OnEventFilter(QMediaCaptureSession* self, intptr_t slot) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_EventFilter_Callback(reinterpret_cast<VirtualQMediaCaptureSession::QMediaCaptureSession_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMediaCaptureSession_TimerEvent(QMediaCaptureSession* self, QTimerEvent* event) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->timerEvent(event);
     } else {
-        vqmediacapturesession->timerEvent(event);
+        ((VirtualQMediaCaptureSession*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMediaCaptureSession_QBaseTimerEvent(QMediaCaptureSession* self, QTimerEvent* event) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_TimerEvent_IsBase(true);
         vqmediacapturesession->timerEvent(event);
     } else {
-        vqmediacapturesession->timerEvent(event);
+        ((VirtualQMediaCaptureSession*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaCaptureSession_OnTimerEvent(QMediaCaptureSession* self, intptr_t slot) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_TimerEvent_Callback(reinterpret_cast<VirtualQMediaCaptureSession::QMediaCaptureSession_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMediaCaptureSession_ChildEvent(QMediaCaptureSession* self, QChildEvent* event) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->childEvent(event);
     } else {
-        vqmediacapturesession->childEvent(event);
+        ((VirtualQMediaCaptureSession*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMediaCaptureSession_QBaseChildEvent(QMediaCaptureSession* self, QChildEvent* event) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_ChildEvent_IsBase(true);
         vqmediacapturesession->childEvent(event);
     } else {
-        vqmediacapturesession->childEvent(event);
+        ((VirtualQMediaCaptureSession*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaCaptureSession_OnChildEvent(QMediaCaptureSession* self, intptr_t slot) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_ChildEvent_Callback(reinterpret_cast<VirtualQMediaCaptureSession::QMediaCaptureSession_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QMediaCaptureSession_CustomEvent(QMediaCaptureSession* self, QEvent* event) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->customEvent(event);
     } else {
-        vqmediacapturesession->customEvent(event);
+        ((VirtualQMediaCaptureSession*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QMediaCaptureSession_QBaseCustomEvent(QMediaCaptureSession* self, QEvent* event) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_CustomEvent_IsBase(true);
         vqmediacapturesession->customEvent(event);
     } else {
-        vqmediacapturesession->customEvent(event);
+        ((VirtualQMediaCaptureSession*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaCaptureSession_OnCustomEvent(QMediaCaptureSession* self, intptr_t slot) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_CustomEvent_Callback(reinterpret_cast<VirtualQMediaCaptureSession::QMediaCaptureSession_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QMediaCaptureSession_ConnectNotify(QMediaCaptureSession* self, QMetaMethod* signal) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+void QMediaCaptureSession_ConnectNotify(QMediaCaptureSession* self, const QMetaMethod* signal) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->connectNotify(*signal);
     } else {
-        vqmediacapturesession->connectNotify(*signal);
+        ((VirtualQMediaCaptureSession*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QMediaCaptureSession_QBaseConnectNotify(QMediaCaptureSession* self, QMetaMethod* signal) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+void QMediaCaptureSession_QBaseConnectNotify(QMediaCaptureSession* self, const QMetaMethod* signal) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_ConnectNotify_IsBase(true);
         vqmediacapturesession->connectNotify(*signal);
     } else {
-        vqmediacapturesession->connectNotify(*signal);
+        ((VirtualQMediaCaptureSession*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaCaptureSession_OnConnectNotify(QMediaCaptureSession* self, intptr_t slot) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_ConnectNotify_Callback(reinterpret_cast<VirtualQMediaCaptureSession::QMediaCaptureSession_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QMediaCaptureSession_DisconnectNotify(QMediaCaptureSession* self, QMetaMethod* signal) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+void QMediaCaptureSession_DisconnectNotify(QMediaCaptureSession* self, const QMetaMethod* signal) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->disconnectNotify(*signal);
     } else {
-        vqmediacapturesession->disconnectNotify(*signal);
+        ((VirtualQMediaCaptureSession*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QMediaCaptureSession_QBaseDisconnectNotify(QMediaCaptureSession* self, QMetaMethod* signal) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+void QMediaCaptureSession_QBaseDisconnectNotify(QMediaCaptureSession* self, const QMetaMethod* signal) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_DisconnectNotify_IsBase(true);
         vqmediacapturesession->disconnectNotify(*signal);
     } else {
-        vqmediacapturesession->disconnectNotify(*signal);
+        ((VirtualQMediaCaptureSession*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaCaptureSession_OnDisconnectNotify(QMediaCaptureSession* self, intptr_t slot) {
-    if (auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self)) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_DisconnectNotify_Callback(reinterpret_cast<VirtualQMediaCaptureSession::QMediaCaptureSession_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QMediaCaptureSession_Sender(const QMediaCaptureSession* self) {
-    if (auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self))) {
+    auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self));
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         return vqmediacapturesession->sender();
     } else {
-        return vqmediacapturesession->sender();
+        return ((VirtualQMediaCaptureSession*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QMediaCaptureSession_QBaseSender(const QMediaCaptureSession* self) {
-    if (auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self))) {
+    auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self));
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_Sender_IsBase(true);
         return vqmediacapturesession->sender();
     } else {
-        return vqmediacapturesession->sender();
+        return ((VirtualQMediaCaptureSession*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaCaptureSession_OnSender(const QMediaCaptureSession* self, intptr_t slot) {
-    if (auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self))) {
+    auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self));
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_Sender_Callback(reinterpret_cast<VirtualQMediaCaptureSession::QMediaCaptureSession_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QMediaCaptureSession_SenderSignalIndex(const QMediaCaptureSession* self) {
-    if (auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self))) {
+    auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self));
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         return vqmediacapturesession->senderSignalIndex();
     } else {
-        return vqmediacapturesession->senderSignalIndex();
+        return ((VirtualQMediaCaptureSession*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QMediaCaptureSession_QBaseSenderSignalIndex(const QMediaCaptureSession* self) {
-    if (auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self))) {
+    auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self));
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_SenderSignalIndex_IsBase(true);
         return vqmediacapturesession->senderSignalIndex();
     } else {
-        return vqmediacapturesession->senderSignalIndex();
+        return ((VirtualQMediaCaptureSession*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaCaptureSession_OnSenderSignalIndex(const QMediaCaptureSession* self, intptr_t slot) {
-    if (auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self))) {
+    auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self));
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMediaCaptureSession::QMediaCaptureSession_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QMediaCaptureSession_Receivers(const QMediaCaptureSession* self, const char* signal) {
-    if (auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self))) {
+    auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self));
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         return vqmediacapturesession->receivers(signal);
     } else {
-        return vqmediacapturesession->receivers(signal);
+        return ((VirtualQMediaCaptureSession*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QMediaCaptureSession_QBaseReceivers(const QMediaCaptureSession* self, const char* signal) {
-    if (auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self))) {
+    auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self));
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_Receivers_IsBase(true);
         return vqmediacapturesession->receivers(signal);
     } else {
-        return vqmediacapturesession->receivers(signal);
+        return ((VirtualQMediaCaptureSession*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaCaptureSession_OnReceivers(const QMediaCaptureSession* self, intptr_t slot) {
-    if (auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self))) {
+    auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self));
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_Receivers_Callback(reinterpret_cast<VirtualQMediaCaptureSession::QMediaCaptureSession_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QMediaCaptureSession_IsSignalConnected(const QMediaCaptureSession* self, QMetaMethod* signal) {
-    if (auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self))) {
+bool QMediaCaptureSession_IsSignalConnected(const QMediaCaptureSession* self, const QMetaMethod* signal) {
+    auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self));
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         return vqmediacapturesession->isSignalConnected(*signal);
     } else {
-        return vqmediacapturesession->isSignalConnected(*signal);
+        return ((VirtualQMediaCaptureSession*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QMediaCaptureSession_QBaseIsSignalConnected(const QMediaCaptureSession* self, QMetaMethod* signal) {
-    if (auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self))) {
+bool QMediaCaptureSession_QBaseIsSignalConnected(const QMediaCaptureSession* self, const QMetaMethod* signal) {
+    auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self));
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_IsSignalConnected_IsBase(true);
         return vqmediacapturesession->isSignalConnected(*signal);
     } else {
-        return vqmediacapturesession->isSignalConnected(*signal);
+        return ((VirtualQMediaCaptureSession*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMediaCaptureSession_OnIsSignalConnected(const QMediaCaptureSession* self, intptr_t slot) {
-    if (auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self))) {
+    auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self));
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
         vqmediacapturesession->setQMediaCaptureSession_IsSignalConnected_Callback(reinterpret_cast<VirtualQMediaCaptureSession::QMediaCaptureSession_IsSignalConnected_Callback>(slot));
     }
 }

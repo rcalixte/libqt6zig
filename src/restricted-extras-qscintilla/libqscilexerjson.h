@@ -15,25 +15,16 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAnyStringView QAnyStringView;
-typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;
 typedef struct QEvent QEvent;
 typedef struct QFont QFont;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
 typedef struct QSettings QSettings;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
-typedef struct QsciAbstractAPIs QsciAbstractAPIs;
 typedef struct QsciLexer QsciLexer;
 typedef struct QsciLexerJSON QsciLexerJSON;
 typedef struct QsciScintilla QsciScintilla;
@@ -130,21 +121,24 @@ const char* QsciLexerJSON_QBaseWordCharacters(const QsciLexerJSON* self);
 void QsciLexerJSON_SetAutoIndentStyle(QsciLexerJSON* self, int autoindentstyle);
 void QsciLexerJSON_OnSetAutoIndentStyle(QsciLexerJSON* self, intptr_t slot);
 void QsciLexerJSON_QBaseSetAutoIndentStyle(QsciLexerJSON* self, int autoindentstyle);
-void QsciLexerJSON_SetColor(QsciLexerJSON* self, QColor* c, int style);
+void QsciLexerJSON_SetColor(QsciLexerJSON* self, const QColor* c, int style);
 void QsciLexerJSON_OnSetColor(QsciLexerJSON* self, intptr_t slot);
-void QsciLexerJSON_QBaseSetColor(QsciLexerJSON* self, QColor* c, int style);
+void QsciLexerJSON_QBaseSetColor(QsciLexerJSON* self, const QColor* c, int style);
 void QsciLexerJSON_SetEolFill(QsciLexerJSON* self, bool eoffill, int style);
 void QsciLexerJSON_OnSetEolFill(QsciLexerJSON* self, intptr_t slot);
 void QsciLexerJSON_QBaseSetEolFill(QsciLexerJSON* self, bool eoffill, int style);
-void QsciLexerJSON_SetFont(QsciLexerJSON* self, QFont* f, int style);
+void QsciLexerJSON_SetFont(QsciLexerJSON* self, const QFont* f, int style);
 void QsciLexerJSON_OnSetFont(QsciLexerJSON* self, intptr_t slot);
-void QsciLexerJSON_QBaseSetFont(QsciLexerJSON* self, QFont* f, int style);
-void QsciLexerJSON_SetPaper(QsciLexerJSON* self, QColor* c, int style);
+void QsciLexerJSON_QBaseSetFont(QsciLexerJSON* self, const QFont* f, int style);
+void QsciLexerJSON_SetPaper(QsciLexerJSON* self, const QColor* c, int style);
 void QsciLexerJSON_OnSetPaper(QsciLexerJSON* self, intptr_t slot);
-void QsciLexerJSON_QBaseSetPaper(QsciLexerJSON* self, QColor* c, int style);
-bool QsciLexerJSON_ReadProperties(QsciLexerJSON* self, QSettings* qs, libqt_string prefix);
+void QsciLexerJSON_QBaseSetPaper(QsciLexerJSON* self, const QColor* c, int style);
+bool QsciLexerJSON_ReadProperties(QsciLexerJSON* self, QSettings* qs, const libqt_string prefix);
 void QsciLexerJSON_OnReadProperties(QsciLexerJSON* self, intptr_t slot);
-bool QsciLexerJSON_QBaseReadProperties(QsciLexerJSON* self, QSettings* qs, libqt_string prefix);
+bool QsciLexerJSON_QBaseReadProperties(QsciLexerJSON* self, QSettings* qs, const libqt_string prefix);
+bool QsciLexerJSON_WriteProperties(const QsciLexerJSON* self, QSettings* qs, const libqt_string prefix);
+void QsciLexerJSON_OnWriteProperties(const QsciLexerJSON* self, intptr_t slot);
+bool QsciLexerJSON_QBaseWriteProperties(const QsciLexerJSON* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexerJSON_Event(QsciLexerJSON* self, QEvent* event);
 void QsciLexerJSON_OnEvent(QsciLexerJSON* self, intptr_t slot);
 bool QsciLexerJSON_QBaseEvent(QsciLexerJSON* self, QEvent* event);
@@ -160,15 +154,12 @@ void QsciLexerJSON_QBaseChildEvent(QsciLexerJSON* self, QChildEvent* event);
 void QsciLexerJSON_CustomEvent(QsciLexerJSON* self, QEvent* event);
 void QsciLexerJSON_OnCustomEvent(QsciLexerJSON* self, intptr_t slot);
 void QsciLexerJSON_QBaseCustomEvent(QsciLexerJSON* self, QEvent* event);
-void QsciLexerJSON_ConnectNotify(QsciLexerJSON* self, QMetaMethod* signal);
+void QsciLexerJSON_ConnectNotify(QsciLexerJSON* self, const QMetaMethod* signal);
 void QsciLexerJSON_OnConnectNotify(QsciLexerJSON* self, intptr_t slot);
-void QsciLexerJSON_QBaseConnectNotify(QsciLexerJSON* self, QMetaMethod* signal);
-void QsciLexerJSON_DisconnectNotify(QsciLexerJSON* self, QMetaMethod* signal);
+void QsciLexerJSON_QBaseConnectNotify(QsciLexerJSON* self, const QMetaMethod* signal);
+void QsciLexerJSON_DisconnectNotify(QsciLexerJSON* self, const QMetaMethod* signal);
 void QsciLexerJSON_OnDisconnectNotify(QsciLexerJSON* self, intptr_t slot);
-void QsciLexerJSON_QBaseDisconnectNotify(QsciLexerJSON* self, QMetaMethod* signal);
-bool QsciLexerJSON_WriteProperties(const QsciLexerJSON* self, QSettings* qs, libqt_string prefix);
-void QsciLexerJSON_OnWriteProperties(const QsciLexerJSON* self, intptr_t slot);
-bool QsciLexerJSON_QBaseWriteProperties(const QsciLexerJSON* self, QSettings* qs, libqt_string prefix);
+void QsciLexerJSON_QBaseDisconnectNotify(QsciLexerJSON* self, const QMetaMethod* signal);
 QObject* QsciLexerJSON_Sender(const QsciLexerJSON* self);
 void QsciLexerJSON_OnSender(const QsciLexerJSON* self, intptr_t slot);
 QObject* QsciLexerJSON_QBaseSender(const QsciLexerJSON* self);
@@ -178,9 +169,9 @@ int QsciLexerJSON_QBaseSenderSignalIndex(const QsciLexerJSON* self);
 int QsciLexerJSON_Receivers(const QsciLexerJSON* self, const char* signal);
 void QsciLexerJSON_OnReceivers(const QsciLexerJSON* self, intptr_t slot);
 int QsciLexerJSON_QBaseReceivers(const QsciLexerJSON* self, const char* signal);
-bool QsciLexerJSON_IsSignalConnected(const QsciLexerJSON* self, QMetaMethod* signal);
+bool QsciLexerJSON_IsSignalConnected(const QsciLexerJSON* self, const QMetaMethod* signal);
 void QsciLexerJSON_OnIsSignalConnected(const QsciLexerJSON* self, intptr_t slot);
-bool QsciLexerJSON_QBaseIsSignalConnected(const QsciLexerJSON* self, QMetaMethod* signal);
+bool QsciLexerJSON_QBaseIsSignalConnected(const QsciLexerJSON* self, const QMetaMethod* signal);
 void QsciLexerJSON_Delete(QsciLexerJSON* self);
 
 #ifdef __cplusplus

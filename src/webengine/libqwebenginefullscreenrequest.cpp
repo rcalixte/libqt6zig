@@ -4,11 +4,11 @@
 #include "libqwebenginefullscreenrequest.h"
 #include "libqwebenginefullscreenrequest.hxx"
 
-QWebEngineFullScreenRequest* QWebEngineFullScreenRequest_new(QWebEngineFullScreenRequest* other) {
+QWebEngineFullScreenRequest* QWebEngineFullScreenRequest_new(const QWebEngineFullScreenRequest* other) {
     return new QWebEngineFullScreenRequest(*other);
 }
 
-void QWebEngineFullScreenRequest_OperatorAssign(QWebEngineFullScreenRequest* self, QWebEngineFullScreenRequest* other) {
+void QWebEngineFullScreenRequest_OperatorAssign(QWebEngineFullScreenRequest* self, const QWebEngineFullScreenRequest* other) {
     self->operator=(*other);
 }
 

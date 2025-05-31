@@ -31,19 +31,19 @@ typedef int GlyphRunFlags; // C ABI QFlags
 #endif
 
 QGlyphRun* QGlyphRun_new();
-QGlyphRun* QGlyphRun_new2(QGlyphRun* other);
-void QGlyphRun_OperatorAssign(QGlyphRun* self, QGlyphRun* other);
+QGlyphRun* QGlyphRun_new2(const QGlyphRun* other);
+void QGlyphRun_OperatorAssign(QGlyphRun* self, const QGlyphRun* other);
 void QGlyphRun_Swap(QGlyphRun* self, QGlyphRun* other);
 QRawFont* QGlyphRun_RawFont(const QGlyphRun* self);
-void QGlyphRun_SetRawFont(QGlyphRun* self, QRawFont* rawFont);
-void QGlyphRun_SetRawData(QGlyphRun* self, const unsigned int* glyphIndexArray, QPointF* glyphPositionArray, int size);
+void QGlyphRun_SetRawFont(QGlyphRun* self, const QRawFont* rawFont);
+void QGlyphRun_SetRawData(QGlyphRun* self, const unsigned int* glyphIndexArray, const QPointF* glyphPositionArray, int size);
 libqt_list /* of unsigned int */ QGlyphRun_GlyphIndexes(const QGlyphRun* self);
-void QGlyphRun_SetGlyphIndexes(QGlyphRun* self, libqt_list /* of unsigned int */ glyphIndexes);
+void QGlyphRun_SetGlyphIndexes(QGlyphRun* self, const libqt_list /* of unsigned int */ glyphIndexes);
 libqt_list /* of QPointF* */ QGlyphRun_Positions(const QGlyphRun* self);
-void QGlyphRun_SetPositions(QGlyphRun* self, libqt_list /* of QPointF* */ positions);
+void QGlyphRun_SetPositions(QGlyphRun* self, const libqt_list /* of QPointF* */ positions);
 void QGlyphRun_Clear(QGlyphRun* self);
-bool QGlyphRun_OperatorEqual(const QGlyphRun* self, QGlyphRun* other);
-bool QGlyphRun_OperatorNotEqual(const QGlyphRun* self, QGlyphRun* other);
+bool QGlyphRun_OperatorEqual(const QGlyphRun* self, const QGlyphRun* other);
+bool QGlyphRun_OperatorNotEqual(const QGlyphRun* self, const QGlyphRun* other);
 void QGlyphRun_SetOverline(QGlyphRun* self, bool overline);
 bool QGlyphRun_Overline(const QGlyphRun* self);
 void QGlyphRun_SetUnderline(QGlyphRun* self, bool underline);
@@ -55,7 +55,7 @@ bool QGlyphRun_IsRightToLeft(const QGlyphRun* self);
 void QGlyphRun_SetFlag(QGlyphRun* self, int flag);
 void QGlyphRun_SetFlags(QGlyphRun* self, int flags);
 int QGlyphRun_Flags(const QGlyphRun* self);
-void QGlyphRun_SetBoundingRect(QGlyphRun* self, QRectF* boundingRect);
+void QGlyphRun_SetBoundingRect(QGlyphRun* self, const QRectF* boundingRect);
 QRectF* QGlyphRun_BoundingRect(const QGlyphRun* self);
 bool QGlyphRun_IsEmpty(const QGlyphRun* self);
 void QGlyphRun_SetFlag2(QGlyphRun* self, int flag, bool enabled);

@@ -15,29 +15,17 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
-typedef QMetaObject::Connection QMetaObject__Connection;
-#endif
 #else
-typedef struct QAbstractSeries QAbstractSeries;
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QAreaLegendMarker QAreaLegendMarker;
 typedef struct QAreaSeries QAreaSeries;
-typedef struct QBindingStorage QBindingStorage;
-typedef struct QBrush QBrush;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
-typedef struct QFont QFont;
 typedef struct QLegend QLegend;
 typedef struct QLegendMarker QLegendMarker;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
-typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
-typedef struct QPen QPen;
-typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
-typedef struct QVariant QVariant;
 #endif
 
 QAreaLegendMarker* QAreaLegendMarker_new(QAreaSeries* series, QLegend* legend);
@@ -71,12 +59,12 @@ void QAreaLegendMarker_QBaseChildEvent(QAreaLegendMarker* self, QChildEvent* eve
 void QAreaLegendMarker_CustomEvent(QAreaLegendMarker* self, QEvent* event);
 void QAreaLegendMarker_OnCustomEvent(QAreaLegendMarker* self, intptr_t slot);
 void QAreaLegendMarker_QBaseCustomEvent(QAreaLegendMarker* self, QEvent* event);
-void QAreaLegendMarker_ConnectNotify(QAreaLegendMarker* self, QMetaMethod* signal);
+void QAreaLegendMarker_ConnectNotify(QAreaLegendMarker* self, const QMetaMethod* signal);
 void QAreaLegendMarker_OnConnectNotify(QAreaLegendMarker* self, intptr_t slot);
-void QAreaLegendMarker_QBaseConnectNotify(QAreaLegendMarker* self, QMetaMethod* signal);
-void QAreaLegendMarker_DisconnectNotify(QAreaLegendMarker* self, QMetaMethod* signal);
+void QAreaLegendMarker_QBaseConnectNotify(QAreaLegendMarker* self, const QMetaMethod* signal);
+void QAreaLegendMarker_DisconnectNotify(QAreaLegendMarker* self, const QMetaMethod* signal);
 void QAreaLegendMarker_OnDisconnectNotify(QAreaLegendMarker* self, intptr_t slot);
-void QAreaLegendMarker_QBaseDisconnectNotify(QAreaLegendMarker* self, QMetaMethod* signal);
+void QAreaLegendMarker_QBaseDisconnectNotify(QAreaLegendMarker* self, const QMetaMethod* signal);
 QObject* QAreaLegendMarker_Sender(const QAreaLegendMarker* self);
 void QAreaLegendMarker_OnSender(const QAreaLegendMarker* self, intptr_t slot);
 QObject* QAreaLegendMarker_QBaseSender(const QAreaLegendMarker* self);
@@ -86,9 +74,9 @@ int QAreaLegendMarker_QBaseSenderSignalIndex(const QAreaLegendMarker* self);
 int QAreaLegendMarker_Receivers(const QAreaLegendMarker* self, const char* signal);
 void QAreaLegendMarker_OnReceivers(const QAreaLegendMarker* self, intptr_t slot);
 int QAreaLegendMarker_QBaseReceivers(const QAreaLegendMarker* self, const char* signal);
-bool QAreaLegendMarker_IsSignalConnected(const QAreaLegendMarker* self, QMetaMethod* signal);
+bool QAreaLegendMarker_IsSignalConnected(const QAreaLegendMarker* self, const QMetaMethod* signal);
 void QAreaLegendMarker_OnIsSignalConnected(const QAreaLegendMarker* self, intptr_t slot);
-bool QAreaLegendMarker_QBaseIsSignalConnected(const QAreaLegendMarker* self, QMetaMethod* signal);
+bool QAreaLegendMarker_QBaseIsSignalConnected(const QAreaLegendMarker* self, const QMetaMethod* signal);
 void QAreaLegendMarker_Delete(QAreaLegendMarker* self);
 
 #ifdef __cplusplus

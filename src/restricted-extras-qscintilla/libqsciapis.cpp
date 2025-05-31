@@ -1,19 +1,13 @@
-#include <QAnyStringView>
-#include <QBindingStorage>
-#include <QByteArray>
 #include <QChildEvent>
 #include <QEvent>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#include <QThread>
 #include <QTimerEvent>
-#include <QVariant>
 #include <qsciapis.h>
 #include "libqsciapis.h"
 #include "libqsciapis.hxx"
@@ -31,27 +25,30 @@ void* QsciAPIs_Metacast(QsciAPIs* self, const char* param1) {
 }
 
 int QsciAPIs_Metacall(QsciAPIs* self, int param1, int param2, void** param3) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQsciAPIs*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
 // Subclass method to allow providing a virtual method re-implementation
 void QsciAPIs_OnMetacall(QsciAPIs* self, intptr_t slot) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_Metacall_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_Metacall_Callback>(slot));
     }
 }
 
 // Virtual base class handler implementation
 int QsciAPIs_QBaseMetacall(QsciAPIs* self, int param1, int param2, void** param3) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_Metacall_IsBase(true);
         return vqsciapis->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+        return ((VirtualQsciAPIs*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
 }
 
@@ -67,7 +64,7 @@ libqt_string QsciAPIs_Tr(const char* s) {
     return _str;
 }
 
-void QsciAPIs_Add(QsciAPIs* self, libqt_string entry) {
+void QsciAPIs_Add(QsciAPIs* self, const libqt_string entry) {
     QString entry_QString = QString::fromUtf8(entry.data, entry.len);
     self->add(entry_QString);
 }
@@ -76,12 +73,12 @@ void QsciAPIs_Clear(QsciAPIs* self) {
     self->clear();
 }
 
-bool QsciAPIs_Load(QsciAPIs* self, libqt_string filename) {
+bool QsciAPIs_Load(QsciAPIs* self, const libqt_string filename) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     return self->load(filename_QString);
 }
 
-void QsciAPIs_Remove(QsciAPIs* self, libqt_string entry) {
+void QsciAPIs_Remove(QsciAPIs* self, const libqt_string entry) {
     QString entry_QString = QString::fromUtf8(entry.data, entry.len);
     self->remove(entry_QString);
 }
@@ -196,23 +193,24 @@ libqt_string QsciAPIs_Tr3(const char* s, const char* c, int n) {
     return _str;
 }
 
-bool QsciAPIs_IsPrepared1(const QsciAPIs* self, libqt_string filename) {
+bool QsciAPIs_IsPrepared1(const QsciAPIs* self, const libqt_string filename) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     return self->isPrepared(filename_QString);
 }
 
-bool QsciAPIs_LoadPrepared1(QsciAPIs* self, libqt_string filename) {
+bool QsciAPIs_LoadPrepared1(QsciAPIs* self, const libqt_string filename) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     return self->loadPrepared(filename_QString);
 }
 
-bool QsciAPIs_SavePrepared1(const QsciAPIs* self, libqt_string filename) {
+bool QsciAPIs_SavePrepared1(const QsciAPIs* self, const libqt_string filename) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     return self->savePrepared(filename_QString);
 }
 
 // Derived class handler implementation
-void QsciAPIs_UpdateAutoCompletionList(QsciAPIs* self, libqt_list /* of libqt_string */ context, libqt_list /* of libqt_string */ list) {
+void QsciAPIs_UpdateAutoCompletionList(QsciAPIs* self, const libqt_list /* of libqt_string */ context, libqt_list /* of libqt_string */ list) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
     QStringList context_QList;
     context_QList.reserve(context.len);
     libqt_string* context_arr = static_cast<libqt_string*>(context.data);
@@ -227,15 +225,16 @@ void QsciAPIs_UpdateAutoCompletionList(QsciAPIs* self, libqt_list /* of libqt_st
         QString list_arr_i_QString = QString::fromUtf8(list_arr[i].data, list_arr[i].len);
         list_QList.push_back(list_arr_i_QString);
     }
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->updateAutoCompletionList(context_QList, list_QList);
     } else {
-        vqsciapis->updateAutoCompletionList(context_QList, list_QList);
+        self->QsciAPIs::updateAutoCompletionList(context_QList, list_QList);
     }
 }
 
 // Base class handler implementation
-void QsciAPIs_QBaseUpdateAutoCompletionList(QsciAPIs* self, libqt_list /* of libqt_string */ context, libqt_list /* of libqt_string */ list) {
+void QsciAPIs_QBaseUpdateAutoCompletionList(QsciAPIs* self, const libqt_list /* of libqt_string */ context, libqt_list /* of libqt_string */ list) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
     QStringList context_QList;
     context_QList.reserve(context.len);
     libqt_string* context_arr = static_cast<libqt_string*>(context.data);
@@ -250,51 +249,56 @@ void QsciAPIs_QBaseUpdateAutoCompletionList(QsciAPIs* self, libqt_list /* of lib
         QString list_arr_i_QString = QString::fromUtf8(list_arr[i].data, list_arr[i].len);
         list_QList.push_back(list_arr_i_QString);
     }
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_UpdateAutoCompletionList_IsBase(true);
         vqsciapis->updateAutoCompletionList(context_QList, list_QList);
     } else {
-        vqsciapis->updateAutoCompletionList(context_QList, list_QList);
+        self->QsciAPIs::updateAutoCompletionList(context_QList, list_QList);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnUpdateAutoCompletionList(QsciAPIs* self, intptr_t slot) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_UpdateAutoCompletionList_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_UpdateAutoCompletionList_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QsciAPIs_AutoCompletionSelected(QsciAPIs* self, libqt_string sel) {
+void QsciAPIs_AutoCompletionSelected(QsciAPIs* self, const libqt_string sel) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
     QString sel_QString = QString::fromUtf8(sel.data, sel.len);
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->autoCompletionSelected(sel_QString);
     } else {
-        vqsciapis->autoCompletionSelected(sel_QString);
+        self->QsciAPIs::autoCompletionSelected(sel_QString);
     }
 }
 
 // Base class handler implementation
-void QsciAPIs_QBaseAutoCompletionSelected(QsciAPIs* self, libqt_string sel) {
+void QsciAPIs_QBaseAutoCompletionSelected(QsciAPIs* self, const libqt_string sel) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
     QString sel_QString = QString::fromUtf8(sel.data, sel.len);
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_AutoCompletionSelected_IsBase(true);
         vqsciapis->autoCompletionSelected(sel_QString);
     } else {
-        vqsciapis->autoCompletionSelected(sel_QString);
+        self->QsciAPIs::autoCompletionSelected(sel_QString);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnAutoCompletionSelected(QsciAPIs* self, intptr_t slot) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_AutoCompletionSelected_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_AutoCompletionSelected_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-libqt_list /* of libqt_string */ QsciAPIs_CallTips(QsciAPIs* self, libqt_list /* of libqt_string */ context, int commas, int style, libqt_list /* of int */ shifts) {
+libqt_list /* of libqt_string */ QsciAPIs_CallTips(QsciAPIs* self, const libqt_list /* of libqt_string */ context, int commas, int style, libqt_list /* of int */ shifts) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
     QStringList context_QList;
     context_QList.reserve(context.len);
     libqt_string* context_arr = static_cast<libqt_string*>(context.data);
@@ -308,7 +312,7 @@ libqt_list /* of libqt_string */ QsciAPIs_CallTips(QsciAPIs* self, libqt_list /*
     for (size_t i = 0; i < shifts.len; ++i) {
         shifts_QList.push_back(static_cast<int>(shifts_arr[i]));
     }
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         QStringList _ret = vqsciapis->callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
@@ -328,7 +332,7 @@ libqt_list /* of libqt_string */ QsciAPIs_CallTips(QsciAPIs* self, libqt_list /*
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = vqsciapis->callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
+        QStringList _ret = self->QsciAPIs::callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
         for (size_t i = 0; i < _ret.length(); ++i) {
@@ -350,7 +354,8 @@ libqt_list /* of libqt_string */ QsciAPIs_CallTips(QsciAPIs* self, libqt_list /*
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QsciAPIs_QBaseCallTips(QsciAPIs* self, libqt_list /* of libqt_string */ context, int commas, int style, libqt_list /* of int */ shifts) {
+libqt_list /* of libqt_string */ QsciAPIs_QBaseCallTips(QsciAPIs* self, const libqt_list /* of libqt_string */ context, int commas, int style, libqt_list /* of int */ shifts) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
     QStringList context_QList;
     context_QList.reserve(context.len);
     libqt_string* context_arr = static_cast<libqt_string*>(context.data);
@@ -364,7 +369,7 @@ libqt_list /* of libqt_string */ QsciAPIs_QBaseCallTips(QsciAPIs* self, libqt_li
     for (size_t i = 0; i < shifts.len; ++i) {
         shifts_QList.push_back(static_cast<int>(shifts_arr[i]));
     }
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_CallTips_IsBase(true);
         QStringList _ret = vqsciapis->callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -385,7 +390,7 @@ libqt_list /* of libqt_string */ QsciAPIs_QBaseCallTips(QsciAPIs* self, libqt_li
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = vqsciapis->callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
+        QStringList _ret = self->QsciAPIs::callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
         for (size_t i = 0; i < _ret.length(); ++i) {
@@ -408,293 +413,327 @@ libqt_list /* of libqt_string */ QsciAPIs_QBaseCallTips(QsciAPIs* self, libqt_li
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnCallTips(QsciAPIs* self, intptr_t slot) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_CallTips_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_CallTips_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QsciAPIs_Event(QsciAPIs* self, QEvent* e) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         return vqsciapis->event(e);
     } else {
-        return vqsciapis->event(e);
+        return self->QsciAPIs::event(e);
     }
 }
 
 // Base class handler implementation
 bool QsciAPIs_QBaseEvent(QsciAPIs* self, QEvent* e) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_Event_IsBase(true);
         return vqsciapis->event(e);
     } else {
-        return vqsciapis->event(e);
+        return self->QsciAPIs::event(e);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnEvent(QsciAPIs* self, intptr_t slot) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_Event_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_Event_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 bool QsciAPIs_EventFilter(QsciAPIs* self, QObject* watched, QEvent* event) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         return vqsciapis->eventFilter(watched, event);
     } else {
-        return vqsciapis->eventFilter(watched, event);
+        return self->QsciAPIs::eventFilter(watched, event);
     }
 }
 
 // Base class handler implementation
 bool QsciAPIs_QBaseEventFilter(QsciAPIs* self, QObject* watched, QEvent* event) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_EventFilter_IsBase(true);
         return vqsciapis->eventFilter(watched, event);
     } else {
-        return vqsciapis->eventFilter(watched, event);
+        return self->QsciAPIs::eventFilter(watched, event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnEventFilter(QsciAPIs* self, intptr_t slot) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_EventFilter_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_EventFilter_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QsciAPIs_TimerEvent(QsciAPIs* self, QTimerEvent* event) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->timerEvent(event);
     } else {
-        vqsciapis->timerEvent(event);
+        ((VirtualQsciAPIs*)self)->timerEvent(event);
     }
 }
 
 // Base class handler implementation
 void QsciAPIs_QBaseTimerEvent(QsciAPIs* self, QTimerEvent* event) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_TimerEvent_IsBase(true);
         vqsciapis->timerEvent(event);
     } else {
-        vqsciapis->timerEvent(event);
+        ((VirtualQsciAPIs*)self)->timerEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnTimerEvent(QsciAPIs* self, intptr_t slot) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_TimerEvent_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_TimerEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QsciAPIs_ChildEvent(QsciAPIs* self, QChildEvent* event) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->childEvent(event);
     } else {
-        vqsciapis->childEvent(event);
+        ((VirtualQsciAPIs*)self)->childEvent(event);
     }
 }
 
 // Base class handler implementation
 void QsciAPIs_QBaseChildEvent(QsciAPIs* self, QChildEvent* event) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_ChildEvent_IsBase(true);
         vqsciapis->childEvent(event);
     } else {
-        vqsciapis->childEvent(event);
+        ((VirtualQsciAPIs*)self)->childEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnChildEvent(QsciAPIs* self, intptr_t slot) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_ChildEvent_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_ChildEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 void QsciAPIs_CustomEvent(QsciAPIs* self, QEvent* event) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->customEvent(event);
     } else {
-        vqsciapis->customEvent(event);
+        ((VirtualQsciAPIs*)self)->customEvent(event);
     }
 }
 
 // Base class handler implementation
 void QsciAPIs_QBaseCustomEvent(QsciAPIs* self, QEvent* event) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_CustomEvent_IsBase(true);
         vqsciapis->customEvent(event);
     } else {
-        vqsciapis->customEvent(event);
+        ((VirtualQsciAPIs*)self)->customEvent(event);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnCustomEvent(QsciAPIs* self, intptr_t slot) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_CustomEvent_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_CustomEvent_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QsciAPIs_ConnectNotify(QsciAPIs* self, QMetaMethod* signal) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+void QsciAPIs_ConnectNotify(QsciAPIs* self, const QMetaMethod* signal) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->connectNotify(*signal);
     } else {
-        vqsciapis->connectNotify(*signal);
+        ((VirtualQsciAPIs*)self)->connectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QsciAPIs_QBaseConnectNotify(QsciAPIs* self, QMetaMethod* signal) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+void QsciAPIs_QBaseConnectNotify(QsciAPIs* self, const QMetaMethod* signal) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_ConnectNotify_IsBase(true);
         vqsciapis->connectNotify(*signal);
     } else {
-        vqsciapis->connectNotify(*signal);
+        ((VirtualQsciAPIs*)self)->connectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnConnectNotify(QsciAPIs* self, intptr_t slot) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_ConnectNotify_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_ConnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QsciAPIs_DisconnectNotify(QsciAPIs* self, QMetaMethod* signal) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+void QsciAPIs_DisconnectNotify(QsciAPIs* self, const QMetaMethod* signal) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->disconnectNotify(*signal);
     } else {
-        vqsciapis->disconnectNotify(*signal);
+        ((VirtualQsciAPIs*)self)->disconnectNotify(*signal);
     }
 }
 
 // Base class handler implementation
-void QsciAPIs_QBaseDisconnectNotify(QsciAPIs* self, QMetaMethod* signal) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+void QsciAPIs_QBaseDisconnectNotify(QsciAPIs* self, const QMetaMethod* signal) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_DisconnectNotify_IsBase(true);
         vqsciapis->disconnectNotify(*signal);
     } else {
-        vqsciapis->disconnectNotify(*signal);
+        ((VirtualQsciAPIs*)self)->disconnectNotify(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnDisconnectNotify(QsciAPIs* self, intptr_t slot) {
-    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_DisconnectNotify_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 QObject* QsciAPIs_Sender(const QsciAPIs* self) {
-    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self))) {
+    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         return vqsciapis->sender();
     } else {
-        return vqsciapis->sender();
+        return ((VirtualQsciAPIs*)self)->sender();
     }
 }
 
 // Base class handler implementation
 QObject* QsciAPIs_QBaseSender(const QsciAPIs* self) {
-    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self))) {
+    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_Sender_IsBase(true);
         return vqsciapis->sender();
     } else {
-        return vqsciapis->sender();
+        return ((VirtualQsciAPIs*)self)->sender();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnSender(const QsciAPIs* self, intptr_t slot) {
-    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self))) {
+    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_Sender_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_Sender_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QsciAPIs_SenderSignalIndex(const QsciAPIs* self) {
-    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self))) {
+    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         return vqsciapis->senderSignalIndex();
     } else {
-        return vqsciapis->senderSignalIndex();
+        return ((VirtualQsciAPIs*)self)->senderSignalIndex();
     }
 }
 
 // Base class handler implementation
 int QsciAPIs_QBaseSenderSignalIndex(const QsciAPIs* self) {
-    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self))) {
+    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_SenderSignalIndex_IsBase(true);
         return vqsciapis->senderSignalIndex();
     } else {
-        return vqsciapis->senderSignalIndex();
+        return ((VirtualQsciAPIs*)self)->senderSignalIndex();
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnSenderSignalIndex(const QsciAPIs* self, intptr_t slot) {
-    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self))) {
+    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_SenderSignalIndex_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
 int QsciAPIs_Receivers(const QsciAPIs* self, const char* signal) {
-    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self))) {
+    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         return vqsciapis->receivers(signal);
     } else {
-        return vqsciapis->receivers(signal);
+        return ((VirtualQsciAPIs*)self)->receivers(signal);
     }
 }
 
 // Base class handler implementation
 int QsciAPIs_QBaseReceivers(const QsciAPIs* self, const char* signal) {
-    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self))) {
+    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_Receivers_IsBase(true);
         return vqsciapis->receivers(signal);
     } else {
-        return vqsciapis->receivers(signal);
+        return ((VirtualQsciAPIs*)self)->receivers(signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnReceivers(const QsciAPIs* self, intptr_t slot) {
-    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self))) {
+    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_Receivers_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_Receivers_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-bool QsciAPIs_IsSignalConnected(const QsciAPIs* self, QMetaMethod* signal) {
-    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self))) {
+bool QsciAPIs_IsSignalConnected(const QsciAPIs* self, const QMetaMethod* signal) {
+    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         return vqsciapis->isSignalConnected(*signal);
     } else {
-        return vqsciapis->isSignalConnected(*signal);
+        return ((VirtualQsciAPIs*)self)->isSignalConnected(*signal);
     }
 }
 
 // Base class handler implementation
-bool QsciAPIs_QBaseIsSignalConnected(const QsciAPIs* self, QMetaMethod* signal) {
-    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self))) {
+bool QsciAPIs_QBaseIsSignalConnected(const QsciAPIs* self, const QMetaMethod* signal) {
+    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_IsSignalConnected_IsBase(true);
         return vqsciapis->isSignalConnected(*signal);
     } else {
-        return vqsciapis->isSignalConnected(*signal);
+        return ((VirtualQsciAPIs*)self)->isSignalConnected(*signal);
     }
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnIsSignalConnected(const QsciAPIs* self, intptr_t slot) {
-    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self))) {
+    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
         vqsciapis->setQsciAPIs_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_IsSignalConnected_Callback>(slot));
     }
 }

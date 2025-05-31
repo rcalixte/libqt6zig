@@ -9,11 +9,11 @@ QColorTransform* QColorTransform_new() {
     return new QColorTransform();
 }
 
-QColorTransform* QColorTransform_new2(QColorTransform* colorTransform) {
+QColorTransform* QColorTransform_new2(const QColorTransform* colorTransform) {
     return new QColorTransform(*colorTransform);
 }
 
-void QColorTransform_OperatorAssign(QColorTransform* self, QColorTransform* other) {
+void QColorTransform_OperatorAssign(QColorTransform* self, const QColorTransform* other) {
     self->operator=(*other);
 }
 
@@ -33,7 +33,7 @@ QRgba64* QColorTransform_MapWithRgba64(const QColorTransform* self, QRgba64* rgb
     return new QRgba64(self->map(*rgba64));
 }
 
-QColor* QColorTransform_MapWithColor(const QColorTransform* self, QColor* color) {
+QColor* QColorTransform_MapWithColor(const QColorTransform* self, const QColor* color) {
     return new QColor(self->map(*color));
 }
 

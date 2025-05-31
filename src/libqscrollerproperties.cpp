@@ -8,23 +8,23 @@ QScrollerProperties* QScrollerProperties_new() {
     return new QScrollerProperties();
 }
 
-QScrollerProperties* QScrollerProperties_new2(QScrollerProperties* sp) {
+QScrollerProperties* QScrollerProperties_new2(const QScrollerProperties* sp) {
     return new QScrollerProperties(*sp);
 }
 
-void QScrollerProperties_OperatorAssign(QScrollerProperties* self, QScrollerProperties* sp) {
+void QScrollerProperties_OperatorAssign(QScrollerProperties* self, const QScrollerProperties* sp) {
     self->operator=(*sp);
 }
 
-bool QScrollerProperties_OperatorEqual(const QScrollerProperties* self, QScrollerProperties* sp) {
+bool QScrollerProperties_OperatorEqual(const QScrollerProperties* self, const QScrollerProperties* sp) {
     return (*self == *sp);
 }
 
-bool QScrollerProperties_OperatorNotEqual(const QScrollerProperties* self, QScrollerProperties* sp) {
+bool QScrollerProperties_OperatorNotEqual(const QScrollerProperties* self, const QScrollerProperties* sp) {
     return (*self != *sp);
 }
 
-void QScrollerProperties_SetDefaultScrollerProperties(QScrollerProperties* sp) {
+void QScrollerProperties_SetDefaultScrollerProperties(const QScrollerProperties* sp) {
     QScrollerProperties::setDefaultScrollerProperties(*sp);
 }
 
@@ -36,7 +36,7 @@ QVariant* QScrollerProperties_ScrollMetric(const QScrollerProperties* self, int 
     return new QVariant(self->scrollMetric(static_cast<QScrollerProperties::ScrollMetric>(metric)));
 }
 
-void QScrollerProperties_SetScrollMetric(QScrollerProperties* self, int metric, QVariant* value) {
+void QScrollerProperties_SetScrollMetric(QScrollerProperties* self, int metric, const QVariant* value) {
     self->setScrollMetric(static_cast<QScrollerProperties::ScrollMetric>(metric), *value);
 }
 

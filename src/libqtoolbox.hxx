@@ -11,22 +11,25 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QToolBox so that we can call protected methods
-class VirtualQToolBox : public QToolBox {
+class VirtualQToolBox final : public QToolBox {
 
   public:
+    // Virtual class boolean flag
+    bool isVirtualQToolBox = true;
+
     // Virtual class public types (including callbacks)
-    using QToolBox_Metacall_Callback = int (*)(QToolBox*, QMetaObject::Call, int, void**);
+    using QToolBox_Metacall_Callback = int (*)(QToolBox*, int, int, void**);
     using QToolBox_Event_Callback = bool (*)(QToolBox*, QEvent*);
     using QToolBox_ItemInserted_Callback = void (*)(QToolBox*, int);
     using QToolBox_ItemRemoved_Callback = void (*)(QToolBox*, int);
     using QToolBox_ShowEvent_Callback = void (*)(QToolBox*, QShowEvent*);
     using QToolBox_ChangeEvent_Callback = void (*)(QToolBox*, QEvent*);
-    using QToolBox_SizeHint_Callback = QSize (*)();
+    using QToolBox_SizeHint_Callback = QSize* (*)();
     using QToolBox_PaintEvent_Callback = void (*)(QToolBox*, QPaintEvent*);
     using QToolBox_InitStyleOption_Callback = void (*)(const QToolBox*, QStyleOptionFrame*);
     using QToolBox_DevType_Callback = int (*)();
     using QToolBox_SetVisible_Callback = void (*)(QToolBox*, bool);
-    using QToolBox_MinimumSizeHint_Callback = QSize (*)();
+    using QToolBox_MinimumSizeHint_Callback = QSize* (*)();
     using QToolBox_HeightForWidth_Callback = int (*)(const QToolBox*, int);
     using QToolBox_HasHeightForWidth_Callback = bool (*)();
     using QToolBox_PaintEngine_Callback = QPaintEngine* (*)();
@@ -52,20 +55,20 @@ class VirtualQToolBox : public QToolBox {
     using QToolBox_DragLeaveEvent_Callback = void (*)(QToolBox*, QDragLeaveEvent*);
     using QToolBox_DropEvent_Callback = void (*)(QToolBox*, QDropEvent*);
     using QToolBox_HideEvent_Callback = void (*)(QToolBox*, QHideEvent*);
-    using QToolBox_NativeEvent_Callback = bool (*)(QToolBox*, const QByteArray&, void*, qintptr*);
-    using QToolBox_Metric_Callback = int (*)(const QToolBox*, QPaintDevice::PaintDeviceMetric);
+    using QToolBox_NativeEvent_Callback = bool (*)(QToolBox*, libqt_string, void*, intptr_t*);
+    using QToolBox_Metric_Callback = int (*)(const QToolBox*, int);
     using QToolBox_InitPainter_Callback = void (*)(const QToolBox*, QPainter*);
     using QToolBox_Redirected_Callback = QPaintDevice* (*)(const QToolBox*, QPoint*);
     using QToolBox_SharedPainter_Callback = QPainter* (*)();
     using QToolBox_InputMethodEvent_Callback = void (*)(QToolBox*, QInputMethodEvent*);
-    using QToolBox_InputMethodQuery_Callback = QVariant (*)(const QToolBox*, Qt::InputMethodQuery);
+    using QToolBox_InputMethodQuery_Callback = QVariant* (*)(const QToolBox*, int);
     using QToolBox_FocusNextPrevChild_Callback = bool (*)(QToolBox*, bool);
     using QToolBox_EventFilter_Callback = bool (*)(QToolBox*, QObject*, QEvent*);
     using QToolBox_TimerEvent_Callback = void (*)(QToolBox*, QTimerEvent*);
     using QToolBox_ChildEvent_Callback = void (*)(QToolBox*, QChildEvent*);
     using QToolBox_CustomEvent_Callback = void (*)(QToolBox*, QEvent*);
-    using QToolBox_ConnectNotify_Callback = void (*)(QToolBox*, const QMetaMethod&);
-    using QToolBox_DisconnectNotify_Callback = void (*)(QToolBox*, const QMetaMethod&);
+    using QToolBox_ConnectNotify_Callback = void (*)(QToolBox*, QMetaMethod*);
+    using QToolBox_DisconnectNotify_Callback = void (*)(QToolBox*, QMetaMethod*);
     using QToolBox_DrawFrame_Callback = void (*)(QToolBox*, QPainter*);
     using QToolBox_UpdateMicroFocus_Callback = void (*)();
     using QToolBox_Create_Callback = void (*)();
@@ -75,7 +78,7 @@ class VirtualQToolBox : public QToolBox {
     using QToolBox_Sender_Callback = QObject* (*)();
     using QToolBox_SenderSignalIndex_Callback = int (*)();
     using QToolBox_Receivers_Callback = int (*)(const QToolBox*, const char*);
-    using QToolBox_IsSignalConnected_Callback = bool (*)(const QToolBox*, const QMetaMethod&);
+    using QToolBox_IsSignalConnected_Callback = bool (*)(const QToolBox*, QMetaMethod*);
 
   protected:
     // Instance callback storage
@@ -274,130 +277,130 @@ class VirtualQToolBox : public QToolBox {
     }
 
     // Callback setters
-    void setQToolBox_Metacall_Callback(QToolBox_Metacall_Callback cb) { qtoolbox_metacall_callback = cb; }
-    void setQToolBox_Event_Callback(QToolBox_Event_Callback cb) { qtoolbox_event_callback = cb; }
-    void setQToolBox_ItemInserted_Callback(QToolBox_ItemInserted_Callback cb) { qtoolbox_iteminserted_callback = cb; }
-    void setQToolBox_ItemRemoved_Callback(QToolBox_ItemRemoved_Callback cb) { qtoolbox_itemremoved_callback = cb; }
-    void setQToolBox_ShowEvent_Callback(QToolBox_ShowEvent_Callback cb) { qtoolbox_showevent_callback = cb; }
-    void setQToolBox_ChangeEvent_Callback(QToolBox_ChangeEvent_Callback cb) { qtoolbox_changeevent_callback = cb; }
-    void setQToolBox_SizeHint_Callback(QToolBox_SizeHint_Callback cb) { qtoolbox_sizehint_callback = cb; }
-    void setQToolBox_PaintEvent_Callback(QToolBox_PaintEvent_Callback cb) { qtoolbox_paintevent_callback = cb; }
-    void setQToolBox_InitStyleOption_Callback(QToolBox_InitStyleOption_Callback cb) { qtoolbox_initstyleoption_callback = cb; }
-    void setQToolBox_DevType_Callback(QToolBox_DevType_Callback cb) { qtoolbox_devtype_callback = cb; }
-    void setQToolBox_SetVisible_Callback(QToolBox_SetVisible_Callback cb) { qtoolbox_setvisible_callback = cb; }
-    void setQToolBox_MinimumSizeHint_Callback(QToolBox_MinimumSizeHint_Callback cb) { qtoolbox_minimumsizehint_callback = cb; }
-    void setQToolBox_HeightForWidth_Callback(QToolBox_HeightForWidth_Callback cb) { qtoolbox_heightforwidth_callback = cb; }
-    void setQToolBox_HasHeightForWidth_Callback(QToolBox_HasHeightForWidth_Callback cb) { qtoolbox_hasheightforwidth_callback = cb; }
-    void setQToolBox_PaintEngine_Callback(QToolBox_PaintEngine_Callback cb) { qtoolbox_paintengine_callback = cb; }
-    void setQToolBox_MousePressEvent_Callback(QToolBox_MousePressEvent_Callback cb) { qtoolbox_mousepressevent_callback = cb; }
-    void setQToolBox_MouseReleaseEvent_Callback(QToolBox_MouseReleaseEvent_Callback cb) { qtoolbox_mousereleaseevent_callback = cb; }
-    void setQToolBox_MouseDoubleClickEvent_Callback(QToolBox_MouseDoubleClickEvent_Callback cb) { qtoolbox_mousedoubleclickevent_callback = cb; }
-    void setQToolBox_MouseMoveEvent_Callback(QToolBox_MouseMoveEvent_Callback cb) { qtoolbox_mousemoveevent_callback = cb; }
-    void setQToolBox_WheelEvent_Callback(QToolBox_WheelEvent_Callback cb) { qtoolbox_wheelevent_callback = cb; }
-    void setQToolBox_KeyPressEvent_Callback(QToolBox_KeyPressEvent_Callback cb) { qtoolbox_keypressevent_callback = cb; }
-    void setQToolBox_KeyReleaseEvent_Callback(QToolBox_KeyReleaseEvent_Callback cb) { qtoolbox_keyreleaseevent_callback = cb; }
-    void setQToolBox_FocusInEvent_Callback(QToolBox_FocusInEvent_Callback cb) { qtoolbox_focusinevent_callback = cb; }
-    void setQToolBox_FocusOutEvent_Callback(QToolBox_FocusOutEvent_Callback cb) { qtoolbox_focusoutevent_callback = cb; }
-    void setQToolBox_EnterEvent_Callback(QToolBox_EnterEvent_Callback cb) { qtoolbox_enterevent_callback = cb; }
-    void setQToolBox_LeaveEvent_Callback(QToolBox_LeaveEvent_Callback cb) { qtoolbox_leaveevent_callback = cb; }
-    void setQToolBox_MoveEvent_Callback(QToolBox_MoveEvent_Callback cb) { qtoolbox_moveevent_callback = cb; }
-    void setQToolBox_ResizeEvent_Callback(QToolBox_ResizeEvent_Callback cb) { qtoolbox_resizeevent_callback = cb; }
-    void setQToolBox_CloseEvent_Callback(QToolBox_CloseEvent_Callback cb) { qtoolbox_closeevent_callback = cb; }
-    void setQToolBox_ContextMenuEvent_Callback(QToolBox_ContextMenuEvent_Callback cb) { qtoolbox_contextmenuevent_callback = cb; }
-    void setQToolBox_TabletEvent_Callback(QToolBox_TabletEvent_Callback cb) { qtoolbox_tabletevent_callback = cb; }
-    void setQToolBox_ActionEvent_Callback(QToolBox_ActionEvent_Callback cb) { qtoolbox_actionevent_callback = cb; }
-    void setQToolBox_DragEnterEvent_Callback(QToolBox_DragEnterEvent_Callback cb) { qtoolbox_dragenterevent_callback = cb; }
-    void setQToolBox_DragMoveEvent_Callback(QToolBox_DragMoveEvent_Callback cb) { qtoolbox_dragmoveevent_callback = cb; }
-    void setQToolBox_DragLeaveEvent_Callback(QToolBox_DragLeaveEvent_Callback cb) { qtoolbox_dragleaveevent_callback = cb; }
-    void setQToolBox_DropEvent_Callback(QToolBox_DropEvent_Callback cb) { qtoolbox_dropevent_callback = cb; }
-    void setQToolBox_HideEvent_Callback(QToolBox_HideEvent_Callback cb) { qtoolbox_hideevent_callback = cb; }
-    void setQToolBox_NativeEvent_Callback(QToolBox_NativeEvent_Callback cb) { qtoolbox_nativeevent_callback = cb; }
-    void setQToolBox_Metric_Callback(QToolBox_Metric_Callback cb) { qtoolbox_metric_callback = cb; }
-    void setQToolBox_InitPainter_Callback(QToolBox_InitPainter_Callback cb) { qtoolbox_initpainter_callback = cb; }
-    void setQToolBox_Redirected_Callback(QToolBox_Redirected_Callback cb) { qtoolbox_redirected_callback = cb; }
-    void setQToolBox_SharedPainter_Callback(QToolBox_SharedPainter_Callback cb) { qtoolbox_sharedpainter_callback = cb; }
-    void setQToolBox_InputMethodEvent_Callback(QToolBox_InputMethodEvent_Callback cb) { qtoolbox_inputmethodevent_callback = cb; }
-    void setQToolBox_InputMethodQuery_Callback(QToolBox_InputMethodQuery_Callback cb) { qtoolbox_inputmethodquery_callback = cb; }
-    void setQToolBox_FocusNextPrevChild_Callback(QToolBox_FocusNextPrevChild_Callback cb) { qtoolbox_focusnextprevchild_callback = cb; }
-    void setQToolBox_EventFilter_Callback(QToolBox_EventFilter_Callback cb) { qtoolbox_eventfilter_callback = cb; }
-    void setQToolBox_TimerEvent_Callback(QToolBox_TimerEvent_Callback cb) { qtoolbox_timerevent_callback = cb; }
-    void setQToolBox_ChildEvent_Callback(QToolBox_ChildEvent_Callback cb) { qtoolbox_childevent_callback = cb; }
-    void setQToolBox_CustomEvent_Callback(QToolBox_CustomEvent_Callback cb) { qtoolbox_customevent_callback = cb; }
-    void setQToolBox_ConnectNotify_Callback(QToolBox_ConnectNotify_Callback cb) { qtoolbox_connectnotify_callback = cb; }
-    void setQToolBox_DisconnectNotify_Callback(QToolBox_DisconnectNotify_Callback cb) { qtoolbox_disconnectnotify_callback = cb; }
-    void setQToolBox_DrawFrame_Callback(QToolBox_DrawFrame_Callback cb) { qtoolbox_drawframe_callback = cb; }
-    void setQToolBox_UpdateMicroFocus_Callback(QToolBox_UpdateMicroFocus_Callback cb) { qtoolbox_updatemicrofocus_callback = cb; }
-    void setQToolBox_Create_Callback(QToolBox_Create_Callback cb) { qtoolbox_create_callback = cb; }
-    void setQToolBox_Destroy_Callback(QToolBox_Destroy_Callback cb) { qtoolbox_destroy_callback = cb; }
-    void setQToolBox_FocusNextChild_Callback(QToolBox_FocusNextChild_Callback cb) { qtoolbox_focusnextchild_callback = cb; }
-    void setQToolBox_FocusPreviousChild_Callback(QToolBox_FocusPreviousChild_Callback cb) { qtoolbox_focuspreviouschild_callback = cb; }
-    void setQToolBox_Sender_Callback(QToolBox_Sender_Callback cb) { qtoolbox_sender_callback = cb; }
-    void setQToolBox_SenderSignalIndex_Callback(QToolBox_SenderSignalIndex_Callback cb) { qtoolbox_sendersignalindex_callback = cb; }
-    void setQToolBox_Receivers_Callback(QToolBox_Receivers_Callback cb) { qtoolbox_receivers_callback = cb; }
-    void setQToolBox_IsSignalConnected_Callback(QToolBox_IsSignalConnected_Callback cb) { qtoolbox_issignalconnected_callback = cb; }
+    inline void setQToolBox_Metacall_Callback(QToolBox_Metacall_Callback cb) { qtoolbox_metacall_callback = cb; }
+    inline void setQToolBox_Event_Callback(QToolBox_Event_Callback cb) { qtoolbox_event_callback = cb; }
+    inline void setQToolBox_ItemInserted_Callback(QToolBox_ItemInserted_Callback cb) { qtoolbox_iteminserted_callback = cb; }
+    inline void setQToolBox_ItemRemoved_Callback(QToolBox_ItemRemoved_Callback cb) { qtoolbox_itemremoved_callback = cb; }
+    inline void setQToolBox_ShowEvent_Callback(QToolBox_ShowEvent_Callback cb) { qtoolbox_showevent_callback = cb; }
+    inline void setQToolBox_ChangeEvent_Callback(QToolBox_ChangeEvent_Callback cb) { qtoolbox_changeevent_callback = cb; }
+    inline void setQToolBox_SizeHint_Callback(QToolBox_SizeHint_Callback cb) { qtoolbox_sizehint_callback = cb; }
+    inline void setQToolBox_PaintEvent_Callback(QToolBox_PaintEvent_Callback cb) { qtoolbox_paintevent_callback = cb; }
+    inline void setQToolBox_InitStyleOption_Callback(QToolBox_InitStyleOption_Callback cb) { qtoolbox_initstyleoption_callback = cb; }
+    inline void setQToolBox_DevType_Callback(QToolBox_DevType_Callback cb) { qtoolbox_devtype_callback = cb; }
+    inline void setQToolBox_SetVisible_Callback(QToolBox_SetVisible_Callback cb) { qtoolbox_setvisible_callback = cb; }
+    inline void setQToolBox_MinimumSizeHint_Callback(QToolBox_MinimumSizeHint_Callback cb) { qtoolbox_minimumsizehint_callback = cb; }
+    inline void setQToolBox_HeightForWidth_Callback(QToolBox_HeightForWidth_Callback cb) { qtoolbox_heightforwidth_callback = cb; }
+    inline void setQToolBox_HasHeightForWidth_Callback(QToolBox_HasHeightForWidth_Callback cb) { qtoolbox_hasheightforwidth_callback = cb; }
+    inline void setQToolBox_PaintEngine_Callback(QToolBox_PaintEngine_Callback cb) { qtoolbox_paintengine_callback = cb; }
+    inline void setQToolBox_MousePressEvent_Callback(QToolBox_MousePressEvent_Callback cb) { qtoolbox_mousepressevent_callback = cb; }
+    inline void setQToolBox_MouseReleaseEvent_Callback(QToolBox_MouseReleaseEvent_Callback cb) { qtoolbox_mousereleaseevent_callback = cb; }
+    inline void setQToolBox_MouseDoubleClickEvent_Callback(QToolBox_MouseDoubleClickEvent_Callback cb) { qtoolbox_mousedoubleclickevent_callback = cb; }
+    inline void setQToolBox_MouseMoveEvent_Callback(QToolBox_MouseMoveEvent_Callback cb) { qtoolbox_mousemoveevent_callback = cb; }
+    inline void setQToolBox_WheelEvent_Callback(QToolBox_WheelEvent_Callback cb) { qtoolbox_wheelevent_callback = cb; }
+    inline void setQToolBox_KeyPressEvent_Callback(QToolBox_KeyPressEvent_Callback cb) { qtoolbox_keypressevent_callback = cb; }
+    inline void setQToolBox_KeyReleaseEvent_Callback(QToolBox_KeyReleaseEvent_Callback cb) { qtoolbox_keyreleaseevent_callback = cb; }
+    inline void setQToolBox_FocusInEvent_Callback(QToolBox_FocusInEvent_Callback cb) { qtoolbox_focusinevent_callback = cb; }
+    inline void setQToolBox_FocusOutEvent_Callback(QToolBox_FocusOutEvent_Callback cb) { qtoolbox_focusoutevent_callback = cb; }
+    inline void setQToolBox_EnterEvent_Callback(QToolBox_EnterEvent_Callback cb) { qtoolbox_enterevent_callback = cb; }
+    inline void setQToolBox_LeaveEvent_Callback(QToolBox_LeaveEvent_Callback cb) { qtoolbox_leaveevent_callback = cb; }
+    inline void setQToolBox_MoveEvent_Callback(QToolBox_MoveEvent_Callback cb) { qtoolbox_moveevent_callback = cb; }
+    inline void setQToolBox_ResizeEvent_Callback(QToolBox_ResizeEvent_Callback cb) { qtoolbox_resizeevent_callback = cb; }
+    inline void setQToolBox_CloseEvent_Callback(QToolBox_CloseEvent_Callback cb) { qtoolbox_closeevent_callback = cb; }
+    inline void setQToolBox_ContextMenuEvent_Callback(QToolBox_ContextMenuEvent_Callback cb) { qtoolbox_contextmenuevent_callback = cb; }
+    inline void setQToolBox_TabletEvent_Callback(QToolBox_TabletEvent_Callback cb) { qtoolbox_tabletevent_callback = cb; }
+    inline void setQToolBox_ActionEvent_Callback(QToolBox_ActionEvent_Callback cb) { qtoolbox_actionevent_callback = cb; }
+    inline void setQToolBox_DragEnterEvent_Callback(QToolBox_DragEnterEvent_Callback cb) { qtoolbox_dragenterevent_callback = cb; }
+    inline void setQToolBox_DragMoveEvent_Callback(QToolBox_DragMoveEvent_Callback cb) { qtoolbox_dragmoveevent_callback = cb; }
+    inline void setQToolBox_DragLeaveEvent_Callback(QToolBox_DragLeaveEvent_Callback cb) { qtoolbox_dragleaveevent_callback = cb; }
+    inline void setQToolBox_DropEvent_Callback(QToolBox_DropEvent_Callback cb) { qtoolbox_dropevent_callback = cb; }
+    inline void setQToolBox_HideEvent_Callback(QToolBox_HideEvent_Callback cb) { qtoolbox_hideevent_callback = cb; }
+    inline void setQToolBox_NativeEvent_Callback(QToolBox_NativeEvent_Callback cb) { qtoolbox_nativeevent_callback = cb; }
+    inline void setQToolBox_Metric_Callback(QToolBox_Metric_Callback cb) { qtoolbox_metric_callback = cb; }
+    inline void setQToolBox_InitPainter_Callback(QToolBox_InitPainter_Callback cb) { qtoolbox_initpainter_callback = cb; }
+    inline void setQToolBox_Redirected_Callback(QToolBox_Redirected_Callback cb) { qtoolbox_redirected_callback = cb; }
+    inline void setQToolBox_SharedPainter_Callback(QToolBox_SharedPainter_Callback cb) { qtoolbox_sharedpainter_callback = cb; }
+    inline void setQToolBox_InputMethodEvent_Callback(QToolBox_InputMethodEvent_Callback cb) { qtoolbox_inputmethodevent_callback = cb; }
+    inline void setQToolBox_InputMethodQuery_Callback(QToolBox_InputMethodQuery_Callback cb) { qtoolbox_inputmethodquery_callback = cb; }
+    inline void setQToolBox_FocusNextPrevChild_Callback(QToolBox_FocusNextPrevChild_Callback cb) { qtoolbox_focusnextprevchild_callback = cb; }
+    inline void setQToolBox_EventFilter_Callback(QToolBox_EventFilter_Callback cb) { qtoolbox_eventfilter_callback = cb; }
+    inline void setQToolBox_TimerEvent_Callback(QToolBox_TimerEvent_Callback cb) { qtoolbox_timerevent_callback = cb; }
+    inline void setQToolBox_ChildEvent_Callback(QToolBox_ChildEvent_Callback cb) { qtoolbox_childevent_callback = cb; }
+    inline void setQToolBox_CustomEvent_Callback(QToolBox_CustomEvent_Callback cb) { qtoolbox_customevent_callback = cb; }
+    inline void setQToolBox_ConnectNotify_Callback(QToolBox_ConnectNotify_Callback cb) { qtoolbox_connectnotify_callback = cb; }
+    inline void setQToolBox_DisconnectNotify_Callback(QToolBox_DisconnectNotify_Callback cb) { qtoolbox_disconnectnotify_callback = cb; }
+    inline void setQToolBox_DrawFrame_Callback(QToolBox_DrawFrame_Callback cb) { qtoolbox_drawframe_callback = cb; }
+    inline void setQToolBox_UpdateMicroFocus_Callback(QToolBox_UpdateMicroFocus_Callback cb) { qtoolbox_updatemicrofocus_callback = cb; }
+    inline void setQToolBox_Create_Callback(QToolBox_Create_Callback cb) { qtoolbox_create_callback = cb; }
+    inline void setQToolBox_Destroy_Callback(QToolBox_Destroy_Callback cb) { qtoolbox_destroy_callback = cb; }
+    inline void setQToolBox_FocusNextChild_Callback(QToolBox_FocusNextChild_Callback cb) { qtoolbox_focusnextchild_callback = cb; }
+    inline void setQToolBox_FocusPreviousChild_Callback(QToolBox_FocusPreviousChild_Callback cb) { qtoolbox_focuspreviouschild_callback = cb; }
+    inline void setQToolBox_Sender_Callback(QToolBox_Sender_Callback cb) { qtoolbox_sender_callback = cb; }
+    inline void setQToolBox_SenderSignalIndex_Callback(QToolBox_SenderSignalIndex_Callback cb) { qtoolbox_sendersignalindex_callback = cb; }
+    inline void setQToolBox_Receivers_Callback(QToolBox_Receivers_Callback cb) { qtoolbox_receivers_callback = cb; }
+    inline void setQToolBox_IsSignalConnected_Callback(QToolBox_IsSignalConnected_Callback cb) { qtoolbox_issignalconnected_callback = cb; }
 
     // Base flag setters
-    void setQToolBox_Metacall_IsBase(bool value) const { qtoolbox_metacall_isbase = value; }
-    void setQToolBox_Event_IsBase(bool value) const { qtoolbox_event_isbase = value; }
-    void setQToolBox_ItemInserted_IsBase(bool value) const { qtoolbox_iteminserted_isbase = value; }
-    void setQToolBox_ItemRemoved_IsBase(bool value) const { qtoolbox_itemremoved_isbase = value; }
-    void setQToolBox_ShowEvent_IsBase(bool value) const { qtoolbox_showevent_isbase = value; }
-    void setQToolBox_ChangeEvent_IsBase(bool value) const { qtoolbox_changeevent_isbase = value; }
-    void setQToolBox_SizeHint_IsBase(bool value) const { qtoolbox_sizehint_isbase = value; }
-    void setQToolBox_PaintEvent_IsBase(bool value) const { qtoolbox_paintevent_isbase = value; }
-    void setQToolBox_InitStyleOption_IsBase(bool value) const { qtoolbox_initstyleoption_isbase = value; }
-    void setQToolBox_DevType_IsBase(bool value) const { qtoolbox_devtype_isbase = value; }
-    void setQToolBox_SetVisible_IsBase(bool value) const { qtoolbox_setvisible_isbase = value; }
-    void setQToolBox_MinimumSizeHint_IsBase(bool value) const { qtoolbox_minimumsizehint_isbase = value; }
-    void setQToolBox_HeightForWidth_IsBase(bool value) const { qtoolbox_heightforwidth_isbase = value; }
-    void setQToolBox_HasHeightForWidth_IsBase(bool value) const { qtoolbox_hasheightforwidth_isbase = value; }
-    void setQToolBox_PaintEngine_IsBase(bool value) const { qtoolbox_paintengine_isbase = value; }
-    void setQToolBox_MousePressEvent_IsBase(bool value) const { qtoolbox_mousepressevent_isbase = value; }
-    void setQToolBox_MouseReleaseEvent_IsBase(bool value) const { qtoolbox_mousereleaseevent_isbase = value; }
-    void setQToolBox_MouseDoubleClickEvent_IsBase(bool value) const { qtoolbox_mousedoubleclickevent_isbase = value; }
-    void setQToolBox_MouseMoveEvent_IsBase(bool value) const { qtoolbox_mousemoveevent_isbase = value; }
-    void setQToolBox_WheelEvent_IsBase(bool value) const { qtoolbox_wheelevent_isbase = value; }
-    void setQToolBox_KeyPressEvent_IsBase(bool value) const { qtoolbox_keypressevent_isbase = value; }
-    void setQToolBox_KeyReleaseEvent_IsBase(bool value) const { qtoolbox_keyreleaseevent_isbase = value; }
-    void setQToolBox_FocusInEvent_IsBase(bool value) const { qtoolbox_focusinevent_isbase = value; }
-    void setQToolBox_FocusOutEvent_IsBase(bool value) const { qtoolbox_focusoutevent_isbase = value; }
-    void setQToolBox_EnterEvent_IsBase(bool value) const { qtoolbox_enterevent_isbase = value; }
-    void setQToolBox_LeaveEvent_IsBase(bool value) const { qtoolbox_leaveevent_isbase = value; }
-    void setQToolBox_MoveEvent_IsBase(bool value) const { qtoolbox_moveevent_isbase = value; }
-    void setQToolBox_ResizeEvent_IsBase(bool value) const { qtoolbox_resizeevent_isbase = value; }
-    void setQToolBox_CloseEvent_IsBase(bool value) const { qtoolbox_closeevent_isbase = value; }
-    void setQToolBox_ContextMenuEvent_IsBase(bool value) const { qtoolbox_contextmenuevent_isbase = value; }
-    void setQToolBox_TabletEvent_IsBase(bool value) const { qtoolbox_tabletevent_isbase = value; }
-    void setQToolBox_ActionEvent_IsBase(bool value) const { qtoolbox_actionevent_isbase = value; }
-    void setQToolBox_DragEnterEvent_IsBase(bool value) const { qtoolbox_dragenterevent_isbase = value; }
-    void setQToolBox_DragMoveEvent_IsBase(bool value) const { qtoolbox_dragmoveevent_isbase = value; }
-    void setQToolBox_DragLeaveEvent_IsBase(bool value) const { qtoolbox_dragleaveevent_isbase = value; }
-    void setQToolBox_DropEvent_IsBase(bool value) const { qtoolbox_dropevent_isbase = value; }
-    void setQToolBox_HideEvent_IsBase(bool value) const { qtoolbox_hideevent_isbase = value; }
-    void setQToolBox_NativeEvent_IsBase(bool value) const { qtoolbox_nativeevent_isbase = value; }
-    void setQToolBox_Metric_IsBase(bool value) const { qtoolbox_metric_isbase = value; }
-    void setQToolBox_InitPainter_IsBase(bool value) const { qtoolbox_initpainter_isbase = value; }
-    void setQToolBox_Redirected_IsBase(bool value) const { qtoolbox_redirected_isbase = value; }
-    void setQToolBox_SharedPainter_IsBase(bool value) const { qtoolbox_sharedpainter_isbase = value; }
-    void setQToolBox_InputMethodEvent_IsBase(bool value) const { qtoolbox_inputmethodevent_isbase = value; }
-    void setQToolBox_InputMethodQuery_IsBase(bool value) const { qtoolbox_inputmethodquery_isbase = value; }
-    void setQToolBox_FocusNextPrevChild_IsBase(bool value) const { qtoolbox_focusnextprevchild_isbase = value; }
-    void setQToolBox_EventFilter_IsBase(bool value) const { qtoolbox_eventfilter_isbase = value; }
-    void setQToolBox_TimerEvent_IsBase(bool value) const { qtoolbox_timerevent_isbase = value; }
-    void setQToolBox_ChildEvent_IsBase(bool value) const { qtoolbox_childevent_isbase = value; }
-    void setQToolBox_CustomEvent_IsBase(bool value) const { qtoolbox_customevent_isbase = value; }
-    void setQToolBox_ConnectNotify_IsBase(bool value) const { qtoolbox_connectnotify_isbase = value; }
-    void setQToolBox_DisconnectNotify_IsBase(bool value) const { qtoolbox_disconnectnotify_isbase = value; }
-    void setQToolBox_DrawFrame_IsBase(bool value) const { qtoolbox_drawframe_isbase = value; }
-    void setQToolBox_UpdateMicroFocus_IsBase(bool value) const { qtoolbox_updatemicrofocus_isbase = value; }
-    void setQToolBox_Create_IsBase(bool value) const { qtoolbox_create_isbase = value; }
-    void setQToolBox_Destroy_IsBase(bool value) const { qtoolbox_destroy_isbase = value; }
-    void setQToolBox_FocusNextChild_IsBase(bool value) const { qtoolbox_focusnextchild_isbase = value; }
-    void setQToolBox_FocusPreviousChild_IsBase(bool value) const { qtoolbox_focuspreviouschild_isbase = value; }
-    void setQToolBox_Sender_IsBase(bool value) const { qtoolbox_sender_isbase = value; }
-    void setQToolBox_SenderSignalIndex_IsBase(bool value) const { qtoolbox_sendersignalindex_isbase = value; }
-    void setQToolBox_Receivers_IsBase(bool value) const { qtoolbox_receivers_isbase = value; }
-    void setQToolBox_IsSignalConnected_IsBase(bool value) const { qtoolbox_issignalconnected_isbase = value; }
+    inline void setQToolBox_Metacall_IsBase(bool value) const { qtoolbox_metacall_isbase = value; }
+    inline void setQToolBox_Event_IsBase(bool value) const { qtoolbox_event_isbase = value; }
+    inline void setQToolBox_ItemInserted_IsBase(bool value) const { qtoolbox_iteminserted_isbase = value; }
+    inline void setQToolBox_ItemRemoved_IsBase(bool value) const { qtoolbox_itemremoved_isbase = value; }
+    inline void setQToolBox_ShowEvent_IsBase(bool value) const { qtoolbox_showevent_isbase = value; }
+    inline void setQToolBox_ChangeEvent_IsBase(bool value) const { qtoolbox_changeevent_isbase = value; }
+    inline void setQToolBox_SizeHint_IsBase(bool value) const { qtoolbox_sizehint_isbase = value; }
+    inline void setQToolBox_PaintEvent_IsBase(bool value) const { qtoolbox_paintevent_isbase = value; }
+    inline void setQToolBox_InitStyleOption_IsBase(bool value) const { qtoolbox_initstyleoption_isbase = value; }
+    inline void setQToolBox_DevType_IsBase(bool value) const { qtoolbox_devtype_isbase = value; }
+    inline void setQToolBox_SetVisible_IsBase(bool value) const { qtoolbox_setvisible_isbase = value; }
+    inline void setQToolBox_MinimumSizeHint_IsBase(bool value) const { qtoolbox_minimumsizehint_isbase = value; }
+    inline void setQToolBox_HeightForWidth_IsBase(bool value) const { qtoolbox_heightforwidth_isbase = value; }
+    inline void setQToolBox_HasHeightForWidth_IsBase(bool value) const { qtoolbox_hasheightforwidth_isbase = value; }
+    inline void setQToolBox_PaintEngine_IsBase(bool value) const { qtoolbox_paintengine_isbase = value; }
+    inline void setQToolBox_MousePressEvent_IsBase(bool value) const { qtoolbox_mousepressevent_isbase = value; }
+    inline void setQToolBox_MouseReleaseEvent_IsBase(bool value) const { qtoolbox_mousereleaseevent_isbase = value; }
+    inline void setQToolBox_MouseDoubleClickEvent_IsBase(bool value) const { qtoolbox_mousedoubleclickevent_isbase = value; }
+    inline void setQToolBox_MouseMoveEvent_IsBase(bool value) const { qtoolbox_mousemoveevent_isbase = value; }
+    inline void setQToolBox_WheelEvent_IsBase(bool value) const { qtoolbox_wheelevent_isbase = value; }
+    inline void setQToolBox_KeyPressEvent_IsBase(bool value) const { qtoolbox_keypressevent_isbase = value; }
+    inline void setQToolBox_KeyReleaseEvent_IsBase(bool value) const { qtoolbox_keyreleaseevent_isbase = value; }
+    inline void setQToolBox_FocusInEvent_IsBase(bool value) const { qtoolbox_focusinevent_isbase = value; }
+    inline void setQToolBox_FocusOutEvent_IsBase(bool value) const { qtoolbox_focusoutevent_isbase = value; }
+    inline void setQToolBox_EnterEvent_IsBase(bool value) const { qtoolbox_enterevent_isbase = value; }
+    inline void setQToolBox_LeaveEvent_IsBase(bool value) const { qtoolbox_leaveevent_isbase = value; }
+    inline void setQToolBox_MoveEvent_IsBase(bool value) const { qtoolbox_moveevent_isbase = value; }
+    inline void setQToolBox_ResizeEvent_IsBase(bool value) const { qtoolbox_resizeevent_isbase = value; }
+    inline void setQToolBox_CloseEvent_IsBase(bool value) const { qtoolbox_closeevent_isbase = value; }
+    inline void setQToolBox_ContextMenuEvent_IsBase(bool value) const { qtoolbox_contextmenuevent_isbase = value; }
+    inline void setQToolBox_TabletEvent_IsBase(bool value) const { qtoolbox_tabletevent_isbase = value; }
+    inline void setQToolBox_ActionEvent_IsBase(bool value) const { qtoolbox_actionevent_isbase = value; }
+    inline void setQToolBox_DragEnterEvent_IsBase(bool value) const { qtoolbox_dragenterevent_isbase = value; }
+    inline void setQToolBox_DragMoveEvent_IsBase(bool value) const { qtoolbox_dragmoveevent_isbase = value; }
+    inline void setQToolBox_DragLeaveEvent_IsBase(bool value) const { qtoolbox_dragleaveevent_isbase = value; }
+    inline void setQToolBox_DropEvent_IsBase(bool value) const { qtoolbox_dropevent_isbase = value; }
+    inline void setQToolBox_HideEvent_IsBase(bool value) const { qtoolbox_hideevent_isbase = value; }
+    inline void setQToolBox_NativeEvent_IsBase(bool value) const { qtoolbox_nativeevent_isbase = value; }
+    inline void setQToolBox_Metric_IsBase(bool value) const { qtoolbox_metric_isbase = value; }
+    inline void setQToolBox_InitPainter_IsBase(bool value) const { qtoolbox_initpainter_isbase = value; }
+    inline void setQToolBox_Redirected_IsBase(bool value) const { qtoolbox_redirected_isbase = value; }
+    inline void setQToolBox_SharedPainter_IsBase(bool value) const { qtoolbox_sharedpainter_isbase = value; }
+    inline void setQToolBox_InputMethodEvent_IsBase(bool value) const { qtoolbox_inputmethodevent_isbase = value; }
+    inline void setQToolBox_InputMethodQuery_IsBase(bool value) const { qtoolbox_inputmethodquery_isbase = value; }
+    inline void setQToolBox_FocusNextPrevChild_IsBase(bool value) const { qtoolbox_focusnextprevchild_isbase = value; }
+    inline void setQToolBox_EventFilter_IsBase(bool value) const { qtoolbox_eventfilter_isbase = value; }
+    inline void setQToolBox_TimerEvent_IsBase(bool value) const { qtoolbox_timerevent_isbase = value; }
+    inline void setQToolBox_ChildEvent_IsBase(bool value) const { qtoolbox_childevent_isbase = value; }
+    inline void setQToolBox_CustomEvent_IsBase(bool value) const { qtoolbox_customevent_isbase = value; }
+    inline void setQToolBox_ConnectNotify_IsBase(bool value) const { qtoolbox_connectnotify_isbase = value; }
+    inline void setQToolBox_DisconnectNotify_IsBase(bool value) const { qtoolbox_disconnectnotify_isbase = value; }
+    inline void setQToolBox_DrawFrame_IsBase(bool value) const { qtoolbox_drawframe_isbase = value; }
+    inline void setQToolBox_UpdateMicroFocus_IsBase(bool value) const { qtoolbox_updatemicrofocus_isbase = value; }
+    inline void setQToolBox_Create_IsBase(bool value) const { qtoolbox_create_isbase = value; }
+    inline void setQToolBox_Destroy_IsBase(bool value) const { qtoolbox_destroy_isbase = value; }
+    inline void setQToolBox_FocusNextChild_IsBase(bool value) const { qtoolbox_focusnextchild_isbase = value; }
+    inline void setQToolBox_FocusPreviousChild_IsBase(bool value) const { qtoolbox_focuspreviouschild_isbase = value; }
+    inline void setQToolBox_Sender_IsBase(bool value) const { qtoolbox_sender_isbase = value; }
+    inline void setQToolBox_SenderSignalIndex_IsBase(bool value) const { qtoolbox_sendersignalindex_isbase = value; }
+    inline void setQToolBox_Receivers_IsBase(bool value) const { qtoolbox_receivers_isbase = value; }
+    inline void setQToolBox_IsSignalConnected_IsBase(bool value) const { qtoolbox_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -405,7 +408,12 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_metacall_isbase = false;
             return QToolBox::qt_metacall(param1, param2, param3);
         } else if (qtoolbox_metacall_callback != nullptr) {
-            return qtoolbox_metacall_callback(this, param1, param2, param3);
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qtoolbox_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
         } else {
             return QToolBox::qt_metacall(param1, param2, param3);
         }
@@ -417,7 +425,10 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_event_isbase = false;
             return QToolBox::event(e);
         } else if (qtoolbox_event_callback != nullptr) {
-            return qtoolbox_event_callback(this, e);
+            QEvent* cbval1 = e;
+
+            bool callback_ret = qtoolbox_event_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QToolBox::event(e);
         }
@@ -429,7 +440,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_iteminserted_isbase = false;
             QToolBox::itemInserted(index);
         } else if (qtoolbox_iteminserted_callback != nullptr) {
-            qtoolbox_iteminserted_callback(this, index);
+            int cbval1 = index;
+
+            qtoolbox_iteminserted_callback(this, cbval1);
         } else {
             QToolBox::itemInserted(index);
         }
@@ -441,7 +454,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_itemremoved_isbase = false;
             QToolBox::itemRemoved(index);
         } else if (qtoolbox_itemremoved_callback != nullptr) {
-            qtoolbox_itemremoved_callback(this, index);
+            int cbval1 = index;
+
+            qtoolbox_itemremoved_callback(this, cbval1);
         } else {
             QToolBox::itemRemoved(index);
         }
@@ -453,7 +468,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_showevent_isbase = false;
             QToolBox::showEvent(e);
         } else if (qtoolbox_showevent_callback != nullptr) {
-            qtoolbox_showevent_callback(this, e);
+            QShowEvent* cbval1 = e;
+
+            qtoolbox_showevent_callback(this, cbval1);
         } else {
             QToolBox::showEvent(e);
         }
@@ -465,7 +482,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_changeevent_isbase = false;
             QToolBox::changeEvent(param1);
         } else if (qtoolbox_changeevent_callback != nullptr) {
-            qtoolbox_changeevent_callback(this, param1);
+            QEvent* cbval1 = param1;
+
+            qtoolbox_changeevent_callback(this, cbval1);
         } else {
             QToolBox::changeEvent(param1);
         }
@@ -477,7 +496,8 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_sizehint_isbase = false;
             return QToolBox::sizeHint();
         } else if (qtoolbox_sizehint_callback != nullptr) {
-            return qtoolbox_sizehint_callback();
+            QSize* callback_ret = qtoolbox_sizehint_callback();
+            return *callback_ret;
         } else {
             return QToolBox::sizeHint();
         }
@@ -489,7 +509,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_paintevent_isbase = false;
             QToolBox::paintEvent(param1);
         } else if (qtoolbox_paintevent_callback != nullptr) {
-            qtoolbox_paintevent_callback(this, param1);
+            QPaintEvent* cbval1 = param1;
+
+            qtoolbox_paintevent_callback(this, cbval1);
         } else {
             QToolBox::paintEvent(param1);
         }
@@ -501,7 +523,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_initstyleoption_isbase = false;
             QToolBox::initStyleOption(option);
         } else if (qtoolbox_initstyleoption_callback != nullptr) {
-            qtoolbox_initstyleoption_callback(this, option);
+            QStyleOptionFrame* cbval1 = option;
+
+            qtoolbox_initstyleoption_callback(this, cbval1);
         } else {
             QToolBox::initStyleOption(option);
         }
@@ -513,7 +537,8 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_devtype_isbase = false;
             return QToolBox::devType();
         } else if (qtoolbox_devtype_callback != nullptr) {
-            return qtoolbox_devtype_callback();
+            int callback_ret = qtoolbox_devtype_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QToolBox::devType();
         }
@@ -525,7 +550,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_setvisible_isbase = false;
             QToolBox::setVisible(visible);
         } else if (qtoolbox_setvisible_callback != nullptr) {
-            qtoolbox_setvisible_callback(this, visible);
+            bool cbval1 = visible;
+
+            qtoolbox_setvisible_callback(this, cbval1);
         } else {
             QToolBox::setVisible(visible);
         }
@@ -537,7 +564,8 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_minimumsizehint_isbase = false;
             return QToolBox::minimumSizeHint();
         } else if (qtoolbox_minimumsizehint_callback != nullptr) {
-            return qtoolbox_minimumsizehint_callback();
+            QSize* callback_ret = qtoolbox_minimumsizehint_callback();
+            return *callback_ret;
         } else {
             return QToolBox::minimumSizeHint();
         }
@@ -549,7 +577,10 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_heightforwidth_isbase = false;
             return QToolBox::heightForWidth(param1);
         } else if (qtoolbox_heightforwidth_callback != nullptr) {
-            return qtoolbox_heightforwidth_callback(this, param1);
+            int cbval1 = param1;
+
+            int callback_ret = qtoolbox_heightforwidth_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QToolBox::heightForWidth(param1);
         }
@@ -561,7 +592,8 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_hasheightforwidth_isbase = false;
             return QToolBox::hasHeightForWidth();
         } else if (qtoolbox_hasheightforwidth_callback != nullptr) {
-            return qtoolbox_hasheightforwidth_callback();
+            bool callback_ret = qtoolbox_hasheightforwidth_callback();
+            return callback_ret;
         } else {
             return QToolBox::hasHeightForWidth();
         }
@@ -573,7 +605,8 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_paintengine_isbase = false;
             return QToolBox::paintEngine();
         } else if (qtoolbox_paintengine_callback != nullptr) {
-            return qtoolbox_paintengine_callback();
+            QPaintEngine* callback_ret = qtoolbox_paintengine_callback();
+            return callback_ret;
         } else {
             return QToolBox::paintEngine();
         }
@@ -585,7 +618,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_mousepressevent_isbase = false;
             QToolBox::mousePressEvent(event);
         } else if (qtoolbox_mousepressevent_callback != nullptr) {
-            qtoolbox_mousepressevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qtoolbox_mousepressevent_callback(this, cbval1);
         } else {
             QToolBox::mousePressEvent(event);
         }
@@ -597,7 +632,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_mousereleaseevent_isbase = false;
             QToolBox::mouseReleaseEvent(event);
         } else if (qtoolbox_mousereleaseevent_callback != nullptr) {
-            qtoolbox_mousereleaseevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qtoolbox_mousereleaseevent_callback(this, cbval1);
         } else {
             QToolBox::mouseReleaseEvent(event);
         }
@@ -609,7 +646,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_mousedoubleclickevent_isbase = false;
             QToolBox::mouseDoubleClickEvent(event);
         } else if (qtoolbox_mousedoubleclickevent_callback != nullptr) {
-            qtoolbox_mousedoubleclickevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qtoolbox_mousedoubleclickevent_callback(this, cbval1);
         } else {
             QToolBox::mouseDoubleClickEvent(event);
         }
@@ -621,7 +660,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_mousemoveevent_isbase = false;
             QToolBox::mouseMoveEvent(event);
         } else if (qtoolbox_mousemoveevent_callback != nullptr) {
-            qtoolbox_mousemoveevent_callback(this, event);
+            QMouseEvent* cbval1 = event;
+
+            qtoolbox_mousemoveevent_callback(this, cbval1);
         } else {
             QToolBox::mouseMoveEvent(event);
         }
@@ -633,7 +674,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_wheelevent_isbase = false;
             QToolBox::wheelEvent(event);
         } else if (qtoolbox_wheelevent_callback != nullptr) {
-            qtoolbox_wheelevent_callback(this, event);
+            QWheelEvent* cbval1 = event;
+
+            qtoolbox_wheelevent_callback(this, cbval1);
         } else {
             QToolBox::wheelEvent(event);
         }
@@ -645,7 +688,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_keypressevent_isbase = false;
             QToolBox::keyPressEvent(event);
         } else if (qtoolbox_keypressevent_callback != nullptr) {
-            qtoolbox_keypressevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qtoolbox_keypressevent_callback(this, cbval1);
         } else {
             QToolBox::keyPressEvent(event);
         }
@@ -657,7 +702,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_keyreleaseevent_isbase = false;
             QToolBox::keyReleaseEvent(event);
         } else if (qtoolbox_keyreleaseevent_callback != nullptr) {
-            qtoolbox_keyreleaseevent_callback(this, event);
+            QKeyEvent* cbval1 = event;
+
+            qtoolbox_keyreleaseevent_callback(this, cbval1);
         } else {
             QToolBox::keyReleaseEvent(event);
         }
@@ -669,7 +716,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_focusinevent_isbase = false;
             QToolBox::focusInEvent(event);
         } else if (qtoolbox_focusinevent_callback != nullptr) {
-            qtoolbox_focusinevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qtoolbox_focusinevent_callback(this, cbval1);
         } else {
             QToolBox::focusInEvent(event);
         }
@@ -681,7 +730,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_focusoutevent_isbase = false;
             QToolBox::focusOutEvent(event);
         } else if (qtoolbox_focusoutevent_callback != nullptr) {
-            qtoolbox_focusoutevent_callback(this, event);
+            QFocusEvent* cbval1 = event;
+
+            qtoolbox_focusoutevent_callback(this, cbval1);
         } else {
             QToolBox::focusOutEvent(event);
         }
@@ -693,7 +744,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_enterevent_isbase = false;
             QToolBox::enterEvent(event);
         } else if (qtoolbox_enterevent_callback != nullptr) {
-            qtoolbox_enterevent_callback(this, event);
+            QEnterEvent* cbval1 = event;
+
+            qtoolbox_enterevent_callback(this, cbval1);
         } else {
             QToolBox::enterEvent(event);
         }
@@ -705,7 +758,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_leaveevent_isbase = false;
             QToolBox::leaveEvent(event);
         } else if (qtoolbox_leaveevent_callback != nullptr) {
-            qtoolbox_leaveevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qtoolbox_leaveevent_callback(this, cbval1);
         } else {
             QToolBox::leaveEvent(event);
         }
@@ -717,7 +772,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_moveevent_isbase = false;
             QToolBox::moveEvent(event);
         } else if (qtoolbox_moveevent_callback != nullptr) {
-            qtoolbox_moveevent_callback(this, event);
+            QMoveEvent* cbval1 = event;
+
+            qtoolbox_moveevent_callback(this, cbval1);
         } else {
             QToolBox::moveEvent(event);
         }
@@ -729,7 +786,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_resizeevent_isbase = false;
             QToolBox::resizeEvent(event);
         } else if (qtoolbox_resizeevent_callback != nullptr) {
-            qtoolbox_resizeevent_callback(this, event);
+            QResizeEvent* cbval1 = event;
+
+            qtoolbox_resizeevent_callback(this, cbval1);
         } else {
             QToolBox::resizeEvent(event);
         }
@@ -741,7 +800,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_closeevent_isbase = false;
             QToolBox::closeEvent(event);
         } else if (qtoolbox_closeevent_callback != nullptr) {
-            qtoolbox_closeevent_callback(this, event);
+            QCloseEvent* cbval1 = event;
+
+            qtoolbox_closeevent_callback(this, cbval1);
         } else {
             QToolBox::closeEvent(event);
         }
@@ -753,7 +814,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_contextmenuevent_isbase = false;
             QToolBox::contextMenuEvent(event);
         } else if (qtoolbox_contextmenuevent_callback != nullptr) {
-            qtoolbox_contextmenuevent_callback(this, event);
+            QContextMenuEvent* cbval1 = event;
+
+            qtoolbox_contextmenuevent_callback(this, cbval1);
         } else {
             QToolBox::contextMenuEvent(event);
         }
@@ -765,7 +828,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_tabletevent_isbase = false;
             QToolBox::tabletEvent(event);
         } else if (qtoolbox_tabletevent_callback != nullptr) {
-            qtoolbox_tabletevent_callback(this, event);
+            QTabletEvent* cbval1 = event;
+
+            qtoolbox_tabletevent_callback(this, cbval1);
         } else {
             QToolBox::tabletEvent(event);
         }
@@ -777,7 +842,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_actionevent_isbase = false;
             QToolBox::actionEvent(event);
         } else if (qtoolbox_actionevent_callback != nullptr) {
-            qtoolbox_actionevent_callback(this, event);
+            QActionEvent* cbval1 = event;
+
+            qtoolbox_actionevent_callback(this, cbval1);
         } else {
             QToolBox::actionEvent(event);
         }
@@ -789,7 +856,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_dragenterevent_isbase = false;
             QToolBox::dragEnterEvent(event);
         } else if (qtoolbox_dragenterevent_callback != nullptr) {
-            qtoolbox_dragenterevent_callback(this, event);
+            QDragEnterEvent* cbval1 = event;
+
+            qtoolbox_dragenterevent_callback(this, cbval1);
         } else {
             QToolBox::dragEnterEvent(event);
         }
@@ -801,7 +870,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_dragmoveevent_isbase = false;
             QToolBox::dragMoveEvent(event);
         } else if (qtoolbox_dragmoveevent_callback != nullptr) {
-            qtoolbox_dragmoveevent_callback(this, event);
+            QDragMoveEvent* cbval1 = event;
+
+            qtoolbox_dragmoveevent_callback(this, cbval1);
         } else {
             QToolBox::dragMoveEvent(event);
         }
@@ -813,7 +884,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_dragleaveevent_isbase = false;
             QToolBox::dragLeaveEvent(event);
         } else if (qtoolbox_dragleaveevent_callback != nullptr) {
-            qtoolbox_dragleaveevent_callback(this, event);
+            QDragLeaveEvent* cbval1 = event;
+
+            qtoolbox_dragleaveevent_callback(this, cbval1);
         } else {
             QToolBox::dragLeaveEvent(event);
         }
@@ -825,7 +898,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_dropevent_isbase = false;
             QToolBox::dropEvent(event);
         } else if (qtoolbox_dropevent_callback != nullptr) {
-            qtoolbox_dropevent_callback(this, event);
+            QDropEvent* cbval1 = event;
+
+            qtoolbox_dropevent_callback(this, cbval1);
         } else {
             QToolBox::dropEvent(event);
         }
@@ -837,7 +912,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_hideevent_isbase = false;
             QToolBox::hideEvent(event);
         } else if (qtoolbox_hideevent_callback != nullptr) {
-            qtoolbox_hideevent_callback(this, event);
+            QHideEvent* cbval1 = event;
+
+            qtoolbox_hideevent_callback(this, cbval1);
         } else {
             QToolBox::hideEvent(event);
         }
@@ -849,7 +926,19 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_nativeevent_isbase = false;
             return QToolBox::nativeEvent(eventType, message, result);
         } else if (qtoolbox_nativeevent_callback != nullptr) {
-            return qtoolbox_nativeevent_callback(this, eventType, message, result);
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
+            eventType_str.data[eventType_str.len] = '\0';
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = qtoolbox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            return callback_ret;
         } else {
             return QToolBox::nativeEvent(eventType, message, result);
         }
@@ -861,7 +950,10 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_metric_isbase = false;
             return QToolBox::metric(param1);
         } else if (qtoolbox_metric_callback != nullptr) {
-            return qtoolbox_metric_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = qtoolbox_metric_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QToolBox::metric(param1);
         }
@@ -873,7 +965,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_initpainter_isbase = false;
             QToolBox::initPainter(painter);
         } else if (qtoolbox_initpainter_callback != nullptr) {
-            qtoolbox_initpainter_callback(this, painter);
+            QPainter* cbval1 = painter;
+
+            qtoolbox_initpainter_callback(this, cbval1);
         } else {
             QToolBox::initPainter(painter);
         }
@@ -885,7 +979,10 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_redirected_isbase = false;
             return QToolBox::redirected(offset);
         } else if (qtoolbox_redirected_callback != nullptr) {
-            return qtoolbox_redirected_callback(this, offset);
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = qtoolbox_redirected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QToolBox::redirected(offset);
         }
@@ -897,7 +994,8 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_sharedpainter_isbase = false;
             return QToolBox::sharedPainter();
         } else if (qtoolbox_sharedpainter_callback != nullptr) {
-            return qtoolbox_sharedpainter_callback();
+            QPainter* callback_ret = qtoolbox_sharedpainter_callback();
+            return callback_ret;
         } else {
             return QToolBox::sharedPainter();
         }
@@ -909,7 +1007,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_inputmethodevent_isbase = false;
             QToolBox::inputMethodEvent(param1);
         } else if (qtoolbox_inputmethodevent_callback != nullptr) {
-            qtoolbox_inputmethodevent_callback(this, param1);
+            QInputMethodEvent* cbval1 = param1;
+
+            qtoolbox_inputmethodevent_callback(this, cbval1);
         } else {
             QToolBox::inputMethodEvent(param1);
         }
@@ -921,7 +1021,10 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_inputmethodquery_isbase = false;
             return QToolBox::inputMethodQuery(param1);
         } else if (qtoolbox_inputmethodquery_callback != nullptr) {
-            return qtoolbox_inputmethodquery_callback(this, param1);
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = qtoolbox_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
         } else {
             return QToolBox::inputMethodQuery(param1);
         }
@@ -933,7 +1036,10 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_focusnextprevchild_isbase = false;
             return QToolBox::focusNextPrevChild(next);
         } else if (qtoolbox_focusnextprevchild_callback != nullptr) {
-            return qtoolbox_focusnextprevchild_callback(this, next);
+            bool cbval1 = next;
+
+            bool callback_ret = qtoolbox_focusnextprevchild_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QToolBox::focusNextPrevChild(next);
         }
@@ -945,7 +1051,11 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_eventfilter_isbase = false;
             return QToolBox::eventFilter(watched, event);
         } else if (qtoolbox_eventfilter_callback != nullptr) {
-            return qtoolbox_eventfilter_callback(this, watched, event);
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qtoolbox_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
         } else {
             return QToolBox::eventFilter(watched, event);
         }
@@ -957,7 +1067,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_timerevent_isbase = false;
             QToolBox::timerEvent(event);
         } else if (qtoolbox_timerevent_callback != nullptr) {
-            qtoolbox_timerevent_callback(this, event);
+            QTimerEvent* cbval1 = event;
+
+            qtoolbox_timerevent_callback(this, cbval1);
         } else {
             QToolBox::timerEvent(event);
         }
@@ -969,7 +1081,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_childevent_isbase = false;
             QToolBox::childEvent(event);
         } else if (qtoolbox_childevent_callback != nullptr) {
-            qtoolbox_childevent_callback(this, event);
+            QChildEvent* cbval1 = event;
+
+            qtoolbox_childevent_callback(this, cbval1);
         } else {
             QToolBox::childEvent(event);
         }
@@ -981,7 +1095,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_customevent_isbase = false;
             QToolBox::customEvent(event);
         } else if (qtoolbox_customevent_callback != nullptr) {
-            qtoolbox_customevent_callback(this, event);
+            QEvent* cbval1 = event;
+
+            qtoolbox_customevent_callback(this, cbval1);
         } else {
             QToolBox::customEvent(event);
         }
@@ -993,7 +1109,11 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_connectnotify_isbase = false;
             QToolBox::connectNotify(signal);
         } else if (qtoolbox_connectnotify_callback != nullptr) {
-            qtoolbox_connectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtoolbox_connectnotify_callback(this, cbval1);
         } else {
             QToolBox::connectNotify(signal);
         }
@@ -1005,7 +1125,11 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_disconnectnotify_isbase = false;
             QToolBox::disconnectNotify(signal);
         } else if (qtoolbox_disconnectnotify_callback != nullptr) {
-            qtoolbox_disconnectnotify_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qtoolbox_disconnectnotify_callback(this, cbval1);
         } else {
             QToolBox::disconnectNotify(signal);
         }
@@ -1017,7 +1141,9 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_drawframe_isbase = false;
             QToolBox::drawFrame(param1);
         } else if (qtoolbox_drawframe_callback != nullptr) {
-            qtoolbox_drawframe_callback(this, param1);
+            QPainter* cbval1 = param1;
+
+            qtoolbox_drawframe_callback(this, cbval1);
         } else {
             QToolBox::drawFrame(param1);
         }
@@ -1065,7 +1191,8 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_focusnextchild_isbase = false;
             return QToolBox::focusNextChild();
         } else if (qtoolbox_focusnextchild_callback != nullptr) {
-            return qtoolbox_focusnextchild_callback();
+            bool callback_ret = qtoolbox_focusnextchild_callback();
+            return callback_ret;
         } else {
             return QToolBox::focusNextChild();
         }
@@ -1077,7 +1204,8 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_focuspreviouschild_isbase = false;
             return QToolBox::focusPreviousChild();
         } else if (qtoolbox_focuspreviouschild_callback != nullptr) {
-            return qtoolbox_focuspreviouschild_callback();
+            bool callback_ret = qtoolbox_focuspreviouschild_callback();
+            return callback_ret;
         } else {
             return QToolBox::focusPreviousChild();
         }
@@ -1089,7 +1217,8 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_sender_isbase = false;
             return QToolBox::sender();
         } else if (qtoolbox_sender_callback != nullptr) {
-            return qtoolbox_sender_callback();
+            QObject* callback_ret = qtoolbox_sender_callback();
+            return callback_ret;
         } else {
             return QToolBox::sender();
         }
@@ -1101,7 +1230,8 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_sendersignalindex_isbase = false;
             return QToolBox::senderSignalIndex();
         } else if (qtoolbox_sendersignalindex_callback != nullptr) {
-            return qtoolbox_sendersignalindex_callback();
+            int callback_ret = qtoolbox_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
         } else {
             return QToolBox::senderSignalIndex();
         }
@@ -1113,7 +1243,10 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_receivers_isbase = false;
             return QToolBox::receivers(signal);
         } else if (qtoolbox_receivers_callback != nullptr) {
-            return qtoolbox_receivers_callback(this, signal);
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qtoolbox_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
         } else {
             return QToolBox::receivers(signal);
         }
@@ -1125,11 +1258,120 @@ class VirtualQToolBox : public QToolBox {
             qtoolbox_issignalconnected_isbase = false;
             return QToolBox::isSignalConnected(signal);
         } else if (qtoolbox_issignalconnected_callback != nullptr) {
-            return qtoolbox_issignalconnected_callback(this, signal);
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qtoolbox_issignalconnected_callback(this, cbval1);
+            return callback_ret;
         } else {
             return QToolBox::isSignalConnected(signal);
         }
     }
+
+    // Friend functions
+    friend bool QToolBox_Event(QToolBox* self, QEvent* e);
+    friend bool QToolBox_QBaseEvent(QToolBox* self, QEvent* e);
+    friend void QToolBox_ItemInserted(QToolBox* self, int index);
+    friend void QToolBox_QBaseItemInserted(QToolBox* self, int index);
+    friend void QToolBox_ItemRemoved(QToolBox* self, int index);
+    friend void QToolBox_QBaseItemRemoved(QToolBox* self, int index);
+    friend void QToolBox_ShowEvent(QToolBox* self, QShowEvent* e);
+    friend void QToolBox_QBaseShowEvent(QToolBox* self, QShowEvent* e);
+    friend void QToolBox_ChangeEvent(QToolBox* self, QEvent* param1);
+    friend void QToolBox_QBaseChangeEvent(QToolBox* self, QEvent* param1);
+    friend void QToolBox_PaintEvent(QToolBox* self, QPaintEvent* param1);
+    friend void QToolBox_QBasePaintEvent(QToolBox* self, QPaintEvent* param1);
+    friend void QToolBox_InitStyleOption(const QToolBox* self, QStyleOptionFrame* option);
+    friend void QToolBox_QBaseInitStyleOption(const QToolBox* self, QStyleOptionFrame* option);
+    friend void QToolBox_MousePressEvent(QToolBox* self, QMouseEvent* event);
+    friend void QToolBox_QBaseMousePressEvent(QToolBox* self, QMouseEvent* event);
+    friend void QToolBox_MouseReleaseEvent(QToolBox* self, QMouseEvent* event);
+    friend void QToolBox_QBaseMouseReleaseEvent(QToolBox* self, QMouseEvent* event);
+    friend void QToolBox_MouseDoubleClickEvent(QToolBox* self, QMouseEvent* event);
+    friend void QToolBox_QBaseMouseDoubleClickEvent(QToolBox* self, QMouseEvent* event);
+    friend void QToolBox_MouseMoveEvent(QToolBox* self, QMouseEvent* event);
+    friend void QToolBox_QBaseMouseMoveEvent(QToolBox* self, QMouseEvent* event);
+    friend void QToolBox_WheelEvent(QToolBox* self, QWheelEvent* event);
+    friend void QToolBox_QBaseWheelEvent(QToolBox* self, QWheelEvent* event);
+    friend void QToolBox_KeyPressEvent(QToolBox* self, QKeyEvent* event);
+    friend void QToolBox_QBaseKeyPressEvent(QToolBox* self, QKeyEvent* event);
+    friend void QToolBox_KeyReleaseEvent(QToolBox* self, QKeyEvent* event);
+    friend void QToolBox_QBaseKeyReleaseEvent(QToolBox* self, QKeyEvent* event);
+    friend void QToolBox_FocusInEvent(QToolBox* self, QFocusEvent* event);
+    friend void QToolBox_QBaseFocusInEvent(QToolBox* self, QFocusEvent* event);
+    friend void QToolBox_FocusOutEvent(QToolBox* self, QFocusEvent* event);
+    friend void QToolBox_QBaseFocusOutEvent(QToolBox* self, QFocusEvent* event);
+    friend void QToolBox_EnterEvent(QToolBox* self, QEnterEvent* event);
+    friend void QToolBox_QBaseEnterEvent(QToolBox* self, QEnterEvent* event);
+    friend void QToolBox_LeaveEvent(QToolBox* self, QEvent* event);
+    friend void QToolBox_QBaseLeaveEvent(QToolBox* self, QEvent* event);
+    friend void QToolBox_MoveEvent(QToolBox* self, QMoveEvent* event);
+    friend void QToolBox_QBaseMoveEvent(QToolBox* self, QMoveEvent* event);
+    friend void QToolBox_ResizeEvent(QToolBox* self, QResizeEvent* event);
+    friend void QToolBox_QBaseResizeEvent(QToolBox* self, QResizeEvent* event);
+    friend void QToolBox_CloseEvent(QToolBox* self, QCloseEvent* event);
+    friend void QToolBox_QBaseCloseEvent(QToolBox* self, QCloseEvent* event);
+    friend void QToolBox_ContextMenuEvent(QToolBox* self, QContextMenuEvent* event);
+    friend void QToolBox_QBaseContextMenuEvent(QToolBox* self, QContextMenuEvent* event);
+    friend void QToolBox_TabletEvent(QToolBox* self, QTabletEvent* event);
+    friend void QToolBox_QBaseTabletEvent(QToolBox* self, QTabletEvent* event);
+    friend void QToolBox_ActionEvent(QToolBox* self, QActionEvent* event);
+    friend void QToolBox_QBaseActionEvent(QToolBox* self, QActionEvent* event);
+    friend void QToolBox_DragEnterEvent(QToolBox* self, QDragEnterEvent* event);
+    friend void QToolBox_QBaseDragEnterEvent(QToolBox* self, QDragEnterEvent* event);
+    friend void QToolBox_DragMoveEvent(QToolBox* self, QDragMoveEvent* event);
+    friend void QToolBox_QBaseDragMoveEvent(QToolBox* self, QDragMoveEvent* event);
+    friend void QToolBox_DragLeaveEvent(QToolBox* self, QDragLeaveEvent* event);
+    friend void QToolBox_QBaseDragLeaveEvent(QToolBox* self, QDragLeaveEvent* event);
+    friend void QToolBox_DropEvent(QToolBox* self, QDropEvent* event);
+    friend void QToolBox_QBaseDropEvent(QToolBox* self, QDropEvent* event);
+    friend void QToolBox_HideEvent(QToolBox* self, QHideEvent* event);
+    friend void QToolBox_QBaseHideEvent(QToolBox* self, QHideEvent* event);
+    friend bool QToolBox_NativeEvent(QToolBox* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool QToolBox_QBaseNativeEvent(QToolBox* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend int QToolBox_Metric(const QToolBox* self, int param1);
+    friend int QToolBox_QBaseMetric(const QToolBox* self, int param1);
+    friend void QToolBox_InitPainter(const QToolBox* self, QPainter* painter);
+    friend void QToolBox_QBaseInitPainter(const QToolBox* self, QPainter* painter);
+    friend QPaintDevice* QToolBox_Redirected(const QToolBox* self, QPoint* offset);
+    friend QPaintDevice* QToolBox_QBaseRedirected(const QToolBox* self, QPoint* offset);
+    friend QPainter* QToolBox_SharedPainter(const QToolBox* self);
+    friend QPainter* QToolBox_QBaseSharedPainter(const QToolBox* self);
+    friend void QToolBox_InputMethodEvent(QToolBox* self, QInputMethodEvent* param1);
+    friend void QToolBox_QBaseInputMethodEvent(QToolBox* self, QInputMethodEvent* param1);
+    friend bool QToolBox_FocusNextPrevChild(QToolBox* self, bool next);
+    friend bool QToolBox_QBaseFocusNextPrevChild(QToolBox* self, bool next);
+    friend void QToolBox_TimerEvent(QToolBox* self, QTimerEvent* event);
+    friend void QToolBox_QBaseTimerEvent(QToolBox* self, QTimerEvent* event);
+    friend void QToolBox_ChildEvent(QToolBox* self, QChildEvent* event);
+    friend void QToolBox_QBaseChildEvent(QToolBox* self, QChildEvent* event);
+    friend void QToolBox_CustomEvent(QToolBox* self, QEvent* event);
+    friend void QToolBox_QBaseCustomEvent(QToolBox* self, QEvent* event);
+    friend void QToolBox_ConnectNotify(QToolBox* self, const QMetaMethod* signal);
+    friend void QToolBox_QBaseConnectNotify(QToolBox* self, const QMetaMethod* signal);
+    friend void QToolBox_DisconnectNotify(QToolBox* self, const QMetaMethod* signal);
+    friend void QToolBox_QBaseDisconnectNotify(QToolBox* self, const QMetaMethod* signal);
+    friend void QToolBox_DrawFrame(QToolBox* self, QPainter* param1);
+    friend void QToolBox_QBaseDrawFrame(QToolBox* self, QPainter* param1);
+    friend void QToolBox_UpdateMicroFocus(QToolBox* self);
+    friend void QToolBox_QBaseUpdateMicroFocus(QToolBox* self);
+    friend void QToolBox_Create(QToolBox* self);
+    friend void QToolBox_QBaseCreate(QToolBox* self);
+    friend void QToolBox_Destroy(QToolBox* self);
+    friend void QToolBox_QBaseDestroy(QToolBox* self);
+    friend bool QToolBox_FocusNextChild(QToolBox* self);
+    friend bool QToolBox_QBaseFocusNextChild(QToolBox* self);
+    friend bool QToolBox_FocusPreviousChild(QToolBox* self);
+    friend bool QToolBox_QBaseFocusPreviousChild(QToolBox* self);
+    friend QObject* QToolBox_Sender(const QToolBox* self);
+    friend QObject* QToolBox_QBaseSender(const QToolBox* self);
+    friend int QToolBox_SenderSignalIndex(const QToolBox* self);
+    friend int QToolBox_QBaseSenderSignalIndex(const QToolBox* self);
+    friend int QToolBox_Receivers(const QToolBox* self, const char* signal);
+    friend int QToolBox_QBaseReceivers(const QToolBox* self, const char* signal);
+    friend bool QToolBox_IsSignalConnected(const QToolBox* self, const QMetaMethod* signal);
+    friend bool QToolBox_QBaseIsSignalConnected(const QToolBox* self, const QMetaMethod* signal);
 };
 
 #endif

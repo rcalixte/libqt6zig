@@ -3,7 +3,7 @@
 #include "libqelapsedtimer.h"
 #include "libqelapsedtimer.hxx"
 
-QElapsedTimer* QElapsedTimer_new(QElapsedTimer* other) {
+QElapsedTimer* QElapsedTimer_new(const QElapsedTimer* other) {
     return new QElapsedTimer(*other);
 }
 
@@ -63,11 +63,11 @@ long long QElapsedTimer_MsecsSinceReference(const QElapsedTimer* self) {
     return static_cast<long long>(self->msecsSinceReference());
 }
 
-long long QElapsedTimer_MsecsTo(const QElapsedTimer* self, QElapsedTimer* other) {
+long long QElapsedTimer_MsecsTo(const QElapsedTimer* self, const QElapsedTimer* other) {
     return static_cast<long long>(self->msecsTo(*other));
 }
 
-long long QElapsedTimer_SecsTo(const QElapsedTimer* self, QElapsedTimer* other) {
+long long QElapsedTimer_SecsTo(const QElapsedTimer* self, const QElapsedTimer* other) {
     return static_cast<long long>(self->secsTo(*other));
 }
 
