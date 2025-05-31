@@ -628,6 +628,15 @@ nextMethod:
 				return CppClass{}, err
 			}
 
+			// Check for private signal
+			if i, ok := isPrivateSignal(&mm); ok {
+				// Remove only the QPrivateSignal parameter, keep other parameters
+				mm.Parameters = append(mm.Parameters[:i], mm.Parameters[i+1:]...)
+				mm.IsSignal = true
+				ret.PrivateSignals = append(ret.PrivateSignals, mm)
+				continue nextMethod
+			}
+
 			mm.IsSignal = isSignal && !mm.IsStatic && AllowSignal(mm)
 			mm.IsProtected = (visibility == VsProtected)
 
@@ -676,6 +685,17 @@ func isExplicitlyDeleted(node map[string]interface{}) bool {
 	}
 
 	return false
+}
+
+// isPrivateSignal checks if a method is a private signal by looking for a
+// QPrivateSignal parameter
+func isPrivateSignal(method *CppMethod) (int, bool) {
+	for i, param := range method.Parameters {
+		if strings.HasSuffix(param.ParameterType, "::QPrivateSignal") {
+			return i, true
+		}
+	}
+	return -1, false
 }
 
 // processEnum parses a Clang enum into our CppEnum intermediate format.
@@ -961,12 +981,6 @@ func parseTypeString(typeString string) (CppParameter, []CppParameter, bool, err
 	}
 
 	returnType := parseSingleTypeString(strings.TrimSpace(typeString[0:opos]))
-
-	// Skip functions that return ints-by-reference since the ergonomics don't
-	// go through the binding
-	if returnType.IntType() && returnType.ByRef {
-		return CppParameter{}, nil, false, ErrTooComplex // e.g. QSize::rheight()
-	}
 
 	inner := typeString[opos+1 : epos]
 
