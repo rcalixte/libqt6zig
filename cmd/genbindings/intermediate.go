@@ -131,6 +131,11 @@ func (p CppParameter) IsKnownEnum() bool {
 	return ok
 }
 
+func IsKnownClass(className string) bool {
+	_, ok := KnownClassnames[className]
+	return ok
+}
+
 func (p CppParameter) QListOf() (CppParameter, bool) {
 	if strings.HasPrefix(p.ParameterType, "QList<") && strings.HasSuffix(p.ParameterType, `>`) {
 		ret := parseSingleTypeString(p.ParameterType[6 : len(p.ParameterType)-1])
@@ -458,6 +463,7 @@ type CppClass struct {
 	ChildClassdefs []CppClass
 	ChildEnums     []CppEnum
 	PrivateMethods []string
+	PrivateSignals []CppMethod
 	IsPolymorphic  bool // If true, this method is polymorphic and can be called on a pointer to a virtual base class
 }
 
