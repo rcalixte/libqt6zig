@@ -10,9 +10,9 @@
 
 MIT-licensed Qt 6 bindings for Zig
 
-This library is a straightforward binding of the Qt 6.4+ API. You must have a working Qt 6 C++ development toolchain to use this binding. The [Building](#building) section below has instructions for installing the required dependencies.
+This library is a straightforward binding of the Qt 6.4+ API. You must have a working C, C++, and Zig development toolchain to use this binding as well as the development files needed to build Qt 6 applications. This library and the related examples use the Zig toolchain. The [Building](#building) section below has instructions for installing the required dependencies.
 
-This library is designed to be used as a dependency in a larger application and not as a standalone library. The versioning scheme used by this library is based on the Qt version used to generate the bindings with an additional nod to the library revision number. Any breaking changes to the library will be reflected in the changelog.
+This library is designed to be used as a dependency in a larger application and not as a standalone library. The versioning scheme used by this library is based on the Qt version used as a base to generate the bindings with an additional nod to the library revision number. Any breaking changes to the library will be reflected in the changelog.
 
 These bindings are based on the [MIQT bindings for Go](https://github.com/mappu/miqt) that were released in 2024. The bindings are complete for QtCore, QtGui, QtWidgets, QtCharts, QtMultimedia, QtMultimediaWidgets, QtNetwork, QtPrintSupport, QtSpatialAudio, QtSvg, QtWebChannel, QtWebEngine, QScintilla, and others. There is support for slots/signals, subclassing, custom widgets, async via Qt, etc., but the bindings may be immature or unstable in some ways. It is fairly easy to encounter segmentation faults with improper handling. Q3 of the [FAQ](#faq) is a decent entry point for newcomers. Please try out the library and start a [discussion](https://github.com/rcalixte/libqt6zig/discussions) if you have any questions or issues relevant to this library.
 
@@ -239,7 +239,7 @@ Under normal conditions, the first compilation of the entire library should take
 
 ### Q3. How does the `libqt6zig` API differ from the official Qt C++ API?
 
-Supported Qt C++ class methods are implemented 1:1 as structs of functions where the function names in Zig correspond to the PascalCase equivalent of the Qt C++ method and the struct names are lowercase equivalents of the Qt C++ class name. [The official Qt documentation](https://doc.qt.io/qt-6/classes.html) should be used for reference and is included in the library wrapper source code (though not all links are guaranteed to work perfectly, nor is this functionality in scope for this project).
+Supported Qt C++ class methods are implemented 1:1 as structs of functions where the function names in Zig correspond to the PascalCase equivalent of the Qt C++ method and the struct names are lowercase equivalents of the Qt C++ class name. [The official Qt documentation](https://doc.qt.io/qt-6/classes.html) should be used for reference and is included in the library wrapper source code (though not all links are guaranteed to work perfectly, nor is this functionality in scope for this project). Some of the main concepts are described below with a table of code equivalents following for reference.
 
 - `QWidget::show()` is projected as `qwidget.Show(?*anyopaque)`
 - `QPushButton::setText(QString)` is projected as `qpushbutton.SetText(?*anyopaque, []const u8)`
@@ -264,7 +264,7 @@ There is a helper library that contains some types and functions that are useful
 
 Where Qt returns a C++ object by value (e.g. `QSize`), the binding may have moved it to the heap, and in Zig, this may be represented as a pointer type. In such cases, the caller is the owner and must free the object (using either `QDelete` methods for the type or deallocating or destroying via the allocators). This means code using `libqt6zig` can look similar to the Qt C++ equivalent code but with the addition of proper memory management.
 
-The `connect(targetObject, targetSlot)` methods are projected as `On(targetObject, fn() callconv(.c)...)`. While the parameters in the methods themselves are more convenient to use, the documentation comments in the Zig source code should be used for reference for the proper usage of the parameter types and Qt vtable references. The example code above includes a simple callback function that can be used as a reference.
+The `connect(targetObject, SIGNAL(signal()), targetSlot, SLOT(slot()))` methods are projected as `OnSignal(targetObject, slot)`. While the parameters in the methods themselves are more convenient to use, the documentation comments in the Zig source code should be used for reference for the proper usage of the parameter types and Qt vtable references. The example code above includes a simple callback function that can be used as a reference.
 
 - You can also override virtual methods like `PaintEvent` in the same way. Where supported, there are additional `On` and `QBase` variants:
   - `OnPaintEvent`: Set an override callback function to be called when `PaintEvent` is invoked. For certain methods, even with the override set, the base class implementation can still be called by Qt internally and these calls can not be prevented.
@@ -279,6 +279,52 @@ Qt expects fixed OS threads to be used for each QObject. When you first call `qa
 - When accessing Qt objects from inside another thread, it's safest to use `Threading.Async()` (from this library) to access the Qt objects from Qt's main thread. The [Threading library](https://github.com/rcalixte/libqt6zig/tree/master/src/threading/libqt6zigthreading.zig) documents additional available strategies within the source code.
 
 Qt C++ enums are projected as Zig enum structs of `i32` or `i64` values with the same names. For example, `Qt::AlignmentFlag` is projected as `enums.AlignmentFlag` within the `libqnamespace` module and exported by default as `qnamespace_enums.AlignmentFlag` though developers are free to use whatever naming convention they prefer for imports. Enums are currently defined as either `i32` or `i64` (where necessary) in the Zig API and as `i64` when expected as a parameter or returned as a type by the Zig API.
+
+#### API at a glance
+
+##### Objects
+
+```cpp
+// Qt 6 C++ API
+QWidget* widget = new QWidget();
+widget->setWindowTitle("Hello world!");
+widget->show();
+
+delete widget;
+```
+
+```zig
+// libqt6zig API
+const widget = qwidget.New2();
+defer qwidget.QDelete(widget);
+
+qwidget.SetWindowTitle(widget, "Hello world!");
+qwidget.Show(widget);
+```
+
+##### Signals/slots
+
+```cpp
+// Qt 6 C++ API
+connect(widget, &QWidget::customEvent, this, &MyClass::onCustomEvent);
+```
+
+```zig
+// libqt6zig API
+qwidget.OnCustomEvent(widget, onCustomEvent);
+```
+
+##### Enums
+
+```cpp
+// Qt 6 C++ API
+Qt::AlignmentFlag alignment = Qt::AlignLeft | Qt::AlignTop;
+```
+
+```zig
+// libqt6zig API
+const alignment = qnamespace_enums.AlignmentFlag.AlignLeft | qnamespace_enums.AlignmentFlag.AlignTop;
+```
 
 Some C++ idioms that were difficult to project were omitted from the binding. This can be improved in the future.
 
