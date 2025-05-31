@@ -22,7 +22,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 
 	// Qt 6
 	generate(
-		"src",
+		"",
 		[]string{
 			"/usr/include/x86_64-linux-gnu/qt6/QtCore",
 			"/usr/include/x86_64-linux-gnu/qt6/QtGui",
@@ -40,7 +40,6 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		clangBin,
 		"--std=c++17 "+pkgConfigCflags("Qt6Widgets"),
 		outDir,
-		"include",
 		ClangMatchSameHeaderDefinitionOnly,
 		&headerList,
 		zigIncMap,
@@ -48,7 +47,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	)
 
 	generate(
-		"src/cbor",
+		"cbor",
 		[]string{
 			"/usr/include/x86_64-linux-gnu/qt6/QtCore",
 		},
@@ -60,7 +59,6 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		clangBin,
 		"--std=c++20 "+pkgConfigCflags("Qt6Core"),
 		outDir,
-		"include/cbor",
 		ClangMatchSameHeaderDefinitionOnly,
 		&headerList,
 		zigIncMap,
@@ -69,7 +67,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 
 	// Qt 6 QtPrintSupport
 	generate(
-		"src/printsupport",
+		"printsupport",
 		[]string{
 			"/usr/include/x86_64-linux-gnu/qt6/QtPrintSupport",
 		},
@@ -77,7 +75,6 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		clangBin,
 		"--std=c++17 "+pkgConfigCflags("Qt6PrintSupport"),
 		outDir,
-		"include/printsupport",
 		ClangMatchSameHeaderDefinitionOnly,
 		&headerList,
 		zigIncMap,
@@ -86,7 +83,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 
 	// Qt 6 SVG
 	generate(
-		"src/svg",
+		"svg",
 		[]string{
 			"/usr/include/x86_64-linux-gnu/qt6/QtSvg",
 			"/usr/include/x86_64-linux-gnu/qt6/QtSvgWidgets",
@@ -95,7 +92,6 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		clangBin,
 		"--std=c++17 "+pkgConfigCflags("Qt6SvgWidgets"),
 		outDir,
-		"include/svg",
 		ClangMatchSameHeaderDefinitionOnly,
 		&headerList,
 		zigIncMap,
@@ -104,7 +100,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 
 	// Qt 6 QtNetwork
 	generate(
-		"src/network",
+		"network",
 		[]string{
 			"/usr/include/x86_64-linux-gnu/qt6/QtNetwork",
 		},
@@ -115,7 +111,6 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		clangBin,
 		"--std=c++17 "+pkgConfigCflags("Qt6Network"),
 		outDir,
-		"include/network",
 		ClangMatchSameHeaderDefinitionOnly,
 		&headerList,
 		zigIncMap,
@@ -124,7 +119,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 
 	// Qt 6 QtMultimedia
 	generate(
-		"src/multimedia",
+		"multimedia",
 		[]string{
 			"/usr/include/x86_64-linux-gnu/qt6/QtMultimedia",
 			"/usr/include/x86_64-linux-gnu/qt6/QtMultimediaWidgets",
@@ -133,7 +128,6 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		clangBin,
 		"--std=c++17 "+pkgConfigCflags("Qt6MultimediaWidgets"),
 		outDir,
-		"include/multimedia",
 		ClangMatchSameHeaderDefinitionOnly,
 		&headerList,
 		zigIncMap,
@@ -142,7 +136,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 
 	// Qt 6 Spatial Audio (on Debian this is a dependency of Qt6Multimedia)
 	generate(
-		"src/spatialaudio",
+		"spatialaudio",
 		[]string{
 			"/usr/include/x86_64-linux-gnu/qt6/QtSpatialAudio",
 		},
@@ -150,7 +144,6 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		clangBin,
 		"--std=c++17 "+pkgConfigCflags("Qt6SpatialAudio"),
 		outDir,
-		"include/spatialaudio",
 		ClangMatchSameHeaderDefinitionOnly,
 		&headerList,
 		zigIncMap,
@@ -159,7 +152,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 
 	// Qt 6 QWebChannel
 	generate(
-		"src/webchannel",
+		"webchannel",
 		[]string{
 			"/usr/include/x86_64-linux-gnu/qt6/QtWebChannel",
 		},
@@ -167,7 +160,6 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		clangBin,
 		"--std=c++17 "+pkgConfigCflags("Qt6WebChannel"),
 		outDir,
-		"include/webchannel",
 		ClangMatchSameHeaderDefinitionOnly,
 		&headerList,
 		zigIncMap,
@@ -176,7 +168,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 
 	// Qt 6 QWebEngine
 	generate(
-		"src/webengine",
+		"webengine",
 		[]string{
 			"/usr/include/x86_64-linux-gnu/qt6/QtWebEngineCore",
 			"/usr/include/x86_64-linux-gnu/qt6/QtWebEngineWidgets",
@@ -188,7 +180,6 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		clangBin,
 		"--std=c++17 "+pkgConfigCflags("Qt6WebEngineWidgets"),
 		outDir,
-		"include/webengine",
 		ClangMatchSameHeaderDefinitionOnly,
 		&headerList,
 		zigIncMap,
@@ -198,7 +189,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	// Qt 6 PDF
 	// Depends on QtCore/Gui/Widgets
 	generate(
-		"src/pdf",
+		"pdf",
 		[]string{
 			"/usr/include/x86_64-linux-gnu/qt6/QtPdf",
 			"/usr/include/x86_64-linux-gnu/qt6/QtPdfWidgets",
@@ -207,7 +198,6 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		clangBin,
 		"--std=c++17 "+pkgConfigCflags("Qt6PdfWidgets"),
 		outDir,
-		"include/pdf",
 		ClangMatchSameHeaderDefinitionOnly,
 		&headerList,
 		zigIncMap,
@@ -217,7 +207,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	// Qt 6 Charts
 	// Depends on QtCore/Gui/Widgets
 	generate(
-		"src/restricted-extras-charts",
+		"restricted-extras-charts",
 		[]string{
 			"/usr/include/x86_64-linux-gnu/qt6/QtCharts",
 		},
@@ -225,7 +215,6 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		clangBin,
 		"--std=c++17 "+pkgConfigCflags("Qt6Charts"),
 		outDir,
-		"include/restricted-extras-charts",
 		ClangMatchSameHeaderDefinitionOnly,
 		&headerList,
 		zigIncMap,
@@ -235,7 +224,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	// Qt 6 QScintilla
 	// Depends on QtCore/Gui/Widgets, QPrintSupport
 	generate(
-		"src/restricted-extras-qscintilla",
+		"restricted-extras-qscintilla",
 		[]string{
 			"/usr/include/x86_64-linux-gnu/qt6/Qsci",
 		},
@@ -243,7 +232,6 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		clangBin,
 		"--std=c++17 "+pkgConfigCflags("Qt6PrintSupport"),
 		outDir,
-		"include/restricted-extras-qscintilla",
 		ClangMatchSameHeaderDefinitionOnly,
 		&headerList,
 		zigIncMap,
@@ -253,7 +241,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	// Post-processing to generate auxiliary files
 	structdefs := make([]string, 0, len(qtstructdefs))
 	for k := range qtstructdefs {
-		structdefs = append(structdefs, "pub const "+k+" = C."+k+";")
+		structdefs = append(structdefs, "pub const "+k+" = ?*C."+k+";")
 	}
 	sort.Strings(structdefs)
 
@@ -312,7 +300,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		zigIncList = append(zigIncList, v)
 	}
 	sort.Strings(zigIncList)
-	zigDefs := "// THIS FILE IS AUTOMATICALLY GENERATED\n\npub const C = @import(\"libqtc.zig\");\n\n"
+	zigDefs := "// THIS FILE IS AUTOMATICALLY GENERATED\n\npub const C = @import(\"qtzig\");\n\n"
 	zigDefs = zigDefs + strings.Join(zigIncList, "\n")
 	zigQtPath := filepath.Join(outDir, "src", "libqt6.zig")
 	err = os.WriteFile(zigQtPath, []byte(zigDefs), 0644)

@@ -87,7 +87,10 @@ func pkgConfigCflags(packageName string) string {
 	return string(stdout)
 }
 
-func generate(packageName string, srcDirs []string, allowHeaderFn func(string) bool, clangBin, cflagsCombined, outDir, includePath string, matcher ClangMatcher, headerList *[]string, zigIncs map[string]string, qtstructdefs map[string]struct{}) {
+func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool, clangBin, cflagsCombined, outDir string, matcher ClangMatcher, headerList *[]string, zigIncs map[string]string, qtstructdefs map[string]struct{}) {
+
+	packageName := "src" + ifv(srcName != "", "/"+srcName, "")
+	includePath := "include" + ifv(srcName != "", "/"+srcName, "")
 
 	var includeFiles []string
 	for _, srcDir := range srcDirs {
